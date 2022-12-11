@@ -1,5 +1,5 @@
 # Get the list of Github URL from the file
-# example usage : powershell -ExecutionPolicy Bypass -File '.\get_forked_projects_list.ps1' -FilePath .\github_offensive_tools_repos.csv
+# example usage : powershell -ExecutionPolicy Bypass -File '.\get_forked_projects_list.ps1' -FilePath .\offensive_tools_list.csv
 
 [CmdletBinding()]
 param (
