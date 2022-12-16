@@ -66,6 +66,7 @@ work in progress
 - [Email Header Analyzer](https://emailheaders.verification-check.com/)
 - [Email Header Analysis](https://www.email-format.com/header-analysis/)
 - [Gitlab dashboard from Excel](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
+- [OPENAI](https://beta.openai.com/playground)
 
 ## Detection Resources
 - [MITRE techniques](https://attack.mitre.org/techniques/enterprise/)
