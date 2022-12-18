@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+#work in progress
+
 import requests
 import pathlib
 import re
