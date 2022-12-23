@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Generate csv lookup files in the same directory containing updated IP ranges of the company declared in domain_list variable
 
 import requests
