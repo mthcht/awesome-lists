@@ -9,7 +9,7 @@ Looks like this:
 
 ## Splunk 
 
-If Splunk is used, you can defined a lookup difinition with the parameter `CIDR(dest_ip)` and use the lookup definition to exclude dest_ip in the list, example in a search SPL:
+If Splunk is used, you can define a lookup difinition with the parameter `CIDR(dest_ip)` and use the lookup definition to exclude dest_ip in the list, example in a search SPL:
 
 `NOT [|inputlookup webex.com_IP_Range_WL | fields - metadata.*]`
 
