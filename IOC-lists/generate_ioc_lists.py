@@ -30,7 +30,8 @@ urls =  {'https://raw.githubusercontent.com/0xDanielLopez/TweetFeed/master/year.
         'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/fake.txt': 'unknow',
         'https://www.openphish.com/feed.txt': 'unknow',
         'https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-domains/output/domains/ACTIVE/list': 'domain',
-        'https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-domains/output/domains/INACTIVE/list': 'domain'}
+        'https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-domains/output/domains/INACTIVE/list': 'domain',
+        'https://github.com/tetzispa/domains-names/tree/main/domainesq': 'domain'}
 
 
 # domain type variables
