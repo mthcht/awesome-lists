@@ -5,10 +5,11 @@ Get-ChildItem $env:windir\System32 -Recurse -Filter *.exe -ErrorAction SilentlyC
 if($system32_executables){
     ForEach($exe in $system32_executables){
         Write-Host -ForegroundColor Cyan "[Info] Getting hash for $exe"
+        $hash_exe = 'unknown'
         $hash_exe = Get-FileHash -Algorithm SHA256 $exe -Verbose -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Hash
-        if($hash_exe){
+        if($hash_exe -neq 'unknown'){
             Write-Host -ForegroundColor Green "[Success] Hash for $exe is $hash_exe"
-            $exe= $exe.replace("C:\", "*").replace("\", "\\")
+            $exe= ($exe -replace "^[a-zA-Z]\:\\",'*').replace("\", "\\*")
             $hashes_dict.Add($exe, $hash_exe)
         }
         else{
