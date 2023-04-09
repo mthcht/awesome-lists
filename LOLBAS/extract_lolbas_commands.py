@@ -3,6 +3,7 @@
 import os
 import yaml
 
+# you need to be in the directory yml of https://github.com/LOLBAS-Project/LOLBAS/tree/master/yml
 # specify the directory path where the files are located
 directory = '.'
 
@@ -12,7 +13,7 @@ output_file = 'lolbas_extract.csv'
 # open the output file for writing
 with open(output_file, 'w') as output_file_obj:
     # write the header row to the output file
-    output_file_obj.write('Command,Name,Description,Usecase,Category,MitreID\n')
+    output_file_obj.write('command,name,description,usecase,category,mitreid\n')
 
     # iterate over each file in the directory and its subdirectories
     for root, dirs, files in os.walk(directory):
@@ -44,4 +45,4 @@ with open(output_file, 'w') as output_file_obj:
                             mitre_id = command.get('MitreID', '')
 
                             # write the modified command, name, and additional fields to the output file
-                            output_file_obj.write("{},{},{},{},{},{}\n".format(command_text.replace(',', '*'), name.replace(',', '.'), description.replace(',', '.'), usecase.replace(',', '.'), category.replace(',', '.'), mitre_id.replace(',', '.')))
+                            output_file_obj.write("{},{},{},{},{},{},{}\n".format(command_text.replace(',', '*'), name.replace(',', '.'), description.replace(',', '.'), usecase.replace(',', '.'), category.replace(',', '.'), mitre_id.replace(',', '.'), "https://github.com/LOLBAS-Project/LOLBAS/blob/master/yml/{}/{}".format(root.split("/")[-1], filename)))
