@@ -1,90 +1,103 @@
 dest_port,metadata.comment,metadata.confidence
-55553,Metasploit RPC daemon default port also used by Armitage team server,high
-4444,Default listener port for Metasploit,high
-10002,multiple malwares,medium
-10110,Proxot malware,low
+666,multiple malwares and legit usages,medium
+801,manjusaka (cobalstrike chinese clone) default panel ui,medium
 1015,Doly trojan,high
 1025,multiples malwares,low
 1030,multiples malwares and legit usages,low
-10426,Backdoor.Win32.Agent.cu, medium
-10666,ambush trojan,low
+1042,Bla trojan,high
 1075,Backdoor.Win32.LanaFTP.k listening on this port,high
 1080,multiple malwares and SOCKS proxy,medium
-12122,Backdoor.Hellza server listening on this port,medium
-3000,beefproject http panel default port,medium
-3001,Nessus Security Scanner and other legit usages,low
-5002,multiple malwares and legit usages,low
-3200,manjusaka (cobalstrike chinese clone) default panel ui,medium
-801,manjusaka (cobalstrike chinese clone) default panel ui,medium
-1337,empire default port and the port is also associated with various other types of exploits or shellcode,high
-31337,Back Orifice backdoor and also associated with various other types of exploits or shellcode,high
-31338,Back Orifice backdoor and other malwares,high
-54320,Back Orifice backdoor,medium
-31789,Hack’a’Tack RAT,high
-31785,Hack’a’Tack RAT,high
-21802,hardhatC2 default port,high
-5000,hardhatC2 default port + other malwares and legit usages,medium
-5096,hardhatC2 default port,high
-7096,hardhatC2 default port and other legit usages,high
-9631,hardhatC2 default port and other legit usages,high
-50050,sharpc2 and cobaltstrike default port,high
-57230,covenant C2 default port,high
-3030,nuages C2 default port and other malwares,high
-7444,mythic C2 default port and legit vmware port,medium
-9090,impacket and other legit usages,low
-27374,SubSeven backdoor and multiple other malwares,high
-1243,SubSeven backdoor,high
-7443,covenant C2 or mythic C2 default port and legit usages for vmware and oracle,low
-6667,multiple malwares and legit usages,medium
-666,multiple malwares and legit usages,medium
-6666,kali default port - IRC botnets and RAT,high
-6667,IRC channel used by botnet and multiple malwares but also legit usages,medium
-12345,netbus trojan and other malwares,high
-31335,Trinoo distributed attack tool port,high
-2001,Millennium Worm and multiple malwares,medium
-17300,Kuang2 trojan,high
-12346,netbus trojan and other malwares,high
-20034,netbus trojan and other malwares,high
-2989,multiple RAT,high
-61466,Backdoor:Win32/Thething.F and telecommando trojan,medium
-65000,Devil RAT,medium
-48101,W32.Blastclan.Worm,high
-9988,Rbot-GR trojan and other legit usages,medium
-1981,Shockrave malware,high
-1042,Bla trojan,high
 1170,Psyber Stream Server - PSS,high
 1234,Ultors trojan but also vlc and some games,medium
+1243,SubSeven backdoor,high
 1243,SubSeven trojan,high
+1337,empire default port and the port is also associated with various other types of exploits or shellcode,high
+1981,Shockrave malware,high
 1981,Shockrave trojan,high
 1999,SubSeven trojan but also used by citrix and cisco,low
+2001,Millennium Worm and multiple malwares,medium
 2766,The Infector trojan and legit usages,low
 2773,SubSeven trojan and some backup services,medium
+2989,multiple RAT,high
+3000,beefproject http panel default port,medium
+3001,Nessus Security Scanner and other legit usages,low
 3024,WinCrash trojan,high
+3030,nuages C2 default port and other malwares,high
 3129,Master's Paradise trojan,high
+3200,manjusaka (cobalstrike chinese clone) default panel ui,medium
 3410,Optix Pro trojan,high
+4000,multiple malwares and RAT but also some legit usages,medium
 4041,Masters Paradise trojan,high
 4092,WinCrash trojan,high
+4444,Default listener port for Metasploit,high
 4567,File Nail trojan and legit usage for verizon,medium
 4590,ICQTrojan,high
+5000,hardhatC2 default port + other malwares and legit usages,medium
+5002,multiple malwares and legit usages,low
+5096,hardhatC2 default port,high
 5321,Firehotcker trojan,high
 5400,BladeRunner and Back Construction trojans but also some games,medium
-8888,POSHC2 default port but also legit usages,medium
-9999,DarkComet and netcat listener default port examples but also legit usages,low
-7070,observed used with powershell empire and anydesk but mostly legit usage,low
 5500,droidjack RAT but also VNC default port,medium
-5938,teamviewer default port,medium
-5900,VNC default port,medium
+5650,'pizza trojan' lite manager remote desktop and AeroAdmin,medium
+5651,lite manager remote desktop,medium
+5655,AeroAdmin and some legit usages,medium
 5800,VNC default port,medium
-8200,GoToMyPC and gotomeeting,medium
+5900,VNC default port (5900-5910),medium
+5901,VNC default port (5900-5910),medium
+5902,VNC default port (5900-5910),medium
+5903,VNC default port (5900-5910),medium
+5904,VNC default port (5900-5910),medium
+5905,VNC default port (5900-5910),medium
+5906,VNC default port (5900-5910),medium
+5907,VNC default port (5900-5910),medium
+5908,VNC default port (5900-5910),medium
+5909,VNC default port (5900-5910),medium
+5910,VNC default port (5900-5910),medium
+5938,teamviewer default port,medium
+6129,DameWare Remote Control,medium
+6130,DameWare Remote Control,medium
+6132,DameWare Remote Control internet proxy,medium
+6133,DameWare Remote Control mobile gateway,medium
+6568,anydesk default port,medium
+6666,kali default port - IRC botnets and RAT,high
+6667,IRC channel used by botnet and multiple malwares but also legit usages,medium
+6667,multiple malwares and legit usages,medium
 6783,Splashtop Remote,medium
 6784,Splashtop Remote,medium
 6785,Splashtop Remote,medium
-8080,malware and rat observed with this port but used by many many legitimate services,info
-5650,'pizza trojan' lite manager remote desktop and AeroAdmin,medium
-5655,AeroAdmin and some legit usages,medium
+7070,observed used with powershell empire and anydesk but mostly legit usage,low
+7096,hardhatC2 default port and other legit usages,high
+7443,covenant C2 or mythic C2 default port and legit usages for vmware and oracle,low
+7444,mythic C2 default port and legit vmware port,medium
 8040,ConnectWise Control,medium
 8041,ConnectWise Control,medium
-5651,lite manager remote desktop,medium
-4000,multiple malwares and RAT but also some legit usages,medium
-
-
+8080,malware and rat observed with this port but used by many many legitimate services,info
+8200,GoToMyPC and gotomeeting,medium
+8888,POSHC2 default port but also legit usages,medium
+9090,impacket and other legit usages,low
+9631,hardhatC2 default port and other legit usages,high
+9988,Rbot-GR trojan and other legit usages,medium
+9999,DarkComet and netcat listener default port examples but also legit usages,low
+10002,multiple malwares,medium
+10110,Proxot malware,low
+10426,Backdoor.Win32.Agent.cu, medium
+10666,ambush trojan,low
+12122,Backdoor.Hellza server listening on this port,medium
+12345,netbus trojan and other malwares,high
+12346,netbus trojan and other malwares,high
+17300,Kuang2 trojan,high
+20034,netbus trojan and other malwares,high
+21802,hardhatC2 default port,high
+27374,SubSeven backdoor and multiple other malwares,high
+31335,Trinoo distributed attack tool port,high
+31337,Back Orifice backdoor and also associated with various other types of exploits or shellcode,high
+31338,Back Orifice backdoor and other malwares,high
+31785,Hack’a’Tack RAT,high
+31789,Hack’a’Tack RAT,high
+48101,W32.Blastclan.Worm,high
+50050,sharpc2 and cobaltstrike default port,high
+54320,Back Orifice backdoor,medium
+55553,Metasploit RPC daemon default port also used by Armitage team server,high
+57230,covenant C2 default port,high
+61466,Backdoor:Win32/Thething.F and telecommando trojan,medium
+65000,Devil RAT,medium
