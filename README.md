@@ -83,6 +83,7 @@
 - [WTFBIN](https://wtfbins.wtf/)
 - [Sigma](https://github.com/mthcht/sigma/tree/master/rules)
 - [Splunk Rules](https://research.splunk.com/detections/)
+- [Elastic Rules](https://github.com/elastic/detection-rules)
 
 ## Security News
 - [Twitter](https://twitter.com/home)
