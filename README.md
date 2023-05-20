@@ -3,6 +3,9 @@
 ## ThreatHunting:
 - [ThreatHunting keywords](https://mthcht.github.io/ThreatHunting-Keywords/)
 
+## SOC Lists:
+- [Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists)
+
 ##  IOCs check
 - [Virustotal](https://www.virustotal.com/#/home/search)
 - [AbuseIPDB](https://www.abuseipdb.com/)
