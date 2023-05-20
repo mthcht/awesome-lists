@@ -88,6 +88,10 @@
 - [Splunk Rules](https://research.splunk.com/detections/)
 - [Elastic Rules](https://github.com/elastic/detection-rules)
 
+## SIEM/SOC related
+- [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
+- [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
+
 ## Security News
 - [Twitter](https://twitter.com/home)
 - [CERT-FR](https://www.cert.ssi.gouv.fr/)
