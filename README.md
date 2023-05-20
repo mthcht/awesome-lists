@@ -6,6 +6,10 @@
 ## SOC Lists:
 - [Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists)
 
+## SIEM/SOC related
+- [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
+- [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
+
 ##  IOCs check
 - [Virustotal](https://www.virustotal.com/#/home/search)
 - [AbuseIPDB](https://www.abuseipdb.com/)
@@ -87,10 +91,6 @@
 - [Sigma](https://github.com/mthcht/sigma/tree/master/rules)
 - [Splunk Rules](https://research.splunk.com/detections/)
 - [Elastic Rules](https://github.com/elastic/detection-rules)
-
-## SIEM/SOC related
-- [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
-- [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 
 ## Security News
 - [Twitter](https://twitter.com/home)
