@@ -14,6 +14,7 @@ dest_port,metadata.comment,metadata.confidence
 1981,Shockrave malware,high
 1999,SubSeven trojan but also used by citrix and cisco,low
 2001,Millennium Worm and multiple malwares,medium
+2222,some Qakbot C2 traffic and other trojans but also massively used legitimatly to host ssh servers,info
 2766,The Infector trojan and legit usages,low
 2773,SubSeven trojan and some backup services,medium
 2989,multiple RAT,high
@@ -88,7 +89,7 @@ dest_port,metadata.comment,metadata.confidence
 21802,hardhatC2 default port,high
 27374,SubSeven backdoor and multiple other malwares,high
 31335,Trinoo distributed attack tool port,high
-31337,Back Orifice backdoor and also associated with various other types of exploits or shellcode,high
+31337,SliverC2 default port and Back Orifice backdoor. also associated with various other types of exploits or shellcode,high
 31338,Back Orifice backdoor and other malwares,high
 31785,Hack’a’Tack RAT,high
 31789,Hack’a’Tack RAT,high
