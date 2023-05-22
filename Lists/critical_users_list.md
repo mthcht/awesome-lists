@@ -26,8 +26,10 @@ This list can help prioritize security awareness training:
 - Safe Use of Social Media: Offer guidance on safe information sharing on social media, as personal details can be used in targeted attacks. Additionally, monitor what technical information is shared by the communication or commercial team.
 - Bastion Sessions: Monitor server connections made by IT admins (session recording) and train them on best practices for using bastion hosts. Also, set detection rules for unusual activities, such as working outside usual hours, bypassing bastion, unauthorized connections, executed commands, access to critical servers...
 
-And additional security measures:
+Implement detection rules:
 - Establish Specialized SIEM Detection Rules: Develop custom rules for your SIEM, targeting your list of critical users to monitor for potential threats such as data exfiltration, email usurpation, phishing attempts, brute force attacks, access to critical servers, anomalies in user behavior, logins at irregular hours or from unexpected locations, modifications to critical security groups, risky web browsing, and unusual access to sensitive shared resources...
+
+And additional security measures:
 - Forcing MFA authentication for these users.
 - Strict Access Controls: Implement strict access control policies. Grant privileges based on the principle of least privilege (PoLP), where users are given the minimum levels of access necessary to complete their job functions.
 - Regular Account Reviews: Conduct regular account reviews to ensure that access privileges remain appropriate to each user's job function, and to check for signs of anomalous activity with your detection rules using this list
