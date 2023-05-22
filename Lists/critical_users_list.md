@@ -1,10 +1,10 @@
+## Critical Users
+
 This would include a list of individuals who have elevated importance in your organization.
 
 This could be due to their position, the sensitive information they handle, or their access to critical systems.
 
-It is crucial to closely monitor the activities of critical users due to the potential impact of a security breach involving their accounts.
-
-A compromise of a critical user's account can potentially grant an attacker access to sensitive information or systems.
+It is crucial to closely monitor the activities of critical users due to the potential impact of a security breach involving their accounts. A compromise of a critical user's account can potentially grant an attacker access to sensitive information or systems.
 
 The list could include:
 
@@ -48,3 +48,6 @@ And additional security measures:
 - Secure Backup: Ensure regular secure backups of these users' data to mitigate the risk of data loss in the event of a device compromise.
 - Restricted Use of Removable Media: Limit the use of removable media, such as USB drives, on these users' devices, as these can be a source of malware or data exfiltration (should be applied on most of the users of your company)
 - Priorize the deployment of an EDR solution on these users devices.
+
+
+Any other suggestions are welcome :)
