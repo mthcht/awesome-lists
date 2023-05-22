@@ -1,4 +1,4 @@
-This list would contain a list of individuals who have elevated importance in your organization.
+This would include a list of individuals who have elevated importance in your organization.
 
 This could be due to their position, the sensitive information they handle, or their access to critical systems.
 
@@ -6,21 +6,21 @@ It is crucial to closely monitor the activities of critical users due to the pot
 
 A compromise of a critical user's account can potentially grant an attacker access to sensitive information or systems.
 
-This list could include:
+The list could include:
 
 - CEO, CFO, CTO: The top-level executives who have the most comprehensive access and whose identities are most likely to be targeted in spear-phishing attacks.
 - Team managers: As they often oversee critical operations and potentially have access to sensitive data within their team, their accounts, if compromised, could provide significant leverage to an attacker.
 - HR and Finance Managers: They handle sensitive employee and financial data respectively.
 - IT Admins: They have elevated privileges that could be used to access or control critical systems.
 - Key business unit leaders or project managers: Their accounts may have access to valuable intellectual property.
-- Security Team Members: Given their access to the Security Information and the SIEM system, which contains critical logs and security alerts, they possess a high level of access to sensitive information. A compromise of their accounts could undermine the entire security posture of the organization.
+- Security Team Members: Given their access to the SIEM system and other security products, which contains critical logs and security alerts, they possess a high level of access to sensitive information. A compromise of their accounts could undermine the entire security posture of the organization.
   - Regular SIEM Access Review and Monitoring: Since the Security Team has elevated privileges in the SIEM, it is essential to strictly control and monitor SIEM access. Implement specific detection rules to flag anomalous behavior such as unusual access times, access from unexpected locations, or attempts to modify the SIEM configuration or rule sets.
 
 This list should be tailored to your organization and should consider the various ways in which different users could be "important" or "high-value" in your context.
 
 This list can help prioritize security awareness training:
 - Phishing campaigns with specific training on recognizing and responding to phishing attempts, which are often the starting point for attacks
-- Web Browsing: Incorporate these users in a dedicated detection rule for unsafe web browsing. Also, teach safe web browsing best practices.
+- Web Browsing: Incorporate these users into a dedicated detection rule for unsafe web browsing. Also, teach safe web browsing best practices.
 - Strong Password: Enforce a robust password policy for these accounts and encourage the use of an enterprise password manager.
 - Social Engineering: Training on recognizing social engineering attempts, which can be used to gain information or manipulate actions. 
 - Safe Use of Social Media: Offer guidance on safe information sharing on social media, as personal details can be used in targeted attacks. Additionally, monitor what technical information is shared by the communication or commercial team.
@@ -45,3 +45,6 @@ And additional security measures:
 - Network Segmentation: Consider isolating these users' systems in a separate network zone to limit potential lateral movement of an attacker within the network (could be complicated to implement)
 - VPN Usage: Enforce the use of the enterprise VPN whenever they are accessing the organization's systems (should be applied for all the users)
 - Threat Hunting sessions: Schedule Threat Hunting sessions targeting these users activities (should be complementary to the detection rules recommanded earlier)
+- Secure Backup: Ensure regular secure backups of these users' data to mitigate the risk of data loss in the event of a device compromise.
+- Restricted Use of Removable Media: Limit the use of removable media, such as USB drives, on these users' devices, as these can be a source of malware or data exfiltration (should be applied on most of the users of your company)
+- Priorize the deployment of an EDR solution on these users devices.
