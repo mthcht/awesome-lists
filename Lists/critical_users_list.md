@@ -50,4 +50,7 @@ And additional security measures:
 - Priorize the deployment of an EDR solution on these users devices.
 
 
+As suggested by [@QueenSquishy](https://github.com/QueenSquishy) `The coolest people build their VIP lists from observed behaviour because if CFO goes on holiday who they going to give his tasks too` and that is a great point ! It can be challenging to track dynamically changing roles and behaviors (risking more FPs), especially when the telltale signs of role-specific behaviors are not clear in the logs. However, if your environment logs enables accurate identification of role changes within your company, start by building a predifined list of a critical users as a solid baseline and you can continue building on top of it with dynamic detections to keep your list updated and accurate.
+
+
 Any other suggestions are welcome :)
