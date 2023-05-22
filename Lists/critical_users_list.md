@@ -27,7 +27,7 @@ This list can help prioritize security awareness training:
 - Bastion Sessions: Monitor server connections made by IT admins (session recording) and train them on best practices for using bastion hosts. Also, set detection rules for unusual activities, such as working outside usual hours, bypassing bastion, unauthorized connections, executed commands, access to critical servers...
 
 Implement detection rules:
-- Establish Specialized SIEM Detection Rules: Develop custom rules for your SIEM, targeting your list of critical users to monitor for potential threats such as data exfiltration, email usurpation, phishing attempts, brute force attacks, access to critical servers, anomalies in user behavior, logins at irregular hours or from unexpected locations, modifications to critical security groups, risky web browsing, and unusual access to sensitive shared resources. Also, include rules designed to detect misuse or abuse of your internal applications, as part of your fraud detection strategy."
+- Dedicated SIEM Detection Rules: Develop custom rules for your SIEM, targeting your list of critical users to monitor for potential threats such as data exfiltration, email usurpation, phishing attempts, brute force attacks, access to critical servers, anomalies in user behavior, logins at irregular hours or from unexpected locations, modifications to critical security groups, risky web browsing, and unusual access to sensitive shared resources. Also, include rules designed to detect misuse or abuse of your internal applications, as part of your fraud detection strategy.
 
 And additional security measures:
 - Forcing MFA authentication for these users.
