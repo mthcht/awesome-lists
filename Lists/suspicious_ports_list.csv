@@ -67,6 +67,7 @@ dest_port,metadata.comment,metadata.confidence
 7096,hardhatC2 default port and other legit usages,high
 7443,covenant C2 or mythic C2 default port and legit usages for vmware and oracle,low
 7444,mythic C2 default port and legit vmware port,medium
+8022,MaccaroniC2 default listen port,high 
 8040,ConnectWise Control,medium
 8041,ConnectWise Control,medium
 8080,malware and rat observed with this port but used by many many legitimate services but still worth hunting for,info
