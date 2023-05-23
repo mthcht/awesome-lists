@@ -10,7 +10,7 @@
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 
-##  IOCs check
+##  Investigation
 - [Virustotal](https://www.virustotal.com/#/home/search)
 - [AbuseIPDB](https://www.abuseipdb.com/)
 - [Onyphe](https://www.onyphe.io/)
@@ -47,6 +47,11 @@
 - [Recorded Future](https://www.recordedfuture.com/)
 - [Cofense Triage](https://cofense.com/products/triage/)
 - [OUI mac address lookup](https://www.wireshark.org/tools/oui-lookup.html)
+- [echotrail](https://www.echotrail.io/)
+- [abuse.ch](https://abuse.ch/#platforms)
+- [malware-traffic-analysis](https://www.malware-traffic-analysis.net/index.html)
+- [waybackmachine](http://web.archive.org/)
+- [xcyclopedia](https://strontic.github.io/xcyclopedia/)
 
 
 ## Data manipulation
@@ -76,7 +81,7 @@
 - [Email Header Analyzer](https://emailheaders.verification-check.com/)
 - [Email Header Analysis](https://www.email-format.com/header-analysis/)
 - [Gitlab dashboard from Excel](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
-- [OPENAI](https://beta.openai.com/playground)
+- [OPENAI](https://openai.com/playground)
 
 ## Detection Resources
 - [MITRE techniques](https://attack.mitre.org/techniques/enterprise/)
@@ -87,6 +92,7 @@
 - [GTFOBIN](https://github.com/mthcht/GTFOBins.github.io)
 - [LOLBAS](https://github.com/mthcht/LOLBAS)
 - [LOTS](https://lots-project.com/)
+- [loldrivers](https://www.loldrivers.io/)
 - [WTFBIN](https://wtfbins.wtf/)
 - [Sigma](https://github.com/mthcht/sigma/tree/master/rules)
 - [Splunk Rules](https://research.splunk.com/detections/)
