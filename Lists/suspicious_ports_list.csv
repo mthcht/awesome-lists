@@ -29,6 +29,8 @@ dest_port,metadata.comment,metadata.confidence
 4041,Masters Paradise trojan,high
 4092,WinCrash trojan,high
 4444,Default listener port for Metasploit,high
+4051,AlanFramework C2 default port but also used by cisco P2P,high
+4433,AlanFramework C2 default port and Acidoor backdoor,high
 4567,File Nail trojan and legit usage for verizon,medium
 4590,ICQTrojan,high
 5000,hardhatC2 and HRShell default port + other malwares and legit usages,medium
@@ -38,6 +40,7 @@ dest_port,metadata.comment,metadata.confidence
 5321,Firehotcker trojan,high
 5400,BladeRunner and Back Construction trojans but also some games,medium
 5500,droidjack RAT but also VNC default port,medium
+5556,AlanFramework C2 default port and H0rtiga trojan,high
 5650,'pizza trojan' lite manager remote desktop and AeroAdmin,medium
 5651,lite manager remote desktop,medium
 5655,AeroAdmin and some legit usages,medium
@@ -72,6 +75,7 @@ dest_port,metadata.comment,metadata.confidence
 8040,ConnectWise Control,medium
 8041,ConnectWise Control,medium
 8080,malware and rat observed with this port but used by many many legitimate services but still worth hunting for,info
+8081,AlanFramework C2 default port but also lots of legitimate services,low
 8200,GoToMyPC and gotomeeting,medium
 8888,POSHC2 default port but also legit usages,medium
 9050,default port used by the Tor network for its SOCKS proxy also used by MaccaroniC2 proxy,high
