@@ -74,9 +74,10 @@ dest_port,metadata.comment,metadata.confidence
 8022,MaccaroniC2 default port,high 
 8040,ConnectWise Control,medium
 8041,ConnectWise Control,medium
-8080,malware and rat observed with this port but used by many many legitimate services but still worth hunting for,info
-8081,AlanFramework C2 default port but also lots of legitimate services,low
+8080,AlanFramework C2 default port + malwares and rat observed with this port but used by many many legitimate services but still worth hunting for,info
+8081,AlanFramework C2 default port example but also lots of legitimate services,low
 8200,GoToMyPC and gotomeeting,medium
+8443,AlanFramework C2 default port but also many other legitimate services,low
 8888,POSHC2 default port but also legit usages,medium
 9050,default port used by the Tor network for its SOCKS proxy also used by MaccaroniC2 proxy,high
 9090,impacket and other legit usages,low
