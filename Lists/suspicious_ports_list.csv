@@ -74,7 +74,7 @@ dest_port,metadata.comment,metadata.confidence
 8022,MaccaroniC2 default port,high 
 8040,ConnectWise Control,medium
 8041,ConnectWise Control,medium
-8080,AlanFramework C2 default port + malwares and rat observed with this port but used by many many legitimate services but still worth hunting for,info
+8080,AlanFramework C2 default port + KittyStager + malwares and rat observed with this port but used by many many legitimate services but still worth hunting for,info
 8081,AlanFramework C2 default port example but also lots of legitimate services,low
 8200,GoToMyPC and gotomeeting,medium
 8443,AlanFramework C2 default port but also many other legitimate services,low
