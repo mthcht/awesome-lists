@@ -75,6 +75,11 @@ By monitoring Event ID 4662, organizations can effectively identify and respond 
 
 - Identify Unusual Activity on Trust Objects: Monitor operations on trust objects in Active Directory (AD). Trusts are crucial elements of AD infrastructure, enabling users in one domain to access resources in another. Detecting any unusual operations on trust objects can help you identify potential security threats.
 
+- Detect Failed Unauthorized Access (Access Denied):
+  - Filter for high-value targets like the AdminSDHolder object mentionned earlier, trust objects and other sensitive objects.
+  - Monitor for failed attempts to perform specific operations, such as Write Property or Control Access on these critical objects.
+  - Monitor for failed attempts to modify security descriptors, access control lists, or sensitive attributes within Active Directory objects.
+
 - Detecting Attempts to Gain Persistence: Unauthorized modifications to ACLs of Key Domain Objects might suggest attempts to maintain persistence in the environment.
 
 ### Some key domain objects to monitor:
@@ -115,6 +120,6 @@ While monitoring specific group-related Event IDs can provide more focused infor
   - Object: CN=MicrosoftDNS,DC=DomainDnsZones,DC=domain,DC=com (or specific DNS zone objects)
   - ACL: Monitor any changes to the security descriptors of DNS zone objects as they control access to DNS zones within the domain.
 
-#### Community rules using 4662: 
-You may not find every detection method I mentioned that can be used in dashboards. However, for the detection rules, I recommend checking out the community rules available on Splunk, Elastic, and Sigma repositories.
-- https://github.com/search?q=%28repo%3ASigmaHQ%2Fsigma+OR+repo%3Asplunk%2Fsecurity_content++OR+repo%3Aelastic%2Fdetection-rules%29+4662&type=code
+### Community rules using 4662: 
+While it might not be possible to incorporate all of the detection opportunities i've mentioned, I'd highly recommend looking into existing detection rules to enhance your security monitoring capabilities. For this, the community rules available on platforms like Splunk, Elastic, and Sigma repositories are excellent resources.
+  - https://github.com/search?q=%28repo%3ASigmaHQ%2Fsigma+OR+repo%3Asplunk%2Fsecurity_content++OR+repo%3Aelastic%2Fdetection-rules%29+4662&type=code
