@@ -1,6 +1,6 @@
 # 4662 - An operation was performed on an object
 
-## Description for SOC team
+## Description
 Event ID 4662 is crucial for tracking access to critical objects within Active Directory, including high-value targets like the AdminSDHolder object and trust objects. It captures attempts to perform specific operations, such as Write Property or Control Access, on these vital Active Directory objects. The Event ID is generated for any access attempts to a directory service object with an assigned Security Access Control List (SACL).
 
 This event becomes particularly significant when investigating operations that involve manipulation of security-sensitive attributes, such as unixUserPassword, ms-PKI-AccountCredential or when alterations are made to access control lists of domain objects.
@@ -8,7 +8,40 @@ This event becomes particularly significant when investigating operations that i
 By monitoring Event ID 4662, organizations can effectively identify and respond to various threats, including **DCSYNC attacks**, attempts to extract LSA secret DPAPI domain backup keys or illicit replication of the ntds.dit file.
 
 ## Documentation:
-- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
+- microsoft: https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
+
+### Fields list for 4662:
+- System fields:
+  - Provider: The name of the provider that generated the event log. In this case, "Microsoft-Windows-Security-Auditing." (String)
+  - Guid: The globally unique identifier (GUID) associated with the provider. (String)
+  - EventID: The specific event identifier for Event ID 4662. (Integer)
+  - Version: The version number of the event log. (Integer)
+  - Level: The severity level of the event. (Integer)
+  - Task: The task associated with the event. (Integer)
+  - Opcode: The opcode or operation code associated with the event. (Integer)
+  - Keywords: The keywords assigned to the event. (Hexadecimal)
+  - TimeCreated: The timestamp indicating when the event occurred. (Date and Time)
+  - EventRecordID: The unique identifier assigned to the event record. (Integer)
+  - Correlation: Additional information related to event correlation. (String)
+  - Execution: Details about the execution context of the event, such as process ID and thread ID. (String)
+  - Channel: The channel or log category where the event is recorded. In this case, "Security." (String)
+  - Computer: The name of the computer where the event occurred. (String)
+  - Security: Additional security-related information associated with the event. (String)
+- EventData fields:
+  - SubjectUserSid: The security identifier (SID) of the subject user who initiated the operation. (String)
+  - SubjectUserName: The username of the subject user. (String)
+  - SubjectDomainName: The domain name of the subject user. (String)
+  - SubjectLogonId: The logon ID of the subject user. (Hexadecimal)
+  - ObjectServer: The name of the object server involved in the event. (String)
+  - ObjectType: The type of the object that the operation was performed on. (GUID)
+  - ObjectName: The name or identifier of the object. (String)
+  - OperationType: The type of operation that was performed on the object. (String)
+  - HandleId: The identifier of the handle associated with the operation. (Hexadecimal)
+  - AccessList: The access control list (ACL) associated with the object. (String)
+  - AccessMask: The access mask indicating the specific permissions granted or denied. (Hexadecimal)
+  - Properties: The properties or attributes of the object that were modified during the operation. (String)
+  - AdditionalInfo: Additional information related to the event, if available. (String)
+  - AdditionalInfo2: Additional information field, if available. (String)
 
 ## Detection opportunities with 4662:
 *Please note that the following use cases may not be straightforward to implement and could potentially generate false positives. Some of them may be more suitable for creating dashboards rather than specific detection rules. It's important to understand that this is not a comprehensive guide on implementing each use case. Instead, each page dedicated to an EventID serves as an overview of possible detection opportunities and helps identify which EventIDs should be integrated into your monitoring strategy.*
@@ -44,7 +77,7 @@ By monitoring Event ID 4662, organizations can effectively identify and respond 
 
 - Detecting Attempts to Gain Persistence: Unauthorized modifications to ACLs of Key Domain Objects might suggest attempts to maintain persistence in the environment.
 
-### Some key domain objects List to monitor:
+### Some key domain objects to monitor:
 
 While monitoring specific group-related Event IDs can provide more focused information on group modifications, monitoring Event ID 4662 alongside other relevant Event IDs can provide a broader context and comprehensive coverage for monitoring object modifications in Active Directory.
 
