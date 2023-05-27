@@ -1,7 +1,7 @@
 # 4662 - An operation was performed on an object
 
 ## Description for SOC team
-Event ID 4662 plays a crucial role in tracking access to critical objects within Active Directory, including high-value targets like the AdminSDHolder object and trust objects. It captures attempts to perform specific operations, such as Write Property or Control Access on these vital Active Directory objects.
+Event ID 4662 is crucial for tracking access to critical objects within Active Directory, including high-value targets like the AdminSDHolder object and trust objects. It captures attempts to perform specific operations, such as Write Property or Control Access, on these vital Active Directory objects. The Event ID is generated for any access attempts to a directory service object with an assigned Security Access Control List (SACL).
 
 This event becomes particularly significant when investigating operations that involve manipulation of security-sensitive attributes, such as unixUserPassword, ms-PKI-AccountCredential or when alterations are made to access control lists of domain objects.
 
@@ -10,18 +10,78 @@ By monitoring Event ID 4662, organizations can effectively identify and respond 
 ## Documentation:
 - https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
 
-## Detection Use cases with 4662:
-- Track interactions with Active Directory object attributes that house sensitive information, including credentials and decryption keys. Key attributes to monitor encompass unixUserPassword, ms-PKI-AccountCredentials, and msPKI-CredentialRoamingTokens. These attributes hold critical data, and any unauthorized access or alterations can pose a severe security risk.
-- Detect DCSYNC Attacks
-- Monitors occurrences of WRITE_DAC modifications to a domain object. The WRITE_DAC permission pertains to the ability to alter access control lists (ACLs) of a domain object, which can indicate potential security breaches if performed without authorization.
-- Monitors instances of domain user access originating from a non-machine account. This surveillance detects potential anomalies when non-machine accounts attempt to engage with domain user accounts, which could signify unauthorized activity.
+## Detection opportunities with 4662:
+*Please note that the following use cases may not be straightforward to implement and could potentially generate false positives. Some of them may be more suitable for creating dashboards rather than specific detection rules. It's important to understand that this is not a comprehensive guide on implementing each use case. Instead, each page dedicated to an EventID serves as an overview of possible detection opportunities and helps identify which EventIDs should be integrated into your monitoring strategy.*
+
+- Track interactions with Active Directory object attributes that house sensitive information, including credentials and decryption keys. Key attributes to monitor encompass unixUserPassword, ms-PKI-AccountCredentials and msPKI-CredentialRoamingTokens. These attributes hold critical data, and any unauthorized access or alterations can pose a severe security risk.
+  - `ms-PKI-AccountCredentials` attribute (b8dfa744-31dc-4ef1-ac7c-84baf7ef9da7) https://learn.microsoft.com/en-us/windows/win32/adschema/a-mspkiaccountcredentials
+  - `unixUserPassword` attribute (612cb747-c0e8-4f92-9221-fdd5f15b550d) https://learn.microsoft.com/en-us/windows/win32/adschema/a-unixuserpassword
+  - `ms-PKI-Credential-Roaming-Tokens` attribute (b7ff5a38-0818-42b0-8110-d3d154c97f24) attribute https://learn.microsoft.com/en-us/windows/win32/adschema/a-mspki-credentialroamingtokens
+
+- Detecting **DCSYNC Attacks** involves monitoring requests made to the following entities (refer to the community detection rules at the end of this page for more details on implementing them with the required filters)
+  - `DS-Replication-Get-Changes` attribute (1131f6aa-9c07-11d1-f79f-00c04fc2dcd2) https://learn.microsoft.com/en-us/windows/win32/adschema/r-ds-replication-get-changes
+  - `DS-Replication-Get-Changes-All` attribute (1131f6ad-9c07-11d1-f79f-00c04fc2dcd2) https://learn.microsoft.com/en-us/windows/win32/adschema/r-ds-replication-get-changes-all
+  - `DS-Replication-Get-Changes-In-Filtered-Set` attribute (89e95b76-444d-4c62-991a-0facbeda640c) https://learn.microsoft.com/en-us/windows/win32/adschema/r-ds-replication-get-changes-in-filtered-set
+  - `DS-Install-Replica extended right` attribute (9923a32a-3607-11d2-b9be-0000f87a36b2) https://learn.microsoft.com/en-us/windows/win32/adschema/r-ds-install-replica
+  - `Domain-DNS class WRITE_DAC` attribute (19195a5b-6da0-11d0-afd3-00c04fd930c9) https://learn.microsoft.com/en-us/windows/win32/adschema/c-domaindns
+
+- During a DCSync command, the attacker exploits the DS-Replication-Get-changes-All extended right (1131f6ad-9c07-11d1-f79f-00c04fc2dcd2) in the **Domain-DNS** class to retrieve data for replication to a non-domain controller user or system. This activity triggers the logging of Event ID 4662 on the targeted domain controller, providing a detection opportunity:
+  - Monitor occurrences of `WRITE_DAC` modifications to a domain object, in this case we should see "1131f6ad-9c07-11d1-f79f-00c04fc2dcd2" and "19195a5b-6da0-11d0-afd3-00c04fd930c9" on DCs (The WRITE_DAC permission pertains to the ability to alter access control lists of a domain object)
+ 
+- Monitors instances of domain user access originating from a non-machine account (`user!=*$`). When non-machine accounts attempt to engage with domain user accounts, it  could signify unauthorized activity.
+
 - Identifies instances where tools are attempting to retrieve the Local Security Authority (LSA) secret DPAPI domain backup key from Domain Controllers. This detection flags potential intrusions by malicious software seeking to access highly sensitive data by exploiting domain backup keys.
-- Recognizes instances where the ntds.dit file is being extracted through synchronization with a legitimate domain controller using the Directory Replication Service (DRS) Remote Protocol. This flags possible attempts to illegitimately access Active Directory data by masquerading as a legitimate domain controller.
-- Detect Domain Object Ownership Changes: Monitor for WRITE_OWNER operations on a domain object. A WRITE_OWNER event can indicate an attempt to change the owner of a domain object, which can be a significant security issue as it might enable a threat actor to gain control of the object.
-- Track Unusual Operations on AdminSDHolder Object: The AdminSDHolder object holds a security descriptor that is enforced on all privileged Active Directory accounts. An unauthorized change to the AdminSDHolder object could impact the security of all privileged accounts. Therefore, tracking any operations on the "CN=AdminSDHolder,CN=System,DC=domain,DC=com" object can provide valuable insights.
-- Detect Attempts to Bypass Group Managed Service Accounts (GMSA): Keep an eye on any operations that target the msDS-GroupMSAMembership attribute. This attribute is involved in GMSA operations, and any unauthorized access attempts might indicate an effort to bypass GMSA protections.
+
+- The extraction of the `ntds.dit` file through synchronization with a legitimate domain controller using the Directory Replication Service Remote Protocol can be recognized. The Event ID 4662 can be used in correlation with other Events to detect such attempts.
+
+- Detect Domain Object Ownership Changes: Monitor for `WRITE_OWNER` operations on a domain object. A WRITE_OWNER event can indicate an attempt to change the owner of a domain object, which can be a significant security issue as it might enable a threat actor to gain control of the object.
+
+- Track Unusual Operations on `AdminSDHolder` Object: The AdminSDHolder object holds a security descriptor that is enforced on all privileged Active Directory accounts. An unauthorized change to the AdminSDHolder object could impact the security of all privileged accounts. Therefore, tracking any operations on the "CN=AdminSDHolder,CN=System,DC=domain,DC=com" object can provide valuable insights.
+
+- Detect Attempts to Bypass Group Managed Service Accounts (GMSA): Keep an eye on any operations that target the `msDS-GroupMSAMembership` attribute. This attribute is involved in GMSA operations, and any unauthorized access attempts might indicate an effort to bypass GMSA protections.
+
 - Identify Unusual Activity on Trust Objects: Monitor operations on trust objects in Active Directory (AD). Trusts are crucial elements of AD infrastructure, enabling users in one domain to access resources in another. Detecting any unusual operations on trust objects can help you identify potential security threats.
+
 - Detecting Attempts to Gain Persistence: Unauthorized modifications to ACLs of Key Domain Objects might suggest attempts to maintain persistence in the environment.
 
-community rules using 4662: 
+### Some key domain objects List to monitor:
+
+While monitoring specific group-related Event IDs can provide more focused information on group modifications, monitoring Event ID 4662 alongside other relevant Event IDs can provide a broader context and comprehensive coverage for monitoring object modifications in Active Directory.
+
+- AdminSDHolder Object:
+  - Object: CN=AdminSDHolder,CN=System,DC=domain,DC=com
+  - ACL: Monitor any modifications to the security descriptor of the AdminSDHolder object as it impacts the security of all privileged accounts.
+- Domain Controllers:
+  - Object: CN=Domain Controllers,CN=Users,DC=domain,DC=com
+  - ACL: Keep an eye on any modifications to the access control lists of the Domain Controllers container as it houses critical accounts for managing domain controllers.
+- Domain Admins Group:
+  - Object: CN=Domain Admins,CN=Users,DC=domain,DC=com
+  - ACL: Monitor any changes to the security descriptor of the Domain Admins group, which has high privileges within the domain.
+- Enterprise Admins Group:
+  - Object: CN=Enterprise Admins,CN=Users,DC=domain,DC=com
+  - ACL: Keep track of any modifications to the security descriptor of the Enterprise Admins group, which has elevated privileges across the entire forest.
+- Schema Admins Group:
+  - Object: CN=Schema Admins,CN=Users,DC=domain,DC=com
+  - ACL: Monitor any alterations to the security descriptor of the Schema Admins group, which has permissions to modify the Active Directory schema.
+- Domain Trusts:
+  - Object: CN=System,DC=domain,DC=com (or specific trust objects)
+  - ACL: Keep an eye on any modifications to the access control lists of domain trust objects as they control access between domains and can be potential targets for unauthorized changes.
+- Built-in Administrators Group:
+  - Object: CN=Builtin,DC=domain,DC=com
+  - ACL: Monitor any modifications to the security descriptor of the Built-in Administrators group, which has full control over the domain.
+- Domain Computers Group:
+  - Object: CN=Computers,DC=domain,DC=com
+  - ACL: Keep track of any changes to the access control lists of the Domain Computers container as it contains computer accounts in the domain.
+- Domain Users Group:
+  - Object: CN=Users,DC=domain,DC=com
+  - ACL: Monitor any alterations to the security descriptor of the Domain Users group, which represents all user accounts in the domain.
+- Domain Guests Group:
+  - Object: CN=Guests,DC=domain,DC=com
+  - ACL: Keep an eye on any modifications to the access control lists of the Domain Guests group, which represents guest accounts in the domain.
+- Domain Name System (DNS) Zones:
+  - Object: CN=MicrosoftDNS,DC=DomainDnsZones,DC=domain,DC=com (or specific DNS zone objects)
+  - ACL: Monitor any changes to the security descriptors of DNS zone objects as they control access to DNS zones within the domain.
+
+#### Community rules using 4662: 
+You may not find every detection method I mentioned that can be used in dashboards. However, for the detection rules, I recommend checking out the community rules available on Splunk, Elastic, and Sigma repositories.
 - https://github.com/search?q=%28repo%3ASigmaHQ%2Fsigma+OR+repo%3Asplunk%2Fsecurity_content++OR+repo%3Aelastic%2Fdetection-rules%29+4662&type=code
