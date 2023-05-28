@@ -49,7 +49,7 @@ By monitoring Event ID 4662, organizations can effectively identify and respond 
 - Track interactions with Active Directory object attributes that house sensitive information, including credentials and decryption keys. Key attributes to monitor encompass unixUserPassword, ms-PKI-AccountCredentials and msPKI-CredentialRoamingTokens. These attributes hold critical data, and any unauthorized access or alterations can pose a severe security risk.
   - `ms-PKI-AccountCredentials` attribute (b8dfa744-31dc-4ef1-ac7c-84baf7ef9da7) https://learn.microsoft.com/en-us/windows/win32/adschema/a-mspkiaccountcredentials
   - `unixUserPassword` attribute (612cb747-c0e8-4f92-9221-fdd5f15b550d) https://learn.microsoft.com/en-us/windows/win32/adschema/a-unixuserpassword
-  - `ms-PKI-Credential-Roaming-Tokens` attribute (b7ff5a38-0818-42b0-8110-d3d154c97f24) attribute https://learn.microsoft.com/en-us/windows/win32/adschema/a-mspki-credentialroamingtokens
+  - `ms-PKI-Credential-Roaming-Tokens` attribute (b7ff5a38-0818-42b0-8110-d3d154c97f24) https://learn.microsoft.com/en-us/windows/win32/adschema/a-mspki-credentialroamingtokens
 
 - Detecting **DCSYNC Attacks** involves monitoring requests made to the following entities (refer to the community detection rules at the end of this page for more details on implementing them with the required filters)
   - `DS-Replication-Get-Changes` attribute (1131f6aa-9c07-11d1-f79f-00c04fc2dcd2) https://learn.microsoft.com/en-us/windows/win32/adschema/r-ds-replication-get-changes
