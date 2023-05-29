@@ -13,7 +13,7 @@ The Event ID 5140 captures successful access to network share objects, including
 - Some Use cases examples that would be relevant for 5140 but not for 5145:
   - Manual Remote File inclusions attempts
   - Unauthorized access to sensitive files when an attacker directly accesses them through network shares without making an application-level access attempt.
-  - Manual Mounting of Network Shares (external ip share access can be interresting to monitor)
+  - Monitoring the manual mounting of network shares, especially external IP share access, can be interesting.
   - Manual Data Exfiltration to remote shares 
 
 Monitoring both events provides a more comprehensive view of access activity on network shares, check the page of [5140](https://github.com/mthcht/awesome-lists/blob/main/Lists/wineventlogs/EventIDs/Security-5140.md)
