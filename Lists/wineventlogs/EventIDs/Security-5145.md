@@ -75,6 +75,8 @@ Continuously monitor Event ID 5145 entries and compare the accessed file or dire
 - Traffic anomaly detection:
   - High volume of access events within a short period of time or access occurring outside of normal business hours. Deviations from normal access patterns can be detected by comparing the frequency and timing of Event ID 5145 entries against baseline or predefined thresholds which can be established using advanced search capabilities or machine learning techniques provided by tools like Splunk [MLTK](https://splunkbase.splunk.com/app/2890).
 
+- Keywords detections on file names using the collection from https://github.com/mthcht/ThreatHunting-Keywords
+
 - Privilege escalation and Accesses rights:
   - Monitor the source IP addresses adding files under `\\\\*\\SYSVOL*` with `AccessMask` value `0x2`
   - Inspect the AccessList field within Event ID 5145 entries, which represents the access control list (ACL) associated with the network share object. Look for modifications or additions to the ACL entries, such as new access control entries [ACEs](https://learn.microsoft.com/en-gb/windows/win32/secauthz/ace-strings) being added or permissions being modified, which may indicate attempts to escalate privileges on the network share object. (For example, an ACE string like `D:(A;;KA;;;WD)` grants unrestricted Full Access to the "Everyone" group. Monitoring for such access control entries can be highly valuable in detecting potential security risks)
