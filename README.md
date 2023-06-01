@@ -57,6 +57,7 @@
 ## Data manipulation
 - [regex101](https://regex101.com/)
 - [CyberChef](https://gchq.github.io/CyberChef/)
+- [Javascript Deobfuscator](https://deobfuscate.relative.im/)
 - [JSONViewer](https://jsonviewer.stack.hu/)
 - [TextMechanic](https://textmechanic.com/)
 - [UrlEncode.org](https://www.urlencoder.org/)
