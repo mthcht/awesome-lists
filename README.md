@@ -98,6 +98,11 @@
 - [Sigma](https://github.com/mthcht/sigma/tree/master/rules)
 - [Splunk Rules](https://research.splunk.com/detections/)
 - [Elastic Rules](https://github.com/elastic/detection-rules)
+- [DFIR-Report Sigma-Rules](https://github.com/The-DFIR-Report/Sigma-Rules)
+- [JoeSecurity Sigma-Rules](https://github.com/joesecurity/sigma-rules/tree/master/rules)
+- [mdecrevoisier Sigma-Rules](https://github.com/mdecrevoisier/SIGMA-detection-rules)
+- [P4T12ICK Sigma-Rules](https://github.com/P4T12ICK/Sigma-Rule-Repository)
+- [tsale Sigma-Rules](https://github.com/tsale/Sigma_rules)
 
 ## Security News
 - [Twitter](https://twitter.com/home)
