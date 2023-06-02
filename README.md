@@ -80,6 +80,7 @@
 - [Email Header Analysis](https://www.email-format.com/header-analysis/)
 - [Gitlab dashboard from Excel](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
 - [OPENAI](https://openai.com/playground)
+- [uncoder](https://uncoder.io/)
 
 ## Detection Resources
 - [MITRE techniques](https://attack.mitre.org/techniques/enterprise/)
