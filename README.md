@@ -107,6 +107,7 @@
 - [CERT FR Alerts](https://www.cert.ssi.gouv.fr/alerte/)
 - [CERT FR Avis](https://www.cert.ssi.gouv.fr/avis/)
 - [NIST CVEs](https://nvd.nist.gov/vuln/search/results?isCpeNameSearch=false&results_type=overview&form_type=Basic&search_type=all&startIndex=0)
+- [JPCERT](https://www.jpcert.or.jp/english/) 
 
 ## Others
 - [Crontab check](https://crontab.guru/every-2-minutes)
