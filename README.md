@@ -45,6 +45,7 @@
   - [malware-traffic-analysis](https://www.malware-traffic-analysis.net/index.html)
   - [waybackmachine](http://web.archive.org/)
   - [dnshistory](https://dnshistory.org/)
+  - [asnlookup](https://asnlookup.com/)
   
 ### Sandbox
 - [Sandbox HA](https://www.hybrid-analysis.com/)
