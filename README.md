@@ -2,6 +2,7 @@
 
 ## ThreatHunting:
 - [ThreatHunting keywords](https://mthcht.github.io/ThreatHunting-Keywords/)
+- [ThreatHunting searches](https://github.com/mthcht/Purpleteam/tree/main/Detection/Threat%20Hunting/generic)
 
 ## SOC Lists:
 - [Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists)
@@ -43,7 +44,8 @@
   - [abuse.ch](https://abuse.ch/#platforms)
   - [malware-traffic-analysis](https://www.malware-traffic-analysis.net/index.html)
   - [waybackmachine](http://web.archive.org/)
-
+  - [dnshistory](https://dnshistory.org/)
+  
 ### Sandbox
 - [Sandbox HA](https://www.hybrid-analysis.com/)
 - [Sandbox Anyrun](https://any.run/)
