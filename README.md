@@ -52,6 +52,7 @@
 - [Sandbox Anyrun](https://any.run/)
 
 ## Data manipulation
+- [jsoncrack](https://jsoncrack.com/editor)
 - [Hash calculator](https://md5calc.com/hash)
 - [regex101](https://regex101.com/)
 - [CyberChef](https://gchq.github.io/CyberChef/)
