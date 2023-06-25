@@ -85,6 +85,7 @@ dest_port,metadata.comment,metadata.confidence
 8443,AlanFramework C2 default port but also many other legitimate services,low
 8848,DcRat,medium
 8888,POSHC2 default port but also legit usages,medium
+8999,PrimusC2,medium
 9050,default port used by the Tor network for its SOCKS proxy also used by MaccaroniC2 proxy,high
 9051,default port used by the Tor network for the controller,high
 9090,impacket and other legit usages,low
