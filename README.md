@@ -16,6 +16,8 @@
 ### TI
   - [Virustotal](https://www.virustotal.com/#/home/search)
   - [AbuseIPDB](https://www.abuseipdb.com/)
+  - [emailrep](https://emailrep.io/)
+  - [shodan](https://www.shodan.io/)
   - [Onyphe](https://www.onyphe.io/)
   - [Censys](https://search.censys.io/)
   - [threatminer](https://www.threatminer.org/)
