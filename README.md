@@ -34,6 +34,7 @@
   - [Microsoft Security Intelligence Report](https://www.microsoft.com/en-us/wdsi/intelligence-report)
   - [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com/) 
   - [AlienVault OTX](https://otx.alienvault.com/)
+  - [greynoise](https://viz.greynoise.io/)
   
 ### More TI
   - [echotrail](https://www.echotrail.io/)
@@ -48,6 +49,7 @@
   - [waybackmachine](http://web.archive.org/)
   - [dnshistory](https://dnshistory.org/)
   - [asnlookup](https://asnlookup.com/)
+  - [fofa.info](https://fofa.info/)
   
 ### Sandbox
 - [Sandbox HA](https://www.hybrid-analysis.com/)
