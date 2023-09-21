@@ -1,1 +1,3 @@
-need to execute with every windows update to have a database of default hashes for system32 executables
+## Hash Baseline creation
+
+- need to execute this script on every windows version (database of default hashes for system32 executables)
