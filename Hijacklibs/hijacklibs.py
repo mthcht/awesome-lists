@@ -4,6 +4,8 @@ import yaml
 import glob
 
 # Prerequisite: the github project https://github.com/mthcht/HijackLibs must be cloned in the current directory
+# If in your environment, some workstations have a different drive letter (other than C:) you may want to modify this script accordingly
+
 # Initialize CSV file
 csv_columns = ['file_name', 'expected_file_path', 'vulnerable_file_name', 'file_type', 'file_hash', 'link', 'hijacklib_link']
 csv_file = "hijacklibs_list.csv"
