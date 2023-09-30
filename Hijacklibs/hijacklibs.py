@@ -9,14 +9,14 @@ csv_columns = ['file_name', 'expected_file_path', 'vulnerable_file_name', 'file_
 csv_file = "hijacklibs_list.csv"
 
 def replace_variables(path):
-    path = path.replace("%LOCALAPPDATA%", '*:\\Users\\*\\AppData\\Local')
-    path = path.replace("%PROGRAMFILES%", '*:\\Program Files')
+    path = path.replace("%LOCALAPPDATA%", 'C:\\Users\\*\\AppData\\Local')
+    path = path.replace("%PROGRAMFILES%", 'C:\\Program Files')
     path = path.replace("%VERSION%", '*')
-    path = path.replace("%SYSTEM32%", '*:\\Windows\\System32')
-    path = path.replace("%SYSWOW64%", '*:\\Windows\\SysWOW64')
-    path = path.replace("%USERPROFILE%", '*:\\Users\\*')
-    path = path.replace("%WINDIR%", '*:\\Windows')
-    path = path.replace("%PROGRAMDATA%", '*:\\ProgramData')
+    path = path.replace("%SYSTEM32%", 'C:\\Windows\\System32')
+    path = path.replace("%SYSWOW64%", 'C:\\Windows\\SysWOW64')
+    path = path.replace("%USERPROFILE%", 'C:\\Users\\*')
+    path = path.replace("%WINDIR%", 'C:\\Windows')
+    path = path.replace("%PROGRAMDATA%", 'C:\\ProgramData')
     return path
 
 
