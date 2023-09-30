@@ -1,0 +1,19 @@
+---
+Name: shellchromeapi.dll
+Author: Wietze Beukema
+Created: 2023-07-28
+Vendor: Microsoft
+VulnerableExecutables:
+- Path: '%SYSTEM32%\DeviceEnroller.exe'
+  Type: Phantom
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+  Condition: DLL should be located c:\Windows\System32; this typically requires elevated privileges.
+Resources:
+- https://dennisbabkin.com/blog/?t=pwning-windows-updates-dll-hijacking-through-orphaned-dll
+- https://twitter.com/0gtweet/status/1564131230941122561
+Acknowledgements:
+- Name: Grzegorz Tworek
+  Twitter: '@0gtweet'

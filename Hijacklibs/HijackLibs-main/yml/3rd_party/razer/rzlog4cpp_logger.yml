@@ -1,0 +1,23 @@
+---
+Name: rzlog4cpp_logger.dll
+Author: Wietze Beukema
+Created: 2023-04-03
+Vendor: Razer
+ExpectedLocations:
+  - '%LOCALAPPDATA%\razer\InGameEngine\cache\RzFpsApplet'
+ExpectedSignatureInformation:
+  - Subject: C=US, ST=California, L=Irvine, O=Razer USA Ltd., CN=Razer USA Ltd.
+    Issuer: C=US, O=Symantec Corporation, OU=Symantec Trust Network, CN=Symantec Class 3 SHA256 Code Signing CA
+    Type: Authenticode
+VulnerableExecutables:
+  - Path: '%LOCALAPPDATA%\razer\InGameEngine\cache\RzFpsApplet\RzCefRenderProcess.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=US, ST=California, L=Irvine, O=Razer USA Ltd., CN=Razer USA Ltd.
+        Issuer: C=US, O=Symantec Corporation, OU=Symantec Trust Network, CN=Symantec Class 3 SHA256 Code Signing CA
+        Type: Authenticode
+    SHA256:
+      - fb5edfcba99e2df2b7f6f40e8615f5cb247803180464e584161c7c91405aae4a
+Resources:
+  - https://www.mandiant.com/resources/blog/china-nexus-espionage-southeast-asia
+  - https://news.sophos.com/en-us/2022/11/03/family-tree-dll-sideloading-cases-may-be-related/

@@ -1,0 +1,86 @@
+---
+Name: ntdsapi.dll
+Author: Wietze Beukema
+Created: 2021-02-27
+Vendor: Microsoft
+ExpectedLocations:
+- '%SYSTEM32%'
+- '%SYSWOW64%'
+ExpectedSignatureInformation:
+- Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Type: Catalog
+VulnerableExecutables:
+- Path: '%SYSTEM32%\certutil.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\cipher.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\dcdiag.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dfsrdiag.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dnscmd.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dsacls.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dsadd.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dsdbutil.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dsget.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dsmgmt.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dsquery.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\gpresult.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\licmgr.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\netdom.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\nltest.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\ntdsutil.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\rendom.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\repadmin.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\setspn.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\w32tm.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+Resources:
+- https://wietze.github.io/blog/hijacking-dlls-in-windows
+- https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- https://github.com/xforcered/WFH
+Acknowledgements:
+- Name: Wietze
+  Twitter: '@wietze'
+- Name: Chris Spehn
+  Twitter: '@ConsciousHacker'

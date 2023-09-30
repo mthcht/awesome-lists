@@ -1,0 +1,24 @@
+---
+Name: basicnetutils.dll
+Author: Wietze Beukema
+Created: 2023-05-03
+Vendor: Baidu
+ExpectedLocations:
+  - '%LOCALAPPDATA%\Temp\%VERSION%\Application2'
+  - '%PROGRAMFILES%\BAIDU\BAIDUPINYIN\%VERSION%'
+ExpectedSignatureInformation:
+  - Subject: C=CN, ST=Beijing, L=Beijing, O='Beijing Baidu Netcom Science and Technology Co.,Ltd', OU=BPIT, CN='Beijing Baidu Netcom Science and Technology Co.,Ltd'
+    Issuer: C=BE, O=GlobalSign nv-sa, CN=GlobalSign GCC R45 CodeSigning CA 2020
+    Type: Authenticode
+VulnerableExecutables:
+  - Path: '%LOCALAPPDATA%\Temp\%VERSION%\Application2\XLGameUpdate.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=CN, ST=Beijing, L=Beijing, O='Beijing Baidu Netcom Science and Technology Co.,Ltd', CN='Beijing Baidu Netcom Science and Technology Co.,Ltd'
+        Issuer: C=BE, O=GlobalSign nv-sa, CN=GlobalSign CodeSigning CA - G3
+        Type: Authenticode
+    SHA256:
+    - 769d59d03036af86c7a9950f03ebc7b693a94d3e2f8ecd1d74cf5600ab948105
+Resources:
+  - https://news.sophos.com/en-us/2023/05/03/doubled-dll-sideloading-dragon-breath/
+  - https://www.welivesecurity.com/2023/03/16/not-so-private-messaging-trojanized-whatsapp-telegram-cryptocurrency-wallets/

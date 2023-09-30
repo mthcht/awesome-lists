@@ -1,0 +1,32 @@
+---
+Name: rjvplatform.dll
+Author: Wietze Beukema
+Created: 2023-07-28
+Vendor: Microsoft
+ExpectedLocations:
+- '%SYSTEM32%\SystemResetPlatform'
+- '%SYSWOW64%\SystemResetPlatform'
+ExpectedVersionInformation:
+- CompanyName: Microsoft Corporation
+  FileDescription: Windows Rejuvenation Platform
+  InternalName: RJVPLATFORMDLL
+  LegalCopyright: © Microsoft Corporation. All rights reserved.
+  OriginalFilename: RjvPlatform.dll
+  ProductName: Microsoft® Windows® Operating System
+ExpectedSignatureInformation:
+- Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Type: Catalog
+VulnerableExecutables:
+- Path: '%SYSTEM32%\SystemResetPlatform\SystemResetPlatform.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+  Condition: DLL should be placed in 'c:\$sysreset\framework\stack\'.
+Resources:
+- https://twitter.com/0gtweet/status/1666716511988330499
+Acknowledgements:
+- Name: Grzegorz Tworek
+  Twitter: '@0gtweet'

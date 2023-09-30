@@ -1,0 +1,20 @@
+---
+Name: log.dll
+Author: Wietze Beukema
+Created: 2022-06-13
+Vendor: BitDefender
+ExpectedLocations:
+- '%PROGRAMFILES%\Bitdefender Antivirus Free'
+VulnerableExecutables:
+- Path: '%PROGRAMFILES%\Bitdefender Antivirus Free\BDReinit.exe'
+  Type: Sideloading
+  SHA256:
+  - 386EB7AA33C76CE671D6685F79512597F1FAB28EA46C8EC7D89E58340081E2BD
+  ExpectedSignatureInformation:
+  - Issuer: CN=VeriSign Class 3 Code Signing 2009-2 CA, OU=Terms of use at https://www.verisign.com/rpa (c)09, OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+    Subject: CN=BitDefender SRL, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=BitDefender SRL, L=Bucharest, S=Bucharest, C=RO
+    Type: Authenticode
+Resources:
+- https://www.secureworks.com/research/shadowpad-malware-analysis
+- https://www.hexacorn.com/blog/2023/02/25/beyond-good-ol-run-key-part-141/
+

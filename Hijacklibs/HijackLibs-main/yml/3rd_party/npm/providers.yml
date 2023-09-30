@@ -1,0 +1,12 @@
+---
+Name: providers.dll
+Author: Wietze Beukema
+Created: 2022-08-01
+Vendor: npm
+CVE: CVE-2022-32223
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\nodejs\node.exe'
+    Condition: 'Node.js versions earlier than 16.16.0 (LTS) and 14.20.0 on Windows'
+    Type: Phantom
+Resources:
+  - https://blog.aquasec.com/cve-2022-32223-dll-hijacking

@@ -1,0 +1,17 @@
+---
+Name: mozglue.dll
+Author: Wietze Beukema
+Created: 2022-09-26
+Vendor: Mozilla
+ExpectedLocations:
+  - '%PROGRAMFILES%\SeaMonkey'
+  - '%PROGRAMFILES%\Mozilla Firefox'
+  - '%PROGRAMFILES%\Mozilla Thunderbird'
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\SeaMonkey\seamonkey.exe'
+    Type: Sideloading
+Resources:
+  - https://twitter.com/SBousseaden/status/1530595156055011330
+Acknowledgements:
+- Name: Samir
+  Twitter: '@sbousseaden'

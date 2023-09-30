@@ -1,0 +1,20 @@
+---
+Name: lmiguardiandll.dll
+Author: Christiaan Beek
+Created: 2023-01-11
+Vendor: LogMeIn
+ExpectedLocations:
+  - '%PROGRAMFILES%\LogMeIn'
+  - '%PROGRAMFILES%\LogMeIn\x86'
+  - '%PROGRAMFILES%\LogMeIn\x64'
+VulnerableExecutables:
+  - Path: LMIGuardianSvc.exe
+    Type: Sideloading
+    SHA256:
+      - 26C855264896DB95ED46E502F2D318E5F2AD25B59BDC47BD7FFE92646102AE0D
+Resources:
+  - https://twitter.com/StopMalvertisin/status/1610961056163311619
+  - https://blog.osarmor.com/311/lmiguardiansvc-exe-logmein-abused-to-sideload-malicious-dll/
+Acknowledgements:
+  - Name: Kimberly
+    Twitter: '@StopMalvertisin'

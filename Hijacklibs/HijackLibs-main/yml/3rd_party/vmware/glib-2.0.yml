@@ -1,0 +1,24 @@
+---
+Name: glib-2.0.dll
+Author: Wietze Beukema
+Created: 2023-04-03
+Vendor: VMWare
+ExpectedLocations:
+  - '%PROGRAMFILES%\VMware\VMware Tools'
+  - '%PROGRAMFILES%\VMware\VMware Workstation'
+  - '%PROGRAMFILES%\VMware\VMware Player'
+ExpectedSignatureInformation:
+  - Subject: C=US, ST=California, L=Palo Alto, O='VMware, Inc.', OU=Digital ID Class 3 - Microsoft Software Validation v2, OU=Marketing, CN='VMware, Inc.'
+    Issuer: C=US, O='VeriSign, Inc.', OU=VeriSign Trust Network, OU=Terms of use at https://www.verisign.com/rpa (c)09, CN=VeriSign Class 3 Code Signing 2009-2 CA
+    Type: Authenticode
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\VMware\VMware Tools\VMwareXferlogs.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=US, ST=California, L=Palo Alto, O='VMware, Inc.', CN='VMware, Inc.'
+        Issuer: C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Assured ID Code Signing CA-1
+        Type: Authenticode
+    SHA256:
+      - 935e10f5169397a67f4c36bffbc3ba46c3957b7521edd3fa83bd975157b79bd8
+Resources:
+  - https://www.sentinelone.com/labs/lockbit-ransomware-side-loads-cobalt-strike-beacon-with-legitimate-vmware-utility/

@@ -1,0 +1,16 @@
+---
+Name: tmtap.dll
+Author: Wietze Beukema
+Created: 2022-05-26
+
+Vendor: Trend Micro
+CVE: CVE-2019-14687
+VulnerableExecutables:
+  - Path: "%PROGRAMFILES%\\trend micro\\passwordmanager\\pwmsvc.exe"
+    Type: Phantom
+    Condition: Trend Micro Password Manager <=5.0.0.1058
+    PrivilegeEscalation: true
+
+Resources:
+  - https://medium.com/@infiniti_css/trend-micro-password-manager-dll-hijack-fa839acaad59
+

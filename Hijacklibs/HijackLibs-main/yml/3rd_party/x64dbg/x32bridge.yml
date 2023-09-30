@@ -1,0 +1,26 @@
+---
+Name: x32bridge.dll
+Author: Wietze Beukema
+Created: 2023-03-01
+Vendor: x64dbg
+ExpectedSignatureInformation:
+- Issuer: CN=Sectigo Public Code Signing CA R36, O=Sectigo Limited, C=GB
+  Subject: CN=Duncan Ogilvie, O=Duncan Ogilvie, L=Wrocław, S=Dolnośląskie, C=PL
+  Type: Authenticode
+VulnerableExecutables:
+- Path: x32dbg.exe
+  Type: Sideloading
+  SHA256:
+  - ec5cf913773459da0fd30bb282fb0144b85717aa6ce660e81a0bad24a2f23e15
+  ExpectedVersionInformation:
+  - LegalCopyright: x64dbg.com
+    ProductName: x64dbg
+    FileDescription: x64dbg
+  ExpectedSignatureInformation:
+  - Issuer: CN=Sectigo Public Code Signing CA R36, O=Sectigo Limited, C=GB
+    Subject: CN=Duncan Ogilvie, O=Duncan Ogilvie, L=Wrocław, S=Dolnośląskie, C=PL
+    Type: Authenticode
+Resources:
+- https://www.trendmicro.com/en_th/research/23/b/investigating-the-plugx-trojan-disguised-as-a-legitimate-windows.html
+- https://news.sophos.com/en-us/2020/11/04/a-new-apt-uses-dll-side-loads-to-killlsomeone/?cmp=30728
+- https://unit42.paloaltonetworks.com/plugx-variants-in-usbs/

@@ -1,0 +1,18 @@
+---
+Name: lockdown.dll
+Author: Wietze Beukema
+Created: 2022-06-13
+Vendor: McAfee
+ExpectedLocations:
+  - '%PROGRAMFILES%\McAfee\VirusScan Enterprise'
+VulnerableExecutables:
+  - Path: "mfeann.exe"
+    SHA256:
+      - 07bbd8a80b5377723b13dbb40a01ca44cbc203369f5e5652a25b448e27ca108c
+    Type: Sideloading
+Resources:
+  - https://twitter.com/thepacketrat/status/1520878930449817600
+  - https://news.sophos.com/en-us/2021/10/04/atom-silo-ransomware-actors-use-confluence-exploit-dll-side-load-for-stealthy-attack/
+Acknowledgements:
+  - Name: Sean Gallagher
+    Twitter: "@thepacketrat"

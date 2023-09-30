@@ -1,0 +1,21 @@
+---
+Name: ldvpocx.ocx
+Author: Wietze Beukema
+Created: 2023-04-22
+Vendor: Symantec
+ExpectedLocations:
+  - '%PROGRAMFILES%\Symantec_Client_Security\Symantec AntiVirus'
+  - '%PROGRAMFILES%\Symantec AntiVirus'
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\Symantec_Client_Security\Symantec AntiVirus\ldvpreg.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=US, ST=California, L=Santa Monica, O=Symantec Corporation, OU=Digital ID Class 3 - Microsoft Software Validation v2, OU=Symantec Research Labs, CN=Symantec Corporation
+        Issuer: C=US, O='VeriSign, Inc.', OU=VeriSign Trust Network, OU=Terms of use at https://www.verisign.com/rpa (c)04, CN=VeriSign Class 3 Code Signing 2004 CA
+        Type: Authenticode
+    SHA256:
+    - 61d1943f0b702f4c16bb37228ade1d8f0ef4675b480921950d026c82e4a65fde
+Resources:
+  - https://www.secureworks.com/research/a-peek-into-bronze-unions-toolbox
+  - https://github.com/RedDrip7/APT_Digital_Weapon/blob/master/APT27/APT27_hash.md
+  - https://decoded.avast.io/threatintel/apt-treasure-trove-avast-suspects-chinese-apt-group-mustang-panda-is-collecting-data-from-burmese-government-agencies-and-opposition-groups/

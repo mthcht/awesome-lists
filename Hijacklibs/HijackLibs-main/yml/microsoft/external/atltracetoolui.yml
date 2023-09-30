@@ -1,0 +1,18 @@
+---
+Name: atltracetoolui.dll
+Author: Wietze Beukema
+Created: 2023-04-04
+Vendor: Microsoft
+ExpectedLocations:
+  - '%PROGRAMFILES%\Microsoft Visual Studio 11.0\Common7\Tools'
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\Microsoft Visual Studio 11.0\Common7\Tools\ATLTraceTool8.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=US, ST=Washington, L=Redmond, O=Microsoft Corporation, OU=MOPR, CN=Microsoft Corporation
+        Issuer: C=US, ST=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Code Signing PCA
+        Type: Authenticode
+    SHA256:
+    - 197d0ad8e3f6591e4493daaee9e52e53ecf192e32f9d167c67f2ffb408c76f2c
+Resources:
+  - https://decoded.avast.io/threatintel/apt-treasure-trove-avast-suspects-chinese-apt-group-mustang-panda-is-collecting-data-from-burmese-government-agencies-and-opposition-groups/

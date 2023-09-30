@@ -1,0 +1,13 @@
+---
+Name: safestore32.dll
+Author: Wietze Beukema
+Created: 2023-09-04
+Vendor: Sophos
+ExpectedLocations:
+  - '%PROGRAMFILES%\Sophos\Sophos Anti-Virus'
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\Sophos\Sophos Anti-Virus\ssr32.exe'
+    Type: Sideloading
+    Condition: 'Assumes version 1.3.0.1 or before, included in Sophos Endpoint installations prior to version 2021.3'
+Resources:
+  - https://symantec.broadcom.com/hubfs/Attacks-Against-Government-Sector.pdf

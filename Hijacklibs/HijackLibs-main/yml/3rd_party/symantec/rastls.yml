@@ -1,0 +1,23 @@
+---
+Name: rastls.dll
+Author: Wietze Beukema
+Created: 2023-02-26
+Vendor: Symantec
+ExpectedLocations:
+- '%PROGRAMFILES%\Symantec\Network Connected Devices Auto Setup'
+VulnerableExecutables:
+- Path: '%PROGRAMFILES%\Symantec\Network Connected Devices Auto Setup\rastlsc.exe'
+  Type: Sideloading
+  SHA256:
+  - f9ebf6aeb3f0fb0c29bd8f3d652476cd1fe8bd9a0c11cb15c43de33bbce0bf68
+  ExpectedSignatureInformation:
+  - Issuer: CN=VeriSign Class 3 Code Signing 2004 CA, OU=Terms of use at https://www.verisign.com/rpa (c)04, OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+    Subject: CN=Symantec Corporation, OU=Symantec Research Labs, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=Symantec Corporation, L=Santa Monica, S=California, C=US
+    Type: Authenticode
+Resources:
+- https://st.drweb.com/static/new-www/news/2020/october/Study_of_the_ShadowPad_APT_backdoor_and_its_relation_to_PlugX_en.pdf
+- https://vms.drweb.com/virus/?i=21995051
+- https://www.hexacorn.com/blog/2023/02/25/beyond-good-ol-run-key-part-141/
+Acknowledgements:
+- Name: Hexacorn
+  Twitter: '@Hexacorn'

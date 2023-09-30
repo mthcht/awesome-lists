@@ -1,0 +1,18 @@
+---
+Name: siteadv.dll
+Author: Christiaan Beek
+Created: 2023-01-16
+Vendor: McAfee
+ExpectedLocations:
+  - '%PROGRAMFILES%\SiteAdvisor\%VERSION%'
+VulnerableExecutables:
+  - Path: sideadv.exe
+    SHA256:
+      - d3a50abae9ab782b293d7e06c7cd518bbcec16df867f2bdcc106dec1e75dc80b
+    Type: Sideloading
+Resources:
+  - https://www.nortonlifelock.com/sites/default/files/2021-10/OPERATION%20EXORCIST%20White%20Paper.pdf
+  - https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/space-pirates-tools-and-connections/
+Acknowledgements:
+  - Name: Christiaan Beek
+    Twitter: '@ChristiaanBeek'

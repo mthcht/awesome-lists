@@ -1,0 +1,14 @@
+---
+Name: formdll.dll
+Author: Wietze Beukema
+Created: 2023-09-04
+Vendor: Microsoft
+ExpectedLocations:
+  - '%PROGRAMFILES%\Common Files\Microsoft Shared\NoteSync Forms'
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\Common Files\Microsoft Shared\NoteSync Forms\inkform.exe'
+    Type: Sideloading
+    SHA256:
+      - 0e545a54f3cfef84bb59be1a95453ae4b34b5464b0f5ca618a0da2e4c97c7526
+Resources:
+  - https://any.run/report/d9c7f6d4ec08d961c20dac1b6422b3fbec5c6a8d9dc67d1f604835b36c5f224e/ae068531-92db-497d-b0cb-c0b1af5476f1

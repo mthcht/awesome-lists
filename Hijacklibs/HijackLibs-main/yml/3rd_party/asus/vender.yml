@@ -1,0 +1,23 @@
+---
+Name: vender.dll
+Author: Wietze Beukema
+Created: 2023-04-04
+Vendor: Asus
+ExpectedLocations:
+  - '%PROGRAMFILES%\ASUS\GPU TweakII'
+  - '%PROGRAMFILES%\ASUS\VGA COM\%VERSION%'
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\ASUS\GPU TweakII\ASUSGPUFanService.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=TW, L=Taipei City, O=ASUSTEK COMPUTER INC., CN=ASUSTEK COMPUTER INC.
+        Issuer: C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA (SHA2)
+        Type: Authenticode
+    ExpectedVersionInformation:
+      - OriginalFilename: setfandu.exe
+        InternalName: setfandu.exe
+        FileDescription: fan control
+    SHA256:
+    - 00bfbbe6e9d0c54312de906be79cc1e9f18b2957856a1215eaff1ac7bb20e66f
+Resources:
+  - https://decoded.avast.io/threatintel/apt-treasure-trove-avast-suspects-chinese-apt-group-mustang-panda-is-collecting-data-from-burmese-government-agencies-and-opposition-groups/

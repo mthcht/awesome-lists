@@ -1,0 +1,17 @@
+---
+Name: tmdbglog.dll
+Author: Christiaan Beek
+Created: 2023-01-16
+Vendor: Trend Micro
+ExpectedLocations:
+  - '%PROGRAMFILES%\Trend Micro\Titanium'
+VulnerableExecutables:
+  - Path: PtWatchDog.exe
+    SHA256:
+      - 75f2e752983a9f46082e7b35820f23db577a5aff9ad946b05b0d3871a9df686b
+    Type: Sideloading
+Resources:
+  - https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/space-pirates-tools-and-connections/
+Acknowledgements:
+  - Name: Christiaan Beek
+    Twitter: '@ChristiaanBeek'

@@ -1,0 +1,116 @@
+---
+Name: netprofm.dll
+Author: Wietze Beukema
+Created: 2022-05-21
+Vendor: Microsoft
+ExpectedLocations:
+- '%SYSTEM32%'
+- '%SYSWOW64%'
+ExpectedSignatureInformation:
+- Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Type: Catalog
+VulnerableExecutables:
+- Path: '%SYSTEM32%\fxscover.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\rdpclip.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\wordpad.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+- Path: '%PROGRAMFILES%\Microsoft\Edge\Application\msedge.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+- Path: '%PROGRAMFILES%\Mozilla Firefox\firefox.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\excel.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\outlook.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\powerpnt.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\winword.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+- Path: '%PROGRAMFILES%\WindowsApps\MicrosoftTeams%VERSION%\msteams.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\clview.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\cnfnot32.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\excelcnv.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\graph.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\msaccess.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\msoia.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\msosrec.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\mspub.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\msqry32.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\namecontrolserver.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\onenote.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\protocolhandler.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\scanpst.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\sdxhelper.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+- Path: '%PROGRAMFILES%\Microsoft Office\root\Office%VERSION%\setlang.exe'
+  Type: Environment Variable
+  Variable: SYSTEMROOT
+  Condition: Tested against Microsoft Office 2021
+Resources:
+- https://wietze.github.io/blog/save-the-environment-variables
+Acknowledgements:
+- Name: Wietze
+  Twitter: '@wietze'

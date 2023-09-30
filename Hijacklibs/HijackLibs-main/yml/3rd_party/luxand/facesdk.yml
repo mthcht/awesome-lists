@@ -1,0 +1,22 @@
+---
+Name: facesdk.dll
+Author: Wietze Beukema
+Created: 2023-04-04
+Vendor: Luxand
+ExpectedLocations:
+  - '%PROGRAMFILES%\luxand\facesdk\bin\win64'
+ExpectedSignatureInformation:
+  - Subject: C=US, ST=Virginia, L=Alexandria, O='Luxand, Inc.', CN='Luxand, Inc.'
+    Issuer: C=GB, ST=Greater Manchester, L=Salford, O=COMODO CA Limited, CN=COMODO RSA Code Signing CA
+    Type: Authenticode
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\luxand\facesdk\bin\win64\FacialFeatureDemo.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=US, ST=Virginia, L=Alexandria, O='Luxand, Inc.', CN='Luxand, Inc.'
+        Issuer: C=GB, ST=Greater Manchester, L=Salford, O=COMODO CA Limited, CN=COMODO RSA Code Signing CA
+        Type: Authenticode
+    SHA256:
+    - 0d243cbcd1c3654ca318d2d6d08f4e9d293fc85a68d751a52c23b04314c67b99
+Resources:
+  - https://decoded.avast.io/threatintel/apt-treasure-trove-avast-suspects-chinese-apt-group-mustang-panda-is-collecting-data-from-burmese-government-agencies-and-opposition-groups/

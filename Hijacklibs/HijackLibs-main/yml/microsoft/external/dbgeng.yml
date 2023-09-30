@@ -1,0 +1,18 @@
+---
+Name: dbgeng.dll
+Author: Wietze Beukema
+Created: 2023-03-01
+Vendor: Microsoft
+ExpectedLocations:
+  - '%PROGRAMFILES%\Windows Kits\%VERSION%\Debuggers\x86'
+  - '%PROGRAMFILES%\Windows Kits\%VERSION%\Debuggers\x64'
+  - '%PROGRAMFILES%\Windows Kits\%VERSION%\Debuggers\arm'
+  - '%PROGRAMFILES%\Windows Kits\%VERSION%\Debuggers\arm64'
+VulnerableExecutables:
+  - Path: windbg.exe
+    Type: Sideloading
+Resources:
+  - https://twitter.com/mrexodia/status/1630320327967252483
+Acknowledgements:
+  - Name: Duncan Ogilvie
+    Twitter: "@mrexodia"

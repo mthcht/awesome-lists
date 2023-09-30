@@ -1,0 +1,24 @@
+---
+Name: winutils.dll
+Author: Wietze Beukema
+Created: 2023-04-04
+Vendor: Palo Alto
+ExpectedLocations:
+  - '%PROGRAMFILES%\Palo Alto Networks\Traps'
+ExpectedSignatureInformation:
+  - Subject: C=NL, ST=Noord-Holland, L=Amsterdam, O=Palo Alto Networks (Netherlands) B.V., OU=Palo Alto Networks, CN=Palo Alto Networks (Netherlands) B.V.
+    Issuer: C=US, O='DigiCert, Inc.', CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1
+    Type: Authenticode
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\Palo Alto Networks\Traps\cydump.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=NL, ST=Noord-Holland, L=Amsterdam, O=Palo Alto Networks (Netherlands) B.V., CN=Palo Alto Networks (Netherlands) B.V.
+        Issuer: C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA
+        Type: Authenticode
+    SHA256:
+      - 4874d336c5c7c2f558cfd5954655cacfc85bcfcb512a45fb0ff461ce9c38b86d
+    Condition: Cortex XDR Dump Service Tool (cydump.exe) version 7.3.0.16740 and before
+Resources:
+  - https://research.checkpoint.com/2023/rorschach-a-new-sophisticated-and-fast-ransomware/
+  - https://security.paloaltonetworks.com/PAN-SA-2023-0002

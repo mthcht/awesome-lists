@@ -1,0 +1,22 @@
+---
+Name: smadhook32c.dll
+Author: Wietze Beukema
+Created: 2023-04-04
+Vendor: Smadav
+ExpectedLocations:
+  - '%PROGRAMFILES%\Smadav'
+ExpectedSignatureInformation:
+  - Subject: C=ID, L=Palangkaraya, O=Zainuddin Nafarin, CN=Zainuddin Nafarin
+    Issuer: C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 Assured ID Code Signing CA
+    Type: Authenticode
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\Smadav\SmadHook.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=ID, L=Palangkaraya, O=Zainuddin Nafarin, CN=Zainuddin Nafarin
+        Issuer: C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 Assured ID Code Signing CA
+        Type: Authenticode
+    SHA256:
+    - 4f54a6555a7a3bec84e8193d2ff9ae75eb7f06110505e78337fa2f515790a562
+Resources:
+  - https://decoded.avast.io/threatintel/apt-treasure-trove-avast-suspects-chinese-apt-group-mustang-panda-is-collecting-data-from-burmese-government-agencies-and-opposition-groups/

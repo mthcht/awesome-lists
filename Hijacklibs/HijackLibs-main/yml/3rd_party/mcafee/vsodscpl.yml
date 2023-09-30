@@ -1,0 +1,18 @@
+---
+Name: vsodscpl.dll
+Author: Wietze Beukema
+Created: 2022-06-13
+Vendor: McAfee
+ExpectedLocations:
+  - '%PROGRAMFILES%\McAfee\VirusScan Enterprise'
+VulnerableExecutables:
+  - Path: "scncfg32.exe"
+    SHA256:
+      - 8374046690b8bb2468cfa636ebbe731ea79103825d2450057338214d3112909f
+    Type: Sideloading
+Resources:
+  - https://eiploader.wordpress.com/2011/03/28/digitally-signed-malware-without-stealing-certificates/
+Acknowledgements:
+  - Name: Sean Gallagher
+    Twitter: "@thepacketrat"
+

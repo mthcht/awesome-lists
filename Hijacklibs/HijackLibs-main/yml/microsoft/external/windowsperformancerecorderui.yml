@@ -1,0 +1,17 @@
+---
+Name: windowsperformancerecorderui.dll
+Author: Gary Lobermier
+Created: 2023-05-22
+Vendor: Microsoft
+ExpectedLocations:
+  - '%PROGRAMFILES%\Windows Kits\10\Windows Performance Toolkit'
+ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2010, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\Windows Kits\10\Windows Performance Toolkit\WPRUI.exe'
+    Type: Sideloading
+    AutoElevate: true
+Resources:
+  - https://globetech.biz/index.php/2023/05/19/evading-edr-by-dll-sideloading-in-csharp/

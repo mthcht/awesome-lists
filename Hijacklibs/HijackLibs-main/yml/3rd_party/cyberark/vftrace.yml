@@ -1,0 +1,20 @@
+---
+Name: vftrace.dll
+Author: Sorina Ionescu
+Created: 2022-10-17
+Vendor: CyberArk
+ExpectedLocations:
+  - '%PROGRAMFILES%\CyberArk\Endpoint Privilege Manager\Agent\x32'
+  - '%PROGRAMFILES%\CyberArk\Endpoint Privilege Manager\Agent\x64'
+  - '%PROGRAMFILES%\CyberArk\Endpoint Privilege Manager\Agent'
+VulnerableExecutables:
+  - Path: "vf_host.exe"
+    SHA256:
+      - df847abbfac55fb23715cde02ab52cbe59f14076f9e4bd15edbe28dcecb2a348
+    Type: Sideloading
+Resources:
+  - https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/budworm-espionage-us-state?web_view=true
+  - https://www.cisa.gov/uscert/ncas/analysis-reports/ar22-277b
+Acknowledgements:
+  - Name: Threat Hunting Team Symantec
+  - Name: CISA

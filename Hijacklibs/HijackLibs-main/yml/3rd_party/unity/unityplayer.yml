@@ -1,0 +1,18 @@
+---
+Name: unityplayer.dll
+Author: Wietze Beukema
+Created: 2023-05-03
+Vendor: Unity
+ExpectedLocations:
+  - '%LOCALAPPDATA%\Temp\%VERSION%\Windows'
+ExpectedSignatureInformation:
+  - Subject: C=DK, L=København, O=Unity Technologies ApS, OU=Developer Services, CN=Unity Technologies ApS
+    Issuer: C=US, O='DigiCert, Inc.', CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1
+    Type: Authenticode
+VulnerableExecutables:
+  - Path: KingdomTwoCrowns.exe
+    Type: Sideloading
+    SHA256:
+    - 03b1df2b08999262c772b67a7bd65e9e8f6058036b5e7a382f06d3aa672854d0
+Resources:
+  - https://news.sophos.com/en-us/2023/05/03/doubled-dll-sideloading-dragon-breath/

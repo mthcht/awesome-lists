@@ -1,0 +1,18 @@
+---
+Name: hpcustpartui.dll
+Author: Christiaan Beek
+Created: 2023-01-10
+Vendor: HP
+ExpectedLocations:
+  - '%PROGRAMFILES%\HP'
+VulnerableExecutables:
+  - Path: HPCustParticUI.exe
+    Type: Sideloading
+    SHA256:
+      - 8857232077b4b0f0e4a2c3bb5717fd65079209784f41694f8e1b469e34754cf6
+Resources:
+  - https://www.trellix.com/en-us/about/newsroom/stories/research/operation-harvest-a-deep-dive-into-a-long-term-campaign.html
+  - https://decoded.avast.io/threatintel/apt-treasure-trove-avast-suspects-chinese-apt-group-mustang-panda-is-collecting-data-from-burmese-government-agencies-and-opposition-groups/
+Acknowledgements:
+  - Name: Christiaan Beek
+    Twitter: '@ChristiaanBeek'

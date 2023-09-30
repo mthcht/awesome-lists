@@ -1,0 +1,76 @@
+---
+Name: iertutil.dll
+Author: Wietze Beukema
+Created: 2021-02-27
+Vendor: Microsoft
+ExpectedLocations:
+- '%SYSTEM32%'
+- '%SYSWOW64%'
+ExpectedSignatureInformation:
+- Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Type: Catalog
+VulnerableExecutables:
+- Path: '%SYSTEM32%\browserexport.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\cipher.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\iesettingsync.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\launchwinapp.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\microsoftedgebchost.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\microsoftedgecp.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\microsoftedgedevtools.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\microsoftedgesh.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\wwahost.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+Resources:
+- https://wietze.github.io/blog/hijacking-dlls-in-windows
+- https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- https://github.com/xforcered/WFH
+Acknowledgements:
+- Name: Wietze
+  Twitter: '@wietze'
+- Name: Chris Spehn
+  Twitter: '@ConsciousHacker'

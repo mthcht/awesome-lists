@@ -1,0 +1,105 @@
+---
+Name: secur32.dll
+Author: Wietze Beukema
+Created: 2021-02-27
+Vendor: Microsoft
+ExpectedLocations:
+- '%SYSTEM32%'
+- '%SYSWOW64%'
+ExpectedSignatureInformation:
+- Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Type: Catalog
+VulnerableExecutables:
+- Path: '%SYSTEM32%\appvclient.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\calc.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\certreq.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\certutil.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\computerdefaults.exe'
+  Type: Sideloading
+  AutoElevate: true
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\dfsrdiag.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\dsregcmd.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\dsrm.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\fodhelper.exe'
+  Type: Sideloading
+  AutoElevate: true
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\gpresult.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\klist.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\msdt.exe'
+  Type: Sideloading
+  ExpectedSignatureInformation:
+  - Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+    Type: Catalog
+- Path: '%SYSTEM32%\repadmin.exe'
+  Type: Sideloading
+- Path: '%SYSTEM32%\consent.exe'
+  Type: Sideloading
+  SHA256:
+  - 24fa7502ba1933278e34fe0af4105d7fd997bdf2ceee440a9ff776c3186c285f
+- Path: '%SYSTEM32%\compmgmtlauncher.exe'
+  Type: Search Order
+  Condition: OneDrive is required. Additionally this can be used for AutoElevate on some Windows 10 versions only.
+- Path: '%LOCALAPPDATA%\microsoft\onedrive\%VERSION%\microsoft.sharepoint.exe'
+  Type: Search Order
+Resources:
+- https://wietze.github.io/blog/hijacking-dlls-in-windows
+- https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- https://github.com/xforcered/WFH
+- https://www.secureworks.com/research/shadowpad-malware-analysis
+- https://www.hexacorn.com/blog/2023/02/25/beyond-good-ol-run-key-part-141/
+- https://twitter.com/hackerfantastic/status/1657549979840307203
+- https://github.com/hackerhouse-opensource/CompMgmtLauncher_DLL_UACBypass
+Acknowledgements:
+- Name: Wietze
+  Twitter: '@wietze'
+- Name: Chris Spehn
+  Twitter: '@ConsciousHacker'
+- Name: Matthew Hickey
+  Twitter: '@hackerfantastic'

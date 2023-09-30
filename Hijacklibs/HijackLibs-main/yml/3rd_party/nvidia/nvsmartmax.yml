@@ -1,0 +1,15 @@
+---
+Name: nvsmartmax.dll
+Author: Wietze Beukema
+Created: 2023-09-04
+Vendor: Nvidia
+ExpectedLocations:
+  - '%PROGRAMFILES%\NVIDIA Corporation\Display'
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\NVIDIA Corporation\Display\nvSmartEx.exe'
+    Type: Sideloading
+    SHA256:
+      - 523d28df917f9d265cd2c0d38df26277bc56a535145100ed82e6f5fdeaae7256
+Resources:
+  - https://www.cybereason.com/blog/research/deadringer-exposing-chinese-threat-actors-targeting-major-telcos
+  - https://www.mandiant.com/sites/default/files/2022-02/rt-apt41-dual-operation.pdf

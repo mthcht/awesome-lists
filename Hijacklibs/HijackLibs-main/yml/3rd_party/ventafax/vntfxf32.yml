@@ -1,0 +1,22 @@
+---
+Name: vntfxf32.dll
+Author: Wietze Beukema
+Created: 2023-04-04
+Vendor: VentaFax
+ExpectedLocations:
+  - '%PROGRAMFILES%\Venta\VentaFax & Voice'
+ExpectedSignatureInformation:
+  - Subject: C=RU, ST=St. Petersburg, L=St. Petersburg, O=Venta Association, OU=Digital ID Class 3 - Microsoft Software Validation v2, CN=Venta Association
+    Issuer: C=US, O='VeriSign, Inc.', OU=VeriSign Trust Network, OU=Terms of use at https://www.verisign.com/rpa (c)10, CN=VeriSign Class 3 Code Signing 2010 CA
+    Type: Authenticode
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\Venta\VentaFax & Voice\spoololk.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=RU, ST=St. Petersburg, L=St. Petersburg, O=Venta Association, CN=Venta Association
+        Issuer: C=GB, ST=Greater Manchester, L=Salford, O=COMODO CA Limited, CN=COMODO RSA Code Signing CA
+        Type: Authenticode
+    SHA256:
+    - 390d75e6c7fc1cf258145dc712c1fac1eb183efccee1b03c058cec1d790e46b1
+Resources:
+  - https://decoded.avast.io/threatintel/apt-treasure-trove-avast-suspects-chinese-apt-group-mustang-panda-is-collecting-data-from-burmese-government-agencies-and-opposition-groups/

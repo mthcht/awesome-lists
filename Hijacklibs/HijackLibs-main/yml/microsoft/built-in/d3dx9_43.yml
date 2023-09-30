@@ -1,0 +1,23 @@
+---
+Name: d3dx9_43.dll
+Author: Wietze Beukema
+Created: 2023-05-03
+Vendor: Microsoft
+ExpectedLocations:
+  - '%SYSTEM32%'
+  - '%SYSWOW64%'
+ExpectedSignatureInformation:
+- Subject: CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Issuer: CN=Microsoft Windows Production PCA 2011, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+  Type: Catalog
+VulnerableExecutables:
+  - Path: '%LOCALAPPDATA%\Temp\HPDIAGS\0699814c-9c5f-46ad-8c9d-a1c61a163f2b\d3dim9.exe'
+    Type: Sideloading
+    ExpectedSignatureInformation:
+      - Subject: C=US, ST=California, L=Palo Alto, O=HP Inc., OU=HP Cybersecurity, CN=HP Inc.
+        Issuer: C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 High Assurance Code Signing CA
+        Type: Authenticode
+    SHA256:
+    - a8a09d4e1ddbe4de188100b285a53b53b10677e4fbc93014e07211cdaf532e7b
+Resources:
+  - https://news.sophos.com/en-us/2023/05/03/doubled-dll-sideloading-dragon-breath/

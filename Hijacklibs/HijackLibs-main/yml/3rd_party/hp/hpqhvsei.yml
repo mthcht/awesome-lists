@@ -1,0 +1,23 @@
+---
+Name: hpqhvsei.dll
+Author: Wietze Beukema
+Created: 2023-02-26
+Vendor: HP
+ExpectedLocations:
+- '%PROGRAMFILES%\HP'
+VulnerableExecutables:
+- Path: hpqhvind.exe
+  Type: Sideloading
+  SHA256:
+  -  404c4ab8ea4d0c05ac78038a7addb045861706832ea3a51dec8c39cfc15017d3
+  ExpectedSignatureInformation:
+  - Subject: CN=Hewlett Packard, OU=Desktop Consumer Solutions, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=Hewlett Packard, L=San Diego, S=California, C=US
+    Issuer: CN=VeriSign Class 3 Code Signing 2010 CA, OU=Terms of use at https://www.verisign.com/rpa (c)10, OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+    Type: Authenticode
+Resources:
+- https://www.secureworks.com/research/shadowpad-malware-analysis
+- https://www.welivesecurity.com/2020/01/31/winnti-group-targeting-universities-hong-kong/
+- https://www.hexacorn.com/blog/2023/02/25/beyond-good-ol-run-key-part-141/
+Acknowledgements:
+- Name: Hexacorn
+  Twitter: '@Hexacorn'

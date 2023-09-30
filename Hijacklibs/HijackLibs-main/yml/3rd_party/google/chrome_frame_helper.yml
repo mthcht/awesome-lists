@@ -1,0 +1,18 @@
+---
+Name: chrome_frame_helper.dll
+Author: Wietze Beukema
+Created: 2021-12-08
+Vendor: Google
+ExpectedLocations:
+  - '%LOCALAPPDATA%\Google\Chrome\Application'
+  - '%PROGRAMFILES%\Google\Chrome\Application'
+VulnerableExecutables:
+  - Path: "chrome_frame_helper.exe"
+    SHA256:
+      - f95d0ab23f95e169cd2c613a4b8dde731ca6031c5ae11ebf0bdc034db3cc30cd
+    Type: Sideloading
+Resources:
+  - https://www.hexacorn.com/blog/2016/03/10/beyond-good-ol-run-key-part-36/
+Acknowledgements:
+  - Name: Adam
+    Twitter: "@hexacorn"

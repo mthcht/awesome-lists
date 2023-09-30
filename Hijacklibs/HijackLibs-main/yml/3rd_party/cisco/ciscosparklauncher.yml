@@ -1,0 +1,16 @@
+---
+Name: ciscosparklauncher.dll
+Author: Sorina Ionescu
+Created: 2022-10-10
+Vendor: Cisco
+ExpectedLocations:
+  - '%LOCALAPPDATA%\CiscoSparkLauncher'
+VulnerableExecutables:
+  - Path: 'CiscoCollabHost.exe'
+    SHA256:
+      - 15bb2d1e81a75a92d0012dcbf47686fa2ab10f2174cda36d7c4b03bfb72313b7
+      - 7b301cea1feff0add8de512a93ed7bc1b8330caf0c3a6f1585f9887b88db8efb
+    Type: Sideloading
+Resources:
+  - https://news.sophos.com/en-us/2022/11/03/family-tree-dll-sideloading-cases-may-be-related/
+  - https://www.joesandbox.com/analysis/279535/0/html

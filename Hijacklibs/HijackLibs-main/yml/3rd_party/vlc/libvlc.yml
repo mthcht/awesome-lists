@@ -1,0 +1,15 @@
+---
+Name: libvlc.dll
+Author: Wietze Beukema
+Created: 2022-11-18
+Vendor: VLC
+ExpectedLocations:
+  - '%PROGRAMFILES%\VideoLAN\VLC'
+VulnerableExecutables:
+  - Path: '%PROGRAMFILES%\VideoLAN\VLC\vlc.exe'
+    Type: Sideloading
+    SHA256:
+      - 6f924de3f160984740fbac66cf9546125330fc00f4f5d2dbf05601d9d930b7d9
+Resources:
+  - https://news.sophos.com/en-us/2022/11/03/family-tree-dll-sideloading-cases-may-be-related/
+  - https://www.microsoft.com/en-us/security/blog/2018/11/08/attack-uses-malicious-inpage-document-and-outdated-vlc-media-player-to-give-attackers-backdoor-access-to-targets/
