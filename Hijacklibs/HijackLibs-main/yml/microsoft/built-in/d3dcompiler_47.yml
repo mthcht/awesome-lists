@@ -11,6 +11,7 @@ ExpectedLocations:
 - '%PROGRAMFILES%\wireshark'
 - '%PROGRAMFILES%\cisco systems\cisco jabber'
 - '%PROGRAMFILES%\microsoft\edge\application\%VERSION%'
+- '%PROGRAMFILES%\Google\Chrome\Application\%VERSION%'
 - '%SYSTEM32%'
 - '%SYSWOW64%'
 ExpectedSignatureInformation:
