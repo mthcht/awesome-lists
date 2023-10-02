@@ -1,31 +1,32 @@
-service_name,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity
-*mimidrv*,mimidrv,Credential Access,offensive tool,critical
-*mimikatz*,mimidrv,Credential Access,offensive tool,critical
-AnyDesk Service,anydesk,RMM,greyware tool,medium
-AnyDeskMSI,anydesk,RMM,greyware tool,medium
-AteraAgent,ateragent,RMM,greyware tool,high
-BTOBTO,smbExec,Lateral Movement,offensive tool,critical
-CreatSvcRpc_*,CreateSvcRpc,Privile Escalation,offensive tool,critical
-DWAgent Service,DWService,RMM,greyware tool,high
-GoodSync Server,goodync,Data Exfiltration,greyware tool,high
-KrbSCM,S4UTomato,Privilege Escalation,offensive tool,critical
-MagnetRAMCapture Driver,MAGNET RAM Capture,Credential Access,greyware tool,critical
-Mesh Agent,MeshAgent,RMM,greyware tool,high
-Meterpreter,metasploit,C2,offensive tool,critical
-PAExec-*,paexec,Lateral Movement,offensive tool,critical
-PPLBlade,pplblade,Defense Evasion,offensive tool,critical
-PSEXESVC,psexec,Lateral Movement,greyware tool,high
-Radmin Server*,Radmin,RMM,greyware tool,high
-RemCom Service,RemCom.exe,Lateral movement,offensive tool,critical
-RustDesk Service,RustDesk,RMM,greyware tool,high
-ScreenConnect Client*,screenconnect,RMM,greyware tool,high
-Splashtop Software Updater Servicen,splashtop,RMM,greyware tool,high
-SplashtopRemoteService,splashtop,RMM,greyware tool,high
-Splashtop® Remote Service,splashtop,RMM,greyware tool,high
-TacticalRMM Agent Service,tacticalrmm,RMM,greyware tool,high
-TeamViewer,TeamViewer,RMM,greyware tool,medium
-WCESERVICE,wce,Lateral Movement,greyware tool,high
-WinRing0_*,xmrig,Cryptomining,greyware tool,critical
-dcrypt,DiskCryptor,Impact,offensive tool,critical
-pwdump*,PWDumpX,Credential Access,offensive tool,critical
-sliver*,sliverC2,C2,offensive tool,critical
+service_name,service_file_name,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity
+*mimidrv*,,mimidrv,Credential Access,offensive tool,critical
+*mimikatz*,,mimidrv,Credential Access,offensive tool,critical
+AnyDesk Service,,anydesk,RMM,greyware tool,medium
+AnyDeskMSI,,anydesk,RMM,greyware tool,medium
+AteraAgent,,ateragent,RMM,greyware tool,high
+BTOBTO,,smbExec,Lateral Movement,offensive tool,critical
+CreatSvcRpc_*,,CreateSvcRpc,Privile Escalation,offensive tool,critical
+DWAgent Service,,DWService,RMM,greyware tool,high
+GoodSync Server,,goodync,Data Exfiltration,greyware tool,high
+KrbSCM,,S4UTomato,Privilege Escalation,offensive tool,critical
+MagnetRAMCapture Driver,,MAGNET RAM Capture,Credential Access,greyware tool,critical
+Mesh Agent,,MeshAgent,RMM,greyware tool,high
+Meterpreter,,metasploit,C2,offensive tool,critical
+PAExec-*,,paexec,Lateral Movement,offensive tool,critical
+PPLBlade,,pplblade,Defense Evasion,offensive tool,critical
+PSEXESVC,,psexec,Lateral Movement,greyware tool,high
+Radmin Server*,,Radmin,RMM,greyware tool,high
+RemCom Service,,RemCom.exe,Lateral movement,offensive tool,critical
+RustDesk Service,,RustDesk,RMM,greyware tool,high
+ScreenConnect Client*,,screenconnect,RMM,greyware tool,high
+Splashtop Software Updater Servicen,,splashtop,RMM,greyware tool,high
+SplashtopRemoteService,,splashtop,RMM,greyware tool,high
+Splashtop® Remote Service,,splashtop,RMM,greyware tool,high
+TacticalRMM Agent Service,,tacticalrmm,RMM,greyware tool,high
+TeamViewer,,TeamViewer,RMM,greyware tool,medium
+WCESERVICE,,wce,Lateral Movement,greyware tool,high
+WinRing0_*,,xmrig,Cryptomining,greyware tool,critical
+dcrypt,,DiskCryptor,Impact,offensive tool,critical
+pwdump*,,PWDumpX,Credential Access,offensive tool,critical
+sliver*,,sliverC2,C2,offensive tool,critical
+*,\\127.0.0.1\ADMIN$\*,cobaltstrike,C2,offensive tool,critical
