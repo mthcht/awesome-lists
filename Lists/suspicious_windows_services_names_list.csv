@@ -1,5 +1,6 @@
 service_name,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity
-AnyDesk Service,anydesk,RMM,greyware tool,high
+AnyDesk Service,anydesk,RMM,greyware tool,medium
+TeamViewer,TeamViewer,RMM,greyware tool,medium
 AteraAgent,ateragent,RMM,greyware tool,high
 SplashtopRemoteService,splashtop,RMM,greyware tool,high
 Splashtop Software Updater Servicen,splashtop,RMM,greyware tool,high
@@ -9,4 +10,10 @@ WinRing0_*,xmrig,Cryptomining,greyware tool,critical
 GoodSync Server,goodync,Data Exfiltration,greyware tool,high
 BTOBTO,smbExec,Lateral Movement,offensive tool,critical
 ScreenConnect Client*,screenconnect,RMM,greyware tool,high
-AnyDeskMSI,anydesk,RMM,greyware tool,high
+AnyDeskMSI,anydesk,RMM,greyware tool,medium
+RemCom Service,RemCom.exe,Lateral movement,offensive tool,critical
+sliver*,sliverC2,C2,offensive tool,critical
+pwdump*,PWDumpX,Credential Access,offensive tool,critical
+WCESERVICE,wce,Lateral Movement,greyware tool,high
+TacticalRMM Agent Service,tacticalrmm,RMM,greyware tool,high
+Mesh Agent,MeshAgent,RMM,greyware tool,high
