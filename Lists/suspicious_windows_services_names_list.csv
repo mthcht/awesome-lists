@@ -25,6 +25,7 @@ MagnetRAMCapture Driver,,MAGNET RAM Capture,Credential Access,greyware_tool,crit
 Mesh Agent,,MeshAgent,RMM,greyware_tool,high
 Meterpreter,,metasploit,C2,offensive_tool,critical
 NovaPdf11Server,,GoToMyPC bundled program,RMM,greyware_tool,info
+Npcap Packet Driver (NPCAP),,NpCap Windows Packet Capture Library & Driver,Collection,greyware_tool,low
 PAExec-*,,paexec,Lateral Movement,offensive_tool,critical
 PC Monitor,,Pulseway,RMM,greyware_tool,high
 PPLBlade,,pplblade,Defense Evasion,offensive_tool,critical
@@ -56,4 +57,3 @@ monblanking,,GoToMyPC bundled program,RMM,greyware_tool,info
 novaPDF 11 Server,,GoToMyPC bundled program,RMM,greyware_tool,info
 pwdump*,,PWDumpX,Credential Access,offensive_tool,critical
 sliver*,,sliverC2,C2,offensive_tool,critical
-Npcap Packet Driver (NPCAP),,NpCap Windows Packet Capture Library & Driver,Collection,greyware_tool,low
