@@ -1,1 +1,1 @@
-scripts to generate updated IOC lists from open sources
+scripts to generate updated IOC lists from open sources repos
