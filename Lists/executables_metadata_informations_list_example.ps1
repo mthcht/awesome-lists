@@ -17,10 +17,10 @@ Get-ChildItem -Path "C:\Windows\System32" -Filter "*.exe" | ForEach-Object {
 
     # Create a custom object from the hash table and add it to the results array
     $results += [PSCustomObject]@{
-        "Executable Name" = $_.Name
-        "Original Name"    = $hash["Original Name"]
+        "process_name" = $_.Name
+        "original_file_name"    = $hash["Original Name"]
         "ProductName"      = $hash["Product"]
-        "Internal Name"    = $hash["Internal Name"]
+        "InternalName"    = $hash["Internal Name"]
         "Company"          = $hash["Company"]
         "Description"      = $hash["Description"]
         "Publisher"        = $hash["Publisher"]
