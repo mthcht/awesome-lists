@@ -1,7 +1,7 @@
 $results = @()
 
 # Get sigcheck64.exe in the current directory
-Get-ChildItem -Path "C:\Windows\System32" -Filter "*.exe" | ForEach-Object {
+Get-ChildItem -Path "C:\Windows" -Filter "*.exe" | ForEach-Object {
     $output = & ".\sigcheck64.exe" -a $_.FullName | Out-String
     $output = $output -split "`r`n"
 
@@ -24,9 +24,10 @@ Get-ChildItem -Path "C:\Windows\System32" -Filter "*.exe" | ForEach-Object {
         "Company"          = $hash["Company"]
         "Description"      = $hash["Description"]
         "Publisher"        = $hash["Publisher"]
+        "potential_process_path"        = $_.FullName 
 
     }
 }
 
 # Export the results array to a CSV file
-$results | Export-Csv -Path ".\executables_metadata_information_system32.csv" -NoTypeInformation -Encoding UTF8
+$results | Export-Csv -Path ".\executables_metadata_information_cwindows.csv" -NoTypeInformation -Encoding UTF8
