@@ -21,12 +21,12 @@ Get-ChildItem -Path "C:\Windows\System32" -Filter "*.exe" | ForEach-Object {
         "Original Name"    = $hash["Original Name"]
         "ProductName"      = $hash["Product"]
         "Internal Name"    = $hash["Internal Name"]
-        "Company"          = $hash["Description"]
-        "Description"      = $hash["Company"]
+        "Company"          = $hash["Company"]
+        "Description"      = $hash["Description"]
         "Publisher"        = $hash["Publisher"]
 
     }
 }
 
 # Export the results array to a CSV file
-$results | Export-Csv -Path ".\executables_metadata_informations_list.csv" -NoTypeInformation -Encoding UTF8
+$results | Export-Csv -Path ".\executables_metadata_information_system32.csv" -NoTypeInformation -Encoding UTF8
