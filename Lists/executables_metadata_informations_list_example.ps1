@@ -1,7 +1,7 @@
 $results = @()
 
 # Get sigcheck64.exe in the current directory
-Get-ChildItem -Path "C:\Windows" -Filter "*.exe" | ForEach-Object {
+Get-ChildItem -Path "C:\Windows" -Recurse -Filter "*.exe" | ForEach-Object {
     $output = & ".\sigcheck64.exe" -a $_.FullName | Out-String
     $output = $output -split "`r`n"
 
