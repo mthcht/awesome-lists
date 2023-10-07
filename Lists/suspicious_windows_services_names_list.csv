@@ -11,25 +11,25 @@ AteraAgent,,ateragent,RMM,greyware_tool,high
 BTOBTO,,smbExec,Lateral Movement,offensive_tool,critical
 CreatSvcRpc_*,,CreateSvcRpc,Privile Escalation,offensive_tool,critical
 DWAgent Service,,DWService,RMM,greyware_tool,high
-GoToMyPC,,GoToMyPC,RMM,greyware_tool,high
+GoToMyPC,*g2svc.exe*,GoToMyPC,RMM,greyware_tool,high
 GoodSync Server,,goodync,Data Exfiltration,greyware_tool,high
 KrbSCM,,S4UTomato,Privilege Escalation,offensive_tool,critical
-LMIGuardianSvc,,LogMeIn,RMM,greyware_tool,high
+LMIGuardianSvc,*LMIGuardianSvc.exe*,LogMeIn,RMM,greyware_tool,high
 LMIMaint,,LogMeIn,RMM,greyware_tool,high
-LogMeIn Engine Maintenance Service,,LogMeIn,RMM,greyware_tool,high
-LogMeIn Kernel Information Provider,,LogMeIn,RMM,greyware_tool,high
-LogMeIn Maintenance Service,,LogMeIn,RMM,greyware_tool,high
-LogMeIn Remote File System Driver,,LogMeIn,RMM,greyware_tool,high
-LogMeIn,,LogMeIn,RMM,greyware_tool,high
+LogMeIn Engine Maintenance Service,*ramaint.exe*,LogMeIn,RMM,greyware_tool,high
+LogMeIn Kernel Information Provider,*LMIInfo.sys*,LogMeIn,RMM,greyware_tool,high
+LogMeIn Maintenance Service,*RaMaint.exe*,LogMeIn,RMM,greyware_tool,high
+LogMeIn Remote File System Driver,*LMIRfsDriver.sys*,LogMeIn,RMM,greyware_tool,high
+LogMeIn,*LogMeIn.exe*,LogMeIn,RMM,greyware_tool,high
 MagnetRAMCapture Driver,,MAGNET RAM Capture,Credential Access,greyware_tool,critical
 Mesh Agent,,MeshAgent,RMM,greyware_tool,high
 Meterpreter,,metasploit,C2,offensive_tool,critical
 NovaPdf11Server,,GoToMyPC bundled program,RMM,greyware_tool,info
 Npcap Packet Driver (NPCAP),,NpCap Windows Packet Capture Library & Driver,Collection,greyware_tool,low
 PAExec-*,,paexec,Lateral Movement,offensive_tool,critical
-PC Monitor,,Pulseway,RMM,greyware_tool,high
+PC Monitor,*PCMonitorSrv.exe*,Pulseway,RMM,greyware_tool,high
 PPLBlade,,pplblade,Defense Evasion,offensive_tool,critical
-PSEXESVC,,psexec,Lateral Movement,greyware_tool,high
+PSEXESVC,*PSEXESVC.exe*,psexec,Lateral Movement,greyware_tool,high
 Pulseway,,Pulseway,RMM,greyware_tool,high
 Radmin Server*,,Radmin,RMM,greyware_tool,high
 RemCom Service,,RemCom.exe,Lateral movement,offensive_tool,critical
@@ -54,6 +54,6 @@ Webroot Core Driver,,Webroot SecureAnywhere,RMM,greyware_tool,high
 WinRing0_*,,xmrig,Cryptomining,greyware_tool,critical
 dcrypt,,DiskCryptor,Impact,offensive_tool,critical
 monblanking,,GoToMyPC bundled program,RMM,greyware_tool,info
-novaPDF 11 Server,,GoToMyPC bundled program,RMM,greyware_tool,info
+novaPDF 11 Server,*novapdfs.exe*,GoToMyPC bundled program,RMM,greyware_tool,info
 pwdump*,,PWDumpX,Credential Access,offensive_tool,critical
 sliver*,,sliverC2,C2,offensive_tool,critical
