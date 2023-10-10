@@ -1307,3 +1307,5 @@ WinHTTP Example/1.0,Cuba Ransomware aka Tropical Scorpius aka UNC2596,Malware,ht
 WinHTTP*,library used by bots to perform HTTP requests,Collection,https://user-agents.net/string/winhttp,low,high,info,Hunting,network flow direction internal --> external
 WinHttpRequest,wscript.exe & cscript.exe,LOLBIN,https://github.com/Ekitji/Files/blob/main/user-agents.csv,high,low,medium,Hunting,network flow direction internal --> external
 Wireshark/*,Wireshark client (network captures),Collection,N/A,medium,none,medium,Hunting,network flow direction internal --> internal/external
+Python/*,successful authentication to Cloud services with a python user agent,Exploitation,https://x.com/Purp1eW0lf/status/1700167831839555842,high,high,high,Hunting,network flow direction external --> internal with succesful authentications
+aiohttp/*,successful authentication to Cloud services with a python user agent,Exploitation,https://x.com/Purp1eW0lf/status/1700167831839555842,high,high,high,Hunting,network flow direction external --> internal with succesful authentications
