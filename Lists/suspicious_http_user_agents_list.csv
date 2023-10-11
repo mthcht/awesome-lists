@@ -1288,7 +1288,7 @@ Docker-Desktop/*,Docker Desktop,Compliance,N/A,info,none,info,Hunting,network fl
 GitHubCopilotChat/*,Github Copilot Chat,Compliance,N/A,info,none,info,Hunting,network flow direction internal --> external
 GNU Wget*,default user agent wget,Collection,N/A,medium,high,low,Hunting,network flow direction internal --> external
 HttpDownload,Suricata trojan user-agent rules,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,low,high,low,Hunting,network flow direction internal --> external
-microsoft bits/*,default user-agent for bits download,Collection,N/A,high,very high,low,Hunting,network flow direction internal --> external
+Microsoft BITS/*,default user-agent for bits download,Collection,N/A,high,very high,low,Hunting,network flow direction internal --> external
 Microsoft-CryptoAPI/*,certutil downloads,LOLBIN,N/A,high,very high,info,Hunting,network flow direction internal --> external
 Microsoft-WebDAV-MiniRedir/*,Windows WebDAV User Agent,Collection,https://blog.didierstevens.com/2017/11/13/webdav-traffic-to-malicious-sites/,high,medium,medium,Hunting,network flow direction internal --> external
 Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko,Empire default User agents,Exploitation,https://gist.githubusercontent.com/GossiTheDog/77527a34cdecb0ad840910c0beb8ba41/raw/544f409fcd25c87bddef432ba3e33378c14a0548/Native-Windows-Useragents-malicious.txt,high,medium,low,Hunting,network flow direction internal --> external
