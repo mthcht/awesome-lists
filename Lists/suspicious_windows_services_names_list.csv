@@ -59,3 +59,5 @@ novaPDF 11 Server,*novapdfs.exe*,GoToMyPC bundled program,RMM,greyware_tool,info
 pwdump*,,PWDumpX,Credential Access,offensive_tool,critical
 sliver*,,sliverC2,C2,offensive_tool,critical
 metsvc,metsvc-server.exe,Metasploit server,Exploitation,offensive_tool,critical
+windows_monitoring,,social-engineer-toolkit persistence payload,Persistence,offensive_tool,high
+TestService,,SharpyStay default,Persistence,offensive_tool,high
