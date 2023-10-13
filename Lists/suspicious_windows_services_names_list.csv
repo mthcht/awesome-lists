@@ -60,4 +60,7 @@ pwdump*,,PWDumpX,Credential Access,offensive_tool,critical
 sliver*,,sliverC2,C2,offensive_tool,critical
 metsvc,metsvc-server.exe,Metasploit server,Exploitation,offensive_tool,critical
 windows_monitoring,,social-engineer-toolkit persistence payload,Persistence,offensive_tool,high
-TestService,,SharpyStay default,Persistence,offensive_tool,high
+TestService,,SharpyStay default,Persistence,offensive_tool,critical
+sesshijack,,atomic-red-team test T1563.002,Persistence,offensive_tool,high
+PowerUpService,,PowerSploit Privesc.tests.ps1,Privilege Escalation,critical
+NoRebootSvc,NoReboot.exe,PSBits NoReboot.c,,high
