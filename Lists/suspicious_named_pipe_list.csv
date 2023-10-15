@@ -1,4 +1,4 @@
-﻿pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
 *IpHlpSvc.log*,kernel exploit Chimichurri.cpp,Privilege Escalation,https://github.com/helloexp/0day/blob/29bd78f73941b39e36d38cd1653433dcf2ce588e/97-Windows%E6%8F%90%E6%9D%83/MS09-012/Chimichurri/Chimichurri.cpp#L98,critical,N/A,critical,detection rule,N/A
 *mimikatz*,kekeo stealing credentials,Credential Access,https://github.com/gentilkiwi/kekeo/blob/d3ee2ae2fdeb5581fe2be1d53838f66729c3de16/kekeo/modules/kuhl_m_tsssp.c#L29,critical,N/A,critical,detection rule,N/A
 *Potato*,Privilege escalation tools suspicious name,Privilege Escalation,N/A,high,N/A,critical,Hunting,N/A
@@ -127,6 +127,10 @@
 \tokenvator,A tool to elevate privilege with Windows Tokens,Privilege Escalation,https://github.com/0xbadjuju/Tokenvator/blob/f38c8be2b439adc87d40780a8705dbb7e1c5804d/Tokenvator/MainLoop.cs#L35,critical,N/A,critical,detection rule,N/A
 \toteslegit,InlineExecute-Assembly,Exploitation,https://github.com/anthemtotheego/InlineExecute-Assembly/blob/402637229d1c9abab221119601143732eb867e26/inlineExecuteAssembly/inlineExecute-Assembly.cna#L18,critical,N/A,critical,detection rule,N/A
 \typeperf_output_*,EternalHushFramework,C2,https://github.com/APT64/EternalHushFramework/blob/b2a70f0d958618d13da0157161d55b1b5194c9a8/prebuilt/CoreLibs/Lib/test/libregrtest/win_utils.py#L45,critical,medium,medium,Hunting,N/A
+\VBoxGuest,VirtualBox usage,Defense Evasion,N/A,info,N/A,info,Hunting,N/A
+\VBoxMiniRdDN,VirtualBox usage,Defense Evasion,N/A,info,N/A,info,Hunting,N/A
+\VBoxMiniRdrDN,VirtualBox usage,Defense Evasion,N/A,info,N/A,info,Hunting,N/A
+\VBoxTrayIPC,VirtualBox usage,Defense Evasion,N/A,info,N/A,info,Hunting,N/A
 \warpzone8,elevationstation elevate to SYSTEM - Metasploit and PSEXEC getsystem alternative,Privilege Escalation,https://github.com/g3tsyst3m/elevationstation/blob/fe3a2c64eaaf2d8e2148f18235054c0e1bf90357/elevationstation/elevationstation.cpp#L55,critical,N/A,critical,detection rule,N/A
 \win\msrpc_*,cobaltstrike pipe names,C2,https://github.com/SigmaHQ/sigma/blob/7364ce00b1444802caaebefdccb6d8f6a92f1112/rules/windows/pipe_created/pipe_created_hktl_cobaltstrike_susp_pipe_patterns.yml#L48,critical,N/A,critical,detection rule,N/A
 \win_svc*,cobaltstrike pipe names,C2,https://github.com/SigmaHQ/sigma/blob/7364ce00b1444802caaebefdccb6d8f6a92f1112/rules/windows/pipe_created/pipe_created_hktl_cobaltstrike_susp_pipe_patterns.yml#L48,critical,N/A,critical,detection rule,N/A
