@@ -14,7 +14,9 @@
 
 ### TI
   - [Virustotal](https://www.virustotal.com/#/home/search)
+  - [SpamHaus](https://check.spamhaus.org/)
   - [AbuseIPDB](https://www.abuseipdb.com/)
+  - [Malwarebazaar](https://bazaar.abuse.ch/)
   - [emailrep](https://emailrep.io/)
   - [shodan](https://www.shodan.io/)
   - [Onyphe](https://www.onyphe.io/)
@@ -53,6 +55,9 @@
 ### Sandbox
 - [Sandbox HA](https://www.hybrid-analysis.com/)
 - [Sandbox Anyrun](https://any.run/)
+- [triage](https://tria.ge/reports/public)
+- [capesandbox](https://www.capesandbox.com/)
+- [joesandbox](https://www.joesandbox.com/analysispaged/0)
 
 ## Data manipulation
 - [jsoncrack](https://jsoncrack.com/editor)
