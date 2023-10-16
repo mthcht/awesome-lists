@@ -1,13 +1,12 @@
 # Security lists for SOC detections 
 
-## ThreatHunting:
+## ThreatHunting/Detection rules:
 - [ThreatHunting keywords](https://mthcht.github.io/ThreatHunting-Keywords/)
 - [ThreatHunting searches](https://github.com/mthcht/Purpleteam/tree/main/Detection/Threat%20Hunting/generic)
-
-## SOC Lists:
+- [Hijacklibs](https://github.com/mthcht/awesome-lists/tree/main/Hijacklibs)
 - [Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists)
 
-## SIEM/SOC related
+## SIEM/SOC related:
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 
