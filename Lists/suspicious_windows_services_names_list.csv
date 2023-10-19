@@ -1,66 +1,67 @@
-service_name,service_file_name,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity
-*mimidrv*,,mimidrv,Credential Access,offensive_tool,critical
-*mimikatz*,,mimidrv,Credential Access,offensive_tool,critical
-,*%COMSPEC%*,cobaltsrike & meterpreter beacon,C2,offensive_tool,critical
-,*cmd.exe*,cobaltsrike & meterpreter beacon,C2,offensive_tool,critical
-,*echo*\pipe\*,cobaltsrike & meterpreter beacon,C2,offensive_tool,critical
-,\\127.0.0.1\ADMIN$\*,cobaltstrike beacon,C2,offensive_tool,critical
-AnyDesk Service,,anydesk,RMM,greyware_tool,medium
-AnyDeskMSI,,anydesk,RMM,greyware_tool,medium
-AteraAgent,,ateragent,RMM,greyware_tool,high
-BTOBTO,,smbExec,Lateral Movement,offensive_tool,critical
-CreatSvcRpc_*,,CreateSvcRpc,Privile Escalation,offensive_tool,critical
-DWAgent Service,,DWService,RMM,greyware_tool,high
-GoToMyPC,*g2svc.exe*,GoToMyPC,RMM,greyware_tool,high
-GoodSync Server,,goodync,Data Exfiltration,greyware_tool,high
-KrbSCM,,S4UTomato,Privilege Escalation,offensive_tool,critical
-LMIGuardianSvc,*LMIGuardianSvc.exe*,LogMeIn,RMM,greyware_tool,high
-LMIMaint,,LogMeIn,RMM,greyware_tool,high
-LogMeIn Engine Maintenance Service,*ramaint.exe*,LogMeIn,RMM,greyware_tool,high
-LogMeIn Kernel Information Provider,*LMIInfo.sys*,LogMeIn,RMM,greyware_tool,high
-LogMeIn Maintenance Service,*RaMaint.exe*,LogMeIn,RMM,greyware_tool,high
-LogMeIn Remote File System Driver,*LMIRfsDriver.sys*,LogMeIn,RMM,greyware_tool,high
-LogMeIn,*LogMeIn.exe*,LogMeIn,RMM,greyware_tool,high
-MagnetRAMCapture Driver,,MAGNET RAM Capture,Credential Access,greyware_tool,critical
-Mesh Agent,,MeshAgent,RMM,greyware_tool,high
-Meterpreter,,metasploit,C2,offensive_tool,critical
-NovaPdf11Server,,GoToMyPC bundled program,RMM,greyware_tool,info
-Npcap Packet Driver (NPCAP),,NpCap Windows Packet Capture Library & Driver,Collection,greyware_tool,low
-PAExec-*,,paexec,Lateral Movement,offensive_tool,critical
-PC Monitor,*PCMonitorSrv.exe*,Pulseway,RMM,greyware_tool,high
-PPLBlade,,pplblade,Defense Evasion,offensive_tool,critical
-PSEXESVC,*PSEXESVC.exe*,psexec,Lateral Movement,greyware_tool,high
-Pulseway,,Pulseway,RMM,greyware_tool,high
-Radmin Server*,,Radmin,RMM,greyware_tool,high
-RemCom Service,,RemCom.exe,Lateral movement,offensive_tool,critical
-RustDesk Service,,RustDesk,RMM,greyware_tool,high
-ScreenConnect Client*,,ConnectWise,RMM,greyware_tool,high
-ScreenConnect Session Manager,ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,high
-Splashtop Software Updater Service,,splashtop,RMM,greyware_tool,high
-SplashtopRemoteService,,splashtop,RMM,greyware_tool,high
-Splashtop® Remote Service,,splashtop,RMM,greyware_tool,high
-Supremo,,SupRemo,RMM,greyware_tool,high
-TacticalRMM Agent Service,,tacticalrmm,RMM,greyware_tool,high
-TeamViewer,,TeamViewer,RMM,greyware_tool,medium
-TightVNC Server,,TightVNCServer,RMM,greyware_tool,high
-WCESERVICE,,wce,Lateral Movement,greyware_tool,high
-WRBoot,,Webroot SecureAnywhere,RMM,greyware_tool,high
-WRCore,,Webroot SecureAnywhere,RMM,greyware_tool,high
-WRCoreService,,Webroot SecureAnywhere,RMM,greyware_tool,high
-WRSMSVC,,Webroot SecureAnywhere,RMM,greyware_tool,high
-WRSVC,,Webroot SecureAnywhere,RMM,greyware_tool,high
-WRSkyClient,,Webroot SecureAnywhere,RMM,greyware_tool,high
-WRkrn,,Webroot SecureAnywhere,RMM,greyware_tool,high
-Webroot Core Driver,,Webroot SecureAnywhere,RMM,greyware_tool,high
-WinRing0_*,,xmrig,Cryptomining,greyware_tool,critical
-dcrypt,,DiskCryptor,Impact,offensive_tool,critical
-monblanking,,GoToMyPC bundled program,RMM,greyware_tool,info
-novaPDF 11 Server,*novapdfs.exe*,GoToMyPC bundled program,RMM,greyware_tool,info
-pwdump*,,PWDumpX,Credential Access,offensive_tool,critical
-sliver*,,sliverC2,C2,offensive_tool,critical
-metsvc,metsvc-server.exe,Metasploit server,Exploitation,offensive_tool,critical
-windows_monitoring,,social-engineer-toolkit persistence payload,Persistence,offensive_tool,high
-TestService,,SharpyStay default,Persistence,offensive_tool,critical
-sesshijack,,atomic-red-team test T1563.002,Persistence,offensive_tool,high
-PowerUpService,,PowerSploit Privesc.tests.ps1,Privilege Escalation,offensive_tool,critical
-NoRebootSvc,NoReboot.exe,PSBits NoReboot.c,,offensive_tool,high
+service_name,service_file_name,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+*mimidrv*,,mimidrv,Credential Access,offensive_tool,critical,
+*mimikatz*,,mimidrv,Credential Access,offensive_tool,critical,
+,*%COMSPEC%*,cobaltsrike & meterpreter beacon,C2,offensive_tool,critical,
+,*cmd.exe*,cobaltsrike & meterpreter beacon,C2,offensive_tool,critical,
+,*echo*\pipe\*,cobaltsrike & meterpreter beacon,C2,offensive_tool,critical,
+,\\127.0.0.1\ADMIN$\*,cobaltstrike beacon,C2,offensive_tool,critical,
+AnyDesk Service,,anydesk,RMM,greyware_tool,medium,
+AnyDeskMSI,,anydesk,RMM,greyware_tool,medium,
+AteraAgent,,ateragent,RMM,greyware_tool,high,
+BTOBTO,,smbExec,Lateral Movement,offensive_tool,critical,
+CreatSvcRpc_*,,CreateSvcRpc,Privile Escalation,offensive_tool,critical,
+DWAgent Service,,DWService,RMM,greyware_tool,high,
+GoToMyPC,*g2svc.exe*,GoToMyPC,RMM,greyware_tool,high,
+GoodSync Server,,goodync,Data Exfiltration,greyware_tool,high,
+KrbSCM,,S4UTomato,Privilege Escalation,offensive_tool,critical,
+LMIGuardianSvc,*LMIGuardianSvc.exe*,LogMeIn,RMM,greyware_tool,high,
+LMIMaint,,LogMeIn,RMM,greyware_tool,high,
+LogMeIn Engine Maintenance Service,*ramaint.exe*,LogMeIn,RMM,greyware_tool,high,
+LogMeIn Kernel Information Provider,*LMIInfo.sys*,LogMeIn,RMM,greyware_tool,high,
+LogMeIn Maintenance Service,*RaMaint.exe*,LogMeIn,RMM,greyware_tool,high,
+LogMeIn Remote File System Driver,*LMIRfsDriver.sys*,LogMeIn,RMM,greyware_tool,high,
+LogMeIn,*LogMeIn.exe*,LogMeIn,RMM,greyware_tool,high,
+MagnetRAMCapture Driver,,MAGNET RAM Capture,Credential Access,greyware_tool,critical,
+Mesh Agent,,MeshAgent,RMM,greyware_tool,high,
+Meterpreter,,metasploit,C2,offensive_tool,critical,
+NovaPdf11Server,,GoToMyPC bundled program,RMM,greyware_tool,info,
+Npcap Packet Driver (NPCAP),,NpCap Windows Packet Capture Library & Driver,Collection,greyware_tool,low,
+PAExec-*,,paexec,Lateral Movement,offensive_tool,critical,
+PC Monitor,*PCMonitorSrv.exe*,Pulseway,RMM,greyware_tool,high,
+PPLBlade,,pplblade,Defense Evasion,offensive_tool,critical,
+PSEXESVC,*PSEXESVC.exe*,psexec,Lateral Movement,greyware_tool,high,
+Pulseway,,Pulseway,RMM,greyware_tool,high,
+Radmin Server*,,Radmin,RMM,greyware_tool,high,
+RemCom Service,,RemCom.exe,Lateral movement,offensive_tool,critical,
+RustDesk Service,,RustDesk,RMM,greyware_tool,high,
+ScreenConnect Client*,,ConnectWise,RMM,greyware_tool,high,
+ScreenConnect Session Manager,ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,high,
+Splashtop Software Updater Service,,splashtop,RMM,greyware_tool,high,
+SplashtopRemoteService,,splashtop,RMM,greyware_tool,high,
+Splashtop® Remote Service,,splashtop,RMM,greyware_tool,high,
+Supremo,,SupRemo,RMM,greyware_tool,high,
+TacticalRMM Agent Service,,tacticalrmm,RMM,greyware_tool,high,
+TeamViewer,,TeamViewer,RMM,greyware_tool,medium,
+TightVNC Server,,TightVNCServer,RMM,greyware_tool,high,
+WCESERVICE,,wce,Lateral Movement,greyware_tool,high,
+WRBoot,,Webroot SecureAnywhere,RMM,greyware_tool,high,
+WRCore,,Webroot SecureAnywhere,RMM,greyware_tool,high,
+WRCoreService,,Webroot SecureAnywhere,RMM,greyware_tool,high,
+WRSMSVC,,Webroot SecureAnywhere,RMM,greyware_tool,high,
+WRSVC,,Webroot SecureAnywhere,RMM,greyware_tool,high,
+WRSkyClient,,Webroot SecureAnywhere,RMM,greyware_tool,high,
+WRkrn,,Webroot SecureAnywhere,RMM,greyware_tool,high,
+Webroot Core Driver,,Webroot SecureAnywhere,RMM,greyware_tool,high,
+WinRing0_*,,xmrig,Cryptomining,greyware_tool,critical,
+dcrypt,,DiskCryptor,Impact,offensive_tool,critical,
+monblanking,,GoToMyPC bundled program,RMM,greyware_tool,info,
+novaPDF 11 Server,*novapdfs.exe*,GoToMyPC bundled program,RMM,greyware_tool,info,
+pwdump*,,PWDumpX,Credential Access,offensive_tool,critical,
+sliver*,,sliverC2,C2,offensive_tool,critical,
+metsvc,metsvc-server.exe,Metasploit server,Exploitation,offensive_tool,critical,
+windows_monitoring,,social-engineer-toolkit persistence payload,Persistence,offensive_tool,high,
+TestService,,SharpyStay default,Persistence,offensive_tool,critical,
+sesshijack,,atomic-red-team test T1563.002,Persistence,offensive_tool,high,
+PowerUpService,,PowerSploit Privesc.tests.ps1,Privilege Escalation,offensive_tool,critical,
+NoRebootSvc,NoReboot.exe,PSBits NoReboot.c,,offensive_tool,high,
+Service_*,,PsMapExec,Lateral Movement,offensive_toom,critical,PsMapExec creating services regex detection: Service_[A-Za-z]{16} - https://github.com/The-Viper-One/PsMapExec/blob/0ae7a6967c07bf3ebf555e665d4c43ce86c6addf/PsMapExec.ps1#L1488
