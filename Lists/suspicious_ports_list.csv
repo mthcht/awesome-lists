@@ -44,6 +44,8 @@ dest_port,metadata.comment,metadata.confidence
 5400,BladeRunner and Back Construction trojans but also some games,medium
 5500,droidjack RAT but also VNC default port,medium
 5556,AlanFramework C2 default port and H0rtiga trojan,high
+5631,pcanywhere RMM default port,medium
+5632,pcanywhere RMM default port,medium
 5650,'pizza trojan' lite manager remote desktop and AeroAdmin,medium
 5651,lite manager remote desktop,medium
 5655,AeroAdmin and some legit usages,medium
@@ -72,6 +74,25 @@ dest_port,metadata.comment,metadata.confidence
 6783,Splashtop Remote,medium
 6784,Splashtop Remote,medium
 6785,Splashtop Remote,medium
+6881,Bittorrent default ports,info
+6882,Bittorrent default ports,info
+6883,Bittorrent default ports,info
+6884,Bittorrent default ports,info
+6885,Bittorrent default ports,info
+6886,Bittorrent default ports,info
+6887,Bittorrent default ports,info
+6888,Bittorrent default ports,info
+6889,Bittorrent default ports,info
+6890,Bittorrent default ports,info
+6891,Bittorrent default ports,info
+6892,Bittorrent default ports,info
+6893,Bittorrent default ports,info
+6894,Bittorrent default ports,info
+6895,Bittorrent default ports,info
+6896,Bittorrent default ports,info
+6897,Bittorrent default ports,info
+6898,Bittorrent default ports,info
+6899,Bittorrent default ports,info
 7070,observed used with powershell empire and anydesk but mostly legit usage,low
 7096,hardhatC2 default port and other legit usages,high
 7443,covenant C2 or mythic C2 default port and legit usages for vmware and oracle,low
