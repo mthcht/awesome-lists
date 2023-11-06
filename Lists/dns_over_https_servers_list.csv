@@ -237,6 +237,7 @@ https://doh.futa.gg/dns-query,doh.futa.gg,104.16.0.132,443,/dns-query,DOH,N/A,ht
 https://dns.freyja.pw/dns-query,dns.freyja.pw,15.204.209.29,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
 https://dns.gnb09.id/dns-query,dns.gnb09.id,202.70.133.123,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
 https://dns.google/dns-query,dns.google,8.8.4.4,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
+https://dns.google/resolve*,dns.google,8.8.4.4,443,/resolve,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
 https://dns64.dns.google/dns-query,dns64.dns.google,Resolution error,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
 https://8888.google/dns-query,8888.google,8.8.8.8,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
 https://cluster-0.gac.edu/dns-query,cluster-0.gac.edu,138.236.128.100,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
@@ -1963,3 +1964,6 @@ https://dns.google?/dns-query,dns.google.com,8.8.8.8,443,/dns-query,DOH,to check
 ,zougloub.eu,,,,DOH,to check,https://github.com/dibdot/DoH-IP-blocklists/blob/4d081c83e3c2847e27d32881a4881c2a78555c20/doh-domains.txt
 ,zrh1-ns01.monzoon.net,,,,DOH,to check,https://github.com/dibdot/DoH-IP-blocklists/blob/4d081c83e3c2847e27d32881a4881c2a78555c20/doh-domains.txt
 ,zxcvb.pp.ua,,,,DOH,to check,https://github.com/dibdot/DoH-IP-blocklists/blob/4d081c83e3c2847e27d32881a4881c2a78555c20/doh-domains.txt
+https://8.8.8.8/resolve*,8.8.8.8,,,,DOH,,https://www.bleepingcomputer.com/news/security/chinese-hackers-use-dns-over-https-for-linux-malware-communication
+https://8.8.4.4/resolve*,8.8.4.4,,,,DOH,,https://www.bleepingcomputer.com/news/security/chinese-hackers-use-dns-over-https-for-linux-malware-communication
+https://1.1.1.1/dns-query*,1.1.1.1,,,,DOH,,https://www.bleepingcomputer.com/news/security/chinese-hackers-use-dns-over-https-for-linux-malware-communication
