@@ -162,3 +162,5 @@ pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority
 \youcantpatchthis,using named pipe output with beacon ReflectiveDLLs,C2,https://github.com/rxwx/cs-rdll-ipc-example/blob/2d331dae5d5dd84e5d6fbc5a0c152e690539c70f/ReflectiveDll/dllmain.cpp#L11,critical,N/A,critical,detection rule,N/A
 \583da945-62af-10e8-4902-a8f205c72b2e,SolarWinds SUNBURST malware,Malware,https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html,critical,N/A,critical,detection rule,N/A
 \bizkaz,Snatch Ransomware,Malware,https://thedfirreport.com/2020/06/21/snatch-ransomware/,critical,N/A,critical,detection rule,N/A
+\tailscale-test,Tailscale,Defense Evasion,https://github.com/tailscale/tailscale/blob/2fa219440bb5b408866413647ed92dac265ad919/safesocket/basic_test.go#L24,high,N/A,high,detection rule,N/A
+\tailscale*,Tailscale,Defense Evasion,https://github.com/tailscale/tailscale/blob/2fa219440bb5b408866413647ed92dac265ad919/safesocket/basic_test.go#L24,high,N/A,high,detection rule,N/A
