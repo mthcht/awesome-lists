@@ -1318,3 +1318,4 @@ C2FunctionAgent,ServerlessRedirector,C2,https://github.com/KINGSABRI/ServerlessR
 aws-cli/*,awscli,Data Exfiltration,https://www.cadosecurity.com/qubitstrike-an-emerging-malware-campaign-targeting-jupyter-notebooks/,critical,low,high,Detection rule,network flow direction internal --> external
 TeslaBrowser/5.5,Lumma Stealer,Data Exfiltration,https://x.com/Securityinbits/status/1706248064368050452,high,medium,high,Hunting,network flow direction internal --> external
 SouthSide,Raccoon Stealer,Malware,https://www.virustotal.com/gui/file/c6d0d98dd43822fe12a1d785df4e391db3c92846b0473b54762fbb929de6f5cb,critical,low,critical,Detection rule,network flow direction internal --> external
+MrBidenNeverKnow,Raccoon Stealer,https://x.com/crep1x/status/1731638155109884014,critical,low,critical,Detection rule,network flow direction internal --> external
