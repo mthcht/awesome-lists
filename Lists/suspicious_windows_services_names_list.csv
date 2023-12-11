@@ -66,4 +66,4 @@ PowerUpService,,PowerSploit Privesc.tests.ps1,Privilege Escalation,offensive_too
 NoRebootSvc,NoReboot.exe,PSBits NoReboot.c,,offensive_tool,high,
 Service_*,,PsMapExec,Lateral Movement,offensive_tool,critical,PsMapExec creating services regex detection: Service_[A-Za-z]{16} - https://github.com/The-Viper-One/PsMapExec/blob/0ae7a6967c07bf3ebf555e665d4c43ce86c6addf/PsMapExec.ps1#L1488
 dnsproxy,,dns-proxy,Defense Evasion,offensive_tool,critical,dnsproxy service - https://github.com/AdguardTeam/dnsproxy/pull/194/files
-RandomService,,Lateral Movement,offensive_tool,critical,Invoke-SMBRemoting service example - https://github.com/Leo4j/Amnesiac/blob/216ba3a280bf49ea3f5b1afab80f843bbde3548d/Tools/Invoke-SMBRemoting.ps1#L33C99-L33C113
+RandomService,,Invoke-SMBRemoting,Lateral Movement,offensive_tool,critical,Invoke-SMBRemoting service example - https://github.com/Leo4j/Amnesiac/blob/216ba3a280bf49ea3f5b1afab80f843bbde3548d/Tools/Invoke-SMBRemoting.ps1#L33C99-L33C113
