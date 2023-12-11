@@ -167,3 +167,4 @@ pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority
 \ProtectedPrefix\Administrators\Tailscale\tailscaled,Tailscale,Defense Evasion,https://github.com/tailscale/tailscale/blob/2fa219440bb5b408866413647ed92dac265ad919/safesocket/basic_test.go#L24,high,N/A,high,detection rule,N/A
 \win-sux-no-async-anon-pipe-*-*,dns2tcp,Defense Evasion,https://github.com/alex-sector/dns2tcp/blob/52935452ba771b96e96f622127e70ec9ef01c0b4/client/command.c#L149,high,N/A,high,detection rule,N/A
 \adprinterpipe,anydesk,C2,https://www.hybrid-analysis.com/sample/99dcdda32ee45835489890b3bcc273116bdcf6c263e0cf6f74542ea3d56b78a1/60e21d53d4e6ff722e5617e6,low,high,medium,Hunting,N/A
+\Something,Invoke-SMBRemoting,Lateral Movement,https://github.com/Leo4j/Amnesiac/blob/216ba3a280bf49ea3f5b1afab80f843bbde3548d/Tools/Invoke-SMBRemoting.ps1#L32,high,low,high,detection rule,N/A
