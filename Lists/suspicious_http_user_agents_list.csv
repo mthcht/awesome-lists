@@ -1319,3 +1319,4 @@ aws-cli/*,awscli,Data Exfiltration,https://www.cadosecurity.com/qubitstrike-an-e
 TeslaBrowser/5.5,Lumma Stealer,Data Exfiltration,https://x.com/Securityinbits/status/1706248064368050452,high,medium,high,Hunting,network flow direction internal --> external
 SouthSide,Raccoon Stealer,Malware,https://www.virustotal.com/gui/file/c6d0d98dd43822fe12a1d785df4e391db3c92846b0473b54762fbb929de6f5cb,critical,low,critical,Detection rule,network flow direction internal --> external
 MrBidenNeverKnow,Raccoon Stealer,Malware,https://x.com/crep1x/status/1731638155109884014,critical,low,critical,Detection rule,network flow direction internal --> external
+Mozilla/4.0 (compatible; MSIE 8.0; Win32),Windows XP UA used in redpill.ps1,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/redpill.ps1#L54,low,high,low,Hunting,network flow direction internal --> external
