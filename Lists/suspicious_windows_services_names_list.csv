@@ -19,6 +19,7 @@ GoodSync Server,,goodync,Data Exfiltration,greyware_tool,high,
 KrbSCM,,S4UTomato,Privilege Escalation,offensive_tool,critical,
 LMIGuardianSvc,*LMIGuardianSvc.exe*,LogMeIn,RMM,greyware_tool,high,
 LMIMaint,,LogMeIn,RMM,greyware_tool,high,
+CorpVPN,,UacMe,Persistence,offensive_tool,critical,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/bin/UacMe.ps1#L291
 LogMeIn Engine Maintenance Service,*ramaint.exe*,LogMeIn,RMM,greyware_tool,high,
 LogMeIn Kernel Information Provider,*LMIInfo.sys*,LogMeIn,RMM,greyware_tool,high,
 LogMeIn Maintenance Service,*RaMaint.exe*,LogMeIn,RMM,greyware_tool,high,
