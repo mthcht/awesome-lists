@@ -123,6 +123,7 @@ AntiVerminser,Suricata Malware user-agent rules,Malware,https://raw.githubuserco
 AntiVirGear,Suricata Malware user-agent rules,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,network flow direction internal --> external
 AntivirXP,Suricata Malware user-agent rules,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,network flow direction internal --> external
 AnyDesk/*,Anydesk application,RMM,N/A,high,medium,high,Hunting,network flow direction internal --> external
+AnyDesk,Anydesk application,RMM,N/A,high,medium,high,Hunting,network flow direction internal --> external
 Apache (compatible...,Suricata trojan user-agent rules,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,high,low,medium,Detection rule,network flow direction internal --> external
 Apexoo,crawlers / bad robots / suspicious spiders / junk web-scrapers / malicious spammersResource Development,Bots & Vulnerability Scanner,https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-user-agents.list,medium,low,medium,Detection rule,network flow direction internal --> external
 App4,Suricata trojan user-agent rules,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,high,low,medium,Detection rule,network flow direction internal --> external
