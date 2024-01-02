@@ -1,4 +1,5 @@
 http_user_agent,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_direction
+Lemon-Duck-*,trojan cryptominer,Cryptominer,https://www.microsoft.com/en-us/security/blog/2021/07/22/when-coin-miners-evolve-part-1-exposing-lemonduck-and-lemoncat-modern-mining-malware-infrastructure/,high,none,high,Detection rule,network flow direction internal --> internal/external
 Mozilla/5.0 (*-bit) dnstwist,user agent used by dnstwist,phishing,https://detect.fyi/detecting-phishing-attempts-with-dnstwist-37c426b3bbb8,critical,none,critical,Detection rule,network flow direction internal --> internal/external
 unknown,empty user agent hunting (in splunk the default value when no user agent is informed),suspicious string,https://x.com/crep1x/status/1600129411629473792?s=20,low,high,low,Hunting,network flow direction internal --> internal/external
 "LocusSoftware, NetInstaller",Suricata Malware user-agent rules,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,network flow direction internal --> external
