@@ -1,5 +1,5 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
-* *,others,Defense Evasions,greyware_tool,info,suspicious name with a space
+* *,,others,Defense Evasions,greyware_tool,info,suspicious name with a space
 ,*\tmp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths
 ,*\Temp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths
 ,*\Users\Public\*,suspicious path,Defense Evasions,greyware_tool,critical,suspicious paths
