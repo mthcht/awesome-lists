@@ -1,4 +1,8 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+* *,others,Defense Evasions,greyware_tool,info,suspicious name with a space
+,*\tmp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths
+,*\Temp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths
+,*\Users\Public\*,suspicious path,Defense Evasions,greyware_tool,critical,suspicious paths
 *mimidrv*,,mimidrv,Credential Access,offensive_tool,critical,
 *mimikatz*,,mimidrv,Credential Access,offensive_tool,critical,
 ,*%COMSPEC%*,cobaltsrike & meterpreter beacon,C2,offensive_tool,critical,
