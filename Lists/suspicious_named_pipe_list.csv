@@ -1,4 +1,5 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\DAV RPC SERVICE,used by aeroadmin for remote control (also used by other lateral movement tools),https://ulm.aeroadmin.com/AeroAdmin.exe,high,high,medium,hunting,N/A
 *IpHlpSvc.log*,kernel exploit Chimichurri.cpp,Privilege Escalation,https://github.com/helloexp/0day/blob/29bd78f73941b39e36d38cd1653433dcf2ce588e/97-Windows%E6%8F%90%E6%9D%83/MS09-012/Chimichurri/Chimichurri.cpp#L98,critical,N/A,critical,detection rule,N/A
 *lacesomepipe,trickbot malware,Malware,https://whitehat.eu/incident-response-case-study-featuring-ryuk-and-trickbot-part-2/,critical,N/A,critical,detection rule,N/A
 *mimikatz*,kekeo stealing credentials,Credential Access,https://github.com/gentilkiwi/kekeo/blob/d3ee2ae2fdeb5581fe2be1d53838f66729c3de16/kekeo/modules/kuhl_m_tsssp.c#L29,critical,N/A,critical,detection rule,N/A
