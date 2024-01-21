@@ -1,5 +1,5 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
-3proxy,,3proxy,Defense Evasion,offensive_tool,high,https://github.com/3proxy/3proxy/blob/a80bef9ecf0c0ed98ccb1a1a764f6b79a620b78f/src/stringtable.c#L14
+3proxy,,3proxy,Defense Evasion,offensive_tool,medium,https://github.com/3proxy/3proxy/blob/a80bef9ecf0c0ed98ccb1a1a764f6b79a620b78f/src/stringtable.c#L14
 chopper,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34
 final_seg,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34
 RustDesk Service,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/rustdesk
