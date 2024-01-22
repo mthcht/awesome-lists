@@ -1,0 +1,17 @@
+device_instance_path,vendor_id,product_id,metadata_product,metadata_description,metadata_severity,metadata_link,metadata_comment
+HID\VID_03EB&PID_2401&REV_0100,03EB,2401,Hak5 Rubber Ducky,keystroke injection tool,critical,https://lothardware.com.tr/hak5-rubber-ducky/,"Using ATTACKMODE HID"
+HID\VID_03EB&PID_2422&REV_0100,03EB,2422,Hak5 Rubber Ducky,keystroke injection tool,critical,https://lothardware.com.tr/hak5-rubber-ducky/,"Using ATTACKMODE HID STORAGE"
+USB\VID_2341&PID_8037,2341,8037,Arduino Pro Micro,keystroke injection tool,high,https://lothardware.com.tr/arduino-pro-micro/,
+USB\VID_16D0&PID_0753,16D0,0753,Digispark Attiny85,keystroke injection tool,high,https://lothardware.com.tr/digispark-attiny85/,
+USB\VID_16D0&PID_0753,16D0,0753,Lilypad Attiny85,keystroke injection tool,high,https://lothardware.com.tr/lilypad-attiny85/,
+USB\VID_0483&PID_5740,0483,5740,Flipper Zero,Flipper Zero is a portable multi-tool for pentesters - emulate radio protocols/access control systems/hardwares and more,critical,https://blog.grumpygoose.io/hunting-flipper-zero-db260274c45c,
+?\VID_16C0&PID_0483,16C0,0483,Teensy,complete USB-based microcontroller development system (often used for keystroke injection),high,https://medium.com/iqube-kct/bad-usb-using-teensy-1633ad7cd01,USB Universal Halfkay
+?\VID_16C0&PID_0478,16C0,0478,Teensy,complete USB-based microcontroller development system (often used for keystroke injection),high,https://medium.com/iqube-kct/bad-usb-using-teensy-1633ad7cd01,USB_SERIAL Mode
+?\VID_16C0&PID_048B,16C0,048B,Teensy,complete USB-based microcontroller development system (often used for keystroke injection),high,https://medium.com/iqube-kct/bad-usb-using-teensy-1633ad7cd01,USB_DUAL_SERIAL
+?\VID_16C0&PID_048C,16C0,048C,Teensy,complete USB-based microcontroller development system (often used for keystroke injection),high,https://medium.com/iqube-kct/bad-usb-using-teensy-1633ad7cd01,USB_TRIPLE_SERIAL
+?\VID_16C0&PID_04D0,16C0,04D0,Teensy,complete USB-based microcontroller development system (often used for keystroke injection),high,https://medium.com/iqube-kct/bad-usb-using-teensy-1633ad7cd01,USB_KEYBOARDONLY
+?\VID_16C0&PID_0482,16C0,0482,Teensy,complete USB-based microcontroller development system (often used for keystroke injection),high,https://medium.com/iqube-kct/bad-usb-using-teensy-1633ad7cd01,USB_HID
+?\VID_16C0&PID_0487,16C0,0487,Teensy,complete USB-based microcontroller development system (often used for keystroke injection),high,https://medium.com/iqube-kct/bad-usb-using-teensy-1633ad7cd01,USB_SERIAL_HID
+?\VID_16D0&PID_11A4,16D0,11A4,USB Nova,USB Nova is a little USB drive that acts as a keyboard much like the USB Rubber Ducky/WiFi Duck and other BadUSB (often used for keystroke injection),critical,https://usbnova.com/,
+HID\VID_1B4F&PID_9207,1B4F,9207,Cactus WHID,advanced keystroke injection device,critical,https://github.com/whid-injector/WHID,https://lothardware.com.tr/cactus-whid/
+USB\VID_1915&PID_520C&MI_00\6&20A3E423,1915,520C,Nordic NRF52840,Logitech Unifying impersonator - used for keystroke injections,medium,https://medium.com/@enesilhaydin/mini-mini-logitech-rubber-ducky-6016c72916eb,https://lothardware.com.tr/nordic-nrf52840/
