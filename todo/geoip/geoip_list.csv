@@ -1,0 +1,154 @@
+# IP info requests detection
+
+Lots of malware uses some kind of ipinfo service (e.g. ipinfo.io) to find out the victim's Internet IP address. In case of regular and especially in out-of-office hours, those kind of requests should be closely monitored, like in the following example:
+
+
+---
+
+url,domain,comment,confidence
+https://ipv4.myip.wtf/text*,myip.wtf,used by disctopia-c2,high
+https://ipv6ajax.showmyip.com*,showmyip.com,observed from redteam. not sure of the source,high
+https://www.showmyip.com*,showmyip.com,used by coin miner and stealers,low
+https://api.whatismyip.com*,whatismyip.com,a few trojans,low
+https://www.whatismyip.com*,whatismyip.com,used by lots of malwares,low
+https://api64.ipify.org*,ipify.org,used by lots of malwares,high
+https://www.ipify.org*,ipify.org,used by lots of malwares,low
+https://*.whatismyipaddress.info*,whatismyipaddress.info,used by lots of malwares,medium
+https://whatismyipaddress.info*,whatismyipaddress.info,used by lots of malwares,low
+https://ipinfo.io*,ipinfo.io,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,low
+http://api.rest7.com*,rest7.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,high
+http://ip-api.com*,ip-api.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,low
+http://trackip.net*,trackip.net,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,low
+http://*.trackip.net*,trackip.net,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,low
+http://icanhazip.com*,icanhazip.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,high
+https://api.2ip.ua*,2ip.ua,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,high
+http://api.ipify.org*,ipify.org,used by QuasarRat - Amadey - SnakeKeylogger - AgentTesla and various malware samples,high
+https://nordvpn.com/*/what-is-my-ip*,nordvpn.com,used by redteam,high
+https://whatismyipaddress.com*,whatismyipaddress.com,used by multiple malwares,low
+https://www.ipaddress.my*,ipaddress.my,used by android rats,high
+https://ipwho.is/,ipwho.is,used by QuasarRat,medium
+https://ipecho.net*,ipecho.net,used by multiple malware,?
+ident.me,,
+whatismyip.akamai.com,,
+myip.dnsomatic.com,,
+https://ipv4.icanhazip.com*,icanhazip.com,used by PrimusC2,low
+
+
+
+
+---
+
+
+
+            - 'api.2ip.ua'
+            - 'api.ipify.org'
+            - 'bot.whatismyipaddress.com'
+            - 'canireachthe.net'
+            - 'checkip.amazonaws.com'
+            - 'checkip.dyndns.org'
+            - 'curlmyip.com'
+            - 'edns.ip-api.com'
+            - 'eth0.me'
+            - 'freegeoip.app'
+            - 'geoipy.com'
+            - 'getip.pro'
+            - 'icanhazip.com'
+            - 'ident.me'
+            - 'ifconfig.io'
+            - 'ifconfig.me'
+            - 'ip-api.com'
+            - 'ip.anysrc.net'
+            - 'ip.tyk.nu'
+            - 'ipaddressworld.com'
+            - 'ipecho.net'
+            - 'ipinfo.io'
+            - 'ipof.in'
+            - 'ipv4.icanhazip.com'
+            - 'ipv4bot.whatismyipaddress.com'
+            - 'ipwho.is'
+            - 'l2.io'
+            - 'myexternalip.com'
+            - 'wgetip.com'
+            - 'whatismyip.akamai.com'
+            - 'wtfismyip.com'
+         
+         ---
+
+          "ip-api.com",
+          "checkip.dyndns.org",
+          "api.ipify.org",
+          "api.ipify.com",
+          "whatismyip.akamai.com",
+          "bot.whatismyipaddress.com",
+          "ifcfg.me",
+          "ident.me",
+          "ipof.in",
+          "ip.tyk.nu",
+          "icanhazip.com",
+          "curlmyip.com",
+          "wgetip.com",
+          "eth0.me",
+          "ipecho.net",
+          "ip.appspot.com",
+          "api.myip.com",
+          "geoiptool.com",
+          "api.2ip.ua",
+          "api.ip.sb",
+          "ipinfo.io",
+          "checkip.amazonaws.com",
+          "wtfismyip.com",
+          "iplogger.*",
+          "freegeoip.net",
+          "freegeoip.app",
+          "ipinfo.io",
+          "geoplugin.net",
+          "myip.dnsomatic.com",
+          "www.geoplugin.net",
+          "api64.ipify.org",
+          "ip4.seeip.org",
+          "*.geojs.io",
+          "*portmap.io",
+          "api.2ip.ua",
+          "api.db-ip.com",
+          "geolocation-db.com"
+          ---
+
+acycseiiqsau.org
+cqmixhedbefv.net
+fnwjjzxy.info
+ggiwom.org
+grmibb.net
+gtqyplewuo.net
+http://kurupmtw.info/
+http://qqqgcs.com/
+http://whatismyip.everdot.org/
+http://whatismyipaddress.com/
+http://www.bbc.co.uk/
+http://www.showmyipaddress.com/
+http://www.whatismyip.com/
+jiwcdxcd.net
+kurupmtw.info
+lakcqthrtwc.info
+mukeui.org
+mzrffun.net
+oyoecycc.com
+qecwkiuwsewm.com
+qqqgcs.com
+qvkdlak.net
+tqbmdwhaiuy.info
+uiplqgpek.net
+uuyguc.org
+whatismyip.everdot.org
+whatismyipaddress.com
+whatismyipaddress.com/
+www.bbc.co.uk
+www.imdb.com/
+www.showmyipaddress.com
+www.showmyipaddress.com/
+www.whatismyip.ca
+www.whatismyip.com
+www.whatismyip.com/
+wyjrvmdgwcp.net
+xehycceip.org
+ytlazwcii.net
+zwhffkvphkq.org
