@@ -7,7 +7,6 @@ RustDesk,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/rustdesk
 OpenSSH SSH Server,,OpenSSH Server,C2,greyware_tool,high,
 AeroadminService,*AeroAdmin.exe*,AeroAdmin,RMM,greyware_tool,high,https://ulm.aeroadmin.com/AeroAdmin.exe
 AmmyyAdmin,,AmmyyAdmin,RMM,greyware_tool,high,
-* *,,others,Defense Evasions,greyware_tool,info,suspicious name with a space
 ,*\tmp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths
 ,*\Temp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths
 ,*\Users\Public\*,suspicious path,Defense Evasions,greyware_tool,critical,suspicious paths
