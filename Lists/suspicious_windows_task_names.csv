@@ -4,4 +4,5 @@ MeterpeterC2,,,,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blo
 *TVInstallRestore,,,,teamviewer,RMM,N/A,high,teamviewer usage
 \ClearEventLogs,,,,Cleareventlog script,Defense Evasion,https://x.com/GroupIB_DFIR/status/1750452304606810175,high,schtasks /create /tn ClearEventLogs /tr 'powershell.exe -Command wevtutil el | foreach { wevtutil cl $_ }' /sc daily /st 03:00 /ru SYSTEM /f
 \StopVMMSandKillVMWP,,,,StopVMMSandKillVMWP script,Defense evasion,https://x.com/GroupIB_DFIR/status/1750452267692728516,high,schtasks /create /tn StopVMMSandKillVMWP /tr 'powershell.exe -Command get-service -name vmms | stop-service -force ; taskkill /f /im vmwp.exe' /sc minute /mo 30 /ru SYSTEM /f
-\Sorry,,,,Cryptominer,Cryptominer,https://x.com/cglyer/status/1001463072672886785,high,schtasks /create /tn 'Sorry' /tr C:\Windows\Temp\taskhost.exe /sc daily /mo 2 /st 22:00:00 /f
+\Sorry,,,,Cryptominer,Cryptominer,https://x.com/cglyer/status/1001463072672886785,high,schtasks /create /tn 'Sorry' /tr C:\Windows\Temp\taskhost.exe /sc daily /mo 2 /st 22:00:00 /f4
+\drogon,,,,BadRabbit,malware,https://www.vmray.com/analyses/bad-rabbit-ransomware-flash-analysis/report/overview.html,schtasks /Create /SC once /TN drogon /RU SYSTEM /TR 'C:\Windows\system32\shutdown.exe /r /t 0 /f' /ST 02:34:00	
