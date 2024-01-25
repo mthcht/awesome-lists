@@ -1,4 +1,6 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\*-*ServerRead,used by Connectwise Screenconnect client RMM tool,RMM,https://screenconnect.connectwise.com/,high,medium,medium,hunting,N/A
+\*-*ServerWrite,used by Connectwise Screenconnect client RMM tool,RMM,https://screenconnect.connectwise.com/,high,medium,medium,hunting,N/A
 \MyNamePipe,used by the offensive tool mortar,Defense Evasion,https://github.com/0xsp-SRD/mortar/blob/ac6004a00cfc90002e88aa2f72e931440e8dbff6/Lib/core.pas#L70,high,high,medium,hunting,N/A
 \moj_ML_ntsvcs,used by the offensive tool mortar,Defense Evasion,https://github.com/0xsp-SRD/mortar/blob/ac6004a00cfc90002e88aa2f72e931440e8dbff6/DLL/agressor.lpr#L91,high,low,high,detection rule,N/A
 \RustDesk\query,used by RustDesk for remote control,RMM,https://github.com/rustdesk/rustdesk,high,low,high,detection rule,N/A
