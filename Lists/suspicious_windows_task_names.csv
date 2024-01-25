@@ -2,5 +2,5 @@ TaskName,metadata_tool,metadata_category,metadata_link,metadata_severity,metadat
 RedPillTask,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/redpill.ps1#L743,critical,redpill.ps1
 MeterpeterC2,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/bin/SchTasks.ps1#L83,critical,SchTasks.ps1
 *TVInstallRestore,teamviewer,RMM,N/A,high,teamviewer usage
-\ClearEventLogs,Cleareventlog script,Defense Evasion,https://x.com/GroupIB_DFIR/status/1750452304606810175,high,'schtasks /create /tn "ClearEventLogs" /tr "powershell.exe -Command wevtutil el | foreach { wevtutil cl $_ }" /sc daily /st 03:00 /ru SYSTEM /f'
+\ClearEventLogs,Cleareventlog script,Defense Evasion,https://x.com/GroupIB_DFIR/status/1750452304606810175,high,schtasks /create /tn ClearEventLogs /tr "powershell.exe -Command wevtutil el | foreach { wevtutil cl $_ }" /sc daily /st 03:00 /ru SYSTEM /f
 \StopVMMSandKillVMWP,StopVMMSandKillVMWP script,Defense evasion,https://x.com/GroupIB_DFIR/status/1750452267692728516,high,"schtasks /create /tn "StopVMMSandKillVMWP" /tr "powershell.exe -Command get-service -name vmms | stop-service -force ; taskkill /f /im vmwp.exe" /sc minute /mo 30 /ru SYSTEM /f"
