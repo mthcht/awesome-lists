@@ -11,7 +11,13 @@ MeterpeterC2,,,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blob
 *,cmd.exe,*/c whoami*,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
 *,powershell.exe,*-Command whoami*,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
 *,powershell.exe,-encodedCommand *,powershell,Defense Evasion,https://github.com/mthcht/awesome-lists,medium,base64 encoded command from a scheduled task
-*,*\AppData\Local\Temp\*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,high,executable from the temp folder
-*,*\Users*\AppData\Local*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,executable from the appdata folder
+*,*\AppData\Local\Temp\*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,high,task in the temp folder
+*,*\Users*\AppData\Local*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,task in the appdata folder
+*,*\Users*\AppData\Roaming*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,task in the roaming folder
+*,*\ProgramData*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,task in the ProgramData folder
+*,*\Users*\Documents*,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,task in the users Documents folder
+*,*\Users*\Downloads*,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,task in the users Downloads folder
+*,*\Users\public*,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,task in the Public user profile
+*,*\Windows\Debug*,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,task in the *\Windows\Debug folder
 *,*:\Windows\Temp\*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,executable from the temp folder
 *,*wevtutil.exe,cl *,wevtutil,Defense Evasion,https://github.com/mthcht/awesome-lists,high,clearing event logs with wevtutil.exe
