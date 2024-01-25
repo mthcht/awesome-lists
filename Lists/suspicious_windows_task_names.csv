@@ -11,6 +11,7 @@ MeterpeterC2,,,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blob
 *,cmd.exe,*/c whoami*,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
 *,powershell.exe,*-Command whoami*,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
 *,powershell.exe,-encodedCommand *,powershell,Defense Evasion,https://github.com/mthcht/awesome-lists,medium,base64 encoded command from a scheduled task
-*,*\AppData\Local\Temp\*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,executable from the temp folder
+*,*\AppData\Local\Temp\*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,high,executable from the temp folder
+*,*\Users*\AppData\Local*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,executable from the appdata folder
 *,*:\Windows\Temp\*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,executable from the temp folder
 *,*wevtutil.exe,cl *,wevtutil,Defense Evasion,https://github.com/mthcht/awesome-lists,high,clearing event logs with wevtutil.exe
