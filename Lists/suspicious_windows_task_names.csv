@@ -21,3 +21,4 @@ MeterpeterC2,,,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blob
 *,*\Windows\Debug*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,task in the *\Windows\Debug folder
 *,*:\Windows\Temp\*,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,executable from the temp folder
 *,*wevtutil.exe,cl *,wevtutil,Defense Evasion,https://github.com/mthcht/awesome-lists,high,clearing event logs with wevtutil.exe
+*,*,*Set-MpPreference -DisableRealtimeMonitoring *,powershell,Defense Evasion,https://github.com/mthcht/awesome-lists,high,disabling Defender Real time monitoring
