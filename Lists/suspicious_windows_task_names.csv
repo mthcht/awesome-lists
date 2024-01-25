@@ -7,6 +7,6 @@ MeterpeterC2,,,,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blo
 \Sorry,,,,Cryptominer,Cryptominer,https://x.com/cglyer/status/1001463072672886785,high,schtasks /create /tn 'Sorry' /tr C:\Windows\Temp\taskhost.exe /sc daily /mo 2 /st 22:00:00 /f4
 \drogon,,,,BadRabbit,malware,https://www.vmray.com/analyses/bad-rabbit-ransomware-flash-analysis/report/overview.html,critical,schtasks /Create /SC once /TN drogon /RU SYSTEM /TR 'C:\Windows\system32\shutdown.exe /r /t 0 /f' /ST 02:34:00
 \dongs,,,,suspicious names,exploitation,https://x.com/hackingforbeer/status/1719402854085951883,medium,POC schtasks /create /sc minute /tn 'dongs' /tr 'C:\windows\system32\calc.exe'
-*,*\windows\system32\calc.exe*,calc,exploitation,POC,exploitation,https://x.com/hackingforbeer/status/1719402854085951883,medium,POC schtasks /create /sc minute /tn 'dongs' /tr 'C:\windows\system32\calc.exe'
-*,cmd.exe,*/c whoami*,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
-*,powershell.exe,*-Command whoami*,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
+*,*\windows\system32\calc.exe*,,,calc,exploitation,POC,exploitation,https://x.com/hackingforbeer/status/1719402854085951883,medium,POC schtasks /create /sc minute /tn 'dongs' /tr 'C:\windows\system32\calc.exe'
+*,cmd.exe,*/c whoami*,,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
+*,powershell.exe,*-Command whoami*,,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
