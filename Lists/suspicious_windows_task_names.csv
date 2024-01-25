@@ -12,3 +12,5 @@ MeterpeterC2,,,,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blo
 *,powershell.exe,*-Command whoami*,,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
 *,powershell.exe,*-Command whoami*,,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
 *,powershell.exe,-encodedCommand *,,powershell,Defense Evasion,https://github.com/mthcht/awesome-lists,medium,base64 encoded command from a scheduled task
+*,*\AppData\Local\Temp\*,,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,executable from the temp folder
+*,*:\Windows\Temp\*,,,suspicious paths,exploitation,https://github.com/mthcht/awesome-lists,medium,executable from the temp folder
