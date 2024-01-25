@@ -10,3 +10,5 @@ MeterpeterC2,,,,redpill,exploitation,https://github.com/r00t-3xp10it/redpill/blo
 *,*:\windows\system32\calc.exe,,,POC,exploitation,https://x.com/hackingforbeer/status/1719402854085951883,medium,POC schtasks /create /sc minute /tn 'dongs' /tr 'C:\windows\system32\calc.exe'
 *,cmd.exe,*/c whoami*,,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
 *,powershell.exe,*-Command whoami*,,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
+*,powershell.exe,*-Command whoami*,,whoami,Discovery,https://github.com/mthcht/awesome-lists,medium,N/A
+*,powershell.exe,-encodedCommand *,,powershell,Defense Evasion,https://github.com/mthcht/awesome-lists,medium,base64 encoded command from a scheduled task
