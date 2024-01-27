@@ -1,4 +1,5 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+tacticalrmm,,tacticalrmm,RMM,greyware_tool,high,https://github.com/amidaware/tacticalrmm/blob/6855493b2f1e1e46455325d98ffeb841071d1a98/api/tacticalrmm/core/installer.ps1#L16
 Supremo,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,high,https://www.supremocontrol.com
 SupremoService,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,high,https://www.supremocontrol.com
 uvnc_service,*\WinVNC.exe*,UltraVNC,RMM,greyware_tool,high,https://uvnc.com/downloads/ultravnc.html
