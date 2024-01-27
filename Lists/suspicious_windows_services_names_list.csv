@@ -1,5 +1,5 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
-Supremo,,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,high,https://www.supremocontrol.com
+Supremo,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,high,https://www.supremocontrol.com
 SupremoService,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,high,https://www.supremocontrol.com
 uvnc_service,*\WinVNC.exe*,UltraVNC,RMM,greyware_tool,high,https://uvnc.com/downloads/ultravnc.html
 3proxy,,3proxy,Defense Evasion,offensive_tool,medium,https://github.com/3proxy/3proxy/blob/a80bef9ecf0c0ed98ccb1a1a764f6b79a620b78f/src/stringtable.c#L14
