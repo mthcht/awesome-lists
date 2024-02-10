@@ -44,6 +44,8 @@ dest_port,metadata_comment,metadata_confidence,metatada_category
 5096,hardhatC2 default port,high,C2
 5321,Firehotcker trojan,high,malware
 5400,BladeRunner and Back Construction trojans but also some games,medium,malware
+5405,Netsupport - Connecting to Clientst,high,RMM
+5421,Netsupport -  Call Control requests and Multicast\Broadcast Show and File Distribution features,high,RMM
 5500,droidjack RAT but also VNC default port,medium,RMM
 5556,AlanFramework C2 default port and H0rtiga trojan,high,C2
 5631,pcanywhere RMM default port,medium,RMM
@@ -141,6 +143,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category
 21116,RustDesk RMM,high,RMM
 21802,hardhatC2 default port,high,C2
 22543,Action1 RMM tools outbound connection tcp,high,RMM
+25405,Netsupport - connection attempts from a Control machine,high,RMM
 27374,SubSeven backdoor and multiple other malwares,high,malware
 30662,o365-attack-toolkit default port,high,exploitation
 31335,Trinoo distributed attack tool port,high,exploitation
