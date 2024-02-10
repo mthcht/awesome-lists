@@ -1,4 +1,6 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\client32_VistaUIPipe2,NetSupport Manager\client32.exe RMM usage,RMM,netsupportsoftware.com,high,low,high,Hunting,N/A
+\client32_VistaPipe2,NetSupport Manager\client32.exe RMM usage,RMM,netsupportsoftware.com,high,low,high,Hunting,N/A
 \OfflineKeyloggerPipe,offline keylogger used by xeno-rat,C2,https://github.com/moom825/xeno-rat/blob/3438a2c958d0ac4af33268822cdf6cbeabba81f8/Plugins/KeyLoggerOffline/KeyLoggerOffline.cs#L23,critical,none,critical,detection rule,N/A
 \lsarelayx,lsarelayx usage,Credential Access,https://github.com/CCob/lsarelayx/blob/b45e4565c5688a395c54b92654d68b2514af39eb/plugin/lsarelayx.cpp#L105,high,none,critical,detection rule,N/A
 \kangaroo*,used by EventCleaner,Defense Evasion,https://github.com/QAX-A-Team/EventCleaner/blob/56ab12fe8ba3b6484e1a6f04bf71251f4c037394/EventCleaner/EventCleaner.cpp#L370,high,low,high,detection rule,N/A
