@@ -1,14 +1,20 @@
-rule_name,metadata_rule_id,metadata_tool,metadata_category,metadata_severity,metadata_link,metadata_detection_type,metadata_comment
-NetSupport Client,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Client_deleteme_0,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Client_deleteme_1,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Control,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Deploy,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Gateway,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Group Leader,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Run Script,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Script Editor,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Scripting Agent,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Tech Console,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-NetSupport Tutor,,NetSupport,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
-AnyDesk,,Anydesk,RMM,high,https://anydesk.com/,Hunting,N/A
+rule_name,metadata_rule_id,metadata_tool,metadata_tool_type,metadata_category,metadata_severity,metadata_link,metadata_detection_type,metadata_comment
+NetSupport Client,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Client_deleteme_0,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Client_deleteme_1,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Control,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Deploy,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Gateway,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Group Leader,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Run Script,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Script Editor,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Scripting Agent,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Tech Console,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+NetSupport Tutor,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
+AnyDesk,,Anydesk,greyware_tool,RMM,high,https://anydesk.com/,Hunting,N/A
+OpenSSH SSH Server (sshd),,OpenSSH,greyware_tool,C2,high,N/A,Hunting,N/A
+RustDesk Service,,RustDesk,greyware_tool,RMM,high,https://github.com/rustdesk/rustdesk,Hunting,N/A
+ScreenConnect Relay,,ScreenConnect,greyware_tool,RMM,high,https://screenconnect.connectwise.com/,Hunting,N/A
+ScreenConnect Web Server,,ScreenConnect,greyware_tool,RMM,high,https://screenconnect.connectwise.com/,Hunting,N/A
+vncviewer.exe,,UltraVNC,greyware_tool,RMM,high,https://uvnc.com/downloads/ultravnc.html,Hunting,N/A
+winvnc.exe,,UltraVNC,greyware_tool,RMM,high,https://uvnc.com/downloads/ultravnc.html,Hunting,N/A
