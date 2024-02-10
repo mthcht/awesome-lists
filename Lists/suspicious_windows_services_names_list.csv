@@ -1,4 +1,6 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+PC Monitor,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,high,N/A
+Pulseway,,Pulseway,RMM,greyware_tool,high,N/A
 Client32,*\NetSupport\*\client32.exe,NetSupport,RMM,greyware_tool,high,False positives expected
 c3pool_miner,,xmrig,Cryptominer,greyware_tool,critical,https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L380
 tacticalrmm,,tacticalrmm,RMM,greyware_tool,high,https://github.com/amidaware/tacticalrmm/blob/6855493b2f1e1e46455325d98ffeb841071d1a98/api/tacticalrmm/core/installer.ps1#L16
