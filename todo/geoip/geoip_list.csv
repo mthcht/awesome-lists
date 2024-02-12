@@ -1,154 +1,110 @@
-# IP info requests detection
-
-Lots of malware uses some kind of ipinfo service (e.g. ipinfo.io) to find out the victim's Internet IP address. In case of regular and especially in out-of-office hours, those kind of requests should be closely monitored
-
-
----
-
-url,domain,comment,confidence
-https://ipv4.myip.wtf/text*,myip.wtf,used by disctopia-c2,high
-https://ipv6ajax.showmyip.com*,showmyip.com,observed from redteam. not sure of the source,high
-https://www.showmyip.com*,showmyip.com,used by coin miner and stealers,low
-https://api.whatismyip.com*,whatismyip.com,a few trojans,low
-https://www.whatismyip.com*,whatismyip.com,used by lots of malwares,low
-https://api64.ipify.org*,ipify.org,used by lots of malwares,high
-https://www.ipify.org*,ipify.org,used by lots of malwares,low
-https://*.whatismyipaddress.info*,whatismyipaddress.info,used by lots of malwares,medium
-https://whatismyipaddress.info*,whatismyipaddress.info,used by lots of malwares,low
-https://ipinfo.io*,ipinfo.io,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,low
-http://api.rest7.com*,rest7.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,high
-http://ip-api.com*,ip-api.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,low
-http://trackip.net*,trackip.net,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,low
-http://*.trackip.net*,trackip.net,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,low
-http://icanhazip.com*,icanhazip.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,high
-https://api.2ip.ua*,2ip.ua,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,high
-http://api.ipify.org*,ipify.org,used by QuasarRat - Amadey - SnakeKeylogger - AgentTesla and various malware samples,high
-https://nordvpn.com/*/what-is-my-ip*,nordvpn.com,used by redteam,high
-https://whatismyipaddress.com*,whatismyipaddress.com,used by multiple malwares,low
-https://www.ipaddress.my*,ipaddress.my,used by android rats,high
-https://ipwho.is/,ipwho.is,used by QuasarRat,medium
-https://ipecho.net*,ipecho.net,used by multiple malware,?
-ident.me,,
-whatismyip.akamai.com,,
-myip.dnsomatic.com,,
-https://ipv4.icanhazip.com*,icanhazip.com,used by PrimusC2,low
-
-
-
-
----
-
-
-
-            - 'api.2ip.ua'
-            - 'api.ipify.org'
-            - 'bot.whatismyipaddress.com'
-            - 'canireachthe.net'
-            - 'checkip.amazonaws.com'
-            - 'checkip.dyndns.org'
-            - 'curlmyip.com'
-            - 'edns.ip-api.com'
-            - 'eth0.me'
-            - 'freegeoip.app'
-            - 'geoipy.com'
-            - 'getip.pro'
-            - 'icanhazip.com'
-            - 'ident.me'
-            - 'ifconfig.io'
-            - 'ifconfig.me'
-            - 'ip-api.com'
-            - 'ip.anysrc.net'
-            - 'ip.tyk.nu'
-            - 'ipaddressworld.com'
-            - 'ipecho.net'
-            - 'ipinfo.io'
-            - 'ipof.in'
-            - 'ipv4.icanhazip.com'
-            - 'ipv4bot.whatismyipaddress.com'
-            - 'ipwho.is'
-            - 'l2.io'
-            - 'myexternalip.com'
-            - 'wgetip.com'
-            - 'whatismyip.akamai.com'
-            - 'wtfismyip.com'
-         
-         ---
-
-          "ip-api.com",
-          "checkip.dyndns.org",
-          "api.ipify.org",
-          "api.ipify.com",
-          "whatismyip.akamai.com",
-          "bot.whatismyipaddress.com",
-          "ifcfg.me",
-          "ident.me",
-          "ipof.in",
-          "ip.tyk.nu",
-          "icanhazip.com",
-          "curlmyip.com",
-          "wgetip.com",
-          "eth0.me",
-          "ipecho.net",
-          "ip.appspot.com",
-          "api.myip.com",
-          "geoiptool.com",
-          "api.2ip.ua",
-          "api.ip.sb",
-          "ipinfo.io",
-          "checkip.amazonaws.com",
-          "wtfismyip.com",
-          "iplogger.*",
-          "freegeoip.net",
-          "freegeoip.app",
-          "ipinfo.io",
-          "geoplugin.net",
-          "myip.dnsomatic.com",
-          "www.geoplugin.net",
-          "api64.ipify.org",
-          "ip4.seeip.org",
-          "*.geojs.io",
-          "*portmap.io",
-          "api.2ip.ua",
-          "api.db-ip.com",
-          "geolocation-db.com"
-          ---
-
-acycseiiqsau.org
-cqmixhedbefv.net
-fnwjjzxy.info
-ggiwom.org
-grmibb.net
-gtqyplewuo.net
-http://kurupmtw.info/
-http://qqqgcs.com/
-http://whatismyip.everdot.org/
-http://whatismyipaddress.com/
-http://www.bbc.co.uk/
-http://www.showmyipaddress.com/
-http://www.whatismyip.com/
-jiwcdxcd.net
-kurupmtw.info
-lakcqthrtwc.info
-mukeui.org
-mzrffun.net
-oyoecycc.com
-qecwkiuwsewm.com
-qqqgcs.com
-qvkdlak.net
-tqbmdwhaiuy.info
-uiplqgpek.net
-uuyguc.org
-whatismyip.everdot.org
-whatismyipaddress.com
-whatismyipaddress.com/
-www.bbc.co.uk
-www.imdb.com/
-www.showmyipaddress.com
-www.showmyipaddress.com/
-www.whatismyip.ca
-www.whatismyip.com
-www.whatismyip.com/
-wyjrvmdgwcp.net
-xehycceip.org
-ytlazwcii.net
-zwhffkvphkq.org
+url,dest_nt_domain,metadata_domain,metadata_used_by,metadata_site_status,metadata_confidence,metadata_detection_type,metadata_comment
+http://*.trackip.net*,*.trackip.net,trackip.net,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,N/A,low,hunting,N/A
+https://*.whatismyipaddress.info*,*.whatismyipaddress.info,whatismyipaddress.info,used by lots of malwares,N/A,medium,hunting,N/A
+https://*.edns.ip-api.com*,*edns.ip-api.com,ip-api.com,N/A,N/A,N/A,hunting,N/A
+https://acycseiiqsau.org,acycseiiqsau.org,acycseiiqsau.org,N/A,N/A,N/A,hunting,N/A
+https://api.2ip.ua*,api.2ip.ua,2ip.ua,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,N/A,high,hunting,N/A
+https://api.bigdatacloud.net/data/client-ip,api.bigdatacloud.net,bigdatacloud.net,N/A,N/A,N/A,hunting,N/A
+https://api.db-ip.com*,api.db-ip.com,db-ip.com,N/A,N/A,N/A,hunting,N/A
+https://api.ip.sb*,api.ip.sb,ip.sb,N/A,N/A,N/A,hunting,N/A
+https://api.ipbase.com*,api.ipbase.com,ipbase.com,N/A,N/A,N/A,hunting,N/A
+https://api.ipify.com/*,api.ipify.com,ipify.com,N/A,N/A,N/A,hunting,N/A
+http://api.ipify.org*,api.ipify.org,ipify.org,used by QuasarRat - Amadey - SnakeKeylogger - AgentTesla and various malware samples,N/A,high,hunting,N/A
+https://api.ipstack.com/*,api.ipstack.com,ipstack.com,N/A,N/A,N/A,hunting,N/A
+https://api.myip.com/,api.myip.com,myip.com,N/A,N/A,N/A,hunting,N/A
+https://api.my-ip.io*,api.my-ip.io ,my-ip.io ,N/A,N/A,N/A,hunting,N/A
+http://api.rest7.com*,api.rest7.com,rest7.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,N/A,high,hunting,N/A
+https://api.whatismyip.com*,api.whatismyip.com,whatismyip.com,a few trojans,N/A,low,hunting,N/A
+https://api4.my-ip.io*,api4.my-ip.io ,my-ip.io ,N/A,N/A,N/A,hunting,N/A
+https://api6.my-ip.io*,api6.my-ip.io ,my-ip.io ,N/A,N/A,N/A,hunting,N/A
+https://api64.ipify.org*,api64.ipify.org,ipify.org,used by lots of malwares,N/A,high,hunting,N/A
+https://api-bdc.net/data/client-ip,api-bdc.ne,api-bdc.ne,N/A,N/A,N/A,hunting,N/A
+https://api-ipv4.ip.sb/ip*,api-ipv4.ip.sb,ip.sb,N/A,N/A,N/A,hunting,N/A
+https://api-ipv6.ip.sb/ip*,api-ipv6.ip.sb,ip.sb,N/A,N/A,N/A,hunting,N/A
+https://*.geojs.io*,apps.geojs.io,geojs.io,N/A,N/A,N/A,hunting,N/A
+https://canireachthe.net*,canireachthe.net,canireachthe.net,N/A,N/A,N/A,hunting,N/A
+https://checkip.amazonaws.com*,checkip.amazonaws.com,amazonaws.com,N/A,N/A,N/A,hunting,N/A
+http://checkip.dyndns.org*,checkip.dyndns.org,dyndns.org,N/A,N/A,N/A,hunting,N/A
+https://cqmixhedbefv.net*,cqmixhedbefv.net,cqmixhedbefv.net,N/A,N/A,N/A,hunting,N/A
+http://curlmyip.com,curlmyip.com,curlmyip.com,N/A,N/A,N/A,hunting,N/A
+https://eth0.me/,eth0.me,eth0.me,N/A,N/A,N/A,hunting,N/A
+https://fnwjjzxy.info*,fnwjjzxy.info,fnwjjzxy.info,N/A,N/A,N/A,hunting,N/A
+https://freegeoip.net,freegeoip.net,freegeoip.net,N/A,N/A,N/A,hunting,N/A
+https://geo-ip.enigmasoft.net*,geo-ip.enigmasoft.net,enigmasoft.net,N/A,N/A,N/A,hunting,N/A
+https://geoip.junglefrog.com*,geoip.junglefrog.com,junglefrog.com,N/A,N/A,N/A,hunting,N/A
+https://geoipy.com/*,geoipy.com,geoipy.com,N/A,N/A,N/A,hunting,N/A
+https://geolocation-db.com/*,geolocation-db.com,geolocation-db.com,N/A,N/A,N/A,hunting,N/A
+https://geoplugin.net/*,geoplugin.net,geoplugin.net,N/A,N/A,N/A,hunting,N/A
+https://getip.pro*,getip.pro,getip.pro,N/A,N/A,N/A,hunting,N/A
+https://ggiwom.org*,ggiwom.org,ggiwom.org,N/A,N/A,N/A,hunting,N/A
+https://grmibb.net*,grmibb.net,grmibb.net,N/A,N/A,N/A,hunting,N/A
+https://gtqyplewuo.net*,gtqyplewuo.net,gtqyplewuo.net,N/A,N/A,N/A,hunting,N/A
+http://icanhazip.com*,icanhazip.com,icanhazip.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,N/A,high,hunting,N/A
+https://icanhazip.com/,icanhazip.com,icanhazip.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,N/A,N/A,hunting,N/A
+https://ident.me*,ident.me,ident.me,N/A,N/A,N/A,hunting,N/A
+https://ifcfg.me*,ifcfg.me,ifcfg.me,N/A,N/A,high,hunting,N/A
+https://ifconfig.io*,ifconfig.io,ifconfig.io,N/A,N/A,N/A,hunting,N/A
+https://ifconfig.me*,ifconfig.me,ifconfig.me,N/A,N/A,N/A,hunting,N/A
+https://ip.anysrc.net/index.html,ip.anysrc.net,anysrc.net,N/A,N/A,N/A,hunting,N/A
+https://ip4.anysrc.net/index.html,ip4.anysrc.net,anysrc.net,N/A,N/A,N/A,hunting,N/A
+https://ip6.anysrc.net/,ip6.anysrc.net,anysrc.net,N/A,N/A,N/A,hunting,N/A
+https://ip.appspot.com/,ip.appspot.com,appspot.com,N/A,N/A,N/A,hunting,N/A
+https://ip.tyk.nu/,ip.tyk.nu,tyk.nu,N/A,N/A,N/A,hunting,N/A
+https://ip4.seeip.org*,ip4.seeip.org,seeip.org,N/A,N/A,N/A,hunting,N/A
+https://ipaddressworld.com*,ipaddressworld.com,ipaddressworld.com,N/A,N/A,N/A,hunting,N/A
+https://ipapi.co/,ipapi.co,ipapi.co,N/A,N/A,N/A,hunting,N/A
+http://ip-api.com*,ip-api.com,ip-api.com,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,N/A,low,hunting,N/A
+https://ipbase.com/*,ipbase.com,ipbase.com,N/A,N/A,N/A,hunting,N/A
+https://ipecho.net*,ipecho.net,ipecho.net,used by multiple malware,N/A,N/A,hunting,N/A
+https://ipinfo.io*,ipinfo.io,ipinfo.io,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,N/A,low,hunting,N/A
+https://ipinfo.tw*,ipinfo.tw,ipinfo.tw,N/A,N/A,N/A,hunting,N/A
+https://iplogger.org/*/ip-tracker/*,iplogger.org,iplogger.org,N/A,N/A,N/A,hunting,N/A
+http://ipof.in/,ipof.in,ipof.in,N/A,N/A,N/A,hunting,N/A
+https://ipstack.com*,ipstack.com,ipstack.com,N/A,N/A,N/A,hunting,N/A
+https://ipv4.icanhazip.com*,ipv4.icanhazip.com,icanhazip.com,used by PrimusC2,N/A,low,hunting,N/A
+https://ipv4.myip.wtf/text*,ipv4.myip.wtf,myip.wtf,used by disctopia-c2,N/A,high,hunting,N/A
+https://ipv4bot.whatismyipaddress.com,ipv4bot.whatismyipaddress.com,whatismyipaddress.com,N/A,N/A,N/A,hunting,N/A
+https://ipv6ajax.showmyip.com*,ipv6ajax.showmyip.com,showmyip.com,observed from redteam. not sure of the source,N/A,high,hunting,N/A
+https://ipwho.is*,ipwho.is,ipwho.is,used by QuasarRat,N/A,medium,hunting,N/A
+https://jiwcdxcd.net*,jiwcdxcd.net,jiwcdxcd.net,N/A,N/A,N/A,hunting,N/A
+https://kurupmtw.info*,kurupmtw.info,kurupmtw.info,N/A,N/A,N/A,hunting,N/A
+https://l2.io/ip*,l2.io,l2.io,N/A,N/A,N/A,hunting,N/A
+https://lakcqthrtwc.info*,lakcqthrtwc.info,lakcqthrtwc.info,N/A,N/A,N/A,hunting,N/A
+https://mukeui.org/,mukeui.org,mukeui.org,N/A,N/A,N/A,hunting,N/A
+https://myexternalip.com*,myexternalip.com,myexternalip.com,N/A,N/A,N/A,hunting,N/A
+https://myip.dnsomatic.com*,myip.dnsomatic.com,dnsomatic.com,N/A,N/A,N/A,hunting,N/A
+https://mzrffun.net/,mzrffun.net,mzrffun.net,N/A,N/A,N/A,hunting,N/A
+https://nordvpn.com/*/what-is-my-ip*,nordvpn.com,nordvpn.com,used by redteam,N/A,high,hunting,N/A
+https://oyoecycc.com/,oyoecycc.com,oyoecycc.com,N/A,N/A,N/A,hunting,N/A
+https://*portmap.io*,portmap.io,portmap.io,N/A,N/A,N/A,hunting,N/A
+https://qecwkiuwsewm.com/,qecwkiuwsewm.com,qecwkiuwsewm.com,N/A,N/A,N/A,hunting,N/A
+https://qqqgcs.com*,qqqgcs.com,qqqgcs.com,N/A,N/A,N/A,hunting,N/A
+https://qvkdlak.net/,qvkdlak.net,qvkdlak.net,N/A,N/A,N/A,hunting,N/A
+https://tqbmdwhaiuy.info/,tqbmdwhaiuy.info,tqbmdwhaiuy.info,N/A,N/A,N/A,hunting,N/A
+http://trackip.net*,trackip.net,trackip.net,Potential-IOCs sourced from QuasarRat Amadey SnakeKeylogger AgentTesla and various malware samples,N/A,low,hunting,N/A
+https://uiplqgpek.net/,uiplqgpek.net,uiplqgpek.net,N/A,N/A,N/A,hunting,N/A
+https://uuyguc.org/,uuyguc.org,uuyguc.org,N/A,N/A,N/A,hunting,N/A
+https://wgetip.com*,wgetip.com,wgetip.com,N/A,N/A,N/A,hunting,N/A
+http://whatismyip.akamai.com*,whatismyip.akamai.com,akamai.com,N/A,N/A,N/A,hunting,N/A
+https://whatismyip.everdot.org/,whatismyip.everdot.org,everdot.org,N/A,N/A,N/A,hunting,N/A
+https://whatismyipaddress.com*,whatismyipaddress.com,whatismyipaddress.com,used by multiple malwares,N/A,low,hunting,N/A
+https://whatismyipaddress.com/,whatismyipaddress.com,whatismyipaddress.com,N/A,N/A,N/A,hunting,N/A
+https://whatismyipaddress.info*,whatismyipaddress.info,whatismyipaddress.info,used by lots of malwares,N/A,low,hunting,N/A
+https://wtfismyip.com*,wtfismyip.com,wtfismyip.com,N/A,N/A,N/A,hunting,N/A
+https://www.bigdatacloud.com/what-is-my-ip*,www.bigdatacloud.com,bigdatacloud.com,N/A,N/A,N/A,hunting,N/A
+https://www.geodatatool.com,www.geodatatool.com,geodatatool.com,N/A,N/A,N/A,hunting,N/A
+https://www.geoplugin.net*,www.geoplugin.net,www.geoplugin.net,N/A,N/A,N/A,hunting,N/A
+https://www.ipaddress.my*,www.ipaddress.my,ipaddress.my,used by android rats,N/A,high,hunting,N/A
+https://www.ipify.org*,www.ipify.org,ipify.org,used by lots of malwares,N/A,low,hunting,N/A
+https://www.my-ip.io*,www.my-ip.io,my-ip.io,N/A,N/A,N/A,hunting,N/A
+https://www.showmyip.com*,www.showmyip.com,showmyip.com,used by coin miner and stealers,N/A,low,hunting,N/A
+https://www.showmyipaddress.com*,www.showmyipaddress.com,showmyipaddress.com,N/A,N/A,N/A,hunting,N/A
+https://www.whatismyip.ca/,www.whatismyip.ca,whatismyip.ca,N/A,N/A,N/A,hunting,N/A
+https://www.whatismyip.com*,www.whatismyip.com,whatismyip.com,used by lots of malwares,N/A,low,hunting,N/A
+https://www.whatismyip.com*,www.whatismyip.com,whatismyip.com,N/A,N/A,N/A,hunting,N/A
+http://www.whatismyip.com*,www.whatismyip.com,whatismyip.com,N/A,N/A,N/A,hunting,N/A
+https://www.geoipy.com/api/*,wwwgeoipy.com,geoipy.com,N/A,N/A,N/A,hunting,N/A
+https://wyjrvmdgwcp.net*,wyjrvmdgwcp.net,wyjrvmdgwcp.net,N/A,N/A,N/A,hunting,N/A
+https://xehycceip.org*,xehycceip.org,xehycceip.org,N/A,N/A,N/A,hunting,N/A
+https://ytlazwcii.net*,ytlazwcii.net,ytlazwcii.net,N/A,N/A,N/A,hunting,N/A
+https://zwhffkvphkq.org*,zwhffkvphkq.org,zwhffkvphkq.org,N/A,N/A,N/A,hunting,N/A
