@@ -1,4 +1,7 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\LogMeInRescue_rarc_r_*,LogMeIn  default RMM usage,RMM,https://www.logmeinrescue.com/,high,none,high,detection rule,used by LMI_RescueRC.exe and LMI_Rescue_srv.exe
+\LogMeInRescue_rarc_w_*,LogMeIn  default RMM usage,RMM,https://www.logmeinrescue.com/,high,none,high,detection rule,used by LMI_RescueRC.exe and LMI_Rescue_srv.exe
+\LogMeInRescue_ipc*,LogMeIn  default RMM usage,RMM,https://www.logmeinrescue.com/,high,none,high,detection rule,used by LMI_RescueRC.exe LMI_Rescue.exe and LMI_Rescue_srv.exe 
 \client32_VistaUIPipe2,NetSupport Manager\client32.exe RMM usage,RMM,netsupportsoftware.com,high,low,high,Hunting,N/A
 \client32_VistaPipe2,NetSupport Manager\client32.exe RMM usage,RMM,netsupportsoftware.com,high,low,high,Hunting,N/A
 \OfflineKeyloggerPipe,offline keylogger used by xeno-rat,C2,https://github.com/moom825/xeno-rat/blob/3438a2c958d0ac4af33268822cdf6cbeabba81f8/Plugins/KeyLoggerOffline/KeyLoggerOffline.cs#L23,critical,none,critical,detection rule,N/A
