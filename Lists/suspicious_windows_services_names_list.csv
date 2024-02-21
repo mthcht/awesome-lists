@@ -1,4 +1,8 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+RPCPerformanceService,*\RPCPerformanceService.exe,RemotePC,RMM,greyware_tool,high,N/A
+RemotePC Performance Service,,RemotePC,RMM,greyware_tool,high,N/A
+RPCService,*\RemotePCService.exe,RemotePC,RMM,greyware_tool,high,N/A
+ViewerService,*\ViewerService.exe,RemotePC,RMM,greyware_tool,high,N/A
 PC Monitor,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,high,N/A
 Pulseway,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,high,N/A
 Client32,*\NetSupport\*\client32.exe,NetSupport,RMM,greyware_tool,high,False positives expected
