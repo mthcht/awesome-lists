@@ -1,4 +1,6 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\RPC_DEEP_INTEGRATION_PIPE*,RemotePCLauncher.exe and RPCPerfViewer.exe behavior from RemotePC RMM,RMM,https://www.remotedesktop.com/,high,none,high,Hunting,N/A
+\RPCViewerCom,RemotePCUIU.exe behavior from RemotePC RMM,RMM,https://www.remotedesktop.com/,high,none,high,Hunting,N/A
 \LogMeInRescue_rarc_r_*,LogMeIn  default RMM usage,RMM,https://www.logmeinrescue.com/,high,none,high,detection rule,used by LMI_RescueRC.exe and LMI_Rescue_srv.exe
 \LogMeInRescue_rarc_w_*,LogMeIn  default RMM usage,RMM,https://www.logmeinrescue.com/,high,none,high,detection rule,used by LMI_RescueRC.exe and LMI_Rescue_srv.exe
 \LogMeInRescue_ipc*,LogMeIn  default RMM usage,RMM,https://www.logmeinrescue.com/,high,none,high,detection rule,used by LMI_RescueRC.exe LMI_Rescue.exe and LMI_Rescue_srv.exe 
