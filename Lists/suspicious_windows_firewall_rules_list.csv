@@ -1,4 +1,15 @@
 rule_name,metadata_rule_id,metadata_tool,metadata_tool_type,metadata_category,metadata_severity,metadata_link,metadata_detection_type,metadata_comment
+RPCCodecEngine,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+RPCDesktop,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+RPCFTHost,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+RPCFTViewer,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+RPCService,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+RPCUtilityHost,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+RPCUtilityViewer,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+RPCViewer,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+TransferClient ports,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+TransferServer,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
+TransferServer ports,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
 NetSupport Client,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
 NetSupport Client_deleteme_0,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
 NetSupport Client_deleteme_1,,NetSupport,greyware_tool,RMM,high,https://www.netsupportmanager.com/,Hunting,N/A
