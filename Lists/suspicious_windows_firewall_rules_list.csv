@@ -1,4 +1,7 @@
 rule_name,metadata_rule_id,metadata_tool,metadata_tool_type,metadata_category,metadata_severity,metadata_link,metadata_detection_type,metadata_comment
+SH Remote Access Service,,SimpleHelp,greyware_tool,RMM,high,https://simple-help.com/,Hunting,N/A
+SH Remote Access Service Launcher,,SimpleHelp,greyware_tool,RMM,high,https://simple-help.com/,Hunting,N/A
+SH Remote Access Service Updater,,SimpleHelp,greyware_tool,RMM,high,https://simple-help.com/,Hunting,N/A
 RPCCodecEngine,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
 RPCDesktop,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
 RPCFTHost,,RemotePC,greyware_tool,RMM,high,https://www.remotedesktop.com/,Hunting,N/A
