@@ -56,6 +56,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category
 5001,FudgeC2 + spiderfoot and other malwares but also used by synology NAS and yahoo messenger,medium,C2
 5002,multiple malwares and legit usages,low,malware
 5096,hardhatC2 default port,high,C2
+5222,XMPP client connections - also used by Google Chrome Remote Desktop,low,RMM 
 5321,Firehotcker trojan,high,malware
 5400,BladeRunner and Back Construction trojans but also some games,medium,malware
 5405,Netsupport - Connecting to Clientst,high,RMM
