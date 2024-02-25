@@ -196,3 +196,4 @@ pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority
 \Something,Invoke-SMBRemoting,Lateral Movement,https://github.com/Leo4j/Amnesiac/blob/216ba3a280bf49ea3f5b1afab80f843bbde3548d/Tools/Invoke-SMBRemoting.ps1#L32,high,low,high,detection rule,N/A
 *\ZAudioClientPipe_*ServerWritePipe*,Zoho Assist Remote access software,RMM,https://www.zoho.com/assist/,high,none,high,Hunting,N/A
 *\ZAudioClientPipe_*ServerReadPipe*,Zoho Assist Remote access software,RMM,https://www.zoho.com/assist/,high,none,high,Hunting,N/A
+\Bomgar-enum_cp-*,Bomgar Beyoudtrust Remote access software - named pipe used by *:\ProgramData\bomgar-scc-*\bomgar-scc.exe,RMM,beyondtrustcloud.com,high,none,high,Hunting,N/A
