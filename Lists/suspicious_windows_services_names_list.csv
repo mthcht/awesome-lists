@@ -119,7 +119,7 @@ BlockNewProc,,BlockNewProc,Defense Evasion,offensive_tool,critical,PoCs to block
 ProcProtect,,ProcProtect,Defense Evasion,offensive_tool,critical,PoCs to manipulate Protected Process - ProcProtect - https://github.com/daem0nc0re/VectorKernel/blob/main/ProcProtect/README.md
 Zoho Assist-Remote Support,*\ZAService.exe*,Zoho Assist,RMM,greyware_tool,high,Zoho Assist https://www.zoho.com/pt-br/assist/
 Agent,*:\Program Files (x86)\Common Files\Two Pilots\VPDAgent.exe,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/
-VPDAgent,,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/
+VPDAgent,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/
 RManService,*:\Program Files (x86)\Remote Utilities - Host\rutserv.exe*,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/
 Remote Utilities - Host,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/
 MiniInternetIdService,*:\Program Files (x86)\Remote Utilities - Server\InternetIdService.exe,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/
