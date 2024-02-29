@@ -1,4 +1,13 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\RMSFUSClient*,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by '\Remote Utilities - Host\rfusclient.exe' and '\Remote Utilities - Host\rutserv.exe'
+\RManFUSServerNotify32,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by '\Program Files (x86)\Remote Utilities - Host\rfusclient.exe' and '\Program Files (x86)\Remote Utilities - Host\rutserv.exe'
+\RManFUSCallbackNotify32,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by 'Remote Utilities - Host\rutserv.exe'
+\RMSPrint*,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by 'Remote Utilities - Host\rutserv.exe'
+\RMS-Mini-Id-Local-Settings,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by \Remote Utilities - Server\InternetIdService.exe
+\RMS-Mini-Id-Settings-Notify,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by \Remote Utilities - Server\InternetIdService.exe
+\BuhphoneAgentAPIViewer,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by \Remote Utilities - Viewer\rutview.exe and \rutserv.exe
+\Local\RManChatServer,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by \Remote Utilities - Viewer\rutview.exe
+\RMS-Terminal-*,RemoteUtilities software,RMM,https://www.remoteutilities.com/,high,low,high,Hunting,executed by \Remote Utilities - Viewer\rutview.exe
 \winpty-conin-*,JWrapper-Remote Access used by SimpleHelp 'Remote Access.exe'  RMM,RMM,https://simple-help.com/,high,low,high,Hunting,N/A
 \winpty-conout-*,JWrapper-Remote Access used by SimpleHelp 'Remote Access.exe' RMM,RMM,https://simple-help.com/,high,low,high,Hunting,N/A
 \winpty-control-*,JWrapper-Remote Access used by SimpleHelp 'Remote Access.exe'  RMM,RMM,https://simple-help.com/,high,low,high,Hunting,N/A
