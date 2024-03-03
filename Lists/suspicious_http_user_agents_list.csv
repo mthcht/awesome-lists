@@ -15,6 +15,7 @@ Mozilla/5.0 (*-bit) dnstwist,user agent used by dnstwist,phishing,https://detect
 unknown,empty user agent hunting (in splunk the default value when no user agent is informed),suspicious string,https://x.com/crep1x/status/1600129411629473792?s=20,low,high,low,Hunting,network flow direction internal --> internal/external
 "LocusSoftware, NetInstaller",Suricata Malware user-agent rules,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,network flow direction internal --> external
 * (Linux;  *,linux based os user agent,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
+saraclient,default user agent used by AADInternals/SARA_utils.ps1,Compliance,https://github.com/Gerenios/AADInternals/blob/0fa2edf5676439cd3fe7c92ed8006b63f0be9632/SARA_utils.ps1#L24,medium,medium,medium,Hunting,network flow direction internal --> external
 * (X11; *,unix based os user agent,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
 * (X11; *Firefox*,unix based os user agent using firefox client,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
 * MASP)*,trojan AV Bypass,Malware,https://www.virustotal.com/gui/file/c1b66f35e1677913974f8bbca2bbe026591756c3e7527a6b695cf200b98ecc70/behavior,high,low,high,Detection rule,network flow direction internal --> internal/external
