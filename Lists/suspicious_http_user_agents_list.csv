@@ -15,6 +15,7 @@ Mozilla/5.0 (*-bit) dnstwist,user agent used by dnstwist,phishing,https://detect
 unknown,empty user agent hunting (in splunk the default value when no user agent is informed),suspicious string,https://x.com/crep1x/status/1600129411629473792?s=20,low,high,low,Hunting,network flow direction internal --> internal/external
 "LocusSoftware, NetInstaller",Suricata Malware user-agent rules,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,network flow direction internal --> external
 * (Linux;  *,linux based os user agent,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
+ModSecurity CRS 3 test*,OWASP user-agent tests,Exploitation,https://github.com/coreruleset/coreruleset/blob/2bb4d7b5bcde5b0642ea2fba5879ccb01b7b518e/tests/regression/tests/REQUEST-932-APPLICATION-ATTACK-RCE/932131.yaml#L16,medium,medium,low,Hunting,network flow direction internal --> external
 OWASP *,OWASP user-agent tests,Exploitation,https://github.com/coreruleset/coreruleset/blob/1deaa5fb2469f3080d6e699a95e7dc1383553ccf/CONTRIBUTING.md?plain=1#L413,medium,medium,low,Hunting,network flow direction internal --> external
 AADInternals,default user agent used by AADInternals,Compliance,https://github.com/Gerenios/AADInternals/blob/0fa2edf5676439cd3fe7c92ed8006b63f0be9632/config.json#L3,high,low,medium,Hunting,network flow direction internal --> external
 * (X11; *,unix based os user agent,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
