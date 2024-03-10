@@ -1,4 +1,4 @@
-pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_commentw
 \MEGAprivacyMEGAsync,MEGAsync synchro backup,RMM,https://mega.io/en/desktop,high,none,high,Hunting,MEGAsync.exe behavior
 \mojo.7304.10032.2584273091328543665,Nemesis sample file named pipe,Exploitation,https://github.com/SpecterOps/Nemesis/blob/ee5ab5b330935ccd5809ff6f91c0338a28785df4/sample_files/structured/named_pipes.json#L4,high,low,high,Hunting,N/A
 \demon_pipe,Havoc C2 pipe name,C2,https://github.com/HavocFramework/Havoc/blob/ea3646e055eb1612dcc956130fd632029dbf0b86/profiles/http_smb.yaotl#L67,high,none,high,detection rule,N/A
@@ -36,6 +36,7 @@ pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority
 \RustDesk\query_portable_service*,used by RustDesk for remote control,RMM,https://github.com/rustdesk/rustdesk,high,low,high,detection rule,N/A
 \RustDesk\query_service,used by RustDesk for remote control,RMM,https://github.com/rustdesk/rustdesk,high,low,high,detection rule,N/A
 \__rust_anonymous_pipe1*,used by RustDesk for remote control,RMM,https://github.com/rustdesk/rustdesk,high,low,high,detection rule,N/A
+\Teste,RustRedOps Named Pipe Client / Server,Exploitation,https://github.com/joaoviictorti/RustRedOps/blob/1b8d25c9692f8effd03dea677f349dc0e882c5f3/Named_Pipe_Client_Server/src/client.rs#L14,medium,low,medium,Hunting,N/A
 \DAV RPC SERVICE,used by aeroadmin for remote control (also used by other lateral movement tools),RMM,https://ulm.aeroadmin.com/AeroAdmin.exe,high,high,medium,Hunting,N/A
 *IpHlpSvc.log*,kernel exploit Chimichurri.cpp,Privilege Escalation,https://github.com/helloexp/0day/blob/29bd78f73941b39e36d38cd1653433dcf2ce588e/97-Windows%E6%8F%90%E6%9D%83/MS09-012/Chimichurri/Chimichurri.cpp#L98,critical,N/A,critical,detection rule,N/A
 *lacesomepipe,trickbot malware,Malware,https://whitehat.eu/incident-response-case-study-featuring-ryuk-and-trickbot-part-2/,critical,N/A,critical,detection rule,N/A
