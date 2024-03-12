@@ -142,6 +142,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category
 9050,default port used by the Tor network for its SOCKS proxy also used by MaccaroniC2 proxy,high,Defense Evasion
 9051,default port used by the Tor network for the controller,high,Defense Evasion
 9090,impacket and other legit usages,low,exploitation
+9151,default port used by the Tor Browser,high,Defense Evasion
 9200,default port used by the Tor network,high,Defense Evasion
 9631,hardhatC2 default port and other legit usages,high,C2
 9988,Rbot-GR trojan and other legit usages,medium,malware
