@@ -1,4 +1,15 @@
-pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_commentw
+pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\TCRmtShellAgentModule_*,Dameware Remote Everywhere Agent (\Dameware Remote Everywhere Agent\BASupSrvc.exe + \BASupRegEditHlpr.exe + \TCRmtShellAgent.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\MSPARegEditHelper_*,Dameware Remote Everywhere Agent (\Dameware Remote Everywhere Agent\BASupSrvc.exe + \BASupRegEditHlpr.exe + \TCRmtShellAgent.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\MSPxTSHlpSrv_*,Dameware Remote Everywhere Agent (\Dameware Remote Everywhere Agent\BASupSrvc.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\TCDirectChat_*,Dameware Remote Everywhere Agent (\Dameware Remote Everywhere Agent\BASupSrvc.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\TCRmtShellAgentModule_*,Dameware Remote Everywhere Agent (\Dameware Remote Everywhere Agent\BASupSrvc.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\MSPAClipboardHelper_*,Dameware (BASupClpHlp.exe + BASEClient.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\clipboardHelperProgressBar_*,Dameware (BASupClpHlp.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\TCRmtShellViewerModule_*,Dameware (TCRmtShellViewer.exe + BASEClient.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\dre_video_uploader,Dameware (\tkcuploader.exe + \BAConsoleApp.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\dreconsole_main_instance,Dameware Remote Everywhere Agent (BAConsoleApp.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
+\tcpreload_*,Dameware Remote Everywhere Agent (BAConsoleApp.exe + BASEClient.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
 \MEGAprivacyMEGAsync,MEGAsync synchro backup,RMM,https://mega.io/en/desktop,high,none,high,Hunting,MEGAsync.exe behavior
 \mojo.7304.10032.2584273091328543665,Nemesis sample file named pipe,Exploitation,https://github.com/SpecterOps/Nemesis/blob/ee5ab5b330935ccd5809ff6f91c0338a28785df4/sample_files/structured/named_pipes.json#L4,high,low,high,Hunting,N/A
 \demon_pipe,Havoc C2 pipe name,C2,https://github.com/HavocFramework/Havoc/blob/ea3646e055eb1612dcc956130fd632029dbf0b86/profiles/http_smb.yaotl#L67,high,none,high,detection rule,N/A
