@@ -1,4 +1,8 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+BASupportExpressSrvcUpdater_Dameware,*\Dameware Remote Everywhere Agent\BASupSrvcUpdater.exe,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware
+Dameware Remote Everywhere Updater,,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware
+BASupportExpressStandaloneService_Dameware,*\Dameware Remote Everywhere Agent\BASupSrvc.exe,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware	
+Dameware Remote Everywhere,,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware	
 ShTemporaryService1*,,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM https://simple-help.com
 Remote Access Service,*\SimpleService.exe,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM https://simple-help.com
 SimpleHelp Server Service,,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM https://simple-help.com
