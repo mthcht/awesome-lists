@@ -1,4 +1,5 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+KrbSCM,,KrbRelayUp,Privilege Escalation,offensive_tool,critical,https://github.com/Dec0ne/KrbRelayUp/blob/e919f78afbacdb2c2e86f17267674069a377011c/README.md?plain=1#L90
 BASupportExpressSrvcUpdater_Dameware,*\Dameware Remote Everywhere Agent\BASupSrvcUpdater.exe,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware
 Dameware Remote Everywhere Updater,,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware
 BASupportExpressStandaloneService_Dameware,*\Dameware Remote Everywhere Agent\BASupSrvc.exe,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware	
