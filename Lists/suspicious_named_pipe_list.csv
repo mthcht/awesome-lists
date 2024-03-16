@@ -1,4 +1,5 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\petit\pipe\srvsvc,PetitPotato.exe default pipe,Privilege Escalation,https://github.com/wh0amitz/PetitPotato/blob/047aebdc7a05fab2c08eff2bbac984f59fc218cf/PetitPotato/PetitPotato.cpp#L138,critical,none,critical,detection rule,N/A
 \TCRmtShellAgentModule_*,Dameware Remote Everywhere Agent (\Dameware Remote Everywhere Agent\BASupSrvc.exe + \BASupRegEditHlpr.exe + \TCRmtShellAgent.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
 \MSPARegEditHelper_*,Dameware Remote Everywhere Agent (\Dameware Remote Everywhere Agent\BASupSrvc.exe + \BASupRegEditHlpr.exe + \TCRmtShellAgent.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
 \MSPxTSHlpSrv_*,Dameware Remote Everywhere Agent (\Dameware Remote Everywhere Agent\BASupSrvc.exe),RMM,https://www.solarwinds.com/dameware-remote-everywhere,high,none,high,Hunting,N/A
