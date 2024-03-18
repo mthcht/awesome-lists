@@ -1,7 +1,8 @@
 # Security lists for SOC detections 
 
 ## ThreatHunting/Detection rules:
-- [ThreatHunting keywords](https://mthcht.github.io/ThreatHunting-Keywords/)
+- [ThreatHunting keywords Site](https://mthcht.github.io/ThreatHunting-Keywords/)
+- [ThreatHunting keywords Lists](https://github.com/mthcht/ThreatHunting-Keywords)
 - [ThreatHunting searches](https://github.com/mthcht/Purpleteam/tree/main/Detection/Threat%20Hunting/generic)
 - [ThreatHunting Guides](https://mthcht.medium.com/list/threat-hunting-708624e9266f)
 - [Hijacklibs](https://github.com/mthcht/awesome-lists/tree/main/Hijacklibs)
