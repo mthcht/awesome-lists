@@ -10,10 +10,11 @@ SimpleHelp Server Service,,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM http
 SimpleHelp Server,*\SimpleService.exe,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM https://simple-help.com
 VSA X,*\PCMonitorSrv.exe,Kaseya VSA,RMM,greyware_tool,high,VSA RMM service name https://www.kaseya.com/products/vsa/
 VSAX,,Kaseya VSA,RMM,greyware_tool,high,VSA RMM service name https://www.kaseya.com/products/vsa/
-RPCPerformanceService,*\RPCPerformanceService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/
-RemotePC Performance Service,,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/
-RPCService,*\RemotePCService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/
-ViewerService,*\ViewerService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/
+RPCPerformanceService,*\RPCPerformanceService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com
+RemotePC Performance Service,,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com
+RemotePCAttendedService,,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com
+RPCService,*\RemotePCService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com
+ViewerService,*\ViewerService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com
 PC Monitor,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,high,https://www.pulseway.com/
 Pulseway,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,high,https://www.pulseway.com/
 Client32,*\NetSupport\*\client32.exe,NetSupport,RMM,greyware_tool,high,False positives expected
