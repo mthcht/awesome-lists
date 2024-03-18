@@ -88,6 +88,8 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 5950,aeroadmin default dest port,medium,RMM,hunting
 5985,Winrm communication,low,Lateral Movement,hunting
 5986,Winrm communication,low,Lateral Movement,hunting
+6030,RemotePC \RPCCoreViewer.exe default port connection,medium,RMM,hunting
+6040,RemotePC \RPCCoreViewer.exe default port connection,medium,RMM,hunting
 6129,dameware mini remote control x64\dwrcc.exe RMM tool default port usage,high,RMM,hunting
 6130,DameWare Remote Control,medium,RMM,hunting
 6132,DameWare Remote Control internet proxy,medium,RMM,hunting
