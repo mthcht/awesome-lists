@@ -108,7 +108,7 @@ sliver*,,sliverC2,C2,offensive_tool,critical,
 metsvc,metsvc-server.exe,Metasploit server,Exploitation,offensive_tool,critical,
 windows_monitoring,,social-engineer-toolkit persistence payload,Persistence,offensive_tool,high,
 TestService,,SharpyStay default,Persistence,offensive_tool,critical,
-TestSVC,,SharpyShell (obfuscated ASP.NET webshell) default service name,C2,offensive_tool,critical,https://github.com/antonioCoco/SharPyShell/blob/29718225791f11fd3d66dd03df4c05c414256630/modules/ps_modules/Get-System.ps1#L89
+TestSVC,,SharpyShell - Get-System.ps1 default service name,Privilege Escalation,offensive_tool,critical,https://github.com/antonioCoco/SharPyShell/blob/29718225791f11fd3d66dd03df4c05c414256630/modules/ps_modules/Get-System.ps1#L89
 sesshijack,,atomic-red-team test T1563.002,Persistence,offensive_tool,high,
 PowerUpService,,PowerSploit Privesc.tests.ps1,Privilege Escalation,offensive_tool,critical,
 NoRebootSvc,NoReboot.exe,PSBits NoReboot.c,,offensive_tool,high,
