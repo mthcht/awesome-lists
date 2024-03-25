@@ -45,6 +45,9 @@
 ##  Investigation
 
 ### TI
+
+<details>
+
   - [Virustotal](https://www.virustotal.com/#/home/search)
   - [SpamHaus](https://check.spamhaus.org/)
   - [AbuseIPDB](https://www.abuseipdb.com/)
@@ -68,8 +71,12 @@
   - [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com/) 
   - [AlienVault OTX](https://otx.alienvault.com/)
   - [greynoise](https://viz.greynoise.io/)
-  
+
+</details>
+
 ### More TI
+
+<details>
   - [echotrail](https://www.echotrail.io/)
   - [redhuntlabs](https://redhuntlabs.com/online-ide-search)
   - [whois domaintools](https://whois.domaintools.com/)
@@ -83,15 +90,25 @@
   - [dnshistory](https://dnshistory.org/)
   - [asnlookup](https://asnlookup.com/)
   - [fofa.info](https://fofa.info/)
-  
+
+</details>
+
+
 ### Sandbox
+
+<details>
 - [Sandbox HA](https://www.hybrid-analysis.com/)
 - [Sandbox Anyrun](https://any.run/)
 - [triage](https://tria.ge/reports/public)
 - [capesandbox](https://www.capesandbox.com/)
 - [joesandbox](https://www.joesandbox.com/analysispaged/0)
 
+</details>
+
+
 ## Data manipulation
+
+<details>
 - [jsoncrack](https://jsoncrack.com/editor)
 - [Hash calculator](https://md5calc.com/hash)
 - [regex101](https://regex101.com/)
@@ -124,7 +141,12 @@
 - [OPENAI](https://openai.com/playground)
 - [uncoder](https://uncoder.io/)
 
+</details>
+
+
 ## Detection Resources
+
+<details>
 - [MITRE techniques](https://attack.mitre.org/techniques/enterprise/)
 - [MITRE Updates](https://attack.mitre.org/resources/updates/)
 - [MITRE D3fend](https://d3fend.mitre.org/)
@@ -145,16 +167,28 @@
 - [tsale Sigma-Rules](https://github.com/tsale/Sigma_rules)
 - [list of detections resources](https://github.com/jatrost/awesome-detection-rules)
 
+</details>
+
 ## Security News
+
+<details>
 - [Twitter](https://twitter.com/home)
 - [CERT-FR](https://www.cert.ssi.gouv.fr/)
 - [CERT FR Alerts](https://www.cert.ssi.gouv.fr/alerte/)
 - [CERT FR Avis](https://www.cert.ssi.gouv.fr/avis/)
 - [NIST CVEs](https://nvd.nist.gov/vuln/search/results?isCpeNameSearch=false&results_type=overview&form_type=Basic&search_type=all&startIndex=0)
-- [JPCERT](https://www.jpcert.or.jp/english/) 
+- [JPCERT](https://www.jpcert.or.jp/english/)
+
+</details>
+
 
 ## Others
+
+<details>
 - [Crontab check](https://crontab.guru/every-2-minutes)
 - [Subnet Calculator](https://mxtoolbox.com/subnetcalculator.aspx)
 - [chmod calculator](https://chmod-calculator.com/)
 - [Epoch time converter](https://www.epochconverter.com/)
+
+</details>
+
