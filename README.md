@@ -77,6 +77,7 @@
 ### More TI
 
 <details>
+  
   - [echotrail](https://www.echotrail.io/)
   - [redhuntlabs](https://redhuntlabs.com/online-ide-search)
   - [whois domaintools](https://whois.domaintools.com/)
@@ -97,6 +98,7 @@
 ### Sandbox
 
 <details>
+  
 - [Sandbox HA](https://www.hybrid-analysis.com/)
 - [Sandbox Anyrun](https://any.run/)
 - [triage](https://tria.ge/reports/public)
@@ -109,6 +111,7 @@
 ## Data manipulation
 
 <details>
+  
 - [jsoncrack](https://jsoncrack.com/editor)
 - [Hash calculator](https://md5calc.com/hash)
 - [regex101](https://regex101.com/)
@@ -147,6 +150,7 @@
 ## Detection Resources
 
 <details>
+  
 - [MITRE techniques](https://attack.mitre.org/techniques/enterprise/)
 - [MITRE Updates](https://attack.mitre.org/resources/updates/)
 - [MITRE D3fend](https://d3fend.mitre.org/)
@@ -172,6 +176,7 @@
 ## Security News
 
 <details>
+  
 - [Twitter](https://twitter.com/home)
 - [CERT-FR](https://www.cert.ssi.gouv.fr/)
 - [CERT FR Alerts](https://www.cert.ssi.gouv.fr/alerte/)
@@ -185,6 +190,7 @@
 ## Others
 
 <details>
+  
 - [Crontab check](https://crontab.guru/every-2-minutes)
 - [Subnet Calculator](https://mxtoolbox.com/subnetcalculator.aspx)
 - [chmod calculator](https://chmod-calculator.com/)
