@@ -4,7 +4,8 @@
 - [ThreatHunting keywords Site](https://mthcht.github.io/ThreatHunting-Keywords/)
 - [ThreatHunting keywords Lists](https://github.com/mthcht/ThreatHunting-Keywords)
 - [ThreatHunting Yara rules](https://github.com/mthcht/ThreatHunting-Keywords-yara-rules)
-- [ThreatHunting searches](https://github.com/mthcht/Purpleteam/tree/main/Detection/Threat%20Hunting/generic)
+
+[ThreatHunting searches](https://github.com/mthcht/Purpleteam/tree/main/Detection/Threat%20Hunting/generic)
 <details>
   
   - [Windows Services Searches](https://detect.fyi/threat-hunting-suspicious-windows-service-names-2f0dceea204c)
