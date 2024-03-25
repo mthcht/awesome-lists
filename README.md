@@ -4,9 +4,24 @@
 - [ThreatHunting keywords Site](https://mthcht.github.io/ThreatHunting-Keywords/)
 - [ThreatHunting keywords Lists](https://github.com/mthcht/ThreatHunting-Keywords)
 - [ThreatHunting searches](https://github.com/mthcht/Purpleteam/tree/main/Detection/Threat%20Hunting/generic)
-- [ThreatHunting Guides](https://mthcht.medium.com/list/threat-hunting-708624e9266f)
-- [Hijacklibs](https://github.com/mthcht/awesome-lists/tree/main/Hijacklibs)
-- [Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists)
+
+## Detection Lists 
+- 📋 Lists: (https://github.com/mthcht/awesome-lists/tree/main/Lists
+- 🕵️‍♂️ ThreatHunting Guides: https://mthcht.medium.com/list/threat-hunting-708624e9266f
+- 📚 Hijacklibs: https://github.com/mthcht/awesome-lists/tree/main/Hijacklibs
+- 🚰 Suspicious Named pipes: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_named_pipe_list.csv
+- 🔧 Suspicious Windows Services: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_services_names_list.csv
+- ⏲️ Suspicious Windows Tasks: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_tasks_list.csv
+- 🚪 Suspicious destination port: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_ports_list.csv
+- 🛡️ Suspicious Firewall rules: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_firewall_rules_list.csv
+- 🆔 Suspicious User-agent: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_http_user_agents_list.csv
+- 📇 Suspicious USB Ids: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_usb_ids_list.csv
+- 🔢 Suspicious MAC address: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_mac_address_list.csv
+- 📛 Suspicious Hostname: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_hostnames_list.csv
+- 🧮 Metadata Executables: https://github.com/mthcht/awesome-lists/blob/main/Lists/executables_metadata_informations_list.csv
+- 🕸️ DNS over HTTPS server list: https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv
+- 🌐 TOR Nodes List: https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR
+- 🛠️ LOLDriver List: https://github.com/mthcht/awesome-lists/blob/main/Lists/loldrivers_list.csv
 
 ## SIEM/SOC related:
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
