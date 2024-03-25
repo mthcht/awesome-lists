@@ -6,7 +6,7 @@
 - [ThreatHunting searches](https://github.com/mthcht/Purpleteam/tree/main/Detection/Threat%20Hunting/generic)
 
 ## Detection Lists 
-- 📋 Lists: (https://github.com/mthcht/awesome-lists/tree/main/Lists
+- 📋 Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists
 - 🕵️‍♂️ ThreatHunting Guides: https://mthcht.medium.com/list/threat-hunting-708624e9266f
 - 📚 Hijacklibs: https://github.com/mthcht/awesome-lists/tree/main/Hijacklibs
 - 🚰 Suspicious Named pipes: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_named_pipe_list.csv
