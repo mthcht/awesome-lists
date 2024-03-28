@@ -221,6 +221,7 @@
 - [Unit42 Feed](http://feeds.feedburner.com/Unit42)
 - [DFIR weekly sumary - thisweekin4n6](https://thisweekin4n6.wordpress.com/feed/)
 - [akamai Feed](http://blogs.akamai.com/atom.xml)
+- [Elastic Blog](https://www.elastic.co/security-labs)
 - [Checkpoint research Feed](https://research.checkpoint.com/feed)
 - [Cisco Talos Feed](http://vrt-sourcefire.blogspot.com/feeds/posts/default)
 - [Crowdstrike Feed](http://blog.crowdstrike.com/feed)
