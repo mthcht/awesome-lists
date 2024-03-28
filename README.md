@@ -216,6 +216,7 @@
 - [CERT FR Avis](https://www.cert.ssi.gouv.fr/avis/)
 - [NIST CVEs](https://nvd.nist.gov/vuln/search/results?isCpeNameSearch=false&results_type=overview&form_type=Basic&search_type=all&startIndex=0)
 - [JPCERT](https://www.jpcert.or.jp/english/)
+- [CISA news](https://www.cisa.gov/news-events/news)
 - [thedfirreport Feed](https://thedfirreport.com/feed/)
 - [Splunk Research Blog](https://www.splunk.com/en_us/blog/author/secmrkt-research.html)
 - [Unit42 Feed](http://feeds.feedburner.com/Unit42)
