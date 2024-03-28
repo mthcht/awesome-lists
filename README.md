@@ -1,6 +1,6 @@
 # Security lists for SOC detections 
 
-## ThreatHunting/Detection rules:
+## Threat Hunting:
 - [ThreatHunting keywords Site](https://mthcht.github.io/ThreatHunting-Keywords/)
 - [ThreatHunting keywords Lists](https://github.com/mthcht/ThreatHunting-Keywords)
 - [ThreatHunting Yara rules](https://github.com/mthcht/ThreatHunting-Keywords-yara-rules)
