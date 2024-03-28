@@ -114,6 +114,7 @@
 <details>
   
 - [jsoncrack](https://jsoncrack.com/editor)
+- [cyberchef](https://cyberchef.org/)
 - [Hash calculator](https://md5calc.com/hash)
 - [regex101](https://regex101.com/)
 - [CyberChef](https://gchq.github.io/CyberChef/)
@@ -253,6 +254,7 @@
 - [Subnet Calculator](https://mxtoolbox.com/subnetcalculator.aspx)
 - [chmod calculator](https://chmod-calculator.com/)
 - [Epoch time converter](https://www.epochconverter.com/)
+- [cyberchef](https://cyberchef.org/)
 
 </details>
 
