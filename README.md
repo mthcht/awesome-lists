@@ -215,7 +215,25 @@
 - [CERT FR Avis](https://www.cert.ssi.gouv.fr/avis/)
 - [NIST CVEs](https://nvd.nist.gov/vuln/search/results?isCpeNameSearch=false&results_type=overview&form_type=Basic&search_type=all&startIndex=0)
 - [JPCERT](https://www.jpcert.or.jp/english/)
-
+- [thedfirreport Feed](https://thedfirreport.com/feed/)
+- [Unit42 Feed](http://feeds.feedburner.com/Unit42)
+- [DFIR weekly sumary - thisweekin4n6](https://thisweekin4n6.wordpress.com/feed/)
+- [akamai Feed](http://blogs.akamai.com/atom.xml)
+- [Checkpoint research Feed](https://research.checkpoint.com/feed)
+- [Cisco Talos Feed](http://vrt-sourcefire.blogspot.com/feeds/posts/default)
+- [Crowdstrike Feed](http://blog.crowdstrike.com/feed)
+- [Hexacorn Blog](http://www.hexacorn.com/blog/feed/)
+- [horizon3 Feed](https://www.horizon3.ai/feed/)
+- [Incidents reports Feed](https://fetchrss.com/rss/65b0eb775582bd1c19083c4365b0fdb664898a0daa63bef4.xml)
+- [NCC Group Research Feed](https://research.nccgroup.com/feed/)
+- [SpecterOps Feed](https://posts.specterops.io/feed)
+- [Redcanary Feed](https://www.redcanary.co/feed/)
+- [Sophos Research Feed](https://news.sophos.com/en-us/category/threat-research/feed/)
+- [virusbulletin](https://www.virusbulletin.com/virusbulletin/)
+- [Offensive Research - DSAS by INJECT](https://blog.injectexp.dev/)
+- [HackerNews Feed](https://feeds.feedburner.com/TheHackersNews)
+- [Bleepingcomputer Feed](https://www.bleepingcomputer.com/feed/)
+- [detect.fyi](https://detect.fyi/)
 </details>
 
 
