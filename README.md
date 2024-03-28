@@ -105,7 +105,7 @@
 - [triage](https://tria.ge/reports/public)
 - [capesandbox](https://www.capesandbox.com/)
 - [joesandbox](https://www.joesandbox.com/analysispaged/0)
-
+- 
 </details>
 
 
@@ -171,7 +171,38 @@
 - [P4T12ICK Sigma-Rules](https://github.com/P4T12ICK/Sigma-Rule-Repository)
 - [tsale Sigma-Rules](https://github.com/tsale/Sigma_rules)
 - [list of detections resources](https://github.com/jatrost/awesome-detection-rules)
+  
+</details>
 
+
+## DFIR
+
+<details>
+
+  - [EricZimmerman Tools](https://ericzimmerman.github.io/#!index.md)
+  - [dfir-orc](https://github.com/dfir-orc)
+  - [dfir-orc-config](https://github.com/DFIR-ORC/dfir-orc-config)
+  - [Splunk4DFIR](https://github.com/mf1d3l/Splunk4DFIR)
+  - [dfiq](https://github.com/google/dfiq)
+  - [PSBits](https://github.com/gtworek/PSBits)
+  - [Yara TH](https://github.com/mthcht/ThreatHunting-Keywords-yara-rules) + [TH](https://github.com/mthcht/ThreatHunting-Keywords)
+  - [Hayabusa](https://github.com/Yamato-Security/hayabusa)
+  - [chainsaw](https://github.com/WithSecureLabs/chainsaw)
+  - [regripper](https://github.com/warewolf/regripper)
+  - [RdpCacheStitcher](https://github.com/BSI-Bund/RdpCacheStitcher)
+  - [ripgrep](https://github.com/BurntSushi/ripgrep)
+  - [Kape](https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape)
+  - [Kape Files](https://github.com/EricZimmerman/KapeFiles)
+  - [More Kape ressources](https://github.com/AndrewRathbun/Awesome-KAPE)
+  - [VolatileDataCollector](https://github.com/gtworek/VolatileDataCollector)
+  - [Velociraptor](https://github.com/Velocidex/velociraptor)
+  - [MemDump](https://nircmd.nirsoft.net/memdump.html)
+  - [MemProcFS](https://github.com/ufrisk/MemProcFS)
+  - [avml](https://github.com/microsoft/avml)
+  - [Lime](https://github.com/504ensicsLabs/LiME)
+  - [WinPmem](https://github.com/Velocidex/WinPmem)
+  - [Volatility](https://github.com/volatilityfoundation/volatility3/)
+  - 
 </details>
 
 ## Security News
