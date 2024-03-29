@@ -1,4 +1,5 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\merlin,Merlin is a post-exploit Command & Control,C2,https://github.com/Ne0nd0g/merlin-agent/blob/653ac5558e4f8a0893b2285a158a3b26735c6c79/clients/smb/smb_windows.go#L148,critical,none,critical,Detection rule,N/A
 \TestSVC,Get-System.ps1 default named pipe,Privilege Escalation,https://github.com/antonioCoco/SharPyShell/blob/29718225791f11fd3d66dd03df4c05c414256630/modules/ps_modules/Get-System.ps1#L89,critical,medium,high,Hunting,N/A
 \RevShell,Named_Pipe_Reverse_Shell tool,C2,https://github.com/BlackHat-Ashura/Named_Pipe_Reverse_Shell/blob/a62b02d413a2b3e2daa971044fa4b6a4d187a1b5/Named%20Pipe%20Reverse%20Shell.cpp#L15,critical,none,critical,detection rule,N/A
 \petit\pipe\srvsvc,PetitPotato.exe default pipe,Privilege Escalation,https://github.com/wh0amitz/PetitPotato/blob/047aebdc7a05fab2c08eff2bbac984f59fc218cf/PetitPotato/PetitPotato.cpp#L138,critical,none,critical,detection rule,N/A
