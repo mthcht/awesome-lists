@@ -12,7 +12,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 1235,Dameware Remote Everywhere Agent\BASupSrvc.exe,medium,RMM,hunting
 1241,Nessus default port,medium,vulnerability scanner,hunting
 1243,SubSeven backdoor,high,malware,hunting
-1337,empire + crackmapexec + icebreaker + KittyStager default port. the port is also associated with various other types of exploits or shellcode,high,exploitation,detection_rule
+1337,empire + crackmapexec + icebreaker + KittyStager + Cyberghost VPN default port. the port is also associated with various other types of exploits or shellcode,high,exploitation,detection_rule
 1541,dameware mini remote control x64\dwrcc.exe RMM tool default port usage,high,RMM,hunting
 1900,ConnectWise Screenconnect RMM default port,high,RMM,hunting
 1981,Shockrave malware,high,malware,hunting
