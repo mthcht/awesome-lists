@@ -1,4 +1,12 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+CyberGhost Tunnel Client: CyberGhost-WireGuard-1,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
+CyberGhostTunnel$CyberGhost-WireGuard-1,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: \Program Files\CyberGhost 8\Applications\VPN\WGHelper.exe /service C:\Windows\system32\config\systemprofile\AppData\Local\CyberGhost\WGSession-1\CyberGhost-WireGuard-1.conf
+CyberGhost 8 Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
+CyberGhost 7 Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
+CyberGhost 6 Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
+CyberGhost8Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: "C:\Program Files\CyberGhost 8\Dashboard.Service.exe" 
+CyberGhost7Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: "C:\Program Files\CyberGhost 7\Dashboard.Service.exe"
+CyberGhost6Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: "C:\Program Files\CyberGhost 6\Dashboard.Service.exe"
 KrbSCM,,KrbRelayUp,Privilege Escalation,offensive_tool,critical,https://github.com/Dec0ne/KrbRelayUp/blob/e919f78afbacdb2c2e86f17267674069a377011c/README.md?plain=1#L90
 BASupportExpressSrvcUpdater_Dameware,*\Dameware Remote Everywhere Agent\BASupSrvcUpdater.exe,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware
 Dameware Remote Everywhere Updater,,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware
