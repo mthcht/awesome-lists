@@ -4,9 +4,9 @@ CyberGhostTunnel$CyberGhost-WireGuard-1,,CyberGhostVPN,VPN,greyware_tool,high,ht
 CyberGhost 8 Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
 CyberGhost 7 Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
 CyberGhost 6 Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
-CyberGhost8Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: "C:\Program Files\CyberGhost 8\Dashboard.Service.exe" 
-CyberGhost7Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: "C:\Program Files\CyberGhost 7\Dashboard.Service.exe"
-CyberGhost6Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: "C:\Program Files\CyberGhost 6\Dashboard.Service.exe"
+CyberGhost8Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: C:\Program Files\CyberGhost 8\Dashboard.Service.exe
+CyberGhost7Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: C:\Program Files\CyberGhost 7\Dashboard.Service.exe
+CyberGhost6Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: C:\Program Files\CyberGhost 6\Dashboard.Service.exe
 KrbSCM,,KrbRelayUp,Privilege Escalation,offensive_tool,critical,https://github.com/Dec0ne/KrbRelayUp/blob/e919f78afbacdb2c2e86f17267674069a377011c/README.md?plain=1#L90
 BASupportExpressSrvcUpdater_Dameware,*\Dameware Remote Everywhere Agent\BASupSrvcUpdater.exe,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware
 Dameware Remote Everywhere Updater,,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware
