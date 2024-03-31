@@ -1,4 +1,7 @@
 pipe_name,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_comment
+\TVN_log_pipe_public_name,TightVNC default named pipe,RMM,https://www.tightvnc.com,high,none,high,Hunting,C:\Program Files (x86)\TightVNC\tvnserver.exe	
+\TightVNC_Service_Control,TightVNC default named pipe,RMM,https://www.tightvnc.com,high,none,high,Hunting,C:\Program Files (x86)\TightVNC\tvnserver.exe	
+\mlnhcpkomdeavomsjalt,TightVNC default named pipe,RMM,https://www.tightvnc.com,high,low,high,Hunting,C:\Program Files (x86)\TightVNC\tvnserver.exe	
 \ProtectedPrefix\Administrators\WireGuard\*,used by Wireguard (VPN protocol included in transport communication of sliver C2),Defense Evasion,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/sliver.csv,high,low,high,Hunting,\\.\pipe\ProtectedPrefix\Administrators\WireGuard\
 \MerlinPipe,Merlin is a post-exploit Command & Control,C2,https://github.com/Ne0nd0g/merlin-agent/blob/653ac5558e4f8a0893b2285a158a3b26735c6c79/clients/smb/smb_windows.go#L148,critical,none,critical,Detection rule,N/A
 \merlin,Merlin is a post-exploit Command & Control,C2,https://github.com/Ne0nd0g/merlin-agent/blob/653ac5558e4f8a0893b2285a158a3b26735c6c79/clients/smb/smb_windows.go#L148,critical,none,critical,Detection rule,N/A
