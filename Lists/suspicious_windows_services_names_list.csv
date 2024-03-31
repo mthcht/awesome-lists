@@ -1,4 +1,6 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment
+TightVNC Server,,TightVNC,RMM,greyware_tool,high,C:\Program Files (x86)\TightVNC\tvnserver.exe -service
+tvnserver,*:\Program Files (x86)\TightVNC\tvnserver.exe,TightVNC,RMM,greyware_tool,high,C:\Program Files (x86)\TightVNC\tvnserver.exe -service
 CyberGhost Tunnel Client: CyberGhost-WireGuard-1,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
 CyberGhostTunnel$CyberGhost-WireGuard-1,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/ - command: \Program Files\CyberGhost 8\Applications\VPN\WGHelper.exe /service C:\Windows\system32\config\systemprofile\AppData\Local\CyberGhost\WGSession-1\CyberGhost-WireGuard-1.conf
 CyberGhost 8 Service,,CyberGhostVPN,VPN,greyware_tool,high,https://www.cyberghostvpn.com/
