@@ -40,7 +40,7 @@ AADInternals,default user agent used by AADInternals,Compliance,https://github.c
 */.josephine/.*,Trident Ursa malware,C2,https://unit42.paloaltonetworks.com/trident-ursa/,critical,none,critical,Detection rule,network flow direction internal --> external
 */.justice/.*,Trident Ursa malware,C2,https://unit42.paloaltonetworks.com/trident-ursa/,critical,none,critical,Detection rule,network flow direction internal --> external
 */.snventor/.*,Trident Ursa malware,C2,https://unit42.paloaltonetworks.com/trident-ursa/,critical,none,critical,Detection rule,network flow direction internal --> external
-*/bin/bash*,Suspicious strings observed in exploitations,Exploitation,https://github.com/hktalent/scan4all/blob/448b0d37a423f527686daa60b1246540067476aa/config/51pwn/TPALL/high/rce-shellshock-user-agent.yaml#L11,critical,none,critical,Detection rule,network flow direction internal --> external
+*/bin/bash*,Suspicious strings observed in exploitations,Exploitation,https://github.com/shadow1ng/fscan/blob/eefd29d102e4b756b23101d6fec8fdc859a43efd/WebScan/pocs/bash-cve-2014-6271.yml#L8 - https://github.com/hktalent/scan4all/blob/448b0d37a423f527686daa60b1246540067476aa/config/51pwn/TPALL/high/rce-shellshock-user-agent.yaml#L11,critical,none,critical,Detection rule,network flow direction internal --> external
 */etc/passwd*,Suspicious strings observed in exploitations,Exploitation,N/A,critical,none,critical,Detection rule,network flow direction internal --> external
 *127.0.0.1*,Suspicious strings observed in exploitations,Exploitation,N/A,critical,none,critical,Detection rule,network flow direction internal --> external
 *; Linux x86_64*,linux based os user agent,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
