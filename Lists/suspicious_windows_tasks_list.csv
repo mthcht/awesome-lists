@@ -1,36 +1,36 @@
-TaskName,TaskCommand,TaskArguments,metadata_tool,metadata_tool_category,metadata_tool_type,metadata_link,metadata_severity,metadata_comment
-\MEGA\MEGAsync Update Task*,*\MEGAupdater.exe,,MEGASync,RMM,greyware_tool,https://mega.io/en/desktop,high,N/A
-\Bomgar Task *,,,Bomgar,RMM,greyware_tool,beyondtrustcloud.com,high,N/A
-\VSA XServiceCheck,,,kaseya VSA,RMM,greyware_tool,https://www.kaseya.com/products/vsa/,high,N/A
-\KillRPCAttendedService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A
-\RPCPerformanceHealthCheck,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A
-\RPCServiceHealthCheck,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A
-\RemotePC,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A
-\ServiceMonitor,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A
-\StartRPCPerformanceService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A
-\StartRPCPerformanceServiceOnStart,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A
-\StartRPCService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A
-RedPillTask,,,redpill,exploitation,offensive_tool,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/redpill.ps1#L743,critical,redpill.ps1
-MeterpeterC2,,,redpill,exploitation,offensive_tool,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/bin/SchTasks.ps1#L83,critical,SchTasks.ps1
-*TVInstallRestore,,,teamviewer,RMM,greyware_tool,https://github.com/mthcht/awesome-lists,high,teamviewer usage
-\ClearEventLogs,,,Cleareventlog script,Defense Evasion,offensive_tool,https://x.com/GroupIB_DFIR/status/1750452304606810175,high,schtasks /create /tn ClearEventLogs /tr 'powershell.exe -Command wevtutil el | foreach { wevtutil cl $_ }' /sc daily /st 03:00 /ru SYSTEM /f
-\StopVMMSandKillVMWP,,,StopVMMSandKillVMWP script,Defense evasion,offensive_tool,https://x.com/GroupIB_DFIR/status/1750452267692728516,high,schtasks /create /tn StopVMMSandKillVMWP /tr 'powershell.exe -Command get-service -name vmms | stop-service -force ; taskkill /f /im vmwp.exe' /sc minute /mo 30 /ru SYSTEM /f
-\Sorry,,,Cryptominer,Cryptominer,offensive_tool,https://x.com/cglyer/status/1001463072672886785,high,schtasks /create /tn 'Sorry' /tr C:\Windows\Temp\taskhost.exe /sc daily /mo 2 /st 22:00:00 /f4
-\drogon,,,BadRabbit,malware,offensive_tool,https://www.vmray.com/analyses/bad-rabbit-ransomware-flash-analysis/report/overview.html,critical,schtasks /Create /SC once /TN drogon /RU SYSTEM /TR 'C:\Windows\system32\shutdown.exe /r /t 0 /f' /ST 02:34:00
-\dongs,,,suspicious names,exploitation,offensive_tool,https://x.com/hackingforbeer/status/1719402854085951883,medium,POC schtasks /create /sc minute /tn 'dongs' /tr 'C:\windows\system32\calc.exe'
-*,*:\windows\system32\calc.exe,,POC,exploitation,greyware_tool,https://x.com/hackingforbeer/status/1719402854085951883,medium,POC schtasks /create /sc minute /tn 'dongs' /tr 'C:\windows\system32\calc.exe'
-*,cmd.exe,*/c whoami*,whoami,Discovery,greyware_tool,https://github.com/mthcht/awesome-lists,medium,N/A
-*,powershell.exe,*-Command whoami*,whoami,Discovery,greyware_tool,https://github.com/mthcht/awesome-lists,medium,N/A
-*,powershell.exe,-encodedCommand *,powershell,Defense Evasion,greyware_tool,https://github.com/mthcht/awesome-lists,medium,base64 encoded command from a scheduled task
-*,powershell.exe,-enc *,powershell,Defense Evasion,greyware_tool,https://github.com/mthcht/awesome-lists,medium,base64 encoded command from a scheduled task
-*,*\AppData\Local\Temp\*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,high,task in the temp folder
-*,*\Users*\AppData\Local*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the appdata folder
-*,*\Users*\AppData\Roaming*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the roaming folder
-*,*\ProgramData*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the ProgramData folder
-*,*\Users*\Documents*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the users Documents folder
-*,*\Users*\Downloads*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the users Downloads folder
-*,*\Users\public*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the Public user profile
-*,*\Windows\Debug*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the *\Windows\Debug folder
-*,*:\Windows\Temp\*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,executable from the temp folder
-*,*wevtutil.exe,cl *,wevtutil,Defense Evasion,greyware_tool,https://github.com/mthcht/awesome-lists,high,clearing event logs with wevtutil.exe
-*,*,*Set-MpPreference -DisableRealtimeMonitoring *,powershell,Defense Evasion,greyware_tool,https://github.com/mthcht/awesome-lists,high,disabling Defender Real time monitoring
+TaskName,TaskCommand,TaskArguments,metadata_tool,metadata_tool_category,metadata_tool_type,metadata_link,metadata_severity,metadata_comment,metadata_reference
+\MEGA\MEGAsync Update Task*,*\MEGAupdater.exe,,MEGASync,RMM,greyware_tool,https://mega.io/en/desktop,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/MEGAsync.csv
+\Bomgar Task *,,,Bomgar,RMM,greyware_tool,beyondtrustcloud.com,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Bomgar.csv
+\VSA XServiceCheck,,,kaseya VSA,RMM,greyware_tool,https://www.kaseya.com/products/vsa/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
+\KillRPCAttendedService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\RPCPerformanceHealthCheck,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\RPCServiceHealthCheck,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\RemotePC,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\ServiceMonitor,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\StartRPCPerformanceService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\StartRPCPerformanceServiceOnStart,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\StartRPCService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+RedPillTask,,,redpill,exploitation,offensive_tool,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/redpill.ps1#L743,critical,redpill.ps1,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/redpill.csv
+MeterpeterC2,,,redpill,exploitation,offensive_tool,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/bin/SchTasks.ps1#L83,critical,SchTasks.ps1,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/redpill.csv
+*TVInstallRestore,,,teamviewer,RMM,greyware_tool,https://github.com/mthcht/awesome-lists,high,teamviewer usage,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/teamviewer.csv
+\ClearEventLogs,,,Cleareventlog script,Defense Evasion,offensive_tool,https://x.com/GroupIB_DFIR/status/1750452304606810175,high,schtasks /create /tn ClearEventLogs /tr 'powershell.exe -Command wevtutil el | foreach { wevtutil cl $_ }' /sc daily /st 03:00 /ru SYSTEM /f,https://x.com/GroupIB_DFIR/status/1750452304606810175
+\StopVMMSandKillVMWP,,,StopVMMSandKillVMWP script,Defense evasion,offensive_tool,https://x.com/GroupIB_DFIR/status/1750452267692728516,high,schtasks /create /tn StopVMMSandKillVMWP /tr 'powershell.exe -Command get-service -name vmms | stop-service -force ; taskkill /f /im vmwp.exe' /sc minute /mo 30 /ru SYSTEM /f,https://x.com/GroupIB_DFIR/status/1750452267692728516
+\Sorry,,,Cryptominer,Cryptominer,offensive_tool,https://x.com/cglyer/status/1001463072672886785,high,schtasks /create /tn 'Sorry' /tr C:\Windows\Temp\taskhost.exe /sc daily /mo 2 /st 22:00:00 /f4,https://x.com/cglyer/status/1001463072672886785
+\drogon,,,BadRabbit,malware,offensive_tool,https://www.vmray.com/analyses/bad-rabbit-ransomware-flash-analysis/report/overview.html,critical,schtasks /Create /SC once /TN drogon /RU SYSTEM /TR 'C:\Windows\system32\shutdown.exe /r /t 0 /f' /ST 02:34:00,https://www.vmray.com/analyses/bad-rabbit-ransomware-flash-analysis/report/overview.html
+\dongs,,,suspicious names,exploitation,offensive_tool,https://x.com/hackingforbeer/status/1719402854085951883,medium,POC schtasks /create /sc minute /tn 'dongs' /tr 'C:\windows\system32\calc.exe',https://x.com/hackingforbeer/status/1719402854085951883
+*,*:\windows\system32\calc.exe,,POC,exploitation,greyware_tool,https://x.com/hackingforbeer/status/1719402854085951883,medium,POC schtasks /create /sc minute /tn 'dongs' /tr 'C:\windows\system32\calc.exe',https://x.com/hackingforbeer/status/1719402854085951883
+*,cmd.exe,*/c whoami*,whoami,Discovery,greyware_tool,https://github.com/mthcht/awesome-lists,medium,N/A,https://github.com/mthcht/awesome-lists
+*,powershell.exe,*-Command whoami*,whoami,Discovery,greyware_tool,https://github.com/mthcht/awesome-lists,medium,N/A,https://github.com/mthcht/awesome-lists
+*,powershell.exe,-encodedCommand *,powershell,Defense Evasion,greyware_tool,https://github.com/mthcht/awesome-lists,medium,base64 encoded command from a scheduled task,https://github.com/mthcht/awesome-lists
+*,powershell.exe,-enc *,powershell,Defense Evasion,greyware_tool,https://github.com/mthcht/awesome-lists,medium,base64 encoded command from a scheduled task,https://github.com/mthcht/awesome-lists
+*,*\AppData\Local\Temp\*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,high,task in the temp folder,https://github.com/mthcht/awesome-lists
+*,*\Users*\AppData\Local*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the appdata folder,https://github.com/mthcht/awesome-lists
+*,*\Users*\AppData\Roaming*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the roaming folder,https://github.com/mthcht/awesome-lists
+*,*\ProgramData*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the ProgramData folder,https://github.com/mthcht/awesome-lists
+*,*\Users*\Documents*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the users Documents folder,https://github.com/mthcht/awesome-lists
+*,*\Users*\Downloads*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the users Downloads folder,https://github.com/mthcht/awesome-lists
+*,*\Users\public*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the Public user profile,https://github.com/mthcht/awesome-lists
+*,*\Windows\Debug*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,task in the *\Windows\Debug folder,https://github.com/mthcht/awesome-lists
+*,*:\Windows\Temp\*,,suspicious paths,exploitation,greyware_tool,https://github.com/mthcht/awesome-lists,medium,executable from the temp folder,https://github.com/mthcht/awesome-lists
+*,*wevtutil.exe,cl *,wevtutil,Defense Evasion,greyware_tool,https://github.com/mthcht/awesome-lists,high,clearing event logs with wevtutil.exe,https://github.com/mthcht/awesome-lists
+*,*,*Set-MpPreference -DisableRealtimeMonitoring *,powershell,Defense Evasion,greyware_tool,https://github.com/mthcht/awesome-lists,high,disabling Defender Real time monitoring,https://github.com/mthcht/awesome-lists
