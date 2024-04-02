@@ -42,8 +42,8 @@ RustDesk,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/rustdesk,h
 OpenSSH SSH Server,,OpenSSH Server,C2,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Openssh.csv
 AeroadminService,*AeroAdmin.exe*,AeroAdmin,RMM,greyware_tool,high,https://ulm.aeroadmin.com/AeroAdmin.exe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/aeroadmin.csv
 AmmyyAdmin,,AmmyyAdmin,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Ammyy%20Admin.csv
-,*\tmp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths,,https://github.com/mthcht/awesome-lists
-,*\Temp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths,,https://github.com/mthcht/awesome-lists
+,*\tmp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths,https://github.com/mthcht/awesome-lists
+,*\Temp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths,https://github.com/mthcht/awesome-lists
 ,*\Users\Public\*,suspicious path,Defense Evasions,greyware_tool,critical,suspicious paths,,https://github.com/mthcht/awesome-lists
 *mimidrv*,,mimidrv,Credential Access,offensive_tool,critical,,https://github.com/mthcht/awesome-lists
 *mimikatz*,,mimidrv,Credential Access,offensive_tool,critical,,https://github.com/mthcht/awesome-lists
