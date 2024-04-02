@@ -36,7 +36,7 @@ SupremoService,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,grey
 uvnc_service,*\WinVNC.exe*,UltraVNC,RMM,greyware_tool,high,https://uvnc.com/downloads/ultravnc.html,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/UltraVNC.csv
 3proxy,,3proxy,Defense Evasion,offensive_tool,medium,https://github.com/3proxy/3proxy/blob/a80bef9ecf0c0ed98ccb1a1a764f6b79a620b78f/src/stringtable.c#L14,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/_Others/3proxy.csv
 chopper,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Tchopper.csv
-final_seg,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Tchopper.csv
+final_seg,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Tchopper.csv
 RustDesk Service,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/rustdesk,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RustDesk.csv
 RustDesk,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/rustdesk,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RustDesk.csv
 OpenSSH SSH Server,,OpenSSH Server,C2,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Openssh.csv
