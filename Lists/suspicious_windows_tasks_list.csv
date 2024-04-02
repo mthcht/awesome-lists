@@ -4,12 +4,12 @@ TaskName,TaskCommand,TaskArguments,metadata_tool,metadata_tool_category,metadata
 \VSA XServiceCheck,,,kaseya VSA,RMM,greyware_tool,https://www.kaseya.com/products/vsa/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
 \KillRPCAttendedService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
 \RPCPerformanceHealthCheck,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-\RPCServiceHealthCheck,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-\RemotePC,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-\ServiceMonitor,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-\StartRPCPerformanceService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-\StartRPCPerformanceServiceOnStart,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-\StartRPCService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\RPCServiceHealthCheck,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\RemotePC,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\ServiceMonitor,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\StartRPCPerformanceService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\StartRPCPerformanceServiceOnStart,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+\StartRPCService,,,RemotePC,RMM,greyware_tool,https://www.remotedesktop.com/,high,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
 RedPillTask,,,redpill,exploitation,offensive_tool,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/redpill.ps1#L743,critical,redpill.ps1,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/redpill.csv
 MeterpeterC2,,,redpill,exploitation,offensive_tool,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/bin/SchTasks.ps1#L83,critical,SchTasks.ps1,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/redpill.csv
 *TVInstallRestore,,,teamviewer,RMM,greyware_tool,https://github.com/mthcht/awesome-lists,high,teamviewer usage,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/teamviewer.csv
