@@ -1,4 +1,6 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
+MeshCentral,,meshcentral,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+meshcentral.exe,"C:\Program Files\Open Source\MeshCentral\winservice\daemon\meshcentral.exe",meshcentral,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
 DWAgent,*:\Program Files\DWAgent\native\dwagsvc.exe,DWAgent,RMM,greyware_tool,high,command observed: C:\Program Files\DWAgent\native\dwagsvc.exe run,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/dwagent.csv
 TightVNC Server,,TightVNC,RMM,greyware_tool,high,C:\Program Files (x86)\TightVNC\tvnserver.exe -service,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
 tvnserver,*:\Program Files (x86)\TightVNC\tvnserver.exe,TightVNC,RMM,greyware_tool,high,C:\Program Files (x86)\TightVNC\tvnserver.exe -service,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
