@@ -1,4 +1,5 @@
 http_user_agent,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_direction
+MeshCentral,MeshCentral default user agent,RMM,high,none,high,Hunting,Hunting,network flow direction internal --> external
 SharpBuster,SharpBuster default UA,Discovery,https://github.com/passthehashbrowns/SharpBuster/blob/19961f0092d4dc952687cb039e05708836ecba19/README.md?plain=1#L43,high,none,high,Detection rule,network flow direction internal --> external
 "Hello, it's me, Mozilla",mitmproxy test_modifyheaders.py,Network Sniffing,https://github.com/mitmproxy/mitmproxy/blob/d4200a7c0d2f4efd77c44651645b59662a29a54a/test/mitmproxy/addons/test_modifyheaders.py#L97,critical,none,critical,Detectio rule,network flow direction internal --> external
 mitmproxy/release-bot,mitmproxy release.py,Network Sniffing,https://github.com/mitmproxy/mitmproxy/blob/d4200a7c0d2f4efd77c44651645b59662a29a54a/release/release.py#L21,critical,none,critical,Detectio rule,network flow direction internal --> external
