@@ -1,4 +1,6 @@
 rule_name,metadata_rule_id,metadata_tool,metadata_tool_type,metadata_tool_category,metadata_severity,metadata_link,metadata_detection_type,metadata_reference,metadata_comment
+MeshCentral Server UDP ports,,meshcentral,greyware_tool,RMM,high,https://meshcentral.com/,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,
+MeshCentral Server UDP ports,,meshcentral,greyware_tool,RMM,high,https://meshcentral.com/,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,
 TightVNC,,TightVNC,greyware_tool,RMM,high,https://www.tightvnc.com,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv,
 Chrome Remote Desktop Host,,Chrome Remote Desktop,greyware_tool,RMM,high,https://remotedesktop.google.com/access/,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv,
 SH Remote Access Service,,SimpleHelp,greyware_tool,RMM,high,https://simple-help.com/,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SimpleHelp.csv,
