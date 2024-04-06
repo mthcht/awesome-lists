@@ -48,7 +48,7 @@
 ### TI
 
 <details>
-
+  
   - [Virustotal](https://www.virustotal.com/#/home/search)
   - [SpamHaus](https://check.spamhaus.org/)
   - [AbuseIPDB](https://www.abuseipdb.com/)
@@ -59,6 +59,7 @@
   - [Censys](https://search.censys.io/)
   - [threatminer](https://www.threatminer.org/)
   - [urlscan](https://urlscan.io/)
+  - [Apptotal (apps and extensions analysis)]([https://t.co/4dm9MbrjYV](https://apptotal.io/))
   - [urlquery](http://urlquery.net/)
   - [urlvoid](https://www.urlvoid.com)
   - [ipvoid](https://www.ipvoid.com/)
