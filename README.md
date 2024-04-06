@@ -59,7 +59,7 @@
   - [Censys](https://search.censys.io/)
   - [threatminer](https://www.threatminer.org/)
   - [urlscan](https://urlscan.io/)
-  - [Apptotal (apps and extensions analysis)]([https://t.co/4dm9MbrjYV](https://apptotal.io/))
+  - [Apptotal (apps and extensions analysis)](https://apptotal.io/)
   - [urlquery](http://urlquery.net/)
   - [urlvoid](https://www.urlvoid.com)
   - [ipvoid](https://www.ipvoid.com/)
