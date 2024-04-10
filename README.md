@@ -251,12 +251,16 @@
 
 ## Formations
 
+<details>
+
 ### DFIR
   - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
   - 13cubed - Investigating Windows Endpoints: [13cubed.com](https://training.13cubed.com/investigating-windows-endpoints)
   - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
   - SANS: [SANS508](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/)
 
+</details>
+ 
 ## Others
 
 <details>
