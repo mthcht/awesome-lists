@@ -8,7 +8,7 @@
   - `suspicious_tlds_list.csv` - https://mthcht.medium.com/threat-hunting-suspicious-tlds-a742c2adbf58
 - **DNS over https**
   - `dns_over_https_servers_list.csv` - https://mthcht.medium.com/detecting-dns-over-https-30fddb55ac78
-- **Detecting DLL Hijacking** [hijacklibs_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Hijacklibs/hijacklibs_list.csv)
+- **Detecting DLL Hijacking** [hijacklibs_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv)
   - https://mthcht.medium.com/detect-dll-hijacking-techniques-from-hijacklibs-with-splunk-c760d2e0656f
 
 
