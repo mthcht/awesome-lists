@@ -1,4 +1,5 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
+*sharpsploit*,,sharpsploit,Lateral Movement,offensive_tool,critical,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SharpSploit.csv,https://github.com/cobbr/SharpSploit/blob/c16931ddb8cd2335e0bd26feb9aaa35f449d48db/SharpSploit/LateralMovement/SCM.cs#L209
 meshNotificationServer,,meshcentral,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv
 Mesh,,meshcentral,RMM,greyware_tool,high,\CurrentControlSet\Services\Mesh,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
 MeshCommander,,meshcentral,RMM,greyware_tool,high,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
