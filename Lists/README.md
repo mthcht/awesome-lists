@@ -10,6 +10,7 @@
   - `dns_over_https_servers_list.csv` - https://mthcht.medium.com/detecting-dns-over-https-30fddb55ac78
 - **Detecting DLL Hijacking** [hijacklibs_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv)
   - https://mthcht.medium.com/detect-dll-hijacking-techniques-from-hijacklibs-with-splunk-c760d2e0656f
-
+- **Domains of URL Shortener solutions** [url_shorteners_domain_names.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/url_shorteners_domain_names.csv)
+  - https://github.com/738/awesome-url-shortener
 
 ... todo
