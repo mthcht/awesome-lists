@@ -1,4 +1,7 @@
 # Security lists for SOC detections 
+![dt](https://github.com/mthcht/awesome-lists/assets/75267080/059432aa-cfe9-46d1-a611-fbb225bce66e)
+
+
 
 ## Threat Hunting:
 - [ThreatHunting keywords Site](https://mthcht.github.io/ThreatHunting-Keywords/)
