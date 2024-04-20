@@ -1,4 +1,5 @@
 http_user_agent,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_direction
+zerodium*,php backoor - execute code if user agent start with zerodium,Exploitation,https://github.com/php/php-src/blob/2b0f239b211c7544ebc7a4cd2c977a5b7a11ed8a/ext/zlib/zlib.c#L368,high,Detection rule,network flow direction internal --> external
 SSLoad/*,SSLoad Malware default user agent,Malware,https://twitter.com/Unit42_Intel/status/1781326222019932535/photo/3,critical,none,critical,Detection rule,network flow direction internal --> external
 MeshCentral,MeshCentral default user agent,RMM,https://meshcentral.com/,high,none,high,Hunting,network flow direction internal --> external
 SharpBuster,SharpBuster default UA,Discovery,https://github.com/passthehashbrowns/SharpBuster/blob/19961f0092d4dc952687cb039e05708836ecba19/README.md?plain=1#L43,high,none,high,Detection rule,network flow direction internal --> external
