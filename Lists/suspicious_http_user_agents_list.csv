@@ -1,4 +1,5 @@
 http_user_agent,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_direction
+Mozilla/5.0 (compatible; ngrok),ngrok user agent,C2,https://github.com/inconshreveable/ngrok/blob/8c57fff0e802801778ad42042da5127ae4e4e46a/src/ngrok/conn/conn.go#L143,high,medium,medium,Hunting,network flow direction internal --> external
 zerodium*,php backdoor - execute code if user agent start with zerodium,Exploitation,https://github.com/php/php-src/blob/2b0f239b211c7544ebc7a4cd2c977a5b7a11ed8a/ext/zlib/zlib.c#L368,high,none,high,Detection rule,network flow direction internal --> external
 SSLoad/*,SSLoad Malware default user agent,Malware,https://twitter.com/Unit42_Intel/status/1781326222019932535/photo/3,critical,none,critical,Detection rule,network flow direction internal --> external
 MeshCentral,MeshCentral default user agent,RMM,https://meshcentral.com/,high,none,high,Hunting,network flow direction internal --> external
