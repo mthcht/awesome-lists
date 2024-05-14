@@ -64,6 +64,7 @@
   - [urlscan](https://urlscan.io/)
   - [Apptotal (apps and extensions analysis)](https://apptotal.io/)
   - [urlquery](http://urlquery.net/)
+  - [cloudfare scanner](https://radar.cloudflare.com/)
   - [urlvoid](https://www.urlvoid.com)
   - [ipvoid](https://www.ipvoid.com/)
   - [mxtoolbox](https://mxtoolbox.com/NetworkTools.aspx)
