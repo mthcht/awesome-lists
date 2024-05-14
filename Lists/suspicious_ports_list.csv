@@ -52,7 +52,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 4433,AlanFramework C2 default port and Acidoor backdoor,high,C2,detection_rule
 4567,PrimusC2 + File Nail trojan and legit usage for verizon,medium,C2,hunting
 4590,ICQTrojan,high,malware,hunting
-4747,RPC-Backdoor - RPC over TCP/IP with the hard-coded port number 4747,Persistence,hunting
+4747,RPC-Backdoor - RPC over TCP/IP with the hard-coded port number 4747,medium,Persistence,hunting
 4782,Quasar Server default port,high,RMM,detection_rule
 5000,hardhatC2 and HRShell default port + other malwares and legit usages,medium,C2,hunting
 5001,FudgeC2 + spiderfoot and other malwares but also used by synology NAS and yahoo messenger,medium,C2,hunting
