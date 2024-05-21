@@ -1,4 +1,4 @@
-process,OriginalFileName,process_name,parent_process_command,parent_process_name,file_path,process_path,parent_process,signature,signature_id,index,sourcetype,source,meta.comment,meta.vendor_product,meta.lolbas_executable,meta.lolbas_link
+process_command,OriginalFileName,process_name,parent_process_command,parent_process_name,file_path,process_path,parent_process,signature,signature_id,index,sourcetype,source,meta.comment,meta.vendor_product,meta.lolbas_executable,meta.lolbas_link
 ,,,,,,C:\Program Files\WindowsApss\Microsoft.DesktopAppInstaller_*\AppInstaller.exe,,,22,,,,,Microsoft Sysmon,Appinstaller.exe,https://lolbas-project.github.io/lolbas/Binaries/AppInstaller/
 *start ms-appinstaller://?source=http*,,,,,,,,,4688,,,,,Microsoft Windows,Appinstaller.exe,https://lolbas-project.github.io/lolbas/Binaries/AppInstaller/
 *start ms-appinstaller://?source=http*,,,,,,,,,1,,,,,Microsoft Sysmon,Appinstaller.exe,https://lolbas-project.github.io/lolbas/Binaries/AppInstaller/
@@ -124,11 +124,23 @@ process,OriginalFileName,process_name,parent_process_command,parent_process_name
 *MSAccess.exe https://*.dll.mdb*,,,,,,,,,,,,,,Microsoft Sysmon,MSAccess.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
 *MSAccess.exe https://*.bat.mdb*,,,,,,,,,,,,,,Microsoft Sysmon,MSAccess.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
 *MSAccess.exe https://*.ps1.mdb*,,,,,,,,,,,,,,Microsoft Sysmon,MSAccess.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
-*sftp -D *.exe*,,,,,,,,,1,,,,,Microsoft Sysmon,stfp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
-*sftp.exe* -D *.exe*,,,,,,,,,1,,,,,Microsoft Sysmon,stfp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
-*sftp.exe* -S *.exe localhost*,,,,,,,,,1,,,,,Microsoft Sysmon,stfp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
-*sftp -S *.exe localhost*,,,,,,,,,1,,,,,Microsoft Sysmon,stfp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
+*sftp -D *.exe*,,,,,,,,,1,,,,,Microsoft Sysmon,sftp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
+*sftp.exe* -D *.exe*,,,,,,,,,1,,,,,Microsoft Sysmon,sftp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
+*sftp.exe* -S *.exe localhost*,,,,,,,,,1,,,,,Microsoft Sysmon,sftp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
+*sftp -S *.exe localhost*,,,,,,,,,1,,,,,Microsoft Sysmon,sftp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/288/files
 "*scp -S *.exe"" *.*",,,,,,,,,1,,,,,Microsoft Sysmon,scp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/265/files
 *scp -S *.exe *.*,,,,,,,,,1,,,,,Microsoft Sysmon,scp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/265/files
 *scp.exe* -S *.exe *.*,,,,,,,,,1,,,,,Microsoft Sysmon,scp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/265/files
 "*scp.exe* -S *.exe"" *.*",,,,,,,,,1,,,,,Microsoft Sysmon,scp.exe,https://github.com/LOLBAS-Project/LOLBAS/pull/265/files
+*0x01100*,,sqldumper.exe,,,,,,,1,,,,0x01100:40 flag will create a Mimikatz compatible dump file,Microsoft Sysmon,Sqldumper.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Sqldumper/
+*sqldumper.exe *0x01100*,,,,,,,,,1,,,,0x01100:40 flag will create a Mimikatz compatible dump file,Microsoft Sysmon,Sqldumper.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Sqldumper/
+* -ma *,procdump,,,,,,,,1,,,,,Microsoft Sysmon,Procdump.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Procdump/
+*procdump.exe -md *.dll explorer.exe*,,,,,,,,,1,,,,,Microsoft Sysmon,Procdump.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Procdump/
+*DumpMinitool.exe *--processId * --dumpType Full*,,,,,,,,,1,,,,Create memory dump (can be used to dump lsass pid,Microsoft Sysmon,DumpMinitool.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/DumpMinitool/
+* -ma *.dmp*,,dump64.exe,,,,,,,1,,,,,Microsoft Sysmon,Dump64.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Dump64/
+* -n -f *.dmp*,,createdump.exe,,,,,,,1,,,,Dump process memory contents using PID.,Microsoft Sysmon,Createdump.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Createdump/
+* -u -f *.dmp*,,createdump.exe,,,,,,,1,,,,Dump process memory contents using PID.,Microsoft Sysmon,Createdump.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Createdump/
+* --full *.dmp*,,createdump.exe,,,,,,,1,,,,Dump process memory contents using PID.,Microsoft Sysmon,Createdump.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Createdump/
+* -u -f *.dmp*,,createdump.exe,,,,,,,1,,,,Dump process memory contents using PID.,Microsoft Sysmon,Createdump.exe,https://lolbas-project.github.io/lolbas/OtherMSBinaries/Createdump/
+* -dumpFull -attach *,,TTTracer.exe,,,,,,,1,,,,Dumps process using tttracer.exe,Microsoft Sysmon,Tttracer.exe,https://lolbas-project.github.io/lolbas/Binaries/Tttracer/
+* -attach * -dumpFull*,,TTTracer.exe,,,,,,,1,,,,Dumps process using tttracer.exe,Microsoft Sysmon,Tttracer.exe,https://lolbas-project.github.io/lolbas/Binaries/Tttracer/
