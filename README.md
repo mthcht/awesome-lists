@@ -262,7 +262,7 @@
   - 13cubed - Investigating Windows Endpoints: [13cubed.com](https://training.13cubed.com/investigating-windows-endpoints)
   - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
   - SANS: [SANS508](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/)
-
+  - Defensive-security: [Linux-live-forensics](https://edu.defensive-security.com/linux-attack-live-forensics-at-scale)
 </details>
  
 ## Others
