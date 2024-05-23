@@ -263,6 +263,7 @@
   - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
   - SANS: [SANS508](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/)
   - Defensive-security: [Linux-live-forensics](https://edu.defensive-security.com/linux-attack-live-forensics-at-scale)
+  - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs) 
 </details>
  
 ## Others
