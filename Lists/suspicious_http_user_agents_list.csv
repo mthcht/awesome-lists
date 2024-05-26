@@ -1,5 +1,4 @@
 http_user_agent,metadata_description,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_direction
-Mozilla/5.0 (OS/2; U; Warp 4.5*,old UA used in TokenTacticsV2 tool (token manipulation),Credential Access,https://github.com/f-bader/TokenTacticsV2,low,low,low,Hunting,network flow direction internal --> external
 remoteit/*,remoteit,C2,https://github.com/remoteit/desktop/blob/76a48c042f92a232599563a1e48c2f8eff0ddb86/frontend/src/services/cloudController.ts#L124,high,low,medium,Hunting,network flow direction internal --> external
 tunnelto-client,tunnelto.dev client default user agent,C2,https://github.com/agrinman/tunnelto/blob/06428f13c638180dd349a4c42a17b569ab51a25f/tunnelto/src/update.rs#L35,high,low,high,Hunting,network flow direction internal --> external
 Mozilla/5.0 (compatible; ngrok),ngrok user agent,C2,https://github.com/inconshreveable/ngrok/blob/8c57fff0e802801778ad42042da5127ae4e4e46a/src/ngrok/conn/conn.go#L143,high,medium,medium,Hunting,network flow direction internal --> external
