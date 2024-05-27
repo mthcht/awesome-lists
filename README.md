@@ -177,7 +177,8 @@
 - [P4T12ICK Sigma-Rules](https://github.com/P4T12ICK/Sigma-Rule-Repository)
 - [tsale Sigma-Rules](https://github.com/tsale/Sigma_rules)
 - [list of detections resources](https://github.com/jatrost/awesome-detection-rules)
-  
+- [detection engineering resources](https://github.com/infosecB/awesome-detection-engineering)
+
 </details>
 
 
