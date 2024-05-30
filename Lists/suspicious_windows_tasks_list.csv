@@ -1,5 +1,5 @@
 TaskName,TaskCommand,TaskArguments,metadata_tool,metadata_tool_category,metadata_tool_type,metadata_link,metadata_severity,metadata_comment,metadata_reference
-AutoRDPwn,,,AutoRDPwn,C2,offensive_tool,https://github.com/JoelGMSec/AutoRDPwn/blob/839d6afbd2cfa64b01a188b4e09a3e079c9c81d3/AutoRDPwn.ps1#L678,critical,""Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "AutoRDPwn" -Description "AutoRDPwn""",https://github.com/mthcht/awesome-lists
+AutoRDPwn,,,AutoRDPwn,C2,offensive_tool,https://github.com/JoelGMSec/AutoRDPwn/blob/839d6afbd2cfa64b01a188b4e09a3e079c9c81d3/AutoRDPwn.ps1#L678,critical,N/A,https://github.com/mthcht/awesome-lists
 CursorSvc,,,Fentanyl Stealer,Malware,offensive_tool,https://github.com/dekrypted/Fentanyl/blob/2b4a008934f21df4eed7b90fb3019d3395f7c909/fenty.py#L699C53-L699C62,critical,Similar to Bandit Stealer,https://github.com/mthcht/awesome-lists
 K0adic,,,koadic,C2,offensive_tool,https://github.com/Averroes/koadic/blob/97886ed570f31efff09d1e06c4a7ece2d9b6bd27/data/implant/persist/schtasks.js#L4C21-L4C27,critical,N/A,https://github.com/mthcht/awesome-lists
 *StageProxyOps*,*HTTP-Server.ps1*,,HTTP-Server,Persistence,offensive_tool,https://github.com/NullArray/WinBins-Plus/blob/1e4af04ceaa8085b532757a1331113e919a20f4b/Scripts/persist.cmd#L2,critical,N/A,https://github.com/mthcht/awesome-lists
