@@ -1,4 +1,4 @@
-# Security lists for SOC detections [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Security lists for SOC/DFIR detections [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 ![dt](https://github.com/mthcht/awesome-lists/assets/75267080/059432aa-cfe9-46d1-a611-fbb225bce66e)
 
 
