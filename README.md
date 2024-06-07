@@ -72,6 +72,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
   - [AbuseIPDB](https://www.abuseipdb.com/)
   - [Malwarebazaar](https://bazaar.abuse.ch/)
   - [emailrep](https://emailrep.io/)
+  - [cloudfare scan](https://radar.cloudflare.com/scan)
   - [shodan](https://www.shodan.io/)
   - [Onyphe](https://www.onyphe.io/)
   - [Censys](https://search.censys.io/)
