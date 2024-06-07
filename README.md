@@ -42,7 +42,8 @@
 - 🌐 TOR Nodes List: https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR
 - 🛠️ LOLDriver List: https://github.com/mthcht/awesome-lists/blob/main/Lists/loldrivers_list.csv
 - 📜 Malicious SSL Certificates: https://github.com/mthcht/awesome-lists/blob/main/Lists/ssl_certificates_malicious_list.csv
-  
+
+I regularly update them after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project 
 
 ### IOC Feeds/Blacklists:
 - [ABUSE.CH BLACKLISTS](https://sslbl.abuse.ch/blacklist/)
