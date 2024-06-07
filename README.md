@@ -24,7 +24,7 @@
   - [Time Slipping detection](https://mthcht.medium.com/event-log-manipulations-1-time-slipping-55bf95631c40)
 </details>
 
-## Detection Lists 
+## My Detection Lists 
 - 📋 Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists
 - 🕵️‍♂️ ThreatHunting Guides: https://mthcht.medium.com/list/threat-hunting-708624e9266f
 - 📚 Hijacklibs: https://github.com/mthcht/awesome-lists/tree/main/Hijacklibs
@@ -43,9 +43,6 @@
 - 🛠️ LOLDriver List: https://github.com/mthcht/awesome-lists/blob/main/Lists/loldrivers_list.csv
 - 📜 Malicious SSL Certificates: https://github.com/mthcht/awesome-lists/blob/main/Lists/ssl_certificates_malicious_list.csv
   
-## SIEM/SOC related:
-- [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
-- [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 
 ### IOC Feeds/Blacklists:
 - [ABUSE.CH BLACKLISTS](https://sslbl.abuse.ch/blacklist/)
@@ -55,9 +52,13 @@
 - [Volexity TI](https://github.com/volexity/threat-intel)
 - [Open Source TI](https://github.com/Bert-JanP/Open-Source-Threat-Intel-Feeds)
 - [C2 Tracker](https://github.com/montysecurity/C2-Tracker)
-- [Unit42 IOCs](https://github.com/mthcht/iocs)
+- [Unit42 IOC](https://github.com/mthcht/iocs)
+- [ThreatFOX IOC](https://threatfox.abuse.ch/export/)
 
-  
+## SIEM/SOC related:
+- [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
+- [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
+
 ##  Investigation
 
 ### TI
