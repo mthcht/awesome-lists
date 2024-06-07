@@ -47,9 +47,17 @@
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 
-### Blacklists:
+### IOC Feeds/Blacklists:
 - [ABUSE.CH BLACKLISTS](https://sslbl.abuse.ch/blacklist/)
+- [Block Lists](https://github.com/blocklistproject/Lists)
+- [DNS Block List](https://github.com/hagezi/dns-blocklists)
+- [C2IntelFeeds](https://github.com/drb-ra/C2IntelFeeds)
+- [Volexity TI](https://github.com/volexity/threat-intel)
+- [Open Source TI](https://github.com/Bert-JanP/Open-Source-Threat-Intel-Feeds)
+- [C2 Tracker](https://github.com/montysecurity/C2-Tracker)
+- [Unit42 IOCs](https://github.com/mthcht/iocs)
 
+  
 ##  Investigation
 
 ### TI
