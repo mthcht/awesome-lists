@@ -80,6 +80,7 @@ I regularly update them after each tool i analyze in my [detection keywords](htt
   - [urlquery](http://urlquery.net/)
   - [cloudfare scanner](https://radar.cloudflare.com/)
   - [urlvoid](https://www.urlvoid.com)
+  - [checkphish](https://checkphish.bolster.ai/)
   - [ipvoid](https://www.ipvoid.com/)
   - [mxtoolbox](https://mxtoolbox.com/NetworkTools.aspx)
   - [Microsoft TI](https://ti.defender.microsoft.com/)
