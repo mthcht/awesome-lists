@@ -41,10 +41,14 @@
 - 🕸️ DNS over HTTPS server list: https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv
 - 🌐 TOR Nodes List: https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR
 - 🛠️ LOLDriver List: https://github.com/mthcht/awesome-lists/blob/main/Lists/loldrivers_list.csv
-
+- 📜 Malicious SSL Certificates: https://github.com/mthcht/awesome-lists/blob/main/Lists/ssl_certificates_malicious_list.csv
+  
 ## SIEM/SOC related:
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
+
+### Blacklists:
+- [ABUSE.CH BLACKLISTS](https://sslbl.abuse.ch/blacklist/)
 
 ##  Investigation
 
