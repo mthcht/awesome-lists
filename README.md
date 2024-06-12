@@ -281,7 +281,8 @@ I regularly update most of them after each tool i analyze in my [detection keywo
   - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
   - SANS: [SANS508](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/)
   - Defensive-security: [Linux-live-forensics](https://edu.defensive-security.com/linux-attack-live-forensics-at-scale)
-  - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs) 
+  - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs)
+  - @DebugPrivilege : Forensic Debugging free course [InsightEngineering](https://github.com/DebugPrivilege/InsightEngineering)
 </details>
  
 ## Others
