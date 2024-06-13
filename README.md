@@ -98,13 +98,13 @@ I regularly update most of them after each tool i analyze in my [detection keywo
  
 </details> 
 
-## SIEM/SOC related:
+### SIEM/SOC related:
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 
-##  Investigation
+###  Investigation
 
-### TI
+#### TI
 
 <details>
   
@@ -138,7 +138,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 
 </details>
 
-### More TI
+#### More TI
 
 <details>
   
@@ -159,7 +159,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 </details>
 
 
-### Sandbox
+#### Sandbox
 
 <details>
   
@@ -172,7 +172,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 </details>
 
 
-## Data manipulation
+### Data manipulation
 
 <details>
   
@@ -212,7 +212,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 </details>
 
 
-## Detection Resources
+### Detection Resources
 
 <details>
   
@@ -240,7 +240,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 </details>
 
 
-## DFIR
+### DFIR
 
 <details>
 
@@ -271,7 +271,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 
 </details>
 
-## Security News
+### Security News
 
 <details>
   
@@ -312,7 +312,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 - [detect.fyi](https://detect.fyi/)
 </details>
 
-## Formations
+### Formations
 
 <details>
 
@@ -326,7 +326,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
   - @DebugPrivilege : Forensic Debugging free course [InsightEngineering](https://github.com/DebugPrivilege/InsightEngineering)
 </details>
  
-## Others
+### Others
 
 <details>
   
