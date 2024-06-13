@@ -45,6 +45,8 @@
 
 I regularly update most of them after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project 
 
+## Other Lists
+
 ### IOC Feeds/Blacklists:
 
 <details> 
