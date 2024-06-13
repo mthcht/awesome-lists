@@ -60,6 +60,8 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 - [Open Source TI](https://github.com/Bert-JanP/Open-Source-Threat-Intel-Feeds)
 - [C2 Tracker](https://github.com/montysecurity/C2-Tracker)
 - [Unit42 IOC](https://github.com/mthcht/iocs)
+- [Unit42 Timely IOC](https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel)
+- [Unit42 Articles IOC](https://github.com/PaloAltoNetworks/Unit42-Threat-Intelligence-Article-Information)
 - [ThreatFOX IOC](https://threatfox.abuse.ch/export/)
 - [Zscaler ThreatLabz IOC](https://github.com/threatlabz/iocs)
 - [Sophos lab IOC](https://github.com/sophoslabs/IoCs)
