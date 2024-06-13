@@ -46,6 +46,9 @@
 I regularly update most of them after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project 
 
 ### IOC Feeds/Blacklists:
+
+<details> 
+
 - [ABUSE.CH BLACKLISTS](https://sslbl.abuse.ch/blacklist/)
 - [Block Lists](https://github.com/blocklistproject/Lists)
 - [DNS Block List](https://github.com/hagezi/dns-blocklists)
@@ -56,6 +59,42 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 - [C2 Tracker](https://github.com/montysecurity/C2-Tracker)
 - [Unit42 IOC](https://github.com/mthcht/iocs)
 - [ThreatFOX IOC](https://threatfox.abuse.ch/export/)
+- [Zscaler ThreatLabz IOC](https://github.com/threatlabz/iocs)
+- [Sophos lab IOC](https://github.com/sophoslabs/IoCs)
+- [ESET Research IOC](https://github.com/eset/malware-ioc)
+- [ExecuteMalware IOC](https://github.com/executemalware/Malware-IOCs)
+- [Cisco Talos IOC](https://github.com/Cisco-Talos/IOCs)
+- [Blackorbid APT Report IOC](https://github.com/blackorbird/APT_REPORT)
+- [AVAST IOC](https://github.com/avast/ioc)
+- [DoctorWeb IOC](https://github.com/DoctorWebLtd/malware-iocs)
+- [BlackLotusLab IOC](https://github.com/blacklotuslabs/IOCs)
+- [prodaft IOC](https://github.com/prodaft/malware-ioc)
+- [Pr0xylife DarkGate IOC](https://github.com/pr0xylife/DarkGate)
+- [Pr0xylife Latrodectus IOC](https://github.com/pr0xylife/Latrodectus)
+- [Pr0xylife WikiLoader IOC](https://github.com/pr0xylife/WikiLoader)
+- [Pr0xylife SSLoad IOC](https://github.com/pr0xylife/SSLoad)
+- [Pr0xylife Pikabot IOC](https://github.com/pr0xylife/Pikabot)
+- [Pr0xylife Matanbuchus IOC](https://github.com/pr0xylife/Matanbuchus)
+- [Pr0xylife QakBot IOC](https://github.com/pr0xylife/Qakbot)
+- [Pr0xylife IceID IOC](https://github.com/pr0xylife/IcedID)
+- [Pr0xylife Emotet IOC](https://github.com/pr0xylife/Emotet)
+- [Pr0xylife BumbleBee IOC](https://github.com/pr0xylife/Bumblebee)
+- [Pr0xylife Gozi IOC](https://github.com/pr0xylife/Gozi)
+- [Pr0xylife NanoCore IOC](https://github.com/pr0xylife/Nanocore)
+- [Pr0xylife NetWire IOC](https://github.com/pr0xylife/Netwire)
+- [Pr0xylife AsyncRAT IOC](https://github.com/pr0xylife/AsyncRAT)
+- [Pr0xylife Lokibot IOC](https://github.com/pr0xylife/Lokibot)
+- [Pr0xylife RemcosRAT IOC](https://github.com/pr0xylife/RemcosRAT)
+- [Pr0xylife nworm IOC](https://github.com/pr0xylife/nworm)
+- [Pr0xylife AZORult IOC](https://github.com/pr0xylife/AZORult)
+- [Pr0xylife NetSupportRAT IOC](https://github.com/pr0xylife/NetSupportRAT)
+- [Pr0xylife BitRAT IOC](https://github.com/pr0xylife/BitRAT)
+- [Pr0xylife BazarLoader IOC](https://github.com/pr0xylife/BazarLoader)
+- [Pr0xylife SnakeKeylogger IOC](https://github.com/pr0xylife/SnakeKeylogger)
+- [Pr0xylife njRat IOC](https://github.com/pr0xylife/njRat)
+- [Pr0xylife Vidar IOC](https://github.com/pr0xylife/Vidar)
+ 
+</details> 
 
 ## SIEM/SOC related:
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
