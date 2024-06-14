@@ -68,6 +68,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 - [ESET Research IOC](https://github.com/eset/malware-ioc)
 - [ExecuteMalware IOC](https://github.com/executemalware/Malware-IOCs)
 - [Cisco Talos IOC](https://github.com/Cisco-Talos/IOCs)
+- [Elastic Lab IOC](https://github.com/elastic/labs-releases/tree/main/indicators)
 - [Blackorbid APT Report IOC](https://github.com/blackorbird/APT_REPORT)
 - [AVAST IOC](https://github.com/avast/ioc)
 - [DoctorWeb IOC](https://github.com/DoctorWebLtd/malware-iocs)
