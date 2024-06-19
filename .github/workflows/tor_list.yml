@@ -22,7 +22,7 @@ jobs:
           pip install requests  # Install the requests library
 
       - name: Run the script
-        run: python Lists/TOR/Get_TOR_IOCs.py  # Adjust the path to your script
+        run: python Lists/TOR/Get_TOR_IOCs.py
 
       - name: Upload Results to Artifacts
         uses: actions/upload-artifact@v3
