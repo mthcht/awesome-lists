@@ -24,7 +24,10 @@ jobs:
 
       - name: Clone HijackLibs repository
         run: git clone https://github.com/wietze/HijackLibs ./HijackLibs
-
+        
+      - name: Run HijackLibs script
+        run: python Lists/Hijacklibs/hijacklibs.py
+        
       - name: List files in the root directory
         run: ls -la
 
