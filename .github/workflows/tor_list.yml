@@ -25,10 +25,15 @@ jobs:
       - name: Run the script
         run: python Lists/TOR/Get_TOR_IOCs.py
 
-      - name: Upload Results to Artifacts
+      - name: Upload JSON Results
         uses: actions/upload-artifact@v3
         with:
-          name: tor-nodes-data
-          path:
-            - Lists/TOR/TOR_nodes_list.json
-            - Lists/TOR/TOR_nodes_list.csv
+          name: tor-nodes-data-json
+          path: Lists/TOR/TOR_nodes_list.json
+      
+      - name: Upload CSV Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: tor-nodes-data-csv
+          path: Lists/TOR/TOR_nodes_list.csv
+
