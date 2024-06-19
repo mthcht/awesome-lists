@@ -1,0 +1,40 @@
+name: Daily IP Range Updates
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # Runs at 07:00 AM every day
+  workflow_dispatch:
+
+jobs:
+  fetch-ip-ranges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' 
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 pandas
+
+      - name: Run the script
+        run: python Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py -list microsoft,webex,DigitalOcean -format csv
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
+          git commit -m "Update daily IP ranges" --allow-empty
+          git push
+
+      - name: Upload Results to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ip-range-data
+          path: Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
