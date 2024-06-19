@@ -2,14 +2,13 @@ import os
 import csv
 import yaml
 import glob
-
-# Prerequisite: the github project https://github.com/mthcht/HijackLibs must be cloned in the current directory
-# If in your environment, some workstations have a different drive letter (other than C:) you may want to modify this script accordingly
+import subprocess
 
 # Initialize CSV file
 csv_columns = ['file_name', 'expected_file_path', 'vulnerable_file_name', 'file_type', 'file_hash', 'link', 'hijacklib_link']
 csv_file = "hijacklibs_list.csv"
 
+# If in your environment, some workstations have a different drive letter (other than C:) you may want to modify this script accordingly
 def replace_variables(path):
     path = path.replace("%LOCALAPPDATA%", 'C:\\Users\\*\\AppData\\Local')
     path = path.replace("%PROGRAMFILES%", 'C:\\Program Files')
@@ -21,19 +20,22 @@ def replace_variables(path):
     path = path.replace("%PROGRAMDATA%", 'C:\\ProgramData')
     return path
 
+# Clone HijackLibs repository
+repo_url = "https://github.com/wietze/HijackLibs"
+repo_path = os.path.join('.', 'HijackLibs')
+if not os.path.exists(repo_path):
+    subprocess.run(['git', 'clone', repo_url, repo_path], check=True)
 
 with open(csv_file, 'w', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
     writer.writeheader()
-    
-    glob_pattern = os.path.join('.', 'HijackLibs-main', 'yml', '**', '*.yml').replace(os.sep, '/')
+
+    glob_pattern = os.path.join(repo_path, 'yml', '**', '*.yml').replace(os.sep, '/')
     # Loop through each YAML file recursively in the 'yml' directory
     for filename in glob.glob(glob_pattern, recursive=True):
-        print(f"Processing {filename}")  # Debug print
         with open(filename, 'r') as file:
             data = yaml.safe_load(file)
-            print(f"Data: {data}")  # Debug print
-            relative_path = os.path.relpath(filename, os.path.join('.', 'HijackLibs-main', 'yml'))
+            relative_path = os.path.relpath(filename, os.path.join(repo_path, 'yml'))
             hijacklib_link = os.path.join('HijackLibs', 'yml', relative_path).replace(os.sep, '/')
 
             replaced_paths = [replace_variables(loc) for loc in data.get('ExpectedLocations', [])]
@@ -49,5 +51,5 @@ with open(csv_file, 'w', newline='') as csvfile:
                 'link': ";".join(data.get('Resources', [])),
                 'hijacklib_link': hijacklib_link
             }
-            
+
             writer.writerow(csv_row)
