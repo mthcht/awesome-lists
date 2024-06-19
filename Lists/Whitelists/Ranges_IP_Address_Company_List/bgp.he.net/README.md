@@ -23,3 +23,13 @@ The results are saved in the specified format with filenames based on the compan
 
 ### Logging
 Debug Logs are written to get_ip_range_debug.log, which includes detailed information about the script's execution and any errors.
+
+## Splunk 
+
+If Splunk is used, you can define a lookup difinition with the parameter `CIDR(dest_ip)` and use the lookup definition to exclude dest_ip in the list, example in a search SPL:
+
+`NOT [|inputlookup microsoft_IP_Ranges | fields - metadata_*]`
+
+You can setup a cron or a scheduled task to upload automatically updated lookups to Splunk with the script [upload_lookups_to_splunk.py](https://github.com/mthcht/lookup-editor_scripts#upload_lookups_to_splunkpy) (use lookup-editor app)
+
+![2022-12-24 08_37_55-Windows 10 and later x64 - VMware Workstation](https://user-images.githubusercontent.com/75267080/209426409-1c3749a9-f504-4f74-b292-a9ecdebf6ed2.png)
