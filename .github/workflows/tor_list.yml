@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-
+      
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -24,6 +24,17 @@ jobs:
 
       - name: Run the script
         run: python Lists/TOR/Get_TOR_IOCs.py
+
+      - name: List files in the root directory
+        run: ls -la
+
+      - name: List files in the Lists/TOR directory
+        run: ls -la Lists/TOR/
+
+      - name: Move output files to correct directory (if necessary)
+        run: |
+          mv TOR_nodes_list.json Lists/TOR/ || echo "File not found in root."
+          mv TOR_nodes_list.csv Lists/TOR/ || echo "File not found in root."
 
       - name: Commit and Push Changes
         run: |
