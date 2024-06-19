@@ -1,0 +1,33 @@
+name: TOR Nodes Data Processing
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Runs at minute 0 every 2 hours
+
+jobs:
+  process-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests  # Install the requests library
+
+      - name: Run the script
+        run: python Lists/TOR/Get_TOR_IOCs.py  # Adjust the path to your script
+
+      - name: Upload Results to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: tor-nodes-data
+          path:
+            - Lists/TOR/TOR_nodes_list.json
+            - Lists/TOR/TOR_nodes_list.csv 
