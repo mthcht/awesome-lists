@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  fetch-ip-ranges:
+  create_hijacklibs_list:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
