@@ -25,6 +25,16 @@ jobs:
       - name: Run the script
         run: python Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py -list microsoft,webex,DigitalOcean -format csv
 
+      - name: List files in the root directory
+        run: ls -la
+
+      - name: List files in the Lists/TOR directory
+        run: ls -la Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/
+
+      - name: Move output files to correct directory (if necessary)
+        run: |
+          mv *_IP_Ranges.csv Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/ || echo "File not found in root."
+
       - name: Commit and Push results
         run: |
           git config --local user.email "action@github.com"
