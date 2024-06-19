@@ -118,7 +118,7 @@ if __name__ == "__main__":
         queries = args.list.split(',')
     else:
         logging.error("No company name or list provided.")
-        print("Please provide a company name with -name or a list of copany names with -list.Examples: `python3 get_ip_range.py -name microsoft -format csv` OR `python3 get_ip_range.py microsoft,webex,DigitalOcean -format csv` ")
+        print("Please provide a company name with -name or a list of copany names with -list.Examples: `python3 get_ip_range.py -name microsoft -format csv` OR `python3 get_ip_range.py -list microsoft,webex,DigitalOcean -format csv` ")
         sys.exit(1)
 
     main(queries, args.format)
