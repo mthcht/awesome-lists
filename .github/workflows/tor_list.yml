@@ -3,6 +3,7 @@ name: TOR Nodes Data Processing
 on:
   schedule:
     - cron: '0 */2 * * *'  # Runs at minute 0 every 2 hours
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
 
 jobs:
   process-data:
