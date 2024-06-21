@@ -158,7 +158,8 @@ I regularly update most of them after each tool i analyze in my [detection keywo
   - [dnshistory](https://dnshistory.org/)
   - [asnlookup](https://asnlookup.com/)
   - [fofa.info](https://fofa.info/)
-
+  - [SecurityTrail](https://securitytrails.com/)
+  - [ZommEye](https://www.zoomeye.hk/)
 </details>
 
 
@@ -211,6 +212,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
 - [Gitlab dashboard from Excel](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
 - [OPENAI](https://openai.com/playground)
 - [uncoder](https://uncoder.io/)
+- [DeHashed](https://dehashed.com/)
 
 </details>
 
