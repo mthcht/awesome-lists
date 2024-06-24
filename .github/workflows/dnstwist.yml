@@ -1,0 +1,40 @@
+name: DNSTWIST Domains Data Processing
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Runs at minute 0 every 6 hours
+  workflow_dispatch:
+
+jobs:
+  process-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Run the script
+        run: python Lists/DNSTWIST/get_dnstwist.py Lists/DNSTWIST/domains_list.txt
+
+      - name: List files in the root directory
+        run: ls -la
+
+      - name: List files in the Lists/DNSTWIST directory
+        run: ls -la Lists/DNSTWIST
+
+      - name: Move output files to correct directory (if necessary)
+        run: |
+          mv *_dnstwist_list.csv Lists/DNSTWIST/ || echo "File not found in root."
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Lists/DNSTWIST/*_dnstwist_list.csv
+          git commit -m "Update DNSTWIST list files" --allow-empty
+          git push
+    
