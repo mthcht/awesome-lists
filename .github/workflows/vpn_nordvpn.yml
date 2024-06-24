@@ -20,7 +20,7 @@ jobs:
       - name: Install Requests
         run: |
           python -m pip install --upgrade pip
-          pip install requests logging BeautifulSoup re
+          pip install requests logging beautifulsoup4 re
 
       - name: Run the script
         run: python Lists/VPN/NordVPN/get_nordvpn_ips_list.py
