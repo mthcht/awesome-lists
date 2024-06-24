@@ -17,6 +17,11 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install pyyaml
+        run: |
+          python -m pip install --upgrade pip
+          pip install dnstwist[full]
+
       - name: Run the script
         run: python Lists/DNSTWIST/get_dnstwist.py Lists/DNSTWIST/domains_list.txt
 
