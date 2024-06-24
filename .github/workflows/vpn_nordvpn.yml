@@ -29,7 +29,7 @@ jobs:
         run: ls -la
 
       - name: List files in the Lists/VPN/NordVPN/ directory
-        run: ls -la /Lists/VPN/NordVPN/
+        run: ls -la Lists/VPN/NordVPN/
       - name: Move output files to correct directory (if necessary)
         run: |
           mv nordvpn_ips_list.csv Lists/VPN/NordVPN/ || echo "File not found in root."
