@@ -34,7 +34,7 @@ jobs:
       - name: Move output files to correct directory (if necessary)
         run: |
           mv protonvpn_ip_list.csv Lists/VPN/ProtonVPN/ || echo "File not found in root."
-$
+
       - name: Commit and Push Changes
         run: |
           git config --local user.email "action@github.com"
