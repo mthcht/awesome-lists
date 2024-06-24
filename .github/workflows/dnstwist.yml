@@ -41,5 +41,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git add Lists/DNSTWIST/*_dnstwist_list.csv
           git commit -m "Update DNSTWIST list files" --allow-empty
+          git pull --rebase
           git push
-    
