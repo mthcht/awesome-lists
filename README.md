@@ -138,6 +138,7 @@ I regularly update most of them after each tool i analyze in my [detection keywo
   - [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com/) 
   - [AlienVault OTX](https://otx.alienvault.com/)
   - [greynoise](https://viz.greynoise.io/)
+  - [whoxy](https://www.whoxy.com/reverse-whois/)
 
 </details>
 
