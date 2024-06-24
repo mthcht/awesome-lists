@@ -1,0 +1,51 @@
+name: Hijacklibs Data Processing
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs every day
+  workflow_dispatch:
+
+jobs:
+  process-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Run the script
+        run: python Lists/Hijacklibs/hijacklibs.py
+
+      - name: List files in the root directory
+        run: ls -la
+
+      - name: List files in the Lists/Hijacklibs directory
+        run: ls -la Lists/Hijacklibs/
+
+      - name: Move output files to correct directory (if necessary)
+        run: |
+          mv hijacklibs_list.csv Lists/Hijacklibs/ || echo "File not found in root."
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Lists/Hijacklibs/hijacklibs_list.csv
+          git commit -m "Update hijacklibs list" --allow-empty
+          git push
+
+      - name: Upload csv Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: hojacklibs-data-csv
+          path: Lists/Hijacklibs/hijacklibs_list.csv
+
