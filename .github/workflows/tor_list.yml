@@ -35,12 +35,14 @@ jobs:
         run: |
           mv TOR_nodes_list.json Lists/TOR/ || echo "File not found in root."
           mv TOR_nodes_list.csv Lists/TOR/ || echo "File not found in root."
+          mv only_tor_exit_nodes_IP_list.csv Lists/TOR/ || echo "File not found in root."
+          mv only_tor_guard_nodes_IP_list.csv Lists/TOR/ || echo "File not found in root."
 
       - name: Commit and Push Changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add Lists/TOR/TOR_nodes_list.json Lists/TOR/TOR_nodes_list.csv
+          git add Lists/TOR/TOR_nodes_list.json Lists/TOR/TOR_nodes_list.csv Lists/TOR/only_tor_exit_nodes_IP_list.csv Lists/TOR/only_tor_guard_nodes_IP_list.csv
           git commit -m "Update TOR nodes list files" --allow-empty
           git push
 
