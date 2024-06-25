@@ -11,22 +11,20 @@ def fetch_csv(url, output_file):
     except requests.exceptions.RequestException as e:
         print(f"Failed to fetch the CSV file: {e}")
 
-def filter_columns(input_file, output_file):
+def filter_and_split_columns(input_file, output_file):
     try:
         with open(input_file, 'r', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
-            fieldnames = ['KnownVulnerableSamples_SHA256', 'Tags']
-            new_fieldnames = ['file_hash', 'metadata_driver_name']
+            fieldnames = ['file_hash', 'metadata_driver_name']
             with open(output_file, 'w', newline='', encoding='utf-8') as newfile:
-                writer = csv.DictWriter(newfile, fieldnames=new_fieldnames)
+                writer = csv.DictWriter(newfile, fieldnames=fieldnames)
                 writer.writeheader()
                 for row in reader:
-                    filtered_row = {
-                        'file_hash': row['KnownVulnerableSamples_SHA256'],
-                        'metadata_driver_name': row['Tags']
-                    }
-                    writer.writerow(filtered_row)
-        print(f"Filtered CSV file has been saved as {output_file}")
+                    hashes = row['KnownVulnerableSamples_SHA256'].split(', ')
+                    driver_name = row['Tags']
+                    for hash_value in hashes:
+                        writer.writerow({'file_hash': hash_value, 'metadata_driver_name': driver_name})
+        print(f"Filtered and split CSV file has been saved as {output_file}")
     except Exception as e:
         print(f"Failed to filter and save the CSV file: {e}")
 
@@ -36,4 +34,4 @@ if __name__ == "__main__":
     filtered_file = "loldrivers_only_hashes_list.csv"
     
     fetch_csv(url, fetched_file)
-    filter_columns(fetched_file, filtered_file)
+    filter_and_split_columns(fetched_file, filtered_file)
