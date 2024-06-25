@@ -30,7 +30,7 @@ ascii_art='''
         @:  @    @.      @ @ @=*++++-*%        
         @:  @  @#     @+   % @=*++++-*%        
         @@  @  %  . #* ::  @.@=*++++-%#        
-         @  :# %    %   @ -*@%+*++=--@%        
+         @  :# %    %   @ -*@%+*+--=@%         
          @@-  @%*   @   @ @ @++*+--=@#         
            @@  .+@  %   + .@@=+=-:@@           
             @@@.   . + . @@*---#@%%            
@@ -71,6 +71,10 @@ fields = ['metadata_' + field for field in original_fields] + ['dest_ip', 'dest_
 # Prepare a dictionary to hold the best entries for each IP
 entries_by_ip = {}
 
+# Lists to hold exit node and guard node IPs
+exit_node_ips = []
+guard_node_ips = []
+
 # Determine the "dest_role" based on probabilities
 def determine_dest_role(entry):
     probabilities = {
@@ -109,6 +113,13 @@ for entry in data.get('relays', []) + data.get('bridges', []):
                 if not any(key.startswith(f"{ip}:") for key in entries_by_ip):
                     entries_by_ip[ip] = entry_data
 
+            # Collect exit node IPs
+            if entry_data['metadata_dest_role'] == 'exit':
+                exit_node_ips.append(ip)
+
+            # Collect guard node IPs
+            if entry_data['metadata_dest_role'] == 'guard':
+                guard_node_ips.append(ip)
 
 csv_file_path = 'TOR_nodes_list.csv'
 
@@ -119,4 +130,24 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as csv_file:
     for entry in entries_by_ip.values():
         writer.writerow(entry)
 
-print(f"Transformed data written to {csv_file_path}")
+print(f"All TOR nodes written to {csv_file_path}")
+
+# Write the exit node IPs to a separate CSV file
+exit_ips_file_path = 'only_tor_exit_nodes_IP_list.csv'
+with open(exit_ips_file_path, mode='w', newline='', encoding='utf-8') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['dest_ip'])
+    for ip in exit_node_ips:
+        writer.writerow([ip])
+
+print(f"Exit node IPs written to {exit_ips_file_path}")
+
+# Write the guard node IPs to a separate CSV file
+guard_ips_file_path = 'only_tor_guard_nodes_IP_list.csv'
+with open(guard_ips_file_path, mode='w', newline='', encoding='utf-8') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['dest_ip'])
+    for ip in guard_node_ips:
+        writer.writerow([ip])
+
+print(f"Guard node IPs written to {guard_ips_file_path}")
