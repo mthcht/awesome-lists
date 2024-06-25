@@ -30,8 +30,13 @@ def filter_and_split_columns(input_file, output_file):
 
 if __name__ == "__main__":
     url = "https://www.loldrivers.io/api/drivers.csv"
+    url2 = "https://www.bootloaders.io/api/bootloaders.csv"
     fetched_file = "loldrivers_list.csv"
+    fetched_file2 = "malicious_bootloaders_list.csv"
     filtered_file = "loldrivers_only_hashes_list.csv"
-    
+    filtered_file2 = "malicious_bootloaders_only_hashes_list.csv"
+
     fetch_csv(url, fetched_file)
+    fetch_csv(url2, fetched_file2)
     filter_and_split_columns(fetched_file, filtered_file)
+    filter_and_split_columns(fetched_file2, filtered_file2)
