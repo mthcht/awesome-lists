@@ -33,12 +33,12 @@ jobs:
 
       - name: Move output files to correct directory (if necessary)
         run: |
-          mv loldrivers_list.csv Lists/Drivers/ || echo "File not found in root."
+          mv loldrivers_list.csv loldrivers_only_hashes_list.csv Lists/Drivers/ || echo "File not found in root."
 
       - name: Commit and Push Changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add Lists/Drivers/loldrivers_list.csv
+          git add Lists/Drivers/loldrivers_list.csv Lists/Drivers/loldrivers_only_hashes_list.csv
           git commit -m "Update loldrivers list" --allow-empty
           git push
