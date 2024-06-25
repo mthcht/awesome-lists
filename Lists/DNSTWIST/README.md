@@ -20,3 +20,6 @@ Create domains.txt with one domain per line, then run:
 ```bash
 python get_dnstwist.py domains_list.txt
 ```
+
+### Splunk
+Upload a lookup of your domain in Splunk to detect outgoing communication to a similar domains (potential phishing)
