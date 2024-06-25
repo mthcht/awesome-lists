@@ -4,7 +4,7 @@ import csv
 def fetch_csv(url, output_file):
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Check if the request was successful
+        response.raise_for_status() 
         with open(output_file, 'wb') as file:
             file.write(response.content)
         print(f"CSV file has been fetched and saved as {output_file}")
@@ -15,12 +15,16 @@ def filter_columns(input_file, output_file):
     try:
         with open(input_file, 'r', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
-            fieldnames = [field for field in reader.fieldnames if field == 'KnownVulnerableSamples_SHA256' or field == 'Tags']
+            fieldnames = ['KnownVulnerableSamples_SHA256', 'Tags']
+            new_fieldnames = ['file_hash', 'metadata_driver_name']
             with open(output_file, 'w', newline='', encoding='utf-8') as newfile:
-                writer = csv.DictWriter(newfile, fieldnames=fieldnames)
+                writer = csv.DictWriter(newfile, fieldnames=new_fieldnames)
                 writer.writeheader()
                 for row in reader:
-                    filtered_row = {field: row[field] for field in fieldnames}
+                    filtered_row = {
+                        'file_hash': row['KnownVulnerableSamples_SHA256'],
+                        'metadata_driver_name': row['Tags']
+                    }
                     writer.writerow(filtered_row)
         print(f"Filtered CSV file has been saved as {output_file}")
     except Exception as e:
