@@ -20,7 +20,7 @@ def filter_and_split_columns(input_file, output_file):
                 writer = csv.DictWriter(newfile, fieldnames=fieldnames)
                 writer.writeheader()
                 for row in reader:
-                    hashes = row['KnownVulnerableSamples_SHA256'].split(', ')
+                    hashes = row['KnownVulnerableSamples_SHA256'].split(', ') if row['KnownVulnerableSamples_SHA256'] else row['KnownVulnerableSamples_SHA1'].split(', ')
                     driver_name = row['Tags']
                     for hash_value in hashes:
                         writer.writerow({'file_hash': hash_value, 'metadata_driver_name': driver_name})
