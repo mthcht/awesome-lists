@@ -15,7 +15,7 @@ def filter_columns(input_file, output_file):
     try:
         with open(input_file, 'r', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
-            fieldnames = [field for field in reader.fieldnames if field.startswith('KnownVulnerableSamples') or field == 'Tags']
+            fieldnames = [field for field in reader.fieldnames if field == 'KnownVulnerableSamples_SHA256' or field == 'Tags']
             with open(output_file, 'w', newline='', encoding='utf-8') as newfile:
                 writer = csv.DictWriter(newfile, fieldnames=fieldnames)
                 writer.writeheader()
