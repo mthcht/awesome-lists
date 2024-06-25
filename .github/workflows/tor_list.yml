@@ -46,15 +46,4 @@ jobs:
           git commit -m "Update TOR nodes list files" --allow-empty
           git push
 
-      - name: Upload JSON Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: tor-nodes-data-json
-          path: Lists/TOR/TOR_nodes_list.json
-      
-      - name: Upload CSV Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: tor-nodes-data-csv
-          path: Lists/TOR/TOR_nodes_list.csv
 
