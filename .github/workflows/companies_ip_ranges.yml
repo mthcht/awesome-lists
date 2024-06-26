@@ -23,7 +23,7 @@ jobs:
           pip install requests beautifulsoup4 pandas
 
       - name: Run the script
-        run: python Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py -list microsoft,webex,DigitalOcean -format csv
+        run: python Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py -list microsoft,webex,DigitalOcean,"Media Land LLC" -format csv
 
       - name: List files in the root directory
         run: ls -la
