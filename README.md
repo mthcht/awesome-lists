@@ -27,7 +27,6 @@
 ## My Detection Lists 
 - 📋 Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists
 - 🕵️‍♂️ ThreatHunting Guides: https://mthcht.medium.com/list/threat-hunting-708624e9266f
-- 📚 Hijacklibs: https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv
 - 🚰 Suspicious Named pipes: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_named_pipe_list.csv
 - 🔧 Suspicious Windows Services: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_services_names_list.csv
 - ⏲️ Suspicious Windows Tasks: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_tasks_list.csv
@@ -39,15 +38,16 @@
 - 📛 Suspicious Hostname: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_hostnames_list.csv
 - 🧮 Metadata Executables: https://github.com/mthcht/awesome-lists/blob/main/Lists/Windows%20Metadata/executables_metadata_informations_list.csv
 - 🕸️ DNS over HTTPS server list: https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv
-- 🌐 TOR Nodes Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR
-- 🛠️ LOLDriver List: https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/loldrivers_only_hashes_list.csv
-- 🛠️ Malicious Bootloader List: https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/malicious_bootloaders_only_hashes_list.csv
-- 📜 Malicious SSL Certificates List: https://github.com/mthcht/awesome-lists/blob/main/Lists/SSL%20CERTS/ssl_certificates_malicious_list.csv
-- 🌐 DNSTWIST Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/DNSTWIST
-- 🌍 VPN IP address Lists: 
+- 📚 Hijacklibs (updated automatically): https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv
+- 🌐 TOR Nodes Lists (updated automatically): https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR
+- 🛠️ LOLDriver List (updated automatically): https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/loldrivers_only_hashes_list.csv
+- 🛠️ Malicious Bootloader List (updated automatically): https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/malicious_bootloaders_only_hashes_list.csv
+- 📜 Malicious SSL Certificates List (updated automatically): https://github.com/mthcht/awesome-lists/blob/main/Lists/SSL%20CERTS/ssl_certificates_malicious_list.csv
+- 🌐 DNSTWIST Lists (updated automatically): https://github.com/mthcht/awesome-lists/tree/main/Lists/DNSTWIST
+- 🌍 VPN IP address Lists (updated automatically): 
   - 🛡️ NordVPN: https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/NordVPN/nordvpn_ips_list.csv
   - 🛡️ ProtonVPN: https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv
-- 🏢 Companies IP Range Lists:
+- 🏢 Companies IP Range Lists (updated automatically)):
   - 🏢 DigitalOcean: https://github.com/mthcht/awesome-lists/blob/main/Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/DigitalOcean_IP_Ranges.csv
   - 🏢 Microsoft: https://github.com/mthcht/awesome-lists/blob/main/Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/microsoft_IP_Ranges.csv
   - 🏢 Webex: https://github.com/mthcht/awesome-lists/blob/main/Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/webex_IP_Ranges.csv
