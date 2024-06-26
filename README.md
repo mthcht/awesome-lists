@@ -27,7 +27,7 @@
 ## My Detection Lists 
 - 📋 Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists
 - 🕵️‍♂️ ThreatHunting Guides: https://mthcht.medium.com/list/threat-hunting-708624e9266f
-- 📚 Hijacklibs: https://github.com/mthcht/awesome-lists/tree/main/Hijacklibs
+- 📚 Hijacklibs: https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv
 - 🚰 Suspicious Named pipes: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_named_pipe_list.csv
 - 🔧 Suspicious Windows Services: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_services_names_list.csv
 - ⏲️ Suspicious Windows Tasks: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_tasks_list.csv
@@ -37,13 +37,20 @@
 - 📇 Suspicious USB Ids: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_usb_ids_list.csv
 - 🔢 Suspicious MAC address: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_mac_address_list.csv
 - 📛 Suspicious Hostname: https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_hostnames_list.csv
-- 🧮 Metadata Executables: https://github.com/mthcht/awesome-lists/blob/main/Lists/executables_metadata_informations_list.csv
+- 🧮 Metadata Executables: https://github.com/mthcht/awesome-lists/blob/main/Lists/Windows%20Metadata/executables_metadata_informations_list.csv
 - 🕸️ DNS over HTTPS server list: https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv
-- 🌐 TOR Nodes List: https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR
-- 🛠️ LOLDriver List: https://github.com/mthcht/awesome-lists/blob/main/Lists/loldrivers_list.csv
-- 📜 Malicious SSL Certificates: https://github.com/mthcht/awesome-lists/blob/main/Lists/ssl_certificates_malicious_list.csv
+- 🌐 TOR Nodes Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR
+- 🛠️ LOLDriver List: https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/loldrivers_only_hashes_list.csv
+- 🛠️ Malicious Bootloader List: https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/malicious_bootloaders_only_hashes_list.csv
+- 📜 Malicious SSL Certificates List: https://github.com/mthcht/awesome-lists/blob/main/Lists/SSL%20CERTS/ssl_certificates_malicious_list.csv
+- 🌐 DNSTWIST Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/DNSTWIST
+- 🌍 VPN IP address Lists: 
+  - 🛡️ NordVPN: https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/NordVPN/nordvpn_ips_list.csv
+  - 🛡️ ProtonVPN: https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv
+- 🔗 Others correlation Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/Others
+- 📋 Lists i need to finish: https://github.com/mthcht/awesome-lists/tree/main/todo
 
-I regularly update most of them after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project 
+I regularly update most of these lists after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project
 
 ## Other Lists
 
