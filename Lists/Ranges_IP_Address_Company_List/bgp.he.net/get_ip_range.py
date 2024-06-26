@@ -5,6 +5,7 @@ import json
 import argparse
 import sys
 import logging
+import re
 
 # Set up logging
 logging.basicConfig(filename='get_ip_range_debug.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -91,9 +92,15 @@ def save_output(query, all_ip_ranges, output_format):
         print("Unsupported output format. Please use 'csv' or 'json'.")
 
 def main(queries, output_format):
+    asn_regex = re.compile(r'^AS\d+$')
     for query in queries:
         logging.info(f'Processing query: {query}')
-        asns, initial_ip_ranges = get_asns_and_ip_ranges(query)
+        if asn_regex.match(query):
+            asns = [query[2:]]
+            initial_ip_ranges = []
+        else:
+            asns, initial_ip_ranges = get_asns_and_ip_ranges(query)
+        
         all_ip_ranges = initial_ip_ranges.copy()
 
         for asn in asns:
@@ -118,7 +125,7 @@ if __name__ == "__main__":
         queries = args.list.split(',')
     else:
         logging.error("No company name or list provided.")
-        print("Please provide a company name with -name or a list of copany names with -list.Examples: `python3 get_ip_range.py -name microsoft -format csv` OR `python3 get_ip_range.py -list microsoft,webex,DigitalOcean -format csv` ")
+        print("Please provide a company name with -name or a list of company names with -list. Examples: `python3 get_ip_range.py -name microsoft -format csv` OR `python3 get_ip_range.py -list microsoft,webex,DigitalOcean -format csv` ")
         sys.exit(1)
 
     main(queries, args.format)
