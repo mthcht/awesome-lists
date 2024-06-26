@@ -23,23 +23,23 @@ jobs:
           pip install requests beautifulsoup4 pandas
 
       - name: Run the script
-        run: python Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py -list microsoft,webex,DigitalOcean,AS211805,AS206728 -format csv
+        run: python Lists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py -list microsoft,webex,DigitalOcean,AS211805,AS206728 -format csv
 
       - name: List files in the root directory
         run: ls -la
 
       - name: List files in the Lists/TOR directory
-        run: ls -la Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/
+        run: ls -la Lists/Ranges_IP_Address_Company_List/bgp.he.net/
 
       - name: Move output files to correct directory (if necessary)
         run: |
-          mv *_IP_Ranges.csv Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/ || echo "File not found in root."
+          mv *_IP_Ranges.csv Lists/Ranges_IP_Address_Company_List/bgp.he.net/ || echo "File not found in root."
 
       - name: Commit and Push results
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
+          git add Lists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
           git commit -m "Update daily IP ranges" --allow-empty
           git push
 
@@ -47,4 +47,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ip-range-data
-          path: Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
+          path: Lists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
