@@ -47,6 +47,10 @@
 - 🌍 VPN IP address Lists: 
   - 🛡️ NordVPN: https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/NordVPN/nordvpn_ips_list.csv
   - 🛡️ ProtonVPN: https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv
+- 🏢 Companies IP Range Lists:
+  - 🏢 DigitalOcean: https://github.com/mthcht/awesome-lists/blob/main/Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/DigitalOcean_IP_Ranges.csv
+  - 🏢 Microsoft: https://github.com/mthcht/awesome-lists/blob/main/Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/microsoft_IP_Ranges.csv
+  - 🏢 Webex: https://github.com/mthcht/awesome-lists/blob/main/Lists/Whitelists/Ranges_IP_Address_Company_List/bgp.he.net/webex_IP_Ranges.csv
 - 🔗 Others correlation Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/Others
 - 📋 Lists i need to finish: https://github.com/mthcht/awesome-lists/tree/main/todo
 
