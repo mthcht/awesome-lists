@@ -1,4 +1,4 @@
-# IPINFO Script
+# IPINFO Script (not working for free account since 2024)
 
 Request the site https://ipinfo.io/ to update regularly some companies range IP addresses into a csv file.
 This can be use for detection rule exclusions (Data exfiltration for example)
