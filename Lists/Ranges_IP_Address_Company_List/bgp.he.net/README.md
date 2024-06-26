@@ -26,6 +26,7 @@ Debug Logs are written to get_ip_range_debug.log, which includes detailed inform
 
 ## Splunk 
 
+### For Exclusions:
 If Splunk is used, you can define a lookup difinition with the parameter `CIDR(dest_ip)` and use the lookup definition to exclude dest_ip in the list, example in a search SPL:
 
 `NOT [|inputlookup microsoft_IP_Ranges | fields - metadata_*]`
