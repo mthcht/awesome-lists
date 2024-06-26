@@ -16,7 +16,7 @@ The script can be run from the command line with the following options:
 
 ### Examples
  - Single company: `python3 get_ip_range.py -name "Microsoft" -format csv`
- - Multiple companies: `python get_ip_range.py -list "Microsoft,Google,Amazon" -format json`
+ - Multiple companies: `python get_ip_range.py -list "Microsoft,Google,Amazon,AS206728" -format json`
 
 #### Output
 The results are saved in the specified format with filenames based on the company name and the chosen format, e.g., Microsoft_IP_Ranges.csv.
