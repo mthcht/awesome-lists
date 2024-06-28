@@ -37,6 +37,8 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 4041,Masters Paradise trojan,high,malware,hunting
 4043,HVNC Client & Server (Modified Tinynuke),medium,RMM,hunting
 4092,WinCrash trojan,high,malware,hunting
+4222,TacticalRMM RMM tool default port,high,RMM,hunting
+4433,TacticalRMM RMM tool default port,high,RMM,hunting
 4444,Default listener port for Metasploit exploits and RemotePC transfert port,high,C2,detection_rule
 4051,AlanFramework C2 default port but also used by cisco P2P,high,C2,detection_rule
 4434,Default port for RemotePC file transfert,medium,RMM,hunting
@@ -146,6 +148,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 9051,default port used by the Tor network for the controller,high,Defense Evasion,detection_rule
 9090,impacket and other legit usages,low,exploitation,detection_rule
 9200,default port used by the Tor network,high,Defense Evasion,detection_rule
+9235,TacticalRMM RMM tool default port,high,RMM,hunting
 9631,hardhatC2 default port and other legit usages,high,C2,detection_rule
 9988,Rbot-GR trojan and other legit usages,medium,malware,hunting
 9999,rpivot + DarkComet + netcat listener default port examples but also legit usages,low,malware,hunting
