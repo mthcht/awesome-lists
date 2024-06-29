@@ -47,7 +47,7 @@
 - 🌍 VPN IP address Lists (updated automatically): 
   - 🛡️ NordVPN: https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/NordVPN/nordvpn_ips_list.csv
   - 🛡️ ProtonVPN: https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv
-- 🏢 Companies IP Range Lists (updated automatically): https://github.com/mthcht/awesome-lists/blob/main/Lists/Whitelists/Ranges_IP_Address_Company_List
+- 🏢 Companies IP Range Lists (updated automatically): https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net
 - 🔗 Others correlation Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/Others
 - 📋 Lists i need to finish: https://github.com/mthcht/awesome-lists/tree/main/todo
 
