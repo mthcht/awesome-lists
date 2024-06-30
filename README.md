@@ -182,7 +182,9 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [triage](https://tria.ge/reports/public)
 - [capesandbox](https://www.capesandbox.com/)
 - [joesandbox](https://www.joesandbox.com/analysispaged/0)
-- 
+- [filescan.io](https://www.filescan.io/)
+- [virustotal](https://www.virustotal.com)
+
 </details>
 
 
