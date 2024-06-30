@@ -1,6 +1,7 @@
 rule_name,metadata_rule_id,metadata_tool,metadata_tool_type,metadata_tool_category,metadata_severity,metadata_link,metadata_detection_type,metadata_reference,metadata_comment
+AweSun,,aweray,greyware_tool,RMM,high,https://sun.aweray.com/,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/aweray.csv
 Level Agent,,Level.io,offensive_tool,RMM,high,https://level.io/,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/level.io.csv,
-NimScan,,NimScan,greyware_tool,Discovery,high,https://github.com/elddy/NimScan,Detection rule,https://github.com/mthcht/ThreatHunting-Keywords/tree/main/tools/Nimscan.csv,
+NimScan,,NimScan,greyware_tool,Discovery,high,https://github.com/elddy/NimScan,Detection rule,https://github.com/mthcht/ThreatHunting-Keywords/tree/main/tools/L-N/Nimscan.csv,
 MeshCentral Server UDP ports,,meshcentral,greyware_tool,RMM,high,https://meshcentral.com/,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,
 MeshCentral Server UDP ports,,meshcentral,greyware_tool,RMM,high,https://meshcentral.com/,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,
 TightVNC,,TightVNC,greyware_tool,RMM,high,https://www.tightvnc.com,Hunting,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv,
