@@ -62,10 +62,15 @@ for tool in unique_tools:
     # Save the DataFrame to a CSV file inside the tool's directory
     tool_df.to_csv(os.path.join(tool, f"{tool}.csv"), index=False)
 
-    # Search for the tool name in the additional files and save relevant lines
+    # Determine search terms
+    search_terms = [tool]
+    if tool == "Google Remote Desktop":
+        search_terms.append("Chrome Remote Desktop")
+
+    # Search for the tool name and additional terms in the additional files and save relevant lines
     for file_name, file_url in additional_files.items():
         additional_df = download_csv_to_df(file_url)
-        matched_rows = additional_df[additional_df.apply(lambda row: row.astype(str).str.contains(tool).any(), axis=1)]
+        matched_rows = additional_df[additional_df.apply(lambda row: any(term in row.astype(str).str.contains(term) for term in search_terms), axis=1)]
         
         if not matched_rows.empty:
             clean_file_name = file_name.replace("suspicious_", "")
