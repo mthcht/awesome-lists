@@ -113,9 +113,11 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 </details> 
 
 ### SIEM/SOC related:
+<details> 
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 - [Awesome-SOC](https://github.com/cyb3rxp/awesome-soc)
+</details> 
 
 ###  Investigation
 
