@@ -1,0 +1,5 @@
+service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
+GoToMyPC,*g2svc.exe*,GoToMyPC,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/GoToMyPC.csv
+NovaPdf11Server,,GoToMyPC bundled program,RMM,greyware_tool,info,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/GoToMyPC.csv
+monblanking,,GoToMyPC bundled program,RMM,greyware_tool,info,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/GoToMyPC.csv
+novaPDF 11 Server,*novapdfs.exe*,GoToMyPC bundled program,RMM,greyware_tool,info,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/GoToMyPC.csv
