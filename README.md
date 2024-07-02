@@ -295,6 +295,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [WinPmem](https://github.com/Velocidex/WinPmem)
   - [Volatility](https://github.com/volatilityfoundation/volatility3/)
   - [Windows artifacts](https://github.com/Psmths/windows-forensic-artifacts)
+  - [UAC](https://github.com/tclahr/uac)
 
 </details>
 
