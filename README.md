@@ -263,7 +263,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [tsale Sigma-Rules](https://github.com/tsale/Sigma_rules)
 - [list of detections resources](https://github.com/jatrost/awesome-detection-rules)
 - [detection engineering resources](https://github.com/infosecB/awesome-detection-engineering)
-
+- [awesome-threat-detection](https://github.com/0x4D31/awesome-threat-detection)
 </details>
 
 
