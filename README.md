@@ -44,7 +44,7 @@
 - 🛠️ Malicious Bootloader List (updated automatically): https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/malicious_bootloaders_only_hashes_list.csv
 - 📜 Malicious SSL Certificates List (updated automatically): https://github.com/mthcht/awesome-lists/blob/main/Lists/SSL%20CERTS/ssl_certificates_malicious_list.csv
 - 🖥️ RMM detection: https://github.com/mthcht/awesome-lists/tree/main/Lists/RMM
-- 🔒 Important Roles and groups for AD/EntraID/AWS: https://github.com/mthcht/awesome-lists/tree/main/Lists/permissions
+- 👤🔑 Important Roles and groups for AD/EntraID/AWS: https://github.com/mthcht/awesome-lists/tree/main/Lists/permissions
 - 💻🔒 Ransomware known file extensions: https://github.com/mthcht/awesome-lists/blob/main/Lists/ransomware_extensions_list.csv
 - 💻🔒 Ransomware known file name ransom notes: https://github.com/mthcht/awesome-lists/blob/main/Lists/ransomware_notes_list.csv
 - 📝 Windows ASR rules: https://github.com/mthcht/awesome-lists/blob/main/Lists/windows_asr_rules.csv
