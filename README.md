@@ -189,7 +189,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 <details>
   
 - [Sandbox Anyrun](https://any.run/)
-- [triage](https://tria.ge/reports/public)
+- [triage](https://tria.ge/s)
 - [capesandbox](https://www.capesandbox.com/)
 - [joesandbox](https://www.joesandbox.com/analysispaged/0)
 - [filescan.io](https://www.filescan.io/)
