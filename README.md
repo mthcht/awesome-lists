@@ -73,6 +73,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Open Source TI](https://github.com/Bert-JanP/Open-Source-Threat-Intel-Feeds)
 - [C2 Tracker](https://github.com/montysecurity/C2-Tracker)
 - [Unit42 IOC](https://github.com/mthcht/iocs)
+- [Sekoia IOC](https://github.com/SEKOIA-IO/Community/tree/main/IOCs)
 - [Unit42 Timely IOC](https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel)
 - [Unit42 Articles IOC](https://github.com/PaloAltoNetworks/Unit42-Threat-Intelligence-Article-Information)
 - [ThreatFOX IOC](https://threatfox.abuse.ch/export/)
