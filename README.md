@@ -121,7 +121,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 - [Awesome-SOC](https://github.com/cyb3rxp/awesome-soc)
-  
+- [Threat-Hunting with Splunk](https://github.com/mthcht/ThreatHunting-Keywords)
 </details> 
 
 ###  Investigation
