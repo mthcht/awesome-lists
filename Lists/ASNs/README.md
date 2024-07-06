@@ -21,3 +21,6 @@ This script fetches the updated IP ranges of each bad ASN listed in `latest_bad_
   - Reads the list of ASNs from latest_bad_asn_phishing_list.csv.
   - Constructs a command to execute the [get_ip_range.py](https://github.com/mthcht/awesome-lists/blob/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py) script with the AS numbers as arguments.
   - Executes the command to fetch the IP ranges of the listed ASNs and saves the results in the current folder.
+
+
+todo: include https://bgpranking.circl.lu/
