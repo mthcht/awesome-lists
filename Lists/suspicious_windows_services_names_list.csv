@@ -62,6 +62,7 @@ final_seg,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/
 RustDesk Service,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/rustdesk,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RustDesk.csv
 RustDesk,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/rustdesk,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RustDesk.csv
 OpenSSH SSH Server,,OpenSSH Server,C2,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Openssh.csv
+sshd,,OpenSSH Server,C2,greyware_tool,high,https://github.com/PowerShell/openssh-portable/blob/661803c9ec4d7dee6574eb6ff0c85b2b7006edb1/contrib/win32/openssh/install-sshd.ps1#L137C1-L138C1,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Openssh.csv
 AeroadminService,*AeroAdmin.exe*,AeroAdmin,RMM,greyware_tool,high,https://ulm.aeroadmin.com/AeroAdmin.exe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/aeroadmin.csv
 AmmyyAdmin,,AmmyyAdmin,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Ammyy%20Admin.csv
 ,*\tmp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths,https://github.com/mthcht/awesome-lists
