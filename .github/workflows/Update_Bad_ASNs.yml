@@ -1,0 +1,44 @@
+name: weekly Bad ASN Update
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Runs every week
+  workflow_dispatch:
+
+jobs:
+  fetch-ip-ranges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' 
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 
+
+      - name: Run scripts from the ASNs folder
+        run: |
+          cd Lists/ASNs
+          python fetch_cybercrimeinfocenter_phishing_asn_stats.py
+          python fetch_IP_ranges_of_bad_ASN.py
+    
+      - name: List files
+        run: ls -la
+
+      - name: List files in the Lists/ASNs directory
+        run: ls -la Lists/ASNs
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/ASNs/*
+          git commit -m "Update weekly bad ASN" --allow-empty
+          git push
