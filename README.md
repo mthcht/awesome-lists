@@ -345,10 +345,11 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 ### Formations
 
+<details>
 
 #### DFIR
 
-<details>
+  <details>
   
   - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
   - 13cubed - Investigating Windows Endpoints: [13cubed.com](https://training.13cubed.com/investigating-windows-endpoints)
@@ -359,11 +360,11 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - @DebugPrivilege : Forensic Debugging free course [InsightEngineering](https://github.com/DebugPrivilege/InsightEngineering)
   - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
     
-</details>
+  </details>
 
 #### SOC
 
- <details>
+   <details>
    
  - tryhackme - [SOC lvl1](https://tryhackme.com/path/outline/soclevel1)
  - letsdefend.io @chrissanders88 - [letsdefend.io](https://www.letsdefend.io/)
@@ -373,8 +374,9 @@ I regularly update most of these lists after each tool i analyze in my [detectio
    - BOTS [dataset v2](https://github.com/splunk/botsv2)   
    - BOTS [dataset v3](https://github.com/splunk/botsv3)
    
- </details>
+   </details>
 
+ </details>
 
 
 ### Others
