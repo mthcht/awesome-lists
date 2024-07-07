@@ -68,6 +68,8 @@ for tool in unique_tools:
         search_terms.append("Chrome Remote Desktop")
     if tool == "Ammyy Admin":
         search_terms.append("AmmyyAdmin")
+    if tool == "Kaseya VSA":
+        search_terms.append("Kaseya")
     # Search for the tool name and additional terms in the additional files and save relevant lines
     for file_name, file_url in additional_files.items():
         additional_df = download_csv_to_df(file_url)
