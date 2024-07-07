@@ -66,7 +66,8 @@ for tool in unique_tools:
     search_terms = [tool]
     if tool == "Google Remote Desktop":
         search_terms.append("Chrome Remote Desktop")
-
+    if tool == "Ammyy Admin":
+        search_terms.append("AmmyyAdmin")
     # Search for the tool name and additional terms in the additional files and save relevant lines
     for file_name, file_url in additional_files.items():
         additional_df = download_csv_to_df(file_url)
