@@ -345,11 +345,11 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 ### Formations
 
-<details>
 
 #### DFIR
 
 <details>
+  
   - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
   - 13cubed - Investigating Windows Endpoints: [13cubed.com](https://training.13cubed.com/investigating-windows-endpoints)
   - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
@@ -361,7 +361,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
     
 </details>
 
- #### SOC
+#### SOC
 
  <details>
    
@@ -375,7 +375,6 @@ I regularly update most of these lists after each tool i analyze in my [detectio
    
  </details>
 
-</details>
 
 
 ### Others
