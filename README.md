@@ -348,6 +348,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 <details>
 
 #### DFIR
+
+<details>
   - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
   - 13cubed - Investigating Windows Endpoints: [13cubed.com](https://training.13cubed.com/investigating-windows-endpoints)
   - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
@@ -356,19 +358,25 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs)
   - @DebugPrivilege : Forensic Debugging free course [InsightEngineering](https://github.com/DebugPrivilege/InsightEngineering)
   - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
+    
 </details>
 
  #### SOC
 
  <details>
+   
  - tryhackme - [SOC lvl1](https://tryhackme.com/path/outline/soclevel1)
  - letsdefend.io @chrissanders88 - [letsdefend.io](https://www.letsdefend.io/)
  - SANS: [SANS555](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/)
  - Splunk Boss Of The SOC - [BOTS](https://bots.splunk.com/)
    - BOTS [dataset v1](https://github.com/splunk/botsv1)   
    - BOTS [dataset v2](https://github.com/splunk/botsv2)   
-   - BOTS [dataset v3](https://github.com/splunk/botsv3)   
+   - BOTS [dataset v3](https://github.com/splunk/botsv3)
+   
  </details>
+
+</details>
+
 
 ### Others
 
