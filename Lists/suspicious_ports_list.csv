@@ -171,6 +171,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 17300,Kuang2 trojan,high,malware,hunting
 19999,Xmrig coinminer https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L147,high,Cryptominer,detection_rule
 20034,netbus trojan and other malwares,high,malware,hunting
+20778,chat room with ComodoRMM itarian\endpoint manager\rhost.exe,low,RMM,hunting
 21115,RustDesk RMM,high,RMM,detection_rule
 21116,RustDesk RMM,high,RMM,detection_rule
 21802,hardhatC2 default port,high,C2,detection_rule
@@ -183,6 +184,10 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 31338,Back Orifice backdoor and other malwares,high,malware,detection_rule
 31785,Hack’a’Tack RAT,high,malware,detection_rule
 31789,Hack’a’Tack RAT,high,malware,detection_rule
+32226,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting
+32227,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting
+32233,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting
+32234,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting
 35000,evilqr,medium,exploitation,hunting
 48101,W32.Blastclan.Worm,high,malware,hunting
 50001,Anydesk outbound connections,info,RMM,hunting
