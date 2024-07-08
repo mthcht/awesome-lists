@@ -1,4 +1,8 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
+Neo_VPN,*\System32\drivers\Neo6_x64_VPN.sys,SoftEtherVPN,Defense Evasion,greyware_tool,medium,https://github.com/SoftEtherVPN/SoftEtherVPN,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SoftEtherVPN.csv
+VPN Client Device Driver - VPN,,SoftEtherVPN,Defense Evasion,greyware_tool,medium,https://github.com/SoftEtherVPN/SoftEtherVPN,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SoftEtherVPN.csv
+SEVPNCLIENTDEV,*\Program Files\SoftEther VPN Client Developer Edition\vpnclient.exe*,SoftEtherVPN,Defense Evasion,greyware_tool,medium,https://github.com/SoftEtherVPN/SoftEtherVPN,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SoftEtherVPN.csv
+SoftEther VPN*,,SoftEtherVPN,Defense Evasion,greyware_tool,medium,https://github.com/SoftEtherVPN/SoftEtherVPN,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SoftEtherVPN.csv
 ITSMService,,ComodoRMM,RMM,greyware_tool,high,https://us.itarian.com/app/#/licensed-applications/endpoint_manager/device_management,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/ComodoRMM.csv
 ItsmRsp,,ComodoRMM,RMM,greyware_tool,high,https://us.itarian.com/app/#/licensed-applications/endpoint_manager/device_management,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/ComodoRMM.csv
 RmmService,,ComodoRMM,RMM,greyware_tool,high,https://us.itarian.com/app/#/licensed-applications/endpoint_manager/device_management,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/ComodoRMM.csv
