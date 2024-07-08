@@ -152,7 +152,8 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 9200,default port used by the Tor network,high,Defense Evasion,detection_rule
 9235,TacticalRMM RMM tool default port,high,RMM,hunting
 9631,hardhatC2 default port and other legit usages,high,C2,detection_rule
-9984,SoftEtherVPN default port,medium,Defense Evasion,hunting
+9931,SoftEtherVPN default port,low,Defense Evasion,hunting
+9984,SoftEtherVPN default port,low,Defense Evasion,hunting
 9988,Rbot-GR trojan and other legit usages,medium,malware,hunting
 9999,rpivot + DarkComet + netcat listener default port examples but also legit usages,low,malware,hunting
 10002,multiple malwares,medium,malware,hunting
