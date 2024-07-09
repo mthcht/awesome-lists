@@ -206,6 +206,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 <details>
   
 - [jsoncrack](https://jsoncrack.com/editor)
+- [JS deobfuscator](https://lelinhtinh.github.io/de4js/)
 - [cyberchef](https://cyberchef.org/)
 - [Hash calculator](https://md5calc.com/hash)
 - [regex101](https://regex101.com/)
