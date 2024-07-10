@@ -169,6 +169,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 <details>
   
   - [echotrail](https://www.echotrail.io/)
+  - [Malware-Traffic-Analysis (PCAP files)](https://malware-traffic-analysis.net/)
   - [redhuntlabs](https://redhuntlabs.com/online-ide-search)
   - [whois domaintools](https://whois.domaintools.com/)
   - [ASN check bgp.he](/bgp.he.net/)
