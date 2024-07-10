@@ -208,6 +208,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [jsoncrack](https://jsoncrack.com/editor)
 - [JS deobfuscator](https://lelinhtinh.github.io/de4js/)
 - [cyberchef](https://cyberchef.org/)
+- [PCAP online analyzer](https://apackets.com/)
 - [Hash calculator](https://md5calc.com/hash)
 - [regex101](https://regex101.com/)
 - [CyberChef](https://gchq.github.io/CyberChef/)
