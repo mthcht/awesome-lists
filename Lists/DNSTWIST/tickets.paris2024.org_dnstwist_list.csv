@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,tickets.paris2024.org,23.67.33.12,2600:1406:2e00:28::17cb:a61e,mxa-0072c901.gslb.pphosted.com,a1-222.akam.net
+*original,tickets.paris2024.org,23.212.62.201,2600:1406:2e00:28::17cb:a61e,mxa-0072c901.gslb.pphosted.com,a1-222.akam.net
 addition,tickets.paris20240.org,,,,
 addition,tickets.paris20241.org,,,,
 addition,tickets.paris20242.org,,,,
@@ -1723,11 +1723,11 @@ insertion,tickets.pzaris2024.org,127.0.0.1,,,
 omission,tickets.aris2024.org,,,,
 omission,tickets.paris024.org,127.0.0.1,,,
 omission,tickets.paris202.org,127.0.0.1,,,
+omission,tickets.paris224.org,,,,
 omission,tickets.pars2024.org,127.0.0.1,,,
 omission,tickets.pais2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 omission,tickets.pari2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 omission,tickets.paris204.org,,,,
-omission,tickets.paris224.org,,,,
 omission,tickets.pris2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 plural,tickets.paris20s24.org,,,,
 plural,tickets.paris2s024.org,,,,
@@ -1791,10 +1791,10 @@ subdomain,tickets.paris20.24.org,173.255.194.134,,,ns1.mytrafficmanagement.com
 transposition,tickets.apris2024.org,127.0.0.1,,,
 transposition,tickets.pari2s024.org,127.0.0.1,,,
 transposition,tickets.paris0224.org,127.0.0.1,,,
-transposition,tickets.paris2204.org,127.0.0.1,,,
-transposition,tickets.parsi2024.org,127.0.0.1,,,
 transposition,tickets.pairs2024.org,199.59.243.226,,,
 transposition,tickets.paris2042.org,,,,
+transposition,tickets.paris2204.org,127.0.0.1,,,
+transposition,tickets.parsi2024.org,127.0.0.1,,,
 transposition,tickets.prais2024.org,127.0.0.1,,,
 various,tickets-paris2024.org,172.233.242.123,,,ns-143-b.gandi.net
 various,tickets.paris2024-org.com,,,,
