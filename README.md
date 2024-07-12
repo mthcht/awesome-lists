@@ -134,6 +134,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   
   - [Virustotal](https://www.virustotal.com/#/home/search)
   - [SpamHaus](https://check.spamhaus.org/)
+    - [drop.txt](https://www.spamhaus.org/drop/drop.txt)
   - [AbuseIPDB](https://www.abuseipdb.com/)
   - [Malwarebazaar](https://bazaar.abuse.ch/)
   - [emailrep](https://emailrep.io/)
