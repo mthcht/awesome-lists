@@ -114,7 +114,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Pr0xylife SnakeKeylogger IOC](https://github.com/pr0xylife/SnakeKeylogger)
 - [Pr0xylife njRat IOC](https://github.com/pr0xylife/njRat)
 - [Pr0xylife Vidar IOC](https://github.com/pr0xylife/Vidar)
- 
+- [SpamHaus drop.txt](https://www.spamhaus.org/drop/drop.txt)
+
 </details> 
 
 ### SIEM/SOC related:
@@ -134,7 +135,6 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   
   - [Virustotal](https://www.virustotal.com/#/home/search)
   - [SpamHaus](https://check.spamhaus.org/)
-    - [drop.txt](https://www.spamhaus.org/drop/drop.txt)
   - [AbuseIPDB](https://www.abuseipdb.com/)
   - [Malwarebazaar](https://bazaar.abuse.ch/)
   - [emailrep](https://emailrep.io/)
