@@ -323,6 +323,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Splunk Research Blog](https://www.splunk.com/en_us/blog/author/secmrkt-research.html)
 - [Unit42 Feed](http://feeds.feedburner.com/Unit42)
 - [DFIR weekly sumary - thisweekin4n6](https://thisweekin4n6.wordpress.com/feed/)
+- [Google Threat Intelligence](https://cloud.google.com/blog/topics/threat-intelligence)
+- [Sekoi Blog](https://blog.sekoia.io/)
 - [akamai Feed](http://blogs.akamai.com/atom.xml)
 - [Elastic Blog](https://www.elastic.co/security-labs)
 - [Checkpoint research Feed](https://research.checkpoint.com/feed)
