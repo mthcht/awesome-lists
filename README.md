@@ -80,6 +80,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Unit42 Articles IOC](https://github.com/PaloAltoNetworks/Unit42-Threat-Intelligence-Article-Information)
 - [ThreatFOX IOC](https://threatfox.abuse.ch/export/)
 - [Zscaler ThreatLabz IOC](https://github.com/threatlabz/iocs)
+- [Zscaler ThreatLabz Ransomware notes](https://github.com/ThreatLabz/ransomware_notes)
+- [experiant.ca](https://fsrm.experiant.ca/api/v1/get])
 - [Sophos lab IOC](https://github.com/sophoslabs/IoCs)
 - [ESET Research IOC](https://github.com/eset/malware-ioc)
 - [ExecuteMalware IOC](https://github.com/executemalware/Malware-IOCs)
