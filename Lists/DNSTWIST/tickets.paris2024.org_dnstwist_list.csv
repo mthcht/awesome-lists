@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,tickets.paris2024.org,23.212.248.72,2600:1408:c400:11::17cd:6b45,mxa-0072c901.gslb.pphosted.com,a1-222.akam.net
+*original,tickets.paris2024.org,23.73.207.147,2600:1408:5400:7::170c:9207,mxa-0072c901.gslb.pphosted.com,a1-222.akam.net
 addition,tickets.paris20240.org,,,,
 addition,tickets.paris20241.org,,,,
 addition,tickets.paris20242.org,,,,
@@ -64,7 +64,7 @@ bitsquatting,tickets.paris3024.org,127.0.0.1,,,
 bitsquatting,tickets.paris6024.org,127.0.0.1,,,
 bitsquatting,tickets.parisr024.org,,,,
 bitsquatting,tickets.pariw2024.org,127.0.0.1,,,
-bitsquatting,tickets.parks2024.org,,,,
+bitsquatting,tickets.parks2024.org,127.0.0.1,,,
 bitsquatting,tickets.parms2024.org,127.0.0.1,,,
 bitsquatting,tickets.parys2024.org,127.0.0.1,,,
 bitsquatting,tickets.pasis2024.org,127.0.0.1,,,
@@ -1723,11 +1723,11 @@ insertion,tickets.pzaris2024.org,127.0.0.1,,,
 omission,tickets.aris2024.org,,,,
 omission,tickets.paris024.org,127.0.0.1,,,
 omission,tickets.paris202.org,127.0.0.1,,,
+omission,tickets.pars2024.org,127.0.0.1,,,
 omission,tickets.pais2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 omission,tickets.pari2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 omission,tickets.paris204.org,,,,
 omission,tickets.paris224.org,,,,
-omission,tickets.pars2024.org,127.0.0.1,,,
 omission,tickets.pris2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 plural,tickets.paris20s24.org,,,,
 plural,tickets.paris2s024.org,,,,
@@ -1779,7 +1779,7 @@ replacement,tickets.pyris2024.org,127.0.0.1,,,
 replacement,tickets.pzris2024.org,127.0.0.1,,,
 replacement,tickets.paris2023.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 replacement,tickets.pariz2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
-replacement,tickets.paros2024.org,170.39.226.155,!ServFail,,ns1.radinko.com
+replacement,tickets.paros2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 replacement,tickets.parus2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 subdomain,tickets.p.aris2024.org,,,,
 subdomain,tickets.pa.ris2024.org,,,,
