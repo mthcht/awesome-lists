@@ -3,6 +3,7 @@ http://*.trackip.net*,*.trackip.net,used by #QuasarRat #Amadey #SnakeKeylogger #
 https://*.whatismyipaddress.info*,*.whatismyipaddress.info,used by #variousmalwares,low,medium
 https://*.edns.ip-api.com*,*edns.ip-api.com,N/A,low,medium
 https://acycseiiqsau.org,acycseiiqsau.org,N/A,low,medium
+https://2ip.ru*,2ip.ru,N/A,medium,low
 https://api.2ip.ua*,api.2ip.ua,used by #QuasarRat #Amadey #SnakeKeylogger #AgentTesla,low,medium
 https://api.bigdatacloud.net/data/client-ip,api.bigdatacloud.net,N/A,medium,low
 https://api.db-ip.com*,api.db-ip.com,N/A,low,medium
@@ -75,10 +76,12 @@ https://ipecho.net*,ipecho.net,used by #variousmalwares,high,info
 http://ipecho.net/plain,ipecho.net,used by #variousmalwares,medium,low
 https://ipinfo.io*,ipinfo.io,used by #QuasarRat #Amadey #SnakeKeylogger #AgentTesla,high,info
 https://ipinfo.tw*,ipinfo.tw,N/A,low,medium
-https://iplogger.org/*/ip-tracker/*,iplogger.org,N/A,high,info
-https://iplogger.org/*/my-ip/*,iplogger.org,N/A,low,medium
-https://iplogger.com/*/ip-tracker/*,iplogger.org,N/A,low,medium
-https://iplogger.com/*/my-ip/*,iplogger.org,N/A,low,medium
+https://iplogger.org/*/ip-tracker/*,iplogger.org,often associated with IP logging malware and phishing,high,info
+https://iplogger.org/*/my-ip/*,iplogger.org,often associated with IP logging malware and phishing,low,medium
+https://iplogger.com/*/ip-tracker/*,iplogger.org,often associated with IP logging malware and phishing,low,medium
+https://iplogger.com/*/my-ip/*,iplogger.org,often associated with IP logging malware and phishing,low,medium
+https://iplogger.ru*,iplogger.ru,often associated with IP logging malware and phishing,low,medium
+https://ipgrabber.ru*,ipgrabber.ru,often associated with IP logging malware and phishing,low,medium
 http://ipof.in/*,ipof.in,N/A,high,info
 https://ipof.in/txt,ipof.in,N/A,low,medium
 https://ipstack.com*,ipstack.com,N/A,high,info
