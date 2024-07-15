@@ -1,4 +1,7 @@
 url,dest_nt_domain,metadata_comment,metadata_url_legit_usage_popularity,metadata_severity
+https://ipapi.co/ip*,ipapi.co,used by #variousmalwares,low,medium
+https://extreme-ip-lookup.com/json*,extreme-ip-lookup.com,N/A,low,medium
+https://extreme-ip-lookup.com/csv*,extreme-ip-lookup.com,N/A,low,medium
 http://*.trackip.net*,*.trackip.net,used by #QuasarRat #Amadey #SnakeKeylogger #AgentTesla,low,medium
 https://*.whatismyipaddress.info*,*.whatismyipaddress.info,used by #variousmalwares,low,medium
 https://*.edns.ip-api.com*,*edns.ip-api.com,N/A,low,medium
@@ -77,18 +80,18 @@ http://ipecho.net/plain,ipecho.net,used by #variousmalwares,medium,low
 https://ipinfo.io*,ipinfo.io,used by #QuasarRat #Amadey #SnakeKeylogger #AgentTesla,high,info
 https://ipinfo.tw*,ipinfo.tw,N/A,low,medium
 https://iplogger.org/*/ip-tracker/*,iplogger.org,often associated with IP logging malware and phishing,high,info
-https://iplogger.org/*/my-ip/*,iplogger.org,often associated with IP logging malware and phishing,low,medium
-https://iplogger.com/*/ip-tracker/*,iplogger.org,often associated with IP logging malware and phishing,low,medium
-https://iplogger.com/*/my-ip/*,iplogger.org,often associated with IP logging malware and phishing,low,medium
-https://iplogger.ru*,iplogger.ru,often associated with IP logging malware and phishing,low,medium
-https://ipgrabber.ru*,ipgrabber.ru,often associated with IP logging malware and phishing,low,medium
+https://iplogger.org/*/my-ip/*,iplogger.org,often associated with IP logging malware and phishing,low,high
+https://iplogger.com/*/ip-tracker/*,iplogger.org,often associated with IP logging malware and phishing,low,high
+https://iplogger.com/*/my-ip/*,iplogger.org,often associated with IP logging malware and phishing,low,high
+https://iplogger.ru*,iplogger.ru,often associated with IP logging malware and phishing,low,high
+https://ipgrabber.ru*,ipgrabber.ru,often associated with IP logging malware and phishing,low,high
 http://ipof.in/*,ipof.in,N/A,high,info
 https://ipof.in/txt,ipof.in,N/A,low,medium
 https://ipstack.com*,ipstack.com,N/A,high,info
 https://ipv4.icanhazip.com*,ipv4.icanhazip.com,used by #PrimusC2,high,info
 https://ipv4.myip.wtf/text*,ipv4.myip.wtf,used by #disctopia-c2,low,medium
 *ipv4bot.whatismyipaddress.com*,ipv4bot.whatismyipaddress.com,N/A,low,medium
-https://ipv6ajax.showmyip.com*,ipv6ajax.showmyip.com,observed from redteam. not sure of the source,low,medium
+https://ipv6ajax.showmyip.com*,ipv6ajax.showmyip.com,N/A,low,medium
 https://ipwho.is*,ipwho.is,used by #QuasarRat,medium,low
 https://jiwcdxcd.net*,jiwcdxcd.net,N/A,low,medium
 https://kurupmtw.info*,kurupmtw.info,N/A,low,medium
@@ -143,12 +146,12 @@ https://wyjrvmdgwcp.net*,wyjrvmdgwcp.net,N/A,low,medium
 https://xehycceip.org*,xehycceip.org,N/A,low,medium
 https://ytlazwcii.net*,ytlazwcii.net,N/A,low,medium
 https://zwhffkvphkq.org*,zwhffkvphkq.org,N/A,low,medium
-http://get-my-ip.ddns.softether-network.net/ddns/getmyip.ashx,get-my-ip.ddns.softether-network.net,used by #SoftEtherVPN,low,medium
-http://get-my-ip-v6.ddns.softether-network.net/ddns/getmyip.ashx,get-my-ip-v6.ddns.softether-network.net,used by #SoftEtherVPN,low,medium
-http://senet-flets.v6.softether.co.jp/ddns/getmyip.ashx,senet-flets.v6.softether.co.jp,used by #SoftEtherVPN,low,medium
-http://senet.aoi.flets-east.jp/ddns/getmyip.ashx,senet.aoi.flets-east.jp,used by #SoftEtherVPN,low,medium
-http://senet.p-ns.flets-west.jp/ddns/getmyip.ashx,senet.p-ns.flets-west.jp,used by #SoftEtherVPN,low,medium
-http://get-my-ip.ddns.uxcom.jp/ddns/getmyip.ashx,get-my-ip.ddns.uxcom.jp,used by #SoftEtherVPN,low,medium
-http://get-my-ip-v6.ddns.uxcom.jp/ddns/getmyip.ashx,get-my-ip-v6.ddns.uxcom.jp,used by #SoftEtherVPN,low,medium
+http://get-my-ip.ddns.softether-network.net/ddns/getmyip.ashx,get-my-ip.ddns.softether-network.net,used by #SoftEtherVPN,low,high
+http://get-my-ip-v6.ddns.softether-network.net/ddns/getmyip.ashx,get-my-ip-v6.ddns.softether-network.net,used by #SoftEtherVPN,low,high
+http://senet-flets.v6.softether.co.jp/ddns/getmyip.ashx,senet-flets.v6.softether.co.jp,used by #SoftEtherVPN,low,high
+http://senet.aoi.flets-east.jp/ddns/getmyip.ashx,senet.aoi.flets-east.jp,used by #SoftEtherVPN,low,high
+http://senet.p-ns.flets-west.jp/ddns/getmyip.ashx,senet.p-ns.flets-west.jp,used by #SoftEtherVPN,low,high
+http://get-my-ip.ddns.uxcom.jp/ddns/getmyip.ashx,get-my-ip.ddns.uxcom.jp,used by #SoftEtherVPN,low,high
+http://get-my-ip-v6.ddns.uxcom.jp/ddns/getmyip.ashx,get-my-ip-v6.ddns.uxcom.jp,used by #SoftEtherVPN,low,high
 http://checkip.dyndns.com*,checkip.dyndns.com,used by #rats and #various,high,info
 http://checkip.dyndns.org*,checkip.dyndns.org,used by #rats and #various,high,info
