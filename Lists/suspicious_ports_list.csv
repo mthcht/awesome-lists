@@ -66,6 +66,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 5405,Netsupport - Connecting to Clientst,high,RMM,hunting
 5421,Netsupport -  Call Control requests and Multicast\Broadcast Show and File Distribution features,high,RMM,hunting
 5500,droidjack RAT but also VNC default port,medium,RMM,hunting
+5555,SoftEtherVPN + WSAAcceptBackdoor + lots of legit usages,low,C2,hunting
 5556,AlanFramework C2 default port and H0rtiga trojan,high,C2,detection_rule
 5631,pcanywhere RMM default port,medium,RMM,hunting
 5632,pcanywhere RMM default port,medium,RMM,hunting
