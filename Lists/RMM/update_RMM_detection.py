@@ -43,6 +43,10 @@ for line in response.iter_lines(decode_unicode=True):
 # Create a DataFrame from the filtered rows
 df = pd.DataFrame(filtered_rows, columns=header)
 
+# Debug: Check for 'anydesk' entries
+# print("AnyDesk entries in threathunting-keywords.csv:")
+# print(df[df['metadata_tool'].str.contains('anydesk', case=False)])
+
 # Sort the DataFrame by 'metadata_tool' column
 df_sorted = df.sort_values(by='metadata_tool', ascending=True)
 
