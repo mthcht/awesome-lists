@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  fetch-ip-ranges:
+  fetch-RMM-list:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
