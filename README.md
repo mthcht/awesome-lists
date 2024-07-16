@@ -55,6 +55,7 @@
   - 🛡️ NordVPN: [nordvpn_ips_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/NordVPN/nordvpn_ips_list.csv)
   - 🛡️ ProtonVPN: [protonvpn_ip_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv)
 - 🏢 Companies IP Range Lists (updated automatically): [Default Lists + script](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net)
+- 📍  GeoIP services Lists: [ip_location_sites_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/GeoIP/ip_location_sites_list.csv)
 - 🔗 Others correlation Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/Others
 - 📋 Lists i need to finish: https://github.com/mthcht/awesome-lists/tree/main/todo
 
