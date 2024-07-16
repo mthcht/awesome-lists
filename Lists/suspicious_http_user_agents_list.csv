@@ -59,8 +59,8 @@ google/dance,Suricata suspicious user-agent rules,_,suspicious string,https://ra
 libsfml-network,Suricata suspicious user-agent rules,_,suspicious string,https://raw.githubusercontent.com/vncloudsco/suricata-rules/main/emerging-user_agents.rules,high,low,medium,Detection rule,network flow direction internal --> external
 unknown,empty user agent hunting (in splunk the default value when no user agent is informed),_,suspicious string,https://x.com/crep1x/status/1600129411629473792?s=20,low,high,low,Hunting,network flow direction internal --> internal/external
 AADInternals,default user agent used by AADInternals,AADInternals,Compliance,https://github.com/Gerenios/AADInternals/blob/0fa2edf5676439cd3fe7c92ed8006b63f0be9632/config.json#L3,high,low,medium,Hunting,network flow direction internal --> external
-AnyDesk/*,Anydesk application,Anydesk,RMM,N/A,high,medium,high,Hunting,network flow direction internal --> external
-AnyDesk,Anydesk application,Anydesk,RMM,N/A,high,medium,high,Hunting,network flow direction internal --> external
+AnyDesk/*,Anydesk application,anydesk,RMM,N/A,high,medium,high,Hunting,network flow direction internal --> external
+AnyDesk,Anydesk application,anydesk,RMM,N/A,high,medium,high,Hunting,network flow direction internal --> external
 Blah/2,arachni vector_feed  plugin,arachni,Vulnerability Scanner,https://github.com/Arachni/arachni/blob/8e5c5d0a9fd6c5555bc3bbf411c8fa411f12b6db/components/plugins/vector_feed.rb#L225,high,low,high,Detection rule,network flow direction internal --> external
 Typhoeus - https://github.com/typhoeus/typhoeus,arachni default user-agent proxy_server,arachni,Vulnerability Scanner,https://github.com/Arachni/arachni/blob/8e5c5d0a9fd6c5555bc3bbf411c8fa411f12b6db/spec/arachni/http/proxy_server_spec.rb#L208,high,low,high,Detection rule,network flow direction internal --> external
 *Arachni/*,arachni default user agent,arachni,Vulnerability Scanner,https://github.com/Arachni/arachni/blob/8e5c5d0a9fd6c5555bc3bbf411c8fa411f12b6db/spec/arachni/option_groups/http_spec.rb#L18,high,none,high,Detection rule,network flow direction internal --> external
