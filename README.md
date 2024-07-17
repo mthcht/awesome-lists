@@ -45,7 +45,7 @@
 - 🛠️ LOLDriver List (updated automatically): [loldrivers_only_hashes_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/loldrivers_only_hashes_list.csv)
 - 🛠️ Malicious Bootloader List (updated automatically): [malicious_bootloaders_only_hashes_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/malicious_bootloaders_only_hashes_list.csv)
 - 📜 Malicious SSL Certificates List (updated automatically): [ssl_certificates_malicious_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/SSL%20CERTS/ssl_certificates_malicious_list.csv)
-- 🖥️ RMM detection: https://github.com/mthcht/awesome-lists/tree/main/Lists/RMM
+- 🖥️ RMM detection: [RMM](https://github.com/mthcht/awesome-lists/tree/main/Lists/RMM)
 - 👤🔑 Important Roles and groups for AD/EntraID/AWS: [[permissions]](https://github.com/mthcht/awesome-lists/tree/main/Lists/permissions)
 - 💻🔒 Ransomware known file extensions: [ransomware_extensions_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/ransomware_extensions_list.csv)
 - 💻🔒 Ransomware known file name ransom notes: [ransomware_notes_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/ransomware_notes_list.csv)
