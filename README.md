@@ -56,8 +56,8 @@
   - 🛡️ ProtonVPN: [protonvpn_ip_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv)
 - 🏢 Companies IP Range Lists (updated automatically): [Default Lists + script](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net) / [Microsoft](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/Microsoft)
 - 📍  GeoIP services Lists: [ip_location_sites_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/GeoIP/ip_location_sites_list.csv)
-- 🔗 Others correlation Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists/Others
-- 📋 Lists i need to finish: https://github.com/mthcht/awesome-lists/tree/main/todo
+- 🔗 Others correlation Lists: [[Others]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others)
+- 📋 Lists i need to finish: [[todo]](https://github.com/mthcht/awesome-lists/tree/main/todo)
 
 I regularly update most of these lists after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project
 
