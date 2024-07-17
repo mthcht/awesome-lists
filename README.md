@@ -41,7 +41,7 @@
 - 🧮 Metadata Executables: [executables_metadata_informations_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Windows%20Metadata/executables_metadata_informations_list.csv)
 - 🕸️ DNS over HTTPS server list: [dns_over_https_servers_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv)
 - 📚 Hijacklibs (updated automatically): [hijacklibs_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv)
-- 🌐 TOR Nodes Lists (updated automatically): https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR
+- 🌐 TOR Nodes Lists (updated automatically): [[TOR]](https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR)
 - 🛠️ LOLDriver List (updated automatically): [loldrivers_only_hashes_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/loldrivers_only_hashes_list.csv)
 - 🛠️ Malicious Bootloader List (updated automatically): [malicious_bootloaders_only_hashes_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/malicious_bootloaders_only_hashes_list.csv)
 - 📜 Malicious SSL Certificates List (updated automatically): [ssl_certificates_malicious_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/SSL%20CERTS/ssl_certificates_malicious_list.csv)
