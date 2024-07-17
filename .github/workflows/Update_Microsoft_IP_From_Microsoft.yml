@@ -28,7 +28,7 @@ jobs:
           python Get_Microsoft_IP_Ranges_From_Microsoft.py
     
       - name: List files
-        run: ls -la
+        run: ls -la Lists/Ranges_IP_Address_Company_List/Microsoft
 
       - name: Commit and Push results
         run: |
