@@ -51,6 +51,7 @@ This script downloads and processes Microsoft IP ranges data from specified URLs
 
    Edit or create the `transforms.conf` file in `$SPLUNK_HOME/etc/apps/<your_app>/local/` and add the following entries:
 
+   ```
    [service_tags_public]
    filename = ServiceTags_Public.csv
 
@@ -59,13 +60,15 @@ This script downloads and processes Microsoft IP ranges data from specified URLs
    
    [MSFT_PublicIPs]
    filename = MSFT_PublicIPs.csv
-   
+   ```
+
 ### Step 2: Configure Lookup Definitions
 
 1. **Create the lookup definitions configuration:**
 
    Edit or create the `props.conf` file in `$SPLUNK_HOME/etc/apps/<your_app>/local/` and add the following entries to specify the CIDR(`dest_ip`) configuration for the lookups:
-
+   
+   ```
    [lookup_service_tags_public]
    external_type = cidr
    external_matcher = dest_ip
@@ -80,7 +83,8 @@ This script downloads and processes Microsoft IP ranges data from specified URLs
    external_type = cidr
    external_matcher = dest_ip
    lookup_table = MSFT_PublicIPs
-   
+   ```
+
 ### Step 3: Using Lookups in Searches
 
 You can use these lookups in your searches to include or exclude IP ranges from Microsoft in your searches. Here are examples of how to do this:
