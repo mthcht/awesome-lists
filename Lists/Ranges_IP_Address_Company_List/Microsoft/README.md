@@ -85,7 +85,7 @@ This script downloads and processes Microsoft IP ranges data from specified URLs
    lookup_table = MSFT_PublicIPs
    ```
 
-### Step 3: Using Lookups in Searches
+### Step 3: Using Lookups in Searches (examples)
 
 You can use these lookups in your searches to include or exclude IP ranges from Microsoft in your searches. Here are examples of how to do this:
 
