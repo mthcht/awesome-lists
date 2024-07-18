@@ -6,4 +6,4 @@ If you know of any additional sensitive browser extensions that should be includ
 
 todo:
   - add a Hunting Guide for detecting potential stealers or even installation of sensitives/malicious extensions (https://mthcht.medium.com/detecting-browser-extensions-installations-e0ac2b45c46b)
-  - test cursedbrowser
+  - test cursedbrowser + ElSicarius/chunkloader
