@@ -101,7 +101,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 6132,DameWare Remote Control internet proxy,medium,RMM,hunting
 6133,DameWare Remote Control mobile gateway,medium,RMM,hunting
 6568,anydesk default port,medium,RMM,hunting
-6666,kali default port - IRC botnets and RAT,high,exploitation,detection_rule
+6666,kali default port - IRC botnets and RAT - CVE-2024-38112/Void Banshee,high,exploitation,detection_rule
 6667,IRC channel used by botnet and multiple malwares but also legit usages,medium,malware,hunting
 6722,default port for socks reverse proxy of XiebroC2 https://github.com/INotGreen/XiebroC2/wiki/ReverseProxy,high,C2,detection_rule
 6783,Splashtop Remote,medium,RMM,hunting
