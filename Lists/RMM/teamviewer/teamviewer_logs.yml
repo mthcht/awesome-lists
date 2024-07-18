@@ -1,0 +1,74 @@
+logpath:
+  - "*:\\Program Files (x86)\\TeamViewer\\Connections_incoming.txt"
+  - "*:\\Program Files (x86)\\TeamViewer\\TeamViewer*_Logfile.log"
+  - "*:\\Program Files\\TeamViewer\\Connections_incoming.txt"
+  - "*:\\Program Files\\TeamViewer\\TeamViewer*_Logfile.log"
+  - "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\connections.txt"
+  - "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\TeamViewer*_Logfile.log"
+
+splunk_conf_inputs: |
+  [monitor://*/Program Files (x86)/TeamViewer/Connections_incoming.txt]
+  disabled = false
+  sourcetype = teamviewer:connections_incoming
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Program Files (x86)/TeamViewer/TeamViewer*_Logfile.log]
+  disabled = false
+  sourcetype = teamviewer:logfile
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Program Files/TeamViewer/Connections_incoming.txt]
+  disabled = false
+  sourcetype = teamviewer:connections_incoming
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Program Files/TeamViewer/TeamViewer*_Logfile.log]
+  disabled = false
+  sourcetype = teamviewer:logfile
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Users/*/AppData/Roaming/TeamViewer/connections.txt]
+  disabled = false
+  sourcetype = teamviewer:connections
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Users/*/AppData/Roaming/TeamViewer/TeamViewer*_Logfile.log]
+  disabled = false
+  sourcetype = teamviewer:logfile
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
