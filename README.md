@@ -156,7 +156,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [urlquery](http://urlquery.net/)
   - [cloudfare scanner](https://radar.cloudflare.com/)
   - [urlvoid](https://www.urlvoid.com)
-  - [urldns](https://urldna.io/)
+  - [urldna.io](https://urldna.io/)
   - [checkphish](https://checkphish.bolster.ai/)
   - [ipvoid](https://www.ipvoid.com/)
   - [mxtoolbox](https://mxtoolbox.com/NetworkTools.aspx)
