@@ -56,6 +56,11 @@
   - 🛡️ ProtonVPN: [protonvpn_ip_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv)
 - 🏢 Companies IP Range Lists (updated automatically): [Default Lists + script](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net) / [Microsoft](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/Microsoft)
 - 📍  GeoIP services Lists: [ip_location_sites_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/GeoIP/ip_location_sites_list.csv)
+- 🧬 Yara rules: [Threat Hunting yara rules](https://github.com/mthcht/ThreatHunting-Keywords-yara-rules)
+- 🧬 Offensive Tools detection patterns: [offensive_tool_keywords.csv](https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/offensive_tool_keyword.csv)
+- 🧬 Greyware Tools detection patterns: [greyware_tool_keyword.csv](https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/greyware_tool_keyword.csv)
+- 🧬 AV signatures keywords: [signature_keyword.csv](https://github.com/mthcht/ThreatHunting-Keywords/blob/main/signature_keyword.csv)
+- 🧬 Microsoft Defender AV signatures lists: [[Defender]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/Defender)  
 - 🔗 Others correlation Lists: [[Others]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others)
 - 📋 Lists i need to finish: [[todo]](https://github.com/mthcht/awesome-lists/tree/main/todo)
 
