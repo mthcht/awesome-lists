@@ -1,0 +1,199 @@
+tools:
+  teamviewer:
+    description: |
+      TeamViewer is a remote access and remote control software available on various platforms. It provides detailed logs of remote connections, including user activities and session details.
+    references:
+      - "https://www.synacktiv.com/publications/legitimate-rats-a-comprehensive-forensic-analysis-of-the-usual-suspects"
+      - "https://github.com/mthcht/awesome-lists/Lists/RMM/teamviewer/"
+      - "https://community.teamviewer.com/English/discussion/5523/security-related-logs-and-monitoring"
+      - "https://benleeyr.wordpress.com/2020/05/19/teamviewer-forensics-tested-on-v15/"
+
+log_details:
+  teamviewer:
+    paths:
+      - path: "*:\\Program Files (x86)\\TeamViewer\\Connections_incoming.txt"
+        timestamp_format: "DD-MM-YYYY HH:MM:SS (UTC)"
+        notes: |
+          This log records incoming connections to the TeamViewer client. Fields and their values are:
+          - **Client ID**: Numeric identifier of the remote machine (e.g., 1025538549).
+          - **Client Hostname**: Hostname of the remote machine (e.g., mechant_host).
+          - **Start Date**: Date when the connection started (DD-MM-YYYY format, e.g., 22-08-2022).
+          - **Start Time**: Time when the connection started (HH:MM:SS format, e.g., 14:50:52).
+          - **End Date**: Date when the connection ended (DD-MM-YYYY format, e.g., 22-08-2022).
+          - **End Time**: Time when the connection ended (HH:MM:SS format, e.g., 14:51:09).
+          - **Local User**: Username on the local machine (e.g., lab).
+          - **Connection Type**: Type of connection (e.g., RemoteControl).
+          - **Session ID**: Unique identifier for the session (e.g., {5a0ba592-76be-48de-8015-2365251d6520}).
+          
+          **Example**:
+          ```
+          1025538549 mechant_host 22-08-2022 14:50:52 22-08-2022 14:51:09 lab RemoteControl {5a0ba592-76be-48de-8015-2365251d6520}
+          ```
+
+      - path: "*:\\Program Files (x86)\\TeamViewer\\TeamViewer*_Logfile.log"
+        timestamp_format: "YYYY/MM/DD HH:MM:SS.SSS (timezone included)"
+        notes: |
+          This log provides a complete history of both incoming and outgoing connections. Fields and their values are:
+          - **Date and Time**: Timestamp of the log entry (e.g., 2024/01/01 14:00:00.000).
+          - **Log Level**: Severity of the log entry (e.g., INFO, WARN, ERROR).
+          - **Message**: Detailed session activities, including connection attempts, participant management, session start, and termination events.
+          
+          **Example**:
+          ```
+          2022/08/22 16:50:52.967  3476  1492 S0   CommandHandlerRouting[19]::CreatePassiveSession(): incoming session via fr-par-anx-r008.router.teamviewer.com, protocol Port443
+          2022/08/22 16:50:59.262  3476  3652 S0   CPersistentParticipantManager::AddParticipant: [1025212365,-305204839] type=3 name=LABWINDOWS
+          2022/08/22 16:51:09.752  6092  7464 D1   SessionManagerDesktop::SessionTerminate: removing session with tvsessionprotocol::TVSessionID = -305204839
+          ```
+
+      - path: "*:\\Program Files\\TeamViewer\\Connections_incoming.txt"
+        timestamp_format: "DD-MM-YYYY HH:MM:SS (UTC)"
+        notes: |
+          This log records incoming connections to the TeamViewer client. Fields and their values are:
+          - **Client ID**: Numeric identifier of the remote machine (e.g., 1025538549).
+          - **Client Hostname**: Hostname of the remote machine (e.g., mechant_host).
+          - **Start Date**: Date when the connection started (DD-MM-YYYY format, e.g., 22-08-2022).
+          - **Start Time**: Time when the connection started (HH:MM:SS format, e.g., 14:50:52).
+          - **End Date**: Date when the connection ended (DD-MM-YYYY format, e.g., 22-08-2022).
+          - **End Time**: Time when the connection ended (HH:MM:SS format, e.g., 14:51:09).
+          - **Local User**: Username on the local machine (e.g., lab).
+          - **Connection Type**: Type of connection (e.g., RemoteControl).
+          - **Session ID**: Unique identifier for the session (e.g., {5a0ba592-76be-48de-8015-2365251d6520}).
+          
+          **Example**:
+          ```
+          1025538549 mechant_host 22-08-2022 14:50:52 22-08-2022 14:51:09 lab RemoteControl {5a0ba592-76be-48de-8015-2365251d6520}
+          ```
+
+      - path: "*:\\Program Files\\TeamViewer\\TeamViewer*_Logfile.log"
+        timestamp_format: "YYYY/MM/DD HH:MM:SS.SSS (timezone included)"
+        notes: |
+          This log provides detailed session information, including:
+          - **Date and Time**: Timestamp of the log entry (e.g., 2024/01/02 15:00:00.000).
+          - **Log Level**: Severity of the log entry (e.g., INFO, WARN, ERROR).
+          - **Message**: Details about session initiation, data transfer activities, and errors/warnings.
+          
+          **Example**:
+          ```
+          2022/08/22 16:50:52.967  3476  1492 S0   CommandHandlerRouting[19]::CreatePassiveSession(): incoming session via fr-par-anx-r008.router.teamviewer.com, protocol Port443
+          2022/08/22 16:50:59.262  3476  3652 S0   CPersistentParticipantManager::AddParticipant: [1025212365,-305204839] type=3 name=LABWINDOWS
+          2022/08/22 16:51:09.752  6092  7464 D1   SessionManagerDesktop::SessionTerminate: removing session with tvsessionprotocol::TVSessionID = -305204839
+          ```
+
+      - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\connections.txt"
+        timestamp_format: " (UTC)"
+        notes: |
+          This log records successful outgoing connection details. Fields include:
+          - **Remote ID**: Numeric identifier of the remote machine (e.g., 7654321).
+          - **Start Date**: Date when the connection started (YYYY-MM-DD format, e.g., 2024-01-01).
+          - **Start Time**: Time when the connection started (HH:MM:SS format, e.g., 14:00:00).
+          - **End Date**: Date when the connection ended (YYYY-MM-DD format, e.g., 2024-01-01).
+          - **End Time**: Time when the connection ended (HH:MM:SS format, e.g., 15:00:00).
+          - **Local User**: Username on the local machine (e.g., admin).
+          - **Connection Type**: Type of connection (e.g., remote_control, file_transfer).
+          - **Session ID**: Unique identifier for the connection session (e.g., 123456789).
+          
+          **Example**:
+          ```
+          7654321 2024-01-01 14:00:00 2024-01-01 15:00:00 admin remote_control 123456789
+          ```
+
+      - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\TeamViewer*_Logfile.log"
+        timestamp_format: "YYYY/MM/DD HH:MM:SS.SSS (timezone unknown)"
+        notes: |
+          This general log provides software information, including:
+          - **Date and Time**: Timestamp of the log entry (e.g., 2024/01/01 14:00:00.000).
+          - **Log Level**: Severity of the log entry (e.g., INFO, WARN, ERROR).
+          - **Message**: Details about the status of connections, software updates, configuration changes, and other operational details.
+          
+          **Example**:
+          ```
+          2024/01/01 14:00:00.000 [INFO] Software update completed
+          2024/01/01 14:05:00.000 [WARN] Connection attempt failed for ID 1234567
+          ```
+    - path: "*:\\Program Files\\TeamViewer\\Version.txt"
+        timestamp_format: "FIXME"
+        notes: |
+          This log provides the installation date and version of teamviewer:
+          FIXME
+          **Example**:
+          ```
+          FIXME
+          ```
+    - path: "*:\\Program Files (x86)\\TeamViewer\\Version.txt"
+        timestamp_format: "FIXME"
+        notes: |
+          This log provides the installation date and version of teamviewer:
+          FIXME
+          **Example**:
+          ```
+          FIXME
+          ```
+  - registry:
+    FIXME
+
+splunk_conf_inputs: |
+  [monitor://*/Program Files (x86)/TeamViewer/Connections_incoming.txt]
+  disabled = false
+  sourcetype = teamviewer:connections_incoming
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Program Files (x86)/TeamViewer/TeamViewer*_Logfile.log]
+  disabled = false
+  sourcetype = teamviewer:logfile
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Program Files/TeamViewer/Connections_incoming.txt]
+  disabled = false
+  sourcetype = teamviewer:connections_incoming
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Program Files/TeamViewer/TeamViewer*_Logfile.log]
+  disabled = false
+  sourcetype = teamviewer:logfile
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Users/*/AppData/Roaming/TeamViewer/connections.txt]
+  disabled = false
+  sourcetype = teamviewer:connections
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
+  
+  [monitor://*/Users/*/AppData/Roaming/TeamViewer/TeamViewer*_Logfile.log]
+  disabled = false
+  sourcetype = teamviewer:logfile
+  index = teamviewer
+  crcSalt = <SOURCE>
+  initCrcLength = 2048
+  followTail = 0
+  charset = auto
+  host = $decideOnStartup
+  start_from = oldest
