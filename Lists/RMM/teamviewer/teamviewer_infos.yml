@@ -85,7 +85,14 @@ log_details:
       - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\connections.txt"
         timestamp_format: "DD-MM-YYYY HH:MM:SS (UTC)"
         notes: |
-          This log records successful outgoing connection details. Fields include:
+          This log records successful outgoing connection details.
+          - Outgoing TeamViewer ID (your PC’s ID)
+          - UTC Start and End Date/Time of the connection
+          - Logged-in user on the PC
+          - Type of connection
+          - Unique connection ID
+          - The text file's last modified date/time indicates the last successful outgoing connection.
+          Fields include:
           - **Remote ID**: Numeric identifier of the remote machine (e.g., 7654321).
           - **Start Date**: Date when the connection started (YYYY-MM-DD format, e.g., 2024-01-01).
           - **Start Time**: Time when the connection started (HH:MM:SS format, e.g., 14:00:00).
@@ -94,7 +101,7 @@ log_details:
           - **Local User**: Username on the local machine (e.g., admin).
           - **Connection Type**: Type of connection (e.g., remote_control, file_transfer).
           - **Session ID**: Unique identifier for the connection session (e.g., 123456789).
-          
+
           **Example**:
           ```
           7654321 2024-01-01 14:00:00 2024-01-01 15:00:00 admin remote_control 123456789
@@ -126,13 +133,23 @@ log_details:
           ```
           FIXME
           ```
-    - path: "\\Users\\*\\AppData\\Local\\Temp\\TeamViewer\\TV*Install.log"
+    - path: "*:\\Users\\*\\AppData\\Local\\Temp\\TeamViewer\\TV*Install.log"
         notes: |
           this file is used during installation, and does not persist. It can be useful to determine the exact date of installation, the version, and user who triggered it.
           **Example**:
           ```
           FIXME
           ```
+    - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\TeamViewerOutlookAddIn_Logfile.log"
+        notes: |
+          - Contains UTC date/time when the addin was launched.
+          - Indicates that TeamViewer Outlook Addin launches with Outlook.
+          - The log file’s last modified date/time shows when Outlook was last launched.
+          **Example**:
+          ```
+          FIXME
+          ```
+
           
   - registry:
     - path: "HKLM\\SOFTWARE\\TeamViewer"
@@ -193,30 +210,45 @@ log_details:
         notes: | 
           - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKLM\\SOFTWARE\\TeamViewer\\ConnectionHistory"
-      notes: | 
-        - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
+        notes: | 
+          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
 
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\ClientWindow_Mode"
-      notes: | 
-        - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
+        notes: | 
+          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
 
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\ClientWindowPositions"
-      notes: | 
-        - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
+        notes: | 
+          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
+
 
   - other_files:
-    - path: "*\\Users\\*\\AppData\\Local\\TeamViewer\\Database\\tvchatfilecache.db"
-      notes: | 
-        - SQlite 3 database storing cache about TeamViewer chat
-    - path: "*\\Users\\*\\AppData\\Local\\TeamViewer\\RemotePrinting\\tvprint.db"
-      notes: | 
-        - SQlite 3 database storing TeamViewer print jobs (Target side - computer being controlled remotely)
+    - path: "*:\\Users\\*\\AppData\\Local\\TeamViewer\\Database\\tvchatfilecache.db"
+        notes: | 
+          - SQlite 3 database storing cache about TeamViewer chat
+    - path: "*:\\Users\\*\\AppData\\Local\\TeamViewer\\RemotePrinting\\tvprint.db"
+        notes: | 
+          - SQlite 3 database storing TeamViewer print jobs (Target side - computer being controlled remotely)
     - path: "*\\Windows\\Prefetch\\TEAMVIEWER.EXE-*.pf"
-      notes: | 
-        - prefetch file - proof of execution
-    - path: "*\\Users\\*\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\TeamViewer.lnk"
-      notes: | 
-        - Shortcut file indicating TeamViewer is installed and set to start at boot.
+        notes: | 
+          - prefetch file - proof of execution
+    - path: "*:\\Users\\*\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\TeamViewer.lnk"
+        notes: | 
+          - Shortcut file indicating TeamViewer is installed and set to start at boot.
+    - path: ":\\Users\\*\\AppData\\Roaming\\TeamViewer\\MRU\\RemoteSupport\\*"
+        notes: | 
+          - Folder contains <TeamViewer ID>.tvc files for successful connections.
+          - Files listed under "Partner ID" in the TeamViewer GUI.
+          - Content:
+            - targetID: Target’s TeamViewer ID.
+            - action: Connection type (e.g., RemoteSupport).
+          - File names can be changed; TeamViewer uses targetID for the dropdown list in the GUI.
+
+
+
+
+
+
 
 splunk_conf_inputs: |
   [monitor://*/Program Files (x86)/TeamViewer/Connections_incoming.txt]
