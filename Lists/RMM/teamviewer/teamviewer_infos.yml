@@ -24,7 +24,7 @@ artifacts:
           - **Local User**: Username on the local machine (e.g., lab).
           - **Connection Type**: Type of connection (e.g., RemoteControl).
           - **Session ID**: Unique identifier for the session (e.g., {5a0ba592-76be-48de-8015-2365251d6520}).
-          
+
           **Example**:
           ```
           1025538549 mechant_host 22-08-2022 14:50:52 22-08-2022 14:51:09 lab RemoteControl {5a0ba592-76be-48de-8015-2365251d6520}
@@ -40,7 +40,7 @@ artifacts:
           - Public IP Address Identification: Search for “punch received” to find external IP addresses from connections.
           - Successful Session Identification: Search for “New Participant added in CParticipantManager” to identify session details.
           - Source TeamViewer ID: Search for “Login::Identify” to find the source PC’s TeamViewer ID.
-          
+
           **Example**:
           ```
           2022/08/22 16:50:52.967  3476  1492 S0   CommandHandlerRouting[19]::CreatePassiveSession(): incoming session via fr-par-anx-r008.router.teamviewer.com, protocol Port443
@@ -60,7 +60,7 @@ artifacts:
           - **Local User**: Username on the local machine (e.g., lab).
           - **Connection Type**: Type of connection (e.g., RemoteControl).
           - **Session ID**: Unique identifier for the session (e.g., {5a0ba592-76be-48de-8015-2365251d6520}).
-          
+
           **Example**:
           ```
           1025538549 mechant_host 22-08-2022 14:50:52 22-08-2022 14:51:09 lab RemoteControl {5a0ba592-76be-48de-8015-2365251d6520}
@@ -76,6 +76,7 @@ artifacts:
           - Public IP Address Identification: Search for “punch received” to find external IP addresses from connections.
           - Successful Session Identification: Search for “New Participant added in CParticipantManager” to identify session details.
           - Source TeamViewer ID: Search for “Login::Identify” to find the source PC’s TeamViewer ID.
+
           **Example**:
           ```
           2022/08/22 16:50:52.967  3476  1492 S0   CommandHandlerRouting[19]::CreatePassiveSession(): incoming session via fr-par-anx-r008.router.teamviewer.com, protocol Port443
@@ -113,34 +114,34 @@ artifacts:
           - **Date and Time**: Timestamp of the log entry (e.g., 2024/01/01 14:00:00.000).
           - **Log Level**: Severity of the log entry (e.g., INFO, WARN, ERROR).
           - **Message**: Details about the status of connections, software updates, configuration changes, and other operational details.
-          
+
           **Example**:
           ```
           2024/01/01 14:00:00.000 [INFO] Software update completed
           2024/01/01 14:05:00.000 [WARN] Connection attempt failed for ID 1234567
           ```
-    - path: "*:\\Program Files\\TeamViewer\\Version.txt"
+      - path: "*:\\Program Files\\TeamViewer\\Version.txt"
         notes: |
           This log provides the installation date and version of teamviewer:
           **Example**:
           ```
           FIXME
           ```
-    - path: "*:\\Program Files (x86)\\TeamViewer\\Version.txt"
+      - path: "*:\\Program Files (x86)\\TeamViewer\\Version.txt"
         notes: |
           This log provides the installation date and version of teamviewer:
           **Example**:
           ```
           FIXME
           ```
-    - path: "*:\\Users\\*\\AppData\\Local\\Temp\\TeamViewer\\TV*Install.log"
+      - path: "*:\\Users\\*\\AppData\\Local\\Temp\\TeamViewer\\TV*Install.log"
         notes: |
           this file is used during installation, and does not persist. It can be useful to determine the exact date of installation, the version, and user who triggered it.
           **Example**:
           ```
           FIXME
           ```
-    - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\TeamViewerOutlookAddIn_Logfile.log"
+      - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\TeamViewerOutlookAddIn_Logfile.log"
         notes: |
           - Contains UTC date/time when the addin was launched.
           - Indicates that TeamViewer Outlook Addin launches with Outlook.
@@ -150,105 +151,89 @@ artifacts:
           FIXME
           ```
 
-          
-  - registry:
+  registry:
     - path: "HKLM\\SOFTWARE\\TeamViewer"
-        notes: |
-          - Validate the presence of TeamViewer
-          - Check the earliest and last modification date of the registry key
+      notes: |
+        - Validate the presence of TeamViewer
+        - Check the earliest and last modification date of the registry key
     - path: "HKU\\*\\SOFTWARE\\TeamViewer"
-        notes: |
-          - Confirm the presence of TeamViewer.
-          - Chech the earliest and last modification date of the registry key (portable version of teamviewer)
+      notes: |
+        - Confirm the presence of TeamViewer.
+        - Check the earliest and last modification date of the registry key (portable version of teamviewer)
     - path: "HKLM\\SYSTEM\\CurrentControlSet\\Services\\TeamViewer"
-        notes: |
-          - Confirm the presence of TeamViewer.
-          - Chech the last modification date of the registry key (teamviewer service installed - also observed in Security EventID 4697 and System EventID 7045)
+      notes: |
+        - Confirm the presence of TeamViewer.
+        - Check the last modification date of the registry key (teamviewer service installed - also observed in Security EventID 4697 and System EventID 7045)
     - path: "HKLM\\SYSTEM\\CurrentControlSet\\Services\\TeamViewer VPN Adapter"
-        notes: |
-          - Confirm the presence of TeamViewer.
-          - Chech the last modification date of the registry key (teamviewer service installed - also observed in Security EventID 4697 and System EventID 7045)
-    - path: "HKLM\\SYSTEM\\ControlSet001\\Services\\TeamViewer\\TeamViewer"
-        notes: |
-          - Confirm the presence of TeamViewer.
-          - Chech the last modification date of the registry key (teamviewer service installed - also observed in Security EventID 4697 and System EventID 7045)
-    - path: "HKLM\\SYSTEM\\ControlSet001\\Services\\TeamViewer\\TeamViewer VPN Adapter"
-        notes: |
-          - Confirm the presence of TeamViewer.
-          - Chech the last modification date of the registry key (teamviewer service installed - also observed in Security EventID 4697 and System EventID 7045)
+      notes: |
+        - Confirm the presence of TeamViewer.
+        - Check the last modification date of the registry key (teamviewer service installed - also observed in Security EventID 4697 and System EventID 7045)
+    - path: "HKLM\\SYSTEM\\ControlSet001\\Services\\TeamViewer"
+      notes: |
+        - Confirm the presence of TeamViewer.
+        - Check the last modification date of the registry key (teamviewer service installed - also observed in Security EventID 4697 and System EventID 7045)
+    - path: "HKLM\\SYSTEM\\ControlSet001\\Services\\TeamViewer VPN Adapter"
+      notes: |
+        - Confirm the presence of TeamViewer.
+        - Check the last modification date of the registry key (teamviewer service installed - also observed in Security EventID 4697 and System EventID 7045)
     - path: "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\TeamViewer\\*"
-        notes: | 
-          - Confirm the presence of TeamViewer.
+      notes: | 
+        - Confirm the presence of TeamViewer.
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\MainWindowHandle"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\DesktopWallpaperSingleImage"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
-
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\DesktopWallpaperSingleImagePath"
-       notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
-
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\DesktopWallpaperSingleImagePosition"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
-
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\MinimizeToTray"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
-
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\MultiMedia\\AudioUserSelectedCapturingEndpoint"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
-
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\MultiMedia\\AudioSendingVolumeV2"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
-
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\MultiMedia\\AudioUserSelectedRenderingEndpoint"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Target side - computer being controlled remotely).
     - path: "HKLM\\SOFTWARE\\TeamViewer\\ConnectionHistory"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
-
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\ClientWindow_Mode"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
-
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
     - path: "HKU\\*\\SOFTWARE\\TeamViewer\\ClientWindowPositions"
-        notes: | 
-          - added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
+      notes: | 
+        - Added and modified while using TeamViewer, allowing proof of TeamViewer execution at some point (Client side - computer initiating the connection).
 
-
-  - other_files:
+  other_files:
     - path: "*:\\Users\\*\\AppData\\Local\\TeamViewer\\Database\\tvchatfilecache.db"
-        notes: | 
-          - SQlite 3 database storing cache about TeamViewer chat
+      notes: | 
+        - SQLite 3 database storing cache about TeamViewer chat
     - path: "*:\\Users\\*\\AppData\\Local\\TeamViewer\\RemotePrinting\\tvprint.db"
-        notes: | 
-          - SQlite 3 database storing TeamViewer print jobs (Target side - computer being controlled remotely)
+      notes: | 
+        - SQLite 3 database storing TeamViewer print jobs (Target side - computer being controlled remotely)
     - path: "*\\Windows\\Prefetch\\TEAMVIEWER.EXE-*.pf"
-        notes: | 
-          - prefetch file - proof of execution
+      notes: | 
+        - Prefetch file - proof of execution
     - path: "*:\\Users\\*\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\TeamViewer.lnk"
-        notes: | 
-          - Shortcut file indicating TeamViewer is installed and set to start at boot.
-    - path: ":\\Users\\*\\AppData\\Roaming\\TeamViewer\\MRU\\RemoteSupport\\*"
-        notes: | 
-          - Folder contains <TeamViewer ID>.tvc files for successful connections.
-          - Files listed under "Partner ID" in the TeamViewer GUI.
-          - Content:
-            - targetID: Target’s TeamViewer ID.
-            - action: Connection type (e.g., RemoteSupport).
-          - File names can be changed; TeamViewer uses targetID for the dropdown list in the GUI.
-
-
-
-
-
-
+      notes: | 
+        - Shortcut file indicating TeamViewer is installed and set to start at boot.
+    - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\MRU\\RemoteSupport\\*"
+      notes: | 
+        - Folder contains <TeamViewer ID>.tvc files for successful connections.
+        - Files listed under "Partner ID" in the TeamViewer GUI.
+        - Content:
+          - targetID: Target’s TeamViewer ID.
+          - action: Connection type (e.g., RemoteSupport).
+        - File names can be changed; TeamViewer uses targetID for the dropdown list in the GUI.
 
 splunk_conf_inputs: |
   [monitor://*/Program Files (x86)/TeamViewer/Connections_incoming.txt]
@@ -261,7 +246,7 @@ splunk_conf_inputs: |
   charset = auto
   host = $decideOnStartup
   start_from = oldest
-  
+
   [monitor://*/Program Files (x86)/TeamViewer/TeamViewer*_Logfile.log]
   disabled = false
   sourcetype = teamviewer:logfile
@@ -272,7 +257,7 @@ splunk_conf_inputs: |
   charset = auto
   host = $decideOnStartup
   start_from = oldest
-  
+
   [monitor://*/Program Files/TeamViewer/Connections_incoming.txt]
   disabled = false
   sourcetype = teamviewer:connections_incoming
@@ -283,7 +268,7 @@ splunk_conf_inputs: |
   charset = auto
   host = $decideOnStartup
   start_from = oldest
-  
+
   [monitor://*/Program Files/TeamViewer/TeamViewer*_Logfile.log]
   disabled = false
   sourcetype = teamviewer:logfile
@@ -294,7 +279,7 @@ splunk_conf_inputs: |
   charset = auto
   host = $decideOnStartup
   start_from = oldest
-  
+
   [monitor://*/Users/*/AppData/Roaming/TeamViewer/connections.txt]
   disabled = false
   sourcetype = teamviewer:connections
@@ -305,7 +290,7 @@ splunk_conf_inputs: |
   charset = auto
   host = $decideOnStartup
   start_from = oldest
-  
+
   [monitor://*/Users/*/AppData/Roaming/TeamViewer/TeamViewer*_Logfile.log]
   disabled = false
   sourcetype = teamviewer:logfile
