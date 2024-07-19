@@ -32,10 +32,14 @@ log_details:
       - path: "*:\\Program Files (x86)\\TeamViewer\\TeamViewer*_Logfile.log"
         timestamp_format: "YYYY/MM/DD HH:MM:SS.SSS (timezone included)"
         notes: |
-          This log provides a complete history of both incoming and outgoing connections. Fields and their values are:
-          - **Date and Time**: Timestamp of the log entry (e.g., 2024/01/01 14:00:00.000).
+          This log provides detailed session information, including:
+          - **Date and Time**: Timestamp of the log entry (e.g., 2024/01/02 15:00:00.000).
           - **Log Level**: Severity of the log entry (e.g., INFO, WARN, ERROR).
-          - **Message**: Detailed session activities, including connection attempts, participant management, session start, and termination events.
+          - **Message**: Details about session initiation, data transfer activities, and errors/warnings.
+          - Failed Connection Attempts: Search for “Trying connection to <Destination TeamViewer ID>” to find attempts.
+          - Public IP Address Identification: Search for “punch received” to find external IP addresses from connections.
+          - Successful Session Identification: Search for “New Participant added in CParticipantManager” to identify session details.
+          - Source TeamViewer ID: Search for “Login::Identify” to find the source PC’s TeamViewer ID.
           
           **Example**:
           ```
@@ -68,7 +72,10 @@ log_details:
           - **Date and Time**: Timestamp of the log entry (e.g., 2024/01/02 15:00:00.000).
           - **Log Level**: Severity of the log entry (e.g., INFO, WARN, ERROR).
           - **Message**: Details about session initiation, data transfer activities, and errors/warnings.
-          
+          - Failed Connection Attempts: Search for “Trying connection to <Destination TeamViewer ID>” to find attempts.
+          - Public IP Address Identification: Search for “punch received” to find external IP addresses from connections.
+          - Successful Session Identification: Search for “New Participant added in CParticipantManager” to identify session details.
+          - Source TeamViewer ID: Search for “Login::Identify” to find the source PC’s TeamViewer ID.
           **Example**:
           ```
           2022/08/22 16:50:52.967  3476  1492 S0   CommandHandlerRouting[19]::CreatePassiveSession(): incoming session via fr-par-anx-r008.router.teamviewer.com, protocol Port443
