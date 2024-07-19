@@ -8,7 +8,7 @@ tools:
       - "https://community.teamviewer.com/English/discussion/5523/security-related-logs-and-monitoring"
       - "https://benleeyr.wordpress.com/2020/05/19/teamviewer-forensics-tested-on-v15/"
 
-log_details:
+artifacts:
   teamviewer:
     log_files:
       - path: "*:\\Program Files (x86)\\TeamViewer\\Connections_incoming.txt"
