@@ -273,6 +273,13 @@ artifacts:
         targetID=192.168.1.3
         action=RemoteSupport
         ```
+
+splunk_conf_indexes: |
+  [teamviewer]
+  homePath = $SPLUNK_DB/teamviewer/db
+  coldPath = $SPLUNK_DB/teamviewer/colddb
+  thawedPath = $SPLUNK_DB/teamviewer/thaweddb
+
 splunk_conf_inputs: |
   [monitor://*/Program Files (x86)/TeamViewer/Connections_incoming.txt]
   disabled = false
