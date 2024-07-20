@@ -274,6 +274,9 @@ artifacts:
         action=RemoteSupport
         ```
 
+detection: |
+  - https://github.com/mthcht/awesome-lists/tree/main/Lists/RMM/teamviewer
+
 splunk_conf_indexes: |
   [teamviewer]
   homePath = $SPLUNK_DB/teamviewer/db
