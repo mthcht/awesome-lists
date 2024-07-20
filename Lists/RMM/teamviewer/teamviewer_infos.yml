@@ -14,7 +14,7 @@ artifacts:
       - path: "*:\\Program Files (x86)\\TeamViewer\\Connections_incoming.txt"
         timestamp_format: "DD-MM-YYYY HH:MM:SS (UTC)"
         notes: |
-          This log records incoming connections to the TeamViewer client. Fields and their values are:
+          This log records incoming connections to the TeamViewer client. After the progam is removed this log file will persist untill a reboot. Fields and their values are:
           - **Client ID**: Numeric identifier of the remote machine (e.g., 1025538549).
           - **Client Hostname**: Hostname of the remote machine (e.g., mechant_host).
           - **Start Date**: Date when the connection started (DD-MM-YYYY format, e.g., 22-08-2022).
@@ -27,8 +27,9 @@ artifacts:
 
           **Example**:
           ```
-          1025538549 mechant_host 22-08-2022 14:50:52 22-08-2022 14:51:09 lab RemoteControl {5a0ba592-76be-48de-8015-2365251d6520}
-          ```
+          229706443	DESKTOP-evilman	19-07-2024 23:54:08	19-07-2024 23:59:14	mthcht	RemoteControl	{d935bfe3-5fdd-4933-80bc-ae356e786c03}	
+          ```  
+        logformat: <remote machine client ID> <Remote machine Hostname> <Start Date/Time UTC> <End Date/time UTC> <Local User on local machine> <Connection Type> <Session ID>
       - path: "*:\\Program Files (x86)\\TeamViewer\\TeamViewer*_Logfile.log"
         timestamp_format: "YYYY/MM/DD HH:MM:SS.SSS (timezone included)"
         notes: |
@@ -50,7 +51,7 @@ artifacts:
       - path: "*:\\Program Files\\TeamViewer\\Connections_incoming.txt"
         timestamp_format: "DD-MM-YYYY HH:MM:SS (UTC)"
         notes: |
-          This log records incoming connections to the TeamViewer client. Fields and their values are:
+          This log records incoming connections to the TeamViewer client. After the progam is removed this log file will persist untill a reboot. Fields and their values are:
           - **Client ID**: Numeric identifier of the remote machine (e.g., 1025538549).
           - **Client Hostname**: Hostname of the remote machine (e.g., mechant_host).
           - **Start Date**: Date when the connection started (DD-MM-YYYY format, e.g., 22-08-2022).
@@ -63,8 +64,29 @@ artifacts:
 
           **Example**:
           ```
-          1025538549 mechant_host 22-08-2022 14:50:52 22-08-2022 14:51:09 lab RemoteControl {5a0ba592-76be-48de-8015-2365251d6520}
+          229706443	DESKTOP-evilman	19-07-2024 23:54:08	19-07-2024 23:59:14	mthcht	RemoteControl	{d935bfe3-5fdd-4933-80bc-ae356e786c03}	
+          ```  
+      - path: "*:\\Program Files\\TeamViewer\\TeamViewer*_Hooks.log"
+        timestamp_format: "YYYY/MM/DD HH:MM:SS (UTC)"
+        notes: |
+          This log records driver installations and is not of particular interest
+          **Example**:
           ```
+          2024/07/20 01:55:50.974  9476  9896 L64  Loader started with: "C:\Program Files\TeamViewer\tv_x64.exe" --action uninstallpnpdriver --inf "C:\Program Files\TeamViewer\x64\TVVirtualMonitorDriver.inf" --log "C:\Program Files\TeamViewer\TeamViewer15_Hooks.log"
+          2024/07/20 01:55:51.397  9476  9896 L64  CDriverInstaller: Uninstall driver from PnP storage succeed, no restart requested
+          2024/07/20 01:55:51.397  9476  9896 L64  Uninstall driver from PnP storage Succeed
+          2024/07/20 01:55:51.677  1436  7988 L64  Loader started with: "C:\Program Files\TeamViewer\tv_x64.exe" --action installpnpdriver --inf "C:\Program Files\TeamViewer\x64\TVVirtualMonitorDriver.inf" --log "C:\Program Files\TeamViewer\TeamViewer15_Hooks.log"
+          2024/07/20 01:55:52.271  1436  7988 L64  CDriverInstaller: Install driver to PnP storage succeed, no restart requested
+          2024/07/20 01:55:52.271  1436  7988 L64  Install driver in PnP storage Succeed
+          2024/07/20 01:55:52.366  1980  1296 L64  Loader started with: "C:\Program Files\TeamViewer\tv_x64.exe" --action removeprint --log "C:\Program Files\TeamViewer\TeamViewer15_Hooks.log" --event Local\DriverInstallFinishEvent_Printer --id "TeamViewer Printer"
+          2024/07/20 01:55:52.380  8088  9568 L64  Loader started with: "C:\Program Files\TeamViewer\tv_x64.exe" --action installprinterdriverfrompackage --log "C:\Program Files\TeamViewer\TeamViewer15_Hooks.log" --event Local\DriverInstallFinishEvent_Printer --inf "C:\Program Files\TeamViewer\Printer\TeamViewer_XPSDriverFilter.inf" --id "TeamViewer Printer"
+          2024/07/20 01:55:52.443  1980  1296 L64  RemovePrintDriver success
+          2024/07/20 01:55:52.443  1980  1296 L64  CDriverInstaller: Event set
+          2024/07/20 01:55:52.522  8088  9568 L64  CDriverInstaller::InstallPrintDriverFromPackage: Upload successful
+          2024/07/20 01:55:52.616  8088  9568 L64  CDriverInstaller::InstallPrintDriverFromPackage: Install successful
+          2024/07/20 01:55:52.616  8088  9568 L64  InstallPrintDriverFromPackage success
+          2024/07/20 01:55:52.616  8088  9568 L64  CDriverInstaller: Event set
+          ```  
       - path: "*:\\Program Files\\TeamViewer\\TeamViewer*_Logfile.log"
         timestamp_format: "YYYY/MM/DD HH:MM:SS.SSS (timezone included)"
         notes: |
@@ -95,8 +117,8 @@ artifacts:
           - The text file's last modified date/time indicates the last successful outgoing connection.
           Fields include:
           - **Remote ID**: Numeric identifier of the remote machine (e.g., 7654321).
-          - **Start Date**: Date when the connection started (YYYY-MM-DD format, e.g., 2024-01-01).
-          - **Start Time**: Time when the connection started (HH:MM:SS format, e.g., 14:00:00).
+          - **Start Date**: Date when the connection started (DD-MM-YYYY format, e.g., 19-07-2024).
+          - **Start Time**: Time when the connection started (HH:MM:SS format, e.g., 23:56:51).
           - **End Date**: Date when the connection ended (YYYY-MM-DD format, e.g., 2024-01-01).
           - **End Time**: Time when the connection ended (HH:MM:SS format, e.g., 15:00:00).
           - **Local User**: Username on the local machine (e.g., admin).
@@ -105,7 +127,7 @@ artifacts:
 
           **Example**:
           ```
-          7654321 2024-01-01 14:00:00 2024-01-01 15:00:00 admin remote_control 123456789
+          1460237962                      19-07-2024 23:56:51             20-07-2024 00:01:56             admin                           RemoteControl                   {d935bfe3-5fdd-4933-80bc-ae356e786c03}
           ```
       - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\TeamViewer*_Logfile.log"
         timestamp_format: "YYYY/MM/DD HH:MM:SS.SSS (timezone unknown)"
@@ -223,9 +245,18 @@ artifacts:
     - path: "*\\Windows\\Prefetch\\TEAMVIEWER.EXE-*.pf"
       notes: | 
         - Prefetch file - proof of execution
+    - path: "*\\Windows\\Prefetch\\TEAMVIEWER_SERVICE.EXE-*.pf"
+      notes: | 
+        - Prefetch file - proof of execution
+    - path: "*\\Windows\\Prefetch\\TEAMVIEWER_DESKTOP.EXE-*.pf"
+      notes: | 
+        - Prefetch file - proof of execution
+    - path: "*\\Windows\\Prefetch\\TEAMVIEWER_SETUP.EXE-*.pf"
+      notes: | 
+        - Prefetch file - proof of execution
     - path: "*:\\Users\\*\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\TeamViewer.lnk"
       notes: | 
-        - Shortcut file indicating TeamViewer is installed and set to start at boot.
+        - Shortcut file indicating TeamViewer is installed and set to start at boot
     - path: "*:\\Users\\*\\AppData\\Roaming\\TeamViewer\\MRU\\RemoteSupport\\*"
       notes: | 
         - Folder contains <TeamViewer ID>.tvc files for successful connections.
@@ -234,7 +265,12 @@ artifacts:
           - targetID: Target’s TeamViewer ID.
           - action: Connection type (e.g., RemoteSupport).
         - File names can be changed; TeamViewer uses targetID for the dropdown list in the GUI.
-
+        **Example of a tvc file content**:
+        ```
+        [TeamViewer Configuration]
+        targetID=192.168.1.3
+        action=RemoteSupport
+        ```
 splunk_conf_inputs: |
   [monitor://*/Program Files (x86)/TeamViewer/Connections_incoming.txt]
   disabled = false
