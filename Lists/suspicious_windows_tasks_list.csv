@@ -1,4 +1,5 @@
 TaskName,TaskCommand,TaskArguments,metadata_tool,metadata_tool_category,metadata_tool_type,metadata_link,metadata_severity,metadata_comment,metadata_reference
+\area41,C:\_Microsoft\Microsoft.exe,,CryptInject,malware,offensive_tool,https://github.com/roadwy/DefenderYara/blob/9bbdb7f9fd3513ce30aa69cd1d88830e3cf596ca/Trojan/Win32/CryptInject/Trojan_Win32_CryptInject_PJ_MTB.yar#L36,critical,N/A,https://github.com/mthcht/awesome-lists
 \SSH Server,,,sshd,Persistence,greyware_tool,https://www.trellix.com/blogs/research/cactus-ransomware-new-strain-in-the-market/,medium,compliance,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/schtasks.csv
 \SSH Key Exchange,,,sshd,Persistence,greyware_tool,https://www.trellix.com/blogs/research/cactus-ransomware-new-strain-in-the-market/,medium,compliance,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/schtasks.csv
 \LimeRAT-Admin,,,Lime-RAT,Malware,offensive_tool,https://github.com/NYAN-x-CAT/Lime-RAT/blob/87e189781c0aef0e84cabe2f8c2e7d8f5143e594/Project/Client/C_Installation.vb#L76,critical,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/Lime-RAT.csv
