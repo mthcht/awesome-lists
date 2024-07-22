@@ -5,6 +5,7 @@ WinHTTP*,library used by bots to perform HTTP requests,_,Collection,https://user
 * (X11; *,unix based os user agent,_,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
 * (X11; *Firefox*,unix based os user agent using firefox client,_,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
 *; Linux x86_64*,linux based os user agent,_,Compliance,N/A,low,high,info,Hunting,network flow direction internal --> external
+fucking,Nitedrem trojan Downloader,Nitedrem,malware,https://www.virustotal.com/gui/file/2de440b0e23540d68939b2fcac391e854e2869c95120655e7f19b981d091f744/relations,critical,none,critical,Detection rule,network flow direction internal --> external
 *AAAAAAAAAA*,suspicious base64 encoded user agent used by some malware,_,Defense Evasion,https://detection.fyi/sigmahq/sigma/web/proxy_generic/proxy_ua_base64_encoded/,medium,high,medium,Hunting,network flow direction internal --> internal/external
 *=,suspicious base64 encoded user agent used by some malware,_,Defense Evasion,https://detection.fyi/sigmahq/sigma/web/proxy_generic/proxy_ua_base64_encoded/,medium,high,medium,Hunting,network flow direction internal --> internal/external
 Q2hyb21l*,suspicious base64 encoded user agent used by some malware,_,Defense Evasion,https://detection.fyi/sigmahq/sigma/web/proxy_generic/proxy_ua_base64_encoded/,medium,low,medium,Hunting,network flow direction internal --> internal/external
