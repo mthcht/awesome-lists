@@ -11,6 +11,7 @@
 - **Detecting DLL Hijacking**
   - `hijacklibs_list.csv` [hijacklibs_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv)
   - https://mthcht.medium.com/detect-dll-hijacking-techniques-from-hijacklibs-with-splunk-c760d2e0656f
- 
-  
+- **Suspicious Named pipes**
+  - `suspicious_named_pipe_list.csv` - https://medium.com/detect-fyi/threat-hunting-suspicious-named-pipes-a4206e8a4bc8
+    
 ... todo
