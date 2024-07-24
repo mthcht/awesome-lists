@@ -123,6 +123,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Pr0xylife njRat IOC](https://github.com/pr0xylife/njRat)
 - [Pr0xylife Vidar IOC](https://github.com/pr0xylife/Vidar)
 - [SpamHaus drop.txt](https://www.spamhaus.org/drop/drop.txt)
+- [vx-underground - Great Resource for Samples and Intelligence Reports](https://vx-underground.org/Samples)
+
 </details> 
 
 ### SIEM/SOC related:
@@ -166,7 +168,6 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [McAfee Threat Intelligence Exchange](https://www.mcafee.com/enterprise/en-us/products/threat-intelligence-exchange.html)
   - [Kaspersky Security Network](https://www.kaspersky.com/security-network)
   - [Microsoft Security Intelligence Report](https://www.microsoft.com/en-us/wdsi/intelligence-report)
-  - [vx-underground - Great Resource for Samples and Intelligence Reports](https://vx-underground.org/Samples)
   - [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com/) 
   - [AlienVault OTX](https://otx.alienvault.com/)
   - [greynoise](https://viz.greynoise.io/)
