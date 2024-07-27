@@ -375,7 +375,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs)
   - @DebugPrivilege : Forensic Debugging free course [InsightEngineering](https://github.com/DebugPrivilege/InsightEngineering)
   - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
-  - @@binaryz0ne: DFIR challenges with [Datasets](https://www.ashemery.com/dfir.html) 
+  - @binaryz0ne: DFIR challenges with [Datasets](https://www.ashemery.com/dfir.html) 
   </details>
 
 #### SOC
