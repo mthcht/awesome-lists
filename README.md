@@ -210,6 +210,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Sandbox HA](https://www.hybrid-analysis.com/)
 - [virustotal](https://www.virustotal.com)
 - [threat zone](https://app.threat.zone/scan)
+- [vmray](https://www.vmray.com/)
 </details>
 
 
