@@ -128,7 +128,12 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 </details> 
 
 ### Github
+
+<details>
+
 More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&user_lists_sort=name
+
+</details>
 
 ### SIEM/SOC related:
 <details>
@@ -137,6 +142,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 - [Awesome-SOC](https://github.com/cyb3rxp/awesome-soc)
 - [Threat-Hunting with Splunk](https://github.com/mthcht/ThreatHunting-Keywords)
+  
 </details> 
 
 ###  Investigation
