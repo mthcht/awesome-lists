@@ -127,6 +127,9 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 </details> 
 
+### Github
+More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&user_lists_sort=name
+
 ### SIEM/SOC related:
 <details>
   
