@@ -146,7 +146,6 @@
         "serviceArea": "Skype",
         "serviceAreaDisplayName": "Microsoft Teams",
         "ips": [
-            "13.107.64.0/18",
             "52.112.0.0/14",
             "52.122.0.0/15",
             "2603:1063::/38"
@@ -351,60 +350,6 @@
         "expressRoute": false,
         "category": "Default",
         "required": true
-    },
-    {
-        "id": 41,
-        "serviceArea": "Common",
-        "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
-        "urls": [
-            "*.microsoftstream.com"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": false,
-        "notes": "Microsoft Stream"
-    },
-    {
-        "id": 43,
-        "serviceArea": "Common",
-        "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
-        "urls": [
-            "nps.onyx.azure.net"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": false,
-        "notes": "Microsoft Stream 3rd party integration (including CDNs)"
-    },
-    {
-        "id": 44,
-        "serviceArea": "Common",
-        "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
-        "urls": [
-            "*.azureedge.net",
-            "*.media.azure.net",
-            "*.streaming.mediaservices.windows.net"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": false,
-        "notes": "Microsoft Stream - unauthenticated"
-    },
-    {
-        "id": 45,
-        "serviceArea": "Common",
-        "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
-        "urls": [
-            "*.keydelivery.mediaservices.windows.net"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": false,
-        "notes": "Microsoft Stream"
     },
     {
         "id": 46,
@@ -722,7 +667,8 @@
             "*.sharepointonline.com",
             "dc.services.visualstudio.com",
             "mem.gfx.ms",
-            "staffhub.ms"
+            "staffhub.ms",
+            "staffhubweb.azureedge.net"
         ],
         "tcpPorts": "443",
         "expressRoute": false,
