@@ -123,6 +123,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Pr0xylife njRat IOC](https://github.com/pr0xylife/njRat)
 - [Pr0xylife Vidar IOC](https://github.com/pr0xylife/Vidar)
 - [SpamHaus drop.txt](https://www.spamhaus.org/drop/drop.txt)
+- [UrlHaus_misp](https://urlhaus.abuse.ch/downloads/misp/)
+- [UrlHaus](https://urlhaus.abuse.ch/api/#csv)
 - [vx-underground - Great Resource for Samples and Intelligence Reports](https://vx-underground.org/Samples)
 
 </details> 
