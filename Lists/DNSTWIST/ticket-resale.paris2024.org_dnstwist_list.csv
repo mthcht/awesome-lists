@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,ticket-resale.paris2024.org,23.212.62.201,2600:1406:2e00:28::17cb:a61e,!ServFail,a1-222.akam.net
+*original,ticket-resale.paris2024.org,23.53.35.135,2600:1408:ec00:b::1730:cbaa,!ServFail,a1-222.akam.net
 addition,ticket-resale.paris20240.org,,,,
 addition,ticket-resale.paris20241.org,,,,
 addition,ticket-resale.paris20242.org,,,,
@@ -1723,11 +1723,11 @@ insertion,ticket-resale.pzaris2024.org,127.0.0.1,,,
 omission,ticket-resale.aris2024.org,,,,
 omission,ticket-resale.paris024.org,127.0.0.1,,,
 omission,ticket-resale.paris202.org,127.0.0.1,,,
+omission,ticket-resale.pars2024.org,127.0.0.1,,,
 omission,ticket-resale.pais2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
+omission,ticket-resale.pari2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 omission,ticket-resale.paris204.org,,,,
 omission,ticket-resale.paris224.org,,,,
-omission,ticket-resale.pars2024.org,127.0.0.1,,,
-omission,ticket-resale.pari2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 omission,ticket-resale.pris2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 plural,ticket-resale.paris20s24.org,,,,
 plural,ticket-resale.paris2s024.org,,,,
