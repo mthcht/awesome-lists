@@ -1,4 +1,5 @@
 http_user_agent,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_direction
+nanodep-godep/0,nanodep MDM default user-agent used by fleetdm RMM,fleetdm,RMM,https://github.com/fleetdm/fleet,high,low,high,Hunting,network flow direction internal --> external
 kmdjdheyytgebfghehhenegsdfsdf,Patchwork APT attack sample,unk backdoor,malware,https://x.com/naumovax/status/1813151432419254656,critical,none,critical,Detection rule,network flow direction internal --> external
 User-Agent:Mozilla/*,9002RAT used by APT17 - omission sample with the string User-Agent: in the user agent,9002RAT,malware,https://app.any.run/tasks/0bbde290-b948-4e29-960b-f13b7d1b5cec/,critical,low,high,Detection rule,network flow direction internal --> external
 Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 10.0; WOW64; Trident/7.0; Specula; Microsoft Outlook*,default user agent template for specula C2,specula,C2,https://github.com/trustedsec/specula,critical,none,critical,Detection rule,network flow direction internal --> external
