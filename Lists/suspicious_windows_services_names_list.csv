@@ -1,4 +1,5 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
+svcEasySystem,,p0wnedShell,Privilege Escalation,offensive_tool,critical,https://github.com/Cn33liz/p0wnedShell/blob/35853bcc2a184f0e0fa7b18b0e54d4ad7a985ed6/p0wnedShell/Modules/PrivEsc/p0wnedEasySystem.cs#L582C33-L582C46,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/p0wnedShell.csv
 Fleet osquery,,fleetdm,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/fleetdm.csv
 Neo_VPN,*\System32\drivers\Neo6_x64_VPN.sys,SoftEtherVPN,Defense Evasion,greyware_tool,medium,https://github.com/SoftEtherVPN/SoftEtherVPN,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SoftEtherVPN.csv
 VPN Client Device Driver - VPN,,SoftEtherVPN,Defense Evasion,greyware_tool,medium,https://github.com/SoftEtherVPN/SoftEtherVPN,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SoftEtherVPN.csv
