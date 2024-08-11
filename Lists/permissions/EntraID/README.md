@@ -21,7 +21,15 @@ json format example:
   "loggedByService": "Core Directory",
   "operationType": "Assign",
   "initiatedBy": {
-    "user": null,
+    "user": {
+       displayName: mth cht
+       homeTenantId: null
+       homeTenantName: null
+       id: b9ce3444b-7fb6-4e45-8e42-3adb324c7c5d
+       ipAddress: 5.196.8.113
+       userPrincipalName: mthcht@thunting.onmicrosoft.com
+       userType: null
+    }
     "app": {
       "appId": null,
       "displayName": "ExampleApp",
