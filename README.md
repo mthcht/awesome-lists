@@ -404,6 +404,18 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
    
    </details>
 
+#### Challenges
+
+   <details>
+     
+  - [HackTheBox](https://www.hackthebox.com)
+  - [Pentestlab](https://pentesterlab.com)
+  - [Root-Me](https://www.root-me.org)
+  - [Try Hack Me](https://tryhackme.com)
+  - [Zenk-Security](https://www.zenk-security.com/challenges)
+
+   </details>
+
  </details>
 
 
