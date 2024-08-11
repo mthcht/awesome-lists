@@ -1,7 +1,7 @@
 ## Monitor important roles assigned in Entra ID (Azure AD)
 
 ### List of important roles to monitor
-I've compiled a detailed list of Entra ID roles, which is available [here](https://github.com/mthcht/awesome-lists/blob/main/Lists/permissions/EntraID/entraid_roles_list.csv). The dataset includes:
+I've compiled a list of Entra ID roles, which is available [here](https://github.com/mthcht/awesome-lists/blob/main/Lists/permissions/EntraID/entraid_roles_list.csv). The dataset includes:
 
 - role: The name of each role.
 - id: The unique identifier for each role.
