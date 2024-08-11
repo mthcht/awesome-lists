@@ -1,5 +1,13 @@
 ## Monitor important roles assigned in Entra ID (Azure AD)
 
+### List of important roles to monitor
+I've compiled a detailed list of Entra ID roles, which is available [here](https://github.com/mthcht/awesome-lists/blob/main/Lists/permissions/EntraID/entraid_roles_list.csv). The dataset includes:
+
+- role: The name of each role.
+- id: The unique identifier for each role.
+- metadata_is_privileged: A boolean field indicating whether the role is privileged (true) or non-privileged (false) this is not extracted from microsoft - i manually choosed the important default roles (please contact me if i miss something important) 
+- metadata_description: A short description of each role's function.
+
 ### audit logs 
 
 *for splunk users, the logs are often collected in sourcetype azure:aad:audit by default*
