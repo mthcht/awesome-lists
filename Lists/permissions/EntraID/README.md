@@ -106,4 +106,4 @@ Microsoft recently introduced a new role property, "isPrivileged", in the Graph 
 
 You can retrieve all privileged roles using the following Graph API query: `GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=isPrivileged eq true` (even custom roles)
 
-But i did not found this information with the graph API logs usually collected with Splunk, it's possible that there is a specific splunk addon or configuration to get (the "isPrivileged" information for custom roles in the SIEM) i am not ware of, if anyone did this please contact me @mthcht on twitter or add a PR to this project :)
+But i did not found this information with the graph API logs usually collected with Splunk, it's possible that there is a specific splunk addon or configuration (to get the "isPrivileged" information for custom roles in the SIEM) i am not ware of, if anyone did this please contact me @mthcht on twitter or add a PR to this project :)
