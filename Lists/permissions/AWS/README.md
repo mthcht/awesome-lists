@@ -40,6 +40,7 @@ Example json log format for AttachRolePolicy:
 }
 ```
 
+In SPlunk:
 - The initiator: `userIdentity.arn`
 - the policy added to the role: `requestParameters.policyArn`
 - the role: `requestParameters.roleName`
