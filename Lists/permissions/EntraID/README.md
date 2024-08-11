@@ -2,7 +2,7 @@
 
 ### audit logs 
 
-*for splunk users, the logs are often collected in sourcetype azure:aad:audit*
+*for splunk users, the logs are often collected in sourcetype azure:aad:audit by default*
 
 Assigned roles can be found with `category="RoleManagement" activityDisplayName="Add member to role" operationType="Assign"`
 
