@@ -376,8 +376,6 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 <details>
 
 #### DFIR
-
-  <details>
   
   - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
   - 13cubed - Investigating Windows Endpoints: [13cubed.com](https://training.13cubed.com/investigating-windows-endpoints)
@@ -388,12 +386,9 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - @DebugPrivilege : Forensic Debugging free course [InsightEngineering](https://github.com/DebugPrivilege/InsightEngineering)
   - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
   - @binaryz0ne: DFIR challenges with [Datasets](https://www.ashemery.com/dfir.html) 
-  </details>
 
 #### SOC
 
-   <details>
-   
  - tryhackme - [SOC lvl1](https://tryhackme.com/path/outline/soclevel1)
  - letsdefend.io @chrissanders88 - [letsdefend.io](https://www.letsdefend.io/)
  - SANS: [SANS555](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/)
@@ -401,20 +396,14 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
    - BOTS [dataset v1](https://github.com/splunk/botsv1)   
    - BOTS [dataset v2](https://github.com/splunk/botsv2)   
    - BOTS [dataset v3](https://github.com/splunk/botsv3)
-   
-   </details>
 
 #### Challenges
 
-   <details>
-     
   - [HackTheBox](https://www.hackthebox.com)
   - [Pentestlab](https://pentesterlab.com)
   - [Root-Me](https://www.root-me.org)
   - [Try Hack Me](https://tryhackme.com)
   - [Zenk-Security](https://www.zenk-security.com/challenges)
-
-   </details>
 
  </details>
 
