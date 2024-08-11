@@ -14,7 +14,6 @@ I've compiled a list of Entra ID roles, which is available [here](https://github
 
 Assigned roles can be found with `category="RoleManagement" activityDisplayName="Add member to role" operationType="Assign"`
 
-initiatedBy
 
 json format example:
 ```json
