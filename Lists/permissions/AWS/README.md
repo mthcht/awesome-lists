@@ -88,4 +88,4 @@ Fields in Splunk:
 Fields in Splunk:
 - The initiator: `userIdentity.arn`
 - the role: `requestParameters.roleName` is the role that was attempted to be added
-- to target: `requestParameters.instanceProfileName` to determine to which instance profile the role was added.
+- the target: `requestParameters.instanceProfileName` to determine to which instance profile the role was added.
