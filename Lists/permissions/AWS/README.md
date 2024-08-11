@@ -49,15 +49,12 @@ Fields in Splunk:
 
 ```json
 {
-{
    "awsRegion": "us-east-1",
-   "errorCode": "LimitExceededException",
-   "errorMessage": "Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1",
    "eventCategory": "Management",
    "eventID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "eventName": "AddRoleToInstanceProfile",
    "eventSource": "iam.amazonaws.com",
-   "eventTime": "2024-05-14T15:42:10Z",
+   "eventTime": "2024-06-20T08:17:03Z",
    "eventType": "AwsApiCall",
    "eventVersion": "1.09",
    "managementEvent": true,
@@ -65,35 +62,24 @@ Fields in Splunk:
    "recipientAccountId": "xxxxxxxxxxxx",
    "requestID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "requestParameters": {
-     "instanceProfileName": "AmazonSSMRoleForInstancesQuickSetup",
-     "roleName": "AmazonSSMRoleForInstancesQuickSetup"
+     "instanceProfileName": "AdministratorAccess",
+     "roleName": "AdministratorAccess"
    },
    "responseElements": null,
+   "sessionCredentialFromConsole": true,
    "sourceIPAddress": "xxx.xxx.xxx.xxx",
    "tlsDetails": {
      "cipherSuite": "TLS_AES_128_GCM_SHA256",
      "clientProvidedHostHeader": "iam.amazonaws.com",
      "tlsVersion": "TLSv1.3"
    },
-   "userAgent": "Boto3/1.34.93 md/Botocore#1.34.93 md/internal ua/2.0 os/linux#5.10.214-222.855.amzn2.x86_64 md/arch#x86_64 lang/python#3.8.19 md/pyimpl#CPython exec-env/AWS_Lambda_python3.8 cfg/retry-mode#adaptive Botocore/1.34.93",
+   "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
    "userIdentity": {
      "accessKeyId": "XXXXXXXXXXXXXXXXXXXX",
      "accountId": "xxxxxxxxxxxx",
-     "arn": "arn:aws:sts::xxxxxxxxxxxx:assumed-role/AWS-QuickSetup-xxxxxxxxxxxxxxxxxx/Automation-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-     "principalId": "xxxxxxxxxxxxxxxxxxxxx:Automation-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-     "sessionContext": {
-       "attributes": {
-         "creationDate": "2024-05-14T15:42:09Z",
-         "mfaAuthenticated": false
-       },
-       "sessionIssuer": {
-         "accountId": "xxxxxxxxxxxx",
-         "arn": "arn:aws:iam::xxxxxxxxxxxx:role/AWS-QuickSetup-xxxxxxxxxxxxxxxxxx",
-         "principalId": "xxxxxxxxxxxxxxxxxxxxx",
-         "type": "Role",
-         "userName": "AWS-QuickSetup-xxxxxxxxxxxxxxxxxx"
-       }
-     },
+     "arn": "arn:aws:sts::xxxxxxxxxxxx:assumed-role/ADFS-Admin/xxxxxxxxxxxxxxxxxxxx",
+     "principalId": "xxxxxxxxxxxxxxxxxxxxx:xxxxxxxxxxxxxxxxxxxx",
+     "sessionContext": {},
      "type": "AssumedRole"
    }
 }
