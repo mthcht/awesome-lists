@@ -6,7 +6,7 @@ B2C IEF Keyset Administrator,aaf43236-0c0d-4d5f-883a-6955382ac081,true,Can manag
 Cloud Application Administrator,158c047a-c907-4556-b7ef-446551a6b5f7,true,Can create and manage all aspects of app registrations and enterprise apps except App Proxy.
 Cloud Device Administrator,7698a772-787b-4ac8-901f-60d6b08affd2,true,Limited access to manage devices in Microsoft Entra ID.
 Conditional Access Administrator,b1be1c3e-b65d-4f19-8427-f6fa0d97feb9,true,Can manage Conditional Access capabilities.
-Directory Synchronization Accounts,d29b2b05-8046-44ba-8758-1e26182fcf32,true,Only used by Microsoft Entra Connect and Microsoft Entra Cloud Sync services.
+,d29b2b05-8046-44ba-8758-1e26182fcf32,true,Only used by Microsoft Entra Connect and Microsoft Entra Cloud Sync services.
 Directory Writers,9360feb5-f418-4baa-8175-e2a00bac4301,true,"Can read and write basic directory information. For granting access to applications, not intended for users."
 Domain Name Administrator,8329153b-31d0-4727-b945-745eb3bc5f31,true,Can manage domain names in cloud and on-premises.
 External Identity Provider Administrator,be2f45a1-457d-42af-a067-6ec1fa63bc45,true,Can configure identity providers for use in direct federation.
@@ -15,6 +15,7 @@ Global Reader,f2ef992c-3afb-46b9-b7cf-a126ee74c451,true,"Can read everything tha
 Helpdesk Administrator,729827e3-9c14-49f7-bb1b-9608f156bbb8,true,Can reset passwords for non-administrators and Helpdesk Administrators.
 Hybrid Identity Administrator,8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2,true,"Manage Active Directory to Microsoft Entra cloud provisioning, Microsoft Entra Connect, pass-through authentication (PTA), password hash synchronization (PHS), seamless single sign-on (seamless SSO), and federation settings. Does not have access to manage Microsoft Entra Connect Health."
 Authentication Extensibility Administrator,25a516ed-2fa0-40ea-a2d0-12923a21473a,true,Customize sign in and sign up experiences for users by creating and managing custom authentication extensions.
+Identity Governance Administrator,45d8d3c5-c802-45c6-b32a-1d70b5e1e86e,true,Manage access using Microsoft Entra ID for identity governance scenarios.	
 Intune Administrator,3a2c62db-5318-420d-8d74-23affee5d9d5,true,Can manage all aspects of the Intune product.
 Lifecycle Workflows Administrator,59d46f88-662b-457b-bceb-5c3809e5908f,true,Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Microsoft Entra ID.
 Partner Tier1 Support,4ba39ca4-527c-499a-b93d-d9b492c50246,true,Do not use - not intended for general use.
@@ -35,7 +36,7 @@ Attribute Definition Reader,1d336d2c-4ae8-42ef-9711-b3604ce3fc2c,false,Read the 
 Attribute Log Administrator,5b784334-f94b-471a-a387-e7219fc49ca2,false,Read audit logs and configure diagnostic settings for events related to custom security attributes.
 Attribute Log Reader,9c99539d-8186-4804-835f-fd51ef9e2dcd,false,Read audit logs related to custom security attributes.
 Authentication Policy Administrator,0526716b-113d-4c15-b2c8-68e3c22b9f80,false,"Can create and manage the authentication methods policy, tenant-wide MFA settings, password protection policy, and verifiable credentials."
-Azure DevOps Administrator,e3973bdf-4987-49ae-837a-ba8e231c7286,false,Can manage Azure DevOps policies and settings.
+Azure DevOps Administrator,e3973bdf-4987-49ae-837a-ba8e231c7286,true,Can manage Azure DevOps policies and settings.
 Azure Information Protection Administrator,7495fdc4-34c4-4d15-a289-98788ce399fd,false,Can manage all aspects of the Azure Information Protection product.
 B2C IEF Policy Administrator,3edaf663-341e-4475-9f94-5c398ef6c070,false,Can create and manage trust framework policies in the Identity Experience Framework (IEF).
 Billing Administrator,b0f54661-2d74-4c50-afa3-1ec803f12efe,false,Can perform common billing related tasks like updating payment information.
@@ -48,21 +49,21 @@ Directory Readers,88d8e3e3-8f55-4a1e-953a-9b9898b8876b,false,Can read basic dire
 Dynamics 365 Administrator,44367163-eba1-44c3-98af-f5787879f96a,false,Can manage all aspects of the Dynamics 365 product.
 Dynamics 365 Business Central Administrator,963797fb-eb3b-4cde-8ce3-5878b3f32a3f,false,Access and perform all administrative tasks on Dynamics 365 Business Central environments.
 Edge Administrator,3f1acade-1e04-4fbc-9b69-f0302cd84aef,false,Manage all aspects of Microsoft Edge.
-Exchange Administrator,29232cdf-9323-42fd-ade2-1d097af3e4de,false,Can manage all aspects of the Exchange product.
+Exchange Administrator,29232cdf-9323-42fd-ade2-1d097af3e4de,true,Can manage all aspects of the Exchange product.
 Exchange Recipient Administrator,31392ffb-586c-42d1-9346-e59415a2cc4e,false,Can create or update Exchange Online recipients within the Exchange Online organization.
 External ID User Flow Administrator,6e591065-9bad-43ed-90f3-e9424366d2f0,false,Can create and manage all aspects of user flows.
 External ID User Flow Attribute Administrator,0f971eea-41eb-4569-a71e-57bb8a3eff1e,false,Can create and manage the attribute schema available to all user flows.
 Fabric Administrator,a9ea8996-122f-4c74-9520-8edcd192826c,false,Can manage all aspects of the Fabric and Power BI products.
 Global Secure Access Administrator,ac434307-12b9-4fa1-a708-88bf58caabc1,false,"Create and manage all aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access, including managing access to public and private endpoints."
-Groups Administrator,fdd7a751-b60b-444a-984c-02652fe8fa1c,false,"Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports."
+Groups Administrator,fdd7a751-b60b-444a-984c-02652fe8fa1c,true,"Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports."
 Guest Inviter,95e79109-95c0-4d8e-aee3-d01accf2d47b,false,Can invite guest users independent of the 'members can invite guests' setting.
 Identity Governance Administrator,45d8d3c5-c802-45c6-b32a-1d70b5e1e86e,false,Manage access using Microsoft Entra ID for identity governance scenarios.
 Insights Administrator,eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c,false,Has administrative access in the Microsoft 365 Insights app.
 Insights Analyst,25df335f-86eb-4119-b717-0ff02de207e9,false,Access the analytical capabilities in Microsoft Viva Insights and run custom queries.
 Insights Business Leader,31e939ad-9672-4796-9c2e-873181342d2d,false,Can view and share dashboards and insights via the Microsoft 365 Insights app.
 Kaizala Administrator,74ef975b-6605-40af-a5d2-b9539d836353,false,Can manage settings for Microsoft Kaizala.
-Knowledge Administrator,b5a8dcf3-09d5-43a9-a639-8e29ef291470,false,"Can configure knowledge, learning, and other intelligent features."
-Knowledge Manager,744ec460-397e-42ad-a462-8b3f9747a02c,false,"Can organize, create, manage, and promote topics and knowledge."
+Knowledge Administrator,b5a8dcf3-09d5-43a9-a639-8e29ef291470,true,"Can configure knowledge, learning, and other intelligent features."
+Knowledge Manager,744ec460-397e-42ad-a462-8b3f9747a02c,true,"Can organize, create, manage, and promote topics and knowledge."
 License Administrator,4d6ac14f-3453-41d0-bef9-a3e0c569773a,false,Can manage product licenses on users and groups.
 Message Center Privacy Reader,ac16e43d-7b2d-40e0-ac05-243ff356ab5b,false,Can read security messages and updates in Office 365 Message Center only.
 Message Center Reader,790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b,false,Can read messages and updates for their organization in Office 365 Message Center only.
@@ -73,6 +74,7 @@ Microsoft Hardware Warranty Specialist,281fe777-fb20-4fbb-b7a3-ccebce5b0d96,fals
 Modern Commerce Administrator,d24aef57-1500-4070-84db-2666f29cf966,false,"Can manage commercial purchases for a company, department or team."
 Network Administrator,d37c8bed-0711-4417-ba38-b4abe66ce4c2,false,Can manage network locations and review enterprise network design insights for Microsoft 365 Software as a Service applications.
 Office Apps Administrator,2b745bdf-0803-4d80-aa65-822c4493daac,false,"Can manage Office apps cloud services, including policy and settings management, and manage the ability to select, unselect and publish 'what's new' feature content to end-user's devices."
+On Premises Directory Sync Account,a92aed5d-d78a-4d16-b381-09adb37eb3b0,true,similar to Directory Synchronization Accounts
 Organizational Branding Administrator,92ed04bf-c94a-4b82-9729-b799a7a4c178,false,Manage all aspects of organizational branding in a tenant.
 Organizational Messages Approver,e48398e2-f4bb-4074-8f31-4586725e205b,false,"Review, approve, or reject new organizational messages for delivery in the Microsoft 365 admin center before they are sent to users."
 Organizational Messages Writer,507f53e4-4e52-4077-abd3-d2e1558b6ea2,false,"Write, publish, manage, and review the organizational messages for end-users through Microsoft product surfaces."
@@ -84,10 +86,10 @@ Reports Reader,4a5d8f65-41da-4de4-8968-e035b65339cf,false,Can read sign-in and a
 Search Administrator,0964bb5e-9bdb-4d7b-ac29-58e794862a40,false,Can create and manage all aspects of Microsoft Search settings.
 Search Editor,8835291a-918c-4fd7-a9ce-faa49f0cf7d9,false,"Can create and manage the editorial content such as bookmarks, Q and As, locations, floorplan."
 Service Support Administrator,f023fd81-a637-4b56-95fd-791ac0226033,false,Can read service health information and manage support tickets.
-SharePoint Administrator,f28a1f50-f6e7-4571-818b-6a12f2af6b6c,false,Can manage all aspects of the SharePoint service.
+SharePoint Administrator,f28a1f50-f6e7-4571-818b-6a12f2af6b6c,true,Can manage all aspects of the SharePoint service.
 SharePoint Embedded Administrator,1a7d78b6-429f-476b-b8eb-35fb715fffd4,false,Manage all aspects of SharePoint Embedded containers.
 Skype for Business Administrator,75941009-915a-4869-abe7-691bff18279e,false,Can manage all aspects of the Skype for Business product.
-Teams Administrator,69091246-20e8-4a56-aa4d-066075b2a7a8,false,Can manage the Microsoft Teams service.
+Teams Administrator,69091246-20e8-4a56-aa4d-066075b2a7a8,true,Can manage the Microsoft Teams service.
 Teams Communications Administrator,baf37b3a-610e-45da-9e62-d9d1e5e8914b,false,Can manage calling and meetings features within the Microsoft Teams service.
 Teams Communications Support Engineer,f70938a0-fc10-4177-9e90-2178f8765737,false,Can troubleshoot communications issues within Teams using advanced tools.
 Teams Communications Support Specialist,fcf91098-03e3-41a9-b5ba-6f0ec8188a12,false,Can troubleshoot communications issues within Teams using basic tools.
@@ -99,6 +101,6 @@ User Experience Success Manager,27460883-1df1-4691-b032-3b79643e5e63,false,"View
 Virtual Visits Administrator,e300d9e7-4a2b-4295-9eff-f1c78b36cc98,false,Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app.
 Viva Goals Administrator,92b086b3-e367-4ef2-b869-1de128fb986e,false,Manage and configure all aspects of Microsoft Viva Goals.
 Viva Pulse Administrator,87761b17-1ed2-4af3-9acd-92a150038160,false,Can manage all settings for Microsoft Viva Pulse app.
-Windows 365 Administrator,11451d60-acb2-45eb-a7d6-43d0f0125c13,false,Can provision and manage all aspects of Cloud PCs.
+Windows 365 Administrator,11451d60-acb2-45eb-a7d6-43d0f0125c13,true,Can provision and manage all aspects of Cloud PCs.
 Windows Update Deployment Administrator,32696413-001a-46ae-978c-ce0f6b3620d2,false,Can create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service.
-Yammer Administrator,810a2642-a034-447f-a5e8-41beaa378541,false,Manage all aspects of the Yammer service.
+Yammer Administrator,810a2642-a034-447f-a5e8-41beaa378541,true,Manage all aspects of the Yammer service.
