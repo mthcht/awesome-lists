@@ -72,4 +72,9 @@ json format example:
 ```
 
 ### Graph API
-fixme
+
+Microsoft recently introduced a new role property, isPrivileged, in the Graph API, as detailed here https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center
+
+You can retrieve all privileged roles using the following Graph API query: `GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=isPrivileged eq true`
+
+But i did not found this information with the graph API logs usually collected with Splunk, it's possible that there is a specific splunk addon or configuration to get this information in the SIEM i am not ware of, if anyone did this please contact me @mthcht on twitter or add a PR to this project :)
