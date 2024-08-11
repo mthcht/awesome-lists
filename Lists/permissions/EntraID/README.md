@@ -6,6 +6,8 @@
 
 Assigned roles can be found with `category="RoleManagement" activityDisplayName="Add member to role" operationType="Assign"`
 
+initiatedBy
+
 json format example:
 ```json
 {
@@ -70,6 +72,18 @@ json format example:
 }
 
 ```
+
+#### Initiated By Fields:
+(*who initiated the action*)
+- initiatedBy.user: Who initiated the action (if it's a user).
+- initiatedBy.app.displayName: Name of the application/service that initiated the action.
+
+##### Target Resource Fields:
+(*What/Who was added or modified*)
+- targetResources[].id: Unique identifier for the target resource. Important for identifying the specific user or role involved in the action.
+- targetResources[].type: The type of resource affected (e.g., "User", "Role")
+- targetResources[].userPrincipalName: The UPN (User Principal Name) of the user involved. Essential for identifying which users are affected by the action.
+- targetResources[].modifiedProperties: Describes what properties were changed. Helps in understanding the roles ID and names assigned to a user (for an assign operation here) 
 
 ### Graph API
 
