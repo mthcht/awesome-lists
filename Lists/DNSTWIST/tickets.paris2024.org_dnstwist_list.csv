@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,tickets.paris2024.org,23.53.35.135,2600:1408:ec00:b::1730:cbaa,mxa-0072c901.gslb.pphosted.com,a1-222.akam.net
+*original,tickets.paris2024.org,96.6.42.136,2600:1408:c400:11::17cd:6b45,mxa-0072c901.gslb.pphosted.com,a1-222.akam.net
 addition,tickets.paris20240.org,,,,
 addition,tickets.paris20241.org,,,,
 addition,tickets.paris20242.org,,,,
@@ -1758,7 +1758,6 @@ replacement,tickets.parid2024.org,127.0.0.1,,,
 replacement,tickets.parie2024.org,,,,
 replacement,tickets.paris1024.org,127.0.0.1,,,
 replacement,tickets.paris2014.org,127.0.0.1,,,
-replacement,tickets.paris2023.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 replacement,tickets.paris202e.org,,,,
 replacement,tickets.paris202r.org,,,,
 replacement,tickets.paris20a4.org,,,,
@@ -1778,6 +1777,7 @@ replacement,tickets.psris2024.org,127.0.0.1,,,
 replacement,tickets.pwris2024.org,127.0.0.1,,,
 replacement,tickets.pyris2024.org,127.0.0.1,,,
 replacement,tickets.pzris2024.org,127.0.0.1,,,
+replacement,tickets.paris2023.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 replacement,tickets.pariz2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 replacement,tickets.paros2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
 replacement,tickets.parus2024.org,170.39.226.155,!ServFail,mail.parktons.com,ns1.radinko.com
@@ -1791,10 +1791,10 @@ subdomain,tickets.paris20.24.org,173.255.194.134,,,ns1.mytrafficmanagement.com
 transposition,tickets.apris2024.org,127.0.0.1,,,
 transposition,tickets.pari2s024.org,127.0.0.1,,,
 transposition,tickets.paris0224.org,127.0.0.1,,,
+transposition,tickets.parsi2024.org,127.0.0.1,,,
 transposition,tickets.pairs2024.org,199.59.243.226,,,
 transposition,tickets.paris2042.org,,,,
 transposition,tickets.paris2204.org,127.0.0.1,,,
-transposition,tickets.parsi2024.org,127.0.0.1,,,
 transposition,tickets.prais2024.org,127.0.0.1,,,
 various,tickets-paris2024.org,,,,ns-143-b.gandi.net
 various,tickets.paris2024-org.com,,,,
