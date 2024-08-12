@@ -369,6 +369,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [HackerNews Feed](https://feeds.feedburner.com/TheHackersNews)
 - [Bleepingcomputer Feed](https://www.bleepingcomputer.com/feed/)
 - [detect.fyi](https://detect.fyi/)
+- [DFIR Podcasts](https://digitalforensicsurvivalpodcast.libsyn.com/podcast)
+- [DFIR weekly news](https://thisweekin4n6.com/)
 </details>
 
 ### Formations
