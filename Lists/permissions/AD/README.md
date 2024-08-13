@@ -1,6 +1,6 @@
 ## Monitor Critical AD Groups
 
-Monitors and detects modifications to privileged Active Directory groups to prevent unauthorized access using my list and these Security Event IDs:
+Detect modifications to privileged Active Directory groups to prevent unauthorized access using my list and these Security Event IDs:
 
 - **4727:** A security-enabled global group was created.
 - **4728:** A member was added to a security-enabled global group.
