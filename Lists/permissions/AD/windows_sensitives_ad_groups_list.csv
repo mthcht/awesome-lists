@@ -41,6 +41,7 @@ ESXi Admins,,members are granted full administrative access to the ESXi hypervis
 "Administrateurs du schéma","S-1-5-21-*-518","Modifie la structure du schéma AD; pourrait ajouter des portes dérobées dans les modifications de schéma pour créer des entrées malveillantes persistantes et difficiles à détecter"
 "Admins del esquema","S-1-5-21-*-518","Modifica la estructura del esquema AD; podría agregar puertas traseras en los cambios de esquema para crear entradas maliciosas persistentes y difíciles de detectar"
 "Server Operators","S-1-5-32-549","Local logon and server management on DC; could be used to gain physical access and control over DC settings"
+"Storage Replica Administrators","S-1-5-32-582","A local group that represents storage replica admins"
 "Opérateurs de serveur","S-1-5-32-549","Connexion locale et gestion des serveurs sur le DC; pourrait être utilisé pour accéder physiquement et contrôler les paramètres du DC"
 "Operadores de servidor","S-1-5-32-549","Inicio de sesión local y gestión de servidores en el DC; podría ser utilizado para obtener acceso físico y control sobre la configuración del DC"
 "Key Admins","S-1-5-21-*-529","Manages cryptographic keys across the domain; compromise could lead to unauthorized decryption and data access"
