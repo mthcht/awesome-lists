@@ -16,6 +16,8 @@ Monitors and detects modifications to privileged Active Directory groups to prev
 - **4783:** A security-enabled global group was deleted.
 - **4790:** An LDAP query group was changed.
 
+I initially shared my list on Twitter here: https://x.com/mthcht/status/1818196168515461431, and then updated this README accordingly, let me know if i should include something else for the detection
+
 ### Splunk Search:
 
 **Best detection using only the AD group SID**
