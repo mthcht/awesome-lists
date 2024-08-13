@@ -41,3 +41,4 @@ I initially shared my list on Twitter here: https://x.com/mthcht/status/18181961
   [|inputlookup windows_sensitives_ad_groups_list.csv | table dest_group] OR [|inputlookup windows_sensitives_ad_groups_list.csv | table dest_group_id]
 ```
 
+Note: Authorized admins may legitimately modify privileged groups. Ensure group changes are approved and align with routine admin tasks, considering the context and user involved.
