@@ -1,4 +1,9 @@
 file_path,metadata_comment
+*.MyChemicalRomance4EVER, LambdaLocker ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
+*.carone,TargetCompany ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
+*.architek,TargetCompany ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
+*.exploit,TargetCompany + Globe ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
+*.mallox,TargetCompany ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
 *.61gutq,Prometheus ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
 *.uo8bpy,Prometheus ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
 *.9ten0p,Prometheus ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
@@ -6,6 +11,7 @@ file_path,metadata_comment
 *.CRYSTAL,Prometheus ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
 *.y9sx7x,Prometheus ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
 *.reofgv,Prometheus ransomware https://www.avast.com/en-us/ransomware-decryption-tools#pc
+*.frozen,Globe ransomware
 *.knight_l,Knight Ransomware https://tria.ge/230901-c2fbqacb36
 *.hardbit2,Hardbit ransomware https://www.varonis.com/blog/hardbit-2.0-ransomware
 *.hardbit,Hardbit ransomware https://www.varonis.com/blog/hardbit-2.0-ransomware
@@ -29,7 +35,6 @@ file_path,metadata_comment
 *.7z.encrypted,
 *.7zipper,
 *.8c7f,
-*.8lock8,
 *.911,
 *.AES,
 *.AES256,
@@ -58,8 +63,11 @@ file_path,metadata_comment
 *.FenixIloveyou!!,
 *.FuckYourData,
 *.Fuck_You,
-*.GSupport*,
-*.GSupport,
+*.GSupport*,Globe ransomware
+*.GSupport,Globe ransomware
+*.blackblock,Globe ransomware
+*.duhust,Globe ransomware
+*.dll555,Globe ransomware
 *.GWS,
 *.H3LL,
 *.HA3,
@@ -68,7 +76,7 @@ file_path,metadata_comment
 *.KEYH0LES,
 *.KEYHOLES,
 *.KEYZ,
-*.KKK,
+*.KKK,Jigsaw ransomware
 *.l0ck,
 *.L0CKED,
 *.L0cked,
@@ -150,7 +158,6 @@ file_path,metadata_comment
 *.barracuda,
 *.bart,Bart ransomware
 *.bart.zip,Bart ransomware
-*.better_call_saul,
 *.bip,Bip ransomware
 *.birbb,
 *.bitkangoroo,
@@ -163,11 +170,25 @@ file_path,metadata_comment
 *.block,
 *.boom,
 *.braincrypt,
-*.breaking_bad,
+*.breaking_bad,Troldesh / Shade or Encoder.858 ransomware
+*.heisenberg,Troldesh / Shade or Encoder.858 ransomware
+*.better_call_saul,Troldesh / Shade or Encoder.858 ransomware
+*.los_pollos,Troldesh / Shade or Encoder.858 ransomware
+*.da_vinci_code,Troldesh / Shade or Encoder.858 ransomware
+*.magic_software_syndicate,Troldesh / Shade or Encoder.858 ransomware
+*.no_more_ransom,Troldesh / Shade or Encoder.858 ransomware
+*.windows8,Troldesh / Shade or Encoder.858 ransomware
+*.windows10,Troldesh / Shade or Encoder.858 ransomware
+*.tyson,Troldesh / Shade or Encoder.858 ransomware
+*.crypted000007,Troldesh / Shade or Encoder.858 ransomware
+*.crypted000078,Troldesh / Shade or Encoder.858 ransomware
+*.rsa3072,Troldesh / Shade or Encoder.858 ransomware
+*.decrypt_it,Troldesh / Shade or Encoder.858 ransomware
+*.miami_california,Troldesh / Shade or Encoder.858 ransomware
 *.breeding123,
 *.bript,
 *.brrr,
-*.btc,
+*.btc,Jigsaw ransomware
 *.btc-help-you,
 *.btcbtcbtc,
 *.cancer,
@@ -206,7 +227,11 @@ file_path,metadata_comment
 *.crYptD,
 *.crYptE,
 *.crYptF,
-*.crab,Crab ransomware
+*.crab,GandCrab ransomware
+*.GDCB,GandCrab ransomware
+*.KRAB,GandCrab ransomware
+*.FONIX,Fonix ransomware
+*.XINOF,Fonix ransomware
 *.crashed,
 *.crime,
 *.crinf,
@@ -221,7 +246,7 @@ file_path,metadata_comment
 *.cryakl,
 *.cryeye,
 *.cryp1,
-*.crypt,
+*.crypt,FindZip ransomware
 *.crypt38,
 *.crypte,
 *.crypted,
@@ -243,7 +268,6 @@ file_path,metadata_comment
 *.czvxce,
 *.d4nk,
 *.dCrypt,
-*.da_vinci_code,
 *.dale,
 *.damage,
 *.darkcry,DarkCry ransomware
@@ -259,7 +283,6 @@ file_path,metadata_comment
 *.disposed2017,
 *.divine,
 *.domino,
-*.doomed,
 *.doubleoffset,
 *.dxxd,
 *.dyatel@qq_com,
@@ -274,7 +297,7 @@ file_path,metadata_comment
 *.encoderpass,
 *.encr,
 *.encrypt,
-*.encrypted,
+*.encrypted,Jigsaw ransomware
 *.encrypted,P2Pinfect
 *.encryptedAES,
 *.encryptedRSA,
@@ -296,16 +319,31 @@ file_path,metadata_comment
 *.filock,
 *.firecrypt,FireCrypt ransomware
 *.flamingo,
-*.flyper,
 *.frtrss,
 *.fs0ciety,
 *.fuck,
-*.fucked,
 *.fucku,
 *.fun,
 *.gamma,Gamma ransomware
-*.gefickt,
+*.gefickt,Jigsaw ransomware
 *.gembok,
+*.bloccato,HiddenTear ransomware
+*.fucked,HiddenTear ransomware
+*.flyper,HiddenTear ransomware
+*.Hollycrypt,HiddenTear ransomware
+*.8lock8,HiddenTear ransomware
+*.monstro,HiddenTear ransomware
+*.unlockit,HiddenTear ransomware
+*.saeid,HiddenTear ransomware
+*.mecpt,HiddenTear ransomware
+*.lok,HiddenTear ransomware
+*.BUGSECCCC,HiddenTear ransomware
+*.krypted,HiddenTear ransomware
+*.CAZZO,HiddenTear ransomware
+*.kratos,HiddenTear ransomware
+*.doomed,HiddenTear ransomware
+*.encryptedJB,HermeticRansom
+*.ACRYPT,Globe ransomware
 *.globe,Globe ransomware
 *.glutton,
 *.goforhelp,
@@ -314,7 +352,7 @@ file_path,metadata_comment
 *.grt,
 *.gruzin@qq_com,
 *.gryphon,
-*.gws,
+*.gws,Jigsaw ransomware
 *.ha3,
 *.hairullah@inbox.lv,
 *.hakunamatata,
@@ -372,9 +410,9 @@ file_path,metadata_comment
 *.kostya,
 *.kr3,
 *.krab,Krab ransomware
+*.purged,Globe ransomware
 *.kraken,
-*.kratos,
-*.kyra,
+*.kyra,Globe ransomware
 *.lambda_l0cked,
 *.lcked,
 *.lechiffre,LeChiffre ransomware
@@ -414,7 +452,6 @@ file_path,metadata_comment
 *.nalog@qq_com,
 *.nemo-hacks.at.sigaint.org,
 *.nemucod,
-*.no_more_ransom,
 *.nobad,
 *.nochance,
 *.nolvalid,
@@ -444,21 +481,23 @@ file_path,metadata_comment
 *.p5tkjw,
 *.pablukcrypt,
 *.padcrypt,PadCrypt ransomware
-*.paybtcs,
-*.paym,
-*.paymrss,
-*.payms,
-*.paymst,
-*.paymts,
-*.payransom,
-*.payrms,
-*.payrmts,
-*.pays,
+*.paybtcs,Jigsaw ransomware
+*..payb,Jigsaw ransomware
+*.paym,Jigsaw ransomware
+*.paymrss,Jigsaw ransomware
+*.payms,Jigsaw ransomware
+*.paymst,Jigsaw ransomware
+*.paymts,Jigsaw ransomware
+*.payransom,Jigsaw ransomware
+*.payrms,Jigsaw ransomware
+*.payrmts,Jigsaw ransomware
+*.pays,Jigsaw ransomware
 *.paytounlock,
+*.pornoransom,Jigsaw ransomware
 *.pdcr,
 *.pec,
 *.pizda@qq_com,
-*.porno,
+*.porno,Jigsaw ransomware
 *.potato,
 *.powerfulldecryp,
 *.powerfulldecrypt,
@@ -472,7 +511,18 @@ file_path,metadata_comment
 *.r16m,
 *.r3store,
 *.r5a,
-*.raid10,
+*.siri-down@india.com,Globe ransomware
+*.raid10,Globe ransomware
+*.raid9,Globe ransomware
+*.raid8,Globe ransomware
+*.raid7,Globe ransomware
+*.raid6,Globe ransomware
+*.raid5,Globe ransomware
+*.raid4,Globe ransomware
+*.raid3,Globe ransomware
+*.raid2,Globe ransomware
+*.raid1,Globe ransomware
+
 *.rastakhiz,
 *.razy,Razy ransomware
 *.rdm,
@@ -525,7 +575,7 @@ file_path,metadata_comment
 *.trun,
 *.ttt,
 *.tzu,
-*.uk-dealer@sigaint.org,
+*.uk-dealer@sigaint.org,Jigsaw ransomware
 *.umbreCrypt,
 *.unavailable,
 *.unlockvt@india.com,
@@ -549,7 +599,6 @@ file_path,metadata_comment
 *.weareyourfriends,
 *.weencedufiles,
 *.wflx,
-*.windows10,
 *.wlu,
 *.wncry,WannaCry ransomware
 *.wncrypt,WannaCry ransomware
@@ -566,7 +615,9 @@ file_path,metadata_comment
 *.xort,
 *.xrnt,
 *.xrtn,
-*.xtbl,
+*.xtbl,Globe ransomware
+*.zendrz,Globe ransomware
+*.hnyear,Globe ransomware
 *.xxx,
 *.xyz,
 *.ya.ru,
@@ -575,7 +626,15 @@ file_path,metadata_comment
 *.zXz,
 *.zc3791,
 *.zcrypt,
-*.zendr4,
+*.zendr9,Globe ransomware
+*.zendr8,Globe ransomware
+*.zendr7,Globe ransomware
+*.zendr6,Globe ransomware
+*.zendr4,Globe ransomware
+*.zendr5,Globe ransomware
+*.zendr3,Globe ransomware
+*.zendr2,Globe ransomware
+*.zendr1,Globe ransomware
 *.zepto,
 *.zepto,Zepto ransomware
 *.zorro,
