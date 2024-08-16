@@ -148,9 +148,23 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   
 </details> 
 
+### TI TTP
+
+<details>
+- [Tools used by ransomware groups - @BushidoToken](https://github.com/BushidoUK/Ransomware-Tool-Matrix)
+- [Techniques - MITRE ATT&CK](https://attack.mitre.org/techniques/enterprise/)
+- [Tactics - MITRE ATT&CK](https://attack.mitre.org/tactics/enterprise/)
+- [Mitigation - MITRE ATT&CK](https://attack.mitre.org/mitigations/enterprise/)
+- [ATT&CK matrix navigator](https://mitre-attack.github.io/attack-navigator/)
+- [All MITRE data in xlsx format](https://attack.mitre.org/resources/attack-data-and-tools/) 
+- [Tools used by threat actor groups - MITRE ATT&CK](https://attack.mitre.org/software/)
+- [atomic-red-team](https://github.com/redcanaryco/atomic-red-team)
+- [redcanary Threat Detection report](https://redcanary.com/threat-detection-report/)
+</details>
+
 ###  Investigation
 
-#### TI
+#### TI checks
 
 <details>
   
@@ -184,12 +198,6 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [AlienVault OTX](https://otx.alienvault.com/)
   - [greynoise](https://viz.greynoise.io/)
   - [whoxy](https://www.whoxy.com/reverse-whois/)
-
-</details>
-
-#### More TI
-
-<details>
   
   - [echotrail](https://www.echotrail.io/)
   - [Malware-Traffic-Analysis (PCAP files)](https://malware-traffic-analysis.net/)
@@ -207,8 +215,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [fofa.info](https://fofa.info/)
   - [SecurityTrail](https://securitytrails.com/)
   - [ZommEye](https://www.zoomeye.hk/)
-</details>
 
+</details>
 
 #### Sandbox
 
