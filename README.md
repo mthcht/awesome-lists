@@ -410,6 +410,26 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
  </details>
 
+### LAB
+
+<details>
+
+- [ludus](https://gitlab.com/badsectorlabs/ludus) 
+- [GOAD](https://github.com/Orange-Cyberdefense/GOAD)
+- [flare-fakenet-ng](https://github.com/mandiant/flare-fakenet-ng)
+- [flare-vm](https://github.com/mandiant/flare-vm)
+- [StratosphereLinuxIPS](https://github.com/stratosphereips/StratosphereLinuxIPS)
+- [maltrail](https://github.com/stamparm/maltrail)
+- [openbas](https://github.com/OpenBAS-Platform/openbas)
+- [LLM honeypot galah](https://github.com/0x4D31/galah)
+- [honeypot canary](https://github.com/thinkst/opencanary)
+- [Respoter](https://github.com/lawndoc/Respotter)
+- [HEDnsExtractor](https://github.com/HuntDownProject/HEDnsExtractor)
+- [iris-web](https://github.com/dfir-iris/iris-web)
+- [JonMon](https://github.com/jsecurity101/JonMon)
+- [OpenCTI](https://github.com/OpenCTI-Platform/opencti)
+
+</details>
 
 ### Others
 
