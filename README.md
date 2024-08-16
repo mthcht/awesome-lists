@@ -22,6 +22,7 @@
   - [HTML Smuggling artifacts](https://mthcht.medium.com/detecting-html-smuggling-phishing-attempts-15af824e60e4)
   - [PSEXEC & similar tools Searches](https://mthcht.medium.com/detecting-psexec-and-similar-tools-c812bf3dca6c)
   - [Time Slipping detection](https://mthcht.medium.com/event-log-manipulations-1-time-slipping-55bf95631c40)
+    
 </details>
 
 ## My Detection Lists 
@@ -151,6 +152,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 ### TI TTP
 
 <details>
+  
 - [Tools used by ransomware groups - @BushidoToken](https://github.com/BushidoUK/Ransomware-Tool-Matrix)
 - [Techniques - MITRE ATT&CK](https://attack.mitre.org/techniques/enterprise/)
 - [Tactics - MITRE ATT&CK](https://attack.mitre.org/tactics/enterprise/)
@@ -160,6 +162,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Tools used by threat actor groups - MITRE ATT&CK](https://attack.mitre.org/software/)
 - [atomic-red-team](https://github.com/redcanaryco/atomic-red-team)
 - [redcanary Threat Detection report](https://redcanary.com/threat-detection-report/)
+  
 </details>
 
 ###  Investigation
