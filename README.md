@@ -149,7 +149,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   
 </details> 
 
-### TI TTP
+### TI TTP/Framework/Model
 
 <details>
   
@@ -162,7 +162,11 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Tools used by threat actor groups - MITRE ATT&CK](https://attack.mitre.org/software/)
 - [atomic-red-team](https://github.com/redcanaryco/atomic-red-team)
 - [redcanary Threat Detection report](https://redcanary.com/threat-detection-report/)
-  
+- [The-Unified-Kill-Chain](https://www.unifiedkillchain.com/assets/The-Unified-Kill-Chain.pdf)
+- [TTP pyramid](https://scythe.io/library/summiting-the-pyramid-of-pain-the-ttp-pyramid)
+- [Pyramid of pain](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html)
+- [Cyber Kill chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
+
 </details>
 
 ###  Investigation
@@ -383,6 +387,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [detect.fyi](https://detect.fyi/)
 - [DFIR Podcasts](https://digitalforensicsurvivalpodcast.libsyn.com/podcast)
 - [DFIR weekly news](https://thisweekin4n6.com/)
+- [sans blog](https://www.sans.org/blog/)
+  
 </details>
 
 ### Formations
