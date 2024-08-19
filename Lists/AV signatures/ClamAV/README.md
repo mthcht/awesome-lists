@@ -10,3 +10,5 @@ Signatures Extraction on windows:
 \clamav> .\clamav-1.4.0.win.x64\sigtool.exe --unpack .\main.cvd
 \clamav> .\clamav-1.4.0.win.x64\sigtool.exe --unpack .\daily.cvd
 ```
+
+This will extract the .ndb, .hdb, .ldb, etc., files containing the actual signatures.
