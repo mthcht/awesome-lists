@@ -61,7 +61,8 @@
 - 🧬 Offensive Tools detection patterns: [offensive_tool_keywords.csv](https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/offensive_tool_keyword.csv)
 - 🧬 Greyware Tools detection patterns: [greyware_tool_keyword.csv](https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/greyware_tool_keyword.csv)
 - 🧬 AV signatures keywords: [signature_keyword.csv](https://github.com/mthcht/ThreatHunting-Keywords/blob/main/signature_keyword.csv)
-- 🧬 Microsoft Defender AV signatures lists: [[Defender]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/Defender)  
+- 🧬 Microsoft Defender AV signatures lists: [[Defender]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/Defender)
+- 🧬 ClamAV signatures lists: [[ClamAV]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/ClamAV)  
 - 🔗 Others correlation Lists: [[Others]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others)
 - 📋 Lists i need to finish: [[todo]](https://github.com/mthcht/awesome-lists/tree/main/todo)
 
