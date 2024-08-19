@@ -40,4 +40,4 @@ This will extract the .ndb, .hdb, .ldb, etc., files containing the actual signat
 - *.info (e.g., daily.info, main.info)
   - These files contain metadata about the signature databases themselves, including version information and database size. These are useful for tracking the updates and versions of the signature databases.
 
-Github is limiting the size of files in this repo, so i am only adding the signatures names for references
+Github is limiting the size of files in this repo, so i am only adding the small files and the signatures names for references
