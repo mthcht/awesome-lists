@@ -1,6 +1,8 @@
 import os
 from collections import defaultdict
 
+# Extract the signature categories from all the ClamAV signatures of ClamAV_All_signatures_list.csv into the signatures folder
+
 signatures_file = 'ClamAV_All_signatures_list.csv' 
 signatures_by_category = defaultdict(list)
 
