@@ -168,6 +168,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Pyramid of pain](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html)
 - [Cyber Kill chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
 - [MITRE D3FEND](https://d3fend.mitre.org/)
+- [MITRE CAPEC](https://capec.mitre.org/)
 - [Ransomware.live](https://ransomware.live)
 
 </details>
