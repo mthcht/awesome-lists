@@ -201,6 +201,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 50002,Anydesk outbound connections,info,RMM,hunting
 50003,Anydesk outbound connections,info,RMM,hunting
 50050,sharpc2 and cobaltstrike default port,high,C2,detection_rule
+52935,C3 webcontroller default port,medium,C2,https://github.com/WithSecureLabs/C3/blob/e1b9922d199e45e222001a3afe47757349f24e7a/StartWebController.cmd#L4
 53531,dnscat2 default port,high,C2,detection_rule
 54320,Back Orifice backdoor,medium,malware,hunting
 55553,Metasploit RPC daemon default port also used by Armitage team server,high,exploitation,detection_rule
