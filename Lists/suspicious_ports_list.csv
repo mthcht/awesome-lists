@@ -148,6 +148,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 8443,AlanFramework C2 default port but also many other legitimate services,low,C2,hunting
 8848,DcRat,medium,malware,hunting
 8888,POSHC2 default port but also legit usages,medium,exploitation,hunting
+8936,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting
 8999,PrimusC2,medium,malware,hunting
 9001,default port used by the Tor network,high,Defense Evasion,detection_rule
 9050,default port used by the Tor network for its SOCKS proxy also used by MaccaroniC2 proxy,high,Defense Evasion,detection_rule
@@ -157,6 +158,8 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 9235,TacticalRMM RMM tool default port,high,RMM,hunting
 9631,hardhatC2 default port and other legit usages,high,C2,detection_rule
 9931,SoftEtherVPN default port,low,Defense Evasion,hunting
+9936,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting
+9966,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting
 9984,SoftEtherVPN default port,low,Defense Evasion,hunting
 9988,Rbot-GR trojan and other legit usages,medium,malware,hunting
 9999,rpivot + DarkComet + netcat listener default port examples but also legit usages,low,malware,hunting
