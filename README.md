@@ -169,6 +169,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Cyber Kill chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
 - [MITRE D3FEND](https://d3fend.mitre.org/)
 - [MITRE CAPEC](https://capec.mitre.org/)
+- [MITRE CAR](https://car.mitre.org/)
 - [MITRE PRE-ATT&CK Techniques](https://attack.mitre.org/versions/v7/techniques/pre/)
 - [Ransomware.live](https://ransomware.live)
 
