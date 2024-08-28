@@ -1,5 +1,5 @@
 device_id,vendor_id,product_id,metadata_product,metadata_description,metadata_severity,metadata_link,metadata_comment,metadata_device_friendly_name
-*HID\VID_F000&PID_FF01\*,F000,FF01,Hak5 Key Croc,USB keylogger,critical,N/A,tested by @mthcht,HID Keyboard Device
+*HID\VID_F000&PID_FF01\*,F000,FF01,Hak5 Key Croc,USB keylogger,medium,N/A,tested by @mthcht - false positives expected - include the friendly name usually parsed in DeviceDescription in 6416 EventID,HID Keyboard Device
 *USB\VID_1D50&PID_6089\0000000000000000909864C8382BA8CF*,1D50,6089,HackRf One,Software Defined Radio peripheral capable of transmission or reception of radio signals,high,https://greatscottgadgets.com/hackrf/one/,tested by @mthcht,HackRF One
 *USB\VID_18D1&PID_4EE7\KYLIN*,18D1,4EE7,Hak5 Screen Crab,stealthy video man-in-the-middle HDMI implant,critical,N/A,tested by @mthcht,Hak5 Screen Crab FunctionFS gadget (adb)
 *HID\VID_03EB&PID_2401&REV_0100*,03EB,2401,Hak5 Rubber Ducky,keystroke injection tool,critical,https://lothardware.com.tr/hak5-rubber-ducky/,"Using ATTACKMODE HID",
