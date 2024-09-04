@@ -538,12 +538,12 @@
             "compliance.microsoft.com",
             "defender.microsoft.com",
             "protection.office.com",
+            "purview.microsoft.com",
             "security.microsoft.com"
         ],
         "ips": [
             "13.107.6.192/32",
             "13.107.9.192/32",
-            "52.108.0.0/14",
             "2620:1ec:4::192/128",
             "2620:1ec:a92::192/128"
         ],
@@ -563,19 +563,6 @@
         "expressRoute": false,
         "category": "Default",
         "required": true
-    },
-    {
-        "id": 67,
-        "serviceArea": "Common",
-        "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
-        "urls": [
-            "*.blob.core.windows.net"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": false,
-        "notes": "Security and Compliance Center eDiscovery export"
     },
     {
         "id": 68,
