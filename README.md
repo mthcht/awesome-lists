@@ -298,7 +298,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 ### Detection Resources
 
 <details>
-  
+
+- [Detection Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists)
 - [MITRE techniques](https://attack.mitre.org/techniques/enterprise/)
 - [MITRE Updates](https://attack.mitre.org/resources/updates/)
 - [MITRE D3fend](https://d3fend.mitre.org/)
