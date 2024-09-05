@@ -308,6 +308,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [LOLBAS](https://github.com/mthcht/LOLBAS)
 - [LOTS](https://lots-project.com/)
 - [loldrivers](https://www.loldrivers.io/)
+- [LOLRMM](https://github.com/magicsword-io/LOLRMM)
 - [WTFBIN](https://wtfbins.wtf/)
 - [Sigma](https://github.com/mthcht/sigma/tree/master/rules)
 - [Splunk Rules](https://research.splunk.com/detections/)
