@@ -406,7 +406,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 </details>
 
 
-### Youtube channels
+### Youtube/Twitch channels
 
 <details>
   
@@ -421,7 +421,13 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [DFIR - binaryzone](https://www.youtube.com/@binaryz0ne/playlists)
   - [Exploitation - HackerSploit](https://www.youtube.com/@HackerSploit/playlists)
   - [DFIR - TheTaggartInstitute](https://www.youtube.com/@TheTaggartInstitute/videos)
+  - [Malware Analysis - JohnHammond](https://www.youtube.com/@_JohnHammond)
   - [Exploitation - Defcon Talks](https://www.youtube.com/user/DEFCONConference/videos)  + https://media.defcon.org/
+  - [Exploitation - Alh4zr3d - twitch](https://www.twitch.tv/Alh4zr3d)
+  - [Exploitation - Alh4zr3d - youtube](https://www.youtube.com/@alh4zr3d3/videos)
+  - [Malware Analysis - MalwareTechBlog](https://www.youtube.com/@MalwareTechBlog)
+  - [Exploitation - LiveOverflow](https://www.youtube.com/@LiveOverflow)
+  - [!!! Exploitation - ippsec](https://www.youtube.com/@ippsec)
 
 </details>
 
