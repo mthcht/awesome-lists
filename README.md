@@ -421,6 +421,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [DFIR - binaryzone](https://www.youtube.com/@binaryz0ne/playlists)
   - [Exploitation - HackerSploit](https://www.youtube.com/@HackerSploit/playlists)
   - [DFIR - TheTaggartInstitute](https://www.youtube.com/@TheTaggartInstitute/videos)
+  - [Exploitation - Defcon Talks](https://www.youtube.com/user/DEFCONConference/videos)  + https://media.defcon.org/
 
 </details>
 
