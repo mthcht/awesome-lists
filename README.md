@@ -354,6 +354,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Volatility](https://github.com/volatilityfoundation/volatility3/)
   - [Windows artifacts](https://github.com/Psmths/windows-forensic-artifacts)
   - [UAC](https://github.com/tclahr/uac)
+  - [lists - aboutdfir.com](https://aboutdfir.com/)
 
 </details>
 
@@ -401,7 +402,26 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [DFIR Podcasts](https://digitalforensicsurvivalpodcast.libsyn.com/podcast)
 - [DFIR weekly news](https://thisweekin4n6.com/)
 - [sans blog](https://www.sans.org/blog/)
+
+</details>
+
+
+### Youtube channels
+
+<details>
   
+  - [DFIR - 13cubed videos](https://www.youtube.com/@13Cubed/videos)
+  - [DFIR - SANS videos](https://www.youtube.com/@SANSForensics/videos)
+  - [DFIR - DFIRScience](https://www.youtube.com/@DFIRScience/videos)
+  - [Malware Analysis - jstrosch](https://www.youtube.com/@jstrosch/videos)
+  - [Malware Analysis - cyberraiju](https://www.youtube.com/@cyberraiju/videos)
+  - [Malware Analysis - Botconf](https://www.youtube.com/@BotConfTV)
+  - [DFIR - BlackPerl](https://youtube.com/watch?v=KzD0MmEYAzQ&list=PLjWEV7pmvSa6f-NTpXsaUYWZLjLAB_0TS)
+  - [DFIR - BlueMonkey4n6](https://www.youtube.com/@BlueMonkey4n6/playlists)
+  - [DFIR - binaryzone](https://www.youtube.com/@binaryz0ne/playlists)
+  - [Exploitation - HackerSploit](https://www.youtube.com/@HackerSploit/playlists)
+  - [DFIR - TheTaggartInstitute](https://www.youtube.com/@TheTaggartInstitute/videos)
+
 </details>
 
 ### Formations
@@ -410,35 +430,93 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 #### DFIR
   
-  - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
-  - 13cubed - Investigating Windows Endpoints: [13cubed.com](https://training.13cubed.com/investigating-windows-endpoints)
-  - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
-  - SANS: [SANS508](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/)
+  - 13cubed - Investigating Windows Endpoints [13cubed.com -windows endpoints](https://training.13cubed.com/investigating-windows-endpoints)
+  - 13cubed - Investigating Windows Memory [13cubed.com -windows memory](https://training.13cubed.com/investigating-windows-memory)
+  - 13cubed - Investigating Linux Devices [13cubed.com - linux](https://training.13cubed.com/investigating-linux-devices)
+  - SANS: [FOR500](https://www.sans.org/cyber-security-courses/windows-forensic-analysis/)
+  - SANS: [FOR508](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/)
   - Defensive-security: [Linux-live-forensics](https://edu.defensive-security.com/linux-attack-live-forensics-at-scale)
-  - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs)
+  - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
   - @DebugPrivilege : Forensic Debugging free course [InsightEngineering](https://github.com/DebugPrivilege/InsightEngineering)
-  - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
-  - @binaryz0ne: DFIR challenges with [Datasets](https://www.ashemery.com/dfir.html) 
+    
+  - Challenges:
+    - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
+    - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs)
+    - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
+    - @binaryz0ne: DFIR challenges with [Datasets](https://www.ashemery.com/dfir.html) 
 
 #### SOC
 
- - tryhackme - [SOC lvl1](https://tryhackme.com/path/outline/soclevel1)
- - letsdefend.io @chrissanders88 - [letsdefend.io](https://www.letsdefend.io/)
+ - tryhackme - [SOC lvl 1](https://tryhackme.com/path/outline/soclevel1)
+ - letsdefend.io @chrissanders88 - [letsdefend.io](https://app.letsdefend.io/training)
+ - Constructing Defense [constructingdefense.com](https://course.constructingdefense.com/constructing-defense)
  - SANS: [SANS555](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/)
- - Splunk Boss Of The SOC - [BOTS](https://bots.splunk.com/)
-   - BOTS [dataset v1](https://github.com/splunk/botsv1)   
-   - BOTS [dataset v2](https://github.com/splunk/botsv2)   
-   - BOTS [dataset v3](https://github.com/splunk/botsv3)
+
+ - Challenges:
+   - Splunk Boss Of The SOC - [BOTS](https://bots.splunk.com/)
+     - BOTS [dataset v1](https://github.com/splunk/botsv1)   
+     - BOTS [dataset v2](https://github.com/splunk/botsv2)   
+     - BOTS [dataset v3](https://github.com/splunk/botsv3)
+  - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs)
+  - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
+  - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
 
 #### Challenges
 
   - [HackTheBox](https://www.hackthebox.com)
   - [Pentestlab](https://pentesterlab.com)
   - [Root-Me](https://www.root-me.org)
-  - [Try Hack Me](https://tryhackme.com)
+  - [TryHackMe](https://tryhackme.com)
   - [Zenk-Security](https://www.zenk-security.com/challenges)
 
  </details>
+
+### Books
+
+<details>
+  
+#### DFIR
+  - [Practical Forensic Imaging](https://www.amazon.com/Practical-Forensic-Imaging-Securing-Evidence/dp/1593277938)
+  - [Practical-Linux-Forensics-Digital-Investigators](https://www.amazon.com/Practical-Linux-Forensics-Digital-Investigators-ebook/dp/B096Z4CRC8)
+  - [TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts - Free](https://leanpub.com/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts)
+  - [Eric Zimmerman Manual Tools - Free](https://leanpub.com/eztoolsmanuals)
+  - [The Art of Memory Forensics: Detecting Malware and Threats in Windows, Linux, and Mac Memory](https://www.amazon.com/Art-Memory-Forensics-Detecting-Malware/dp/1118825098)
+  - [Applied Incident Response](https://www.amazon.com/Applied-Incident-Response-Steve-Anson/dp/1119560268)
+  - [SANS FOR500 / FOR508 book from paid course](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/)
+  - [Blue Team Handbook: Incident Response Edition](https://www.amazon.com/Blue-Team-Handbook-condensed-Responder/dp/1500734756)
+  - [Practical Malware Analysis: The Hands-On Guide to Dissecting Malicious Software](https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901)
+  - [Placing the Suspect Behind the Keyboard: DFIR Investigative Mindset](https://www.amazon.com/Placing-Suspect-Behind-Keyboard-Investigative/dp/B0CZPJF23Q)
+  - [Crafting the InfoSec Playbook: Security Monitoring and Incident](https://www.amazon.com/Crafting-InfoSec-Playbook-Security-Monitoring/dp/1491949406)
+  - [Investigating Windows Systems](https://www.amazon.com/Investigating-Windows-Systems-Harlan-Carvey/dp/0128114150)
+
+#### Malware Anaysis
+  - [Practical Malware Analysis: The Hands-On Guide to Dissecting Malicious Software](https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901)
+  - [The Art of Memory Forensics: Detecting Malware and Threats in Windows, Linux, and Mac Memory](https://www.amazon.com/Art-Memory-Forensics-Detecting-Malware/dp/1118825098)
+
+#### SOC
+  - [Blue Team Handbook: SOC, SIEM, and Threat Hunting](https://www.amazon.com/Blue-Team-Handbook-Condensed-Operations/dp/1091493898)
+  - [BTFM: Blue Team Field Manual](https://www.amazon.fr/Blue-Team-Field-Manual-BTFM/dp/154101636X)
+  - [PTFM: Purple Team Field Manual](https://www.amazon.com/PTFM-Purple-Team-Field-Manual/dp/B08LJV1QCD)
+  - [PTFM: Purple Team Field Manual v2](https://www.amazon.com/PTFM-2nd-Purple-Field-Manual/dp/1736526790)
+  - [MITRE - 11 Strategies of a World-Class Cybersecurity Operations Center](https://www.amazon.com/Strategies-World-Class-Cybersecurity-Operations-Center-ebook/dp/B09ZDWRFMW)
+  - [Practical Malware Analysis: The Hands-On Guide to Dissecting Malicious Software](https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901)
+  - [SANS FOR555 book from paid course](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/)
+
+#### Deep Dive
+  - [Windows Internals Books](https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals)
+  - [How Linux Works](https://www.amazon.com/How-Linux-Works-Brian-Ward-ebook/dp/B07X7S1JMB)
+  - [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
+  - [Understanding The Linux Virtual Memory Manager](https://www.kernel.org/doc/gorman/pdf/understand.pdf)
+  - [Linux insides](https://github.com/0xAX/linux-insides/blob/master/SUMMARY.md)
+  - [Linux Ebpf](https://www.amazon.com/Learning-eBPF-Programming-Observability-Networking/dp/1098135121)
+
+#### Exploitation
+  - [Hacking Art Exploitation](https://www.amazon.com/Hacking-Art-Exploitation-Jon-Erickson-ebook/dp/B004OEJN3I)
+  - [Hacker Playbook Practical Penetration Testing](https://www.amazon.com/Hacker-Playbook-Practical-Penetration-Testing-ebook/dp/B07CSPFYZ2)
+  - [RTFM: Red Team Field Manual](https://www.amazon.com/RTFM-Red-Team-Field-Manual-ebook/dp/B0B7H8X3XY)
+  - [Red Team Development and Operations: A practical guide](https://www.amazon.com/Red-Team-Development-Operations-practical-ebook/dp/B0842BMMCC)
+
+</details>
 
 ### LAB
 
