@@ -425,6 +425,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Exploitation - Defcon Talks](https://www.youtube.com/user/DEFCONConference/videos)  + https://media.defcon.org/
   - [Exploitation - Alh4zr3d - twitch](https://www.twitch.tv/Alh4zr3d)
   - [Exploitation - Alh4zr3d - youtube](https://www.youtube.com/@alh4zr3d3/videos)
+  - [Exploitation - incodenito](https://youtube.com/@incodenito?si=uV9UDhYFs_vQYayR)
   - [Malware Analysis - MalwareTechBlog](https://www.youtube.com/@MalwareTechBlog)
   - [Exploitation - LiveOverflow](https://www.youtube.com/@LiveOverflow)
   - [!!! Exploitation - ippsec](https://www.youtube.com/@ippsec)
