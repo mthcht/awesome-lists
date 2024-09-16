@@ -504,8 +504,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 #### SOC
   - [Blue Team Handbook: SOC, SIEM, and Threat Hunting](https://www.amazon.com/Blue-Team-Handbook-Condensed-Operations/dp/1091493898)
   - [BTFM: Blue Team Field Manual](https://www.amazon.fr/Blue-Team-Field-Manual-BTFM/dp/154101636X)
-  - [PTFM: Purple Team Field Manual](https://www.amazon.com/PTFM-Purple-Team-Field-Manual/dp/B08LJV1QCD)
-  - [PTFM: Purple Team Field Manual v2](https://www.amazon.com/PTFM-2nd-Purple-Field-Manual/dp/1736526790)
+  - [PTFM: Purple Team Field Manual](https://www.amazon.com/PTFM-Purple-Team-Field-Manual/dp/B08LJV1QCD) + [PTFM: Purple Team Field Manual v2](https://www.amazon.com/PTFM-2nd-Purple-Field-Manual/dp/1736526790)
   - [MITRE - 11 Strategies of a World-Class Cybersecurity Operations Center](https://www.amazon.com/Strategies-World-Class-Cybersecurity-Operations-Center-ebook/dp/B09ZDWRFMW)
   - [Practical Malware Analysis: The Hands-On Guide to Dissecting Malicious Software](https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901)
   - [SANS FOR555 book from paid course](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/)
@@ -523,6 +522,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Hacker Playbook Practical Penetration Testing](https://www.amazon.com/Hacker-Playbook-Practical-Penetration-Testing-ebook/dp/B07CSPFYZ2)
   - [RTFM: Red Team Field Manual](https://www.amazon.com/RTFM-Red-Team-Field-Manual-ebook/dp/B0B7H8X3XY)
   - [Red Team Development and Operations: A practical guide](https://www.amazon.com/Red-Team-Development-Operations-practical-ebook/dp/B0842BMMCC)
+  - [RTRM: Red Team Reference Manual](https://www.amazon.com/RTRM-Red-Team-Reference-Manual/dp/B08N37KDPQ)
 
 </details>
 
