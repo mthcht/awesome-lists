@@ -459,7 +459,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
  - letsdefend.io @chrissanders88 - [letsdefend.io](https://app.letsdefend.io/training)
  - Constructing Defense [constructingdefense.com](https://course.constructingdefense.com/constructing-defense)
  - SANS: [SANS555](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/)
-
+ - Xintra: [Attacking and Defending Azure M365](https://training.xintra.org/attacking-and-defending-azure-m365)
+  
  - Challenges:
    - Splunk Boss Of The SOC - [BOTS](https://bots.splunk.com/)
      - BOTS [dataset v1](https://github.com/splunk/botsv1)   
