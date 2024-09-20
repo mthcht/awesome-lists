@@ -509,9 +509,10 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [PTFM: Purple Team Field Manual](https://www.amazon.com/PTFM-Purple-Team-Field-Manual/dp/B08LJV1QCD) + [PTFM: Purple Team Field Manual v2](https://www.amazon.com/PTFM-2nd-Purple-Field-Manual/dp/1736526790)
   - [EDR - Introduction to endpoint security](https://www.amazon.com/Endpoint-Detection-Response-Essentials-deployment/dp/1835463266)
   - [MITRE - 11 Strategies of a World-Class Cybersecurity Operations Center](https://www.amazon.com/Strategies-World-Class-Cybersecurity-Operations-Center-ebook/dp/B09ZDWRFMW)
+  - [Big picture on running a SOC - Modern SOC](https://www.amazon.com/Modern-Security-Operations-Center-ebook/dp/B08BW8Y9Q4)
   - [Practical Malware Analysis: The Hands-On Guide to Dissecting Malicious Software](https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901)
   - [SANS 555 book](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/)
-
+  
 
 #### Deep Dive
   - [Windows Internals Books](https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals)
