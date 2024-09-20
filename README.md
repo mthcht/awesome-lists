@@ -527,6 +527,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [RTFM: Red Team Field Manual](https://www.amazon.com/RTFM-Red-Team-Field-Manual-ebook/dp/B0B7H8X3XY)
   - [Red Team Development and Operations: A practical guide](https://www.amazon.com/Red-Team-Development-Operations-practical-ebook/dp/B0842BMMCC)
   - [RTRM: Red Team Reference Manual](https://www.amazon.com/RTRM-Red-Team-Reference-Manual/dp/B08N37KDPQ)
+  - [POC||GTFO](https://nostarch.com/search/gtfo)
 
 </details>
 
