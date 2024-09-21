@@ -80,6 +80,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Block Lists](https://github.com/blocklistproject/Lists)
 - [DNS Block List](https://github.com/hagezi/dns-blocklists)
 - [Phishing Block List](https://github.com/jarelllama/Scam-Blocklist)
+- [Binary Defense IP Block List](https://www.binarydefense.com/banlist.txt)
 - [C2IntelFeeds](https://github.com/drb-ra/C2IntelFeeds)
 - [Volexity TI](https://github.com/volexity/threat-intel)
 - [Open Source TI](https://github.com/Bert-JanP/Open-Source-Threat-Intel-Feeds)
