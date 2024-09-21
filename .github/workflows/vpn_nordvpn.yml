@@ -38,6 +38,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git pull
           git add Lists/VPN/NordVPN/nordvpn_ips_list.csv
           git commit -m "Update NordVPN IPs list" --allow-empty
           git push
