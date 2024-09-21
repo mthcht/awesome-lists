@@ -413,6 +413,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   
   - [DFIR - 13cubed videos](https://www.youtube.com/@13Cubed/videos)
   - [DFIR - SANS videos](https://www.youtube.com/@SANSForensics/videos)
+  - [DFIR - MyDFIR](https://youtube.com/@mydfir)
   - [DFIR - DFIRScience](https://www.youtube.com/@DFIRScience/videos)
   - [Malware Analysis - jstrosch](https://www.youtube.com/@jstrosch/videos)
   - [Malware Analysis - cyberraiju](https://www.youtube.com/@cyberraiju/videos)
