@@ -534,6 +534,14 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
+### Knowledge sites
+
+<details>
+
+  - [NTFS deepdive - ntfs.com](https://www.ntfs.com/index.html)
+  
+</details>
+
 ### LAB
 
 <details>
