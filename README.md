@@ -506,6 +506,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 #### Malware Anaysis
   - [Practical Malware Analysis: The Hands-On Guide to Dissecting Malicious Software](https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901)
   - [The Art of Memory Forensics: Detecting Malware and Threats in Windows, Linux, and Mac Memory](https://www.amazon.com/Art-Memory-Forensics-Detecting-Malware/dp/1118825098)
+  - [Evasive Malware: A Field Guide to Detecting, Analyzing, and Defeating Advanced Threats](https://www.amazon.fr/Evasive-Malware-Understanding-Deceptive-Self-Defending/dp/1718503261)
 
 #### SOC
   - [Blue Team Handbook: SOC, SIEM, and Threat Hunting](https://www.amazon.com/Blue-Team-Handbook-Condensed-Operations/dp/1091493898)
