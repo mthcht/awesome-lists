@@ -309,6 +309,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [GTFOBIN](https://github.com/mthcht/GTFOBins.github.io)
 - [LOLBAS](https://github.com/mthcht/LOLBAS)
 - [LOTS](https://lots-project.com/)
+- [LOLRMM](https://github.com/magicsword-io/LOLRMM)
 - [loldrivers](https://www.loldrivers.io/)
 - [LOLRMM](https://github.com/magicsword-io/LOLRMM)
 - [WTFBIN](https://wtfbins.wtf/)
