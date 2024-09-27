@@ -491,6 +491,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Practical Forensic Imaging](https://www.amazon.com/Practical-Forensic-Imaging-Securing-Evidence/dp/1593277938)
   - [Practical-Linux-Forensics-Digital-Investigators](https://www.amazon.com/Practical-Linux-Forensics-Digital-Investigators-ebook/dp/B096Z4CRC8)
   - [TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts - Free](https://leanpub.com/TheHitchhikersGuidetoDFIRExperiencesFromBeginnersandExperts)
+  - [Forensic Artifacts - Microsoft GuideBook - free](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf)
   - [Eric Zimmerman Manual Tools - Free](https://leanpub.com/eztoolsmanuals)
   - [The Art of Memory Forensics: Detecting Malware and Threats in Windows, Linux, and Mac Memory](https://www.amazon.com/Art-Memory-Forensics-Detecting-Malware/dp/1118825098)
   - [Applied Incident Response](https://www.amazon.com/Applied-Incident-Response-Steve-Anson/dp/1119560268)
@@ -538,8 +539,13 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 <details>
 
-  - [NTFS deepdive - ntfs.com](https://www.ntfs.com/index.html)
-  
+  - [DFIR - NTFS deepdive - ntfs.com](https://www.ntfs.com/index.html)
+  - [DFIR - aboutdfir](https://aboutdfir.com/)
+  - [Exploitation - hacktricks](https://book.hacktricks.xyz/)
+  - [Exploitation - PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+  - [Exploitation - Red Team Notes](https://www.ired.team/)
+  - [DFIR - Forensic Artifacts - microsoft GuideBook](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf)
+
 </details>
 
 ### LAB
