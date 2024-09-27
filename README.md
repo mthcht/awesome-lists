@@ -541,10 +541,11 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
   - [DFIR - NTFS deepdive - ntfs.com](https://www.ntfs.com/index.html)
   - [DFIR - aboutdfir](https://aboutdfir.com/)
+  - [DFIR - Forensic Artifacts - microsoft GuideBook](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf)
+  - [Malware Analysis - unprotect.it - Evasion techniques](https://unprotect.it/)
   - [Exploitation - hacktricks](https://book.hacktricks.xyz/)
   - [Exploitation - PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
   - [Exploitation - Red Team Notes](https://www.ired.team/)
-  - [DFIR - Forensic Artifacts - microsoft GuideBook](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf)
 
 </details>
 
