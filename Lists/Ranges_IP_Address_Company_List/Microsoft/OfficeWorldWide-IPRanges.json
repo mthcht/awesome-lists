@@ -161,7 +161,9 @@
         "serviceAreaDisplayName": "Microsoft Teams",
         "urls": [
             "*.lync.com",
+            "*.teams.cloud.microsoft",
             "*.teams.microsoft.com",
+            "teams.cloud.microsoft",
             "teams.microsoft.com"
         ],
         "ips": [
@@ -532,7 +534,6 @@
         "serviceArea": "Common",
         "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
         "urls": [
-            "*.compliance.microsoft.com",
             "*.protection.office.com",
             "*.security.microsoft.com",
             "compliance.microsoft.com",
@@ -1031,7 +1032,7 @@
         "expressRoute": false,
         "category": "Default",
         "required": false,
-        "notes": "These endpoints enables the Office Scripts functionality in Office clients available through the Automate tab.  This feature can also be disabled through the Office 365 Admin portal."
+        "notes": "These endpoints enable the Office Scripts functionality in Office clients available through the Automate tab and the Python in Excel functionality available through the Formulas tab. The Office Scripts feature can also be disabled through the Office 365 Admin portal. For admin controls related to Python in Excel, see [Data security and Python in Excel](https://support.microsoft.com/office/data-security-and-python-in-excel-33cc88a4-4a87-485e-9ff9-f35958278327)."
     },
     {
         "id": 153,
