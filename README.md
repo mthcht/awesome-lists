@@ -133,6 +133,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [UrlHaus_misp](https://urlhaus.abuse.ch/downloads/misp/)
 - [UrlHaus](https://urlhaus.abuse.ch/api/#csv)
 - [vx-underground - Great Resource for Samples and Intelligence Reports](https://vx-underground.org/Samples)
+- [Ransomware.live](https://ransomware.live)
 
 </details> 
 
@@ -175,7 +176,6 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [MITRE CAPEC](https://capec.mitre.org/)
 - [MITRE CAR](https://car.mitre.org/)
 - [MITRE PRE-ATT&CK Techniques](https://attack.mitre.org/versions/v7/techniques/pre/)
-- [Ransomware.live](https://ransomware.live)
 
 </details>
 
@@ -405,6 +405,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [DFIR Podcasts](https://digitalforensicsurvivalpodcast.libsyn.com/podcast)
 - [DFIR weekly news](https://thisweekin4n6.com/)
 - [sans blog](https://www.sans.org/blog/)
+- [Detection engineering weekly](https://www.detectionengineering.net/)
 
 </details>
 
@@ -424,6 +425,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Malware Analysis - malwareanalysisforhedgehogs](https://youtube.com/@malwareanalysisforhedgehogs?si=rHy80uPhjtyPtX0K)
   - [DFIR - BlueMonkey4n6](https://www.youtube.com/@BlueMonkey4n6/playlists)
   - [DFIR - binaryzone](https://www.youtube.com/@binaryz0ne/playlists)
+  - [Detection Engineering - Splunk - atomicsonafriday](https://www.youtube.com/@atomicsonafriday/streams)
   - [Exploitation - HackerSploit](https://www.youtube.com/@HackerSploit/playlists)
   - [DFIR - TheTaggartInstitute](https://www.youtube.com/@TheTaggartInstitute/videos)
   - [Malware Analysis - JohnHammond](https://www.youtube.com/@_JohnHammond)
@@ -437,6 +439,21 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [!!! Exploitation - ippsec](https://www.youtube.com/@ippsec)
 
 </details>
+
+### Podcasts
+
+<details>
+
+  - [darknetdiaries](https://darknetdiaries.com/)
+  - [risky.biz](https://risky.biz/)
+  - [cloud.withgoogle.com](https://cloud.withgoogle.com/cloudsecurity/podcast/)
+  - [Internet Storm Center sans podcast](https://isc.sans.edu/podcast.html)
+  - [7 minutes security Podcast](https://7minsec.com/)
+  - [hacking-humans](https://thecyberwire.com/podcasts/hacking-humans/)
+  - [CISO series](https://cisoseries.com/category/podcast/cyber-security-headlines/)
+  - [Splunk Atomic on Friday](https://www.youtube.com/@atomicsonafriday/streams)
+  - [NolimitSecu (FR)](https://www.nolimitsecu.fr/)
+  - [HacknSpeak (FR)](https://open.spotify.com/show/2lwA1WLVqnYvnlc7WkV3yU)</details>
 
 ### Training
 
@@ -571,6 +588,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [iris-web](https://github.com/dfir-iris/iris-web)
 - [JonMon](https://github.com/jsecurity101/JonMon)
 - [OpenCTI](https://github.com/OpenCTI-Platform/opencti)
+- [Splunk Attack range](https://github.com/splunk/attack_range)
 
 </details>
 
