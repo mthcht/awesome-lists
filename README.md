@@ -435,7 +435,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Exploitation - incodenito](https://youtube.com/@incodenito?si=uV9UDhYFs_vQYayR)
   - [Malware Analysis - MalwareTechBlog](https://www.youtube.com/@MalwareTechBlog)
   - [Exploitation - LiveOverflow](https://www.youtube.com/@LiveOverflow)
-  - [Malwaez Analysis - AzakaSekai](https://www.youtube.com/@AzakaSekai)
+  - [Malware Analysis - neoeno](https://youtube.com/@neoeno4242?si=_mVioHsmbvu17KNk)
+  - [Malware Analysis - AzakaSekai](https://www.youtube.com/@AzakaSekai)
   - [!!! Exploitation - ippsec](https://www.youtube.com/@ippsec)
 
 </details>
