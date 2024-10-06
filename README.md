@@ -573,6 +573,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Exploitation - hacktricks](https://book.hacktricks.xyz/)
   - [Exploitation - PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
   - [Exploitation - Red Team Notes](https://www.ired.team/)
+  - [DFIR - JPCERT Tools Analysis](https://jpcertcc.github.io/ToolAnalysisResultSheet/)
 
 </details>
 
