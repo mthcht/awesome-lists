@@ -503,6 +503,10 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [TryHackMe](https://tryhackme.com)
   - [Zenk-Security](https://www.zenk-security.com/challenges)
 
+
+#### RE / Malware Analysis / Deep Dive
+  - [OpenSecurityTraining2](https://p.ost2.fyi/)
+
  </details>
 
 ### Books
