@@ -574,7 +574,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Exploitation - PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
   - [Exploitation - Red Team Notes](https://www.ired.team/)
   - [DFIR - JPCERT Tools Analysis](https://jpcertcc.github.io/ToolAnalysisResultSheet/)
-
+  - [Exploitation - Red Team TTP](https://rosesecurity.gitbook.io/red-teaming-ttps)
+  
 </details>
 
 ### LAB
