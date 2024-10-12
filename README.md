@@ -495,6 +495,11 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
   - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
 
+#### Offensive
+  - [OSCP - HTB](https://0xdf.gitlab.io/cheatsheets/offsec)
+  - [OSCP - Course PEN200](https://www.offsec.com/courses/pen-200/)
+  - [OSEP - Course PEN300](https://www.offsec.com/courses/pen-300/) 
+  
 #### Challenges
 
   - [HackTheBox](https://www.hackthebox.com)
