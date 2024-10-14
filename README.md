@@ -152,6 +152,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 - [Awesome-SOC](https://github.com/cyb3rxp/awesome-soc)
 - [Threat-Hunting with Splunk](https://github.com/mthcht/ThreatHunting-Keywords)
+- [Detection Lists](https://github.com/mthcht/awesome-lists/Lists)
   
 </details> 
 
@@ -162,6 +163,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Tools used by ransomware groups - @BushidoToken](https://github.com/BushidoUK/Ransomware-Tool-Matrix)
 - [Techniques - MITRE ATT&CK](https://attack.mitre.org/techniques/enterprise/)
 - [Tactics - MITRE ATT&CK](https://attack.mitre.org/tactics/enterprise/)
+- [Groups & Operations Naming conventions matrix](https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU)
 - [Mitigation - MITRE ATT&CK](https://attack.mitre.org/mitigations/enterprise/)
 - [ATT&CK matrix navigator](https://mitre-attack.github.io/attack-navigator/)
 - [All MITRE data in xlsx format](https://attack.mitre.org/resources/attack-data-and-tools/) 
