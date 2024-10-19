@@ -444,6 +444,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Malware Analysis - neoeno](https://youtube.com/@neoeno4242?si=_mVioHsmbvu17KNk)
   - [Malware Analysis - AzakaSekai](https://www.youtube.com/@AzakaSekai)
   - [CTI - bushidotoken](https://youtube.com/@bushidotoken)
+  - [Windows Internal - @mrexodia](https://www.youtube.com/@mrexodia)
   - [!!! Exploitation - ippsec](https://www.youtube.com/@ippsec)
 
 </details>
