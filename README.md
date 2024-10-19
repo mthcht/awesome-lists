@@ -263,6 +263,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 <details>
   
 - [jsoncrack](https://jsoncrack.com/editor)
+- [Grok debugger](https://grokdebugger.com/)
 - [JS deobfuscator](https://lelinhtinh.github.io/de4js/)
 - [cyberchef](https://cyberchef.org/)
 - [PCAP online analyzer](https://apackets.com/)
