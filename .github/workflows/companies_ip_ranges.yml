@@ -37,6 +37,7 @@ jobs:
 
       - name: Commit and Push results
         run: |
+          git pull
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add Lists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
