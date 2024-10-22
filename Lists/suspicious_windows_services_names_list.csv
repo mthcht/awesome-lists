@@ -1,4 +1,6 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
+WinPwnage,,WinPwnage,Persistence,offensive_tool,critical,https://github.com/rootm0s/WinPwnage/blob/aed0389b4d20b61e3c6de611a3386d3e3fbcae01/winpwnage/functions/persist/persistMethod12.py#L24,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/WinPwnage.csv
+WinPwnageVPN,,WinPwnage,Persistence,offensive_tool,critical,https://github.com/rootm0s/WinPwnage/blob/aed0389b4d20b61e3c6de611a3386d3e3fbcae01/winpwnage/functions/uac/uacMethod13.py#L54,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/WinPwnage.csv
 winexesvc,,winexe,Lateral Movement,greyware_tool,low,https://www.kali.org/tools/winexe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/winexe.csv
 csexecsvc,,csexec,Lateral Movement,offensive_tool,critical,https://github.com/malcomvetter/CSExec/blob/d6bd3f97e66dc65ccf64d9102a33379fdb769614/csexecsvc/Program.cs#L13,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/csexec.csv
 Ring0NamedPipeFilter,,NamedPipeMaster,Privilege Escalation,offensive_tool,critical,https://github.com/gavz/NamedPipeMaster,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/NamedPipeMaster.csv
