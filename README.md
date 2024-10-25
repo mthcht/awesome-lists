@@ -100,6 +100,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Elastic Lab IOC](https://github.com/elastic/labs-releases/tree/main/indicators)
 - [Blackorbid APT Report IOC](https://github.com/blackorbird/APT_REPORT)
 - [AVAST IOC](https://github.com/avast/ioc)
+- [Zimperium IOC](https://github.com/Zimperium/IOC)
 - [DoctorWeb IOC](https://github.com/DoctorWebLtd/malware-iocs)
 - [BlackLotusLab IOC](https://github.com/blacklotuslabs/IOCs)
 - [prodaft IOC](https://github.com/prodaft/malware-ioc)
