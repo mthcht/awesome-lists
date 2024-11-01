@@ -396,6 +396,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Cisco Talos](https://www.talosintelligence.com/)
 - [Crowdstrike](https://www.crowdstrike.com/en-us/blog/category.counter-adversary-operations/)
 - [Hexacorn Blog](http://www.hexacorn.com/blog/feed/)
+- [Infostealers Hub News Feed](https://www.infostealers.com/learn-info-stealers/feed/)
 - [simone kraus Blog](https://medium.com/@simone.kraus)
 - [Michael Haag Blog](https://haggis-m.medium.com/)
 - [EricaZelic Blog](https://ericazelic.medium.com/)
