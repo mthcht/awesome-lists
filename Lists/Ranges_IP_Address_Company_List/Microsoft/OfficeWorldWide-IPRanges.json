@@ -263,6 +263,7 @@
             "104.146.128.0/17",
             "150.171.40.0/22",
             "2603:1061:1300::/40",
+            "2603:1063:6000::/35",
             "2620:1ec:8f8::/46",
             "2620:1ec:908::/46",
             "2a01:111:f402::/48"
@@ -397,6 +398,7 @@
             "*.office.net"
         ],
         "tcpPorts": "443,80",
+        "udpPorts": "443",
         "expressRoute": false,
         "category": "Default",
         "required": true
@@ -1121,6 +1123,7 @@
             "*.usercontent.microsoft"
         ],
         "tcpPorts": "443,80",
+        "udpPorts": "443",
         "expressRoute": false,
         "category": "Default",
         "required": true
