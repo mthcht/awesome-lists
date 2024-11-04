@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4
 
-      - name: Run scripts from the ASNs folder
+      - name: Run scripts from the TLDs folder
         run: |
           cd Lists/TLDs
           python fetch_cybercrimeinfocenter_phishing_tlds_stats.py
@@ -30,7 +30,7 @@ jobs:
       - name: List files
         run: ls -la
 
-      - name: List files in the Lists/ASNs directory
+      - name: List files in the Lists/TLDs directory
         run: ls -la Lists/TLDs
 
       - name: Commit and Push results
