@@ -1,12 +1,12 @@
 appname,appid,metadata_category,metadata_severity,metadata_comment,metadata_link,metadata_reference
-PerfectData Software,ff8d92dc-3d82-41d6-bcbd-b9174d163620,Data Exfiltration,critical,used by threat actors to export entire mailboxes (observed in multiple IR cases),https://darktrace.com/blog/how-abuse-of-perfectdata-software-may-create-a-perfect-storm-an-emerging-trend-iN/Account-takeovers,https://github.com/mthcht/awesome-lists/blob/main/Lists/microsoft_apps_list.csv
+PerfectData Software,ff8d92dc-3d82-41d6-bcbd-b9174d163620,Data Exfiltration,critical,used by threat actors to export entire mailboxes (observed in multiple IR cases),https://darktrace.com/blog/how-abuse-of-perfectdata-software-may-create-a-perfect-storm-an-emerging-trend-in-account-takeovers,https://github.com/mthcht/awesome-lists/blob/main/Lists/microsoft_apps_list.csv
 Newsletter Software Supermailer,a245e8c0-b53c-4b67-9b45-751d1dff8e6b,Phishing,high,Software for mass email distribution,https://www.huntress.com/blog/legitimate-apps-as-traitorware-for-persistent-microsoft-365-compromise - https://int.supermailer.de/,https://github.com/mthcht/awesome-lists/blob/main/Lists/microsoft_apps_list.csv
 rclone,4761b959-9780-4c2d-87a3-512b4638f767,Data Exfiltration,critical,Command-line tool for cloning files across cloud storage services,https://www.kroll.com/en/insights/publications/cyber/new-m365-business-email-compromise-attacks-with-rclone,https://github.com/mthcht/awesome-lists/blob/main/Lists/microsoft_apps_list.csv
 eM Client,e9a7fea1-1cc0-4cd9-a31b-9137ca5deedd,Data Exfiltration,critical,desktop-based email solution fully synchronized with O365 - abused for data exfiltration,https://www.huntress.com/blog/legitimate-apps-as-traitorware-for-persistent-microsoft-365-compromise,https://github.com/mthcht/awesome-lists/blob/main/Lists/microsoft_apps_list.csv
 CloudSponge,a43e5392-f48b-46a4-a0f1-098b5eeb4757,Data Exfiltration,high,CloudSponge is a software-as-a-service product that imports all the major address books. Most websites use our product so that their users don’t have to type email addresses into their referral forms when they want to send an invitation - greeting card or coupon to someone they know,https://x.com/Evild3ad79/status/1775866422880518272,https://github.com/randomaccess3/detections/blob/main/M365_Oauth_Apps/MaliciousOauthAppDetections.json
 Zoominfo Login,858d7e42-35f0-44b7-9033-df309239a47f,Data Exfiltration,high,Zoominfo Login,N/A,https://github.com/randomaccess3/detections/blob/main/M365_Oauth_Apps/MaliciousOauthAppDetections.json
 ZoomInfo Communitiez Login,497ac034-5120-4c1a-929a-0351f5c09918,Data Exfiltration,high,Zoominfo Login,N/A,https://github.com/randomaccess3/detections/blob/main/M365_Oauth_Apps/MaliciousOauthAppDetections.json
-SigParser,caffae8c-0882-4c81-9a27-d1803af53a40,Data Exfiltration,high,SigParser scans emails - caleN/Ars - address books - spreadsheets and more to automatically generate profiles on the people and companies who have interacted with your business,https://sigparser.com,https://github.com/randomaccess3/detections/blob/main/M365_Oauth_Apps/MaliciousOauthAppDetections.json
+SigParser,caffae8c-0882-4c81-9a27-d1803af53a40,Data Exfiltration,high,SigParser scans emails - calendars - address books - spreadsheets and more to automatically generate profiles on the people and companies who have interacted with your business,https://sigparser.com,https://github.com/randomaccess3/detections/blob/main/M365_Oauth_Apps/MaliciousOauthAppDetections.json
 Fastmail,77468577-4f6e-40e7-b745-11d3d0c28095,Data Exfiltration,critical,N/A,https://x.com/mwaski88/status/1775904383382802502,https://github.com/randomaccess3/detections/blob/main/M365_Oauth_Apps/MaliciousOauthAppDetections.json
 PostBox,179d5108-412b-4c95-8e34-06786784ab39,Data Exfiltration,high,N/A,N/A,https://github.com/randomaccess3/detections/blob/main/M365_Oauth_Apps/MaliciousOauthAppDetections.json
 Spike,946c777c-bc85-489e-b034-392389ae23d6,Data Exfiltration - Phishing,critical,N/A,https://darktrace.com/blog/breakdown-of-a-multi-account-compromise-within-office-365,https://github.com/randomaccess3/detections/blob/main/M365_Oauth_Apps/MaliciousOauthAppDetections.json
@@ -17,9 +17,9 @@ Microsoft Graph,00000003-0000-0000-c000-000000000000,compliance,info,N/A,https:/
 Office 365 SharePoint Online,00000003-0000-0ff1-ce00-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Skype for Business Online,00000004-0000-0ff1-ce00-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Azure Workflow,00000005-0000-0000-c000-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Viva EN/Age (formerly Yammer),00000005-0000-0ff1-ce00-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Viva Engage (formerly Yammer),00000005-0000-0ff1-ce00-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Yammer,00000005-0000-0ff1-ce00-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Viva EN/Age,00000005-0000-0ff1-ce00-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Viva Engage,00000005-0000-0ff1-ce00-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Office 365 Portal,00000006-0000-0ff1-ce00-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Dataverse,00000007-0000-0000-c000-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Common Data Service,00000007-0000-0000-c000-000000000000,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -76,7 +76,7 @@ Microsoft Teams Intelligent Workspaces Interactions Service,0eb4bf93-cb63-4fe1-9
 Office UWP PWA,0ec893e0-5785-4de6-99da-4ed124e5296c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Office UWP PWA [Community Contributed],0ec893e0-5785-4de6-99da-4ed124e5296c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Flow CDS Integration Service,0eda3b13-ddc9-4c25-b7dd-2f6ea073d6b7,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Teams User EN/Agement Profile Service,0f54b75d-4d29-4a92-80ae-106a60cd8f5d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Teams User Engagement Profile Service,0f54b75d-4d29-4a92-80ae-106a60cd8f5d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 OfficeClientService,0f698dd4-f011-4d23-a33e-b36416dcb1e6,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 AIGraphClient,0f6edad5-48f2-4585-a609-d252b1c52770,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Teams ATP Service,0fa37baf-7afc-4baf-ab2d-d5bb891d53ef,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -129,14 +129,14 @@ Azure Multi-Factor Auth Connector,1f5530b3-261a-47a9-b357-ded261e17918,complianc
 Azure Communication Services,1fd5118e-2576-4263-8130-9503064c837a,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Insider Risk Management,1fe0d6b3-81f0-4cf5-9dfd-fbb297d7848c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Teams,1fec8e78-bce4-4aaf-ab1b-5451cc387264,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Conference Auto AtteN/Ant,207a6836-d031-4764-a9d8-c1193f455f21,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Conference Auto Attendant,207a6836-d031-4764-a9d8-c1193f455f21,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft To-Do,2087bd82-7206-4c0a-b305-1321a39e5926,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-CoN/ActsInferencingEmailProcessor,20a11fe0-faa8-4df5-baf2-f965f8f9972e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+ContactsInferencingEmailProcessor,20a11fe0-faa8-4df5-baf2-f965f8f9972e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 IC3 Long Running Operations Service,21a8a852-89f4-4947-a374-b26b2db3d365,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft To-Do client,22098786-6e16-43cc-a27d-191a01a1e3b5,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Customer Experience Platform PROD,2220bbc4-4518-4fef-aac6-c6f32e9f9fd1,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure Cloud Shell,2233b157-f44d-4812-b777-036cdaf9a96e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Modern CoN/Act Master,224a7b82-46c9-4d6b-8db0-7360fb444681,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Modern Contact Master,224a7b82-46c9-4d6b-8db0-7360fb444681,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Reading Assignments,22d27567-b3f0-4dc2-9ec2-46ed368ba538,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Cortana at Work Bing Services,22d7579f-06c2-4baa-89d2-e844486adb9d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 ACOM Azure Website,23523755-3a2b-41ca-9315-f81f3f566a95,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -158,7 +158,7 @@ Skype Business Voice Directory,27b24f1f-688b-4661-9594-0fdfde972edc,compliance,i
 Microsoft Storefronts,28b567f6-162c-4f54-99a0-6887f387bbcc,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Authentication Broker,29d9ed98-a469-4536-ade2-f981bc1d605e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Cortana at Work Service,2a486b53-dbd2-49c0-a2bc-278bdfc30833,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Office Online Client Microsoft Entra ID- AugmeN/Ation Loop,2abdc806-e091-4495-9b10-b04d93c3f040,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Office Online Client Microsoft Entra ID- Augmentation Loop,2abdc806-e091-4495-9b10-b04d93c3f040,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 MicrosoftTeamsCortanaSkills,2bb78a2a-f8f1-4bc3-8ecf-c1e15a0726e6,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Viva Learning,2c9e12e5-a56c-4ba1-b768-7a141586c6fe,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Euclid,2ca80e7c-4ad1-444f-88f5-58f92b71b7b0,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -192,7 +192,7 @@ Diagnostic Services Data Access,3603eff4-9141-41d5-ba8f-02fb3a439cd6,compliance,
 CosmosDB Dedicated Instance,36e2398c-9dd3-4f29-9a72-d9f2cfc47ad9,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 AzureSupportCenter,37182072-3c9c-4f6a-a4b3-b3f91cacffce,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure Windows VM Sign-In,372140e0-b3b7-4226-8ef9-d57986796201,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Azure CoN/Ainer Apps - Data Plane,3734c1a4-2bed-4998-a37a-ff1a9e7bf019,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Azure Container Apps - Data Plane,3734c1a4-2bed-4998-a37a-ff1a9e7bf019,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Approval Management,38049638-cc2c-4cde-abe4-4479d721ed44,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 AzNet Security Guard,38808189-fa7a-4d8a-807f-eba01edacca6,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Windows Sign In [Community Contributed],38aa3b87-a06d-4817-b275-7a316988d93b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -220,7 +220,7 @@ PowerApps - apps.powerapps.com [Community Contributed],3e62f81e-590b-425b-9531-c
 Office 365 Import Service,3eb95cef-b10f-46fe-94e0-969a3d4c9292,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure Application Change Service,3edcf11f-df80-41b2-a5e4-7e213cca30d1,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 PROD Microsoft Defender For Cloud XDR,3f6aecb4-6dbf-4e45-9141-440abdced562,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Information ProtectioN/API,40775b29-2688-46b6-a3b5-b256bd04df9f,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Information Protection API,40775b29-2688-46b6-a3b5-b256bd04df9f,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Azure Network Copilot,40c49ff3-c6ae-436d-b28e-b8e268841980,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 O365 Suite UX,4345a7b9-9a63-4910-a426-35363201d503,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 DWEngineV2,441509e5-a165-4363-8ee7-bcf0b7d26739,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -228,18 +228,18 @@ Microsoft Dynamics 365 Apps Integration,44a02aaa-7145-4925-9dcd-79e6e1b94eff,com
 Call Recorder,4580fd1d-e5a3-4f56-9ad1-aab0e3bf8f76,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Windows Store for Business,45a330b1-b1ec-4cc1-9161-9f03992aa49f,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azns AAD Webhook,461e8683-5575-4561-ac7f-899cc907d62a,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft InvitatioN/Acceptance Portal,4660504c-45b3-4674-a709-71951a6b0763,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Invitation Acceptance Portal,4660504c-45b3-4674-a709-71951a6b0763,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 PushChannel,4747d38e-36c5-4bc3-979b-b0ef74df54d1,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 PowerApps Service,475226c6-020e-4fb2-8a90-7a972cbfc1d4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Exchange Web Services,47629505-c2b6-4a80-adb1-9b3a3d233b7b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-OfficeHome,4765445b-32c6-49b0-83e6-1d93765276ca,compliance,medium,abused by threat actors iN/AiTM phishing cases,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+OfficeHome,4765445b-32c6-49b0-83e6-1d93765276ca,compliance,medium,abused by threat actors in AiTM phishing cases,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Dynamics 365 Viva Sales,4787c7ff-7cea-43db-8d0d-919f15c6354b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure AD Application Proxy,47ee738b-3f1a-4fc7-ab11-37e4822b007e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Authenticator App,4813382a-8fa7-425e-ab75-3b753aab3abb,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Authenticator App [Community Contributed],4813382a-8fa7-425e-ab75-3b753aab3abb,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Salesforce,481732f5-fe5b-48c0-8445-d238ab230658,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 GatewayRP,486c78bf-a0f7-45f1-92fd-37215929e116,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Skype and Teams Tenant AdmiN/API,48ac35b8-9aa8-4d74-927d-1f4a14a0b239,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Skype and Teams Tenant Admin API,48ac35b8-9aa8-4d74-927d-1f4a14a0b239,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Connectors,48af08dc-f6d2-435f-b2a7-069abd99c086,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft.EventGrid,4962773b-9cdb-44cf-a8bf-237846a00ab7,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Exchange Admin Center,497effe9-df71-4043-a8bb-14cf78c4b63b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -312,7 +312,7 @@ Microsoft Teams AadSync,62b732f7-fc71-40bc-b27d-35efcb0509de,compliance,info,N/A
 ACR-Tasks-Network,62c559cd-db0c-4da0-bab2-972528c65d42,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Zero Trust Assessment TBD,62f85080-9912-4a16-b0be-aff63ee2eeea,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Office Scripts Service,62fd1447-0ef3-4ab7-a956-7dd05232ecc1,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-CaleN/ArReplication,6326e366-9d6d-4c70-b22a-34c7ea72d73d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+CalendarReplication,6326e366-9d6d-4c70-b22a-34c7ea72d73d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Dynamics CRM Online Administration,637fcc9f-4a9b-4aaa-8713-a2a3cfda1505,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Intune SCCM Connector,63e61dc2-f593-4a6f-92b9-92e4d2c03d4f,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 CompliancePolicy,644c1b11-f63f-45fa-826b-a9d2801db711,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -333,12 +333,12 @@ Azure AD Assessment,68bc31c0-f891-4f4c-9309-c6104f7be41b,compliance,info,N/A,htt
 AEM-DualAuth,69893ee3-dd10-4b1c-832d-4870354be3d8,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure Files,69dda2a9-33ca-4ed0-83fb-a9b7b8973ff4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Application Insights Configuration Service,6a0a243c-0886-468a-a4c2-eff52c7445da,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Azure CoN/Ainer Registry,6a0ec4d3-30cb-4a83-91c0-ae56bc0e3d26,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Azure Container Registry,6a0ec4d3-30cb-4a83-91c0-ae56bc0e3d26,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Verifiable Credentials Service Admin,6a8b4b39-c021-437c-b060-5a14a3fd65f3,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 HoloLens Camera Roll Upload,6b11041d-54a2-4c4f-96a2-6053efe46d8b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure Cost Management Scheduled Actions,6b3368c6-61d2-4a72-854c-42d1c4e71fed,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 M365 Admin Services,6b91db1b-f05b-405a-a0b2-e3f60b28d645,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Azure CoN/Ainer Instance Service,6bb8e274-af5d-4df2-98a3-4fd78b4cafd9,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Azure Container Instance Service,6bb8e274-af5d-4df2-98a3-4fd78b4cafd9,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Teams CMD Services Artifacts,6bc3b958-689b-49f5-9006-36d165f30e00,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Geneva Alert RP,6bccf540-eb86-4037-af03-7fa058c2db75,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Intune MAM client resource,6c7e8096-f593-4d72-807f-a5f86dcc9c77,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -358,9 +358,9 @@ Microsoft Discovery Service,6f82282e-0070-4e78-bc23-e6320c5fa7de,compliance,info
 SMB Notifications and Import Service,707aa1ac-be0a-478d-9ce7-0d2765a5c1d6,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Dynamic Alerts,707be275-6b9d-4ee7-88f9-c0c2bd646e0f,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Device Management Enrollment,709110f7-976e-4284-8851-b537e9bcb187,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Customer EN/Agement Portal,71234da4-b92f-429d-b8ec-6e62652e50d7,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Customer Engagement Portal,71234da4-b92f-429d-b8ec-6e62652e50d7,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Office 365 [Community Contributed],72782ba9-4490-4f03-8d82-562370ea3566,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Azure Marketplace CoN/Ainer Management API,737d58c1-397a-46e7-9d12-7d8c830883c2,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Azure Marketplace Container Management API,737d58c1-397a-46e7-9d12-7d8c830883c2,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 ADIbizaUX,74658136-14ec-4630-ad9b-26e160ff0fc6,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Intune Web Company Portal,74bcdadc-2fdc-4bb3-8459-76d06952a0e9,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 M365 Label Analytics,75513c96-801d-4559-830a-6754de13dd19,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -368,9 +368,9 @@ Skype for Business,7557eb47-c689-4224-abcf-aef9bd7573df,compliance,info,N/A,http
 Microsoft Teams Retail Service,75efb5bc-18a1-4e7b-8a66-2ad2503d79c6,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Exchange Office Graph Client for AAD - Noninteractive,765fe668-04e7-42ba-aec0-2c96f1d8b652,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure SQL Managed Instance to Microsoft.Network,76c7f279-7959-468f-8943-3954880e0d8c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Azure CoN/Ainer Registry Application,76c92352-c057-4cc2-9b1e-f34c32bc58bd,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Azure Container Registry Application,76c92352-c057-4cc2-9b1e-f34c32bc58bd,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure SQL Virtual Network to Network Resource Provider,76cd24bf-a9fc-4344-b1dc-908275de6d6d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft.BlockchaiN/Azure Resource Provider,78827f38-7b69-4d5e-a627-d6fdd9c759a0,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft.Blockchain Azure Resource Provider,78827f38-7b69-4d5e-a627-d6fdd9c759a0,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Exchange Rbac,789e8929-0390-42a2-8934-0f9dafb8ec89,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Yggdrasil,78e7bc61-0fab-4d35-8387-09a8d2f5a59d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Intune Advanced Threat Protection Integration,794ded15-70c6-4bcd-a0bb-9b7ad530a01a,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -390,7 +390,7 @@ Microsoft Cognitive Services,7d312290-28c8-473c-a0ed-8e53749b6d6d,compliance,inf
 Power Platform Data Analytics,7dcff627-a295-4553-9229-b1f3513f82a8,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Flow Service,7df0a125-d3be-4c96-aa54-591f83ff541c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Intune DeviceDirectory ConfidentialClient,7e313d81-57dd-4bdd-906e-337963583de3,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Azure CoN/Ainer Apps - Control Plane,7e3bc4fd-85a3-4192-b177-5b8bfc87f42c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Azure Container Apps - Control Plane,7e3bc4fd-85a3-4192-b177-5b8bfc87f42c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Federated Profile Service,7e468355-e4db-46a9-8289-8d414c89c43c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Account Controls V2 [Community Contributed],7eadcef8-456d-4611-9480-4fff72b8b9e2,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Intune DiagnosticService,7f0d9978-eb2a-4974-88bd-f22a3006fe17,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -414,7 +414,7 @@ Microsoft Information Protection Sync Service,870c4f2e-85b6-4d43-bdda-6ed9a579b7
 Microsoft Power BI,871c010f-5e61-4fb1-83ac-98610a7e9110,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Outlook Web App Widgets,87223343-80b1-4097-be13-2332ffa1d666,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Visual Studio,872cd9fa-d31f-45e0-9eab-6e460a02d1f1,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Teams - Device AdmiN/Agent,87749df4-7ccf-48f8-aa87-704bad0e0e16,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Teams - Device Admin Agent,87749df4-7ccf-48f8-aa87-704bad0e0e16,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 SharePoint Notification Service,88884730-8181-4d82-9ce2-7d5a7cc7b81e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Business Central to Common Data Service,88c57617-94ff-4043-a396-8a85a8d38922,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Parature Dynamics CRM,8909aac3-be91-470c-8a0b-ff09d669af91,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -442,7 +442,7 @@ Sway,905fcf26-4eb7-48a0-9ff0-8dcc7194b5ba,compliance,info,N/A,https://learn.micr
 AADRM,90f610bf-206d-4950-b61d-37fa6fd1b224,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure Blockchain Service,911e905a-a50e-4c94-9f7c-48bb12f549ed,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Dynamics Lifecycle services,913c6de4-2a4a-4a61-a9ce-945d2b2ce2e0,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-asmcoN/Ainerimagescanner,918d0db8-4a38-4938-93c1-9313bdfe0272,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+asmcontainerimagescanner,918d0db8-4a38-4938-93c1-9313bdfe0272,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 One Outlook Web,9199bf20-a13f-4107-85dc-02114787ef48,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Sticky Notes API,91ca2ca5-3b3e-41dd-ab65-809fa3dffffa,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Groupies Web Service,925eb0d0-da50-4604-a19f-bd8de9147958,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -489,28 +489,28 @@ Bing,9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7,compliance,info,N/A,https://learn.micr
 Defender Experts for XDR,9ee7b58d-f9db-45bc-ad7b-c2b97bbc3337,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 PTSS,9f6c88b7-0272-4581-a75a-ec0340824ed1,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 AzureLockbox,a0551534-cfc9-4e1f-9a7a-65093b32bb38,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-AzureDnsFronteN/App,a0be0c72-870e-46f0-9c49-c98333a996f7,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+AzureDnsFrontendApp,a0be0c72-870e-46f0-9c49-c98333a996f7,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 EXO Remote PowerShell (from AADInternals),a0c73c16-a7e3-4564-9a95-2bdf47383716,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 MIP Exchange Solutions,a150d169-7d37-47dd-9b20-156207b7b02f,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Teams AuthSvc,a164aee5-7d0a-46bb-9404-37421d58bdf7,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure Key Vault Managed HSM Key Governance Service,a1b76039-a76c-499f-a2dd-846b4cc32627,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Graph Bicep ExtensioN/A1bfe852-bf44-4da0-a9c1-37af2d5e6df9,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Graph Bicep Extension,a1bfe852-bf44-4da0-a9c1-37af2d5e6df9,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 ,a1cffbc6-1cb3-44e4-a1d2-cee9cce700f1,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure Cosmos DB,a232010e-820c-4083-83bb-3ace5fc29d0b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft.MileIQ,a25dbca8-4e60-48e5-80a2-0664fdb5c9b6,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Compute Usage Provider,a303894e-f1d8-4a37-bf10-67aa654a0596,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Partner Customer Delegated Admin Offline Processor,a3475900-ccec-4a69-98f5-a65cd5dc5306,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Azure CoN/Ainer Registry - Dataplane,a3747411-ce7c-4888-9ddc-3a230786ca19,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Azure Container Registry - Dataplane,a3747411-ce7c-4888-9ddc-3a230786ca19,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Exchange Online,a3883eba-fbe9-48bd-9ed3-dca3e0e84250,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Exchange Online [Community Contributed],a3883eba-fbe9-48bd-9ed3-dca3e0e84250,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 WindowsDefenderATP Portal,a3b79187-70b2-4139-83f9-6016c58cd27b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Azure AD Identity ProtectioN/A3dfc3c6-2c7d-4f42-aeec-b2877f9bce97,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Azure AD Identity Protection,a3dfc3c6-2c7d-4f42-aeec-b2877f9bce97,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Accounts Control UI,a40d7d7d-59aa-447e-a655-679a4107e548,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Accounts Control UI [Community Contributed],a40d7d7d-59aa-447e-a655-679a4107e548,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Teams User Profile Search Service,a47591ab-e23e-4ffa-9e1b-809b9067e726,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Remote Desktop,a4a365df-50f1-4397-bc59-1a1564b8bb9c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Marketplace Reviews,a4c1cdb3-88ab-4d13-bc99-1c46106f0727,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft CoN/Ainer Registry,a4c95b9e-3994-40cc-8953-5dc66d48348d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Container Registry,a4c95b9e-3994-40cc-8953-5dc66d48348d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Yammer iPhone,a569458c-7f2b-45cb-bab9-b7dee514d112,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 IAM Supportability,a57aca87-cbc0-4f3c-8b9e-dc095fdc8978,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Power Query for Excel [Community Contributed],a672d62c-fc7b-4e81-a576-e60dc46e951d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -529,7 +529,7 @@ Substrate Conversation Intelligence Service,aa813f0e-407a-459d-93af-805f2bf10f33
 Office 365 Configure,aa9ecb1e-fd53-4aaa-a8fe-7a54de2c1334,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 RPA - Machine Management Relay Service,aad3e70f-aa64-4fde-82aa-c9d97a4501dc,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 CAP Neptune Prod CM Prod ,ab158d9a-0b5c-4cc3-bb2b-f6646581e4e4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft.OfficeModerN/AleN/Ar,ab27a73e-a3ba-4e43-8360-8bcc717114d8,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft.OfficeModernCalendar,ab27a73e-a3ba-4e43-8360-8bcc717114d8,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Teams Graph Service,ab3be6b7-f5df-413d-ac2d-abf1e3fd9c0b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 OneDrive SyncEngine,ab9b8c07-8f02-4f72-87fa-80105867a763,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Managed Service Identity,abfa0a7c-a6b6-4736-8310-5855508787cd,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -554,7 +554,7 @@ Azure DNS Managed Resolver,b4ca0290-4e73-4e31-ade0-c82ecfaabf6a,compliance,info,
 Azure Notification Service,b503eb83-1222-4dcc-b116-b98ed5216e05,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Exact Data Match Upload Agent,b51a99a9-ccaa-4687-aa2c-44d1558295f4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Teams - Teams And Channels Service,b55b276d-2b09-4ad2-8de5-f09cf24ffba9,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Azure MFA StroN/AuthenticationService,b5a60e17-278b-4c92-a4e2-b9262e66bb28,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Azure MFA StrongAuthenticationService,b5a60e17-278b-4c92-a4e2-b9262e66bb28,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Focused Inbox,b669c6ea-1adf-453f-b8bc-6d526592b419,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft.MileIQ.RESTService,b692184e-b47f-4706-b352-84b288d2d9ee,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Invoicing,b6b84568-6c01-4981-a80f-09da9a20bbed,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -566,23 +566,23 @@ Data Export Service for Microsoft Dynamics 365,b861dbcc-a7ef-4219-a005-0e4de4ea7
 M365CommunicationCompliance,b8d56525-1fd0-4121-a640-e0ede64f74b5,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 AADJ CSP,b90d5b8f-5503-4153-b545-b31cecfaece2,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Office Shredding Service,b97b6bd4-a49f-4a0c-af18-af507d1da76c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Compute RecommeN/Ation Service,b9a92e36-2cf8-4f4e-bcb3-9d99e00e14ab,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Compute Recommendation Service,b9a92e36-2cf8-4f4e-bcb3-9d99e00e14ab,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 OfficeGraph,ba23cd2a-306c-48f2-9d62-d3ecd372dfe4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 DecomOfficeGraph,ba23cd2a-306c-48f2-9d62-d3ecd372dfe4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 My Staff,ba9ff945-a723-4ab5-a977-bd8c9044fe61,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 CPIM Service,bb2a2e3a-c5e7-4f0a-88e0-8e01fd3fc1f4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Verifiable Credentials Service,bb2a64ee-5d29-4b07-a491-25806dc854d3,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft.Azure.ActiveDirectoryIUX,bb8f18b0-9c38-48c9-a847-e1ef3af0602d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Outlook Online Add-iN/App,bc59ab01-8403-45c6-8796-ac3ef710b3e3,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Outlook Online Add-in App,bc59ab01-8403-45c6-8796-ac3ef710b3e3,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 MDC Data Sensitivity,bd6d9218-235b-4abd-b3be-9ff157dcf36c,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 SQLVMResourceProviderAuth,bd93b475-f9e2-476e-963d-b2daf143ffb9,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Password Breach Authenticator,bdd48c81-3a58-4ea9-849c-ebea7f6b6360,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Zero Trust Assessment - Dev,be58d912-b9d5-41a0-8b56-779409e017b8,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 AI Builder Prod Non God Mode,be5f0473-6b57-40f8-b0a9-b3054b41b99e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure AD Identity Governance,bf26f092-3426-4a99-abfb-97dad74e661a,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Azure Machine Learning AuthorizatioN/App 2,bf283ae6-5efd-44a8-b56a-2a7939982d60,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Azure Machine Learning Authorization App 2,bf283ae6-5efd-44a8-b56a-2a7939982d60,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 AADPremiumService,bf4fa6bf-d24c-4d1c-8cfd-12063dd646b2,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Jarvis TraN/Action Service,bf9fc203-c1ff-4fd4-878b-323642e462ec,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Jarvis Transaction Service,bf9fc203-c1ff-4fd4-878b-323642e462ec,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Commerce Accounts Service,bf9fc203-c1ff-4fd4-878b-323642e462ec,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 M365DataAtRestEncryption,c066d759-24ae-40e7-a56f-027002b5d3e4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft apps with Global Secure Access,c08f52c9-8f03-4558-a0ea-9a4c878cf343,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -608,7 +608,7 @@ ISV Portal,c6871074-3ded-4935-a5dc-b8f8d91d7d06,compliance,info,N/A,https://lear
 AAD Request Verification Service - PROD,c728155f-7b2a-4502-a08b-b8af9b269319,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft To-Do,c830ddb0-63e6-4f22-bd71-2ad47198a23e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Common Data Service User Management,c92229fa-e4e7-47fc-81a8-01386459c021,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-MS Teams GriffiN/Assistant,c9224372-5534-42cb-a48b-8db4f4a3892e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+MS Teams Griffin Assistant,c9224372-5534-42cb-a48b-8db4f4a3892e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 PowerApps-Advisor,c9299480-c13a-49db-a7ae-cdfe54fe0313,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Office 365 Client Insights Substrate Services Prod,c94526fa-9f4b-4d30-99f5-849636e4552f,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 MicrosoftEndpointDLP,c98e5057-edde-4666-b301-186a01b4dc58,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -658,7 +658,7 @@ Microsoft Intune AndroidSync,d8877f27-09c0-43aa-8113-40151dae8b14,compliance,inf
 IDML Graph Resolver Service and CAD,d88a361a-d488-4271-a13f-a83df7dd99c2,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Request Approvals Read Platform,d8c767ef-3e9a-48c4-aef9-562696539b39,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 HxService,d9b8ec3a-1e4e-4e08-b3c2-5baf00c0fcb0,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Omnichannel for CS CRM ClieN/App Primary,d9ce8cfa-8bd8-4ff1-b39b-5e5dd5742935,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Omnichannel for CS CRM ClientApp Primary,d9ce8cfa-8bd8-4ff1-b39b-5e5dd5742935,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 RPA - Machine Management Relay Service - Application,db040338-7cb4-44df-a22b-785bde7ce0e2,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Office Licensing Service vNext,db55028d-e5ba-420f-816a-d18c861aefdf,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Service Encryption,dbc36ae1-c097-4df9-8d94-343c3d091a76,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -674,7 +674,7 @@ Microsoft AppPlat EMA,dee7ba80-6a55-4f3b-a86c-746a9231ae49,compliance,info,N/A,h
 O365 UAP Processor,df09ff61-2178-45d8-888c-4210c1c7b0b2,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Zero Trust Assessment,df2798fc-2aed-4c3a-98ae-1776949480c4,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 O365 SkypeSpaces Ingestion Service,dfe74da8-9279-44ec-8fb2-2aed9e1c73d0,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-teams coN/Acts griffin processor,e08ab642-962a-4175-913c-165f557d799a,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+teams contacts griffin processor,e08ab642-962a-4175-913c-165f557d799a,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Defender for Cloud Scanner Resource Provider,e0ccf59d-5a20-4a87-a122-f42842cdb86a,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 CIWebService,e1335bb1-2aec-4f92-8140-0e6e61ae77e5,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Teams Web Client,e1829006-9cf1-4d05-8b48-2e665cb48e6a,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -688,7 +688,7 @@ Azure SQL Database Backup To Azure Backup Vault,e4ab13ed-33cb-41b4-9140-6e264582
 CRM Power BI Integration,e64aa8bc-8eb4-40e2-898b-cf261a25954f,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 PROD Microsoft Defender For Cloud Athena,e807d0e2-91da-40d6-8cee-e33c91a0b051,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 AzureBackup_Fabric_Service,e81c7467-0fc3-4866-b814-c973488361cd,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Microsoft Social EN/Agement,e8ab36af-d4be-4833-a38b-4d6cf1cfd525,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Microsoft Social Engagement,e8ab36af-d4be-4833-a38b-4d6cf1cfd525,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Office365 Shell SS-Server,e8bdeda8-b4a3-4eed-b307-5e2456238a77,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 MM_Reactions_PME_PROD [Community Contributed],e8e8fc40-94d5-4ed6-89f2-9e5ec6c1e11e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 All private resources with Global Secure Access,e92b9b37-1b47-4c01-9fbc-91d84450870e,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
@@ -738,7 +738,7 @@ Apple Internet Accounts,f8d98a96-0999-43f5-8af3-69971c7bb423,compliance,info,N/A
 Microsoft Graph Connectors Core,f8f7a2aa-e116-4ba6-8aea-ca162cfa310d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Office 365 Enterprise Insights,f9d02341-e7aa-456d-926d-4a0ca599fbee,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Microsoft Exchange REST API Based Powershell,fb78d390-0c51-40cd-8e17-fdbfab77341b,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
-Azure Machine Learning AuthorizatioN/App 1,fb9de05a-fecc-4642-b3ca-66b9d4434d4d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
+Azure Machine Learning Authorization App 1,fb9de05a-fecc-4642-b3ca-66b9d4434d4d,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Substrate-FileWatcher,fbb0ac1a-82dd-478b-a0e5-0b2b98ef38fe,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 policy enforcer,fbb123dc-fe45-41fe-ad9f-e42ab0769328,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
 Azure AD Notification,fc03f97a-9db0-4627-a216-ec98ce54e018,compliance,info,N/A,https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in,N/A
