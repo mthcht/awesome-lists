@@ -41,6 +41,7 @@
 - 🔢 Suspicious MAC address: [suspicious_mac_address_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_mac_address_list.csv)
 - 📛 Suspicious Hostname: [suspicious_hostnames_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_hostnames_list.csv)
 - 🌐 Suspicious Browser Extensions: [Browser Extensions](https://github.com/mthcht/awesome-lists/tree/main/Lists/Browser%20Extensions)
+- 📧 Microsoft App IDs List - BEC Detection [microsoft_apps_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/microsoft_apps_list.csv)
 - 🧮 Metadata Executables: [executables_metadata_informations_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Windows%20Metadata/executables_metadata_informations_list.csv)
 - 🕸️ DNS over HTTPS server list: [dns_over_https_servers_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv)
 - 📚 Hijacklibs (updated automatically): [hijacklibs_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv)
