@@ -570,6 +570,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Understanding The Linux Virtual Memory Manager](https://www.kernel.org/doc/gorman/pdf/understand.pdf)
   - [Linux insides](https://github.com/0xAX/linux-insides/blob/master/SUMMARY.md)
   - [Linux Ebpf](https://www.amazon.com/Learning-eBPF-Programming-Observability-Networking/dp/1098135121)
+  - [Windows Security Internals](https://www.oreilly.com/library/view/windows-security-internals/9781098168834)
 
 #### Exploitation
   - [Hacking Art Exploitation](https://www.amazon.com/Hacking-Art-Exploitation-Jon-Erickson-ebook/dp/B004OEJN3I)
