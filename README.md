@@ -406,7 +406,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Clément Notin Feed](https://clement.notin.org/feed.xml)
 - [tenable Blog](https://medium.com/tenable-techblog)
 - [horizon3 Feed](https://www.horizon3.ai/feed/)
-- [NCC Group Research]([https://research.nccgroup.com/feed/](https://www.nccgroup.com/us/research-blog/))
+- [NCC Group Research](https://research.nccgroup.com/feed/)
 - [SpecterOps Feed](https://posts.specterops.io/feed)
 - [Redcanary Feed](https://www.redcanary.co/feed/)
 - [Sophos Research Feed](https://news.sophos.com/en-us/category/threat-research/feed/)
