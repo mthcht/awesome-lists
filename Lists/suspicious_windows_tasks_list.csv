@@ -1,4 +1,6 @@
 TaskName,TaskCommand,TaskArguments,metadata_tool,metadata_tool_category,metadata_tool_type,metadata_link,metadata_severity,metadata_comment,metadata_reference
+\ReportHealth,*appdata*\srvHealth.exe*,,ISMInjector,Malware,offensive_tool,https://unit42.paloaltonetworks.com/unit42-oilrig-group-steps-attacks-new-delivery-documents-new-injector-trojan/,high,N/A,https://github.com/mthcht/awesome-lists
+\FJ_load,*madHcCtrl.exe*,,Danabot,Infostealer,offensive_tool,https://securelist.com/tusk-infostealers-campaign/113367/,high,N/A,https://github.com/mthcht/awesome-lists
 \InetlSecurityAssistManager,*wscript *,,OopsIE,Malware,offensive_tool,https://unit42.paloaltonetworks.com/unit42-oopsie-oilrig-uses-threedollars-deliver-new-trojan/,high,N/A,https://github.com/mthcht/awesome-lists
 \SecurityAssist,*Certutil*,,OopsIE,Malware,offensive_tool,https://unit42.paloaltonetworks.com/unit42-oopsie-oilrig-uses-threedollars-deliver-new-trojan/,high,N/A,https://github.com/mthcht/awesome-lists
 \MicrosoftEdgeUpdateTaskMachineUC,*\users\public\*,,autohotkey,keylogger,offensive_tool,https://thedfirreport.com/2023/02/06/collect-exfiltrate-sleep-repeat/,high,N/A,https://github.com/mthcht/awesome-lists
