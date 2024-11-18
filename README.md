@@ -215,6 +215,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [checkphish](https://checkphish.bolster.ai/)
   - [ipvoid](https://www.ipvoid.com/)
   - [mxtoolbox](https://mxtoolbox.com/NetworkTools.aspx)
+  - [mxtoolbox mail header](https://mxtoolbox.com/EmailHeaders.aspx)
   - [Microsoft TI](https://ti.defender.microsoft.com/)
   - [pulsedive](https://pulsedive.com/)
   - [threatbook](https://threatbook.io/)
