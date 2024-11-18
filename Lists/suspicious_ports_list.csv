@@ -186,6 +186,8 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 21115,RustDesk RMM,high,RMM,detection_rule
 21116,RustDesk RMM,high,RMM,detection_rule
 21802,hardhatC2 default port,high,C2,detection_rule
+22000,Shadowpad default port (backdoor used for espionage and large-scale cyberattacks) but also legitimate uses like 	Gamespy Lan Port - Battlefield Vietnam - Medal of Honor - Syncthing - SoftPAC - SNAPenetIO,low,malware,hunting
+22001,Shadowpad default port (backdoor used for espionage and large-scale cyberattacks) but also legitimate use for OptoControl,low,malware,hunting
 22543,Action1 RMM tools outbound connection tcp,high,RMM,hunting
 25405,Netsupport - connection attempts from a Control machine,high,RMM,hunting
 27374,SubSeven backdoor and multiple other malwares,high,malware,hunting
