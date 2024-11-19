@@ -104,7 +104,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [\[EVTX\] WELA](https://github.com/Yamato-Security/WELA)
   - [\[EVTX\] chainsaw](https://github.com/WithSecureLabs/chainsaw)
   - [\[EVTX\] APTHunter](https://github.com/ahmedkhlief/APT-Hunter/)
-  - [\[EVTX\Auditd\] Zircolite](https://github.com/wagga40/Zircolite)
+  - [\[EVTX / Auditd\] Zircolite](https://github.com/wagga40/Zircolite)
   - [werejugo](https://github.com/MarkBaggett/werejugo)
   - [ADTimeline](https://github.com/ANSSI-FR/ADTimeline)
   - [PersistenceSniper](https://github.com/last-byte/PersistenceSniper)
