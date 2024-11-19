@@ -367,14 +367,14 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [\[Event parser\] evtx](https://github.com/omerbenamram/evtx)
   - [\[Event Parser\] procmon-parser](https://github.com/eronnen/procmon-parser)
   - [\[EVTX\] Hayabusa](https://github.com/Yamato-Security/hayabusa)
-  - [\EVTX\] WELA] (https://github.com/Yamato-Security/WELA)
+  - [\[EVTX\] WELA](https://github.com/Yamato-Security/WELA)
   - [\[EVTX\] chainsaw](https://github.com/WithSecureLabs/chainsaw)
   - [\[EVTX\] APTHunter](https://github.com/ahmedkhlief/APT-Hunter/)
   - [\[EVTX\Auditd\] Zircolite](https://github.com/wagga40/Zircolite)
   - [werejugo](https://github.com/MarkBaggett/werejugo)
   - [ADTimeline](https://github.com/ANSSI-FR/ADTimeline)
   - [PersistenceSniper](https://github.com/last-byte/PersistenceSniper)
-  - [\[O365[\] Logs - Microsoft-Analyzer-Suite](https://github.com/evild3ad/Microsoft-Analyzer-Suite)
+  - [\[O365\] Logs - Microsoft-Analyzer-Suite](https://github.com/evild3ad/Microsoft-Analyzer-Suite)
   - [Logon Tracer](https://github.com/JPCERTCC/LogonTracer)
   - [Timeline Plaso](https://github.com/log2timeline/plaso)
   - [Timeline TimeSketch](https://github.com/google/timesketch)
@@ -409,7 +409,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [\[Linux Parser\] MasterParser](https://github.com/securityjoes/MasterParser)
   - [lists - aboutdfir.com](https://aboutdfir.com/)
   - [Monitoring - Osquery](https://github.com/osquery/osquery)
-  - [\]IR Guide\] OpenProject ](https://github.com/DebugPrivilege/OpenProject)
+  - [\[IR Guide\] OpenProject ](https://github.com/DebugPrivilege/OpenProject)
 
 </details>
 
