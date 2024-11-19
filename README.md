@@ -76,8 +76,6 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 ### DFIR
 
-<details>
-
   - [🔥 EricZimmerman Tools 🔥](https://ericzimmerman.github.io/#!index.md)
   - [dfir-orc](https://github.com/dfir-orc)
   - [dfir-orc-config](https://github.com/DFIR-ORC/dfir-orc-config)
@@ -146,8 +144,6 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [lists - aboutdfir.com](https://aboutdfir.com/)
   - [Monitoring - Osquery](https://github.com/osquery/osquery)
   - [\[IR Guide\] OpenProject ](https://github.com/DebugPrivilege/OpenProject)
-
-</details>
 
 ### IOC Feeds/Blacklists:
 
