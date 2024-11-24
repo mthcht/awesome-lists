@@ -537,7 +537,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
     - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
     - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs)
     - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
-    - @binaryz0ne: DFIR challenges with [Datasets](https://www.ashemery.com/dfir.html) 
+    - @binaryz0ne: DFIR challenges with [Datasets](https://www.ashemery.com/dfir.html) + [Linux forensic workshop](https://github.com/ashemery/LinuxForensics)
 
 #### SOC
 
