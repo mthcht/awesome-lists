@@ -532,8 +532,9 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - Defensive-security: [Linux-live-forensics](https://edu.defensive-security.com/linux-attack-live-forensics-at-scale)
   - @0gtweet - Forensic course: [Mastering Windows Forensics](https://grzegorz-tworek-s-school.teachable.com/)
   - @DebugPrivilege : Forensic Debugging free course [InsightEngineering](https://github.com/DebugPrivilege/InsightEngineering)
-    
+  
   - Challenges:
+    - Arsenal Recon Disks Images for DFIR: [publicly-accessible-disk-images](https://arsenalrecon-dev.s3.amazonaws.com/blog/publicly-accessible-disk-images-&-mobile-extractions-grid-for-dfir---september-24-2024-update.pdf)
     - @inversecos - APT Emulation Labs: [xintra](https://www.xintra.org/labs)
     - @TheDFIRReport : LABs with logs from the existing reports [dfir-labs](https://the-dfir-report-store.myshopify.com/collections/dfir-labs)
     - @ACEresponder: Courses with Detailed Explanations and Labs [aceresponder.com](https://www.aceresponder.com/challenges)
