@@ -79,6 +79,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [🔥 EricZimmerman Tools 🔥](https://ericzimmerman.github.io/#!index.md)
   - [dfir-orc](https://github.com/dfir-orc)
   - [dfir-orc-config](https://github.com/DFIR-ORC/dfir-orc-config)
+  - [Arsenal Recon Forensic tools](https://arsenalrecon.com/downloads)
   - [Splunk4DFIR](https://github.com/mf1d3l/Splunk4DFIR)
   - [dfiq](https://github.com/google/dfiq)
   - [Mind maps](https://github.com/AndrewRathbun/DFIRMindMaps)
