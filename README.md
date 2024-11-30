@@ -408,6 +408,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [P4T12ICK Sigma-Rules](https://github.com/P4T12ICK/Sigma-Rule-Repository)
 - [tsale Sigma-Rules](https://github.com/tsale/Sigma_rules)
 - [list of detections resources](https://github.com/jatrost/awesome-detection-rules)
+- [KQL Hunting Queries](https://github.com/Bert-JanP/Hunting-Queries-Detection-Rules)
 - [detection engineering resources](https://github.com/infosecB/awesome-detection-engineering)
 - [Defender Resource](https://defenderresourcehub.info/)
 - [awesome-threat-detection](https://github.com/0x4D31/awesome-threat-detection)
