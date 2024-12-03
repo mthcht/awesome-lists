@@ -515,7 +515,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Splunk Atomic on Friday](https://www.youtube.com/@atomicsonafriday/streams)
   - [NolimitSecu (FR)](https://www.nolimitsecu.fr/)
   - [HacknSpeak (FR)](https://open.spotify.com/show/2lwA1WLVqnYvnlc7WkV3yU)
- - [Radio CSIRT (FR)](https://www.radiocsirt.org)
+  - [Radio CSIRT (FR)](https://www.radiocsirt.org)
+  - [Security Conversations](https://securityconversations.com/)
 
 </details>
 
