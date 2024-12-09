@@ -499,7 +499,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [CTI - @TLP_R3D](https://www.youtube.com/@TLP_R3D)
   - [Windows Internal - @mrexodia](https://www.youtube.com/@mrexodia)
   - [!!! Exploitation - ippsec](https://www.youtube.com/@ippsec)
-
+  - [Exploitation - flangvik](https://youtube.com/@flangvik?si=vVShvHdg3QCLrHJf)
 </details>
 
 ### Podcasts
