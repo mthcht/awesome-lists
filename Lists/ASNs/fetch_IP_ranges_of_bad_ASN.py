@@ -33,7 +33,10 @@ def fetch_spamhaus_asn_data():
     for line in response.text.splitlines():
         try:
             entry = json.loads(line)
-            spamhaus_data.append(entry)
+            if 'asn' in entry and 'rir' in entry and 'domain' in entry and 'cc' in entry and 'asname' in entry:
+                spamhaus_data.append(entry)
+            else:
+                print(f"Skipping incomplete entry: {entry}")
         except json.JSONDecodeError:
             print(f"Failed to decode line: {line}")
 
