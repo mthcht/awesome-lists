@@ -207,6 +207,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Cloud Intel IOC](https://github.com/unknownhad/CloudIntel)
 - [SpamHaus drop.txt](https://www.spamhaus.org/drop/drop.txt)
 - [UrlHaus_misp](https://urlhaus.abuse.ch/downloads/misp/)
+- [UrlHaus_misp ASN](https://urlhaus.abuse.ch/feeds/)
 - [UrlHaus](https://urlhaus.abuse.ch/api/#csv)
 - [vx-underground - Great Resource for Samples and Intelligence Reports](https://vx-underground.org/Samples)
 - [Ransomware.live](https://ransomware.live)
