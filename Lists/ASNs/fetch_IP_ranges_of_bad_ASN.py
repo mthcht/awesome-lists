@@ -28,7 +28,14 @@ def read_as_numbers(csv_file_path):
 def fetch_spamhaus_asn_data():
     response = requests.get(spamhaus_url)
     response.raise_for_status()
-    spamhaus_data = response.json()
+    
+    spamhaus_data = []
+    for line in response.text.splitlines():
+        try:
+            entry = json.loads(line)
+            spamhaus_data.append(entry)
+        except json.JSONDecodeError:
+            print(f"Failed to decode line: {line}")
 
     # Write Spamhaus data to a CSV file
     with open(spamhaus_csv_file_path, mode='w', encoding='utf-8', newline='') as file:
