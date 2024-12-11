@@ -32,6 +32,11 @@ jobs:
 
       - name: List files in the Lists/RMM directory
         run: ls -la Lists/RMM
+        
+      - name: Rebase on latest changes
+        run: |
+          git fetch origin
+          git rebase origin/main
 
       - name: Commit and Push results
         run: |
