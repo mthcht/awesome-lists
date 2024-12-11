@@ -45,8 +45,17 @@ def get_asn_from_ip_range(ip_range):
     soup = BeautifulSoup(response.text, 'html.parser')
 
     # Find the ASN in the page
-    table = soup.find('div', id='netinfo').find('table')
-    asn_link = table.find('tbody').find('a', href=True, text=True)
+    div_netinfo = soup.find('div', id='netinfo')
+    if not div_netinfo:
+        logging.error(f"'div' with id 'netinfo' not found for IP range: {ip_range}")
+        return "ASN not found"
+
+    table = div_netinfo.find('table')
+    if not table:
+        logging.error(f"'table' not found under 'div#netinfo' for IP range: {ip_range}")
+        return "ASN not found"
+
+    asn_link = table.find('tbody').find('a', href=True, string=True)
     if asn_link and 'AS' in asn_link.get_text():
         asn_number = asn_link.get_text().replace('AS', '').strip()
         logging.info(f'Found ASN {asn_number} for IP range: {ip_range}')
