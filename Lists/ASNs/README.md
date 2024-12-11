@@ -15,10 +15,15 @@ This script automatically fetches the latest list of bad ASNs most used in phish
 This file contains the latest top bad ASNs most used in phishing attacks, fetched from www.cybercrimeinfocenter.org. The file is updated by the `fetch_cybercrimeinfocenter_phishing_asn_stats.py` script.
 
 3. `fetch_IP_ranges_of_bad_ASN.py`
-This script fetches the updated IP ranges of each bad ASN listed in `latest_bad_asn_phishing_list.csv` and saves the IP ranges of each ASN in the current folder.
+This script fetches the updated IP ranges of each bad ASN listed in the consolidated list of ASNs and saves the IP ranges of each ASN in the current folder.
+Reads the list of ASNs from:
+- latest_bad_asn_phishing_list.csv (Cybercrime Info Center).
+- bad_asn_static_list.csv (Static List of ASNs).
+- spamhaus_asn_list.csv (Spamhaus ASN Drop List).
 
 - This script performs the following steps:
-  - Reads the list of ASNs from latest_bad_asn_phishing_list.csv.
+  - Fetches the ASN drop list from Spamhaus at https://www.spamhaus.org/drop/asndrop.json, extracts data, and saves it as spamhaus_asn_list.csv.
+  - Combines all ASNs into a single deduplicated list.
   - Constructs a command to execute the [get_ip_range.py](https://github.com/mthcht/awesome-lists/blob/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py) script with the AS numbers as arguments.
   - Executes the command to fetch the IP ranges of the listed ASNs and saves the results in the current folder.
 
