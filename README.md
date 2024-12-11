@@ -205,6 +205,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Pr0xylife Vidar IOC](https://github.com/pr0xylife/Vidar)
 - [Pr0xylife Warmcookie IOC](https://github.com/pr0xylife/Warmcookie-Badspace)
 - [Cloud Intel IOC](https://github.com/unknownhad/CloudIntel)
+- [Phihsing urls - last week feed](https://file.jeroengui.be/phishing/last_week.txt)
 - [SpamHaus drop.txt](https://www.spamhaus.org/drop/drop.txt)
 - [SpamHaus drop + ASN](https://www.spamhaus.org/blocklists/do-not-route-or-peer/)
 - [UrlHaus_misp](https://urlhaus.abuse.ch/downloads/misp/)
