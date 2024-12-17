@@ -603,7 +603,6 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [RedTeam - BloodHoundHQ Slack](bloodhoundhq.slack.com)
 - [RedTeam - evilsocket Discord](https://discord.com/channels/1100085665766572142)
 - [RedTeam - OffSec Discord](https://discord.com/channels/780824470113615893/)
-- [RedTeam - OffSec Discord](https://discord.com/channels/780824470113615893/)
 - [Threat Hunting - Threat Hunter community Discord](https://discord.com/channels/690293821866508430/)
 - [PurpleTeam - Ipurpleteam Discord](https://discord.com/channels/1285691872928595968)
 - [Blueteam Detection engineering - Hunter's Den Discord](https://discord.com/channels/1104707391569797200)
