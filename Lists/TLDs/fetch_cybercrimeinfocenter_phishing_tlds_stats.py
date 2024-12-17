@@ -20,25 +20,30 @@ report_links = main_soup.find_all('a', href=re.compile(r'phishing-activity-in-tl
 # Function to sanitize and fix URLs
 def sanitize_url(href):
     if href.startswith("http"):
-        return href  # Already valid
+        if "cybercrimeinfocenter.org" not in href:
+            # Force prepend BASE_URL if domain is missing
+            return f"{BASE_URL}/{href.split('/')[-1]}"
+        return href
     elif href.startswith("/"):
-        return f"{BASE_URL}{href}"  # Relative URL, prepend domain
+        return f"{BASE_URL}{href}"
     else:
-        # Remove any leading invalid domains and prepend BASE_URL
-        cleaned_href = re.sub(r'^https?://', '', href)
-        return f"{BASE_URL}/{cleaned_href.lstrip('/')}"
+        return f"{BASE_URL}/{href.lstrip('/')}"
 
-# Fix the latest report URL
+# Process report links and fix the latest one
 latest_report_href = report_links[0]['href']
 latest_report_url = sanitize_url(latest_report_href)
 
 # Attempt to fetch the corrected report
 try:
+    print(f"Attempting to fetch: {latest_report_url}")
     response = requests.get(latest_report_url)
     response.raise_for_status()
-except requests.exceptions.RequestException as e:
-    print(f"Failed to fetch URL: {latest_report_url}. Error: {e}")
-    exit()
+except requests.exceptions.RequestException:
+    # Force correction if malformed
+    print("Failed to fetch URL. Forcing BASE_URL prepend...")
+    corrected_link = sanitize_url(report_links[0]['href'])
+    response = requests.get(corrected_link)
+    response.raise_for_status()
 
 # Parse the latest report
 soup = BeautifulSoup(response.content, 'html.parser')
@@ -52,10 +57,8 @@ rows = table.find_all('tr')[1:]
 output_file = "latest_bad_tlds_phishing_cybercrimeinfocenter_list.csv"
 with open(output_file, mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
-    # Write headers
     writer.writerow(['dest_nt_domain', 'metadata_rank', 'metadata_domains_count',
                      'metadata_phishing_domains_count', 'metadata_phishing_domain_score'])
-    # Write table data
     for row in rows:
         columns = row.find_all('td')
         rank = columns[0].text.strip()
