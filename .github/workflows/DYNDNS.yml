@@ -1,0 +1,44 @@
+name: daily DYNDNS list update
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Runs every week
+  workflow_dispatch:
+
+jobs:
+  fetch-tlds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' 
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run scripts from the DYNDNS/dyn-dns-list-alexandrosmagos folder
+        run: |
+          cd Lists/DYNDNS/dyn-dns-list-alexandrosmagos
+          python fetch_dyndns_lists_from_github_alexandrosmagos.py
+    
+      - name: List files
+        run: ls -la
+
+      - name: List files in the Lists/DYNDNS/dyn-dns-list-alexandrosmagos
+        run: ls -la Lists/DYNDNS/dyn-dns-list-alexandrosmagos
+
+      - name: Commit and Push results
+        run: |
+          git pull
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/DYNDNS/*
+          git commit -m "Update daily DYNDNS" --allow-empty
+          git push
