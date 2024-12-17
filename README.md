@@ -490,6 +490,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [mcafee labs feed](https://www.mcafee.com/blogs/other-blogs/mcafee-labs/feed/)
 - [Michael Haag Blog](https://haggis-m.medium.com/)
 - [Microsoft security blog feed](https://www.microsoft.com/en-us/security/blog/feed/)
+- [Microsoft Incident response ninja hub](https://techcommunity.microsoft.com/blog/microsoftsecurityexperts/welcome-to-the-microsoft-incident-response-ninja-hub/4243594)
 - [Microsoft Threat Intel feed](https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/feed)
 - [morphisec threat research](https://blog.morphisec.com/topic/threat-research)
 - [NCC Group research feed](https://research.nccgroup.com/feed/)
