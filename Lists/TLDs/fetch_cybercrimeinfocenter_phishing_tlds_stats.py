@@ -3,51 +3,59 @@ from bs4 import BeautifulSoup
 import csv
 import re
 
-# URL of the main page containing the links to quarterly reports
-main_url = "https://www.cybercrimeinfocenter.org/phishing-activity"
+# Base URL for appending to incomplete links
+BASE_URL = "https://www.cybercrimeinfocenter.org"
 
+# URL of the main page containing the links to quarterly reports
+main_url = f"{BASE_URL}/phishing-activity"
+
+# Fetch the main page
 main_response = requests.get(main_url)
 main_response.raise_for_status()
 main_soup = BeautifulSoup(main_response.content, 'html.parser')
 
 # Find all the links to the quarterly reports
-report_links = main_soup.find_all('a', href=re.compile(r'/phishing-activity-in-tlds-'))
+report_links = main_soup.find_all('a', href=re.compile(r'phishing-activity-in-tlds-'))
 
-# Function to validate and fix URLs
-def validate_and_fix_url(link):
-    if link.startswith("http"):  # Valid absolute URL
-        return link
-    elif link.startswith("/"):  # Relative URL, add domain
-        return f"https://www.cybercrimeinfocenter.org{link}"
-    else:  # Malformed link, try to fix it
-        return f"https://www.cybercrimeinfocenter.org/{link.lstrip('/')}"
+# Function to validate and fix report URLs
+def fix_url(link):
+    if link.startswith("http"):
+        return link  # Full URL is valid
+    elif link.startswith("/"):
+        return f"{BASE_URL}{link}"  # Relative path
+    else:
+        # Handle malformed links
+        return f"{BASE_URL}/{link.lstrip('/')}"
 
-# Correct the last link if necessary
-latest_report_url = validate_and_fix_url(report_links[0]['href'])
+# Process the latest report link
+latest_report_url = fix_url(report_links[0]['href'])
 
-# Test if the URL works; if not, correct it manually
-response = requests.get(latest_report_url)
-if response.status_code != 200:
-    print(f"Initial URL failed: {latest_report_url}. Attempting to correct...")
-    latest_report_url = f"https://www.cybercrimeinfocenter.org{report_links[0]['href']}"
+try:
     response = requests.get(latest_report_url)
+    response.raise_for_status()
+except requests.exceptions.RequestException:
+    # Fallback correction if the link is still invalid
+    print(f"Initial URL failed: {latest_report_url}. Correcting...")
+    latest_report_url = f"{BASE_URL}/{report_links[0]['href'].lstrip('/')}"
+    response = requests.get(latest_report_url)
+    response.raise_for_status()
 
-response.raise_for_status()
+# Parse the latest report
 soup = BeautifulSoup(response.content, 'html.parser')
-
 heading = soup.find('h2', string=re.compile(r'Ranking of TLDs by Phishing Domain Score'))
 table = heading.find_next('table', {'border': '1', 'cellpadding': '6pt'})
 
 # Extract table rows
 rows = table.find_all('tr')[1:]
 
-# Open a CSV file to write the extracted data
-with open('latest_bad_tlds_phishing_cybercrimeinfocenter_list.csv', mode='w', newline='', encoding='utf-8') as file:
+# Write data to CSV
+output_file = "latest_bad_tlds_phishing_cybercrimeinfocenter_list.csv"
+with open(output_file, mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
-    # Write new headers to CSV
-    writer.writerow(['dest_nt_domain', 'metadata_rank', 'metadata_domains_count', 'metadata_phishing_domains_count', 'metadata_phishing_domain_score'])
-
-    # Write data rows to CSV
+    # Write headers
+    writer.writerow(['dest_nt_domain', 'metadata_rank', 'metadata_domains_count',
+                     'metadata_phishing_domains_count', 'metadata_phishing_domain_score'])
+    # Write table data
     for row in rows:
         columns = row.find_all('td')
         rank = columns[0].text.strip()
@@ -56,7 +64,6 @@ with open('latest_bad_tlds_phishing_cybercrimeinfocenter_list.csv', mode='w', ne
         phishing_domains_count = columns[3].text.strip().replace(",", "")
         phishing_domain_score = columns[4].text.strip()
 
-        data = [tld, rank, domains_count, phishing_domains_count, phishing_domain_score]
-        writer.writerow(data)
+        writer.writerow([tld, rank, domains_count, phishing_domains_count, phishing_domain_score])
 
-print(f"Data extraction complete. CSV file created as 'latest_bad_tlds_phishing_cybercrimeinfocenter_list.csv'. Latest report fetched from {latest_report_url}")
+print(f"Data extraction complete. CSV file saved as '{output_file}'. Latest report fetched from {latest_report_url}.")
