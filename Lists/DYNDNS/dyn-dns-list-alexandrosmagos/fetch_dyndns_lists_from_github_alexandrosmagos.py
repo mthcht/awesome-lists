@@ -6,7 +6,7 @@ from io import StringIO
 url = "https://github.com/alexandrosmagos/dyn-dns-list/raw/refs/heads/master/links.csv"
 
 # Fetch the CSV file
-output_filename = "links_updated.csv"
+output_filename = "dyndns_list.csv"
 
 try:
     print(f"Downloading CSV file from {url}...")
