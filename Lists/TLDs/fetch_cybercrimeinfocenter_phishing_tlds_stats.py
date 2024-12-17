@@ -13,9 +13,25 @@ main_soup = BeautifulSoup(main_response.content, 'html.parser')
 # Find all the links to the quarterly reports
 report_links = main_soup.find_all('a', href=re.compile(r'/phishing-activity-in-tlds-'))
 
-# Get the latest report link (the first link shold be the latest one)
-latest_report_url = "https://www.cybercrimeinfocenter.org" + report_links[0]['href']
+# Function to validate and fix URLs
+def validate_and_fix_url(link):
+    if link.startswith("http"):  # Valid absolute URL
+        return link
+    elif link.startswith("/"):  # Relative URL, add domain
+        return f"https://www.cybercrimeinfocenter.org{link}"
+    else:  # Malformed link, try to fix it
+        return f"https://www.cybercrimeinfocenter.org/{link.lstrip('/')}"
+
+# Correct the last link if necessary
+latest_report_url = validate_and_fix_url(report_links[0]['href'])
+
+# Test if the URL works; if not, correct it manually
 response = requests.get(latest_report_url)
+if response.status_code != 200:
+    print(f"Initial URL failed: {latest_report_url}. Attempting to correct...")
+    latest_report_url = f"https://www.cybercrimeinfocenter.org{report_links[0]['href']}"
+    response = requests.get(latest_report_url)
+
 response.raise_for_status()
 soup = BeautifulSoup(response.content, 'html.parser')
 
