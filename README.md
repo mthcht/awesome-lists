@@ -613,6 +613,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 ### Training
 
+<details>
+
 #### DFIR
   
   - 13cubed - Investigating Windows Endpoints [13cubed.com -windows endpoints](https://training.13cubed.com/investigating-windows-endpoints)
