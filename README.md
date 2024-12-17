@@ -442,6 +442,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Sekoi Blog](https://blog.sekoia.io/)
 - [akamai Feed](https://feeds.feedburner.com/akamai/blog)
 - [Elastic Blog](https://www.elastic.co/security-labs)
+- [badsectorlabs Last week in security - Redteam](https://blog.badsectorlabs.com/feeds/all.atom.xml)
 - [Checkpoint research Feed](https://research.checkpoint.com/feed)
 - [Cisco Talos](https://www.talosintelligence.com/)
 - [Crowdstrike](https://www.crowdstrike.com/en-us/blog/category.counter-adversary-operations/)
