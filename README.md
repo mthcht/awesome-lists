@@ -594,6 +594,9 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 </details>
 
 ### Discord /Slack channels
+
+<details>
+
 - [RedTeam - 🔥 Initial Access Guild 🔥 Discord](https://discord.com/channels/1118340483337424936)
 - [RedTeam - 🔥 Red-Team VX community 🔥 Discord](https://discord.com/channels/1012733841229746240)
 - [RedTeam - BloodHoundHQ Slack](bloodhoundhq.slack.com)
@@ -604,9 +607,11 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [PurpleTeam - Ipurpleteam Discord](https://discord.com/channels/1285691872928595968)
 - [Blueteam Detection engineering - Hunter's Den Discord](https://discord.com/channels/1104707391569797200)
 - [Blueteam Detection engineering - Sigma HQ Discord](https://discord.com/channels/1176230866515669072)
-- [Blueteam Threat Intel - Malcore Discord](https://discord.com/channels/1087758991809060876/1165463214457368677)### Training
+- [Blueteam Threat Intel - Malcore Discord](https://discord.com/channels/1087758991809060876/1165463214457368677)
 
-<details>
+</details>
+
+### Training
 
 #### DFIR
   
