@@ -3,10 +3,10 @@ from bs4 import BeautifulSoup
 import csv
 import re
 
-# Base URL for appending to incomplete links
+# Base URL
 BASE_URL = "https://www.cybercrimeinfocenter.org"
 
-# URL of the main page containing the links to quarterly reports
+# Main page URL
 main_url = f"{BASE_URL}/phishing-activity"
 
 # Fetch the main page
@@ -14,31 +14,31 @@ main_response = requests.get(main_url)
 main_response.raise_for_status()
 main_soup = BeautifulSoup(main_response.content, 'html.parser')
 
-# Find all the links to the quarterly reports
+# Find all report links
 report_links = main_soup.find_all('a', href=re.compile(r'phishing-activity-in-tlds-'))
 
-# Function to validate and fix report URLs
-def fix_url(link):
-    if link.startswith("http"):
-        return link  # Full URL is valid
-    elif link.startswith("/"):
-        return f"{BASE_URL}{link}"  # Relative path
+# Function to sanitize and fix URLs
+def sanitize_url(href):
+    if href.startswith("http"):
+        return href  # Already valid
+    elif href.startswith("/"):
+        return f"{BASE_URL}{href}"  # Relative URL, prepend domain
     else:
-        # Handle malformed links
-        return f"{BASE_URL}/{link.lstrip('/')}"
+        # Remove any leading invalid domains and prepend BASE_URL
+        cleaned_href = re.sub(r'^https?://', '', href)
+        return f"{BASE_URL}/{cleaned_href.lstrip('/')}"
 
-# Process the latest report link
-latest_report_url = fix_url(report_links[0]['href'])
+# Fix the latest report URL
+latest_report_href = report_links[0]['href']
+latest_report_url = sanitize_url(latest_report_href)
 
+# Attempt to fetch the corrected report
 try:
     response = requests.get(latest_report_url)
     response.raise_for_status()
-except requests.exceptions.RequestException:
-    # Fallback correction if the link is still invalid
-    print(f"Initial URL failed: {latest_report_url}. Correcting...")
-    latest_report_url = f"{BASE_URL}/{report_links[0]['href'].lstrip('/')}"
-    response = requests.get(latest_report_url)
-    response.raise_for_status()
+except requests.exceptions.RequestException as e:
+    print(f"Failed to fetch URL: {latest_report_url}. Error: {e}")
+    exit()
 
 # Parse the latest report
 soup = BeautifulSoup(response.content, 'html.parser')
