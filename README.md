@@ -593,8 +593,18 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
-
-### Training
+### Discord /Slack channels
+- [RedTeam - 🔥 Initial Access Guild 🔥 Discord](https://discord.com/channels/1118340483337424936)
+- [RedTeam - 🔥 Red-Team VX community 🔥 Discord](https://discord.com/channels/1012733841229746240)
+- [RedTeam - BloodHoundHQ Slack](bloodhoundhq.slack.com)
+- [RedTeam - evilsocket Discord](https://discord.com/channels/1100085665766572142)
+- [RedTeam - OffSec Discord](https://discord.com/channels/780824470113615893/)
+- [RedTeam - OffSec Discord](https://discord.com/channels/780824470113615893/)
+- [Threat Hunting - Threat Hunter community Discord](https://discord.com/channels/690293821866508430/)
+- [PurpleTeam - Ipurpleteam Discord](https://discord.com/channels/1285691872928595968)
+- [Blueteam Detection engineering - Hunter's Den Discord](https://discord.com/channels/1104707391569797200)
+- [Blueteam Detection engineering - Sigma HQ Discord](https://discord.com/channels/1176230866515669072)
+- [Blueteam Threat Intel - Malcore Discord](https://discord.com/channels/1087758991809060876/1165463214457368677)### Training
 
 <details>
 
