@@ -559,6 +559,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Malware Analysis - jstrosch](https://www.youtube.com/@jstrosch/videos)
   - [Malware Analysis - cyberraiju](https://www.youtube.com/@cyberraiju/videos)
   - [Malware Analysis - Botconf](https://www.youtube.com/@BotConfTV)
+  - [DFIR - AntisyphonTraining](https://www.youtube.com/@AntisyphonTraining)
   - [DFIR - BlackPerl](https://youtube.com/watch?v=KzD0MmEYAzQ&list=PLjWEV7pmvSa6f-NTpXsaUYWZLjLAB_0TS)
   - [Malware Analysis - malwareanalysisforhedgehogs](https://youtube.com/@malwareanalysisforhedgehogs?si=rHy80uPhjtyPtX0K)
   - [DFIR - BlueMonkey4n6](https://www.youtube.com/@BlueMonkey4n6/playlists)
