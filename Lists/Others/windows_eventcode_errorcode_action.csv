@@ -1,0 +1,557 @@
+EventCode,action,Error_Code,Description,Category,Subcategory,os
+4768,failure,0xF,KDC has no support for checksum type,,,
+4769,failure,0xF,KDC has no support for checksum type,,,
+4771,failure,0xF,KDC has no support for checksum type,,,
+4768,failure,0xE,KDC has no support for encryption type,,,
+4769,failure,0xE,KDC has no support for encryption type,,,
+4771,failure,0xE,KDC has no support for encryption type,,,
+4768,failure,0xD,KDC cannot accommodate requested option,,,
+4769,failure,0xD,KDC cannot accommodate requested option,,,
+4771,failure,0xD,KDC cannot accommodate requested option,,,
+4625,failure,0XC0000413,Logon Failure: The machine you are logging onto is protected by an authentication firewall. The specified account is not allowed to authenticate to the machine.,,,
+4776,failure,0xc0000371,The local account store does not contain secret material for the specified account.,,,
+4625,failure,0XC00002EE,Failure Reason: An Error occurred during Logon,,,
+4625,denied,0xC0000234,User logon with account locked,,,
+4776,failure,0xC0000234,Account logon with account locked.,,,
+4625,error,0XC0000225,Evidently a bug in Windows and not a risk,,,
+4625,failure,0XC0000224,User is required to change password at next logon,,,
+4776,failure,0xC0000224,"Account logon with ""Change Password at Next Logon"" flagged.",,,
+4625,failure,0xC0000193,User logon with expired account,,,
+4776,failure,0xC0000193,Account logon with expired account.,,,
+4625,failure,0XC0000192,"An attempt was made to logon, but the Netlogon service was not started.",,,
+4625,failure,0XC000018C,The logon request failed because the trust relationship between the primary domain and the trusted domain failed.,,,
+4625,denied,0XC000015B,The user has not been granted the requested logon type (aka logon right) at this machine,,,
+4625,error,0XC0000133,Clocks between DC and other computer too far out of sync,,,
+4625,failure,0XC000010B,Indicates an invalid value has been provided for the LogonType requested.,,,
+4625,failure,0XC00000DC,Indicates the Sam Server was in the wrong state to perform the desired operation.,,,
+4625,failure,0xC0000072,User logon to account disabled by administrator,,,
+4776,failure,0xC0000072,Account logon to account disabled by administrator.,,,
+4625,failure,0xC0000071,User logon with expired password,,,
+4776,failure,0xC0000071,Account logon with expired password.,,,
+4625,denied,0xC0000070,User logon from unauthorized workstation,,,
+4776,denied,0xC0000070,Account logon from unauthorized workstation.,,,
+4625,denied,0xC000006F,User logon outside authorized hours,,,
+4776,denied,0xC000006F,Account logon outside authorized hours.,,,
+4625,failure,0XC000006E,Unknown user name or bad password.,,,
+4625,failure,0XC000006D,This is either due to a bad username or authentication information,,,
+4776,failure,0xC000006D,Generic logon failure.,,,
+4625,failure,0xC000006A,User logon with misspelled or bad password,,,
+4776,failure,0xC000006A,Account logon with misspelled or bad password.,,,
+4625,unknown,0xC0000064,User logon with misspelled or bad user account,,,
+4776,failure,0xC0000064,The username you typed does not exist. Bad username.,,,
+4625,failure,0XC000005E,There are currently no logon servers available to service the logon request.,,,
+4768,failure,0xC,Requested start time is later than end time,,,
+4769,failure,0xC,Requested start time is later than end time,,,
+4771,failure,0xC,KDC policy rejects request,,,
+4768,failure,0xB,Requested start time is later than end time,,,
+4769,failure,0xB,Requested start time is later than end time,,,
+4771,failure,0xB,Requested start time is later than end time,,,
+4768,failure,0xA,Ticket (TGT) not eligible for postdating,,,
+4769,failure,0xA,Ticket (TGT) not eligible for postdating,,,
+4771,failure,0xA,Ticket not eligible for postdating,,,
+4768,failure,0x9,The client or server has a null key (master key),,,
+4769,failure,0x9,The client or server has a null key (master key),,,
+4771,failure,0x9,The client or server has a null key,,,
+4768,failure,0x8,Multiple principal entries in KDC database,,,
+4769,failure,0x8,Multiple principal entries in KDC database,,,
+4771,failure,0x8,Multiple principal entries in database,,,
+4768,failure,0x7,Server not found in Kerberos database,,,
+4769,failure,0x7,Server not found in Kerberos database,,,
+4771,failure,0x7,Server not found in Kerberos database,,,
+4768,failure,0x6,Client not found in Kerberos database,,,
+4769,failure,0x6,Client not found in Kerberos database,,,
+4771,failure,0x6,Client not found in Kerberos database,,,
+4768,failure,0x5,Server's key encrypted in old master key,,,
+4769,failure,0x5,Server's key encrypted in old master key,,,
+4771,failure,0x5,Server's key encrypted in old master key,,,
+4768,failure,0x44,Incorrect domain or principal,,,
+4769,failure,0x44,Incorrect domain or principal,,,
+4768,failure,0x43,No TGT was presented or available,,,
+4769,failure,0x43,No TGT was presented or available,,,
+4768,failure,0x42,User-to-user authorization is required,,,
+4769,failure,0x42,User-to-user authorization is required,,,
+4768,failure,0x41,A higher encryption level is needed,,,
+4769,failure,0x41,A higher encryption level is needed,,,
+4768,failure,0x40,The signature is invalid,,,
+4769,failure,0x40,The signature is invalid,,,
+4768,failure,0x4,Client's key encrypted in old master key,,,
+4769,failure,0x4,Client's key encrypted in old master key,,,
+4771,failure,0x4,Client's key encrypted in old master key,,,
+4768,failure,0x3F,The KDC server trust failed or could not be verified,,,
+4769,failure,0x3F,The KDC server trust failed or could not be verified,,,
+4768,failure,0x3E,The client trust failed or is not implemented,,,
+4769,failure,0x3E,The client trust failed or is not implemented,,,
+4768,failure,0x3D,Field is too long for this implementation,,,
+4769,failure,0x3D,Field is too long for this implementation,,,
+4771,failure,0x3D,Field is too long for this implementation,,,
+4768,failure,0x3C,Generic error,,,
+4769,failure,0x3C,Generic error,,,
+4771,failure,0x3C,Generic error,,,
+4768,failure,0x34,Too much data,,,
+4769,failure,0x34,Too much data,,,
+4768,failure,0x33,Desired path is unreachable,,,
+4769,failure,0x33,Desired path is unreachable,,,
+4768,failure,0x32,Inappropriate type of checksum in message (checksum may be unsupported),,,
+4769,failure,0x32,Inappropriate type of checksum in message (checksum may be unsupported),,,
+4771,failure,0x32,Inappropriate type of checksum in message,,,
+4768,failure,0x31,Incorrect sequence number in message,,,
+4769,failure,0x31,Incorrect sequence number in message,,,
+4771,failure,0x31,Incorrect sequence number in message,,,
+4768,failure,0x30,Alternative authentication method required,,,
+4769,failure,0x30,Alternative authentication method required,,,
+4771,failure,0x30,Alternative authentication method required*,,,
+4768,failure,0x3,Requested Kerberos version number not supported,,,
+4769,failure,0x3,Requested Kerberos version number not supported,,,
+4771,failure,0x3,Requested protocol version # not supported,,,
+4768,failure,0x2F,Incorrect message direction,,,
+4769,failure,0x2F,Incorrect message direction,,,
+4771,failure,0x2F,Incorrect message direction,,,
+4768,failure,0x2E,Mutual authentication failed,,,
+4769,failure,0x2E,Mutual authentication failed,,,
+4771,failure,0x2E,Mutual authentication failed,,,
+4768,failure,0x2D,Service key not available,,,
+4769,failure,0x2D,Service key not available,,,
+4771,failure,0x2D,Service key not available,,,
+4768,failure,0x2C,Specified version of key is not available,,,
+4769,failure,0x2C,Specified version of key is not available,,,
+4771,failure,0x2C,Specified version of key is not available,,,
+4768,failure,0x2A,Message out of order (possible tampering),,,
+4769,failure,0x2A,Message out of order (possible tampering),,,
+4771,failure,0x2A,Message out of order,,,
+4768,failure,0x29,"Message stream modified and checksum didn't match	",,,
+4769,failure,0x29,Message stream modified and checksum didn't match,,,
+4771,failure,0x29,Message stream modified,,,
+4768,failure,0x28,Message type is unsupported,,,
+4769,failure,0x28,Message type is unsupported,,,
+4771,failure,0x28,Invalid msg type,,,
+4768,failure,0x27,Protocol version numbers don't match (PVNO),,,
+4769,failure,0x27,Protocol version numbers don't match (PVNO),,,
+4771,failure,0x27,Protocol version mismatch,,,
+4768,failure,0x26,Network address in network layer header doesn't match address inside ticket,,,
+4769,failure,0x26,Network address in network layer header doesn't match address inside ticket,,,
+4771,failure,0x26,Incorrect net address,,,
+4768,failure,0x25,The clock skew is too great,,,
+4769,failure,0x25,The clock skew is too great,,,
+4771,failure,0x25,Clock skew too great,,,
+4768,failure,0x24,The ticket and authenticator do not match,,,
+4769,failure,0x24,The ticket and authenticator do not match,,,
+4771,failure,0x24,"Ticket and authenticator don't match	",,,
+4768,failure,0x23,The ticket is not for us,,,
+4769,failure,0x23,The ticket is not for us,,,
+4771,failure,0x23,The ticket isn't for us,,,
+4768,failure,0x22,The request is a replay,,,
+4769,failure,0x22,The request is a replay,,,
+4771,failure,0x22,Request is a replay,,,
+4768,failure,0x21,The ticket is not yet valid,,,
+4769,failure,0x21,The ticket is not yet valid,,,
+4771,failure,0x21,Ticket not yet valid,,,
+4768,failure,0x20,The ticket has expired,,,
+4769,failure,0x20,The ticket has expired,,,
+4771,failure,0x20,Ticket expired,,,
+4768,failure,0x2,Server's entry in KDC database has expired,,,
+4769,failure,0x2,Server's entry in KDC database has expired,,,
+4771,failure,0x2,Server's entry in database has expired,,,
+4768,failure,0x1F,Integrity check on decrypted field failed,,,
+4769,failure,0x1F,Integrity check on decrypted field failed,,,
+4771,failure,0x1F,Integrity check on decrypted field failed,,,
+4768,failure,0x1B,KDC is unavailable,,,
+4769,failure,0x1B,KDC is unavailable,,,
+4768,failure,0x1A,KDC does not know about the requested server,,,
+4769,failure,0x1A,KDC does not know about the requested server,,,
+4768,failure,0x19,Additional pre-authentication required,,,
+4769,failure,0x19,Additional pre-authentication required,,,
+4771,failure,0x19,Additional pre-authentication required*,,,
+4768,failure,0x18,Pre-authentication information was invalid,,,
+4769,failure,0x18,Pre-authentication information was invalid,,,
+4771,failure,0x18,Pre-authentication information was invalid,,,
+4768,failure,0x17,Password has expired-change password to reset,,,
+4769,failure,0x17,Password has expired change password to reset,,,
+4771,failure,0x17,Password has expired,,,
+4768,failure,0x16,Server not yet valid-try again later,,,
+4769,failure,0x16,Server not yet valid try again later,,,
+4771,failure,0x16,Server not yet valid - try again later,,,
+4768,failure,0x15,Client not yet valid-try again later,,,
+4769,failure,0x15,Client not yet valid try again later,,,
+4771,failure,0x15,Client not yet valid - try again later,,,
+4768,failure,0x14,TGT has been revoked,,,
+4769,failure,0x14,TGT has been revoked,,,
+4771,failure,0x14,TGT has been revoked,,,
+4768,failure,0x13,Credentials for server have been revoked,,,
+4769,failure,0x13,Credentials for server have been revoked,,,
+4771,failure,0x13,Credentials for server have been revoked,,,
+4768,failure,0x12,Client's credentials have been revoked,,,
+4769,failure,0x12,Client's credentials have been revoked,,,
+4771,failure,0x12,"Clients credentials have been revoked	",,,
+4768,failure,0x11,KDC has no support for transited type,,,
+4769,failure,0x11,KDC has no support for transited type,,,
+4771,failure,0x11,KDC has no support for transited type,,,
+4768,failure,0x10,KDC has no support for PADATA type (pre-authentication data),,,
+4769,failure,0x10,KDC has no support for PADATA type (pre-authentication data),,,
+4771,failure,0x10,KDC has no support for padata type,,,
+4768,failure,0x1,Client's entry in KDC database has expired,,,
+4769,failure,0x1,Client's entry in KDC database has expired,,,
+4771,failure,0x1,Client's entry in database has expired,,,
+4625,failure,0x0,Status OK.,,,
+4776,success,0x0,No errors.,,,
+4768,success,0x0,No error,,,
+4769,success,0x0,No error,,,
+4608,success,-,Windows is starting up.,System,Security State Change,"Windows Vista, Windows Server 2008"
+4609,unknown,-,Windows is shutting down.,System,Security State Change,"Windows Vista, Windows Server 2008"
+4610,unknown,-,An authentication package has been loaded by the Local Security Authority.,System,Security System Extension,"Windows Vista, Windows Server 2008"
+4611,success,-,A trusted logon process has been registered with the Local Security Authority.,System,Security System Extension,"Windows Vista, Windows Server 2008"
+4612,unknown,-,"Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits.",System,System Integrity,"Windows Vista, Windows Server 2008"
+4614,unknown,-,A notification package has been loaded by the Security Account Manager.,System,Security System Extension,"Windows Vista, Windows Server 2008"
+4615,unknown,-,Invalid use of LPC port.,System,System Integrity,"Windows Vista, Windows Server 2008"
+4616,success,-,The system time was changed.,System,Security State Change,"Windows Vista, Windows Server 2008"
+4618,unknown,-,A monitored security event pattern has occurred.,System,System Integrity,"Windows Vista, Windows Server 2008"
+4621,unknown,-,Administrator recovered system from CrashOnAuditFail. Users who are not administrators will now be allowed to log on. Some auditable activity might not have been recorded.,System,Security State Change,"Windows Vista, Windows Server 2008"
+4622,unknown,-,A security package has been loaded by the Local Security Authority.,System,Security System Extension,"Windows Vista, Windows Server 2008"
+4624,success,-,An account was successfully logged on.,Logon/Logoff,Logon,"Windows Vista, Windows Server 2008"
+4626,unknown,-,User/Device claims information.,Logon/Logoff,Logon,"Windows 8, Windows Server 2012"
+4634,success,-,An account was logged off.,Logon/Logoff,Logoff,"Windows Vista, Windows Server 2008"
+4646,unknown,-,IKE DoS-prevention mode started.,Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+4647,success,-,User initiated logoff.,Logon/Logoff,Logoff,"Windows Vista, Windows Server 2008"
+4648,success,-,A logon was attempted using explicit credentials.,Logon/Logoff,Logon,"Windows Vista, Windows Server 2008"
+4649,unknown,-,A replay attack was detected.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+4650,unknown,-,An IPsec Main Mode security association was established. Extended Mode was not enabled. Certificate authentication was not used.,Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+4651,unknown,-,An IPsec Main Mode security association was established. Extended Mode was not enabled. A certificate was used for authentication.,Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+4652,unknown,-,An IPsec Main Mode negotiation failed.,Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+4653,failure,-,An IPsec Main Mode negotiation failed.,Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+4654,unknown,-,An IPsec Quick Mode negotiation failed.,Logon/Logoff,IPsec Quick Mode,"Windows Vista, Windows Server 2008"
+4655,unknown,-,An IPsec Main Mode security association ended.,Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+4656,failure,-,A handle to an object was requested.,Object Access,Handle Manipulation,"Windows Vista, Windows Server 2008"
+4657,unknown,-,A registry value was modified.,Object Access,Registry,"Windows Vista, Windows Server 2008"
+4658,success,-,The handle to an object was closed.,Object Access,Handle Manipulation,"Windows Vista, Windows Server 2008"
+4659,unknown,-,A handle to an object was requested with intent to delete.,Object Access,Special,"Windows Vista, Windows Server 2008"
+4660,unknown,-,An object was deleted.,Object Access,Special,"Windows Vista, Windows Server 2008"
+4661,success,-,A handle to an object was requested.,Object Access,Special,"Windows Vista, Windows Server 2008"
+4662,success,-,An operation was performed on an object.,DS Access,Directory Service Access,"Windows Vista, Windows Server 2008"
+4663,success,-,An attempt was made to access an object.,Object Access,Special,"Windows Vista, Windows Server 2008"
+4664,success,-,An attempt was made to create a hard link.,Object Access,File System,"Windows Vista, Windows Server 2008"
+4665,unknown,-,An attempt was made to create an application client context.,Object Access,Application Generated,"Windows Vista, Windows Server 2008"
+4666,unknown,-,An application attempted an operation:,Object Access,Application Generated,"Windows Vista, Windows Server 2008"
+4667,unknown,-,An application client context was deleted.,Object Access,Application Generated,"Windows Vista, Windows Server 2008"
+4668,unknown,-,An application was initialized.,Object Access,Application Generated,"Windows Vista, Windows Server 2008"
+4670,success,-,Permissions on an object were changed.,Policy Change,Subcategory (special),"Windows Vista, Windows Server 2008"
+4671,unknown,-,An application attempted to access a blocked ordinal through the TBS.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+4672,success,-,Special privileges assigned to new logon.,Privilege Use,Sensitive Privilege Use / Non Sensitive Privilege Use,"Windows Vista, Windows Server 2008"
+4673,failure,-,A privileged service was called.,Privilege Use,Sensitive Privilege Use / Non Sensitive Privilege Use,"Windows Vista, Windows Server 2008"
+4674,success,-,An operation was attempted on a privileged object.,Privilege Use,Sensitive Privilege Use / Non Sensitive Privilege Use,"Windows Vista, Windows Server 2008"
+4675,unknown,-,SIDs were filtered.,Logon/Logoff,Logon,"Windows Vista, Windows Server 2008"
+4689,success,-,A process has exited.,Detailed Tracking,Process Termination,"Windows Vista, Windows Server 2008"
+4690,success,-,An attempt was made to duplicate a handle to an object.,Object Access,Handle Manipulation,"Windows Vista, Windows Server 2008"
+4691,unknown,-,Indirect access to an object was requested.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+4692,unknown,-,Backup of data protection master key was attempted.,Detailed Tracking,DPAPI Activity,"Windows Vista, Windows Server 2008"
+4693,unknown,-,Recovery of data protection master key was attempted.,Detailed Tracking,DPAPI Activity,"Windows Vista, Windows Server 2008"
+4694,unknown,-,Protection of auditable protected data was attempted.,Detailed Tracking,DPAPI Activity,"Windows Vista, Windows Server 2008"
+4695,unknown,-,Unprotection of auditable protected data was attempted.,Detailed Tracking,DPAPI Activity,"Windows Vista, Windows Server 2008"
+4696,unknown,-,A primary token was assigned to process.,Detailed Tracking,Process Creation,"Windows Vista, Windows Server 2008"
+4697,unknown,-,A service was installed in the system.,System,Security System Extension,"Windows Vista, Windows Server 2008"
+4698,unknown,-,A scheduled task was created.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+4699,unknown,-,A scheduled task was deleted.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+4700,unknown,-,A scheduled task was enabled.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+4701,unknown,-,A scheduled task was disabled.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+4702,success,-,A scheduled task was updated.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+4704,success,-,A user right was assigned.,Policy Change,Authorization Policy Change,"Windows Vista, Windows Server 2008"
+4705,unknown,-,A user right was removed.,Policy Change,Authorization Policy Change,"Windows Vista, Windows Server 2008"
+4706,unknown,-,A new trust was created to a domain.,Policy Change,Authorization Policy Change,"Windows Vista, Windows Server 2008"
+4707,unknown,-,A trust to a domain was removed.,Policy Change,Authorization Policy Change,"Windows Vista, Windows Server 2008"
+4709,unknown,-,IPsec Services was started.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+4710,unknown,-,IPsec Services was disabled.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+4711,unknown,-,May contain any one of the following: PAStore Engine applied locally cached copy of Active Directory storage IPsec policy on the computer.PAStore Engine applied Active Directory storage IPsec policy on the computer.PAStore Engine applied local registry storage IPsec policy on the computer.PAStore Engine failed to apply locally cached copy of Active Directory storage IPsec policy on the computer.PAStore Engine failed to apply Active Directory storage IPsec policy on the computer.PAStore Engine failed to apply local registry storage IPsec policy on the computer.PAStore Engine failed to apply some rules of the active IPsec policy on the computer.PAStore Engine failed to load directory storage IPsec policy on the computer.PAStore Engine loaded directory storage IPsec policy on the computer.PAStore Engine failed to load local storage IPsec policy on the computer.PAStore Engine loaded local storage IPsec policy on the computer.PAStore Engine polled for changes to the active IPsec policy and detected no changes.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+4712,unknown,-,IPsec Services encountered a potentially serious failure.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+4713,unknown,-,Kerberos policy was changed.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4714,unknown,-,Encrypted data recovery policy was changed.,Policy Change,Authorization Policy Change,"Windows Vista, Windows Server 2008"
+4715,unknown,-,The audit policy (SACL) on an object was changed.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4716,unknown,-,Trusted domain information was modified.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4717,success,-,System security access was granted to an account.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4718,unknown,-,System security access was removed from an account.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4719,unknown,-,System audit policy was changed.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4720,created,-,A user account was created.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4722,modified,-,A user account was enabled.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4723,modified,-,An attempt was made to change an account's password.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4724,modified,-,An attempt was made to reset an account's password.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4725,modified,-,A user account was disabled.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4726,deleted,-,A user account was deleted.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4727,success,-,A security-enabled global group was created.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4728,success,-,A member was added to a security-enabled global group.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4729,success,-,A member was removed from a security-enabled global group.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4730,unknown,-,A security-enabled global group was deleted.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4731,unknown,-,A security-enabled local group was created.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4732,success,-,A member was added to a security-enabled local group.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4733,success,-,A member was removed from a security-enabled local group.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4734,unknown,-,A security-enabled local group was deleted.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4735,success,-,A security-enabled local group was changed.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4737,success,-,A security-enabled global group was changed.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4738,modified,-,A user account was changed.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4739,unknown,-,Domain Policy was changed.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4740,unknown,-,A user account was locked out.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4742,modified,-,A computer account was changed.,Account Management,Computer Account Management,"Windows Vista, Windows Server 2008"
+4743,unknown,-,A computer account was deleted.,Account Management,Computer Account Management,"Windows Vista, Windows Server 2008"
+4744,unknown,-,A security-disabled local group was created.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4745,unknown,-,A security-disabled local group was changed.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4746,unknown,-,A member was added to a security-disabled local group.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4747,unknown,-,A member was removed from a security-disabled local group.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4748,unknown,-,A security-disabled local group was deleted.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4749,unknown,-,A security-disabled global group was created.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4750,unknown,-,A security-disabled global group was changed.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4751,unknown,-,A member was added to a security-disabled global group.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4752,unknown,-,A member was removed from a security-disabled global group.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4753,unknown,-,A security-disabled global group was deleted.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4754,success,-,A security-enabled universal group was created.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4755,success,-,A security-enabled universal group was changed.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4756,success,-,A member was added to a security-enabled universal group.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4757,success,-,A member was removed from a security-enabled universal group.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4758,unknown,-,A security-enabled universal group was deleted.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4759,unknown,-,A security-disabled universal group was created.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4760,unknown,-,A security-disabled universal group was changed.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4761,unknown,-,A member was added to a security-disabled universal group.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4762,unknown,-,A member was removed from a security-disabled universal group.,Account Management,Distribution Group Management,"Windows Vista, Windows Server 2008"
+4764,unknown,-,A group's type was changed.,Account Management,Security Group Management,"Windows Vista, Windows Server 2008"
+4765,unknown,-,SID History was added to an account.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4766,unknown,-,An attempt to add SID History to an account failed.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4767,modified,-,A user account was unlocked.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4770,success,-,A Kerberos service ticket was renewed.,Account Logon,Kerberos Service Ticket Operations,"Windows Vista, Windows Server 2008"
+4772,unknown,-,A Kerberos authentication ticket request failed.,Account Logon,Kerberos Authentication Service,"Windows Vista, Windows Server 2008"
+4774,unknown,-,An account was mapped for logon.,Account Logon,Credential Validation,"Windows Vista, Windows Server 2008"
+4775,unknown,-,An account could not be mapped for logon.,Account Logon,Credential Validation,"Windows Vista, Windows Server 2008"
+4777,unknown,-,The domain controller failed to validate the credentials for an account.,Account Logon,Credential Validation,"Windows Vista, Windows Server 2008"
+4778,success,-,A session was reconnected to a Window Station.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+4779,success,-,A session was disconnected from a Window Station.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+4780,success,-,The ACL was set on accounts which are members of administrators groups.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4781,unknown,-,The name of an account was changed:,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4782,unknown,-,The password hash an account was accessed.,Account Management,Other Account Management Events,"Windows Vista, Windows Server 2008"
+4783,unknown,-,A basic application group was created.,Account Management,Application Group Management,"Windows Vista, Windows Server 2008"
+4784,unknown,-,A basic application group was changed.,Account Management,Application Group Management,"Windows Vista, Windows Server 2008"
+4785,unknown,-,A member was added to a basic application group.,Account Management,Application Group Management,"Windows Vista, Windows Server 2008"
+4786,unknown,-,A member was removed from a basic application group.,Account Management,Application Group Management,"Windows Vista, Windows Server 2008"
+4787,unknown,-,A non-member was added to a basic application group.,Account Management,Application Group Management,"Windows Vista, Windows Server 2008"
+4788,unknown,-,A non-member was removed from a basic application group.,Account Management,Application Group Management,"Windows Vista, Windows Server 2008"
+4789,unknown,-,A basic application group was deleted.,Account Management,Application Group Management,"Windows Vista, Windows Server 2008"
+4790,unknown,-,An LDAP query group was created.,Account Management,Application Group Management,"Windows Vista, Windows Server 2008"
+4793,unknown,-,The Password Policy Checking API was called.,Account Management,Other Account Management Events,"Windows Vista, Windows Server 2008"
+4794,unknown,-,An attempt was made to set the Directory Services Restore Mode.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+4800,success,-,The workstation was locked.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+4801,unknown,-,The workstation was unlocked.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+4802,unknown,-,The screen saver was invoked.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+4803,unknown,-,The screen saver was dismissed.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+4816,unknown,-,RPC detected an integrity violation while decrypting an incoming message.,System,System Integrity,"Windows Vista, Windows Server 2008"
+4817,unknown,-,Auditing settings on an object were changed.,Policy Change,Audit Policy Change,"Windows 7, Windows Server 2008 R2"
+4818,unknown,-,Proposed Central Access Policy does not grant the same access permissions as the current Central Access Policy,Object Access,Central Policy Staging,"Windows 8, Windows Server 2012"
+4819,unknown,-,Central Access Policies on the machine have been changed.,Policy Change,Other Policy Change Events,"Windows 8, Windows Server 2012"
+4864,unknown,-,A namespace collision was detected.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4865,unknown,-,A trusted forest information entry was added.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4866,unknown,-,A trusted forest information entry was removed.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4867,unknown,-,A trusted forest information entry was modified.,Policy Change,Authentication Policy Change,"Windows Vista, Windows Server 2008"
+4868,unknown,-,The certificate manager denied a pending certificate request.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4869,unknown,-,Certificate Services received a resubmitted certificate request.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4870,unknown,-,Certificate Services revoked a certificate.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4871,unknown,-,Certificate Services received a request to publish the certificate revocation list (CRL).,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4872,unknown,-,Certificate Services published the certificate revocation list (CRL).,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4873,unknown,-,A certificate request extension changed.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4874,unknown,-,One or more certificate request attributes changed.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4875,unknown,-,Certificate Services received a request to shut down.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4876,unknown,-,Certificate Services backup started.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4877,unknown,-,Certificate Services backup completed.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4878,unknown,-,Certificate Services restore started.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4879,unknown,-,Certificate Services restore completed.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4880,unknown,-,Certificate Services started.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4881,unknown,-,Certificate Services stopped.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4882,unknown,-,The security permissions for Certificate Services changed.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4883,unknown,-,Certificate Services retrieved an archived key.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4884,unknown,-,Certificate Services imported a certificate into its database.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4885,unknown,-,The audit filter for Certificate Services changed.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4886,unknown,-,Certificate Services received a certificate request.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4887,unknown,-,Certificate Services approved a certificate request and issued a certificate.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4888,unknown,-,Certificate Services denied a certificate request.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4889,unknown,-,Certificate Services set the status of a certificate request to pending.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4890,unknown,-,The certificate manager settings for Certificate Services changed.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4891,unknown,-,A configuration entry changed in Certificate Services.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4892,unknown,-,A property of Certificate Services changed.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4893,unknown,-,Certificate Services archived a key.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4894,unknown,-,Certificate Services imported and archived a key.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4895,unknown,-,Certificate Services published the CA certificate to Active Directory Domain Services.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4896,unknown,-,One or more rows have been deleted from the certificate database.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4897,unknown,-,Role separation enabled:,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4898,unknown,-,Certificate Services loaded a template.,Object Access,Certification Services,"Windows Vista, Windows Server 2008"
+4902,success,-,The Per-user audit policy table was created.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4904,success,-,An attempt was made to register a security event source.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4905,success,-,An attempt was made to unregister a security event source.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4906,unknown,-,The CrashOnAuditFail value has changed.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4907,success,-,Auditing settings on object were changed.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4908,unknown,-,Special Groups Logon table modified.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4909,unknown,-,The local policy settings for the TBS were changed.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+4910,unknown,-,The group policy settings for the TBS were changed.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+4911,unknown,-,Resource attributes of the object were changed.,Policy Change,Authorization Policy Change,"Windows 8, Windows Server 2012"
+4912,unknown,-,Per User Audit Policy was changed.,Policy Change,Audit Policy Change,"Windows Vista, Windows Server 2008"
+4913,unknown,-,Central Access Policy on the object was changed.,Policy Change,Authorization Policy Change,"Windows 8, Windows Server 2012"
+4928,unknown,-,An Active Directory replica source naming context was established.,DS Access,Detailed Directory Service Replication,"Windows Vista, Windows Server 2008"
+4929,unknown,-,An Active Directory replica source naming context was removed.,DS Access,Detailed Directory Service Replication,"Windows Vista, Windows Server 2008"
+4930,unknown,-,An Active Directory replica source naming context was modified.,DS Access,Detailed Directory Service Replication,"Windows Vista, Windows Server 2008"
+4931,success,-,An Active Directory replica destination naming context was modified.,DS Access,Detailed Directory Service Replication,"Windows Vista, Windows Server 2008"
+4932,success,-,Synchronization of a replica of an Active Directory naming context has begun.,DS Access,Directory Service Replication,"Windows Vista, Windows Server 2008"
+4933,failure,-,Synchronization of a replica of an Active Directory naming context has ended.,DS Access,Directory Service Replication,"Windows Vista, Windows Server 2008"
+4934,unknown,-,Attributes of an Active Directory object were replicated.,DS Access,Detailed Directory Service Replication,"Windows Vista, Windows Server 2008"
+4935,unknown,-,Replication failure begins.,DS Access,Detailed Directory Service Replication,"Windows Vista, Windows Server 2008"
+4936,unknown,-,Replication failure ends.,DS Access,Detailed Directory Service Replication,"Windows Vista, Windows Server 2008"
+4937,unknown,-,A lingering object was removed from a replica.,DS Access,Detailed Directory Service Replication,"Windows Vista, Windows Server 2008"
+4944,success,-,The following policy was active when the Windows Firewall started.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4945,success,-,A rule was listed when the Windows Firewall started.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4946,success,-,A change has been made to Windows Firewall exception list. A rule was added.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4947,success,-,A change has been made to Windows Firewall exception list. A rule was modified.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4948,success,-,A change has been made to Windows Firewall exception list. A rule was deleted.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4949,unknown,-,Windows Firewall settings were restored to the default values.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4950,unknown,-,A Windows Firewall setting has changed.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4951,failure,-,A rule has been ignored because its major version number was not recognized by Windows Firewall.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4952,unknown,-,Parts of a rule have been ignored because its minor version number was not recognized by Windows Firewall. The other parts of the rule will be enforced.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4953,failure,-,A rule has been ignored by Windows Firewall because it could not parse the rule.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4954,unknown,-,Windows Firewall Group Policy settings have changed. The new settings have been applied.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4956,success,-,Windows Firewall has changed the active profile.,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4957,unknown,-,Windows Firewall did not apply the following rule:,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4958,unknown,-,Windows Firewall did not apply the following rule because the rule referred to items not configured on this computer:,Policy Change,MPSSVC Rule-Level Policy Change,"Windows Vista, Windows Server 2008"
+4960,unknown,-,"IPsec dropped an inbound packet that failed an integrity check. If this problem persists, it could indicate a network issue or that packets are being modified in transit to this computer. Verify that the packets sent from the remote computer are the same as those received by this computer. This error might also indicate interoperability problems with other IPsec implementations.",System,IPsec Driver,"Windows Vista, Windows Server 2008"
+4961,unknown,-,"IPsec dropped an inbound packet that failed a replay check. If this problem persists, it could indicate a replay attack against this computer.",System,IPsec Driver,"Windows Vista, Windows Server 2008"
+4962,unknown,-,IPsec dropped an inbound packet that failed a replay check. The inbound packet had too low a sequence number to ensure it was not a replay.,System,IPsec Driver,"Windows Vista, Windows Server 2008"
+4963,unknown,-,IPsec dropped an inbound clear text packet that should have been secured. This is usually due to the remote computer changing its IPsec policy without informing this computer. This could also be a spoofing attack attempt.,System,IPsec Driver,"Windows Vista, Windows Server 2008"
+4964,unknown,-,Special groups have been assigned to a new logon.,Logon/Logoff,Special Logon,"Windows Vista, Windows Server 2008"
+4965,unknown,-,"IPsec received a packet from a remote computer with an incorrect Security Parameter Index (SPI). This is usually caused by malfunctioning hardware that is corrupting packets. If these errors persist, verify that the packets sent from the remote computer are the same as those received by this computer. This error may also indicate interoperability problems with other IPsec implementations. In that case, if connectivity is not impeded, then these events can be ignored.",System,IPsec Driver,"Windows Vista, Windows Server 2008"
+4976,unknown,-,"During Main Mode negotiation, IPsec received an invalid negotiation packet. If this problem persists, it could indicate a network issue or an attempt to modify or replay this negotiation.",Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+4977,unknown,-,"During Quick Mode negotiation, IPsec received an invalid negotiation packet. If this problem persists, it could indicate a network issue or an attempt to modify or replay this negotiation.",Logon/Logoff,IPsec Quick Mode,"Windows Vista, Windows Server 2008"
+4978,unknown,-,"During Extended Mode negotiation, IPsec received an invalid negotiation packet. If this problem persists, it could indicate a network issue or an attempt to modify or replay this negotiation.",Logon/Logoff,IPsec Extended Mode,"Windows Vista, Windows Server 2008"
+4979,unknown,-,IPsec Main Mode and Extended Mode security associations were established.,Logon/Logoff,IPsec Extended Mode,"Windows Vista, Windows Server 2008"
+4980,unknown,-,IPsec Main Mode and Extended Mode security associations were established.,Logon/Logoff,IPsec Extended Mode,"Windows Vista, Windows Server 2008"
+4981,unknown,-,IPsec Main Mode and Extended Mode security associations were established.,Logon/Logoff,IPsec Extended Mode,"Windows Vista, Windows Server 2008"
+4982,unknown,-,IPsec Main Mode and Extended Mode security associations were established.,Logon/Logoff,IPsec Extended Mode,"Windows Vista, Windows Server 2008"
+4983,unknown,-,An IPsec Extended Mode negotiation failed. The corresponding Main Mode security association has been deleted.,Logon/Logoff,IPsec Extended Mode,"Windows Vista, Windows Server 2008"
+4984,unknown,-,An IPsec Extended Mode negotiation failed. The corresponding Main Mode security association has been deleted.,Logon/Logoff,IPsec Extended Mode,"Windows Vista, Windows Server 2008"
+4985,success,-,The state of a transaction has changed.,Object Access,File System,"Windows Vista, Windows Server 2008"
+5024,success,-,The Windows Firewall Service has started successfully.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5025,unknown,-,The Windows Firewall Service has been stopped.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5027,unknown,-,The Windows Firewall Service was unable to retrieve the security policy from the local storage. The service will continue enforcing the current policy.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5028,unknown,-,The Windows Firewall Service was unable to parse the new security policy. The service will continue with currently enforced policy.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5029,unknown,-,The Windows Firewall Service failed to initialize the driver. The service will continue to enforce the current policy.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5030,unknown,-,The Windows Firewall Service failed to start.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5031,unknown,-,The Windows Firewall Service blocked an application from accepting incoming connections on the network.,Object Access,Filtering Platform Connection,"Windows Vista, Windows Server 2008"
+5032,unknown,-,Windows Firewall was unable to notify the user that it blocked an application from accepting incoming connections on the network.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5033,success,-,The Windows Firewall Driver has started successfully.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5034,unknown,-,The Windows Firewall Driver has been stopped.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5035,unknown,-,The Windows Firewall Driver failed to start.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5037,unknown,-,The Windows Firewall Driver detected critical runtime error. Terminating.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5038,unknown,-,Code integrity determined that the image hash of a file is not valid. The file could be corrupt due to unauthorized modification or the invalid hash could indicate a potential disk device error.,System,System Integrity,"Windows Vista, Windows Server 2008"
+5039,unknown,-,A registry key was virtualized.,Object Access,Registry,"Windows Vista, Windows Server 2008"
+5040,unknown,-,A change has been made to IPsec settings. An Authentication Set was added.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5041,unknown,-,A change has been made to IPsec settings. An Authentication Set was modified.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5042,unknown,-,A change has been made to IPsec settings. An Authentication Set was deleted.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5043,unknown,-,A change has been made to IPsec settings. A Connection Security Rule was added.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5044,unknown,-,A change has been made to IPsec settings. A Connection Security Rule was modified.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5045,unknown,-,A change has been made to IPsec settings. A Connection Security Rule was deleted.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5046,unknown,-,A change has been made to IPsec settings. A Crypto Set was added.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5047,unknown,-,A change has been made to IPsec settings. A Crypto Set was modified.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5048,unknown,-,A change has been made to IPsec settings. A Crypto Set was deleted.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5049,unknown,-,An IPsec Security Association was deleted.,Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+5051,unknown,-,A file was virtualized.,Object Access,File System,"Windows Vista, Windows Server 2008"
+5056,success,-,A cryptographic self test was performed.,System,System Integrity,"Windows Vista, Windows Server 2008"
+5057,unknown,-,A cryptographic primitive operation failed.,System,System Integrity,"Windows Vista, Windows Server 2008"
+5058,success,-,Key file operation.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5059,success,-,Key migration operation.,System,Other System Events,"Windows Vista, Windows Server 2008"
+5060,unknown,-,Verification operation failed.,System,System Integrity,"Windows Vista, Windows Server 2008"
+5061,failure,-,Cryptographic operation.,System,System Integrity,"Windows Vista, Windows Server 2008"
+5062,unknown,-,A kernel-mode cryptographic self test was performed.,System,System Integrity,"Windows Vista, Windows Server 2008"
+5063,unknown,-,A cryptographic provider operation was attempted.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5064,unknown,-,A cryptographic context operation was attempted.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5065,unknown,-,A cryptographic context modification was attempted.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5066,unknown,-,A cryptographic function operation was attempted.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5067,unknown,-,A cryptographic function modification was attempted.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5068,unknown,-,A cryptographic function provider operation was attempted.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5069,unknown,-,A cryptographic function property operation was attempted.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5070,unknown,-,A cryptographic function property modification was attempted.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5136,success,-,A directory service object was modified.,DS Access,Directory Service Changes,"Windows Vista, Windows Server 2008"
+5137,unknown,-,A directory service object was created.,DS Access,Directory Service Changes,"Windows Vista, Windows Server 2008"
+5138,unknown,-,A directory service object was undeleted.,DS Access,Directory Service Changes,"Windows Vista, Windows Server 2008"
+5139,unknown,-,A directory service object was moved.,DS Access,Directory Service Changes,"Windows Vista, Windows Server 2008"
+5140,failure,-,A network share object was accessed.,Object Access,File Share,"Windows Vista, Windows Server 2008"
+5141,unknown,-,A directory service object was deleted.,DS Access,Directory Service Changes,"Windows Vista SP1, Windows Server 2008"
+5142,unknown,-,A network share object was added.,Object Access,File Share,"Windows 7, Windows Server 2008 R2"
+5143,success,-,A network share object was modified.,Object Access,File Share,"Windows 7, Windows Server 2008 R2"
+5144,unknown,-,A network share object was deleted.,Object Access,File Share,"Windows 7, Windows Server 2008 R2"
+5145,unknown,-,A network share object was checked to see whether the client can be granted desired access.,Object Access,Detailed File Share,"Windows 7, Windows Server 2008 R2"
+5148,unknown,-,The Windows Filtering Platform has detected a DoS attack and entered a defensive mode; packets associated with this attack will be discarded.,Object Access,Other Object Access Events,"Windows 7, Windows Server 2008 R2"
+5149,unknown,-,The DoS attack has subsided and normal processing is being resumed.,Object Access,Other Object Access Events,"Windows 7, Windows Server 2008 R2"
+5150,unknown,-,The Windows Filtering Platform has blocked a packet.,Object Access,Filtering Platform Connection,"Windows 7, Windows Server 2008 R2"
+5151,unknown,-,A more restrictive Windows Filtering Platform filter has blocked a packet.,Object Access,Filtering Platform Connection,"Windows 7, Windows Server 2008 R2"
+5152,failure,-,The Windows Filtering Platform blocked a packet.,Object Access,Filtering Platform Packet Drop ,"Windows Vista, Windows Server 2008"
+5153,unknown,-,A more restrictive Windows Filtering Platform filter has blocked a packet.,Object Access,Filtering Platform Packet Drop ,"Windows Vista, Windows Server 2008"
+5154,success,-,The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.,Object Access,Filtering Platform Connection,"Windows Vista, Windows Server 2008"
+5155,unknown,-,The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.,Object Access,Filtering Platform Connection,"Windows Vista, Windows Server 2008"
+5156,success,-,The Windows Filtering Platform has allowed a connection.,Object Access,Filtering Platform Connection,"Windows Vista, Windows Server 2008"
+5157,failure,-,The Windows Filtering Platform has blocked a connection.,Object Access,Filtering Platform Connection,"Windows Vista, Windows Server 2008"
+5158,success,-,The Windows Filtering Platform has permitted a bind to a local port.,Object Access,Filtering Platform Connection,"Windows Vista, Windows Server 2008"
+5159,unknown,-,The Windows Filtering Platform has blocked a bind to a local port.,Object Access,Filtering Platform Connection,"Windows Vista, Windows Server 2008"
+5168,unknown,-,Spn check for SMB/SMB2 failed.,Object Access,File Share,"Windows 7, Windows Server 2008 R2"
+5376,unknown,-,Credential Manager credentials were backed up.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+5377,unknown,-,Credential Manager credentials were restored from a backup.,Account Management,User Account Management,"Windows Vista, Windows Server 2008"
+5378,unknown,-,The requested credentials delegation was disallowed by policy.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+5440,success,-,The following callout was present when the Windows Filtering Platform Base Filtering Engine started.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5441,success,-,The following filter was present when the Windows Filtering Platform Base Filtering Engine started.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5442,success,-,The following provider was present when the Windows Filtering Platform Base Filtering Engine started.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5443,unknown,-,The following provider context was present when the Windows Filtering Platform Base Filtering Engine started.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5444,success,-,The following sub-layer was present when the Windows Filtering Platform Base Filtering Engine started.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5446,success,-,A Windows Filtering Platform callout has been changed.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5447,success,-,A Windows Filtering Platform filter has been changed.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+5448,success,-,A Windows Filtering Platform provider has been changed.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5449,success,-,A Windows Filtering Platform provider context has been changed.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5450,success,-,A Windows Filtering Platform sub-layer has been changed.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5451,unknown,-,An IPsec Quick Mode security association was established.,Logon/Logoff,IPsec Quick Mode,"Windows Vista, Windows Server 2008"
+5452,unknown,-,An IPsec Quick Mode security association ended.,Logon/Logoff,IPsec Quick Mode,"Windows Vista, Windows Server 2008"
+5453,unknown,-,An IPsec negotiation with a remote computer failed because the IKE and AuthIP IPsec Keying Modules (IKEEXT) service is not started.,Logon/Logoff,IPsec Main Mode,"Windows Vista, Windows Server 2008"
+5456,unknown,-,PAStore Engine applied Active Directory storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5457,unknown,-,PAStore Engine failed to apply Active Directory storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5458,unknown,-,PAStore Engine applied locally cached copy of Active Directory storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5459,unknown,-,PAStore Engine failed to apply locally cached copy of Active Directory storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5460,unknown,-,PAStore Engine applied local registry storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5461,unknown,-,PAStore Engine failed to apply local registry storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5462,unknown,-,PAStore Engine failed to apply some rules of the active IPsec policy on the computer. Use the IP Security Monitor snap-in to diagnose the problem.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5463,unknown,-,PAStore Engine polled for changes to the active IPsec policy and detected no changes.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5464,unknown,-,"PAStore Engine polled for changes to the active IPsec policy, detected changes, and applied them to IPsec Services.",Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5465,unknown,-,PAStore Engine received a control for forced reloading of IPsec policy and processed the control successfully.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5466,unknown,-,"PAStore Engine polled for changes to the Active Directory IPsec policy, determined that Active Directory cannot be reached, and will use the cached copy of the Active Directory IPsec policy instead. Any changes made to the Active Directory IPsec policy since the last poll could not be applied.",Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5467,unknown,-,"PAStore Engine polled for changes to the Active Directory IPsec policy, determined that Active Directory can be reached, and found no changes to the policy. The cached copy of the Active Directory IPsec policy is no longer being used.",Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5468,unknown,-,"PAStore Engine polled for changes to the Active Directory IPsec policy, determined that Active Directory can be reached, found changes to the policy, and applied those changes. The cached copy of the Active Directory IPsec policy is no longer being used.",Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5471,unknown,-,PAStore Engine loaded local storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5472,unknown,-,PAStore Engine failed to load local storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5473,unknown,-,PAStore Engine loaded directory storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5474,unknown,-,PAStore Engine failed to load directory storage IPsec policy on the computer.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5477,unknown,-,PAStore Engine failed to add quick mode filter.,Policy Change,Filtering Platform Policy Change,"Windows Vista, Windows Server 2008"
+5478,unknown,-,IPsec Services has started successfully.,System,IPsec Driver,"Windows Vista, Windows Server 2008"
+5479,unknown,-,IPsec Services has been shut down successfully. The shutdown of IPsec Services can put the computer at greater risk of network attack or expose the computer to potential security risks.,System,IPsec Driver,"Windows Vista, Windows Server 2008"
+5480,unknown,-,IPsec Services failed to get the complete list of network interfaces on the computer. This poses a potential security risk because some of the network interfaces may not get the protection provided by the applied IPsec filters. Use the IP Security Monitor snap-in to diagnose the problem.,System,IPsec Driver,"Windows Vista, Windows Server 2008"
+5483,unknown,-,IPsec Services failed to initialize RPC server. IPsec Services could not be started.,System,IPsec Driver,"Windows Vista, Windows Server 2008"
+5484,unknown,-,IPsec Services has experienced a critical failure and has been shut down. The shutdown of IPsec Services can put the computer at greater risk of network attack or expose the computer to potential security risks.,System,IPsec Driver,"Windows Vista, Windows Server 2008"
+5485,unknown,-,IPsec Services failed to process some IPsec filters on a plug-and-play event for network interfaces. This poses a potential security risk because some of the network interfaces may not get the protection provided by the applied IPsec filters. Use the IP Security Monitor snap-in to diagnose the problem.,System,IPsec Driver,"Windows Vista, Windows Server 2008"
+5632,unknown,-,A request was made to authenticate to a wireless network.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+5633,unknown,-,A request was made to authenticate to a wired network.,Logon/Logoff,Other Logon/Logoff Events,"Windows Vista, Windows Server 2008"
+5712,unknown,-,A Remote Procedure Call (RPC) was attempted.,Detailed Tracking,RPC Events,"Windows Vista, Windows Server 2008"
+5888,unknown,-,An object in the COM+ Catalog was modified.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+5889,unknown,-,An object was deleted from the COM+ Catalog.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+5890,unknown,-,An object was added to the COM+ Catalog.,Object Access,Other Object Access Events,"Windows Vista, Windows Server 2008"
+6144,success,-,Security policy in the group policy objects has been applied successfully.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+6145,unknown,-,One or more errors occurred while processing security policy in the group policy objects.,Policy Change,Other Policy Change Events,"Windows Vista, Windows Server 2008"
+6272,unknown,-,Network Policy Server granted access to a user.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6273,unknown,-,Network Policy Server denied access to a user.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6274,unknown,-,Network Policy Server discarded the request for a user.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6275,unknown,-,Network Policy Server discarded the accounting request for a user.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6276,unknown,-,Network Policy Server quarantined a user.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6277,unknown,-,Network Policy Server granted access to a user but put it on probation because the host did not meet the defined health policy.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6278,unknown,-,Network Policy Server granted full access to a user because the host met the defined health policy.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6279,unknown,-,Network Policy Server locked the user account due to repeated failed authentication attempts.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6280,unknown,-,Network Policy Server unlocked the user account.,Logon/Logoff,Network Policy Server,"Windows Vista SP1, Windows Server 2008"
+6281,unknown,-,Code Integrity determined that the page hashes of an image file are not valid. The file could be improperly signed without page hashes or corrupt due to unauthorized modification. The invalid hashes could indicate a potential disk device error,System,System Integrity,"Windows 7, Windows Server 2008 R2"
+6400,unknown,-,BranchCache: Received an incorrectly formatted response while discovering availability of content. ,System,Other System Events,"Windows 7, Windows Server 2008 R2"
+6401,unknown,-,BranchCache: Received invalid data from a peer. Data discarded. ,System,Other System Events,"Windows 7, Windows Server 2008 R2"
+6402,unknown,-,BranchCache: The message to the hosted cache offering it data is incorrectly formatted. ,System,Other System Events,"Windows 7, Windows Server 2008 R2"
+6403,unknown,-,BranchCache: The hosted cache sent an incorrectly formatted response to the client.,System,Other System Events,"Windows 7, Windows Server 2008 R2"
+6404,unknown,-,BranchCache: Hosted cache could not be authenticated using the provisioned SSL certificate. ,System,Other System Events,"Windows 7, Windows Server 2008 R2"
+6405,unknown,-,BranchCache: %2 instance(s) of event id %1 occurred.,System,Other System Events,"Windows 7, Windows Server 2008 R2"
+6406,unknown,-,%1 registered to Windows Firewall to control filtering for the following: %2,System,Other System Events,"Windows 7, Windows Server 2008 R2"
+6407,unknown,-,1%,System,Other System Events,"Windows 7, Windows Server 2008 R2"
+6408,unknown,-,Registered product %1 failed and Windows Firewall is now controlling the filtering for %2,System,Other System Events,"Windows 7, Windows Server 2008 R2"
