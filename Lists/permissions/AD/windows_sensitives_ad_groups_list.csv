@@ -13,6 +13,7 @@ ESXi Admins,,members are granted full administrative access to the ESXi hypervis
 "Opérateurs de sauvegarde","S-1-5-32-551","Accès pour sauvegarder et restaurer des fichiers sur le DC; pourrait être utilisé pour exfiltrer des données sensibles ou altérer les sauvegardes"
 "Operadores de copia de seguridad","S-1-5-32-551","Acceso para respaldar y restaurar archivos en el DC; podría ser utilizado para exfiltrar datos sensibles o manipular respaldos"
 "DnsAdmins","S-1-5-21-*-1102","Manages DNS servers; allows loading arbitrary DLLs, remote code execution, and creating malicious DNS records (WPAD) for MitM attacks"
+"DNS Admins","S-1-5-21-*-1102","Manages DNS servers; allows loading arbitrary DLLs, remote code execution, and creating malicious DNS records (WPAD) for MitM attacks"
 "Admins DNS","S-1-5-21-*-1102","Gère les serveurs DNS; permet de charger des DLL arbitraires, d'exécuter du code à distance et de créer des enregistrements DNS malveillants (WPAD) pour des attaques MitM"
 "Admins DNS","S-1-5-21-*-1102","Gestiona los servidores DNS; permite cargar DLL arbitrarias, ejecutar código remoto y crear registros DNS maliciosos (WPAD) para ataques MitM"
 "Domain Admins","S-1-5-21-*-512","Full administrative control over all domain computers, including DC; compromise leads to complete domain control"
