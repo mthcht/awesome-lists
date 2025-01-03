@@ -147,6 +147,10 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [lists - aboutdfir.com](https://aboutdfir.com/)
   - [Monitoring - Osquery](https://github.com/osquery/osquery)
   - [\[IR Guide\] OpenProject ](https://github.com/DebugPrivilege/OpenProject)
+  - [\[OSX Tools\] Knockknock](objective-see.com/products/knockknock.html)
+  - [\[OSX Tools\] Knockknock](https://github.com/ydkhatri/mac_apt)
+  - [\[OSX Tools\] Artifact Parsing Tool](objective-see.com/products/knockknock.html)
+  - [\[OSX Tools\] Knockknock](objective-see.com/products/knockknock.html)
 
 ### IOC Feeds/Blacklists:
 
@@ -749,7 +753,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Exploitation - Red Team TTP](https://rosesecurity.gitbook.io/red-teaming-ttps)
   - [Linux - EBPF docs](https://docs.ebpf.io/)
   - [DFIR - Microsoft NinjaHub](https://aka.ms/MicrosoftIRNinjaHub) 
-  
+
 </details>
 
 ### LAB
