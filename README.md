@@ -308,6 +308,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [greynoise](https://viz.greynoise.io/)
   - [whoxy](https://www.whoxy.com/reverse-whois/)
   - [url tiny-scan](https://www.tiny-scan.com/)
+  - [certificates - crt.sh](https://crt.sh/)
+  - [validin.com](https://app.validin.com/)
   - [Browser Extension CRX checker](https://crxaminer.tech/)
   
   - [echotrail](https://www.echotrail.io/)
