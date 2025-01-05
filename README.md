@@ -148,7 +148,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [Monitoring - Osquery](https://github.com/osquery/osquery)
   - [\[IR Guide\] OpenProject ](https://github.com/DebugPrivilege/OpenProject)
   - [\[OSX Tools\] Knockknock](objective-see.com/products/knockknock.html)
-  - [\[OSX Tools\] Knockknock](https://github.com/ydkhatri/mac_apt)
+  - [\[OSX Tools\] mac_apt](https://github.com/ydkhatri/mac_apt)
 
 ### IOC Feeds/Blacklists:
 
