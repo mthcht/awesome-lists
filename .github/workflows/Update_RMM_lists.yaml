@@ -35,6 +35,7 @@ jobs:
         
       - name: Rebase on latest changes
         run: |
+          git pull
           git fetch origin
           git rebase origin/main
 
