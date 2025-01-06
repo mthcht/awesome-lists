@@ -18,7 +18,8 @@ This file contains the latest top bad ASNs most used in phishing attacks, fetche
 This script fetches the updated IP ranges of each bad ASN listed in the consolidated list of ASNs and saves the IP ranges of each ASN in the current folder.
 Reads the list of ASNs from:
 - latest_bad_asn_phishing_list.csv (Cybercrime Info Center).
-- bad_asn_static_list.csv (Static List of ASNs).
+- bad_asn_static_list.csv (my static List of ASNs).
+- evild3ad-ASN-BlackList.csv (VPN ASNs from https://github.com/evild3ad/Microsoft-Analyzer-Suite/blob/main/Blacklists/ASN-Blacklist.csv)
 - spamhaus_asn_list.csv (Spamhaus ASN Drop List).
 
 - This script performs the following steps:
@@ -28,4 +29,4 @@ Reads the list of ASNs from:
   - Executes the command to fetch the IP ranges of the listed ASNs and saves the results in the current folder.
 
 
-todo: include https://bgpranking.circl.lu/
+todo: include https://bgpranking.circl.lu/; evild3ad-ASN-BlackList.csv 
