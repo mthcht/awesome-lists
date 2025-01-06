@@ -1,4 +1,5 @@
 http_user_agent,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_direction
+KrebsOnSecurity,Mirai Botnet user-agent (DDOS),Mirai,Malware,https://x.com/bad_packets/status/1431383007697379330,critical,none,critical,Detection rule,network flow direction internal --> external
 Tsunami/2.0,Mirai Botnet User-agent,Mirai Botnet,Malware,https://www.anc.ad/wp-content/uploads/2023/07/TLP_WHITE-Informe_de_ciberintel_ligencia_-_botnet_mirai.pdf,critical,none,critical,Detection rule,network flow direction internal --> external
 MtmKilledYou,Mirai Botnet User-agent,Mirai Botnet,Malware,https://www.anc.ad/wp-content/uploads/2023/07/TLP_WHITE-Informe_de_ciberintel_ligencia_-_botnet_mirai.pdf,critical,none,critical,Detection rule,network flow direction internal --> external
 23591,"raccoon stealer - It gathers personal information including passwords, browser cookies/autofill data and  cryptowallet details",raccoon stealer,Malware,https://tria.ge/221218-mljz3sbe86/behavioral2,critical,none,critical,Detection rule,network flow direction internal --> external
