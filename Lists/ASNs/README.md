@@ -23,10 +23,7 @@ Reads the list of ASNs from:
 - spamhaus_asn_list.csv (Spamhaus ASN Drop List).
 
 - This script performs the following steps:
-  - Fetches the ASN drop list from Spamhaus at https://www.spamhaus.org/drop/asndrop.json, extracts data, and saves it as spamhaus_asn_list.csv.
+  - Fetches the ASN lists from the sources above.
   - Combines all ASNs into a single deduplicated list.
   - Constructs a command to execute the [get_ip_range.py](https://github.com/mthcht/awesome-lists/blob/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py) script with the AS numbers as arguments.
   - Executes the command to fetch the IP ranges of the listed ASNs and saves the results in the current folder.
-
-
-todo: include https://bgpranking.circl.lu/; evild3ad-ASN-BlackList.csv 
