@@ -1,5 +1,5 @@
 ## Description
-This project contains scripts to fetch and process data related to bad Autonomous System Numbers (ASNs) most used in phishing attacks. The data is fetched from www.cybercrimeinfocenter.org. This folders includes scripts to automatically update the list of bad ASNs and retrieve their corresponding IP ranges.
+This project contains scripts to fetch and process data related to bad Autonomous System Numbers (ASNs) most used in phishing attacks or abused by attackers. The data is fetched from multiple sources . This folders includes scripts to automatically update the list of bad ASNs and retrieve their corresponding IP ranges.
 
 ## Scripts and Files
 1. `fetch_cybercrimeinfocenter_phishing_asn_stats.py`
