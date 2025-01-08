@@ -3,19 +3,19 @@ from bs4 import BeautifulSoup
 import re
 import csv
 
-# fetch the HTML content of the given URL
+# Fetch HTML content of the given URL
 def fetch_html(url):
     response = requests.get(url)
     response.raise_for_status()
     return response.text
 
-# extract .ovpn file URLs from the HTML content
+# Extract .ovpn file URLs from the HTML content
 def extract_ovpn_links(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     links = soup.find_all('a', href=re.compile(r'.*\.ovpn$'))
     return [link['href'] for link in links]
 
-# download each .ovpn file and extract IP addresses and server names
+# Download .ovpn files and extract IP addresses and server names
 def download_and_extract_ips(ovpn_urls):
     ip_server_list = []
     for ovpn_url in ovpn_urls:
@@ -29,7 +29,22 @@ def download_and_extract_ips(ovpn_urls):
             print(f"Failed to fetch {ovpn_url}: {e}")
     return ip_server_list
 
-# save the extracted IPs and server names to a CSV file, removing duplicates
+# Fetch IPs and server names from NordVPN JSON API
+def fetch_ips_from_api(api_url):
+    ip_server_list = []
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        data = response.json()
+        for server in data.get('servers', []):
+            ip = server['station']
+            server_name = server['hostname']
+            ip_server_list.append((ip, server_name))
+    except requests.RequestException as e:
+        print(f"Failed to fetch API data: {e}")
+    return ip_server_list
+
+# Save the extracted IPs and server names to a CSV file, removing duplicates
 def save_to_csv(ip_server_list, filename):
     unique_ip_server_list = list(set(ip_server_list))
     try:
@@ -43,11 +58,20 @@ def save_to_csv(ip_server_list, filename):
 
 def main():
     base_url = 'https://nordvpn.com/fr/ovpn/'  # Base URL to fetch .ovpn files
+    api_url = 'https://api.nordvpn.com/v2/servers'  # NordVPN JSON API
+
+    # Fetch and process .ovpn links
     html_content = fetch_html(base_url)
     ovpn_links = extract_ovpn_links(html_content)
     full_ovpn_urls = [link if link.startswith('http') else f"https://nordvpn.com{link}" for link in ovpn_links]
-    ip_server_list = download_and_extract_ips(full_ovpn_urls)
-    save_to_csv(ip_server_list, 'nordvpn_ips_list.csv')
+    ovpn_ip_server_list = download_and_extract_ips(full_ovpn_urls)
+
+    # Fetch and process data from JSON API
+    api_ip_server_list = fetch_ips_from_api(api_url)
+
+    # Combine both sources and save to CSV
+    combined_ip_server_list = ovpn_ip_server_list + api_ip_server_list
+    save_to_csv(combined_ip_server_list, 'nordvpn_ips_list.csv')
 
 if __name__ == "__main__":
     main()
