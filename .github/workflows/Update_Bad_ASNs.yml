@@ -27,6 +27,7 @@ jobs:
           cd Lists/ASNs
           python fetch_cybercrimeinfocenter_phishing_asn_stats.py
           python fetch_IP_ranges_of_bad_ASN.py
+          python create_combined_ALL_BAD_ASN_List.py
     
       - name: List files
         run: ls -la
