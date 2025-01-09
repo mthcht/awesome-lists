@@ -78,6 +78,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 ### DFIR
 
   - [🔥 EricZimmerman Tools 🔥](https://ericzimmerman.github.io/#!index.md)
+  - [usnjrnl_rewind](https://github.com/CyberCX-DFIR/usnjrnl_rewind)
   - [dfir-orc](https://github.com/dfir-orc)
   - [dfir-orc-config](https://github.com/DFIR-ORC/dfir-orc-config)
   - [Arsenal Recon Forensic tools](https://arsenalrecon.com/downloads)
