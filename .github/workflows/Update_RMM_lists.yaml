@@ -33,17 +33,19 @@ jobs:
       - name: List files in the Lists/RMM directory
         run: ls -la Lists/RMM
         
+      - name: Commit any changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Lists/RMM/*
+          git commit -m "Save changes before rebase" --allow-empty
+
       - name: Rebase on latest changes
         run: |
           git pull
           git fetch origin
           git rebase origin/main
 
-      - name: Commit and Push results
+      - name: Push updated results
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git pull
-          git add Lists/RMM/*
-          git commit -m "Update RMM List Daily" --allow-empty
           git push
