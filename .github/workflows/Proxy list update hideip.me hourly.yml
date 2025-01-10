@@ -28,12 +28,13 @@ jobs:
             "socks5.txt"
           )
 
-          # Base URL of the raw files in the source repository
-          BASE_URL="https://raw.githubusercontent.com/zloi-user/hideip.me/main"
+          # Base URL using raw GitHub content
+          BASE_URL="https://github.com/zloi-user/hideip.me/raw/refs/heads/master"
 
           # Download each file
           for FILE in "${FILES[@]}"; do
-            curl -o "$TARGET_DIR/$FILE" "$BASE_URL/$FILE"
+            echo "Downloading $FILE from $BASE_URL/$FILE"
+            curl -f -o "$TARGET_DIR/$FILE" "$BASE_URL/$FILE" || echo "Failed to download $FILE"
           done
 
       - name: List files in the root directory
