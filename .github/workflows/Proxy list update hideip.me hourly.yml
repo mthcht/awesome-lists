@@ -28,17 +28,14 @@ jobs:
             "socks5.txt"
           )
 
-          # Base URL using raw GitHub content
-          BASE_URL="https://github.com/zloi-user/hideip.me/raw/refs/heads/master"
+          # Base URL using raw.githubusercontent.com
+          BASE_URL="https://raw.githubusercontent.com/zloi-user/hideip.me/master"
 
           # Download each file
           for FILE in "${FILES[@]}"; do
             echo "Downloading $FILE from $BASE_URL/$FILE"
-            curl -f -o "$TARGET_DIR/$FILE" "$BASE_URL/$FILE" || echo "Failed to download $FILE"
+            curl -L -o "$TARGET_DIR/$FILE" "$BASE_URL/$FILE" || echo "Failed to download $FILE"
           done
-
-      - name: List files in the root directory
-        run: ls -la
 
       - name: List files in the target directory
         run: ls -la Lists/PROXY/hideip.me
