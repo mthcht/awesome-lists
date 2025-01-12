@@ -10,8 +10,8 @@ from io import StringIO
 
 def parse_and_download_files(servicetags_public, msftpublic_ips, officeworldwide_ips):
     # URL for Feeds
-    azurepublic = "https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519"
-    msftpublic = "https://www.microsoft.com/en-us/download/confirmation.aspx?id=53602"
+    azurepublic = "https://www.microsoft.com/en-us/download/details.aspx?id=56519"
+    msftpublic = "https://www.microsoft.com/en-us/download/details.aspx?id=53602"
     officeworldwide = "https://endpoints.office.com/endpoints/worldwide?clientrequestid=b10c5ed1-bad1-445f-b386-b919946339a7"
 
     session = HTMLSession()
