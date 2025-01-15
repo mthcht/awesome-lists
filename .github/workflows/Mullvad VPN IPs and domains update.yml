@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Mullvad Config Script
         run: |
-          cd Lists/VPN/Mullvad
+          cd Lists/VPN/MullVad
           python fetch_mullvad_relay_servers_ips.py
 
       - name: Commit and Push results
@@ -33,6 +33,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git pull
-          git add Lists/VPN/Mullvad/relays.json Lists/VPN/Mullvad/mullvad_relay_servers_ips_list.csv
+          git add Lists/VPN/MullVad/relays.json Lists/VPN/MullVad/mullvad_relay_servers_ips_list.csv
           git commit -m "Update Mullvad VPN relays list" --allow-empty
           git push
