@@ -56,10 +56,11 @@
 - 💻🔒 Ransomware known file name ransom notes: [ransomware_notes_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/ransomware_notes_list.csv)
 - 📝 Windows ASR rules: [windows_asr_rules.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/windows_asr_rules.csv)
 - 🌐 DNSTWIST Lists (updated automatically): [DNSTWIST Default Domains + script](https://github.com/mthcht/awesome-lists/tree/main/Lists/DNSTWIST)
-- 🌍 VPN IP address Lists (updated automatically): 
+- 🌍 VPN [IP address Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists/VPN) (updated automatically): 
   - 🛡️ NordVPN: [nordvpn_ips_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/NordVPN/nordvpn_ips_list.csv)
   - 🛡️ ProtonVPN: [protonvpn_ip_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv)
-  - 🛡️ SurfSharkVPN: [surfsharkvpn_ip_list.csv](https://github.com/mthcht/awesome-lists/tree/main/Lists/VPN/SurfSharkVPN)
+  - 🛡️ SurfShark: [surfshark_vpn_servers_domains_and_ips_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/SurfSharkVPN/surfshark_vpn_servers_domains_and_ips_list.csv)
+  - 🛡️ MullVad: [mullvad_relay_servers_ips_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/MullVad/mullvad_relay_servers_ips_list.csv)
 - 🏢 Companies IP Range Lists (updated automatically): [Default Lists + script](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net) / [Microsoft](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/Microsoft)
 - 📍  GeoIP services Lists: [ip_location_sites_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/GeoIP/ip_location_sites_list.csv)
 - 🧬 Yara rules: [Threat Hunting yara rules](https://github.com/mthcht/ThreatHunting-Keywords-yara-rules)
