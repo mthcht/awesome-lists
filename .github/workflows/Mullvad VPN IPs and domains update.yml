@@ -25,8 +25,8 @@ jobs:
 
       - name: Run Mullvad Config Script
         run: |
-          cd Lists/VPN/MullvadVPN
-          python extract_vpn_relays.py
+          cd Lists/VPN/Mullvad
+          python fetch_mullvad_relay_servers_ips.py
 
       - name: Commit and Push results
         run: |
