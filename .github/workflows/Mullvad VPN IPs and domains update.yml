@@ -1,0 +1,38 @@
+name: Mullvad VPN Update
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Runs every 2 hours
+  workflow_dispatch:
+
+jobs:
+  fetch-mullvad-configs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run Mullvad Config Script
+        run: |
+          cd Lists/VPN/MullvadVPN
+          python extract_vpn_relays.py
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/VPN/Mullvad/relays.json Lists/VPN/Mullvad/mullvad_relay_servers_ips_list.csv
+          git commit -m "Update Mullvad VPN relays list" --allow-empty
+          git push
