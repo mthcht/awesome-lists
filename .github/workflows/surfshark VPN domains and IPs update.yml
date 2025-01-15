@@ -33,6 +33,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git pull
-          git add Lists/VPN/SurfSharkVPN/domains_and_ips.csv
+          git add Lists/VPN/SurfSharkVPN/surfshark_vpn_servers_domains_and_ips_list.csv
           git commit -m "Update Surfshark domains and IPs" --allow-empty
           git push
