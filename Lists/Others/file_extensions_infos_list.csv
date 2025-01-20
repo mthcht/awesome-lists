@@ -1,0 +1,243 @@
+file_name,metadata_category,metadata_description,metadata_confidence,metadata_common,metadata_execution,metadata_InitialAccess,metadata_exec,metadata_windowsbuiltin,metadata_comment,metadata_chromeplatform,metadata_chromedangerlevel,metadata_chromeautoopenhint,metadata_container,metadata_businesscase,metadata_execute,metadata_code,metadata_tags,metadata_reference
+.jnlp,App,Java Network Launch Protocol,High,,True,,,False,Can run Java applications remotely. Ensure Java security settings are strict.,PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.img,Archive,Disk image file,Low,,,,,True,"Non-executable by default. However, contents inside can be harmful once deployed/mounted.",PLATFORM_TYPE_MAC,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.zip,Archive,ZIP Archive,High,True,True,often,,True,,PLATFORM_TYPE_ANY,NOT_DANGEROUS,ALLOW_AUTO_OPEN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.iso,Archive,ISO File,High,True,True,often,,True,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.rar,Archive,RAR Archive,High,True,True,,,,,PLATFORM_TYPE_ANY,NOT_DANGEROUS,ALLOW_AUTO_OPEN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.7z,Archive,7Zip Archive,High,True,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.z,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.bz,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.bz2,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.bin,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.cab,Archive,Cabinet file,,,True,sometimes,,True,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.cpio,Archive,,High,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.lha,Archive,,High,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.rev,Archive,,High,,True,,,,,,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.rpm,Archive,,,,True,,,,,PLATFORM_TYPE_LINUX,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.tbz,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.tbz2,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.tgz,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xxe,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xar,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.webarchive,Archive,,,,True,,,,,,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.gz,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.tar,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ace,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.arj,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.bzip,Archive,,,,True,,,,,,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.bzip2,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.gzip,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.r00,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.r01,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.lzma,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.lz,Archive,,,,True,,,,,,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.lzh,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xz,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.r02,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.r03,Archive,,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.crx,Browser,Chrome extension,,,True,,,,Chrome displays a prompt prior to installation,PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.partial,Browser,will open in IE even when chrome is set as default browser,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xrm-ms,Browser,will open in IE even when chrome is set as default browser,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.rels,Browser,will open in IE even when chrome is set as default browser,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xml,Browser,will open in IE even when chrome is set as default browser,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xsl,Browser,will open in IE even when chrome is set as default browser,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xsd,Browser,will open in IE even when chrome is set as default browser,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.url,Browser,Internet Shortcut,,,,,,,They can point at anything. Dropping a download of this type and opening it automatically can in effect sidestep origin restrictions etc.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.website,Browser,Internet Shortcut,,,,,,,They can point at anything. Dropping a download of this type and opening it automatically can in effect sidestep origin restrictions etc.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.crt,Certificate,Signed certificate file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.cer,Certificate,Signed certificate file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.der,Certificate,Signed certificate file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ps1,Code,Powershell script,High,True,,,often,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ps1xml,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.psm1,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ps2,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ps2xml,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.psc1,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.psc2,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msh,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msh1,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msh2,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mshxml,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msh1xml,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msh2xml,Code,Powershell script,,,,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.sh,Code,Shell script,High,,,,,,,PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.dll,Code,DLL File,High,True,,,,True,,PLATFORM_TYPE_WINDOWS,DANGEROUS,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.asp,Code,Active Server Pages,,,,,,,Web file that can contain and execute server-side script.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.aspx,Code,,,,,,,,"Web file that can execute server-side script, primarily in .NET.",,,,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.asax,Code,,,,,,,,,,,,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ashx,Code,,,,,,,,,,,,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.btm,Code,,,,,,,,,,,,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.cla,Code,,,,,,,,,,,,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.class,Code,,,,,,,,,PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.csh,Code,,,,,,,,,PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ksh,Code,,,,,,,,,PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.pl,Code,,,,,,,,,PLATFORM_TYPE_LINUX,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.plg,Code,,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.wml,Code,,,,,,,,,,,,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xbap,Code,,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xdp,Code,,,,,,,,,,,,,,,True,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.fxp,Code,Microsoft FoxPro Compiled Source.,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vhd,Container,Hyper-V Virtual Hard Disk files,,,,,,True,"Disk image file. Doesn't execute, but the contents inside, once mounted, might contain malicious files or software.",PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vhdx,Container,Hyper-V Virtual Hard Disk files,,,,,,True,"Similar concerns as .vhd. Contents inside, once mounted, might be harmful.",PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vsmacros,Development,Microsoft Visual Studio Binary-based Macro Project.,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.pdf,Document,PDF File,High,,,,,True,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.oxps,Document,Open XML Paper Specification,,,,,,True,"Essentially a PDF alternative from Microsoft. While generally safe, be wary of embedded content.",,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.rtf,Document,Rich Text Format,,,,sometimes,,True,Can potentially contain embedded objects or links that could lead to malicious content or actions when opened.,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xps,Document,XML Paper Specification,,,,,,True,"Essentially a PDF alternative from Microsoft. While generally safe, be wary of embedded content.",,,,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.uue,Encoding,Uuencode (Unix-to-Unix encoding) encoded file,,,,,,,"Used for encoding binary data to text. While the format itself doesn't execute, the decoded content might be malicious.",PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.b64,Encoding,Base64 encoded file,,,,,,,"Used for encoding binary data to text. While the format itself doesn't execute, the decoded content might be malicious.",PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.exe,Executable,Windows executable file,High,True,True,sometimes,often,True,"Always available, except if application whitelistening is active. Commonly blocked.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.com,Executable,Command File for DOS,High,,True,sometimes,often,True,"Always available, except if application whitelistening is active. Commonly blocked.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.scr,Executable,Windows Screen Saver,High,,True,,,True,Just an .exe,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.bat,Executable,Batch script file for cmd.exe,High,,True,often,often,True,"Always available, except if application whitelistening is active. Commonly blocked.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.cmd,Executable,Windows Command Script,High,,True,,sometimes,True,Just a .bat,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msi,Executable,Windows Installer Package,High,True,True,sometimes,sometimes,True,"While meant for installations, it can be crafted to deploy malicious software.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msix,Executable,Windows Installer Package,,,True,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msixbundle,Executable,Windows Installer Package,,,True,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.drv,Executable,Windows Executable,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.scf,Executable,Windows Explorer Command,,,True,,,True,A Windows Explorer command file. Could pass potentially dangerous commands to Windows Explorer.,PLATFORM_TYPE_WINDOWS,DANGEROUS,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.shb,Executable,Windows Document Shortcut,,,True,,,True,Can be used to execute documents or applications.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.swf,Executable,Flash file,,,True,,,False,Flash files downloaded locally can sometimes access the local filesystem,PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.sys,Executable,System executable,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.fon,Font,Font file,,,,,,,uses Portable Executable or New Executable format. Not supposed to contain executable code.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.html,HTML,HTML file,High,True,,,,True,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.htm,HTML,HTML file,High,True,,,,True,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.svg,Image,Scalable Vector Graphics,,,,,,,An XML-based image format that can contain embedded JavaScript. Will open in IE.,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.prg,Misc,Program file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.cfg,Misc,,,,True,,,,,PLATFORM_TYPE_WINDOWS,DANGEROUS,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.grp,Misc,MSProgramGroup (?),,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ins,Misc,Microsoft IIS Internet Communication Settings.,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.inx,Misc,InstallShield Compiled Script,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.isu,Misc,InstallShield Uninstaller Script,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.isp,Misc,Microsoft IIS Internet Service Provider Settings.,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.rgs,Misc,Registry Script Windows,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.sct,Misc,Microsoft Windows Script Component. Microsoft FoxPro Screen.,,,,,,,A Script Component is a COM component created using script.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xnk,Misc,Microsoft Exchange Public Folder Shortcut,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.doc,Office,Office Word Doc (with macros),High,True,True,often,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ppt,Office,Office Powerpoint Doc (with macros),High,True,True,sometimes,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xls,Office,Office Execel Doc (with macros),High,True,True,sometimes,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xlm,Office,Office Excel 4 Doc (with macros),High,,True,sometimes,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.docx,Office,Office Word Doc (without macros),,True,True,often,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.pptx,Office,Office Powerpoint Doc (without macros),High,True,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xlsx,Office,Office Execel Doc with (without macros),High,True,True,often,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.docm,Office,Office Word Doc with macros,High,,True,often,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.dotm,Office,Office Word Template with macros,High,,True,sometimes,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,True,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.pptm,Office,Office Powerpoint Doc with macros,High,,True,sometimes,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.potm,Office,Office Powerpoint with macros,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ppam,Office,Microsoft PowerPoint Add-in file,,,True,sometimes,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ppsm,Office,Office Powerpoint with macros,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xlsm,Office,Office Execel Doc with macros,High,,True,often,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xltm,Office,Office Execel Template with macros,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,True,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xlsb,Office,Office Excel Add-in,,,True,often,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xlam,Office,Office Excel Add-in,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xll,Office,Office Excel Add-in,,,True,sometimes,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.xlw,Office,Office Excel Add-in,,,True,,,,,PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.asd,Office,AutoRecovery file for Microsoft Word,Filesec,,True,,,,"It's a Word recovery file, but be cautious of macros or embedded objects if opened.",,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.iqy,Office,Excel Web Query File,Filesec,,True,,,True,Can fetch data from external sources and can be used in data-driven attacks.,,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.sldm,Office,PowerPoint Slide Show with Macros,,,True,,,,"While primarily a presentation format, the macro capability means it can contain and execute malicious VBA code.",PLATFORM_TYPE_UNKNOWN,NOT_DANGEROUS,UNKNOWN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.slk,Office,Symbolic Link format used by Microsoft Excel,,,,,,,Can potentially introduce malicious formulas or external data connections in Excel.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ade,Office,Microsoft Access project extension,,,,,,,Can contain scripts and execute actions within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,True,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.adp,Office,Microsoft Access project,,,,,,,"Similar to .ade, can contain and execute scripts within Access.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,True,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.bas,Office,Basic module,,,,,,,Contains code for Visual Basic for Applications; can be run within host applications like MS Excel or Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.wbk,Office,Microsoft Word backup file,,,True,,,,Can contain and execute macros.,,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.bgi,Office,Borland Graphics Interface,,,True,,,,Old graphics program; be cautious of sources as it's an executable.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mad,Office,Microsoft Access module shortcut,,,True,,,,Can reference and execute modules within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.maf,Office,Microsoft Access form shortcut,,,,,,,Can reference and execute forms within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mag,Office,Microsoft Access diagram shortcut,,,,,,,Can reference and execute diagrams within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mam,Office,Microsoft Access macro shortcut,,,True,,,,Can reference and execute macros within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.maq,Office,Microsoft Access query shortcut,,,,,,,Can reference and execute queries within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mar,Office,Microsoft Access report shortcut,,,,,,,Can reference and execute reports within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mas,Office,Microsoft Access stored procedures,,,True,,,,Contains code that can be executed within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mat,Office,Microsoft Access table shortcut,,,,,,,Can reference tables in Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mav,Office,Microsoft Access view shortcut,,,,,,,Can reference and execute views within Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.maw,Office,Microsoft Access data access page,,,,,,,Can reference and execute data access pages in Access.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.one,Office,Onenote,High,,True,often,,True,May have file extension blacklist,,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.onepkg,Office,Onenote,,,True,,,True,May have file extension blacklist,,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.onetoc,Office,Onenote,,,True,,,True,May have file extension blacklist,,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.onetoc2,Office,Onenote,,,True,,,True,May have file extension blacklist,,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ics,Office,Calendar file format,,True,True,,,True,"Used for sharing calendar information. However, be cautious about links or attachments embedded within.",,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.odt,Office,OpenDocument Text Document,,,,,,,"A word processing document. Be cautious of embedded macros or scripts, although they're less common than in .doc files.",,,,True,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.oxt,Office,OpenOffice extension,,,True,,,,"OpenOffice extension, can execute arbitrary code.",PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mda,Office,MS Access Add-In,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mdb,Office,MS Access Database,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mde,Office,MS Access,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mdt,Office,MS Access Add-In,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mdw,Office,MS Access Workgroup Information,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mdz,Office,MS Access Wizard Template,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.accdb,Office,MS Access Database (like .mdb),,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.accde,Office,MS Access Database (like .mdb),,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.accdr,Office,MS Access Database (like .mdb),,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.accda,Office,MS Access Database (like .mdb),,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ops,Office,MS Office Profile Settings File,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.pcd,Office,MS Visual Test,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.pst,Office,Microsoft Exchange Address Book File.,,,,,,,Microsoft Outlook Personal Folder.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.eml,Office,Outlook file,,,,,,,"Opens in Outlook. Not common, but could be exploited (CVE-2015-6172)",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msg,Office,Outlook,,,,,,,"Opens in Outlook. Not common, but could be exploited (CVE-2015-6172)",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vdx,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vsx,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vtx,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vsdx,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vssx,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vstx,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vsdm,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vssm,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vstm,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vss,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vst,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vsw,Office,Visio file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vbs,Script,VBScript file,High,True,True,sometimes,often,True,Scripting language file. Can be used to execute malicious scripts.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vbe,Script,VBScript Encoded Script File,Govcert.ch,,True,sometimes,,True,"Encoded version of .vbs. Makes it harder to read, but can be used for same malicious purposes as .vbs.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vb,Script,Windows Visual Basic Script file,Govcert.ch,,True,,,True,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.vbscript,Script,Windows Visual Basic Script file,,,,,,,Some sites claim .vbscript is a valid extension for vbs files.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.wsf,Script,Windows Script File,Govcert.ch,,True,sometimes,sometimes,True,Allows mixing of scripting languages. Can execute malicious scripts.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.wsh,Script,Windows Script Host Settings File,Govcert.ch,,True,,,True,Used to set properties for script execution. Can be used in conjunction with other scripts for execution.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ws,Script,Windows Script file,,,True,,,True,"Can execute scripts, similar to other Windows scripting files like .vbs or .js.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.wsc,Script,Windows Script Component,,,True,,,True,Allows for the creation of COM objects with scripts. Can be used to execute malicious scripts.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.chm,Script,Compiled HTML Help file,Filesec,,True,sometimes,,True,Can run embedded scripts or malicious payloads when opened.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.chi,Script,Compiled HTML Help file,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.hta,Script,HTML Application,Filesec,,True,,,True,"An HTML application. Unlike HTML applications run in browsers, .HTA files are run as trusted applications without sandboxing.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.js,Script,JavaScript file,Low,,True,,often,True,"A JavaScript file. .JS files are normally used by webpages and are safe if run in Web browsers. However, Windows will run .JS files outside the browser with no sandboxing.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.jse,Script,JScript Encoded Script File,Filesec,,True,,,True,Encoded .js file. Can execute malicious scripts.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.htc,Script,HTML Component,,,,,,,Contains script to be executed in web pages.,,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mht,Script,MHTML Web Archive,Filesec,,,,,True,Web page archive format. Potential risk if it contains malicious scripts and is opened in a browser.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mhtml,Script,MHTML Web Archive,Filesec,,,,,True,Web page archive format. Potential risk if it contains malicious scripts and is opened in a browser.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.inf,System,,,,True,,,True,"If run, this file could potentially launch dangerous applications it came with or pass dangerous options to programs included with Windows.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ini,System,,,,,,,True,,PLATFORM_TYPE_WINDOWS,DANGEROUS,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.application,System,ClickOnce Deployment Manifest,Filesec,,True,,,True,ClickOnce applications can execute code when deployed.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.appinstaller,System,Windows 10 App Installer,Filesec,,True,,,True,Used to install apps. Potentially harmful if sourced from untrusted locations.,,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.appref-ms,System,ClickOnce Application Reference,Filesec,,True,,,True,A pointer to a ClickOnce application. Can cause the referenced application to be run.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.appx,System,Windows Application Package,Filesec,,True,,,True,Can be used to install potentially malicious Windows apps.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.appxbundle,System,Windows App Bundle,Filesec,,True,,,True,Bundle of APPX packages. Can install potentially malicious apps.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.cpl,System,Windows Control Panel item,Filesec,,True,,,True,"Executes directly, potentially harmful if malicious.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.desktopthemefile,System,Executable,,,,,,True,"For customizing appearance in Windows, but be wary of the source.",,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.diagcab,System,Microsoft Windows Troubleshooting Pack,Filesec,,True,,,True,"Can be used to automate troubleshooting steps, but can also be abused.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.dmg,System,Apple Disk Image,,,True,,,,Used to mount applications on macOS,PLATFORM_TYPE_MAC,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.gadget,System,Windows Gadget,Filesec,,True,,,True,"Can execute code, especially if the gadget is malicious.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.app,System,macOS application bundle,Govcert.ch,,True,,,True,"It's an application bundle on macOS. If malicious, it can introduce harmful software to the system.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ocx,System,OLE Control Extension (ActiveX),Govcert.ch,,,,,True,Can be used to run code when invoked by an application. Potential for malicious use.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.tlb,System,Type Library,Govcert.ch,,,,,True,"Contains definitions and information for software components, but doesn't execute code itself.",,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.pif,System,Program Information File,,,,,,True,"A program information file for MS-DOS programs. While .PIF files aren�t supposed to contain executable code, Windows will treat .PIFs the same as .EXE files if they contain executable code.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msm,System,Windows Installer Merge Module,,,,,,True,"While meant for installations, can introduce malicious components if tampered with.",,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msp,System,Windows Installer Patch,,,True,,,True,"Meant for updating software, but can be crafted to modify installations maliciously.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mst,System,Windows Installer Transform,,,True,,,True,Contains changes to be applied to a Windows Installer package. Can be used maliciously to modify software installations.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msu,System,Microsoft Update Standalone Package,,,True,,,True,"Used to distribute Windows updates or hotfixes. If maliciously crafted, can introduce harmful changes to the system.",,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.ppkg,System,Windows Provisioning Package file,,,True,,,True,"Used to configure settings on Windows devices. If malicious, can modify system settings.",,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.jar,System,Java Archive,,,True,sometimes,,,"Can execute Java code when opened with Java Runtime Environment, if installed.",PLATFORM_TYPE_ANY,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.reg,System,Windows Registry file,,,True,,often,True,Can make changes to the Windows Registry. Malicious edits can compromise system integrity or security.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.lnk,System,Windows shortcut file,High,,True,often,sometimes,True,Can point to and execute malicious applications or scripts. Can also have embedded harmful arguments or actions.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.msc,System,Microsoft Management Console file,,,,,,True,Provides a UI for managing different aspects of Windows. Maliciously crafted .msc files can be harmful.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.pol,System,Windows Group Policy file,,,,,,True,"Represents policy settings. While not executable, they can alter system configurations if applied.",,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.settingscontent-ms,System,Windows Settings shortcut,,,True,,,True,"Can be abused to execute arbitrary code, including shell commands.",,,,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.paf,System,Portable Application Installer File,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.prf,System,Windows System File,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.cpi,System,Control Panel Item. Executable used for adding icons to Control Panel.,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.job,System,Windows Task Scheduler Job file,,,,,,,"No handler is registered by default, so this is probably normally not dangerous unless saved into the task scheduler directory.",PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.local,System,,,,True,,,,.local files affect DLL search path for .exe file with same base name.,PLATFORM_TYPE_WINDOWS,DANGEROUS,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.manifest,System,Manifest,,,True,,,,having a .manifest file with the same basename as .exe file changes the DLL search order for the .exe file,PLATFORM_TYPE_WINDOWS,DANGEROUS,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.mmc,System,,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.search-ms,System,"Windows Vista Index Search Data, for local file system.",,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.settingcontent-ms,System,Used to create shortcuts to various Windows 10 setting pages.,,,True,,,,Allows invoking any binary file with any parameters.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.diagcfg,System,Windows troubleshooting,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.diagpkg,System,Windows troubleshooting component,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.hlp,,Windows Script Component,,,,,,True,Legacy help file format. Can potentially execute other files or code under specific circumstances.,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,ALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
+.htt,,Hypertext Template File,,,,,,,,PLATFORM_TYPE_WINDOWS,ALLOW_ON_USER_GESTURE,DISALLOW_AUTO_OPEN,,,,,,https://github.com/dobin/badfiles/blob/main/info.yaml
