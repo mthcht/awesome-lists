@@ -751,12 +751,21 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Malware Analysis - unprotect.it - Evasion techniques](https://unprotect.it/)
   - [Exploitation - hacktricks](https://book.hacktricks.xyz/)
   - [Exploitation - PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+  - [Exploitation - red-team-note](https://dmcxblue.gitbook.io/red-team-notes-2-0/files/red-team-guide)
   - [Exploitation - Red Team Notes](https://www.ired.team/)
   - [DFIR - JPCERT Tools Analysis](https://jpcertcc.github.io/ToolAnalysisResultSheet/)
   - [Exploitation - Red Team TTP](https://rosesecurity.gitbook.io/red-teaming-ttps)
   - [Linux - EBPF docs](https://docs.ebpf.io/)
-  - [DFIR - Microsoft NinjaHub](https://aka.ms/MicrosoftIRNinjaHub) 
-
+  - [DFIR - Microsoft NinjaHub](https://aka.ms/MicrosoftIRNinjaHub)
+  - [DEV - Windows PInvoke signatures](https://pinvoke.net/)
+  - [Privacy - VPN privacy guide](https://docs.google.com/spreadsheets/d/1L72gHJ5bTq0Djljz0P-NCAaURrXwsR1MsLpVmAt3bwg)
+  - [Detection - GCP Attack - Defense](https://github.com/anrbn/GCP-Attack-Defense)
+  - [Detection - Azure Attack Defense](https://github.com/Cloud-Architekt/AzureAD-Attack-Defense)
+  - [Detection - Unprotect project](https://unprotect.it/snippets/)
+  - [Exploitation - Hacker recipes](https://www.thehacker.recipes/)
+  - [Logs - Events - ultimatewindowssecurity](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx)
+  - [Logs - Events - microsoft](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/advanced-security-audit-policy-settings)
+  
 </details>
 
 ### LAB
