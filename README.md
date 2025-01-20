@@ -765,7 +765,8 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Exploitation - Hacker recipes](https://www.thehacker.recipes/)
   - [Logs - Events - ultimatewindowssecurity](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx)
   - [Logs - Events - microsoft](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/advanced-security-audit-policy-settings)
-  
+  - [more cheatsheets](https://github.com/r1cksec/cheatsheets)
+
 </details>
 
 ### LAB
