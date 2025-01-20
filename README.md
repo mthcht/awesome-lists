@@ -79,6 +79,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 ### DFIR
 
+<details>
+
   - [🔥 EricZimmerman Tools 🔥](https://ericzimmerman.github.io/#!index.md)
   - [usnjrnl_rewind](https://github.com/CyberCX-DFIR/usnjrnl_rewind)
   - [dfir-orc](https://github.com/dfir-orc)
@@ -152,6 +154,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [\[IR Guide\] OpenProject ](https://github.com/DebugPrivilege/OpenProject)
   - [\[OSX Tools\] Knockknock](objective-see.com/products/knockknock.html)
   - [\[OSX Tools\] mac_apt](https://github.com/ydkhatri/mac_apt)
+
+</details>
 
 ### IOC Feeds/Blacklists:
 
