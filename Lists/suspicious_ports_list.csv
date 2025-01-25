@@ -136,6 +136,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 7096,hardhatC2 default port and other legit usages,high,C2,detection_rule
 7443,covenant C2 or mythic C2 default port and legit usages for vmware and oracle,low,C2,hunting
 7444,mythic C2 default port and legit vmware port,medium,C2,hunting
+7448,lightsocks / GhostSocks - SOCKS 5 default proxy,medium,Defense Evasion,hunting 
 7474,default port for bloodhound neo4j,medium,exploitation,hunting
 7681,Supershell C2 default port,high,C2,detection_rule
 7682,Supershell C2 default port,high,C2,detection_rule
