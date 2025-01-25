@@ -1,225 +1,226 @@
-dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detection_type
-666,multiple malwares callback communications but also legit usages,medium,malware,hunting
-801,manjusaka (cobalstrike chinese clone) default panel ui,medium,malware,hunting
-1005,Nitedrem trojan Downloader + Pest + Theef,medium,malware,hunting
-1015,Doly trojan,high,malware,hunting
-1025,multiples malwares,low,malware,hunting
-1030,multiples malwares and legit usages,low,malware,hunting
-1042,Bla trojan,high,malware,hunting
-1075,Backdoor.Win32.LanaFTP.k listening on this port,high,malware,hunting
-1080,multiple malwares + ligolo pentest tool default port + SOCKS proxy,medium,C2,detection_rule
-1170,Psyber Stream Server - PSS,high,malware,hunting
-1194,OpenVPN server default port connection,info,Defense Evasion,hunting
-1234,Dameware Remote Everywhere Agent\BASupSrvc.exe RMM + Ultors trojan but also vlc and some games,medium,malware,hunting
-1235,Dameware Remote Everywhere Agent\BASupSrvc.exe,medium,RMM,hunting
-1241,Nessus default port,medium,vulnerability scanner,hunting
-1243,SubSeven backdoor,high,malware,hunting
-1337,empire + crackmapexec + icebreaker + KittyStager + Cyberghost VPN + gophish + gtunnel default port. the port is also associated with various other types of exploits or shellcode,high,exploitation,detection_rule
-1443,SurfShark VPN default port server conection - also other legitimate usages,info,Defense Evasion,hunting 
-1541,dameware mini remote control x64\dwrcc.exe RMM tool default port usage,high,RMM,hunting
-1604,DarkComet RAT/AsyncRat default port but also legit Citrix,low,malware,hunting
-1717,RustiveDump reverse shell but also legit usages - https://github.com/safedv/RustiveDump/blob/06d7f7dc965578c35b3c0d075130b6ab6e380c93/src/main.rs#L51C25-L51C29,medium,C2,hunting
-1900,ConnectWise Screenconnect RMM default port,high,RMM,hunting
-1981,Shockrave malware,high,malware,hunting
-1999,SubSeven trojan but also used by citrix and cisco,low,malware,hunting
-2001,Millennium Worm and multiple malwares,medium,malware,hunting
-2222,DoHC2 + externalc2 + some Qakbot C2 traffic and other trojans but also massively used legitimatly to host ssh servers,info,C2,detection_rule
-2766,The Infector trojan and legit usages,low,malware,hunting
-2773,SubSeven trojan and some backup services,medium,malware,hunting
-2989,multiple RAT,high,malware,hunting
-3000,ptunnel-ng + beefproject http panel default port,medium,C2,hunting
-3001,Nessus Security Scanner and other legit usages,low,vulnerability scanner,hunting
-3024,WinCrash trojan,high,malware,hunting
-3030,nuages C2 default port and other malwares,high,C2,detection_rule
-3128,proxy default port abused by quasarrat and multiple other malwares,info,Defense Evasion,hunting
-3129,Master's Paradise trojan,high,malware,hunting
-3200,manjusaka (cobalstrike chinese clone) default panel ui,medium,C2,hunting
-3333,gophish + Xmrig coinminer,high,Cryptominer,detection_rule
-3389,RDP usage (look for outbound requests to external IP address - could be roguerdp / malrdp technique),info,Lateral Movement,hunting
-3410,Optix Pro trojan,high,malware,hunting
-3478,Chrome Remote Desktop,medium,RMM,hunting
-3489,LogMeIn Rescue default port usage,high,RMM,hunting
-3790,often used for metasploit but also legit service like quickbooksrds,high,C2,detection_rule
-4000,ptunnel-ng + multiple malwares and RAT but also some legit usages,medium,C2,hunting
-4041,Masters Paradise trojan,high,malware,hunting
-4043,HVNC Client & Server (Modified Tinynuke),medium,RMM,hunting
-4092,WinCrash trojan,high,malware,hunting
-4222,TacticalRMM RMM tool default port,high,RMM,hunting
-4433,TacticalRMM RMM tool default port,high,RMM,hunting
-4444,Default listener port for Metasploit exploits and RemotePC transfert port and gophish,high,C2,detection_rule
-4051,AlanFramework C2 default port but also used by cisco P2P,high,C2,detection_rule
-4434,Default port for RemotePC file transfert,medium,RMM,hunting
-4435,Default port for RemotePC file transfert,medium,RMM,hunting
-4436,Default port for RemotePC file transfert,medium,RMM,hunting
-4437,Default port for RemotePC file transfert,medium,RMM,hunting
-4438,Default port for RemotePC file transfert,medium,RMM,hunting
-4439,Default port for RemotePC file transfert,medium,RMM,hunting
-4440,Default port for RemotePC file transfert,medium,RMM,hunting
-4441,Default port for RemotePC file transfert,medium,RMM,hunting
-4442,Default port for RemotePC file transfert,medium,RMM,hunting
-4443,Default port for RemotePC file transfert,medium,RMM,hunting
-4433,AlanFramework C2 default port and Acidoor backdoor,high,C2,detection_rule
-4567,PrimusC2 + File Nail trojan and legit usage for verizon,medium,C2,hunting
-4590,ICQTrojan,high,malware,hunting
-4747,RPC-Backdoor - RPC over TCP/IP with the hard-coded port number 4747,medium,Persistence,hunting
-4782,Quasar Server default port,high,RMM,detection_rule
-5000,hardhatC2 and HRShell default port + other malwares and legit usages,medium,C2,hunting
-5001,FudgeC2 + spiderfoot and other malwares but also used by synology NAS and yahoo messenger,medium,C2,hunting
-5002,multiple malwares and legit usages,low,malware,hunting
-5096,hardhatC2 default port,high,C2,detection_rule
-5222,XMPP client connections - also used by Google Chrome Remote Desktop,low,RMM,hunting
-5321,Firehotcker trojan,high,malware,detection_rule
-5400,BladeRunner and Back Construction trojans but also some games,medium,malware,hunting
-5405,Netsupport - Connecting to Clientst,high,RMM,hunting
-5421,Netsupport -  Call Control requests and Multicast\Broadcast Show and File Distribution features,high,RMM,hunting
-5500,droidjack RAT but also VNC default port,medium,RMM,hunting
-5555,SoftEtherVPN + WSAAcceptBackdoor + lots of legit usages,low,C2,hunting
-5556,AlanFramework C2 default port and H0rtiga trojan,high,C2,detection_rule
-5631,pcanywhere RMM default port,medium,RMM,hunting
-5632,pcanywhere RMM default port,medium,RMM,hunting
-5646,aweray RMM default port,medium,RMM,hunting
-5647,aweray RMM default port,medium,RMM,hunting
-5650,'pizza trojan' lite manager remote desktop and AeroAdmin and 'remote utilities - viewer (rutview.exe)',high,RMM,detection_rule
-5651,lite manager remote desktop,medium,RMM,hunting
-5655,AeroAdmin and some legit usages and 'remote utilities agent rutserv.exe',high,RMM,detection_rule
-5665,AeroAdmin and some legit usages,medium,RMM,detection_rule
-5721,Kaseya VSA usage,medium,RMM,hunting
-5800,VNC default port,medium,RMM,hunting
-5900,VNC default port (5900-5910),medium,RMM,hunting
-5901,VNC default port (5900-5910),medium,RMM,hunting
-5902,VNC default port (5900-5910),medium,RMM,hunting
-5903,VNC default port (5900-5910),medium,RMM,hunting
-5904,VNC default port (5900-5910),medium,RMM,hunting
-5905,VNC default port (5900-5910),medium,RMM,hunting
-5906,VNC default port (5900-5910),medium,RMM,hunting
-5907,VNC default port (5900-5910),medium,RMM,hunting
-5908,VNC default port (5900-5910),medium,RMM,hunting
-5909,VNC default port (5900-5910),medium,RMM,hunting
-5910,VNC default port (5900-5910),medium,RMM,hunting
-5938,teamviewer default port,medium,RMM,hunting
-5939,teamviewer default port,medium,RMM,hunting
-5950,aeroadmin default dest port,medium,RMM,hunting
-5985,Winrm communication,low,Lateral Movement,hunting
-5986,Winrm communication,low,Lateral Movement,hunting
-6030,RemotePC \RPCCoreViewer.exe default port connection,medium,RMM,hunting
-6040,RemotePC \RPCCoreViewer.exe default port connection,medium,RMM,hunting
-6129,dameware mini remote control x64\dwrcc.exe RMM tool default port usage,high,RMM,hunting
-6130,DameWare Remote Control,medium,RMM,hunting
-6132,DameWare Remote Control internet proxy,medium,RMM,hunting
-6133,DameWare Remote Control mobile gateway,medium,RMM,hunting
-6568,anydesk default port,medium,RMM,hunting
-6666,kali default port - IRC botnets and RAT - CVE-2024-38112/Void Banshee,high,exploitation,detection_rule
-6667,IRC channel used by botnet and multiple malwares but also legit usages,medium,malware,hunting
-6722,default port for socks reverse proxy of XiebroC2 https://github.com/INotGreen/XiebroC2/wiki/ReverseProxy,high,C2,detection_rule
-6783,Splashtop Remote,medium,RMM,hunting
-6784,Splashtop Remote,medium,RMM,hunting
-6785,Splashtop Remote,medium,RMM,hunting
-6881,Bittorrent default ports,info,Data Exfiltration,hunting
-6882,Bittorrent default ports,info,Data Exfiltration,hunting
-6883,Bittorrent default ports,info,Data Exfiltration,hunting
-6884,Bittorrent default ports,info,Data Exfiltration,hunting
-6885,Bittorrent default ports,info,Data Exfiltration,hunting
-6886,Bittorrent default ports,info,Data Exfiltration,hunting
-6887,Bittorrent default ports,info,Data Exfiltration,hunting
-6888,Bittorrent default ports,info,Data Exfiltration,hunting
-6889,Bittorrent default ports,info,Data Exfiltration,hunting
-6890,Bittorrent default ports,info,Data Exfiltration,hunting
-6891,Bittorrent default ports,info,Data Exfiltration,hunting
-6892,Bittorrent default ports,info,Data Exfiltration,hunting
-6893,Bittorrent default ports,info,Data Exfiltration,hunting
-6894,Bittorrent default ports,info,Data Exfiltration,hunting
-6895,Bittorrent default ports,info,Data Exfiltration,hunting
-6896,Bittorrent default ports,info,Data Exfiltration,hunting
-6897,Bittorrent default ports,info,Data Exfiltration,hunting
-6898,Bittorrent default ports,info,Data Exfiltration,hunting
-6899,Bittorrent default ports,info,Data Exfiltration,hunting
-7070,observed used with powershell empire and anydesk but mostly legit usage,low,RMM,hunting
-7096,hardhatC2 default port and other legit usages,high,C2,detection_rule
-7443,covenant C2 or mythic C2 default port and legit usages for vmware and oracle,low,C2,hunting
-7444,mythic C2 default port and legit vmware port,medium,C2,hunting
-7448,lightsocks / GhostSocks - SOCKS 5 default proxy,medium,Defense Evasion,hunting 
-7474,default port for bloodhound neo4j,medium,exploitation,hunting
-7681,Supershell C2 default port,high,C2,detection_rule
-7682,Supershell C2 default port,high,C2,detection_rule
-7687,Neo4j default port,medium,exploitation,hunting
-7777,portr inspector,low,C2,hunting
-7844,cloudfare tunnel,high,C2,hunting
-8022,MaccaroniC2 default port,high ,C2,detection_rule
-8040,ConnectWise Control,medium,RMM,hunting
-8041,ConnectWise Control,medium,RMM,hunting
-8080,AlanFramework C2 default port + Browser-C2 + KittyStager + Ares C2 + malwares and rat observed with this port but used by many many legitimate services but still worth hunting for,info,C2,hunting
-8081,AlanFramework C2 + mip22 + Browser-C2 default port example but also lots of legitimate services,low,C2,hunting
-8111,EvilNoVNC default port,medium,Phishing,hunting
-8118,Privproxy (and used by cursedChrome addon for viewing victim Chrome instances),low,Defense Evasion,hunting
-8200,GoToMyPC and gotomeeting,medium,RMM,hunting
-8384,Syncthing Web GUI or marathontp,medium,Data Exfiltration,hunting
-8443,AlanFramework C2 default port but also many other legitimate services,low,C2,hunting
-8848,DcRat,medium,malware,hunting
-8888,POSHC2 default port but also legit usages,medium,exploitation,hunting
-8936,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting
-8999,PrimusC2,medium,malware,hunting
-9001,default port used by the Tor network,high,Defense Evasion,detection_rule
-9050,default port used by the Tor network for its SOCKS proxy also used by MaccaroniC2 proxy,high,Defense Evasion,detection_rule
-9051,default port used by the Tor network for the controller,high,Defense Evasion,detection_rule
-9090,impacket and other legit usages,low,exploitation,detection_rule
-9200,default port used by the Tor network,high,Defense Evasion,detection_rule
-9235,TacticalRMM RMM tool default port,high,RMM,hunting
-9631,hardhatC2 default port and other legit usages,high,C2,detection_rule
-9931,SoftEtherVPN default port,low,Defense Evasion,hunting
-9936,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting
-9966,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting
-9984,SoftEtherVPN default port,low,Defense Evasion,hunting
-9988,Rbot-GR trojan and other legit usages,medium,malware,hunting
-9999,rpivot + DarkComet + netcat listener default port examples but also legit usages,low,malware,hunting
-10002,multiple malwares,medium,malware,hunting
-10110,Proxot malware,low,malware,hunting
-10426,Backdoor.Win32.Agent.cu,medium,malware,hunting
-10666,ambush trojan,low,malware,hunting
-12122,Backdoor.Hellza server listening on this port,medium,malware,hunting
-12345,netbus trojan and other malwares,high,malware,detection_rule
-12346,netbus trojan and other malwares,high,malware,detection_rule
-13333,Xmrig coinminer https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L147,high,Cryptominer,detection_rule
-15000,LogmeIn default port usage,high,RMM,detection_rule
-15555,Xmrig coinminer https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L147,high,Cryptominer,detection_rule
-16990,MeshCentral default port https://github.com/Ylianst/MeshAgent/blob/17a37ea4a698a84b21cab6a85bdb9d736b929d57/meshcore/meshdefines.h#L21,high,RMM,hunting
-16991,MeshCentral default port https://github.com/Ylianst/MeshAgent/blob/17a37ea4a698a84b21cab6a85bdb9d736b929d57/meshcore/meshdefines.h#L21,high,RMM,hunting
-16992,MeshCentral default port https://github.com/Ylianst/MeshAgent/blob/17a37ea4a698a84b21cab6a85bdb9d736b929d57/modules/CSP.js#L123,high,RMM,hunting
-16993,MeshCentral default port https://github.com/Ylianst/MeshAgent/blob/17a37ea4a698a84b21cab6a85bdb9d736b929d57/modules/amt-lme.js#L19,high,RMM,hunting
-17300,Kuang2 trojan,high,malware,hunting
-19999,Xmrig coinminer https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L147,high,Cryptominer,detection_rule
-20034,netbus trojan and other malwares,high,malware,hunting
-20778,chat room with ComodoRMM (Itarian RMM) - itarian\endpoint manager\rhost.exe,low,RMM,hunting
-21115,RustDesk RMM,high,RMM,detection_rule
-21116,RustDesk RMM,high,RMM,detection_rule
-21802,hardhatC2 default port,high,C2,detection_rule
-22000,Shadowpad default port (backdoor used for espionage and large-scale cyberattacks) but also legitimate uses like 	Gamespy Lan Port - Battlefield Vietnam - Medal of Honor - Syncthing - SoftPAC - SNAPenetIO,low,malware,hunting
-22001,Shadowpad default port (backdoor used for espionage and large-scale cyberattacks) but also legitimate use for OptoControl,low,malware,hunting
-22543,Action1 RMM tools outbound connection tcp,high,RMM,hunting
-25405,Netsupport - connection attempts from a Control machine,high,RMM,hunting
-27374,SubSeven backdoor and multiple other malwares,high,malware,hunting
-30662,o365-attack-toolkit default port,high,exploitation,hunting
-31335,Trinoo distributed attack tool port,high,exploitation,hunting
-31337,SliverC2 + ThunderShell default port + Back Orifice backdoor. also associated with various other types of exploits or shellcode,high,C2,detection_rule
-31338,Back Orifice backdoor and other malwares,high,malware,detection_rule
-31785,Hack’a’Tack RAT,high,malware,detection_rule
-31789,Hack’a’Tack RAT,high,malware,detection_rule
-32226,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting
-32227,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting
-32233,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting
-32234,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting
-35000,evilqr,medium,exploitation,hunting
-3567,blackvision RAT,low,malware,hunting
-48101,W32.Blastclan.Worm,high,malware,hunting
-50001,Anydesk outbound connections,info,RMM,hunting
-50002,Anydesk outbound connections,info,RMM,hunting
-50003,Anydesk outbound connections,info,RMM,hunting
-50050,sharpc2 and cobaltstrike default port,high,C2,detection_rule
-52935,C3 webcontroller default port,medium,C2,https://github.com/WithSecureLabs/C3/blob/e1b9922d199e45e222001a3afe47757349f24e7a/StartWebController.cmd#L4
-53531,dnscat2 default port,high,C2,detection_rule
-54320,Back Orifice backdoor,medium,malware,hunting
-55553,Metasploit RPC daemon default port also used by Armitage team server,high,exploitation,detection_rule
-57230,covenant C2 default port,high,C2,detection_rule
-59074,RustDesk RMM,high,RMM,hunting
-59076,RustDesk RMM,high,RMM,hunting
-61466,Backdoor:Win32/Thething.F and telecommando trojan,medium,malware,hunting
-65000,Devil RAT,medium,malware,hunting
+dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detection_type,metadata_link,metadata_reference
+666,multiple malwares callback communications but also legit usages,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+801,manjusaka (cobalstrike chinese clone) default panel ui,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1005,Nitedrem trojan Downloader + Pest + Theef,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1015,Doly trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1025,multiples malwares,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1030,multiples malwares and legit usages,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1042,Bla trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1075,Backdoor.Win32.LanaFTP.k listening on this port,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1080,multiple malwares + ligolo pentest tool default port + SOCKS proxy,medium,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1170,Psyber Stream Server - PSS,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1194,OpenVPN server default port connection,info,Defense Evasion,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1234,Dameware Remote Everywhere Agent\BASupSrvc.exe RMM + Ultors trojan but also vlc and some games,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1235,Dameware Remote Everywhere Agent\BASupSrvc.exe,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1241,Nessus default port,medium,vulnerability scanner,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1243,SubSeven backdoor,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1337,empire + crackmapexec + icebreaker + KittyStager + Cyberghost VPN + gophish + gtunnel default port. the port is also associated with various other types of exploits or shellcode,high,exploitation,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1443,SurfShark VPN default port server conection - also other legitimate usages,info,Defense Evasion,hunting ,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1541,dameware mini remote control x64\dwrcc.exe RMM tool default port usage,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1604,DarkComet RAT/AsyncRat default port but also legit Citrix,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1717,RustiveDump reverse shell but also legit usages - https://github.com/safedv/RustiveDump/blob/06d7f7dc965578c35b3c0d075130b6ab6e380c93/src/main.rs#L51C25-L51C29,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1900,ConnectWise Screenconnect RMM default port,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1981,Shockrave malware,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+1999,SubSeven trojan but also used by citrix and cisco,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+2001,Millennium Worm and multiple malwares,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+2222,DoHC2 + externalc2 + some Qakbot C2 traffic and other trojans but also massively used legitimatly to host ssh servers,info,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+2766,The Infector trojan and legit usages,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+2773,SubSeven trojan and some backup services,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+2989,multiple RAT,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3000,ptunnel-ng + beefproject http panel default port,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3001,Nessus Security Scanner and other legit usages,low,vulnerability scanner,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3024,WinCrash trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3030,nuages C2 default port and other malwares,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3128,proxy default port abused by quasarrat and multiple other malwares,info,Defense Evasion,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3129,Master's Paradise trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3200,manjusaka (cobalstrike chinese clone) default panel ui,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3333,gophish + Xmrig coinminer,high,Cryptominer,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3389,RDP usage (look for outbound requests to external IP address - could be roguerdp / malrdp technique),info,Lateral Movement - Initial Access,hunting,https://shorsec.io/blog/malrdp-implementing-rouge-rdp-manually/,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3410,Optix Pro trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3478,Chrome Remote Desktop,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3489,LogMeIn Rescue default port usage,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3790,often used for metasploit but also legit service like quickbooksrds,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4000,ptunnel-ng + multiple malwares and RAT but also some legit usages,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4041,Masters Paradise trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4043,HVNC Client & Server (Modified Tinynuke),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4092,WinCrash trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4222,TacticalRMM RMM tool default port,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4433,TacticalRMM RMM tool default port,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4444,Default listener port for Metasploit exploits and RemotePC transfert port and gophish,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4051,AlanFramework C2 default port but also used by cisco P2P,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4434,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4435,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4436,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4437,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4438,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4439,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4440,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4441,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4442,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4443,Default port for RemotePC file transfert,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4433,AlanFramework C2 default port and Acidoor backdoor,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4567,PrimusC2 + File Nail trojan and legit usage for verizon,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4590,ICQTrojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4747,RPC-Backdoor - RPC over TCP/IP with the hard-coded port number 4747,medium,Persistence,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+4782,Quasar Server default port,high,RMM,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5000,hardhatC2 and HRShell default port + other malwares and legit usages,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5001,FudgeC2 + spiderfoot and other malwares but also used by synology NAS and yahoo messenger,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5002,multiple malwares and legit usages,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5096,hardhatC2 default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5222,XMPP client connections - also used by Google Chrome Remote Desktop,low,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5321,Firehotcker trojan,high,malware,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5400,BladeRunner and Back Construction trojans but also some games,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5405,Netsupport - Connecting to Clientst,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5421,Netsupport -  Call Control requests and Multicast\Broadcast Show and File Distribution features,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5500,droidjack RAT but also VNC default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5555,SoftEtherVPN + WSAAcceptBackdoor + lots of legit usages,low,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5556,AlanFramework C2 default port and H0rtiga trojan,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5631,pcanywhere RMM default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5632,pcanywhere RMM default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5646,aweray RMM default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5647,aweray RMM default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5650,'pizza trojan' lite manager remote desktop and AeroAdmin and 'remote utilities - viewer (rutview.exe)',high,RMM,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5651,lite manager remote desktop,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5655,AeroAdmin and some legit usages and 'remote utilities agent rutserv.exe',high,RMM,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5665,AeroAdmin and some legit usages,medium,RMM,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5721,Kaseya VSA usage,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5800,VNC default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5900,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5901,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5902,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5903,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5904,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5905,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5906,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5907,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5908,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5909,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5910,VNC default port (5900-5910),medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5938,teamviewer default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5939,teamviewer default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5950,aeroadmin default dest port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5985,Winrm communication,low,Lateral Movement,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+5986,Winrm communication,low,Lateral Movement,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6030,RemotePC \RPCCoreViewer.exe default port connection,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6040,RemotePC \RPCCoreViewer.exe default port connection,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6129,dameware mini remote control x64\dwrcc.exe RMM tool default port usage,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6130,DameWare Remote Control,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6132,DameWare Remote Control internet proxy,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6133,DameWare Remote Control mobile gateway,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6568,anydesk default port,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6666,kali default port - IRC botnets and RAT - CVE-2024-38112/Void Banshee,high,exploitation,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6667,IRC channel used by botnet and multiple malwares but also legit usages,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6722,default port for socks reverse proxy of XiebroC2 https://github.com/INotGreen/XiebroC2/wiki/ReverseProxy,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6783,Splashtop Remote,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6784,Splashtop Remote,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6785,Splashtop Remote,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6881,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6882,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6883,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6884,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6885,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6886,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6887,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6888,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6889,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6890,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6891,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6892,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6893,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6894,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6895,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6896,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6897,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6898,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+6899,Bittorrent default ports,info,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7070,observed used with powershell empire and anydesk but mostly legit usage,low,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7096,hardhatC2 default port and other legit usages,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7443,covenant C2 or mythic C2 default port and legit usages for vmware and oracle,low,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7444,mythic C2 default port and legit vmware port,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7448,lightsocks / GhostSocks - SOCKS 5 default proxy,medium,Defense Evasion,hunting,https://github.com/LemonSaaS/ghostsocks/blob/9801d97b61275efc698f5c56a373efc9de756aed/cmd/ghostsocks-local/main.go#L13,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7474,default port for bloodhound neo4j,medium,exploitation,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7681,Supershell C2 default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7682,Supershell C2 default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7687,Neo4j default port,medium,exploitation,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7777,portr inspector,low,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+7844,cloudfare tunnel,high,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8022,MaccaroniC2 default port,high ,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8040,ConnectWise Control,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8041,ConnectWise Control,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8080,AlanFramework C2 default port + Browser-C2 + KittyStager + Ares C2 + malwares and rat observed with this port but used by many many legitimate services but still worth hunting for,info,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8081,AlanFramework C2 + mip22 + Browser-C2 default port example but also lots of legitimate services,low,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8111,EvilNoVNC default port,medium,Phishing,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8118,Privproxy (and used by cursedChrome addon for viewing victim Chrome instances),low,Defense Evasion,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8200,GoToMyPC and gotomeeting,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8384,Syncthing Web GUI or marathontp,medium,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8443,AlanFramework C2 default port but also many other legitimate services,low,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8848,DcRat,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8888,POSHC2 default port but also legit usages,medium,exploitation,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8936,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8999,PrimusC2,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9001,default port used by the Tor network,high,Defense Evasion,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9050,default port used by the Tor network for its SOCKS proxy also used by MaccaroniC2 proxy,high,Defense Evasion,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9051,default port used by the Tor network for the controller,high,Defense Evasion,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9090,impacket and other legit usages,low,exploitation,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9200,default port used by the Tor network,high,Defense Evasion,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9235,TacticalRMM RMM tool default port,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9631,hardhatC2 default port and other legit usages,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9931,SoftEtherVPN default port,low,Defense Evasion,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9936,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9966,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9984,SoftEtherVPN default port,low,Defense Evasion,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9988,Rbot-GR trojan and other legit usages,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+9999,rpivot + DarkComet + netcat listener default port examples but also legit usages,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+10002,multiple malwares,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+10110,Proxot malware,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+10426,Backdoor.Win32.Agent.cu,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+10666,ambush trojan,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+12122,Backdoor.Hellza server listening on this port,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+12345,netbus trojan and other malwares,high,malware,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+12346,netbus trojan and other malwares,high,malware,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+13333,Xmrig coinminer https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L147,high,Cryptominer,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+15000,LogmeIn default port usage,high,RMM,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+15555,Xmrig coinminer https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L147,high,Cryptominer,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+16990,MeshCentral default port https://github.com/Ylianst/MeshAgent/blob/17a37ea4a698a84b21cab6a85bdb9d736b929d57/meshcore/meshdefines.h#L21,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+16991,MeshCentral default port https://github.com/Ylianst/MeshAgent/blob/17a37ea4a698a84b21cab6a85bdb9d736b929d57/meshcore/meshdefines.h#L21,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+16992,MeshCentral default port https://github.com/Ylianst/MeshAgent/blob/17a37ea4a698a84b21cab6a85bdb9d736b929d57/modules/CSP.js#L123,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+16993,MeshCentral default port https://github.com/Ylianst/MeshAgent/blob/17a37ea4a698a84b21cab6a85bdb9d736b929d57/modules/amt-lme.js#L19,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+17300,Kuang2 trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+19999,Xmrig coinminer https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L147,high,Cryptominer,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+20034,netbus trojan and other malwares,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+20778,chat room with ComodoRMM (Itarian RMM) - itarian\endpoint manager\rhost.exe,low,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+21115,RustDesk RMM,high,RMM,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+21116,RustDesk RMM,high,RMM,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+21802,hardhatC2 default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+22000,Shadowpad default port (backdoor used for espionage and large-scale cyberattacks) but also legitimate uses like 	Gamespy Lan Port - Battlefield Vietnam - Medal of Honor - Syncthing - SoftPAC - SNAPenetIO,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+22001,Shadowpad default port (backdoor used for espionage and large-scale cyberattacks) but also legitimate use for OptoControl,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+22543,Action1 RMM tools outbound connection tcp,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+25405,Netsupport - connection attempts from a Control machine,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+27374,SubSeven backdoor and multiple other malwares,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+30662,o365-attack-toolkit default port,high,exploitation,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+31335,Trinoo distributed attack tool port,high,exploitation,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+31337,SliverC2 + ThunderShell default port + Back Orifice backdoor. also associated with various other types of exploits or shellcode,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+31338,Back Orifice backdoor and other malwares,high,malware,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+31785,Hack’a’Tack RAT,high,malware,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+31789,Hack’a’Tack RAT,high,malware,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+32226,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+32227,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+32233,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+32234,ComodoRMM remote ports used by rmmservice.exe,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+35000,evilqr,medium,exploitation,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+3567,blackvision RAT,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+48101,W32.Blastclan.Worm,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+50001,Anydesk outbound connections,info,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+50002,Anydesk outbound connections,info,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+50003,Anydesk outbound connections,info,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+50050,sharpc2 and cobaltstrike default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+52935,C3 webcontroller default port,medium,C2,https://github.com/WithSecureLabs/C3/blob/e1b9922d199e45e222001a3afe47757349f24e7a/StartWebController.cmd#L4,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+53531,dnscat2 default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+54320,Back Orifice backdoor,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+55553,Metasploit RPC daemon default port also used by Armitage team server,high,exploitation,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+57230,covenant C2 default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+59074,RustDesk RMM,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+59076,RustDesk RMM,high,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+61466,Backdoor:Win32/Thething.F and telecommando trojan,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+65000,Devil RAT,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+,,https://github.com/mthcht/awesome-lists/tree/main/Lists
