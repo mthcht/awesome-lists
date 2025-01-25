@@ -35,6 +35,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 3129,Master's Paradise trojan,high,malware,hunting
 3200,manjusaka (cobalstrike chinese clone) default panel ui,medium,C2,hunting
 3333,gophish + Xmrig coinminer,high,Cryptominer,detection_rule
+3389,RDP usage (look for outbound requests to external IP address - could be roguerdp / malrdp technique),info,Lateral Movement,hunting
 3410,Optix Pro trojan,high,malware,hunting
 3478,Chrome Remote Desktop,medium,RMM,hunting
 3489,LogMeIn Rescue default port usage,high,RMM,hunting
