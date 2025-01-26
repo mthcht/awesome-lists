@@ -414,6 +414,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [LOLRMM](https://github.com/magicsword-io/LOLRMM)
 - [loldrivers](https://www.loldrivers.io/)
 - [LOLRMM](https://github.com/magicsword-io/LOLRMM)
+- [LOLC2](https://github.com/lolc2/lolc2.github.io)
 - [LOLESXI](https://github.com/LOLESXi-Project/LOLESXi)
 - [WTFBIN](https://wtfbins.wtf/)
 - [Sigma](https://github.com/mthcht/sigma/tree/master/rules)
