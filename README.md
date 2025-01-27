@@ -26,7 +26,7 @@
 
 </details>
 
-## My Detection Lists 
+## 📂 My Detection Lists 
 - 📋 Lists: https://github.com/mthcht/awesome-lists/tree/main/Lists
 - 🕵️‍♂️ ThreatHunting Guides: https://mthcht.medium.com/list/threat-hunting-708624e9266f
 - 🚰 Suspicious Named pipes: [suspicious_named_pipe_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_named_pipe_list.csv)
