@@ -1,0 +1,980 @@
+messagetable_string,metadata_description,metadata_OS,metadata_comment
+%%279,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1536,Unused message ID,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1537,DELETE,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1538,READ_CONTROL,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1539,WRITE_DAC,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1540,WRITE_OWNER,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1541,SYNCHRONIZE,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1542,ACCESS_SYS_SEC,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1543,MAX_ALLOWED,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1552,Unknown specific access (bit 0),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1553,Unknown specific access (bit 1),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1554,Unknown specific access (bit 2),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1555,Unknown specific access (bit 3),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1556,Unknown specific access (bit 4),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1557,Unknown specific access (bit 5),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1558,Unknown specific access (bit 6),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1559,Unknown specific access (bit 7),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1560,Unknown specific access (bit 8),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1561,Unknown specific access (bit 9),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1562,Unknown specific access (bit 10),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1563,Unknown specific access (bit 11),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1564,Unknown specific access (bit 12),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1565,Unknown specific access (bit 13),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1566,Unknown specific access (bit 14),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1567,Unknown specific access (bit 15),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1601,Not used,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1603,Assign Primary Token Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1604,Lock Memory Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1605,Increase Memory Quota Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1606,Unsolicited Input Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1607,Trusted Computer Base Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1608,Security Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1609,Take Ownership Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1610,Load/Unload Driver Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1611,Profile System Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1612,Set System Time Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1613,Profile Single Process Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1614,Increment Base Priority Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1615,Create Pagefile Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1616,Create Permanent Object Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1617,Backup Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1618,Restore From Backup Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1619,Shutdown System Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1620,Debug Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1621,View or Change Audit Log Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1622,Change Hardware Environment Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1623,Change Notify (and Traverse) Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1624,Remotely Shut System Down Privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1792,<value changed, but not displayed>,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1793,<value not set>,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1794,<never>,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1795,Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1796,Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1797,All,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1798,None,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1799,Audit Policy query/set API Operation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1800,<Value change auditing for this registry type is not supported>,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1801,Granted by,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1802,Denied by,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1803,Denied by Integrity Policy check,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1804,Granted by Ownership,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1805,Not granted,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1806,Granted by NULL DACL,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1807,Denied by Empty DACL,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1808,Granted by NULL Security Descriptor,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1809,Unknown or unchecked,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1810,Not granted due to missing,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1811,Granted by ACE on parent folder,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1812,Denied by ACE on parent folder,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1813,Granted by Central Access Rule ,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1814,NOT Granted by Central Access Rule ,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1815,Granted by parent folder's Central Access Rule ,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1816,NOT Granted by parent folder's Central Access Rule ,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1817,Unknown Type,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1818,String,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1819,Unsigned 64-bit Integer,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1820,64-bit Integer,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1821,FQBN,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1822,Blob,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1823,Sid,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1824,Boolean,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1825,True,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1826,False,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1827,Invalid,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1828,an ACE too long to display,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1829,a Security Descriptor too long to display,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1830,Not granted to AppContainers,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1831,...,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1832,Identification,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1833,Impersonation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1840,Delegation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1841,Denied by Process Trust Label ACE,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1842,Yes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1843,No,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1844,System,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1845,Not Available,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1846,Default,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1847,DisallowMmConfig,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1848,Off,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1849,Auto,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1856,Denied by Access Filter Ace,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1872,REG_NONE,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1873,REG_SZ,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1874,REG_EXPAND_SZ,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1875,REG_BINARY,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1876,REG_DWORD,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1877,REG_DWORD_BIG_ENDIAN,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1878,REG_LINK,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1879,REG_MULTI_SZ (New lines are replaced with *. A * is replaced with **),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1880,REG_RESOURCE_LIST,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1881,REG_FULL_RESOURCE_DESCRIPTOR,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1882,REG_RESOURCE_REQUIREMENTS_LIST,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1883,REG_QWORD,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1904,New registry value created,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1905,Existing registry value modified,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1906,Registry value deleted,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1920,Sunday,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1921,Monday,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1922,Tuesday,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1923,Wednesday,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1924,Thursday,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1925,Friday,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1926,Saturday,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1936,TokenElevationTypeDefault (1),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1937,TokenElevationTypeFull (2),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%1938,TokenElevationTypeLimited (3),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2048,Account Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2049,'Home Directory Required' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2050,'Password Not Required' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2051,'Temp Duplicate Account' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2052,'Normal Account' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2053,'MNS Logon Account' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2054,'Interdomain Trust Account' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2055,'Workstation Trust Account' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2056,'Server Trust Account' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2057,'Don't Expire Password' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2058,Account Unlocked,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2059,'Encrypted Text Password Allowed' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2060,'Smartcard Required' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2061,'Trusted For Delegation' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2062,'Not Delegated' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2063,'Use DES Key Only' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2064,'Don't Require Preauth' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2065,'Password Expired' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2066,'Trusted To Authenticate For Delegation' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2067,'Exclude Authorization Information' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2068,'Undefined UserAccountControl Bit 20' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2069,'Protect Kerberos Service Tickets with AES Keys' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2070,'Undefined UserAccountControl Bit 22' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2071,'Undefined UserAccountControl Bit 23' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2072,'Undefined UserAccountControl Bit 24' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2073,'Undefined UserAccountControl Bit 25' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2074,'Undefined UserAccountControl Bit 26' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2075,'Undefined UserAccountControl Bit 27' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2076,'Undefined UserAccountControl Bit 28' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2077,'Undefined UserAccountControl Bit 29' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2078,'Undefined UserAccountControl Bit 30' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2079,'Undefined UserAccountControl Bit 31' - Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2080,Account Disabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2081,'Home Directory Required' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2082,'Password Not Required' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2083,'Temp Duplicate Account' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2084,'Normal Account' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2085,'MNS Logon Account' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2086,'Interdomain Trust Account' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2087,'Workstation Trust Account' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2088,'Server Trust Account' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2089,'Don't Expire Password' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2090,Account Locked,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2091,'Encrypted Text Password Allowed' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2092,'Smartcard Required' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2093,'Trusted For Delegation' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2094,'Not Delegated' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2095,'Use DES Key Only' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2096,'Don't Require Preauth' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2097,'Password Expired' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2098,'Trusted To Authenticate For Delegation' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2099,'Exclude Authorization Information' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2100,'Undefined UserAccountControl Bit 20' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2101,'Protect Kerberos Service Tickets with AES Keys' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2102,'Undefined UserAccountControl Bit 22' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2103,'Undefined UserAccountControl Bit 23' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2104,'Undefined UserAccountControl Bit 24' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2105,'Undefined UserAccountControl Bit 25' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2106,'Undefined UserAccountControl Bit 26' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2107,'Undefined UserAccountControl Bit 27' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2108,'Undefined UserAccountControl Bit 28' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2109,'Undefined UserAccountControl Bit 29' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2110,'Undefined UserAccountControl Bit 30' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2111,'Undefined UserAccountControl Bit 31' - Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2304,An Error occured during Logon.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2305,The specified user account has expired.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2306,The NetLogon component is not active.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2307,Account locked out.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2308,The user has not been granted the requested logon type at this machine.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2309,The specified account's password has expired.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2310,Account currently disabled.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2311,Account logon time restriction violation.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2312,User not allowed to logon at this computer.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2313,Unknown user name or bad password.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2314,Domain sid inconsistent.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2315,Smartcard logon is required and was not used.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2432,Not Available.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2436,Random number generator failure.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2437,Random number generation failed FIPS-140 pre-hash check.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2438,Failed to zero secret data.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2439,Key failed pair wise consistency check.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2448,Failed to unprotect persistent cryptographic key.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2449,Key export checks failed.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2450,Validation of public key failed.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2451,Signature verification failed.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2456,Open key file.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2457,Delete key file.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2458,Read persisted key from file.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2459,Write persisted key to file.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2464,Export of persistent cryptographic key.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2465,Import of persistent cryptographic key.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2480,Open Key.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2481,Create Key.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2482,Delete Key.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2483,Encrypt.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2484,Decrypt.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2485,Sign hash.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2486,Secret agreement.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2487,Domain settings,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2488,Local settings,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2489,Add provider.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2490,Remove provider.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2491,Add context.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2492,Remove context.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2493,Add function.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2494,Remove function.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2495,Add function provider.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2496,Remove function provider.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2497,Add function property.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2498,Remove function property.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2499,Machine key.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2500,User key.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2501,Key Derivation.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2502,Claim Creation.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%2503,Claim Verification.,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4352,Device Access Bit 0,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4353,Device Access Bit 1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4354,Device Access Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4355,Device Access Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4356,Device Access Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4357,Device Access Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4358,Device Access Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4359,Device Access Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4360,Device Access Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4361,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4362,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4363,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4364,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4365,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4366,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4367,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4368,Query directory,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4369,Traverse,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4370,Create object in directory,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4371,Create sub-directory,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4372,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4373,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4374,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4375,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4376,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4377,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4378,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4379,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4380,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4381,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4382,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4383,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4384,Query event state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4385,Modify event state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4386,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4387,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4388,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4389,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4390,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4391,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4392,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4393,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4394,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4395,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4396,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4397,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4398,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4399,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4416,ReadData (or ListDirectory),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4417,WriteData (or AddFile),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4418,AppendData (or AddSubdirectory or CreatePipeInstance),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4419,ReadEA,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4420,WriteEA,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4421,Execute/Traverse,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4422,DeleteChild,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4423,ReadAttributes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4424,WriteAttributes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4425,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4426,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4427,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4428,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4429,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4430,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4431,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4432,Query key value,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4433,Set key value,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4434,Create sub-key,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4435,Enumerate sub-keys,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4436,Notify about changes to keys,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4437,Create Link,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4438,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4439,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4440,Enable 64(or 32) bit application to open 64 bit key,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4441,Enable 64(or 32) bit application to open 32 bit key,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4442,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4443,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4444,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4445,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4446,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4447,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4448,Query mutant state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4449,Undefined Access (no effect) Bit 1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4450,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4451,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4452,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4453,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4454,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4455,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4456,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4457,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4458,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4459,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4460,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4461,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4462,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4463,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4464,Communicate using port,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4465,Undefined Access (no effect) Bit 1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4466,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4467,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4468,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4469,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4470,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4471,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4472,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4473,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4474,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4475,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4476,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4477,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4478,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4479,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4480,Force process termination,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4481,Create new thread in process,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4482,Set process session ID,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4483,Perform virtual memory operation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4484,Read from process memory,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4485,Write to process memory,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4486,Duplicate handle into or out of process,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4487,Create a subprocess of process,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4488,Set process quotas,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4489,Set process information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4490,Query process information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4491,Set process termination port,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4492,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4493,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4494,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4495,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4496,Control profile,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4497,Undefined Access (no effect) Bit 1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4498,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4499,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4500,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4501,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4502,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4503,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4504,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4505,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4506,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4507,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4508,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4509,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4510,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4511,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4512,Query section state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4513,Map section for write,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4514,Map section for read,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4515,Map section for execute,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4516,Extend size,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4517,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4518,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4519,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4520,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4521,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4522,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4523,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4524,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4525,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4526,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4527,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4528,Query semaphore state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4529,Modify semaphore state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4530,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4531,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4532,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4533,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4534,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4535,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4536,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4537,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4538,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4539,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4540,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4541,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4542,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4543,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4544,Use symbolic link,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4545,Undefined Access (no effect) Bit 1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4546,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4547,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4548,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4549,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4550,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4551,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4552,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4553,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4554,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4555,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4556,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4557,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4558,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4559,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4560,Force thread termination,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4561,Suspend or resume thread,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4562,Send an alert to thread,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4563,Get thread context,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4564,Set thread context,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4565,Set thread information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4566,Query thread information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4567,Assign a token to the thread,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4568,Cause thread to directly impersonate another thread,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4569,Directly impersonate this thread,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4570,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4571,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4572,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4573,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4574,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4575,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4576,Query timer state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4577,Modify timer state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4578,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4579,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4580,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4581,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4582,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4584,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4585,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4586,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4587,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4588,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4589,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4590,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4591,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4592,AssignAsPrimary,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4593,Duplicate,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4594,Impersonate,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4595,Query,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4596,QuerySource,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4597,AdjustPrivileges,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4598,AdjustGroups,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4599,AdjustDefaultDacl,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4600,AdjustSessionID,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4601,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4602,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4603,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4604,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4605,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4606,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4607,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4608,Create instance of object type,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4609,Undefined Access (no effect) Bit 1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4610,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4611,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4612,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4613,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4614,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4615,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4616,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4617,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4618,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4619,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4620,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4621,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4622,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4623,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4864,Query State,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%4865,Modify State,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5120,Channel read message,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5121,Channel write message,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5122,Channel query information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5123,Channel set information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5124,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5125,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5126,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5127,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5128,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5129,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5130,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5131,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5132,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5133,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5134,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5135,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5136,Assign process,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5137,Set Attributes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5138,Query Attributes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5139,Terminate Job,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5140,Set Security Attributes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5141,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5142,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5143,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5144,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5145,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5146,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5147,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5148,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5149,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5150,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5151,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5376,ConnectToServer,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5377,ShutdownServer,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5378,InitializeServer,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5379,CreateDomain,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5380,EnumerateDomains,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5381,LookupDomain,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5382,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5383,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5384,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5385,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5386,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5387,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5388,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5389,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5390,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5391,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5392,ReadPasswordParameters,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5393,WritePasswordParameters,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5394,ReadOtherParameters,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5395,WriteOtherParameters,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5396,CreateUser,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5397,CreateGlobalGroup,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5398,CreateLocalGroup,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5399,GetLocalGroupMembership,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5400,ListAccounts,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5401,LookupIDs,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5402,AdministerServer,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5403,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5404,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5405,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5406,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5407,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5408,ReadInformation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5409,WriteAccount,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5410,AddMember,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5411,RemoveMember,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5412,ListMembers,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5413,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5414,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5415,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5416,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5417,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5418,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5419,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5420,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5421,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5422,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5423,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5424,AddMember,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5425,RemoveMember,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5426,ListMembers,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5427,ReadInformation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5428,WriteAccount,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5429,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5430,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5431,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5432,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5433,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5434,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5435,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5436,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5437,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5438,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5439,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5440,ReadGeneralInformation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5441,ReadPreferences,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5442,WritePreferences,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5443,ReadLogon,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5444,ReadAccount,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5445,WriteAccount,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5446,ChangePassword (with knowledge of old password),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5447,SetPassword (without knowledge of old password),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5448,ListGroups,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5449,ReadGroupMembership,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5450,ChangeGroupMembership,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5451,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5452,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5453,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5454,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5455,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5632,View non-sensitive policy information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5633,View system audit requirements,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5634,Get sensitive policy information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5635,Modify domain trust relationships,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5636,Create special accounts (for assignment of user rights),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5637,Create a secret object,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5638,Create a privilege,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5639,Set default quota limits,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5640,Change system audit requirements,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5641,Administer audit log attributes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5642,Enable/Disable LSA,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5643,Lookup Names/SIDs,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5648,Change secret value,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5649,Query secret value,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5650,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5651,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5652,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5653,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5654,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5655,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5656,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5657,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5658,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5659,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5660,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5661,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5662,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5663,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5664,Query trusted domain name/SID,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5665,Retrieve the controllers in the trusted domain,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5666,Change the controllers in the trusted domain,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5667,Query the Posix ID offset assigned to the trusted domain,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5668,Change the Posix ID offset assigned to the trusted domain,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5669,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5670,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5671,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5672,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5673,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5674,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5675,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5676,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5677,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5678,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5679,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5680,Query account information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5681,Change privileges assigned to account,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5682,Change quotas assigned to account,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5683,Change logon capabilities assigned to account,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5684,Change the Posix ID offset assigned to the accounted domain,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5685,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5686,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5687,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5688,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5689,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5690,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5691,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5692,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5693,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5694,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5695,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5696,KeyedEvent Wait,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5697,KeyedEvent Wake,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5698,Undefined Access (no effect) Bit 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5699,Undefined Access (no effect) Bit 3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5700,Undefined Access (no effect) Bit 4,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5701,Undefined Access (no effect) Bit 5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5702,Undefined Access (no effect) Bit 6,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5703,Undefined Access (no effect) Bit 7,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5704,Undefined Access (no effect) Bit 8,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5705,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5706,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5707,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5708,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5709,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5710,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%5711,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6656,Enumerate desktops,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6657,Read attributes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6658,Access Clipboard,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6659,Create desktop,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6660,Write attributes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6661,Access global atoms,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6662,Exit windows,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6663,Unused Access Flag,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6664,Include this windowstation in enumerations,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6665,Read screen,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6672,Read Objects,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6673,Create window,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6674,Create menu,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6675,Hook control,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6676,Journal (record),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6677,Journal (playback),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6678,Include this desktop in enumerations,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6679,Write objects,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6680,Switch to this desktop,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6912,Administer print server,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6913,Enumerate printers,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6930,Full Control,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6931,Print,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%6948,Administer Document,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7168,Connect to service controller,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7169,Create a new service,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7170,Enumerate services,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7171,Lock service database for exclusive access,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7172,Query service database lock state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7173,Set last-known-good state of service database,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7184,Query service configuration information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7185,Set service configuration information,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7186,Query status of service,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7187,Enumerate dependencies of service,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7188,Start the service,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7189,Stop the service,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7190,Pause or continue the service,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7191,Query information from service,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7192,Issue service-specific control commands,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7424,DDE Share Read,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7425,DDE Share Write,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7426,DDE Share Initiate Static,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7427,DDE Share Initiate Link,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7428,DDE Share Request,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7429,DDE Share Advise,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7430,DDE Share Poke,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7431,DDE Share Execute,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7432,DDE Share Add Items,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7433,DDE Share List Items,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7680,Create Child,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7681,Delete Child,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7682,List Contents,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7683,Write Self,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7684,Read Property,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7685,Write Property,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7686,Delete Tree,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7687,List Object,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7688,Control Access,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7689,Undefined Access (no effect) Bit 9,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7690,Undefined Access (no effect) Bit 10,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7691,Undefined Access (no effect) Bit 11,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7692,Undefined Access (no effect) Bit 12,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7693,Undefined Access (no effect) Bit 13,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7694,Undefined Access (no effect) Bit 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7695,Undefined Access (no effect) Bit 15,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7936,Audit Set System Policy,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7937,Audit Query System Policy,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7938,Audit Set Per User Policy,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7939,Audit Query Per User Policy,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7940,Audit Enumerate Users,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7941,Audit Set Options,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%7942,Audit Query Options,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8064,Port sharing (read),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8065,Port sharing (write),windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8096,Default credentials,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8097,Credentials manager,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8098,Fresh credentials,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8099,Read Credential,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8100,Enumerate Credentials,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8101,Read Domain Credentials,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8102,Find Best Credential,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8103,Read By Token Handle,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8192,Kerberos,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8193,Preshared key,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8194,Unknown authentication,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8195,DES,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8196,3DES,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8197,MD5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8198,SHA1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8199,Local computer,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8200,Remote computer,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8201,No state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8202,Sent first (SA) payload,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8203,Sent second (KE) payload,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8204,Sent third (ID) payload,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8205,Initiator,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8206,Responder,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8207,No state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8208,Sent first (SA) payload,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8209,Sent final payload,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8210,Complete,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8211,Unknown,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8212,Transport,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8213,Tunnel,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8214,IKE/AuthIP DoS prevention mode started,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8215,IKE/AuthIP DoS prevention mode stopped,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8216,Enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8217,Not enabled,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8218,No state,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8219,Sent first (EM attributes) payload,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8220,Sent second (SSPI) payload,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8221,Sent third (hash) payload,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8222,IKEv1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8223,AuthIP,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8224,Anonymous,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8225,NTLM V2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8226,CGA,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8227,Certificate,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8228,SSL,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8229,None,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8230,DH group 1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8231,DH group 2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8232,DH group 14,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8233,DH group ECP 256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8234,DH group ECP 384,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8235,AES-128,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8236,AES-192,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8237,AES-256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8238,Certificate ECDSA P256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8239,Certificate ECDSA P384,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8240,SSL ECDSA P256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8241,SSL ECDSA P384,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8242,SHA 256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8243,SHA 384,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8244,IKEv2,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8245,EAP payload sent,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8246,Authentication payload sent,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8247,EAP,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8248,DH group 24,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8272,System,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8273,Logon/Logoff,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8274,Object Access,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8275,Privilege Use,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8276,Detailed Tracking,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8277,Policy Change,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8278,Account Management,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8279,DS Access,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8280,Account Logon,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8448,Success removed,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8449,Success Added,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8450,Failure removed,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8451,Failure added,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8452,Success include removed,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8453,Success include added,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8454,Success exclude removed,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8455,Success exclude added,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8456,Failure include removed,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8457,Failure include added,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8458,Failure exclude removed,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%8459,Failure exclude added,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12288,Security State Change,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12289,Security System Extension,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12290,System Integrity,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12291,IPsec Driver,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12292,Other System Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12544,Logon,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12545,Logoff,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12546,Account Lockout,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12547,IPsec Main Mode,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12548,Special Logon,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12549,IPsec Quick Mode,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12550,IPsec Extended Mode,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12551,Other Logon/Logoff Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12552,Network Policy Server,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12553,User / Device Claims,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12554,Group Membership,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12800,File System,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12801,Registry,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12802,Kernel Object,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12803,SAM,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12804,Other Object Access Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12805,Certification Services,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12806,Application Generated,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12807,Handle Manipulation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12808,File Share,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12809,Filtering Platform Packet Drop,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12810,Filtering Platform Connection,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12811,Detailed File Share,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12812,Removable Storage,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%12813,Central Policy Staging,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13056,Sensitive Privilege Use,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13057,Non Sensitive Privilege Use,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13058,Other Privilege Use Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13312,Process Creation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13313,Process Termination,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13314,DPAPI Activity,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13315,RPC Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13316,Plug and Play Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13317,Token Right Adjusted Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13568,Audit Policy Change,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13569,Authentication Policy Change,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13570,Authorization Policy Change,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13571,MPSSVC Rule-Level Policy Change,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13572,Filtering Platform Policy Change,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13573,Other Policy Change Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13824,User Account Management,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13825,Computer Account Management,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13826,Security Group Management,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13827,Distribution Group Management,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13828,Application Group Management,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%13829,Other Account Management Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14080,Directory Service Access,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14081,Directory Service Changes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14082,Directory Service Replication,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14083,Detailed Directory Service Replication,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14336,Credential Validation,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14337,Kerberos Service Ticket Operations,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14338,Other Account Logon Events,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14339,Kerberos Authentication Service,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14592,Inbound,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14593,Outbound,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14594,Forward,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14595,Bidirectional,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14596,IP Packet,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14597,Transport,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14598,Forward,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14599,Stream,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14600,Datagram Data,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14601,ICMP Error,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14602,MAC 802.3,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14603,MAC Native,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14604,vSwitch,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14608,Resource Assignment,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14609,Listen,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14610,Receive/Accept,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14611,Connect,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14612,Flow Established,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14614,Resource Release,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14615,Endpoint Closure,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14616,Connect Redirect,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14617,Bind Redirect,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14624,Stream Packet,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14640,ICMP Echo-Request,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14641,vSwitch Ingress,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14642,vSwitch Egress,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14672,<Binary>,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14673,[NULL],windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14674,Value Added,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14675,Value Deleted,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14676,Active Directory Domain Services,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14677,Active Directory Lightweight Directory Services,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14678,Yes,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14679,No,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14680,Value Added With Expiration Time,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14681,Value Deleted With Expiration Time,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%14688,Value Auto Deleted With Expiration Time,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16384,Add,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16385,Delete,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16386,Boot-time,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16387,Persistent,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16388,Not persistent,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16389,Block,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16390,Permit,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16391,Callout,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16392,MD5,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16393,SHA-1,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16394,SHA-256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16395,AES-GCM 128,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16396,AES-GCM 192,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16397,AES-GCM 256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16398,DES,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16399,3DES,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16400,AES-128,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16401,AES-192,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16402,AES-256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16403,Transport,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16404,Tunnel,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16405,Responder,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16406,Initiator,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16407,AES-GMAC 128,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16408,AES-GMAC 192,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16409,AES-GMAC 256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16416,AuthNoEncap Transport,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16896,Enable WMI Account,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16897,Execute Method,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16898,Full Write,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16899,Partial Write,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16900,Provider Write,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16901,Remote Access,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16902,Subscribe,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16903,Publish,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16904,AES-GSM-128,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
+%%16905,AES-GSM-256,windows10,taken from https://gist.github.com/brianreitz/d5b9397a2e8b3d52ceb9359897e07c3f
