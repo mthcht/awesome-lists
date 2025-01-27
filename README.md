@@ -77,7 +77,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 ## Other Lists
 
 
-### DFIR
+### 🛡️ DFIR:
 
 <details>
 
@@ -159,7 +159,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 </details>
 
-### IOC Feeds/Blacklists:
+### 🚫 IOC Feeds/Blacklists:
 
 <details> 
 
@@ -229,7 +229,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 </details> 
 
-### Github
+### 🐙 Github
 
 <details>
 
@@ -237,7 +237,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
-### SIEM/SOC related:
+### 🖥️ SIEM/SOC related:
 <details>
   
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
@@ -248,7 +248,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   
 </details> 
 
-### TI TTP/Framework/Model/Trackers
+### 📊 TI TTP/Framework/Model/Trackers 
 
 <details>
   
@@ -281,7 +281,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 ###  Investigation
 
-#### TI checks
+#### 📊 TI checks
 
 <details>
   
@@ -340,7 +340,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
-#### Sandbox
+#### 🔬 Sandbox
 
 <details>
   
@@ -356,7 +356,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 </details>
 
 
-### Data manipulation
+### 🧩 Data manipulation
 
 <details>
   
@@ -400,7 +400,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 </details>
 
 
-### Detection Resources
+### 📡 Detection Resources
 
 <details>
 
@@ -437,7 +437,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 
 
-### Security News
+### 🌐 Security News
 
 <details>
 
@@ -562,7 +562,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 
 
-### Youtube/Twitch channels
+### 📺 Youtube/Twitch channels
 
 <details>
   
@@ -619,7 +619,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
-### Discord /Slack channels
+### 💬 Discord /Slack channels
 
 <details>
 
@@ -636,7 +636,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
-### Training
+### 📚 Training
 
 <details>
 
@@ -694,7 +694,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
  </details>
 
-### Books
+### 📚 Books
 
 <details>
   
@@ -748,7 +748,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
-### Knowledge sites
+### 📚 Knowledge sites
 
 <details>
 
@@ -776,7 +776,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
-### LAB
+### 🧪 LAB
 
 <details>
 
@@ -798,7 +798,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 
 </details>
 
-### Others
+### 📦 Others
 
 <details>
   
