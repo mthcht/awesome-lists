@@ -3,7 +3,7 @@
 
 
 
-## Threat Hunting:
+## 🐾 Threat Hunting:
 - [ThreatHunting keywords Site](https://mthcht.github.io/ThreatHunting-Keywords/)
 - [ThreatHunting keywords Lists](https://github.com/mthcht/ThreatHunting-Keywords)
 - [ThreatHunting Yara rules](https://github.com/mthcht/ThreatHunting-Keywords-yara-rules)
@@ -156,6 +156,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [\[IR Guide\] OpenProject ](https://github.com/DebugPrivilege/OpenProject)
   - [\[OSX Tools\] Knockknock](objective-see.com/products/knockknock.html)
   - [\[OSX Tools\] mac_apt](https://github.com/ydkhatri/mac_apt)
+  - [Browser Chrome Extensions DNS Forensic](https://github.com/arsolutioner/ExtensionHound)
 
 </details>
 
@@ -598,7 +599,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Exploitation - flangvik](https://youtube.com/@flangvik?si=vVShvHdg3QCLrHJf)
 </details>
 
-### Podcasts
+### 🎙️ Podcasts
 
 <details>
 
