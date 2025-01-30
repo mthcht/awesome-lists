@@ -190,8 +190,7 @@
         "serviceAreaDisplayName": "Microsoft Teams",
         "urls": [
             "*.keydelivery.mediaservices.windows.net",
-            "*.streaming.mediaservices.windows.net",
-            "mlccdn.blob.core.windows.net"
+            "*.streaming.mediaservices.windows.net"
         ],
         "tcpPorts": "443",
         "expressRoute": false,
@@ -234,14 +233,14 @@
         "expressRoute": false,
         "category": "Default",
         "required": false,
-        "notes": "Applies only to those who deploy the Conference Room Systems"
+        "notes": "For end user and customer owned device updates"
     },
     {
         "id": 27,
         "serviceArea": "Skype",
         "serviceAreaDisplayName": "Microsoft Teams",
         "urls": [
-            "*.secure.skypeassets.com",
+            "join.secure.skypeassets.com",
             "mlccdnprod.azureedge.net"
         ],
         "tcpPorts": "443",
@@ -269,6 +268,7 @@
             "2a01:111:f402::/48"
         ],
         "tcpPorts": "80,443",
+        "udpPorts": "443",
         "expressRoute": true,
         "category": "Optimize",
         "required": true
@@ -523,8 +523,7 @@
             "*.msftauth.net",
             "*.msftauthimages.net",
             "*.phonefactor.net",
-            "enterpriseregistration.windows.net",
-            "policykeyservice.dc.ad.msft.net"
+            "enterpriseregistration.windows.net"
         ],
         "tcpPorts": "80,443",
         "expressRoute": false,
