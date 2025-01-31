@@ -227,6 +227,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [UrlHaus](https://urlhaus.abuse.ch/api/#csv)
 - [vx-underground - Great Resource for Samples and Intelligence Reports](https://vx-underground.org/Samples)
 - [Ransomware.live](https://ransomware.live)
+- [rosti.bin public reports feed](https://rosti.bin.re/feeds)
 
 </details> 
 
