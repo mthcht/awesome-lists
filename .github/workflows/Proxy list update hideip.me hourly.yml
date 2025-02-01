@@ -37,6 +37,11 @@ jobs:
             curl -L -o "$TARGET_DIR/$FILE" "$BASE_URL/$FILE" || echo "Failed to download $FILE"
           done
 
+      - name: create lookup
+        run: |
+          cd Lists/PROXY/hideip.me
+          python3 create_lookup_file.py
+          
       - name: List files in the target directory
         run: ls -la Lists/PROXY/hideip.me
 
