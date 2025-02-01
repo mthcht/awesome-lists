@@ -39,6 +39,7 @@ jobs:
 
       - name: create lookup
         run: |
+          pip install pandas 
           cd Lists/PROXY/hideip.me
           python3 create_lookup_file.py
           
