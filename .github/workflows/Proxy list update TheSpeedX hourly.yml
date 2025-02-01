@@ -27,7 +27,7 @@ jobs:
           )
 
           # Base URL using raw.githubusercontent.com
-          BASE_URL="https://github.com/TheSpeedX/PROXY-List/tree/master"
+          BASE_URL="https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master"
 
           # Download each file
           for FILE in "${FILES[@]}"; do
