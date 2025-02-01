@@ -1,0 +1,54 @@
+name: Hourly TheSpeedX PROXY-List Update
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:
+
+jobs:
+  fetch-TheSpeedX_Proxy-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Download .txt Files from TheSpeedX_Proxy
+        run: |
+          # Define the target directory
+          TARGET_DIR=Lists/PROXY/TheSpeedX_Proxy
+          mkdir -p $TARGET_DIR
+
+          # List of .txt files to download
+          FILES=(
+            "http.txt"
+            "socks4.txt"
+            "socks5.txt"
+          )
+
+          # Base URL using raw.githubusercontent.com
+          BASE_URL="https://github.com/TheSpeedX/PROXY-List/tree/master"
+
+          # Download each file
+          for FILE in "${FILES[@]}"; do
+            echo "Downloading $FILE from $BASE_URL/$FILE"
+            curl -L -o "$TARGET_DIR/$FILE" "$BASE_URL/$FILE" || echo "Failed to download $FILE"
+          done
+
+      - name: create lookup
+        run: |
+          pip install pandas 
+          cd Lists/PROXY/TheSpeedX_Proxy
+          python3 create_lookup_file.py
+          
+      - name: List files in the target directory
+        run: ls -la Lists/PROXY/TheSpeedX_Proxy
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/PROXY/TheSpeedX_Proxy/*
+          git commit -m "Update hourly TheSpeedX_Proxy files" --allow-empty
+          git push
