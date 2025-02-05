@@ -1,0 +1,31 @@
+name: Hourly main proxy list Update
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:
+
+jobs:
+  fetch-all-list-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
+      - name: create lookup
+        run: |
+          cd Lists/PROXY/
+          python3 create_main_proxy_list.py
+          
+      - name: List files in the target directory
+        run: ls -la Lists/PROXY/
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/PROXY/*
+          git commit -m "Update hourly main proxy file" --allow-empty
+          git push
