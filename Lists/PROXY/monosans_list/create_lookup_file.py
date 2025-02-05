@@ -20,7 +20,7 @@ with open(input_file, "r") as f:
 # Write to CSV file
 with open(output_file, "w", newline="") as f:
     writer = csv.writer(f)
-    writer.writerow(["dest_ip", "dest_port", "meta.comment"])  # Write header
+    writer.writerow(["dest_ip", "dest_port", "metadata_comment"])  # Write header
     writer.writerows(data)
 
 print(f"Lookup file '{output_file}' created successfully.")
