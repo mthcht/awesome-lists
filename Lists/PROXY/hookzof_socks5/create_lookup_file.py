@@ -1,6 +1,7 @@
 import requests
 import csv
 import json
+import socket
 
 # URLs of the proxy lists
 urls = {
@@ -15,28 +16,34 @@ csv_filename = "PROXY_ALL_hookzof_list.csv"
 # List to store proxy data
 proxy_data = []
 
-# Process proxy.txt (SOCKS5 proxies)
+# Function to resolve hostnames to IP addresses
+def resolve_host(host):
+    try:
+        return socket.gethostbyname(host)
+    except socket.gaierror:
+        return None
+
+# Fetch and process proxy.txt (SOCKS5 proxies)
 response = requests.get(urls["proxy.txt"])
 if response.status_code == 200:
-    lines = response.text.strip().split("\n")
-    for line in lines:
+    for line in response.text.strip().split("\n"):
         if ":" in line:
-            ip, port = line.split(":")
+            ip, port = line.strip().split(":")
             proxy_data.append([ip, port, "proxy.txt"])
 
-# Process mtproto.json (Telegram MTProto proxies)
+# Fetch and process mtproto.json (Telegram MTProto proxies)
 response = requests.get(urls["mtproto.json"])
 if response.status_code == 200:
-    mtproto_list = json.loads(response.text)
-    for entry in mtproto_list:
-        proxy_data.append([entry["host"], entry["port"], "mtproto.json"])
+    for entry in json.loads(response.text):
+        ip = resolve_host(entry["host"])
+        if ip:
+            proxy_data.append([ip, str(entry["port"]), "mtproto.json"])
 
-# Process socks.json (Telegram SOCKS proxies)
+# Fetch and process socks.json (Telegram SOCKS proxies)
 response = requests.get(urls["socks.json"])
 if response.status_code == 200:
-    socks_list = json.loads(response.text)
-    for entry in socks_list:
-        proxy_data.append([entry["ip"], entry["port"], "socks.json"])
+    for entry in json.loads(response.text):
+        proxy_data.append([entry["ip"], str(entry["port"]), "socks.json"])
 
 # Write to CSV file
 with open(csv_filename, "w", newline="", encoding="utf-8") as csvfile:
