@@ -1,0 +1,31 @@
+name: Hourly fresh-proxy-list Update
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:
+
+jobs:
+  fetch-fresh-proxy-list-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
+      - name: create lookup
+        run: |
+          cd Lists/PROXY/fresh-proxy-list
+          python3 create_lookup_file.py
+          
+      - name: List files in the target directory
+        run: ls -la Lists/PROXY/fresh-proxy-list
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/PROXY/fresh-proxy-list/*
+          git commit -m "Update hourly fresh-proxy-list files" --allow-empty
+          git push
