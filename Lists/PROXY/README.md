@@ -7,4 +7,4 @@ ressources used:
   - https://github.com/hookzof/socks5_list (proxy list updated regularly and cloned in the hookzof_socks5 folder)
   - https://github.com/vakhov/fresh-proxy-list (proxy list updated regularly and cloned in the fresh-proxy-list folder)
 
-The list `ALL_PROXY_Lists.csv` contains the IP/port of all the proxy lists combined (more than 45000 proxies atm)
+The list [ALL_PROXY_Lists.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/PROXY/ALL_PROXY_Lists.csv) contains the IP/port of all the proxy lists combined (more than 45000 proxies atm)
