@@ -5,5 +5,5 @@ ressources used:
   - https://github.com/TheSpeedX/PROXY-List (proxy list updated regularly and cloned in the TheSpeedX_Proxy folder)
   - https://github.com/monosans/proxy-list (proxy list updated regularly and cloned in the monosans_list folder)
   - https://github.com/hookzof/socks5_list (proxy list updated regularly and cloned in the hookzof_socks5 folder)
+  - https://github.com/vakhov/fresh-proxy-list (proxy list updated regularly and cloned in the fresh-proxy-list folder)
 
-todo https://github.com/mthcht/awesome-lists/issues/21
