@@ -24,8 +24,10 @@ for csv_file in csv_files:
             if len(row) < 2:
                 continue
             dest_ip, dest_port = row[:2]
-            if dest_ip == "0.0.0.0":
-                continue  # Skip entries with IP 0.0.0.0
+            dest_ip = dest_ip.strip()
+            dest_port = dest_port.strip()
+            if dest_ip == "0.0.0.0" or not dest_ip:
+                continue  # Skip entries with IP 0.0.0.0 or empty IPs
             metadata = row[2] if len(row) > 2 else ""
             key = (dest_ip, dest_port)
             proxy_dict[key].add(os.path.basename(csv_file))
