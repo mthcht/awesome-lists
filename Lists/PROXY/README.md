@@ -3,7 +3,7 @@ List of publicly available proxies automatically updated, search these IP addres
 ressources used:
   - https://github.com/zloi-user/hideip.me (proxy list updated regularly and cloned in the hideip.me folder)
   - https://github.com/TheSpeedX/PROXY-List (proxy list updated regularly and cloned in the TheSpeedX_Proxy folder)
-  - 
+  - https://github.com/monosans/proxy-list (proxy list updated regularly and cloned in the monosans_list folder)
 
 
 todo https://github.com/mthcht/awesome-lists/issues/21
