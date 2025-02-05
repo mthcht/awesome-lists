@@ -61,6 +61,7 @@
   - 🛡️ ProtonVPN: [protonvpn_ip_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv)
   - 🛡️ SurfShark: [surfshark_vpn_servers_domains_and_ips_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/SurfSharkVPN/surfshark_vpn_servers_domains_and_ips_list.csv)
   - 🛡️ MullVad: [mullvad_relay_servers_ips_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/MullVad/mullvad_relay_servers_ips_list.csv)
+- 🌍 PROXIES [PROXY IP/Port Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists/PROXY)
 - 🏢 Companies IP Range Lists (updated automatically): [Default Lists + script](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/bgp.he.net) / [Microsoft](https://github.com/mthcht/awesome-lists/tree/main/Lists/Ranges_IP_Address_Company_List/Microsoft)
 - 📍  GeoIP services Lists: [ip_location_sites_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/GeoIP/ip_location_sites_list.csv)
 - 🧬 Yara rules: [Threat Hunting yara rules](https://github.com/mthcht/ThreatHunting-Keywords-yara-rules)
