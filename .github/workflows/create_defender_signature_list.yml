@@ -1,0 +1,31 @@
+name: update defender signatures list
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Runs every month
+  workflow_dispatch:
+
+jobs:
+  fetch-all-list-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
+      - name: create lookup
+        run: |
+          cd "/Lists/AV signatures/Defender"
+          python3 create_all_signatures_list.py
+          
+      - name: List files in the target directory
+        run: ls -la "/Lists/AV signatures/Defender"
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add "/Lists/AV signatures/Defender/*"
+          git commit -m "update defender signatures list" --allow-empty
+          git push
