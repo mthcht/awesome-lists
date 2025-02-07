@@ -617,6 +617,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [NolimitSecu (FR)](https://www.nolimitsecu.fr/)
   - [HacknSpeak (FR)](https://open.spotify.com/show/2lwA1WLVqnYvnlc7WkV3yU)
   - [Radio CSIRT (FR)](https://www.radiocsirt.org)
+  - [DEV podcasts (FR)](https://www.ifttd.io/liste-des-episodes)
   - [Security Conversations](https://securityconversations.com/)
   - [Monde de la cyber (FR)](https://open.spotify.com/show/0uNuF41uZYwwik1AW6hOSM?si=iv8LKD8VQQSM8Tqf-F1X0w)
 
