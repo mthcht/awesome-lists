@@ -25,7 +25,12 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          
+          # Stash changes before pulling to avoid conflicts
+          git stash --include-untracked
           git pull --rebase
+          git stash pop || echo "No stashed changes to apply"
+
           git add "Lists/AV signatures/Defender/"*
           git commit -m "Update Defender signatures list" --allow-empty
           git push
