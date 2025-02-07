@@ -1,0 +1,31 @@
+name: Update TOP1M domains
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # Runs every 4 hours
+  workflow_dispatch:
+
+jobs:
+  fetch-top1M-list-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
+      - name: update top1M
+        run: |
+          cd Lists/Others/TOP1M
+          python3 update_majectic_million_list.py
+          
+      - name: List files in the target directory
+        run: ls -la Lists/Others/TOP1M
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/Others/TOP1M/*
+          git commit -m "Update TOP1M domains files" --allow-empty
+          git push
