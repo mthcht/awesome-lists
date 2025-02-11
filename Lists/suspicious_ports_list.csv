@@ -217,6 +217,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 50003,Anydesk outbound connections,info,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 50050,sharpc2 and cobaltstrike default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 50501,TEMP.Veles used port-protocol mismatches on ports such as 443 - 4444 - 8531 and 50501 during C2,high,C2,detection_rule,https://attack.mitre.org/groups/G0088/,https://github.com/mthcht/awesome-lists/tree/main/Lists
+51820,Wireguard VPN default listening port,medium,VPN,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 52935,C3 webcontroller default port,medium,C2,detection_rule,https://github.com/WithSecureLabs/C3/blob/e1b9922d199e45e222001a3afe47757349f24e7a/StartWebController.cmd#L4,https://github.com/mthcht/awesome-lists/tree/main/Lists
 53531,dnscat2 default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 54320,Back Orifice backdoor,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
