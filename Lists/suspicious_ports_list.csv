@@ -1,6 +1,7 @@
 dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detection_type,metadata_link,metadata_reference
 666,multiple malwares callback communications but also legit usages,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 801,manjusaka (cobalstrike chinese clone) default panel ui,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+999,multiple trojans - game - Puprouter,low,malware,hunting,https://www.speedguide.net/port.php?port=999,https://github.com/mthcht/awesome-lists/tree/main/Lists
 1005,Nitedrem trojan Downloader + Pest + Theef,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 1015,Doly trojan,high,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 1025,multiples malwares,low,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
@@ -154,6 +155,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 8200,GoToMyPC and gotomeeting,medium,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 8384,Syncthing Web GUI or marathontp,medium,Data Exfiltration,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 8443,AlanFramework C2 default port but also many other legitimate services,low,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+8531,TEMP.Veles used port-protocol mismatches on ports such as 443 - 4444 - 8531 and 50501 during C2,low,C2,hunting,https://attack.mitre.org/groups/G0088/,https://github.com/mthcht/awesome-lists/tree/main/Lists
 8848,DcRat,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 8888,POSHC2 default port but also legit usages,medium,exploitation,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 8936,MoonPeak malware https://thecyberexpress.com/north-korean-hackers-new-moonpeak-uat-5394/,medium,C2,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
@@ -214,6 +216,7 @@ dest_port,metadata_comment,metadata_confidence,metatada_category,metadata_detect
 50002,Anydesk outbound connections,info,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 50003,Anydesk outbound connections,info,RMM,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 50050,sharpc2 and cobaltstrike default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
+50501,TEMP.Veles used port-protocol mismatches on ports such as 443 - 4444 - 8531 and 50501 during C2,high,C2,detection_rule,https://attack.mitre.org/groups/G0088/,https://github.com/mthcht/awesome-lists/tree/main/Lists
 52935,C3 webcontroller default port,medium,C2,detection_rule,https://github.com/WithSecureLabs/C3/blob/e1b9922d199e45e222001a3afe47757349f24e7a/StartWebController.cmd#L4,https://github.com/mthcht/awesome-lists/tree/main/Lists
 53531,dnscat2 default port,high,C2,detection_rule,,https://github.com/mthcht/awesome-lists/tree/main/Lists
 54320,Back Orifice backdoor,medium,malware,hunting,,https://github.com/mthcht/awesome-lists/tree/main/Lists
