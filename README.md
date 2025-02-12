@@ -813,5 +813,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 - [Epoch time converter](https://www.epochconverter.com/)
 - [cyberchef](https://cyberchef.org/)
 - [Chrome Addon for TI checks](https://chromewebstore.google.com/detail/osintlytics/kfpbbegdghffnakhgcbonaglepgoedmm)
+- [sms verification](textverified.com)
+- [temp mail](https://temp-mail.org)
 </details>
 
