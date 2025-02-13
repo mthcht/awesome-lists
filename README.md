@@ -599,6 +599,24 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Windows Internal - @mrexodia](https://www.youtube.com/@mrexodia)
   - [!!! Exploitation - ippsec](https://www.youtube.com/@ippsec)
   - [Exploitation - flangvik](https://youtube.com/@flangvik?si=vVShvHdg3QCLrHJf)
+  - [Conferences channel - scrtinsomnihack](https://www.youtube.com/@scrtinsomnihack/videos)
+  - [Conferences channel - OffensiveCon](https://www.youtube.com/@OffensiveCon/videos)
+  - [Conferences channel - BSidesSF](https://www.youtube.com/@BSidesSF/videos)
+  - [Conferences channel - BSidesTLV](https://www.youtube.com/@BSidesTLV/videos)
+  - [Conferences channel - bsidesbudapest](https://www.youtube.com/@bsidesbudapest/videos)
+  - [Conferences channel - SecuritybsidesOrgUk](https://www.youtube.com/@SecuritybsidesOrgUk/videos)
+  - [Conferences channel - bsidescanberra9688](https://www.youtube.com/@bsidescanberra9688/videos)
+  - [Conferences channel - brucontalks](https://www.youtube.com/@brucontalks/videos)
+  - [Conferences channel - DEFCONConference](https://www.youtube.com/@DEFCONConference/videos)
+  - [Conferences channel - Disobey](https://www.youtube.com/@Disobey/videos)
+  - [Conferences channel - hitbsecconf](https://www.youtube.com/@hitbsecconf/videos)
+  - [Conferences channel - SANSOffensiveOperations](https://www.youtube.com/@SANSOffensiveOperations/videos)
+  - [Conferences channel - BlackHillsInformationSecurity](https://www.youtube.com/@BlackHillsInformationSecurity/videos)
+  - [Conferences channel - RITSEC](https://www.youtube.com/@RITSEC/videos)
+  - [Conferences channel - Preludeorg](https://www.youtube.com/@Preludeorg/videos)
+  - [Conferences channel - BlackHatOfficialYT](https://www.youtube.com/@BlackHatOfficialYT/videos)
+  - [Conferences channel - TROOPERScon](https://www.youtube.com/@TROOPERScon/videos)
+
 </details>
 
 ### 🎙️ Podcasts
