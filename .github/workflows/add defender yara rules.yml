@@ -3,9 +3,6 @@ name: Fetch YARA Rules from defender2yara
 on:
   schedule:
     - cron: "0 */2 * * *"  # Runs every 2 hours
-  push:
-    branches:
-      - main
 
 jobs:
   fetch-rules:
