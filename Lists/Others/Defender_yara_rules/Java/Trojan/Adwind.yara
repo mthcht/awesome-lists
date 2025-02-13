@@ -1,0 +1,652 @@
+rule Trojan_Java_Adwind_D_2147692636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.D"
+        threat_id = "2147692636"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 4c 53 4b 45 4f 50 51 4c 46 4b 4a 44 55 53 49 4b 53 4a 41 55 49 45 [0-255] 6a 61 76 61 2f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_E_2147692811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.E"
+        threat_id = "2147692811"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 33 53 55 57 37 45 38 32 49 4b 51 4b 32 4a 32 4a 32 49 49 53 49 53 [0-255] 6a 61 76 61 2f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_G_2147693156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.G"
+        threat_id = "2147693156"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {11 4c 6f 61 64 53 74 75 62 44 65 63 72 79 70 74 65 64 [0-128] 0b 69 73 44 69 72 65 63 74 6f 72 79 [0-32] 05 77 72 69 74 65 [0-96] 07 72 65 70 6c 61 63 65 [0-240] 2f 48 61 73 68 4d 61 70 3b [0-96] 0b 44 65 63 72 79 70 74 53 74 75 62 [0-64] 69 69 69 41 4c 4c 41 54 4f 52 49 78 44 45 4d 4f 78 69 69 69}  //weight: 1, accuracy: Low
+        $x_1_2 = {0c 4c 6f 61 64 50 61 73 73 77 6f 72 64 ff 02 ?? ?? (41|2d|5a|61|2d|7a) (41|2d|5a|61|2d|7a) 41 4c 4c 41 54 4f 52 49 78 44 45 4d 4f 78 [0-384] 01 [0-64] 01 [0-64] ?? ?? ?? ?? ?? ?? (69|49) (69|49)}  //weight: 1, accuracy: Low
+        $x_1_3 = {11 6a 41 2a 4c 21 02 36 59 30 4f 6b 4c 21 5a 2c 43 21 [0-255] 6a 61 76 61 2f 6c 61 6e 67 2f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Java_Adwind_H_2147696417_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.H"
+        threat_id = "2147696417"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {41 4c 4c 41 54 4f 52 49 78 44 45 4d 4f 78 [0-45] 01 00 (0a|2d|1f) [0-45] ?? ?? ?? ?? ?? ?? ?? ?? (49|69) (49|69) 01}  //weight: 4, accuracy: Low
+        $x_4_2 = {69 69 69 69 69 69 69 69 69 69 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d [0-15] ?? ?? ?? ?? ?? ?? ?? ?? (49|69) (49|69) 01}  //weight: 4, accuracy: Low
+        $x_1_3 = {08 2a 5a 5b b7 00 02 04 59 58 bc 05 04 59 58 59 03 04 59 58 10 61 04 59 58 55 59 04 59 58 10 2e 04 5a 59 58 55 59 05 04 59 58 10 74 04 59 58 55 59 06 04 59 58 10 78 04 59 58 55 59 07 04 59 58 10 74 04 59 58 55 4c bb 00 03 2a 59 58 59 2a b6 00 04 bb 00 03 59 2b b7 00 05 b6 00 06 b8 00 07 b7 00 08 b5 00 01}  //weight: 1, accuracy: High
+        $x_1_4 = {08 04 59 58 bc 05 04 59 58 59 03 04 59 58 10 61 04 59 58 55 59 04 59 58 10 2e 04 5a 59 58 55 59 05 04 59 58 10 74 04 59 58 55 59 06 04 59 58 10 78 04 59 58 55 59 07 04 59 58 10 74 04 59 58 55 4d bb 00 03 2a 59 58 59 2a b6 00 04 bb 00 03 59 2c b7 00 05 b6 00 06 b8 00 07 b7 00 08 b5 00 01}  //weight: 1, accuracy: High
+        $x_1_5 = {bc 05 04 59 58 59 03 04 59 58 10 61 04 59 58 55 59 04 59 58 10 2e 04 5a 59 58 55 59 05 04 59 58 10 74 04 59 58 55 59 06 04 59 58 10 78 04 59 58 55 59 07 04 59 58 10 74 04 59 58 55 b5 00 03}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Java_Adwind_I_2147696672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.I"
+        threat_id = "2147696672"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {01 00 0a 69 ?? ?? ?? ?? ?? ?? ?? (69|49) (69|49) 01 (01|2d|f0) ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (30|2d|39|41|2d|5a|61|2d|7a) (30|2d|39|41|2d|5a|61|2d|7a)}  //weight: 4, accuracy: Low
+        $x_4_2 = {01 00 0a 49 ?? ?? ?? ?? ?? ?? ?? (69|49) (69|49) 01 (01|2d|f0) ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (30|2d|39|41|2d|5a|61|2d|7a) (30|2d|39|41|2d|5a|61|2d|7a)}  //weight: 4, accuracy: Low
+        $x_4_3 = {01 00 0a 49 ?? ?? ?? ?? ?? ?? ?? (69|49) (69|49) 01 00 (60|2d|ff) ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (30|2d|39|41|2d|5a|61|2d|7a) (30|2d|39|41|2d|5a|61|2d|7a) [0-720] ?? ?? ?? ?? ?? ?? ?? (69|49) (69|49)}  //weight: 4, accuracy: Low
+        $x_4_4 = {01 00 07 4c 4a 61 76 61 71 3b 01 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (41|2d|5a) (41|2d|5a) [0-120] 01 00 0a ?? ?? ?? ?? ?? ?? ?? ?? (69|49) (69|49)}  //weight: 4, accuracy: Low
+        $x_1_5 = {bc 05 04 59 58 59 03 04 59 58 10 (61|62) 04 59 58 55 59 04 59 58 10 2e 04 5a 59 58 55 59 05 04 59 58 10 74 04 59 58 55 59 06 04 59 58 10 78 04 59 58 55 59 07 04 59 58 10 74 04 59 58 55}  //weight: 1, accuracy: Low
+        $x_1_6 = {10 6d 04 59 58 55 59 04 59 58 10 61 04 5a 59 58 55 59 05 04 59 58 10 69 04 59 58 55 59 06 04 59 58 10 6e 04 59 58 55 4e bb 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Java_Adwind_K_2147705747_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.K"
+        threat_id = "2147705747"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {01 00 05 6f 2d 78 5c 5f}  //weight: 1, accuracy: High
+        $x_1_2 = {01 00 05 6d 5c 64 16 78}  //weight: 1, accuracy: High
+        $x_5_3 = {01 00 0b 67 65 74 50 61 73 73 77 6f 72 64}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Java_Adwind_L_2147705991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.L"
+        threat_id = "2147705991"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "asdqweqweqweqweqewqewqweqweqweewqqewqwewefwefewfwefwefwefwefewfsdfsdf" ascii //weight: 1
+        $x_1_2 = "wefwefadfsdfsdfsdfsdfsdfsdfsdfsdf" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_P_2147706761_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.P"
+        threat_id = "2147706761"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {91 c3 91 c3 91 c3 91 c3 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (80|2d|ff) (80|2d|ff)}  //weight: 1, accuracy: Low
+        $x_5_2 = {04 64 05 08 82 06 78 05 08 82 07 78 04 82 08 06 78 06 08}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_P_2147706761_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.P"
+        threat_id = "2147706761"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {91 c3 91 c3 91 c3 91 c3 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (80|2d|ff) (80|2d|ff)}  //weight: 1, accuracy: Low
+        $x_5_2 = {07 78 06 08 82 04 78 82 06 08 82 07 78 05 59 78 04 82 82}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_P_2147706761_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.P"
+        threat_id = "2147706761"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {01 00 01 61 01 02 ?? ?? ?? ?? ?? ?? ?? (80|2d|ff) (80|2d|ff) 01 01 01 01}  //weight: 1, accuracy: Low
+        $x_5_2 = {04 64 05 08 82 07 78 06 05 78 04 82 82 06 59 78 06 08 82}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_P_2147706761_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.P"
+        threat_id = "2147706761"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6d 61 69 6e 2f 61 61 61 [0-64] ?? ?? ?? ?? ?? ?? (80|2d|ff) (80|2d|ff) 01 01 01 01}  //weight: 1, accuracy: Low
+        $x_5_2 = {04 64 05 06 78 04 06 78 04 82 06 08 82 07 78 04 59 78 82}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_P_2147706761_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.P"
+        threat_id = "2147706761"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6d 61 69 6e 2f 61 61 61 [0-64] ?? ?? ?? ?? ?? ?? (80|2d|ff) (80|2d|ff) 01 01 01 01}  //weight: 1, accuracy: Low
+        $x_5_2 = {04 64 06 59 78 05 82 04 06 78 05 82 07 59 78 05 59 78 04 82 82}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_P_2147706761_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.P"
+        threat_id = "2147706761"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {01 00 01 61 01 00 (20|2d|60) 4c 6d 61 69 6e 2f (41|2d|5a) 01 01 01 01 01 01 01}  //weight: 1, accuracy: Low
+        $x_5_2 = {04 64 06 08 82 07 78 07 5a 04 78 82 06 08 82}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_P_2147706761_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.P"
+        threat_id = "2147706761"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {61 73 73 67 01 00 ?? 6d 61 69 6e 2f (41|2d|5a|61|2d|7a) 01 01 01 01 01 01 [0-16] 4e 61 6d 65 43 6c 61 73 73 63 [0-16] 6d 61 69 6e 2f 01 01 01 01 01 01}  //weight: 1, accuracy: Low
+        $x_5_2 = {04 64 04 06 78 06 59 78 05 82 06 08 82 07 78 05 59 78 04 82 82}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_P_2147706761_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.P"
+        threat_id = "2147706761"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {01 00 01 61 01 00 (20|2d|60) 4c 6d 61 69 6e 2f [0-4] (41|2d|5a) 02 02 02 02 02 02 02}  //weight: 1, accuracy: Low
+        $x_1_2 = {01 00 01 61 01 00 (20|2d|c0) 4c 6d 61 69 6e 2f ?? ?? (41|2d|5a) (41|2d|5a) [0-36] 02 03 02 03 02 03}  //weight: 1, accuracy: Low
+        $x_1_3 = {91 c3 91 c3 91 c3 91 c3 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (80|2d|ff) (80|2d|ff)}  //weight: 1, accuracy: Low
+        $x_1_4 = {01 00 01 61 01 00 0a 4c 6d 61 69 6e 2f 41 55 78 3b}  //weight: 1, accuracy: High
+        $x_1_5 = {01 00 08 6d 61 69 6e 2f 41 75 58 01 00 08 6d 61 69 6e 2f 41 55 78}  //weight: 1, accuracy: High
+        $x_1_6 = {01 00 0a 6d 61 69 6e 2f 5f 5f 43 4f 4e 01 00 0a 6d 61 69 6e 2f 5f 5f 41 55 78}  //weight: 1, accuracy: High
+        $x_1_7 = {5f 61 75 78 3b [0-16] 6d 61 69 6e 2f [0-4] 5f 61 75 78}  //weight: 1, accuracy: Low
+        $x_1_8 = {61 75 58 3b 01 00 ?? 4c 6a 61 76 61 73 2f 5f [0-40] 03 04 04 04 61 55 58 3b 41 75 58 3b 41 55 78 3b}  //weight: 1, accuracy: Low
+        $x_1_9 = {0b 6c 6f 61 64 46 72 6f 6d 58 4d 4c 01 00 18 28 4c 6a 61 76 61 2f 69 6f 2f 49 6e 70 75 74 53 74 72 65 61 6d 3b 29 56 01 00 0b 67 65 74 50 72 6f 70 65 72 74 79 [0-64] 0b 73 65 74 50 72 6f 70 65 72 74 79 [0-255] 0d 67 65 74 53 74 61 63 6b 54 72 61 63 65 ff 01 6d 61 69 6e 2f [0-4] 4e (55|75) 4c [0-6] 6d 61 69 6e 2f [0-4] 04 03 03 03 03 6e 75 4c 4e 75 6c 6e 55 6c 41 55 78}  //weight: 1, accuracy: Low
+        $x_25_10 = {82 82 92 55 1b 9c 00 06 a7 00 27 2d 15 07 2a 1b 5b b6 00 ?? 19 06 1c b6 00 ?? 82 82}  //weight: 25, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_25_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Java_Adwind_AA_2147708894_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.AA"
+        threat_id = "2147708894"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rPKnpWcvDtZUUTYJPXnONdTWOnQusaPjaQepXXKKmuHjDiGYkYVPifBlwCyKbcxyIgdtwrQfYIqsNpu" ascii //weight: 1
+        $x_1_2 = "KtHggHQcFYDbtTuFRAXHRXUfwL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_AB_2147716698_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.AB"
+        threat_id = "2147716698"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "squirrel123" ascii //weight: 1
+        $x_1_2 = "chave" ascii //weight: 1
+        $x_1_3 = "java/net/URL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_AS_2147727856_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.AS!bit"
+        threat_id = "2147727856"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "bit: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "~Lw/manintheskymanintheskymanintheskymanintheskymanintheskymanintheskymmanintheskymanintheskymanintheskymanintheskyaninthesky" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_AY_2147753566_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.AY!MTB"
+        threat_id = "2147753566"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "crypto/spec/SecretKeySpec" ascii //weight: 1
+        $x_1_2 = "Ixiypu~`0Iraxvv<" ascii //weight: 1
+        $x_1_3 = "HXHKKVM\\OZAADMR" ascii //weight: 1
+        $x_1_4 = "J]HOXJA[X" ascii //weight: 1
+        $x_1_5 = "6knvo}1hdy<v{=" ascii //weight: 1
+        $x_1_6 = "^8zI?heGI5pG0|Lg$~&h1" ascii //weight: 1
+        $x_1_7 = "HKRN]MZG@X@KCVE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule Trojan_Java_Adwind_YA_2147757699_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.YA!MTB"
+        threat_id = "2147757699"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "jbfrost.live/strigoi/lib.zip" ascii //weight: 1
+        $x_1_2 = "str-master.pw/strigoi/lib.zip" ascii //weight: 1
+        $x_1_3 = "ALLATORIxDEMO" ascii //weight: 1
+        $x_1_4 = "strpayload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule Trojan_Java_Adwind_YB_2147758615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.YB!MTB"
+        threat_id = "2147758615"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Ixiypu~`0Iraxvv<" ascii //weight: 1
+        $x_1_2 = "kigo" ascii //weight: 1
+        $x_1_3 = "ufsrqfwg}q~g<" ascii //weight: 1
+        $x_1_4 = "DRRDWPCSYPOSHR" ascii //weight: 1
+        $x_1_5 = {69 7a 6f 6d 68 7e 6a 6e 77 6c 65 7f 61 6f 70 6d 3e}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule Trojan_Java_Adwind_YC_2147759709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.YC!MTB"
+        threat_id = "2147759709"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pfqpcswgzqlrkq=" ascii //weight: 1
+        $x_1_2 = "rbqcgsucf" ascii //weight: 1
+        $x_1_3 = "uaefqgrf=" ascii //weight: 1
+        $x_1_4 = "rbqcgsucf/$.#sarxoahzsy2" ascii //weight: 1
+        $x_1_5 = "nyozndog{bzcnkm=" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule Trojan_Java_Adwind_BH_2147759808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.BH!MTB"
+        threat_id = "2147759808"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "neklkchklm.vbs" ascii //weight: 1
+        $x_1_2 = "resources/yyrglxwnut" ascii //weight: 1
+        $x_1_3 = "Mbhocjrtefy" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_BC_2147759895_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.BC!MTB"
+        threat_id = "2147759895"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "resources/vhueicxbkb" ascii //weight: 1
+        $x_1_2 = "apbywmckxk/Mecblazdzdu" ascii //weight: 1
+        $x_1_3 = "gemodgouzk.vbs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_YD_2147760439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.YD!MTB"
+        threat_id = "2147760439"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "agudebuvhwjcmwlaf" ascii //weight: 1
+        $x_1_2 = "{honmzkismb{" ascii //weight: 1
+        $x_1_3 = {6f 7e 6b 7f 6c 6b 78 68}  //weight: 1, accuracy: High
+        $x_1_4 = "ufsqtbvrkpyc}slq" ascii //weight: 1
+        $x_1_5 = "izonmzk{amb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule Trojan_Java_Adwind_YE_2147762083_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.YE!MTB"
+        threat_id = "2147762083"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "http://line.smartinteractivetech.com/nazionale.exe" ascii //weight: 1
+        $x_1_2 = "rundll32 url.dll,FileProtocolHandler" ascii //weight: 1
+        $x_1_3 = "frisco415" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_YF_2147762248_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.YF!MTB"
+        threat_id = "2147762248"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "UABPECWAXCJB" ascii //weight: 1
+        $x_1_2 = "NZYK^" ascii //weight: 1
+        $x_1_3 = "QBWQGUVC\\PHT]BZWRTDUVVUW" ascii //weight: 1
+        $x_1_4 = "XLZCX@YBJVNJXXZ" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Java_Adwind_YG_2147762394_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Java/Adwind.YG!MTB"
+        threat_id = "2147762394"
+        type = "Trojan"
+        platform = "Java: Java binaries (classes)"
+        family = "Adwind"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_JAVAHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7b 6f 6b 68 7f 69 7c 68 33}  //weight: 1, accuracy: High
+        $x_1_2 = "sap`wat`jaiultm`ec3" ascii //weight: 1
+        $x_1_3 = {7e 68 7f 7e 6d 7d 79 69 74 7f 62 7c 65 7f 33}  //weight: 1, accuracy: High
+        $x_1_4 = "TBBTG@SCI@_amcnCDB" ascii //weight: 1
+        $x_1_5 = {7c 6c 7f 6d 69 7d 7b 6d 68 21 2a 20 2d 7d 6f 7c 76 61 6f 66 74 7d 77 3c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

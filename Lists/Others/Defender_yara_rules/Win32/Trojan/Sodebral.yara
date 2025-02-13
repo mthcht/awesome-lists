@@ -1,0 +1,105 @@
+rule Trojan_Win32_Sodebral_A_2147684308_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Sodebral.A"
+        threat_id = "2147684308"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Sodebral"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "0335E94CC157E86DF856D54BEB1CCB78B411448F43BF0A5CF85FE56BA0D52AEF0" wide //weight: 1
+        $x_1_2 = "35E253EC12282FC64BCF7AABB157E3749CD71F4C0B719CC42CB43BA58FD244E54" wide //weight: 1
+        $x_1_3 = "47C97CBE56EB05011431EA50E619CE7DAF2AA32F235FEB7EDA7DC709027389889" wide //weight: 1
+        $x_1_4 = "70A999AAAD44C351D146F456C64ADC739DD61843325E8FF77FE10650F47CAF71D" wide //weight: 1
+        $x_1_5 = "77B96CCE46DB75F103201B0036CA78A44783DA787CF64395C1064EF3374CA060B" wide //weight: 1
+        $x_1_6 = "858BBF7A93A6BBBB49E62419DD12C172BA1FB61CD00D55E774D47FC07A8B60A17" wide //weight: 1
+        $x_1_7 = "8C82B471E478898D98B575AA4BFD35E704469F23D70A509AC6014B8C8FE43BDE3" wide //weight: 1
+        $x_1_8 = "8E8BBB7798AEA9BC45C970D14ACF5AEE6192D505F41B4AAAC12EB23DE70B3CFD2" wide //weight: 1
+        $x_1_9 = "938CBA749BB3B242C075A58696BB4EE26D86E971608CF91A519FC12C086BDC5CC" wide //weight: 1
+        $x_1_10 = "C771A192B54CCB59D95ECC7E9EA3B748C83ABD2D2C50BD264D93D500244FC060C" wide //weight: 1
+        $x_1_11 = "F93CEE4BC256EB6AFB29E2589E5186B675D10B480C468CDE7BDD66EB2F44D838C" wide //weight: 1
+        $x_1_12 = "0036E84DC054ED68FD2BE046F0073CE803479E24285AE06BF750F45AD123F91FF" wide //weight: 1
+        $x_1_13 = "61D74AEC60F50B0B1A37F42ACC639043E96CE16115499124B017BD03384DA365B" wide //weight: 1
+        $x_1_14 = "928FBF7394AAAD47CB40EA5CC040CA5DF30F509B5A86F7185F81E776DE0235F45" wide //weight: 1
+        $x_1_15 = "9582B083849A9DA8AA6FDB4DCF71859BB5CE105B1A46B7DF17599FC96A89BA7EA" wide //weight: 1
+        $x_1_16 = "76A393AC52E86CF978BC6DDE7D9CAE41CF23449746AADB046BF57AE44F9285A48" wide //weight: 1
+        $x_1_17 = "81BE6FC046DC58ED74B861C259F80D232D46A931204CB9D9115F81EF549F9091B" wide //weight: 1
+        $x_1_18 = "0C0234D66EA35DF92BF83217DF10C774B81DB012C63B87D10E4AF254D72D" wide //weight: 1
+        $x_1_19 = "0E0032D4689D53F321EE2C1125DB0B39F3568F33275BE772EE69D375B6CF" wide //weight: 1
+        $x_1_20 = "1E10020439EC22C470BD7DA253E51DCF1CBE16BDB22FBB0E4A8E359A91E2" wide //weight: 1
+        $x_1_21 = "9187BB5E974D82A450DD5DC27385B2618BCF054E027CC6114D8B30918AFB" wide //weight: 1
+        $x_1_22 = "9284B653EA1ED372A361DA40F6093EEE3D99339044BE0B5DF95EE668A3D0" wide //weight: 1
+        $x_1_23 = "96988A8CA15788AE66A367DC192FE417D570E56D619D24B623A52E9388FD" wide //weight: 1
+        $x_1_24 = "C548FA1FD60AC76EA765A69B5AEE24D01BBF15BEB32EB40753F55EE3275C" wide //weight: 1
+        $x_1_25 = "F83FF3162FE21C3AEB39F228CE619645E762FB470B479326B215BF013A4B" wide //weight: 1
+        $x_1_26 = "75BB6EA85C914FF72DFA301521D70F3DEF6AE36F639F2ABC19BF0445C63C" wide //weight: 1
+        $x_1_27 = "A568DA3FF62AE70EC745C67CBA4DFA29C3065FE4E964EE79E562EA6CAFC4" wide //weight: 1
+        $x_1_28 = "2BED20FA32E7193DE826E55B9BAD659754F66ED59AD41DAF2CAC17B87283" wide //weight: 1
+        $x_1_29 = "0C1EF31DDE58C1B75AA86DB87DBAAD5D903550855FAB3180CFC93E9F69EB2" ascii //weight: 1
+        $x_1_30 = "19EB0100231C0D7BB545DB6289BD73A44B8BCA0D2BBF10A724AD23A7B220E" ascii //weight: 1
+        $x_1_31 = "20E236DF037CED5A8A966AF03BFC68975EE46AFBC6D116A1375287CB9D27F" ascii //weight: 1
+        $x_1_32 = "4DDF35DC1E190E7AAA778AD01BDC48F73E84CB192374F44095F464E473D02" ascii //weight: 1
+        $x_1_33 = "4EDC30D1110A7FE91BE837C46A98B96AC2C010B54B8BD963A93B9EFF55B38" ascii //weight: 1
+        $x_1_34 = "8684997BB8B3A4944FAB451BD115002FC70EB1233D4E9226ABEE62E671D22" ascii //weight: 1
+        $x_1_35 = "B84BDE26C5413622DE3ED26993AB5F905C88C71B28A928A820A4E17781D86" ascii //weight: 1
+        $x_1_36 = "EA39CC34F773E4538D6D83D91125D80E22A03C9CBB0EA2329E22B71821B24" ascii //weight: 1
+        $x_1_37 = "AF72878EADA69385BB5BB58BB172A55994C006421CB43880DD66A739CF0B5" wide //weight: 1
+        $x_1_38 = "8684997BB8B3A4944BAA451B22D00127C3055E885EF77ED5045EE364AE171" wide //weight: 1
+        $x_1_39 = "7A889D6784FF69DF10EF0046F50834EF0E4480DAEC71C3D57CD678956BE63" wide //weight: 1
+        $x_1_40 = "jauSAFGGhgh_SEC_537" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_Win32_Sodebral_E_2147688842_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Sodebral.E"
+        threat_id = "2147688842"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Sodebral"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 e9 04 01 c8 01 ca f7 d9 df 2c 01 df 3c 11 83 c1 08 78 ?? 8b 04 01 89 04 11 c3}  //weight: 1, accuracy: Low
+        $x_1_2 = {be 01 00 00 00 8b 45 f0 0f b7 44 70 fe 33}  //weight: 1, accuracy: High
+        $x_2_3 = {4d 00 45 00 54 00 41 00 20 00 48 00 54 00 54 00 50 00 2d 00 45 00 51 00 55 00 49 00 56 00 3d 00 22 00 52 00 65 00 66 00 72 00 65 00 73 00 68 00 22 00 20 00 43 00 4f 00 4e 00 54 00 45 00 4e 00 54 00 3d 00 22 00 30 00 [0-4] 55 00 52 00 4c 00 3d 00 25 00 30 00 3a 00 73 00}  //weight: 2, accuracy: Low
+        $x_2_4 = "sercFLASH" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Sodebral_F_2147689232_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Sodebral.F"
+        threat_id = "2147689232"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Sodebral"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 e9 04 01 c8 01 ca f7 d9 df 2c 01 df 3c 11 83 c1 08 78 ?? 8b 04 01 89 04 11 c3}  //weight: 1, accuracy: Low
+        $x_1_2 = {4d 00 45 00 54 00 41 00 20 00 48 00 54 00 54 00 50 00 2d 00 45 00 51 00 55 00 49 00 56 00 3d 00 22 00 52 00 65 00 66 00 72 00 65 00 73 00 68 00 22 00 20 00 43 00 4f 00 4e 00 54 00 45 00 4e 00 54 00 3d 00 22 00 30 00 [0-4] 55 00 52 00 4c 00 3d 00 25 00 30 00 3a 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {3a 00 38 00 30 00 38 00 30 00 2f 00 64 00 6f 00 63 00 73 00 2f 00 61 00 70 00 70 00 64 00 65 00 76 00 2f 00 73 00 61 00 6d 00 70 00 6c 00 65 00 2f 00 73 00 72 00 63 00 2f 00 34 00 30 00 33 00 2e 00 69 00 6e 00 66 00 00 00}  //weight: 1, accuracy: High
+        $x_1_4 = {3a 00 38 00 30 00 38 00 30 00 2f 00 64 00 6f 00 63 00 73 00 2f 00 66 00 75 00 6e 00 63 00 73 00 70 00 65 00 63 00 73 00 2f 00 70 00 72 00 69 00 6e 00 74 00 65 00 72 00 2f 00 34 00 30 00 33 00 2e 00 69 00 6e 00 66 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

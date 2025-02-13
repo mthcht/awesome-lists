@@ -1,0 +1,21 @@
+rule Trojan_Win32_PersistenceViaScheduledTask_AB_2147931918_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PersistenceViaScheduledTask.AB"
+        threat_id = "2147931918"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PersistenceViaScheduledTask"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00 2e 00 65 00 78 00 65 00 20 00 2f 00 43 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 74 00 6e 00 [0-5] 61 00 74 00 74 00 61 00 63 00 6b 00 69 00 71 00 20 00 74 00 61 00 73 00 6b 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {2f 00 74 00 72 00 [0-5] 63 00 6d 00 64 00 20 00 2f 00 63 00 [0-64] 2e 00 62 00 61 00 74 00 [0-64] 2f 00 72 00 75 00 20 00 73 00 79 00 73 00 74 00 65 00 6d 00}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
