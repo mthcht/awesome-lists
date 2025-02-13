@@ -106,3 +106,27 @@ rule Trojan_Win64_LummaC_GA_2147932798_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaC_NZ_2147933340_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaC.NZ!MTB"
+        threat_id = "2147933340"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Go build ID: " ascii //weight: 1
+        $x_2_2 = "aTy974I1vPDYPFzoFH4vtJONrK4oRDvjUxteUan7beE" ascii //weight: 2
+        $x_2_3 = "DrRLnoQFxHWJ5lJUmrH7X2L0xeUu6SUS95Dc61eW2Yc" ascii //weight: 2
+        $x_2_4 = "RQqyEogx5J6wPdoxqL132b100j8KjcVHO1c0KLRoIhc" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

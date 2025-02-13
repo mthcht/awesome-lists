@@ -6900,6 +6900,30 @@ rule Trojan_Win64_CobaltStrike_GZ_2147845648_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bridipivmsnsupus" ascii //weight: 1
+        $x_1_2 = "GOMAXPROCS" ascii //weight: 1
+        $x_1_3 = "OTTOttcfwOFFwOF2PK" ascii //weight: 1
+        $x_1_4 = " Go buildinf:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_GZ_2147845648_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GZ!MTB"
+        threat_id = "2147845648"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
