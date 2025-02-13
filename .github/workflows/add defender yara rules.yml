@@ -1,4 +1,4 @@
-name: Generate YARA Rules from Microsoft Defender AV Signature
+name: Fetch YARA Rules from defender2yara
 
 on:
   schedule:
@@ -8,68 +8,25 @@ on:
       - main
 
 jobs:
-  update-rules:
+  fetch-rules:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Fetch YARA rules from defender2yara repository
         run: |
-          sudo apt-get update
-          sudo apt-get install -y exiftool
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Load cached Poetry installation
-        id: cached-poetry
-        uses: actions/cache@v4
-        with:
-          path: ~/.local
-          key: poetry-0 
-
-      - name: Install Poetry
-        if: steps.cached-poetry.outputs.cache-hit != 'true'
-        uses: snok/install-poetry@v1
-
-      - name: Install Python dependencies
-        run: poetry install
-
-      - name: Get latest signature version
-        run: |
-          echo "SIG_VERSION=$(poetry run python -m defender2yara --latest_signature_version)" >> $GITHUB_ENV
-
-      - name: Validate Signature Version
-        run: |
-          if [ -z "$SIG_VERSION" ]; then
-            echo "SIG_VERSION is empty, failing the job."
-            exit 1
-          else
-            echo "SIG_VERSION is not empty, continuing."
-          fi
-
-      - name: Load cached VDM files
-        id: cached-vdm
-        uses: actions/cache@v4
-        with:
-          path: ./cache
-          key: vdm-${{ env.SIG_VERSION }}
-
-      - name: Generate YARA rules
-        if: steps.cached-vdm.outputs.cache-hit != 'true' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
-        run: |
+          rm -rf Lists/Others/Defender_yara_rules/
+          git clone --depth 1 --branch yara-rules https://github.com/t-tani/defender2yara.git temp_defender2yara
           mkdir -p Lists/Others/Defender_yara_rules/
-          poetry run python -m defender2yara --cache ./cache -o Lists/Others/Defender_yara_rules/
+          cp -r temp_defender2yara/* Lists/Others/Defender_yara_rules/
+          rm -rf temp_defender2yara
 
       - name: Commit and Push YARA rules
-        if: steps.cached-vdm.outputs.cache-hit != 'true' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
         run: |
           git pull
           git config --local user.name "GitHub Action"
           git config --local user.email "action@github.com"
           git add Lists/Others/Defender_yara_rules/*
-          git commit -m "Updated YARA rules for ${{ env.SIG_VERSION }}" --allow-empty
+          git commit -m "Updated YARA rules from defender2yara" --allow-empty
           git push
