@@ -42,9 +42,3 @@ jobs:
           git add Lists/VPN/NordVPN/nordvpn_ips_list.csv
           git commit -m "Update NordVPN IPs list" --allow-empty
           git push
-
-      - name: Upload csv Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: NordVPN-IP-data-csv
-          path: Lists/VPN/NordVPN/nordvpn_ips_list.csv
