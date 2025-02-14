@@ -118,3 +118,28 @@ rule Trojan_Win32_DarkCloud_AZKA_2147933124_0
         )
 }
 
+rule Trojan_Win32_DarkCloud_AKLA_2147933549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkCloud.AKLA!MTB"
+        threat_id = "2147933549"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "@TEMPDIR &" ascii //weight: 1
+        $x_2_2 = "D725984265l725984265l725984265Ca725984265ll" ascii //weight: 2
+        $x_2_3 = "k725984265er725984265nel37259842652" ascii //weight: 2
+        $x_2_4 = "725984265V725984265ir725984265tualA725984265llo725984265c" ascii //weight: 2
+        $x_2_5 = "Ca725984265llWi725984265ndo725984265wPro725984265c" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

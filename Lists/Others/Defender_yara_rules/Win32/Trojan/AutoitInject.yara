@@ -4656,3 +4656,30 @@ rule Trojan_Win32_AutoitInject_AELA_2147933400_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AutoitInject_AMLA_2147933550_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.AMLA!MTB"
+        threat_id = "2147933550"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "&= CHR ( RANDOM ( 97 , 122 , 1 ) )" ascii //weight: 1
+        $x_2_2 = "FILEINSTALL ( \"1785331143.exe\" , @TEMPDIR & \"\\\" & $STEXT & \".exe\" )" ascii //weight: 2
+        $x_2_3 = "RUN ( @TEMPDIR & \"\\\" & $STEXT & \".exe\" &" ascii //weight: 2
+        $x_2_4 = "\" -p1084096662501417456140641448427826439223939580528204145012403150328373128753202032654274781517727461304914650855920502\" )" ascii //weight: 2
+        $x_1_5 = "SLEEP ( 120000 )" ascii //weight: 1
+        $x_2_6 = "FILEDELETE ( @TEMPDIR & \"\\\" & $STEXT & \".exe\" )" ascii //weight: 2
+        $x_2_7 = "FILEDELETE ( @TEMPDIR & \"\\\" & \"Rar*\" )" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

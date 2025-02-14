@@ -3968,3 +3968,24 @@ rule Trojan_Win64_CryptInject_HOP_2147932619_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_TKZ_2147933551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.TKZ!MTB"
+        threat_id = "2147933551"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 89 e1 31 4d df 29 4d a4 49 c7 c7 77 5b 00 00 29 55 ea 48 89 45 eb 0f b6 c6 4c 89 d2 4c 89 45 f6 33 45 db 4c 01 da 4c 03 4d ?? 8b 4d ab 89 d2 8b 7d c6 48 ff 04 24 49 c7 c4 03 00 00 00 4c 39 24 24 0f 8e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
