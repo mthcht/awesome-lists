@@ -5834,3 +5834,25 @@ rule Trojan_Win32_Zusy_BW_2147932368_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_GNQ_2147933399_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.GNQ!MTB"
+        threat_id = "2147933399"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {02 00 80 72 02 00 80 3a 9b 00 00 94 02 00 80 48 9b 00 00 5e 9b 00 00}  //weight: 10, accuracy: High
+        $x_1_2 = "bbggtth.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

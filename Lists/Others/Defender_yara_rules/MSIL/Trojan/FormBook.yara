@@ -14243,3 +14243,26 @@ rule Trojan_MSIL_FormBook_PLJFH_2147932503_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_NFC_2147933366_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.NFC!MTB"
+        threat_id = "2147933366"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {06 17 58 0a 03 25 5a 0c 03 08 58 0c}  //weight: 2, accuracy: High
+        $x_1_2 = "6de5d9ec-6984-4d53-b074-14190a66b00f" ascii //weight: 1
+        $x_1_3 = {cc 05 04 61 ?? ?? 59 06 61 45}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

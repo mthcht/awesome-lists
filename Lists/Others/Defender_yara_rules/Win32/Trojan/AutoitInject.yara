@@ -4632,3 +4632,27 @@ rule Trojan_Win32_AutoitInject_HNR_2147932481_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_AELA_2147933400_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.AELA!MTB"
+        threat_id = "2147933400"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "@TEMPDIR &" ascii //weight: 1
+        $x_2_2 = "k528210520er528210520nel35282105202" ascii //weight: 2
+        $x_2_3 = "528210520V528210520ir528210520tualA528210520llo528210520c" ascii //weight: 2
+        $x_2_4 = "u528210520s528210520er32528210520.528210520d528210520l528210520l" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

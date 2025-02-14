@@ -500,3 +500,24 @@ rule Trojan_Win64_Convagent_PMM_2147932482_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_CCJT_2147933440_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.CCJT!MTB"
+        threat_id = "2147933440"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 c2 41 2a c0 f6 d0 41 fe c0 48 ff c1 30 41 ff 44 3a c2 72}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

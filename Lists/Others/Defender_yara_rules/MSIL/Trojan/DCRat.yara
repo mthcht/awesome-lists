@@ -2310,3 +2310,25 @@ rule Trojan_MSIL_DCRat_AZJA_2147932019_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DCRat_NFA_2147933367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.NFA!MTB"
+        threat_id = "2147933367"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 0c 17 58 93 11 05 61 13 06 17 13 0e 38 0c ff ff ff 11 0c 19 58 13 0c 11 06 1f 1f 5f}  //weight: 2, accuracy: High
+        $x_1_2 = {11 0c 11 07 58 11 09 59 93 61 11 0b}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

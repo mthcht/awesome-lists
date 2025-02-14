@@ -393,8 +393,13 @@ rule Trojan_Win32_SuspLolbinLaunch_B_2147805335_0
         $x_2_2 = "winrs " wide //weight: 2
         $x_1_3 = " /r:" wide //weight: 1
         $x_1_4 = "/remote:" wide //weight: 1
+        $n_100_5 = "\"program files\"" wide //weight: -100
+        $n_100_6 = "\\program files\\" wide //weight: -100
+        $n_100_7 = "-passwordkeyfile " wide //weight: -100
+        $n_100_8 = "-passwordfile " wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_2_*) and 1 of ($x_1_*))) or
             ((2 of ($x_2_*))) or

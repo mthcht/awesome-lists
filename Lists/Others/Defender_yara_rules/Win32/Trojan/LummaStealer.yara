@@ -3890,3 +3890,24 @@ rule Trojan_Win32_LummaStealer_GPKX_2147933254_0
         )
 }
 
+rule Trojan_Win32_LummaStealer_GPKY_2147933420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.GPKY!MTB"
+        threat_id = "2147933420"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "8D343781E6FF000000885C08080FB67430088B3C2489F3301C1783C2013B54242475B089" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

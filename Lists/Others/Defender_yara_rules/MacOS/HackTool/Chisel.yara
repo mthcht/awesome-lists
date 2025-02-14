@@ -166,3 +166,26 @@ rule HackTool_MacOS_Chisel_G_2147929992_0
         (all of ($x*))
 }
 
+rule HackTool_MacOS_Chisel_H_2147933405_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Chisel.H!MTB"
+        threat_id = "2147933405"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Chisel"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "(*Tunnel).activatingConnWait" ascii //weight: 1
+        $x_1_2 = "tunnel_in_proxy.go" ascii //weight: 1
+        $x_1_3 = "(*waitGroup).DoneAll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

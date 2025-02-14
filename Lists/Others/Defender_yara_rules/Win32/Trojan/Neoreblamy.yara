@@ -3575,3 +3575,25 @@ rule Trojan_Win32_Neoreblamy_BZ_2147933245_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_NFC_2147933350_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NFC!MTB"
+        threat_id = "2147933350"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {6a 04 59 c1 e1 00 8b 8c 0d ?? ?? ff ff 6a 04 5a c1 e2 00 8b 94 15 ?? ?? ff ff 4a 6a 04 5e c1 e6 00}  //weight: 2, accuracy: Low
+        $x_1_2 = {eb 07 8b 45 ac 40 89 45 ac 83 7d ac 03 7d 10 8b 45 ac}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

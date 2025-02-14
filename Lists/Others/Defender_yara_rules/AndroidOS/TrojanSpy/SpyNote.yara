@@ -167,3 +167,27 @@ rule TrojanSpy_AndroidOS_SpyNote_O_2147919055_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_SpyNote_P_2147933421_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SpyNote.P!MTB"
+        threat_id = "2147933421"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyNote"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "splash.app.main.RECORD" ascii //weight: 1
+        $x_1_2 = "enabled_notification_listeners" ascii //weight: 1
+        $x_1_3 = "Lsplash/app/SensorRestarterBroadcastReceiver" ascii //weight: 1
+        $x_1_4 = "/Config/sys/apps/log/log-" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

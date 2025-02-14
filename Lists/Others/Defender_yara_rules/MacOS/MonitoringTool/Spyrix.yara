@@ -133,3 +133,29 @@ rule MonitoringTool_MacOS_Spyrix_J_418698_0
         )
 }
 
+rule MonitoringTool_MacOS_Spyrix_B_449777_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "MonitoringTool:MacOS/Spyrix.B!MTB"
+        threat_id = "449777"
+        type = "MonitoringTool"
+        platform = "MacOS: "
+        family = "Spyrix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "dashboard.spyrix.com/client-tech-logs/get-last-time?comp_id=" ascii //weight: 1
+        $x_1_2 = "spyrix.net/usr/monitor/upload_prg.php" ascii //weight: 1
+        $x_1_3 = "isMonitoringKeylogger" ascii //weight: 1
+        $x_1_4 = "monitoringAudioDevices" ascii //weight: 1
+        $x_1_5 = "videoWebCamRecorderManager" ascii //weight: 1
+        $x_1_6 = "settings:enableCallRecording" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

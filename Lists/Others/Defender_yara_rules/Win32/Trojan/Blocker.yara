@@ -112,3 +112,25 @@ rule Trojan_Win32_Blocker_DAT_2147851787_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Blocker_NB_2147933402_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Blocker.NB!MTB"
+        threat_id = "2147933402"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Blocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {74 05 8b 45 ec eb 3a 8b 0d ?? ?? ?? ?? 81 e1 00 80 00 00 85 c9 74 09 c7 45 e4 ?? ?? ?? ?? eb 07 c7 45 e4 cc 3d 43 00}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 4d 0c 8b 14 81 52 e8 b2 50 00 00 83 c4 08 85 c0 74 6d}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

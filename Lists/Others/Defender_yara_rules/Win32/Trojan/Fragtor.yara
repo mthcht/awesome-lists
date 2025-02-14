@@ -1488,6 +1488,32 @@ rule Trojan_Win32_Fragtor_NG_2147913019_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_NG_2147913019_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.NG!MTB"
+        threat_id = "2147913019"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {89 4d fc 8b 45 fc 8b 4d 08 89 08 8b 55 fc 83 3a 00 75 0c 6a 0c e8 62 9a 04 00 83 c4 04 eb 1f 8b 45 fc 83 38 04 7d 17 8b 4d fc 8b 11 6b d2 18}  //weight: 3, accuracy: High
+        $x_1_2 = "bitjoker2024.000webhostapp.com" wide //weight: 1
+        $x_1_3 = "RemoteInject" wide //weight: 1
+        $x_1_4 = "TrojanEvent" wide //weight: 1
+        $x_1_5 = "TongxinProc" wide //weight: 1
+        $x_1_6 = "KillCmdExe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_NH_2147913020_0
 {
     meta:
@@ -2135,6 +2161,27 @@ rule Trojan_Win32_Fragtor_NFE_2147933279_0
         $x_3_1 = {56 ff 75 f8 89 45 fc 50 89 03 89 73 10 89 7b 14 e8 26 4e 00 00 8b 45 fc 83 c4 0c 5f c6 04 06 00 5e 5b 8b e5 5d}  //weight: 3, accuracy: High
         $x_1_2 = "amjsolutionx.pw/stub" ascii //weight: 1
         $x_1_3 = "SIDF.json" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AAB_2147933404_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AAB!MTB"
+        threat_id = "2147933404"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {01 c8 8a 00 88 c1 8b 45 ?? 88 c3 8b 45 ?? 01 d8 0f b6 c0 8d 1c 85 00 00 00 00 8b 45 ?? 01 d8 8b 00 31 c8 88 02}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

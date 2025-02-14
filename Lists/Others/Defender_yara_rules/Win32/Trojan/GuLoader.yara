@@ -1861,6 +1861,30 @@ rule Trojan_Win32_GuLoader_DD_2147833934_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RSM_2147839634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RSM!MTB"
+        threat_id = "2147839634"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Stater Bros. Holdings Inc." ascii //weight: 1
+        $x_1_2 = "Viacom Inc" ascii //weight: 1
+        $x_1_3 = "MeadWestvaco Corporation" ascii //weight: 1
+        $x_1_4 = "kundebrevet.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_DE_2147841539_0
 {
     meta:

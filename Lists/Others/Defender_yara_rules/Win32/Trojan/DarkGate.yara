@@ -994,3 +994,45 @@ rule Trojan_Win32_DarkGate_DA_2147932155_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkGate_KKK_2147933438_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkGate.KKK!MTB"
+        threat_id = "2147933438"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkGate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {f7 f3 c5 ed fd d6 c5 e5 fd df c5 ed 67 d2 c5 e5 67 db 8a 04 16 c5 d5 fd ef c5 dd 67 e4 c5 d5 67 ed c5 fd 60 c2 30 04 0f c5 fd 69 f4 c5 fd 61 c4 c5 dd 73 dc 02 c5 f5 73 db ?? c5 e5 69 d7 41 c5 e5 6a dc c5 f5 ef c9 c5 e5 75 db c5 e5 71 f3 07 c4 e3 fd 00 f6 ?? 89 c8 c5 cd 60 e1 c5 cd 68 f1 c5 c5 60 c1 c5 c5 68 f9 81 f9 07 80 17 00 0f 86}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DarkGate_KKM_2147933439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkGate.KKM!MTB"
+        threat_id = "2147933439"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkGate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {31 d2 c5 e5 60 dd c5 c5 73 d8 02 c5 fd 69 f4 c5 fd 61 c4 f7 f3 c5 fd 62 c3 c5 e5 6a dc 8a 04 16 c5 e5 67 db c5 dd fd e6 c5 d5 fd ef 30 04 0f c5 e5 60 dd 41 c5 c5 73 d8 ?? 89 c8 81 f9 07 74 17 00 76}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
