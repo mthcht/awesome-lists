@@ -564,3 +564,26 @@ rule Trojan_MSIL_DarkCloud_ACLA_2147933301_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_MKZ_2147933524_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.MKZ!MTB"
+        threat_id = "2147933524"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {72 a7 00 00 70 28 17 00 00 0a 13 05 72 d9 00 00 70 28 ?? 00 00 0a 13 06 73 18 00 00 0a 13 07 73 13 00 00 0a 13 08 11 08 11 07 11 05 11 06 6f ?? 00 00 0a 17 73 1a 00 00 0a 13 09 11 09 06 16 06 8e 69 6f 1b 00 00 0a 11 08 6f 15 00 00 0a 13 0a dd}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

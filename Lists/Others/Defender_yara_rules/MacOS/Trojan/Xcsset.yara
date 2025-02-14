@@ -75,3 +75,28 @@ rule Trojan_MacOS_Xcsset_C_2147822823_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Xcsset_AX_2147933513_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Xcsset.AX"
+        threat_id = "2147933513"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Xcsset"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/bin/sh -c" wide //weight: 1
+        $x_1_2 = "/bin/bash -c" wide //weight: 1
+        $x_5_3 = "grep -qF '.zshrc_aliases' ~/.zshrc || echo '[ -f $HOME/.zshrc_aliases ] && . $HOME/.zshrc_aliases' >> ~/.zshrc" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
