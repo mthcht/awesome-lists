@@ -1,0 +1,1 @@
+Red Flag Domains are lists of very recently registered probably malicious domain names in french TLDs, list updated automatically from https://dl.red.flag.domains/red.flag.domains.txt
