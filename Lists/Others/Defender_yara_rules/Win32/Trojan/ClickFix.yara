@@ -422,17 +422,21 @@ rule Trojan_Win32_ClickFix_DH_2147932752_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "5"
+        threshold = "41"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = "powershell" wide //weight: 1
-        $x_1_2 = "|Member|Where-Object{$_.Name -like" wide //weight: 1
-        $x_1_3 = ".Name).Invoke" wide //weight: 1
-        $x_1_4 = "CommandTypes]::Cmdlet" wide //weight: 1
-        $x_1_5 = {76 00 61 00 72 00 69 00 61 00 62 00 6c 00 65 00 3a 00 2f 00 [0-15] 27 00 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_10_2 = ".Name).Invoke" wide //weight: 10
+        $x_10_3 = "CommandTypes]::Cmdlet" wide //weight: 10
+        $x_10_4 = {76 00 61 00 72 00 69 00 61 00 62 00 6c 00 65 00 3a 00 [0-15] 27 00 68 00 74 00 74 00 70 00}  //weight: 10, accuracy: Low
+        $x_1_5 = "|Member|Where-Object{$_.Name -like" wide //weight: 1
+        $x_1_6 = {67 00 65 00 74 00 2d 00 6d 00 65 00 6d 00 62 00 65 00 72 00 29 00 7c 00 77 00 68 00 65 00 72 00 65 00 7b 00 28 00 [0-15] 29 00 2e 00 76 00 61 00 6c 00 75 00 65 00 2e 00 6e 00 61 00 6d 00 65 00 2d 00 63 00 6c 00 69 00 6b 00 65 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((4 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_O_2147933213_0
