@@ -43,9 +43,3 @@ jobs:
           git add Lists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
           git commit -m "Update daily IP ranges" --allow-empty
           git push
-
-      - name: Upload Results to Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: ip-range-data
-          path: Lists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
