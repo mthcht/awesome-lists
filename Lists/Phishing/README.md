@@ -1,0 +1,1 @@
+resources for phishing detection
