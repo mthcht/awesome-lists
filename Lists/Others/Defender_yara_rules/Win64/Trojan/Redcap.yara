@@ -236,3 +236,24 @@ rule Trojan_Win64_Redcap_MBWB_2147926742_0
         )
 }
 
+rule Trojan_Win64_Redcap_ARDP_2147933485_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.ARDP!MTB"
+        threat_id = "2147933485"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 5c 24 38 48 89 44 24 48 48 8b 10 48 89 54 24 40 48 8b 58 08 48 89 5c 24 30 48 8d 0d ?? ?? 1e 00 bf 0b 00 00 00 48 89 d0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

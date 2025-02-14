@@ -687,3 +687,26 @@ rule Trojan_Win32_CryptBot_ZA_2147933339_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CryptBot_BM_2147933473_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CryptBot.BM!MTB"
+        threat_id = "2147933473"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 51 08 32 51 19 88 50 08 c6 05}  //weight: 2, accuracy: High
+        $x_2_2 = {8b 4c 24 08 8b 44 24 04 0f b6 11 32 51 ?? 88 10 0f b6 51 01 32 51}  //weight: 2, accuracy: Low
+        $x_1_3 = "t.me/m08mbk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
