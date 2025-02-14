@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Define the source URL and output filename
 url = "https://phish.co.za/latest/ALL-phishing-domains.lst"
-output_file = "red_flag_domains.csv"
+output_file = "phish_co_za_phishing_list.csv"
 
 # Get the current date in YYYY/MM/DD format
 metadata_date = datetime.now().strftime("%Y/%m/%d")
