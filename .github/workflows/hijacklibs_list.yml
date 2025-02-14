@@ -43,6 +43,4 @@ jobs:
           git add Lists/Hijacklibs/hijacklibs_list.csv
           git commit -m "Update hijacklibs list" --allow-empty
           git push
-          name: hojacklibs-data-csv
-          path: Lists/Hijacklibs/hijacklibs_list.csv
 
