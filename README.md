@@ -55,7 +55,7 @@
 - 💻🔒 Ransomware known file extensions: [ransomware_extensions_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/ransomware_extensions_list.csv)
 - 💻🔒 Ransomware known file name ransom notes: [ransomware_notes_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/ransomware_notes_list.csv)
 - 📝 Windows ASR rules: [windows_asr_rules.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/windows_asr_rules.csv)
-- 🌐 DNSTWIST Lists (updated automatically): [DNSTWIST Default Domains + script](https://github.com/mthcht/awesome-lists/tree/main/Lists/DNSTWIST)
+- 🌐 DNSTWIST Lists (updated automatically): [DNSTWIST Default Domains + script](https://github.com/mthcht/awesome-lists/tree/main/Lists/Phishing/DNSTWIST)
 - 🌍 VPN [IP address Lists](https://github.com/mthcht/awesome-lists/tree/main/Lists/VPN) (updated automatically): 
   - 🛡️ NordVPN: [nordvpn_ips_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/NordVPN/nordvpn_ips_list.csv)
   - 🛡️ ProtonVPN: [protonvpn_ip_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/ProtonVPN/protonvpn_ip_list.csv)
