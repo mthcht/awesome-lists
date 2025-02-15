@@ -1,0 +1,1 @@
+This GitHub Action leverages [URLCrazy](https://github.com/urbanadventurer/urlcrazy) to generate potential phishing domains based on common typosquatting techniques. It reads a list of domains from domains_to_monitor.txt, processes them with URLCrazy, and outputs possible lookalike domains that could be used for phishing attacks

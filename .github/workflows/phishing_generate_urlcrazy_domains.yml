@@ -1,0 +1,45 @@
+name: Phishing URLCrazy generate domains
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  run-urlcrazy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y git ruby build-essential
+          gem install bundler
+          git clone https://github.com/urbanadventurer/urlcrazy.git
+          cd urlcrazy
+          bundle install
+          sudo cp urlcrazy /usr/local/bin/
+
+      - name: Run URLCrazy for Specified Domains
+        run: |
+          mkdir -p Lists/Phishing/urlcrazy/results
+          if [ -f Lists/Phishing/urlcrazy/domains_to_monitor.txt ]; then
+            while IFS= read -r domain; do
+              urlcrazy -o Lists/Phishing/urlcrazy/results/${domain//./_}.csv "$domain"
+            done < Lists/Phishing/urlcrazy/domains_to_monitor.txt
+          else
+            echo "Domain list file not found. Exiting."
+            exit 1
+          fi
+
+      - name: Commit and Push Results
+        run: |
+          git pull
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add Lists/Phishing/urlcrazy/results/
+          git commit -m "Update URLCrazy results"
+          git push
