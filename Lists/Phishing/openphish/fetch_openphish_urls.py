@@ -18,6 +18,6 @@ with open(output_file, "w", newline="") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["url", "metadata_reference"])
     for url in urls:
-        writer.writerow([url, url])
+        writer.writerow([url, feed_url])
 
 print(f"CSV file saved as {output_file}")
