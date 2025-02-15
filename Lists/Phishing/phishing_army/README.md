@@ -1,1 +1,1 @@
-fetching domains list from https://phishing.army/
+daily fetch of the domains list from https://phishing.army/
