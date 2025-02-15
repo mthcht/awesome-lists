@@ -1,4 +1,4 @@
-name: Phishing URLCrazy generate domains
+name: Run URLCrazy and Commit Results
 
 on:
   schedule:
@@ -17,10 +17,10 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y git ruby build-essential
-          gem install bundler
+          sudo gem install bundler --no-document
           git clone https://github.com/urbanadventurer/urlcrazy.git
           cd urlcrazy
-          bundle install
+          bundle install --path vendor/bundle
           sudo cp urlcrazy /usr/local/bin/
 
       - name: Run URLCrazy for Specified Domains
