@@ -7,7 +7,7 @@ url = "https://phishing.army/download/phishing_army_blocklist_extended.txt"
 output_file = "phishing_army_domains_list.csv"
 
 # Get the current date in YYYY/MM/DD format
-metadata_date = datetime.now().strftime("%Y/%m/%d")
+metadata_list_last_updated = datetime.now().strftime("%Y/%m/%d")
 
 # Fetch the file content
 response = requests.get(url)
