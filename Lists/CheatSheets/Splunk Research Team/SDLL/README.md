@@ -1,0 +1,2 @@
+blog: https://www.splunk.com/en_us/blog/security/windows-security-sddl-guide-access-control.html
+mindmap: https://github.com/MHaggis/SDDLMaker/tree/main/MindMap
