@@ -20,7 +20,6 @@ jobs:
           sudo gem install bundler json colorize async async-dns async-http
           git clone https://github.com/urbanadventurer/urlcrazy.git
           cd urlcrazy
-          bundle install --path vendor/bundle || sudo bundle install --path vendor/bundle
           sudo cp urlcrazy /usr/local/bin/
           
           # Manually download missing common-misspellings.rb if it exists
@@ -33,7 +32,7 @@ jobs:
           mkdir -p Lists/Phishing/urlcrazy/results
           if [ -f Lists/Phishing/urlcrazy/domains_to_monitor.txt ]; then
             while IFS= read -r domain; do
-              bundle exec urlcrazy -o Lists/Phishing/urlcrazy/results/${domain//./_}.csv "$domain"
+              urlcrazy -o Lists/Phishing/urlcrazy/results/${domain//./_}.csv "$domain"
             done < Lists/Phishing/urlcrazy/domains_to_monitor.txt
           else
             echo "Domain list file not found. Exiting."
