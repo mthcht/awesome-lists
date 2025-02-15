@@ -17,18 +17,23 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y git ruby build-essential
-          sudo gem install bundler json colorize async async-dns async-http inflector tld public_suffix concurrent-ruby eventmachine http-parser matrix nio4r rake redis sinatra webrick
+          sudo gem install bundler json colorize async async-dns async-http
           git clone https://github.com/urbanadventurer/urlcrazy.git
           cd urlcrazy
           bundle install --path vendor/bundle || sudo bundle install --path vendor/bundle
           sudo cp urlcrazy /usr/local/bin/
+          
+          # Manually download missing common-misspellings.rb if it exists
+          if [ ! -f lib/common-misspellings.rb ]; then
+            curl -o lib/common-misspellings.rb https://raw.githubusercontent.com/urbanadventurer/urlcrazy/master/lib/common-misspellings.rb || echo "common-misspellings.rb not found"
+          fi
 
       - name: Run URLCrazy for Specified Domains
         run: |
           mkdir -p Lists/Phishing/urlcrazy/results
           if [ -f Lists/Phishing/urlcrazy/domains_to_monitor.txt ]; then
             while IFS= read -r domain; do
-              urlcrazy -o Lists/Phishing/urlcrazy/results/${domain//./_}.csv "$domain"
+              bundle exec urlcrazy -o Lists/Phishing/urlcrazy/results/${domain//./_}.csv "$domain"
             done < Lists/Phishing/urlcrazy/domains_to_monitor.txt
           else
             echo "Domain list file not found. Exiting."
