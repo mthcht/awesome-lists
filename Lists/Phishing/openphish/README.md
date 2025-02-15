@@ -1,0 +1,1 @@
+automatically fetching openphish public feed https://raw.githubusercontent.com/openphish/public_feed/refs/heads/main/feed.txt
