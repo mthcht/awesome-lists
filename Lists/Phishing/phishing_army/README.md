@@ -1,0 +1,1 @@
+fetching domains list from https://phishing.army/
