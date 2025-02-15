@@ -370,3 +370,34 @@ rule TrojanDownloader_Win32_Tiny_ARA_2147918443_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Tiny_BB_2147933580_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Tiny.BB!MTB"
+        threat_id = "2147933580"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "52"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {68 00 74 00 74 00 70 00 [0-1] 3a 00 2f 00 2f 00 31 00 34 00 37 00 2e 00 34 00 35 00 2e 00 34 00 34 00 2e 00 34 00 32 00 2f 00 62 00 6f 00 6f 00 6d 00 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 50, accuracy: Low
+        $x_50_2 = {68 74 74 70 [0-1] 3a 2f 2f 31 34 37 2e 34 35 2e 34 34 2e 34 32 2f 62 6f 6f 6d 2f [0-15] 2e 65 78 65}  //weight: 50, accuracy: Low
+        $x_1_3 = "System.Net" ascii //weight: 1
+        $x_1_4 = "WebClient" ascii //weight: 1
+        $x_5_5 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-3] 2e 00 [0-3] 2e 00 [0-3] 2e 00 [0-15] 2f 00 62 00 6f 00 6f 00 6d 00 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_6 = {68 74 74 70 3a 2f 2f [0-3] 2e [0-3] 2e [0-3] 2e [0-15] 2f 62 6f 6f 6d 2f [0-15] 2e 65 78 65}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_50_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_5_*))) or
+            ((2 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -31,3 +31,26 @@ rule Trojan_Win32_Donkaykay_B_2147751732_0
         )
 }
 
+rule Trojan_Win32_Donkaykay_H_2147933569_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Donkaykay.H!dha"
+        threat_id = "2147933569"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Donkaykay"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Open file failed:" ascii //weight: 1
+        $x_1_2 = {8d 04 45 02 00 00 00 3d 08 02 00 00 73}  //weight: 1, accuracy: High
+        $x_1_3 = {50 6a 40 56 57 ff 15 ?? ?? ?? ?? ff d7 68 00 80 00 00 6a 00 57 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
