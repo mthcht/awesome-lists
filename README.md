@@ -620,7 +620,9 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Conferences channel - Preludeorg](https://www.youtube.com/@Preludeorg/videos)
   - [Conferences channel - BlackHatOfficialYT](https://www.youtube.com/@BlackHatOfficialYT/videos)
   - [Conferences channel - TROOPERScon](https://www.youtube.com/@TROOPERScon/videos)
-
+  - [Conferences site - infocon.org](https://infocon.org/cons/)
+  - [Conferences site - sectube.tv](https://sectube.tv/)
+    
 </details>
 
 ### 🎙️ Podcasts
