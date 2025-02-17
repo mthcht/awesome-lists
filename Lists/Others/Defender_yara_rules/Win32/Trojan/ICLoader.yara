@@ -1720,3 +1720,30 @@ rule Trojan_Win32_ICLoader_AWKA_2147933089_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_BV_2147933613_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.BV!MTB"
+        threat_id = "2147933613"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {3b c5 89 44 24 0c 0f 84 83 00 00 00 8b 4c 24 ?? 68 24 00 01 00 51 50 ff 15 ?? ?? ?? 00 8b f0 8b fe 3b f5 89 7c 24}  //weight: 4, accuracy: Low
+        $x_1_2 = {55 8b ec 83 ec 0c 53 56 57}  //weight: 1, accuracy: High
+        $x_4_3 = {32 c8 56 88 0d ?? ?? 8a 00 8a 0d ?? ?? 8a 00 80 c9 0c 6a 0a c0 e9 02 81 e1 ff 00 00 00 89 4c 24 08 db 44 24 08 c7 44 24 08}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
