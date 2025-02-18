@@ -1,4 +1,5 @@
 http_user_agent,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_direction
+azure-logic-apps/1.0,Power Automate user-agent also used by C2 NTT-Security-Japan/pac2 (LOLC2),Power Automate,C2,medium,high,low,Hunting,network flow direction Internal > External
 PresidentPutin,ZLoader threat actor,Malware,Malware,https://x.com/abuse_ch/status/1867512002483978242,high,none,high,Detection rule,network flow direction internal/external --> external/Internal
 GuzzleHttp/*,HTTP client used for password spraying attacks,node-fetch,Credential Access,https://x.com/gregclermont/status/1887440109248634881,high,medium,medium,Hunting,network flow direction external --> external/Internal (login events)
 go-resty/*,HTTP client used for password spraying attacks,node-fetch,Credential Access,https://www.proofpoint.com/us/blog/threat-insight/http-client-tools-exploitation-account-takeover-attacks,high,medium,medium,Hunting,network flow direction external --> external/Internal (login events)
