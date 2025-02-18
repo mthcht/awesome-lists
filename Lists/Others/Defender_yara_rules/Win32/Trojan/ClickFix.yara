@@ -516,7 +516,12 @@ rule Trojan_Win32_ClickFix_DR_2147933573_0
         $x_1_11 = "robot - r" wide //weight: 1
         $x_1_12 = "robot - Cloudflare" wide //weight: 1
         $x_1_13 = "robot: Cloudflare" wide //weight: 1
-        $x_1_14 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_14 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_15 = "Human - r" wide //weight: 1
+        $x_1_16 = "Human: r" wide //weight: 1
+        $x_1_17 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_18 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_19 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -572,6 +577,35 @@ rule Trojan_Win32_ClickFix_MA_2147933576_0
         $x_1_4 = "https://" wide //weight: 1
         $x_1_5 = {43 00 41 00 50 00 54 00 43 00 48 00 41 00 14 00 72 00}  //weight: 1, accuracy: Low
         $x_1_6 = "Verif" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_MD_2147933729_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MD!MTB"
+        threat_id = "2147933729"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "https" wide //weight: 1
+        $x_1_3 = "Invoke-CimMethod" wide //weight: 1
+        $x_1_4 = "Win32_Process" wide //weight: 1
+        $x_1_5 = "Create" wide //weight: 1
+        $x_1_6 = "-Arguments" wide //weight: 1
+        $x_2_7 = "ms' + 'hta' + '.exe" wide //weight: 2
+        $x_1_8 = "CAPTCHA" wide //weight: 1
+        $x_1_9 = "Verif" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
