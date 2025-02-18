@@ -805,3 +805,29 @@ rule Trojan_Win64_CoinMiner_BQ_2147930885_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_BR_2147933743_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.BR!MTB"
+        threat_id = "2147933743"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {53 58 6f e4 74 7c a4 ff 34 4a 95 ff 23 37 7c ff 21 34 73 ff 1e 32 6d ff 19 2b 5f ff 23 38 75 ff 24 3d 81 ff 42 5b 99 ff 40 58}  //weight: 2, accuracy: High
+        $x_2_2 = {3c 01 03 1a ab 17 1d 4a fc 3c 46 7b ff 31 48 91 ff 31 4a 96 ff 33 53 9a ff 34 47 83 ff 08 0c 34 dc}  //weight: 2, accuracy: High
+        $x_1_3 = {75 52 30 33 45 74 00 00 66 66 64 73}  //weight: 1, accuracy: High
+        $x_1_4 = "4dab2a97-02b0-4451-a295-ae8df7084d62" ascii //weight: 1
+        $x_1_5 = "Click and drag this color onto the robot!" ascii //weight: 1
+        $x_1_6 = "robot_demo" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
