@@ -334,6 +334,27 @@ rule Trojan_Win32_FileCoder_ARAX_2147910935_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 14 07 32 10 ff 85 c4 fd ff ff 88 14 01 33 d2 40 3b d6 72 eb}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FileCoder_ARAX_2147910935_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileCoder.ARAX!MTB"
+        threat_id = "2147910935"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

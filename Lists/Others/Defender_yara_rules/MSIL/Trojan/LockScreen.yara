@@ -162,6 +162,29 @@ rule Trojan_MSIL_LockScreen_MA_2147926199_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$a65f0ae4-4b9f-44e5-8839-5579098d8898" ascii //weight: 1
+        $x_1_2 = "troll_virus" ascii //weight: 1
+        $x_1_3 = "herobrine" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_MSIL_LockScreen_MA_2147926199_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LockScreen.MA!MTB"
+        threat_id = "2147926199"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "8"
         strings_accuracy = "High"
     strings:
@@ -178,7 +201,7 @@ rule Trojan_MSIL_LockScreen_MA_2147926199_0
         )
 }
 
-rule Trojan_MSIL_LockScreen_MA_2147926199_1
+rule Trojan_MSIL_LockScreen_MA_2147926199_2
 {
     meta:
         author = "defender2yara"

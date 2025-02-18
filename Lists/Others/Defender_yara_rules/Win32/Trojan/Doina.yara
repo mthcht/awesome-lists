@@ -733,3 +733,25 @@ rule Trojan_Win32_Doina_HNL_2147921836_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_MX_2147933716_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.MX!MTB"
+        threat_id = "2147933716"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 3d 06 00 00 0f b7 f0 e8 89 73 00 00 56 50 57 68 00 00 40 00 e8 55 f0 ff ff 8b f0 e8 57 06 00 00 84 c0}  //weight: 1, accuracy: High
+        $x_1_2 = "kstatio.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

