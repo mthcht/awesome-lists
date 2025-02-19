@@ -16227,3 +16227,24 @@ rule Trojan_Win64_CobaltStrike_SMN_2147933704_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_MLZ_2147933859_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.MLZ!MTB"
+        threat_id = "2147933859"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8b c5 4c 33 c1 49 63 ca 49 f7 e0 41 ff c2 48 c1 ea 0a 48 69 c2 ?? ?? ?? ?? 33 d2 4c 2b c0 48 8b c1 4d 31 04 39 48 33 05 2e 59 0b 00 48 03 c1 48 f7 35 e4 58 0b 00 48 89 15 dd 58 0b 00 41 81 fa 04 19 00 00 7e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
