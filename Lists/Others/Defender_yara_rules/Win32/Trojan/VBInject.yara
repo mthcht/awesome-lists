@@ -884,3 +884,29 @@ rule Trojan_Win32_VBInject_MBQ_2147933332_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_VBInject_EN_2147933737_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VBInject.EN!MTB"
+        threat_id = "2147933737"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VBInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Quintises.vbp" wide //weight: 1
+        $x_1_2 = "system /v disableregistrytools /t reg_dword" wide //weight: 1
+        $x_1_3 = "system /v DisableTaskMgr /t reg_dword" wide //weight: 1
+        $x_1_4 = "Users\\Roda" wide //weight: 1
+        $x_1_5 = "S8H91EdEA" wide //weight: 1
+        $x_1_6 = "dsFxkZoI8" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

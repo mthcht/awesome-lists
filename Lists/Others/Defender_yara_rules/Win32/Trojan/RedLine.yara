@@ -3136,3 +3136,24 @@ rule Trojan_Win32_RedLine_EZ_2147925123_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RedLine_RDFM_2147933846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RedLine.RDFM!MTB"
+        threat_id = "2147933846"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RedLine"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {46 8a 44 34 60 88 44 3c 60 88 4c 34 60 0f b6 44 3c 60 03 c2 89 74 24 38 0f b6 c8 89 4c 24 3c 84 c0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

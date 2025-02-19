@@ -88,3 +88,24 @@ rule Trojan_Win64_TrickBot_GI_2147798749_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_TrickBot_RDA_2147933844_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/TrickBot.RDA!MTB"
+        threat_id = "2147933844"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "TrickBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 44 24 48 49 8b 0c f7 4c 89 f2 48 d3 fa 30 54 18 08 48 83 fe 03}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

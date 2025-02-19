@@ -2357,3 +2357,24 @@ rule Trojan_MSIL_Vidar_AYA_2147932496_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Vidar_RDJ_2147933845_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Vidar.RDJ!MTB"
+        threat_id = "2147933845"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 04 28 63 00 00 0a 13 08 11 08 11 06 74 25 00 00 01 73 3f 00 00 0a 0d 18 0c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
