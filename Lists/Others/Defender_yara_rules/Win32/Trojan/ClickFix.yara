@@ -220,9 +220,24 @@ rule Trojan_Win32_ClickFix_DC_2147932130_0
         $x_1_5 = "- ray" wide //weight: 1
         $x_1_6 = "- recaptcha" wide //weight: 1
         $x_1_7 = "- re captcha" wide //weight: 1
+        $x_1_8 = "- rCAPTCHA" wide //weight: 1
+        $x_1_9 = "- clip FREE" wide //weight: 1
+        $x_1_10 = "- Over FREE" wide //weight: 1
+        $x_1_11 = "robot: r" wide //weight: 1
+        $x_1_12 = "robot - r" wide //weight: 1
+        $x_1_13 = "robot - Cloudflare" wide //weight: 1
+        $x_1_14 = "robot: Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_17 = "Human - r" wide //weight: 1
+        $x_1_18 = "Human: r" wide //weight: 1
+        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
+            ((3 of ($x_10_*) and 11 of ($x_1_*))) or
             ((4 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
@@ -247,11 +262,31 @@ rule Trojan_Win32_ClickFix_DF_2147932251_0
         $x_10_2 = "verif" wide //weight: 10
         $x_5_3 = "http:" wide //weight: 5
         $x_5_4 = "https_" wide //weight: 5
-        $x_1_5 = "- recaptcha" wide //weight: 1
-        $x_1_6 = "- re captcha" wide //weight: 1
+        $x_1_5 = "- ray" wide //weight: 1
+        $x_1_6 = "- recaptcha" wide //weight: 1
+        $x_1_7 = "- re captcha" wide //weight: 1
+        $x_1_8 = "- rCAPTCHA" wide //weight: 1
+        $x_1_9 = "- clip FREE" wide //weight: 1
+        $x_1_10 = "- Over FREE" wide //weight: 1
+        $x_1_11 = "robot: r" wide //weight: 1
+        $x_1_12 = "robot - r" wide //weight: 1
+        $x_1_13 = "robot - Cloudflare" wide //weight: 1
+        $x_1_14 = "robot: Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_17 = "Human - r" wide //weight: 1
+        $x_1_18 = "Human: r" wide //weight: 1
+        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
+            ((2 of ($x_5_*) and 16 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 16 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 11 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 2 of ($x_5_*) and 6 of ($x_1_*))) or
+            ((2 of ($x_10_*) and 6 of ($x_1_*))) or
             ((2 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_1_*))) or
             ((2 of ($x_10_*) and 2 of ($x_5_*))) or
             (all of ($x*))
@@ -307,17 +342,27 @@ rule Trojan_Win32_ClickFix_DD_2147932646_0
         $x_10_2 = "http" wide //weight: 10
         $x_10_3 = "verif" wide //weight: 10
         $x_10_4 = "\\1" wide //weight: 10
-        $x_1_5 = "robot - captcha" wide //weight: 1
-        $x_1_6 = "robot: captcha" wide //weight: 1
-        $x_1_7 = "- ray" wide //weight: 1
-        $x_1_8 = "- recaptcha" wide //weight: 1
-        $x_1_9 = "- re captcha" wide //weight: 1
-        $x_1_10 = "robot: r" wide //weight: 1
-        $x_1_11 = "robot - r" wide //weight: 1
-        $x_1_12 = "- rCAPTCHA" wide //weight: 1
+        $x_1_5 = "- ray" wide //weight: 1
+        $x_1_6 = "- recaptcha" wide //weight: 1
+        $x_1_7 = "- re captcha" wide //weight: 1
+        $x_1_8 = "- rCAPTCHA" wide //weight: 1
+        $x_1_9 = "- clip FREE" wide //weight: 1
+        $x_1_10 = "- Over FREE" wide //weight: 1
+        $x_1_11 = "robot: r" wide //weight: 1
+        $x_1_12 = "robot - r" wide //weight: 1
+        $x_1_13 = "robot - Cloudflare" wide //weight: 1
+        $x_1_14 = "robot: Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_17 = "Human - r" wide //weight: 1
+        $x_1_18 = "Human: r" wide //weight: 1
+        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
+            ((3 of ($x_10_*) and 11 of ($x_1_*))) or
             ((4 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
@@ -342,17 +387,27 @@ rule Trojan_Win32_ClickFix_DE_2147932647_0
         $x_10_2 = "http" wide //weight: 10
         $x_10_3 = "\\1" wide //weight: 10
         $x_10_4 = "verif" wide //weight: 10
-        $x_1_5 = "robot - captcha" wide //weight: 1
-        $x_1_6 = "robot: captcha" wide //weight: 1
-        $x_1_7 = "- ray" wide //weight: 1
-        $x_1_8 = "- recaptcha" wide //weight: 1
-        $x_1_9 = "- re captcha" wide //weight: 1
-        $x_1_10 = "robot: r" wide //weight: 1
-        $x_1_11 = "robot - r" wide //weight: 1
-        $x_1_12 = "- rCAPTCHA" wide //weight: 1
+        $x_1_5 = "- ray" wide //weight: 1
+        $x_1_6 = "- recaptcha" wide //weight: 1
+        $x_1_7 = "- re captcha" wide //weight: 1
+        $x_1_8 = "- rCAPTCHA" wide //weight: 1
+        $x_1_9 = "- clip FREE" wide //weight: 1
+        $x_1_10 = "- Over FREE" wide //weight: 1
+        $x_1_11 = "robot: r" wide //weight: 1
+        $x_1_12 = "robot - r" wide //weight: 1
+        $x_1_13 = "robot - Cloudflare" wide //weight: 1
+        $x_1_14 = "robot: Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_17 = "Human - r" wide //weight: 1
+        $x_1_18 = "Human: r" wide //weight: 1
+        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
+            ((3 of ($x_10_*) and 11 of ($x_1_*))) or
             ((4 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
