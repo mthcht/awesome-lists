@@ -517,11 +517,12 @@ rule Trojan_Win32_ClickFix_DR_2147933573_0
         $x_1_12 = "robot - Cloudflare" wide //weight: 1
         $x_1_13 = "robot: Cloudflare" wide //weight: 1
         $x_1_14 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_15 = "Human - r" wide //weight: 1
-        $x_1_16 = "Human: r" wide //weight: 1
-        $x_1_17 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_18 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_19 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_15 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_16 = "Human - r" wide //weight: 1
+        $x_1_17 = "Human: r" wide //weight: 1
+        $x_1_18 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_19 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_20 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -611,28 +612,82 @@ rule Trojan_Win32_ClickFix_MD_2147933729_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_DO_2147933803_0
+rule Trojan_Win32_ClickFix_AB_2147933821_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.DO!MTB"
-        threat_id = "2147933803"
+        detection_name = "Trojan:Win32/ClickFix.AB!MTB"
+        threat_id = "2147933821"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
+        threshold = "71"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = "powershell" wide //weight: 1
-        $x_1_2 = "http" wide //weight: 1
-        $x_1_3 = ".InvokeCommand|Get-Member|?{" wide //weight: 1
-        $x_1_4 = "CommandTypes]::Cmdlet" wide //weight: 1
-        $x_1_5 = {76 00 61 00 72 00 69 00 61 00 62 00 6c 00 65 00 3a 00 2f 00 [0-15] 28 00 5b 00 6e 00 65 00 74 00 2e 00 77 00 65 00 62 00 63 00 6c 00 69 00 65 00 6e 00 74 00 5d 00 3a 00 3a 00 6e 00 65 00 77 00 28 00 29 00}  //weight: 1, accuracy: Low
+        $x_20_1 = "http" wide //weight: 20
+        $x_20_2 = "mshta" wide //weight: 20
+        $x_20_3 = "\\1" wide //weight: 20
+        $x_10_4 = ".shop" wide //weight: 10
+        $x_10_5 = ".hair" wide //weight: 10
+        $x_10_6 = ".cyou" wide //weight: 10
+        $x_10_7 = ".click" wide //weight: 10
+        $x_1_8 = ".mp" wide //weight: 1
+        $x_1_9 = ".flv" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_20_*) and 3 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_20_*) and 4 of ($x_10_*))) or
+            ((3 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_20_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DQ_2147933822_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DQ!MTB"
+        threat_id = "2147933822"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_10_2 = "-replace" wide //weight: 10
+        $x_10_3 = "verif" wide //weight: 10
+        $x_1_4 = "- ray" wide //weight: 1
+        $x_1_5 = "- recaptcha" wide //weight: 1
+        $x_1_6 = "- re captcha" wide //weight: 1
+        $x_1_7 = "- rCAPTCHA" wide //weight: 1
+        $x_1_8 = "- clip FREE" wide //weight: 1
+        $x_1_9 = "- Over FREE" wide //weight: 1
+        $x_1_10 = "robot: r" wide //weight: 1
+        $x_1_11 = "robot - r" wide //weight: 1
+        $x_1_12 = "robot - Cloudflare" wide //weight: 1
+        $x_1_13 = "robot: Cloudflare" wide //weight: 1
+        $x_1_14 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_15 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_16 = "Human - r" wide //weight: 1
+        $x_1_17 = "Human: r" wide //weight: 1
+        $x_1_18 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_19 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_20 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_10_*) and 11 of ($x_1_*))) or
+            ((3 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
