@@ -6449,3 +6449,37 @@ rule Trojan_Win32_Vidar_YAC_2147933571_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_AAD_2147933797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.AAD!MTB"
+        threat_id = "2147933797"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "54"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "/c timeout /t 10 & rd /s /q \"C:\\ProgramData\\" ascii //weight: 10
+        $x_10_2 = "Release\\vdr1.pdb" ascii //weight: 10
+        $x_10_3 = "vdr1.exe" ascii //weight: 10
+        $x_5_4 = "\\Monero\\wallet.keys" ascii //weight: 5
+        $x_5_5 = "SOFTWARE\\monero-project\\monero-cor" ascii //weight: 5
+        $x_2_6 = "_cookies.db" ascii //weight: 2
+        $x_2_7 = "_passwords.db" ascii //weight: 2
+        $x_2_8 = "_key4.db" ascii //weight: 2
+        $x_2_9 = "_logins.json" ascii //weight: 2
+        $x_2_10 = "passwords.txt" ascii //weight: 2
+        $x_1_11 = "UseMasterPassword" ascii //weight: 1
+        $x_1_12 = "Crash Detected" ascii //weight: 1
+        $x_1_13 = "https://steamcommunity.com" ascii //weight: 1
+        $x_1_14 = "https://t.me/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

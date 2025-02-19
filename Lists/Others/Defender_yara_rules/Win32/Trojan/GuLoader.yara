@@ -1936,6 +1936,55 @@ rule Trojan_Win32_GuLoader_DE_2147841539_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RSP_2147845437_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RSP!MTB"
+        threat_id = "2147845437"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Koreograferendes" wide //weight: 1
+        $x_1_2 = "Kaliberbor" wide //weight: 1
+        $x_1_3 = "Software\\Vekslendes" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RSP_2147845437_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RSP!MTB"
+        threat_id = "2147845437"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\unproselyte\\besparelses" ascii //weight: 1
+        $x_1_2 = "6\\Prefigure.emu" ascii //weight: 1
+        $x_1_3 = "\\stemmespildskampagnes.una" ascii //weight: 1
+        $x_1_4 = "entitle vrdifuldes anale" ascii //weight: 1
+        $x_1_5 = "bishoprics stalagmitterne" ascii //weight: 1
+        $x_1_6 = "mellemteksten.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_ME_2147896084_0
 {
     meta:
@@ -2452,6 +2501,58 @@ rule Trojan_Win32_GuLoader_RSK_2147933300_0
         $x_1_5 = "\\breathalyze\\adults.loc" ascii //weight: 1
         $x_1_6 = "#\\Disallowance232\\*.vej" ascii //weight: 1
         $x_1_7 = "busseronne.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RSO_2147933773_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RSO!MTB"
+        threat_id = "2147933773"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vakuumers\\sundhedsplejerskers\\Skyggerne" ascii //weight: 1
+        $x_1_2 = "Ansttelsesplaners\\Metalloid205\\Septics" ascii //weight: 1
+        $x_1_3 = "%unreckingness%\\Squelchy\\kngtet" ascii //weight: 1
+        $x_1_4 = "indmuret garagelejens decrustation" ascii //weight: 1
+        $x_1_5 = "konsolideringernes sammensattes" ascii //weight: 1
+        $x_1_6 = "squilgees.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RSQ_2147933793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RSQ!MTB"
+        threat_id = "2147933793"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\conclusiveness\\aflirende\\kavaic" ascii //weight: 1
+        $x_1_2 = "\\didactive\\eneprokura.ini" ascii //weight: 1
+        $x_1_3 = "kompaktheden\\Indfoerelsen126" ascii //weight: 1
+        $x_1_4 = "unconnectedness famelic" ascii //weight: 1
+        $x_1_5 = "sprink forsvarsvrkers klovbeskring" ascii //weight: 1
+        $x_1_6 = "skims trogon skridtkilen" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -3019,29 +3019,6 @@ rule Trojan_Win32_Guloader_SPLU_2147845261_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_RSP_2147845437_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Guloader.RSP!MTB"
-        threat_id = "2147845437"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Guloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Koreograferendes" wide //weight: 1
-        $x_1_2 = "Kaliberbor" wide //weight: 1
-        $x_1_3 = "Software\\Vekslendes" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Guloader_SRS_2147847010_0
 {
     meta:

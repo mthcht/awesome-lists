@@ -721,3 +721,35 @@ rule Trojan_Win32_Autoitinject_SXCU_2147933447_0
         )
 }
 
+rule Trojan_Win32_Autoitinject_SCHZ_2147933795_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Autoitinject.SCHZ!MTB"
+        threat_id = "2147933795"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Autoitinject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "FILEINSTALL" ascii //weight: 1
+        $x_1_2 = "@TEMPDIR" ascii //weight: 1
+        $x_5_3 = {26 00 3d 00 20 00 24 00 [0-20] 20 00 28 00 20 00 42 00 49 00 54 00 58 00 4f 00 52 00 20 00 28 00 20 00 24 00 [0-20] 20 00 28 00 20 00 53 00 54 00 52 00 49 00 4e 00 47 00 4d 00 49 00 44 00 20 00 28 00 20 00 24 00 [0-20] 20 00 2c 00 20 00 24 00 [0-20] 20 00 2c 00 20 00 31 00 20 00 29 00 20 00 29 00 20 00 2c 00 20 00 24 00 [0-20] 20 00 29 00 20 00 29 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {26 3d 20 24 [0-20] 20 28 20 42 49 54 58 4f 52 20 28 20 24 [0-20] 20 28 20 53 54 52 49 4e 47 4d 49 44 20 28 20 24 [0-20] 20 2c 20 24 [0-20] 20 2c 20 31 20 29 20 29 20 2c 20 24 [0-20] 20 29 20 29}  //weight: 5, accuracy: Low
+        $x_6_5 = {45 00 58 00 45 00 43 00 55 00 54 00 45 00 20 00 28 00 20 00 [0-20] 20 00 28 00 20 00 22 00 50 00 78 00 78 00 57 00 75 00 78 00 78 00 22 00 20 00 29 00 20 00 29 00}  //weight: 6, accuracy: Low
+        $x_6_6 = {45 58 45 43 55 54 45 20 28 20 [0-20] 20 28 20 22 50 78 78 57 75 78 78 22 20 29 20 29}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_5_*))) or
+            ((2 of ($x_6_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_6_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

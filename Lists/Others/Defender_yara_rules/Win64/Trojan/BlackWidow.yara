@@ -160,6 +160,27 @@ rule Trojan_Win64_BlackWidow_GNQ_2147929894_0
         threshold = "10"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {c5 c5 fd cb c5 c5 73 dc ?? c5 e5 69 d7 44 30 14 0f c5 dd 60 e1 48 ff c1 c5 c5 68 f9 48 89 c8 c4 e3 fd 00 ff ?? 48 81 f9}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_BlackWidow_GNQ_2147929894_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GNQ!MTB"
+        threat_id = "2147929894"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {48 8b c1 48 2b c2 48 d1 e8 48 03 c2 48 c1 e8 ?? 48 6b c0 ?? 48 2b c8 0f b6 44 0c ?? 43 32 44 08 ?? 41 88 41 ?? 49 ff cb 0f 85}  //weight: 10, accuracy: Low
         $x_10_2 = {48 8b c1 48 2b c2 48 d1 e8 48 03 c2 48 c1 e8 ?? 48 6b c0 ?? 48 2b c8 48 0f af cb 8a 44 0c ?? 43 32 04 13 41 88 02 4d 03 d4 45 3b cd}  //weight: 10, accuracy: Low
     condition:

@@ -6776,3 +6776,27 @@ rule Trojan_Win32_NSISInject_SXBM_2147932694_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_NSISInject_SVM_2147933796_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/NSISInject.SVM!MTB"
+        threat_id = "2147933796"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "NSISInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Erythromania224\\sammenhobningernes" ascii //weight: 3
+        $x_2_2 = "Regeringerne205\\prioritetsrkkeflgens" ascii //weight: 2
+        $x_2_3 = "Arabesks\\Uninstall\\impeach\\barselsorloverne" ascii //weight: 2
+        $x_1_4 = "Halvfemser\\luftspringenes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
