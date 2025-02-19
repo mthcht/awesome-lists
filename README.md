@@ -622,6 +622,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Conferences channel - TROOPERScon](https://www.youtube.com/@TROOPERScon/videos)
   - [Conferences site - infocon.org](https://infocon.org/cons/)
   - [Conferences site - sectube.tv](https://sectube.tv/)
+  - [Conferences channel - x33conf](https://www.youtube.com/@x33fcon/videos)
     
 </details>
 
