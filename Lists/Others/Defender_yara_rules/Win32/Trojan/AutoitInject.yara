@@ -4708,3 +4708,35 @@ rule Trojan_Win32_AutoitInject_ARLA_2147933688_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AutoitInject_AXLA_2147933897_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.AXLA!MTB"
+        threat_id = "2147933897"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "EXECUTE ( \"A\" & \"sc\" )" ascii //weight: 1
+        $x_1_2 = "EXECUTE ( \"C\" & \"hr\" )" ascii //weight: 1
+        $x_2_3 = {46 00 49 00 4c 00 45 00 49 00 4e 00 53 00 54 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 [0-20] 22 00 20 00 2c 00 20 00 40 00 54 00 45 00 4d 00 50 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 [0-20] 22 00 20 00 2c 00 20 00 31 00 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_4 = {46 49 4c 45 49 4e 53 54 41 4c 4c 20 28 20 22 [0-20] 22 20 2c 20 40 54 45 4d 50 44 49 52 20 26 20 22 5c [0-20] 22 20 2c 20 31 20 29}  //weight: 2, accuracy: Low
+        $x_2_5 = {28 00 20 00 22 00 77 00 6c 00 61 00 70 00 35 00 4e 00 22 00 20 00 29 00 20 00 26 00 20 00 24 00 [0-20] 20 00 28 00 20 00 24 00 [0-20] 20 00 29 00 20 00 26 00 20 00 [0-20] 20 00 28 00 20 00 22 00 48 00 22 00 20 00 29 00 20 00 2c 00}  //weight: 2, accuracy: Low
+        $x_2_6 = {28 20 22 77 6c 61 70 35 4e 22 20 29 20 26 20 24 [0-20] 20 28 20 24 [0-20] 20 29 20 26 20 [0-20] 20 28 20 22 48 22 20 29 20 2c}  //weight: 2, accuracy: Low
+        $x_2_7 = {28 00 20 00 22 00 71 00 62 00 7a 00 67 00 71 00 22 00 20 00 29 00 20 00 2c 00 20 00 22 00 30 00 78 00 33 00 30 00 30 00 30 00 22 00 20 00 2c 00 20 00 [0-20] 20 00 28 00 20 00 22 00 71 00 62 00 7a 00 67 00 71 00 22 00 20 00 29 00 20 00 2c 00 20 00 22 00 30 00 78 00 34 00 30 00 22 00 20 00 29 00 20 00 5b 00 20 00 30 00 20 00 5d 00}  //weight: 2, accuracy: Low
+        $x_2_8 = {28 20 22 71 62 7a 67 71 22 20 29 20 2c 20 22 30 78 33 30 30 30 22 20 2c 20 [0-20] 20 28 20 22 71 62 7a 67 71 22 20 29 20 2c 20 22 30 78 34 30 22 20 29 20 5b 20 30 20 5d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((4 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

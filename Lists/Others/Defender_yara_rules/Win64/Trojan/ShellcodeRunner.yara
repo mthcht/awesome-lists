@@ -768,3 +768,24 @@ rule Trojan_Win64_ShellcodeRunner_CCJR_2147927756_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_MAZ_2147933870_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.MAZ!MTB"
+        threat_id = "2147933870"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {33 d2 41 0f b6 c0 41 c0 e0 02 48 f7 f1 41 02 d0 02 d1 30 14 19 48 ff c1 48 3b cf 0f 82 7a ff ff ff}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -173,3 +173,25 @@ rule Trojan_Win64_DriverLoader_ADRL_2147924394_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DriverLoader_GNQ_2147933869_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DriverLoader.GNQ!MTB"
+        threat_id = "2147933869"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DriverLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {30 dd 03 44 ?? ?? 08 dd 03 44 38 ?? 18 dd 03 44 68 ?? d0 dd 03 44 50 ?? c0 dd ?? 44 c0 45 ?? ?? 52 6c 8d a3}  //weight: 10, accuracy: Low
+        $x_10_2 = {43 31 3f 6c 2b a2 ?? ?? ?? ?? 52 0b eb d3 2f 86 f6 dc 6c 5c}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

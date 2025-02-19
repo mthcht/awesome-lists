@@ -6939,3 +6939,24 @@ rule Trojan_MSIL_SnakeKeylogger_SZZ_2147933364_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_PHH_2147933872_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.PHH!MTB"
+        threat_id = "2147933872"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {34 00 44 00 35 00 41 00 39 00 3a 00 30 00 33 00 3a 00 3a 00 30 00 34 00 3a 00 3a 00 46 00 46 00 46 00 46 00 3a 00 30 00 42 00 38 00 3a 00 3a 00 3a 00 3a 00 30 00 30 00 34 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 3a 00 30 00 30 00 38 00 3a 00 3a 00 30 00 30 00 45 00 31 00 46 00 42 00 41 00 30 00 45 00 30}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

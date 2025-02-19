@@ -1415,6 +1415,27 @@ rule Trojan_Win32_LummaC_GTT_2147927100_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {21 d6 09 ca f7 d2 09 f2 89 d6 81 f6 ?? ?? ?? ?? 83 e2 ?? 01 d2 29 f2 88 10 40 49}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_GTT_2147927100_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.GTT!MTB"
+        threat_id = "2147927100"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "Low"
     strings:
