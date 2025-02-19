@@ -146,3 +146,24 @@ rule Trojan_Win32_Matanbuchus_AUJ_2147932418_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Matanbuchus_MKZ_2147933800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Matanbuchus.MKZ!MTB"
+        threat_id = "2147933800"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Matanbuchus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 c0 99 83 f0 5f b9 01 00 00 00 6b d1 00 88 84 15 28 f8 ff ff 6a 3e e8 ?? ?? ?? ?? 83 c4 04 0f b6 c0 99 83 f0 5f b9 01 00 00 00 c1 e1 00 88 84 0d 28 f8 ff ff 6a 73 e8}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1091,3 +1091,24 @@ rule Ransom_Win32_Basta_KGQ_2147926046_0
         (1 of ($x*))
 }
 
+rule Ransom_Win32_Basta_AAZ_2147933802_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Basta.AAZ!MTB"
+        threat_id = "2147933802"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Basta"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b7 c9 0f af c8 8b 44 24 24 66 2b 0c f8 66 01 0c 7a a1 ?? ?? ?? ?? 8a 44 43 1a 0a 44 24 14 30 04 2f a1 ?? ?? ?? ?? 0f b7 4c 42 2e 8d 34 42 b8 3f 15 00 00 2b 05 ?? ?? ?? ?? 2b 05}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
