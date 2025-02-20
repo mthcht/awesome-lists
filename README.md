@@ -72,7 +72,7 @@
 - 🧬 ClamAV signatures lists: [[ClamAV]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/ClamAV)  
 - 🔗 Others correlation Lists: [[Others]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others)
 - 📋 Lists i need to finish: [[todo]](https://github.com/mthcht/awesome-lists/tree/main/todo)
-- 🏷️ Bookmarks with all my lists to import in your browser [UPDATE Bookmarks](https://github.com/mthcht/awesome-lists/blob/main/_utils/bookmarks.html)
+- 🏷️ Bookmarks with all my lists to import in your browser (updated automatically) [UPDATE Bookmarks](https://github.com/mthcht/awesome-lists/blob/main/_utils/bookmarks.html)
 
 I regularly update most of these lists after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project
 
