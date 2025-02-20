@@ -1,6 +1,6 @@
 # Bookmark Generator
 
-This Python script parses my main markdown file `README.md` and produces a valid Netscape‐style Bookmark HTML file. It can optionally ignore certain URLs or sections and also inject additional folders from a local directory.  
+After each update of the main README.md, this Python script is automatically executed, it parses my main markdown file `README.md` and produces a valid Netscape‐style Bookmark HTML file. It can optionally ignore certain URLs or sections and also inject additional folders from a local directory.  
 
 ## Features
 
