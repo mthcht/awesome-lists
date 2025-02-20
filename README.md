@@ -102,7 +102,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [\[OS\] Flare VM](https://github.com/mandiant/flare-vm)
   - [PSBits](https://github.com/gtworek/PSBits/tree/master/DFIR)
   - [Yara - Threat Hunting](https://github.com/mthcht/ThreatHunting-Keywords-yara-rules) + [TH](https://github.com/mthcht/ThreatHunting-Keywords)
-  - [Yara - Forge](https://github.com/YARAHQ/yara-forge)
+  - [Yara - Forge](https://github.com/YARAHQ/yara-forge) 
   - [capa](https://github.com/mandiant/capa)
   - [Malcontent](https://github.com/chainguard-dev/malcontent)
   - [\[Event parser\] evtx](https://github.com/omerbenamram/evtx)
