@@ -1,24 +1,26 @@
-src_nt_host,metadata_comment,metadata_link,metadata_severity
-RULER,CreateStringPayload with static hostname 'RULER' showing in logs,https://github.com/sensepost/ruler/issues/47#issuecomment-320162718,critical
-kali*,kali linux offensive distribution,https://www.kali.org/,high
-parrot*,offensive distribution,https://www.parrotsec.org/,high
-localhost*,offensive distribution,https://www.parrotsec.org/,high
-*ArchStrike*,archstrike offensive distribution,https://archstrike.org/,high
-tails,OS distribution including offensive tools and TOR,https://tails.net/install,high
-amnesia,OS distribution including offensive tools and TOR,https://tails.net/install,high
-pentoo*,offensive distribution,https://www.pentoo.ch/,high
-backbox,offensive distribution,https://linux.backbox.org/,high
-*pentest*,suspicious name that could be used during pentest operations,N/A,medium
-WindowsXP,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-Windows11,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-Rdesktop,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-Remmina,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-Windows8,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-Windows2016,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-Windows10,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-Windows2012,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-mstsc,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-FreeRDP,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-Windows2019,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-WORKSTATION,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high
-WIN-JGRMF8L11HO,workstation name observed in log entries during multiple incidents,https://www.huntress.com/blog/akira-ransomware-indicators,high
+src_nt_host,metadata_comment,metadata_link,metadata_severity,metadata_usage,metadata_log_type
+RULER,CreateStringPayload with static hostname 'RULER' showing in logs,https://github.com/sensepost/ruler/issues/47#issuecomment-320162718,critical,Detection,DHCP - Successful Authentication
+kali*,kali linux offensive distribution,https://www.kali.org/,high,Detection,DHCP - Successful Authentication
+parrot*,offensive distribution,https://www.parrotsec.org/,high,Detection,DHCP - Successful Authentication
+localhost*,offensive distribution,https://www.parrotsec.org/,high,Detection,DHCP - Successful Authentication
+*ArchStrike*,archstrike offensive distribution,https://archstrike.org/,high,Detection,DHCP - Successful Authentication
+tails,OS distribution including offensive tools and TOR,https://tails.net/install,high,Detection,DHCP - Successful Authentication
+amnesia,OS distribution including offensive tools and TOR,https://tails.net/install,high,Detection,DHCP - Successful Authentication
+pentoo*,offensive distribution,https://www.pentoo.ch/,high,Detection,DHCP - Successful Authentication
+backbox,offensive distribution,https://linux.backbox.org/,high,Detection,DHCP - Successful Authentication
+*pentest*,suspicious name that could be used during pentest operations,N/A,medium,Detection,DHCP - Successful Authentication
+WindowsXP,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+Windows11,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+Rdesktop,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+Remmina,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+Windows8,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+Windows2016,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+Windows10,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+Windows2012,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+mstsc,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+FreeRDP,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+Windows2019,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+WORKSTATION,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+WIN-JGRMF8L11HO,workstation name observed in log entries during multiple incidents,https://www.huntress.com/blog/akira-ransomware-indicators,high,Detection,Successful Authentication
+WIN-*,default machine name pattern - could be interresting to search in Successful authentication logs,https://www.huntress.com/blog/akira-ransomware-indicators,low,Hunting,Successful Authentication
+DESKTOP-*,default machine name pattern - could be interresting to search in Successful authentication logs,https://www.huntress.com/blog/akira-ransomware-indicators,low,Hunting,Successful Authentication
