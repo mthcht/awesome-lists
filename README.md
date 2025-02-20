@@ -802,6 +802,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [Logs - Events - ultimatewindowssecurity](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx)
   - [Logs - Events - microsoft](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/advanced-security-audit-policy-settings)
   - [more cheatsheets](https://github.com/r1cksec/cheatsheets)
+  - [Exploitation - TLS details](https://tls12.xargs.org/)
 
 </details>
 
