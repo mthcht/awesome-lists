@@ -5,7 +5,7 @@ from datetime import datetime
 
 # URL to ignore
 IGNORED_URL = "https://github.com/mthcht/awesome-lists/assets/75267080/059432aa-cfe9-46d1-a611-fbb225bce66e"
-# Base URL for the Lists folder
+# Base URL for the Lists folder on GitHub
 LISTS_BASE_URL = "https://github.com/mthcht/awesome-lists/Lists"
 # Local folder containing the full detection lists structure
 LISTS_FOLDER = "../Lists"
@@ -23,11 +23,12 @@ def parse_markdown(filepath):
     Parse the markdown file into a tree of BookmarkNode objects.
     Handles headers (#) and list items (- or *).
     Ignores <details> tags.
-    Skips the "My Detection Lists" section entirely.
+    Skips any header containing "my detection lists".
     """
     root = BookmarkNode("Bookmarks", is_folder=True)
     # Stack holds tuples of (level, node); root is at level 0.
     stack = [(0, root)]
+    
     header_re = re.compile(r"^(#{1,6})\s*(.+)$")
     link_re = re.compile(r"\[([^\]]+)\]\((https?://[^\)]+)\)")
     
@@ -53,16 +54,16 @@ def parse_markdown(filepath):
                 # If header level is less or equal, end skipping
                 if skip_level is not None and level <= skip_level:
                     skip_level = None
-                # If this header is the "My Detection Lists" section, skip it entirely
-                if title.strip().lower() == "my detection lists":
+                # Skip any header containing "my detection lists"
+                if "my detection lists" in title.strip().lower():
                     skip_level = level
                     continue
 
-                # Rename specific headers and clean colons
+                # Rename specific headers and remove colons
                 if title.strip() == "Security lists for SOC/DFIR detections [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)":
                     title = "mthcht_lists"
                 title = title.replace(":", "")
-                # Pop from stack until correct level is reached
+                # Pop stack until correct level is reached
                 while stack and stack[-1][0] >= level:
                     stack.pop()
                 node = BookmarkNode(title, is_folder=True)
@@ -128,20 +129,33 @@ def generate_bookmarks_html(node, indent=0):
         lines.append(f'{indent_str}<DT><A HREF="{node.url}" ADD_DATE="{node.add_date}">{node.title}</A>')
     return lines
 
+def find_node_by_title(node, target_title):
+    """
+    Recursively find a node with the given title.
+    """
+    if node.title.lower() == target_title.lower():
+        return node
+    for child in node.children:
+        result = find_node_by_title(child, target_title)
+        if result:
+            return result
+    return None
+
 def build_bookmarks_file(markdown_path, output_html_path):
     """
-    Build the Netscape Bookmark file from the markdown input and the Lists folder.
+    Build the Netscape Bookmark file from the README markdown and inject the Lists folder.
+    The detection lists folder is added inside the mthcht_lists node.
     """
     # Parse the README markdown
     root = parse_markdown(markdown_path)
     
-    # Inject the detection lists folder structure from the local Lists folder
-    if os.path.isdir(LISTS_FOLDER):
+    # Locate the mthcht_lists node in the parsed tree
+    mthcht_node = find_node_by_title(root, "mthcht_lists")
+    if mthcht_node and os.path.isdir(LISTS_FOLDER):
         lists_tree = parse_folder(LISTS_FOLDER, LISTS_BASE_URL)
-        # Create a new node for detection lists (renaming the folder)
         detection_node = BookmarkNode("detection lists", is_folder=True)
         detection_node.children = lists_tree.children
-        root.children.append(detection_node)
+        mthcht_node.children.append(detection_node)
     
     html_lines = [
         "<!DOCTYPE NETSCAPE-Bookmark-file-1>",
@@ -160,6 +174,6 @@ def build_bookmarks_file(markdown_path, output_html_path):
     print(f"✅ Bookmarks saved to: {output_html_path}")
 
 if __name__ == "__main__":
-    input_md = "../README.md"
+    input_md = "../README.md"  # Adjust as needed
     output_html = "bookmarks.html"
     build_bookmarks_file(input_md, output_html)
