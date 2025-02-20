@@ -282,7 +282,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
 </details>
 
 
-###  Investigation
+### 🕵️‍♂️ Investigation
 
 #### 📊 TI checks
 
