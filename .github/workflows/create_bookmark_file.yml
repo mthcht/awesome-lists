@@ -1,4 +1,4 @@
-name: Update Bookmarks on README Change
+name: Create Bookmarks on README Change
 
 on:
   push:
@@ -28,3 +28,17 @@ jobs:
         run: |
           cd _utils/
           python create_bookmarks_file_to_import.py
+
+      - name: Commit and push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Stash changes before pulling to avoid conflicts
+          git stash --include-untracked
+          git pull --rebase
+          git stash pop || echo "No stashed changes to apply"
+
+          git add "_utils"
+          git commit -m "Update Defender signatures list" --allow-empty
+          git push
