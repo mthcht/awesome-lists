@@ -861,7 +861,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [IT - Remote connections manager - xpipe](https://github.com/xpipe-io/xpipe)
 - [Endpoint Security - Windows Hardening - Harden-Windows-Security](https://github.com/HotCakeX/Harden-Windows-Security)
 - [Endpoint Security - Linux Hardening - lynis](https://github.com/CISOfy/lynis)
-- [Endpoint Security - Linux - apparmor]https://ubuntu.com/server/docs/apparmor)
+- [Endpoint Security - Linux - apparmor](https://ubuntu.com/server/docs/apparmor)
 
 </details>
 
