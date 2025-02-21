@@ -18,7 +18,7 @@ jobs:
           python-version: '3.9'
 
       - name: cd
-        run: cd Lists/VPN/
+        run: cd Lists/VPN
 
       - name: Run the script
         run: python create_all_vpn_ip_list.py
