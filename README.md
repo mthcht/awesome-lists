@@ -345,6 +345,17 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [fofa.info](https://fofa.info/)
   - [SecurityTrail](https://securitytrails.com/)
   - [ZommEye](https://www.zoomeye.hk/)
+  - [BlueCoat lookup](https://sitereview.bluecoat.com/)
+  - [Norton lookup](https://safeweb.norton.com/)
+  - [Fortinet lookup](https://www.fortiguard.com/webfilter)
+  - [McAfee lookup](https://sitelookup.mcafee.com/)
+  - [Trellix lookup](https://trustedsource.org/)
+  - [Palo Alto lookup](https://urlfiltering.paloaltonetworks.com/query/)
+  - [Talos Intelligence lookup](https://www.talosintelligence.com/reputation_center)
+  - [Checkpoint lookup](https://urlcat.checkpoint.com/urlcat/main.htm)
+  - [Cyren lookup](https://www.cyren.com/security-center/url-category-check-gate)
+  - [Forcepoint lookup](https://support.forcepoint.com/s/site-lookup)
+  - [TrendMicro lookup](https://global.sitesafety.trendmicro.com/)
 
 </details>
 
