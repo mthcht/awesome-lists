@@ -3444,3 +3444,46 @@ rule Trojan_MSIL_Injuke_SHLZ_2147933418_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_SAS_2147934107_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.SAS!MTB"
+        threat_id = "2147934107"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 0b 00 00 06 72 a1 00 00 70 7e 03 00 00 04 6f 14 00 00 0a 74 01 00 00 1b}  //weight: 2, accuracy: High
+        $x_2_2 = {11 01 11 03 11 00 11 03 91 72 61 00 00 70 28 03 00 00 0a 59 d2 9c 20 05 00 00 00 7e 10 00 00 04 7b 52 00 00 04}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injuke_SEA_2147934108_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.SEA!MTB"
+        threat_id = "2147934108"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 0a 1e 7e 66 01 00 04 28 3e 04 00 06 17 8d 22 00 00 01 7e 67 01 00 04 28 42 04 00 06 28 16 00 00 06 7e 56 01 00 04 28 fe 03 00 06}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

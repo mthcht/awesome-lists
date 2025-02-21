@@ -98,3 +98,28 @@ rule Trojan_Win32_Makoob_GA_2147928958_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Makoob_SAH_2147934106_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Makoob.SAH!MTB"
+        threat_id = "2147934106"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Makoob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "nacry.ini" wide //weight: 1
+        $x_1_2 = "rgerrig.txt" wide //weight: 1
+        $x_1_3 = "\\cocainize" wide //weight: 1
+        $x_1_4 = "linielngde.pro" wide //weight: 1
+        $x_1_5 = "Skrabnsespils.txt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

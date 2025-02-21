@@ -1,9 +1,9 @@
-rule Trojan_Win64_ZamTamper_A_2147933896_0
+rule Trojan_Win64_ZamTamper_A_2147933900_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ZamTamper.A"
-        threat_id = "2147933896"
+        threat_id = "2147933900"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ZamTamper"

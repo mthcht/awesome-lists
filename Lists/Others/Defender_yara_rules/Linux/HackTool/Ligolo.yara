@@ -48,3 +48,29 @@ rule HackTool_Linux_Ligolo_B_2147931813_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_Ligolo_C_2147934092_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/Ligolo.C!MTB"
+        threat_id = "2147934092"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "Ligolo"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ligolo-ng/pkg/agent.NewUDPListener" ascii //weight: 1
+        $x_1_2 = "(*LigoloDecoder).Decode" ascii //weight: 1
+        $x_1_3 = "exploit/ligolo/ligolo-ng/cmd/agent/main.go" ascii //weight: 1
+        $x_1_4 = "ligolo-ng/pkg/agent.(*Listener).ListenAndServe" ascii //weight: 1
+        $x_1_5 = "smartping.CommandPinger" ascii //weight: 1
+        $x_1_6 = "ligolo-ng/pkg/relay.StartRelay" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

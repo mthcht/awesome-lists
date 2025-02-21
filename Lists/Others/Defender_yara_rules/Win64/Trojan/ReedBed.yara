@@ -64,3 +64,31 @@ rule Trojan_Win64_ReedBed_AL_2147933585_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReedBed_DA_2147933970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReedBed.DA!MTB"
+        threat_id = "2147933970"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReedBed"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 2b c8 49 0f af cf 0f b6 44 ?? ?? 41 32 44 ?? fc 41 88 40 ff 49 ff cc 0f 85}  //weight: 10, accuracy: Low
+        $x_10_2 = {48 2b c8 49 0f af cf 0f b6 44 ?? ?? 42 32 44 ?? fc 41 88 40 ff 49 ff cc 0f 85}  //weight: 10, accuracy: Low
+        $x_10_3 = {48 2b c8 49 0f af cf 0f b6 44 ?? ?? 43 32 44 ?? fc 41 88 40 ff 49 ff cc 0f 85}  //weight: 10, accuracy: Low
+        $x_1_4 = {48 63 c8 48 8b c3 48 f7 e1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

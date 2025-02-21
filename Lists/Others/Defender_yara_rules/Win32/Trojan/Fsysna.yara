@@ -91,3 +91,24 @@ rule Trojan_Win32_Fsysna_AS_2147896265_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fsysna_GMX_2147934045_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fsysna.GMX!MTB"
+        threat_id = "2147934045"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fsysna"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 d2 02 d2 c0 eb 04 0a d3 88 16 0f b6 50 01 0f b6 18 0f b6 94 15 ?? ?? ?? ?? 0f b6 9c 1d ?? ?? ?? ?? c0 ea 02 c0 e3 04 0a d3 88 56 01 0f b6 50 01 0f b6 94 15 ?? ?? ?? ?? 0f b6 58 02 c0 e2 06 0a 94 1d ?? ?? ?? ?? 83 c6 03 88 56 ff 83 c0 04 4f}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

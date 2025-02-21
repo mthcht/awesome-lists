@@ -18367,38 +18367,6 @@ rule Trojan_MSIL_AgentTesla_AUE_2147780834_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_AUF_2147780835_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/AgentTesla.AUF!MTB"
-        threat_id = "2147780835"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "AgentTesla"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "12"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Newtonsoft.Json" ascii //weight: 1
-        $x_1_2 = "9ca358aa-317b-4925-8ada-4a29e943a363" ascii //weight: 1
-        $x_1_3 = "JsonWorker" ascii //weight: 1
-        $x_1_4 = "CreateInstance" ascii //weight: 1
-        $x_1_5 = "GetTypes" ascii //weight: 1
-        $x_1_6 = "GetMethods" ascii //weight: 1
-        $x_1_7 = "InvokeMember" ascii //weight: 1
-        $x_1_8 = "Replace" ascii //weight: 1
-        $x_1_9 = "GZipStream" ascii //weight: 1
-        $x_1_10 = "ToArray" ascii //weight: 1
-        $x_1_11 = "MemoryStream" ascii //weight: 1
-        $x_1_12 = "CompressionMode" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_AgentTesla_MFP_2147781042_0
 {
     meta:

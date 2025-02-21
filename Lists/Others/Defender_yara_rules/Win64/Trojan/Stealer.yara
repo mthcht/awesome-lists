@@ -151,3 +151,25 @@ rule Trojan_Win64_Stealer_GD_2147929221_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SUN_2147934104_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SUN!MTB"
+        threat_id = "2147934104"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 f5 69 0c 00 48 83 7b 18 08 48 89 7b 10 72 05 48 8b 0b eb 03 48 8b cb 33 c0 66 89 04 79 48 8b 7c 24 30 48 8b 74 24 40 48 8b c3 48 8b 5c 24 38}  //weight: 1, accuracy: High
+        $x_1_2 = "/svcstealer/get.php" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

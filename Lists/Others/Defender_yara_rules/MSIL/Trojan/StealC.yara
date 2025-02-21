@@ -550,3 +550,24 @@ rule Trojan_MSIL_StealC_AYA_2147922987_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_StealC_SAM_2147934105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/StealC.SAM!MTB"
+        threat_id = "2147934105"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7e 2d 01 00 04 28 40 03 00 06 28 25 00 00 0a 0a 06 28 26 00 00 0a 0b 07 16}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

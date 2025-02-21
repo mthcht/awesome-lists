@@ -47,3 +47,25 @@ rule Trojan_Win32_Casbaneiro_GTN_2147931422_0
         )
 }
 
+rule Trojan_Win32_Casbaneiro_SVI_2147934101_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Casbaneiro.SVI!MTB"
+        threat_id = "2147934101"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Casbaneiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "bUGHFDRuuGBHU7BKJB" ascii //weight: 2
+        $x_2_2 = "$ZXwR" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

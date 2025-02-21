@@ -159,3 +159,29 @@ rule MonitoringTool_MacOS_Spyrix_B_449777_0
         (all of ($x*))
 }
 
+rule MonitoringTool_MacOS_Spyrix_R_450448_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "MonitoringTool:MacOS/Spyrix.R!MTB"
+        threat_id = "450448"
+        type = "MonitoringTool"
+        platform = "MacOS: "
+        family = "Spyrix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "spyrix.net/usr/monitor/getsettings.php" ascii //weight: 1
+        $x_1_2 = "monitor/iupload.php" ascii //weight: 1
+        $x_1_3 = "account/check-subscription" ascii //weight: 1
+        $x_1_4 = "pathSpyrix" ascii //weight: 1
+        $x_1_5 = "dashboard.spyrix.com/" ascii //weight: 1
+        $x_1_6 = "spyrix.net/usr/monitor/upload_prg.php" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

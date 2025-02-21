@@ -85,3 +85,45 @@ rule Trojan_Win32_Kelios_CCJU_2147933419_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Kelios_GMX_2147934022_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Kelios.GMX!MTB"
+        threat_id = "2147934022"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Kelios"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 57 ff c1 48 89 6c 34 ?? 49 c1 ff ?? 42 31 8c fc ?? ?? ?? ?? 5f 48 33 d2 44 8b ea 5d 45 8b c7 4a}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Kelios_GDX_2147934046_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Kelios.GDX!MTB"
+        threat_id = "2147934046"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Kelios"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f c0 e0 f6 d8 32 cb c1 e8 ?? fe c9 f6 d1 0f b6 d0 80 e9 ?? 80 f1 ?? c1 f8 ?? 89 44 54 ?? 32 d9 58 52}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

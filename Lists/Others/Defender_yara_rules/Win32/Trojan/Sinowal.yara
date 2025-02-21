@@ -49,3 +49,25 @@ rule Trojan_Win32_Sinowal_B_2147630523_0
         )
 }
 
+rule Trojan_Win32_Sinowal_GA_2147934059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Sinowal.GA!MTB"
+        threat_id = "2147934059"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Sinowal"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a c2 32 c1 32 44 0d fc 34 cc 88 44 0d fc 41 83 f9 04 72 ec}  //weight: 2, accuracy: High
+        $x_2_2 = {8a 44 0d b3 32 c1 32 02 34 48 88 44 0d b3 41 83 f9 0d 72 ec}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

@@ -4708,12 +4708,12 @@ rule Trojan_Win32_AutoitInject_ARLA_2147933688_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_AutoitInject_AXLA_2147933897_0
+rule Trojan_Win32_AutoitInject_AXLA_2147933903_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/AutoitInject.AXLA!MTB"
-        threat_id = "2147933897"
+        threat_id = "2147933903"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "AutoitInject"

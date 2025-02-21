@@ -43,3 +43,25 @@ rule Trojan_Win32_ConAtt_B_2147910644_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ConAtt_SE_2147933993_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ConAtt.SE"
+        threat_id = "2147933993"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ConAtt"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00}  //weight: 10, accuracy: Low
+        $x_1_2 = "get-content" wide //weight: 1
+        $x_1_3 = "foreach-object" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

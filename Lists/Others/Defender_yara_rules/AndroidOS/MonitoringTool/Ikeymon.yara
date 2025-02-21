@@ -76,3 +76,27 @@ rule MonitoringTool_AndroidOS_Ikeymon_D_358339_0
         (all of ($x*))
 }
 
+rule MonitoringTool_AndroidOS_Ikeymon_E_450447_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "MonitoringTool:AndroidOS/Ikeymon.E!MTB"
+        threat_id = "450447"
+        type = "MonitoringTool"
+        platform = "AndroidOS: Android operating system"
+        family = "Ikeymon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "persistedinstallation" ascii //weight: 1
+        $x_1_2 = "CallingRecord_Service" ascii //weight: 1
+        $x_1_3 = "/data/com.whatsapp/databases/" ascii //weight: 1
+        $x_1_4 = "/data/com.viber.voip/databases/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

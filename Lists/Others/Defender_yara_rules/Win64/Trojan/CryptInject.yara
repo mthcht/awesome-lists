@@ -4010,12 +4010,12 @@ rule Trojan_Win64_CryptInject_QIZ_2147933718_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CryptInject_BDD_2147933898_0
+rule Trojan_Win64_CryptInject_BDD_2147933904_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CryptInject.BDD!MTB"
-        threat_id = "2147933898"
+        threat_id = "2147933904"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CryptInject"
@@ -4031,12 +4031,12 @@ rule Trojan_Win64_CryptInject_BDD_2147933898_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CryptInject_BCP_2147933899_0
+rule Trojan_Win64_CryptInject_BCP_2147933905_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CryptInject.BCP!MTB"
-        threat_id = "2147933899"
+        threat_id = "2147933905"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CryptInject"

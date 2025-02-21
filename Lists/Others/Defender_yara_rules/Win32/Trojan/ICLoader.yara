@@ -1769,3 +1769,89 @@ rule Trojan_Win32_ICLoader_ASLA_2147933717_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_MBQ_2147934042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.MBQ!MTB"
+        threat_id = "2147934042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {55 8b ec 6a ff 68 ?? ?? 60 00 68 ?? ?? 60 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 83 ec 58 53 56 57 89 65 e8 ff 15 ?? ?? 60 00 33 d2 8a d4 89 15 ?? ?? ?? 00 8b c8 81 e1}  //weight: 2, accuracy: Low
+        $x_1_2 = {33 f6 56 e8 16 0b 00 00 59 85 c0 75 08 6a 1c e8 b0 00 00 00 59 89 75 fc}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ICLoader_MBR_2147934043_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.MBR!MTB"
+        threat_id = "2147934043"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {55 8b ec 6a ff 68 ?? e4 89 00 68 ?? ?? 89 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 83 ec 58 53 56 57 89 65 e8 ff 15 ?? e1 89 00 33 d2 8a d4 89 15 ?? ?? c9 00 8b c8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ICLoader_MBS_2147934044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.MBS!MTB"
+        threat_id = "2147934044"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b ec 6a ff 68 ?? e5 89 00 68 ?? 7c 89 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 83 ec 58 53 56 57 89 65 e8 ff 15 ?? ?? 89 00 33 d2 8a d4 89 15 ?? ?? c9 00 8b c8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ICLoader_AAMA_2147934047_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.AAMA!MTB"
+        threat_id = "2147934047"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {55 8b ec 6a ff 68 ?? e5 89 00 68 ?? 7c 89 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 83 ec 58 53 56 57 89 65 e8 ff 15 ?? ?? 89 00 33 d2 8a d4 89 15 ?? ec c9 00 8b c8 81 e1 ff 00 00 00 89 0d ?? ec c9 00 c1 e1 08 03 ca 89 0d ?? ec c9 00 c1 e8 10 a3 ?? ec c9 00 6a 01}  //weight: 5, accuracy: Low
+        $x_5_2 = {55 8b ec 6a ff 68 ?? e4 89 00 68 ?? 7b 89 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 83 ec 58 53 56 57 89 65 e8 ff 15 ?? ?? 89 00 33 d2 8a d4 89 15 ?? ec c9 00 8b c8 81 e1 ff 00 00 00 89 0d ?? ec c9 00 c1 e1 08 03 ca 89 0d ?? ec c9 00 c1 e8 10 a3 ?? ec c9 00 6a 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

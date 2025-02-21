@@ -164,3 +164,24 @@ rule Trojan_Win64_Farfli_AFA_2147924071_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_SDM_2147934110_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.SDM!MTB"
+        threat_id = "2147934110"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {45 33 db 4c 8d 05 ?? ?? ?? ff 45 33 c9 4c 89 5c 24 28 33 d2 33 c9 44 89 5c 24 20 ff 15 ?? ?? ?? 00 83 ca ff 48 8b c8}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
