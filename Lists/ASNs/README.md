@@ -31,6 +31,10 @@ Reads the list of ASNs from:
 
 ## Details
 
+### High FP ASN from my list:
+- AS15557 (exclude it if necessary)
+- ...
+
 ### ALL IN ONE!
 
 All the BAD ASNs ip ranges in one file: [_ALL_BAD_ASN_IP_Ranges_List.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/ASNs/_ALL_BAD_ASN_IP_Ranges_List.csv)
