@@ -1,0 +1,37 @@
+name: VPN Combine ALL IP address
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Runs at minute 0 every 2 hours
+  workflow_dispatch:
+
+jobs:
+  process-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: cd
+        run: cd Lists/VPN/
+
+      - name: Run the script
+        run: python create_all_vpn_ip_list.py
+
+      - name: List files
+        run: ls -la
+
+      - name: Commit and Push Changes
+        run: |
+          git pull
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/VPN/VPN_ALL_IP_List.csv
+          git commit -m "Update NordVPN IPs list" --allow-empty
+          git push
