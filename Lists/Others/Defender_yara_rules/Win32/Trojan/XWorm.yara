@@ -92,3 +92,26 @@ rule Trojan_Win32_XWorm_PAYR_2147929391_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_NW_2147934129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.NW!MTB"
+        threat_id = "2147934129"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8d 8c 24 a4 00 00 00 51 ff d6 8b 54 24 4c 8b 32 8d 4c 24 58 83 c6 34 e8 29 f6 ff ff 8b 0e 50 8b 44 24 50 50 ff d1 8b 74 24 58 3b f3 75 0a 68 03 40 00 80 e8 cd 8a 00 00 8d 4c 24 54 e8 04 f6 ff ff 8b 16}  //weight: 3, accuracy: High
+        $x_1_2 = "WmiPrvSE.exe" ascii //weight: 1
+        $x_1_3 = "5Qiilccol52Xrrthd2.DAEyor4JDA0iewWKE2" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

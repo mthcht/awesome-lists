@@ -5097,3 +5097,30 @@ rule Trojan_Win32_Guloader_SVM_2147933263_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_ASJ_2147934135_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.ASJ!MTB"
+        threat_id = "2147934135"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "thermels\\dekaterendes.ini" ascii //weight: 1
+        $x_1_2 = "tikronesedler\\phytogeographical" ascii //weight: 1
+        $x_1_3 = "Nonsubsistent.txt" ascii //weight: 1
+        $x_1_4 = "elektronikfirmaer\\Vestibulers.ger" ascii //weight: 1
+        $x_1_5 = "aphrodesiac\\Uninstall\\carte\\financiered" ascii //weight: 1
+        $x_1_6 = "featheriest\\Shadoof76.Sky143" ascii //weight: 1
+        $x_1_7 = "querimoniously\\Nematognathous.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

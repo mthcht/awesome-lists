@@ -97,3 +97,27 @@ rule Trojan_MSIL_Startun_PTJG_2147903520_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Startun_NR_2147934127_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Startun.NR!MTB"
+        threat_id = "2147934127"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Startun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 9d 00 00 0a 0b 07 02 7b ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 07 72 ?? 06 00 70 6f ?? 00 00 0a 03 0c 03 28 ?? 00 00 0a 28 ?? 00 00 0a 08}  //weight: 2, accuracy: Low
+        $x_1_2 = "instalarcertsReinstallandelete" ascii //weight: 1
+        $x_1_3 = "deleteOthersCertificate" ascii //weight: 1
+        $x_1_4 = "EstaInstaladoElCert" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

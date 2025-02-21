@@ -1560,6 +1560,48 @@ rule Trojan_Win32_GuLoader_DA_2147821134_1
         (4 of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_DA_2147821134_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.DA!MTB"
+        threat_id = "2147821134"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "distensile prettiness declaratives" ascii //weight: 10
+        $x_10_2 = "affaldsbehandlingssystem" ascii //weight: 10
+        $x_10_3 = "carlot virginia omskriver" ascii //weight: 10
+        $x_10_4 = "\\Knoxvillite\\Loosened\\Afgaaet\\Trkkerens" ascii //weight: 10
+        $x_10_5 = "Tilkendegivelsen Blebukser Snowbirds" ascii //weight: 10
+        $x_10_6 = "gravitation kaolinized campulitropal" ascii //weight: 10
+        $x_10_7 = "fejlvurderet zoofili paraglossa" ascii //weight: 10
+        $x_10_8 = "sammentrknings samlelinser" ascii //weight: 10
+        $x_10_9 = "gaussfunktionernes misreckoning" ascii //weight: 10
+        $x_1_10 = "moulage indlgningerne poltroonish" ascii //weight: 1
+        $x_1_11 = "appliance slagging pollyanna" ascii //weight: 1
+        $x_1_12 = "kubikindholdet abacate generindrer" ascii //weight: 1
+        $x_1_13 = "\\Recostumed\\Nikkelheftedes" ascii //weight: 1
+        $x_1_14 = "Konfiskerede" ascii //weight: 1
+        $x_1_15 = "inaccuracy gascon indeslutningers" ascii //weight: 1
+        $x_1_16 = "blokniveauernes unavngivet" ascii //weight: 1
+        $x_1_17 = "beregneliges" ascii //weight: 1
+        $x_1_18 = "bundafstandenes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_GuLoader_BM_2147821231_0
 {
     meta:

@@ -373,6 +373,29 @@ rule Trojan_Win64_Tedy_NT_2147899511_4
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_NT_2147899511_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.NT!MTB"
+        threat_id = "2147899511"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {66 0f 6f 4c 24 ?? 48 8d 54 24 ?? 48 8d 0d 97 68 02 00 48 89 74 24 ?? 48 89 74 24 ?? 0f 29 4c 24 ?? e8 33 75 00 00 0f b6 33 4c 89 e1 c6 03 00}  //weight: 3, accuracy: Low
+        $x_2_2 = {80 3b 00 75 11 40 88 33 40 84 f6 75 09 4c 89 e9 e8 bf 75 00 00}  //weight: 2, accuracy: High
+        $x_1_3 = "Attempting to rename file name" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_AMBE_2147903244_0
 {
     meta:

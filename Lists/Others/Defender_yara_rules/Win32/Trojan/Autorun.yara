@@ -89,3 +89,26 @@ rule Trojan_Win32_Autorun_PA_2147745482_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Autorun_NA_2147934128_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Autorun.NA!MTB"
+        threat_id = "2147934128"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Autorun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {e9 0d 01 00 00 83 fb 01 0f 84 f6 00 00 00 8b 0d 24 67 40 00 89 4d 08 8b 4d 0c 89 0d 24 67 40 00 8b 48 04 83 f9 08 0f 85 c8 00 00 00 8b 0d 28 62 40 00 8b 15 2c 62 40 00 03 d1 56 3b ca 7d 15}  //weight: 2, accuracy: High
+        $x_1_2 = {89 35 34 62 40 00 59 5e eb 08 83 60 08 00 51 ff d3 59 8b 45 08 a3 24 67 40 00 83 c8 ff}  //weight: 1, accuracy: High
+        $x_1_3 = "autorun.inf" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

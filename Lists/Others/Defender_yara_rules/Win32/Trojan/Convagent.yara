@@ -931,6 +931,29 @@ rule Trojan_Win32_Convagent_NC_2147897373_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {72 f4 8a 85 ee fa ff ff c6 85 fc fe ff ff 20 84 c0 74 2e 8d 9d ef fa ff ff 0f b6 c8 0f b6 03 3b c8 77 16 2b c1}  //weight: 3, accuracy: High
+        $x_1_2 = "Dihybrids.exe" wide //weight: 1
+        $x_1_3 = "LoadResource" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_NC_2147897373_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.NC!MTB"
+        threat_id = "2147897373"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
