@@ -236,7 +236,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 <details>
 
-More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&user_lists_sort=name
+- [More github lists](https://github.com/mthcht?tab=stars&user_lists_direction=asc&user_lists_sort=name)
 
 </details>
 
@@ -326,6 +326,7 @@ More github lists: https://github.com/mthcht?tab=stars&user_lists_direction=asc&
   - [whoxy](https://www.whoxy.com/reverse-whois/)
   - [url tiny-scan](https://www.tiny-scan.com/)
   - [certificates - crt.sh](https://crt.sh/)
+  - [site web-check]https://web-check.as93.net/)
   - [validin.com](https://app.validin.com/)
   - [Browser Extension CRX checker](https://crxaminer.tech/)
   - [echotrail](https://www.echotrail.io/)
