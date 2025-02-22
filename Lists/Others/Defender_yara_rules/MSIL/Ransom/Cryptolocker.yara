@@ -2396,12 +2396,10 @@ rule Ransom_MSIL_Cryptolocker_EA_2147784151_0
         $x_1_12 = "lolipop" ascii //weight: 1
         $x_1_13 = "encryptedFileExtension" ascii //weight: 1
         $x_1_14 = "EncryptFile" ascii //weight: 1
-        $x_1_15 = "JohnDoe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (
             ((3 of ($x_20_*) and 4 of ($x_3_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_50_*) and 1 of ($x_20_*) and 4 of ($x_1_*))) or
             ((1 of ($x_50_*) and 1 of ($x_20_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
             ((1 of ($x_50_*) and 1 of ($x_20_*) and 2 of ($x_3_*))) or
             ((1 of ($x_50_*) and 2 of ($x_20_*))) or
