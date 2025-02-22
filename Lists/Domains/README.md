@@ -2,6 +2,5 @@
 
 - [DNSDB](TOP1M_DB_script) Script using MASSDNS if you want to resolve the NS for millions of domains yourself very quickly
 
-![DNSDB](TOP1M_DB_script/DNSDB.mp4)
+![DNSDB](DNSDB/DNSDB.mp4)
 
-- [Sinkholed servers](Domains/TOP1M_DB_script)
