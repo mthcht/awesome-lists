@@ -279,27 +279,6 @@ rule Trojan_MSIL_DarkCloud_CRAA_2147901934_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkCloud_CBAA_2147902083_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/DarkCloud.CBAA!MTB"
-        threat_id = "2147902083"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "DarkCloud"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {07 08 18 5b 02 08 18 28 ?? 01 00 06 1f 10 28 ?? 01 00 06 9c 11 05}  //weight: 5, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_DarkCloud_DZAA_2147902711_0
 {
     meta:
@@ -605,6 +584,27 @@ rule Trojan_MSIL_DarkCloud_AZLA_2147934035_0
         $x_3_1 = {0a 13 04 73 ?? 00 00 0a 13 05 73 ?? 00 00 0a 13 06 11 06 11 05 09 11 04 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 07 11 07 08 16 08 8e 69 6f ?? 00 00 0a 17 0b 11 06 6f ?? 00 00 0a 13 08 dd 48}  //weight: 3, accuracy: Low
         $x_1_2 = "FromBase64String" ascii //weight: 1
         $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DarkCloud_DLZ_2147934160_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.DLZ!MTB"
+        threat_id = "2147934160"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0c 72 c1 01 00 70 28 23 00 00 0a 0d 72 f3 01 00 70 28 ?? 00 00 0a 13 04 73 24 00 00 0a 13 05 73 25 00 00 0a 13 06 11 06 11 05 09 11 04 6f 26 00 00 0a 17 73 ?? 00 00 0a 13 07 2b 16 2b 18 16 2b 18 8e 69 2b 17 17 16 2c 1a 26 2b 1a 2b 1c 13 08 de 70 11 07 2b e6 08 2b e5 08 2b e5 6f ?? 00 00 0a 2b e2 0b 2b e4 11 06 2b e2 6f 29 00 00 0a 2b dd}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

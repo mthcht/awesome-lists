@@ -2610,3 +2610,35 @@ rule Trojan_MSIL_Rozena_SVJI_2147932397_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_CCJR_2147934174_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.CCJR!MTB"
+        threat_id = "2147934174"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "[DllImport(\"kernel32.dll\")]public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect)" ascii //weight: 2
+        $x_2_2 = "[DllImport(\"kernel32.dll\")]public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId)" ascii //weight: 2
+        $x_1_3 = {30 00 78 00 31 00 30 00 30 00 30 00 3b 00 69 00 66 00 20 00 28 00 24 00 [0-15] 2e 00 4c 00 65 00 6e 00 67 00 74 00 68 00 20 00 2d 00 67 00 74 00 20 00 30 00 78 00 31 00 30 00 30 00 30 00 29 00 7b 00 24 00 [0-15] 20 00 3d 00 20 00 24 00 [0-15] 2e 00 4c 00 65 00 6e 00 67 00 74 00 68 00 7d 00 3b 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {30 78 31 30 30 30 3b 69 66 20 28 24 [0-15] 2e 4c 65 6e 67 74 68 20 2d 67 74 20 30 78 31 30 30 30 29 7b 24 [0-15] 20 3d 20 24 [0-15] 2e 4c 65 6e 67 74 68 7d 3b}  //weight: 1, accuracy: Low
+        $x_1_5 = {56 00 69 00 72 00 74 00 75 00 61 00 6c 00 41 00 6c 00 6c 00 6f 00 63 00 28 00 30 00 2c 00 30 00 78 00 31 00 30 00 30 00 30 00 2c 00 24 00 [0-15] 2c 00 30 00 78 00 34 00 30 00 29 00 3b 00 66 00 6f 00 72 00 20 00 28 00 24 00 69 00 3d 00 30 00 3b 00 24 00 69 00 20 00 2d 00 6c 00 65 00 20 00 28 00 24 00 [0-15] 2e 00 4c 00 65 00 6e 00 67 00 74 00 68 00 2d 00 31 00 29 00 3b 00 24 00 69 00 2b 00 2b 00 29 00 20 00 7b 00 24 00 77 00 3a 00 3a 00 6d 00 65 00 6d 00 73 00 65 00 74 00 28 00 5b 00 49 00 6e 00 74 00 50 00 74 00 72 00 5d 00 28 00 24 00 [0-15] 2e 00 54 00 6f 00 49 00 6e 00 74 00 33 00 32 00 28 00 29 00 2b 00 24 00 69 00 29 00 2c 00 20 00 24 00 [0-15] 5b 00 24 00 69 00 5d 00 2c 00 20 00 31 00 29 00 7d 00 3b 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {56 69 72 74 75 61 6c 41 6c 6c 6f 63 28 30 2c 30 78 31 30 30 30 2c 24 [0-15] 2c 30 78 34 30 29 3b 66 6f 72 20 28 24 69 3d 30 3b 24 69 20 2d 6c 65 20 28 24 [0-15] 2e 4c 65 6e 67 74 68 2d 31 29 3b 24 69 2b 2b 29 20 7b 24 77 3a 3a 6d 65 6d 73 65 74 28 5b 49 6e 74 50 74 72 5d 28 24 [0-15] 2e 54 6f 49 6e 74 33 32 28 29 2b 24 69 29 2c 20 24 [0-15] 5b 24 69 5d 2c 20 31 29 7d 3b}  //weight: 1, accuracy: Low
+        $x_1_7 = {43 00 72 00 65 00 61 00 74 00 65 00 54 00 68 00 72 00 65 00 61 00 64 00 28 00 30 00 2c 00 30 00 2c 00 24 00 [0-15] 2c 00 30 00 2c 00 30 00 2c 00 30 00 29 00 3b 00 66 00 6f 00 72 00 20 00 28 00 3b 00 3b 00 29 00 7b 00 53 00 74 00 61 00 72 00 74 00 2d 00 73 00 6c 00 65 00 65 00 70 00 20 00 36 00 30 00 7d 00 3b 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {43 72 65 61 74 65 54 68 72 65 61 64 28 30 2c 30 2c 24 [0-15] 2c 30 2c 30 2c 30 29 3b 66 6f 72 20 28 3b 3b 29 7b 53 74 61 72 74 2d 73 6c 65 65 70 20 36 30 7d 3b}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

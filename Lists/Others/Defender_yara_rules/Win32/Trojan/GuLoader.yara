@@ -2600,3 +2600,79 @@ rule Trojan_Win32_GuLoader_RSQ_2147933793_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RSR_2147934158_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RSR!MTB"
+        threat_id = "2147934158"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\majolicas\\protonemata\\operationsvrelser" ascii //weight: 1
+        $x_1_2 = "televaerket\\sladdertasker.sti" ascii //weight: 1
+        $x_1_3 = "ilfre\\indskuds\\" ascii //weight: 1
+        $x_1_4 = "tripod eksklusives" ascii //weight: 1
+        $x_1_5 = "blokkryptografis indsendelserne ibenholtsfljtes" ascii //weight: 1
+        $x_1_6 = "antibiotikaforbruget.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RSS_2147934159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RSS!MTB"
+        threat_id = "2147934159"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Faginspektrerne\\affugt\\dunter" ascii //weight: 1
+        $x_1_2 = "\\constancy.ans" ascii //weight: 1
+        $x_1_3 = "Lbrikkernes46.ini" ascii //weight: 1
+        $x_1_4 = "claxon rejicere" ascii //weight: 1
+        $x_1_5 = "impugner tikantens mediaanalyse" ascii //weight: 1
+        $x_1_6 = "kammerjunkerne.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RST_2147934167_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RST!MTB"
+        threat_id = "2147934167"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "flighting redescribes nasioinial" ascii //weight: 1
+        $x_1_2 = "autodidakte leah bubas" ascii //weight: 1
+        $x_1_3 = "lampatia" ascii //weight: 1
+        $x_1_4 = "dovetailwise.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

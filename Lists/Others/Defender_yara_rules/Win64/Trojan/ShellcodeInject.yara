@@ -288,3 +288,25 @@ rule Trojan_Win64_ShellcodeInject_SHV_2147933125_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeInject_JBM_2147934153_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeInject.JBM!MTB"
+        threat_id = "2147934153"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 95 30 1c 00 00 44 0f b6 04 11 44 88 04 01 48 ff c1 48 3b cf 72 e8}  //weight: 2, accuracy: High
+        $x_1_2 = "Moved shellcode into allocated memory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
