@@ -2,7 +2,7 @@
 
 - [DNSDB](DNSDB/TOP1M_DNSDB.py) my script using MASSDNS and a TOP1M domains if you want to resolve the NS for millions of domains yourself very quickly
 
-[Watch the DNSDB Video](DNSDB/DNSDB.gif)
+![Watch the DNSDB Video](DNSDB/DNSDB.gif)
 
 - [TOP1M](TOP1M) script downloading the TOP1M majectic list automatically in the folder with a github action
 
