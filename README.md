@@ -72,7 +72,7 @@
 - 🧬 Microsoft Defender AV signatures lists: [[Defender]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/Defender) + [yara](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others/Defender_yara_rules)
 - 🧬 ClamAV signatures lists: [[ClamAV]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/ClamAV)  
 - 🔗 Others correlation Lists: [[Others]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others)
-- 📋 Lists i need to finish: [[todo]](https://github.com/mthcht/awesome-lists/tree/main/todo)
+- 📋 Lists i need to finish: [[todo]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others/todo)
 
 I regularly update most of these lists after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project
 
