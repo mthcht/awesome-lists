@@ -6,4 +6,4 @@
 
 (no distribution allowed)
 
-If you want to detect sinkholed domains, search for these NS used for sinkhold domains https://github.com/mthcht/awesome-lists/blob/main/Lists/Others/sinkhole_ns_list.csv
+If you want to find sinkholed domains, search for these NS used for sinkhold domains https://github.com/mthcht/awesome-lists/blob/main/Lists/Others/sinkhole_ns_list.csv
