@@ -16,7 +16,7 @@ jobs:
       - name: update top1M
         run: |
           cd Lists/Domains/TOP1M
-          python3 update_majectic_million_list.py
+          python3 download_and_merge_TOP1M.py
           
       - name: List files in the target directory
         run: ls -la Lists/Domains/TOP1M
