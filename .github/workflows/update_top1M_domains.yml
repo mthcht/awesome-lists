@@ -15,6 +15,7 @@ jobs:
         
       - name: update top1M
         run: |
+          pip install pandas zipfile
           cd Lists/Domains/TOP1M
           python3 download_and_merge_TOP1M.py
           
