@@ -7,4 +7,4 @@
 - execute `python3 download.py` (results are in /zones by default)
 
 
-If you want to find sinkholed domains, search for these NS used for sinkhole domains https://github.com/mthcht/awesome-lists/blob/main/Lists/Others/sinkhole_ns_list.csv with [this simple script](https://github.com/mthcht/awesome-lists/Lists/Domains/sinkholed_servers/search_for_sinkholed_servers.py)
+If you want to find sinkholed domains, search for these NS used for sinkhole domains https://github.com/mthcht/awesome-lists/blob/main/Lists/Others/sinkhole_ns_list.csv with [this simple script](https://github.com/mthcht/awesome-lists/blob/main/Lists/Domains/sinkholed_servers/search_for_sinkholed_servers.py)
