@@ -34,16 +34,14 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # Stash any local changes to avoid conflicts
-          git add Lists/Domains/TOP1M/*
-          git stash
+          # Ensure Git detects all changes, including new files
+          git add --all Lists/Domains/TOP1M/
 
-          # Ensure we pull latest changes before pushing
-          git pull --rebase || (echo "Pull failed, applying stash..." && git stash pop)
-
-          # Add updated files
-          git add Lists/Domains/TOP1M/*
-          git commit -m "Update TOP1M domains files" --allow-empty
-
-          # Push changes
-          git push
+          # Check if there are actual changes before committing
+          if git diff --staged --quiet; then
+            echo "No changes detected, skipping commit."
+          else
+            git commit -m "Update TOP1M domains files"
+            git pull --rebase
+            git push
+          fi
