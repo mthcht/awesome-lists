@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
+      - name: Check out repository with Git LFS
         uses: actions/checkout@v3
+        with:
+          lfs: true  # Enable Git Large File Storage (LFS)
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -29,19 +31,31 @@ jobs:
       - name: List files in the target directory
         run: ls -la Lists/Domains/TOP1M
 
+      - name: Set up Git LFS for large files
+        run: |
+          git lfs install
+          git lfs track "Lists/Domains/TOP1M/TOP1M_domains.csv"
+          git add .gitattributes
+          git commit -m "Enable Git LFS for large files" || echo "No LFS changes to commit"
+
       - name: Commit and Push results
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
-          # Ensure Git detects all changes, including new files
-          git add --all Lists/Domains/TOP1M/
 
+          # Ensure we pull latest changes first
+          git pull --rebase || echo "No updates to pull"
+
+          # Add all new and modified files, including LFS-tracked files
+          git add --all Lists/Domains/TOP1M/
+          
           # Check if there are actual changes before committing
           if git diff --staged --quiet; then
             echo "No changes detected, skipping commit."
           else
             git commit -m "Update TOP1M domains files"
-            git pull --rebase
             git push
           fi
+
+      - name: Push LFS objects
+        run: git lfs push origin main || echo "No LFS changes to push"
