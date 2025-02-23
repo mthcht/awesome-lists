@@ -6,4 +6,4 @@
 
 - [TOP1M](TOP1M) script downloading the TOP1M majectic list automatically in the folder with a github action
 
-- [sinkholed servers](sinkholed_servers) Folder containing lists of sinkholed servers from my scripts (not yet added as of 2025/02/22) and external free services (not much)
+- [sinkholed servers](sinkholed_servers) Folder containing lists of sinkholed servers from my scripts (incomplete as of 2025/02/22 - will add more) and external free services (not much)
