@@ -4501,6 +4501,27 @@ rule Trojan_Win32_Zbot_BAB_2147839916_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {32 c2 08 07 8b 45 ?? 0f b6 10 23 15 ?? ?? ?? ?? 8b c3 2b c2}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_BAB_2147839916_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.BAB!MTB"
+        threat_id = "2147839916"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -4510,7 +4531,7 @@ rule Trojan_Win32_Zbot_BAB_2147839916_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zbot_BAB_2147839916_1
+rule Trojan_Win32_Zbot_BAB_2147839916_2
 {
     meta:
         author = "defender2yara"
@@ -4535,6 +4556,27 @@ rule Trojan_Win32_Zbot_BAB_2147839916_1
 }
 
 rule Trojan_Win32_Zbot_BAA_2147840125_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.BAA!MTB"
+        threat_id = "2147840125"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8b 33 f8 83 d3 ?? f7 d6 83 c6 ?? 01 d6 83 ee ?? 29 d2 31 f2 89 31}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_BAA_2147840125_1
 {
     meta:
         author = "defender2yara"

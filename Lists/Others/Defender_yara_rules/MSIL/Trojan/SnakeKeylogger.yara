@@ -6960,3 +6960,39 @@ rule Trojan_MSIL_SnakeKeylogger_PHH_2147933872_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_BN_2147934284_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.BN!MTB"
+        threat_id = "2147934284"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "User Data\\Default\\EncryptedStorage" wide //weight: 1
+        $x_1_2 = "User Data\\Default\\Login Data" wide //weight: 1
+        $x_1_3 = "All User Profile * : (?<after>.*)" wide //weight: 1
+        $x_1_4 = "wlan show profile name=" wide //weight: 1
+        $x_1_5 = "Key Content * : (?<after>.*)" wide //weight: 1
+        $x_1_6 = "key=clear" wide //weight: 1
+        $x_1_7 = "Password:" wide //weight: 1
+        $x_2_8 = "encrypted_key\":\"(.*?)" wide //weight: 2
+        $x_2_9 = "SeaMonkey" wide //weight: 2
+        $x_2_10 = "-------- Snake Track" wide //weight: 2
+        $x_2_11 = "discord\\Local Storage\\leveldb" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 7 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((4 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

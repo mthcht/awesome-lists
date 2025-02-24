@@ -1040,3 +1040,49 @@ rule Trojan_Win32_Stealer_NF_2147915614_0
         (4 of ($x*))
 }
 
+rule Trojan_Win32_Stealer_DAA_2147934271_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.DAA!MTB"
+        threat_id = "2147934271"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DllRegisterServer" ascii //weight: 1
+        $x_1_2 = "ShellExecuteA" ascii //weight: 1
+        $x_1_3 = "/c cd C:\\Windows\\Temp\\ & curl -o" ascii //weight: 1
+        $x_1_4 = "cmd.exe" ascii //weight: 1
+        $x_1_5 = "& start" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Stealer_DAB_2147934273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.DAB!MTB"
+        threat_id = "2147934273"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {32 14 0c 80 c2 ?? 88 14 0c 41 83 f9 ?? 75 ec}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

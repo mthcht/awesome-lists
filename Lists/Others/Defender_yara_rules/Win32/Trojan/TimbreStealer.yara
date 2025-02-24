@@ -21,3 +21,24 @@ rule Trojan_Win32_TimbreStealer_ZH_2147910872_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_TimbreStealer_BAA_2147934268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/TimbreStealer.BAA!MTB"
+        threat_id = "2147934268"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "TimbreStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0f b6 ca 0f b6 04 28 03 c7 03 c8 0f b6 f9 8a 44 3c 18 88 44 34 18 46 88 54 3c 18 81 fe ?? ?? ?? ?? 72 d4}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
