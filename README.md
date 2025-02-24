@@ -366,7 +366,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 </details>
 
-#### 🔬 Sandbox
+#### 🔬 Sandbox / Emulation
 
 <details>
   
@@ -380,6 +380,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [threat zone](https://app.threat.zone/scan)
 - [vmray](https://www.vmray.com/)
 - [kaspersky opentip](https://opentip.kaspersky.com/requests)
+- [speakeasy (kernel and user mode emulation)](https://github.com/mandiant/speakeasy)
+
 </details>
 
 
