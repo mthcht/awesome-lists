@@ -154,6 +154,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [\[memory\] Lime](https://github.com/504ensicsLabs/LiME)
   - [Windows artifacts](https://github.com/Psmths/windows-forensic-artifacts)
   - [\[Linux\] UAC](https://github.com/tclahr/uac)
+  - [\[Linux\ EXT4 / XFS - fjta](https://github.com/mnrkbys/fjta)
   - [lists - aboutdfir.com](https://aboutdfir.com/)
   - [Monitoring - Osquery](https://github.com/osquery/osquery)
   - [\[IR Guide\] OpenProject ](https://github.com/DebugPrivilege/OpenProject)
