@@ -3212,3 +3212,29 @@ rule Trojan_MSIL_CryptInject_RHAP_2147929408_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CryptInject_RH_2147934370_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CryptInject.RH!MTB"
+        threat_id = "2147934370"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "/DARJ.mp3up%" ascii //weight: 3
+        $x_2_2 = "2I3-4-5" wide //weight: 2
+        $x_1_3 = "ENEZEZfFFdx" ascii //weight: 1
+        $x_1_4 = "/KARK NEW.mp3PK" ascii //weight: 1
+        $x_1_5 = "/Gata_Qudri_02.mp3PK" ascii //weight: 1
+        $x_2_6 = {50 45 00 00 4c 01 03 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 0b 01 08 00 00 bc 13 00 00 6e d1 00 00 00 00 00 ae da 13}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

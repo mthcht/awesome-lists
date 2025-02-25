@@ -6996,3 +6996,25 @@ rule Trojan_MSIL_SnakeKeylogger_BN_2147934284_0
         )
 }
 
+rule Trojan_MSIL_SnakeKeylogger_SEDA_2147934365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.SEDA!MTB"
+        threat_id = "2147934365"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {25 16 0f 00 28 ?? ?? 00 0a 9c 25 17 0f 00 28 ?? ?? 00 0a 9c 25 18 0f 00 28 ?? ?? 00 0a 9c 6f ?? ?? 00 0a 00 00 2b 15}  //weight: 3, accuracy: Low
+        $x_2_2 = {02 03 04 6f ?? ?? 00 0a 0b 0e 04 05 6f ?? ?? 00 0a 59 0c 07 08 05}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

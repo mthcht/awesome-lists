@@ -28,3 +28,27 @@ rule HackTool_Win32_Donkaykay_I_2147933572_0
         )
 }
 
+rule HackTool_Win32_Donkaykay_J_2147934371_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Donkaykay.J!dha"
+        threat_id = "2147934371"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Donkaykay"
+        severity = "High"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {44 00 6f 00 20 00 79 00 6f 00 75 00 20 00 77 00 61 00 6e 00 74 00 20 00 74 00 6f 00 20 00 65 00 78 00 69 00 74 00 20 00 74 00 68 00 65 00 20 00 4a 00 68 00 73 00 3f 00 0d 0a}  //weight: 1, accuracy: Low
+        $x_1_2 = {20 00 45 00 6e 00 74 00 65 00 72 00 20 00 74 00 68 00 65 00 20 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 20 00 27 00 40 00 65 00 78 00 69 00 74 00 27 00 20 00 74 00 6f 00 20 00 6a 00 75 00 73 00 74 00 20 00 73 00 65 00 6e 00 64 00 20 00 74 00 68 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {46 00 61 00 69 00 6c 00 65 00 64 00 20 00 74 00 6f 00 20 00 6f 00 70 00 65 00 6e 00 20 00 74 00 68 00 65 00 20 00 74 00 61 00 72 00 67 00 65 00 74 00 20 00 66 00 69 00 6c 00 65 00 2c 00 54 00 68 00 65 00 20 00 64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 20 00 66 00 69 00 6c 00 65 00 20 00 65 00 6e 00 64 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {5b 00 53 00 70 00 65 00 63 00 69 00 61 00 6c 00 20 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 73 00 5d 00 7b 00 65 00 78 00 69 00 74 00 2c 00 20 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

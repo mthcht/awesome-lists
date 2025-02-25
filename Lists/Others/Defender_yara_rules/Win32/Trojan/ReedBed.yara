@@ -21,3 +21,26 @@ rule Trojan_Win32_ReedBed_ZZ_2147932660_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ReedBed_ZY_2147934388_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ReedBed.ZY"
+        threat_id = "2147934388"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ReedBed"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "103"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "\\SOFTWARE\\TitanPlus" wide //weight: 100
+        $x_1_2 = "reg" wide //weight: 1
+        $x_1_3 = " add " wide //weight: 1
+        $x_1_4 = " /t REG_SZ /f" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

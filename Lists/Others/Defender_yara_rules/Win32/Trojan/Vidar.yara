@@ -351,12 +351,11 @@ rule Trojan_Win32_Vidar_OMJ_2147794198_0
         family = "Vidar"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {8b 55 08 03 95 f4 fb ff ff 0f b6 02 8b 8d e4 f7 ff ff 33 84 8d f8 fb ff ff 8b 95 f0 fb ff ff 03 95 f4 fb ff ff 88 02}  //weight: 1, accuracy: High
-        $x_1_2 = "JohnDoe" ascii //weight: 1
+        $x_11_1 = {8b 55 08 03 95 f4 fb ff ff 0f b6 02 8b 8d e4 f7 ff ff 33 84 8d f8 fb ff ff 8b 95 f0 fb ff ff 03 95 f4 fb ff ff 88 02}  //weight: 11, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
