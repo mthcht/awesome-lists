@@ -797,3 +797,29 @@ rule Trojan_AndroidOS_SpyBanker_AY_2147916913_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_SpyBanker_U_2147934450_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SpyBanker.U!MTB"
+        threat_id = "2147934450"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {7b 0a 20 20 22 73 74 72 61 74 65 67 79 4e 61 6d 65 22 3a 20 22 67 73 62 22 2c 0a 20 20 22 63 6f 6e 64 69 74 69 6f 6e 22 3a 20 7b 0a 20 20 20 20 22 70 6b 67 22 3a 20 22 63 6f 6d 2e 6d 6f 62 69 6c 69 66 65 2e 67 73 62 2e 6d 79 6d 6f 22 2c 0a 20 20 20 20 22 70 61 67 65 22 3a 20 22 22 2c 0a 20 20 20 20 22 6e 6f 64 65 73 22 3a 20 5b 5d 0a 20 20 7d 2c 0a 20 20 22 6c 69 73 74 65 6e 73 22 3a 20 7b 0a 20 20 20 20 22 6c 69 73 74 65 6e 4d 65 74 68 6f 64 22 3a 20 22 6c 69 73 74 65 6e 43 6c 69 63 6b 22 2c 0a 20 20 20 20 22 72 65 74 75 72 6e 54 79 70 65 22 3a 20 22 74 65 78 74 22 2c 0a 20 20 20 20 22 6b 65 79 73 22 3a 20 7b 0a 20 20 20 20 20 20 22 63 6f}  //weight: 4, accuracy: High
+        $x_2_2 = {45 6e 76 50 37 5f 6a 63 6c 61 73 73 50 38 5f 6a 73 74 72 69 6e 67 00 5f 5a 32 64 30 76 00 5f 5a 32 64 31 76 00 5f 5a 32 64 32 76 00 5f 5a 32 64 33 76 00 5f 5a 32 64 34 76 00 5f 5a 32 64 35 76 00 5f 5a 32 64 36 76 00 5f 5a 32 64 37 76 00 5f 5a 32 64 38 76 00 5f 5a 32 64 39 76 00 5f 5a 33 64 31 30 76 00 5f 5a 34 6f 70 70 6f 76 00 5f 5a 34 76 69 76 6f 76 00 5f 5a 35 68 6f 6e 6f 72 76 00 5f 5a 35 6d 65 69 7a 75 76 00 5f 5a 36 72 65 61 6c 6d 65 76 00 5f 5a 36 78 69 61 6f 6d 69 76 00 5f 5a 37 69 6e 66 69 6e 69 78 76 00 5f 5a 37 6f 6e 65 70 6c 75 73 76 00 5f 5a 37 73 61 6d 73}  //weight: 2, accuracy: High
+        $x_2_3 = {1d 52 24 e4 12 54 82 f5 0d ca f9 b9 e2 d1 f2 eb 6f 3f ed 25 fb d1 25 19 8d 34 6d 27 c0 d1 f2 eb e2 cb 62 82 d9 71 58 1c bb e3 92 7c c1 d0 5c b9 a0 d1 f2 eb}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

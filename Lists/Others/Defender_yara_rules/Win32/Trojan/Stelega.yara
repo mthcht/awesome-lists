@@ -454,3 +454,24 @@ rule Trojan_Win32_Stelega_RI_2147849277_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stelega_EAXC_2147934437_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stelega.EAXC!MTB"
+        threat_id = "2147934437"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stelega"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {b1 96 f6 d2 2a d0 c0 c2 03 02 d0 f6 da 80 f2 2b 80 ea 58 f6 d2 32 d0 c0 c2 02 02 d0 32 d0 2a ca 32 c8 88 88 ?? ?? ?? ?? 40 3d 05 50 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

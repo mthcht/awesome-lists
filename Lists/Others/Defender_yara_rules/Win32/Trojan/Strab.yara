@@ -1482,3 +1482,24 @@ rule Trojan_Win32_Strab_NFA_2147933491_0
         )
 }
 
+rule Trojan_Win32_Strab_EALC_2147934424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Strab.EALC!MTB"
+        threat_id = "2147934424"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Strab"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f af c0 0f b7 d7 03 ce 8a 54 55 ec 30 11 47 99 2b c2 d1 f8 46 3b f3 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

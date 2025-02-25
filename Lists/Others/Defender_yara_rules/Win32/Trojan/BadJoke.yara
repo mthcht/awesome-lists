@@ -154,3 +154,24 @@ rule Trojan_Win32_BadJoke_GH_2147905025_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BadJoke_EARZ_2147934439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EARZ!MTB"
+        threat_id = "2147934439"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b d0 8b c8 c1 e9 08 0a c8 c1 ea 09 0a d0 02 d1 8b c8 c1 e9 07 0a c8 02 d1 8b c8 c1 e9 06 22 c8 02 d1 88 94 05 f8 59 f1 ff 40 3d 00 a6 0e 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

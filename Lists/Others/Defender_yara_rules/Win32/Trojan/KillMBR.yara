@@ -777,3 +777,24 @@ rule Trojan_Win32_KillMBR_PAGD_2147931024_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillMBR_EAIJ_2147934441_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillMBR.EAIJ!MTB"
+        threat_id = "2147934441"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b d0 c1 ea 0b 80 e2 06 32 d0 8a ca c0 e2 02 02 ca 02 c9 88 8c 05 f8 f3 fa ff 40 3d fe 0b 05 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

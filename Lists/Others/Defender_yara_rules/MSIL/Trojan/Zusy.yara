@@ -2924,3 +2924,45 @@ rule Trojan_MSIL_Zusy_GE_2147932968_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_EAQH_2147934427_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.EAQH!MTB"
+        threat_id = "2147934427"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {20 00 40 01 00 8d 84 00 00 01 0a 38 09 00 00 00 03 06 16 07 6f 26 01 00 0a 02 06 16 06 8e 69 6f 27 01 00 0a 25 0b 3a e5 ff ff ff 2a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_EACZ_2147934429_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.EACZ!MTB"
+        threat_id = "2147934429"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {17 6f 2a 00 00 0a 13 07 28 2f 00 00 0a 11 07 16 9a 28 30 00 00 0a 6f 31 00 00 0a 13 08 11 08 72 3f 00 00 70 6f 32 00 00 0a 2c 03 11 08 0c 11 07 17 9a 28 30 00 00 0a 13 09 07 11 08 28 20 00 00 0a 11 09 28 33 00 00 0a de 03}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
