@@ -1,4 +1,5 @@
 src_nt_host,metadata_comment,metadata_link,metadata_severity,metadata_usage,metadata_log_type
+blackarch,default hostname blackarch live cd,https://blackarch.org/blackarch-install.html,critical,Detection,DHCP - Successful Authentication
 RULER,CreateStringPayload with static hostname 'RULER' showing in logs,https://github.com/sensepost/ruler/issues/47#issuecomment-320162718,critical,Detection,DHCP - Successful Authentication
 kali*,kali linux offensive distribution,https://www.kali.org/,high,Detection,DHCP - Successful Authentication
 parrot*,offensive distribution,https://www.parrotsec.org/,high,Detection,DHCP - Successful Authentication
