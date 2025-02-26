@@ -130,3 +130,24 @@ rule Trojan_Win64_LummaC_NZ_2147933340_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaC_YAP_2147934476_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaC.YAP!MTB"
+        threat_id = "2147934476"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {43 02 04 37 0f b6 c0 41 8a 04 07 4c 8b 7d ?? 48 8b 4d ?? 4c 8b 75 ?? 42 32 04 31 42 88 04 31}  //weight: 11, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

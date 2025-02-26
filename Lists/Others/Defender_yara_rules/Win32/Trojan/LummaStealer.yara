@@ -3969,13 +3969,15 @@ rule Trojan_Win32_LummaStealer_DI_2147933587_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {02 ca 8a 8c 0d ?? ?? ff ff}  //weight: 10, accuracy: Low
-        $x_1_2 = {30 0e ff c6 ?? ?? 0f 85}  //weight: 1, accuracy: Low
-        $x_1_3 = {ff ff 30 0e e9}  //weight: 1, accuracy: High
-        $x_1_4 = {30 0e ff c6 ?? ?? e9}  //weight: 1, accuracy: Low
+        $x_10_2 = {ff ff 02 ca e9}  //weight: 10, accuracy: High
+        $x_1_3 = {30 0e ff c6 ?? ?? 0f 85}  //weight: 1, accuracy: Low
+        $x_1_4 = {ff ff 30 0e e9}  //weight: 1, accuracy: High
+        $x_1_5 = {30 0e ff c6 ?? ?? e9}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
             ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
             (all of ($x*))
         )
 }

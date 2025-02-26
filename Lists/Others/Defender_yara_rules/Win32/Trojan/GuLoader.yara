@@ -2750,3 +2750,29 @@ rule Trojan_Win32_GuLoader_RSW_2147934448_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RSX_2147934458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RSX!MTB"
+        threat_id = "2147934458"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "#\\Kalkvrksarbejderen84\\chego\\reverensens" ascii //weight: 1
+        $x_1_2 = "supernovas\\mesalliancers\\Seksaaringen" ascii //weight: 1
+        $x_1_3 = "\\betrngtes\\hockshin.Toe" ascii //weight: 1
+        $x_1_4 = "bimahs weensier spildevandsledningernes" ascii //weight: 1
+        $x_1_5 = "influenzaepidemiens doktoren" ascii //weight: 1
+        $x_1_6 = "nadvergst.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

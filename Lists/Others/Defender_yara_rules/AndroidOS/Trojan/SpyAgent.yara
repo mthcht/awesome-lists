@@ -1003,3 +1003,46 @@ rule Trojan_AndroidOS_SpyAgent_Y_2147923349_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_SpyAgent_AV_2147934498_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SpyAgent.AV"
+        threat_id = "2147934498"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyAgent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "collectAndSendContacts" ascii //weight: 2
+        $x_2_2 = "collectAndSendCallLog" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_AndroidOS_SpyAgent_AE_2147934500_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SpyAgent.AE"
+        threat_id = "2147934500"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyAgent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "CREATE TABLE worm_status (id INTEGER PRIMARY KEY AUTOINCREMENT,is_active INTEGER,call_to TEXT,frequency INTEGER,dialog_title TEXT,dialog_message TEXT)" ascii //weight: 2
+        $x_2_2 = "TABLE_NAME_WORMSTATUS" ascii //weight: 2
+        $x_2_3 = "RegisterWormData" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

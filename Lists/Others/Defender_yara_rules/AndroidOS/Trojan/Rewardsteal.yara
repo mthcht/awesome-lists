@@ -1111,3 +1111,30 @@ rule Trojan_AndroidOS_Rewardsteal_CY_2147928918_0
         (2 of ($x*))
 }
 
+rule Trojan_AndroidOS_Rewardsteal_AO_2147934499_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Rewardsteal.AO"
+        threat_id = "2147934499"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Rewardsteal"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "system/bg/DeliveredReceiver" ascii //weight: 2
+        $x_2_2 = "secure/system/NoInternetActivity" ascii //weight: 2
+        $x_2_3 = "billpoggybank" ascii //weight: 2
+        $x_2_4 = "intbanbillcode" ascii //weight: 2
+        $x_2_5 = "shikaacode" ascii //weight: 2
+        $x_2_6 = "FrontServices/ExpiryDateInputMask" ascii //weight: 2
+        $x_2_7 = "comaxismobilesaleves23" ascii //weight: 2
+        $x_2_8 = "FrontServices/DebitCardInputMask" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

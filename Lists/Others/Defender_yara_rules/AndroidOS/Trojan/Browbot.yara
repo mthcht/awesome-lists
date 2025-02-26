@@ -48,3 +48,26 @@ rule Trojan_AndroidOS_Browbot_Y_2147928919_0
         (2 of ($x*))
 }
 
+rule Trojan_AndroidOS_Browbot_Q_2147934501_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Browbot.Q"
+        threat_id = "2147934501"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Browbot"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SmsReceiverActivity_21" ascii //weight: 2
+        $x_2_2 = "com.browser.my27" ascii //weight: 2
+        $x_2_3 = "preferencesManager_23" ascii //weight: 2
+        $x_2_4 = "SmsReceiver_23" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

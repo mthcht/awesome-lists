@@ -2726,3 +2726,25 @@ rule Trojan_MSIL_Lokibot_AGIA_2147929950_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lokibot_AKMA_2147934519_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.AKMA!MTB"
+        threat_id = "2147934519"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {58 0a 06 19 5a 20 00 01 00 00 5d 0a 19 8d ?? 00 00 01 25 16 0f 00 28 ?? 00 00 0a 1f 55 61 d2 9c 25 17 0f 00 28 ?? 00 00 0a 20 aa 00 00 00 61 d2 9c 25 18 0f 00 28 ?? 00 00 0a 1f 33 61 d2 9c}  //weight: 3, accuracy: Low
+        $x_2_2 = {01 25 16 0f 00 28 ?? 00 00 0a 9c 25 17 0f 00 28 ?? 00 00 0a 9c 25 18 0f 00 28 ?? 00 00 0a 9c 0b}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
