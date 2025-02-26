@@ -14462,3 +14462,26 @@ rule Trojan_MSIL_FormBook_RVD_2147934285_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_AKB_2147934595_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.AKB!MTB"
+        threat_id = "2147934595"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {9c 0b 16 0c 2b 1f 07 08 91 1f 7f 26 26 04 07 08 91 6f ?? 00 00 0a 06 08 06 08 94 18 5a 1f 64 5d 9e 08 17 58 0c 08 03 32 dd}  //weight: 3, accuracy: Low
+        $x_1_2 = {5a 0a 06 17 28 ?? 00 00 0a 0a 03 19 8d ?? 00 00 01 25 16 0f 00 28 ?? 00 00 0a 9c 25 17 0f 00 28 ?? 00 00 0a 9c 25 18 0f 00 28}  //weight: 1, accuracy: Low
+        $x_2_3 = "AbdullahHassanAbdo_Lab5" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

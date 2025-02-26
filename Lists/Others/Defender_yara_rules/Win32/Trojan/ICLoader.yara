@@ -1919,3 +1919,24 @@ rule Trojan_Win32_ICLoader_GPQ_2147934250_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_GNQ_2147934597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.GNQ!MTB"
+        threat_id = "2147934597"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {40 00 00 40 2e 64 61 ?? ?? 00 00 00 98 ?? ?? ?? ?? f0 49 00 00 32 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
