@@ -38,6 +38,14 @@ jobs:
           git add .gitattributes
           git commit -m "Enable Git LFS for large files" || echo "No LFS changes to commit"
 
+      - name: Prune old LFS objects
+        run: |
+          git lfs prune --verify-remote
+          git reflog expire --expire=now --all
+          git gc --prune=now
+        continue-on-error: true  # Prevent workflow failure if nothing to prune
+
+
       - name: Commit and Push results
         run: |
           git config --local user.email "action@github.com"
