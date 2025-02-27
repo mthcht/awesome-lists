@@ -139,7 +139,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [Nirsoft tools](https://www.nirsoft.net/)
   - [\[memory\] MemDump](https://nircmd.nirsoft.net/memdump.html)
   - [\[memory\] MemProcFS](https://github.com/ufrisk/MemProcFS)
-  - [\[memory\] MemProcFS-Analyzer](https://github.com/evild3ad/MemProcFS-Analyzer)
+  - [\[memory\] MemProcFS-Analyzer](https://github.com/LETHAL-FORENSICS/MemProcFS-Analyzer)
   - [\[memory\] avml](https://github.com/microsoft/avml)
   - [\[memory\] WinPmem](https://github.com/Velocidex/WinPmem)
   - [\[memory\] Volatility](https://github.com/volatilityfoundation/volatility3/)
