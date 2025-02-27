@@ -19,3 +19,24 @@ rule Trojan_MSIL_GhostRat_ARG_2147934596_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_GhostRat_AGR_2147934694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/GhostRat.AGR!MTB"
+        threat_id = "2147934694"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "GhostRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {09 11 09 1e 5b 91 1d 11 09 1e 5d 59 1f 1f 5f 63 17 5f 60 7d ?? ?? ?? 04 11 0c 11 04 17 59 2f 10 11 0a 11 0a 7b ?? ?? ?? 04 17 62 7d ?? ?? ?? 04 11 09 17 58 13 09 11 0c 17 58}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
