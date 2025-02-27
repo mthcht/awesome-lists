@@ -3268,3 +3268,27 @@ rule Trojan_MSIL_NjRat_GPPE_2147932775_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_SPA_2147934649_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.SPA!MTB"
+        threat_id = "2147934649"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$atalhoStartup = \"$env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\update.lnk\"" ascii //weight: 2
+        $x_2_2 = "Invoke-WebRequest -Uri $encURL -OutFile $encPath" ascii //weight: 2
+        $x_2_3 = "$scriptDescriptografia = \"$dirBase\\update.ps1\"" ascii //weight: 2
+        $x_2_4 = "$Atalho.Arguments = \"-ExecutionPolicy Bypass -WindowStyle Hidden -File" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

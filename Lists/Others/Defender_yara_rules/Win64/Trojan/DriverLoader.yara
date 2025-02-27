@@ -195,3 +195,26 @@ rule Trojan_Win64_DriverLoader_GNQ_2147933869_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_DriverLoader_SAO_2147934648_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DriverLoader.SAO!MTB"
+        threat_id = "2147934648"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DriverLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "taskkill /im WmiPrvSE* /f /t" ascii //weight: 2
+        $x_2_2 = "protected by diwness protection" ascii //weight: 2
+        $x_2_3 = "RaidPort" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

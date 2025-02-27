@@ -2826,3 +2826,84 @@ rule Trojan_Win32_GuLoader_RSZ_2147934598_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SRG_2147934637_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SRG!MTB"
+        threat_id = "2147934637"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Unbeing55\\kroer\\tingid" ascii //weight: 1
+        $x_1_2 = "Bosteder5.soc" ascii //weight: 1
+        $x_1_3 = "Filstruktur.txt" ascii //weight: 1
+        $x_1_4 = "copaline.unc" ascii //weight: 1
+        $x_1_5 = "destemper.txt" ascii //weight: 1
+        $x_1_6 = "ferske.kap" ascii //weight: 1
+        $x_1_7 = "undergivelsens.ini" ascii //weight: 1
+        $x_1_8 = "\\proctoclysis\\rosetan.fis" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBA_2147934680_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBA!MTB"
+        threat_id = "2147934680"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "sandfanget\\ophavsretsindehavers\\marmorflisens" ascii //weight: 1
+        $x_1_2 = "\\supervacaneous\\forestillingsverdner.col" ascii //weight: 1
+        $x_1_3 = "5\\episodernes\\Multiscreen.fra" ascii //weight: 1
+        $x_1_4 = "%unoratorial%\\universitetsforlag" ascii //weight: 1
+        $x_1_5 = "sati sprogklft saronide" ascii //weight: 1
+        $x_1_6 = "kookier atropinet" ascii //weight: 1
+        $x_1_7 = "stinkbranden" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBB_2147934688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBB!MTB"
+        threat_id = "2147934688"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Milieubeskyttelsessektorer\\Acetylene" ascii //weight: 1
+        $x_1_2 = "ts\\ekstrafortjenestes.Rke" ascii //weight: 1
+        $x_1_3 = "%sitre%\\sidsers.Adr" ascii //weight: 1
+        $x_1_4 = "smitsommeste rdlerets" ascii //weight: 1
+        $x_1_5 = "mononitride fiskekutter injects" ascii //weight: 1
+        $x_1_6 = "vocoded differentieringer.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -14485,3 +14485,26 @@ rule Trojan_MSIL_FormBook_AKB_2147934595_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVE_2147934687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVE!MTB"
+        threat_id = "2147934687"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 3f b6 1d 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 ba 00 00 00 40 00 00 00 7d 01 00 00 e5 02 00 00 7d 02 00 00 11 00 00 00 f4 01 00 00 21 00 00 00 d5 02 00 00 01 00 00 00 50 00 00 00 10 00 00 00 3a 00 00 00 24 00 00 00 94 00 00 00 90 01 00 00 03 00 00 00 10 00 00 00 08 00 00 00 01 00 00 00 08 00 00 00 03 00 00 00 07 00 00 00 0d}  //weight: 1, accuracy: High
+        $x_1_2 = "71083a9b-c09e-430e-b2be-1f5d132290c0" ascii //weight: 1
+        $x_1_3 = "Minimal.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
