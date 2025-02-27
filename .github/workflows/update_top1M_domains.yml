@@ -60,10 +60,11 @@ jobs:
       - name: Push LFS objects
         run: git lfs push origin main || echo "No LFS changes to push"
 
-      - name: **Prune old LFS objects**
+      - name: Prune old LFS objects
         run: |
           git lfs prune --verify-remote
           git reflog expire --expire=now --all
           git gc --prune=now
         continue-on-error: true  # Prevent workflow failure if nothing to prune
+
 
