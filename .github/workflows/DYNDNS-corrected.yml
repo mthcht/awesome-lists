@@ -1,0 +1,54 @@
+name: Update DYNDNS CSV and TXT Files
+
+on:
+  schedule:
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: scripts/package-lock.json
+
+      - name: Change to scripts directory
+        run: cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected/scripts
+
+      - name: Install dependencies
+        run: |
+          cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected/scripts
+          npm ci
+          npm install puppeteer --force
+      - name: Run main script
+        run: |
+          cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected/scripts
+          node main.js
+          cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected/
+          python create_dyndns_list.py
+
+        env:
+          NOIP_USERNAME: ${{ secrets.NOIP_USERNAME }}
+          NOIP_PASSWORD: ${{ secrets.NOIP_PASSWORD }}
+          GSLB_USERNAME: ${{ secrets.GSLB_USERNAME }}
+          GSLB_PASSWORD: ${{ secrets.GSLB_PASSWORD }}
+          CLOUDDNS_USERNAME: ${{ secrets.CLOUDDNS_USERNAME }}
+          CLOUDDNS_PASSWORD: ${{ secrets.CLOUDDNS_PASSWORD }}
+
+      - name: Commit and push if there are changes
+        run: |
+          git pull
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add Lists/DYNDNS/*
+          git commit -m "Automatically update .csv and .txt files" || exit 0
+          git commit -m "Update daily dyndns" --allow-empty
+          git push
