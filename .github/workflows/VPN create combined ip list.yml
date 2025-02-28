@@ -13,7 +13,7 @@ jobs:
       - name: Check out repository with Git LFS
         uses: actions/checkout@v3
         with:
-          lfs: true  # Enable Git Large File Storage (LFS)
+          lfs: true
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -37,13 +37,6 @@ jobs:
           git add .gitattributes
           git commit -m "Enable Git LFS for VPN list" || echo "No LFS changes to commit"
 
-      - name: Prune old LFS objects (Only VPN List)
-        run: |
-          git lfs prune --verify-remote --include="Lists/VPN/VPN_ALL_IP_List.csv"
-          git reflog expire --expire=now --all
-          git gc --prune=now
-        continue-on-error: true  # Prevent failure if nothing to prune
-
       - name: Commit and Push Changes Without Keeping History
         run: |
           git config --local user.email "action@github.com"
@@ -64,9 +57,8 @@ jobs:
       - name: Push LFS Objects
         run: git lfs push origin main || echo "No LFS changes to push"
 
-      - name: Prune old LFS objects
+      - name: Prune old LFS objects (Safe)
         run: |
           git lfs prune --verify-remote
           git reflog expire --expire=now --all
           git gc --prune=now
-        continue-on-error: true  # Prevent failure if nothing to prune
