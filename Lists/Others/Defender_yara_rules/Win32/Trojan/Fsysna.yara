@@ -112,3 +112,31 @@ rule Trojan_Win32_Fsysna_GMX_2147934045_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fsysna_NITs_2147934878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fsysna.NITs!MTB"
+        threat_id = "2147934878"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fsysna"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "vssadmin delete shadows /all /quiet" wide //weight: 2
+        $x_2_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 2
+        $x_2_3 = "LegalNoticeText" wide //weight: 2
+        $x_2_4 = "LegalNoticeCaption" wide //weight: 2
+        $x_1_5 = "Esmeralda Ransomware" ascii //weight: 1
+        $x_1_6 = "How_To_Decrypt" wide //weight: 1
+        $x_1_7 = "BeginUpdateResourceW" ascii //weight: 1
+        $x_1_8 = "EndUpdateResourceW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1545,3 +1545,24 @@ rule Trojan_Win32_Tofsee_EAHN_2147934435_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_AAG_2147934877_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.AAG!MTB"
+        threat_id = "2147934877"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {5a 83 c0 04 f7 da 8d 52 d7 8d 52 fe 42 29 ca 89 d1 c7 47 00 00 00 00 00 31 17 83 c7 04 83 c3 fc 8d 15 ?? ?? ?? ?? 81 ea 65 98 00 00 ff e2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

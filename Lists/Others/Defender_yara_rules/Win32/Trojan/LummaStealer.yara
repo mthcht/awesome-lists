@@ -3381,6 +3381,29 @@ rule Trojan_Win32_LummaStealer_BAN_2147928342_0
         )
 }
 
+rule Trojan_Win32_LummaStealer_NIT_2147928350_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.NIT!MTB"
+        threat_id = "2147928350"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {74 69 52 4e 67 72 77 38 33 36 52 79 45 0d 0a 4b 67 49 38 57 43 73 4b 62 41 30 5a 47 65 54 68 63 31 47 43 37 57 4e 33 6b 59 64 57 52 58 74 55 32 53 2b 61 75 4a 48 4d 70 41 31 37 44 4a 4d 79 4e 6d 73 6e 37 44 41 43 32 51 4b 42 67 44 62 33 0d 0a 6b 65 63 71 56 52 6c 78 6f 6e 41 71 50 55 46 5a 33 43 36 50 37 6b 53 58 4e 37 43}  //weight: 2, accuracy: High
+        $x_2_2 = "AfSdNM6/46ObIJJmWHHvpVJ" ascii //weight: 2
+        $x_1_3 = {66 bb 19 5a 66 83 c3 34 66 39 18 75 12 0f b7 50 3c 03 d0 bb e9 44 00 00 83 c3 67 39 1a 74 07 2d 00 10 00 00 eb da}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_AMCT_2147928391_0
 {
     meta:

@@ -2837,6 +2837,28 @@ rule Trojan_MSIL_Zusy_NITA_2147932225_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {14 73 15 02 00 0a 0c 08 1f 20 6f ?? 02 00 0a 0d 73 17 02 00 0a 13 04 11 04 17 6f ?? 02 00 0a 11 04 09 06 6f ?? 02 00 0a 13 05 73 1a 02 00 0a 13 06 11 06 11 05 17 73 1b 02 00 0a 13 07 11 07 07 16 07 8e 69 6f ?? 02 00 0a 11 07 6f ?? 02 00 0a 11 06 6f ?? 02 00 0a 13 08 11 06 6f ?? 02 00 0a 11 07 6f ?? 02 00 0a 11 08 28 ?? 02 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_NITA_2147932225_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.NITA!MTB"
+        threat_id = "2147932225"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "9"
         strings_accuracy = "High"
     strings:

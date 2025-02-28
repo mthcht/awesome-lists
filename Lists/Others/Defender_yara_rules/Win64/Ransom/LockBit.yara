@@ -119,3 +119,30 @@ rule Ransom_Win64_LockBit_AYA_2147929767_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_YAC_2147934874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.YAC!MTB"
+        threat_id = "2147934874"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "data are stolen and encrypted" ascii //weight: 10
+        $x_1_2 = "LockBit 3.0 " ascii //weight: 1
+        $x_1_3 = "world's fastest ransomware" ascii //weight: 1
+        $x_1_4 = "data will be published on TOR website" ascii //weight: 1
+        $x_1_5 = "do not pay the ransom" ascii //weight: 1
+        $x_1_6 = " delete your data " ascii //weight: 1
+        $x_1_7 = "decrypt one file for free" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
