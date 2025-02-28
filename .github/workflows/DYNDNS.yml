@@ -2,7 +2,7 @@ name: daily DYNDNS list update
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Runs every week
+    - cron: '0 8 * * *'  # Runs every day
   workflow_dispatch:
 
 jobs:
