@@ -33,7 +33,7 @@ jobs:
         run: |
           cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected/scripts
           node main.js
-          cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected/
+          cd ..
           python create_dyndns_list.py
 
         env:
