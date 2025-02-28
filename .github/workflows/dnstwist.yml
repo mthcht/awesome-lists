@@ -23,23 +23,24 @@ jobs:
           pip install dnstwist[full]
 
       - name: Run the script
-        run: python Lists/DNSTWIST/get_dnstwist.py Lists/DNSTWIST/domains_list.txt
+        run: python Lists/Phishing/DNSTWIST/get_dnstwist.py Lists/Phishing/DNSTWIST/domains_list.txt
 
       - name: List files in the root directory
         run: ls -la
 
       - name: List files in the Lists/DNSTWIST directory
-        run: ls -la Lists/DNSTWIST
+        run: ls -la Lists/Phishing/DNSTWIST
 
       - name: Move output files to correct directory (if necessary)
         run: |
-          mv *_dnstwist_list.csv Lists/DNSTWIST/ || echo "File not found in root."
+          mv *_dnstwist_list.csv Lists/Phishing/DNSTWIST/ || echo "File not found in root."
 
       - name: Commit and Push Changes
         run: |
+          git pull
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add Lists/DNSTWIST/*_dnstwist_list.csv
+          git add Lists/Phishing/DNSTWIST/*_dnstwist_list.csv
           git commit -m "Update DNSTWIST list files" --allow-empty
           git pull --rebase
           git push
