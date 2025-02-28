@@ -33,9 +33,6 @@ jobs:
         run: |
           cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected/scripts
           node main.js
-          cd ..
-          python create_dyndns_list.py
-
         env:
           NOIP_USERNAME: ${{ secrets.NOIP_USERNAME }}
           NOIP_PASSWORD: ${{ secrets.NOIP_PASSWORD }}
@@ -44,6 +41,11 @@ jobs:
           CLOUDDNS_USERNAME: ${{ secrets.CLOUDDNS_USERNAME }}
           CLOUDDNS_PASSWORD: ${{ secrets.CLOUDDNS_PASSWORD }}
 
+      - name: create csv file
+        run: |
+          cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected
+          python create_dyndns_list.py
+          
       - name: Commit and push if there are changes
         run: |
           git pull
