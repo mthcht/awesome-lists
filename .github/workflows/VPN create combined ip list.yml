@@ -2,34 +2,71 @@ name: VPN Combine ALL IP address
 
 on:
   schedule:
-    - cron: '0 */2 * * *'  # Runs at minute 0 every 2 hours
+    - cron: '0 */2 * * *'  # Runs every 2 hours
   workflow_dispatch:
 
 jobs:
   process-data:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out code
+      - name: Check out repository with Git LFS
         uses: actions/checkout@v3
-      
+        with:
+          lfs: true  # Enable Git Large File Storage (LFS)
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-    
-      - name: Run the script
+
+      - name: Install dependencies
+        run: pip install pandas requests
+
+      - name: Run the script to generate the VPN IP list
         working-directory: Lists/VPN
         run: python create_all_vpn_ip_list.py
 
-      - name: List files
-        run: ls -la Lists/VPN/
+      - name: List generated files
+        run: ls -lah Lists/VPN/
 
-      - name: Commit and Push Changes
+      - name: Set up Git LFS for large files
         run: |
-          git pull
+          git lfs install
+          git lfs track "Lists/VPN/VPN_ALL_IP_List.csv"
+          git add .gitattributes
+          git commit -m "Enable Git LFS for VPN list" || echo "No LFS changes to commit"
+
+      - name: Prune old LFS objects (Only VPN List)
+        run: |
+          git lfs prune --verify-remote --include="Lists/VPN/VPN_ALL_IP_List.csv"
+          git reflog expire --expire=now --all
+          git gc --prune=now
+        continue-on-error: true  # Prevent failure if nothing to prune
+
+      - name: Commit and Push Changes Without Keeping History
+        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git pull
+
+          # Pull latest changes to avoid conflicts
+          git pull --rebase || echo "No updates to pull"
+
+          # Force add the updated file
           git add Lists/VPN/VPN_ALL_IP_List.csv
-          git commit -m "Update NordVPN IPs list" --allow-empty
-          git push
+
+          # Commit with forced overwrite (no history kept)
+          git commit -m "Update VPN IP list"
+
+          # Push with --force to avoid history accumulation
+          git push origin main --force
+
+      - name: Push LFS Objects
+        run: git lfs push origin main || echo "No LFS changes to push"
+
+      - name: Prune old LFS objects
+        run: |
+          git lfs prune --verify-remote
+          git reflog expire --expire=now --all
+          git gc --prune=now
+        continue-on-error: true  # Prevent failure if nothing to prune
