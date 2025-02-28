@@ -338,6 +338,27 @@ rule Trojan_Win32_Azorult_BZ_2147744036_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Azorult_BZ_2147744036_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Azorult.BZ!MTB"
+        threat_id = "2147744036"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Azorult"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8a 45 ff 8a 4d fe 24 c0 08 45 fc 8b 45 f8 88 0c 07 8a 4d fd 88 4c 07 01 83 0d}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Azorult_PB_2147744391_0
 {
     meta:
@@ -6475,6 +6496,27 @@ rule Trojan_Win32_Azorult_SZSB_2147924652_0
         strings_accuracy = "High"
     strings:
         $x_4_1 = {03 c8 8b 45 f0 c1 e8 05 89 45 f8 8b 55 dc 01 55 f8 33 f1 81 3d a4 88 45 00 e6 09 00 00 c7 05 9c 88 45 00 ee 3d ea f4 75 0c}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Azorult_BAF_2147934835_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Azorult.BAF!MTB"
+        threat_id = "2147934835"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Azorult"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8b 07 83 ef fc f7 d8 8d 40 d7 83 c0 fe 40 29 d0 29 d2 09 c2 6a 00 8f 03 01 03 83 eb fc 83 ee fc}  //weight: 3, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

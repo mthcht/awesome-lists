@@ -6606,3 +6606,45 @@ rule Trojan_Win32_Ursnif_CCJT_2147931448_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Ursnif_BAA_2147934830_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Ursnif.BAA!MTB"
+        threat_id = "2147934830"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Ursnif"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 31 0f af f8 8d 50 ?? 89 15 ?? ?? ?? ?? 8d 50 ?? 81 c6 ?? ?? ?? ?? 2b c2 8d 84 00 ?? ?? ?? ?? 89 31 2b fa 83 c1 04 83 eb 01 a3}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Ursnif_BAB_2147934834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Ursnif.BAB!MTB"
+        threat_id = "2147934834"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Ursnif"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {03 c0 2b c6 89 94 29 ?? ?? ?? ?? 8d 44 07 3f 8b 3d ?? ?? ?? ?? 83 c1}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

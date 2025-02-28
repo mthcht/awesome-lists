@@ -202,3 +202,26 @@ rule Trojan_MSIL_Rhadamanthys_BK_2147932339_0
         )
 }
 
+rule Trojan_MSIL_Rhadamanthys_BN_2147934826_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rhadamanthys.BN!MTB"
+        threat_id = "2147934826"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {02 00 06 1b 3a ?? 00 00 00 26 20 00 00 00 00 7e}  //weight: 2, accuracy: Low
+        $x_2_2 = {ff ff 26 20 00 00 00 00 38 ?? ff ff ff dd ?? 00 00 00 13}  //weight: 2, accuracy: Low
+        $x_1_3 = "Lrelfunmmxbuqifzq" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

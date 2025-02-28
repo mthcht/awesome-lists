@@ -4567,6 +4567,27 @@ rule Trojan_Win32_Zbot_BAA_2147840125_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8a 94 06 32 09 00 00 88 14 08 8b 7c 24 10 40 3b c7 72}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_BAA_2147840125_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.BAA!MTB"
+        threat_id = "2147840125"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:
@@ -4576,7 +4597,7 @@ rule Trojan_Win32_Zbot_BAA_2147840125_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zbot_BAA_2147840125_1
+rule Trojan_Win32_Zbot_BAA_2147840125_2
 {
     meta:
         author = "defender2yara"
@@ -6062,6 +6083,28 @@ rule Trojan_Win32_Zbot_ASGA_2147909741_0
     strings:
         $x_2_1 = {b7 ff 84 0f 0b f8 55 8b 2d 78 5a 3f e8 8c 62 53 5a e9 8d 88 1e 5a db ff 76 fb 5d c3 90 2b 1b 39 03 07 7b b9 0b 23 63 7a 89 8d}  //weight: 2, accuracy: High
         $x_2_2 = {17 44 e8 6b 0e 4c 8b 45 d0 35 41 db dd fd 6f 7b 01 2d cd db 74 f0 89 85 5c 19 e9 3d 10 93 0b c3 57 b3 fc db 7e b8 d8 ac c8 13 14 34 39 57}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_AZT_2147934843_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.AZT!MTB"
+        threat_id = "2147934843"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {23 02 20 68 25 20 02 20 68 1d 20 02 20 68 15 20 02 20 e9 0d ee ff ff 32 9c 68 ?? ?? ?? ?? 68 25 20 02 20 68 1d 20 02 20 68 15 20 02 20}  //weight: 3, accuracy: Low
+        $x_2_2 = {d0 8b d8 c3 a1 8b 73 3c c3 8f 03 f3 c3 aa 8b 86 80 00 00 00 c3 f3 fd 8b 44 18 10 c3 41}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

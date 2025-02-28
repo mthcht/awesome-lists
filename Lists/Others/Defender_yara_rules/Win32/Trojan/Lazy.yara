@@ -675,29 +675,6 @@ rule Trojan_Win32_Lazy_CCBF_2147891345_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Lazy_GPC_2147891562_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Lazy.GPC!MTB"
-        threat_id = "2147891562"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Lazy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8b 84 24 dc 00 00 00 33 44 24 0c 89 84 24 dc 00 00 00}  //weight: 1, accuracy: High
-        $x_1_2 = {8b 84 24 dc 00 00 00 33 44 24 0c 89 84 24 dc 00 00 00 8b 8c 24 d8 00 00 00 33 4c 24 10 89 8c 24 d8 00 00 00}  //weight: 1, accuracy: High
-        $x_1_3 = {8b 84 24 dc 00 00 00 33 44 24 0c 8b 8c 24 d8 00 00 00 33 4c 24 10}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Lazy_GMK_2147891577_0
 {
     meta:

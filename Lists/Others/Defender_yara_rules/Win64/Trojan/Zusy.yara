@@ -256,6 +256,33 @@ rule Trojan_Win64_Zusy_EM_2147901026_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "I Follow You.dll" ascii //weight: 1
+        $x_1_2 = "I_Follow_You_aujdaw" ascii //weight: 1
+        $x_1_3 = "GetTempPathA" ascii //weight: 1
+        $x_1_4 = "CopyFileA" ascii //weight: 1
+        $x_1_5 = "WinExec" ascii //weight: 1
+        $x_1_6 = "WinHttpReceiveResponse" ascii //weight: 1
+        $x_1_7 = "ceilf" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_EM_2147901026_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.EM!MTB"
+        threat_id = "2147901026"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
@@ -270,7 +297,7 @@ rule Trojan_Win64_Zusy_EM_2147901026_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_EM_2147901026_3
+rule Trojan_Win64_Zusy_EM_2147901026_4
 {
     meta:
         author = "defender2yara"

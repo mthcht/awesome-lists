@@ -392,3 +392,24 @@ rule Trojan_Win32_Nymaim_BAC_2147934269_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Nymaim_BAB_2147934832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nymaim.BAB!MTB"
+        threat_id = "2147934832"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nymaim"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8f 45 e4 8b c8 50 8f 45 e8 8a 4d e3 0a 4d ed 80 e1 00 0b c1 8d 00 32 05 ?? ?? ?? ?? 88 45 ef}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

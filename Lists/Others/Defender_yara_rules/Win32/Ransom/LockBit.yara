@@ -420,3 +420,25 @@ rule Ransom_Win32_LockBit_K_2147929342_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_LockBit_AL_2147934827_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.AL!MTB"
+        threat_id = "2147934827"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {80 30 fa 80 70 0a fa 83 c0 14 39 f0 75}  //weight: 4, accuracy: High
+        $x_1_2 = {c7 04 24 10 27 00 00 ff d3 83 ec 04 eb}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4145,3 +4145,24 @@ rule Trojan_Win32_StealC_NNP_2147932518_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealC_BAA_2147934831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.BAA!MTB"
+        threat_id = "2147934831"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {03 fe 81 ef 89 15 00 00 03 c7 31 03 83 45 ec 04 6a 00 e8 ?? ?? ?? ?? 8b f0 83 c6 04 6a 00 e8 ?? ?? ?? ?? 03 f0 01 f3 8b 45 ec}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
