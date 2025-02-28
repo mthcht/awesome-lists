@@ -45,7 +45,7 @@ jobs:
         run: ls -lah Lists/DYNDNS/dyn-dns-list-mthcht_corrected
         
       - name: create csv file
-        working-directory: Lists/DYNDNS/dyn-dns-list-mthcht_corrected
+        working-directory: Lists/DYNDNS
         run:  python create_dyndns_list.py
 
       - name: Verify file exists2
