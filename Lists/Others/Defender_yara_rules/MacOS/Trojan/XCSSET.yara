@@ -44,12 +44,12 @@ rule Trojan_MacOS_XCSSET_J_2147794885_0
         (all of ($x*))
 }
 
-rule Trojan_MacOS_XCSSET_AX_2147933513_0
+rule Trojan_MacOS_XCSSET_AZ_2147933834_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/XCSSET.AX"
-        threat_id = "2147933513"
+        detection_name = "Trojan:MacOS/XCSSET.AZ"
+        threat_id = "2147933834"
         type = "Trojan"
         platform = "MacOS: "
         family = "XCSSET"
@@ -58,8 +58,8 @@ rule Trojan_MacOS_XCSSET_AX_2147933513_0
         threshold = "6"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "/bin/sh -c" wide //weight: 1
-        $x_1_2 = "/bin/bash -c" wide //weight: 1
+        $x_1_1 = "sh -c" wide //weight: 1
+        $x_1_2 = "bash -c" wide //weight: 1
         $x_5_3 = "grep -qF '.zshrc_aliases' ~/.zshrc || echo '[ -f $HOME/.zshrc_aliases ] && . $HOME/.zshrc_aliases' >> ~/.zshrc" wide //weight: 5
     condition:
         (filesize < 20MB) and
