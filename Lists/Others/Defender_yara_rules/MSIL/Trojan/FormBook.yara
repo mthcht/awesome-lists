@@ -1341,34 +1341,13 @@ rule Trojan_MSIL_FormBook_RPX_2147818472_2
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {0b 16 0c 2b 1a 00 07 08 18 5b 02 08 18 6f 70 00 00 0a 1f 10 28 71 00 00 0a 9c 00 08 18 58 0c 08 06 fe 04 0d 09 2d de}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_FormBook_RPX_2147818472_3
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/FormBook.RPX!MTB"
-        threat_id = "2147818472"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "FormBook"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
         $x_1_1 = {09 1f 16 5d 91 61 07 09 17 58 08 5d 91 59 20 00 01 00 00 58 20 00 01 00 00 5d d2 13 06 07 11 05 11 06 9c 11 04 07 11 05 91}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_RPX_2147818472_4
+rule Trojan_MSIL_FormBook_RPX_2147818472_3
 {
     meta:
         author = "defender2yara"
@@ -1390,7 +1369,7 @@ rule Trojan_MSIL_FormBook_RPX_2147818472_4
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_RPX_2147818472_5
+rule Trojan_MSIL_FormBook_RPX_2147818472_4
 {
     meta:
         author = "defender2yara"

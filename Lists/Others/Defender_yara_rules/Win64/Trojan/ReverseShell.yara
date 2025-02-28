@@ -111,3 +111,25 @@ rule Trojan_Win64_ReverseShell_HNB_2147922784_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_PAGI_2147934757_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.PAGI!MTB"
+        threat_id = "2147934757"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 45 fc 48 63 d0 48 8b 45 10 48 01 d0 44 0f b6 00 8b 45 fc 99 f7 7d 28 89 d0 48 63 d0 48 8b 45 20 48 01 d0 0f b6 08 8b 45 fc 48 63 d0 48 8b 45 10 48 01 d0 44 89 c2 31 ca 88 10}  //weight: 2, accuracy: High
+        $x_2_2 = "ATTACKER_IP" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

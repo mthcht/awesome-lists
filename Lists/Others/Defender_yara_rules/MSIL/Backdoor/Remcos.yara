@@ -1761,3 +1761,24 @@ rule Backdoor_MSIL_Remcos_ADJA_2147931167_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Remcos_APMA_2147934749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.APMA!MTB"
+        threat_id = "2147934749"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {fe 0c 00 00 fe 0c 01 00 8f ?? 00 00 01 25 47 fe 09 00 00 fe 0c 01 00 fe 09 00 00 8e 69 5d 91 61 d2 52 00 fe 0c 01 00 20 01 00 00 00 58 fe 0e 01 00 fe 0c 01 00 fe 0c 00 00 8e 69 fe 04 fe 0e 02 00 fe 0c 02 00 3a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

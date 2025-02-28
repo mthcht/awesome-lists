@@ -449,18 +449,19 @@ rule Trojan_Win32_ClickFix_M_2147932743_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "31"
-        strings_accuracy = "High"
+        threshold = "311"
+        strings_accuracy = "Low"
     strings:
-        $x_10_1 = "powershell" wide //weight: 10
-        $x_10_2 = "-command $" wide //weight: 10
-        $x_10_3 = ".Content; iex $" wide //weight: 10
-        $x_1_4 = "Invoke-WebRequest -Uri $" wide //weight: 1
-        $x_1_5 = "iwr -Uri $" wide //weight: 1
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_100_2 = "-command $" wide //weight: 100
+        $x_100_3 = "http" wide //weight: 100
+        $x_10_4 = {2e 00 63 00 6f 00 6e 00 74 00 65 00 6e 00 74 00 3b 00 [0-32] 24 00}  //weight: 10, accuracy: Low
+        $x_1_5 = "invoke-webRequest -uri $" wide //weight: 1
+        $x_1_6 = "iwr -uri $" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
-            ((3 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }
