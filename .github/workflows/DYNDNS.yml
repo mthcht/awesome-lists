@@ -39,6 +39,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git pull
-          git add Lists/DYNDNS/*
+          git add Lists/DYNDNS/dyn-dns-list-alexandrosmagos/*
           git commit -m "Update daily DYNDNS" --allow-empty
           git push
