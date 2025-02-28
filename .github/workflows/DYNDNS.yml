@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  fetch-tlds:
+  fetch-dyndns:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
