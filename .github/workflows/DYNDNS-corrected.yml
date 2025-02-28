@@ -18,7 +18,8 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: scripts/package-lock.json
+          cache-dependency-path: Lists/DYNDNS/dyn-dns-list-mthcht_corrected/scripts/package-lock.json
+
 
       - name: Change to scripts directory
         run: cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected/scripts
