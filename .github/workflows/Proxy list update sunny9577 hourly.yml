@@ -1,0 +1,41 @@
+name: Hourly Sunny9577 Proxy Fetch
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:
+
+jobs:
+  fetch-sunny9577-proxy-list:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Fetch proxy list
+        run: |
+          cd Lists/PROXY/sunny9577_proxy-scraper
+          python3 fetch_proxies.py
+
+      - name: List updated files
+        run: ls -lah Lists/PROXY/sunny9577_proxy-scraper
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/PROXY/sunny9577_proxy-scraper/*
+          git commit -m "Update hourly Sunny9577 proxy list" --allow-empty
+          git push
