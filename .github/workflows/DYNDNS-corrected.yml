@@ -40,12 +40,16 @@ jobs:
           GSLB_PASSWORD: ${{ secrets.GSLB_PASSWORD }}
           CLOUDDNS_USERNAME: ${{ secrets.CLOUDDNS_USERNAME }}
           CLOUDDNS_PASSWORD: ${{ secrets.CLOUDDNS_PASSWORD }}
-
-      - name: create csv file
-        run: |
-          cd Lists/DYNDNS/dyn-dns-list-mthcht_corrected
-          python create_dyndns_list.py
           
+      - name: Verify file exists1
+        run: ls -lah Lists/DYNDNS/dyn-dns-list-mthcht_corrected
+        
+      - name: create csv file
+        run:  python Lists/DYNDNS/dyn-dns-list-mthcht_corrected/create_dyndns_list.py
+        
+      - name: Verify file exists2
+        run: ls -lah Lists/DYNDNS/dyn-dns-list-mthcht_corrected
+
       - name: Commit and push if there are changes
         run: |
           git pull
