@@ -5962,3 +5962,24 @@ rule Trojan_Win32_Zusy_AZSY_2147934873_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_ATMA_2147934912_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.ATMA!MTB"
+        threat_id = "2147934912"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {55 8b ec 6a ff 68 ?? 93 63 00 68 ?? 33 63 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 83 ec 58 53 56 57 89 65 e8 ff 15 ?? ?? 63 00 33 d2 8a d4 89 15 ?? 08 64 00 8b c8 81 e1 ff 00 00 00 89 0d ?? 08 64 00 c1 e1 08 03 ca 89 0d ?? 08 64 00 c1 e8 10 a3 ?? 08 64 00 33 f6 56}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

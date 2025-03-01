@@ -1846,3 +1846,25 @@ rule TrojanSpy_AndroidOS_SmsThief_BO_2147929262_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_SmsThief_BP_2147934905_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SmsThief.BP!MTB"
+        threat_id = "2147934905"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SmsThief"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {22 00 3d 00 70 10 6c 00 00 00 1a 01 81 00 6e 20 6f 00 10 00 0c 00 71 00 71 00 00 00 0c 01 6e 10 72 00 01 00 0b 01 6e 30 6d 00 10 02 0c 00 6e 10 70 00 00 00 0c 00 1a 01 c3 00 71 20 1a 00 01 00 6e 10 7a 00 05 00 0a 00 38 00 09 00 6e 10 79 00 05 00 0c 00 6e 10 7b 00 00 00 0e 00}  //weight: 1, accuracy: High
+        $x_1_2 = {70 10 2c 00 02 00 22 00 41 00 70 10 74 00 00 00 5b 20 1e 00 1a 00 c4 00 5b 20 1c 00 22 00 3d 00 70 10 6c 00 00 00 62 01 04 00 6e 20 6f 00 10 00 0c 00 1a 01 0f 00 6e 20 6f 00 10 00 0c 00 62 01 0b 00 6e 20 6f 00 10 00 0c 00 71 00 14 00 00 00 0c 01 6e 20 6e 00 10 00 0c 00 6e 10 70 00 00 00 0c 00 5b 20 1f 00 22 00 26 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

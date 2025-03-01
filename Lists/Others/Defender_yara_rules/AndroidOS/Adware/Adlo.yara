@@ -47,3 +47,26 @@ rule Adware_AndroidOS_Adlo_B_435417_0
         (all of ($x*))
 }
 
+rule Adware_AndroidOS_Adlo_C_451259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Adware:AndroidOS/Adlo.C!MTB"
+        threat_id = "451259"
+        type = "Adware"
+        platform = "AndroidOS: Android operating system"
+        family = "Adlo"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0c 02 6f 20 01 00 21 00 12 02 69 02 05 00 0e 00 03 00 01 00 02}  //weight: 1, accuracy: High
+        $x_1_2 = {00 00 00 00 00 00 00 11 00 00 00 12 00 69 00 05 00 6f 10 02 00 02 00 0c 00 22 01 1a 00 70 10 19 00 01 00}  //weight: 1, accuracy: High
+        $x_1_3 = {62 0b 02 00 4d 0b 0c 02 6e 30 13 00 a9 0c 0c 09 71 10 16 00 08 00 0c 08 23 00 34 00 4d 06 00 01 4d 08 00 02 12 08 6e 30 27 00 89 00 0c 00 35 71 0d 00 71 20 21 00 14 00 0c 09 71 30 23 00 10 09 b0 21}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

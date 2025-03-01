@@ -133,3 +133,30 @@ rule Trojan_MSIL_Dacic_NI_2147926462_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dacic_ASMA_2147934911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dacic.ASMA!MTB"
+        threat_id = "2147934911"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Fj90kFj90eFj90rFj90nFj90eFj90lFj903Fj902Fj90" ascii //weight: 2
+        $x_1_2 = "gt7ngt7tgt7dgt7lgt7lgt7" ascii //weight: 1
+        $x_2_3 = "hF4RhF4ehF4shF4uhF4mhF4ehF4ThF4hhF4rhF4ehF4ahF4dhF4" ascii //weight: 2
+        $x_1_4 = "Nv24WNv24oNv24wNv246Nv244Nv24SNv24eNv24tNv24TNv24hNv24rNv24eNv24aNv24dNv24CNv24oNv24nNv24tNv24eNv24xNv24tNv24" ascii //weight: 1
+        $x_1_5 = "tRb3StRb3etRb3ttRb3TtRb3htRb3rtRb3etRb3atRb3dtRb3CtRb3otRb3ntRb3ttRb3etRb3xtRb3ttRb3" ascii //weight: 1
+        $x_4_6 = "Fqwbl6VFqwbl6iFqwbl6rFqwbl6tFqwbl6uFqwbl6aFqwbl6lFqwbl6AFqwbl6lFqwbl6lFqwbl6oFqwbl6cFqwbl6EFqwbl6xFqwbl6" ascii //weight: 4
+        $x_4_7 = "Gcq1LsRGcq1LseGcq1LsaGcq1LsdGcq1LsPGcq1LsrGcq1LsoGcq1LscGcq1LseGcq1LssGcq1LssGcq1LsMGcq1LseGcq1LsmGcq1LsoGcq1LsrGcq1LsyGcq1Ls" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
