@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Ensures full commit history
 
       - name: Enable Git LFS (Pre-installed)
         run: git lfs install
