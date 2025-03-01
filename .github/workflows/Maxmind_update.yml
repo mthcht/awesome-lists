@@ -1,0 +1,29 @@
+name: Fetch MaxMind Databases Daily
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Runs daily at 02:00 UTC
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
+
+jobs:
+  update-geoip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install requests  
+
+      - name: Run Fetch Script
+        working-directory: Lists/ASNs/correlation_maxmind_geo_db/
+        env:
+          MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
+          MAXMIND_ACCOUNT_ID: ${{ secrets.MAXMIND_ACCOUNT_ID }}
+        run: python fetch_maxmind_databases_daily.py
