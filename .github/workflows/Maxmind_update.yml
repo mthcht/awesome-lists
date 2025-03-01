@@ -8,6 +8,7 @@ on:
 jobs:
   update-geoip:
     runs-on: ubuntu-latest
+    environment: maxmind  # Ensures secrets are loaded from the "maxmind" environment
 
     steps:
       - name: Checkout Repository
@@ -21,9 +22,16 @@ jobs:
       - name: Install Dependencies
         run: pip install requests  
 
+      - name: Debug Secrets (Check If They Exist)
+        run: |
+          [[ -z "${{ secrets.MAXMIND_LICENSE_KEY }}" ]] && echo "❌ MAXMIND_LICENSE_KEY is missing!" || echo "✅ MAXMIND_LICENSE_KEY is set"
+          [[ -z "${{ secrets.MAXMIND_ACCOUNT_ID }}" ]] && echo "❌ MAXMIND_ACCOUNT_ID is missing!" || echo "✅ MAXMIND_ACCOUNT_ID is set"
+
       - name: Run Fetch Script
         working-directory: Lists/ASNs/correlation_maxmind_geo_db/
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
           MAXMIND_ACCOUNT_ID: ${{ secrets.MAXMIND_ACCOUNT_ID }}
-        run: python fetch_maxmind_databases_daily.py
+        run: |
+          echo "🚀 Running fetch_maxmind_databases_daily.py..."
+          python fetch_maxmind_databases_daily.py || echo "❌ Script failed! Check logs."
