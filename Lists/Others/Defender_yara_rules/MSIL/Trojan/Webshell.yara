@@ -316,3 +316,25 @@ rule Trojan_MSIL_Webshell_EAAU_2147929830_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Webshell_MBS_2147934926_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Webshell.MBS!MTB"
+        threat_id = "2147934926"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Webshell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 a0 03 00 00 95 5f 7e 36 00 00 04 20 f2 01 00 00 95 61 58 81 07 00 00 01 11 28 18 95 7e 36 00 00 04 1f 67}  //weight: 1, accuracy: High
+        $x_1_2 = {17 59 11 20 20 72 06 00 00 95 5f 11 20 20 9e 0d 00 00 95 61 58 80 1b 00 00 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

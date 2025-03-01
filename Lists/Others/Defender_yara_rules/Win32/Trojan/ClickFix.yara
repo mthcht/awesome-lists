@@ -579,6 +579,7 @@ rule Trojan_Win32_ClickFix_DR_2147933573_0
         $x_1_18 = "Human: CAPTCHA" wide //weight: 1
         $x_1_19 = "Human - CAPTCHA" wide //weight: 1
         $x_1_20 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_21 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -738,6 +739,7 @@ rule Trojan_Win32_ClickFix_DQ_2147933822_0
         $x_1_18 = "Human: CAPTCHA" wide //weight: 1
         $x_1_19 = "Human - CAPTCHA" wide //weight: 1
         $x_1_20 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_21 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -826,7 +828,7 @@ rule Trojan_Win32_ClickFix_AG_2147934652_0
         $x_1_13 = "Cloudflare" wide //weight: 1
         $x_1_14 = "- Over FREE" wide //weight: 1
         $x_1_15 = "Google Meet" wide //weight: 1
-        $x_1_16 = "Restart  DNS service" wide //weight: 1
+        $x_1_16 = "DNS service" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (

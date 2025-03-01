@@ -442,6 +442,27 @@ rule Trojan_Win32_Banker_EM_2147932894_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Banker_MBS_2147934924_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Banker.MBS!MTB"
+        threat_id = "2147934924"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Banker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {36 35 34 36 34 35 72 72 72 72 40 6d 61 69 6c 2e 72 75 00 37 36 37 38 37 6a 68 6a 68 40 6d 61 69 6c 2e 72 75 00 73 6d 74 70}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Banker_16459_0
 {
     meta:
