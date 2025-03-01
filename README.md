@@ -32,7 +32,7 @@
 - 🚰 Suspicious Named pipes: [suspicious_named_pipe_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_named_pipe_list.csv)
 - 🌐 Suspicious TLDs (updated automatically): [[suspicious_TLDs]](https://github.com/mthcht/awesome-lists/tree/main/Lists/TLDs)
 - 🌐 Suspicious ASNs (updated automatically): [[suspicious ASNs]](https://github.com/mthcht/awesome-lists/tree/main/Lists/ASNs)
-- 🌐 FYI Maxmind GeoIP Database [GeoIP DB](https://github.com/mthcht/awesome-lists/tree/main/Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted)
+- 🌐 FYI Maxmind GeoIP Database (updated automatically): [GeoIP DB](https://github.com/mthcht/awesome-lists/tree/main/Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted)
 - 🔧 Suspicious Windows Services: [suspicious_windows_services_names_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_services_names_list.csv)
 - ⏲️ Suspicious Windows Tasks: [suspicious_windows_tasks_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_tasks_list.csv)
 - 🚪 Suspicious destination port: [suspicious_ports_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_ports_list.csv)
