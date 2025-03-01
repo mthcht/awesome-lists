@@ -50,3 +50,12 @@ jobs:
           RELEASE_URL="https://github.com/${{ github.repository }}/releases/tag/big-files"
           echo $RELEASE_URL > Lists/Domains/TOP1M/TOP1M_domains.link
           cat Lists/Domains/TOP1M/TOP1M_domains.link
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/PROXY/fresh-proxy-list/TOP1M_domains.link
+          git commit -m "Update TOP1M link" --allow-empty
+          git push
