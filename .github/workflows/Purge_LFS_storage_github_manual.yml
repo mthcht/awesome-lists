@@ -1,0 +1,47 @@
+name: Purge Old Git LFS Files
+
+on:
+  workflow_dispatch:  # manual execution only
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository (Full history)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0  # Needed to get full LFS history
+
+      - name: List all LFS-tracked files
+        run: |
+          echo "🚀 Listing all LFS-tracked files..."
+          git lfs ls-files -l
+
+      - name: Detect Large LFS Files and Remove Old Versions
+        run: |
+          echo "🚀 Detecting large LFS files..."
+          LFS_FILES=$(git lfs ls-files -l | awk '{print $2}')
+          
+          if [ -z "$LFS_FILES" ]; then
+            echo "✅ No LFS files detected. Exiting..."
+            exit 0
+          fi
+
+          echo "🚀 Removing old LFS-tracked files..."
+          for FILE in $LFS_FILES; do
+            echo "❌ Removing $FILE from LFS tracking..."
+            git lfs uninstall
+            git rm --cached "$FILE"
+          done
+
+          git commit -m "Remove old LFS files to free up storage" || echo "✅ No changes to commit"
+          git push origin main --force
+
+      - name: Cleanup LFS objects
+        run: |
+          echo "🚀 Cleaning up LFS storage..."
+          git reflog expire --expire=now --all
+          git gc --prune=now --aggressive
+          git lfs prune --force
+          git lfs push --all origin main
