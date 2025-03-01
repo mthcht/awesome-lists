@@ -16,6 +16,9 @@ jobs:
         with:
           fetch-depth: 0  # Ensures full commit history
 
+      - name: Enable Git LFS (Pre-installed)
+        run: git lfs install
+
       - name: Set Up Python
         uses: actions/setup-python@v4
         with:
@@ -43,21 +46,50 @@ jobs:
           echo "🚀 Checking modified files..."
           git status --short
           echo "🚀 Listing file sizes..."
-          find Lists/ASNs/correlation_maxmind_geo_db/ -type f -exec ls -lh {} +
+          find Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/ -type f -exec ls -lh {} +
 
-      - name: Commit and Push Results
+      - name: Track Only Two Large Files in Git LFS
+        run: |
+          echo "🚀 Ensuring only required large files are tracked by Git LFS..."
+          CSV_DIR="Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted"
+          CITY_IPV4=$(find $CSV_DIR -name "GeoLite2-City-Blocks-IPv4.csv" | head -n 1)
+          CITY_IPV6=$(find $CSV_DIR -name "GeoLite2-City-Blocks-IPv6.csv" | head -n 1)
+
+          if [[ -f "$CITY_IPV4" ]]; then
+            git lfs track "$CITY_IPV4"
+            echo "✅ Tracking $CITY_IPV4"
+          fi
+          if [[ -f "$CITY_IPV6" ]]; then
+            git lfs track "$CITY_IPV6"
+            echo "✅ Tracking $CITY_IPV6"
+          fi
+
+          if git diff --cached --quiet .gitattributes; then
+            echo "✅ No changes to .gitattributes needed."
+          else
+            git add .gitattributes
+            git commit -m "Updated .gitattributes for Git LFS tracking"
+          fi
+
+      - name: Commit and Push All Files (With LFS for Large Files)
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git pull --rebase
           
-          echo "🚀 Adding modified files..."
-          git add Lists/ASNs/correlation_maxmind_geo_db/*
-          
+          echo "🚀 Adding all modified files..."
+          git add Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/*
+
           echo "🚀 Checking if there are changes to commit..."
           if git diff --cached --quiet; then
             echo "✅ No changes to commit."
           else
-            git commit -m "Update Maxmind DBs"
-            git push || echo "❌ Push failed! Check repo size & limits."
+            git commit -m "Update MaxMind DBs with latest extracted data"
+            echo "🚀 Pushing changes..."
+            git push || (echo "❌ Push failed! Retrying..." && sleep 10 && git push)
           fi
+
+      - name: Clean Up Old LFS Files to Save Storage
+        run: |
+          echo "🚀 Cleaning up old Git LFS files..."
+          git lfs prune || echo "✅ No old LFS files to remove."

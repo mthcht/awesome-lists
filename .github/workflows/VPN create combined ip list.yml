@@ -30,12 +30,17 @@ jobs:
       - name: List generated files
         run: ls -lah Lists/VPN/
 
-      - name: Set up Git LFS for large files
+      - name: Ensure Git LFS Tracks the VPN List (Only If Needed)
         run: |
           git lfs install
-          git lfs track "Lists/VPN/VPN_ALL_IP_List.csv"
-          git add .gitattributes
-          git commit -m "Enable Git LFS for VPN list" || echo "No LFS changes to commit"
+          if ! grep -q "Lists/VPN/VPN_ALL_IP_List.csv" .gitattributes; then
+            echo "🚀 Adding VPN_ALL_IP_List.csv to Git LFS tracking..."
+            git lfs track "Lists/VPN/VPN_ALL_IP_List.csv"
+            git add .gitattributes
+            git commit -m "Enable Git LFS for VPN list" || echo "✅ No LFS changes to commit"
+          else
+            echo "✅ VPN_ALL_IP_List.csv is already tracked in LFS."
+          fi
 
       - name: Commit and Push Changes Without Keeping History
         run: |
@@ -49,16 +54,15 @@ jobs:
           git add Lists/VPN/VPN_ALL_IP_List.csv
 
           # Commit with forced overwrite (no history kept)
-          git commit -m "Update VPN IP list"
+          git commit -m "Update VPN_ALL_IP_List" || echo "✅ No changes to commit"
 
           # Push with --force to avoid history accumulation
           git push origin main --force
 
-      - name: Push LFS Objects
-        run: git lfs push origin main || echo "No LFS changes to push"
-
-      - name: Prune old LFS objects (Safe)
+      - name: Remove Old LFS Objects from Remote Storage
         run: |
-          git lfs prune --verify-remote
+          echo "🚀 Pruning old LFS objects..."
+          git lfs prune --force
+          git lfs push --all origin main
           git reflog expire --expire=now --all
-          git gc --prune=now
+          git gc --prune=now --aggressive
