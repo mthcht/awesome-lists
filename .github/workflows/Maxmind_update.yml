@@ -49,8 +49,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Large Files to "big files" Release
+      - name: Upload Large Files to "big files" Release & Create Link Files
         run: |
+          RELEASE_URL="https://github.com/${{ github.repository }}/releases/tag/big-files"
+
           FILES_TO_UPLOAD=(
             "Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted/GeoLite2-City-CSV-latest/GeoLite2-City-Blocks-IPv4.csv"
             "Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted/GeoLite2-City-CSV-latest/GeoLite2-City-Blocks-IPv6.csv"
@@ -60,20 +62,11 @@ jobs:
             if [ -f "$file" ]; then
               echo "Uploading $file..."
               gh release upload "big-files" "$file" --clobber
-              RELEASE_URL="https://github.com/${{ github.repository }}/releases/tag/big-files"
               echo $RELEASE_URL > "$file.link"
             fi
           done
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Move .link Files to Repo
-        run: |
-          mv Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted/GeoLite2-City-CSV-latest/GeoLite2-City-Blocks-IPv4.csv.link \
-             Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted/GeoLite2-City-CSV-latest/
-          
-          mv Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted/GeoLite2-City-CSV-latest/GeoLite2-City-Blocks-IPv6.csv.link \
-             Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted/GeoLite2-City-CSV-latest/
 
       - name: Remove Large Files Locally (Avoid Pushing Them)
         run: |
