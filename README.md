@@ -244,7 +244,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 </details>
 
-### 🖥️ SIEM/SOC related:
+### 🖥️ SIEM/SOC/PurpleTeam related:
 <details>
   
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
@@ -252,7 +252,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Awesome-SOC](https://github.com/cyb3rxp/awesome-soc)
 - [Threat-Hunting with Splunk](https://github.com/mthcht/ThreatHunting-Keywords)
 - [Detection Lists](https://github.com/mthcht/awesome-lists/Lists)
-  
+- [PurpleTeam atomics](https://github.com/redcanaryco/atomic-red-team)
+
 </details> 
 
 ### 📊 TI TTP/Framework/Model/Trackers 
