@@ -1,253 +1,177 @@
-rule TrojanDownloader_O97M_ZLoader_MK_2147754475_0
+rule TrojanDownloader_O97M_Zloader_DR_2147763243_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.MK!MSR"
-        threat_id = "2147754475"
+        detection_name = "TrojanDownloader:O97M/Zloader.DR!MTB"
+        threat_id = "2147763243"
         type = "TrojanDownloader"
         platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
-        severity = "Critical"
-        info = "MSR: Microsoft Security Response"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {63 3a 5c 70 69 70 65 64 69 72 5c [0-21] 2e 76 62 73 20 68 74 74 70 3a 2f 2f 32 30 35 2e 31 38 35 2e 31 32 32 2e 32 34 36 2f 66 69 6c 65 73 2f [0-5] 2e 65 78 65 20 63 3a 5c 70 69 70 65 64 69 72 5c [0-21] 2e 65 78 65}  //weight: 10, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_ZLoader_DHA_2147754476_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.DHA!MTB"
-        threat_id = "2147754476"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
+        family = "Zloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "3"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "= CreateFile(\"c:\\pipedir\\obsrecord.cmd\" _" ascii //weight: 1
-        $x_1_2 = "= CreateObject(\"\"Scripting.FileSystemObject\"\") >> %NKFDGIDIFNSNF%\"" ascii //weight: 1
-        $x_1_3 = "c:\\pipedir\\NKFDGIDIFNSNF.vbs http://205.185.122.246/files/1.exe c:\\pipedir\\LODFOJKFG.exe" ascii //weight: 1
+        $x_1_1 = "Environ$(\"USERPROFILE\") + \"\\j5Iss52\"" ascii //weight: 1
+        $x_1_2 = "Environ$(\"USERPROFILE\") + \"\\n5Is5s52\"" ascii //weight: 1
+        $x_2_3 = "Right(UserForm2.Tag, 11) + Temporary + \".xls \"" ascii //weight: 2
+        $x_2_4 = "create Right(UserForm1.Caption, 9) + Temporary + \".dll,R1\", Null, Null, Data2" ascii //weight: 2
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
-rule TrojanDownloader_O97M_ZLoader_HZA_2147754886_0
+rule TrojanDownloader_O97M_Zloader_SS_2147767757_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.HZA!MTB"
-        threat_id = "2147754886"
+        detection_name = "TrojanDownloader:O97M/Zloader.SS!MTB"
+        threat_id = "2147767757"
         type = "TrojanDownloader"
         platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
+        family = "Zloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
         threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "zcomtech.com/rob122DzjsdFA.dll -J -o c" ascii //weight: 1
+        $x_1_2 = "c:\\users\\public\\cdnup" ascii //weight: 1
+        $x_1_3 = "RIZJZCBR" ascii //weight: 1
+        $x_1_4 = "rundll32 c:\\u" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_O97M_Zloader_SS_2147767757_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/Zloader.SS!MTB"
+        threat_id = "2147767757"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Zloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "curl http://185.244.41.29/ooi" ascii //weight: 1
+        $x_1_2 = "wy.pdf -J -o c:\\users\\public\\cdnupdate" ascii //weight: 1
+        $x_1_3 = "rundll32 c:\\users\\public\\cdnupdaterapi.png" ascii //weight: 1
+        $x_1_4 = "CUVPQRBAXWGP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_O97M_Zloader_VA_2147769928_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/Zloader.VA!MTB"
+        threat_id = "2147769928"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Zloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "8"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = "hExportFile = CreateFile(\"c:\\pipedir\\obsrecord.cmd\"" ascii //weight: 1
-        $x_1_2 = "\"echo Set NeHD = CreateObject(\"\"MSXML2.Se\" + \"rverXMLHTTP\"\")" ascii //weight: 1
-        $x_1_3 = "\"echo Set a = CreateObject(\"\"Scripting.FileSystemObject\"\")" ascii //weight: 1
-        $x_1_4 = {22 70 74 20 63 3a 5c 70 69 70 65 64 69 72 5c 4e 4b 46 44 47 49 44 49 46 4e 53 4e 46 2e 76 62 73 20 68 74 74 70 3a 2f 2f [0-160] 2e 70 68 70 20 63 3a 5c 70 69 70 65 64 69 72 5c 4c 4f 44 46 4f 4a 4b 46 47 2e 65 78 65 22}  //weight: 1, accuracy: Low
-        $x_1_5 = {22 70 74 20 63 3a 5c 70 69 70 65 64 69 72 5c 4e 4b 46 44 47 49 44 49 46 4e 53 4e 46 2e 76 62 73 20 68 74 74 70 3a 2f 2f [0-160] 2e 65 78 65 20 63 3a 5c 70 69 70 65 64 69 72 5c 4c 4f 44 46 4f 4a 4b 46 47 2e 65 78 65 22}  //weight: 1, accuracy: Low
+        $x_1_1 = {20 3d 20 4e 6f 74 68 69 6e 67 02 00 44 6f 45 76 65 6e 74 73 02 00 43 61 6c 6c 42 79 4e 61 6d 65 20 [0-6] 2c 20 [0-6] 2c 20 [0-8] 20 3d 20 4e 6f 74 68 69 6e 67 02 00 44 6f 45 76 65 6e 74 73}  //weight: 1, accuracy: Low
+        $x_1_2 = "UserForm1.ComboBox4 = UserForm1.ComboBox4 & \"0\"" ascii //weight: 1
+        $x_1_3 = "Application.OnTime Now + TimeSerial(0, 0, 20), \"ThisDocument.nnn\"" ascii //weight: 1
+        $x_1_4 = ".sheets(1)" ascii //weight: 1
+        $x_1_5 = {50 72 69 76 61 74 65 20 53 75 62 20 55 73 65 72 46 6f 72 6d 5f 49 6e 69 74 69 61 6c 69 7a 65 28 29 [0-5] 43 61 6c 6c 42 79 4e 61 6d 65 20 41 63 74 69 76 65 44 6f 63 75 6d 65 6e 74 2e [0-5] 2c 20 41 63 74 69 76 65 44 6f 63 75 6d 65 6e 74 2e [0-5] 2c 20 56 62 4d 65 74 68 6f 64 2c 20 41 63 74 69 76 65 44 6f 63 75 6d 65 6e 74 2e}  //weight: 1, accuracy: Low
+        $x_1_6 = "Sub nnn()" ascii //weight: 1
+        $x_1_7 = "Workbooks.Open(FileName:=UserForm2.ComboBox1, Password:=UserForm1.ComboBox2)" ascii //weight: 1
+        $x_1_8 = ".Run \"ThisDocument.nnn\"" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (4 of ($x*))
+        (all of ($x*))
 }
 
-rule TrojanDownloader_O97M_ZLoader_ZLD_2147766455_0
+rule TrojanDownloader_O97M_Zloader_RE_2147776628_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.ZLD!MTB"
-        threat_id = "2147766455"
+        detection_name = "TrojanDownloader:O97M/Zloader.RE!MTB"
+        threat_id = "2147776628"
         type = "TrojanDownloader"
         platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
+        family = "Zloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Replace(Russian, val, letter)" ascii //weight: 1
+        $x_1_2 = "String(2, \"/\")" ascii //weight: 1
+        $x_1_3 = "1230948%1230948@j." ascii //weight: 1
+        $x_1_4 = "\"mp/\" + \"4knsknfk29whh\"" ascii //weight: 1
+        $x_1_5 = "String(1, \"h\") + String(2, \"t\")" ascii //weight: 1
+        $x_1_6 = "Shell (fire)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_O97M_Zloader_RVB_2147777160_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/Zloader.RVB!MTB"
+        threat_id = "2147777160"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Zloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "https://download24.top/dllDds22xdsdf78/xlsp.c10" ascii //weight: 1
-        $x_1_2 = "C:\\uOWMrmn\\lqbUcGh\\BKiPsIo.dll" ascii //weight: 1
-        $x_1_3 = "URLDownloadToFileA" ascii //weight: 1
+        $x_1_1 = "ttp://aqv.to/12.msi" ascii //weight: 1
+        $x_1_2 = "ProgramW6432:~15%iexec.exe" ascii //weight: 1
+        $x_1_3 = "powershel" ascii //weight: 1
+        $x_1_4 = "cmd.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (3 of ($x*))
 }
 
-rule TrojanDownloader_O97M_ZLoader_PLL_2147767005_0
+rule TrojanDownloader_O97M_Zloader_ZA_2147779020_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.PLL!MTB"
-        threat_id = "2147767005"
+        detection_name = "TrojanDownloader:O97M/Zloader.ZA!MTB"
+        threat_id = "2147779020"
         type = "TrojanDownloader"
         platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
+        family = "Zloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "3"
+        threshold = "6"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "https://puredoc2020.top/dllDds22xddf232/xls.c10" ascii //weight: 1
-        $x_1_2 = "C:\\auOIxdm\\mkpbUbG\\yBKTOrI.dll" ascii //weight: 1
-        $x_1_3 = "URLDownloadToFileA" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_ZLoader_BK_2147767732_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.BK!MTB"
-        threat_id = "2147767732"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "http://cocinashogarmobiliario.com/photo.png" ascii //weight: 1
-        $x_1_2 = "c:\\users\\public\\photo.png" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_ZLoader_PSW_2147769213_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.PSW!MTB"
-        threat_id = "2147769213"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "https://purefile24.top/4352wedfoifom.php" ascii //weight: 1
-        $x_1_2 = "C:\\uqqpufY\\fKkWmps\\vMsySaP.dll" ascii //weight: 1
-        $x_1_3 = "URLDownloadToFileA" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_ZLoader_PWT_2147770367_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.PWT!MTB"
-        threat_id = "2147770367"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "https://downlfile24.top/kdjasd.php" ascii //weight: 1
-        $x_1_2 = "C:\\TlLlwqJ\\sPyJPLX\\YyIUwQv.dll" ascii //weight: 1
-        $x_1_3 = "URLDownloadToFileA" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_ZLoader_PA_2147770377_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.PA!MTB"
-        threat_id = "2147770377"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {63 00 4d 00 44 00 2e 00 65 00 58 00 65 00 20 00 20 00 2f 00 63 00 20 00 50 00 4f 00 77 00 45 00 72 00 73 00 68 00 65 00 4c 00 4c 00 2e 00 45 00 78 00 65 00 20 00 20 00 2d 00 65 00 58 00 20 00 42 00 59 00 70 00 41 00 53 00 53 00 20 00 2d 00 4e 00 4f 00 70 00 20 00 2d 00 77 00 20 00 31 00 20 00 69 00 45 00 58 00 28 00 20 00 43 00 55 00 52 00 6c 00 [0-4] 28 00 27 00 68 00 74 74 00 70 00 3a 00 2f 00 2f 00 34 00 35 00 2e 00 31 00 35 00 33 00 2e 00 32 00 30 00 33 00 2e 00 35 00 34 00 2f 00 44 00 6f 00 63 00 32 00 32 00 41 00 2e 00 6a 00 [0-8] 70 00 [0-8] 67 00}  //weight: 1, accuracy: Low
-        $x_1_2 = {63 4d 44 2e 65 58 65 20 20 2f 63 20 50 4f 77 45 72 73 68 65 4c 4c 2e 45 78 65 20 20 2d 65 58 20 42 59 70 41 53 53 20 2d 4e 4f 70 20 2d 77 20 31 20 69 45 58 28 20 43 55 52 6c [0-4] 28 27 68 74 74 70 3a 2f 2f 34 35 2e 31 35 33 2e 32 30 33 2e 35 34 2f 44 6f 63 32 32 41 2e 6a [0-8] 70 [0-8] 67}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule TrojanDownloader_O97M_ZLoader_VIS_2147773038_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.VIS!MTB"
-        threat_id = "2147773038"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "UserForm1.ComboBox4 = UserForm1.ComboBox4 & \"0\"" ascii //weight: 1
-        $x_1_2 = "Application.OnTime Now + TimeSerial(0, 0, 20), \"ThisDocument" ascii //weight: 1
-        $x_1_3 = "Workbooks.Open(FileName:=UserForm2.ComboBox1, Password:=UserForm1.ComboBox2)" ascii //weight: 1
-        $x_1_4 = ".Run \"ThisDocument.\" & " ascii //weight: 1
-        $x_1_5 = "= Application.Options.MatchFuzzy" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_ZLoader_PIN_2147777351_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/ZLoader.PIN!MTB"
-        threat_id = "2147777351"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "ZLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = ".ComboBox4 = UserForm1.ComboBox4 & \"0\"" ascii //weight: 1
-        $x_1_2 = "Application.OnTime Now + TimeSerial(0, 0, 20), \"ThisDocument" ascii //weight: 1
-        $x_1_3 = "Workbooks.Open(FileName:=UserForm2.ComboBox1, Password:=UserForm1.ComboBox2)" ascii //weight: 1
-        $x_1_4 = ".Run \"ThisDocument.\" & " ascii //weight: 1
-        $x_1_5 = ".Documents.Open ActiveDocument.FullName, ReadOnly:=True" ascii //weight: 1
+        $x_1_1 = "Environ$(\"AppData\") & \"\\\" &" ascii //weight: 1
+        $x_1_2 = "Decrypt(\"fyf/ttsd\")" ascii //weight: 1
+        $x_1_3 = "AppData & Chr(Asc(b) - 1)" ascii //weight: 1
+        $x_1_4 = "= StrReverse(enc)" ascii //weight: 1
+        $x_1_5 = "LOP & Chr(Asc(Mid(JOOOK, VON, 1)) - 13)" ascii //weight: 1
+        $x_1_6 = "URLDownloadToFileA" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

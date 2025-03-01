@@ -1,249 +1,494 @@
-rule Trojan_MSIL_RevengeRAT_DA_2147773113_0
+rule Trojan_MSIL_RevengeRat_JIY_2147817413_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.DA!MTB"
-        threat_id = "2147773113"
+        detection_name = "Trojan:MSIL/RevengeRat.JIY!MTB"
+        threat_id = "2147817413"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "$7e1aa602-16dc-451a-8e54-17c9f959a19c" ascii //weight: 1
-        $x_1_2 = "ImprovPose.Properties.Resources" ascii //weight: 1
-        $x_1_3 = "tensorflow.org/docs" ascii //weight: 1
-        $x_1_4 = "Train model" ascii //weight: 1
-        $x_1_5 = "TryParse" ascii //weight: 1
-        $x_1_6 = "Clone" ascii //weight: 1
-        $x_1_7 = "DictionaryEntry" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_RevengeRAT_DC_2147783083_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.DC!MTB"
-        threat_id = "2147783083"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "13"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {0a 1e 5b 8d 2a 00 00 01 0b 16 0d 2b 19 00 07 09 06 09 1e 5a 1e 6f ?? ?? ?? 0a 18 28 ?? ?? ?? 0a 9c 00 09 17 58 0d 09 07 8e 69 17 59 fe 02 16 fe 01 13 04 11 04 2d d6}  //weight: 10, accuracy: Low
-        $x_1_2 = "Replace" ascii //weight: 1
-        $x_1_3 = "ToByte" ascii //weight: 1
-        $x_1_4 = "Convert" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_RevengeRAT_DB_2147783520_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.DB!MTB"
-        threat_id = "2147783520"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "13"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {0a 13 04 17 13 05 2b 41 08 07 33 02 17 0c 03 08 17 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 0a 09 02 11 05 17 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 06 07 d8 da 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 0d 08 17 d6 0c 11 05 17 d6 13 05 11 05 11 04 31 b9}  //weight: 10, accuracy: Low
-        $x_1_2 = "FromBase64String" ascii //weight: 1
-        $x_1_3 = "CreateInstance" ascii //weight: 1
-        $x_1_4 = "Activator" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_RevengeRAT_DD_2147845630_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.DD!MTB"
-        threat_id = "2147845630"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
+        family = "RevengeRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {20 20 4e 00 00 28 ?? ?? ?? 0a 00 20 20 4e 00 00 28 ?? ?? ?? 0a 00 20 20 4e 00 00 28 ?? ?? ?? 0a 00 20 20 4e 00 00 28 ?? ?? ?? 0a 00 72 ?? ?? ?? 70 17 8d ?? ?? ?? 01 25 16 1f 2d 9d 28 ?? ?? ?? 0a 17 9a 6f ?? ?? ?? 0a 72 ?? ?? ?? 70 17 8d ?? ?? ?? 01 25 16 1f 2d 9d}  //weight: 1, accuracy: Low
+        $x_1_1 = {73 25 00 00 0a 0a 06 28 ?? ?? ?? 0a 03 6f ?? ?? ?? 0a 6f ?? ?? ?? 0a 0b 73 29 00 00 0a 0c 08 07 6f ?? ?? ?? 0a 00 08 18 6f ?? ?? ?? 0a 00 08 6f ?? ?? ?? 0a 02 16 02 8e 69 6f ?? ?? ?? 0a 0d 09 13 04 2b 00 11 04 2a}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RevengeRAT_A_2147848600_0
+rule Trojan_MSIL_RevengeRat_NUQ_2147824709_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.A!MTB"
-        threat_id = "2147848600"
+        detection_name = "Trojan:MSIL/RevengeRat.NUQ!MTB"
+        threat_id = "2147824709"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {07 11 05 03 11 05 91 06 61 09 08 91 61 b4 9c 08 04 6f ?? ?? ?? 0a 17 da}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_RVT_2147826854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.RVT!MTB"
+        threat_id = "2147826854"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {d6 03 8e 69 11 04 16 9a 6f ?? ?? ?? 0a 04 6f ?? ?? ?? 0a d6 da 6f ?? ?? ?? 0a 00 07 08 6f ?? ?? ?? 0a 6f ?? ?? ?? 0a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_REAV_2147827959_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.REAV!MTB"
+        threat_id = "2147827959"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {09 08 fe 01 13 07 11 07 2c 02 17 0d 03 09 17 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 0b 11 04 02 11 06 17 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 07 08 d8 da 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 13 04 09 17 d6 0d 11 06 17 d6 13 06 11 06 11 05 31 b1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_REVV_2147827960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.REVV!MTB"
+        threat_id = "2147827960"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {09 11 04 91 13 05 00 07 06 11 05 20 78 0a e3 05 58 d2 6f ?? ?? ?? 0a 00 00 11 04 17 58 13 04 11 04 09 8e 69}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ART_2147841221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ART!MTB"
+        threat_id = "2147841221"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {11 09 14 1a 8d ?? 00 00 01 13 07 11 07 16 28 ?? 00 00 06 6f ?? 00 00 0a a2 11 07 17 72 ?? 00 00 70 a2 11 07 18 11 01 a2 11 07 19 16 8c}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_RevengeRAT_B_2147849721_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.B!MTB"
-        threat_id = "2147849721"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "RV-Infect-Lime" ascii //weight: 2
-        $x_2_2 = "dyx04pqthe3.resources" ascii //weight: 2
-        $x_2_3 = "volcfrltSAeXKoSqkxPRHXwokwkK" ascii //weight: 2
+        $x_2_1 = {13 06 13 05 2b 28 07 11 05 02 11 05 91 06 61 09 08 91 61 b4 9c 08 03 6f 2e 00 00 0a 17 da 33 04 16 0c 2b 04 08 17 d6 0c 11 05 17 d6 13 05 11 05 11 06 31 d2}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RevengeRAT_NRR_2147891692_0
+rule Trojan_MSIL_RevengeRat_ART_2147841221_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.NRR!MTB"
-        threat_id = "2147891692"
+        detection_name = "Trojan:MSIL/RevengeRat.ART!MTB"
+        threat_id = "2147841221"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
+        family = "RevengeRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {6f 58 00 00 0a 25 26 73 ?? 00 00 0a 6f ?? 00 00 0a 25 26 1f 24 28 ?? 00 00 06 25 26 1f 35 28 ?? 00 00 06 25 26 28 ?? 00 00 06 25 26 28 ?? 00 00 0a 25 26}  //weight: 5, accuracy: Low
-        $x_1_2 = "AesOnuyeGa" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_RevengeRAT_D_2147895563_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.D!MTB"
-        threat_id = "2147895563"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {00 00 01 25 16 09 74 ?? 00 00 01 a2 25 13 07 14 14 17 8d ?? 00 00 01 25 16 17 9c 25}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_RevengeRAT_PTIZ_2147903206_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.PTIZ!MTB"
-        threat_id = "2147903206"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {d0 1a 00 00 04 28 ?? 00 00 0a 28 ?? 00 00 06 28 ?? 04 00 06 80 19 00 00 04 7e 19 00 00 04 2a}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_RevengeRAT_E_2147904612_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.E!MTB"
-        threat_id = "2147904612"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" wide //weight: 2
-        $x_2_2 = "-WindowStyle Hidden Copy-Item -Path *.vbs -Destination" wide //weight: 2
-        $x_2_3 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 2
-        $x_2_4 = "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319" wide //weight: 2
-        $x_2_5 = "C:\\Windows\\SysWOW64\\cmd.exe" wide //weight: 2
+        $x_1_1 = {0a 0b 07 28 37 00 00 0a 3a 12 00 00 00 07 28 1d 00 00 06 28 38 00 00 0a 07 28 39 00 00 0a 26 07 28 37 00 00 0a 39 0e 00 00 00 07 18 28 3a 00 00 0a 07 28 39 00 00 0a 26 28}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RevengeRAT_NR_2147933075_0
+rule Trojan_MSIL_RevengeRat_ATR_2147841222_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.NR!MTB"
-        threat_id = "2147933075"
+        detection_name = "Trojan:MSIL/RevengeRat.ATR!MTB"
+        threat_id = "2147841222"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {19 0b 02 0d 16 13 04 2b 2b 09 11 04 6f ?? ?? ?? 0a 13 05 08 11 05 28 ?? ?? ?? 0a 07 da 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 0c 00 11 04 17 d6 13 04 11 04 09 6f ?? ?? ?? 0a fe 04 13 06 11 06 2d c5}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARV_2147841421_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARV!MTB"
+        threat_id = "2147841421"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0c 12 02 1f 64 14 0d 12 03 1f 64 28 ?? ?? ?? 06 2c 08 72 ?? ?? ?? 70 0a de 1c 07 17 ?? 0b 07 1a 31 d5}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARV_2147841421_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARV!MTB"
+        threat_id = "2147841421"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {16 0c 2b 1b 08 68 07 1f 64 06 1f 64 28 ?? ?? ?? 06 2c 08 72 ?? ?? ?? 70 0d de 13 08 17 58 0c 08 1a 31 e1}  //weight: 1, accuracy: Low
+        $x_1_2 = {0a 14 0b 16 0c 16 0d 16 13 04 14 13 05 16 13 06 06 07 08 12 06 12 03 12 04 11 05 16 28 ?? 00 00 06 26 11 06 28}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARV_2147841421_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARV!MTB"
+        threat_id = "2147841421"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {7e 7b 00 00 04 08 7e 79 00 00 04 06 7e 75 00 00 04 08 28 ?? ?? ?? 06 1e 5b 28 ?? ?? ?? 06 16 2c 79 26 26 26 7e 7d 00 00 04 08 7e 79 00 00 04 06 7e 77 00 00 04 08 28}  //weight: 2, accuracy: Low
+        $x_1_2 = "WinWord.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_AAF_2147846137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.AAF!MTB"
+        threat_id = "2147846137"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {17 59 13 06 2b 20 00 07 06 11 06 6f 0b 00 00 0a 13 07 12 07 28 0c 00 00 0a 28 0d 00 00 0a 0b 00 11 06 17 59 13 06 11 06 16 fe 04 16 fe 01 13 08 11 08 2d d2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_RPY_2147895226_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.RPY!MTB"
+        threat_id = "2147895226"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Falastin" ascii //weight: 1
+        $x_1_2 = {a2 0b 05 18 d6 0c 14 0d 09 ?? ?? ?? ?? ?? 13 04 03 4a 04 4a d8 1f 58 d8 08 d6 16 d8 16 d6 13 05 02}  //weight: 1, accuracy: Low
+        $x_1_3 = {00 03 8e 69 1f 11 da 17 d6 ?? ?? ?? ?? ?? 13 04 03 1f 10 11 04 16 03 8e 69 1f 10 da}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_KAA_2147895801_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.KAA!MTB"
+        threat_id = "2147895801"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 06 11 04 16 11 04 8e 69 6f ?? ?? 00 0a 13 07 11 07 0a de 1c 00 11 06 2c 08 11 06 6f ?? 00 00 0a 00 dc}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_UXA_2147896147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.UXA!MTB"
+        threat_id = "2147896147"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {73 19 00 00 0a 0b 73 19 00 00 0a 0c 02 28 ?? ?? ?? 06 03 15 17 28 ?? ?? ?? 0a 0d 07 02 16 09 16 9a 6f}  //weight: 2, accuracy: Low
+        $x_1_2 = "Select * from AntiVirusProduct" wide //weight: 1
+        $x_1_3 = "SELECT * FROM FirewallProduct" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_WZI_2147896148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.WZI!MTB"
+        threat_id = "2147896148"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {72 01 00 00 70 0a 7e 18 00 00 0a 0b 06 6f ?? ?? ?? 0a 17 59 13 06 2b 20 00 07 06 11 06 6f ?? ?? ?? 0a 13 07 12 07 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 0b 00 11 06 17 59}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARR_2147896938_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARR!MTB"
+        threat_id = "2147896938"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {01 0c 08 16 02 7b ?? 00 00 04 28 ?? 00 00 0a a2 08 14 14 14 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 06 28 ?? 00 00 0a 72}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARR_2147896938_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARR!MTB"
+        threat_id = "2147896938"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {18 13 07 28 ?? 00 00 0a 0d 19 13 07 17 28 ?? 00 00 0a 1f 20 17 19 15 28 ?? 00 00 0a 1a 13 07 17 28 ?? 00 00 0a b7 28 ?? 00 00 0a 0a 1b 13 07 17 12 00 15 6a 16 28}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARR_2147896938_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARR!MTB"
+        threat_id = "2147896938"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_3_1 = {11 07 09 16 20 00 01 00 00 6f 52 06 00 0a 13 04 07 09 16 11 04 6f 0c 05 00 0a 00 11 05 11 04 d6 13 05 11 06 6f 50 06 00 0a 11 05 6a fe 04 13 09 11 09 2c 1e 02 7b 3e 08 00 04 13 0a 11 0a 2c 0f 11 0a 11 06 6f 50 06 00 0a 6f 3a 13 00 06}  //weight: 3, accuracy: High
-        $x_2_2 = {7b 40 08 00 04 13 0d 11 0d 2c 08 11 0d 6f 42 13 00 06 00 17 0a de 3d}  //weight: 2, accuracy: High
+        $x_1_1 = "Software\\Orichalque\\Dofus" wide //weight: 1
+        $x_1_2 = "Orichalqueupdater" wide //weight: 1
+        $x_1_3 = "Orichalque-Uplauncher\\obj\\Release\\Orichalqueupdater.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARR_2147896938_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARR!MTB"
+        threat_id = "2147896938"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 17 12 00 15 6a 16 28 ?? 00 00 0a 17 8d ?? 00 00 01 25 16 17 9e 28 ?? 00 00 0a 02 06 02 7b ?? 00 00 04 28 ?? 00 00 0a 15 16 28}  //weight: 2, accuracy: Low
+        $x_1_2 = "taskkill /f /IM ProcessHacker.exe" wide //weight: 1
+        $x_1_3 = "taskkill /f /IM Tcpview.exe" wide //weight: 1
+        $x_1_4 = "taskkill /f /IM Fiddler.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_AREV_2147900446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.AREV!MTB"
+        threat_id = "2147900446"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 2d 16 06 28 ?? 00 00 06 17 28 ?? 00 00 0a 20 ?? 07 00 00 28 ?? 00 00 0a 72 ?? 01 00 70 72 ?? 01 00 70 28}  //weight: 2, accuracy: Low
+        $x_1_2 = "Select * from AntiVirusProduct" wide //weight: 1
+        $x_1_3 = "SELECT * FROM FirewallProduct" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARA_2147901237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARA!MTB"
+        threat_id = "2147901237"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {16 0b 16 0c 16 13 06 2b 5a 00 07 17 58 20 ff 00 00 00 5f 0b 08 11 04 07 e0 95 58 20 ff 00 00 00 5f 0c 11 04 07 e0 95 0d 11 04 07 e0 11 04 08 e0 95 9e 11 04 08 e0 09 9e 11 05 11 06 02 11 06 91 11 04 11 04 07 e0 95 11 04 08 e0 95 58 20 ff 00 00 00 5f e0 95 61 28}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_AR_2147901418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.AR!MTB"
+        threat_id = "2147901418"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {07 16 6a 2b 64 00 07 16 17 73 ?? 00 00 0a 0c 73 ?? 00 00 0a 0d 1f 40 8d ?? 00 00 01 2b 3f 15 13 05 08 11 04 16 11 04 8e 69 6f ?? 00 00 0a 13 05 2b 1c 09 11 04 16 11 05 6f ?? 00 00 0a 00 08 11 04 16 11 04 8e 69}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

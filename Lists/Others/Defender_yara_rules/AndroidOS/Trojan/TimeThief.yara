@@ -1,23 +1,19 @@
-rule Trojan_AndroidOS_TimeThief_A_2147799190_0
+rule Trojan_AndroidOS_Timethief_A_2147845225_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/TimeThief.A!MTB"
-        threat_id = "2147799190"
+        detection_name = "Trojan:AndroidOS/Timethief.A"
+        threat_id = "2147845225"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "TimeThief"
+        family = "Timethief"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "5"
+        threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "callphoneNumber" ascii //weight: 1
-        $x_1_2 = "RQS_PICK_CONTACT" ascii //weight: 1
-        $x_1_3 = "getContactPhone" ascii //weight: 1
-        $x_1_4 = "com/androidethiopia/ethiotelecom/CallMeActivity" ascii //weight: 1
-        $x_1_5 = "altMultiplePhoneNumber" ascii //weight: 1
+        $x_2_1 = "Lcom/example/funapp/MainActivity;" ascii //weight: 2
+        $x_2_2 = "You have successfully registered use Prev and Next buttons. Enjoy with the fun Pictures..." ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

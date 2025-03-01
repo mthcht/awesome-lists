@@ -1,70 +1,28 @@
-rule Trojan_Win32_NukeSped_RS_2147748550_0
+rule Trojan_Win32_Nukesped_PA_2147742749_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/NukeSped.RS!MSR"
-        threat_id = "2147748550"
+        detection_name = "Trojan:Win32/Nukesped.PA!MTB"
+        threat_id = "2147742749"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "NukeSped"
-        severity = "Critical"
-        info = "MSR: Microsoft Security Response"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "VirtualFree" ascii //weight: 1
-        $x_1_2 = "VirtualAlloc" ascii //weight: 1
-        $x_1_3 = "WS2_32.dll" ascii //weight: 1
-        $x_1_4 = "WriteFile" ascii //weight: 1
-        $x_1_5 = "CreateThread" ascii //weight: 1
-        $x_1_6 = "CRYPT32.DLL" ascii //weight: 1
-        $x_1_7 = "Software\\mthjk" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_NukeSped_SRP_2147835600_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/NukeSped.SRP!MTB"
-        threat_id = "2147835600"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "NukeSped"
+        family = "Nukesped"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = {8b 55 f0 83 c2 01 89 55 f0 81 7d f0 00 01 00 00 73 4b 8b 45 e8 03 45 f0 0f b6 00 03 45 dc 8b 4d f8 03 4d f0 0f b6 11 03 c2 33 d2 b9 00 01 00 00 f7 f1 89 55 dc 8b 55 e8 03 55 f0 8a 02 88 45 ef 8b 4d e8 03 4d f0 8b 55 e8 03 55 dc 8a 02 88 01 8b 4d e8 03 4d dc 8a 55 ef 88 11 eb a3}  //weight: 5, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_NukeSped_MA_2147888998_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/NukeSped.MA!MTB"
-        threat_id = "2147888998"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "NukeSped"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
+        threshold = "3"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = {33 d2 8a c2 b3 88 fe c0 f6 ac 24 ?? ?? ?? ?? f6 eb 88 44 14 0c 42 81 fa ?? ?? ?? ?? 7c}  //weight: 5, accuracy: Low
-        $x_5_2 = {8a 54 0c 10 8a 1c 38 32 da 03 ce 88 1c 38 81 e1 ff 00 00 00 40 3b c5 7c}  //weight: 5, accuracy: High
+        $x_1_1 = {8a 14 3e 32 d0 88 14 3e 46 3b f3 7c}  //weight: 1, accuracy: High
+        $x_2_2 = {56 8b f1 e8 ?? ?? ?? ?? 8b ce e8 ?? ?? ?? ?? 8b ce e8 ?? ?? ?? ?? 8b ce e8 ?? ?? ?? ?? 8b 4e ?? 8b 56 ?? 8b 46 ?? 33 ca 33 c8 5e 8b c1 8b d1 c1 e8 18 c1 ea 10 32 c2 8b d1 c1 ea 08 32 c2 32 c1 c3}  //weight: 2, accuracy: Low
+        $x_1_3 = {8a 11 32 d0 8b 45 ?? 03 45 ?? 88 10 eb}  //weight: 1, accuracy: Low
+        $x_2_4 = {55 8b ec 83 ec ?? 89 4d ?? 8b 4d ?? e8 ?? ?? ?? ?? 8b 4d ?? e8 ?? ?? ?? ?? 8b 4d ?? e8 ?? ?? ?? ?? 8b 4d ?? e8 ?? ?? ?? ?? 8b 45 ?? 8b 4d ?? 8b 50 ?? 33 51 ?? 8b 45 ?? 33 50 ?? 89 55 ?? 8b 4d ?? 81 e1 ff 00 00 00 8b 55 ?? c1 ea 08 81 e2 ff 00 00 00 33 ca 8b 45 ?? c1 e8 10 25 ff 00 00 00 33 c8 8b 55 ?? c1 ea 18 81 e2 ff 00 00 00 33 ca 88 4d ?? 8a 45 ?? 8b e5 5d c3}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

@@ -1,21 +1,19 @@
-rule Trojan_Win64_GhostRAT_A_2147897903_0
+rule Trojan_Win64_GhostRat_LML_2147932821_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/GhostRAT.A!MTB"
-        threat_id = "2147897903"
+        detection_name = "Trojan:Win64/GhostRat.LML!MTB"
+        threat_id = "2147932821"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "GhostRAT"
+        family = "GhostRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
+        threshold = "1"
+        strings_accuracy = "High"
     strings:
-        $x_2_1 = {48 8b c1 41 83 c3 ?? 48 c1 e8 ?? 48 ff c2 8a 04 28 41 88 02 48 8b c1 48 c1 e8}  //weight: 2, accuracy: Low
-        $x_2_2 = "%s\\shell\\open\\command" ascii //weight: 2
-        $x_2_3 = "%-24s %-15s" ascii //weight: 2
+        $x_1_1 = {48 8d 54 11 01 80 30 a7 48 83 c0 01 48 39 d0 75 f4}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

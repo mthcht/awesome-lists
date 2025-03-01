@@ -1,52 +1,50 @@
-rule Trojan_AndroidOS_BankBot_B_2147759464_0
+rule Trojan_AndroidOS_Bankbot_D_2147819336_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/BankBot.B!MTB"
-        threat_id = "2147759464"
+        detection_name = "Trojan:AndroidOS/Bankbot.D!MTB"
+        threat_id = "2147819336"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "BankBot"
+        family = "Bankbot"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "4"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "suspect a DoS attack based on hash collisions" ascii //weight: 1
-        $x_1_2 = "requireinject" ascii //weight: 1
-        $x_1_3 = "fasterxml/jackson/core/json/ByteSourceJsonBootstrapper" ascii //weight: 1
-        $x_1_4 = "getSnapshot" ascii //weight: 1
-        $x_1_5 = "recommended_card_view" ascii //weight: 1
+        $x_1_1 = "com.sadasdwqewqas.dsqweqwds" ascii //weight: 1
+        $x_1_2 = "uploadContacts.php" ascii //weight: 1
+        $x_1_3 = "getInstalledApplications" ascii //weight: 1
+        $x_1_4 = "starttracking" ascii //weight: 1
+        $x_1_5 = "stopSelf" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (4 of ($x*))
+        (all of ($x*))
 }
 
-rule Trojan_AndroidOS_BankBot_C_2147759465_0
+rule Trojan_AndroidOS_Bankbot_E_2147832193_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/BankBot.C!MTB"
-        threat_id = "2147759465"
+        detection_name = "Trojan:AndroidOS/Bankbot.E!MTB"
+        threat_id = "2147832193"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "BankBot"
+        family = "Bankbot"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "6"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "enhancerecycle.java" ascii //weight: 1
-        $x_1_2 = "javax/inject/Provider;" ascii //weight: 1
-        $x_1_3 = "arrangeattack" ascii //weight: 1
-        $x_1_4 = "setMacroOnAction" ascii //weight: 1
-        $x_1_5 = "throwOnSetScreenshotButNoPiiAllowed" ascii //weight: 1
-        $x_1_6 = "tortoiseevil" ascii //weight: 1
-        $x_1_7 = "Persistent Cookie was expected" ascii //weight: 1
+        $x_1_1 = "service.webview.kiszweb" ascii //weight: 1
+        $x_1_2 = "braziliankings.ddns" ascii //weight: 1
+        $x_1_3 = "/mobileConfig.php" ascii //weight: 1
+        $x_1_4 = "com.vtm.uninstall" ascii //weight: 1
+        $x_1_5 = "startTracking" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (6 of ($x*))
+        (all of ($x*))
 }
 

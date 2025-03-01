@@ -1,19 +1,20 @@
-rule Trojan_Win32_SystemBc_YAC_2147896605_0
+rule Trojan_Win32_systemBC_2147840800_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/SystemBc.YAC!MTB"
-        threat_id = "2147896605"
+        detection_name = "Trojan:Win32/systemBC.psyC!MTB"
+        threat_id = "2147840800"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "SystemBc"
+        family = "systemBC"
         severity = "Critical"
+        info = "psyC: an internal category used to refer to some threats"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
+        threshold = "7"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = {8b 55 cc 03 55 ac 03 55 e8 2b d0 8b 45 d8 31 10 83 45 ?? 04 83 45 d8 04}  //weight: 1, accuracy: Low
+        $x_7_1 = {9b c7 48 87 fe 66 0f b6 d1 f7 d2 5a 0f be d8 66 0f cb 5b 48 8d b0 14 be e9 c6 66 f7 d7 e9 42 03 00 00 0f 82 d7 ff ff ff 66 0f ba e2 06 80 fb bc}  //weight: 7, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

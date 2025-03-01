@@ -1,69 +1,72 @@
-rule Trojan_MSIL_OrcusRat_DNC_2147818575_0
+rule Trojan_MSIL_Orcusrat_ADN_2147779929_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/OrcusRat.DNC!MTB"
-        threat_id = "2147818575"
+        detection_name = "Trojan:MSIL/Orcusrat.ADN!MTB"
+        threat_id = "2147779929"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "OrcusRat"
+        family = "Orcusrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {06 07 08 91 6f ?? ?? ?? 0a 00 00 08 25 17 59 0c 16 fe 02 0d 09 2d e8}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_OrcusRat_NEAA_2147834123_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/OrcusRat.NEAA!MTB"
-        threat_id = "2147834123"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "OrcusRat"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "21"
+        threshold = "24"
         strings_accuracy = "High"
     strings:
-        $x_5_1 = {02 17 9a 72 6d 00 00 70 02 18 9a 28 16 00 00 0a 28 02 00 00 06 2a 06}  //weight: 5, accuracy: High
-        $x_4_2 = "Orcus.Golem" wide //weight: 4
-        $x_4_3 = "/protectFile" wide //weight: 4
-        $x_4_4 = "/launchClientAndExit" wide //weight: 4
-        $x_4_5 = "/watchProcess" wide //weight: 4
+        $x_5_1 = "OrcUS" ascii //weight: 5
+        $x_5_2 = "OrcUS.Watchdog" ascii //weight: 5
+        $x_4_3 = "KillButton_Click" ascii //weight: 4
+        $x_4_4 = "gET_RemoteEndPoint" ascii //weight: 4
+        $x_4_5 = "DisableInstallationPrompt" ascii //weight: 4
+        $x_4_6 = "gET_kEYLoggerService" ascii //weight: 4
+        $x_4_7 = "gET_ServerConnection" ascii //weight: 4
+        $x_4_8 = "gET_RequireAdministratorPrivileges" ascii //weight: 4
+        $x_4_9 = "gETFreeTempFileName" ascii //weight: 4
+        $x_4_10 = "gET_TaskName" ascii //weight: 4
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((6 of ($x_4_*))) or
+            ((1 of ($x_5_*) and 5 of ($x_4_*))) or
+            ((2 of ($x_5_*) and 4 of ($x_4_*))) or
+            (all of ($x*))
+        )
 }
 
-rule Trojan_MSIL_OrcusRat_ACU_2147841228_0
+rule Trojan_MSIL_Orcusrat_ADT_2147779931_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/OrcusRat.ACU!MTB"
-        threat_id = "2147841228"
+        detection_name = "Trojan:MSIL/Orcusrat.ADT!MTB"
+        threat_id = "2147779931"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "OrcusRat"
+        family = "Orcusrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
+        threshold = "15"
+        strings_accuracy = "High"
     strings:
-        $x_2_1 = {13 09 2b 2d 11 09 6f ?? ?? ?? 0a 13 0a 00 72 ?? ?? ?? 70 11 0a 2d 03 14 2b 07 11 0a}  //weight: 2, accuracy: Low
-        $x_1_2 = "193.138.195.211" wide //weight: 1
-        $x_1_3 = "Runner.exe" wide //weight: 1
+        $x_4_1 = "Orcus" ascii //weight: 4
+        $x_4_2 = "KillButton_Click" ascii //weight: 4
+        $x_4_3 = "get_KeyLoggerService" ascii //weight: 4
+        $x_4_4 = "TakeScreenshot" ascii //weight: 4
+        $x_4_5 = "_keyboardHookHandle" ascii //weight: 4
+        $x_3_6 = "get_IcmpSockets" ascii //weight: 3
+        $x_3_7 = "IsATcpAnaylzerRunning" ascii //weight: 3
+        $x_3_8 = "set_AntiVMs" ascii //weight: 3
+        $x_3_9 = "set_AntiDebugger" ascii //weight: 3
+        $x_3_10 = "set_TaskSchedulerTaskName" ascii //weight: 3
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((5 of ($x_3_*))) or
+            ((1 of ($x_4_*) and 4 of ($x_3_*))) or
+            ((2 of ($x_4_*) and 3 of ($x_3_*))) or
+            ((3 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((4 of ($x_4_*))) or
+            (all of ($x*))
+        )
 }
 

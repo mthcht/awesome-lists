@@ -1,26 +1,24 @@
-rule Ransom_Win32_VHDLocker_SK_2147752806_0
+rule Ransom_Win32_VhdLocker_PA_2147761066_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/VHDLocker.SK!MTB"
-        threat_id = "2147752806"
+        detection_name = "Ransom:Win32/VhdLocker.PA!MTB"
+        threat_id = "2147761066"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "VHDLocker"
+        family = "VhdLocker"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "20"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_10_1 = "HowToDecrypt.txt" wide //weight: 10
-        $x_10_2 = "AEEAEE SET" wide //weight: 10
-        $x_5_3 = "c:/data/prj/test" wide //weight: 5
+        $x_1_1 = ".vhd" wide //weight: 1
+        $x_1_2 = "sc stop \"Microsoft Exchange" ascii //weight: 1
+        $x_1_3 = "HowToDecrypt.txt" wide //weight: 1
+        $x_1_4 = "AEEAEE SET" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((2 of ($x_10_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 

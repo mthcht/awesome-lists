@@ -1,56 +1,126 @@
-rule TrojanSpy_Win32_WinSpy_2147724011_0
+rule TrojanSpy_Win32_Winspy_Y_2147803879_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanSpy:Win32/WinSpy"
-        threat_id = "2147724011"
+        detection_name = "TrojanSpy:Win32/Winspy.Y"
+        threat_id = "2147803879"
         type = "TrojanSpy"
         platform = "Win32: Windows 32-bit platform"
-        family = "WinSpy"
+        family = "Winspy"
         severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "15"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "TIME SPENT ONLINE REPORT" wide //weight: 1
-        $x_1_2 = "WEBSITE VISITED DETAIL REPORT" wide //weight: 1
-        $x_1_3 = "SitesDetail.txt" wide //weight: 1
-        $x_1_4 = "PCLocation.txt" wide //weight: 1
-        $x_1_5 = "TimeOnline.txt" wide //weight: 1
-        $x_1_6 = "\\Capture" wide //weight: 1
-        $x_1_7 = "Remote File could not be deleted" wide //weight: 1
-        $x_1_8 = "Enable Watch" wide //weight: 1
-        $x_1_9 = "- CMD Upl File Open -" wide //weight: 1
-        $x_1_10 = "LOST STOLEN PC REPORT" wide //weight: 1
-        $x_1_11 = "\\\\\\ONLINETIME " wide //weight: 1
-        $x_1_12 = "\\\\\\KEYLOGS" wide //weight: 1
-        $x_1_13 = "\\\\\\CHATROOM" wide //weight: 1
-        $x_1_14 = "\\\\\\WEBSITED" wide //weight: 1
-        $x_1_15 = "\\\\\\PCACTIVETIME" wide //weight: 1
-        $x_1_16 = "\\\\\\WEBSITES" wide //weight: 1
-        $x_1_17 = "Websites_Summary.txt" wide //weight: 1
-        $x_1_18 = "\\Chat_log.txt" wide //weight: 1
-        $x_1_19 = "Allow: GET, POST" wide //weight: 1
-        $x_1_20 = "Date File Created:" wide //weight: 1
-        $x_1_21 = "PC ID:" wide //weight: 1
-        $x_1_22 = "KEY PRESSED REPORT" wide //weight: 1
-        $x_1_23 = "Window Title:" wide //weight: 1
-        $x_1_24 = "Key Pressed :" wide //weight: 1
-        $x_1_25 = "PressedKeys.txt" wide //weight: 1
-        $x_1_26 = {74 78 74 4d 79 4b 65 79 00}  //weight: 1, accuracy: High
-        $x_1_27 = {47 6f 53 74 65 61 6c 74 68 00}  //weight: 1, accuracy: High
-        $x_1_28 = {53 74 6f 70 4b 65 79 6c 6f 67 00}  //weight: 1, accuracy: High
-        $x_1_29 = "{LeftWinKey}" wide //weight: 1
-        $x_1_30 = "{LeftAlt}" wide //weight: 1
-        $x_1_31 = "SendFile:" wide //weight: 1
-        $x_1_32 = "Save Snap:" wide //weight: 1
-        $x_1_33 = "Check Cam:" wide //weight: 1
-        $x_1_34 = "\\ChatReport.txt" wide //weight: 1
-        $x_1_35 = "\\SitesSummary.txt" wide //weight: 1
-        $x_1_36 = "Accessories\\Common\\*.txt" wide //weight: 1
-        $x_1_37 = {53 54 4f 50 43 41 4d 20 53 54 41 52 54 43 41 4d 00}  //weight: 1, accuracy: High
+        $x_10_1 = "C:\\ZKing8\\WinZ\\WSP\\RenoNevada\\FTPREM\\MyFTP.vbp" wide //weight: 10
+        $x_1_2 = "SOFTWARE\\AutoNewUpdate" wide //weight: 1
+        $x_1_3 = "SOFTWARE\\ccAppRemXP" wide //weight: 1
+        $x_1_4 = "/Win-Spy.com/www/1" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\RASOA" wide //weight: 1
+        $x_1_6 = "OutlookSMTP.exe" wide //weight: 1
+        $x_1_7 = "outlookrem.exe" wide //weight: 1
+        $x_1_8 = "msimnSMTP.exe" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (10 of ($x*))
+        (
+            ((1 of ($x_10_*) and 5 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule TrojanSpy_Win32_Winspy_Z_2147804152_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:Win32/Winspy.Z"
+        threat_id = "2147804152"
+        type = "TrojanSpy"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Winspy"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "modAutoClean" ascii //weight: 1
+        $x_1_2 = "modCheckRunningProcess" ascii //weight: 1
+        $x_1_3 = "modScreenCapture" ascii //weight: 1
+        $x_1_4 = "mogGetOS" ascii //weight: 1
+        $x_1_5 = "modAntiSpy" ascii //weight: 1
+        $x_1_6 = "mdmVFrame" ascii //weight: 1
+        $x_1_7 = "clVCapture" ascii //weight: 1
+        $x_1_8 = "modinifiledead" ascii //weight: 1
+        $x_1_9 = "clsURLMon" ascii //weight: 1
+        $x_1_10 = "tmrStartCam" ascii //weight: 1
+        $x_1_11 = "cmdTestSMTP" ascii //weight: 1
+        $x_1_12 = "txtEmailInterval" ascii //weight: 1
+        $x_1_13 = "cmdEnableWatch" ascii //weight: 1
+        $x_1_14 = "tmrOnlineTime3" ascii //weight: 1
+        $x_2_15 = "CheckRunningProcess_OUTLOOK" ascii //weight: 2
+        $x_2_16 = "CheckRunningProcess_IEXPLORE" ascii //weight: 2
+        $x_7_17 = "\\RenoNevada\\MainMango\\Server.vbp" wide //weight: 7
+        $x_2_18 = "Unhide Folder" wide //weight: 2
+        $x_5_19 = "net localgroup Administrators /Add " wide //weight: 5
+        $x_3_20 = "http://www.win-spy.com/update" wide //weight: 3
+        $x_4_21 = "\\Temp\\desktop.exe /u" wide //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 14 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 2 of ($x_2_*) and 13 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 3 of ($x_2_*) and 11 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 1 of ($x_2_*) and 14 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 2 of ($x_2_*) and 12 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 3 of ($x_2_*) and 10 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 1 of ($x_3_*) and 13 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 11 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 9 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 1 of ($x_3_*) and 3 of ($x_2_*) and 7 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 13 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_2_*) and 11 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 3 of ($x_2_*) and 9 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_3_*) and 12 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 10 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 8 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_3_*) and 3 of ($x_2_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 11 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*) and 9 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_2_*) and 7 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 3 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 8 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 3 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 13 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_2_*) and 11 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 2 of ($x_2_*) and 9 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 3 of ($x_2_*) and 7 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_3_*) and 10 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 8 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_3_*) and 3 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_4_*) and 9 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_2_*) and 7 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_4_*) and 2 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_4_*) and 3 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 8 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_2_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 2 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 3 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 5 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

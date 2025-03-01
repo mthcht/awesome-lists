@@ -1,251 +1,85 @@
-rule Trojan_Win32_GhostRAT_AA_2147745411_0
+rule Trojan_Win32_Ghostrat_RPW_2147838257_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.AA!MTB"
-        threat_id = "2147745411"
+        detection_name = "Trojan:Win32/Ghostrat.RPW!MTB"
+        threat_id = "2147838257"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
+        family = "Ghostrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {c6 45 e4 be c6 45 e5 16 c6 45 e6 cf c6 45 e7 52 c6 45 e8 cd 90}  //weight: 1, accuracy: High
-        $x_1_2 = {30 11 ff 45 ?? c3 1a 00 be 7c 44 00 00 0f be 04 02 99 f7 fe b8 ?? ?? ?? ?? 80 ea 3f}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_GhostRAT_MA_2147817603_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.MA!MTB"
-        threat_id = "2147817603"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 ec 0c 0f b6 45 10 99 b9 ?? ?? ?? ?? 53 f7 f9 56 57 89 65 f0 80 c2 17 83 65 ec 00 88 55 13 8b 45 ec 3b 45 0c 73}  //weight: 1, accuracy: Low
-        $x_1_2 = {8b 45 08 8a 08 32 4d 13 02 4d 13 88 08 40 89 45 08 b8 ?? ?? ?? ?? c3}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_GhostRAT_MA_2147817603_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.MA!MTB"
-        threat_id = "2147817603"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "9"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {55 8b ec 83 e4 f8 81 ec 5c 0b 00 00 a1 ?? ?? ?? ?? 33 c4 89 84 24 58 0b 00 00 53 56 57 68 ?? ?? ?? ?? 6a 00 6a 00 ff 15}  //weight: 5, accuracy: Low
-        $x_2_2 = "\\jisupdf.exe" wide //weight: 2
-        $x_2_3 = "RunOnlyOneInstance" wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_GhostRAT_MC_2147817604_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.MC!MTB"
-        threat_id = "2147817604"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c0 01 89 45 f8 8b 0d ?? ?? ?? ?? 8b 55 f8 3b 91 fc 05 00 00 73 ?? 8b 45 f4 33 c9 8a 08 8b 55 fc 81 e2 ff 00 00 00 33 ca 8b 45 f4 88 08 8b 4d f4 83 c1 01 89 4d f4 eb}  //weight: 1, accuracy: Low
-        $x_1_2 = "SuspendThread" ascii //weight: 1
-        $x_1_3 = "ResumeThread" ascii //weight: 1
-        $x_1_4 = "CreateToolhelp32Snapshot" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_GhostRAT_MB_2147819114_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.MB!MTB"
-        threat_id = "2147819114"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "FuckBaby.dll" ascii //weight: 2
-        $x_2_2 = "windows\\temp\\svchost.exe" ascii //weight: 2
-        $x_1_3 = {8d 4c 24 48 8d 54 24 10 51 68 3f 00 0f 00 6a 00 52 68 02 00 00 80 ff 15}  //weight: 1, accuracy: High
+        $x_1_1 = {50 c6 45 ec 41 c6 45 ed 44 c6 45 ee 56 c6 45 ef 41 c6 45 f0 50 c6 45 f1 49 c6 45 f2 33 c6 45 f3 32 c6 45 f4 2e c6 45 f5 64 c6 45 f6 6c c6 45 f7 6c 88 5d f8 ff 15}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_GhostRAT_BS_2147837840_0
+rule Trojan_Win32_Ghostrat_RPZ_2147846275_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.BS!MTB"
-        threat_id = "2147837840"
+        detection_name = "Trojan:Win32/Ghostrat.RPZ!MTB"
+        threat_id = "2147846275"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
+        family = "Ghostrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
+        threshold = "1"
+        strings_accuracy = "High"
     strings:
-        $x_2_1 = {8b 45 08 8a 10 8a 4d ef 32 d1 02 d1 88 10 40 89 45 08 c7 45 fc 01 00 00 00 b8 [0-4] c3 ff 45 e8 eb}  //weight: 2, accuracy: Low
-        $x_1_2 = "fuckyou" ascii //weight: 1
-        $x_1_3 = "C:\\windowss64\\computer.exe" ascii //weight: 1
-        $x_1_4 = "47.93.60.63:8000/exploror.exe" ascii //weight: 1
+        $x_1_1 = {47 83 c6 04 83 c3 02 3b 7d f4 72 b8 eb 1d 0f b7 0b 3b 4d f0 77 15 8b 45 ec 8b 40 1c 8d 04 88 8b 4d fc 8b 04 08 03 c1 74 02 ff d0}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_GhostRAT_A_2147891717_0
+rule Trojan_Win32_Ghostrat_RPY_2147848820_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.A!MTB"
-        threat_id = "2147891717"
+        detection_name = "Trojan:Win32/Ghostrat.RPY!MTB"
+        threat_id = "2147848820"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
+        family = "Ghostrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
+        threshold = "3"
+        strings_accuracy = "High"
     strings:
-        $x_2_1 = {0f b6 00 8b 55 f4 31 d0 83 f0 ?? 89 c2 8b 45 ?? 05 20 ?? ?? ?? 88 10 8b 45}  //weight: 2, accuracy: Low
+        $x_1_1 = {8d 85 f8 fe ff ff eb 03 8d 49 00 8a 10 3a 11 75 1a 84 d2 74 12 8a 50 01 3a 51 01 75 0e 83 c0 02 83 c1 02 84 d2 75 e4 33 c0 eb 05 1b c0 83 d8 ff 85 c0 74 13 8d 95 d4 fe ff ff 52 56 e8}  //weight: 1, accuracy: High
+        $x_1_2 = "explorer.exe" ascii //weight: 1
+        $x_1_3 = "CheckServer\\Tcs.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_GhostRAT_B_2147896327_0
+rule Trojan_Win32_Ghostrat_RPX_2147851473_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.B!MTB"
-        threat_id = "2147896327"
+        detection_name = "Trojan:Win32/Ghostrat.RPX!MTB"
+        threat_id = "2147851473"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {8d 4d 88 ff d6 80 65 0b 00 ff 15 ?? 21 40 00 99 b9 00 01 00 00 68 00 28 00 00 f7 f9 8d 45}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_GhostRAT_C_2147896771_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.C!MTB"
-        threat_id = "2147896771"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
+        family = "Ghostrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
-        strings_accuracy = "Low"
+        strings_accuracy = "High"
     strings:
-        $x_2_1 = {8b c7 5f 5e 8b e5 5d ?? 8a 04 39 2c ?? 34 ?? 88 04 39 41}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_GhostRAT_D_2147899008_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.D!MTB"
-        threat_id = "2147899008"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {0f be 08 81 e9 ?? ?? ?? ?? 8b 55 ?? 03 55 ?? 88 0a 8b 45 ?? 03 45 ?? 0f be 08 83 f1}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_GhostRAT_RHA_2147914342_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GhostRAT.RHA!MTB"
-        threat_id = "2147914342"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GhostRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "12"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "BakOnlineAddr2:" ascii //weight: 1
-        $x_1_2 = "BakOnlineAddr1:" ascii //weight: 1
-        $x_1_3 = "OnlineAddr:" ascii //weight: 1
-        $x_1_4 = "NoConnectDelayTime:" ascii //weight: 1
-        $x_1_5 = {75 70 64 61 74 65 2e 64 6c 6c 00 58 00}  //weight: 1, accuracy: High
-        $x_1_6 = "taskmgr.exe" ascii //weight: 1
-        $x_1_7 = "api.microsoft-ns1.com" ascii //weight: 1
-        $x_1_8 = "CreateMutexA" ascii //weight: 1
-        $x_1_9 = "GetCurrentProcessId" ascii //weight: 1
-        $x_1_10 = "Abc159753@" wide //weight: 1
-        $x_2_11 = {50 45 00 00 4c 01 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 0b 01 06 00 00 c6 00 00 00 82 00 00 00 00 00 00 08 62}  //weight: 2, accuracy: Low
+        $x_1_1 = {8b f2 ff d0 99 b9 0a 00 00 00 f7 f9 42 83 ee 00 74 13 83 ee 01 74 0a 83 ee 01 75 0b 0f af fa eb 06 2b fa eb 02 03 fa 83 ad a8 f5 ff ff 01 8b 35}  //weight: 1, accuracy: High
+        $x_1_2 = "ShellcodeBase64Loader" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

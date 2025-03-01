@@ -1,452 +1,305 @@
-rule Trojan_MSIL_MassLogger_GN_2147760436_0
+rule Trojan_MSIL_Masslogger_VN_2147758432_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.GN!MTB"
-        threat_id = "2147760436"
+        detection_name = "Trojan:MSIL/Masslogger.VN!MTB"
+        threat_id = "2147758432"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
+        family = "Masslogger"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {01 0b 07 72 ?? ?? ?? 70 6f ?? ?? ?? 0a 14 72 ?? ?? ?? 70 17 8d ?? ?? ?? 01 25 16 72 ?? ?? ?? 70 a2 14 14 28 ?? ?? ?? 0a 74 ?? ?? ?? 01 0c 00 08 14 1a 8d ?? ?? ?? 01 25 d0 ?? ?? ?? 04 28 ?? ?? ?? 0a 73 ?? ?? ?? 0a 72 ?? ?? ?? 70 28 ?? ?? ?? 0a 18 8d ?? ?? ?? 01 25 17 03 a2 14 14 28 ?? ?? ?? 0a 26 72 ?? ?? ?? ?? 0d}  //weight: 1, accuracy: Low
+        $x_1_1 = {01 25 16 7e ?? ?? ?? 04 a2 25 17 7e ?? ?? ?? 04 a2 25 18 72 ?? ?? ?? 70 a2 73 ?? ?? ?? 06 0a 02 28 ?? ?? ?? 06 00 2a}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_MassLogger_GN_2147760436_1
+rule Trojan_MSIL_Masslogger_VN_2147758432_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.GN!MTB"
-        threat_id = "2147760436"
+        detection_name = "Trojan:MSIL/Masslogger.VN!MTB"
+        threat_id = "2147758432"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
+        family = "Masslogger"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {17 0c 19 8d ?? ?? ?? 01 13 06 11 06 16 7e ?? ?? ?? 04 a2 11 06 17 7e ?? ?? ?? 04 a2 11 06 18 20 ?? ?? ?? ?? 28 ?? ?? ?? 06 a2 11 06 73 ?? ?? ?? 06 [0-32] 2a}  //weight: 1, accuracy: Low
-        $x_1_2 = {17 13 05 17 13 06 19 8d ?? ?? ?? 01 13 07 11 07 16 7e ?? ?? ?? 04 a2 11 07 17 7e ?? ?? ?? 04 a2 11 07 18 72 ?? ?? ?? ?? a2 11 07 73 ?? ?? ?? 06 [0-32] 2a}  //weight: 1, accuracy: Low
+        $x_1_1 = {70 0c 19 8d ?? ?? ?? 01 25 16 06 a2 25 17 07 a2 25 18 08 a2 73 ?? ?? ?? 06 0d 2a 10 00 7e ?? ?? ?? 04 0a 7e ?? ?? ?? 04 0b 72}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Masslogger_VN_2147758432_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Masslogger.VN!MTB"
+        threat_id = "2147758432"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Masslogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {91 61 d2 9c 1e 00 fe ?? ?? 00 fe ?? ?? 00 fe ?? ?? 00 fe ?? ?? 00 91 fe ?? ?? 00 61 fe ?? ?? 00 fe ?? ?? 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Masslogger_VN_2147758432_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Masslogger.VN!MTB"
+        threat_id = "2147758432"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Masslogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {04 0b 19 8d ?? ?? ?? 01 25 16 06 a2 25 17 07 a2 25 18 20 ?? ?? ?? ?? 28 ?? ?? ?? 06 a2 73 ?? ?? ?? 06 26 2a 0a 00 7e ?? ?? ?? 04 0a 7e}  //weight: 1, accuracy: Low
+        $x_1_2 = {0b 14 0c 19 8d ?? ?? ?? 01 25 16 06 a2 25 17 07 a2 25 18 72 ?? ?? ?? 70 a2 73 ?? ?? ?? 06 0d 2a 0b 00 7e ?? ?? ?? 04 0a 7e ?? ?? ?? 04}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
 }
 
-rule Trojan_MSIL_MassLogger_RM_2147763799_0
+rule Trojan_MSIL_Masslogger_VN_2147758432_4
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.RM!MTB"
-        threat_id = "2147763799"
+        detection_name = "Trojan:MSIL/Masslogger.VN!MTB"
+        threat_id = "2147758432"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "oXCCFvgFvoMFCnfdtYEwdOHfBHtnA.resources" ascii //weight: 1
-        $x_1_2 = "PpLYzkgfaYBngpiXMUeROfwGTnzE.resources" ascii //weight: 1
-        $x_1_3 = "PxHmqfwUlXIcRAXxIAAcUbMcMkGj.resources" ascii //weight: 1
-        $x_1_4 = "rUKPidMihJiyQHedSmumJFTtwtKtA.resources" ascii //weight: 1
-        $x_1_5 = {57 69 6e 64 6f 77 73 46 6f 72 6d 73 41 70 70 ?? ?? 2e 50 72 6f 70 65 72 74 69 65 73}  //weight: 1, accuracy: Low
-        $x_1_6 = "bqocVYTRKxKJWXGLYgkKJhRancbMA.resources" ascii //weight: 1
-        $x_1_7 = "RVzywHBbhheccROJrSfRnGjzcJmN.resources" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (3 of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_SA_2147763803_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.SA!MTB"
-        threat_id = "2147763803"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "wHIZWZTOEfkOAFCnOXKnkOwjuoLU.resources" ascii //weight: 1
-        $x_1_2 = "scSVKGwfKLrAfdmOeFZNxTgRCEXC" ascii //weight: 1
-        $x_1_3 = "PpEEfOBWMpjlWiEKhEwIbWlpHwTr.resources" ascii //weight: 1
-        $x_1_4 = "YlAAwjFkQdxcLRhMugHSJoqFKqKv" ascii //weight: 1
-        $x_1_5 = "Lime_Pony.exe" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_RDA_2147912634_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.RDA!MTB"
-        threat_id = "2147912634"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {11 07 13 05 11 05 6f 80 00 00 0a 13 06 73 81 00 00 0a 0d 09 11 06 17}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_RDB_2147919302_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.RDB!MTB"
-        threat_id = "2147919302"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {11 04 06 16 06 8e 69 6f 1c 00 00 0a 09 6f 1d 00 00 0a 0a}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_AML_2147920453_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AML!MTB"
-        threat_id = "2147920453"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {16 0b 2b 2d 02 06 07 28 ?? 00 00 06 0c 04 03 6f ?? 00 00 0a 59 0d 03 08 09 28 ?? 00 00 06 03 08 09 28 ?? 00 00 06 03 04 28 ?? 00 00 06 07 17 58 0b 07 02 6f}  //weight: 2, accuracy: Low
-        $x_1_2 = "TicTacToeWinForms" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_AML_2147920453_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AML!MTB"
-        threat_id = "2147920453"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "FroggSecurityChecker.FroggAbout.resources" ascii //weight: 1
-        $x_1_2 = "13f38eaa-447e-4059-8dbb-ab215d6a0eaa" ascii //weight: 1
-        $x_2_3 = "powered by admin@frogg.fr" wide //weight: 2
-        $x_2_4 = "Frogg Security Checker" wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_MBXU_2147920462_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.MBXU!MTB"
-        threat_id = "2147920462"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "14"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = "CreateInstance" wide //weight: 5
-        $x_4_2 = "DeveloperTools.QuickForms" wide //weight: 4
-        $x_3_3 = "Split" ascii //weight: 3
-        $x_2_4 = "GetPixel" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_MBXT_2147921633_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.MBXT!MTB"
-        threat_id = "2147921633"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {02 06 07 6f ?? 00 00 0a 0c 03 6f ?? 00 00 0a 19 58 04 fe ?? 16 fe ?? 0d 09 2c}  //weight: 2, accuracy: Low
-        $x_1_2 = {43 00 72 00 65 00 61 00 74 00 65 00 49 00 6e 00 73 00 74 00 61 00 6e 00 63 00 65}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_MBXT_2147921633_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.MBXT!MTB"
-        threat_id = "2147921633"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "15"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = "CSE101_Final_Prep" wide //weight: 5
-        $x_4_2 = {4c 00 6f 00 61 00 64}  //weight: 4, accuracy: High
-        $x_3_3 = "Calculadora" wide //weight: 3
-        $x_2_4 = "InvokeMember" ascii //weight: 2
-        $x_1_5 = "Split" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_AMA_2147922166_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AMA!MTB"
-        threat_id = "2147922166"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {06 02 28 9f 00 00 06 72 39 1a 00 70 72 3d 1a 00 70 6f b1 00 00 0a 28 5b 00 00 06 7d ad 00 00 04 06 fe 06 b0 00 00 06 73 b2 00 00 0a 6f b3 00 00 0a 0c d0 6d 00 00 01 28 3a 00 00 0a 72 43 1a 00 70 17 8d 2d 00 00 01 25 16 d0 09 00 00 1b 28 3a 00 00 0a a2 28 b4 00 00 0a 25}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_AOIA_2147930394_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AOIA!MTB"
-        threat_id = "2147930394"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = {59 91 61 02 08 20 0b 02 00 00 58 20 0a 02 00 00 59 1f 09 59 1f 09 58 02 8e 69 5d 1f 09 58 1f 0e 58 1f 17 59 91 59 20 fa 00 00 00 58 1c 58 20 00 01 00 00 5d d2 9c 08 17 58 0c}  //weight: 5, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_AHJA_2147931246_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AHJA!MTB"
-        threat_id = "2147931246"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
+        family = "Masslogger"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
-        $x_4_1 = {0a 0b 07 28 ?? 00 00 0a 03 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 06 08 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 05 16 02 8e 69 6f ?? 00 00 0a 0d 2b 00 09 2a}  //weight: 4, accuracy: Low
-        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_1 = "URL=file://zzSOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_2 = {43 00 3a 00 5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 4d 00 69 00 63 00 72 00 6f 00 73 00 6f 00 66 00 74 00 2e 00 4e 00 45 00 54 00 5c 00 46 00 72 00 61 00 6d 00 65 00 77 00 6f 00 72 00 6b 00 5c 00 76 00 [0-30] 5c 00 52 00 65 00 67 00 41 00 73 00 6d 00 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {43 3a 5c 57 69 6e 64 6f 77 73 5c 4d 69 63 72 6f 73 6f 66 74 2e 4e 45 54 5c 46 72 61 6d 65 77 6f 72 6b 5c 76 [0-30] 5c 52 65 67 41 73 6d 2e 65 78 65}  //weight: 1, accuracy: Low
+        $x_1_4 = "PasswordHash" ascii //weight: 1
+        $x_1_5 = "get_StartupPath" ascii //weight: 1
+        $x_1_6 = "TASKKILkilll" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (5 of ($x*))
 }
 
-rule Trojan_MSIL_MassLogger_AJJA_2147931380_0
+rule Trojan_MSIL_Masslogger_K_2147758915_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AJJA!MTB"
-        threat_id = "2147931380"
+        detection_name = "Trojan:MSIL/Masslogger.K!MTB"
+        threat_id = "2147758915"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
+        family = "Masslogger"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
-        strings_accuracy = "Low"
+        strings_accuracy = "High"
     strings:
-        $x_4_1 = {0a 0b 07 28 ?? 00 00 0a 03 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 06 08 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 0e 04 16 0e 04 8e 69 6f ?? 00 00 0a 0d 2b 00 09 2a}  //weight: 4, accuracy: Low
-        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_1 = "BombMine" ascii //weight: 1
+        $x_1_2 = "KWpvO.exe" ascii //weight: 1
+        $x_1_3 = "http://tempuri.org/DataSet1.xsd" ascii //weight: 1
+        $x_1_4 = "Pong Game by Paula" ascii //weight: 1
+        $x_1_5 = "quarantinee4" ascii //weight: 1
+        $x_1_6 = "jtnJD" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
+rule Trojan_MSIL_Masslogger_SS_2147769638_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Masslogger.SS!MTB"
+        threat_id = "2147769638"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Masslogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FolderOrganiser.FolderOrganiserForm.resources" ascii //weight: 1
+        $x_1_2 = "Pixel_Density.FormDensity.resources" ascii //weight: 1
+        $x_1_3 = "Pixel_Density.FormIntro.resources" ascii //weight: 1
+        $x_1_4 = "FolderOrganiser.InvalidPath.resources" ascii //weight: 1
+        $x_1_5 = "checkInternet.LoginForm.resources" ascii //weight: 1
+        $x_1_6 = "Timer.MainWindow.resources" ascii //weight: 1
+        $x_1_7 = "FolderOrganiser.NoFiles.resources" ascii //weight: 1
+        $x_1_8 = "FolderOrganiser.NoRadioButtonSelected.resources" ascii //weight: 1
+        $x_1_9 = "Timer.OptionsWindow.resources" ascii //weight: 1
+        $x_1_10 = "winform_pagination.ExtPagination.resources" ascii //weight: 1
+        $x_1_11 = "FolderOrganiser.Properties.Resources.resources" ascii //weight: 1
+        $x_1_12 = "winform_pagination.Sample.resources" ascii //weight: 1
+        $x_1_13 = "get_qqqqqqqqqqqqqqqqqqqqqqqqqqqqq" ascii //weight: 1
+        $x_1_14 = "GetEnvironmentVariable" ascii //weight: 1
+        $x_1_15 = "IPStatus" ascii //weight: 1
+        $x_1_16 = "CreateInstance" ascii //weight: 1
+        $x_1_17 = "AppDomain" ascii //weight: 1
+        $x_1_18 = "get_CurrentDomain" ascii //weight: 1
+        $x_1_19 = "get_SelectedPath" ascii //weight: 1
+        $x_1_20 = "BlockCopy" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_MassLogger_PLIMH_2147931746_0
+rule Trojan_MSIL_Masslogger_A_2147770246_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.PLIMH!MTB"
-        threat_id = "2147931746"
+        detection_name = "Trojan:MSIL/Masslogger.A!ibt"
+        threat_id = "2147770246"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
+        family = "Masslogger"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
+        info = "ibt: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "11"
-        strings_accuracy = "Low"
+        threshold = "33"
+        strings_accuracy = "High"
     strings:
-        $x_10_1 = {0a 00 06 08 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 03 16 04 8e 69 6f ?? 00 00 0a 13 04 de 16}  //weight: 10, accuracy: Low
-        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_1 = "ROOT\\SecurityCenter" ascii //weight: 1
+        $x_1_2 = "AntivirusProduct" ascii //weight: 1
+        $x_1_3 = "AntiSpyWareProduct" ascii //weight: 1
+        $x_1_4 = "/C ping 127.0.0.1 -n 3 > nul & del" ascii //weight: 1
+        $x_10_5 = "monero-project" ascii //weight: 10
+        $x_10_6 = "\\Ethereum\\wallets" ascii //weight: 10
+        $x_10_7 = "settingsCoinomi\\wallet_db" ascii //weight: 10
+        $x_1_8 = "Chrome/FirewallProduct" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((3 of ($x_10_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
-rule Trojan_MSIL_MassLogger_AUJA_2147931897_0
+rule Trojan_MSIL_Masslogger_GG_2147773252_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AUJA!MTB"
-        threat_id = "2147931897"
+        detection_name = "Trojan:MSIL/Masslogger.GG!MTB"
+        threat_id = "2147773252"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
+        family = "Masslogger"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "Low"
+        threshold = "18"
+        strings_accuracy = "High"
     strings:
-        $x_5_1 = {0a 0b 07 28 ?? 00 00 0a 03 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 06 08 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 0e 05 16 0e 05 8e 69 6f ?? 00 00 0a 0d 2b 00 09 2a}  //weight: 5, accuracy: Low
-        $x_1_2 = "AntiBossing" ascii //weight: 1
-        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+        $x_15_1 = "masslogger" ascii //weight: 15
+        $x_1_2 = "Password" ascii //weight: 1
+        $x_1_3 = "SetWindowsHookEx" ascii //weight: 1
+        $x_1_4 = "GetKeyboardState" ascii //weight: 1
+        $x_1_5 = "CallNextHookEx" ascii //weight: 1
+        $x_1_6 = "HOOK/MEMORY6" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_15_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
-rule Trojan_MSIL_MassLogger_AULA_2147933775_0
+rule Trojan_MSIL_Masslogger_GG_2147773252_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AULA!MTB"
-        threat_id = "2147933775"
+        detection_name = "Trojan:MSIL/Masslogger.GG!MTB"
+        threat_id = "2147773252"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
+        family = "Masslogger"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
+        threshold = "25"
+        strings_accuracy = "High"
     strings:
-        $x_3_1 = {0a 0b 07 28 ?? 00 00 0a 03 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 06 08 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 0e 06 16 0e 06 8e 69 6f ?? 00 00 0a 0d 2b 00 09 2a}  //weight: 3, accuracy: Low
-        $x_1_2 = "AntiBossing" ascii //weight: 1
-        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+        $x_20_1 = "MassLoggerBin" ascii //weight: 20
+        $x_1_2 = "Costura" ascii //weight: 1
+        $x_1_3 = "WM_CLIPBOARDUPDATE" ascii //weight: 1
+        $x_1_4 = "WHKEYBOARDLL" ascii //weight: 1
+        $x_1_5 = "SetWindowsHookEx" ascii //weight: 1
+        $x_1_6 = "loggerData" ascii //weight: 1
+        $x_1_7 = "Keylogger" ascii //weight: 1
+        $x_1_8 = "AntiSandboxie" ascii //weight: 1
+        $x_1_9 = "AntiVMware" ascii //weight: 1
+        $x_1_10 = "SpreadUsb" ascii //weight: 1
+        $x_1_11 = "Screenshot" ascii //weight: 1
+        $x_1_12 = "BotKiller" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_20_*) and 5 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
-rule Trojan_MSIL_MassLogger_AAD_2147933907_0
+rule Trojan_MSIL_Masslogger_MS_2147777850_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.AAD!MTB"
-        threat_id = "2147933907"
+        detection_name = "Trojan:MSIL/Masslogger.MS!MTB"
+        threat_id = "2147777850"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
+        family = "Masslogger"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
+        threshold = "12"
+        strings_accuracy = "High"
     strings:
-        $x_4_1 = {0a 13 04 73 ?? 00 00 0a 13 05 11 05 11 04 08 09 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 06 11 06 06 16 06 8e 69 6f ?? 00 00 0a 11 05 6f ?? 00 00 0a 13 07 dd}  //weight: 4, accuracy: Low
-        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_1 = "Professional_Editor.FindReplace.resources" ascii //weight: 1
+        $x_1_2 = "Professional_Editor.CoreMain.resources" ascii //weight: 1
+        $x_1_3 = "svaeToolStripMenuItem_Click" ascii //weight: 1
+        $x_1_4 = "ClipboardClass" ascii //weight: 1
+        $x_1_5 = "NextFind" ascii //weight: 1
+        $x_1_6 = "RTBMain" ascii //weight: 1
+        $x_1_7 = "fldFilePatch" ascii //weight: 1
+        $x_1_8 = "ContentChanged" ascii //weight: 1
+        $x_1_9 = "fldContent" ascii //weight: 1
+        $x_1_10 = "INIManager" ascii //weight: 1
+        $x_1_11 = "changeToolStripMenuItem" ascii //weight: 1
+        $x_1_12 = "openToolStripMenuItem" ascii //weight: 1
+        $x_1_13 = "fileToolStripMenuItem" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_MassLogger_BN_2147934463_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MassLogger.BN!MTB"
-        threat_id = "2147934463"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MassLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_4_1 = {0a 0f 00 28 ?? 00 00 0a 58 0f 00 28 ?? 00 00 0a 58 0a 06 19 5a 20 00 01 00 00 5d 0a 19 8d ?? 00 00 01 25 16 0f 00 28 ?? 00 00 0a 1f 55 61 d2 9c 25 17}  //weight: 4, accuracy: Low
-        $x_1_2 = {a2 0b 02 03 04 6f ?? 00 00 0a 0c 0e 04 05 6f ?? 00 00 0a 59 0d 06 1c fe 04 16 fe 01}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
+        (12 of ($x*))
 }
 

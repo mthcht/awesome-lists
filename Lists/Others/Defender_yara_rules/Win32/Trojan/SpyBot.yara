@@ -1,96 +1,85 @@
-rule Trojan_Win32_SpyBot_G_2147749132_0
+rule Trojan_Win32_Spybot_RSB_2147771441_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/SpyBot.G!MTB"
-        threat_id = "2147749132"
+        detection_name = "Trojan:Win32/Spybot.RSB!MTB"
+        threat_id = "2147771441"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "SpyBot"
+        family = "Spybot"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = {33 d2 8d 0c 1f 8b c7 f7 75 18 8b 45 14 8a 04 02 32 04 0e 47 88 01 3b 7d 0c 72}  //weight: 1, accuracy: High
+        $x_1_1 = {34 d7 fe c0 34 5b 04 4f 34 de fe c0 2c 7d 04 cf fe c8 34 f1 04 02 fe c0 fe c0 fe c0 fe c8 34 b7 88 84 0d ?? ?? ?? ?? 83 c1 01 eb}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_SpyBot_MR_2147753114_0
+rule Trojan_Win32_Spybot_RSB_2147771441_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/SpyBot.MR!MTB"
-        threat_id = "2147753114"
+        detection_name = "Trojan:Win32/Spybot.RSB!MTB"
+        threat_id = "2147771441"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "SpyBot"
+        family = "Spybot"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
+        threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_3_1 = {29 f6 2b 37 f7 de [0-10] c1 ce ?? 29 d6 83 ee ?? 29 d2 29 f2 f7 da c1 c2 ?? d1 ca 6a ?? 8f 01 01 31 83 e9 ?? 83 eb ?? 85 db 75}  //weight: 3, accuracy: Low
-        $x_1_2 = "pncobjapi.dll" wide //weight: 1
-        $x_1_3 = "pi.dll" wide //weight: 1
-        $x_1_4 = "nddeapi.dll" ascii //weight: 1
+        $x_1_1 = {83 c1 01 eb 6f 00 8a 84 0d ?? ?? ?? ?? 81 f9 ?? ?? ?? ?? 74 [0-15] 34 [0-15] 34 [0-15] 34 [0-15] 34 [0-15] 34 [0-31] 88 84 0d 01}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_3_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 
-rule Trojan_Win32_SpyBot_DSK_2147753368_0
+rule Trojan_Win32_Spybot_RSB_2147771441_2
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/SpyBot.DSK!MTB"
-        threat_id = "2147753368"
+        detection_name = "Trojan:Win32/Spybot.RSB!MTB"
+        threat_id = "2147771441"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "SpyBot"
+        family = "Spybot"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {8b 45 e4 03 45 fc 8b 4d ?? 8a 00 32 04 11 8b 4d e4 03 4d fc 88 01 eb}  //weight: 2, accuracy: Low
+        $x_1_1 = {ff 83 c1 01 eb ?? b0 00 b9 00 00 00 00 8d 45 f8 50 6a 40 2f 00 34 ?? ?? ?? ?? ?? 2c [0-10] 88 84 0d}  //weight: 1, accuracy: Low
+        $x_1_2 = {8a 04 39 88 07 8d 7f 01 4e 75 1f 00 be}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_SpyBot_BZ_2147768568_0
+rule Trojan_Win32_Spybot_RPB_2147824988_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/SpyBot.BZ!MTB"
-        threat_id = "2147768568"
+        detection_name = "Trojan:Win32/Spybot.RPB!MTB"
+        threat_id = "2147824988"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "SpyBot"
+        family = "Spybot"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
+        threshold = "1"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = "bgs/header.gif\" alt=\"SpyBot\">" ascii //weight: 1
-        $x_1_2 = "spybot/css/screen.css\"/>" ascii //weight: 1
-        $x_1_3 = "Spybot - Search & Destroy" wide //weight: 1
-        $x_1_4 = "SDFSSvc.exe" wide //weight: 1
-        $x_1_5 = {83 c4 08 b8 ?? ?? ?? ?? ff e0 8b e5 5d}  //weight: 1, accuracy: Low
-        $x_1_6 = "eiorryub4j59yub935ny9v348ur89tvu3409r8vtu498r98" ascii //weight: 1
-        $x_1_7 = "madCodeHook" ascii //weight: 1
+        $x_1_1 = {89 0c 24 c1 24 24 04 8b 44 24 0c 01 04 24 89 4c 24 04 c1 6c 24 04 05 8b 44 24 14 01 44 24 04 03 4c 24 10 89 4c 24 10 8b 44 24 10 31 04 24 8b 44 24 04 33 04 24 83 c4 08 c3}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
-        (6 of ($x*))
+        (all of ($x*))
 }
 

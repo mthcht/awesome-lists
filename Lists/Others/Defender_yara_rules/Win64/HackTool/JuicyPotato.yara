@@ -1,50 +1,24 @@
-rule HackTool_Win64_JuicyPotato_SBR_2147755358_0
+rule HackTool_Win64_Juicypotato_2147740472_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "HackTool:Win64/JuicyPotato.SBR!MSR"
-        threat_id = "2147755358"
+        detection_name = "HackTool:Win64/Juicypotato"
+        threat_id = "2147740472"
         type = "HackTool"
         platform = "Win64: Windows 64-bit platform"
-        family = "JuicyPotato"
+        family = "Juicypotato"
         severity = "High"
-        info = "MSR: Microsoft Security Response"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "JuicyPotato.pdb" ascii //weight: 1
-        $x_1_2 = "Waiting for auth" ascii //weight: 1
-        $x_1_3 = "shutdown" ascii //weight: 1
-        $x_1_4 = "AquireCredential" ascii //weight: 1
-        $x_1_5 = "hello.stg" wide //weight: 1
+        $x_1_1 = "JuicyPotato v%s" ascii //weight: 1
+        $x_1_2 = "-l <port>: COM" ascii //weight: 1
+        $x_1_3 = "Priv Adjust FALSE" ascii //weight: 1
+        $x_1_4 = "[+] CreateProcessWithTokenW OK" ascii //weight: 1
+        $x_1_5 = "Waiting for auth..." ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule HackTool_Win64_JuicyPotato_LK_2147838812_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Win64/JuicyPotato.LK!MTB"
-        threat_id = "2147838812"
-        type = "HackTool"
-        platform = "Win64: Windows 64-bit platform"
-        family = "JuicyPotato"
-        severity = "High"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "JuicyPotatoNG" ascii //weight: 1
-        $x_1_2 = "by decoder_it & splinter_code" ascii //weight: 1
-        $x_1_3 = "[+] Exploit successful!" ascii //weight: 1
-        $x_1_4 = "[!] CryptStringToBinaryW failed with error code %d" ascii //weight: 1
-        $x_1_5 = "ncacn_ip_tcp" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
+        (4 of ($x*))
 }
 

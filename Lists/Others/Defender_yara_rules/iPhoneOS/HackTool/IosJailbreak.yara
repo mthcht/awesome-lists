@@ -1,47 +1,52 @@
-rule HackTool_iPhoneOS_IosJailbreak_A_2147837256_0
+rule HackTool_iPhoneOS_iOSJailbreak_AA_2147833632_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "HackTool:iPhoneOS/IosJailbreak.A!MTB"
-        threat_id = "2147837256"
+        detection_name = "HackTool:iPhoneOS/iOSJailbreak.AA!MTB"
+        threat_id = "2147833632"
         type = "HackTool"
         platform = "iPhoneOS: "
-        family = "IosJailbreak"
-        severity = "High"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Users/pwned4/Downloads/Th0r_Freya-main/TH0R/exploits" ascii //weight: 1
-        $x_1_2 = "shogunpwnd" ascii //weight: 1
-        $x_1_3 = "/var/run/pspawn_hook.ts" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule HackTool_iPhoneOS_IosJailbreak_B_2147840761_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:iPhoneOS/IosJailbreak.B!MTB"
-        threat_id = "2147840761"
-        type = "HackTool"
-        platform = "iPhoneOS: "
-        family = "IosJailbreak"
+        family = "iOSJailbreak"
         severity = "High"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "Hooking Payload" ascii //weight: 1
-        $x_1_2 = "OneLol1n" ascii //weight: 1
-        $x_1_3 = "/pprivar/mbrary/Carivaate/obile/Li/com.saurik.te/vs/Cydia.app" ascii //weight: 1
-        $x_1_4 = "ipwnder" ascii //weight: 1
+        $x_1_1 = "update.93.pangu.io/jb" ascii //weight: 1
+        $x_1_2 = "/tmp/.pangu93loaded" ascii //weight: 1
+        $x_1_3 = "io.pangu93.loader.plist" ascii //weight: 1
+        $x_1_4 = "cydia://" ascii //weight: 1
+        $x_1_5 = "com.saurik.cydia" ascii //weight: 1
+        $x_1_6 = "io.pangu.nvwastone" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (4 of ($x*))
+}
+
+rule HackTool_iPhoneOS_iOSJailbreak_AB_2147833633_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:iPhoneOS/iOSJailbreak.AB!MTB"
+        threat_id = "2147833633"
+        type = "HackTool"
+        platform = "iPhoneOS: "
+        family = "iOSJailbreak"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "runJailbreakd.js" ascii //weight: 1
+        $x_1_2 = "launchKernelExploit.js" ascii //weight: 1
+        $x_1_3 = "/LinusHenze/Fugu14/blob" ascii //weight: 1
+        $x_1_4 = "JailbreakUtils/MachOFiletype.swift" ascii //weight: 1
+        $x_1_5 = "ClosureInjection" ascii //weight: 1
+        $x_1_6 = "FuguApp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
 }
 
