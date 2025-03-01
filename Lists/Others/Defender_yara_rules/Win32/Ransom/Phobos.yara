@@ -254,3 +254,24 @@ rule Ransom_Win32_Phobos_PAG_2147850995_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Phobos_MKZ_2147934896_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Phobos.MKZ!MTB"
+        threat_id = "2147934896"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phobos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2b 7d 10 8d 58 ff c1 eb 04 43 8b 45 10 8b ce 2b c8 c7 45 ?? 10 00 00 00 8a 14 07 32 10 88 14 01 40 ff 4d fc 75 ?? 83 7d 0c 01 ff 75 08 8b c6 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -551,3 +551,24 @@ rule Trojan_Win32_SystemBC_YAH_2147926565_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SystemBC_ITR_2147934901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SystemBC.ITR!MTB"
+        threat_id = "2147934901"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SystemBC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {eb 08 0f 32 1a 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -23,3 +23,24 @@ rule Ransom_Win32_Cicada_DA_2147920620_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Cicada_MKV_2147934897_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Cicada.MKV!MTB"
+        threat_id = "2147934897"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Cicada"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {83 c7 08 39 f9 75 ?? 85 d2 74 ?? 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 0f b6 94 0c d8 00 00 00 30 14 08 41 39 cb 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
