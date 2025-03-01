@@ -1,86 +1,68 @@
-rule Trojan_AndroidOS_Smforw_A_2147847751_0
+rule Trojan_AndroidOS_SMforw_B_2147789170_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Smforw.A"
-        threat_id = "2147847751"
+        detection_name = "Trojan:AndroidOS/SMforw.B"
+        threat_id = "2147789170"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "Smforw"
+        family = "SMforw"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "8"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "has_set_send_email_account" ascii //weight: 2
-        $x_2_2 = "is_init_end_time" ascii //weight: 2
-        $x_2_3 = "email_message_contacts_switch" ascii //weight: 2
-        $x_2_4 = "has_send_phone_info" ascii //weight: 2
+        $x_1_1 = "regCustomer" ascii //weight: 1
+        $x_1_2 = "/ConnMachine" ascii //weight: 1
+        $x_1_3 = "&telcompany=" ascii //weight: 1
+        $x_1_4 = "sendPoke" ascii //weight: 1
+        $x_1_5 = "=receivesms&telnum=" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_AndroidOS_Smforw_S_2147888298_0
+rule Trojan_AndroidOS_SMforw_C_2147789256_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Smforw.S"
-        threat_id = "2147888298"
+        detection_name = "Trojan:AndroidOS/SMforw.C"
+        threat_id = "2147789256"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "Smforw"
+        family = "SMforw"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "2"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "secretTalkApp" ascii //weight: 1
-        $x_1_2 = "ready to receive sms" ascii //weight: 1
+        $x_1_1 = "hp_getsmsblockstate.php?telnum=" ascii //weight: 1
+        $x_1_2 = "getTelCompany" ascii //weight: 1
+        $x_1_3 = "?type=join&telnum=" ascii //weight: 1
+        $x_1_4 = "buileClient" ascii //weight: 1
+        $x_1_5 = "postGPSData" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_AndroidOS_Smforw_S_2147888298_1
+rule Trojan_AndroidOS_SMforw_F_2147794299_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Smforw.S"
-        threat_id = "2147888298"
+        detection_name = "Trojan:AndroidOS/SMforw.F"
+        threat_id = "2147794299"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "Smforw"
+        family = "SMforw"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "6"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "/servlet/SendMassage2" ascii //weight: 2
-        $x_2_2 = "DeAdminReciver" ascii //weight: 2
-        $x_2_3 = "/servlet/ContactsUpload" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_AndroidOS_Smforw_H_2147898649_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Smforw.H"
-        threat_id = "2147898649"
-        type = "Trojan"
-        platform = "AndroidOS: Android operating system"
-        family = "Smforw"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "index.php?type=receivesms&telnum=" ascii //weight: 2
-        $x_2_2 = "Allow_AutoCall" ascii //weight: 2
-        $x_2_3 = "SMS_BlockState" ascii //weight: 2
+        $x_2_1 = "ConvHelpers" ascii //weight: 2
+        $x_2_2 = "Lcom/e4a/runtime/helpers/StmtHelpers" ascii //weight: 2
+        $x_1_3 = "smsColumn" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

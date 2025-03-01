@@ -1,19 +1,20 @@
-rule Trojan_Win32_Agentesla_2147748036_0
+rule Trojan_Win32_AgenTesla_RT_2147743231_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/Agentesla!MTB"
-        threat_id = "2147748036"
+        detection_name = "Trojan:Win32/AgenTesla.RT!MTB"
+        threat_id = "2147743231"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "Agentesla"
+        family = "AgenTesla"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {8a 1c 37 32 da 32 d8 32 d9 88 1e 8a d8 32 d9 22 da 8b 55 14 8d 3c d5 00 00 00 00 33 fa 81 e7 ?? ?? 00 00 c1 e7 14 c1 ea 08 0b d7 8d 3c 00 33 f8 22 c8 c1 e7 04 33 f8 32 cb 8b d8 83 e7 ?? c1 e3 07 33 fb c1 e7 ?? c1 e8 08 0b c7 46 ff 4d 10 89 55 14 75 a9}  //weight: 1, accuracy: Low
+        $x_1_1 = {bb 00 01 00 00 01 d8 89 c6 f7 db [0-4] 89 df [0-6] 50 58 8b 04 0a [0-6] 01 f3 0f ef c0 0f ef c9 [0-6] 0f 6e c0 [0-4] 0f 6e 0b [0-6] 0f ef c1 51 50 58 0f 7e c1 [0-4] 88 c8 [0-4] 59 [0-4] 29 f3 83 c3 01 75 ?? 50 58 89 fb [0-6] [0-16] 89 04 0a [0-48] 83 c1 01 75 b3}  //weight: 1, accuracy: Low
+        $x_1_2 = {50 58 51 59 ff e0}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -1,40 +1,40 @@
-rule Ransom_Win32_Virlock_B_2147741479_0
+rule Ransom_Win32_VirLock_RPX_2147905132_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Virlock.B"
-        threat_id = "2147741479"
+        detection_name = "Ransom:Win32/VirLock.RPX!MTB"
+        threat_id = "2147905132"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "Virlock"
+        family = "VirLock"
         severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "15"
-        strings_accuracy = "Low"
+        threshold = "1"
+        strings_accuracy = "High"
     strings:
-        $x_5_1 = {e9 00 00 00 00 81 ec ?? ?? ?? ?? be ?? ?? ?? ?? bf}  //weight: 5, accuracy: Low
-        $x_5_2 = {e9 00 00 00 00 89 07 8b f8 8b df 90 b9 ?? ?? ?? ?? ba ?? ?? ?? ?? e9 ?? ?? ?? ?? c3}  //weight: 5, accuracy: Low
-        $x_5_3 = {e9 00 00 00 00 0f 85 ?? ?? ?? ?? ff d3 81 c4 ?? ?? ?? ?? e9 ?? ?? ?? ?? 8a 06 32 c2 88 07 90 42 90 46 47 90 49 90 83 f9 00 e9 ?? ?? ff ff cc cc}  //weight: 5, accuracy: Low
+        $x_1_1 = {8a 06 90 32 c2 90 88 07 90 42 90 46 90 e9 00 00 00 00 47 90 49}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Ransom_Win32_Virlock_C_2147741973_0
+rule Ransom_Win32_VirLock_RPY_2147905133_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Virlock.C"
-        threat_id = "2147741973"
+        detection_name = "Ransom:Win32/VirLock.RPY!MTB"
+        threat_id = "2147905133"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "Virlock"
+        family = "VirLock"
         severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
+        threshold = "1"
+        strings_accuracy = "High"
     strings:
-        $x_2_1 = {e9 00 00 00 00 88 07 90 42 90 46 90 47 90 49 90 83 f9 00 90 0f 85 ?? ?? ?? ?? e9 ?? ?? ?? ?? 81 ec ?? ?? ?? ?? be ?? ?? ?? ?? bf ?? ?? ?? ?? e9}  //weight: 2, accuracy: Low
+        $x_1_1 = {8a 06 32 c2 90 88 07 42 90 46 47 90 49 90 83 f9 00 0f 85 e9 ff ff ff}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

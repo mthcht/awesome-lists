@@ -1,21 +1,24 @@
-rule Backdoor_MSIL_nJRat_FVJ_2147828736_0
+rule Backdoor_MSIL_Njrat_C_2147726104_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Backdoor:MSIL/nJRat.FVJ!MTB"
-        threat_id = "2147828736"
+        detection_name = "Backdoor:MSIL/Njrat.C!bit"
+        threat_id = "2147726104"
         type = "Backdoor"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "nJRat"
+        family = "Njrat"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
+        info = "bit: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "3"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {07 08 06 08 1e 5a 1e 6f ?? ?? ?? 0a 18 28 ?? ?? ?? 0a 9c 00 08 17 58 0c 08 07 8e 69 17 59 fe 02 16 fe 01 13 05 11 05 2d d6}  //weight: 1, accuracy: Low
+        $x_1_1 = "Njrat" wide //weight: 1
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_3 = {1f 1d 0f 00 1a 28 ?? 00 00 06}  //weight: 1, accuracy: Low
+        $x_1_4 = {1f 1d 0f 01 1a 28 ?? 00 00 06}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (3 of ($x*))
 }
 

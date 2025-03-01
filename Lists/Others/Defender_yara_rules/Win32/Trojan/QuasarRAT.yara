@@ -1,24 +1,19 @@
-rule Trojan_Win32_QuasarRat_NEAI_2147843347_0
+rule Trojan_Win32_QuasarRAT_A_2147893085_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/QuasarRat.NEAI!MTB"
-        threat_id = "2147843347"
+        detection_name = "Trojan:Win32/QuasarRAT.A!MTB"
+        threat_id = "2147893085"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "QuasarRat"
+        family = "QuasarRAT"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "15"
-        strings_accuracy = "High"
+        threshold = "2"
+        strings_accuracy = "Low"
     strings:
-        $x_5_1 = "http://spoofer.sytes.net" ascii //weight: 5
-        $x_2_2 = "SOFTWARE\\Policies\\Microsoft\\Windows Defender" ascii //weight: 2
-        $x_2_3 = "Registy entrie(s) were spoofed." ascii //weight: 2
-        $x_2_4 = "DisableAntiSpyware" ascii //weight: 2
-        $x_2_5 = "Real-Time Protection" ascii //weight: 2
-        $x_2_6 = "DisableRealtimeMonitoring" ascii //weight: 2
+        $x_2_1 = {8b 45 f4 8b 44 85 d0 89 45 ec 8b 45 ec 89 04 24 e8 ?? ?? ?? ?? 89 45 e8 8d 45 cc 89 44 24 08 8b 45 e8 89 44 24 04 8b 45 ec 89 04 24 e8 ?? ?? ?? ?? 89 45 e4 83 7d e4}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

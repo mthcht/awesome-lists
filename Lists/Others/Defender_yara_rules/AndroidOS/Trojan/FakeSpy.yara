@@ -1,24 +1,26 @@
-rule Trojan_AndroidOS_Fakespy_A_2147797799_0
+rule Trojan_AndroidOS_FakeSpy_YA_2147759366_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Fakespy.A"
-        threat_id = "2147797799"
+        detection_name = "Trojan:AndroidOS/FakeSpy.YA!MTB"
+        threat_id = "2147759366"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "Fakespy"
+        family = "FakeSpy"
         severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "High"
+        threshold = "5"
+        strings_accuracy = "Low"
     strings:
-        $x_2_1 = "45006" ascii //weight: 2
-        $x_2_2 = "/servlet/UploadLog" ascii //weight: 2
-        $x_2_3 = "/servlet/ContactsUpload" ascii //weight: 2
-        $x_2_4 = "shit:" ascii //weight: 2
-        $x_2_5 = "http://www.sagawa-exp.co.jp/" ascii //weight: 2
+        $x_1_1 = "servlet/AppInfos" ascii //weight: 1
+        $x_1_2 = "servlet/GetMessage2" ascii //weight: 1
+        $x_1_3 = {68 74 74 70 3a 2f 2f [0-16] 2e 63 6c 75 62}  //weight: 1, accuracy: Low
+        $x_1_4 = "sdcard/new.apk" ascii //weight: 1
+        $x_1_5 = "Emulator\") == -1" ascii //weight: 1
+        $x_1_6 = "mybank" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (5 of ($x*))
 }
 

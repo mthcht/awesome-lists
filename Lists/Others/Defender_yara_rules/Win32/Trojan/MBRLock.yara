@@ -1,70 +1,69 @@
-rule Trojan_Win32_MBRlock_DAX_2147852650_0
+rule Trojan_Win32_MBRLock_EP_2147846457_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/MBRlock.DAX!MTB"
-        threat_id = "2147852650"
+        detection_name = "Trojan:Win32/MBRLock.EP!MTB"
+        threat_id = "2147846457"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "MBRlock"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Your disk have a lock!Please input the unlock password!" ascii //weight: 1
-        $x_1_2 = "@\\\\.\\\\physicaldrive0" ascii //weight: 1
-        $x_1_3 = "Shutdown.exe -s -t 1" ascii //weight: 1
-        $x_1_4 = "net user Administrator 1148" ascii //weight: 1
-        $x_1_5 = {83 c4 1c 68 04 00 00 80 6a 00 68 ?? ?? ?? ?? 6a 00 6a 00 6a 00 68 02 00 00 00 bb ?? ?? 40 00 e8 ?? ?? 00 00 83 c4 1c}  //weight: 1, accuracy: Low
-        $x_1_6 = {8b 44 24 08 6a ff 50 ff 15 ?? ?? ?? ?? eb 10 8b 4c 24 08 68 e8 03 00 00 51 ff 15}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_MBRlock_DY_2147852924_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/MBRlock.DY!MTB"
-        threat_id = "2147852924"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "MBRlock"
+        family = "MBRLock"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
-        strings_accuracy = "Low"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = "Your disk have a lock!Please input the unlock password!" ascii //weight: 1
-        $x_1_2 = "@\\\\.\\\\physicaldrive0" ascii //weight: 1
-        $x_1_3 = {55 8b ec 68 02 00 00 80 6a 00 68 01 00 00 00 6a 00 6a 00 6a 00 68 01 00 01 00 68 11 00 01 06 68 12 00 01 52 68 03 00 00 00 bb}  //weight: 1, accuracy: High
-        $x_1_4 = {8b 46 1c 68 e8 03 00 00 50 ff 15 ?? ?? ?? 00 c7 46 50 00 00 00 00 5e c3}  //weight: 1, accuracy: Low
+        $x_2_1 = "LG Password woshixiaoxuesheng" ascii //weight: 2
+        $x_2_2 = "Your disk have a lock!!!Please enter the unlock password" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_MBRlock_NM_2147897007_0
+rule Trojan_Win32_MBRLock_EQ_2147846571_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/MBRlock.NM!MTB"
-        threat_id = "2147897007"
+        detection_name = "Trojan:Win32/MBRLock.EQ!MTB"
+        threat_id = "2147846571"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "MBRlock"
+        family = "MBRLock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {16 9e 49 00 3a ab 49 00 ff ae 49 00 93 b1 49 00 b4 b1 49 00 45 e7 48 00 90 a8 40 00 50 27 41 00 90 33 41}  //weight: 3, accuracy: High
+        $x_3_2 = {bd 9e 49 00 35 9f 49 00 6d 9f 49 00 39 25 49 00 4f 25 49 00 8d 25 49 00 cb 25 49 00 09 26 49 00 d4 9c 49 00 d8 a6 49}  //weight: 3, accuracy: High
+        $x_2_3 = "Your disk have a lock!!!Please enter the unlock password" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_MBRLock_NMB_2147899646_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/MBRLock.NMB!MTB"
+        threat_id = "2147899646"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "MBRLock"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = {c7 05 e0 bd 4c 00 ?? ?? ?? ?? 8d 86 80 04 00 00 3b f0 73 1e 80 66 04 ?? 83 0e ff 83 66 08 ?? c6 46 05 0a a1 ?? ?? ?? ?? 83 c6 24 05 ?? ?? ?? ?? eb de 8d 45 b8}  //weight: 5, accuracy: Low
-        $x_1_2 = "\\physicaldrive0" ascii //weight: 1
+        $x_5_1 = {e8 bc 00 00 00 33 db 39 9e ?? ?? ?? ?? 75 13 8d 85 ?? ?? ?? ?? 50 e8 0f 8f fe ff 59 89 86 ?? ?? ?? ?? 39 5e 78}  //weight: 5, accuracy: Low
+        $x_1_2 = "Your disk have a lock!!!Please enter the unlock password" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

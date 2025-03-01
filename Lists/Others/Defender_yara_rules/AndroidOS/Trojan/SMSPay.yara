@@ -1,42 +1,48 @@
-rule Trojan_AndroidOS_Smspay_A_2147842836_0
+rule Trojan_AndroidOS_SMSPay_A_2147835019_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Smspay.A"
-        threat_id = "2147842836"
+        detection_name = "Trojan:AndroidOS/SMSPay.A!MTB"
+        threat_id = "2147835019"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "Smspay"
+        family = "SMSPay"
         severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "GLO_APP_CHAN" ascii //weight: 1
-        $x_1_2 = "STATUS_INT_PAYMENT_TERMS_ACCEPTED" ascii //weight: 1
-        $x_1_3 = "bXRydXNzLnZlbmlzby5jb20vYXBpL210cnVzcy5kbw==" ascii //weight: 1
-        $x_1_4 = "isSMSPaymentSuccessfulBSO" ascii //weight: 1
+        $x_2_1 = "tx.ittun.com/weixin" ascii //weight: 2
+        $x_1_2 = "pay sms" ascii //weight: 1
+        $x_1_3 = "ISendMessageListener" ascii //weight: 1
+        $x_1_4 = "hasReadMessage" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
-rule Trojan_AndroidOS_Smspay_E_2147915738_0
+rule Trojan_AndroidOS_SMSPay_B_2147844750_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Smspay.E"
-        threat_id = "2147915738"
+        detection_name = "Trojan:AndroidOS/SMSPay.B!MTB"
+        threat_id = "2147844750"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "Smspay"
+        family = "SMSPay"
         severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "2"
+        threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "Well I can't do anything untill you permit me" ascii //weight: 1
-        $x_1_2 = "Thank you for permission!" ascii //weight: 1
+        $x_1_1 = "com/veniso/mtrussliband" ascii //weight: 1
+        $x_1_2 = "developerPayload" ascii //weight: 1
+        $x_1_3 = "MTLibSMSReceiver" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

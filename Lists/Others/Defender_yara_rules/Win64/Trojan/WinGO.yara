@@ -1,19 +1,19 @@
-rule Trojan_Win64_Wingo_MA_2147846018_0
+rule Trojan_Win64_WinGO_BNK_2147849128_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/Wingo.MA!MTB"
-        threat_id = "2147846018"
+        detection_name = "Trojan:Win64/WinGO.BNK!MTB"
+        threat_id = "2147849128"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "Wingo"
+        family = "WinGO"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "Low"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
     strings:
-        $x_10_1 = {48 83 ec 60 48 89 6c 24 58 48 8d 6c 24 58 83 3d ?? ?? ?? ?? 02 ?? 0f 84 ?? ?? ?? ?? 48 85 c0 0f 84 ?? ?? ?? ?? 88 4c 24 78 48 89 5c 24 70 80 3d 65 f4 20 00 00 ?? 0f 84 80}  //weight: 10, accuracy: Low
+        $x_1_1 = {48 c7 40 08 02 00 00 00 48 8d 15 94 ea 01 00 48 89 10 48 8b 3d dc cb 49 00 48 8b 35 dd cb 49 00 48 8d 1d 07 f1 01 00 b9 06 00 00 00 31 c0 e8 82 95 f9 ff 48 8b 7c 24 50 48 89 5f 18}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
