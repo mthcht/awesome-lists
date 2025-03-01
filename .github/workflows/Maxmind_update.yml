@@ -35,3 +35,12 @@ jobs:
         run: |
           echo "🚀 Running fetch_maxmind_databases_daily.py..."
           python fetch_maxmind_databases_daily.py || echo "❌ Script failed! Check logs."
+          
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add Lists/ASNs/correlation_maxmind_geo_db/*
+          git commit -m "Update Maxmind DBs" --allow-empty
+          git push
