@@ -14,9 +14,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Enable Git LFS (Pre-installed)
-        run: git lfs install
-
       - name: Set Up Python
         uses: actions/setup-python@v4
         with:
@@ -39,64 +36,66 @@ jobs:
           echo "🚀 Running fetch_maxmind_databases_daily.py..."
           python fetch_maxmind_databases_daily.py || echo "❌ Script failed! Check logs."
 
-      - name: List Modified Files and Sizes
+      - name: List Generated Files
         run: |
           echo "🚀 Checking modified files..."
-          git status --short
-          echo "🚀 Listing file sizes..."
           find Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/ -type f -exec ls -lh {} +
 
-      - name: Track Only Two Large Files in Git LFS
+      - name: Get Latest Release ID
+        id: get_release
+        uses: octokit/request-action@v2.x
+        with:
+          route: GET /repos/{owner}/{repo}/releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Release ID
+        id: extract_release_id
         run: |
-          echo "🚀 Ensuring only required large files are tracked by Git LFS..."
-          CSV_DIR="Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted"
-          CITY_IPV4=$(find $CSV_DIR -name "GeoLite2-City-Blocks-IPv4.csv" | head -n 1)
-          CITY_IPV6=$(find $CSV_DIR -name "GeoLite2-City-Blocks-IPv6.csv" | head -n 1)
-
-          if [[ -f "$CITY_IPV4" ]]; then
-            git lfs track "$CITY_IPV4"
-            echo "✅ Tracking $CITY_IPV4"
-          fi
-          if [[ -f "$CITY_IPV6" ]]; then
-            git lfs track "$CITY_IPV6"
-            echo "✅ Tracking $CITY_IPV6"
-          fi
-
-          if git diff --cached --quiet .gitattributes; then
-            echo "✅ No changes to .gitattributes needed."
+          RELEASE_ID=$(echo '${{ steps.get_release.outputs.data }}' | jq -r '.[] | select(.name=="big files") | .id' | head -n 1)
+          if [ -z "$RELEASE_ID" ]; then
+            echo "No existing release found, creating a new one..."
+            echo "release_exists=false" >> $GITHUB_ENV
           else
-            git add .gitattributes
-            git commit -m "Updated .gitattributes for Git LFS tracking"
+            echo "Existing release found: $RELEASE_ID"
+            echo "release_id=$RELEASE_ID" >> $GITHUB_ENV
+            echo "release_exists=true" >> $GITHUB_ENV
           fi
 
-      - name: Commit and Push All Files (With LFS for Large Files)
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-      
-          echo "🚀 Stashing any unstaged changes..."
-          git stash --include-untracked
-      
-          echo "🚀 Pulling latest changes..."
-          git pull --rebase
-      
-          echo "🚀 Popping stashed changes..."
-          git stash pop || echo "✅ No stashed changes to apply."
-      
-          echo "🚀 Adding all modified files..."
-          git add Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/*
-      
-          echo "🚀 Checking if there are changes to commit..."
-          if git diff --cached --quiet; then
-            echo "✅ No changes to commit."
-          else
-            git commit -m "Update MaxMind DBs with latest extracted data"
-            echo "🚀 Pushing changes..."
-            git push || (echo "❌ Push failed! Retrying..." && sleep 10 && git push)
-          fi
+      - name: Create Release if Not Exists
+        if: env.release_exists == 'false'
+        id: create_release
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/{owner}/{repo}/releases
+          name: "big files"
+          tag_name: "big-files"
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
-      - name: Clean Up Old LFS Files to Save Storage
+      - name: Extract Created Release ID
+        if: env.release_exists == 'false'
         run: |
-          echo "🚀 Cleaning up old Git LFS files..."
-          git lfs prune || echo "✅ No old LFS files to remove."
+          RELEASE_ID=$(echo '${{ steps.create_release.outputs.data }}' | jq -r '.id')
+          echo "release_id=$RELEASE_ID" >> $GITHUB_ENV
+
+      - name: Upload Files to Release
+        run: |
+          for file in Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/*; do
+            if [ -f "$file" ]; then
+              echo "Uploading $file..."
+              curl -X POST \
+                -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                -H "Content-Type: $(file --mime-type -b "$file")" \
+                --data-binary @"$file" \
+                "https://uploads.github.com/repos/${{ github.repository }}/releases/${{ env.release_id }}/assets?name=$(basename "$file")"
+            fi
+          done
+
+      - name: Generate Release Link
+        run: |
+          RELEASE_URL="https://github.com/${{ github.repository }}/releases/tag/big-files"
+          echo $RELEASE_URL > Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/maxmind_databases.link
+          cat Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/maxmind_databases.link
