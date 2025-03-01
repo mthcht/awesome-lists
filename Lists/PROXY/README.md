@@ -10,5 +10,7 @@ ressources used:
   - https://github.com/vakhov/fresh-proxy-list (proxy list updated regularly and cloned in the [fresh-proxy-list](https://github.com/mthcht/awesome-lists/Lists/PROXY/fresh-proxy-list) folder)
   - https://github.com/sunny9577/proxy-scraper (proxy list updated regularly and cloned in the [sunny9577_proxy-scraper](https://github.com/mthcht/awesome-lists/Lists/PROXY/sunny9577_proxy-scraper) folder)
   - https://github.com/roosterkid/openproxylist (proxy list updated regularly and cloned in the [openproxylist.com](https://github.com/mthcht/awesome-lists/Lists/PROXY/openproxylist.com) folder)
-
+  - https://github.com/roosterkid/openproxylist (proxy list updated regularly and cloned in the [openproxylist.com](https://github.com/mthcht/awesome-lists/Lists/PROXY/openproxylist.com) folder)
+  - https://github.com/MuRongPIG/Proxy-Master (checked proxy list updated regularly and cloned in the [MuRongPIG_proxy_checked_list](https://github.com/mthcht/awesome-lists/Lists/PROXY/MuRongPIG_proxy_checked_list) folder)
+  
 The list [ALL_PROXY_Lists.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/PROXY/ALL_PROXY_Lists.csv) contains the IP/port of all the proxy lists combined (more than 45000 proxies atm)
