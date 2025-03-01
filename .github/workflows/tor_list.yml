@@ -40,6 +40,7 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
+          git pull
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add Lists/TOR/TOR_nodes_list.json Lists/TOR/TOR_nodes_list.csv Lists/TOR/only_tor_exit_nodes_IP_list.csv Lists/TOR/only_tor_guard_nodes_IP_list.csv
