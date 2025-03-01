@@ -4,6 +4,6 @@
 
 ![Watch the DNSDB Video](DNSDB/DNSDB.gif)
 
-- [TOP1M](TOP1M) script downloading the TOP1M majectic list automatically in the folder with a github action
+- [TOP1M](TOP1M) script downloading the TOP1M majectic and tronco list automatically in the folder with a github action merging both files in a single TOP1M file
 
 - [sinkholed servers](sinkholed_servers) Folder containing lists of sinkholed servers from my scripts (incomplete as of 2025/02/22 - will add more) and external free services (not much)
