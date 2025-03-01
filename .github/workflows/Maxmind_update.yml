@@ -75,11 +75,19 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+      
+          echo "🚀 Stashing any unstaged changes..."
+          git stash --include-untracked
+      
+          echo "🚀 Pulling latest changes..."
           git pull --rebase
-          
+      
+          echo "🚀 Popping stashed changes..."
+          git stash pop || echo "✅ No stashed changes to apply."
+      
           echo "🚀 Adding all modified files..."
           git add Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/*
-
+      
           echo "🚀 Checking if there are changes to commit..."
           if git diff --cached --quiet; then
             echo "✅ No changes to commit."
@@ -88,6 +96,7 @@ jobs:
             echo "🚀 Pushing changes..."
             git push || (echo "❌ Push failed! Retrying..." && sleep 10 && git push)
           fi
+
 
       - name: Clean Up Old LFS Files to Save Storage
         run: |
