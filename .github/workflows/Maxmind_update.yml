@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensures full commit history
 
       - name: Set Up Python
         uses: actions/setup-python@v4
@@ -35,12 +37,27 @@ jobs:
         run: |
           echo "🚀 Running fetch_maxmind_databases_daily.py..."
           python fetch_maxmind_databases_daily.py || echo "❌ Script failed! Check logs."
-          
-      - name: Commit and Push results
+
+      - name: List Modified Files and Sizes
+        run: |
+          echo "🚀 Checking modified files..."
+          git status --short
+          echo "🚀 Listing file sizes..."
+          find Lists/ASNs/correlation_maxmind_geo_db/ -type f -exec ls -lh {} +
+
+      - name: Commit and Push Results
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git pull
+          git pull --rebase
+          
+          echo "🚀 Adding modified files..."
           git add Lists/ASNs/correlation_maxmind_geo_db/*
-          git commit -m "Update Maxmind DBs" --allow-empty
-          git push
+          
+          echo "🚀 Checking if there are changes to commit..."
+          if git diff --cached --quiet; then
+            echo "✅ No changes to commit."
+          else
+            git commit -m "Update Maxmind DBs"
+            git push || echo "❌ Push failed! Check repo size & limits."
+          fi
