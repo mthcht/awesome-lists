@@ -1,7 +1,7 @@
 name: Purge Old Git LFS Files
 
 on:
-  workflow_dispatch:  # manual execution only
+  workflow_dispatch:  # Allow manual execution
 
 jobs:
   cleanup:
@@ -13,10 +13,15 @@ jobs:
           lfs: true
           fetch-depth: 0  # Needed to get full LFS history
 
-      - name: List all LFS-tracked files
+      - name: Ensure Git LFS is Initialized
+        run: |
+          echo "🚀 Initializing Git LFS..."
+          git lfs install || echo "✅ Git LFS already initialized."
+
+      - name: List All LFS-Tracked Files
         run: |
           echo "🚀 Listing all LFS-tracked files..."
-          git lfs ls-files -l
+          git lfs ls-files -l || echo "✅ No LFS files detected."
 
       - name: Detect Large LFS Files and Remove Old Versions
         run: |
@@ -30,15 +35,19 @@ jobs:
 
           echo "🚀 Removing old LFS-tracked files..."
           for FILE in $LFS_FILES; do
-            echo "❌ Removing $FILE from LFS tracking..."
-            git lfs uninstall
-            git rm --cached "$FILE"
+            if [ -f "$FILE" ]; then
+              echo "❌ Removing $FILE from LFS tracking..."
+              git lfs uninstall || echo "✅ Git LFS already uninstalled."
+              git rm --cached "$FILE"
+            else
+              echo "⚠️ Warning: File $FILE does not exist, skipping..."
+            fi
           done
 
           git commit -m "Remove old LFS files to free up storage" || echo "✅ No changes to commit"
           git push origin main --force
 
-      - name: Cleanup LFS objects
+      - name: Cleanup LFS Objects
         run: |
           echo "🚀 Cleaning up LFS storage..."
           git reflog expire --expire=now --all
