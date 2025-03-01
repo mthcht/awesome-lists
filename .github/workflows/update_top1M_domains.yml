@@ -26,55 +26,22 @@ jobs:
           cd Lists/Domains/TOP1M
           python3 download_and_merge_TOP1M.py
 
-      - name: List files in the target directory
-        run: ls -la Lists/Domains/TOP1M
+      - name: List generated files
+        run: ls -lah Lists/Domains/TOP1M/
 
-      - name: Get Latest Release ID
-        id: get_release
-        uses: octokit/request-action@v2.x
-        with:
-          route: GET /repos/{owner}/{repo}/releases
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Extract Release ID
-        id: extract_release_id
+      - name: Ensure "big files" Release Exists
+        id: ensure_release
         run: |
-          RELEASE_ID=$(echo '${{ steps.get_release.outputs.data }}' | jq -r '.[] | select(.name=="big files") | .id' | head -n 1)
-          if [ -z "$RELEASE_ID" ]; then
-            echo "No existing release found, creating a new one..."
-            echo "release_exists=false" >> $GITHUB_ENV
-          else
-            echo "Existing release found: $RELEASE_ID"
-            echo "release_id=$RELEASE_ID" >> $GITHUB_ENV
-            echo "release_exists=true" >> $GITHUB_ENV
+          if ! gh release view "big-files" --json id --jq '.id' > /dev/null 2>&1; then
+            echo "No existing release found, creating one..."
+            gh release create "big-files" --title "big files" --notes "Release for large files" --repo ${{ github.repository }}
           fi
-
-      - name: Create Release if Not Exists
-        if: env.release_exists == 'false'
-        id: create_release
-        uses: octokit/request-action@v2.x
-        with:
-          route: POST /repos/{owner}/{repo}/releases
-          name: "big files"
-          tag_name: "big-files"
-          draft: false
-          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract Created Release ID
-        if: env.release_exists == 'false'
+      - name: Upload Files to "big files" Release
         run: |
-          RELEASE_ID=$(echo '${{ steps.create_release.outputs.data }}' | jq -r '.id')
-          echo "release_id=$RELEASE_ID" >> $GITHUB_ENV
-
-      - name: Upload File to Release
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ env.release_id }}/assets?name=TOP1M_domains.csv
-          asset_path: Lists/Domains/TOP1M/TOP1M_domains.csv
-          asset_content_type: text/csv
+          gh release upload "big-files" Lists/Domains/TOP1M/TOP1M_domains.csv --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
