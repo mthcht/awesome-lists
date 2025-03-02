@@ -621,6 +621,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [Exploitation - incodenito](https://youtube.com/@incodenito?si=uV9UDhYFs_vQYayR)
   - [Exploitation - dayzerosec](https://www.youtube.com/@dayzerosec/videos)
   - [Malware Analysis - MalwareTechBlog](https://www.youtube.com/@MalwareTechBlog)
+  - [Malware Analysis - radkawar](https://www.youtube.com/@radkawar)
   - [Exploitation - LiveOverflow](https://www.youtube.com/@LiveOverflow)
   - [Malware Analysis - neoeno](https://youtube.com/@neoeno4242?si=_mVioHsmbvu17KNk)
   - [Malware Analysis - AzakaSekai](https://www.youtube.com/@AzakaSekai)
