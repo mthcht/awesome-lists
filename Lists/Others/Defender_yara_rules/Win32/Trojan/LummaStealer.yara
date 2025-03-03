@@ -3880,39 +3880,6 @@ rule Trojan_Win32_LummaStealer_HGP_2147932750_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_GPKX_2147933254_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/LummaStealer.GPKX!MTB"
-        threat_id = "2147933254"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "LummaStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
-        threshold = "9"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "= CALL ( STRINGREVERSE ( \"tilpSgnirtS\" ) , $" ascii //weight: 1
-        $x_1_2 = "&= CHRW (" ascii //weight: 1
-        $x_5_3 = {44 00 4c 00 4c 00 43 00 41 00 4c 00 4c 00 20 00 28 00 20 00 [0-48] 20 00 28 00 20 00 22 00 31 00}  //weight: 5, accuracy: Low
-        $x_5_4 = {44 4c 4c 43 41 4c 4c 20 28 20 [0-48] 20 28 20 22 31}  //weight: 5, accuracy: Low
-        $x_5_5 = {44 00 4c 00 4c 00 43 00 41 00 4c 00 4c 00 20 00 28 00 20 00 [0-48] 20 00 28 00 20 00 22 00 39 00}  //weight: 5, accuracy: Low
-        $x_5_6 = {44 4c 4c 43 41 4c 4c 20 28 20 [0-48] 20 28 20 22 39}  //weight: 5, accuracy: Low
-        $x_3_7 = {44 00 4c 00 4c 00 53 00 54 00 52 00 55 00 43 00 54 00 43 00 52 00 45 00 41 00 54 00 45 00 20 00 28 00 20 00 [0-48] 20 00 28 00 20 00 22 00 31 00}  //weight: 3, accuracy: Low
-        $x_3_8 = {44 4c 4c 53 54 52 55 43 54 43 52 45 41 54 45 20 28 20 [0-48] 20 28 20 22 31}  //weight: 3, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 2 of ($x_3_*))) or
-            ((2 of ($x_5_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_LummaStealer_GPKY_2147933420_0
 {
     meta:

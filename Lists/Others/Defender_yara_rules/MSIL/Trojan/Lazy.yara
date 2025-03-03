@@ -3015,3 +3015,24 @@ rule Trojan_MSIL_Lazy_NU_2147933076_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_SEDA_2147934970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.SEDA!MTB"
+        threat_id = "2147934970"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {63 d1 13 11 11 1e 11 09 91 13 21 11 1e 11 09 11 21 11 22 61 19 11 1c 58 61 11 2f 61 d2 9c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
