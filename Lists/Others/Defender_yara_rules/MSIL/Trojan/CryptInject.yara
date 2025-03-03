@@ -3238,3 +3238,47 @@ rule Trojan_MSIL_CryptInject_RH_2147934370_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CryptInject_MBS_2147934979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CryptInject.MBS!MTB"
+        threat_id = "2147934979"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {26 2b 76 03 02 61 20 00 01 00 00 28 ?? 00 00 06 59 06 61}  //weight: 2, accuracy: Low
+        $x_1_2 = "Larewibifa" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_CryptInject_MBT_2147934980_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CryptInject.MBT!MTB"
+        threat_id = "2147934980"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 05 12 05 28 55 00 00 0a 2d 41 02 17 25 0a 7d 14 00 00 04 02 11 05 7d 18 00 00 04 02 7c 15 00 00 04 12 05 02}  //weight: 2, accuracy: High
+        $x_1_2 = {65 00 73 00 73 00 2e 00 74 00 78 00 74 00 00 51 67 00 68 00 70 00 5f 00 51 00 4e 00 38 00 6e 00 5a 00 58 00 56 00 79 00 57 00 33 00 77 00 64 00 41 00 4a 00 6d 00 79 00 59 00 54 00 7a 00 76 00 64 00 31 00 69 00 79 00 78 00 35 00 57 00 75 00 35 00 30 00 32 00 4a 00 7a 00 6c 00 56 00 39}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
