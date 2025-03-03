@@ -618,3 +618,25 @@ rule Ransom_Win64_Filecoder_NITC_2147932226_0
         )
 }
 
+rule Ransom_Win64_Filecoder_2147935029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MTD!MTB"
+        threat_id = "2147935029"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTD: an internal category used to refer to some threats"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 01 d0 44 0f b6 00 48 8b 45 f8 48 8d 50 01 48 8b 45 10 48 01 d0 0f b6 08 48 8b 55 10 48 8b 45 f8 48 01 d0 44 89 c2 31 ca 88 10 48 83 45 ?? 01 48 8b 45 18 48 83 e8 01 48 39 45 f8 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
