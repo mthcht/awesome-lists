@@ -6,6 +6,7 @@
 
 regex_matches = {
     '.ps1_line_grep':r'.{0,100}\.ps1',
+    'Go Build ID':r'Go build ID:\s*"([^"]+)"',
     '.exe_line_grep':r'.{0,100}\.exe',
     'serviceName_C#':r'ServiceBase\.Run\(.+?(?=\))',
     'guid_project':r'Project\(.+?(?=(\.vcxproj|\.csproj)).+?(?=\{)\{(.+?(?=\}))',
