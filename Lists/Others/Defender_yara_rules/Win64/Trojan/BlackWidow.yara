@@ -445,3 +445,68 @@ rule Trojan_Win64_BlackWidow_UTD_2147934829_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_GVF_2147934995_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GVF!MTB"
+        threat_id = "2147934995"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 8b 0c 02 41 33 48 78 49 8b 80 b0 00 00 00 41 89 0c 02 49 83 c2 04 8b 05 ?? ?? ?? ?? 41 8b 50 74 05}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_BlackWidow_GVG_2147934996_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GVG!MTB"
+        threat_id = "2147934996"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {45 8a 14 11}  //weight: 1, accuracy: High
+        $x_3_2 = {44 30 14 0f}  //weight: 3, accuracy: High
+        $x_1_3 = {48 81 f9 d3 35 01 00 0f 86}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_BlackWidow_GVH_2147934999_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GVH!MTB"
+        threat_id = "2147934999"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {45 8a 14 10 [0-50] 44 30 14 0f [0-50] 48 ff c1 [0-50] 48 89 c8 [0-50] 48 81 f9 ?? ?? ?? ?? [0-50] 48 31 d2 [0-50] 49 f7 f1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

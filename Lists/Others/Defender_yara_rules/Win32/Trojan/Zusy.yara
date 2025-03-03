@@ -5983,3 +5983,25 @@ rule Trojan_Win32_Zusy_ATMA_2147934912_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_MHS_2147934991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.MHS!MTB"
+        threat_id = "2147934991"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {b8 66 6f 72 74 b9 69 6e 65 74 33 06 33 4e 04 09 c1}  //weight: 2, accuracy: High
+        $x_1_2 = "my_new_hook_project.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -913,3 +913,29 @@ rule Trojan_MSIL_KillMBR_PAGH_2147932409_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_PARX_2147935008_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.PARX!MTB"
+        threat_id = "2147935008"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Master boot record is cooked" wide //weight: 2
+        $x_2_2 = "Your PC Have Been Doomed By This Malware" wide //weight: 2
+        $x_2_3 = "\\.\\PhysicalDrive0" wide //weight: 2
+        $x_2_4 = "DisableTaskMgr" wide //weight: 2
+        $x_1_5 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon" wide //weight: 1
+        $x_1_6 = "get_PrimaryScreen" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

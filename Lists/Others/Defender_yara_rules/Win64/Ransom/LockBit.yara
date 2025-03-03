@@ -146,3 +146,33 @@ rule Ransom_Win64_LockBit_YAC_2147934874_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_GVA_2147934998_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.GVA!MTB"
+        threat_id = "2147934998"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".xlock" ascii //weight: 1
+        $x_3_2 = "LockBit 3.0 the world's fastest ransomware since 2019" ascii //weight: 3
+        $x_1_3 = "Your data are stolen and encrypted" ascii //weight: 1
+        $x_1_4 = "The data will be published on TOR website if you do not pay the ransom " ascii //weight: 1
+        $x_1_5 = "You need contact us and decrypt one file for free" ascii //weight: 1
+        $x_1_6 = "You can contact us in email or qtox." ascii //weight: 1
+        $x_1_7 = "Warning! Do not DELETE or MODIFY any files, it can lead to recovery problems!" ascii //weight: 1
+        $x_1_8 = "Would you like to earn millions of dollars $$$ ?" ascii //weight: 1
+        $x_1_9 = "main.traverseAndEncryptDisk" ascii //weight: 1
+        $x_1_10 = "main.loadRSAPublicKeyFromPEM" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

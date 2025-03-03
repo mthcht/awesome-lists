@@ -2955,3 +2955,27 @@ rule Trojan_Win32_GuLoader_RBD_2147934845_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBE_2147934990_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBE!MTB"
+        threat_id = "2147934990"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ails gnathic afskrkkelsesvaabnet" ascii //weight: 1
+        $x_1_2 = "mesosigmoid udfyldningrs" ascii //weight: 1
+        $x_1_3 = "yor sebum discreet" ascii //weight: 1
+        $x_1_4 = "usikkerhedsmomentets dekodningers.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
