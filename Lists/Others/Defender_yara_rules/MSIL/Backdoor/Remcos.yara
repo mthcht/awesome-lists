@@ -1782,3 +1782,25 @@ rule Backdoor_MSIL_Remcos_APMA_2147934749_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Remcos_AANA_2147935130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.AANA!MTB"
+        threat_id = "2147935130"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0a 13 04 11 04 28 ?? 00 00 0a 72 ?? 04 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 11 04 28 ?? 00 00 0a 72 ?? 04 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 7e ?? 00 00 04 19 73 ?? 00 00 0a 0c 08 6f ?? 00 00 0a 69 0a 08 11 04 6f ?? 00 00 0a 16 73 ?? 00 00 0a 0d 09 07 7e ?? 00 00 04 16 94 06 6f ?? 00 00 0a 26 72 ?? 04 00 70 13 07 72 ?? 04 00 70 13 05 07 28 ?? 00 00 06 26 11 06 2a}  //weight: 4, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

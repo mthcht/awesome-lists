@@ -1,62 +1,94 @@
-rule Trojan_Win64_FileCoder_NF_2147893871_0
+rule Trojan_Win64_Filecoder_TR_2147835525_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/FileCoder.NF!MTB"
-        threat_id = "2147893871"
+        detection_name = "Trojan:Win64/Filecoder.TR!MTB"
+        threat_id = "2147835525"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "FileCoder"
+        family = "Filecoder"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
+        threshold = "1"
+        strings_accuracy = "High"
     strings:
-        $x_5_1 = {83 c8 ff eb 31 48 8b cb e8 a5 00 00 00 48 85 c0 75 05 83 cf ?? eb 0e 48 89 05 b8 1c 05 00 48 89 05 99 1c 05 00 33 c9 e8 5a 32}  //weight: 5, accuracy: Low
+        $x_1_1 = {48 8b 33 b9 18 00 00 00 48 8b 43 18 48 39 43 10 48 0f 42 cd 48 8b 53 20 48 85 d2 74 14 48 8b fa 33 c0 48 8b 0c 19 f3 aa 48 8b ca e8 10 1b ff ff 90 ba 38 00 00 00 48 8b cb e8 82 9a 00 00 48 8b de 48 85 f6 75 ba}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win64_FileCoder_NF_2147893871_1
+rule Trojan_Win64_Filecoder_PAP_2147917354_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/FileCoder.NF!MTB"
-        threat_id = "2147893871"
+        detection_name = "Trojan:Win64/Filecoder.PAP!MTB"
+        threat_id = "2147917354"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "FileCoder"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "rename each file after encrypted" wide //weight: 2
+        $x_1_2 = "start encrypting hardisks/USBs" wide //weight: 1
+        $x_1_3 = "shutdown machine after encryption" wide //weight: 1
+        $x_1_4 = "log encrypted files" wide //weight: 1
+        $x_1_5 = "put your email address" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Filecoder_PAZ_2147917931_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.PAZ!MTB"
+        threat_id = "2147917931"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Your files have been fucked" ascii //weight: 2
+        $x_2_2 = "you will get your files back" ascii //weight: 2
+        $x_1_3 = "\\README.txt" ascii //weight: 1
+        $x_1_4 = "\\Windows" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Filecoder_BA_2147932266_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.BA!MTB"
+        threat_id = "2147932266"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {48 8d 41 01 48 83 f8 ?? 7c dc 31 c0 eb 19 48 89 c1 48 c1 e0 ?? 48 8d 15 43 2b 59 00 48 01 c2}  //weight: 5, accuracy: Low
-        $x_1_2 = "ZZXuK7T" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win64_FileCoder_ARAZ_2147933262_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/FileCoder.ARAZ!MTB"
-        threat_id = "2147933262"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "FileCoder"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = {31 c8 89 c1 48 8d 55 a0 48 8b 85 c8 04 00 00 48 01 d0 88 08 48 83 85 c8 04 00 00 01 48 8b 85 c8 04 00 00 48 3b 85 a8 04 00 00 72 a1}  //weight: 2, accuracy: High
+        $x_1_1 = "Greetings from Cs-137 Group" ascii //weight: 1
+        $x_1_2 = "Your files have been encrypted with ChaCha20" ascii //weight: 1
+        $x_1_3 = "The encryption key was randomly generated and not saved because this is development version" ascii //weight: 1
+        $x_1_4 = "This means your files cannot be recovered" ascii //weight: 1
+        $x_1_5 = "Go away security research,," ascii //weight: 1
+        $x_1_6 = "ussadmin.exe celete shadows /all" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

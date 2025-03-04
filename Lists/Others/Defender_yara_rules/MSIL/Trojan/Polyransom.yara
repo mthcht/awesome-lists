@@ -1,27 +1,26 @@
-rule Trojan_MSIL_PolyRansom_DE_2147810618_0
+rule Trojan_MSIL_Polyransom_SG_2147900165_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/PolyRansom.DE!MTB"
-        threat_id = "2147810618"
+        detection_name = "Trojan:MSIL/Polyransom.SG!MTB"
+        threat_id = "2147900165"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "PolyRansom"
+        family = "Polyransom"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "21"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_3_1 = "Qtbxgzla" ascii //weight: 3
-        $x_3_2 = "DowZnlZoadDZata" ascii //weight: 3
-        $x_3_3 = "/C timeout 20" ascii //weight: 3
-        $x_3_4 = "new/Qtbxgzla.jpg" ascii //weight: 3
-        $x_3_5 = "Snssddhohqckofqycvyykup" ascii //weight: 3
-        $x_3_6 = "SecurityProtocolType" ascii //weight: 3
-        $x_3_7 = "AppDomain" ascii //weight: 3
+        $x_1_1 = "set_UseShellExecute" ascii //weight: 1
+        $x_2_2 = "ShiwWindow" ascii //weight: 2
+        $x_1_3 = "GetExecutingAssembly" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

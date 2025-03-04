@@ -1,22 +1,19 @@
-rule Trojan_Win32_VBclone_CCIO_2147924724_0
+rule Trojan_Win32_Vbclone_RPX_2147908371_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/VBclone.CCIO!MTB"
-        threat_id = "2147924724"
+        detection_name = "Trojan:Win32/Vbclone.RPX!MTB"
+        threat_id = "2147908371"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "VBclone"
+        family = "Vbclone"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_5_1 = {c7 45 fc 03 00 00 00 c7 85 04 ff ff ff 94 30 40 00 c7 85 fc fe ff ff 08 00 00 00 8d 95 fc fe ff ff 8d 8d 2c ff ff ff ff 15}  //weight: 5, accuracy: High
-        $x_1_2 = "Proyecto1" ascii //weight: 1
-        $x_1_3 = "InfectModule" ascii //weight: 1
-        $x_1_4 = "Qapkrvkle,DkngQ{qvgoM`hgav" wide //weight: 1
+        $x_1_1 = {00 f8 64 35 00 00 00 00 00 ff cc 31 00 04 16}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

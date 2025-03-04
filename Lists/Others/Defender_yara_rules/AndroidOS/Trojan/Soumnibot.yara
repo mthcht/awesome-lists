@@ -1,21 +1,23 @@
-rule Trojan_AndroidOS_SoumniBot_C_2147915766_0
+rule Trojan_AndroidOS_Soumnibot_UT_2147919999_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/SoumniBot.C"
-        threat_id = "2147915766"
+        detection_name = "Trojan:AndroidOS/Soumnibot.UT"
+        threat_id = "2147919999"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "SoumniBot"
+        family = "Soumnibot"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "4"
+        threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "softwareapp/BootBroadcastReceiver" ascii //weight: 2
-        $x_2_2 = "d3NzOi8vd3d3Lm1ha2U2OS5pbmZvOjg3NjU=" ascii //weight: 2
+        $x_1_1 = "http://149.102.243.157:8077" ascii //weight: 1
+        $x_1_2 = "http://172.247.39.154" ascii //weight: 1
+        $x_1_3 = "http://89.187.184.213" ascii //weight: 1
+        $x_1_4 = "handleMessage startService" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (2 of ($x*))
 }
 

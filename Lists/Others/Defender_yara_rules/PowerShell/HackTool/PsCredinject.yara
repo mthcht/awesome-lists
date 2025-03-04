@@ -1,14 +1,16 @@
-rule HackTool_PowerShell_PsCredInject_A_2147730341_0
+rule HackTool_PowerShell_PsCredinject_A_2147730342_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "HackTool:PowerShell/PsCredInject.A"
-        threat_id = "2147730341"
+        detection_name = "HackTool:PowerShell/PsCredinject.A!!PsCredinject.A"
+        threat_id = "2147730342"
         type = "HackTool"
         platform = "PowerShell: "
-        family = "PsCredInject"
+        family = "PsCredinject"
         severity = "High"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        info = "PsCredinject: an internal category used to refer to some threats"
+        info = "A: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ARHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

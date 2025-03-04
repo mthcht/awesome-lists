@@ -1,20 +1,27 @@
-rule Trojan_Win32_FrauDropper_NF_2147909805_0
+rule Trojan_Win32_Fraudropper_A_2147796000_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/FrauDropper.NF!MTB"
-        threat_id = "2147909805"
+        detection_name = "Trojan:Win32/Fraudropper.A!MTB"
+        threat_id = "2147796000"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "FrauDropper"
+        family = "Fraudropper"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
+        threshold = "9"
+        strings_accuracy = "High"
     strings:
-        $x_3_1 = {89 44 24 7c 66 8b 8c 24 ?? ?? ?? ?? 66 89 8c 24 ?? ?? ?? ?? 8b 84 24 9c 00 00 00 69 94 24 98 00 00 00 ?? ?? ?? ?? 01 d0 8b 40 4c 89 84 24 ?? ?? ?? ?? 8b 84 24 98 00 00 00 69 c0}  //weight: 3, accuracy: Low
-        $x_3_2 = {83 ec 0c 0f b7 84 24 ?? ?? ?? ?? 09 c0 66 89 c6 66 89 b4 24}  //weight: 3, accuracy: Low
+        $x_1_1 = "ViottoBinder_Stub" ascii //weight: 1
+        $x_1_2 = "|viottobinder||vttbndr|MZ" ascii //weight: 1
+        $x_1_3 = "$77Redownloader.exe" wide //weight: 1
+        $x_1_4 = "$77main1.exe" ascii //weight: 1
+        $x_1_5 = "Application path" wide //weight: 1
+        $x_1_6 = "Application data" wide //weight: 1
+        $x_1_7 = "AppData" wide //weight: 1
+        $x_1_8 = "WinDir" wide //weight: 1
+        $x_1_9 = "2147483648" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

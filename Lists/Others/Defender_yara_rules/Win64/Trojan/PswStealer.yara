@@ -1,21 +1,19 @@
-rule Trojan_Win64_PSWStealer_GNN_2147813279_0
+rule Trojan_Win64_PswStealer_2147834739_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/PSWStealer.GNN!MTB"
-        threat_id = "2147813279"
+        detection_name = "Trojan:Win64/PswStealer!MTB"
+        threat_id = "2147834739"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "PSWStealer"
+        family = "PswStealer"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "12"
-        strings_accuracy = "Low"
+        threshold = "1"
+        strings_accuracy = "High"
     strings:
-        $x_10_1 = {48 8b 05 82 d6 07 00 48 33 c4 48 89 84 24 ?? ?? ?? ?? 45 8b d9 45 0f b6 d0 48 8b 01 48 83 7a 10 00 75 2b 44 0f b6 8c 24 ?? ?? ?? ?? 45 8b c3 41 0f b6 d2 ff 50 60 48 8b 8c 24 ?? ?? ?? ?? 48 33 cc e8 ?? ?? ?? ?? 48 81 c4 ?? ?? ?? ?? c3}  //weight: 10, accuracy: Low
-        $x_1_2 = "hhiuew33.com" ascii //weight: 1
-        $x_1_3 = "fj4ghga23_fsa.txt" ascii //weight: 1
+        $x_1_1 = {48 83 f8 0b 77 27 42 0f b6 4c 10 02 c1 e1 10 42 0f b7 14 10 01 d1 81 c1 00 00 00 07 41 33 0c 00 89 8c 04 00 01 00 00 48 83 c0 04}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

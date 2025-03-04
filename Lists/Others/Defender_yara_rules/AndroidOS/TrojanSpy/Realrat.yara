@@ -1,169 +1,132 @@
-rule TrojanSpy_AndroidOS_RealRat_A_2147811167_0
+rule TrojanSpy_AndroidOS_Realrat_D_2147811157_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanSpy:AndroidOS/RealRat.A!MTB"
-        threat_id = "2147811167"
+        detection_name = "TrojanSpy:AndroidOS/Realrat.D!MTB"
+        threat_id = "2147811157"
         type = "TrojanSpy"
         platform = "AndroidOS: Android operating system"
-        family = "RealRat"
+        family = "Realrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
+        threshold = "7"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = "INSTALLED RAT" ascii //weight: 1
-        $x_1_2 = "sms_contacts" ascii //weight: 1
-        $x_1_3 = "/receive.php" ascii //weight: 1
-        $x_1_4 = "hidden_apk" ascii //weight: 1
-        $x_1_5 = "all_sms" ascii //weight: 1
-        $x_1_6 = "starter.txt" ascii //weight: 1
-        $x_1_7 = "status" ascii //weight: 1
-        $x_1_8 = "fata-iran.cf" ascii //weight: 1
-        $x_1_9 = "remote-vip.tk" ascii //weight: 1
-        $x_1_10 = "eblagh-sna.site" ascii //weight: 1
-        $x_1_11 = "remote-best.tk" ascii //weight: 1
-        $x_1_12 = "toprat.site" ascii //weight: 1
+        $x_1_1 = {2f 52 65 6d 6f 74 65 [0-32] 2f 72 65 71 2e 70 68 70}  //weight: 1, accuracy: Low
+        $x_1_2 = "/send_sms" ascii //weight: 1
+        $x_1_3 = "/hide" ascii //weight: 1
+        $x_1_4 = "/send_last_sms" ascii //weight: 1
+        $x_1_5 = "_smsgir_messagereceived" ascii //weight: 1
+        $x_1_6 = "install.txt" ascii //weight: 1
+        $x_1_7 = "msgid.txt" ascii //weight: 1
+        $x_1_8 = "Lcom/reza/sh/deviceinfo/DiviceInfo" ascii //weight: 1
+        $x_1_9 = "teodor.iromizban.ir" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (6 of ($x*))
+        (7 of ($x*))
 }
 
-rule TrojanSpy_AndroidOS_RealRat_C_2147815489_0
+rule TrojanSpy_AndroidOS_Realrat_E_2147815584_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanSpy:AndroidOS/RealRat.C!MTB"
-        threat_id = "2147815489"
+        detection_name = "TrojanSpy:AndroidOS/Realrat.E!MTB"
+        threat_id = "2147815584"
         type = "TrojanSpy"
         platform = "AndroidOS: Android operating system"
-        family = "RealRat"
+        family = "Realrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "6"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "_comand" ascii //weight: 1
-        $x_1_2 = "_calllog" ascii //weight: 1
-        $x_1_3 = "all-sms.txt" ascii //weight: 1
-        $x_1_4 = "contact.txt" ascii //weight: 1
-        $x_1_5 = "/panel.php" ascii //weight: 1
-        $x_1_6 = "hideAppIcon" ascii //weight: 1
-        $x_1_7 = "ir/Trol/fuZool" ascii //weight: 1
+        $x_1_1 = "com.teodor.amir8" ascii //weight: 1
+        $x_1_2 = "PNSMS" ascii //weight: 1
+        $x_1_3 = "hideAppIcon" ascii //weight: 1
+        $x_1_4 = "upload.php?" ascii //weight: 1
+        $x_1_5 = "send_last_sms" ascii //weight: 1
+        $x_1_6 = "install.txt" ascii //weight: 1
+        $x_1_7 = "contactsutils" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (6 of ($x*))
+        (5 of ($x*))
 }
 
-rule TrojanSpy_AndroidOS_RealRat_G_2147818677_0
+rule TrojanSpy_AndroidOS_Realrat_F_2147816203_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanSpy:AndroidOS/RealRat.G!MTB"
-        threat_id = "2147818677"
+        detection_name = "TrojanSpy:AndroidOS/Realrat.F!MTB"
+        threat_id = "2147816203"
         type = "TrojanSpy"
         platform = "AndroidOS: Android operating system"
-        family = "RealRat"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "9"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "onStartCommand" ascii //weight: 2
-        $x_2_2 = "_service_start" ascii //weight: 2
-        $x_2_3 = "/receive.php" ascii //weight: 2
-        $x_2_4 = "getHintHideIcon" ascii //weight: 2
-        $x_1_5 = "kardarmanzel.gq" ascii //weight: 1
-        $x_1_6 = "lordremote.xyz" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((4 of ($x_2_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule TrojanSpy_AndroidOS_RealRat_H_2147827265_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanSpy:AndroidOS/RealRat.H!MTB"
-        threat_id = "2147827265"
-        type = "TrojanSpy"
-        platform = "AndroidOS: Android operating system"
-        family = "RealRat"
+        family = "Realrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "Lcom/pixo/rat/main" ascii //weight: 1
-        $x_1_2 = "Lcom/reza/sh/deviceinfo" ascii //weight: 1
-        $x_1_3 = "5.255.117.115" ascii //weight: 1
-        $x_1_4 = "PNUploadFile" ascii //weight: 1
+        $x_1_1 = "upload&androidid=" ascii //weight: 1
+        $x_1_2 = "rat.php" ascii //weight: 1
+        $x_1_3 = "hideicon" ascii //weight: 1
+        $x_1_4 = "upload.php?" ascii //weight: 1
+        $x_1_5 = "uploadsms" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule TrojanSpy_AndroidOS_Realrat_I_2147828147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/Realrat.I!MTB"
+        threat_id = "2147828147"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "Realrat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "hideservice_BR" ascii //weight: 1
+        $x_1_2 = "getAllContacts" ascii //weight: 1
+        $x_1_3 = "Contacts2Wrapper" ascii //weight: 1
+        $x_1_4 = "getAllCalls" ascii //weight: 1
+        $x_1_5 = "SmsWrapper" ascii //weight: 1
+        $x_1_6 = "fakemain" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule TrojanSpy_AndroidOS_RealRat_H_2147827265_1
+rule TrojanSpy_AndroidOS_Realrat_I_2147828147_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanSpy:AndroidOS/RealRat.H!MTB"
-        threat_id = "2147827265"
+        detection_name = "TrojanSpy:AndroidOS/Realrat.I!MTB"
+        threat_id = "2147828147"
         type = "TrojanSpy"
         platform = "AndroidOS: Android operating system"
-        family = "RealRat"
+        family = "Realrat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "42"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_10_1 = "ir.MrAventer.iptv" ascii //weight: 10
-        $x_10_2 = "targetaddress" ascii //weight: 10
-        $x_10_3 = "hideAppIcon" ascii //weight: 10
-        $x_10_4 = "~test.test" ascii //weight: 10
-        $x_10_5 = "PNSMS" ascii //weight: 10
-        $x_10_6 = "isRunningOnEmulator" ascii //weight: 10
-        $x_1_7 = "all_sms" ascii //weight: 1
-        $x_1_8 = "app_list" ascii //weight: 1
-        $x_1_9 = "hide_all" ascii //weight: 1
+        $x_1_1 = "sendmultiparttextmessage" ascii //weight: 1
+        $x_1_2 = "did you forget to call activity" ascii //weight: 1
+        $x_1_3 = "/receive.php" ascii //weight: 1
+        $x_1_4 = "getcontacts" ascii //weight: 1
+        $x_1_5 = "hideicon" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((4 of ($x_10_*) and 2 of ($x_1_*))) or
-            ((5 of ($x_10_*))) or
-            (all of ($x*))
-        )
-}
-
-rule TrojanSpy_AndroidOS_RealRat_J_2147844102_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanSpy:AndroidOS/RealRat.J"
-        threat_id = "2147844102"
-        type = "TrojanSpy"
-        platform = "AndroidOS: Android operating system"
-        family = "RealRat"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "_sendlargesms" ascii //weight: 2
-        $x_2_2 = "/panelsetting/url.txt" ascii //weight: 2
-        $x_2_3 = "type=newmessage&data=" ascii //weight: 2
-        $x_2_4 = "Snake_phonelist.txt" ascii //weight: 2
-        $x_2_5 = "_ussd_onreceiveussdresponse" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (3 of ($x*))
+        (all of ($x*))
 }
 

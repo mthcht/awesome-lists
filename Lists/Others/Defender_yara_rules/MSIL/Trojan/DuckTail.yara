@@ -1,87 +1,153 @@
-rule Trojan_MSIL_DUCKTAIL_EH_2147846751_0
+rule Trojan_MSIL_DuckTail_DB_2147851050_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/DUCKTAIL.EH!MTB"
-        threat_id = "2147846751"
+        detection_name = "Trojan:MSIL/DuckTail.DB!MTB"
+        threat_id = "2147851050"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "DUCKTAIL"
+        family = "DuckTail"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "13"
+        threshold = "8"
         strings_accuracy = "High"
     strings:
-        $x_10_1 = {e9 82 3c ff e5 65 0e ff e5 65 0e ff e5 65 0e ff e5 65 0e ff e5 65 0e ff e5 65 0d ff e8 6f 1d ff fd ba 8a ff ff c2 95 ff e5 65 0e}  //weight: 10, accuracy: High
-        $x_10_2 = {e2 d0 2e 73 b1 f1 13 86 61 82 99 c2 c2 42 3c d0 ac 3f b4 e8 64 9b 04 f0 42 1c 3e 18 b0 d0 f8 09 c3 30 c1 4c ee d9 0b b8 bf 29 05 c0 30 9e 0c 05}  //weight: 10, accuracy: High
-        $x_10_3 = {12 12 d6 ff 02 02 d3 ff 02 02 d3 ff 02 02 d3 ff 02 02 d3 ff 02 02 d3 ff 02 02 d3 ff 02 02 d3 ff 02 02 d3 ff 02 02 d3 ff 02 02 d3 ff 22 22 d9 ff}  //weight: 10, accuracy: High
-        $x_10_4 = {ee 0b 02 ba 4b b8 56 45 30 c8 12 20 01 54 c8 13 58 90 07 2b 72 ac 20 ee 2a 82 11 24 1c a2 b0 10 10 64 63 60 51 21 18 c2 25 90 10 89 86 74 f5 31}  //weight: 10, accuracy: High
-        $x_1_5 = "hijackLockHolder.Acquired." ascii //weight: 1
-        $x_1_6 = "Corehost.Static\\singlefilehost.pdb" ascii //weight: 1
-        $x_1_7 = "CreateMemoryResourceNotification" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 3 of ($x_1_*))) or
-            ((2 of ($x_10_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_MSIL_DUCKTAIL_EH_2147846751_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/DUCKTAIL.EH!MTB"
-        threat_id = "2147846751"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "DUCKTAIL"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "13"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "/{CYR}.txt" wide //weight: 1
-        $x_1_2 = "/{LOG}.txt" wide //weight: 1
-        $x_1_3 = "/{CFG}.txt" wide //weight: 1
-        $x_1_4 = "/{PRS}.txt" wide //weight: 1
-        $x_1_5 = "/{SCR}.jpg" wide //weight: 1
-        $x_1_6 = "/{PAW" wide //weight: 1
-        $x_1_7 = "/{HIY" wide //weight: 1
-        $x_1_8 = "/{DWN" wide //weight: 1
-        $x_1_9 = "Telegram.Bot" ascii //weight: 1
-        $x_1_10 = "AesEncrypt" ascii //weight: 1
-        $x_1_11 = "yi9lc7Zc5ExJqJ26pkdCFM0dVVIoqn/Ls4+3DTzc61s=" wide //weight: 1
-        $x_1_12 = "wPia8bz26WHe35ITidhnrzU7LVppovtwJ6ncYVua3WM=" wide //weight: 1
-        $x_1_13 = "browser_headers" wide //weight: 1
+        $x_1_1 = "Telegram.Bot" ascii //weight: 1
+        $x_1_2 = "chrome cookie " wide //weight: 1
+        $x_1_3 = "firefox cookie " wide //weight: 1
+        $x_1_4 = "Opera cookie" wide //weight: 1
+        $x_1_5 = "Edge cookie " wide //weight: 1
+        $x_1_6 = "facebook.com" wide //weight: 1
+        $x_1_7 = "send cookie file" wide //weight: 1
+        $x_1_8 = "Send telegram" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DUCKTAIL_EM_2147895025_0
+rule Trojan_MSIL_DuckTail_ADU_2147851631_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/DUCKTAIL.EM!MTB"
-        threat_id = "2147895025"
+        detection_name = "Trojan:MSIL/DuckTail.ADU!MTB"
+        threat_id = "2147851631"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "DUCKTAIL"
+        family = "DuckTail"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
+        threshold = "1"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = "DUCITA.Helpers" ascii //weight: 1
-        $x_1_2 = "SDCBundle.Helpers" ascii //weight: 1
-        $x_1_3 = "get_c03p1_2" ascii //weight: 1
-        $x_1_4 = "TL+eh8OWgVJtM/rwptBV1Rg9ej/MnDpxY+MhsGgO8hM=" ascii //weight: 1
-        $x_1_5 = "tkfgk435jkdgf.dll" ascii //weight: 1
+        $x_1_1 = {13 04 16 13 05 38 ?? 00 00 00 11 04 11 05 9a 28 ?? 00 00 0a 13 06 11 06 72 ?? 01 00 70 6f ?? 00 00 0a 2d 0e 11 06}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DuckTail_ADU_2147851631_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DuckTail.ADU!MTB"
+        threat_id = "2147851631"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DuckTail"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0d 2b 42 07 08 28 ?? ?? ?? 2b 1f 10 28 ?? ?? ?? 2b 28 ?? ?? ?? 2b 13 04 07 08 1f 10 58 28 ?? ?? ?? 2b 1f 10 28 ?? ?? ?? 2b 28 ?? ?? ?? 2b 13 05 11 04 11 05 73 1d 00 00 06 09 6f ?? ?? ?? 06 0d 08 1f 20 59 0c 08 16 2f ba}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DuckTail_ADT_2147890537_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DuckTail.ADT!MTB"
+        threat_id = "2147890537"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DuckTail"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {17 0a 17 7e ?? 00 00 04 6f ?? ?? ?? 06 12 00 73 ?? 00 00 0a 0b 06 2d 11}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DuckTail_ATL_2147891190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DuckTail.ATL!MTB"
+        threat_id = "2147891190"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DuckTail"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0a 04 1f 0f 28 ?? 00 00 2b 04 8e 69 1f 10 59 1f 0f 59 28 ?? 00 00 2b 28 ?? 00 00 2b 0b 04 04 8e 69 1f 10 59}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DuckTail_ADA_2147891196_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DuckTail.ADA!MTB"
+        threat_id = "2147891196"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DuckTail"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0c 05 0d 2b 42 07 08 28 ?? 00 00 2b 1f 10 28 ?? 00 00 2b 28 ?? 00 00 2b 13 04 07 08 1f 10 58 28 ?? 00 00 2b 1f 10 28 ?? 00 00 2b 28 ?? 00 00 2b 13 05 11 04 11 05 73 ?? 00 00 06 09 6f ?? 00 00 06 0d 08 1f 20 59 0c 08 16 2f ba}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DuckTail_ADI_2147891932_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DuckTail.ADI!MTB"
+        threat_id = "2147891932"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DuckTail"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 04 2b 31 09 11 04 9a 13 05 11 05 6f ?? 01 00 0a 72 ?? d8 00 70 6f ?? 00 00 0a 2c 0a 1f fd fe 1c 78 00 00 01 58 0b 11 04 1f fd fe 1c 78 00 00 01 58 58 13 04 11 04 09 8e 69 32 c8}  //weight: 2, accuracy: Low
+        $x_1_2 = "fdoge_ChangeAccVIP.exe" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

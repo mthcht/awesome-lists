@@ -1,20 +1,40 @@
-rule Trojan_MSIL_GhostRAT_NG_2147923059_0
+rule Trojan_MSIL_GhostRat_ARG_2147934596_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/GhostRAT.NG!MTB"
-        threat_id = "2147923059"
+        detection_name = "Trojan:MSIL/GhostRat.ARG!MTB"
+        threat_id = "2147934596"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "GhostRAT"
+        family = "GhostRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_3_1 = {28 80 00 00 0a 72 6c 07 00 70 6f 92 00 00 0a 0c 07 8e 69 8d 64 00 00 01 0d 16 13 06 2b 18 09 11 06 07 11 06 91 08 11 06 08 8e 69 5d 91 61 d2 9c 11 06 17 58 13 06 11 06 07 8e 69 32 e1 20 d0 07 00 00 28 93 00 00 0a 7e 94 00 00 0a 09 8e 69 20 00 10 00 00 1f 40 28 34 00 00 06}  //weight: 3, accuracy: High
-        $x_2_2 = {11 08 6f 86 00 00 0a d4 8d 64 00 00 01 13 09 11 08 11 09 16 11 09 8e 69 6f 87 00 00 0a 26 08 11 09 28 88 00 00 0a de 18}  //weight: 2, accuracy: High
+        $x_1_1 = {13 06 16 13 07 2b 14 11 06 11 07 11 05 11 07 91 1f 7f 5f d1 9d 11 07 17 58 13 07 11 07 11 04 32 e6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_GhostRat_AGR_2147934694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/GhostRat.AGR!MTB"
+        threat_id = "2147934694"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "GhostRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {09 11 09 1e 5b 91 1d 11 09 1e 5d 59 1f 1f 5f 63 17 5f 60 7d ?? ?? ?? 04 11 0c 11 04 17 59 2f 10 11 0a 11 0a 7b ?? ?? ?? 04 17 62 7d ?? ?? ?? 04 11 09 17 58 13 09 11 0c 17 58}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

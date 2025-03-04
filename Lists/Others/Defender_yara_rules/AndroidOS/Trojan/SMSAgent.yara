@@ -1,21 +1,20 @@
-rule Trojan_AndroidOS_Smsagent_A_2147844720_0
+rule Trojan_AndroidOS_SMSAgent_F_2147794865_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Smsagent.A"
-        threat_id = "2147844720"
+        detection_name = "Trojan:AndroidOS/SMSAgent.F"
+        threat_id = "2147794865"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "Smsagent"
+        family = "SMSAgent"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "4"
+        threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "http://affmob.tornika.com/service_lib.php" ascii //weight: 1
-        $x_1_2 = "com.bjoeajfpa" ascii //weight: 1
-        $x_1_3 = "sys_send_contents" ascii //weight: 1
-        $x_1_4 = "TNKLIB ||| STARTING SERVICE" ascii //weight: 1
+        $x_1_1 = "setIsH5WxPaying" ascii //weight: 1
+        $x_1_2 = "2 sendSucByMsg --------- phone = " ascii //weight: 1
+        $x_1_3 = "STRINSMSSENDACTION & isSMSSendSucceed = " ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

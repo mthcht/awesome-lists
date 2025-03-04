@@ -353,3 +353,27 @@ rule Ransom_Linux_Babuk_L_2147933380_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Babuk_R_2147935129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Babuk.R!MTB"
+        threat_id = "2147935129"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Babuk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BadWeather Ransomware" ascii //weight: 1
+        $x_1_2 = ".badweather" ascii //weight: 1
+        $x_1_3 = ".bw_encryptionkey" ascii //weight: 1
+        $x_1_4 = "BadWeather ESXI Encrypter" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

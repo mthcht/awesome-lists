@@ -12762,3 +12762,25 @@ rule Trojan_MSIL_Remcos_BN_2147934686_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_RVE_2147935128_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.RVE!MTB"
+        threat_id = "2147935128"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 95 a2 29 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 77 00 00 00 14 00 00 00 65 00 00 00 77 00 00 00 65 00 00 00 0f 01 00 00 6c 00 00 00 01 00 00 00 24 00 00 00 08 00 00 00 1c 00 00 00 2a 00 00 00 26 00 00 00 01 00 00 00 01 00 00 00 07 00 00 00 03 00 00 00 06 00 00 00 0a 00 00 00 12}  //weight: 1, accuracy: High
+        $x_1_2 = "ToDoList.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

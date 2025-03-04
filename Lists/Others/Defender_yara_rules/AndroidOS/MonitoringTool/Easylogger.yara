@@ -1,30 +1,29 @@
-rule MonitoringTool_AndroidOS_EasyLogger_C_340516_0
+rule MonitoringTool_AndroidOS_Easylogger_B_303898_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "MonitoringTool:AndroidOS/EasyLogger.C!MTB"
-        threat_id = "340516"
+        detection_name = "MonitoringTool:AndroidOS/Easylogger.B!MTB"
+        threat_id = "303898"
         type = "MonitoringTool"
         platform = "AndroidOS: Android operating system"
-        family = "EasyLogger"
+        family = "Easylogger"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "9"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "PhoneUsageReportActivity" ascii //weight: 2
-        $x_2_2 = "ChildMapActivity" ascii //weight: 2
-        $x_2_3 = "uninstallForceCloseReceiver" ascii //weight: 2
-        $x_2_4 = "simChangeReceiver" ascii //weight: 2
-        $x_2_5 = "loSimInfoloSimInfo" ascii //weight: 2
-        $x_2_6 = "SendSOSAlertActivity" ascii //weight: 2
-        $x_1_7 = "/easylogger" ascii //weight: 1
+        $x_2_1 = "app/EasyLogger" ascii //weight: 2
+        $x_1_2 = "http://logger.mobi" ascii //weight: 1
+        $x_1_3 = "HideApp" ascii //weight: 1
+        $x_1_4 = "InsertLogHistoryManager" ascii //weight: 1
+        $x_1_5 = "CallLog" ascii //weight: 1
+        $x_1_6 = "EasyLoggerLog.db" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (
-            ((4 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((5 of ($x_2_*))) or
+            ((5 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
             (all of ($x*))
         )
 }

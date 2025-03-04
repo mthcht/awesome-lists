@@ -1,230 +1,442 @@
-rule Ransom_Win32_Lockbit_SA_2147750588_0
+rule Ransom_Win32_LockBit_A_2147745590_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.SA!MSR"
-        threat_id = "2147750588"
+        detection_name = "Ransom:Win32/LockBit.A!MTB"
+        threat_id = "2147745590"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
-        severity = "Critical"
-        info = "MSR: Microsoft Security Response"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "ShutdownBlockReasonCreate" ascii //weight: 1
-        $x_2_2 = "LockBit Ransom" ascii //weight: 2
-        $x_2_3 = "http://lockbitks2tvnmwk.onion" ascii //weight: 2
-        $x_1_4 = "encrypted files" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((2 of ($x_2_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Ransom_Win32_Lockbit_AA_2147785223_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.AA!MTB"
-        threat_id = "2147785223"
-        type = "Ransom"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
+        family = "LockBit"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "LockBit Ransomware" ascii //weight: 1
-        $x_1_2 = "All your files stolen and encrypted" wide //weight: 1
-        $x_1_3 = ".lock" wide //weight: 1
-        $x_1_4 = "Lockbit\\shell\\Open\\Command" wide //weight: 1
+        $x_1_1 = "SOFTWARE\\LockBit" wide //weight: 1
+        $x_1_2 = "All your important files are encrypted!" ascii //weight: 1
+        $x_1_3 = "vssadmin.exe Delete Shadows /All /Quiet" wide //weight: 1
+        $x_1_4 = "We will decrypt 1 file for test" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Ransom_Win32_Lockbit_SB_2147787086_0
+rule Ransom_Win32_LockBit_PA_2147748589_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.SB"
-        threat_id = "2147787086"
+        detection_name = "Ransom:Win32/LockBit.PA!MTB"
+        threat_id = "2147748589"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
+        family = "LockBit"
         severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "30"
-        strings_accuracy = "Low"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
     strings:
-        $x_10_1 = "LockBit_2_0_Ransom" wide //weight: 10
-        $x_10_2 = {59 00 6f 00 75 00 20 00 63 00 61 00 6e 00 20 00 63 00 6f 00 6d 00 6d 00 75 00 6e 00 69 00 63 00 61 00 74 00 65 00 20 00 77 00 69 00 74 00 68 00 20 00 75 00 73 00 20 00 74 00 68 00 72 00 6f 00 75 00 67 00 68 00 20 00 74 00 68 00 65 00 20 00 54 00 6f 00 78 00 20 00 6d 00 65 00 73 00 73 00 65 00 6e 00 67 00 65 00 72 00 [0-6] 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 74 00 6f 00 78 00 2e 00 63 00 68 00 61 00 74 00 2f 00 64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 2e 00 68 00 74 00 6d 00 6c 00}  //weight: 10, accuracy: Low
-        $x_10_3 = {2e 00 6f 00 6e 00 69 00 6f 00 6e 00 [0-96] 25 00 73 00 2e 00 62 00 6d 00 70 00}  //weight: 10, accuracy: Low
-        $x_10_4 = {47 c6 84 24 ?? 00 00 00 44 c6 84 24 ?? 00 00 00 49 c6 84 24 ?? 00 00 00 50 c6 84 24 ?? 00 00 00 4c c6 84 24 ?? 00 00 00 55 c6 84 24 ?? 00 00 00 53 c6 84 24 ?? 00 00 00 0e c6 84 24 ?? 00 00 00 44 c6 84 24 ?? 00 00 00 4c c6 84 24 ?? 00 00 00 4c}  //weight: 10, accuracy: Low
+        $x_1_1 = "vssadmin.exe Delete Shadows /All /Quiet" wide //weight: 1
+        $x_1_2 = "SOFTWARE\\LockBit" wide //weight: 1
+        $x_1_3 = "All your important files are encrypted!" ascii //weight: 1
+        $x_1_4 = "Restore-My-Files" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_PA_2147748589_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.PA!MTB"
+        threat_id = "2147748589"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vssadmin delete shadows /all /quiet" wide //weight: 1
+        $x_1_2 = "bcdedit /set {default} recoveryenabled no" wide //weight: 1
+        $x_1_3 = "bcdedit /set {default} bootstatuspolicy ignoreallfailures" wide //weight: 1
+        $x_1_4 = "Restore-My-Files" ascii //weight: 1
+        $x_1_5 = "All your important files are encrypted" ascii //weight: 1
+        $x_1_6 = "We accept Bitcoin" ascii //weight: 1
+        $x_1_7 = "Do not try to decrypt using third party software, it may cause permanent data loss" ascii //weight: 1
+        $x_1_8 = "All your files are encrypted" ascii //weight: 1
+        $x_1_9 = "Over time, the cost increases, do not waste your time" ascii //weight: 1
+        $x_1_10 = "antidote is only among the creators of the virus" ascii //weight: 1
+        $x_1_11 = "vssadmin delete shadows /all /quiet" ascii //weight: 1
+        $x_1_12 = "bcdedit /set {default} recoveryenabled no" ascii //weight: 1
+        $x_1_13 = "bcdedit /set {default} bootstatuspolicy ignoreallfailures" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule Ransom_Win32_LockBit_PA_2147748589_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.PA!MTB"
+        threat_id = "2147748589"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "LockBit Ransom" ascii //weight: 1
+        $x_1_2 = "\\LockBit-note.hta" wide //weight: 1
+        $x_1_3 = "SOFTWARE\\LockBit" ascii //weight: 1
+        $x_1_4 = "All your files are encrypted by LockBit" ascii //weight: 1
+        $x_1_5 = "Restore-My-Files.txt" ascii //weight: 1
+        $x_1_6 = "/c vssadmin delete shadows /all /quiet" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (3 of ($x*))
 }
 
-rule Ransom_Win32_Lockbit_HA_2147844400_0
+rule Ransom_Win32_LockBit_PB_2147752636_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.HA!MTB"
-        threat_id = "2147844400"
+        detection_name = "Ransom:Win32/LockBit.PB!MTB"
+        threat_id = "2147752636"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
+        family = "LockBit"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {89 5a 01 66 c7 42 05 c1 c0 88 4a 07 c6 42 08 35 89 42 09 66 c7 42 0d ff e0}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Ransom_Win32_Lockbit_AC_2147845570_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.AC!MTB"
-        threat_id = "2147845570"
-        type = "Ransom"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {6a 7f 8b cb 5e 8a 84 ?? 69 ff ff ff 0f b6 c0 83 e8 ?? 6b c0 ?? 99 f7 fe 8d 04 16 99 f7 fe 88 94 0d 69 ff ff ff 41 83 f9 16 8a 84 ?? 69 ff ff ff}  //weight: 1, accuracy: Low
-        $x_1_2 = {6a 7f 8b f3 5f 8a 84 ?? 69 ff ff ff 0f b6 c0 6a ?? 59 2b c8 6b c1 ?? 99 f7 ff 8d 04 17 99 f7 ff 88 94 ?? 69 ff ff ff 46 83 fe 16 8a 84 ?? 69 ff ff ff}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Ransom_Win32_Lockbit_RPA_2147849412_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.RPA!MTB"
-        threat_id = "2147849412"
-        type = "Ransom"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8a 54 0d 00 02 d3 8a 5c 15 00 8a 54 1d 00 8a 54 15 00 fe c2 8a 44 15 00 30 07 8a 54 1d 00 86 54 0d 00 88 54 1d 00 fe c1 47 4e 85 f6 75 d2}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Ransom_Win32_Lockbit_AK_2147897364_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.AK!ibt"
-        threat_id = "2147897364"
-        type = "Ransom"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
-        severity = "Critical"
-        info = "ibt: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {8d 40 10 64 8b 00 8b 40 0c 8d 48 0c 89 4d f8 8b 48 0c 8b 59 18 33 c0 40 c1 e0 05 8d 40 1d 8b 44 03 ff 8d 04 03 8b 50 78 85 d2}  //weight: 1, accuracy: High
-        $x_1_2 = {6a 00 6a 00 6a 00 6a 00 6a 00 68 02 10 04 00 ff d0 8b f0 85 f6 0f 84 7c 01 00 00 8b 40 40 c1 e8 1c}  //weight: 1, accuracy: High
+        $x_1_1 = "Restore-My-Files.txt" wide //weight: 1
+        $x_1_2 = ".lockbit" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Ransom_Win32_Lockbit_DY_2147909067_0
+rule Ransom_Win32_LockBit_PB_2147752636_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.DY!MTB"
-        threat_id = "2147909067"
+        detection_name = "Ransom:Win32/LockBit.PB!MTB"
+        threat_id = "2147752636"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
+        family = "LockBit"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "3"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {8a 44 1d f8 30 04 3e 8d 45 f8 50 43 e8 ?? ?? ?? ?? 59 3b d8 72}  //weight: 1, accuracy: Low
+        $x_1_1 = {20 00 76 00 c7 85 [0-6] 73 00 73 00 [0-6] 61 00 64 00 [0-6] 6d 00 69 00 [0-6] 6e 00 20 00 [0-6] 64 00 65 00 [0-6] 6c 00 65 00 [0-6] 74 00 65 00 [0-6] 20 00 73 00 [0-6] 68 00 61 00 [0-6] 64 00 6f 00 [0-6] 77 00 73 00 [0-6] 20 00 2f 00 [0-6] 61 00 6c 00 [0-6] 6c 00 20 00 [0-6] 2f 00 71 00 [0-6] 75 00 69 00 [0-6] 65 00 74 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {77 00 62 00 c7 85 [0-4] 61 00 64 00 [0-6] 6d 00 69 00 [0-6] 6e 00 20 00 [0-6] 64 00 65 00 [0-6] 6c 00 65 00 [0-6] 74 00 65 00 [0-6] 20 00 63 00 [0-6] 61 00 74 00 [0-6] 61 00 6c 00 [0-6] 6f 00 67 00 [0-6] 20 00 2d 00 [0-6] 71 00 75 00 [0-6] 69 00 65 00 [0-6] 74 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "Restore-My-Files" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Ransom_Win32_Lockbit_SS_2147909068_0
+rule Ransom_Win32_LockBit_SK_2147756502_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.SS!MTB"
-        threat_id = "2147909068"
+        detection_name = "Ransom:Win32/LockBit.SK!MTB"
+        threat_id = "2147756502"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
+        family = "LockBit"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = "InternetReadFile" ascii //weight: 1
-        $x_1_2 = {68 74 74 70 3a 2f 2f 31 39 33 2e 32 33 33 2e 31 33 32 2e 31 37 37 2f [0-15] 2e 65 78 65}  //weight: 1, accuracy: Low
-        $x_1_3 = "ShellExecuteW" ascii //weight: 1
-        $x_1_4 = "InternetOpenUrlW" ascii //weight: 1
+        $x_2_1 = {66 33 c3 c7 45 ?? ?? ?? ?? ?? 66 89 45 ?? 0f b7 05 ?? ?? ?? ?? 66 33 c3 c7 45 ?? ?? ?? ?? ?? 66 89 45 ?? 0f b7 05 ?? ?? ?? ?? 66 33 c3 c7 45 ?? ?? ?? ?? ?? 66 89 45 ?? 0f b7 05 ?? ?? ?? ?? 66 33 c3 c7 45 ?? ?? ?? ?? ?? 66 89 45 ?? 0f b7 05}  //weight: 2, accuracy: Low
+        $x_2_2 = {85 c0 74 0a 8d 8c 24 ?? ?? ?? ?? 51 ff d0 8d 84 24 ?? ?? ?? ?? c7 84 24 ?? ?? ?? ?? 3c 00 00 00 89 84 24 ?? ?? ?? ?? 8d 44 24 ?? 89 84 24 ?? ?? ?? ?? 8b 44 24 ?? 89 84 24 ?? ?? ?? ?? 8d 84 24 ?? ?? ?? ?? 50 c7 84 24 ?? ?? ?? ?? 00 00 00 00 c7 84 24 ?? ?? ?? ?? 00 00 00 00 c7 84 24 ?? ?? ?? ?? 00 00 00 00 c7 84 24 ?? ?? ?? ?? 00 00 00 00 c7 84 24 ?? ?? ?? ?? 00 00 00 00 ff 15 ?? ?? ?? ?? 68 e8 03 00 00 ff 15}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Ransom_Win32_Lockbit_NIT_2147932224_0
+rule Ransom_Win32_LockBit_AA_2147818734_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Lockbit.NIT!MTB"
-        threat_id = "2147932224"
+        detection_name = "Ransom:Win32/LockBit.AA"
+        threat_id = "2147818734"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
-        family = "Lockbit"
+        family = "LockBit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {33 c0 8b 55 0c 8b 75 08 ac 33 c9 b9 30 00 00 00 8d 0c 4d 01 00 00 00 02 f1 2a f1 33 c9 b9 06 00 00 00 8d 0c 4d 01 00 00 00 d3 ca 03 d0 90 85 c0 75 d6}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_AB_2147818735_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.AB"
+        threat_id = "2147818735"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {8b 55 0c 8b 75 08 66 ad 90 66 83 f8 41 72 0b 66 83 f8 5a 77 05 66 83 c8 20 90 33 c9 b9 30 00 00 00 8d 0c 4d 01 00 00 00 02 f1 2a f1 33 c9 b9 06 00 00 00 8d 0c 4d 01 00 00 00 d3 ca 03 d0 90 85 c0 75 c3}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_AC_2147818736_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.AC"
+        threat_id = "2147818736"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {8b 4d 08 8b 55 0c ?? 81 31 ?? ?? ?? ?? f7 11 ?? 83 c1 04 4a 75 f1}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_AD_2147818737_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.AD"
+        threat_id = "2147818737"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {8b 0e 0f b6 d1 0f b6 dd 57 8d bd fc fe ff ff 8a 04 3a 8a 24 3b c1 e9 10 83 c6 04 0f b6 d1 0f b6 cd 8a 1c 3a 8a 3c 39 5f 8a d4 8a f3 c0 e0 02 c0 eb 02 c0 e6 06 c0 e4 04 c0 ea 04 0a fe 0a c2 0a e3 88 07 88 7f 02 88 67 01 ff 4d fc 8d 7f 03 75 af 58}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_PD_2147829188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.PD!MTB"
+        threat_id = "2147829188"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b f9 2b cf 0f b6 16 03 c2 46 03 d8 4f 75 f5 bf ?? ?? ?? ?? 81 f7 ?? ?? ?? ?? 33 d2 f7 f7 52 8b c3 33 d2 f7 f7 8b da 58 85 c9 75 c5}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_PE_2147841512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.PE!MTB"
+        threat_id = "2147841512"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = {8b 54 30 02 8b 0c fb 8b c1 c1 e8 18 88 46 fe 8b c1 c1 e8 10 88 46 ff 8b c1 c1 e8 08 88 06 8b c2 c1 e8 18 8d 76 08 88 46 fa 8b c2 c1 e8 10 88 46 fb 8b c2 c1 e8 08 47 88 46 fc 8b 45 fc 88 4e f9 88 56 fd 83 ff 08}  //weight: 2, accuracy: High
-        $x_1_2 = {4a 8d 76 fc 8b 46 04 85 d2 7e 04 8b 0e eb 02 8b cf c1 e9 1d c1 e0 03 0b c8 89 4c 95 e8 85 d2 75 df}  //weight: 1, accuracy: High
-        $x_1_3 = "Tor Browser" ascii //weight: 1
-        $x_1_4 = "data is completely encrypted" ascii //weight: 1
-        $x_1_5 = "decryption keys" ascii //weight: 1
-        $x_1_6 = "Reyonpharm_hacked" ascii //weight: 1
+        $x_1_1 = "Po0q7OPs7I" wide //weight: 1
+        $x_1_2 = "Restore-My-Files.txt" wide //weight: 1
+        $x_1_3 = "All your important files are encrypted!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_ADA_2147845365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.ADA!MTB"
+        threat_id = "2147845365"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_100_2 = {fc 9c c9 2d ?? ?? ?? ?? ac d0 41 ?? 1d ?? ?? ?? ?? 55 c9 ce 8d 76 ?? 4e e6 ?? 7b ?? be ?? ?? ?? ?? 8c 5d ?? 43 05}  //weight: 100, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_PF_2147846983_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.PF!MTB"
+        threat_id = "2147846983"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f be c0 83 e8 0d 88 44 0c ?? 41 83 f9 0c 72}  //weight: 1, accuracy: Low
+        $x_1_2 = {83 f0 6c 33 d2 88 44 24 ?? 8a 44 24 ?? 8a 44 14 ?? 8b 4c 24 ?? 02 ca 0f be c0 33 c8 88 4c 14 ?? 42 83 fa 0b 72}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_PG_2147900108_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.PG!MTB"
+        threat_id = "2147900108"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "LockBit.JPG" wide //weight: 1
+        $x_1_2 = "Your data is stolen and encrypted." ascii //weight: 1
+        $x_1_3 = "LockBit 3.0 the world's fastest and most stable ransomware" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_SA_2147913037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.SA"
+        threat_id = "2147913037"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "that is located in every encrypted folder." wide //weight: 1
+        $x_1_2 = "Would you like to earn millions of dollars?" wide //weight: 1
+        $x_2_3 = "3085B89A0C515D2FB124D645906F5D3DA5CB97CEBEA975959AE4F95302A04E1D709C3C4AE9B7" wide //weight: 2
+        $x_2_4 = "http://lockbitapt6vx57t3eeqjofwgcglmutr3a35nygvokja5uuccip4ykyd.onion" wide //weight: 2
+        $x_1_5 = "Active:[ %d [                  Completed:[ %d" wide //weight: 1
+        $x_2_6 = "\\LockBit_Ransomware.hta" ascii //weight: 2
+        $x_1_7 = "Ransomware.hta" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_1_*))) or
+            ((1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Ransom_Win32_LockBit_K_2147929342_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.K"
+        threat_id = "2147929342"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Version: LockBitGreen" ascii //weight: 1
+        $x_1_2 = {7e 7e 7e 20 59 6f 75 20 68 61 76 65 20 62 65 65 6e 20 61 74 74 61 63 ?? 65 64 20 62 79 20 4c 6f 63 6b 42 69 74 20 34}  //weight: 1, accuracy: Low
+        $n_1_3 = "[%d] Decrypted:" wide //weight: -1
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_LockBit_AL_2147934827_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockBit.AL!MTB"
+        threat_id = "2147934827"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {80 30 fa 80 70 0a fa 83 c0 14 39 f0 75}  //weight: 4, accuracy: High
+        $x_1_2 = {c7 04 24 10 27 00 00 ff d3 83 ec 04 eb}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

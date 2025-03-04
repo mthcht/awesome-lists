@@ -1,27 +1,48 @@
-rule Trojan_Win32_PassView_SIBA_2147798539_0
+rule Trojan_Win32_Passview_MB_2147813153_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/PassView.SIBA!MTB"
-        threat_id = "2147798539"
+        detection_name = "Trojan:Win32/Passview.MB!MTB"
+        threat_id = "2147813153"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "PassView"
+        family = "Passview"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "60"
+        threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = "AppData\\Local\\Microsoft\\Vault\\4BF4C442-9B8A-41A0-B380-DD4A704DDB2" ascii //weight: 5
-        $x_5_2 = "\"Account\",\"Login Name\",\"Password\",\"Web Site\",\"Comments\"" ascii //weight: 5
-        $x_1_3 = "iepv_sites.txt" ascii //weight: 1
-        $x_50_4 = {33 db 88 1f 8a 06 84 c0 b1 ?? 2a cb 32 c8 6a ?? 8d 45 ?? 50 80 f1 ?? 57 88 4d 04 e8 ?? ?? ?? ?? 83 c4 0c 43 8a 04 33 84 c0 75}  //weight: 50, accuracy: Low
+        $x_1_1 = {89 47 0c 8b 4d f4 8b 07 89 0c b0 8b 75 0c 8b 4d e4 8b 7d f8 8a 01 88 45 fc 8b d7 8d 45 d0 e8 ?? ?? ?? ?? 8b 45 d0 8a 4d fc 88 0c 38 47 89 7d f8 89 5d e8 ff 45 f4 8b 45 f4 38 1c 30 0f 85}  //weight: 1, accuracy: Low
+        $x_1_2 = "encryptedPassword" ascii //weight: 1
+        $x_1_3 = "CryptDecrypt" ascii //weight: 1
+        $x_1_4 = "/deleteregkey" ascii //weight: 1
+        $x_1_5 = "CreateToolhelp32Snapshot" ascii //weight: 1
+        $x_1_6 = "UnmapViewOfFile" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_50_*) and 2 of ($x_5_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Passview_MA_2147813451_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Passview.MA!MTB"
+        threat_id = "2147813451"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Passview"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {56 41 b5 f8 3b a1 ?? ?? ?? ?? 3a 4f ad 33 99 ?? ?? ?? ?? 0c 00 aa 00 60 d3 93}  //weight: 1, accuracy: Low
+        $x_1_2 = {6d 4d 61 69 6e 00 0d 01 2e 00 c4 a7 ca de d5 f9 b0 d4 b8 f6 d0 d4 bb af b9 a4 be df 20 2d 20 57 61 72 4d 70 71}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

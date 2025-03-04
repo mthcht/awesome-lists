@@ -1,94 +1,68 @@
-rule Trojan_AndroidOS_SmForw_A_2147744047_0
+rule Trojan_AndroidOS_SMforw_B_2147789170_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/SmForw.A!MTB"
-        threat_id = "2147744047"
+        detection_name = "Trojan:AndroidOS/SMforw.B"
+        threat_id = "2147789170"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "SmForw"
+        family = "SMforw"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Q049U0hBWUZN" ascii //weight: 1
-        $x_1_2 = "qq:1279525738" ascii //weight: 1
-        $x_1_3 = "BAH.java" ascii //weight: 1
-        $x_1_4 = "9999-01-15 00:50:00" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_AndroidOS_SmForw_G_2147816666_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/SmForw.G!MTB"
-        threat_id = "2147816666"
-        type = "Trojan"
-        platform = "AndroidOS: Android operating system"
-        family = "SmForw"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "com.yfm.send" ascii //weight: 1
-        $x_1_2 = "isMobileNO" ascii //weight: 1
-        $x_1_3 = "SmSserver" ascii //weight: 1
-        $x_1_4 = "fromphone" ascii //weight: 1
-        $x_1_5 = "SendSms" ascii //weight: 1
-        $x_1_6 = "getOriginatingAddress" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (5 of ($x*))
-}
-
-rule Trojan_AndroidOS_SmForw_B_2147829220_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/SmForw.B!MTB"
-        threat_id = "2147829220"
-        type = "Trojan"
-        platform = "AndroidOS: Android operating system"
-        family = "SmForw"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "targetPhoneNumberInput" ascii //weight: 1
-        $x_1_2 = "kill_app_hint_text" ascii //weight: 1
-        $x_1_3 = "default_forward_number" ascii //weight: 1
-        $x_1_4 = "target_phone_number_key" ascii //weight: 1
+        $x_1_1 = "regCustomer" ascii //weight: 1
+        $x_1_2 = "/ConnMachine" ascii //weight: 1
+        $x_1_3 = "&telcompany=" ascii //weight: 1
+        $x_1_4 = "sendPoke" ascii //weight: 1
+        $x_1_5 = "=receivesms&telnum=" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_AndroidOS_SmForw_G_2147852114_0
+rule Trojan_AndroidOS_SMforw_C_2147789256_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/SmForw.G"
-        threat_id = "2147852114"
+        detection_name = "Trojan:AndroidOS/SMforw.C"
+        threat_id = "2147789256"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "SmForw"
+        family = "SMforw"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "6"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "yYlloIEorthopedic899t" ascii //weight: 2
-        $x_2_2 = "vPreiNKapathetic803i" ascii //weight: 2
-        $x_2_3 = "gZzouHQpneumonia797h" ascii //weight: 2
+        $x_1_1 = "hp_getsmsblockstate.php?telnum=" ascii //weight: 1
+        $x_1_2 = "getTelCompany" ascii //weight: 1
+        $x_1_3 = "?type=join&telnum=" ascii //weight: 1
+        $x_1_4 = "buileClient" ascii //weight: 1
+        $x_1_5 = "postGPSData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_AndroidOS_SMforw_F_2147794299_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SMforw.F"
+        threat_id = "2147794299"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SMforw"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ConvHelpers" ascii //weight: 2
+        $x_2_2 = "Lcom/e4a/runtime/helpers/StmtHelpers" ascii //weight: 2
+        $x_1_3 = "smsColumn" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

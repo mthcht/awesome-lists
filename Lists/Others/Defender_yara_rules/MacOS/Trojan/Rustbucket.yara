@@ -1,57 +1,110 @@
-rule Trojan_MacOS_RustBucket_X_2147918953_0
+rule Trojan_MacOS_Rustbucket_AP_2147918955_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/RustBucket.X"
-        threat_id = "2147918953"
+        detection_name = "Trojan:MacOS/Rustbucket.AP"
+        threat_id = "2147918955"
         type = "Trojan"
         platform = "MacOS: "
-        family = "RustBucket"
+        family = "Rustbucket"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "5"
+        threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_3_1 = "/Users/Shared/.pld" ascii //weight: 3
-        $x_1_2 = "pid,user,ppid,start,comm" ascii //weight: 1
-        $x_1_3 = "kern.boottime" ascii //weight: 1
-        $x_1_4 = "/var/log/install.log" ascii //weight: 1
+        $x_1_1 = "downAndExecute" ascii //weight: 1
+        $x_1_2 = "com.apple.pdfViewer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Rustbucket_AQ_2147918956_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Rustbucket.AQ"
+        threat_id = "2147918956"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Rustbucket"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-o ErrorCheck.zip" ascii //weight: 1
+        $x_1_2 = "down_update_run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Rustbucket_AR_2147918957_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Rustbucket.AR"
+        threat_id = "2147918957"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Rustbucket"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {75 6e 7a 69 70 20 [0-8] 2f 55 73 65 72 73 2f 53 68 61 72 65 64}  //weight: 4, accuracy: Low
+        $x_1_2 = {63 68 6d 6f 64 20 2b 78 [0-8] 2f 55 73 65 72 73 2f 53 68 61 72 65 64 2f}  //weight: 1, accuracy: Low
+        $x_1_3 = {63 68 6d 6f 64 20 37 [0-8] 2f 55 73 65 72 73 2f 53 68 61 72 65 64 2f}  //weight: 1, accuracy: Low
+        $x_2_4 = {6f 70 65 6e 20 [0-8] 2f 55 73 65 72 73 2f 53 68 61 72 65 64 2f}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
-            ((1 of ($x_3_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }
 
-rule Trojan_MacOS_RustBucket_AY_2147918961_0
+rule Trojan_MacOS_Rustbucket_AS_2147918958_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/RustBucket.AY"
-        threat_id = "2147918961"
+        detection_name = "Trojan:MacOS/Rustbucket.AS"
+        threat_id = "2147918958"
         type = "Trojan"
         platform = "MacOS: "
-        family = "RustBucket"
+        family = "Rustbucket"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "6"
+        threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "Mozilla/5.0 (compatible; msie 8.0; windows nt 6.1; trident/4.0)" ascii //weight: 1
-        $x_1_2 = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)" ascii //weight: 1
-        $x_3_3 = "com.apple.systemupdate.plist" ascii //weight: 3
-        $x_2_4 = "/Library/Metadata/System Update" ascii //weight: 2
-        $x_3_5 = "com.apple.safariupdate.plist" ascii //weight: 3
-        $x_2_6 = "Library/Application Support/Safari Update" ascii //weight: 2
+        $x_1_1 = "com.softwaredev.swift-ui-test" ascii //weight: 1
+        $x_1_2 = "7L2UQTVP6F" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_3_*) and 2 of ($x_2_*))) or
-            ((2 of ($x_3_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Rustbucket_AU_2147919373_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Rustbucket.AU"
+        threat_id = "2147919373"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Rustbucket"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "com.howard.toolkit.calendar" ascii //weight: 1
+        $x_1_2 = "CUJH6YKSQY" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

@@ -1,2034 +1,1141 @@
-rule Trojan_Win32_IcedId_PA_2147739826_0
+rule Trojan_Win32_IcedID_A_2147735313_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.PA!MTB"
-        threat_id = "2147739826"
+        detection_name = "Trojan:Win32/IcedID.A!!IcedID.A"
+        threat_id = "2147735313"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        info = "IcedID: an internal category used to refer to some threats"
+        info = "A: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ARHSTR_EXT"
+        threshold = "203"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {8b 3b 39 05 ?? ?? ?? ?? 75 40 3b ea 73 1e 89 0d ?? ?? ?? ?? 8b 0d ?? ?? ?? ?? 0f af ca 69 c9 55 69 00 00 66 89 0d ?? ?? ?? ?? eb 07 66 8b 0d ?? ?? ?? ?? 39 05 ?? ?? ?? ?? 76 16 0f b7 05 ?? ?? ?? ?? 29 05 ?? ?? ?? ?? eb 07 66 8b 0d ?? ?? ?? ?? 81 3d ?? ?? ?? ?? 56 5e 04 00 75 02 2b f5 81 c7 a0 c9 ce 01 89 3b ba 02 00 00 00 39 35 ?? ?? ?? ?? 76 06 29 15 ?? ?? ?? ?? 8b 44 24 14 83 c3 04 83 6c 24 10 01 0f 85}  //weight: 1, accuracy: Low
-        $x_1_2 = {8b 2a 83 c1 fa 03 cf a3 ?? ?? ?? 00 0f b7 c1 05 eb 00 00 00 66 89 0d ?? ?? ?? 00 3d 21 1b 00 00 7e ?? 8b 0d ?? ?? ?? 00 69 c7 58 18 00 00 2b c8 8d 0c 4b 66 89 0d ?? ?? ?? 00 0f b7 c1 81 c5 ac 00 56 01 05 eb 00 00 00 89 2a 3d 21 1b 00 00 7e ?? 8b 0d ?? ?? ?? 00 8b c1 2b c6 83 e8 1d 69 c0 58 18 00 00 2b c8 8d 0c 4b 66 89 0d ?? ?? ?? 00 a1 ?? ?? ?? 00 83 c2 04 2b 05 ?? ?? ?? 00 83 c0 06 89 54 24 18 ff 4c 24 1c 0f b7 f8 0f 85}  //weight: 1, accuracy: Low
+        $x_1_1 = {56 4d 77 61 (75|74) 05 00 04 01 01 01 01 3d fb f9 fa}  //weight: 1, accuracy: Low
+        $x_1_2 = {58 65 6e 56 (75|74) 05 00 04 01 01 01 01 3d fb f9 fa}  //weight: 1, accuracy: Low
+        $x_1_3 = {4d 69 63 72 (75|74) 05 00 04 01 01 01 01 3d fb f9 fa}  //weight: 1, accuracy: Low
+        $x_1_4 = {4b 56 4d 4b (75|74) 05 00 04 01 01 01 01 3d fb f9 fa}  //weight: 1, accuracy: Low
+        $x_1_5 = {56 42 6f 78 (75|74) 05 00 04 01 01 01 01 3d fb f9 fa}  //weight: 1, accuracy: Low
+        $x_100_6 = {43 8b d0 46 59 8a 0c 37 32 ca 88 0e}  //weight: 100, accuracy: High
+        $x_100_7 = {d1 c8 f7 d0 d1 c8 2d 20 01 00 00 d1 c0 f7 d0 2d 01 91 00 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
-        (1 of ($x*))
+        (
+            ((2 of ($x_100_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
-rule Trojan_Win32_IcedId_PB_2147745018_0
+rule Trojan_Win32_IcedID_DSK_2147742670_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.PB!MTB"
-        threat_id = "2147745018"
+        detection_name = "Trojan:Win32/IcedID.DSK!MTB"
+        threat_id = "2147742670"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {66 3b d8 7f 51 8b 07 8b 78 0c 8b 48 14 2b f9 8d 4d ?? 51 ff d6 8b 4d ?? 83 c3 05 8b 51 0c 2b 51 14 66 0f b6 04 10 66 99 66 f7 fb 8d 45 ?? 50 66 8b da ff d6 8a 0c 38 32 d9 8d 4d ?? 51 ff d6 8b 4d ?? 88 1c 38 8b 7d 08 b8 01 00 00 00 03 c8 89 4d ?? 8b d9 eb 05 00 b8 ?? ?? 00 00}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_PC_2147748466_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.PC!MTB"
-        threat_id = "2147748466"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {8b c6 2b c3 03 f9 05 ?? ?? ?? ?? 81 ff ?? ?? 00 00 75 08 8d 74 29 ?? 8d 4c 01 ?? 8b 54 24 10 8b 5c 24 14 03 c6 03 c8 a1 ?? ?? ?? ?? 8d 84 10}  //weight: 1, accuracy: Low
-        $x_1_2 = {8b 38 8b d1 2b d5 81 c2 ?? ?? ?? ?? 81 fe ?? ?? ?? ?? 75 0f bd ?? ?? ?? ?? 2b e9 8b cd 8b 2d ?? ?? ?? ?? 83 44 24 10 04 81 c7 dc 6b ee 01 89 38 8b c1 8b 0d ?? ?? ?? ?? 2b c2 83 c0 09 81 7c 24 10 ?? ?? 00 00 a3 ?? ?? ?? ?? 8d 4c 01 ?? 0f 82}  //weight: 1, accuracy: Low
+        $x_2_1 = {8b 54 24 10 05 cc cb e5 01 89 02 a3 ?? ?? ?? ?? 66 89 35 ?? ?? ?? ?? a1 a4 4c 42 00 2b c7 83 c2 04 83 6c 24 14 01 0f b7 c8 89 54 24 10}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_PVS_2147748658_0
+rule Trojan_Win32_IcedID_VDSK_2147745110_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.PVS!MTB"
-        threat_id = "2147748658"
+        detection_name = "Trojan:Win32/IcedID.VDSK!MTB"
+        threat_id = "2147745110"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {8b 5c 24 24 69 c5 83 e5 00 00 66 03 c8 8b 02 05 2c 5a 16 01 66 89 0d ?? ?? ?? ?? 8b 3d ?? ?? ?? ?? 2b df 89 02}  //weight: 2, accuracy: Low
-        $x_2_2 = {8a 44 0f 03 8a d0 80 e2 fc c0 e2 04 0a 54 0f 01 88 55 ff 8a d0 24 f0 c0 e0 02 0a 04 0f c0 e2 06 0a 54 0f 02 88 04 1e}  //weight: 2, accuracy: High
-        $x_2_3 = {8b 4d fc 8b 55 cc 8b 04 8a 33 05 24 70 44 00 8b 4d fc 8b 55 cc 89 04 8a}  //weight: 2, accuracy: High
-        $x_2_4 = {81 c2 f0 a5 f7 01 89 15 ?? ?? ?? ?? 89 94 1e e9 fc ff ff 8b 35 ?? ?? ?? ?? ba 04 00 00 00 03 da 81 fb 07 04 00 00 89 15 06 00 8b 15}  //weight: 2, accuracy: Low
+        $x_2_1 = {2b cd 83 e9 09 0f b7 f9 05 dc a5 ed 01 a3 ?? ?? ?? ?? 89 02 06 00 8b 0d}  //weight: 2, accuracy: Low
+        $x_2_2 = {8b 55 f8 8b ca b8 05 00 00 00 03 c1 83 e8 05 89 45 fc a1 ?? ?? ?? ?? 8b 4d fc 89 08}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
 }
 
-rule Trojan_Win32_IcedId_VSK_2147749240_0
+rule Trojan_Win32_IcedID_PDSK_2147745262_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.VSK!MTB"
-        threat_id = "2147749240"
+        detection_name = "Trojan:Win32/IcedID.PDSK!MTB"
+        threat_id = "2147745262"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 54 24 10 05 20 ab 8f 01 89 02 a3 ?? ?? ?? ?? a1 ?? ?? ?? ?? c1 e0 05 bd}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_PVK_2147749788_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.PVK!MTB"
+        threat_id = "2147749788"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 54 24 10 05 9c 29 cd 01 a3 ?? ?? ?? ?? 89 02 05 00 a1}  //weight: 2, accuracy: Low
+        $x_2_2 = {8b d7 b8 7c 00 00 00 03 c2 83 e8 7c a3 ?? ?? ?? ?? a1 ?? ?? ?? ?? 8b 0d ?? ?? ?? ?? 89 08}  //weight: 2, accuracy: Low
+        $x_2_3 = {8b 4d 0c 8b 45 fc 33 d2 03 c8 f7 75 14 8b 45 08 8a 04 50 30 01}  //weight: 2, accuracy: High
+        $x_2_4 = {8a 04 0e 8b 4c 24 60 81 c1 66 d4 e1 0e 30 f8 89 4c 24 60 8b 4c 24 44 88 04 11}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_IcedID_KDS_2147750847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.KDS!MTB"
+        threat_id = "2147750847"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {31 d8 69 c0 db 02 03 00 a3 05 00 a1}  //weight: 2, accuracy: Low
+        $x_2_2 = {8b f7 05 d0 18 68 01 2b f1 83 ee 2f a3 ?? ?? ?? ?? 66 89 35 07 00 66 89 35}  //weight: 2, accuracy: Low
+        $x_2_3 = {8a 44 15 fc 32 04 0e 47 88 01 3b 7d 10 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_IcedID_2147751159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID!MTB"
+        threat_id = "2147751159"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {49 44 41 54 30 00 0b c1 c1 ?? 08 c1 ?? 08 0b d0 30 00 0b d0 8b c1 [0-32] 00 ff 00 00}  //weight: 50, accuracy: Low
+        $x_50_2 = {49 44 41 54 50 00 0b c1 c1 ?? 08 c1 ?? 08 0b d0 30 00 0b d0 8b c1}  //weight: 50, accuracy: Low
+        $x_1_3 = "WinHttpQueryDataAvailable" ascii //weight: 1
+        $x_1_4 = "WinHttpConnect" ascii //weight: 1
+        $x_1_5 = "WinHttpSendRequest" ascii //weight: 1
+        $x_1_6 = "WinHttpCloseHandle" ascii //weight: 1
+        $x_1_7 = "WinHttpSetOption" ascii //weight: 1
+        $x_1_8 = "WinHttpOpenRequest" ascii //weight: 1
+        $x_1_9 = "WinHttpReadData" ascii //weight: 1
+        $x_1_10 = "WinHttpQueryHeaders" ascii //weight: 1
+        $x_1_11 = "WinHttpOpen" ascii //weight: 1
+        $x_1_12 = "WinHttpReceiveResponse" ascii //weight: 1
+        $x_1_13 = "WINHTTP.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_50_*) and 5 of ($x_1_*))) or
+            ((2 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_IcedID_PKV_2147752587_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.PKV!MTB"
+        threat_id = "2147752587"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {81 c2 5c 60 2d 01 89 15 ?? ?? ?? ?? a1 ?? ?? ?? ?? 03 45 fc 8b 0d ?? ?? ?? ?? 89 88 ?? ?? ff ff 06 00 8b 15}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_DSP_2147752812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.DSP!MTB"
+        threat_id = "2147752812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 01 03 fe 89 3d ?? ?? ?? ?? 39 15 ?? ?? ?? ?? 76 ?? 29 35 ?? ?? ?? ?? 05 28 57 93 01 a3}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_PVR_2147753515_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.PVR!MTB"
+        threat_id = "2147753515"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b f0 89 15 ?? ?? ?? ?? 81 05 ?? ?? ?? ?? 10 4c 08 02 6b ed 1f 8b 44 24 24 03 6c 24 28 8b 0d ?? ?? ?? ?? 89 08}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_PVP_2147753663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.PVP!MTB"
+        threat_id = "2147753663"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {81 c7 50 96 26 01 89 3d ?? ?? ?? ?? 89 bc 30 ?? ?? ff ff 83 c6 04 8b 15 ?? ?? ?? ?? 8a c2 2a 05 ?? ?? ?? ?? 04 04 81 fe a2 13 00 00 0f 82 05 00 a1}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_PVE_2147753812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.PVE!MTB"
+        threat_id = "2147753812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {66 03 de 66 89 15 ?? ?? ?? ?? 8b 74 24 18 66 89 1d ?? ?? ?? ?? 8b 1d ?? ?? ?? ?? 81 c3 ac f5 ff ff 89 06 05 00 a3}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_MM_2147755334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.MM!MTB"
+        threat_id = "2147755334"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 44 34 4c 0f b6 cb 03 c1 99 b9 ?? ?? ?? ?? f7 f9 8a 5d 00 8b 44 24 48 83 c4 ?? 8a 54 14 14 32 da 88 5d 00 45 48 89 44 24 10 0f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_PVA_2147759368_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.PVA!MTB"
+        threat_id = "2147759368"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = {8b 46 00 41 81 f0 a0 00 00 00 8b fa 81 e9 51 6b 4f 00 81 c7 32 64 00 00 41 81 c1 4e 42 00 00 89 43 00}  //weight: 2, accuracy: High
-        $x_2_2 = {8b 44 24 30 8b 4c 24 58 0f af 4c 24 30 8d 04 85 1f 01 00 00 0f af 44 24 10 2b c8 0f af 4c 24 58 6a 48 58 2b c1 01 44 24 30}  //weight: 2, accuracy: High
-        $x_2_3 = {8b 44 24 24 2a ca 83 44 24 10 04 8d 14 19 2c 45 f6 d9 02 d0 81 c7 2c b0 15 01 8a c2 89 7d 00}  //weight: 2, accuracy: High
-        $x_2_4 = {8b 55 ec 31 ca c6 45 eb 16 89 55 ec 8b 4d e4 8b 55 f4 8a 65 eb 8a 1c 0a 28 e0 88 45 eb}  //weight: 2, accuracy: High
+        $x_1_1 = {8a 04 38 88 04 3e 8b 75 fc 0f b6 c0 03 c2 0f b6 c0 88 0c 3e 8b 4d 08 8a 04 38 32 04 0b 88 01}  //weight: 1, accuracy: High
+        $x_1_2 = "qxnVX5YRonia5LIknkLQUcfLO8NYvkcx1mo4ns1VH0y" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (1 of ($x*))
+        (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_PVD_2147750142_0
+rule Trojan_Win32_IcedID_PVB_2147759773_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.PVD!MTB"
-        threat_id = "2147750142"
+        detection_name = "Trojan:Win32/IcedID.PVB!MTB"
+        threat_id = "2147759773"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
-        strings_accuracy = "Low"
+        strings_accuracy = "High"
     strings:
-        $x_2_1 = {0f b7 c3 89 2d ?? ?? ?? ?? 8b e8 2b ee 8d 34 29 81 c2 b4 33 da 01 8d 0c c0 2b 0d ?? ?? ?? ?? 89 17 07 00 8b 17 a3}  //weight: 2, accuracy: Low
-        $x_2_2 = {8a 9c 24 df 03 00 00 88 a4 24 7f 01 00 00 c7 84 24 ec 00 00 00 00 00 00 00 c7 84 24 e8 00 00 00 46 3e 00 00 80 f3 16 c6 84 24 97 01 00 00 94 88 9c 24 0f 01 00 00}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DHA_2147757153_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DHA!MTB"
-        threat_id = "2147757153"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {0f b6 cb 03 c1 99 b9 ?? ?? ?? ?? f7 f9 8b 85 ?? ?? ?? ?? 40 83 c4 2c 89 85 01 0f b6 94 15 ?? ?? ?? ?? 30 50 ff}  //weight: 1, accuracy: Low
-        $x_1_2 = "RP5dRFB7AqcBcwwqvpbFjlFptqdJq4C" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DEB_2147757648_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEB!MTB"
-        threat_id = "2147757648"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 10 33 f6 8d 44 24 10 56 6a 01 5d 55 56 56 50 ff 15 ?? ?? ?? ?? 85 c0 5b 75 36 6a 08 55 56 8d 44 24 18 56 50 ff 15 00 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "RYxhhug5op5e0nh" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DEC_2147758831_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEC!MTB"
-        threat_id = "2147758831"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 10 53 6a 01 53 53 8d 44 24 28 50 ff 15 ?? ?? ?? ?? 85 c0 75 3a 6a 08 6a 01 53 53 8d 4c 24 28 51 ff 15 00 85 c0}  //weight: 1, accuracy: Low
+        $x_1_1 = "06WYp4KuV4611XwjqHdiuB1jb0JNhUZLhzUQ6V4M2S6I1gFXpyxE2MQBfJu4iigy" ascii //weight: 1
+        $x_1_2 = "qxnVX5YRonia5LIknkLQUcfLO8NYvkcx1mo4ns1VH0y" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_DEE_2147758930_0
+rule Trojan_Win32_IcedID_MB_2147759899_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEE!MTB"
-        threat_id = "2147758930"
+        detection_name = "Trojan:Win32/IcedID.MB!MTB"
+        threat_id = "2147759899"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "4"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {83 c4 10 53 6a 01 53 53 8d 44 24 28 50 ff 15 ?? ?? ?? ?? 85 c0 75 ?? 6a 08 6a 01 53 53 8d 4c 24 28 51 ff 15 00 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "hfRuPhzYOiqUHw59w9g68tAN1lVGPBlmYjNKv6HArNKYj" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DEF_2147759258_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEF!MTB"
-        threat_id = "2147759258"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 10 8d 44 24 18 53 6a 01 53 53 50 ff 15 ?? ?? ?? ?? 85 c0 75 3a 6a 08 6a 01 53 8d 4c 24 24 53 51 ff 15 00 85 c0}  //weight: 1, accuracy: Low
+        $x_1_1 = {2b df 81 c1 20 f3 8e 01 03 c3 89 0d ?? ?? ?? ?? a3 ?? ?? ?? ?? 89 8c 16 5f de ff ff a1 ?? ?? ?? ?? 8b 2d ?? ?? ?? ?? bb 53 00 00 00 2b d8 8b cd 2b cb 83 c1 1d 89 1d ?? ?? ?? ?? 3b c8 75}  //weight: 1, accuracy: Low
+        $x_1_2 = "CreateSemaphoreA" ascii //weight: 1
+        $x_1_3 = "RegisterHotKey" ascii //weight: 1
+        $x_1_4 = "IsDebuggerPresent" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_DEG_2147759357_0
+rule Trojan_Win32_IcedID_MB_2147759899_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEG!MTB"
-        threat_id = "2147759357"
+        detection_name = "Trojan:Win32/IcedID.MB!MTB"
+        threat_id = "2147759899"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 10 8d 44 24 1c 53 6a 01 53 53 50 ff 15 ?? ?? ?? ?? 85 c0 5e 75 3b 6a 08 6a 01 53 8d 4c 24 24 53 51 ff 15 00 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "H7Gx9op2JpZ3BwqtjR2PgOcnlo3MsUBimaeBgh3GvPVpLJuZfHAdfOmuvsolHZeEyQQGiE0IhjdNj" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DEH_2147759822_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEH!MTB"
-        threat_id = "2147759822"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 48 53 6a 01 53 53 8d 4c 24 ?? 51 ff 15 ?? ?? ?? ?? 85 c0 75 3a 6a 08 6a 01 53 53 8d 54 24 00 52 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "FGDAFGSDSFGSDSFGSDFGGHFDdtydrTFSFGSDAgfsdgfs" ascii //weight: 1
-        $x_1_3 = "06WYp4KuV4611XwjqHdiuB1jb0JNhUZLhzUQ6V4M2S6I1gFXpyxE2MQBfJu4iigy" ascii //weight: 1
-        $x_1_4 = "qxnVX5YRonia5LIknkLQUcfLO8NYvkcx1mo4ns1VH0y" ascii //weight: 1
-        $x_1_5 = "k9HlXs5j5MF4nmN" ascii //weight: 1
-        $x_1_6 = "eOrSHsbkt5WGM9s" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DEJ_2147760011_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEJ!MTB"
-        threat_id = "2147760011"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 0c 6a 00 6a 01 6a 00 6a 00 8d 55 ?? 52 ff 15 ?? ?? ?? ?? 85 c0 75 40 6a 08 6a 01 6a 00 6a 00 8d 45 00 50 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "EeSVHCB8fA84i6E" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DEK_2147760012_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEK!MTB"
-        threat_id = "2147760012"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {0f b6 84 34 ?? ?? ?? ?? 0f b6 cb 03 c1 99 b9 ?? ?? ?? ?? f7 f9 8d 4c 24 14 83 c5 01 0f b6 94 14 00 30 55 ff}  //weight: 1, accuracy: Low
-        $x_1_2 = "onItrOx8cz93ZpykfJlBaYTDZvZYVfHRQjiEB4a" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_AB_2147760344_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.AB!MTB"
-        threat_id = "2147760344"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "21"
         strings_accuracy = "High"
     strings:
-        $x_3_1 = "Warco  leggu" ascii //weight: 3
-        $x_3_2 = "LocaleNameToLCID" ascii //weight: 3
-        $x_3_3 = "Hair\\Tierange.pdb" ascii //weight: 3
-        $x_3_4 = "some\\us\\See\\thank" ascii //weight: 3
-        $x_3_5 = "GetEnvironmentVariableW" ascii //weight: 3
-        $x_3_6 = "GetTextMetricsW" ascii //weight: 3
-        $x_3_7 = "ord6582" ascii //weight: 3
+        $x_3_1 = "shellexecute=AutoRun.exe" ascii //weight: 3
+        $x_3_2 = "prop:System.Security.EncryptionOwners" ascii //weight: 3
+        $x_3_3 = "ResolveDelayLoadedAPI" ascii //weight: 3
+        $x_3_4 = "DelayLoadFailureHook" ascii //weight: 3
+        $x_3_5 = "DuplicateEncryptionInfoFile" ascii //weight: 3
+        $x_3_6 = "lpValueName->Hidden" ascii //weight: 3
+        $x_3_7 = "C:\\AUTOEXEC.BAT.exe" ascii //weight: 3
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_DEM_2147760367_0
+rule Trojan_Win32_IcedID_GC_2147760545_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEM!MTB"
-        threat_id = "2147760367"
+        detection_name = "Trojan:Win32/IcedID.GC!MTB"
+        threat_id = "2147760545"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {83 c4 14 6a 00 6a 01 6a 00 6a 00 8d 55 ?? 52 ff 15 ?? ?? ?? ?? 85 c0 75 ?? 6a 08 6a 01 6a 00 6a 00 8d 45 00 50 ff 15 01 85 c0}  //weight: 1, accuracy: Low
+        $x_1_1 = {8b f8 33 f9 c7 05 [0-48] 01 3d [0-48] 8b ff a1 [0-48] 8b 0d [0-48] 89 08}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_DEO_2147760805_0
+rule Trojan_Win32_IcedID_GG_2147772934_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEO!MTB"
-        threat_id = "2147760805"
+        detection_name = "Trojan:Win32/IcedID.GG!MTB"
+        threat_id = "2147772934"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
+        threshold = "18"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = {83 c4 04 50 6a 01 6a 00 6a 00 8d 4d f4 51 ff 15 ?? ?? ?? ?? 85 c0 75 ?? 32 c0 e9 ?? ?? ?? ?? c7 45 d4 00 00 00 00 8d 55 d4 52 6a 00 6a 00 68 34 01 00 00 68 ?? ?? ?? ?? 8b 45 f4 50 ff 15 ?? ?? ?? ?? 85 c0}  //weight: 1, accuracy: Low
+        $x_10_1 = "loader_dll_64.dll" ascii //weight: 10
+        $x_1_2 = "aws.amazon.com" ascii //weight: 1
+        $x_1_3 = "Cookie: __gads=" ascii //weight: 1
+        $x_1_4 = "DllRegisterServer" ascii //weight: 1
+        $x_1_5 = "; _gat=" ascii //weight: 1
+        $x_1_6 = "; _ga=" ascii //weight: 1
+        $x_1_7 = "; _u=" ascii //weight: 1
+        $x_1_8 = "; __io=" ascii //weight: 1
+        $x_1_9 = "; _gid=" ascii //weight: 1
+        $x_1_10 = "LookupAccountNameW" ascii //weight: 1
+        $x_1_11 = "WINHTTP.dll" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_10_*) and 8 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
-rule Trojan_Win32_IcedId_DEP_2147760877_0
+rule Trojan_Win32_IcedID_GG_2147772934_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEP!MTB"
-        threat_id = "2147760877"
+        detection_name = "Trojan:Win32/IcedID.GG!MTB"
+        threat_id = "2147772934"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8d 45 fc 6a 00 6a 01 6a 00 6a 00 50 c7 45 f8 ?? ?? ?? ?? ff d6 85 c0 75 ?? 6a 08 6a 01 50 50 8d 45 fc 50 ff d6 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "0oFW9eeKrWCPUZxEr9i0VuyhowVRpsztR4iBzl3" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DEQ_2147760878_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DEQ!MTB"
-        threat_id = "2147760878"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {6a 00 6a 01 6a 00 6a 00 8d 55 ?? 52 ff 15 ?? ?? ?? ?? 85 c0 75 40 6a 08 6a 01 6a 00 6a 00 8d 45 00 50 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "Xdq7mk5iNSp2eWF" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DAS_2147760976_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DAS!MTB"
-        threat_id = "2147760976"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
-        $x_5_1 = {2a cb 02 c1 8b 4c 24 18 89 39 8b 7c 24 0c 83 c7 04 89 7c 24 0c 81 ff 07 12 00 00 0f}  //weight: 5, accuracy: High
-        $x_1_2 = "Desertpick" ascii //weight: 1
-        $x_1_3 = "Runbook" ascii //weight: 1
+        $x_1_1 = "sadl_32.dll" ascii //weight: 1
+        $x_1_2 = "DllRegisterServer" ascii //weight: 1
+        $x_1_3 = "WINHTTP.dll" ascii //weight: 1
+        $x_1_4 = "?id=%0.2X%0.8X%0.8X%s" ascii //weight: 1
+        $x_1_5 = "VirtualAlloc" ascii //weight: 1
+        $x_1_6 = "WriteFile" ascii //weight: 1
+        $x_1_7 = "%0.8X-%0.4X-%0.4X-%0.4X-%0.4X%0.8X" ascii //weight: 1
+        $x_1_8 = "%0.2X%0.2X%0.2X%0.2X%0.2X%0.2X%0.8X" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (7 of ($x*))
 }
 
-rule Trojan_Win32_IcedId_DAS_2147760976_1
+rule Trojan_Win32_IcedID_PAA_2147773281_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DAS!MTB"
-        threat_id = "2147760976"
+        detection_name = "Trojan:Win32/IcedID.PAA!MTB"
+        threat_id = "2147773281"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {53 6a 01 53 8d 45 ?? 53 50 89 5d 0c ff 15 ?? ?? ?? ?? 85 c0 75 ?? 6a 08 6a 01 53 8d 45 00 53 50 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "Em1O7ccsDHAQEUj" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DAT_2147761039_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DAT!MTB"
-        threat_id = "2147761039"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {53 6a 01 53 8d 44 24 ?? 53 50 89 5c 24 ?? ff 15 ?? ?? ?? ?? 85 c0 75 3a 6a 08 6a 01 53 8d 4c 24 00 53 51 ff 15 02 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "VVXNHZEfp71kFlGUXv5du60C599rgamSBySsjXA" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DAU_2147761046_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DAU!MTB"
-        threat_id = "2147761046"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {53 6a 01 53 53 8d 44 24 ?? 50 89 5c 24 ?? ff 15 ?? ?? ?? ?? 85 c0 75 ?? 6a 08 6a 01 53 53 8d 4c 24 00 51 ff 15 02 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "jzaWmvU4NxwhOXQ" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DAZ_2147761198_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DAZ!MTB"
-        threat_id = "2147761198"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8b 44 24 14 81 c1 ?? ?? ?? ?? 8b f7 2b 35 ?? ?? ?? ?? 83 c6 10 89 08 83 c0 04 83 6c 24 18 01 89 44 24 14}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBA_2147761199_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBA!MTB"
-        threat_id = "2147761199"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8b c6 2b c7 48 0f b7 d8 0f b7 cb 2b 0d ?? ?? ?? ?? 81 c5 ?? ?? ?? ?? 89 2a 83 c2 04 83 6c 24 14 01 8d 74 0e 14 89 54 24 10}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DAJ_2147761346_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DAJ!MTB"
-        threat_id = "2147761346"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8b 5c 24 14 b0 a9 2a 05 ?? ?? ?? ?? 8b 74 24 10 2a c4 02 c8 89 1d ?? ?? ?? ?? 8b 44 24 28 89 35 ?? ?? ?? ?? 8b 38 81 c7}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBD_2147761504_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBD!MTB"
-        threat_id = "2147761504"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {6a 00 6a 01 6a 00 6a 00 8d 45 ?? 50 ff 15 ?? ?? ?? ?? 85 c0 75 3f 6a 08 6a 01 6a 00 6a 00 8d 4d 00 51 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "457867ujhfghdhgdgfdgh" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBF_2147761528_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBF!MTB"
-        threat_id = "2147761528"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {39 d8 7d 11 89 c2 40 f7 da 8a 54 11 ff 88 90 01 04 eb eb}  //weight: 1, accuracy: Low
-        $x_1_2 = "Preceding with zeros: %010d" ascii //weight: 1
-        $x_2_3 = "$}*tnKEPGFHBLSO" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (
-            ((2 of ($x_1_*))) or
-            ((1 of ($x_2_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_Win32_IcedId_DBG_2147761612_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBG!MTB"
-        threat_id = "2147761612"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {6a 00 6a 01 6a 00 6a 00 8d 55 ?? 52 ff 15 ?? ?? ?? ?? 85 c0 75 3f 6a 08 6a 01 6a 00 6a 00 8d 45 00 50 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "jH9{P|nWKBpPP%J" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBH_2147761927_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBH!MTB"
-        threat_id = "2147761927"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "10"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {53 6a 01 53 53 8d 45 0c 50 89 5d 0c ff d6 85 c0 75 2e 6a 08 6a 01 53 53 8d 45 0c 50 ff d6 85 c0}  //weight: 1, accuracy: High
-        $x_1_2 = "wPB6Gy0*CuLienC" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBI_2147761935_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBI!MTB"
-        threat_id = "2147761935"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 50 8d 44 24 0c 53 6a 01 53 53 50 ff 15 ?? ?? ?? ?? 85 c0 75 3a 6a 08 6a 01 53 8d 4c 24 18 53 51 ff 15 00 85 c0 75 25}  //weight: 1, accuracy: Low
-        $x_1_2 = "W8mWzWSX6Zvw1mG" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBK_2147762001_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBK!MTB"
-        threat_id = "2147762001"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {6a 01 5d 55 56 56 50 ff 15 ?? ?? ?? ?? 85 c0 5b 75 37 6a 08 55 56 8d 44 24 18 56 50 ff 15 00 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "OGur1xPpGxsXWcS" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBL_2147762002_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBL!MTB"
-        threat_id = "2147762002"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {53 6a 01 53 53 8d 44 24 ?? 50 ff 15 ?? ?? ?? ?? 85 c0 75 48 6a 08 6a 01 53 53 8d 4c 24 00 51 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "EcX1EsAduZpJrQGnsGrHl2PsDK5bXR10f6YmuCu0nAUca76MgpN" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBO_2147762241_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBO!MTB"
-        threat_id = "2147762241"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "h5Wgm709oTYZKcP" ascii //weight: 1
-        $x_1_2 = "Sqy8XSv5KzLZNIyjLZ6dFwAe8I2Ko" ascii //weight: 1
-        $x_1_3 = "CwhbgYCTyuFKNbpu6i2p2WSaLh" ascii //weight: 1
-        $x_1_4 = "QaAmD?VXwRSRbg3" ascii //weight: 1
-        $x_1_5 = "pOAtPRWSOyuRVs8KZRALHcSmY" ascii //weight: 1
-        $x_1_6 = "5YO5BoUoiEPnNkg52mpwEAX" ascii //weight: 1
-        $x_1_7 = "CJ6dBqnAQZ3P8Y@" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBR_2147762482_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBR!MTB"
-        threat_id = "2147762482"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 0c 53 6a 01 53 53 8d 44 24 ?? 50 ff 15 ?? ?? ?? ?? 85 c0 75 3d 6a 08 6a 01 53 53 8d 4c 24 00 51 ff 15 01 85 c0}  //weight: 1, accuracy: Low
+        $x_1_1 = "<command:parameter required=\"false\" variableLength=\"false\" globbing=\"false\" pipelineInput=\"false\" position=\"named\">" ascii //weight: 1
+        $x_1_2 = "GetCurrentProcessId" ascii //weight: 1
+        $x_1_3 = "GetCurrentProcess" ascii //weight: 1
+        $x_1_4 = "IsDebuggerPresent" ascii //weight: 1
+        $x_1_5 = "CreateProcessA" ascii //weight: 1
+        $x_1_6 = "GetProcAddress" ascii //weight: 1
+        $x_1_7 = "GetTickCount" ascii //weight: 1
+        $x_1_8 = "WriteFile" ascii //weight: 1
+        $x_1_9 = "Sleep" ascii //weight: 1
+        $x_1_10 = ".pdb" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_DC_2147762489_0
+rule Trojan_Win32_IcedID_AF_2147783905_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DC!MTB"
-        threat_id = "2147762489"
+        detection_name = "Trojan:Win32/IcedID.AF!MTB"
+        threat_id = "2147783905"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = {6b c9 21 89 4d dc 8b 55 e4 83 ea 01 89 55 e4}  //weight: 10, accuracy: High
-        $x_10_2 = {89 82 45 df ff ff 8b 0d ?? ?? ?? ?? 8b 15 ?? ?? ?? ?? 8d 84 0a 57 7a 00 00 a3 ?? ?? ?? ?? 8b 0d ?? ?? ?? ?? 69 c9 f7 00 00 00 81 f9 45 25 00 00 76 18 8b 15}  //weight: 10, accuracy: Low
+        $x_10_1 = {02 4c 24 07 2a c2 2a 44 24 08 02 c9 55 2a c1 0f b6 e9 56 2c 69 57 88 44 24 13}  //weight: 10, accuracy: High
+        $x_10_2 = {89 4d fc 8b 15 ?? ?? ?? ?? 81 c2 79 8f 0e 00 89 55 fc 6b 45 0c 4e 0f af 45 fc}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_DBU_2147762595_0
+rule Trojan_Win32_IcedID_AF_2147783905_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBU!MTB"
-        threat_id = "2147762595"
+        detection_name = "Trojan:Win32/IcedID.AF!MTB"
+        threat_id = "2147783905"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {53 6a 01 53 53 8d 44 24 ?? 50 ff 15 ?? ?? ?? ?? 85 c0 75 3f 6a 08 6a 01 53 53 8d 4c 24 00 51 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DBX_2147762765_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBX!MTB"
-        threat_id = "2147762765"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c4 0c 8d 45 ?? 53 6a 01 53 53 50 ff 15 ?? ?? ?? ?? 85 c0 75 36 6a 08 6a 01 53 8d 45 00 53 50 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DE_2147763880_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DE!MTB"
-        threat_id = "2147763880"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8b c1 99 f7 ff 8a 82 ?? ?? ?? ?? 30 81 ?? ?? ?? ?? 41 3b ce 7c}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_DH_2147764494_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DH!MTB"
-        threat_id = "2147764494"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "22"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "e5e13930335eca21201cbe7a139e5ba05a1f5f152128b3c6ca8c6ed2f95f965c7f70a2c" ascii //weight: 1
-        $x_1_2 = "58f5fe26d5059f8f63ff4d6651f5aaef0a23675b02448c49d2956a8e760443b6459b6730bb4844b51b9f9" ascii //weight: 1
-        $x_1_3 = "D$4ZzNf" ascii //weight: 1
-        $x_1_4 = "HcD$4" ascii //weight: 1
-        $x_1_5 = "oAQM#" ascii //weight: 1
+        $x_10_1 = {8b 41 24 8b 08 8d 51 01 89 10 8a 44 24 04 88 01 0f b6 c0 eb 0b}  //weight: 10, accuracy: High
+        $x_3_2 = "DoWhit" ascii //weight: 3
+        $x_3_3 = "GetTempPathA" ascii //weight: 3
+        $x_3_4 = "MoveFileExA" ascii //weight: 3
+        $x_3_5 = "ImageList_DragShowNolock" ascii //weight: 3
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_PK_2147765380_0
+rule Trojan_Win32_IcedID_AHB_2147788266_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.PK!MTB"
-        threat_id = "2147765380"
+        detection_name = "Trojan:Win32/IcedID.AHB!MTB"
+        threat_id = "2147788266"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "eccc___ce_s__" ascii //weight: 3
+        $x_3_2 = "efehjunlopkju" ascii //weight: 3
+        $x_3_3 = "bsitmjasdo" ascii //weight: 3
+        $x_3_4 = "iseusbrsaorptirh" ascii //weight: 3
+        $x_3_5 = "FindResourceW" ascii //weight: 3
+        $x_3_6 = "OleFlushClipboard" ascii //weight: 3
+        $x_3_7 = "CopyFileA" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_M_2147794454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.M!MTB"
+        threat_id = "2147794454"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {33 ff 8b f0 33 c9 8b 84 ?? ?? ?? ?? ?? ba ?? ?? ?? ?? f7 e2 03 c7 89 84 ?? ?? ?? ?? ?? 83 d2 00 41 8b fa 3b ce 75}  //weight: 1, accuracy: Low
-        $x_1_2 = "thus bal Hit rive Cook Lin" ascii //weight: 1
-        $x_1_3 = "\\This\\49\\soldier\\Hope.pdb" ascii //weight: 1
+        $x_1_1 = {6a 40 68 00 30 00 00 68 00 a0 01 00 6a 00 ff 15 ?? ?? ?? ?? 89 45 e4 68 00 a0 01 00 68 48 72 f3 05}  //weight: 1, accuracy: Low
+        $x_1_2 = {6a 55 ba 02 00 00 00 6b c2 00 8b 4d fc 8d 54 01 04 52 6a 5c 68 00 04 00 00 ff 15}  //weight: 1, accuracy: High
+        $x_1_3 = {8b 4d fc 81 c1 b4 00 00 00 51 8b 55 fc 83 c2 04 52 51 f3 0f 10 05 ?? 34 f3 05 f3 0f 11 04 24 6a 05 6a 00 68}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_PK_2147765380_1
+rule Trojan_Win32_IcedID_GZ_2147794718_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.PK!MTB"
-        threat_id = "2147765380"
+        detection_name = "Trojan:Win32/IcedID.GZ!MTB"
+        threat_id = "2147794718"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {0f b7 c2 2b d8 83 c3 1e 8b 44 24 18 81 c7 ?? ?? ?? ?? 89 3d ?? ?? ?? ?? 89 1d ?? ?? ?? ?? 89 38 a1 ?? ?? ?? ?? 8b 7c 24 18 2b c6 03 d0 83 c7 04 ff 4c 24 1c 89 54 24 ?? 89 7c 24 ?? 0f}  //weight: 1, accuracy: Low
-        $x_1_2 = "\\Step\\Shoe\\Wave\\pull\\Allow\\condition\\copy.pdb" ascii //weight: 1
+        $x_1_1 = {66 8b c8 66 89 0d ?? ?? ?? ?? 8b 15 ?? ?? ?? ?? 8d 84 12 ae 58 00 00 2b 05 ?? ?? ?? ?? 83 c4 04 03 c6 66 a3 ?? ?? ?? ?? 0f b7 c0 6b c0 1d 5f 0f b7 c9 5e 03 c1 8b 8c 24 b0 08 00 00 5d 5b 33 cc}  //weight: 1, accuracy: Low
+        $x_1_2 = "salt\\who\\When\\numberSight.pdb" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_SC_2147778200_0
+rule Trojan_Win32_IcedID_C_2147797893_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SC!MTB"
-        threat_id = "2147778200"
+        detection_name = "Trojan:Win32/IcedID.C!MTB"
+        threat_id = "2147797893"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "31"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {00 cc 49 3e 22 e8 34 5b e9 [0-5] 03 e2 ff [0-6] 3e cc ff cc e9}  //weight: 10, accuracy: Low
-        $x_10_2 = "c:\\Order\\sharp\\Tree\\standFill.pdb" ascii //weight: 10
-        $x_1_3 = "icesuit.exe" wide //weight: 1
-        $x_10_4 = "IsDebuggerPresent" ascii //weight: 10
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SA_2147778337_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SA!MTB"
-        threat_id = "2147778337"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "C:\\temp\\foo.txt" ascii //weight: 1
-        $x_2_2 = "jl7CvWj8waEAh3eOe3r50kA0ojzhtmSNa3Q2FPzkb8ATgmdJr8" ascii //weight: 2
-        $x_1_3 = "Microsoft\\windows\\CurrentVersion\\Explorer\\User Shell Folders" ascii //weight: 1
-        $x_1_4 = "tw7TQt9pNstL7Wn" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SB_2147778358_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SB!MTB"
-        threat_id = "2147778358"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "e:\\48\\Line\\25\\64\\Represent\\green\\Smell\\Excite\\search\\phrase\\48change.pdb" ascii //weight: 1
-        $x_1_2 = "f:\\dd\\vctools\\crt\\vcruntime\\src\\internal\\winapi_downlevel.cpp" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_EDV_2147783112_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.EDV!MTB"
-        threat_id = "2147783112"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "20"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = {0f b6 4d e7 2b c1 0f b6 55 e7 03 d0 88 55 e7}  //weight: 10, accuracy: High
-        $x_10_2 = {83 ea 04 33 c0 2b 55 e8 1b 45 ec 88 55 e7}  //weight: 10, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_ACD_2147787530_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.ACD!MTB"
-        threat_id = "2147787530"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "21"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "proces artDee" ascii //weight: 3
-        $x_3_2 = "Pro shi" ascii //weight: 3
-        $x_3_3 = "P@mapan" ascii //weight: 3
-        $x_3_4 = "win\\with\\women" ascii //weight: 3
-        $x_3_5 = "C:\\WINDOWS\\SYSTEM32" ascii //weight: 3
-        $x_3_6 = "FindFirstChangeNotificationA" ascii //weight: 3
-        $x_3_7 = "GetWindowThreadProcessId" ascii //weight: 3
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBE_2147787623_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBE!MTB"
-        threat_id = "2147787623"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {89 37 81 fd ?? ?? ?? ?? [0-85] 8b 35 ?? ?? ?? ?? [0-5] 8d bc 2e ?? ?? ?? ?? 8b 37 [0-10] 81 c6 ?? ?? ?? ?? [0-5] 83 c5 04 [0-16] 89 37}  //weight: 1, accuracy: Low
-        $x_1_2 = {8b 45 08 89 45 ?? [0-240] 8b 75 00 [0-10] ff e6}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_QR_2147794962_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.QR!MTB"
-        threat_id = "2147794962"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "21"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "DleitrevrDlneitrevrPue" ascii //weight: 3
-        $x_3_2 = "tpevrSsedevr" ascii //weight: 3
-        $x_3_3 = "0SruAKSrpALSrpWKRE3" ascii //weight: 3
-        $x_3_4 = "opj_codec_set_threads" ascii //weight: 3
-        $x_3_5 = "ResumeServer" ascii //weight: 3
-        $x_3_6 = "StartServer" ascii //weight: 3
-        $x_3_7 = "StopServer" ascii //weight: 3
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_QA_2147796263_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.QA!MTB"
-        threat_id = "2147796263"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "20"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = {8b 04 24 44 01 d0 83 c0 02 89 04 24 f7 04 24 03 00 00 00 0f 85 17 01 00 00}  //weight: 10, accuracy: High
-        $x_10_2 = {b8 6d e3 4c 00 89 04 24 89 44 24 04 f7 04 24 03 00 00 00 74 1e 41 83 f8 0a 0f 9c c2 41 8d 41 ff 41 0f af c1 83 e0 01 0f 94 c1 08 d1 80 f9 01}  //weight: 10, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ_2147813155_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ!MTB"
-        threat_id = "2147813155"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "FromFall\\wife.pdb" ascii //weight: 1
-        $x_1_2 = {89 08 8b c2 [0-10] 81 7c 24 ?? ?? ?? ?? ?? [0-58] 8b 0d ?? ?? ?? ?? 81 c1 ?? ?? ?? ?? [0-5] 03 4c 24 01 [0-10] 89 4c 24 1c 8b 09 [0-37] 81 c1 ?? ?? ?? ?? 83 44 24 ?? 04 [0-16] 8b 44 24 1c 89 08}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ1_2147813156_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ1!MTB"
-        threat_id = "2147813156"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Whenboy\\tenkept\\EarlyValue\\could.pdb" ascii //weight: 1
-        $x_1_2 = {83 c6 04 8d [0-16] 81 fe ?? ?? ?? ?? [0-58] 8b 15 ?? ?? ?? ?? [0-10] 8b ac 32 ?? ?? ?? ?? [0-90] a1 04 81 c5 ?? ?? ?? ?? [0-10] 89 ac 30}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ2_2147813157_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ2!MTB"
-        threat_id = "2147813157"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "MillionSummer\\Spring.pdb" ascii //weight: 1
-        $x_1_2 = {83 c2 04 89 [0-10] 81 fa ?? ?? ?? ?? [0-42] 8b 1d ?? ?? ?? ?? 8b b4 13 ?? ?? ?? ?? [0-64] 81 c6 f4 49 0a 01 89 b4 13}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ3_2147813158_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ3!MTB"
-        threat_id = "2147813158"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Oil.dll" ascii //weight: 1
-        $x_1_2 = {83 c0 04 89 [0-10] 89 44 24 ?? 3d ?? ?? ?? ?? 73 ?? [0-10] [0-58] 03 2d ?? ?? ?? ?? [0-16] 8b 85 ?? ?? ?? ?? 89 44 24 ?? [0-85] 8b 44 24 0a 05 ?? ?? ?? ?? [0-10] 89 85}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ4_2147813797_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ4!MTB"
-        threat_id = "2147813797"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Withexact\\Needsupport\\Before.pdb" ascii //weight: 1
-        $x_1_2 = {8b 00 89 44 24 ?? [0-32] 8b 4c 24 ?? 8b 44 24 00 83 44 24 02 04 05 ?? ?? ?? ?? [0-5] 89 01 [0-16] ff 4c 24 ?? [0-122] 8b 44 24 02 [0-10] 8b 00 89 44 24}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ5_2147813798_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ5!MTB"
-        threat_id = "2147813798"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {42 6f 64 79 [0-5] 57 6f 72 6c 64 2e 70 64 62}  //weight: 1, accuracy: Low
-        $x_1_2 = {8b 7d 00 a3 [0-58] 81 c7 a4 6f 01 01 89 7d 00 [0-26] 83 c5 04 83 6c 24 ?? 01 0f 85}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ5_2147813798_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ5!MTB"
-        threat_id = "2147813798"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Knew.dll" wide //weight: 1
-        $x_1_2 = {57 c7 44 24 ?? ?? ?? ?? ?? [0-139] 7c 24 ?? [0-139] 35 ?? ?? ?? ?? [0-141] bc 3e ?? ?? ?? ?? 8b 37 [0-131] 44 24 03 04 [0-129] c6 8c 48 06 01 81 7c 24 03 ?? ?? ?? ?? [0-137] 37 [0-15] 82}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBK_2147813799_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBK!MTB"
-        threat_id = "2147813799"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "uwunhkqlzle.dll" ascii //weight: 1
-        $x_1_2 = {c1 e5 07 8b 4c 24 ?? c1 e9 ?? 89 f0 89 fe 89 cf ba ?? ?? ?? ?? 31 d7 89 eb 31 d3 41 b8 ?? ?? ?? ?? 44 21 c7 83 e1 ?? 09 f9 89 f7 89 c6 44 21 c3 81 e5 ?? ?? ?? ?? 09 dd 31 cd 45 0f be e9 89 e9 31 d1 b8 ?? ?? ?? ?? 21 c1 bb ?? ?? ?? ?? 21 dd 09 cd 44 89 e9 31 d1 21 c1 41 21 dd 41 09 cd 8b 4c 24 ?? ff c1 48 63 c1 48 03 44 24 ?? 41 31 ed 8b 54 24 ?? ff c2}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBK_2147813799_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBK!MTB"
-        threat_id = "2147813799"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {0f 31 48 c1 e2 ?? 48 0b c2 4c 8b c0 33 c9 b8 01 00 00 00 0f a2 89 44 24 ?? 89 5c 24 ?? 89 4c 24 ?? 89 54 24 ?? 0f 31 48 c1 e2 ?? 48 0b c2 49 2b c0 48 03 f8 ff 15 ?? ?? ?? ?? 0f 31 48 c1 e2 ?? 90 48 0b c2 48 8b c8 0f 31 48 c1 e2 ?? 48 0b c2 48 2b c1 48 03 f0 48 83 ed ?? 75}  //weight: 1, accuracy: Low
-        $x_1_2 = {45 33 c0 4c 8d 0d ?? ?? ?? ?? 49 2b c9 4b 8d 14 08 49 ff c0 8a 42 ?? 32 02 88 44 11 ?? 49 83 f8 ?? 72}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ6_2147815126_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ6!MTB"
-        threat_id = "2147815126"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "CountFree\\Teach.pdb" ascii //weight: 1
-        $x_1_2 = {83 c5 04 83 [0-5] 81 fd ?? ?? ?? ?? [0-10] [0-80] a1 ?? ?? ?? ?? [0-10] 8b 94 28 ?? ?? ?? ?? [0-74] 81 c2 ?? ?? ?? ?? [0-10] a1 05 89 94 28}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ7_2147815225_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ7!MTB"
-        threat_id = "2147815225"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "draw.pdb" ascii //weight: 1
-        $x_1_2 = {83 c2 04 89 55 ?? 81 7d 00 ?? ?? ?? ?? 0f 83 ?? ?? ?? ?? [0-147] [0-147] 8b 0d ?? ?? ?? ?? 03 4d 00 8b 91 ?? ?? ?? ?? 89 15 ?? ?? ?? ?? [0-112] 8b 0d 09 81 c1 ?? ?? ?? ?? 89 0d 09 8b 15 06 03 55 00 a1 09 89 82}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ8_2147815226_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ8!MTB"
-        threat_id = "2147815226"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Worldget\\Big.pdb" ascii //weight: 1
-        $x_1_2 = {83 c7 04 83 6c 24 ?? 01 [0-10] [0-96] 8b 37 [0-80] 81 c6 ?? ?? ?? ?? [0-10] 89 37 [0-5] 83 c7 04 83 6c 24}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ8_2147815226_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ8!MTB"
-        threat_id = "2147815226"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Familywonder.pdb" ascii //weight: 1
-        $x_1_2 = {83 c1 04 89 4d ?? 81 7d 00 ?? ?? ?? ?? 0f 83 ?? ?? ?? ?? 60 01 8b 0d ?? ?? ?? ?? 03 4d 00 8b 91 ?? ?? ?? ?? 89 15 ?? ?? ?? ?? e0 02 8b 15 08 81 c2 ?? ?? ?? ?? 89 15 08 a1 05 03 45 00 8b 0d 08 89 88}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ9_2147815328_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ9!MTB"
-        threat_id = "2147815328"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Noticeweather\\Observe.pdb" ascii //weight: 1
-        $x_1_2 = {89 37 83 c7 04 ff 4c 24 ?? [0-10] [0-64] 8b 37 [0-48] 81 c6 ?? ?? ?? ?? 89 37 83 c7 04 ff 4c 24}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ9_2147815328_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ9!MTB"
-        threat_id = "2147815328"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Tierange.pdb" ascii //weight: 1
-        $x_1_2 = {83 c2 04 83 6c 24 ?? 01 89 54 24 ?? [0-16] [0-176] 8b 44 24 01 [0-16] 8b 00 [0-16] 89 44 24 ?? [0-186] 8b 54 24 01 [0-10] 8b 44 24 08 [0-10] 05 60 34 2f 01 [0-10] 89 02}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ10_2147815329_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ10!MTB"
-        threat_id = "2147815329"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "AllShop\\Exact.pdb" ascii //weight: 1
-        $x_1_2 = {83 c6 04 8b [0-32] 81 fe ?? ?? ?? ?? 73 ?? [0-16] [0-112] a1 ?? ?? ?? ?? [0-16] 8b bc 30 ?? ?? ?? ?? [0-16] a1 06 [0-16] 81 c7 ?? ?? ?? ?? [0-10] 89 bc 30}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ10_2147815329_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ10!MTB"
-        threat_id = "2147815329"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "MilkPiece.pdb" ascii //weight: 1
-        $x_1_2 = {83 c1 04 89 4d ?? 81 7d 00 ?? ?? ?? ?? 0f 83 ?? ?? ?? ?? 8a 01 8b 15 ?? ?? ?? ?? 03 55 00 8b 82 ?? ?? ?? ?? a3 ?? ?? ?? ?? [0-220] 8b 0d 08 81 c1 ?? ?? ?? ?? 89 0d 08 8b 15 05 03 55 00 a1 08 89 82}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ11_2147815330_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ11!MTB"
-        threat_id = "2147815330"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "enter.pdb" ascii //weight: 1
-        $x_1_2 = {8b 0f 81 c1 ?? ?? ?? ?? [0-16] 89 0f 83 c7 04 83 6c 24 ?? 01 [0-16] 0f 85}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ11_2147815330_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ11!MTB"
-        threat_id = "2147815330"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "dreamprovide.pdb" ascii //weight: 1
-        $x_1_2 = {04 ff 4c 24 ?? [0-10] [0-112] 8b 5c 24 ?? [0-32] 8b 1b [0-58] 8b 44 24 04 81 c3 ?? ?? ?? ?? [0-16] 89 18}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ11_2147815330_2
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ11!MTB"
-        threat_id = "2147815330"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Colony\\except.pdb" ascii //weight: 1
-        $x_1_2 = {83 c1 04 ff 4c 24 ?? 89 4c 24 ?? [0-176] 8b 54 24 01 [0-32] 8b 12 [0-32] 89 54 24 ?? [0-112] 8b 54 24 07 [0-64] 8b 4c 24 01 81 c2 ?? ?? ?? ?? [0-32] 89 11}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ12_2147815331_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ12!MTB"
-        threat_id = "2147815331"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "includeblue\\chart.pdb" ascii //weight: 1
-        $x_1_2 = {83 c6 04 2c [0-10] 81 fe ?? ?? ?? ?? [0-10] [0-112] 8b 2d ?? ?? ?? ?? [0-32] 8b bc 2e ?? ?? ?? ?? [0-48] 81 c7 ?? ?? ?? ?? [0-16] 89 bc 2e}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ12_2147815331_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ12!MTB"
-        threat_id = "2147815331"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Loudmine.pdb" ascii //weight: 1
-        $x_1_2 = {03 cd 89 4c 24 ?? 8b 29 [0-48] 8b 4c 24 00 81 c5 ?? ?? ?? ?? [0-16] 89 29 [0-48] 8b 6c 24 ?? [0-16] 83 c5 04 [0-16] 89 6c 24 06 [0-16] 81 fd ?? ?? ?? ?? 0f 82}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ12_2147815331_2
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ12!MTB"
-        threat_id = "2147815331"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "guncorrect.exe" wide //weight: 1
-        $x_1_2 = {4d 85 ff 74 ?? b8 ?? ?? ?? ?? [0-10] 8b 15 ?? ?? ?? ?? 8b 8c 02 ?? ?? ?? ?? 81 c1 ?? ?? ?? ?? [0-10] 89 8c 02 04 83 c0 04 3d ?? ?? ?? ?? 72 ?? [0-32] 4f [0-16] 73 ?? [0-10] 83 ff ?? 77}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ13_2147815590_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ13!MTB"
-        threat_id = "2147815590"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "chiefLeg.pdb" ascii //weight: 1
-        $x_1_2 = {89 3e 83 c6 04 [0-16] 83 6c 24 ?? 01 89 74 24 ?? [0-96] 8b 54 24 02 8b 3a [0-80] 8b 74 24 02 81 c7 ?? ?? ?? ?? [0-16] 89 3e}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ13_2147815590_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ13!MTB"
-        threat_id = "2147815590"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "stood.pdb" ascii //weight: 1
-        $x_1_2 = {83 c5 04 0f [0-16] 81 fd ?? ?? ?? ?? 73 ?? [0-16] [0-96] 8b 3d ?? ?? ?? ?? [0-32] 8b b4 2f ?? ?? ?? ?? [0-48] 81 c6 ?? ?? ?? ?? [0-16] 89 b4 ?? ?? ?? ?? [0-16] 83 c5 04}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ14_2147815993_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ14!MTB"
-        threat_id = "2147815993"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "careMan.pdb" ascii //weight: 1
-        $x_1_2 = {83 c2 04 89 55 ?? 81 7d 00 ?? ?? ?? ?? 0f 83 ?? ?? ?? ?? 8a 01 8b 15 ?? ?? ?? ?? 03 55 00 8b 82 ?? ?? ?? ?? a3 ?? ?? ?? ?? 8a 01 8b 15 08 81 c2 ?? ?? ?? ?? 89 15 08 a1 05 03 45 00 8b 0d 08 89 88}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ15_2147816067_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ15!MTB"
-        threat_id = "2147816067"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "singlegood.exe" wide //weight: 1
-        $x_1_2 = {8b 44 24 10 ?? ?? ?? ?? [0-80] 8b 44 24 10 [0-16] 83 44 24 10 04 81 c7 ?? ?? ?? ?? 89 38 [0-32] ff 4c 24 ?? [0-16] 0f 85}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ16_2147816068_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ16!MTB"
-        threat_id = "2147816068"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "BedTry.pdb" ascii //weight: 1
-        $x_1_2 = {83 c1 04 89 4c 24 ?? 81 f9 ?? ?? ?? ?? [0-224] 8b 15 ?? ?? ?? ?? 03 54 24 00 8b 8a ?? ?? ?? ?? [0-32] 81 c1 ?? ?? ?? ?? [0-16] 89 8a}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBJ17_2147816069_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ17!MTB"
-        threat_id = "2147816069"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {31 d2 4c 8d 05 ?? ?? ?? ?? 80 44 24 ?? ?? c0 64 24 01 ?? 8a 4c 24 01 88 4c 24 ?? 41 8a 4c 50 ?? 88 4c 24 01 80 44 24 01 ?? 8a 4c 24 01 08 4c 24 06 8a 4c 24 ?? 30 4c 24 06 fe 44 24 0d 8a 4c 24 06 88 0c 10}  //weight: 1, accuracy: Low
+        $x_1_1 = {8d 0c f6 8b 1d ?? ?? ?? ?? 03 c9 8b c5 6b fe 0d f7 d8 c7 44 24 28 d8 f2 4b 00 2b c1 83 c4 0c 8b 0d ?? ?? ?? ?? 03 c8 b8 83 be a0 2f f7 e3 03 fb c1 ea 03 81 fa c5 e3 00 00 74 08 81 c3 11 df 93 22 eb 09 0f af d9 81 c3 c5 e3 00 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_SIBJ18_2147816070_0
+rule Trojan_Win32_IcedID_AQ_2147798738_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ18!MTB"
-        threat_id = "2147816070"
+        detection_name = "Trojan:Win32/IcedID.AQ!MTB"
+        threat_id = "2147798738"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
+        threshold = "20"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = "Happen.pdb" ascii //weight: 1
-        $x_1_2 = {83 c7 04 81 ff ?? ?? ?? ?? [0-16] [0-96] 8b 2d ?? ?? ?? ?? [0-32] 8b b4 2f ?? ?? ?? ?? [0-48] 81 c6 d0 10 08 01 89 b4 2f ?? ?? ?? ?? 83 c7 04}  //weight: 1, accuracy: Low
+        $x_10_1 = {2b c3 8b c8 2b c3 81 c1 ?? ?? ?? ?? 83 e8 06 03 cb}  //weight: 10, accuracy: Low
+        $x_10_2 = {8b 5c 24 10 2b ce 03 c1 83 c3 04}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_SIBJ19_2147816071_0
+rule Trojan_Win32_IcedID_Q_2147811674_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBJ19!MTB"
-        threat_id = "2147816071"
+        detection_name = "Trojan:Win32/IcedID.Q!MTB"
+        threat_id = "2147811674"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "swim.pdb" ascii //weight: 1
-        $x_1_2 = {04 ff 4c 24 ?? [0-16] 8b 15 ?? ?? ?? ?? 89 11 [0-96] 8b 44 24 ?? [0-16] 8b 00 [0-16] a3 02 [0-224] 81 05 02 ?? ?? ?? ?? [0-16] 8b 4c 24 ?? 83 44 24 ?? 04 ff 4c 24 ?? [0-16] 8b 15 02 89 11}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBN_2147816498_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBN!MTB"
-        threat_id = "2147816498"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Division.pdb" ascii //weight: 1
-        $x_1_2 = {83 c5 04 8b [0-16] 81 fd ?? ?? ?? ?? 73 ?? [0-32] [0-165] 8b 3d ?? ?? ?? ?? [0-10] 8b b4 2f ?? ?? ?? ?? [0-48] 81 c6 ?? ?? ?? ?? [0-32] 89 b4 2f}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBN_2147816498_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBN!MTB"
-        threat_id = "2147816498"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "keepVoice\\wentlotHair.pdb" ascii //weight: 1
-        $x_1_2 = {83 c7 04 0f [0-16] 89 7c 24 ?? [0-16] 83 6c 24 28 01 [0-149] 8b 54 24 01 [0-16] 8b 12 [0-16] 81 c2 ?? ?? ?? ?? [0-16] 89 15 ?? ?? ?? ?? [0-128] 8b 7c 24 01 [0-16] a1 0a [0-16] 89 07}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBM_2147816499_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBM!MTB"
-        threat_id = "2147816499"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Industry.pdb" ascii //weight: 1
-        $x_1_2 = {58 89 44 24 ?? 8b 3b [0-80] 8b 44 24 00 81 c7 ?? ?? ?? ?? 89 3b 83 c3 04 48 [0-16] 89 44 24 00 75}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBM3_2147816805_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBM3!MTB"
-        threat_id = "2147816805"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "ExperienceExercise" ascii //weight: 1
-        $x_1_2 = {83 c2 04 89 55 ?? 81 7d 00 ?? ?? ?? ?? 0f 83 ?? ?? ?? ?? 80 01 8b 0d ?? ?? ?? ?? 03 4d 00 8b 91 ?? ?? ?? ?? 89 15 ?? ?? ?? ?? f0 01 8b 15 08 81 c2 ?? ?? ?? ?? 89 15 08 a1 05 03 45 00 8b 0d 08 89 88}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBM4_2147816815_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBM4!MTB"
-        threat_id = "2147816815"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Populate" ascii //weight: 1
-        $x_1_2 = {83 c5 04 69 [0-16] 81 fd ?? ?? ?? ?? 73 ?? [0-16] [0-128] 8b 15 ?? ?? ?? ?? [0-16] 8b 8c 2a ?? ?? ?? ?? 81 c1 ?? ?? ?? ?? [0-16] 89 8c 2a 08 83 c5 04 [0-16] 81 fd}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBM5_2147817100_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBM5!MTB"
-        threat_id = "2147817100"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {0f b6 02 c1 c9 ?? 80 3a 61 [0-16] 72 ?? 48 03 c8 48 83 e9 ?? eb ?? 48 03 c8 0f b6 44 24 ?? 48 ff c2 66 44 03 c5 75}  //weight: 1, accuracy: Low
-        $x_1_2 = {33 c0 0f b6 0a [0-16] c1 c8 ?? 48 8d 52 01 0f be c9 03 c1 0f b6 0a 84 c9 75}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_SIBP_2147817101_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.SIBP!MTB"
-        threat_id = "2147817101"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Suggeststep" wide //weight: 1
-        $x_1_2 = {04 ff 4c 24 ?? [0-16] [0-176] 8b 54 24 ?? 8b 12 [0-48] 8b 7c 24 ?? 81 c2 ?? ?? ?? ?? 89 17}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_IcedId_EC_2147831658_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.EC!MTB"
-        threat_id = "2147831658"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
+        threshold = "18"
         strings_accuracy = "High"
     strings:
-        $x_5_1 = {83 c0 0e 66 89 44 24 30 3a db 74 d9 66 89 44 24 36 b8 1b 00 00 00 e9 1c 01 00 00 48 83 ec 68 48 c7 44 24 20 00 00 00 00 3a d2 74 00 48 c7 44 24 28 00 00 00 00 b8 23 00 00 00 3a ed 74 c2}  //weight: 5, accuracy: High
-        $x_1_2 = "fuadsyguasgduhaisudjyuagsdua" ascii //weight: 1
+        $x_3_1 = "Desert\\near\\Dark" ascii //weight: 3
+        $x_3_2 = "classUntil.pdb" ascii //weight: 3
+        $x_3_3 = "GetVolumeInformationA" ascii //weight: 3
+        $x_3_4 = "GetStartupInfoA" ascii //weight: 3
+        $x_3_5 = "PostMessageA" ascii //weight: 3
+        $x_3_6 = "GetUserObjectInformationA" ascii //weight: 3
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedId_EC_2147831658_1
+rule Trojan_Win32_IcedID_QM_2147811916_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.EC!MTB"
-        threat_id = "2147831658"
+        detection_name = "Trojan:Win32/IcedID.QM!MTB"
+        threat_id = "2147811916"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {89 4a 04 89 01 8b ca 81 c1 f0 ff 13 00 8b f1 83 ee 04 c7 06 02 00 00 00 be e0 ff 13 00 2b f3}  //weight: 10, accuracy: High
+        $x_3_2 = "103.175.16.113" ascii //weight: 3
+        $x_3_3 = "htons" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_UR_2147812160_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.UR!MTB"
+        threat_id = "2147812160"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8b c8 c1 f9 05 8d 1c 8d 40 03 42 00 8b f0 83 e6 1f 6b f6 38 8b 0b 0f b6 4c 31 04 83 e1 01 74 bf}  //weight: 10, accuracy: High
+        $x_1_2 = "AokvcOigngi" ascii //weight: 1
+        $x_1_3 = "UqmqcWzfin" ascii //weight: 1
+        $x_1_4 = "QfpQnumhnHcczjhe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_NC_2147813752_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.NC!MTB"
+        threat_id = "2147813752"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {2c 07 8a d9 2a 1e 2a da 80 c3 40 02 c3 0f b6 f8}  //weight: 10, accuracy: High
+        $x_3_2 = "55\\47\\oh.pdb" ascii //weight: 3
+        $x_3_3 = "Suitprove" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_GZM_2147813761_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.GZM!MTB"
+        threat_id = "2147813761"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {52 31 ff 2b 39 f7 df 83 c1 ?? 83 ef ?? 31 c7 83 ef ?? 31 c0 29 f8 f7 d8 89 3a 83 ea ?? 83 c6 ?? 83 fe ?? 75 dc}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_MA_2147822278_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.MA!MTB"
+        threat_id = "2147822278"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "paint.dll" ascii //weight: 1
+        $x_1_2 = "\\simple\\Solution\\Post\\paint.pdb" ascii //weight: 1
+        $x_1_3 = "DllRegisterServer" ascii //weight: 1
+        $x_1_4 = "Trycommon" ascii //weight: 1
+        $x_1_5 = "VirtualProtect" ascii //weight: 1
+        $x_1_6 = "Sleep" ascii //weight: 1
+        $x_1_7 = "OpenMutexA" ascii //weight: 1
+        $x_1_8 = "IsProcessorFeaturePresent" ascii //weight: 1
+        $x_1_9 = "Expect SameWrite Teach" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_BC_2147828682_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.BC!MSR"
+        threat_id = "2147828682"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "EknZMRKx" ascii //weight: 2
+        $x_2_2 = "FRamboa" ascii //weight: 2
+        $x_2_3 = "KMphtTLJ" ascii //weight: 2
+        $x_2_4 = "MpOQBh" ascii //weight: 2
+        $x_2_5 = "RjSbqa" ascii //weight: 2
+        $x_2_6 = "bNsYaRx" ascii //weight: 2
+        $x_2_7 = "chPXRMwNa" ascii //weight: 2
+        $x_2_8 = "gTSqdVgbWSK" ascii //weight: 2
+        $x_2_9 = "lkieAUWAz" ascii //weight: 2
+        $x_2_10 = "xvILnJMr" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_PCA_2147831118_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.PCA!MTB"
+        threat_id = "2147831118"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b c1 48 63 0c 24 eb 08 8b c2 48 98 3a c9 74 16 48 8b 54 24 40 88 04 0a eb 2e eb 3e 8b 4c 24 04 33 c8 3a c9 74 da}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_BE_2147832069_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.BE!MSR"
+        threat_id = "2147832069"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ETPCAnWrBci" ascii //weight: 2
+        $x_2_2 = "IPwUAQIxYJcCj" ascii //weight: 2
+        $x_2_3 = "IkHhuDeyJOLdzc" ascii //weight: 2
+        $x_2_4 = "QzMQEDDloTvmr" ascii //weight: 2
+        $x_2_5 = "VEJjEZeIWqDCZ" ascii //weight: 2
+        $x_2_6 = "XCYhbvLyeCLW" ascii //weight: 2
+        $x_2_7 = "XFHOOPcEKQlF" ascii //weight: 2
+        $x_2_8 = "YDslUHhNONkMRU" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_RG_2147834545_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.RG!MTB"
+        threat_id = "2147834545"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "gyuasfniuhaygsbdhjasfuhadsdjkfdkls" ascii //weight: 5
+        $x_5_2 = "0ba54d579ab5cd6d" ascii //weight: 5
+        $x_5_3 = "951d605d26f9a353" ascii //weight: 5
+        $x_1_4 = "GetConsoleScreenBufferInfo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_MC_2147834850_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.MC!MTB"
+        threat_id = "2147834850"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {f9 cd 02 8c 9e 90 9c 92 97 91 8c 9f 47 64 9e 80 31 84 88 86 8f 8d 90 83 ec 8f 8a 94 85 88 84 8a bb b9 a4 b7 90 b3 b6 a8 b1 bc b0 be b7 b5 a8 bb}  //weight: 10, accuracy: High
+        $x_10_2 = {30 b6 81 eb fc d8 91 f5 73 45 43 46 da de 8f e6 74 57 52 4c 5d 50 5c 52 53 51 4c 5f 78 5b 5e 40 19 01 48 46 03 4c 54 43 69 91 0c 08 45 48 44 4a}  //weight: 10, accuracy: High
+        $x_5_3 = "Jipoker" wide //weight: 5
+        $x_5_4 = "Kiopfjejdgyk" wide //weight: 5
+        $x_1_5 = "frmWebBrowser" ascii //weight: 1
+        $x_1_6 = "txtPassWord" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_MD_2147838213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.MD!MTB"
+        threat_id = "2147838213"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "far.dll" ascii //weight: 1
-        $x_1_2 = "Desert" ascii //weight: 1
-        $x_1_3 = "DllRegisterServer" ascii //weight: 1
-        $x_1_4 = "Fruitblow" ascii //weight: 1
-        $x_1_5 = "Whatpiece" ascii //weight: 1
-        $x_1_6 = "GetEnvironmentVariableW" ascii //weight: 1
-        $x_1_7 = "CreateMutexW" ascii //weight: 1
+        $x_5_1 = {cc 31 00 09 c0 41 1d 54 b6 58 2e 4b 92 83 65 fc 53 45 9f 60 20 fb 94 52 b7 e3 b6 49 83 52 8e e5 2b c7 19 76 3a 4f}  //weight: 5, accuracy: High
+        $x_2_2 = "BOX" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_AZ_2147838769_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.AZ!MTB"
+        threat_id = "2147838769"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c7 d3 e0 89 45 ?? 8b 45 ?? 01 45 ?? 89 75 ?? 8b 45 ?? 01 45 ?? 8b 45 ?? 90 01 45 ?? 8b 45 ?? 89 45 ?? 8b 4d}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b c7 d3 e8 89 35 ?? ?? ?? ?? 03 45 ?? 89 45 ?? 33 45 ?? 31 45 ?? 8b 45 ?? 29 45 ?? 8d 45 ?? e8 ?? ?? ?? ?? ff 4d ?? 0f 85 ?? ?? ?? ?? 8b 45 ?? 89 7b 04 5f 89 03 5e c9 c3}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_GJT_2147849973_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.GJT!MTB"
+        threat_id = "2147849973"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a 04 28 83 ef ?? 8b cf 2b ce 2b ca 83 e9 ?? 88 45 ?? 8b d1 2b d3 83 c2 ?? 8b c1 2b c7 83 e8 ?? 83 c5 ?? 03 f2 83 54 24 ?? ?? 8b d0 2b d6 2b d1 85 ff 75}  //weight: 10, accuracy: Low
+        $x_1_2 = "Listopen" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_HM_2147900385_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.HM!MTB"
+        threat_id = "2147900385"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 ce 83 e6 ?? 75 ?? 8b 5d ?? 66 01 da f6 da 6b d2 ?? c1 ca ?? 89 55 ?? 30 10 40 e2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_HN_2147900541_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.HN!MTB"
+        threat_id = "2147900541"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 ce 83 e6 ?? 75 ?? bb ?? ?? ?? ?? 89 fb 66 01 da f6 da 6b d2 ?? c1 ca ?? 66 81 c7 ?? ?? 89 d7 30 10 40 e2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_KQ_2147906450_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.KQ!MTB"
+        threat_id = "2147906450"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 db 8a 4c 1c ?? 0f b6 d1 02 c2 0f b6 c0 89 44 24 ?? 8a 44 04 ?? 88 44 1c ?? 8b 44 24 ?? 88 4c 04 ?? 8a 44 1c ?? 02 c2 0f b6 c0 8a 44 04 ?? 32 04 3e 88 07 47 8b 44 24 ?? 83 ed}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_RT_2147907820_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.RT!MTB"
+        threat_id = "2147907820"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 ce 83 e6 ?? 75 ?? 8b 5d ?? 66 01 da 6b d2 ?? c1 ca ?? 89 55 ?? 30 10 40 e2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_BHL_2147913542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.BHL!MTB"
+        threat_id = "2147913542"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 c6 04 88 45 dc 0f b6 4c 9d da 0f b6 89 ?? ?? ?? ?? 30 4d dd 0f b6 4c 9d db 0f b6 89 60 a6 02 01 30 4d de 0f b6 4c 9d d8 32 46 fc 0f b6 89 ?? ?? ?? ?? 30 4d df 88 45 dc 89 75 cc b8 01 00 00 00 83 fb 08 74}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_STR_2147913637_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.STR!MTB"
+        threat_id = "2147913637"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a d1 33 d5 66 0f b6 6c 24 ?? 81 e2 ff 00 00 00 66 33 2c 55 c0 93 45 00 80 f9 7e 89 6c 24 1c 74}  //weight: 1, accuracy: Low
+        $x_1_2 = {40 80 f1 20 8b 16 88 0c 10 8b 4c 24 ?? 40 47 3b f9 72}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

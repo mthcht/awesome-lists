@@ -1,170 +1,127 @@
-rule Trojan_MSIL_ShellCodeRunner_CXF_2147851161_0
+rule Trojan_MSIL_ShellcodeRunner_KAA_2147895803_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/ShellCodeRunner.CXF!MTB"
-        threat_id = "2147851161"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.KAA!MTB"
+        threat_id = "2147895803"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "ShellCodeRunner"
+        family = "ShellcodeRunner"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
+        threshold = "5"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {11 09 11 10 11 08 11 10 9a 1f 10 28 ?? ?? ?? ?? 9c 00 11 10 17 58 13 10 11 10 11 08 8e 69 fe 04 13 11 11 11 2d d9}  //weight: 1, accuracy: Low
-        $x_1_2 = "zhwgPHQExloaaD" ascii //weight: 1
-        $x_1_3 = "xqMvSkuiE" ascii //weight: 1
+        $x_5_1 = {00 08 fe 0c c2 04 00 00 07 fe 0c c2 04 00 00 93 28 ?? 00 00 0a 9c 00 fe 0c c2 04 00 00 17 58 fe 0e c2 04 00 00}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_ShellCodeRunner_GP_2147891923_0
+rule Trojan_MSIL_ShellcodeRunner_SPPF_2147920004_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/ShellCodeRunner.GP!MTB"
-        threat_id = "2147891923"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.SPPF!MTB"
+        threat_id = "2147920004"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "ShellCodeRunner"
+        family = "ShellcodeRunner"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {fe 0c e2 04 00 00 07 fe 0c e2 04 00 00 93 28 ?? ?? ?? 0a 9c 00 fe 0c e2 04 00 00 17 58 fe 0e e2 04 00 00 fe 0c e2 04 00 00 09 8e 69 fe 04 fe 0e e3 04 00 00 fe 0c e3 04 00 00 2d c2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ShellcodeRunner_SK_2147922689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.SK!MTB"
+        threat_id = "2147922689"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_4_1 = {00 06 07 02 07 91 03 07 03 8e 69 5d 91 61 d2 9c 00 07 17 58 0b 07 02 8e 69 fe 04 0c 08 2d e1}  //weight: 4, accuracy: High
-        $x_1_2 = "The program is designed to perform process injection" wide //weight: 1
-        $x_1_3 = "CreateRemoteThread Injection" wide //weight: 1
-        $x_1_4 = "DLL Injection" wide //weight: 1
-        $x_1_5 = "Process Hollowing" wide //weight: 1
-        $x_1_6 = "APC Queue Injection" wide //weight: 1
-        $x_1_7 = "XOR Encryption" wide //weight: 1
+        $x_2_1 = {11 05 11 06 9a 13 07 00 7e 01 00 00 04 11 04 11 07 72 96 12 00 70 72 9a 12 00 70 6f 13 00 00 0a 1f 10 28 14 00 00 0a 9c 11 04 17 58 13 04 00 11 06 17 58 13 06 11 06 11 05 8e 69 32 c3}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_ShellCodeRunner_NR_2147917706_0
+rule Trojan_MSIL_ShellcodeRunner_EACT_2147929132_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/ShellCodeRunner.NR!MTB"
-        threat_id = "2147917706"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.EACT!MTB"
+        threat_id = "2147929132"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "ShellCodeRunner"
+        family = "ShellcodeRunner"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_3_1 = {11 06 11 05 09 11 04 6f ?? 00 00 0a 16 73 ?? 00 00 0a 13 07 16 fe 0e ee 01}  //weight: 3, accuracy: Low
-        $x_1_2 = "RVirus.pdb" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_ShellCodeRunner_RP_2147917846_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/ShellCodeRunner.RP!MTB"
-        threat_id = "2147917846"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "ShellCodeRunner"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "28"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = ".win Tools.exe" ascii //weight: 1
-        $x_1_2 = "BlockNetwork" ascii //weight: 1
-        $x_1_3 = "AddScheduledTask" ascii //weight: 1
-        $x_1_4 = ".msvcp120.dll" ascii //weight: 1
-        $x_1_5 = ".msvcr120.dll" ascii //weight: 1
-        $x_1_6 = ".w10.rar" ascii //weight: 1
-        $x_1_7 = ".w7.rar" ascii //weight: 1
-        $x_1_8 = "QzpcUHJvZ3JhbSBGaWxlc1" wide //weight: 1
-        $x_10_9 = "FWQGWQ231241ASF" wide //weight: 10
-        $x_10_10 = {09 11 06 07 11 06 91 08 11 06 08 8e 69 5d 91 61 d2 9c 11 06 17 58 13 06 11 06 07 8e 69 32}  //weight: 10, accuracy: High
+        $x_5_1 = {00 07 08 02 08 18 5a 18 6f 10 00 00 0a 1f 10 28 11 00 00 0a 9c 00 08 17 58 0c 08 06 fe 04 0d 09 2d de}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_ShellCodeRunner_NS_2147923058_0
+rule Trojan_MSIL_ShellcodeRunner_HNAB_2147930716_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/ShellCodeRunner.NS!MTB"
-        threat_id = "2147923058"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.HNAB!MTB"
+        threat_id = "2147930716"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "ShellCodeRunner"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_3_1 = {ff 16 fe 0e ?? ?? ?? ?? 2b 25 00 09 fe 0c ?? ?? ?? 00 07 fe 0c ?? ?? ?? ?? 93 28 15 00 00 0a 9c 00 fe 0c ?? ?? ?? ?? 17 58 fe 0e}  //weight: 3, accuracy: Low
-        $x_2_2 = "CalistirmaFonksiyonu" ascii //weight: 2
-        $x_1_3 = "Spotifys.exe" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_ShellCodeRunner_NS_2147923058_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/ShellCodeRunner.NS!MTB"
-        threat_id = "2147923058"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "ShellCodeRunner"
+        family = "ShellcodeRunner"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "Shellcode injected and executed using EnumUILanguagesW in Notepad process!" wide //weight: 2
-        $x_1_2 = "execute shellcode using EnumUILanguagesW in the target process!" wide //weight: 1
-        $x_1_3 = "create remote thread in the target process!" wide //weight: 1
-        $x_1_4 = "write shellcode to the remote process memory!" wide //weight: 1
-        $x_1_5 = "allocate memory in the remote process!" wide //weight: 1
-        $x_1_6 = "jiamiA_X_B.Properties.Resources" wide //weight: 1
+        $x_2_1 = {00 11 6a 00 68 00 79 00 74 00 76 00 72 00 76 00 72 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = {00 4e 74 41 6c 6c 6f 63 61 74 65 56 69 72 74 75 61 6c 4d 65 6d 6f 72 79 00}  //weight: 2, accuracy: High
+        $x_2_3 = {00 52 65 61 64 41 6c 6c 42 79 74 65 73 00}  //weight: 2, accuracy: High
+        $x_1_4 = {00 43 6f 70 79 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MSIL_ShellCodeRunner_GA_2147924833_0
+rule Trojan_MSIL_ShellcodeRunner_EACL_2147932164_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/ShellCodeRunner.GA!MTB"
-        threat_id = "2147924833"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.EACL!MTB"
+        threat_id = "2147932164"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "ShellCodeRunner"
+        family = "ShellcodeRunner"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {06 11 04 06 11 04 91 07 11 04 07 8e 69 5d 91 61 d2 9c 11 04 17 58 13 04}  //weight: 1, accuracy: High
+        $x_5_1 = {00 72 01 00 00 70 02 08 18 5a 18 6f 08 00 00 0a 28 09 00 00 0a 0d 09 1f 10 28 0a 00 00 0a 13 04 06 08 11 04 d2 9c 00 08 17 58 0c 08 07 fe 04 13 07 11 07 2d cb}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

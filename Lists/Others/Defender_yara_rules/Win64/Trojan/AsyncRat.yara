@@ -1,238 +1,150 @@
-rule Trojan_Win64_AsyncRAT_DO_2147844103_0
+rule Trojan_Win64_AsyncRat_RPX_2147902277_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.DO!MTB"
-        threat_id = "2147844103"
+        detection_name = "Trojan:Win64/AsyncRat.RPX!MTB"
+        threat_id = "2147902277"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
+        family = "AsyncRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_4_1 = {48 98 0f b6 44 05 a0 83 f0 63 89 c2 8b 85 [0-4] 48 98 88 54 05 a0 83 85 [0-4] 01 8b 85 [0-4] 3d 01 73 01 00 76}  //weight: 4, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win64_AsyncRAT_A_2147850690_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.A!MTB"
-        threat_id = "2147850690"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {0f b6 04 01 48 89 84 24 ?? ?? ?? ?? 48 63 4c 24 ?? 33 d2 48 8b c1 b9 ?? ?? ?? ?? 48 f7 f1 48 8b c2 48 0f be 84 04 ?? ?? ?? ?? 48 89 84 24 ?? ?? ?? ?? 48 8d 8c 24}  //weight: 2, accuracy: Low
-        $x_2_2 = {48 8b 8c 24 ?? ?? ?? ?? 48 03 c8 48 8b c1 48 8b 8c 24 ?? ?? ?? ?? 48 33 c8 48 8b c1 48 63 4c 24}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win64_AsyncRAT_B_2147890066_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.B!MTB"
-        threat_id = "2147890066"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {01 00 48 98 0f b6 44 05 a0 83 f0 ?? 89 c2 8b 85 cc ?? 01 00 48 98 88 54 05 a0 83 85 cc}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win64_AsyncRAT_C_2147890442_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.C!MTB"
-        threat_id = "2147890442"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = {45 30 04 03 48 ff c0 48 39 c7}  //weight: 2, accuracy: High
+        $x_1_1 = {41 b9 40 00 00 00 31 c9 41 b8 00 10 00 00 ba d3 ca 00 00 ff 10 b9 d0 07 00 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win64_AsyncRAT_ARA_2147902716_0
+rule Trojan_Win64_AsyncRat_RPY_2147902278_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.ARA!MTB"
-        threat_id = "2147902716"
+        detection_name = "Trojan:Win64/AsyncRat.RPY!MTB"
+        threat_id = "2147902278"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
+        family = "AsyncRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "KDF62DFJFJFF26J.bat" ascii //weight: 2
-        $x_2_2 = "taskkill /F /im svchost.exe" ascii //weight: 2
-        $x_3_3 = "\\DiscordNukeBot\\x64\\Release\\1.pdb" ascii //weight: 3
-        $x_3_4 = "\\sharescreen\\x64\\Release\\sharescreen.pdb" ascii //weight: 3
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_3_*) and 2 of ($x_2_*))) or
-            ((2 of ($x_3_*) and 1 of ($x_2_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_Win64_AsyncRAT_CK_2147903582_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.CK!MTB"
-        threat_id = "2147903582"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {48 98 0f b6 94 05 ?? ?? ?? 00 8b 85 ?? ?? ?? 00 48 98 0f b6 84 05 ?? ?? ?? 00 31 c2 8b 85 ?? ?? ?? 00 48 98 88 94 05 ?? ?? ?? 00 83 85 ?? ?? ?? 00 01 8b 85 ?? ?? ?? 00 48 98 48 3d}  //weight: 5, accuracy: Low
+        $x_1_1 = {8b c2 c1 c9 08 41 03 c8 8b d3 41 33 c9 c1 ca 08 41 03 d1 41 c1 c0 03 41 33 d2 41 c1 c1 03 44 33 ca 44 33 c1 41 ff c2 41 8b db 44 8b d8 41 83 fa 1b 72 cd}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win64_AsyncRAT_SA_2147905611_0
+rule Trojan_Win64_AsyncRat_CCHU_2147903527_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.SA!MTB"
-        threat_id = "2147905611"
+        detection_name = "Trojan:Win64/AsyncRat.CCHU!MTB"
+        threat_id = "2147903527"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
+        family = "AsyncRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {41 0f b6 01 83 fa ?? 0f 47 c8 49 ff c1 0f b6 d1 2b da 8b c2 83 c8 ?? c1 c3 ?? 0f af c2 8d 04 40 33 d8 49 83 ee}  //weight: 1, accuracy: Low
+        $x_1_1 = {4c 8d 8c 24 60 02 00 00 4c 8d 84 24 30 02 00 00 48 8d 15 ?? ?? 01 00 48 8d 0d ?? ?? 01 00 ff 15}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win64_AsyncRAT_KAJ_2147907244_0
+rule Trojan_Win64_AsyncRat_ASC_2147922422_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.KAJ!MTB"
-        threat_id = "2147907244"
+        detection_name = "Trojan:Win64/AsyncRat.ASC!MTB"
+        threat_id = "2147922422"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
+        family = "AsyncRat"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c0 01 88 45 ?? eb e2 0f b6 45 ?? 48 63 c0 48 8b 4d ?? 48 01 c1 0f b6 45 ?? 48 63 c0 48 8b 55 ?? 48 01 c2 0f b6 01 48 89 4d f0 0f b6 0a 31 c8 48 8b 4d f0 88 01 eb c4}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win64_AsyncRAT_CM_2147907598_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.CM!MTB"
-        threat_id = "2147907598"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {37 80 74 24 ?? 38 80 74 24 ?? 39 80 74 24 ?? 3a 80 74 24 ?? 3b 80 74 24 ?? 3c 80 74 24 ?? 3d 34 3e c6 44 24 ?? 31 88 44 24 ?? 48 8d 44 24 ?? 49 ff c0 42 80 3c 00 00 75}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win64_AsyncRAT_ARAZ_2147934750_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.ARAZ!MTB"
-        threat_id = "2147934750"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {48 8b 45 f8 48 01 d0 0f b6 00 83 f0 55 89 c2 48 8d 0d ?? ?? 0c 00 48 8b 45 f8 48 01 c8 88 10 48 83 45 f8 01}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win64_AsyncRAT_ARAX_2147935042_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/AsyncRAT.ARAX!MTB"
-        threat_id = "2147935042"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
+        threshold = "8"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = {0f b6 c2 42 32 04 09 88 04 29 80 c2 05 41 ff c0 4c 8b 0f 41 8b c8 48 8b 47 08 49 2b c1 48 3b c8 72 de}  //weight: 2, accuracy: High
-        $x_2_2 = {0f b6 c2 42 32 04 09 88 04 29 80 c2 05 41 ff c0 4c 8b 0f 48 8b 47 08 49 2b c1 41 8b c8 48 3b c8 72 de}  //weight: 2, accuracy: High
+        $x_5_1 = {48 98 48 8b 95 a8 04 00 00 48 01 d0 0f b6 00 32 85 a7 04 00 00 48 8b 8d 90 04 00 00 8b 95 bc 04 00 00 48 63 d2 88 04 11 83 85 bc 04 00 00 01 8b 95 bc 04 00 00 8b 85 5c 04 00 00 39 c2}  //weight: 5, accuracy: High
+        $x_3_2 = {4d 89 c1 49 89 c8 48 89 c1 48 8b 05 5a 6b 00 00 ff d0 48 8b 85 78 04 00 00 48 8d 50 30 48 8b 85 70 04 00 00 48 8b 80 88 00 00 00 48 83 c0 10 48 89 c1 48 8b 85 40 04 00 00 48 c7 44 24 20 00 00 00 00 41 b9 08 00 00 00 49 89 d0 48 89 ca 48 89 c1}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_AsyncRat_ASC_2147922422_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRat.ASC!MTB"
+        threat_id = "2147922422"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 83 ec 28 48 8d 15 f5 44 00 00 48 8d 0d f6 78 00 00 e8 ?? ?? ?? ?? 48 8d 0d 32 34 00 00 48 83 c4 28}  //weight: 5, accuracy: Low
+        $x_2_2 = "seftali\\x64\\Release\\seftali.pdb" ascii //weight: 2
+        $x_3_3 = "https://github.com/errias/XWorm-Rat-Remote-Administration-Tool-/raw/main/XWormUI.exe" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_AsyncRat_ASY_2147926329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRat.ASY!MTB"
+        threat_id = "2147926329"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 d2 41 8b c5 f7 74 24 24 48 8b 45 a8 44 0f be 0c 02 45 33 c8 48 8b 4f 10 48 8b 57 18 48 3b ca}  //weight: 2, accuracy: High
+        $x_1_2 = "loader\\x64\\Release\\Espio.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_AsyncRat_BSA_2147926523_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRat.BSA!MTB"
+        threat_id = "2147926523"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {55 48 83 ec 20 48 8d 6c 24 20 48 8b 09 0f b6 d2 e8 af 68 06 00 83 f8 ff 74 08 31 c0 48 83 c4 20 5d}  //weight: 10, accuracy: High
+        $x_10_2 = {31 d2 e8 bf 5c 06 00 48 8b 36 e8 8b 51 06 00 48 89 f1 89 c2 49 89 f8 e8 6e 4d 06 00 83 f8 ff 0f 84 98}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (1 of ($x*))

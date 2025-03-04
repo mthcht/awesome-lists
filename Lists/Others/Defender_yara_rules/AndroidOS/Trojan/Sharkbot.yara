@@ -1,70 +1,22 @@
-rule Trojan_AndroidOS_SharkBot_M_2147831842_0
+rule Trojan_AndroidOS_Sharkbot_A_2147837176_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/SharkBot.M"
-        threat_id = "2147831842"
+        detection_name = "Trojan:AndroidOS/Sharkbot.A!MTB"
+        threat_id = "2147837176"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "SharkBot"
+        family = "Sharkbot"
         severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
+        threshold = "1"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = "ScanAppInstallActivityOk" ascii //weight: 1
-        $x_1_2 = "WILL KILL" ascii //weight: 1
-        $x_2_3 = "Lcom/mbkristine8/cleanmaster" ascii //weight: 2
-        $x_1_4 = "1234567890qwertyuioplkjhgfdsazxcvbnm" ascii //weight: 1
+        $x_1_1 = {6e 10 1e 01 05 00 0c 05 6e 20 ?? ?? 54 00 6e 20 ?? ?? 04 00 6e 10 ?? ?? 04 00 0c 04 71 30 78 16 43 01 0c 01 1a 03 ?? ?? 6e 30 c8 02 12 03 62 03 ?? ?? 6e 10 1d 01 03 00 0c 03 15 04 01 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {1a 00 41 09 6e 10 ?? ?? 07 00 0a 01 38 01 0d 00 52 70 ?? ?? 59 70 ?? ?? 6e 10 ?? ?? 07 00 6e 10 ?? ?? 07 00 0e 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_AndroidOS_SharkBot_U_2147836436_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/SharkBot.U"
-        threat_id = "2147836436"
-        type = "Trojan"
-        platform = "AndroidOS: Android operating system"
-        family = "SharkBot"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "+MexfEnBZA7q7iZMuUPE2bpWWq7dZXL2urW+z97dpchqWh4hWOgUnbCk4z+Hbza8" ascii //weight: 1
-        $x_1_2 = "LMDOverlay not bound" ascii //weight: 1
-        $x_1_3 = "show hidden file" ascii //weight: 1
-        $x_1_4 = "{upload-url}" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_AndroidOS_SharkBot_H_2147836445_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/SharkBot.H"
-        threat_id = "2147836445"
-        type = "Trojan"
-        platform = "AndroidOS: Android operating system"
-        family = "SharkBot"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "In what city or town did your mother and father meet" ascii //weight: 1
-        $x_1_2 = "package recerver data" ascii //weight: 1
-        $x_1_3 = "scan isntall apk" ascii //weight: 1
-        $x_1_4 = "question anser" ascii //weight: 1
-        $x_1_5 = "root =" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 

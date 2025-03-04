@@ -1,193 +1,135 @@
-rule Trojan_MacOS_NukeSped_A_2147744584_0
+rule Trojan_MacOS_Nukesped_G_2147830629_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/NukeSped.A!MTB"
-        threat_id = "2147744584"
+        detection_name = "Trojan:MacOS/Nukesped.G!MTB"
+        threat_id = "2147830629"
         type = "Trojan"
         platform = "MacOS: "
-        family = "NukeSped"
+        family = "Nukesped"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "4"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "beastgoc.com" ascii //weight: 2
-        $x_1_2 = "%s/grepmonux.php" ascii //weight: 1
-        $x_1_3 = {89 ce 83 e6 0f 42 8a 14 06 30 14 0f 48 ff c1 48 39 c8 75 ec}  //weight: 1, accuracy: High
+        $x_1_1 = {58 be 13 9e 14 6c 77 6b ad 15 1e 30 34 c0 4c e8 7a 87 1a f8 5e 6e be ac f4 ff 34 9e b7 3b d9 90 a3 51 46 c1 4b de 5e f1 d1 33 3e 5a 28 d9 2d d6 a4 d5 be 92 0f ab f4 bd a5 c8 3b 8b a1 ca e5 29 e1 02 19 39 57 1e 12 69 32 fd a1 7d f5 cb 9e 9c 4a f4 40 92 f3 54 97 bb 9b ff d1 e9 c6 ba 8f a9 9e bd 26 6d 6d 82 94 8c 20 df 9b f1 af dd c7 5f 1a 33 39 86 23 cc 1f a8 ee f0 d9 d5}  //weight: 1, accuracy: High
+        $x_1_2 = {35 70 22 6b 8d 06 a5 6c 4b bd 96 06 0a 93 35 0f e4 42 ca c0 60 43 8d 59 35 e8 91 6e 19 18 df 99 5a 4b 19 ca 65 4e 99 91 c7 5d e0 81 73 98 89 e8 47 0c a4 7e ea 5f 19 29 97 46 d3 d1 78 2c 92 5c a3}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 
-rule Trojan_MacOS_NukeSped_B_2147744636_0
+rule Trojan_MacOS_Nukesped_H_2147850534_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/NukeSped.B!MTB"
-        threat_id = "2147744636"
+        detection_name = "Trojan:MacOS/Nukesped.H!MTB"
+        threat_id = "2147850534"
         type = "Trojan"
         platform = "MacOS: "
-        family = "NukeSped"
+        family = "Nukesped"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "4"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "crabbedly.club/board.php" ascii //weight: 1
-        $x_1_2 = "craypot.live/board.php" ascii //weight: 1
-        $x_1_3 = "indagator.club/board.php" ascii //weight: 1
-        $x_1_4 = {0f 10 0c 13 0f 10 54 13 10 0f 10 5c 13 20 0f 10 64 13 30 0f 57 c8 0f 57 d0 0f 11 0c 13 0f 11 54 13 10 0f 57 d8 0f 57 e0 0f 11 5c 13 20 0f 11 64 13 30 48 83 c2 40 48 83 c6 02 75 c4 eb 02}  //weight: 1, accuracy: High
+        $x_1_1 = {39 13 c0 b5 94 5e d1 44 10 0c 99 68 4c b4 47 0b a0 d0 d6 75 d8 f3 dc b6 5c a6 8a b3 2b d9 ff 8d 28 19 21 cc}  //weight: 1, accuracy: High
+        $x_1_2 = {35 35 35 35 34 39 34 34 65 34 35 34 36 30 31 33 64 62 30 66 33 35 38 35 62 63 37 30 36 62 65 32 34 35 35 64 30 38 34 65 00 fe 91 3b 84 0b 01 ce 04 da a4 bd 1f e8 61 14 b4 4e 79 d1 92 0c ac d2 4b b0 0e 38 ad 3f 88 54 ec}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 
-rule Trojan_MacOS_NukeSped_C_2147745798_0
+rule Trojan_MacOS_Nukesped_I_2147919059_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/NukeSped.C!MTB"
-        threat_id = "2147745798"
+        detection_name = "Trojan:MacOS/Nukesped.I!MTB"
+        threat_id = "2147919059"
         type = "Trojan"
         platform = "MacOS: "
-        family = "NukeSped"
+        family = "Nukesped"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "4"
+        threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = "unioncrypto.vip/update" ascii //weight: 2
-        $x_1_2 = "Loader/macos/Barbeque/" ascii //weight: 1
-        $x_3_3 = "12GWAPCT1F0I1S14" ascii //weight: 3
-        $x_1_4 = "auth_timestamp" ascii //weight: 1
-        $x_1_5 = "auth_signature" ascii //weight: 1
-        $x_1_6 = {48 8d 55 a8 e8 ?? ?? ?? ?? 83 f8 01 0f 85 9b 00 00 00 48 8b 7d a8 48 8d 35 41 0f 00 00 ba 03 00 00 00 e8 ?? ?? ?? ?? 48 85 c0 0f 84 a4 00 00 00 48 89 c6 b8 f5 ff ff ff 83 fb 02 0f 85 ec 00 00 00 4c 8d 75 a0 ba 04 00 00 00 b9 01 00 00 00 48 89 f7 4c 89 f6 e8 ?? ?? ?? ?? 4d 8b 06 41 8b 40 10}  //weight: 1, accuracy: Low
-        $x_1_7 = {be ff 01 00 00 48 89 df e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? 83 38 02 75 da 81 3b cf fa ed fe 75 d2 49 89 1e 31 c0 48 83 c4 08 5b 41 5c 41 5d 41 5e 41 5f 5d c3}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (
-            ((4 of ($x_1_*))) or
-            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_3_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_MacOS_NukeSped_D_2147756370_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MacOS/NukeSped.D!MTB"
-        threat_id = "2147756370"
-        type = "Trojan"
-        platform = "MacOS: "
-        family = "NukeSped"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "coingotrade.com/update_coingotrade.php" ascii //weight: 1
-        $x_1_2 = "/private/tmp/updatecoingotrade" ascii //weight: 1
-        $x_1_3 = "isDownload" ascii //weight: 1
-        $x_1_4 = "kupay_updater_mac_new" ascii //weight: 1
+        $x_1_1 = {44 89 e0 31 c9 ?? ?? ?? ?? ?? ?? ?? 89 ce 83 e6 1f 8a 14 3e 30 14 0b 48 ff c1 48 39 c8}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b 4d ec 89 ce c1 ee 02 83 e6 3f 42 8a 34 06 89 c7 40 88 34 3a c1 e1 04 83 e1 30 44 89 ce c1 ee 04 83 e6 0f 48 09 ce 41 8a 0c 30}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_MacOS_NukeSped_D_2147756370_1
+rule Trojan_MacOS_Nukesped_J_2147920164_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/NukeSped.D!MTB"
-        threat_id = "2147756370"
+        detection_name = "Trojan:MacOS/Nukesped.J!MTB"
+        threat_id = "2147920164"
         type = "Trojan"
         platform = "MacOS: "
-        family = "NukeSped"
+        family = "Nukesped"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {45 89 ca 41 83 e2 e0 49 8d 5a e0 48 89 d8 48 c1 e8 05 48 ff c0 41 89 c3 41 83 e3 01 48 85 db 0f 84 a0 00 00 00 4c 89 db 48 29 c3 31 c0 0f 28 05 cd 3b 00 00 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00}  //weight: 1, accuracy: High
-        $x_1_2 = {0f 10 0c 01 0f 10 54 01 10 0f 10 5c 01 20 0f 10 64 01 30 0f 57 c8 0f 57 d0 0f 11 0c 01 0f 11 54 01 10 0f 57 d8 0f 57 e0 0f 11 5c 01 20 0f 11 64 01 30 48 83 c0 40 48 83 c3 02 75 c4 4d 85 db 74 1f}  //weight: 1, accuracy: High
-        $x_1_3 = "/bin/bash -c" ascii //weight: 1
-        $x_1_4 = "_webident_f" ascii //weight: 1
-        $x_1_5 = "_webident_s" ascii //weight: 1
-        $x_2_6 = "fudcitydelivers.com/net.php" ascii //weight: 2
-        $x_2_7 = "sctemarkets.com/net.php" ascii //weight: 2
+        $x_1_1 = "/tmp/GoogleMsgStatus.pdf" ascii //weight: 1
+        $x_1_2 = "/tmp/NetMsgStatus" ascii //weight: 1
+        $x_1_3 = "netboturl" ascii //weight: 1
+        $x_1_4 = "googleboturl" ascii //weight: 1
+        $x_1_5 = "buy2x.com" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((5 of ($x_1_*))) or
-            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
-            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 
-rule Trojan_MacOS_NukeSped_E_2147775406_0
+rule Trojan_MacOS_Nukesped_K_2147923437_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/NukeSped.E!MTB"
-        threat_id = "2147775406"
+        detection_name = "Trojan:MacOS/Nukesped.K!MTB"
+        threat_id = "2147923437"
         type = "Trojan"
         platform = "MacOS: "
-        family = "NukeSped"
+        family = "Nukesped"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "4"
+        threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {34 11 48 63 f6 8b b4 b5 e0 fe ff ff 31 b4 95 d0 fe ff ff 48 ff c2 48 39 d0 75 e4}  //weight: 1, accuracy: High
-        $x_2_2 = {48 81 ec d8 00 00 00 49 89 d5 49 89 f7 49 89 fc 48 8b 05 3d 14 00 00 48 8b 00 48 89 45 d0 8b 0d 88 17 00 00 83 f9 ff 75 20 48 8d 3d 00 0e 00 00 48 8d b5 40 ff ff ff ?? ?? ?? ?? ?? 31 c9 85 c0 0f 95 c1 89 0d 63 17 00 00}  //weight: 2, accuracy: Low
-        $x_1_3 = "qnalytica.com/wp-rss.php" ascii //weight: 1
-        $x_1_4 = "Barbeque::~Barbeque()" ascii //weight: 1
-        $x_1_5 = "curl_easy_getinfo" ascii //weight: 1
+        $x_1_1 = {55 48 89 e5 48 83 ec 10 48 89 7d f8 48 8b 7f 08 e8 ?? ?? ?? ?? 48 8b 7d f8 48 8b 7f 10 ff ?? ?? ?? ?? ?? 48 8b 45 f8 48 83 c4 10 5d c3}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 89 45 f8 75 ?? 48 8b 3d d0 69 00 00 e8 ?? ?? ?? ?? 48 89 c7 e8 ?? ?? ?? ?? 48 89 c1 48 89 c8 48 89 0d f6 6c 00 00 48 89 45 f8}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (
-            ((4 of ($x_1_*))) or
-            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 
-rule Trojan_MacOS_NukeSped_F_2147775470_0
+rule Trojan_MacOS_Nukesped_L_2147934089_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/NukeSped.F!MTB"
-        threat_id = "2147775470"
+        detection_name = "Trojan:MacOS/Nukesped.L!MTB"
+        threat_id = "2147934089"
         type = "Trojan"
         platform = "MacOS: "
-        family = "NukeSped"
+        family = "Nukesped"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "3"
+        threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "://kupaywallet.com/kupay_update.php" ascii //weight: 2
-        $x_1_2 = "/private/tmp/kupay_update" ascii //weight: 1
-        $x_1_3 = "CoinGo_Trade" ascii //weight: 1
-        $x_2_4 = "://23.152.0.101:8080" ascii //weight: 2
+        $x_1_1 = {31 f6 4c 89 f2 48 89 c1 e8 46 08 00 00 49 89 c7 49 89 d4 48 89 df 48 8b 75 b0 48 8b 45 b8 ff 50 08 4c 89 e0 48 c1 e8 38 3d fe 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {48 89 df 31 f6 4c 89 f2 48 89 c1 e8 46 08 00 00 49 89 c7 49 89 d4 48 89 df 48 8b 75 b0 48 8b 45 b8 ff 50 08 4c 89 e0 48 c1 e8 38}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((2 of ($x_2_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 
