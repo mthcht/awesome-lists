@@ -46,7 +46,7 @@
 - 🧮 Metadata Executables: [executables_metadata_informations_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Windows%20Metadata/executables_metadata_informations_list.csv)
 - 🕸️ DNS over HTTPS server list: [dns_over_https_servers_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv)
 - 🕸️ Dynamic DNS domains list:  [dyndns_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/DYNDNS/dyndns_list.csv)
-- 🕸️ Sinkholed domains (todo): [\[sinkholed servers\]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Domains)
+- 🕸️ Sinkholed domains : [\[sinkholed servers\]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Domains) - [sinkholed_domains.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Domains/sinkholed_servers/sinkholed_domains.csv)
 - 📚 Hijacklibs (updated automatically): [hijacklibs_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Hijacklibs/hijacklibs_list.csv)
 - 🌐 TOR Nodes Lists (updated automatically): [[TOR]](https://github.com/mthcht/awesome-lists/tree/main/Lists/TOR)
 - 🛠️ LOLDriver List (updated automatically): [loldrivers_only_hashes_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Drivers/loldrivers_only_hashes_list.csv)
