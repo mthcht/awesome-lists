@@ -1,20 +1,19 @@
-rule Trojan_Win64_plugx_2147844412_0
+rule Trojan_Win64_PlugX_LK_2147913411_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/plugx.psyF!MTB"
-        threat_id = "2147844412"
+        detection_name = "Trojan:Win64/PlugX.LK!MTB"
+        threat_id = "2147913411"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "plugx"
+        family = "PlugX"
         severity = "Critical"
-        info = "psyF: an internal category used to refer to some threats"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
+        threshold = "2"
+        strings_accuracy = "Low"
     strings:
-        $x_7_1 = {85 c9 76 74 48 8b 4c 24 68 48 89 4c 24 70 48 8d 05 5b 6e 00 00 e8 76 de f9 ff 48 8b 4c 24 58 48 89 08 48 8b 54 24 70 48 89 50 08 48 8b 54 24 48}  //weight: 7, accuracy: High
+        $x_2_1 = {e9 00 00 00 00 8b 84 24 ?? 00 00 00 2d ?? ?? ?? ?? ?? ?? ?? ?? ff ff e9 00 00 00 00 8b 84 24 ?? 00 00 00 2d ?? ?? ?? ?? ?? ?? ?? ?? ff ff e9 00 00 00 00 8b 84 24 ?? 00 00 00 2d ?? ?? ?? ?? ?? ?? ?? ?? ff ff e9 00 00 00 00 8b 84 24 ?? 00 00 00 2d}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

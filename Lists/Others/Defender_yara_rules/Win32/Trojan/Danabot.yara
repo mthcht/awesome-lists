@@ -1,1010 +1,712 @@
-rule Trojan_Win32_Danabot_F_2147731097_0
+rule Trojan_Win32_DanaBot_GM_2147754953_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.F"
-        threat_id = "2147731097"
+        detection_name = "Trojan:Win32/DanaBot.GM!MTB"
+        threat_id = "2147754953"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {83 fe 00 74 36 29 c0 48 23 02 83 ea fc f7 d8 83 e8 26 8d 40 fe 83 c0 01 29 f8 6a ff 5f 21 c7 c7 41 00 00 00 00 00 31 01 83 c1 04 83 ee 04 8d 05 0f 45 41 00 2d 65 98 00 00 ff e0}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_G_2147731135_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.G"
-        threat_id = "2147731135"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {83 fe 00 74 36 29 c0 48 23 02 83 ea fc f7 d8 83 e8 26 8d 40 fe 83 c0 01 29 f8 6a ff 5f 21 c7 c7 41 00 00 00 00 00 31 01 83 c1 04 83 ee 04 8d 05}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_K_2147740595_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.K"
-        threat_id = "2147740595"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Disable-ComputerRestore \"C:\\\"" ascii //weight: 1
-        $x_1_2 = "powershell.exe -ExecutionPolicy Bypass" ascii //weight: 1
-        $x_1_3 = "taskkill /F /IM TeamViewer.exe" ascii //weight: 1
-        $x_1_4 = "taskkill /F /IM jusched.exe" ascii //weight: 1
-        $x_1_5 = "net stop mikroclientwservice" ascii //weight: 1
-        $x_1_6 = "net stop MSSQL$MIKRO" ascii //weight: 1
-        $x_1_7 = "net stop foxitreaderservice" ascii //weight: 1
-        $x_1_8 = "Windows Defender\" /v DisableAntiSpyware /t REG_DWORD /d 1 /f" ascii //weight: 1
-        $x_1_9 = "Advanced\" /v ShowSuperHidden /t REG_DWORD /d 1 /f" ascii //weight: 1
-        $x_2_10 = "HowToBackFiles.txt" ascii //weight: 2
-        $x_2_11 = "@protonmail.com" ascii //weight: 2
-        $x_2_12 = "Encrypter" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (
-            ((6 of ($x_1_*))) or
-            ((1 of ($x_2_*) and 4 of ($x_1_*))) or
-            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
-            ((3 of ($x_2_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_Win32_Danabot_L_2147742253_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.L!dha"
-        threat_id = "2147742253"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "dha: an internal category used to refer to some threats"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "\\source\\New\\DanBot\\" ascii //weight: 2
-        $x_2_2 = "ipconfig /flushdns & exit" wide //weight: 2
-        $x_2_3 = "shell.Run \"cmd /k VMWares.bat\",0,True" wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_G_2147742900_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.G!MTB"
-        threat_id = "2147742900"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
+        family = "DanaBot"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "2"
-        strings_accuracy = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = {85 c0 74 68 85 d2 74 64 49 7c 61 56 53 8b 72 fc 8b 58 fc 29 ce d1 e1 01 ca 39 de 7c 46 85 db 7e}  //weight: 1, accuracy: High
-        $x_1_2 = {53 65 72 76 69 63 65 4d 61 69 6e 00 5f 5f 64 62 6b 5f 66 63 61 6c 6c 5f 77 72 61 70 70 65 72 00 64 62 6b 46 43 61 6c 6c 57 72 61 70 70 65 72 41 64 64 72 00 66 30 00 66 31 00 66 32 00 66 33 00 66 34 00 66 35 00 66 36 00 66 37 00 66 38 00 66 39 00 74 31}  //weight: 1, accuracy: High
+        $x_1_1 = {30 04 3e b8 01 00 00 00 29 85 ?? ?? ?? ?? 8b b5 ?? ?? ?? ?? 3b f3 7d}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_Danabot_S_2147743645_0
+rule Trojan_Win32_DanaBot_GL_2147754954_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.S!MSR"
-        threat_id = "2147743645"
+        detection_name = "Trojan:Win32/DanaBot.GL!MTB"
+        threat_id = "2147754954"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
+        family = "DanaBot"
         severity = "Critical"
-        info = "MSR: Microsoft Security Response"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f 57 c0 33 c8 66 0f 13 05 [0-48] 81 3d [0-53] 89 4c 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_GL_2147754954_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.GL!MTB"
+        threat_id = "2147754954"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {03 d6 33 ca 81 3d [0-21] c7 05 [0-21] 89 1d [0-21] 89 8d}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b 85 d8 f7 ff ff 8b 4d fc 89 78 04 5f 89 30 5e 33 cd 5b e8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AG_2147755287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AG!MTB"
+        threat_id = "2147755287"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {03 d3 33 ca 81 3d [0-37] c7 05 [0-37] 89 2d [0-37] 89 2d [0-37] 89 4c 24}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b 44 24 38 89 78 04 [0-16] 89 18 5b 83 c4 2c}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AH_2147755435_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AH!MTB"
+        threat_id = "2147755435"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c1 2b f0 [0-37] 89 5c 24 ?? 89 54 24 ?? 8b 44 24 ?? 01 44 24 ?? 8b 44 24 ?? 01 44 24 ?? 8b 44 24 [0-96] 31 44 24 [0-64] 03 54 24 ?? 89 54 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AK_2147755490_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AK!MTB"
+        threat_id = "2147755490"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b d3 c1 ea ?? 03 95 ?? ?? ?? ?? 89 95 [0-37] 31 85 ?? ?? ?? ?? 2b bd [0-37] 29 85 ?? ?? ?? ?? ff 8d [0-37] 8b 85 ?? ?? ?? ?? 8b 4d ?? 89 38 [0-32] 89 58 ?? 33 cd}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AV_2147756477_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AV!MTB"
+        threat_id = "2147756477"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {c1 e8 05 89 45 ?? 8b 45 ?? 03 45 ?? 89 45 ?? 8b 45 ?? 33 45 ?? 89 45 ?? 8b 45 ?? 33 45}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b 4d e0 8b 55 ?? 89 14 01 [0-16] 8b e5}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_GB_2147756565_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.GB!MTB"
+        threat_id = "2147756565"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {30 04 37 4e}  //weight: 1, accuracy: High
+        $x_1_2 = {8a 18 88 10 88 19 0f b6 00 0f b6 cb 03 c1 [0-48] 23 c6 8a 80 [0-37] 33}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_GC_2147756566_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.GC!MTB"
+        threat_id = "2147756566"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {b8 b7 59 e7 1f f7 65 ?? 8b 45 ?? 81 45 [0-48] 81 ad [0-48] 81 45 [0-32] 8b 85 ?? ?? ?? ?? 30 0c 30}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_GF_2147756567_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.GF!MTB"
+        threat_id = "2147756567"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 4d fc 30 04 31 b8 ?? ?? ?? ?? 83 f0 ?? 83 6d [0-16] 83 7d [0-16] 0f 8d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_GJ_2147756746_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.GJ!MTB"
+        threat_id = "2147756746"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 18 88 10 88 1e 0f b6 00 0f b6 d3 03 c2 23 c1 [0-37] 8a 80 [0-48] 33 cd}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_GK_2147756808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.GK!MTB"
+        threat_id = "2147756808"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {30 04 3e 56 [0-37] 83 c4 ?? 8b f0 3b f3}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AB_2147756810_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AB!MTB"
+        threat_id = "2147756810"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c7 33 cd c1 e8 ?? 03 44 24 ?? 89 44 24 ?? 89 4c 24 ?? 8b 44 24 ?? 31 44 24 ?? 2b 5c 24 ?? 8b 44 24 [0-64] ff 4c 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AD_2147756812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AD!MTB"
+        threat_id = "2147756812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {30 04 3e 56 [0-48] 83 c4 [0-32] 8b f0 85 f6 [0-200] 8b 8d [0-64] 33 cd}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AD_2147756812_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AD!MTB"
+        threat_id = "2147756812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "crowded4.dll" ascii //weight: 1
+        $x_1_2 = "ServiceMain" ascii //weight: 1
+        $x_1_3 = "TMethodImplementationIntercept" ascii //weight: 1
+        $x_1_4 = "ShellExecuteExW" wide //weight: 1
+        $x_1_5 = "PgZNTPgXQTp" wide //weight: 1
+        $x_1_6 = "C:\\myself.dll" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AE_2147756813_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AE!MTB"
+        threat_id = "2147756813"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c7 33 ce c1 e8 ?? 03 44 24 ?? 89 44 24 ?? 89 4c 24 ?? 8b 44 24 ?? 31 44 24 ?? 2b 5c 24 ?? 8b 44 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AF_2147756885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AF!MTB"
+        threat_id = "2147756885"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {03 f1 0f 57 c0 8b cf 66 0f 13 05 [0-32] c1 e1 ?? 03 ca 33 c8 81 3d [0-32] 89 4c 24}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b 44 24 20 8b 8c 24 ?? ?? ?? ?? 89 38 [0-48] 5f 5e [0-48] 89 68 [0-48] 5d 5b [0-48] 33 cc}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AP_2147756962_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AP!MTB"
+        threat_id = "2147756962"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c8 03 bc 24 [0-48] 0f 57 c0 81 3d [0-48] 66 0f 13 05 [0-48] 89 4c 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AQ_2147756963_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AQ!MTB"
+        threat_id = "2147756963"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {66 0f 57 c0 66 0f 13 05 [0-48] 8b 85 ?? ?? ?? ?? 03 85 ?? ?? ?? ?? 89 85 ?? ?? ?? ?? 8b 85 ?? ?? ?? ?? 33 85 ?? ?? ?? ?? 89 85}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AS_2147757481_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AS!MTB"
+        threat_id = "2147757481"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {66 0f 57 c0 66 0f 13 05 [0-32] 8b 45 ?? 03 45 ?? 89 45 ?? 8b 45 ?? 33 45 ?? 89 45 ?? 8b 45 ?? 33 45}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AT_2147757547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AT!MTB"
+        threat_id = "2147757547"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {c1 e8 05 89 45 ?? 8b 45 ?? 03 45 ?? 89 45 ?? 8b 45 ?? 33 45 ?? 89 45 ?? 8b 45 ?? 33 45 ?? 89 45 ?? 83 25}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b 4d 60 8b 55 ?? 89 14 01 5b 83 c5 ?? 8b e5 5d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AU_2147757725_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AU!MTB"
+        threat_id = "2147757725"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {66 0f 57 c0 66 0f 13 05 [0-21] 8b 55 ?? 03 55 ?? 89 55 ?? 8b 45 ?? 33 45}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AW_2147757726_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AW!MTB"
+        threat_id = "2147757726"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c8 0f 57 c0 81 3d [0-32] 66 0f 13 05 [0-16] 89 8d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AZ_2147758028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AZ!MTB"
+        threat_id = "2147758028"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {03 ce 30 01 b8 [0-48] 83 f0 ?? 83 ad [0-48] 39 bd [0-32] [0-32] 8b 8d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AX_2147758029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AX!MTB"
+        threat_id = "2147758029"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 f3 33 75 ?? 89 7d ?? 29 75 ?? 25 ?? ?? ?? ?? 81 6d [0-48] bb ?? ?? ?? ?? 81 45 [0-48] 8b 45 ?? 8b 4d ?? 8b d0 d3 e2 8b c8 c1 e9 ?? 03 4d ?? 03 55 ?? 89 3d ?? ?? ?? ?? 33 d1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_AY_2147758030_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AY!MTB"
+        threat_id = "2147758030"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c7 d3 e0 8b cf c1 e9 ?? 03 4d ?? 03 45 ?? 03 d7 33 c1 33 c2 29 45 ?? a1 [0-32] c7 05}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_BA_2147758768_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.BA!MTB"
+        threat_id = "2147758768"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {30 04 31 b8 [0-32] 83 f0 ?? 83 ad [0-48] 39 bd [0-48] [0-32] 8b 8d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_BB_2147759968_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.BB!MTB"
+        threat_id = "2147759968"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b f0 d3 e6 8b c8 c1 e9 ?? 03 4d ?? 03 75 ?? 89 15 ?? ?? ?? ?? 33 f1 8b 4d ?? 03 c8 33 f1 8b 0d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_BC_2147760046_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.BC!MTB"
+        threat_id = "2147760046"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b d0 d3 e2 8b c8 c1 e9 ?? 03 4d ?? 03 55 ?? 89 3d ?? ?? ?? ?? 33 d1 8b 4d ?? 03 c8 33 d1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_NEAA_2147837969_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.NEAA!MTB"
+        threat_id = "2147837969"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "wrtpsdfhlzcvbnm" ascii //weight: 5
+        $x_5_2 = "qeyuioaqeyuioaqe" ascii //weight: 5
+        $x_5_3 = "wscproxystub.dll" ascii //weight: 5
+        $x_5_4 = "D:\\Builds\\Server\\64x\\Debug\\FS_Config\\Config.dat" ascii //weight: 5
+        $x_5_5 = "hpfvuw73.dll" ascii //weight: 5
+        $x_1_6 = "System.EnterpriseServices.Thunk.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_EM_2147850224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.EM!MTB"
+        threat_id = "2147850224"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "mvd-k-tula.ru" ascii //weight: 1
+        $x_1_2 = "KEYKEY05" ascii //weight: 1
+        $x_1_3 = "C:\\Galax6K\\dobaloc.exe" ascii //weight: 1
+        $x_1_4 = "MessageBeep" ascii //weight: 1
+        $x_1_5 = "GetUserNameA" ascii //weight: 1
+        $x_1_6 = "WSAStartup" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_VQ_2147902677_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.VQ!MTB"
+        threat_id = "2147902677"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 00 88 45 ab 8a 45 ab 04 9f 2c 1a 73 04 80 6d ab 20 a1 ?? ?? ?? ?? 8a 00 88 45 aa 8a 45 aa 04 9f 2c 1a 73 04 80 6d aa 20 a1 ?? ?? ?? ?? 8a 00 88 45 a9 8a 45 a9 04 9f 2c 1a 73 04}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_SPD_2147905601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.SPD!MTB"
+        threat_id = "2147905601"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "snxhk.dll" ascii //weight: 1
-        $x_1_2 = "c:\\Users\\Public\\" ascii //weight: 1
-        $x_1_3 = "/photo.png?id=%0.2X%0.8X%0.8X" ascii //weight: 1
-        $x_1_4 = "lutheatre.com" ascii //weight: 1
-        $x_1_5 = "mallesene.com" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_SA_2147743646_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.SA!MSR"
-        threat_id = "2147743646"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MSR: Microsoft Security Response"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "MinornTheseRooglei" ascii //weight: 1
-        $x_1_2 = "enowhnewc8are5h" ascii //weight: 1
-        $x_1_3 = {61 6c 77 61 72 65 29 2c 32 30 30 39 2c 74 68 65 6c 55 [0-1] 69 63 65 6e 73 65 73 [0-1] 6f 72 65 64 51 4e}  //weight: 1, accuracy: Low
-        $x_1_4 = "whenqubWindows-onlyIprocess" ascii //weight: 1
-        $x_1_5 = "wherhw#@hre.pdb" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_RB_2147749140_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.RB!MSR"
-        threat_id = "2147749140"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MSR: Microsoft Security Response"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8a 44 29 eb 88 c4 c0 e8 04 75 ?? 88 e0 24 0f 75 ?? 49 75}  //weight: 1, accuracy: Low
-        $x_1_2 = {83 eb 02 83 e9 04 8b 45 0c 8b 55 10 81 e0 ff 00 00 00 33 d2 8b 04 85 62 e1 54 00 89 01 8b 45 0c 8b 55 10 0f ac d0 08 c1 ea 08 89 45 0c 89 55 10 83 fb 02 7d}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_2147751151_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot!MTB"
-        threat_id = "2147751151"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {8b 45 fc 8d 34 03 e8 ?? ?? ?? ?? 30 06 b8 01 00 00 00 29 45 fc 39 7d fc 7d}  //weight: 2, accuracy: Low
-        $x_2_2 = {30 04 3e b8 01 00 00 00 29 85 f4 f7 ff ff 8b b5 f4 f7 ff ff 3b f3 7d 05 00 e8}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_Danabot_DSK_2147751707_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.DSK!MTB"
-        threat_id = "2147751707"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {8b 45 08 8b 08 81 e9 92 27 01 00 8b 55 08 89 0a 8b e5 5d}  //weight: 2, accuracy: High
-        $x_2_2 = {8b 45 fc 8d 34 07 e8 ?? ?? ?? ?? 30 06 83 6d fc 01 39 5d fc 7d}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_Danabot_KM_2147753110_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.KM!MTB"
-        threat_id = "2147753110"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {0f b6 d3 03 d0 81 e2 ff 00 00 00 81 3d ?? ?? ?? ?? 8a 08 00 00 89 15 ?? ?? ?? ?? 75 19 00 8b 0d ?? ?? ?? ?? 0f be 86 ?? ?? ?? ?? 8a 99 ?? ?? ?? ?? 03 05}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_KM_2147753110_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.KM!MTB"
-        threat_id = "2147753110"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {d3 e2 89 74 24 ?? 89 54 24 ?? 8b 44 24 ?? 01 44 24 ?? 8b 44 24 ?? 01 44 24 ?? a1 ?? ?? ?? ?? 3d 1a 0c 00 00 75}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_KM_2147753110_2
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.KM!MTB"
-        threat_id = "2147753110"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {c1 ea 05 03 55 ?? 89 55 ?? 8b 45 ?? 31 45 ?? 2b 75 ?? 8b 45 ?? d1 6d ?? 29 45 ?? ff 4d ?? 0f 85}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_KM_2147753110_3
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.KM!MTB"
-        threat_id = "2147753110"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {83 c0 7b 89 04 24 b8 f9 cd 03 00 01 04 24 83 2c 24 7b 8b 04 24 8a 04 08 88 04 0a 59 c3}  //weight: 2, accuracy: High
-        $x_2_2 = {0f b6 d3 03 ca a3 ?? ?? ?? ?? 81 e1 ff 00 00 00 8a 81 ?? ?? ?? ?? 30 04 37 83 6d ?? 01 8b 75 ?? 85 f6 7d}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_Danabot_OE_2147754175_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.OE!MTB"
-        threat_id = "2147754175"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {57 57 ff 15 2c 80 40 00 eb 15 8b 45 fc 8d 34 03 e8 6f fe ff ff 30 06 b8 01 00 00 00 29 45 fc 39 7d fc 7d e6 5f 5e 5b c9 c3}  //weight: 1, accuracy: High
-        $x_1_2 = "SetProcessShutdownParameters" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_PVD_2147754535_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.PVD!MTB"
-        threat_id = "2147754535"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {8b 44 24 24 8b 8c 24 40 08 00 00 5f 5e 89 68 04 5d 89 18 5b 33 cc e8 ?? ?? ?? ?? 81 c4 34 08 00 00}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_AR_2147754671_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.AR!MTB"
-        threat_id = "2147754671"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {03 f0 03 4d ?? 8d 04 3b 33 c8 0f 57 c0 81 3d [0-48] 66 0f 13 05 ?? ?? ?? ?? 89 4d}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_PVE_2147754942_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.PVE!MTB"
-        threat_id = "2147754942"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {8b 85 d8 f7 ff ff 8b 4d fc 89 78 04 5f 89 30 5e 33 cd 5b e8 ?? ?? ?? ?? 8b e5 5d c2 04 00}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_OY_2147755020_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.OY!MTB"
-        threat_id = "2147755020"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8b 4d fc 03 cf 30 01 b8 01 00 00 00 83 f0 04 83 6d fc 01 39 75 fc 7d e3 5f 5e c9 c3}  //weight: 1, accuracy: High
-        $x_1_2 = "SetProcessShutdownParameters" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_DEA_2147755455_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.DEA!MTB"
-        threat_id = "2147755455"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {03 ce 8d 5c 0b 1a 8b cb 2b ce 41 89 0d ?? ?? ?? ?? 69 f6 1d 53 00 00 03 f0 81 c2 ?? ?? ?? ?? 0f b7 fe 8b 74 24 10 89 16}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_MX_2147755845_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.MX!MTB"
-        threat_id = "2147755845"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {33 ca c1 e8 05 03 c5 89 4c 24 ?? 89 44 24 ?? 8b 44 24 ?? 31 44 24 ?? 2b 7c 24 ?? 81 3d ?? ?? ?? ?? bb 06 00 00}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_MX_2147755845_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.MX!MTB"
-        threat_id = "2147755845"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {f7 a4 24 e0 00 00 00 8b 84 24 e0 00 00 00 81 84 24 ?? ?? ?? ?? f3 ae ac 68 81 ac 24 ?? ?? ?? ?? b3 30 c7 6b 81 84 24 ?? ?? ?? ?? 21 f4 7c 36 30 0c 1e 4e 0f 89}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_QR_2147756754_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.QR!MTB"
-        threat_id = "2147756754"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {89 45 e0 8b 45 f4 31 45 ec 8b 45 f4 31 45 e8 8b 45 f4 31 45 e4 8b 45 f4 31 45 e0 8b 45 e4 f7 6d ec f7 6d e8 03 45 f8 33 45 e0 89 45 f8 ff 45 f0 ff 4d d4 0f}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_AA_2147756809_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.AA!MTB"
-        threat_id = "2147756809"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {33 c8 03 7c 24 ?? 0f 57 c0 81 3d [0-48] c7 05 [0-48] 66 0f 13 05 [0-48] 89 4c 24}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_AA_2147756809_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.AA!MTB"
-        threat_id = "2147756809"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8a 00 88 45 ?? 8a 45 ?? 04 9f 2c 1a 73 ?? 80 6d ?? 20 a1 ?? ?? ?? ?? 8a 00 88 45 ?? 8a 45 ?? 04 9f 2c 1a 73 ?? 80 6d ?? 20 a1 ?? ?? ?? ?? 8a 00 88 45 ?? 8a 45 ?? 04 9f 2c 1a 73}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_AC_2147756811_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.AC!MTB"
-        threat_id = "2147756811"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {0f 57 c0 c1 e1 ?? 03 ca 66 0f 13 05 [0-32] 33 c8 81 3d [0-48] 89 4c 24 10}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_VC_2147756847_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.VC!MTB"
-        threat_id = "2147756847"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8b f7 c7 05 [0-10] c1 ee ?? 03 c7 03 f1 0f 57 c0 8b cf 66 0f 13 05 ?? ?? ?? ?? c1 e1 ?? 03 ca 33 c8 81 3d [0-10] 89 4c 24 ?? 75}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_VC_2147756847_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.VC!MTB"
-        threat_id = "2147756847"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {66 0f 57 c0 66 0f 13 05 ?? ?? ?? ?? 8b 45 ?? 03 45 ?? 89 45 ?? 8b 4d ?? 33 4d ?? 89 4d ?? 8b 55 ?? 33 55 ?? 89 55 ?? 8b 45 ?? 2b 45 ?? 89 45}  //weight: 1, accuracy: Low
-        $x_1_2 = {51 c7 45 fc ?? ?? ?? ?? 81 6d fc ?? ?? ?? ?? 2d f3 32 05 00 81 6d fc ?? ?? ?? ?? 81 45 fc ?? ?? ?? ?? 8b 45 fc 8b e5}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_Danabot_PAA_2147773655_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.PAA!MTB"
-        threat_id = "2147773655"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "62"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "powershell -Executionpolicy bypass -File \"" wide //weight: 10
-        $x_10_2 = "pipe\\mpr_pipe" wide //weight: 10
-        $x_10_3 = "Windows Credentials" wide //weight: 10
-        $x_10_4 = "nslookup.exe -type=any" wide //weight: 10
-        $x_10_5 = "SELECT * FROM \"urls\"" ascii //weight: 10
-        $x_10_6 = "SELECT * FROM cookies" ascii //weight: 10
-        $x_1_7 = "wireshark" wide //weight: 1
-        $x_1_8 = "SVCHOST.EXE" wide //weight: 1
-        $x_1_9 = "HostName" wide //weight: 1
-        $x_1_10 = "firewall" wide //weight: 1
-        $x_1_11 = "encrypted_key" wide //weight: 1
-        $x_1_12 = "test@test.com" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((6 of ($x_10_*) and 2 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_Win32_Danabot_GKM_2147778712_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.GKM!MTB"
-        threat_id = "2147778712"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {33 f6 89 15 ?? ?? ?? ?? 85 c0 76 ?? 8b 3d ?? ?? ?? ?? 8b 0d ?? ?? ?? ?? 8a 94 31 ?? ?? ?? ?? 8b 0d ?? ?? ?? ?? 88 14 31 3d 03 02 00 00 75 ?? 6a 00 6a 00 ff d7 a1 ?? ?? ?? ?? c7 05 ?? ?? ?? ?? 74 19 00 00 46 3b f0 72}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_RF_2147779624_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.RF!MTB"
-        threat_id = "2147779624"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {33 f6 39 74 24 ?? 7e ?? 53 8b 1d ?? ?? ?? ?? 55 8b 2d ?? ?? ?? ?? 57 8b 7c 24 ?? 8d 64 24 ?? 6a 00 ff d5 6a 00 ff d3 e8 ?? ?? ?? ?? 30 04 3e 6a 00 ff d3 6a}  //weight: 1, accuracy: Low
-        $x_1_2 = {0f af 44 24 ?? c7 04 24 1b 3d 26 00 81 04 24 a8 61 00 00 8b 0c 24 8b 54 24 ?? 03 c8 89 0a 59}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_RTH_2147780469_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.RTH!MTB"
-        threat_id = "2147780469"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "17"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "c:\\Prepare\\Control\\Work\\box\\heard.pdb" ascii //weight: 10
-        $x_1_2 = "Client hook free failure." ascii //weight: 1
-        $x_1_3 = "GetLocaleInfoEx" ascii //weight: 1
-        $x_1_4 = "GetTickCount64" ascii //weight: 1
-        $x_1_5 = "VirtualProtectEx" ascii //weight: 1
-        $x_1_6 = "IsDebuggerPresent" ascii //weight: 1
-        $x_1_7 = "GetStartupInfoW" ascii //weight: 1
-        $x_1_8 = "GetCPInfo" ascii //weight: 1
-        $x_1_9 = "GetModuleHandleExW" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 7 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_Win32_Danabot_RPY_2147807210_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.RPY!MTB"
-        threat_id = "2147807210"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {32 2e 64 6c 66 c7 05 ?? ?? ?? ?? 6c 00 c7 05 ?? ?? ?? ?? 6b 65 72 6e 66 c7 05 ?? ?? ?? ?? 65 6c c6 05 ?? ?? ?? ?? 33 ff 15}  //weight: 1, accuracy: Low
-        $x_1_2 = {6c 50 72 6f c7 05 ?? ?? ?? ?? 65 63 74 00 88 0d ?? ?? ?? ?? c7 05 ?? ?? ?? ?? 72 74 75 61 66 c7 05 ?? ?? ?? ?? 56 69 ff 15}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_MBU_2147838383_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.MBU!MTB"
-        threat_id = "2147838383"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {64 6c 76 72 2e 64 6c 6c 00 54 79 59 69}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_ND_2147896734_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.ND!MTB"
-        threat_id = "2147896734"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {75 05 33 c0 89 46 0c 80 7e ?? ?? 75 1d e8 20 d5 ff ff 8b d8 85 db 74 12 8b c3 e8 5b e4 ff ff}  //weight: 5, accuracy: Low
-        $x_1_2 = "IBX.IBStodedProc" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_YAA_2147902997_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.YAA!MTB"
-        threat_id = "2147902997"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "git7\\dll\\WndResizerApp.pdb" ascii //weight: 1
-        $x_1_2 = "CIrNTzBaPkppGNf" ascii //weight: 1
-        $x_1_3 = "CZnIUAAeJ" ascii //weight: 1
-        $x_1_4 = "FxJWXdx" ascii //weight: 1
-        $x_1_5 = "GbmgwMEzKpXc" ascii //weight: 1
-        $x_1_6 = "HipXGmygXapBRYfa" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_YAB_2147904057_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.YAB!MTB"
-        threat_id = "2147904057"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8b 49 04 31 d2 31 4c 16 10 83 c2 04 39 c2 72 f5}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_MBFW_2147905672_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.MBFW!MTB"
-        threat_id = "2147905672"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {d3 e8 03 45 ?? 89 45 ?? 89 45 ?? 8d 04 33 33 d0 81 3d}  //weight: 1, accuracy: Low
-        $x_1_2 = {33 d0 8b cf 89 55}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_MBFW_2147905672_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.MBFW!MTB"
-        threat_id = "2147905672"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {03 45 d0 89 45 ec 8b 45 f8 89 45 f0 8b 45 e8 01 45 fc 8b 45 fc 31 45 f0}  //weight: 1, accuracy: High
-        $x_1_2 = {8b 45 f8 8b 55 f4 33 45 ec 81 c3 ?? ?? ?? ?? 8b 4d dc 2b f0 89 45 f8 89 75 fc 4f}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_ADA_2147908896_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.ADA!MTB"
-        threat_id = "2147908896"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {33 d2 f7 f3 8b d0 6b c2 64 2b f8 8b c7 8b fa 83 ee 02 8b 04 85 d2 df 88 00 8b d6 03 d2 03 d1 89 02}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_GXQ_2147910062_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.GXQ!MTB"
-        threat_id = "2147910062"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {8b c6 d3 e8 89 45 ?? 8b 45 ?? 01 45 ?? 8b 45 ?? 33 45 ?? 31 45 ?? 8b 45 ?? 29 45 ?? 8b 45 ?? 29 45 ?? 4b 0f 85}  //weight: 10, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_MKV_2147913778_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.MKV!MTB"
-        threat_id = "2147913778"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {4a c1 e2 02 8b 1c 50 8b 45 f4 e8 ?? ?? ?? ?? 8b 55 f0 c1 e2 02 31 1c 50 ff 45 f0 ff 4d e4 75}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_ADAB_2147929727_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.ADAB!MTB"
-        threat_id = "2147929727"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {51 00 1c 0f 51 ?? ?? ?? ?? ?? ?? 0f 51 00 ae 0f 51 00 ae 0f 51 00 c4 0f 51 00 ed 0f 51 00 80 0f 51 ?? ?? ?? ?? ?? ?? 0f 51 00 30 0f 51}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_BAA_2147934275_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.BAA!MTB"
-        threat_id = "2147934275"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_4_1 = {0a 0d 09 59 08 1f 16 5d 59 20 00 01 00 00 58 20 00 01 00 00 5d d1 13 04 07 11 04 6f ?? 00 00 0a 26 08 17 58 0c 08 06 8e 69 32 c0}  //weight: 4, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Danabot_MXZ_2147934385_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.MXZ!MTB"
-        threat_id = "2147934385"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {83 c1 01 89 4d e4 8b 55 e4 3b 15 ?? ?? ?? ?? 7d 12 8b 45 e0 03 45 e4 8b 4d d8 03 4d e4 8a 11 88 10 eb}  //weight: 5, accuracy: Low
+        $x_5_1 = {8b 4c 24 10 30 04 0e 83 ff 0f}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

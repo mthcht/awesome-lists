@@ -1,57 +1,31 @@
-rule Backdoor_MSIL_LimeRat_GA_2147776762_0
+rule Backdoor_MSIL_LimeRAT_A_2147735914_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Backdoor:MSIL/LimeRat.GA!MTB"
-        threat_id = "2147776762"
+        detection_name = "Backdoor:MSIL/LimeRAT.A!bit"
+        threat_id = "2147735914"
         type = "Backdoor"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "LimeRat"
+        family = "LimeRAT"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
+        info = "bit: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "[DAE]" ascii //weight: 1
-        $x_1_2 = "[URL]" ascii //weight: 1
-        $x_1_3 = "[NAME]" ascii //weight: 1
-        $x_1_4 = "[FILELOCA]" ascii //weight: 1
-        $x_1_5 = "[Tskmgr]" ascii //weight: 1
-        $x_1_6 = "[WindDef]" ascii //weight: 1
-        $x_1_7 = "[Registry]" ascii //weight: 1
-        $x_1_8 = "DisableRegistryTools" ascii //weight: 1
-        $x_1_9 = "DisableTaskMgr" ascii //weight: 1
-        $x_1_10 = "DisableAntiSpyware" ascii //weight: 1
-        $x_1_11 = "ProcessName" ascii //weight: 1
-        $x_1_12 = "nur\\noisrevtnerruc\\swodniw\\tfosorcim\\erawtfos" ascii //weight: 1
+        $x_2_1 = "LimeRAT" ascii //weight: 2
+        $x_1_2 = {00 46 69 6c 65 5f 44 65 63 00}  //weight: 1, accuracy: High
+        $x_1_3 = "Rans-Status" wide //weight: 1
+        $x_1_4 = {00 53 70 6c 69 74 42 79 57 6f 72 64 00}  //weight: 1, accuracy: High
+        $x_1_5 = {00 50 61 73 74 65 62 69 6e 00}  //weight: 1, accuracy: High
+        $x_1_6 = {00 42 4f 54 00}  //weight: 1, accuracy: High
+        $x_1_7 = {00 53 50 4c 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
-        (10 of ($x*))
-}
-
-rule Backdoor_MSIL_LimeRat_AY_2147850254_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Backdoor:MSIL/LimeRat.AY!MTB"
-        threat_id = "2147850254"
-        type = "Backdoor"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "LimeRat"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {28 01 00 00 0a 1f 28 8d 02 00 00 01 25 d0 01 00 00 04 28 02 00 00 0a 6f 03 00 00 0a 0a 28 01 00 00 0a 1f 28 8d 02 00 00 01 25}  //weight: 2, accuracy: High
-        $x_2_2 = {0a 1f 28 8d ?? 00 00 01 25 d0 ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 0a 28 ?? 00 00 0a 1f 28 8d ?? 00 00 01 25}  //weight: 2, accuracy: Low
-        $x_2_3 = "CreateDecryptor" ascii //weight: 2
-        $x_2_4 = "TransformFinalBlock" ascii //weight: 2
-        $x_2_5 = "SymmetricAlgorithm" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((5 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

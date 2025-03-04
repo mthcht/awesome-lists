@@ -1,44 +1,50 @@
-rule HackTool_MSIL_AutoKms_2147711767_0
+rule HackTool_MSIL_AutoKMS_I_2147743522_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "HackTool:MSIL/AutoKms"
-        threat_id = "2147711767"
+        detection_name = "HackTool:MSIL/AutoKMS.I!MTB"
+        threat_id = "2147743522"
         type = "HackTool"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "AutoKms"
+        family = "AutoKMS"
         severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "4"
+        threshold = "11"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "&echo Activating Microsoft software products for FREE&echo" ascii //weight: 2
-        $x_2_2 = "if %i%==1 set KMS_Sev=" ascii //weight: 2
-        $x_2_3 = "cscript //nologo c:\\windows\\system32\\slmgr.vbs" ascii //weight: 2
+        $x_10_1 = "\\TunMirror\\obj\\Release\\TunMirror.pdb" ascii //weight: 10
+        $x_1_2 = "$6a1f4016-f16e-41bc-80fb-0642c8a34893" ascii //weight: 1
+        $x_1_3 = "$70f17a4e-cc8c-44a7-99c2-e3a0e2554758" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (2 of ($x*))
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
-rule HackTool_MSIL_AutoKms_PA2_2147899466_0
+rule HackTool_MSIL_AutoKMS_AB_2147811739_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "HackTool:MSIL/AutoKms.PA2!MTB"
-        threat_id = "2147899466"
+        detection_name = "HackTool:MSIL/AutoKMS.AB!MTB"
+        threat_id = "2147811739"
         type = "HackTool"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "AutoKms"
+        family = "AutoKMS"
         severity = "High"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
+        threshold = "6"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "progvirus@gmail.com" ascii //weight: 1
-        $x_1_2 = "!!a7aprog!!" ascii //weight: 1
-        $x_1_3 = "How To Hack E-Mail" ascii //weight: 1
-        $x_1_4 = "ShutdownMode" ascii //weight: 1
+        $x_1_1 = "IsKmsClient" ascii //weight: 1
+        $x_1_2 = "KMSELDI.pdb" ascii //weight: 1
+        $x_1_3 = "Activation GUI for KMS Host" ascii //weight: 1
+        $x_1_4 = "set_ActivateButton" ascii //weight: 1
+        $x_1_5 = "Run KMS Emulator" ascii //weight: 1
+        $x_1_6 = "Windows Activated" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

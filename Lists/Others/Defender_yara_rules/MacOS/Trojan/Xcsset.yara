@@ -1,75 +1,340 @@
-rule Trojan_MacOS_Xcsset_A_2147762225_0
+rule Trojan_MacOS_XCSSET_B_2147789300_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/Xcsset.A!MTB"
-        threat_id = "2147762225"
+        detection_name = "Trojan:MacOS/XCSSET.B"
+        threat_id = "2147789300"
         type = "Trojan"
         platform = "MacOS: "
-        family = "Xcsset"
+        family = "XCSSET"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "4"
+        threshold = "3"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {48 89 43 48 48 c7 43 30 01 00 00 00 48 b8 6d 65 74 68 6f 64 00 00 48 89 43 50 4c 89 7b 58 4c 89 63 78 48 b8 50 61 67 65 2e 67 65 74 48 89 43 60 48 b8 43 6f 6f 6b 69 65 73 ef 48 89 43 68 48 89 df}  //weight: 1, accuracy: High
-        $x_2_2 = {48 89 c3 0f 28 05 ?? ?? ?? 00 0f 11 40 10 48 b8 65 78 70 72 65 73 73 69 48 89 43 20 48 b8 6f 6e 00 00 00 00 00 ea 48 89 43 28 4c 89 73 48 48 8b 45 c0 48 89 43 30 4c 8b ?? ?? 4c 89 ?? ?? 48 b8 73 69 6c 65 6e 74 00 00 48 89 43 50 4c 89 ?? 58 48 8b 05 ?? ?? 04 00 48 89 43 78 c6 43 60 01 48 89 df}  //weight: 2, accuracy: Low
-        $x_1_3 = {48 b8 65 63 68 6f 20 27 00 00 48 89 45 c0 48 b8 00 00 00 00 00 00 00 e6 48 89 45 c8 4c 8d 6d c0 48 8b bd 58 ff ff ff 48 8b 75 80 e8 8e 28 00 00 48 bf 27 20 3e 20 27 00 00 00 48 be 00 00 00 00 00 00 00 e5 e8 75 28 00 00 4c 8b 7d 90 4c 89 ff 4c 8b 65 b0 4c 89 e6 e8 62 28 00 00 bf 27 00 00 00 48 be 00 00 00 00 00 00 00 e1 e8 4e 28 00 00 48 8b 7d c0 48 8b 5d c8 48 89 de e8 0a ee ff ff 49 89 d6 48 89 df e8 9b 2c 00 00 4c 89 f7 e8 93 2c 00 00 48 b8 63 68 6d 6f 64 20 2b 78 48 89 45 c0 48 b8 20 27 00 00 00 00 00 ea 48 89 45 c8}  //weight: 1, accuracy: High
-        $x_1_4 = {49 8b 7c 24 30 48 85 ff 0f 84 a1 2c 00 00 49 bf 00 00 00 00 00 00 00 e8 49 8b 44 24 28 48 89 85 90 fd ff ff 48 89 bd 98 fd ff ff 48 b8 70 61 79 70 61 6c 2e 63 48 89 85 d0 fd ff ff 48 b8 6f 6e 00 00 00 00 00 ea 48 05 00 ff ff ff 48 89 85 d8 fd ff ff}  //weight: 1, accuracy: High
-        $x_1_5 = "Network.getAllCookies" ascii //weight: 1
-        $x_1_6 = {62 6c 65 20 2d 73 74 72 69 6e 67 [0-16] 42 72 6f 77 73 65 72}  //weight: 1, accuracy: Low
+        $x_1_1 = {5f 54 74 43 43 [0-16] 64 [0-2] 57 65 62 53 6f 63 6b 65 74 31 30 57 53 52 65 73 70 6f 6e 73 65}  //weight: 1, accuracy: Low
+        $x_1_2 = "d/Worker.swift" ascii //weight: 1
+        $x_1_3 = {48 b8 50 61 67 65 2e 67 65 74 48 89 ?? ?? 48 b8 43 6f 6f 6b 69 65 73 ef}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_J_2147794885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.J"
+        threat_id = "2147794885"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "HaC80bwXscjqZ7KM6VOxULOB534" ascii //weight: 1
+        $x_1_2 = "No writable apps were found and modded. Exiting." ascii //weight: 1
+        $x_1_3 = "Resetting all cookies, payloads, cors targets" ascii //weight: 1
+        $x_1_4 = "CSP Bypass disabled. Enabling" ascii //weight: 1
+        $x_1_5 = "grep -q 'remote-debugging-port=" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_AZ_2147933834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.AZ"
+        threat_id = "2147933834"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "sh -c" wide //weight: 1
+        $x_1_2 = "bash -c" wide //weight: 1
+        $x_5_3 = "grep -qF '.zshrc_aliases' ~/.zshrc || echo '[ -f $HOME/.zshrc_aliases ] && . $HOME/.zshrc_aliases' >> ~/.zshrc" wide //weight: 5
     condition:
         (filesize < 20MB) and
         (
-            ((4 of ($x_1_*))) or
-            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }
 
-rule Trojan_MacOS_Xcsset_A_2147815025_0
+rule Trojan_MacOS_XCSSET_ST_2147935106_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/Xcsset.A!xp"
-        threat_id = "2147815025"
+        detection_name = "Trojan:MacOS/XCSSET.ST"
+        threat_id = "2147935106"
         type = "Trojan"
         platform = "MacOS: "
-        family = "Xcsset"
+        family = "XCSSET"
         severity = "Critical"
-        info = "xp: an internal category used to refer to some threats"
-        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "4"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {73 65 63 75 72 69 74 79 2e 63 73 70 2e 65 6e 61 62 6c 65 [0-3] 66 61 6c 73 65}  //weight: 1, accuracy: Low
-        $x_1_2 = "user_pref(\"devtools.debugger.remote-enabled" ascii //weight: 1
-        $x_1_3 = "killall -9 'firefox' 2> /dev/null" ascii //weight: 1
-        $x_1_4 = "/apple/agentd.php" ascii //weight: 1
-        $x_1_5 = "Executed paypal payloads" ascii //weight: 1
+        $x_1_1 = "echo " wide //weight: 1
+        $x_1_2 = "curl -fskL -d " wide //weight: 1
+        $x_1_3 = "os=$(uname -s)&p=" wide //weight: 1
+        $x_1_4 = {68 00 74 00 74 00 70 00 [0-32] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_5 = "| sh >/dev/null 2>&1 &" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (4 of ($x*))
+        (all of ($x*))
 }
 
-rule Trojan_MacOS_Xcsset_C_2147822823_0
+rule Trojan_MacOS_XCSSET_SC_2147935107_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/Xcsset.C!MTB"
-        threat_id = "2147822823"
+        detection_name = "Trojan:MacOS/XCSSET.SC"
+        threat_id = "2147935107"
         type = "Trojan"
         platform = "MacOS: "
-        family = "Xcsset"
+        family = "XCSSET"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "2"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {0f b6 05 19 7e 00 00 89 c1 48 8d 15 1e 7e 00 00 40 8a 34 0a 40 88 75 f3 0f b6 45 f3 0f b6 3d fb 7d 00 00 01 c7 40 88 3d f2 7d 00 00 48 8b 4d e8 0f b6 05 e9 7d 00 00 48 89 55 e0 99 f7 7d f4 4c 63 c2 42 0f b6 14 01 44 0f b6 0d cf 7d 00 00 41 01 d1 44 88 0d c5 7d 00 00 0f b6 15 be 7d 00 00 89 d1 4c 8b 45 e0 41 8a 34 08 0f b6 15 af 7d 00 00 89 d1 41 88 34 08 40 8a 75 f3 0f b6 15 9c 7d 00 00 89 d1 41 88 34 08 8a 05 92 7d 00 00 04 01 88 05 8a 7d 00 00 3c 00 0f 85 62 ff ff ff 48 8b 45 e8 48 05 00 01 00 00 48 89 45 e8 8b 4d f4 81 e9 00 01 00 00 89 4d f4 e9 34 ff ff ff}  //weight: 1, accuracy: High
-        $x_1_2 = {8a 05 2f 7d 00 00 04 01 88 05 27 7d 00 00 0f b6 0d 20 7d 00 00 89 ca 48 8d 35 25 7d 00 00 8a 04 16 88 45 f3 0f b6 4d f3 0f b6 3d 05 7d 00 00 01 cf 40 88 3d fc 7c 00 00 0f b6 0d f5 7c 00 00 89 ca 8a 04 16 0f b6 0d ea 7c 00 00 89 ca 88 04 16 8a 45 f3 0f b6 0d da 7c 00 00 89 ca 88 04 16 0f b6 0d cf 7c 00 00 89 ca 0f b6 0c 16 44 0f b6 45 f3 41 01 c8 44 88 45 f3 0f b6 4d f3 89 ca 0f b6 0c 16 48 8b 55 e8 44 0f b6 0a 41 31 c9 44 88 0a 48 8b 55 e8 48 81 c2 01 00 00 00 48 89 55 e8 8b 4d f4 83 c1 ff 89 4d f4}  //weight: 1, accuracy: High
+        $x_1_1 = "xprotect version 2>/dev/null" wide //weight: 1
+        $x_1_2 = "XProtect.bundle/Contents/Info.plist CFBundleShortVersionString 2" wide //weight: 1
+        $x_1_3 = "curl -fskL -d " wide //weight: 1
+        $x_1_4 = "killall -9 osascript" wide //weight: 1
+        $x_1_5 = "osacompile -o" wide //weight: 1
+        $x_1_6 = "plutil -replace LSUIElement -bool YES" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_SD_2147935108_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.SD"
+        threat_id = "2147935108"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = "ioreg -k IOPlatformSerialNumber | grep IOPlatformSerialNumber | cut -w -f5 | xargs) 2" wide //weight: 4
+        $x_3_2 = "whoami" wide //weight: 3
+        $x_3_3 = {73 00 65 00 72 00 69 00 61 00 6c 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 [0-48] 20 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 4e 00 61 00 6d 00 65 00 20 00 [0-48] 20 00 6d 00 65 00 73 00 73 00 61 00 67 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_4 = "curl -fksL -m" wide //weight: 3
+        $x_1_5 = "xxd -p -c0|xxd -p -r" wide //weight: 1
+        $x_1_6 = "xxd -p|xxd -p -r" wide //weight: 1
+        $x_1_7 = "base64|base64 -D" wide //weight: 1
+        $x_1_8 = "base64|base64 --decode" wide //weight: 1
+        $x_3_9 = {63 00 75 00 72 00 6c 00 20 00 2d 00 66 00 73 00 6b 00 4c 00 20 00 2d 00 64 00 20 00 [0-48] 70 00 3d 00}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 4 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MacOS_XCSSET_SE_2147935109_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.SE"
+        threat_id = "2147935109"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "ioreg -k IOPlatformSerialNumber | grep IOPlatformSerialNumber | cut -w -f5 | xargs) 2" wide //weight: 2
+        $x_2_2 = "whoami" wide //weight: 2
+        $x_2_3 = {73 00 65 00 72 00 69 00 61 00 6c 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 [0-48] 20 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 4e 00 61 00 6d 00 65 00 20 00 [0-48] 20 00 6d 00 65 00 73 00 73 00 61 00 67 00 65 00}  //weight: 2, accuracy: Low
+        $x_2_4 = "do shell script (" wide //weight: 2
+        $x_2_5 = "curl -fksL -m" wide //weight: 2
+        $x_2_6 = "open -Wgna" wide //weight: 2
+        $x_2_7 = "open -gna" wide //weight: 2
+        $x_2_8 = "mdfind kMDItemCFBundleIdentifier =" wide //weight: 2
+        $x_1_9 = "ru.keepcoder.Telegram" wide //weight: 1
+        $x_1_10 = "ps aux | grep -v grep | grep -wci" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((8 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MacOS_XCSSET_SF_2147935110_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.SF"
+        threat_id = "2147935110"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ioreg -k IOPlatformSerialNumber | grep IOPlatformSerialNumber | cut -w -f5 | xargs) 2" wide //weight: 1
+        $x_1_2 = "whoami" wide //weight: 1
+        $x_1_3 = {73 00 65 00 72 00 69 00 61 00 6c 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 [0-48] 20 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 4e 00 61 00 6d 00 65 00 20 00 [0-48] 20 00 6d 00 65 00 73 00 73 00 61 00 67 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "curl -fksL -m" wide //weight: 1
+        $x_1_5 = "(du -sm" wide //weight: 1
+        $x_1_6 = "/dev/null || echo 0) | cut -f1" wide //weight: 1
+        $x_1_7 = "upload" wide //weight: 1
+        $x_1_8 = "urlencode" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_SG_2147935111_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.SG"
+        threat_id = "2147935111"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ioreg -k IOPlatformSerialNumber | grep IOPlatformSerialNumber | cut -w -f5 | xargs) 2" wide //weight: 1
+        $x_1_2 = "whoami" wide //weight: 1
+        $x_1_3 = {73 00 65 00 72 00 69 00 61 00 6c 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 [0-48] 20 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 4e 00 61 00 6d 00 65 00 20 00 [0-48] 20 00 6d 00 65 00 73 00 73 00 61 00 67 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "curl -fksL -m" wide //weight: 1
+        $x_1_5 = "ps aux | grep -v grep | grep -wci" wide //weight: 1
+        $x_1_6 = "osacompile -x -e " wide //weight: 1
+        $x_1_7 = "plutil -replace LSUIElement -bool YES" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_SH_2147935112_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.SH"
+        threat_id = "2147935112"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ioreg -k IOPlatformSerialNumber | grep IOPlatformSerialNumber | cut -w -f5 | xargs) 2" wide //weight: 1
+        $x_1_2 = "whoami" wide //weight: 1
+        $x_1_3 = {73 00 65 00 72 00 69 00 61 00 6c 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 [0-48] 20 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 4e 00 61 00 6d 00 65 00 20 00 [0-48] 20 00 6d 00 65 00 73 00 73 00 61 00 67 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "curl -fksL -m" wide //weight: 1
+        $x_1_5 = "/Library/Application Support/Firefox/Profiles/*/prefs.js|firefox_extensions" wide //weight: 1
+        $x_1_6 = "/Library/Application Support/Microsoft Edge/*/Extensions/*/manifest.json|edge_extensions" wide //weight: 1
+        $x_1_7 = "urlencode" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_SI_2147935113_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.SI"
+        threat_id = "2147935113"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "osascript -e" wide //weight: 1
+        $x_1_2 = "ioreg -k IOPlatformSerialNumber | grep IOPlatformSerialNumber | cut -w -f5 | xargs) 2" wide //weight: 1
+        $x_1_3 = "whoami" wide //weight: 1
+        $x_1_4 = {73 00 65 00 72 00 69 00 61 00 6c 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 [0-48] 20 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 4e 00 61 00 6d 00 65 00 20 00 [0-48] 20 00 6d 00 65 00 73 00 73 00 61 00 67 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_5 = "do shell script (" wide //weight: 1
+        $x_1_6 = "curl -fksL -m" wide //weight: 1
+        $x_1_7 = {68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_8 = "MAX_UPLOAD_FILESIZE" wide //weight: 1
+        $x_1_9 = "urlencode" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_SJ_2147935114_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.SJ"
+        threat_id = "2147935114"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ioreg -k IOPlatformSerialNumber | grep IOPlatformSerialNumber | cut -w -f5 | xargs) 2" wide //weight: 1
+        $x_1_2 = "whoami" wide //weight: 1
+        $x_1_3 = {73 00 65 00 72 00 69 00 61 00 6c 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 [0-48] 20 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 4e 00 61 00 6d 00 65 00 20 00 [0-48] 20 00 6d 00 65 00 73 00 73 00 61 00 67 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "curl -fksL -m" wide //weight: 1
+        $x_1_5 = "codesign --force --deep -s " wide //weight: 1
+        $x_1_6 = "chmod +x " wide //weight: 1
+        $x_1_7 = {63 00 68 00 6d 00 6f 00 64 00 20 00 30 00 30 00 30 00 20 00 [0-48] 2f 00 4c 00 69 00 62 00 72 00 61 00 72 00 79 00 2f 00 47 00 6f 00 6f 00 67 00 6c 00 65 00 2f 00 47 00 6f 00 6f 00 67 00 6c 00 65 00 53 00 6f 00 66 00 74 00 77 00 61 00 72 00 65 00 55 00 70 00 64 00 61 00 74 00 65 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_SK_2147935115_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.SK"
+        threat_id = "2147935115"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ioreg -k IOPlatformSerialNumber | grep IOPlatformSerialNumber | cut -w -f5 | xargs) 2" wide //weight: 1
+        $x_1_2 = "whoami" wide //weight: 1
+        $x_1_3 = {73 00 65 00 72 00 69 00 61 00 6c 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 [0-48] 20 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 4e 00 61 00 6d 00 65 00 20 00 [0-48] 20 00 6d 00 65 00 73 00 73 00 61 00 67 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "do shell script (" wide //weight: 1
+        $x_1_5 = "curl -fksL -m" wide //weight: 1
+        $x_1_6 = "project.pbxproj" wide //weight: 1
+        $x_1_7 = "perl -ni -e" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

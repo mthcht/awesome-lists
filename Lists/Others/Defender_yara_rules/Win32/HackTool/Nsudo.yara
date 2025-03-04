@@ -1,25 +1,26 @@
-rule HackTool_Win32_Nsudo_B_2147829957_0
+rule HackTool_Win32_NSudo_A_2147810347_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "HackTool:Win32/Nsudo.B"
-        threat_id = "2147829957"
+        detection_name = "HackTool:Win32/NSudo.A"
+        threat_id = "2147810347"
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
-        family = "Nsudo"
+        family = "NSudo"
         severity = "High"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "u:t" wide //weight: 1
-        $x_1_2 = "u=t" wide //weight: 1
-        $x_2_3 = "nsudo" wide //weight: 2
+        $x_1_1 = "licensed by Dinkumware" ascii //weight: 1
+        $x_1_2 = "https://github.com/M2Team/NSudo" ascii //weight: 1
+        $x_1_3 = "NSudo -U: T -P: E cmd" ascii //weight: 1
+        $x_1_4 = "NSudo.exe" ascii //weight: 1
+        $x_1_5 = "NSudo.Launcher" ascii //weight: 1
+        $x_1_6 = "NSudo.RunAs.TrustedInstaller" ascii //weight: 1
+        $x_1_7 = "NSudo.RunAs.System.EnableAllPrivileges" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
+        (3 of ($x*))
 }
 

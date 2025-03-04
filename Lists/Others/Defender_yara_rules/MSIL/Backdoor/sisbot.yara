@@ -1,22 +1,26 @@
-rule Backdoor_MSIL_sisbot_2147683236_0
+rule Backdoor_MSIL_Sisbot_A_2147683229_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Backdoor:MSIL/sisbot"
-        threat_id = "2147683236"
+        detection_name = "Backdoor:MSIL/Sisbot.A"
+        threat_id = "2147683229"
         type = "Backdoor"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "sisbot"
+        family = "Sisbot"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "3"
+        threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "USER foo" wide //weight: 1
-        $x_1_2 = "PASS whatdafock" wide //weight: 1
-        $x_1_3 = "Botty Shitty Stormy" wide //weight: 1
+        $x_1_1 = "!ddos" wide //weight: 1
+        $x_1_2 = "!stopddos" wide //weight: 1
+        $x_1_3 = "!irc" wide //weight: 1
+        $x_1_4 = "!stopirc" wide //weight: 1
+        $x_1_5 = "!mirc" wide //weight: 1
+        $x_1_6 = "Shit_IRC_Storm" wide //weight: 1
+        $x_1_7 = "!youtube" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (4 of ($x*))
 }
 

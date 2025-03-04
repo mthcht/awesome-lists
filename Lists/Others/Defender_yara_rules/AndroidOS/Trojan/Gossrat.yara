@@ -1,19 +1,19 @@
-rule Trojan_AndroidOS_Gossrat_A_2147895311_0
+rule Trojan_AndroidOS_GossRat_B_2147895640_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:AndroidOS/Gossrat.A"
-        threat_id = "2147895311"
+        detection_name = "Trojan:AndroidOS/GossRat.B"
+        threat_id = "2147895640"
         type = "Trojan"
         platform = "AndroidOS: Android operating system"
-        family = "Gossrat"
+        family = "GossRat"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "2"
+        threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "NhtyFXJvzko8PL+g9+xU5w==" ascii //weight: 1
-        $x_1_2 = "SfffkyqARXB2dg4KozzZ8g==" ascii //weight: 1
+        $x_2_1 = "This_Is_The_VVay" ascii //weight: 2
+        $x_2_2 = "testhadirattest/ServiceRead" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

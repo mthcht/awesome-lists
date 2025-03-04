@@ -1,47 +1,27 @@
-rule Worm_Win32_Mydoom_PA_2147741207_0
+rule Worm_Win32_MyDoom_EM_2147896860_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Worm:Win32/Mydoom.PA!MTB"
-        threat_id = "2147741207"
+        detection_name = "Worm:Win32/MyDoom.EM!MTB"
+        threat_id = "2147896860"
         type = "Worm"
         platform = "Win32: Windows 32-bit platform"
-        family = "Mydoom"
+        family = "MyDoom"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "5"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = ":\\WINDOWS\\SYSTEM32\\ctfmen.exe" ascii //weight: 1
-        $x_1_2 = ":\\WINDOWS\\SYSTEM32\\smnss.exe" ascii //weight: 1
-        $x_1_3 = ":\\WINDOWS\\SYSTEM32\\satornas.dll" ascii //weight: 1
-        $x_1_4 = ":\\WINDOWS\\SYSTEM32\\grcopy.dll" ascii //weight: 1
-        $x_1_5 = "autostart_bot" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Worm_Win32_Mydoom_PB_2147741305_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Worm:Win32/Mydoom.PB!MTB"
-        threat_id = "2147741305"
-        type = "Worm"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Mydoom"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "netbios_infected" ascii //weight: 1
-        $x_1_2 = "mydoom_infected" ascii //weight: 1
-        $x_1_3 = "Added copy to statup" ascii //weight: 1
-        $x_1_4 = "biscanwormmark" ascii //weight: 1
+        $x_1_1 = "devil2100" ascii //weight: 1
+        $x_1_2 = "shaib200" ascii //weight: 1
+        $x_1_3 = "alma7roomm" ascii //weight: 1
+        $x_1_4 = "jasim810" ascii //weight: 1
+        $x_1_5 = "warrer_50" ascii //weight: 1
+        $x_1_6 = "mohammed007" ascii //weight: 1
+        $x_1_7 = "rah.polaka" ascii //weight: 1
+        $x_1_8 = "sskeralexander" ascii //weight: 1
+        $x_1_9 = "ambatukam" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

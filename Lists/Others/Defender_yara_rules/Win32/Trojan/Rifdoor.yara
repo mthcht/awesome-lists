@@ -1,21 +1,24 @@
-rule Trojan_Win32_Rifdoor_RA_2147830301_0
+rule Trojan_Win32_RifDoor_EC_2147892161_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/Rifdoor.RA!MTB"
-        threat_id = "2147830301"
+        detection_name = "Trojan:Win32/RifDoor.EC!MTB"
+        threat_id = "2147892161"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "Rifdoor"
+        family = "RifDoor"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
+        threshold = "6"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "Troy Source Code\\tcp1st\\rifle\\Release\\rifle.pdb" ascii //weight: 1
-        $x_1_2 = "C:\\ProgramData\\Update\\wuauclt.exe" ascii //weight: 1
-        $x_1_3 = "MUTEX394039_4930023" ascii //weight: 1
+        $x_1_1 = "rifle.pdb" ascii //weight: 1
+        $x_1_2 = "guifx.exe\" /run" ascii //weight: 1
+        $x_1_3 = "DeleteUrlCacheEntry" ascii //weight: 1
+        $x_1_4 = "$downloadexec" ascii //weight: 1
+        $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_6 = "/c del /q" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

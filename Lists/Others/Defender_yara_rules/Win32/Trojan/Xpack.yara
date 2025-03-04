@@ -1,152 +1,88 @@
-rule Trojan_Win32_Xpack_B_2147837853_0
+rule Trojan_Win32_XPack_CZZ_2147841194_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/Xpack.B!MTB"
-        threat_id = "2147837853"
+        detection_name = "Trojan:Win32/XPack.CZZ!MTB"
+        threat_id = "2147841194"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "Xpack"
+        family = "XPack"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "One8Neo" ascii //weight: 2
-        $x_2_2 = "Two8Neo" ascii //weight: 2
-        $x_2_3 = "Thr8Neo" ascii //weight: 2
-        $x_1_4 = "WaitForSingleObject" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Xpack_C_2147838020_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Xpack.C!MTB"
-        threat_id = "2147838020"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Xpack"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "ErrhdtPiu" ascii //weight: 2
-        $x_2_2 = "SdfgLjhgf" ascii //weight: 2
-        $x_2_3 = "WergVghj" ascii //weight: 2
-        $x_1_4 = "WaitForSingleObject" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Xpack_CLL_2147838782_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Xpack.CLL!MTB"
-        threat_id = "2147838782"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Xpack"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "13"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = {8a 06 83 c6 01 68 ?? ?? ?? ?? 83 c4 ?? 89 c0 32 02 89 c0 47 88 47 ff 68 ?? ?? ?? ?? 83 c4 ?? 42 83 e9 ?? 83 ec ?? c7 04 24 ?? ?? ?? ?? 83 c4 ?? 83 ec ?? c7 04 24 ?? ?? ?? ?? 83 c4 ?? 85 c9 75}  //weight: 5, accuracy: Low
+        $x_10_1 = {8a 44 1e 04 8b d6 2b 55 f4 89 75 f4 83 f2 ?? 3c ?? 74}  //weight: 10, accuracy: Low
+        $x_1_2 = "NEOxGetProcAddress" ascii //weight: 1
+        $x_1_3 = "VirtualFree" ascii //weight: 1
+        $x_1_4 = "VirtualAlloc" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_Xpack_RPY_2147889008_0
+rule Trojan_Win32_XPack_NP_2147896919_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/Xpack.RPY!MTB"
-        threat_id = "2147889008"
+        detection_name = "Trojan:Win32/XPack.NP!MTB"
+        threat_id = "2147896919"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "Xpack"
+        family = "XPack"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {51 b9 0a 00 00 00 8b 04 9e f7 f1 88 15 ?? ?? ?? ?? 89 04 9f 4b 59 49 75 e7}  //weight: 1, accuracy: Low
+        $x_5_1 = {2b 0d be 33 4c 00 03 0d ?? ?? ?? ?? c1 e1 06 2b cb 81 f9 ?? ?? ?? ?? 73 06 03 0d ?? ?? ?? ?? c1 c9 02 29 0d ?? ?? ?? ?? 2b 0d 3f 32}  //weight: 5, accuracy: Low
+        $x_1_2 = "xXxdxjx" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_Xpack_RPY_2147889008_1
+rule Trojan_Win32_XPack_NP_2147896919_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/Xpack.RPY!MTB"
-        threat_id = "2147889008"
+        detection_name = "Trojan:Win32/XPack.NP!MTB"
+        threat_id = "2147896919"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "Xpack"
+        family = "XPack"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {89 c2 81 c2 ff 00 00 00 89 c6 81 e6 1f 00 00 00 8a 1c 31 8b 4d f0 8a 3c 01 28 df 88 3c 01 8b 45 f4 39 c2 89 55 e4}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Xpack_RPZ_2147894767_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Xpack.RPZ!MTB"
-        threat_id = "2147894767"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Xpack"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {83 ec 0c 89 e6 89 46 04 c7 46 08 04 01 00 00 c7 06 00 00 00 00 8b 35 ?? ?? ?? ?? 89 85 b8 fe ff ff 89 8d b4 fe ff ff ff d6 83 ec 08 89 e1 8b 95 f0 fe ff ff 89 51 04 8b b5 b8 fe ff ff}  //weight: 1, accuracy: Low
+        $x_3_1 = {29 c1 89 4c 24 ?? 8b 44 24 30 8b 4c 24 ?? 89 48 54 8b 44 24 ?? 8b 4c 24 30}  //weight: 3, accuracy: Low
+        $x_3_2 = {83 c1 58 81 fa ?? ?? ?? ?? 89 44 24 18 89 4c 24 ?? 72 00 8b 44 24 14 8b 4c 24 ?? 89 08 8b 54 24}  //weight: 3, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_Xpack_GNF_2147894984_0
+rule Trojan_Win32_XPack_NC_2147897172_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/Xpack.GNF!MTB"
-        threat_id = "2147894984"
+        detection_name = "Trojan:Win32/XPack.NC!MTB"
+        threat_id = "2147897172"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "Xpack"
+        family = "XPack"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "11"
+        threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = {8b c6 53 8b f1 66 83 fa 10 ?? ?? 33 d2 8a 18 8b ca 81 e1 ?? ?? ?? ?? 8a 4c 4c 0c 32 d9 42 88 18 40 4e}  //weight: 10, accuracy: Low
-        $x_1_2 = "bs360.co.cc" ascii //weight: 1
+        $x_5_1 = {74 23 38 78 bb 23 ad ?? ?? ?? ?? 20 b5 a4 21 1a 36 14 ?? 34 45 93 03 b8 1b 0c 15 81 09 1f 79 24}  //weight: 5, accuracy: Low
+        $x_1_2 = "98te.4y" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
