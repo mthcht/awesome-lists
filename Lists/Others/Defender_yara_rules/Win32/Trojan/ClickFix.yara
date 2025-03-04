@@ -669,6 +669,31 @@ rule Trojan_Win32_ClickFix_MD_2147933729_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DO_2147933803_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DO!MTB"
+        threat_id = "2147933803"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = ".InvokeCommand|Get-Member|?{" wide //weight: 1
+        $x_1_4 = "CommandTypes]::Cmdlet" wide //weight: 1
+        $x_1_5 = {76 00 61 00 72 00 69 00 61 00 62 00 6c 00 65 00 3a 00 2f 00 [0-15] 28 00 5b 00 6e 00 65 00 74 00 2e 00 77 00 65 00 62 00 63 00 6c 00 69 00 65 00 6e 00 74 00 5d 00 3a 00 3a 00 6e 00 65 00 77 00 28 00 29 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ClickFix_AB_2147933821_0
 {
     meta:

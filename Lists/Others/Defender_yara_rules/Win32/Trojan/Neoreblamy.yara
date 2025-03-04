@@ -3831,3 +3831,34 @@ rule Trojan_Win32_Neoreblamy_CD_2147934693_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_CE_2147935040_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.CE!MTB"
+        threat_id = "2147935040"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {f7 f1 0f af 45 f8 89 45 f8 69 4d f8 ?? 00 00 00 69 45 f8 ?? 00 00 00 2b c8 8b 45 08 03 4d f4 ff 34 88 ff 34 b3 e8 ?? ?? ff ff 89 04 b3 46 59 59 3b f7 72}  //weight: 5, accuracy: Low
+        $x_1_2 = {55 8b ec 83 ec ?? 8b 45 08 03 45 0c}  //weight: 1, accuracy: Low
+        $x_4_3 = {6a 1d 59 33 d2 8b c6 f7 f1 ff 34 97 ff 34 b3 e8 ?? ?? ff ff 89 04 b3 46 8b 45 f8 03 45 f0 59 59 3b f0 72}  //weight: 4, accuracy: Low
+        $x_4_4 = {8b c6 83 e0 3f ff 34 87 ff 34 b3 e8 ?? ?? ff ff 89 04 b3 46 8b 45 f8 03 45 fc 59 59 3b f0 72}  //weight: 4, accuracy: Low
+        $x_4_5 = {2b c8 8b 45 08 2b 4d fc ff 34 88 ff 34 b3 e8 ?? ?? ff ff 89 04 b3 46 59 59 3b f7 72}  //weight: 4, accuracy: Low
+        $x_1_6 = {8b 4d fc 8b 45 f8 f7 f1 89 45 fc 8b 45 f4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            ((1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

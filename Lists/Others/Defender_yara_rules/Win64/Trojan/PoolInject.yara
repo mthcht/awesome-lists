@@ -20,3 +20,26 @@ rule Trojan_Win64_PoolInject_GA_2147933552_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_PoolInject_BR_2147935039_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PoolInject.BR!MTB"
+        threat_id = "2147935039"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PoolInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {45 33 ca 49 c1 e1 20 4c 0b c9 49 8b c9 45 88 0c 03 48 c1 e9 08 41 88 4c 03 01}  //weight: 2, accuracy: High
+        $x_2_2 = {0f b6 0c 2f 4c 8d 1c 2f 45 0f b6 4b 01 49 c1 e1 08 4c 0b c9}  //weight: 2, accuracy: High
+        $x_1_3 = {45 88 4c 03 ?? 41 88 4c 03 ?? 48 83 c7 08 48 81 ff}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

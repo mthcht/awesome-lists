@@ -83,3 +83,28 @@ rule HackTool_Win64_Killgent_ZB_2147929265_0
         (1 of ($x*))
 }
 
+rule HackTool_Win64_Killgent_DC_2147935088_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Killgent.DC!MTB"
+        threat_id = "2147935088"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Killgent"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".\\ServiceMouse" ascii //weight: 1
+        $x_1_2 = "cmd /c driverquery" ascii //weight: 1
+        $x_1_3 = "deleting exe/dll/sys/com" ascii //weight: 1
+        $x_1_4 = "Antivirus Terminator" ascii //weight: 1
+        $x_1_5 = "Disable process PID" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
