@@ -20,3 +20,23 @@ rule Ransom_Win64_Crytox_AA_2147831987_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Crytox_E_2147935145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Crytox.E"
+        threat_id = "2147935145"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Crytox"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 ff c9 41 8b 34 88 48 03 f2 4d 33 c9 48 33 ?? ac 41 c1 c9 0b 44 03 c8 3a c4 75}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

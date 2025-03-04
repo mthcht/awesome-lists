@@ -7018,3 +7018,26 @@ rule Trojan_MSIL_SnakeKeylogger_SEDA_2147934365_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_SLP_2147935151_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.SLP!MTB"
+        threat_id = "2147935151"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {00 06 72 bd 04 00 70 6f ab 00 00 0a 75 29 00 00 01 0b 73 ac 00 00 0a 0c 20 00 0e 01 00 0d 07 08 09 28 38 00 00 06 00 d0 2b 00 00 01 28 a6 00 00 0a 72 c7 04 00 70 20 00 01 00 00 14 14 17 8d 12 00 00 01 25 16 08 6f ad 00 00 0a}  //weight: 1, accuracy: High
+        $x_1_2 = {00 06 08 08 6c 28 b3 00 00 0a 6f b4 00 00 0a 00 00 08 18 58 0c 08 1f 0a fe 02 16 fe 01 0d 09 2d df}  //weight: 1, accuracy: High
+        $x_1_3 = "BdayBuddy.Loading.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

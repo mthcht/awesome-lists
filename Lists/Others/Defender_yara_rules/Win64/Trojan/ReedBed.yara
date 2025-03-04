@@ -92,3 +92,24 @@ rule Trojan_Win64_ReedBed_DA_2147933970_0
         )
 }
 
+rule Trojan_Win64_ReedBed_H_2147935144_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReedBed.H"
+        threat_id = "2147935144"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReedBed"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {4e 74 43 72 65 61 74 65 55 73 65 72 50 72 6f 63 65 73 73 00 00 00 00 ?? 55 00 53 00 45 00 52 00 4e 00 41 00 4d 00 45 00 00 00 00 00 00 00 00 00 55 00 53 00 45 00 52 00 44 00 4f 00 4d 00 41 00 49 00 4e 00 00 00 00 00 43 00 4f 00 4d 00 50 00 55 00 54 00 45 00 52 00 4e 00 41 00 4d 00 45 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 8b cf 8b d0 80 39 42 75 ?? c6 01 2e 48 ff c1 48 83 ea 01 75}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -988,3 +988,34 @@ rule Trojan_MSIL_Zilla_PLJIH_2147932709_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_BN_2147935161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.BN!MTB"
+        threat_id = "2147935161"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 2b 2e 17 11 0b 11 2e 46 11 12 61 52 11 2e 17 58 13 2e 11 0b 17 58 13 0b 2b e2}  //weight: 2, accuracy: High
+        $x_2_2 = {2e 17 11 11 11 28 46 11 18 61 52 11 28 17 58 13 28 11 11 17 58 13 11 2b e2}  //weight: 2, accuracy: High
+        $x_2_3 = {1f 20 11 0d 32 10 1f 20 11 0d 30 05 38}  //weight: 2, accuracy: High
+        $x_2_4 = {17 59 9a 14 fe 01 15 58 15 5a 11 28 11 0b 58 4a 11 28 1e 58 11 0b 58 4a 59 5a}  //weight: 2, accuracy: High
+        $x_2_5 = {2e 14 06 11 2d 46 11 2e 61 52 11 2d 17 58 13 2d 06 17 58 0a 2b e5}  //weight: 2, accuracy: High
+        $x_2_6 = {2b 73 1f 11 11 0d 32 0d 1f 11 11 0d 30 05 38}  //weight: 2, accuracy: High
+        $x_1_7 = "namespace1.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

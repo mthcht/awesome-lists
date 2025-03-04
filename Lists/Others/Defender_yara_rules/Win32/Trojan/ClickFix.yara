@@ -891,3 +891,52 @@ rule Trojan_Win32_ClickFix_AH_2147934653_0
         )
 }
 
+rule Trojan_Win32_ClickFix_ME_2147935170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ME!MTB"
+        threat_id = "2147935170"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "PowerShell.exe -w 1 & \\W" wide //weight: 1
+        $x_2_2 = "m*ht*e https://" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_MF_2147935171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MF!MTB"
+        threat_id = "2147935171"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "/c start /min" wide //weight: 1
+        $x_1_2 = "powershell" wide //weight: 1
+        $x_1_3 = {24 00 70 00 61 00 74 00 68 00 3d 00 27 00 63 00 3a 00 [0-69] 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "-NoProfile" wide //weight: 1
+        $x_1_5 = "-WindowStyle" wide //weight: 1
+        $x_1_6 = "Hidden" wide //weight: 1
+        $x_1_7 = "-Command" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
