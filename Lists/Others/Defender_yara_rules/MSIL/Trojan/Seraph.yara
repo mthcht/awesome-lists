@@ -5573,3 +5573,25 @@ rule Trojan_MSIL_Seraph_SPXF_2147928388_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Seraph_AYMA_2147935100_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Seraph.AYMA!MTB"
+        threat_id = "2147935100"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Seraph"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {03 11 00 91 13 02 38 ?? 00 00 00 03 8e 69 17 59 13 01 20 04 00 00 00 38 ?? ff ff ff 11 00 17 58 13 00 38 ?? 00 00 00 03 11 00 03 11 01 91 9c 38 ?? 00 00 00 11 01 17 59 13 01 20 01 00 00 00 7e}  //weight: 4, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
