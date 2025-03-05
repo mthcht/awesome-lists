@@ -940,3 +940,34 @@ rule Trojan_Win32_ClickFix_MF_2147935171_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_AP_2147935190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AP!MTB"
+        threat_id = "2147935190"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "42"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "http" wide //weight: 10
+        $x_10_2 = "powershell" wide //weight: 10
+        $x_10_3 = ".content" wide //weight: 10
+        $x_10_4 = "captcha" wide //weight: 10
+        $x_1_5 = "iex" wide //weight: 1
+        $x_1_6 = "invoke-expression" wide //weight: 1
+        $x_1_7 = "invoke-webrequest" wide //weight: 1
+        $x_1_8 = "iwr" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_10_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
