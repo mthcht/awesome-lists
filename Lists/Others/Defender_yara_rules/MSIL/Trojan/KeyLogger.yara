@@ -411,3 +411,24 @@ rule Trojan_MSIL_KeyLogger_SO_2147931331_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KeyLogger_SEDA_2147935236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.SEDA!MTB"
+        threat_id = "2147935236"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 05 11 05 28 ?? 00 00 0a 72 2a 04 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 11 05 28 ?? 00 00 0a 72 3c 04 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 7e 16 00 00 04 19 73 10 00 00 0a 0d 09 6f ?? 00 00 0a 69 13 07 09 11 05 6f ?? 00 00 0a 16 73 13 00 00 0a 0b 07 11 04 7e 15 00 00 04 16 94 11 07 6f ?? 00 00 0a 26 72 ?? ?? ?? 70 13 06 72 ?? ?? ?? 70 0a 11 04 28 ?? 00 00 06 26 08 2a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -810,3 +810,31 @@ rule Trojan_Win64_ShellcodeRunner_CLZ_2147934086_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_PKZ_2147935244_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.PKZ!MTB"
+        threat_id = "2147935244"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "explorer.exe" wide //weight: 2
+        $x_2_2 = "Allocate memory Success" ascii //weight: 2
+        $x_2_3 = "Failed to write shellcode to memory" ascii //weight: 2
+        $x_2_4 = "Inject successfully" ascii //weight: 2
+        $x_1_5 = "Got handle to thread" ascii //weight: 1
+        $x_1_6 = "CreateToolhelp32Snapshot" ascii //weight: 1
+        $x_1_7 = "Process32FirstW" ascii //weight: 1
+        $x_1_8 = "GlobalMemoryStatusEx" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

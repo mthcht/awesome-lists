@@ -1454,3 +1454,46 @@ rule Trojan_Win64_Zusy_BR_2147933853_0
         )
 }
 
+rule Trojan_Win64_Zusy_SIC_2147935241_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SIC!MTB"
+        threat_id = "2147935241"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 6c 24 50 48 89 d6 48 89 cf 48 8d 4d d8 48 89 fa 49 89 f0 e8 2f 37 01 00 0f b6 45 d8 48 8b 4d e8 48 8b 55 f8 44 0f b6 c0 4c 8d 0d ec e2 42 00}  //weight: 1, accuracy: High
+        $x_2_2 = "PatriotSoft" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SAI_2147935243_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SAI!MTB"
+        threat_id = "2147935243"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {e8 9c 41 00 00 48 8b 44 24 70 48 63 48 04 48 8d 3d ?? ?? ?? 00 48 89 7c 0c 70 48 8b 44 24 70 48 63 48 04 8d ?? ?? ?? ff ff 89 54 0c 6c 48 8b cb 48 83 7d f8 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

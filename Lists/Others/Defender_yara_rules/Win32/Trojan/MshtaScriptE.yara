@@ -18,6 +18,7 @@ rule Trojan_Win32_MshtaScriptE_A_2147763459_0
         $x_1_4 = "execute" wide //weight: 1
         $n_2_5 = {44 00 61 00 74 00 61 00 [0-16] 75 00 70 00 64 00 61 00 74 00 65 00 [0-16] 73 00 75 00 63 00 63 00 65 00 65 00 64 00 65 00 64 00}  //weight: -2, accuracy: Low
         $n_2_6 = {72 00 75 00 6e 00 [0-16] 73 00 63 00 63 00 6d 00 [0-16] 75 00 70 00 64 00 61 00 74 00 65 00}  //weight: -2, accuracy: Low
+        $n_2_7 = "MsgBox" wide //weight: -2
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
