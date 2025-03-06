@@ -671,3 +671,26 @@ rule Trojan_MSIL_Mardom_GTR_2147935041_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_AYA_2147935290_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.AYA!MTB"
+        threat_id = "2147935290"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {1b 2c 3b 00 16 2d 08 2b 15 2b 16 1a 2d 1a 26 2b 1a 2b 1b 2b 1c 1b 2d 20 26 16 2d f3 de 20 02 2b e8 28 04 00 00 06 2b e3 0a 2b e4 06 2b e3 02 2b e2 28 06 00 00 06 2b dd 0b 2b de 26 de c2 1b 2c bf}  //weight: 2, accuracy: High
+        $x_1_2 = "$a5877a5d-1828-4b3d-8bf8-48aae6120d1a" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

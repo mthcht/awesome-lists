@@ -1038,6 +1038,34 @@ rule Trojan_MSIL_Keylogger_AYA_2147930960_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Keylogger_AYA_2147930960_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.AYA!MTB"
+        threat_id = "2147930960"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "CocCocCrashHandler.pdb" ascii //weight: 2
+        $x_2_2 = "Telegram.Bot.Types" ascii //weight: 2
+        $x_1_3 = "KillSameProcessesOnBaseDirectory" ascii //weight: 1
+        $x_1_4 = "CaptureActiveWindowToBase64" ascii //weight: 1
+        $x_1_5 = "SystemLogger.Hooking" ascii //weight: 1
+        $x_1_6 = "GetDiskSerialNumber" ascii //weight: 1
+        $x_1_7 = "KeyboardHook_OnKeyDown" ascii //weight: 1
+        $x_1_8 = "SELECT UUID FROM Win32_ComputerSystemProduct" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Keylogger_SEW_2147931943_0
 {
     meta:
@@ -1058,6 +1086,31 @@ rule Trojan_MSIL_Keylogger_SEW_2147931943_0
         $x_1_3 = "Cookies_Recovered" wide //weight: 1
         $x_1_4 = "CreditCard_Recovered" wide //weight: 1
         $x_1_5 = "\\GhostBrowser\\User Data\\Default\\Network\\Cookies" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Keylogger_AYB_2147935293_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.AYB!MTB"
+        threat_id = "2147935293"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SSH - Key Logger - LOG" wide //weight: 2
+        $x_1_2 = "SSH_Keylogger_Stub.Form1.resources" ascii //weight: 1
+        $x_1_3 = "$25f03944-9294-4209-8cdc-041755befb97" ascii //weight: 1
+        $x_1_4 = "addtoStartup" ascii //weight: 1
+        $x_1_5 = "keyboardHookProc" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

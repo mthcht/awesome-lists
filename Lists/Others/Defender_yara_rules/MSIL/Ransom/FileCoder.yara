@@ -1475,3 +1475,54 @@ rule Ransom_MSIL_FileCoder_RHAH_2147929559_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_AYQ_2147935291_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AYQ!MTB"
+        threat_id = "2147935291"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "GX40 Ransomeware" wide //weight: 2
+        $x_1_2 = "$afdc5238-2c89-4950-8491-7eafbc27a33a" ascii //weight: 1
+        $x_1_3 = "All of your important files has been encrypted" wide //weight: 1
+        $x_1_4 = "Ambarawa Cyber Army" wide //weight: 1
+        $x_1_5 = "doEncrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_FileCoder_AYP_2147935292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AYP!MTB"
+        threat_id = "2147935292"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Rans22.DecryptorApp" ascii //weight: 2
+        $x_2_2 = "successfully encrypted!" wide //weight: 2
+        $x_1_3 = "The program exits because a debugger was detected." wide //weight: 1
+        $x_1_4 = "EncryptFile" ascii //weight: 1
+        $x_1_5 = "SaveMachineIdToSaveDirectory" ascii //weight: 1
+        $x_1_6 = "DecryptFilesInDirectory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

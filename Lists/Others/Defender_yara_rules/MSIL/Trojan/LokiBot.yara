@@ -3414,3 +3414,27 @@ rule Trojan_MSIL_LokiBot_AUJ_2147932021_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LokiBot_AYA_2147935289_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LokiBot.AYA!MTB"
+        threat_id = "2147935289"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LokiBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Http Debugger has been detected on ur computer, since it can be used for malicious ending" wide //weight: 2
+        $x_2_2 = "server.Resources.resources" ascii //weight: 2
+        $x_1_3 = "HTTPDebuggerPro\\HTTPDebuggerBrowser.dll" wide //weight: 1
+        $x_1_4 = "discord.gg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

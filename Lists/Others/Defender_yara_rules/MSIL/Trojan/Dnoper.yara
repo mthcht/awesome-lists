@@ -519,3 +519,29 @@ rule Trojan_MSIL_Dnoper_ND_2147931476_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dnoper_AYA_2147935288_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dnoper.AYA!MTB"
+        threat_id = "2147935288"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dnoper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "oshi.at" wide //weight: 2
+        $x_2_2 = "$7bd20f1a-7bf1-453c-8d03-98e6fee61a91" ascii //weight: 2
+        $x_1_3 = "start \"UxUAC [HEHE-BAY]\" \"cmd.exe\" \"/c powershell -NoProfile -WindowStyle Hidden -Command" wide //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_5 = "DelegateExecute" wide //weight: 1
+        $x_1_6 = "Classes\\ms-settings\\shell\\open\\command" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

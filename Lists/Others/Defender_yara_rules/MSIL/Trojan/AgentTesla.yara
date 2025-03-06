@@ -6816,6 +6816,28 @@ rule Trojan_MSIL_AgentTesla_AW_2147767456_1
         (6 of ($x*))
 }
 
+rule Trojan_MSIL_AgentTesla_RSJ_2147767897_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AgentTesla.RSJ!MTB"
+        threat_id = "2147767897"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1f b6 09 09 0b 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 ea 00 00 00 19 00 00 00 86 00 00 00 81 03 00 00 f5 00 00 00 02 00 00 00 b7 01 00 00 0d 00 00 00 60 02 00 00 56 00 00 00 02 00 00 00 08 00 00 00 0f 00 00 00 60 00 00 00 9e 00 00 00 0f 00 00 00 01 00 00 00 0a 00 00 00 04 00 00 00 0d 00 00 00 06}  //weight: 1, accuracy: High
+        $x_1_2 = "tranquvis.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_AgentTesla_FM_2147769052_0
 {
     meta:
@@ -106736,6 +106758,34 @@ rule Trojan_MSIL_AgentTesla_SLP_2147934668_0
     strings:
         $x_1_1 = {02 11 04 1e 6f 78 00 00 0a 13 05 11 05 18 28 ec 00 00 0a 13 06 11 06 28 ed 00 00 0a 13 07 07 11 07 6f ee 00 00 0a 26 11 04 1e d6 13 04 11 04 09 31 ce}  //weight: 1, accuracy: High
         $x_1_2 = "ListNobifex.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AgentTesla_AYA_2147935294_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AgentTesla.AYA!MTB"
+        threat_id = "2147935294"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$4a2f8fb6-1077-469a-9246-736e6afe8da1" ascii //weight: 2
+        $x_2_2 = "AddRootkit" ascii //weight: 2
+        $x_1_3 = "isVM_by_wim_temper" ascii //weight: 1
+        $x_1_4 = "Client.Helper" ascii //weight: 1
+        $x_1_5 = "EnvironmentDetected" ascii //weight: 1
+        $x_1_6 = "RunAntiAnalysis" ascii //weight: 1
+        $x_1_7 = "RemoveFileSecurity" ascii //weight: 1
+        $x_1_8 = "DecodEncod" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

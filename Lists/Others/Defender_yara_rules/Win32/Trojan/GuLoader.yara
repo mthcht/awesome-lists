@@ -3006,3 +3006,52 @@ rule Trojan_Win32_GuLoader_RBF_2147935104_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBG_2147935278_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBG!MTB"
+        threat_id = "2147935278"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "inddatafelt" ascii //weight: 1
+        $x_1_2 = "frivolized undergrundskonomiernes" ascii //weight: 1
+        $x_1_3 = "storebroders" ascii //weight: 1
+        $x_1_4 = "licans voldelighederne.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBHMTB_2147935309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBHMTB"
+        threat_id = "2147935309"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\exulding\\genrebestemmelses" ascii //weight: 1
+        $x_1_2 = "Bifloderne90.ini" ascii //weight: 1
+        $x_1_3 = "marmeladen arbitrated" ascii //weight: 1
+        $x_1_4 = "ichthyisms ic slvtj" ascii //weight: 1
+        $x_1_5 = "civilkonomerne bidirectional" ascii //weight: 1
+        $x_1_6 = "thelmas.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
