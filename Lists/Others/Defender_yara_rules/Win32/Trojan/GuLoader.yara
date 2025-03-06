@@ -3030,16 +3030,17 @@ rule Trojan_Win32_GuLoader_RBG_2147935278_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_RBHMTB_2147935309_0
+rule Trojan_Win32_GuLoader_RBH_2147935324_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/GuLoader.RBHMTB"
-        threat_id = "2147935309"
+        detection_name = "Trojan:Win32/GuLoader.RBH!MTB"
+        threat_id = "2147935324"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GuLoader"
         severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
@@ -3050,6 +3051,31 @@ rule Trojan_Win32_GuLoader_RBHMTB_2147935309_0
         $x_1_4 = "ichthyisms ic slvtj" ascii //weight: 1
         $x_1_5 = "civilkonomerne bidirectional" ascii //weight: 1
         $x_1_6 = "thelmas.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBI_2147935332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBI!MTB"
+        threat_id = "2147935332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Burlington Resources Inc." ascii //weight: 1
+        $x_1_2 = "Bowater Incorporated" ascii //weight: 1
+        $x_1_3 = "Siebel Systems Inc" ascii //weight: 1
+        $x_1_4 = "Landstar System Inc." ascii //weight: 1
+        $x_1_5 = "fiendliness horrorful.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -4115,3 +4115,24 @@ rule Trojan_Win64_CryptInject_MHZ_2147935153_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_PIU_2147935317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.PIU!MTB"
+        threat_id = "2147935317"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4d 29 c0 48 8d 45 dc 4c 33 45 f7 48 31 55 f4 b9 6f e8 00 00 89 45 e8 4c 89 55 d4 89 c2 49 89 d2 4c 03 45 ef 05 fc db 00 00 2b 4d e8 48 8b 4d ec 8b 4d f6 49 c7 c0 ?? ?? 00 00 01 c1 4c 89 55 d8 01 c9 89 55 f1 48 ff 04 24 49 c7 c2 05 00 00 00 4c 39 14 24 0f 8e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

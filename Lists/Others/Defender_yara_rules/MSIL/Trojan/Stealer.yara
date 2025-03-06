@@ -2706,3 +2706,24 @@ rule Trojan_MSIL_Stealer_SIN_2147935239_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_SWI_2147935320_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.SWI!MTB"
+        threat_id = "2147935320"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 04 72 1a 0a 00 70 28 87 00 00 0a 09 72 ?? ?? ?? 70 6f 4b 01 00 0a 28 4c 01 00 0a 11 04 72 88 0a 00 70 28 87 00 00 0a 09 72 ?? ?? ?? 70 6f 4b 01 00 0a 28 4c 01 00 0a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

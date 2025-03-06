@@ -45,3 +45,24 @@ rule Backdoor_MSIL_Mokes_AAZU_2147899113_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Mokes_AHNA_2147935314_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Mokes.AHNA!MTB"
+        threat_id = "2147935314"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mokes"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {07 11 04 07 8e 69 5d 91 13 05 06 11 04 8f ?? 00 00 01 25 47 11 05 1e 5a 20 00 01 00 00 5d d2 61 d2 52 08 11 04 06 11 04 91 11 04 1f 0e 5a 20 00 01 00 00 5d 59 11 05 61 d2 9c 11 04 17 58 13 04 11 04 06 8e 69 32 b9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
