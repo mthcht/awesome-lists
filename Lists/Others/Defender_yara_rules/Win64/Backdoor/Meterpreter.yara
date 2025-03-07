@@ -66,3 +66,24 @@ rule Backdoor_Win64_Meterpreter_AG_2147847370_0
         (all of ($x*))
 }
 
+rule Backdoor_Win64_Meterpreter_GNN_2147935353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/Meterpreter.GNN!MTB"
+        threat_id = "2147935353"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {33 d2 41 b9 00 30 00 00 41 b8 00 20 00 00 c7 44 24 ?? 40 00 00 00 ff 15 ?? ?? ?? ?? 48 8b d8 48 85 c0 ?? ?? 48 8b 4c 24 ?? 48 83 64 24 ?? 00 4c 8d 05 ?? ?? ?? ?? 41 b9 00 20 00 00 48 8b d0 ff 15 ?? ?? ?? ?? 48 8b 4c 24 ?? 48 8d 94 24 ?? ?? ?? ?? 48 89 9c 24 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8b 4c 24 ?? ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

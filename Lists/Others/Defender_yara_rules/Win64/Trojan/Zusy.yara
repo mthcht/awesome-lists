@@ -1497,3 +1497,26 @@ rule Trojan_Win64_Zusy_SAI_2147935243_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_AZY_2147935359_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AZY!MTB"
+        threat_id = "2147935359"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {44 8b c0 48 8d 95 ?? ?? ?? ?? 48 8d 4d 80 e8 ?? ?? ?? ?? 4c 8d 4c 24 78 41 b8 00 08 00 00 48 8d 95 ?? ?? ?? ?? 48 8b cb ff 15}  //weight: 3, accuracy: Low
+        $x_1_2 = {4c 89 74 24 28 c7 44 24 20 00 00 00 80 45 33 c9 45 33 c0 48 8b d0 48 8b ce ff 15}  //weight: 1, accuracy: High
+        $x_2_3 = "lognationprimecarraro.com/settings/config2.zip" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

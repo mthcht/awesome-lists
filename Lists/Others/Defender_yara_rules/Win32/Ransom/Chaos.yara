@@ -21,3 +21,26 @@ rule Ransom_Win32_Chaos_NIT_2147929717_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Chaos_CCJU_2147935360_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.CCJU!MTB"
+        threat_id = "2147935360"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {32 04 32 33 d2 88 46 01 8b 44 24 24 03 c6 f7 74 24 10 0f b6 82 ?? ?? ?? ?? 8b 54 24 28 32 04 32 88 46 02 83 c6 05 8d 04 37}  //weight: 2, accuracy: Low
+        $x_1_2 = ".chaos" wide //weight: 1
+        $x_1_3 = "encrypt_step" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

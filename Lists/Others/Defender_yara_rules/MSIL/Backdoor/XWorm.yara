@@ -161,3 +161,24 @@ rule Backdoor_MSIL_XWorm_PAFT_2147923398_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_XWorm_GTZ_2147935354_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/XWorm.GTZ!MTB"
+        threat_id = "2147935354"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 10 1f 0c 58 28 ?? ?? ?? 06 13 13 02 11 10 1f 10 58 28 ?? ?? ?? 06 13 14 02 11 10 1f 14 58 28 ?? ?? ?? 06 13 15 11 14 16 31 3e 11 14 8d ?? 00 00 01 13 16 02 11 15 11 16 16 11 16 8e 69 28 ?? ?? ?? 0a 7e ?? 00 00 04 12 06 7b ?? 00 00 04 11 0f 11 13 58 11 16 11 16 8e 69 12 04 6f ?? ?? ?? 06 2d 06 73 ?? 00 00 0a 7a 11 10 1f 28 58 13 10 11 12 17 58 13 12 11 12 11 11 32 83}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
