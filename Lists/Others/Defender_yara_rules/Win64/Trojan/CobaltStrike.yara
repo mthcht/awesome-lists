@@ -16332,3 +16332,47 @@ rule Trojan_Win64_CobaltStrike_CHL_2147935416_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_DCP_2147935432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.DCP!MTB"
+        threat_id = "2147935432"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 f7 f1 48 8b c2 48 8b d0 48 8b 4c 24 50 e8 ?? ?? ?? ?? 0f be 00 48 8b 4c 24 20 48 8b 54 24 40 48 03 d1 48 8b ca 0f be 09 33 c8 8b c1 48 8b 4c 24 20 48 8b 54 24 40 48 03 d1 48 8b ca 88 01}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_NIT_2147935435_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.NIT!MTB"
+        threat_id = "2147935435"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4d 8d 48 1f 49 83 e1 e0 4d 8b d9 49 c1 eb 05 47 8b 9c 9a e0 c4 55 00 4d 03 da 41 ff e3 c4 a1 7e 6f 8c 0a 00 ff ff ff c4 a1 7e 7f 8c 09 00 ff ff ff c4 a1 7e 6f 8c 0a 20 ff ff ff c4 a1 7e 7f 8c 09 20 ff ff ff c4 a1 7e 6f 8c 0a 40 ff ff ff c4 a1 7e 7f 8c 09 40 ff ff ff c4 a1 7e 6f 8c 0a 60 ff ff ff c4 a1 7e 7f 8c 09 60 ff ff ff c4 a1 7e 6f 4c 0a 80 c4 a1 7e 7f 4c 09 80 c4 a1 7e 6f 4c 0a a0 c4 a1 7e 7f 4c 09 a0 c4 a1 7e 6f 4c 0a c0 c4 a1 7e 7f 4c 09 c0 c4 a1 7e 7f 6c 01 e0 c5 fe 7f 00 c5 f8 77}  //weight: 2, accuracy: High
+        $x_1_2 = "checking sandbox via sleep time" ascii //weight: 1
+        $x_1_3 = "previously been poisoned" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

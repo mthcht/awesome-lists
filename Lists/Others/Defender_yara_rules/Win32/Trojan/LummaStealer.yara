@@ -3393,6 +3393,29 @@ rule Trojan_Win32_LummaStealer_NIT_2147928350_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {89 d9 80 c1 a8 32 0c 18 80 c1 b0 88 0c 18 43 83 fb 04 75 ec ff 25 ?? ?? ?? ?? 31 c9 39 10 0f 95 c1 31 c0 ff 24 8d ?? ?? ?? ?? 89 7d e8 8b 45 08 8b 48 3c 89 4d ec 8b 04 08 89 45 f0 89 f1}  //weight: 2, accuracy: Low
+        $x_1_2 = {89 ca 80 c2 6d 32 14 08 80 c2 26 88 14 08 41 83 f9 14 75 ec}  //weight: 1, accuracy: High
+        $x_1_3 = {0f b6 54 0e 94 89 d3 21 cb 00 db 28 da 0f b6 d2 01 ca 80 c2 28 88 54 0e 94 41 83 f9 70 75 e1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_NIT_2147928350_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.NIT!MTB"
+        threat_id = "2147928350"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

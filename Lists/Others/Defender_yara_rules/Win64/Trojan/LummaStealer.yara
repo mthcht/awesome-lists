@@ -445,3 +445,33 @@ rule Trojan_Win64_LummaStealer_EM_2147932659_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_NITA_2147935434_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.NITA!MTB"
+        threat_id = "2147935434"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {66 44 39 34 41 74 6a ff 15 75 82 07 00 85 c0 74 5c 48 8b 4d 30 4c 8d 45 38 48 8d 55 30 ff c3 e8 9e e6 ff ff 8b c8 85 c0 78 0f 48 8b 4d 30 48 85 c9 74 48 48 8b 45 38 eb c7}  //weight: 2, accuracy: High
+        $x_2_2 = {48 8d 4c 24 78 48 8d 1d 03 89 07 00 ff 15 8d 5d 07 00 0f b7 44 24 78 48 8d 0d e9 88 07 00 bf 05 00 00 00 85 c0}  //weight: 2, accuracy: High
+        $x_2_3 = "stimulate.exe" wide //weight: 2
+        $x_2_4 = "Deleting file" ascii //weight: 2
+        $x_2_5 = "extract payloads" ascii //weight: 2
+        $x_2_6 = "Connected to elevated engine" ascii //weight: 2
+        $x_1_7 = "DecryptFileW" ascii //weight: 1
+        $x_1_8 = "UnmapViewOfFile" ascii //weight: 1
+        $x_1_9 = "load a decryption method" ascii //weight: 1
+        $x_1_10 = "rollback is disabled" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
