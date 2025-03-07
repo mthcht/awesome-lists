@@ -742,7 +742,7 @@ rule Trojan_Win32_ClickFix_DQ_2147933822_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "31"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_10_1 = "powershell" wide //weight: 10
         $x_10_2 = "-replace" wide //weight: 10
@@ -765,9 +765,15 @@ rule Trojan_Win32_ClickFix_DQ_2147933822_0
         $x_1_19 = "Human - CAPTCHA" wide //weight: 1
         $x_1_20 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
         $x_1_21 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
+        $x_1_22 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_23 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_24 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_25 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
+        $x_1_26 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
+            ((1 of ($x_10_*) and 21 of ($x_1_*))) or
             ((2 of ($x_10_*) and 11 of ($x_1_*))) or
             ((3 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
@@ -984,7 +990,7 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "31"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_10_1 = "powershell" wide //weight: 10
         $x_10_2 = "http" wide //weight: 10
@@ -993,6 +999,7 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         $x_1_5 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
         $x_1_6 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
         $x_1_7 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
+        $x_1_8 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
@@ -1046,6 +1053,37 @@ rule Trojan_Win32_ClickFix_AO_2147935373_0
         (
             ((2 of ($x_200_*) and 1 of ($x_20_*) and 1 of ($x_1_*))) or
             ((2 of ($x_200_*) and 2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DW_2147935377_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DW!MTB"
+        threat_id = "2147935377"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "mshta" wide //weight: 10
+        $x_10_2 = "http" wide //weight: 10
+        $x_10_3 = "\\1" wide //weight: 10
+        $x_1_4 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_5 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_6 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_7 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
+        $x_1_8 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }
