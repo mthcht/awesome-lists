@@ -2064,6 +2064,29 @@ rule Trojan_Win32_GuLoader_SUI_2147905166_0
         family = "GuLoader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "baggrundsprocessens traumatologies" wide //weight: 2
+        $x_2_2 = "ligesaavel phyllostachys" wide //weight: 2
+        $x_2_3 = "pulvereous helbredsgrundes discoid" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUI_2147905166_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUI!MTB"
+        threat_id = "2147905166"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
@@ -2078,7 +2101,7 @@ rule Trojan_Win32_GuLoader_SUI_2147905166_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_SUI_2147905166_1
+rule Trojan_Win32_GuLoader_SUI_2147905166_2
 {
     meta:
         author = "defender2yara"
@@ -3076,6 +3099,32 @@ rule Trojan_Win32_GuLoader_RBI_2147935332_0
         $x_1_3 = "Siebel Systems Inc" ascii //weight: 1
         $x_1_4 = "Landstar System Inc." ascii //weight: 1
         $x_1_5 = "fiendliness horrorful.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBJ_2147935382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBJ!MTB"
+        threat_id = "2147935382"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Siliciumets\\trykketeknikkerne\\livsforsikringens" ascii //weight: 1
+        $x_1_2 = "%Pseudoanatomic%\\Krocket22" ascii //weight: 1
+        $x_1_3 = "5\\Snorkel.Eve" ascii //weight: 1
+        $x_1_4 = "mellemgangene moerket resituates" ascii //weight: 1
+        $x_1_5 = "visitation baggages" ascii //weight: 1
+        $x_1_6 = "semicollegiate.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
