@@ -3574,3 +3574,28 @@ rule Trojan_MSIL_AsyncRat_ARS_2147933342_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRat_ART_2147935414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRat.ART!MTB"
+        threat_id = "2147935414"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 04 11 04 09 28 ?? 00 00 0a 11 04 28 ?? 00 00 0a 26 28 ?? 00 00 0a 06 28 ?? 00 00 0a 13 05 11 05 08 28 ?? 00 00 0a 11 05 28}  //weight: 1, accuracy: Low
+        $x_2_2 = "dwdtte4wjfk8ds5.hopto.org" wide //weight: 2
+        $x_3_3 = "pristolmag32dds.hopto.org" wide //weight: 3
+        $x_4_4 = "anticoresa9923p.hopto.org" wide //weight: 4
+        $x_5_5 = "mppr.exe" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
