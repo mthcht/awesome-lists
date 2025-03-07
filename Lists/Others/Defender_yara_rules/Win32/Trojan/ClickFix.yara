@@ -1001,3 +1001,52 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         )
 }
 
+rule Trojan_Win32_ClickFix_AO_2147935373_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AO!MTB"
+        threat_id = "2147935373"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "421"
+        strings_accuracy = "High"
+    strings:
+        $x_200_1 = "mshta" wide //weight: 200
+        $x_200_2 = "http" wide //weight: 200
+        $x_20_3 = ".mp" wide //weight: 20
+        $x_20_4 = ".flv" wide //weight: 20
+        $x_20_5 = ".mdb" wide //weight: 20
+        $x_20_6 = ".eps" wide //weight: 20
+        $x_20_7 = ".dat" wide //weight: 20
+        $x_20_8 = ".cda" wide //weight: 20
+        $x_20_9 = ".m4a" wide //weight: 20
+        $x_20_10 = ".xll" wide //weight: 20
+        $x_1_11 = "captcha" wide //weight: 1
+        $x_1_12 = "robot" wide //weight: 1
+        $x_1_13 = "human" wide //weight: 1
+        $x_1_14 = " ray" wide //weight: 1
+        $x_1_15 = " recaptcha" wide //weight: 1
+        $x_1_16 = " re captcha" wide //weight: 1
+        $x_1_17 = " rCAPTCHA" wide //weight: 1
+        $x_1_18 = " clip FREE" wide //weight: 1
+        $x_1_19 = " Over FREE" wide //weight: 1
+        $x_1_20 = "robot: r" wide //weight: 1
+        $x_1_21 = "robot - r" wide //weight: 1
+        $x_1_22 = "Cloudflare" wide //weight: 1
+        $x_1_23 = "- Over FREE" wide //weight: 1
+        $x_1_24 = "Google Meet" wide //weight: 1
+        $x_1_25 = "DNS service" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_200_*) and 1 of ($x_20_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_200_*) and 2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
