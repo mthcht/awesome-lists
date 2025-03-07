@@ -310,3 +310,27 @@ rule Trojan_Win64_ShellcodeInject_JBM_2147934153_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeInject_INC_2147935391_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeInject.INC!MTB"
+        threat_id = "2147935391"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "USAGE: red_vanity.exe [TARGET_PID_TO_REFLECT]" ascii //weight: 1
+        $x_1_2 = "Allocated space for shellcode in start address:" ascii //weight: 1
+        $x_1_3 = "Failed to terminate forked process" ascii //weight: 1
+        $x_1_4 = "Got a handle to PID %d successfully" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

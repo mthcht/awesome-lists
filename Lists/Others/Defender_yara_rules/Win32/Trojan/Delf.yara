@@ -2232,3 +2232,26 @@ rule Trojan_Win32_Delf_NS_2147926475_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Delf_OKN_2147935404_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Delf.OKN!MTB"
+        threat_id = "2147935404"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Delf"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {23 c2 c1 e0 03 01 45 f4 8b 4d f4 33 c0 8a 01 89 45 f0 85 c0}  //weight: 4, accuracy: High
+        $x_1_2 = "%TEMP%\\SyncClipRoot\\" ascii //weight: 1
+        $x_1_3 = "%TEMP%\\vmware" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

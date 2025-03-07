@@ -2879,3 +2879,24 @@ rule Trojan_Win32_LummaC_FAG_2147934836_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_FAF_2147935400_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.FAF!MTB"
+        threat_id = "2147935400"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {87 c2 41 c1 cb 12 87 c1 2b f2 33 de f7 d6 21 05 ?? ?? ?? ?? 87 c3 f7 de 87 d6 c1 c8 1c 87 f3 f7 d1 41}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

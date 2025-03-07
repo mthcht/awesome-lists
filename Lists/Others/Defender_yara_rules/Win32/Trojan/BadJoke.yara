@@ -175,3 +175,45 @@ rule Trojan_Win32_BadJoke_EARZ_2147934439_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BadJoke_DAA_2147935401_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.DAA!MTB"
+        threat_id = "2147935401"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {89 c1 8b 45 fc c1 f8 0b 09 c8 21 d0 89 c2 89 d0 c1 e0 02 01 d0 8d 14 85 00 00 00 00 01 d0 c1 e0 02 89 c2 8b 45 fc 8d 0c 00 8b 45 10 01 c8 66 89 10 83 45 fc 01}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_BadJoke_DAB_2147935402_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.DAB!MTB"
+        threat_id = "2147935402"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {89 c1 d3 eb 89 d8 83 e0 03 89 c1 d3 ea 89 d0 89 c1 8d 95 ?? ?? ?? ?? 8b 45 f4 01 d0 88 08 83 45 f4 01 81 7d f4}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
