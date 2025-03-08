@@ -3282,3 +3282,31 @@ rule Trojan_MSIL_CryptInject_MBT_2147934980_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CryptInject_BSA_2147935496_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CryptInject.BSA!MTB"
+        threat_id = "2147935496"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {72 17 01 00 70 28 05 00 00 0a 6f 09 00 00 0a}  //weight: 5, accuracy: High
+        $x_5_2 = {72 83 01 00 70 28 05 00 00 0a 6f 09 00 00 0a 80 1e 00 00 04}  //weight: 5, accuracy: High
+        $x_3_3 = {08 07 17 73 22 00 00 0a 0d 09 02 16 02 8e 69 6f 23 00 00 0a}  //weight: 3, accuracy: High
+        $x_2_4 = {09 2c 06 09 6f 26 00 00 0a dc 08 2c 06 08 6f}  //weight: 2, accuracy: High
+        $x_2_5 = "V293NjRTZXRUaHJlYWRDb250ZXh0" ascii //weight: 2
+        $x_2_6 = "U2V0VGhyZWFkQ29udGV4dA==" ascii //weight: 2
+        $x_2_7 = "VmlydHVhbEFsbG9jRXg" ascii //weight: 2
+        $x_2_8 = "WndVbm1hcFZpZXdPZ1N1Y3Rpb24=" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

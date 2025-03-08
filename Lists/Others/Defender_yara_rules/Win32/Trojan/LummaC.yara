@@ -1467,6 +1467,27 @@ rule Trojan_Win32_LummaC_GTN_2147927314_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_GTN_2147927314_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.GTN!MTB"
+        threat_id = "2147927314"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {40 00 00 e0 2e 72 73 72 63 00 00 00 fc 02 00 00 00 a0 05 00 00 02 00 00 00 a0 05 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 69 64 61 74 61 20 20}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaC_EA_2147927497_0
 {
     meta:
