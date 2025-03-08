@@ -770,22 +770,21 @@ rule Trojan_Win32_EmotetCrypt_ARK_2147764873_2
         $x_1_27 = {0f b6 04 0f 0f b6 d2 03 c2 33 d2 f7 35 50 b1 49 00 8a 04 0a 32 04 2b 88 45 00}  //weight: 1, accuracy: High
         $x_1_28 = {8b 00 8b ea 8b 54 24 1c 8a 14 10 32 14 2e 8b 6c 24 2c 88 14 28 [0-31] 72}  //weight: 1, accuracy: Low
         $x_1_29 = {8a 04 17 8a 14 2e 32 c2 8b 54 24 2c 88 04 17 [0-15] 40 [0-15] 72}  //weight: 1, accuracy: Low
-        $x_1_30 = {8a 14 01 8a 1d ?? ?? ?? ?? 2a d3 88 10 40 4e 75}  //weight: 1, accuracy: Low
-        $x_1_31 = {0f b6 d2 03 c2 99 f7 fb 8a 1c 29 8a 44 14 14 32 c3 88 01}  //weight: 1, accuracy: High
-        $x_1_32 = {8b 00 8b fa 8b 54 24 1c 8a 14 10 32 14 37 88 14 18}  //weight: 1, accuracy: High
-        $x_1_33 = {0f b6 8c 15 ?? ?? ?? ?? 03 c1 b9 ?? ?? ?? ?? 99 f7 f9 8b 8d ?? ?? ?? ?? 0f b6 84 15 00 32 44 1f ff ff 4d 0c 88 43 ff 75}  //weight: 1, accuracy: Low
-        $x_1_34 = {8a 1c 06 2a 1d ?? ?? ?? ?? 2a d9 02 da 88 18 40 4f 75 ?? 5e 5b 5f c3}  //weight: 1, accuracy: Low
-        $x_1_35 = {33 d2 f7 35 ?? ?? ?? ?? 8a 04 0a 8b 54 24 28 32 04 2a 45 88 45 ff 8b 44 24 [0-4] 48 89 44 24 01 75}  //weight: 1, accuracy: Low
-        $x_1_36 = {0f b6 00 0f b6 d2 03 c2 33 d2 f7 f1 8b 4d f8 8a 04 32 32 04 39 88 07}  //weight: 1, accuracy: High
-        $x_1_37 = {88 04 33 0f b6 09 0f b6 c0 03 c1 33 d2 f7 35 ?? ?? ?? ?? 8b 4d f4 8a 04 32 32 04 39 88 07}  //weight: 1, accuracy: Low
-        $x_1_38 = {8a 14 33 8a 44 24 2c 8b 4c 24 20 02 d0 8b 44 24 28 32 14 01 88 10}  //weight: 1, accuracy: High
-        $x_1_39 = {8a 14 3a 02 d0 8b 44 24 24 32 14 01 40 89 44 24 24 88 50 ff}  //weight: 1, accuracy: High
-        $x_1_40 = {0f b6 04 0a 8b 54 24 10 02 c3 32 44 32 ff ff 4c 24 14 88 46 ff 75}  //weight: 1, accuracy: High
-        $x_1_41 = {8a 04 0a 8b 54 24 14 32 04 2a 45 88 45 ff ff 4c 24 20 75}  //weight: 1, accuracy: High
-        $x_1_42 = {0f b6 0c 0a [0-15] 33 d2 f7 35 34 60 41 00 [0-47] 0f b6 09 33 c1 8b 4d 18 03 4d dc 88 01}  //weight: 1, accuracy: Low
-        $x_1_43 = {8a 14 08 8b 44 24 18 30 14 28 [0-15] 45 3b e8 0f 8c 70}  //weight: 1, accuracy: Low
-        $x_1_44 = {8a 14 0a 03 c6 30 10 46 3b 75 0c 89 74 24 14 7c}  //weight: 1, accuracy: High
-        $x_1_45 = {8a 14 02 8b 44 24 14 8b 4c 24 1c 30 14 08 40 3b 44 24 20 89 44 24 14 0f}  //weight: 1, accuracy: High
+        $x_1_30 = {0f b6 d2 03 c2 99 f7 fb 8a 1c 29 8a 44 14 14 32 c3 88 01}  //weight: 1, accuracy: High
+        $x_1_31 = {8b 00 8b fa 8b 54 24 1c 8a 14 10 32 14 37 88 14 18}  //weight: 1, accuracy: High
+        $x_1_32 = {0f b6 8c 15 ?? ?? ?? ?? 03 c1 b9 ?? ?? ?? ?? 99 f7 f9 8b 8d ?? ?? ?? ?? 0f b6 84 15 00 32 44 1f ff ff 4d 0c 88 43 ff 75}  //weight: 1, accuracy: Low
+        $x_1_33 = {8a 1c 06 2a 1d ?? ?? ?? ?? 2a d9 02 da 88 18 40 4f 75 ?? 5e 5b 5f c3}  //weight: 1, accuracy: Low
+        $x_1_34 = {33 d2 f7 35 ?? ?? ?? ?? 8a 04 0a 8b 54 24 28 32 04 2a 45 88 45 ff 8b 44 24 [0-4] 48 89 44 24 01 75}  //weight: 1, accuracy: Low
+        $x_1_35 = {0f b6 00 0f b6 d2 03 c2 33 d2 f7 f1 8b 4d f8 8a 04 32 32 04 39 88 07}  //weight: 1, accuracy: High
+        $x_1_36 = {88 04 33 0f b6 09 0f b6 c0 03 c1 33 d2 f7 35 ?? ?? ?? ?? 8b 4d f4 8a 04 32 32 04 39 88 07}  //weight: 1, accuracy: Low
+        $x_1_37 = {8a 14 33 8a 44 24 2c 8b 4c 24 20 02 d0 8b 44 24 28 32 14 01 88 10}  //weight: 1, accuracy: High
+        $x_1_38 = {8a 14 3a 02 d0 8b 44 24 24 32 14 01 40 89 44 24 24 88 50 ff}  //weight: 1, accuracy: High
+        $x_1_39 = {0f b6 04 0a 8b 54 24 10 02 c3 32 44 32 ff ff 4c 24 14 88 46 ff 75}  //weight: 1, accuracy: High
+        $x_1_40 = {8a 04 0a 8b 54 24 14 32 04 2a 45 88 45 ff ff 4c 24 20 75}  //weight: 1, accuracy: High
+        $x_1_41 = {0f b6 0c 0a [0-15] 33 d2 f7 35 34 60 41 00 [0-47] 0f b6 09 33 c1 8b 4d 18 03 4d dc 88 01}  //weight: 1, accuracy: Low
+        $x_1_42 = {8a 14 08 8b 44 24 18 30 14 28 [0-15] 45 3b e8 0f 8c 70}  //weight: 1, accuracy: Low
+        $x_1_43 = {8a 14 0a 03 c6 30 10 46 3b 75 0c 89 74 24 14 7c}  //weight: 1, accuracy: High
+        $x_1_44 = {8a 14 02 8b 44 24 14 8b 4c 24 1c 30 14 08 40 3b 44 24 20 89 44 24 14 0f}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
