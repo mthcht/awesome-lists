@@ -736,6 +736,27 @@ rule Ransom_Win64_FileCoder_MA_2147928077_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_MA_2147928077_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.MA!MTB"
+        threat_id = "2147928077"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 0c 51 48 8b 95 c0 00 00 00 48 d1 e2 48 2b ca 48 8b 54 c5 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win64_FileCoder_RHAD_2147928181_0
 {
     meta:

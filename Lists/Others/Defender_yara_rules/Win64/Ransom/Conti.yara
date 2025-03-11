@@ -84,3 +84,28 @@ rule Ransom_Win64_Conti_MIO_2147901165_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Conti_MX_2147935760_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Conti.MX!MTB"
+        threat_id = "2147935760"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vssadmin delete shadows" ascii //weight: 1
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "wmic shadowcopy delete" ascii //weight: 1
+        $x_1_4 = "system_health.exe" ascii //weight: 1
+        $x_1_5 = "Clear-ComputerRestorePoint -All" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
