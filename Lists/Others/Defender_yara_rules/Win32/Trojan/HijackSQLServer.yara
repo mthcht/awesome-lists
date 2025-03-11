@@ -101,16 +101,17 @@ rule Trojan_Win32_HijackSQLServer_D_2147907152_0
         $x_1_3 = "wmicimv2/win32_process " wide //weight: 1
         $x_1_4 = "process call create " wide //weight: 1
         $x_1_5 = "start-process " wide //weight: 1
-        $x_1_6 = "winrm" wide //weight: 1
-        $x_1_7 = "echo" wide //weight: 1
-        $x_1_8 = "invoke-webrequest" wide //weight: 1
-        $x_1_9 = "iwr " wide //weight: 1
-        $x_1_10 = "-OutFile" wide //weight: 1
-        $x_1_11 = "downloadfile" wide //weight: 1
-        $x_1_12 = "downloadstring" wide //weight: 1
-        $x_1_13 = "frombase64string" wide //weight: 1
-        $n_100_14 = "\\webpresented.wpcrm.console.exe" wide //weight: -100
-        $n_100_15 = "cap_verify.bat" ascii //weight: -100
+        $x_1_6 = "c:\\users\\public" wide //weight: 1
+        $x_1_7 = "winrm" wide //weight: 1
+        $x_1_8 = "echo" wide //weight: 1
+        $x_1_9 = "invoke-webrequest" wide //weight: 1
+        $x_1_10 = "iwr " wide //weight: 1
+        $x_1_11 = "-OutFile" wide //weight: 1
+        $x_1_12 = "downloadfile" wide //weight: 1
+        $x_1_13 = "downloadstring" wide //weight: 1
+        $x_1_14 = "frombase64string" wide //weight: 1
+        $n_100_15 = "\\webpresented.wpcrm.console.exe" wide //weight: -100
+        $n_100_16 = "cap_verify.bat" ascii //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
