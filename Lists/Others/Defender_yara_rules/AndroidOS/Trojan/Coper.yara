@@ -181,3 +181,30 @@ rule Trojan_AndroidOS_Coper_F_2147934449_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Coper_G_2147935639_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Coper.G!MTB"
+        threat_id = "2147935639"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Coper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "keylogger_start" ascii //weight: 1
+        $x_1_2 = "sync_injects" ascii //weight: 1
+        $x_1_3 = "disable_battery_task" ascii //weight: 1
+        $x_1_4 = "keylogger_task" ascii //weight: 1
+        $x_1_5 = "set_bot_mode" ascii //weight: 1
+        $x_1_6 = "activate_injects" ascii //weight: 1
+        $x_1_7 = "EXC_SMSRCV" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

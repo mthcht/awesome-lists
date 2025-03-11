@@ -2255,3 +2255,33 @@ rule Trojan_Win32_Delf_OKN_2147935404_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Delf_OKL_2147935611_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Delf.OKL!MTB"
+        threat_id = "2147935611"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Delf"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "1.bat" ascii //weight: 1
+        $x_1_2 = "@Echo OFF" ascii //weight: 1
+        $x_1_3 = "!!!!I!!c!!e!!S!!w!!o!!r!!d!!.!!e!!x!!!e!!" ascii //weight: 1
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders\\Common Startup" ascii //weight: 1
+        $x_1_5 = "C  A  P  T  U  R  A  W  E  B  C  A  M  " ascii //weight: 1
+        $x_1_6 = "y  c .  b  a  t" ascii //weight: 1
+        $x_1_7 = "1.vbs" ascii //weight: 1
+        $x_1_8 = "del.bat" ascii //weight: 1
+        $x_1_9 = "q.rar" ascii //weight: 1
+        $x_1_10 = "r  u  n      u  r  l" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

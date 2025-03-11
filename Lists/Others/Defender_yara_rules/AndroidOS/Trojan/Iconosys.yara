@@ -129,3 +129,28 @@ rule Trojan_AndroidOS_Iconosys_A_2147927140_0
         (2 of ($x*))
 }
 
+rule Trojan_AndroidOS_Iconosys_D_2147935642_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Iconosys.D!MTB"
+        threat_id = "2147935642"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Iconosys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "market://details?id=com.santa.iconosys" ascii //weight: 1
+        $x_1_2 = "newyearbuzzerstates" ascii //weight: 1
+        $x_1_3 = "smsreplayierstates" ascii //weight: 1
+        $x_1_4 = "tricktrackerstates" ascii //weight: 1
+        $x_1_5 = "smsreplier.net/smsreply/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

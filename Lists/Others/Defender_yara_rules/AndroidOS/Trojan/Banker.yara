@@ -871,3 +871,25 @@ rule Trojan_AndroidOS_Banker_Y_2147931657_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Banker_Z_2147935637_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker.Z!MTB"
+        threat_id = "2147935637"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {54 72 df 5c 71 10 23 cb 02 00 0c 02 54 75 df 5c 71 10 26 cb 05 00 0c 05 70 40 1e cb 27 05 0a 02 32 02 22 00 22 05 15 1b 1a 06 8c 0b 70 20 10 a9 65 00 6e 20 16 a9 25 00 6e 10 29 a9 05 00 0c 05 71 20 69 c5 51 00 3b 02 0f 00 5c 74 de 5c 54 75 df 5c 1a 06 8b 0b 71 20 ae 0e 26 00 0c 02 71 20 2b cb 25 00}  //weight: 1, accuracy: High
+        $x_1_2 = {22 00 15 1b 1a 01 51 0a 70 20 10 a9 10 00 60 01 fd 2e 6e 20 16 a9 10 00 1a 01 fb 04 6e 20 1b a9 10 00 62 01 fc 2e 6e 20 1b a9 10 00 1a 01 e6 04 6e 20 1b a9 10 00 62 01 ff 2e 6e 20 1b a9 10 00 1a 01 ec 04 6e 20 1b a9 10 00 62 01 02 2f 6e 20 1b a9 10 00 1a 01 f3 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

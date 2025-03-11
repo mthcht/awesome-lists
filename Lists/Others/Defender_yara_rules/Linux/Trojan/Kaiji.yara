@@ -174,3 +174,31 @@ rule Trojan_Linux_Kaiji_F_2147929990_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Kaiji_G_2147935643_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Kaiji.G!MTB"
+        threat_id = "2147935643"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Kaiji"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.Killcpu" ascii //weight: 1
+        $x_1_2 = "main.terminalrun" ascii //weight: 1
+        $x_1_3 = "main.Proxyhandle" ascii //weight: 1
+        $x_1_4 = "main.(*Allowlist).Add" ascii //weight: 1
+        $x_1_5 = "main.Ares_Tcp_Send" ascii //weight: 1
+        $x_1_6 = "/client/linux/attack.go" ascii //weight: 1
+        $x_1_7 = "main.Dns_Url" ascii //weight: 1
+        $x_1_8 = "main.Ares_ipspoof" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+

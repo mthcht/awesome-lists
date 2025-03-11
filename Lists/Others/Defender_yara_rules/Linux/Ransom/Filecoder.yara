@@ -455,3 +455,26 @@ rule Ransom_Linux_Filecoder_Z_2147928901_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Filecoder_AA_2147935640_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Filecoder.AA!MTB"
+        threat_id = "2147935640"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/root/sougolock-linux.go" ascii //weight: 1
+        $x_1_2 = {48 89 bc 24 88 00 00 00 48 89 74 24 68 48 01 f8 48 89 04 24 48 89 54 24 08 48 89 4c 24 10 e8 0a 44 f6 ff 48 8b 44 24 58 48 8b 8c 24 b8 00 00 00 48 8b 94 24 a8 00 00 00 48 8b 9c 24 b0 00 00 00 48 8b b4 24 c0 00 00 00 48 8b bc 24 88 00 00 00 4c 8b 44 24 78 4c 8b 4c 24 68 4c 8b 94 24 80 00 00 00 48 89 d3 48 89 c6 48 89 cf 4c 8b 84 24 b0 00 00 00 4c 8b 8c 24 c0 00 00 00 4c 89 d0 48 8b 4c 24 68 48 8b 54 24 78 4c 8b 94 24 88 00 00 00 48 39 f8}  //weight: 1, accuracy: High
+        $x_1_3 = "main.hasSuffix" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

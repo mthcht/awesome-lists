@@ -77,3 +77,48 @@ rule TrojanSpy_AndroidOS_Fakecalls_L_2147923344_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_Fakecalls_C_2147935650_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/Fakecalls.C!MTB"
+        threat_id = "2147935650"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "Fakecalls"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "CLICK_HIGH_PERMISSION_TIMES" ascii //weight: 1
+        $x_1_2 = "IS_UPLOADING_CALL_LOG" ascii //weight: 1
+        $x_1_3 = "REQUEST_UPLOAD_EXTRA_INFO" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_AndroidOS_Fakecalls_J_2147935651_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/Fakecalls.J!MTB"
+        threat_id = "2147935651"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "Fakecalls"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "com/wish/defaultcallservice/activity/ValidActivitySKV" ascii //weight: 1
+        $x_1_2 = {01 01 02 14 02 ?? 00 08 7f 6e 20 d5 00 21 00 0c 02 6e 20 ?? ?? 12 00 14 02 ?? 01 08 7f 6e 20 d5 00 21 00 0c 02 6e 20 ?? ?? 12 00 14 02 ?? 00 08 7f 6e 20 d5 00 21 00 0c 02 6e 20}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -278,3 +278,47 @@ rule TrojanSpy_AndroidOS_SMSSpy_O_2147911998_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_SMSSpy_T_2147935652_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SMSSpy.T!MTB"
+        threat_id = "2147935652"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SMSSpy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6e 20 fe 9f 10 00 0a 02 38 02 14 00 62 02 3b 56 71 00 4f a0 00 00 0b 03 71 20 89 9f 43 00 0c 03 6e 20 d4 a1 32 00 0c 02 6e 30 19 a0 10 02 0c 00}  //weight: 1, accuracy: High
+        $x_1_2 = {6e 30 19 a0 21 03 0c 01 62 02 3c 56 71 00 4f a0 00 00 0b 03 71 20 89 9f 43 00 0c 03 6e 20 d4 a1 32 00 0c 02 1a 03 ?? 80 6e 30 19 a0 31 02}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_AndroidOS_SMSSpy_U_2147935655_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SMSSpy.U!MTB"
+        threat_id = "2147935655"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SMSSpy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6e 20 fe 9f 10 00 0a 02 38 02 14 00 62 02 3b 56 71 00 4f a0 00 00 0b 03 71 20 89 9f 43 00 0c 03 6e 20 d4 a1 32 00 0c 02 6e 30 19 a0 10 02 0c 00}  //weight: 1, accuracy: High
+        $x_1_2 = {12 00 1a 01 ?? ?? 71 00 4b 07 00 00 0c 02 6e 10 3c 9e 02 00 0c 02 1a 03 ?? ?? 6e 30 19 a0 31 02 0c 01 1a 02}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

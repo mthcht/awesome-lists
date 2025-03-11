@@ -156,3 +156,28 @@ rule Trojan_AndroidOS_BrowBot_B_2147910829_0
         (4 of ($x*))
 }
 
+rule Trojan_AndroidOS_BrowBot_D_2147935648_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/BrowBot.D!MTB"
+        threat_id = "2147935648"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "BrowBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/data_28/install_28.php" ascii //weight: 1
+        $x_1_2 = "/data_28/smsapi_28.php" ascii //weight: 1
+        $x_1_3 = "credentialsLauncher_" ascii //weight: 1
+        $x_1_4 = "senderphone_" ascii //weight: 1
+        $x_1_5 = "sourceapisapp.com" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

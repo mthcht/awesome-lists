@@ -1297,6 +1297,27 @@ rule Trojan_Win32_Dridex_RAA_2147754381_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {ba b4 12 00 00 ba bc 01 00 00 a1 ?? ?? ?? ?? a3 ?? ?? ?? ?? eb}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Dridex_RAA_2147754381_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dridex.RAA!MTB"
+        threat_id = "2147754381"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:

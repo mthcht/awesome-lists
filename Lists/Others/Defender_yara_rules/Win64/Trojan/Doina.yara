@@ -128,3 +128,29 @@ rule Trojan_Win64_Doina_ALP_2147921729_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_SPDG_2147935586_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.SPDG!MTB"
+        threat_id = "2147935586"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "http://113.105.224.81:8088/google.htm" ascii //weight: 3
+        $x_1_2 = {63 6d 64 20 2f 63 20 74 61 73 6b 6c 69 73 74 ?? 64 61 74 61 2e 74 78 74}  //weight: 1, accuracy: Low
+        $x_2_3 = "wireshark" ascii //weight: 2
+        $x_1_4 = "GameTroyHorseDetect" ascii //weight: 1
+        $x_2_5 = "WinNetCap" ascii //weight: 2
+        $x_2_6 = "SpyNet" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

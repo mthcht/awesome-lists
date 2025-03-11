@@ -3623,3 +3623,25 @@ rule Trojan_Win32_Amadey_YLH_2147932922_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_GTN_2147935594_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.GTN!MTB"
+        threat_id = "2147935594"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {00 40 00 00 c0 2e 69 64 61 ?? 61 20 20 00 10 00 00 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {40 00 00 e0 2e 72 73 72 63 00 00 00 fc 02}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

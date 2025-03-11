@@ -72,3 +72,25 @@ rule HackTool_AndroidOS_Metasploit_C_2147930220_0
         (all of ($x*))
 }
 
+rule HackTool_AndroidOS_Metasploit_E_2147935635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:AndroidOS/Metasploit.E!MTB"
+        threat_id = "2147935635"
+        type = "HackTool"
+        platform = "AndroidOS: Android operating system"
+        family = "Metasploit"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {1a 00 08 0e 71 10 c0 21 00 00 0c 00 1a 01 b7 0f 12 02 23 22 61 06 6e 30 ca 21 10 02 0c 01 12 00 12 02 6e 30 7c 22 01 02 0c 00 1f 00 18 00 39 00 14 00 22 00 6f 00 71 00 7c 01 00 00 0c 02 70 20 6b 01 20 00 22 02 cb 01 70 20 e5 0a 12 00 6e 20 71 01 20 00 0e 00}  //weight: 1, accuracy: High
+        $x_1_2 = {b7 21 59 01 44 05 54 30 28 04 54 31 28 04 52 11 44 05 54 32 28 04 52 22 7d 05 b7 21 59 01 7d 05 54 30 28 04 54 31 28 04 52 11 be 05 54 32 28 04 52 22 7d 05 b6 21 59 01 7d 05 54 30 28 04 54 31 28 04 52 11 12 05 54 32 28 04 52 22 62 05 b6 21 59 01 62 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

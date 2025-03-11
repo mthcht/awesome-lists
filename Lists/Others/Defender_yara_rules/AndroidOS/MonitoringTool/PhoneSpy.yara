@@ -187,3 +187,28 @@ rule MonitoringTool_AndroidOS_PhoneSpy_F_432133_0
         (all of ($x*))
 }
 
+rule MonitoringTool_AndroidOS_PhoneSpy_H_451905_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "MonitoringTool:AndroidOS/PhoneSpy.H!MTB"
+        threat_id = "451905"
+        type = "MonitoringTool"
+        platform = "AndroidOS: Android operating system"
+        family = "PhoneSpy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "com/sptrakappp/alarm/SMSReceiver" ascii //weight: 1
+        $x_1_2 = "RemoteRecordingService" ascii //weight: 1
+        $x_1_3 = "ScreenChancedReceiver" ascii //weight: 1
+        $x_1_4 = "call_phone_list" ascii //weight: 1
+        $x_1_5 = "disable_browser" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

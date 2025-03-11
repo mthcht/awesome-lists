@@ -1067,3 +1067,45 @@ rule Trojan_Win32_PonyStealer_EAOP_2147932051_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PonyStealer_DAA_2147935608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.DAA!MTB"
+        threat_id = "2147935608"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {8d 0c 30 8a 09 80 f1 63 8d 1c 30 88 0b 90 90 40 4a 75}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_DAB_2147935609_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.DAB!MTB"
+        threat_id = "2147935609"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {0f b6 06 30 d8 f6 d0 46 04 62 c0 c0 04 04 8b 30 c3 66 59 88 0c 07 e9}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1408,3 +1408,24 @@ rule Trojan_MSIL_Marsilia_SKAS_2147933871_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Marsilia_BAA_2147935606_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.BAA!MTB"
+        threat_id = "2147935606"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 06 07 02 07 91 28 ?? 00 00 0a 03 6f ?? 00 00 0a 07 28 ?? 00 00 0a 03 6f ?? 00 00 0a 8e 69 5d 91 61 d2 9c 00 07 17 58 0b 07 02 8e 69 fe 04 0d 09 2d cd}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

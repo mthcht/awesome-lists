@@ -6522,3 +6522,66 @@ rule Trojan_Win32_Azorult_BAF_2147934835_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Azorult_BAE_2147935603_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Azorult.BAE!MTB"
+        threat_id = "2147935603"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Azorult"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {29 c0 2b 07 f7 d8 8d 7f 04 f7 d0 f8 83 d0 df 8d 40 ff 29 d0 89 c2 89 06 83 ee fc f8 83 d1 fc}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Azorult_BAG_2147935610_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Azorult.BAG!MTB"
+        threat_id = "2147935610"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Azorult"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {58 23 01 f8 83 d1 04 f7 d0 8d 40 da f8 83 d8 01 29 d8 89 c3 89 07 83 c7 04 f8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Azorult_BAO_2147935615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Azorult.BAO!MTB"
+        threat_id = "2147935615"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Azorult"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {03 1a 83 ea fc 83 c3 d4 c1 cb 08 29 fb 8d 5b ff 29 ff 09 df c1 c7 0a c1 cf 02 53 8f 06}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

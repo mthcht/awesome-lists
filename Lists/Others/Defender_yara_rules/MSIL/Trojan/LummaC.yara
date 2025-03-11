@@ -1980,3 +1980,88 @@ rule Trojan_MSIL_LummaC_AFNA_2147935297_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LummaC_ALNA_2147935547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaC.ALNA!MTB"
+        threat_id = "2147935547"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {11 36 11 35 16 6f ?? 00 00 0a 61 d2 13 36 02 11 32 11 36 9c 11 32 17 58 13 32 11 32 03 3f}  //weight: 3, accuracy: Low
+        $x_2_2 = {11 30 11 2d 11 2f 91 58 20 00 01 00 00 5d 13 30 73 ?? 00 00 0a 13 33 11 33 11 2d 11 30 91 6f ?? 00 00 0a 11 2d 11 30 11 2d 11 2f 91 9c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaC_SWA_2147935627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaC.SWA!MTB"
+        threat_id = "2147935627"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {1f 24 8d 15 00 00 01 25 d0 06 00 00 04 28 11 00 00 0a 80 02 00 00 04 20 4b 05 00 00 8d 15 00 00 01 25 d0 07 00 00 04 28 11 00 00 0a 80 03 00 00 04 14 80 04 00 00 04 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaC_SWB_2147935628_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaC.SWB!MTB"
+        threat_id = "2147935628"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 05 11 07 1f 28 5a 58 13 08 28 1e 00 00 0a 07 11 08 1e 6f 1f 00 00 0a 17 8d 20 00 00 01 6f 20 00 00 0a 13 09 11 09 72 01 00 00 70 28 21 00 00 0a 2c 3e 07 11 08 1f 14 58 28 1d 00 00 0a 13 0a 07 11 08 1f 10 58 28 1d 00 00 0a 13 0b 11 0b 8d 17 00 00 01 80 04 00 00 04 07 11 0a 6e 7e 04 00 00 04 16 6a 11 0b 6e 28 22 00 00 0a 17 13 06 de 31 de 21 25 6f 23 00 00 0a 28 24 00 00 0a 6f 23 00 00 0a 25 2d 06 26 72 0b 00 00 70 28 25 00 00 0a 26 de 00 11 07 17 58 13 07 11 07 09 3f 5e ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaC_SWC_2147935631_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaC.SWC!MTB"
+        threat_id = "2147935631"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {1f 24 8d 17 00 00 01 25 d0 06 00 00 04 28 ?? 00 00 0a 80 02 00 00 04 20 4b 05 00 00 8d 17 00 00 01 25 d0 07 00 00 04 28 ?? 00 00 0a 80 03 00 00 04 14 80 04 00 00 04 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

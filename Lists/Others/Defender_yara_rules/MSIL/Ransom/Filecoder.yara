@@ -3285,6 +3285,30 @@ rule Ransom_MSIL_Filecoder_SWA_2147922725_1
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_2_1 = "EncryptAllFiles" ascii //weight: 2
+        $x_1_2 = "$a2f9f38d-e329-406f-be02-94c940d59e3b" ascii //weight: 1
+        $x_1_3 = "All of your files got encrypted!" wide //weight: 1
+        $x_1_4 = "costura.telegram.bot.pdb.compressed" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_SWA_2147922725_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.SWA!MTB"
+        threat_id = "2147922725"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = "KILL_APPS_ENCRYPT_AGAIN" ascii //weight: 2
         $x_2_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 2
         $x_1_3 = "All your files are stolen and encrypted" wide //weight: 1

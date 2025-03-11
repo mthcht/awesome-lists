@@ -270,3 +270,28 @@ rule Trojan_AndroidOS_Mamont_E_2147931200_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Mamont_H_2147935546_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Mamont.H!MTB"
+        threat_id = "2147935546"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Mamont"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "com/example/application" ascii //weight: 1
+        $x_1_2 = "ExecutionTelephonyRatCommand" ascii //weight: 1
+        $x_1_3 = "SmsArchiveInterception" ascii //weight: 1
+        $x_1_4 = "getDevicePhoneNumbers" ascii //weight: 1
+        $x_1_5 = "ArchiveSms" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

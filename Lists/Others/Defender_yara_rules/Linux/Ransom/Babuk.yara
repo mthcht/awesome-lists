@@ -377,3 +377,26 @@ rule Ransom_Linux_Babuk_R_2147935129_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Babuk_Q_2147935545_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Babuk.Q!MTB"
+        threat_id = "2147935545"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Babuk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.encrypt_file" ascii //weight: 1
+        $x_1_2 = "Endpoint Ransomware" ascii //weight: 1
+        $x_1_3 = "RsWare/nas_2/enc/main.go" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

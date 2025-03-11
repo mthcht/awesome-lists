@@ -91,3 +91,26 @@ rule Ransom_Win64_MedusaLocker_DDZ_2147934181_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_MedusaLocker_MLM_2147935595_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/MedusaLocker.MLM!MTB"
+        threat_id = "2147935595"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MedusaLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8d 55 c7 48 8d 4d 87 e8 a6 51 ff ff 33 d2 48 89 55 07 0f b6 44 15 ?? 30 03 48 ff c3 48 8b 55 07 48 ff c2 48 89 55 07 48 83 ef 01 75}  //weight: 5, accuracy: Low
+        $x_1_2 = "[+][Encrypt] Encrypted:" wide //weight: 1
+        $x_1_3 = "taskkill /f /im explorer.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

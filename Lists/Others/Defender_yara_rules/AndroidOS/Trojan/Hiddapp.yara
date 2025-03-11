@@ -97,3 +97,26 @@ rule Trojan_AndroidOS_Hiddapp_H_2147896836_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Hiddapp_E_2147935649_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Hiddapp.E!MTB"
+        threat_id = "2147935649"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Hiddapp"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "X/God/X/main" ascii //weight: 1
+        $x_1_2 = "BANKSMS.txt" ascii //weight: 1
+        $x_1_3 = "AkumaScreenShot.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

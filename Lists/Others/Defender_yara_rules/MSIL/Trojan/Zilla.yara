@@ -1044,3 +1044,25 @@ rule Trojan_MSIL_Zilla_NITs_2147935437_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_HHK_2147935551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.HHK!MTB"
+        threat_id = "2147935551"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 00 06 03 6f ?? 00 00 0a 00 06 04 6f ?? 00 00 0a 00 06 17 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 0b 00 07 02 16 02 8e 69 6f ?? 00 00 0a 0c de 16}  //weight: 10, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

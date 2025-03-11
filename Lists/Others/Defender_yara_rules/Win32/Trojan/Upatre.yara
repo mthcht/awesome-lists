@@ -533,3 +533,24 @@ rule Trojan_Win32_Upatre_CCJF_2147917082_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Upatre_BAA_2147935614_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.BAA!MTB"
+        threat_id = "2147935614"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 09 47 8b c1 59 33 d0 59 8b c2 5a 88 27 4a 8b c2 46 85 c0 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

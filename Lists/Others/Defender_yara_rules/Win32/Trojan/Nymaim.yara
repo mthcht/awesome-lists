@@ -413,3 +413,45 @@ rule Trojan_Win32_Nymaim_BAB_2147934832_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Nymaim_BAA_2147935599_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nymaim.BAA!MTB"
+        threat_id = "2147935599"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nymaim"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {5b 23 1f 8d 7f 04 83 eb 2f c1 cb 08 29 cb 4b 53 59 c1 c1 09 d1 c9 89 1a 8d 52 04 83 ee fc 81 fe 88 06 00 00 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Nymaim_BAD_2147935604_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nymaim.BAD!MTB"
+        threat_id = "2147935604"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nymaim"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {21 c6 56 ff 32 58 f8 83 d2 04 f8 83 d0 d4 c1 c8 08 29 d8 48 89 c3 c1 c3 08 89 06}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
