@@ -143,3 +143,24 @@ rule Trojan_Win32_DarkCloud_AKLA_2147933549_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkCloud_EALN_2147935744_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkCloud.EALN!MTB"
+        threat_id = "2147935744"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 48 0c 8b 85 28 ff ff ff 8b b5 20 ff ff ff 8a 14 02 32 14 31 8b 45 cc 8b 48 0c 8b 85 18 ff ff ff 88 14 01 c7 45 fc 0b 00 00 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

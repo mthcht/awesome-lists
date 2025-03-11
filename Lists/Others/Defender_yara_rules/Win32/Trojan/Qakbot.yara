@@ -15560,3 +15560,24 @@ rule Trojan_Win32_Qakbot_SAO_2147902115_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Qakbot_EAXX_2147935735_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Qakbot.EAXX!MTB"
+        threat_id = "2147935735"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Qakbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 75 f4 03 c6 03 45 f4 8b 0d ?? ?? ?? ?? 03 4d f4 03 4d f4 03 4d f4 8b 15 ?? ?? ?? ?? 8b 35 ?? ?? ?? ?? 8a 04 06 88 04 0a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2065,3 +2065,46 @@ rule Trojan_MSIL_LummaC_SWC_2147935631_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LummaC_EAEE_2147935741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaC.EAEE!MTB"
+        threat_id = "2147935741"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {11 2f 17 58 28 14 00 00 0a 11 31 28 15 00 00 0a 6f 16 00 00 0a 28 17 00 00 0a 5d 13 2f 11 30 11 2d 11 2f 91 58 28 14 00 00 0a 11 31 28 15 00 00 0a 6f 16 00 00 0a 28 17 00 00 0a 5d 13 30 73 18 00 00 0a 13 34 11 34 11 2d 11 30 91 6f 19 00 00 0a 11 2d 11 30 11 2d 11 2f 91 9c 11 2d 11 2f 11 34 16 6f 1a 00 00 0a 9c 11 2d 11 2f 91}  //weight: 5, accuracy: High
+        $x_5_2 = {11 2d 11 30 91 58 28 14 00 00 0a 11 31 28 15 00 00 0a 6f 16 00 00 0a 28 17 00 00 0a 5d 13 35 73 18 00 00 0a 13 36 11 36 11 2d 11 35 91 6f 19 00 00 0a 73 1b 00 00 0a 11 33 6f 1c 00 00 0a 16 13 37 02 11 33 91 13 37 de 0a 26 11 37 28 1d 00 00 0a de 00 11 37 11 36 16 6f 1a 00 00 0a 61 d2 13 37 02 11 33 11 37 9c 11 33 17 58 13 33 11 33 03 3f 1e ff ff ff}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaC_EAEQ_2147935745_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaC.EAEQ!MTB"
+        threat_id = "2147935745"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {28 02 00 00 06 0c 72 61 00 00 70 28 01 00 00 0a 0d 72 93 00 00 70 28 01 00 00 0a 13 04 73 02 00 00 0a 13 05 73 03 00 00 0a 13 06 11 06 11 05 09 11 04 6f 04 00 00 0a 17 73 05 00 00 0a 13 07}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

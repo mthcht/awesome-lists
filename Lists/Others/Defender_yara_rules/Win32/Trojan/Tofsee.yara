@@ -1673,3 +1673,24 @@ rule Trojan_Win32_Tofsee_BAF_2147935612_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_EAKH_2147935740_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.EAKH!MTB"
+        threat_id = "2147935740"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {81 ac 24 ac 01 00 00 68 6c 98 55 8a 84 37 3b 2d 0b 00 88 04 0e 46 3b 35}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

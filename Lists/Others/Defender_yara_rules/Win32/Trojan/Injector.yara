@@ -2240,3 +2240,24 @@ rule Trojan_Win32_Injector_BA_2147931029_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_EAVX_2147935742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.EAVX!MTB"
+        threat_id = "2147935742"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 4e fb 33 c0 8d 49 00 8a 14 06 8b d8 32 d1 d1 eb 83 c0 02 88 94 1c 20 02 00 00 3d 70 17 00 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

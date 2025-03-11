@@ -169,6 +169,27 @@ rule Trojan_Win32_BadJoke_EARZ_2147934439_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_5_1 = {8b c2 83 c2 02 d3 e8 32 c1 88 84 0d 78 56 fc ff 41 81 fa 38 53 07 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_BadJoke_EARZ_2147934439_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EARZ!MTB"
+        threat_id = "2147934439"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_5_1 = {8b d0 8b c8 c1 e9 08 0a c8 c1 ea 09 0a d0 02 d1 8b c8 c1 e9 07 0a c8 02 d1 8b c8 c1 e9 06 22 c8 02 d1 88 94 05 f8 59 f1 ff 40 3d 00 a6 0e 00}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
@@ -212,6 +233,48 @@ rule Trojan_Win32_BadJoke_DAB_2147935402_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {89 c1 d3 eb 89 d8 83 e0 03 89 c1 d3 ea 89 d0 89 c1 8d 95 ?? ?? ?? ?? 8b 45 f4 01 d0 88 08 83 45 f4 01 81 7d f4}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_BadJoke_EAOC_2147935739_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EAOC!MTB"
+        threat_id = "2147935739"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b d0 0f be c8 c1 ea 0e 8b d8 80 e2 0e c1 eb 05 0f be d2 0f af d1 8a c8 22 cb 02 c9 02 d1 2a d3 88 94 05 78 56 fc ff 40 3d 80 a9 03 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_BadJoke_EAQL_2147935749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EAQL!MTB"
+        threat_id = "2147935749"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {d1 88 94 05 78 56 fc ff 40 3d 80 a9 03 00 72}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

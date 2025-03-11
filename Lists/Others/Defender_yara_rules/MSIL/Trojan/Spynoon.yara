@@ -2024,3 +2024,25 @@ rule Trojan_MSIL_Spynoon_AXFA_2147928098_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Spynoon_ARNA_2147935716_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.ARNA!MTB"
+        threat_id = "2147935716"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {16 0a 2b 1b 00 7e 20 00 00 04 06 7e 20 00 00 04 06 91 20 a6 06 00 00 59 d2 9c 00 06 17 58 0a 06 7e 20 00 00 04 8e 69 fe 04 0b 07 2d d7}  //weight: 4, accuracy: High
+        $x_1_2 = "DownloadData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

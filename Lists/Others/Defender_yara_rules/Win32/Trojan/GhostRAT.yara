@@ -251,3 +251,31 @@ rule Trojan_Win32_GhostRAT_RHA_2147914342_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GhostRAT_SPHF_2147935751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GhostRAT.SPHF!MTB"
+        threat_id = "2147935751"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GhostRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "tasklist /FI \"IMAGENAME eq %ProcessName%\" | findstr /I \"%ProcessName%\" >nul" ascii //weight: 5
+        $x_4_2 = "powershell -Command \"Set-ExecutionPolicy Unrestricted -Scope CurrentUser\"powershell -ExecutionPolicy Bypass -File" ascii //weight: 4
+        $x_4_3 = "YXJ0T25EZW1hbmQ+dHJ1ZTwvQWxsb3dTdGFydE9uRGVtYW5kPgogICAgPEVuYWJsZWQ+dHJ1Z" ascii //weight: 4
+        $x_2_4 = "C:\\Windows\\IiViS" ascii //weight: 2
+        $x_1_5 = "backup.exe" ascii //weight: 1
+        $x_1_6 = "copy /Y \"%BackupDLLPath%\" \"%DLLPath%\"" ascii //weight: 1
+        $x_1_7 = "start \"\" \"%ProcessPath%\"" ascii //weight: 1
+        $x_1_8 = "timeout /t 30 /nobreak" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
