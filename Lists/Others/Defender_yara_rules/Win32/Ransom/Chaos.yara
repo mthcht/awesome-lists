@@ -44,3 +44,24 @@ rule Ransom_Win32_Chaos_CCJU_2147935360_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Chaos_C_2147935687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.C"
+        threat_id = "2147935687"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6c 00 6b 00 65 00 79 00 00 00 00 00 70 00 61 00 74 00 68 00 00 00 00 00 65 00 6e 00 63 00 72 00 79 00 70 00 74 00 5f 00 73 00 74 00 65 00 70 00 00 00 00 00 77 00 6f 00 72 00 6b 00 5f 00 6d 00 6f 00 64 00 65 00 00 00 6c 00 6f 00 63 00 61 00 6c 00 5f 00 6e 00 65 00 74 00 77 00 6f 00 72 00 6b 00 00 00 6c 00 6f 00 63 00 61 00 6c 00 00 00 6e 00 65 00 74 00 77 00 6f 00 72 00 6b 00 00 00 69 00 67 00 6e 00 6f 00 72 00 61 00 72 00 5f 00 61 00 72 00 71 00 75 00 69 00 76 00 6f 00 73 00 5f 00 67 00 72 00 61 00 6e 00 64 00 65 00 73 00}  //weight: 1, accuracy: High
+        $x_1_2 = {72 00 65 00 61 00 64 00 6d 00 65 00 2e 00 63 00 68 ?? 61 00 6f 00 73 00 2e 00 74 00 78 00 74 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -208,3 +208,25 @@ rule Trojan_AndroidOS_Coper_G_2147935639_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Coper_H_2147935669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Coper.H!MTB"
+        threat_id = "2147935669"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Coper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {22 08 f6 01 70 10 4b 09 08 00 1a 0a 08 04 6e 20 56 09 a8 00 6e 20 51 09 98 00 1a 09 48 00 6e 20 56 09 98 00 6e 10 5b 09 08 00 0c 08 22 09 d7 01 70 20 cb 08 89 00 27 09}  //weight: 1, accuracy: High
+        $x_1_2 = {72 10 6b 0a 0c 00 0a 02 38 02 42 00 72 10 6c 0a 0c 00 0c 02 1f 02 53 02 72 10 82 0a 02 00 0c 03 1f 03 db 01 6e 10 d4 08 03 00 0a 03 72 10 83 0a 02 00 0c 02 1f 02 db 01 6e 10 d4 08 02 00 0a 02 12 14 12 05 01 46}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

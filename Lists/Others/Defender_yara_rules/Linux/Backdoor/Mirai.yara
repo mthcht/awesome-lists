@@ -8757,6 +8757,28 @@ rule Backdoor_Linux_Mirai_KG_2147926540_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_KG_2147926540_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.KG!MTB"
+        threat_id = "2147926540"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {1c 00 51 e3 11 ?? ?? ?? 10 20 a0 e3 30 10 9d e5 08 00 a0 e1 87 0b 00 eb 0a 30 a0 e3 14 e0 9d e5 08 30 87 e5 06 30 83 e2 0c 30 87 e5 44 00 9d e5 00 50 87 e5 10 e0 87 e5 ac 00 00 eb 00 30 a0 e3 74 20 9d e5 03 00 a0 e1 00 70 82 e5}  //weight: 1, accuracy: Low
+        $x_1_2 = {34 40 9f e5 03 c0 80 e0 02 00 a0 e1 2c 30 9f e5 2c 20 9f e5 04 40 8f e0 03 30 84 e0 02 20 84 e0 08 c0 8d e5 18 00 00 eb 14 00 9d e5 18 d0 8d e2 10 40 bd e8 1e ff 2f e1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Backdoor_Linux_Mirai_KD_2147928897_0
 {
     meta:
@@ -8909,6 +8931,28 @@ rule Backdoor_Linux_Mirai_KP_2147933111_0
     strings:
         $x_1_1 = {bc 01 00 eb 00 30 64 e2 00 30 80 e5 00 40 e0 e3 04 00 a0 e1 10 80 bd e8 10 40 2d e9 16 00 90 ef 01 0a 70 e3 00 40 a0 e1}  //weight: 1, accuracy: High
         $x_1_2 = {40 30 9f e5 05 00 a0 e1 00 20 93 e5 3c 10 9f e5 01 3a a0 e3 94 ff ff eb 01 10 a0 e3 00 40 a0 e1 2c 30 9f e5 0d 00 a0 e1 0f e0 a0 e1 03 f0 a0 e1 04 00 a0 e1 10 d0 8d e2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Linux_Mirai_KR_2147935670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.KR!MTB"
+        threat_id = "2147935670"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0c 10 a0 e3 04 00 a0 e1 76 08 00 eb dc 30 9f e5 00 20 a0 e3 03 30 8f e0 14 30 8d e5 d0 30 9f e5 1c 50 8d e5 03 30 8f e0 18 30 8d e5 c4 30 9f e5 20 20 8d e5 c0 10 9f e5 03 30 9a e7 01 10 8f e0 0c 00 8d e2 00 30 93 e5 04 30 8d e5 14 30 8d e2 00 30 8d e5 04 30 a0 e1 ed 07 00 eb 00 50 a0 e1 04 00 a0 e1 57 08 00 eb 00 00 55 e3}  //weight: 1, accuracy: High
+        $x_1_2 = {f0 47 2d e9 41 de 4d e2 08 d0 4d e2 4a 6f 8d e2 00 50 a0 e1 88 20 a0 e3 00 10 a0 e3 06 00 a0 e1 69 02 00 eb 01 40 a0 e3 00 30 e0 e3 b0 a1 9f e5 24 41 8d e5 10 30 8d e5 0f 05 00 eb 00 00 55 e3 0a a0 8f e0 04 00 a0 01}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

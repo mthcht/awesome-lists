@@ -2014,6 +2014,28 @@ rule Trojan_Win32_LummaC_GNT_2147929368_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {00 40 00 00 c0 2e 69 64 61 ?? 61 20 20 00 10 00 00 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {40 00 00 e0 2e 72 73 72 63 00 00 00 fc 02}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_GNT_2147929368_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.GNT!MTB"
+        threat_id = "2147929368"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "High"
     strings:
@@ -2937,6 +2959,28 @@ rule Trojan_Win32_LummaC_BS_2147935593_0
         strings_accuracy = "High"
     strings:
         $x_5_1 = {01 c1 0f b6 c1 f7 d1 89 ca 81 e2 00 ff ff ff 09 d0 31 c1 21 c1}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_GTD_2147935663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.GTD!MTB"
+        threat_id = "2147935663"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {1d e9 b6 df 59 88 d8 8c 59 88 d8 8c 59 88 d8 8c 33 94 da 8c 70 88 d8 8c 59 88 d9 8c 5b 88 d8 8c eb 94 c8 8c 5b 88 d8 8c 59 88 d8 8c 56 88 d8 8c e1 8e de 8c 58 88 d8 8c 52 69 63 68 59 88 d8 8c}  //weight: 5, accuracy: High
+        $x_5_2 = {5b f0 06 00 6f 00 00 00 00 e0 06 00 48 04}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

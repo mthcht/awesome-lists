@@ -75,3 +75,28 @@ rule Trojan_AndroidOS_IOBot_B_2147921855_0
         )
 }
 
+rule Trojan_AndroidOS_IOBot_C_2147935675_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/IOBot.C!MTB"
+        threat_id = "2147935675"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "IOBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "IOBot.getBatteryLevel" ascii //weight: 1
+        $x_1_2 = "IOBot.getPhoneModel" ascii //weight: 1
+        $x_1_3 = "IOBot.getPhoneNumber" ascii //weight: 1
+        $x_1_4 = "IOBot.getScreenStatus" ascii //weight: 1
+        $x_1_5 = "hidden_vnc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
