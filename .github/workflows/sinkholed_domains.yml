@@ -57,7 +57,7 @@ jobs:
         
       - name: Search for Sinkholed Servers
         working-directory: Lists/Domains/sinkholed_servers
-        run: python3 search_for_sinkholed_servers.py czds-api-client-python/zones/ sinkhole_ns_list.csv
+        run: python3 search_for_sinkholed_servers.py czds-api-client-python/zones/zonefiles/ sinkhole_ns_list.csv
 
       - name: Cleanup CZDS API Client
         working-directory: Lists/Domains/sinkholed_servers
