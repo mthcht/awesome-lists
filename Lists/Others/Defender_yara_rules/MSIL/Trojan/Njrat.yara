@@ -792,3 +792,27 @@ rule Trojan_MSIL_Njrat_PLIWH_2147932350_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Njrat_PWA_2147935793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Njrat.PWA!MTB"
+        threat_id = "2147935793"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Njrat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {08 06 4a 08 06 4a 91 02 06 4a 1f 10 5d 91 61 9c 06 06 4a 17 d6}  //weight: 5, accuracy: High
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+        $x_1_4 = "GZipStream" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

