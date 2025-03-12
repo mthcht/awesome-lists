@@ -42,7 +42,7 @@ jobs:
             "icann.account.password": "'"${ICANN_PASSWORD}"'",
             "authentication.base.url": "https://account-api.icann.org",
             "czds.base.url": "https://czds-api.icann.org",
-            "working.directory": "/zones/"
+            "working.directory": "zones/"
           }' | jq . > config.json
         env:
           ICANN_USERNAME: ${{ secrets.ICANN_USERNAME }}
