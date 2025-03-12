@@ -53,12 +53,12 @@ jobs:
         run: python3 download.py
 
       - name: Extract Zone Files
-        working-directory: Lists/Domains/sinkholed_servers
+        working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
         run: python3 extract_zonefiles.py
 
       - name: Search for Sinkholed Servers
         working-directory: Lists/Domains/sinkholed_servers
-        run: python3 search_for_sinkholed_servers.py /zones/extracted_zonefiles/ sinkhole_ns_list.csv
+        run: python3 search_for_sinkholed_servers.py czds-api-client-python/zones/extracted_zonefiles/ sinkhole_ns_list.csv
 
       - name: Cleanup CZDS API Client
         working-directory: Lists/Domains/sinkholed_servers
