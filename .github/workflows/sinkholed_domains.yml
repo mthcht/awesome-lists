@@ -1,0 +1,59 @@
+name: Sinkholed Domains
+
+on:
+  workflow_dispatch:  # Allows manual trigger
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+
+jobs:
+  download_and_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout awesome-lists Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # Ensure full history for commits
+
+      - name: Clone CZDS API Client Repo
+        working-directory: Lists/Domains/sinkholed_servers
+        run: git clone https://github.com/mthcht/czds-api-client-python
+
+      - name: Create config.json with Secrets
+        working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
+        run: |
+          cat <<EOF > config.json
+          {
+            "icann.account.username": "${{ secrets.ICANN_USERNAME }}",
+            "icann.account.password": "${{ secrets.ICANN_PASSWORD }}",
+            "authentication.base.url": "https://account-api.icann.org",
+            "czds.base.url": "https://czds-api.icann.org",
+            "working.directory": "/zones/"
+          }
+          EOF
+
+      - name: Run Download Script
+        working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
+        run: python3 download.py
+
+      - name: Extract Zone Files
+        working-directory: Lists/Domains/sinkholed_servers
+        run: python3 extract_zonefiles.py
+
+      - name: Search for Sinkholed Servers
+        working-directory: Lists/Domains/sinkholed_servers
+        run: python3 search_for_sinkholed_servers.py /zones/extracted_zonefiles/ sinkhole_ns_list.csv
+
+      - name: Cleanup CZDS API Client
+        working-directory: Lists/Domains/sinkholed_servers
+        run: rm -rf czds-api-client-python
+
+      - name: Commit and Push Updated Sinkhole List
+        working-directory: Lists/Domains/sinkholed_servers
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+          git add sinkhole_domains.csv
+          git commit -m "Update sinkholed domains list [Automated]"
+          git push origin main

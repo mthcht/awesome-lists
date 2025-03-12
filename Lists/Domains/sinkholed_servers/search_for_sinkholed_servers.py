@@ -1,52 +1,50 @@
 import os
+import csv
 import argparse
 import pandas as pd
-import subprocess
 
 def load_ns_servers(ns_file):
     """Load the list of sinkhole NS servers from a CSV file."""
     df = pd.read_csv(ns_file)
-    return df['ns_servers'].dropna().tolist()
+    return set(df['ns_servers'].dropna().tolist())  # Use a set for faster lookups
 
-def search_ns_in_zone_files(directory, ns_servers):
-    """Use grep to quickly find domains with matching NS records in zone files."""
-    results = []
-    total_ns = len(ns_servers)
-    print(f"[INFO] Searching for {total_ns} sinkhole NS servers in {directory} using grep...")
+def process_zone_file(zone_file, ns_servers, writer):
+    """Stream process a zone file and write matching NS records to CSV."""
+    with open(zone_file, 'r') as file:
+        for line in file:
+            parts = line.strip().split()
+            if len(parts) >= 5 and parts[3].upper() == "NS":
+                domain = parts[0].rstrip(".")
+                ns_record = parts[4].rstrip(".")
+                if ns_record in ns_servers:
+                    writer.writerow([domain, ns_record])
 
-    for idx, ns in enumerate(ns_servers, start=1):
-        try:
-            print(f"[INFO] ({idx}/{total_ns}) Searching for: {ns}")
-            grep_cmd = ["grep", "-rnw", directory, "-e", ns]
-            output = subprocess.run(grep_cmd, capture_output=True, text=True, check=False)
+def search_ns_in_zone_files(directory, ns_servers, output_file):
+    """Search for domains pointing to known sinkhole NS servers in zone files."""
+    print(f"[INFO] Searching for {len(ns_servers)} sinkhole NS servers in {directory}...")
 
-            if output.stdout:
-                for line in output.stdout.strip().split("\n"):
-                    parts = line.split(":")
-                    if len(parts) >= 2:
-                        file_path = parts[0]
-                        matched_line = ":".join(parts[1:])
-                        results.append((matched_line.strip(), ns, file_path))
-        except Exception as e:
-            print(f"[ERROR] Failed to search for {ns}: {e}")
+    with open(output_file, 'w', newline='') as outfile:
+        writer = csv.writer(outfile)
+        writer.writerow(["dest_nt_domain", "metadata_NS_server"])
 
-    return results
+        for root, _, files in os.walk(directory):
+            for file in files:
+                zone_file_path = os.path.join(root, file)
+                print(f"[INFO] Processing {zone_file_path}")
+                process_zone_file(zone_file_path, ns_servers, writer)
 
 def main():
-    parser = argparse.ArgumentParser(description="Extract domains pointing to known sinkhole NS servers using grep.")
+    parser = argparse.ArgumentParser(
+        description="Extract domains pointing to known sinkhole NS servers from zone files."
+    )
     parser.add_argument("directory", help="Path to the directory containing zone files")
     parser.add_argument("ns_file", help="Path to the CSV file containing sinkhole NS servers")
     args = parser.parse_args()
 
     ns_servers = load_ns_servers(args.ns_file)
-    results = search_ns_in_zone_files(args.directory, ns_servers)
-
-    if results:
-        df = pd.DataFrame(results, columns=["Matched Line", "Sinkhole_NS", "File"])
-        df.to_csv("sinkhole_domains.csv", index=False)
-        print("[SUCCESS] Results saved to sinkhole_domains.csv")
-    else:
-        print("[INFO] No matching domains found.")
+    output_file = "sinkholed_domains.csv"
+    search_ns_in_zone_files(args.directory, ns_servers, output_file)
+    print("[SUCCESS] Results saved to sinkhole_domains.csv")
 
 if __name__ == "__main__":
     main()
