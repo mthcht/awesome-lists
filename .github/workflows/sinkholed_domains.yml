@@ -38,14 +38,15 @@ jobs:
         working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
         run: |
           echo '{
-            "icann.account.username": "'"${{ secrets.ICANN_USERNAME }}"'",
-            "icann.account.password": "'"${{ secrets.ICANN_PASSWORD }}"'",
+            "icann.account.username": "'"${ICANN_USERNAME}"'",
+            "icann.account.password": "'"${ICANN_PASSWORD}"'",
             "authentication.base.url": "https://account-api.icann.org",
             "czds.base.url": "https://czds-api.icann.org",
             "working.directory": "/zones/"
-          }' > config.json
-
-          cat config.json  # Debugging step to verify the file content
+          }' | jq . > config.json
+        env:
+          ICANN_USERNAME: ${{ secrets.ICANN_USERNAME }}
+          ICANN_PASSWORD: ${{ secrets.ICANN_PASSWORD }}
 
       - name: Run Download Script
         working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
