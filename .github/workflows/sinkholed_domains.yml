@@ -21,14 +21,14 @@ jobs:
           echo "ICANN_USERNAME is set: ${{ secrets.ICANN_USERNAME != '' }}"
           echo "ICANN_PASSWORD is set: ${{ secrets.ICANN_PASSWORD != '' }}"
           
-      - name: debug test authent API curl 
-        run: |
-          curl -X POST "https://account-api.icann.org/api/authenticate" \
-            -H "Content-Type: application/json" \
-            -H "Accept: application/json" \
-            -H "User-Agent: Mozilla/5.0 (compatible; CZDS-Client/1.0; +https://your-repo-url)" \
-            -d '{"username": "${{ secrets.ICANN_USERNAME }}", "password": "${{ secrets.ICANN_PASSWORD }}"}' \
-            -v
+      #- name: debug test authent API curl 
+      #  run: |
+      #    curl -X POST "https://account-api.icann.org/api/authenticate" \
+      #      -H "Content-Type: application/json" \
+      #      -H "Accept: application/json" \
+      #      -H "User-Agent: Mozilla/5.0 (compatible; CZDS-Client/1.0; +https://your-repo-url)" \
+      #      -d '{"username": "${{ secrets.ICANN_USERNAME }}", "password": "${{ secrets.ICANN_PASSWORD }}"}' \
+      #      -v
 
       - name: Clone CZDS API Client Repo
         working-directory: Lists/Domains/sinkholed_servers
@@ -52,13 +52,9 @@ jobs:
         working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
         run: python3 download.py
 
-      - name: Extract Zone Files
-        working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
-        run: python3 extract_zonefiles.py
-
       - name: Search for Sinkholed Servers
         working-directory: Lists/Domains/sinkholed_servers
-        run: python3 search_for_sinkholed_servers.py czds-api-client-python/zones/extracted_zonefiles/ sinkhole_ns_list.csv
+        run: python3 search_for_sinkholed_servers.py czds-api-client-python/zones/ sinkhole_ns_list.csv
 
       - name: Cleanup CZDS API Client
         working-directory: Lists/Domains/sinkholed_servers
@@ -69,6 +65,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
-          git add sinkhole_ns_list.csv
+          git add sinkholed_domains.csv
           git commit -m "Update sinkholed domains list [Automated]"
           git push origin main
