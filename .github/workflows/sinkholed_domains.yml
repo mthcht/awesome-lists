@@ -11,6 +11,11 @@ jobs:
     environment: ICANN  
 
     steps:
+      - name: Checkout awesome-lists Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+    
       - name: Debug GitHub Secrets
         run: |
           echo "ICANN_USERNAME is set: ${{ secrets.ICANN_USERNAME != '' }}"
