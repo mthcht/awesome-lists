@@ -51,7 +51,10 @@ jobs:
       - name: Run Download Script
         working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
         run: python3 download.py
-
+        
+      - name: Install Required Python Modules
+        run: pip install pandas
+        
       - name: Search for Sinkholed Servers
         working-directory: Lists/Domains/sinkholed_servers
         run: python3 search_for_sinkholed_servers.py czds-api-client-python/zones/ sinkhole_ns_list.csv
