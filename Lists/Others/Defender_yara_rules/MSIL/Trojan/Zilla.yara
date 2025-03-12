@@ -1108,3 +1108,24 @@ rule Trojan_MSIL_Zilla_GTN_2147935783_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_SWA_2147935872_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SWA!MTB"
+        threat_id = "2147935872"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 2f 00 00 06 28 2e 00 00 06 2c 03 26 2b 58 26 17 28 2e 00 00 06 2d 03 26 2b 4c 45 06 00 00 00 2f 00 00 00 08 00 00 00 08 00 00 00 2f 00 00 00 02 00 00 00 37 00 00 00 2b 06 02 28 29 00 00 06 28 03 00 00 06 28 2a 00 00 06 28 2b 00 00 06 28 2c 00 00 06 14 14 28 2d 00 00 06 26 1b 28 2e 00 00 06 2d b7 26 2b d3 02 28 1e 00 00 0a 2b cb 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

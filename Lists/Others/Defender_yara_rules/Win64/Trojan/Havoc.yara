@@ -103,3 +103,31 @@ rule Trojan_Win64_Havoc_AA_2147916018_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havoc_SA_2147935832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.SA"
+        threat_id = "2147935832"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {17 bd a0 1a 3a ac d0 58}  //weight: 10, accuracy: High
+        $x_10_2 = {33 cf 48 d7 a3 ed ba 42}  //weight: 10, accuracy: High
+        $x_10_3 = {5b 59 19 59 d9 ed ed 72}  //weight: 10, accuracy: High
+        $x_10_4 = {9b 7f 0f 22 8a 5c a2 9e}  //weight: 10, accuracy: High
+        $x_10_5 = {55 08 5b 69 d3 dc 65 c8}  //weight: 10, accuracy: High
+        $x_10_6 = {86 c7 3f 8a 17 f4 69 a5}  //weight: 10, accuracy: High
+        $x_10_7 = {08 d7 ae 94 1f 6e 0a 6e}  //weight: 10, accuracy: High
+        $x_10_8 = {ce ce 14 8f d9 ff 2c 66}  //weight: 10, accuracy: High
+        $x_10_9 = {04 84 19 23 bf ff 2c 66}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

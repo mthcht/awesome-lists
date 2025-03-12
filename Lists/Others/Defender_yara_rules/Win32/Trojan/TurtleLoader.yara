@@ -158,3 +158,25 @@ rule Trojan_Win32_TurtleLoader_PAL_2147909463_0
         (3 of ($x*))
 }
 
+rule Trojan_Win32_TurtleLoader_Q_2147935844_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/TurtleLoader.Q"
+        threat_id = "2147935844"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "TurtleLoader"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Exception occurred during shellcode execution" ascii //weight: 1
+        $x_1_2 = "Useless string:" ascii //weight: 1
+        $x_1_3 = "Failed to load and execute shellcode" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

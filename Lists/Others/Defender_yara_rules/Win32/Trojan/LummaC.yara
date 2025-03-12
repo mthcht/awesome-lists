@@ -2986,3 +2986,46 @@ rule Trojan_Win32_LummaC_GTD_2147935663_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_GQR_2147935873_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.GQR!MTB"
+        threat_id = "2147935873"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f af c8 89 c8 83 e1 ?? f7 d0 89 c3 83 e3 ?? 09 d9 31 c8 85 c8 0f 95 c0 0f 94 c4 83 fa ?? 0f 9c c1 83 fa ?? 0f 9f c5 89 ca 08 e1 20 ec 20 c2 30 c5 80 f1 ?? 08 e2 08 e9 b8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_SXXS_2147935885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.SXXS!MTB"
+        threat_id = "2147935885"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 c1 80 c1 cf 32 0c 02 80 c1 62 88 0c 02 40 83 f8 1a 75}  //weight: 1, accuracy: High
+        $x_1_2 = {0f b6 94 0f d2 9f 07 14 31 ca 89 d6 83 e6 2d 81 f2 ad 00 00 00 8d 14 72 80 c2 f7 88 94 0f d2 9f 07 14 41}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

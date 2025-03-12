@@ -549,6 +549,28 @@ rule Trojan_Win32_Convagent_ACG_2147843053_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_ACG_2147843053_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ACG!MTB"
+        threat_id = "2147843053"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 54 34 28 0f b6 84 34 28 01 00 00 03 d8 0f b6 ca 03 d9 81 e3 ff 00 00 80 79 08 4b 81 cb 00 ff ff ff 43 8a 44 1c 28 88 44 34 28 46 88 54 1c 28 81 fe}  //weight: 1, accuracy: High
+        $x_3_2 = {0f b6 44 1c 28 88 44 34 28 88 4c 1c 28 0f b6 44 34 28 8b 4c 24 0c 03 c2 8b 54 24 10 0f b6 c0 0f b6 44 04 28 32 44 39 08 88 04 0a 41}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Convagent_RPX_2147843544_0
 {
     meta:

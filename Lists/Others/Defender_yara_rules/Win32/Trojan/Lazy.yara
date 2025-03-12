@@ -967,6 +967,32 @@ rule Trojan_Win32_Lazy_NL_2147902618_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_NL_2147902618_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.NL!MTB"
+        threat_id = "2147902618"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "why u reverse my stub?(((" ascii //weight: 2
+        $x_1_2 = "( i dont love u, bro(((" ascii //weight: 1
+        $x_1_3 = "KillTimer" ascii //weight: 1
+        $x_1_4 = "< i love u, bro)" ascii //weight: 1
+        $x_1_5 = "OpenProcessToken" ascii //weight: 1
+        $x_1_6 = "ShellExecuteA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Lazy_HNS_2147904987_0
 {
     meta:

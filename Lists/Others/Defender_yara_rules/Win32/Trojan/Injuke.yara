@@ -1109,3 +1109,24 @@ rule Trojan_Win32_Injuke_AMP_2147923577_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injuke_SACF_2147935887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injuke.SACF!MTB"
+        threat_id = "2147935887"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {31 c0 83 c9 ff 31 d2 f2 ae 0f be 83 ?? ?? ?? ?? f7 d1 49 89 44 24 04 89 d8 f7 f1 0f be 84 15 ?? ?? ?? ?? 89 04 24 e8 ?? ?? ?? ?? 88 04 1e 43 81 fb}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -102,3 +102,24 @@ rule Trojan_MSIL_KillWin_SWT_2147927261_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillWin_SWS_2147935871_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillWin.SWS!MTB"
+        threat_id = "2147935871"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillWin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {09 02 16 02 8e 69 6f 62 00 00 0a 09 6f 63 00 00 0a de 0a 09 2c 06 09 6f 39 00 00 0a dc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -838,3 +838,24 @@ rule Trojan_Win64_ShellcodeRunner_PKZ_2147935244_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_ZIN_2147935851_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.ZIN!MTB"
+        threat_id = "2147935851"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {31 c0 48 8b 7c 24 50 48 8b 94 24 88 00 00 00 4c 8b 84 24 d0 00 00 00 4c 8b 8c 24 c8 00 00 00 48 39 c5 74 ?? 48 83 f8 10 0f 84 ?? ?? ?? ?? 41 8a 0c 01 41 30 0c 02 48 ff c0 eb e4 49 83 f8 f0 0f 84}  //weight: 7, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
