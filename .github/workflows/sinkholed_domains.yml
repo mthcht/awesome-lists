@@ -20,6 +20,15 @@ jobs:
         run: |
           echo "ICANN_USERNAME is set: ${{ secrets.ICANN_USERNAME != '' }}"
           echo "ICANN_PASSWORD is set: ${{ secrets.ICANN_PASSWORD != '' }}"
+          
+      - name: debug test authent API curl 
+        run: |
+          curl -X POST "https://account-api.icann.org/api/authenticate" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json" \
+            -H "User-Agent: Mozilla/5.0 (compatible; CZDS-Client/1.0; +https://your-repo-url)" \
+            -d '{"username": "${{ secrets.ICANN_USERNAME }}", "password": "${{ secrets.ICANN_PASSWORD }}"}' \
+            -v
 
       - name: Clone CZDS API Client Repo
         working-directory: Lists/Domains/sinkholed_servers
