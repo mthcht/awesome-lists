@@ -1,20 +1,26 @@
 name: Sinkholed Domains
 
 on:
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+    - cron: '0 0 * * *'
 
 jobs:
   download_and_scan:
     runs-on: ubuntu-latest
+    environment: ICANN  
 
     steps:
       - name: Checkout awesome-lists Repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0  # Ensure full history for commits
+          fetch-depth: 0
+
+      - name: Debug GitHub Secrets
+        run: |
+          echo "ICANN_USERNAME is set: ${{ secrets.ICANN_USERNAME != '' }}"
+          echo "ICANN_PASSWORD is set: ${{ secrets.ICANN_PASSWORD != '' }}"
 
       - name: Clone CZDS API Client Repo
         working-directory: Lists/Domains/sinkholed_servers
@@ -23,15 +29,15 @@ jobs:
       - name: Create config.json with Secrets
         working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
         run: |
-          cat <<EOF > config.json
-          {
-            "icann.account.username": "${{ secrets.ICANN_USERNAME }}",
-            "icann.account.password": "${{ secrets.ICANN_PASSWORD }}",
+          echo '{
+            "icann.account.username": "'"${{ secrets.ICANN_USERNAME }}"'",
+            "icann.account.password": "'"${{ secrets.ICANN_PASSWORD }}"'",
             "authentication.base.url": "https://account-api.icann.org",
             "czds.base.url": "https://czds-api.icann.org",
             "working.directory": "/zones/"
-          }
-          EOF
+          }' > config.json
+
+          cat config.json  # Debugging step to verify the file content
 
       - name: Run Download Script
         working-directory: Lists/Domains/sinkholed_servers/czds-api-client-python
@@ -54,6 +60,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
-          git add sinkhole_domains.csv
+          git add sinkhole_ns_list.csv
           git commit -m "Update sinkholed domains list [Automated]"
           git push origin main
