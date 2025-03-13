@@ -2346,3 +2346,24 @@ rule Trojan_Win64_Lazy_HHM_2147935725_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_PIN_2147935942_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.PIN!MTB"
+        threat_id = "2147935942"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {49 8b c9 48 2b c8 40 32 f9 49 8b c7 49 f7 e2 48 c1 ea 07 48 69 c2 ff 00 00 00 49 8b ca 48 2b ?? 40 32 f9 41 32 f8 42 30 7c 05 c8 49 ff c0 4d 03 cd 49 83 c2 06 4d 3b ce 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
