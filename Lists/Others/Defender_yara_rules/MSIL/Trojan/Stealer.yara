@@ -2685,27 +2685,6 @@ rule Trojan_MSIL_Stealer_ACMA_2147934151_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Stealer_SIN_2147935239_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Stealer.SIN!MTB"
-        threat_id = "2147935239"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Stealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {11 0f 72 ce 03 00 70 6f 03 01 00 0a 13 10 11 10 28 04 01 00 0a 73 05 01 00 0a 13 11 11 11 6f 06 01 00 0a 13 12 08 28 0d 00 00 0a 2d 10 08 11 12 28 07 01 00 0a 16 13 1d}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Stealer_SWI_2147935320_0
 {
     meta:
