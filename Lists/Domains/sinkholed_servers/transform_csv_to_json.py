@@ -12,7 +12,7 @@ def load_csv_from_url(csv_url):
         response = requests.get(csv_url)
         response.raise_for_status()
         lines = response.content.decode('utf-8').splitlines()
-        return csv.DictReader(lines)
+        return list(csv.DictReader(lines))  # Convert to list to persist after function exits
     except requests.RequestException as e:
         print(f"[ERROR] Failed to fetch CSV from URL: {e}")
         exit(1)
@@ -26,7 +26,7 @@ def load_csv_from_file(csv_path):
     print(f"[INFO] Loading CSV from local file: {csv_path}")
     try:
         with open(csv_path, mode='r', encoding='utf-8') as file:
-            return csv.DictReader(file)
+            return list(csv.DictReader(file))  # Convert to list to persist after function exits
     except Exception as e:
         print(f"[ERROR] Failed to read local CSV file: {e}")
         exit(1)
@@ -39,9 +39,12 @@ def process_csv_data(reader):
     ns_id_counter = 1
 
     for row in reader:
-        domain = row['dest_nt_domain'].strip()
-        ns_server = row['metadata_NS_server'].strip()
-        tld = extract(domain).suffix
+        domain = row.get('dest_nt_domain', '').strip()
+        ns_server = row.get('metadata_NS_server', '').strip()
+        tld = extract(domain).suffix if domain else ""
+
+        if not domain or not ns_server:
+            continue  # Skip rows with missing data
 
         if ns_server not in ns_servers_rev:
             ns_servers[str(ns_id_counter)] = ns_server
