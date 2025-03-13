@@ -62,12 +62,16 @@ jobs:
       - name: Cleanup CZDS API Client
         working-directory: Lists/Domains/sinkholed_servers
         run: rm -rf czds-api-client-python
-
+        
+      - name: transform csv to json
+        working-directory: Lists/Domains/sinkholed_servers
+        run: python3 transform_csv_to_json.py --csv-file sinkholed_domains.csv
+        
       - name: Commit and Push Updated Sinkhole List
         working-directory: Lists/Domains/sinkholed_servers
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
-          git add sinkholed_domains.csv
+          git add sinkholed_domains.csv sinkholed_domains.json
           git commit -m "Update sinkholed domains list [Automated]"
           git push origin main
