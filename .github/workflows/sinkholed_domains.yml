@@ -53,7 +53,7 @@ jobs:
         run: python3 download.py
         
       - name: Install Required Python Modules
-        run: pip install pandas
+        run: pip install pandas tldextract requests
         
       - name: Search for Sinkholed Servers
         working-directory: Lists/Domains/sinkholed_servers
