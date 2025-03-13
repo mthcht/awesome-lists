@@ -1,12 +1,12 @@
-rule Trojan_Win64_Downloader_SA_2147935709_0
+rule Trojan_Win64_SLoader_A_2147935931_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/Downloader.SA"
-        threat_id = "2147935709"
+        detection_name = "Trojan:Win64/SLoader.A"
+        threat_id = "2147935931"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "Downloader"
+        family = "SLoader"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"

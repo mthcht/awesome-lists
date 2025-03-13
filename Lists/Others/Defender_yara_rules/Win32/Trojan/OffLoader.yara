@@ -3377,3 +3377,25 @@ rule Trojan_Win32_OffLoader_AMNA_2147935548_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_SBLS_2147935934_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SBLS!MTB"
+        threat_id = "2147935934"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "//grainink.website/hio.php" ascii //weight: 4
+        $x_1_2 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
