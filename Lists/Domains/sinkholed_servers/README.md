@@ -1,12 +1,12 @@
 Trying to retrieve all domains associated with this list of sinkholed name servers using zone files from **https://github.com/mthcht/awesome-lists/blob/main/Lists/Domains/ICANN/Get_all_the_domains_with_NS.md**
 
 
-- [ ] automate with list generation with a github actions - todo: https://github.com/mthcht/awesome-lists/issues/26
-- [x] Site sinkholed.github.io
+- [x] automate with list generation with a github actions https://github.com/mthcht/awesome-lists/blob/main/.github/workflows/sinkholed_domains.yml - https://github.com/mthcht/awesome-lists/issues/26
+- [x] Site created https://sinkholed.github.io
 
 ## Github Action
 
-fixme
+[sinkholed_domains.yml](https://github.com/mthcht/awesome-lists/blob/main/.github/workflows/sinkholed_domains.yml) regularly update the list of sinkholed domains in this directory
 
 ## sinkholed.github.io
 
