@@ -1520,3 +1520,26 @@ rule Trojan_Win64_Zusy_AZY_2147935359_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_AZY_2147935359_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AZY!MTB"
+        threat_id = "2147935359"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 8b 15 71 0b 77 00 65 4c 8b 1c 25 58 00 00 00 4f 8b 1c d3 41 ba 30 00 00 00 4d 03 d3 4c 8b 1c 24 4c 89 51 10 48 89 69 08 4c 89 19 4c 8d 5c 24 08 c7 41 18 00 80 00 00 4c 89 59 20 49 89 4a 40}  //weight: 1, accuracy: High
+        $x_3_2 = {8b 05 cf 00 77 00 65 48 8b 1c 25 58 00 00 00 48 8b 1c c3 b8 30 00 00 00 48 03 c3 48 89 84 24 c0 00 00 00 f0 83 60 38 ef 48 8b 42 18 48 8b 18 48 8b 42 20 48 8b 28 48 8b 42 28 48 8b 30 48 8b 42 30 48 8b 38 48 8b 42 58 4c 8b 20 48 8b 42 60 4c 8b 28 48 8b 42 68 4c 8b 30 48 8b 42 70 4c 8b 38}  //weight: 3, accuracy: High
+        $x_2_3 = "infinitycheats\\GameHelpersLoader__NEW\\bin\\Release\\net8.0\\win-x64\\native\\GameHelpersLoader__NEW.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

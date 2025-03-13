@@ -2341,3 +2341,25 @@ rule Ransom_Win32_Filecoder_SWA_2147931284_0
         )
 }
 
+rule Ransom_Win32_Filecoder_NMA_2147935908_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.NMA!MTB"
+        threat_id = "2147935908"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {ff d0 83 ec 14 85 c0 0f 85 ?? ?? 00 00 8b 45 f4 8d 55 88 89 54 24 14 8d 55 8c 89 54 24 10}  //weight: 2, accuracy: Low
+        $x_1_2 = "somesomeWar_EOF" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
