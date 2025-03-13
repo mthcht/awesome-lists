@@ -70,6 +70,7 @@ jobs:
       - name: Commit and Push Updated Sinkhole List
         working-directory: Lists/Domains/sinkholed_servers
         run: |
+          git pull
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
           git add sinkholed_domains.csv sinkholed_domains.json
