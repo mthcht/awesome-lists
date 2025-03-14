@@ -162,6 +162,35 @@ rule Trojan_Win32_Remcos_A_2147742123_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_A_2147742123_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.A!MTB"
+        threat_id = "2147742123"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SHELLEXECUTE ( \"schtasks\" , \"/create /tn \" & $REGKEY & \" /tr" ascii //weight: 2
+        $x_2_2 = "DLLCALL ( \"urlmon.dll\" , \"ptr\" , \"URLDownloadToFile\"" ascii //weight: 2
+        $x_2_3 = "HKCU\\Software\\Classes\\ms-settings\\shell\\open\\command" ascii //weight: 2
+        $x_2_4 = "FILEEXISTS ( @HOMEDRIVE & \"\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\RegAsm.exe" ascii //weight: 2
+        $x_2_5 = "DLLCALL ( \"kernel32.dll\" , \"handle\" , \"CreateMutexW" ascii //weight: 2
+        $x_2_6 = "EXECUTE ( \"DllStructCreate\" ) , EXECUTE ( \"DllCall\" ) , EXECUTE ( \"DllCallAddress\" )" ascii //weight: 2
+        $x_2_7 = "Set WshShell = WScript.CreateObject" ascii //weight: 2
+        $x_2_8 = "( $RESNAME , $FILENAME , $RUN , $RUNONCE , $DIR )" ascii //weight: 2
+        $x_2_9 = "byte shellcode[" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Remcos_PB_2147743130_0
 {
     meta:
@@ -480,6 +509,28 @@ rule Trojan_Win32_Remcos_AA_2147750878_0
 }
 
 rule Trojan_Win32_Remcos_AA_2147750878_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.AA!MTB"
+        threat_id = "2147750878"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 45 a8 3b 45 a4 ?? ?? ?? 8b 45 a4 31 45 a8 8b 45 a8 31 45 a4 8b 45 a4 31 45 a8 6a 04 68 00 10 00 00 8b 45 a8 03 45 b0 50}  //weight: 2, accuracy: Low
+        $x_2_2 = {81 c2 a1 03 00 00 87 d1 29 d3 33 c0 5a 59 59 64 89 10 68 6e 80 46 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_AA_2147750878_2
 {
     meta:
         author = "defender2yara"

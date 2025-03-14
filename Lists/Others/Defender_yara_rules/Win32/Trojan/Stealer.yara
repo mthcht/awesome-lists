@@ -1086,3 +1086,28 @@ rule Trojan_Win32_Stealer_DAB_2147934273_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_SOY_2147935950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.SOY!MTB"
+        threat_id = "2147935950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "-selfcopycmdregstartup" wide //weight: 2
+        $x_2_2 = "-dropendleesfiles" wide //weight: 2
+        $x_2_3 = "-stealcookies" wide //weight: 2
+        $x_2_4 = "powershell.exe -Sta -NoLogo -NonInteractive -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File \"%s\"" wide //weight: 2
+        $x_2_5 = "suspendinjectandresume_writeprocessmemory" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

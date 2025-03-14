@@ -718,6 +718,33 @@ rule Trojan_Win32_Vidar_A_2147825078_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_A_2147825078_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.A!MTB"
+        threat_id = "2147825078"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {50 57 ff 15 ?? ?? ?? ?? 85 c0 ?? ?? ?? ?? ?? 89 c7 89 f1 ?? ?? ?? ?? ?? e0 4e b7 8b 35 dc b5 41 00 50 ?? ?? 01 0e 04 eb ?? ?? ff b3 84 00 00 00 50 ?? ?? ?? ?? ?? e0 4e b7 83 c4 08 89 c7 50 ?? ?? 85 c0}  //weight: 2, accuracy: Low
+        $x_1_2 = "\"id\":1,\"method\":\"Storage.getCookies\"" ascii //weight: 1
+        $x_2_3 = "\\Monero\\wallet.keys" ascii //weight: 2
+        $x_2_4 = "\\BraveWallet\\Preferences" ascii //weight: 2
+        $x_1_5 = "/c timeout /t 10 & rd /s /q \"C:\\ProgramData\\" ascii //weight: 1
+        $x_1_6 = "wallet_path" ascii //weight: 1
+        $x_1_7 = "SOFTWARE\\monero-project\\monero-core" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Vidar_B_2147825079_0
 {
     meta:
@@ -735,6 +762,33 @@ rule Trojan_Win32_Vidar_B_2147825079_0
     strings:
         $x_1_1 = {8b 44 24 14 80 34 38 5e 5f 5e 5b 8b e5 5d c3}  //weight: 1, accuracy: High
         $x_1_2 = {2b c8 be 98 6c 14 00 8d 49 00 8a 14 01 88 10 40 4e 75 f7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_B_2147825079_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.B!MTB"
+        threat_id = "2147825079"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 19 30 c3 0f b6 f3 c1 e8 08 33 04 b5 c0 95 41 00 8a 59 01 30 c3 0f b6 f3 c1 e8 08 33 04 b5 c0 95 41 00 8a 59 02 30 c3 0f b6 f3 c1 e8 08 33 04 b5 c0 95 41 00 8a 59 03 30 c3 0f b6 f3 c1 e8 08 33 04 b5 c0 95 41 00}  //weight: 2, accuracy: High
+        $x_1_2 = "\"id\":1,\"method\":\"Storage.getCookies\"" ascii //weight: 1
+        $x_1_3 = "\\Monero\\wallet.keys" ascii //weight: 1
+        $x_1_4 = "\\BraveWallet\\Preferences" ascii //weight: 1
+        $x_1_5 = "/c timeout /t 10 & rd /s /q \"C:\\ProgramData\\" ascii //weight: 1
+        $x_1_6 = "Software\\Martin Prikryl\\WinSCP 2\\Sessions" ascii //weight: 1
+        $x_1_7 = "SOFTWARE\\monero-project\\monero-core" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

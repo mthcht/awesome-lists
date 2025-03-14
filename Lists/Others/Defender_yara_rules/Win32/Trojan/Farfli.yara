@@ -83,6 +83,30 @@ rule Trojan_Win32_Farfli_PA_2147754829_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_A_2147756642_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.A!MTB"
+        threat_id = "2147756642"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {55 8b ce e8 ?? ?? ?? ?? 8b e8 85 ed ?? ?? 8b 46 04 55 50 53 ?? ?? ?? ?? ?? ?? 83 c4 0c 8b 46 04 85 c0}  //weight: 2, accuracy: Low
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "Applications\\iexplore.exe\\shell\\open\\command" ascii //weight: 1
+        $x_2_4 = "kinh.xmcxmr.com" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Farfli_GC_2147760613_0
 {
     meta:

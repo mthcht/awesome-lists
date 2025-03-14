@@ -201,3 +201,26 @@ rule Trojan_Win32_Flystudio_NF_2147899074_2
         (all of ($x*))
 }
 
+rule Trojan_Win32_Flystudio_A_2147920520_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Flystudio.A!MTB"
+        threat_id = "2147920520"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Flystudio"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 4c 24 08 53 55 8b ac 24 2c 02 00 00 55 6a 00 6a 00 51 68 74 ad ba 00 6a 00 ?? ?? ?? ?? ?? ?? 8b f0 83 fe 20 [0-17] 8b cf 52 68 6c ad ba 00 68 00 00 00 80 ?? ?? ?? ?? ?? 85 c0}  //weight: 2, accuracy: Low
+        $x_10_2 = {83 ec 0c 50 ff 74 24 ?? 33 c0 89 44 24 ?? 89 44 24 ?? 89 44 24 ?? 8d 54 24 ?? 52 ff d3 8b 44 24 ?? 8b 54 24 ?? 8b 4c 24 ?? 83 c4 18}  //weight: 10, accuracy: Low
+        $x_2_3 = {8a 0c 02 03 d0 03 d8 2b e8 3b e8 88 0b 77 f1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

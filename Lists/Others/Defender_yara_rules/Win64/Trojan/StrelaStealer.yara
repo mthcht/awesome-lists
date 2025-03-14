@@ -1280,3 +1280,25 @@ rule Trojan_Win64_StrelaStealer_GF_2147929473_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StrelaStealer_A_2147935982_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StrelaStealer.A!MTB"
+        threat_id = "2147935982"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StrelaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {89 d0 35 e9 60 ea ?? 81 f2 16 9f 05 61 41 89 c9 41 81 e1 10 9d 10 6f 41 81 e2 ef 62 ef ?? 45 09 ca 09 d1 81 e2 10 9d 10 6f 25 ef 62 ef ?? 09 d0 44 31 d0}  //weight: 2, accuracy: Low
+        $x_1_2 = "DllRegisterServer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

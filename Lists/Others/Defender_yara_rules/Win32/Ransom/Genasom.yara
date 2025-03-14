@@ -1495,6 +1495,32 @@ rule Ransom_Win32_Genasom_B_2147719146_0
         )
 }
 
+rule Ransom_Win32_Genasom_A_2147746064_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Genasom.A!MTB"
+        threat_id = "2147746064"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Genasom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_2 = "taskkill /f /im explorer.exe" ascii //weight: 1
+        $x_1_3 = "\\SystemProcess.exe" ascii //weight: 1
+        $x_1_4 = "Bloqueo del Sistema" ascii //weight: 1
+        $x_1_5 = "Tu sistema ha sido bloqueado" ascii //weight: 1
+        $x_1_6 = "SHGetFolderPathA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win32_Genasom_C_2147746212_0
 {
     meta:

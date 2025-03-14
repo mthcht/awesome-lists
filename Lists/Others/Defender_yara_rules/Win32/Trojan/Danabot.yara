@@ -1010,3 +1010,26 @@ rule Trojan_Win32_Danabot_MXZ_2147934385_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Danabot_A_2147935985_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Danabot.A!MTB"
+        threat_id = "2147935985"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Danabot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {55 89 e5 83 ec 14 52 57 56 31 c0 66 8c c9 80 f9 1b ?? ?? ?? ?? ?? ?? 8b 75 08 8b 7d 0c 8b 55 10 89 65 ec 83 e4 f0 6a 33 ?? ?? ?? ?? ?? 83 04 24 05}  //weight: 2, accuracy: Low
+        $x_1_2 = "card_number_encrypted" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Internet Explorer\\IntelliForms\\Storage2" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

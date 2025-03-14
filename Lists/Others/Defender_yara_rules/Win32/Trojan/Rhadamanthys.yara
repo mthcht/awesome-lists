@@ -719,3 +719,24 @@ rule Trojan_Win32_Rhadamanthys_TBM_2147927686_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rhadamanthys_DCP_2147935978_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rhadamanthys.DCP!MTB"
+        threat_id = "2147935978"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 4c 24 08 8b 7c 24 0c 81 f1 1d 19 22 f0 81 f7 16 c6 8b 1d 09 cf}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

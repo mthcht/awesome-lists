@@ -331,6 +331,28 @@ rule Trojan_MSIL_AsyncRAT_B_2147833621_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_B_2147833621_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.B!MTB"
+        threat_id = "2147833621"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {72 07 00 00 70 0a 73 17 00 00 0a 73 18 00 00 0a 0b 07 6f 19 00 00 0a 72 c0 dd 0f 70 7e 01 00 00 04 28 03 00 00 06 6f 1a 00 00 0a 26 07 6f 19 00 00 0a 72 22 de 0f 70 7e 01 00 00 04 28 03 00 00 06 6f 1a 00 00 0a 26 07 17 6f 1b 00 00 0a 07 17 8d 14 00 00 01}  //weight: 2, accuracy: High
+        $x_1_2 = "8501d172-1ebb-4613-87a4-eef7f2546a27" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_AsyncRAT_RDC_2147833883_0
 {
     meta:
@@ -1518,6 +1540,27 @@ rule Trojan_MSIL_AsyncRAT_RDK_2147847546_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_AA_2147847552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.AA!MTB"
+        threat_id = "2147847552"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0a 03 8e 69 0b 16 0c 07 20 ff 00 00 00 fe 02 16 fe 01 0d 09 2c 1d 00 20 c4 00 00 00 0c 02 08 6f 5b 00 00 0a 00 07 d2 0c 02 08}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_AsyncRAT_MAAC_2147847722_0
 {
     meta:
@@ -2009,6 +2052,28 @@ rule Trojan_MSIL_AsyncRAT_AB_2147848603_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {73 a6 00 00 0a 1f 20 8d 58 00 00 01 25 d0 8e 01 00 04 28 a7 00 00 0a 28 30 01 00 06 28 a8 00 00 0a 72 3e 27 00 70 72 01 00 00 70 6f a9 00 00 0a}  //weight: 2, accuracy: High
+        $x_2_2 = {09 11 04 06 11 04 8f 58 00 00 01 72 70 27 00 70 28 ad 00 00 0a a2 11 04 17 58 13 04}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_AB_2147848603_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.AB!MTB"
+        threat_id = "2147848603"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -2317,6 +2382,36 @@ rule Trojan_MSIL_AsyncRAT_SP_2147850795_0
         $x_1_7 = "P7u0vzGxqU5DmHDroOxTHQ==" wide //weight: 1
         $x_1_8 = "nUTfoxBT8KqjlQhfYjTbOA==" wide //weight: 1
         $x_1_9 = "xe6xzvrXsMUf5TljHgFcNw==" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_A_2147850841_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.A!MTB"
+        threat_id = "2147850841"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Client.Modules.Keylogger" ascii //weight: 1
+        $x_1_2 = "SendKeyLogs" ascii //weight: 1
+        $x_1_3 = "Client.Modules.Clipper" ascii //weight: 1
+        $x_1_4 = "ClipboardText" ascii //weight: 1
+        $x_1_5 = ".Targets.Browsers" ascii //weight: 1
+        $x_1_6 = "DetectCreditCardType" ascii //weight: 1
+        $x_1_7 = "Discord" ascii //weight: 1
+        $x_1_8 = "Passwords.Targets.System" ascii //weight: 1
+        $x_1_9 = "GetProfiles" ascii //weight: 1
+        $x_1_10 = "uploadfile" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

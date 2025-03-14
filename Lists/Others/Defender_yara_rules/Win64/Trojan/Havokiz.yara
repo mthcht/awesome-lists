@@ -83,3 +83,52 @@ rule Trojan_Win64_Havokiz_TI_2147907118_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havokiz_SA_2147936032_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havokiz.SA"
+        threat_id = "2147936032"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havokiz"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {17 bd a0 1a 3a ac d0 58}  //weight: 10, accuracy: High
+        $x_10_2 = {33 cf 48 d7 a3 ed ba 42}  //weight: 10, accuracy: High
+        $x_10_3 = {5b 59 19 59 d9 ed ed 72}  //weight: 10, accuracy: High
+        $x_10_4 = {9b 7f 0f 22 8a 5c a2 9e}  //weight: 10, accuracy: High
+        $x_10_5 = {55 08 5b 69 d3 dc 65 c8}  //weight: 10, accuracy: High
+        $x_10_6 = {86 c7 3f 8a 17 f4 69 a5}  //weight: 10, accuracy: High
+        $x_10_7 = {08 d7 ae 94 1f 6e 0a 6e}  //weight: 10, accuracy: High
+        $x_10_8 = {ce ce 14 8f d9 ff 2c 66}  //weight: 10, accuracy: High
+        $x_10_9 = {04 84 19 23 bf ff 2c 66}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_Havokiz_AK_2147936033_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havokiz.AK!ibt"
+        threat_id = "2147936033"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havokiz"
+        severity = "Critical"
+        info = "ibt: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 56 48 89 ce 53 48 83 ec 20 65 48 8b 04 25 60 00 00 00 48 8b 40 18 48 8b 78 20 48 89 fb 0f b7 53 48 48 8b 4b 50 e8 85 ff ff ff 89 c0 48 39 f0 75 06 48 8b 43 20 eb 11 48 8b 1b 48 85 db 74 05 48 39 df 75 d9 48 83 c8 ff 48 83 c4 20 5b 5e 5f c3 41 57 49 89 d7 41 56 41 55 41 54 55 31 ed 57 56 53 48 89 cb 48 83 ec 28 48 63 41 3c 8b bc 08 88 00 00 00 48 01 cf 44 8b 77 20 44 8b 67 1c 44 8b 6f 24 49 01 ce 3b 6f 18}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

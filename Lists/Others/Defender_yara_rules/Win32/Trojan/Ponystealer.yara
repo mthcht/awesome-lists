@@ -41,3 +41,27 @@ rule Trojan_Win32_Ponystealer_MBXS_2147919376_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Ponystealer_SOB_2147935951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Ponystealer.SOB!MTB"
+        threat_id = "2147935951"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Ponystealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Humiliator5" ascii //weight: 2
+        $x_2_2 = "Frontalsammenstd6" ascii //weight: 2
+        $x_2_3 = "Skeletterings" ascii //weight: 2
+        $x_2_4 = "Tapsamlinger1" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

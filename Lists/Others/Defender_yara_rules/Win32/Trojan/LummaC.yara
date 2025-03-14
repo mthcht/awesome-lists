@@ -3029,3 +3029,24 @@ rule Trojan_Win32_LummaC_SXXS_2147935885_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_CCIR_2147936010_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.CCIR!MTB"
+        threat_id = "2147936010"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f 94 c1 0f 95 c2 83 f8 0a 0f 9c c5 83 f8 09 b8 ?? ?? ?? ?? 0f 9f c6 20 d5 20 f1 08 d6 08 cd 88 e9 30 f1 84 ed 0f 45 c6 84 f6}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

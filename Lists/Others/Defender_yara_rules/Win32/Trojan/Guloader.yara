@@ -1438,6 +1438,31 @@ rule Trojan_Win32_Guloader_C_2147797900_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "inkasseringens.ini" ascii //weight: 2
+        $x_2_2 = "guslee.lta" ascii //weight: 2
+        $x_2_3 = "straksafskrivningerne.sak" ascii //weight: 2
+        $x_2_4 = "skatteprocents\\heldterningens" ascii //weight: 2
+        $x_2_5 = "minirobot.uni" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_C_2147797900_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.C!MTB"
+        threat_id = "2147797900"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "9"
         strings_accuracy = "High"
     strings:
@@ -1455,7 +1480,7 @@ rule Trojan_Win32_Guloader_C_2147797900_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_C_2147797900_1
+rule Trojan_Win32_Guloader_C_2147797900_2
 {
     meta:
         author = "defender2yara"
@@ -1493,6 +1518,31 @@ rule Trojan_Win32_Guloader_B_2147799407_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Dukkeansigt.Pre" ascii //weight: 2
+        $x_2_2 = "christianshavnerne.deh" ascii //weight: 2
+        $x_2_3 = "Unrhymed.adi" ascii //weight: 2
+        $x_2_4 = "ekstraprogrammer\\foryngelseskur" ascii //weight: 2
+        $x_2_5 = "snorebroderier\\Celeste" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_B_2147799407_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.B!MTB"
+        threat_id = "2147799407"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
@@ -1508,7 +1558,7 @@ rule Trojan_Win32_Guloader_B_2147799407_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_B_2147799407_1
+rule Trojan_Win32_Guloader_B_2147799407_2
 {
     meta:
         author = "defender2yara"
@@ -5166,6 +5216,58 @@ rule Trojan_Win32_Guloader_SVVM_2147934639_0
         $x_2_4 = "mayhemming.jpg" wide //weight: 2
         $x_2_5 = "brodernationerne.ini" wide //weight: 2
         $x_1_6 = "autoritetstroens.rig" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_BA_2147935986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.BA!MTB"
+        threat_id = "2147935986"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "cheilostomata.ini" ascii //weight: 2
+        $x_2_2 = "christins.alk" ascii //weight: 2
+        $x_2_3 = "Jende\\raakost" ascii //weight: 2
+        $x_2_4 = "rhesuspositiv" ascii //weight: 2
+        $x_2_5 = "Teksbehandlingsfaciliteter" ascii //weight: 2
+        $x_2_6 = "Recants\\kirsebrsten" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_AB_2147935990_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.AB!MTB"
+        threat_id = "2147935990"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "derimellem.ini" ascii //weight: 2
+        $x_2_2 = "Snorelofts.sam" ascii //weight: 2
+        $x_2_3 = "stridsmndene.jpg" ascii //weight: 2
+        $x_2_4 = "overfyldte\\slavepen" ascii //weight: 2
+        $x_2_5 = "udvirkninger\\Philosophership" ascii //weight: 2
+        $x_2_6 = "polysomatic.txt" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

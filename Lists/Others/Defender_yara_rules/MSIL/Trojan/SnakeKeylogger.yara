@@ -2965,7 +2965,58 @@ rule Trojan_MSIL_SnakeKeylogger_A_2147837518_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_A_2147837518_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.A!MTB"
+        threat_id = "2147837518"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 95 a2 29 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 9e 00 00 00 2b 00 00 00 05 01 00 00 45 01 00 00 64 01 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = "9c6251dc-6a93-48bb-bccf-e187420058ca" ascii //weight: 1
+        $x_1_3 = "DebuggableAttribute" ascii //weight: 1
+        $x_1_4 = "DebuggingModes" ascii //weight: 1
+        $x_1_5 = "DebuggerNonUserCodeAttribute" ascii //weight: 1
+        $x_1_6 = "CreateInstance" ascii //weight: 1
+        $x_1_7 = "get_Length" ascii //weight: 1
+        $x_1_8 = "GetType" ascii //weight: 1
+        $x_1_9 = "Activator" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_SnakeKeylogger_B_2147837525_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.B!MTB"
+        threat_id = "2147837525"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8d b2 00 00 01 0a 16 0b 2b 1a 00 06 07 02 07 18 5a 18 6f 65 01 00 0a 1f 10 28 66 01 00 0a}  //weight: 2, accuracy: High
+        $x_1_2 = "a4c9954c-97d9-4f17-a226-15ea8ddd9331" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SnakeKeylogger_B_2147837525_1
 {
     meta:
         author = "defender2yara"
@@ -7079,6 +7130,29 @@ rule Trojan_MSIL_SnakeKeylogger_SLO_2147935818_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {0c 20 00 7e 01 00 0d 07 08 09}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SnakeKeylogger_RVA_2147935966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.RVA!MTB"
+        threat_id = "2147935966"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 15 a2 09 09 09 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 6a 00 00 00 09 00 00 00 8a 00 00 00 48 00 00 00 5e 00 00 00 a2 00 00 00 1e 00 00 00 1d 00 00 00 03 00 00 00 06 00 00 00 09 00 00 00 04 00 00 00 01 00 00 00 07 00 00 00 06 00 00 00 03}  //weight: 1, accuracy: High
+        $x_1_2 = "Grifindo_payroll_system" ascii //weight: 1
+        $x_1_3 = "d62f21fa-6585-4032-948b-0f030e94b773" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -4599,6 +4599,40 @@ rule Trojan_Win32_AutoitInject_HNQ_2147932010_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_HNQ_2147932010_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.HNQ!MTB"
+        threat_id = "2147932010"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {26 00 3d 00 20 00 45 00 58 00 45 00 43 00 55 00 54 00 45 00 20 00 28 00 20 00 22 00 43 00 22 00 20 00 26 00 20 00 22 00 68 00 72 00 28 00 41 00 22 00 20 00 26 00 20 00 22 00 73 00 63 00 28 00 [0-32] 28 00 22 00 20 00 26 00 20 00 22 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {26 3d 20 45 58 45 43 55 54 45 20 28 20 22 43 22 20 26 20 22 68 72 28 41 22 20 26 20 22 73 63 28 [0-32] 28 22 20 26 20 22}  //weight: 1, accuracy: Low
+        $x_1_3 = {26 00 3d 00 20 00 45 00 58 00 45 00 43 00 55 00 54 00 45 00 20 00 28 00 20 00 22 00 43 00 22 00 20 00 26 00 20 00 22 00 68 00 22 00 20 00 26 00 20 00 22 00 72 00 28 00 41 00 22 00 20 00 26 00 20 00 22 00 73 00 63 00 28 00 [0-32] 28 00 22 00 20 00 26 00 20 00 22 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {26 3d 20 45 58 45 43 55 54 45 20 28 20 22 43 22 20 26 20 22 68 22 20 26 20 22 72 28 41 22 20 26 20 22 73 63 28 [0-32] 28 22 20 26 20 22}  //weight: 1, accuracy: Low
+        $x_1_5 = {26 00 3d 00 20 00 45 00 58 00 45 00 43 00 55 00 54 00 45 00 20 00 28 00 20 00 22 00 43 00 22 00 20 00 26 00 20 00 22 00 68 00 22 00 20 00 26 00 20 00 22 00 72 00 28 00 41 00 22 00 20 00 26 00 20 00 22 00 73 00 22 00 20 00 26 00 20 00 22 00 63 00 28 00 [0-32] 28 00 22 00 20 00 26 00 20 00 22 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {26 3d 20 45 58 45 43 55 54 45 20 28 20 22 43 22 20 26 20 22 68 22 20 26 20 22 72 28 41 22 20 26 20 22 73 22 20 26 20 22 63 28 [0-32] 28 22 20 26 20 22}  //weight: 1, accuracy: Low
+        $x_1_7 = {26 00 3d 00 20 00 45 00 58 00 45 00 43 00 55 00 54 00 45 00 20 00 28 00 20 00 22 00 43 00 22 00 20 00 26 00 20 00 22 00 68 00 72 00 28 00 41 00 22 00 20 00 26 00 20 00 22 00 73 00 22 00 20 00 26 00 20 00 22 00 63 00 28 00 [0-32] 28 00 22 00 20 00 26 00 20 00 22 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {26 3d 20 45 58 45 43 55 54 45 20 28 20 22 43 22 20 26 20 22 68 72 28 41 22 20 26 20 22 73 22 20 26 20 22 63 28 [0-32] 28 22 20 26 20 22}  //weight: 1, accuracy: Low
+        $x_1_9 = "HOTKEYSET ( \"{ENTER}\" , \"GQJymPLyV7m49jD4PRz\" )" ascii //weight: 1
+        $x_1_10 = "REGDELETE ( \"HKCU\\Software\" , \"TMe75Uy8BUl3r\" )" ascii //weight: 1
+        $x_1_11 = "REGDELETE ( \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\" , \"mERzN1o\" )" ascii //weight: 1
+        $x_1_12 = "REGREAD ( \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" , \"7\" )" ascii //weight: 1
+        $x_1_13 = "INETREAD ( \"htttp://xbObbsDr.org\" , 5342 , 5247 , 591 )" ascii //weight: 1
+        $x_1_14 = "DIRMOVE ( @MYDOCUMENTSDIR & \"\\ Dump Logs\" , @APPDATADIR & \"\\Shutdown\" , 1236 )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (7 of ($x*))
+}
+
 rule Trojan_Win32_AutoitInject_HNR_2147932481_0
 {
     meta:

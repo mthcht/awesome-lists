@@ -225,3 +225,27 @@ rule Trojan_MSIL_Rhadamanthys_BN_2147934826_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rhadamanthys_SPS_2147935979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rhadamanthys.SPS!MTB"
+        threat_id = "2147935979"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "UEsDBBQAAAAIAJqDY1rJvu+i8SkKAAAEDAAHAAAAZzJtLmRsbOxafXgTVbo/0w6Q0sAECFABoUh3lUX5UK4rV1xblsHqM" ascii //weight: 1
+        $x_1_2 = "rdha.exe" ascii //weight: 1
+        $x_1_3 = "ExtractedZip_1cf60734\\package" ascii //weight: 1
+        $x_1_4 = "g2m.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

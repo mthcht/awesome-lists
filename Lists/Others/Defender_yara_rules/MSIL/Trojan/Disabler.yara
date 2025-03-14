@@ -112,3 +112,28 @@ rule Trojan_MSIL_Disabler_GZZ_2147901990_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disabler_ST_2147935953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disabler.ST!MTB"
+        threat_id = "2147935953"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disabler"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$ErrorActionPreference = \"SilentlyContinue\"" ascii //weight: 2
+        $x_2_2 = "        Write-Host \"This is a Hyper-V Virtual Machine running on physical host $physicalHost\"" ascii //weight: 2
+        $x_2_3 = "    $vmwareServices = @(\"vmdebug\", \"vmmouse\", \"VMTools\", \"VMMEMCTL\", \"tpautoconnsvc\", \"tpvcgateway\", \"vmware\", \"wmci\", \"vmx86\")" ascii //weight: 2
+        $x_2_4 = "    $biosVersion = Get-RegistryValueString -Key \"HKLM\\HARDWARE\\DESCRIPTION\\System\" -ValueName \"SystemBiosVersion\"" ascii //weight: 2
+        $x_2_5 = "Invoke-SelfReplication" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

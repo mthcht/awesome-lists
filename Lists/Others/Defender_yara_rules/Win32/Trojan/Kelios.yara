@@ -127,3 +127,25 @@ rule Trojan_Win32_Kelios_GDX_2147934046_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Kelios_GTR_2147936002_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Kelios.GTR!MTB"
+        threat_id = "2147936002"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Kelios"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {40 0f be f5 66 d3 ed c0 f1 81 44 31 a4 0c ?? ?? ?? ?? 4c 8d 84 75 ?? ?? ?? ?? 49 81 e0 ?? ?? ?? ?? 5f 4d 63 e4 40 0f b6 d6}  //weight: 10, accuracy: Low
+        $x_10_2 = {33 da 41 66 f7 d0 ff 0c 24 03 ea 66 d3 f8 66 33 44 24 ?? 29 4c 24 ?? 58 58 5a 59}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

@@ -130,6 +130,28 @@ rule Trojan_MSIL_FormBook_F_2147753903_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_A_2147754043_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.A!MTB"
+        threat_id = "2147754043"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 73 20 00 00 0a 0a 73 1e 00 00 06 0b 1b 8d 92 00 00 01 0c 06 08 16 1b 6f 21 00 00 0a 26 07 08 6f 24 00 00 06 16 6a 0d 16 13 06 2b 1d 06 6f 22 00 00 0a}  //weight: 2, accuracy: High
+        $x_1_2 = "c41f42b3-5872-4118-a64e-90e723637ff6" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_B_2147754448_0
 {
     meta:
@@ -147,6 +169,28 @@ rule Trojan_MSIL_FormBook_B_2147754448_0
     strings:
         $x_1_1 = {25 16 1f 4c 9d 25 17 1f 6f 9d 25 18 1f 61 9d 25 19 1f 64 9d 2a}  //weight: 1, accuracy: High
         $x_1_2 = "be-run-in QOS zode" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_B_2147754448_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.B!MTB"
+        threat_id = "2147754448"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {11 06 75 0d 00 00 1b 11 07 8f 01 00 00 01 25 71 01 00 00 01 11 07 02 58 05 59 20 ff 00 00 00 5f d2 61 d2 81 01 00 00 01 11 12 20 b6 01 00 00 91 20 c2 00 00 00 59 13 10}  //weight: 3, accuracy: High
+        $x_1_2 = "1f92ecae-a0e1-496a-a610-00ded71b7d75" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -274,11 +274,79 @@ rule Trojan_Win32_Swisyn_ASW_2147933246_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {55 55 51 55 e8 ?? ?? ?? ?? 85 c0 75 0f 6a 10 68 ac ?? ba 00 68 3c ?? ba 00 55 ff d7 6a ff 8d 54 24 20 55 52 6a 02 ff d6 3b c5}  //weight: 3, accuracy: Low
+        $x_2_2 = {8d 44 24 00 68 ec ?? ba 00 50 e8 ?? ?? ?? ?? 83 c4 08 8d 4c 24 00 6a 10 68 ac ?? ba 00 51 6a 00 ff 15}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Swisyn_ASW_2147933246_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Swisyn.ASW!MTB"
+        threat_id = "2147933246"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Swisyn"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {56 56 68 20 f7 e1 00 56 56 50 8b 44 24 2c 6a 01 6a 03 68 10 01 00 00 68 ff 01 0f 00 50 50 57 ff 15 ?? ?? ?? ?? 8b 1d 04 60 e1 00 8b f0 85 f6 74 25 8b 4c 24 1c 8b 54 24 18 51 52 56}  //weight: 2, accuracy: Low
         $x_1_2 = {8d 53 41 8d 44 24 14 52 68 5c b1 e1 00 50 e8 ?? ?? ?? ?? 83 c4 0c 8d 4c 24 14 51 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Swisyn_ASY_2147935965_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Swisyn.ASY!MTB"
+        threat_id = "2147935965"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Swisyn"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {b6 00 68 dc ?? b6 00 ff d7 8b 1d ac ?? b6 00 50 ff d3 68 bc ?? b6 00 68 a0 ?? b6 00 8b f0 ff d7 50 ff d3}  //weight: 1, accuracy: Low
+        $x_3_2 = {89 74 24 1c 89 44 24 20 c7 44 24 24 20 ?? b6 00 89 5c 24 28 89 5c 24 2c c7 44 24 30 01 00 00 00 89 4c 24 34 c7 44 24 38 00 01 00 00 89 5c 24 3c 89 5c 24 40 89 5c 24 44 c7 44 24 48 e0 ?? b6 00 66 89 5c 24 50 66 89 5c 24 52 c7 44 24 54 d4 ?? b6 00 89 5c 24 5c c7 44 24 4c 06 00 20 00 ff 15}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Swisyn_ASI_2147935977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Swisyn.ASI!MTB"
+        threat_id = "2147935977"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Swisyn"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {55 55 55 ff d3 3b c5 75 0a 68 e0 ?? a4 00 55 55 55 ff d3 8b 35 2c ?? a4 00 6a ff 8d 4c 24 20 55 51 6a 02 89 7c 24 2c 89 44 24 30 ff d6}  //weight: 3, accuracy: Low
+        $x_1_2 = {a4 00 ff d7 8b 1d ac ?? a4 00 50 ff d3 68 bc ?? a4 00 68 a0 ?? a4 00 8b f0 ff d7 50 ff d3}  //weight: 1, accuracy: Low
+        $x_2_3 = "Software\\Sysinternals\\RootkitRevealer" wide //weight: 2
+        $x_2_4 = "RootkitRevealer must be run from the console" wide //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))
