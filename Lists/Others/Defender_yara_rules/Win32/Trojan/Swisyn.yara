@@ -352,3 +352,25 @@ rule Trojan_Win32_Swisyn_ASI_2147935977_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Swisyn_ASV_2147936095_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Swisyn.ASV!MTB"
+        threat_id = "2147936095"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Swisyn"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {ff d7 8b 1d ac ?? b2 00 50 ff d3 68 bc ?? b3 00 68 a0 ?? b3 00 8b f0 ff d7 50 ff d3 3b f5 8b f8}  //weight: 2, accuracy: Low
+        $x_3_2 = {89 74 24 1c 89 44 24 20 c7 44 24 24 20 ?? b3 00 89 5c 24 28 89 5c 24 2c c7 44 24 30 01 00 00 00 89 4c 24 34 c7 44 24 38 00 01 00 00 89 5c 24 3c 89 5c 24 40 89 5c 24 44 c7 44 24 48 e0 ?? b3 00 66 89 5c 24 50 66 89 5c 24 52 c7 44 24 54 d4 ?? b3 00 89 5c 24 5c c7 44 24 4c 06 00 20 00 ff 15}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

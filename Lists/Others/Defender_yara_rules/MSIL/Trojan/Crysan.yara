@@ -2110,3 +2110,24 @@ rule Trojan_MSIL_Crysan_PHV_2147934982_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_SKDA_2147936087_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.SKDA!MTB"
+        threat_id = "2147936087"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {63 d1 13 13 11 1e 11 09 91 13 27 11 1e 11 09 11 23 11 27 61 11 1b 19 58 61 11 2a 61 d2 9c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

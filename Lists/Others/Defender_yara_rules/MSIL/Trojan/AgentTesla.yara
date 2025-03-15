@@ -106964,3 +106964,27 @@ rule Trojan_MSIL_AgentTesla_NCQ_2147935995_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AgentTesla_SPS_2147936096_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AgentTesla.SPS!MTB"
+        threat_id = "2147936096"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Bbwuxnxchu.SecurePayloadHandler+<FetchFromNetworkAsync" ascii //weight: 1
+        $x_1_2 = "Vxadisq.exe" ascii //weight: 1
+        $x_1_3 = "dynamic_code.bin" ascii //weight: 1
+        $x_1_4 = "fHOf2y0wQZxw7LSBwa.Vc3YA5bRjCBx9GKxnr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

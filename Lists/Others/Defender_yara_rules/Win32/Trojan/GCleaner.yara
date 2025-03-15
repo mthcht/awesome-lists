@@ -346,6 +346,29 @@ rule Trojan_Win32_GCleaner_AGE_2147915411_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_AGE_2147915411_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.AGE!MTB"
+        threat_id = "2147915411"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {83 7d c4 10 8d 45 b0 6a 01 0f 43 45 b0 6a 00 6a 03 ff 73 40 ff 73 3c 6a 50 50 57 ff 15}  //weight: 2, accuracy: High
+        $x_1_2 = {50 8b 03 03 47 28 68 e8 03 00 00 50 ff b5 c4 fe ff ff ff 15 ?? ?? ?? ?? 8b 95 e0 fe ff ff 01 13 89 85 b4 fe ff ff 8b 06 8b c8 2b 0b 81 f9 e8}  //weight: 1, accuracy: Low
+        $x_5_3 = "185.156.73.73" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GCleaner_AZZ_2147915702_0
 {
     meta:
