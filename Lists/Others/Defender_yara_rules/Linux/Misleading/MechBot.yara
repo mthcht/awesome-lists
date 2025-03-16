@@ -27,3 +27,28 @@ rule Misleading_Linux_MechBot_DS_301204_0
         (all of ($x*))
 }
 
+rule Misleading_Linux_MechBot_DT_452517_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Misleading:Linux/MechBot.DT!MTB"
+        threat_id = "452517"
+        type = "Misleading"
+        platform = "Linux: Linux platform"
+        family = "MechBot"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/usr/bin/killall -9 stealth" ascii //weight: 1
+        $x_1_2 = "stealth <ip/hostname>" ascii //weight: 1
+        $x_1_3 = "CN_BOTDIE" ascii //weight: 1
+        $x_1_4 = "(mech_exec) executable has been altered" ascii //weight: 1
+        $x_1_5 = "(mech_exec) unable to stat executable" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

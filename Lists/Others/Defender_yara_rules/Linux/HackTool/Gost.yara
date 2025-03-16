@@ -50,3 +50,29 @@ rule HackTool_Linux_Gost_B_2147928877_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_Gost_C_2147936164_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/Gost.C!MTB"
+        threat_id = "2147936164"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "Gost"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/home/ginuerzh/code/src/ginuerzh/gost/bypass.go" ascii //weight: 1
+        $x_1_2 = "gost.udpTunnelConn.SetWriteDeadline" ascii //weight: 1
+        $x_1_3 = "gost.quicCipherConn.WriteToUDP" ascii //weight: 1
+        $x_1_4 = "main.parseBypass" ascii //weight: 1
+        $x_1_5 = "main.parseIPRoutes" ascii //weight: 1
+        $x_1_6 = "gost/cmd/gost/main.go" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

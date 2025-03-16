@@ -53,3 +53,27 @@ rule HackTool_Linux_Sshscan_C_2147935636_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_Sshscan_D_2147936161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/Sshscan.D!MTB"
+        threat_id = "2147936161"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "Sshscan"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.trySSH.InsecureIgnoreHostKey.func4" ascii //weight: 1
+        $x_1_2 = "main.extractIPsFromHistory" ascii //weight: 1
+        $x_1_3 = "main.trySSH.Password.func3" ascii //weight: 1
+        $x_1_4 = "main.trySSH.Printf.func5" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
