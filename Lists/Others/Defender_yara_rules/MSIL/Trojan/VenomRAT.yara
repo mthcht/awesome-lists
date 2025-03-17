@@ -155,3 +155,25 @@ rule Trojan_MSIL_VenomRAT_SON_2147934103_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VenomRAT_SIS_2147936214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VenomRAT.SIS!MTB"
+        threat_id = "2147936214"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VenomRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Venom RAT + HVNC + Stealer + Grabber.exe.licenses" ascii //weight: 2
+        $x_2_2 = "VenomRATMutex_VenomRAT" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

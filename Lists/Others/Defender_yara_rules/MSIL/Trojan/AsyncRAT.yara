@@ -4658,6 +4658,27 @@ rule Trojan_MSIL_AsyncRAT_ARAZ_2147912548_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0d 16 13 04 2b 33 7e ?? ?? ?? 04 11 04 6f ?? ?? ?? 0a 09 33 1e 06 7e ?? ?? ?? 04 11 04 6f ?? ?? ?? 0a 13 05 12 05 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 0a 2b 14 11 04 17 58 13 04 11 04 7e ?? ?? ?? 04 6f ?? ?? ?? 0a 32 bf 08 17 58 0c 08 07 6f}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_ARAZ_2147912548_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.ARAZ!MTB"
+        threat_id = "2147912548"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:

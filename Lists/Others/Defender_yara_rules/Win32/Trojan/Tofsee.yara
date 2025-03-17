@@ -1461,6 +1461,28 @@ rule Trojan_Win32_Tofsee_ARAZ_2147933689_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_ARAZ_2147933689_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.ARAZ!MTB"
+        threat_id = "2147933689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {6a 00 81 04 24 61 70 70 63 68 40 95 41 00 59 8f 41 01 51 ff 15 50 60 40 00}  //weight: 2, accuracy: High
+        $x_2_2 = "stvparjuytnbelj" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Tofsee_BAA_2147934265_0
 {
     meta:

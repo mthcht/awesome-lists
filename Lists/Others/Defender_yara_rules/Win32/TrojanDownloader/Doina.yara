@@ -96,3 +96,24 @@ rule TrojanDownloader_Win32_Doina_ARA_2147912985_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Doina_ARAZ_2147936193_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Doina.ARAZ!MTB"
+        threat_id = "2147936193"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 d0 8a 92 08 30 40 00 32 91 1b 30 40 00 fe c0 88 54 0d b0 41 3c 13 76 02 32 c0 4e 75 e1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

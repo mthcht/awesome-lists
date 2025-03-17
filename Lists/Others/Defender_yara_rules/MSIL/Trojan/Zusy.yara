@@ -3096,3 +3096,28 @@ rule Trojan_MSIL_Zusy_A_2147935981_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SPS_2147936203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SPS!MTB"
+        threat_id = "2147936203"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BobuxManRemastered.exe" ascii //weight: 1
+        $x_1_2 = "right clicking the red box won't save you" ascii //weight: 1
+        $x_1_3 = "RESET PURRSONAL COED" ascii //weight: 1
+        $x_1_4 = "Your money:" ascii //weight: 1
+        $x_1_5 = "U HAV BEAN HAKED" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
