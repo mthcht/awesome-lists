@@ -1,4 +1,5 @@
 url,dest_host,metadata_dest_ip,metadata_dest_port,metadata_uri_path,metadata_type,metadata_comment,metadata_link
+https://dns.cloudflare.com/dns-query*,dns.cloudflare.com,104.16.133.229,443,/dns-query,DOH,N/A,https://gist.github.com/0xHossam/9e4966ed4d9fca0d56f699f366cd6e23
 https://doh-2.seby.io/dns-query*,doh-2.seby.io,45.76.113.31,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
 https://doh.seby.io/dns-query*,doh.seby.io,139.99.222.72,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
 https://ibuki.cgnat.net/dns-query*,ibuki.cgnat.net,144.22.247.219,443,/dns-query,DOH,N/A,https://github.com/curl/curl/wiki/DNS-over-HTTPS
