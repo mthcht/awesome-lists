@@ -532,3 +532,31 @@ rule TrojanSpy_MSIL_Stealer_PTQ_2147928684_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Stealer_SV_2147936259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Stealer.SV!MTB"
+        threat_id = "2147936259"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$WRITE_URL" ascii //weight: 2
+        $x_2_2 = "bihjfosihuwgighuzhdc.tawor33971.workers.dev" ascii //weight: 2
+        $x_2_3 = "$screenshot_path = \"$env:USERPROFILE\\AppData\\Local\\Temp\\screenshot.png" ascii //weight: 2
+        $x_1_4 = "ratnew.ps1" ascii //weight: 1
+        $x_1_5 = "ghhhh.ps1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

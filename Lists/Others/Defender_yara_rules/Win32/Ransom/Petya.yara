@@ -245,3 +245,25 @@ rule Ransom_Win32_Petya_C_2147723924_0
         )
 }
 
+rule Ransom_Win32_Petya_PGP_2147936336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Petya.PGP!MTB"
+        threat_id = "2147936336"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Petya"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "petya37h5tbhyvki.onion/" ascii //weight: 1
+        $x_4_2 = "petya5koahtsf7sv.onion/" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

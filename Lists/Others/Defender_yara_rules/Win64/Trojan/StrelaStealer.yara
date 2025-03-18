@@ -1302,3 +1302,32 @@ rule Trojan_Win64_StrelaStealer_A_2147935982_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StrelaStealer_GVA_2147936310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StrelaStealer.GVA!MTB"
+        threat_id = "2147936310"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StrelaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "IMAP Server" ascii //weight: 1
+        $x_1_2 = "IMAP User" ascii //weight: 1
+        $x_1_3 = "/up.php" ascii //weight: 1
+        $x_1_4 = "\\logins.json" ascii //weight: 1
+        $x_1_5 = "IMAP Password" ascii //weight: 1
+        $x_1_6 = "\\key4.db" ascii //weight: 1
+        $x_1_7 = "cheollima" ascii //weight: 1
+        $x_1_8 = "\\Thunderbird\\Profiles\\" ascii //weight: 1
+        $x_3_9 = {39 34 2e 31 35 39 2e 31 31 33 2e [0-3] 00}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

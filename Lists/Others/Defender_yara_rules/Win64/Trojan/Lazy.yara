@@ -2367,3 +2367,46 @@ rule Trojan_Win64_Lazy_PIN_2147935942_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_A_2147936261_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.A!MTB"
+        threat_id = "2147936261"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 81 f3 77 9e b4 57 48 01 d8 03 f7 48 81 ec 28 00 00 00 89 b5 94 fa ff ff 29 b5 54 f9 ff ff 33 fe 81 c7 13 c3 00 00 66 81 ef 35 eb 89 b5 b8 f9 ff ff 81 c6 38 9c 00 00 c7 85 1c fa ff ff 5f 07 00 00 81 ee 95 12 00 00 81 ef f4 24 00 00 81 f7 99 c8 00 00 e9 4e e6 ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_GVA_2147936311_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GVA!MTB"
+        threat_id = "2147936311"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b 45 e0 c7 05 ?? ?? ?? ?? 88 15 00 00 48 8b 4d f8 8a 14 01 4c 8b 45 e8 41 88 14 00 48 05 01 00 00 00 4c 8b 4d f0 4c 39 c8 48 89 45 e0}  //weight: 1, accuracy: Low
+        $x_1_2 = "RerueelfhnrsrWrl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

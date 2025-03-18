@@ -3796,3 +3796,24 @@ rule Trojan_MSIL_ClipBanker_AENA_2147935203_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_EAAJ_2147935420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.EAAJ!MTB"
+        threat_id = "2147935420"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {02 02 6f 1b 00 00 0a 07 59 6f 1c 00 00 0a 03 03 6f 1b 00 00 0a 07 59 6f 1c 00 00 0a fe 01 16 fe 01 0c 08 2c 03 00 2b 24 06 17 58 0a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

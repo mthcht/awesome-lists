@@ -1111,3 +1111,24 @@ rule Trojan_Win32_Stealer_SOY_2147935950_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_DAC_2147936285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.DAC!MTB"
+        threat_id = "2147936285"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0f 9c c1 20 e2 20 c1 08 ca 88 e1 30 c4 20 c1 08 cc b9 ?? ?? ?? ?? 88 e0}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

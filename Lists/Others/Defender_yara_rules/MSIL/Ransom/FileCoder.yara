@@ -1526,3 +1526,26 @@ rule Ransom_MSIL_FileCoder_AYP_2147935292_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_SO_2147936300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.SO!MTB"
+        threat_id = "2147936300"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Desktop\\YOU-BETTER-README.txt" ascii //weight: 2
+        $x_2_2 = "Haha - All your files have been encrypted!!" ascii //weight: 2
+        $x_2_3 = "NewEncryptApp.Properties.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

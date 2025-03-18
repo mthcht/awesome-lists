@@ -3050,3 +3050,68 @@ rule Trojan_Win32_LummaC_CCIR_2147936010_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_SOSX_2147936306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.SOSX!MTB"
+        threat_id = "2147936306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 44 24 0c b9 ?? ?? ?? ?? 89 44 24 28 8b 44 24 28 3d ?? ?? ?? ?? b8 ?? ?? ?? ?? 0f 4c c1 3d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_GTB_2147936332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.GTB!MTB"
+        threat_id = "2147936332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {20 69 6e 20 44 4f 53 20 6d 6f 64 65 2e 24 00 00 50 ?? 00 00 4c 01 07 00 32 34 d0 67 00 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_NL_2147936334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.NL!MTB"
+        threat_id = "2147936334"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {75 34 ca 34 19 35 46 35 4e 35 54 35 6a 35 75 35 7d 35 98 35 a3 35 db 35 e1 35 0d 36 28 36 62 36 6b 36 71 36 b0 36 b4 36 c4 36 c8 36 d8 36 dc 36 e0 36 e8 36 00 37 04 37 1c 37 2c 37 30 37 52 37 98 37 9e 37 d1}  //weight: 2, accuracy: High
+        $x_1_2 = "cerebrotonia.aspx" ascii //weight: 1
+        $x_1_3 = "bray.xls" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

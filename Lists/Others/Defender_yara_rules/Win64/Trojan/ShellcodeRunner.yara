@@ -859,3 +859,68 @@ rule Trojan_Win64_ShellcodeRunner_ZIN_2147935851_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_A_2147936267_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.A!MTB"
+        threat_id = "2147936267"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 2d b7 0d 00 00 48 8d be 00 f0 ff ff bb 00 10 00 00 50 49 89 e1 41 b8 04 00 00 00 48 89 da 48 89 f9 48 83 ec 20 ff d5 48 8d 87 af 01 00 00 80 20 7f 80 60 28 7f 4c 8d 4c 24 20 4d 8b 01 48 89 da 48 89 f9 ff d5}  //weight: 2, accuracy: High
+        $x_2_2 = {53 56 57 55 48 8d 35 aa ef c0 ff 48 8d be db 0f f1 ff 48 8d 87 9c 41 4d 00 ff 30 c7 00 5c 24 97 9c 50 57 31 db 31 c9 48 83 cd ff e8 50 00 00 00 01 db 74 02}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_B_2147936273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.B!MTB"
+        threat_id = "2147936273"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 55 fc 48 8b 45 f0 41 b8 23 00 00 00 48 89 c1 e8 ?? ?? ff ff 48 89 45 e8 e8 ?? ?? 00 00 48 98 48 89 45 e0 48 8b 45 e0 48 89 c2 48 83 ea 01 48 89 55 d8 48 83 c0 0f 48 c1 e8 04 48 c1 e0 04 e8}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_NR_2147936333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.NR!MTB"
+        threat_id = "2147936333"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {84 00 c6 80 b0 22 00 00 00 83 3d 0d c3 1c 00 00 0f 85 fc 02 00 00 83 b8 70 22 00 00 00 74 14 48 89 44 24 30 e8 74 cf ff ff}  //weight: 3, accuracy: High
+        $x_2_2 = {48 8b 4c 24 20 48 8b 51 30 48 8b 9a a0 00 00 00 48 8d 05 b1 ff 21 00 e8 ec 24 fe ff 48 85 c0 0f 95 c1 0f b6 54 24 15 09 d1 88 4c 24 17}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

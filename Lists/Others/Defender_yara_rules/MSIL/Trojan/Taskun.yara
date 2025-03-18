@@ -3775,6 +3775,28 @@ rule Trojan_MSIL_Taskun_SO_2147919615_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_SO_2147919615_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.SO!MTB"
+        threat_id = "2147919615"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 08 91 07 28 2c 00 00 06 0d 09 2c 0f 00 06 08 8f 6f 00 00 01 28 2d 00 00 06 00 00 04 06 08 91 6f bf 00 00 0a 00 00 08 17 58 0c 08 03 fe 04 13 04 11 04 2d ca}  //weight: 2, accuracy: High
+        $x_2_2 = "WindowBlindsClient.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Taskun_UUAA_2147919834_0
 {
     meta:
@@ -4667,6 +4689,28 @@ rule Trojan_MSIL_Taskun_SMEA_2147936213_0
     strings:
         $x_3_1 = {25 16 0f 00 28 ?? 00 00 0a 9c 25 17 0f 00 28 ?? 00 00 0a 9c 25 18 0f 00 28 ?? 00 00 0a 9c 6f ?? 00 00 0a 11 04}  //weight: 3, accuracy: Low
         $x_1_2 = {08 11 05 58 1f 64 5d 13 06 08 11 05 5a 1f 64 5d 13 07 08 11 05 61 1f 64 5d 13 08 02 08 11 05 6f ?? 00 00 0a 13 09}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Taskun_EAHC_2147936241_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.EAHC!MTB"
+        threat_id = "2147936241"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {06 07 07 0f 00 28 77 00 00 0a 5a 1f 64 5d 9e 07 17 58 0b 07 06 8e 69 32 e7}  //weight: 5, accuracy: High
+        $x_5_2 = {1f 41 08 58 d1 0d 12 03 28 7d 00 00 0a 72 0b 02 00 70 07 08 8f 56 00 00 01 28 7e 00 00 0a 28 7f 00 00 0a 13 04 04 07 08 91 6f 80 00 00 0a 08 17 58 0c 08 03 32 ca}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

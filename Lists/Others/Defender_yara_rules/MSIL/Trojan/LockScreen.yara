@@ -258,3 +258,33 @@ rule Trojan_MSIL_LockScreen_NL_2147927400_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LockScreen_EA_2147936280_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LockScreen.EA!MTB"
+        threat_id = "2147936280"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Ransomware" ascii //weight: 1
+        $x_1_2 = "Winlocker" ascii //weight: 1
+        $x_1_3 = "All Your Files are Encrypted" ascii //weight: 1
+        $x_1_4 = "Ransomware.pdb" ascii //weight: 1
+        $x_1_5 = "ALL YOUR DATA HAVE BEEN DELETED BY NOTHINGSOUL" ascii //weight: 1
+        $x_1_6 = "cmd.exe" ascii //weight: 1
+        $x_1_7 = "/c taskkill /f /im explorer.exe & taskkill /f /im taskmgr.exe" ascii //weight: 1
+        $x_1_8 = "/c shutdown /r /t 0" ascii //weight: 1
+        $x_1_9 = "DisableTaskMgr" ascii //weight: 1
+        $x_1_10 = "DECRYPT FILES" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

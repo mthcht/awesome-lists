@@ -280,3 +280,90 @@ rule Trojan_Win32_BadJoke_EAQL_2147935749_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BadJoke_EAPX_2147936236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EAPX!MTB"
+        threat_id = "2147936236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {88 8c 1d 78 56 fc ff 43 81 fb ?? ?? ?? ?? ?? ?? 8d 85 78 56 fc ff c7 85 44 56 fc ff 80 a9 03 00 89 85 40 56 fc ff 8d 85 40 56 fc ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_BadJoke_EAMG_2147936238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EAMG!MTB"
+        threat_id = "2147936238"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {22 c2 88 84 0d 78 56 fc ff 41 81 f9 80 a9 03 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_BadJoke_EALQ_2147936242_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EALQ!MTB"
+        threat_id = "2147936242"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {88 9c 35 78 56 fc ff 46 81 fe 80 a9 03 00 ?? ?? 8d 85 78 56 fc ff c7 85 44 56 fc ff 80 a9 03 00 89 85 40 56 fc ff 8d 85 40 56 fc ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_BadJoke_SPLS_2147936308_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.SPLS!MTB"
+        threat_id = "2147936308"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "x = msgbox(\"your pc is hacked!\", 0+48, \"ach\")" ascii //weight: 2
+        $x_1_2 = "start https://yandex.ru/search/?text=you+are+hacked+by+ach+vzlom&clid=2411726&lr=43" ascii //weight: 1
+        $x_1_3 = "x = msgbox(\"threat named trojan:win32:windows founded! you need delete windows!\", 0+48, \"windows defender\")" ascii //weight: 1
+        $x_1_4 = "SELECT * FROM Win32_OperatingSystem" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

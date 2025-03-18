@@ -4923,3 +4923,25 @@ rule Trojan_MSIL_DarkTortilla_ARAZ_2147933690_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_SK_2147936255_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.SK!MTB"
+        threat_id = "2147936255"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 06 14 6f 44 01 00 0a 00 00 11 06 6f 9e 02 00 0a 11 05 fe 04 13 0a 11 0a 2d e5}  //weight: 2, accuracy: High
+        $x_2_2 = "Hacrajiq.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

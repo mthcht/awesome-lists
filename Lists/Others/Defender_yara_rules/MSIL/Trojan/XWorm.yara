@@ -1604,3 +1604,27 @@ rule Trojan_MSIL_XWorm_AUNA_2147935837_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BSA_2147936339_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BSA!MTB"
+        threat_id = "2147936339"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "ZWM2MzJmZDktMTY5NC00ZjRhLTliZmYtZjIwNjAwZTM3OTgx" ascii //weight: 10
+        $x_10_2 = "185.7.214.108/a.exe" ascii //weight: 10
+        $x_10_3 = "LoadOP" ascii //weight: 10
+        $x_6_4 = "aHR0cDovLzE4NS43LjIxNC4xMDgvYS5leGU" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

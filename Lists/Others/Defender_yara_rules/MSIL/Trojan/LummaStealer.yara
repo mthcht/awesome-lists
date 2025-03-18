@@ -2826,3 +2826,26 @@ rule Trojan_MSIL_LummaStealer_DL_2147935493_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_LummaStealer_SP_2147936257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.SP!MTB"
+        threat_id = "2147936257"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 05 11 07 1f 28 5a 58 13 08 28 1e 00 00 0a 07 11 08 1e 6f 1f 00 00 0a 17 8d 1f 00 00 01 6f 20 00 00 0a}  //weight: 2, accuracy: High
+        $x_2_2 = "Charter.exe" ascii //weight: 2
+        $x_2_3 = "$ac049bfa-2dd8-4f1a-9314-11e3fed61454" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

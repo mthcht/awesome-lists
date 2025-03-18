@@ -545,3 +545,49 @@ rule Trojan_MSIL_Dnoper_AYA_2147935288_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dnoper_SYVO_2147936303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dnoper.SYVO!MTB"
+        threat_id = "2147936303"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dnoper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {73 02 00 00 0a 13 04 73 ?? 00 00 0a 13 05 11 05 11 04 08 09 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 06 11 06 06 16 06 8e 69 6f ?? 00 00 0a 11 05 6f ?? 00 00 0a 13 07 de 3f}  //weight: 2, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Dnoper_PGD_2147936337_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dnoper.PGD!MTB"
+        threat_id = "2147936337"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dnoper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "103.179.184.156/STC/config.json" ascii //weight: 1
+        $x_2_2 = "Microsoft\\Windows\\Start Menu\\Programs\\Startup" ascii //weight: 2
+        $x_2_3 = "PDF downloaded and saved to:" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

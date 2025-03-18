@@ -618,6 +618,32 @@ rule Trojan_Win32_GuLoader_AD_2147805942_2
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_AD_2147805942_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.AD!MTB"
+        threat_id = "2147805942"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "fllesbrn.txt" ascii //weight: 2
+        $x_2_2 = "Yderredens102.Kan" ascii //weight: 2
+        $x_2_3 = "blinkenberg.txt" ascii //weight: 2
+        $x_2_4 = "civilisable\\Enterococci143" ascii //weight: 2
+        $x_2_5 = "mesalliancers\\Seksaaringen" ascii //weight: 2
+        $x_2_6 = "chego\\reverensens" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_QW_2147807411_0
 {
     meta:

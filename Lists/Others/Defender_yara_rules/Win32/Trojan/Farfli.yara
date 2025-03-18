@@ -638,6 +638,27 @@ rule Trojan_Win32_Farfli_AB_2147796537_1
         threshold = "2"
         strings_accuracy = "High"
     strings:
+        $x_2_1 = {bb e9 7e f3 64 48 09 57 56 53 ff d0 08 0c e8 15 ff 00 bb db fb 5c 82 b0 4e 0f 24 0a 4c 33 89 45 af b9 dd}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Farfli_AB_2147796537_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.AB!MTB"
+        threat_id = "2147796537"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = {f3 0f 6f 84 05 3c 98 f0 ff 66 0f ef c1 f3 0f 7f 84 05 3c 98 f0 ff 83 c0 10 3d c0 67 0f 00 75 e0}  //weight: 1, accuracy: High
         $x_1_2 = "File created successfully." ascii //weight: 1
     condition:
@@ -1397,6 +1418,27 @@ rule Trojan_Win32_Farfli_CBF_2147810302_0
         $x_1_3 = "c:\\Windows\\BJ.exe" ascii //weight: 1
         $x_1_4 = "URLDownloadToFileA" ascii //weight: 1
         $x_1_5 = "GetTickCount" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Farfli_B_2147811679_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.B!MTB"
+        threat_id = "2147811679"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {9c 60 e8 00 00 00 00 5d b8 07 00 00 00 2b e8 8d b5 19 fe ff ff 8b 06 83 f8 00 74 11 8d b5 41 fe ff ff 8b 06 83 f8 01 0f 84 4b 02 00 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

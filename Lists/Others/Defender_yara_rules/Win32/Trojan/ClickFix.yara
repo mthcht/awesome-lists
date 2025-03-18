@@ -1184,3 +1184,64 @@ rule Trojan_Win32_ClickFix_ZB_2147936038_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DS_2147936340_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DS!MTB"
+        threat_id = "2147936340"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "37"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "powershell" wide //weight: 5
+        $x_20_2 = "+'://'+" wide //weight: 20
+        $x_5_3 = "[System.Text.Encoding]::UTF8.GetString($" wide //weight: 5
+        $x_5_4 = ".Content)" wide //weight: 5
+        $x_1_5 = "irm" wide //weight: 1
+        $x_1_6 = "invoke-remotemethod" wide //weight: 1
+        $x_1_7 = "iwr" wide //weight: 1
+        $x_1_8 = "invoke-webrequest" wide //weight: 1
+        $x_1_9 = "iex" wide //weight: 1
+        $x_1_10 = "invoke-expresssion" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 3 of ($x_5_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DU_2147936341_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DU!MTB"
+        threat_id = "2147936341"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "57"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "-split($" wide //weight: 1
+        $x_1_3 = "-replace" wide //weight: 1
+        $x_50_4 = "0x$&" wide //weight: 50
+        $x_1_5 = "-join" wide //weight: 1
+        $x_1_6 = "byte[]]::new(" wide //weight: 1
+        $x_1_7 = ".TransformFinalBlock($" wide //weight: 1
+        $x_1_8 = ".Substring(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

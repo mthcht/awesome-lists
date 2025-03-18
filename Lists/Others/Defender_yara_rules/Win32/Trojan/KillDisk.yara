@@ -146,3 +146,24 @@ rule Trojan_Win32_KillDisk_ARA_2147925942_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillDisk_EAEB_2147936234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillDisk.EAEB!MTB"
+        threat_id = "2147936234"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillDisk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b ca c1 e9 10 d3 ea 8b 8d dc ac f8 ff 8b c1 c1 e8 06}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

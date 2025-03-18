@@ -513,6 +513,28 @@ rule Trojan_Win64_Rozena_NR_2147890496_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {75 24 48 8b 05 c9 e6 10 00 48 83 f8 00 74 06 48 83 38 00 75 11 48 8d 05 8e 4d 00 00 ff d0}  //weight: 2, accuracy: High
+        $x_1_2 = {e8 7d ff ff ff 48 8b 0d e6 3c 15 00 65 48 8b 09 48 8b 7c 24 08 48 8b 77 08 48 2b 34 24 48 89 39 48 89 f4 89 44 24 20}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_NR_2147890496_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.NR!MTB"
+        threat_id = "2147890496"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -523,7 +545,7 @@ rule Trojan_Win64_Rozena_NR_2147890496_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rozena_NR_2147890496_2
+rule Trojan_Win64_Rozena_NR_2147890496_3
 {
     meta:
         author = "defender2yara"
@@ -545,7 +567,7 @@ rule Trojan_Win64_Rozena_NR_2147890496_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rozena_NR_2147890496_3
+rule Trojan_Win64_Rozena_NR_2147890496_4
 {
     meta:
         author = "defender2yara"
@@ -567,7 +589,7 @@ rule Trojan_Win64_Rozena_NR_2147890496_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rozena_NR_2147890496_4
+rule Trojan_Win64_Rozena_NR_2147890496_5
 {
     meta:
         author = "defender2yara"
@@ -589,7 +611,7 @@ rule Trojan_Win64_Rozena_NR_2147890496_4
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rozena_NR_2147890496_5
+rule Trojan_Win64_Rozena_NR_2147890496_6
 {
     meta:
         author = "defender2yara"
@@ -612,7 +634,7 @@ rule Trojan_Win64_Rozena_NR_2147890496_5
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rozena_NR_2147890496_6
+rule Trojan_Win64_Rozena_NR_2147890496_7
 {
     meta:
         author = "defender2yara"
@@ -634,7 +656,7 @@ rule Trojan_Win64_Rozena_NR_2147890496_6
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rozena_NR_2147890496_7
+rule Trojan_Win64_Rozena_NR_2147890496_8
 {
     meta:
         author = "defender2yara"

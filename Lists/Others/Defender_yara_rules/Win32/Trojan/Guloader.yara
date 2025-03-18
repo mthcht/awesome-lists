@@ -857,6 +857,33 @@ rule Trojan_Win32_Guloader_AC_2147761824_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_AC_2147761824_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.AC!MTB"
+        threat_id = "2147761824"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "stafferet.men" ascii //weight: 2
+        $x_2_2 = "preposing.for" ascii //weight: 2
+        $x_2_3 = "reformismen.jpg" ascii //weight: 2
+        $x_2_4 = "gdningsopbevaringerne.ini" ascii //weight: 2
+        $x_2_5 = "boltrope.van" ascii //weight: 2
+        $x_2_6 = "melodierne\\svejshundene" ascii //weight: 2
+        $x_2_7 = "Concludent\\dknernes" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_AV_2147773835_0
 {
     meta:
@@ -5268,6 +5295,32 @@ rule Trojan_Win32_Guloader_AB_2147935990_0
         $x_2_4 = "overfyldte\\slavepen" ascii //weight: 2
         $x_2_5 = "udvirkninger\\Philosophership" ascii //weight: 2
         $x_2_6 = "polysomatic.txt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_AE_2147936272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.AE!MTB"
+        threat_id = "2147936272"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "seguendo.ini" ascii //weight: 2
+        $x_2_2 = "polemicising.ini" ascii //weight: 2
+        $x_2_3 = "Crablike.for" ascii //weight: 2
+        $x_2_4 = "sabbatsaftens.jpg" ascii //weight: 2
+        $x_2_5 = "Teaboxes\\heptaploidy" ascii //weight: 2
+        $x_2_6 = "meganthropus\\arietta" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

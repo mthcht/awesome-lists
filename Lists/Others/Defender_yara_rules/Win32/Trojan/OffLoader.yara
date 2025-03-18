@@ -3424,3 +3424,26 @@ rule Trojan_Win32_OffLoader_AEOA_2147936191_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_SAA_2147936287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SAA!MTB"
+        threat_id = "2147936287"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "//frontthroat.xyz/jeto.php" ascii //weight: 2
+        $x_1_2 = "/silent" ascii //weight: 1
+        $x_1_3 = "/weaksecurity" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

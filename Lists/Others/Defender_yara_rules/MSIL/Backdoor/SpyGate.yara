@@ -65,3 +65,25 @@ rule Backdoor_MSIL_SpyGate_KA_2147852433_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_SpyGate_SK_2147936258_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/SpyGate.SK!MTB"
+        threat_id = "2147936258"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyGate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {03 6f 27 00 00 0a 25 26 26 08 17 58 0c 08 1a 32 ef}  //weight: 2, accuracy: High
+        $x_2_2 = "58e103f0.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

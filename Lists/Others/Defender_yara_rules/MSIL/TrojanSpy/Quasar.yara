@@ -115,3 +115,25 @@ rule TrojanSpy_MSIL_Quasar_SO_2147927664_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Quasar_SO_2147927664_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Quasar.SO!MTB"
+        threat_id = "2147927664"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {07 6f 27 00 00 0a 18 63 d4 8d 17 00 00 01 13 04 20 00 01 00 00 8d 19 00 00 01 13 05 16 13 07 2b 15}  //weight: 2, accuracy: High
+        $x_2_2 = "server.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

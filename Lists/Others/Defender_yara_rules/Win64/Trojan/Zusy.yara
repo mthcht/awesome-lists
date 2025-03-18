@@ -1543,3 +1543,78 @@ rule Trojan_Win64_Zusy_AZY_2147935359_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_A_2147936264_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.A!MTB"
+        threat_id = "2147936264"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 9c 24 78 01 00 00 48 8b bc 24 50 01 00 00 49 63 e8 40 fe c6 40 c0 ee a0 48 81 c4 58 01 00 00 48 87 ee 66 f7 d5 5e 66 87 ed 5d e9 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {80 7f 01 23 e9 05 00 00 00 0f ca 66 f7 d2 48 8d 57 01 e9 00 00 00 00 0f 85 6c 00 00 00 0f b6 57 02 48 3b f4 48 83 c7 02 84 d2 e9 00 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AB_2147936266_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AB!MTB"
+        threat_id = "2147936266"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 c6 85 29 01 00 00 00 41 c6 85 28 01 00 00 00 48 8d 8c 24 00 13 00 00 e8 91 69 14 00 48 8d 8c 24 00 13 00 00 e8 77 6c 14 00 a8 01 0f 85 80 2d 00 00 48 89 17 4c 8d 05 b5 57 2c 00 48 8d 8c 24 50 06 00 00 6a 21 41 59 e8 ae 1c ff ff}  //weight: 2, accuracy: High
+        $x_1_2 = "country_code" ascii //weight: 1
+        $x_1_3 = "stealer" ascii //weight: 1
+        $x_1_4 = "card_number_encrypted" ascii //weight: 1
+        $x_1_5 = "credit_cards" ascii //weight: 1
+        $x_1_6 = "ejbalbakoplchlghecdalmeeeajnimhm" ascii //weight: 1
+        $x_1_7 = "fhbohimaelbohpjbbldcngcnapndodjp" ascii //weight: 1
+        $x_1_8 = "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_B_2147936275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.B!MTB"
+        threat_id = "2147936275"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "StealerDLL\\x64\\Release\\STEALERDLL.pdb" ascii //weight: 4
+        $x_2_2 = "Monero\\wallets" ascii //weight: 2
+        $x_2_3 = "Mozilla Thunderbird" ascii //weight: 2
+        $x_1_4 = "9375CFF0413111d3B88A00104B2A6676" ascii //weight: 1
+        $x_1_5 = "netsh wlan show profiles" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

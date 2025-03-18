@@ -2008,6 +2008,27 @@ rule Trojan_MSIL_AsyncRAT_AD_2147848132_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {32 e7 06 7e ?? 00 00 04 1f 1f 5f 63 8d ?? 00 00 01 0b 7e ?? 00 00 04 13 04 2b 5f 07 11 04 02 11 04 7e ?? 00 00 04 1f 1f 5f 62 6f ?? 00 00 0a 28}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_AD_2147848132_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.AD!MTB"
+        threat_id = "2147848132"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:
@@ -5786,6 +5807,27 @@ rule Trojan_MSIL_AsyncRAT_SDID_2147935883_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {0a 06 0f 00 28 ?? 00 00 0a 1a 5d 0f 00 28 ?? 00 00 0a 9c 0f 00 28 ?? 00 00 0a 0f 00 28 ?? 00 00 0a 0f 00 28 ?? 00 00 0a 28 ?? 00 00 06 0b 07 28 ?? 00 00 06 0c 2b 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_EAC_2147936231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.EAC!MTB"
+        threat_id = "2147936231"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {00 03 07 91 04 07 91 fe 01 16 fe 01 0c 08 39 02 00 00 00 16 0a 00 07 17 58 0b 07 03 8e 69 fe 04 0d 09 2d dc}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

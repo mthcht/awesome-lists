@@ -1415,3 +1415,24 @@ rule Trojan_MSIL_Injector_SWF_2147935630_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_EARW_2147936230_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.EARW!MTB"
+        threat_id = "2147936230"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {08 09 06 11 04 9a 6f 61 00 00 0a 25 26 a2 11 04 17 58 13 04 09 17 58 0d 11 04 06 8e 69 32 e1}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

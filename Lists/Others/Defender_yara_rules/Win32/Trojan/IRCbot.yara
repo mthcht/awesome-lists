@@ -70,3 +70,25 @@ rule Trojan_Win32_IRCbot_RH_2147775546_1
         (1 of ($x*))
 }
 
+rule Trojan_Win32_IRCbot_AIC_2147936299_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IRCbot.AIC!MTB"
+        threat_id = "2147936299"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IRCbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {b8 4b 51 27 df e8 ?? ?? ?? ?? a3 f4 c5 40 00 b8 f4 15 93 b0 e8 ?? ?? ?? ?? a3 f8 c5 40 00 b8 a5 f1 7c 26 e8 ?? ?? ?? ?? a3 fc c5 40 00 b8 76 b8 f3 c1 e8 ?? ?? ?? ?? a3 00 c6 40 00 b8 c0 d5 8e 02 e8 ?? ?? ?? ?? a3 04 c6 40 00 b8 a8 ed f2 ce e8 ?? ?? ?? ?? a3 e4 c5 40 00 b8 4a 76 87 df e8 ?? ?? ?? ?? a3 08 c6 40 00 b8 50 67 a5 f6 e8 ?? ?? ?? ?? a3 0c c6 40 00 b8 99 dc 99 01 e8 ?? ?? ?? ?? a3 10 c6 40 00 b8 02 97 6b 15 e8 ?? ?? ?? ?? a3 14 c6 40 00 b8 be 72 f3 ff e8 ?? ?? ?? ?? a3 18 c6 40 00 b8 eb 89 dd da e8 ?? ?? ?? ?? a3 1c c6 40 00 b8 1c 1c 60 30 e8 ?? ?? ?? ?? a3 b0 c6 40 00 b8 45 bb 58 e0 e8}  //weight: 2, accuracy: Low
+        $x_1_2 = {50 6a 00 e8 ?? ?? ?? ?? 85 c0 0f 94 c3 31 c0 5a 59 59 64 89 10}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

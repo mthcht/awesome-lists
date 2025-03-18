@@ -242,6 +242,27 @@ rule Trojan_MSIL_Zemsil_SA_2147911838_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zemsil_SB_2147912612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zemsil.SB!MTB"
+        threat_id = "2147912612"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zemsil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {1b 2c 16 07 72 1b 45 00 70 73 a5 01 00 0a 6f 60 08 00 0a 6f 53 01 00 0a 0c 73 73 04 00 0a 0d}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zemsil_ARA_2147913013_0
 {
     meta:

@@ -329,6 +329,27 @@ rule Trojan_Win32_Fragtor_B_2147890441_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_B_2147890441_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.B!MTB"
+        threat_id = "2147890441"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 45 f8 8b c7 33 c9 ba 10 00 00 00 e8 ?? ?? ?? ?? 89 5f 0c 33 c0 89 47 04 c6 47 08 7f c6 47 09 01 33 c0 89 07 bb 30 00 00 00 8d ?? ?? 50 57 6a 00 e8 ?? ?? ?? ?? 8b f0 81 07 40 77 1b 00 4b}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_ARA_2147893463_0
 {
     meta:
@@ -2334,6 +2355,28 @@ rule Trojan_Win32_Fragtor_CCJU_2147935181_0
         $x_2_2 = "C:\\ProgramData\\Microsoft\\EdgeUpdate\\Log\\chuangkou.log" ascii //weight: 2
         $x_1_3 = "\\shellcode\\" ascii //weight: 1
         $x_1_4 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_C_2147936278_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.C!MTB"
+        threat_id = "2147936278"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b c1 c1 e0 0d 33 c8 8b c1 c1 e0 11 33 c8 8b c1 c1 e0 05 33 c8}  //weight: 1, accuracy: High
+        $x_1_2 = "Coran2.pdb" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

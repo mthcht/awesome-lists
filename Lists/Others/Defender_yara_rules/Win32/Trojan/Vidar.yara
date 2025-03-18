@@ -3835,6 +3835,32 @@ rule Trojan_Win32_Vidar_C_2147891490_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_C_2147891490_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.C!MTB"
+        threat_id = "2147891490"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 19 30 c3 0f b6 f3 c1 e8 08 33 04 b5 74 e6 41 00 0f b6 59 01 30 c3 0f b6 f3 c1 e8 08 33 04 b5 74 e6 41 00 0f b6 59 02 30 c3 0f b6 f3 c1 e8 08 33 04 b5 74 e6 41 00 0f b6 59 03 30 c3 0f b6 f3 c1 e8 08 33 04 b5 74 e6 41 00}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 4c 24 04 68 d4 f7 41 00 e8 e8 85 00 00 8d 73 6c 8d 7b 04 8d 4b 30 e8 5a 86 00 00 8d 4b 1c e8 52 86 00 00 8d 4b 10 e8 4a 86 00 00 89 f9 e8 43 86 00 00 89 f1 e8 3c 86 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "\"id\":1,\"method\":\"Storage.getCookies\"" ascii //weight: 1
+        $x_1_4 = "SOFTWARE\\monero-project\\monero-core" ascii //weight: 1
+        $x_1_5 = "wallet_path" ascii //weight: 1
+        $x_1_6 = "Software\\Martin Prikryl\\WinSCP 2\\Sessions" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Vidar_CCBQ_2147891860_0
 {
     meta:

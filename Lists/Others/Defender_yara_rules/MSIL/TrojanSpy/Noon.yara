@@ -662,3 +662,69 @@ rule TrojanSpy_MSIL_Noon_SMK_2147934254_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Noon_SJK_2147936253_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SJK!MTB"
+        threat_id = "2147936253"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 06 91 04 28 16 00 00 06 06 17 58 0a 06 03 32 ef}  //weight: 2, accuracy: High
+        $x_2_2 = "TemperatureConverter.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_MSIL_Noon_SKK_2147936254_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SKK!MTB"
+        threat_id = "2147936254"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 08 91 07 28 24 00 00 06 2c 0c 06 08 8f 44 00 00 01 28 25 00 00 06 04 06 08 91 6f 38 00 00 0a 08 17 58 0c 08 03 32 d8}  //weight: 2, accuracy: High
+        $x_2_2 = "Gma.UserActivityMonitorDemo.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_MSIL_Noon_SLK_2147936256_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SLK!MTB"
+        threat_id = "2147936256"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 08 6f 4b 00 00 0a 26 04 07 08 91 6f 4c 00 00 0a 08 17 58 0c 08 03 32 e7}  //weight: 2, accuracy: High
+        $x_2_2 = "Sakk Alkalmaz" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

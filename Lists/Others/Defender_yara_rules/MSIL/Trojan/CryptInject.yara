@@ -3310,3 +3310,24 @@ rule Trojan_MSIL_CryptInject_BSA_2147935496_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CryptInject_DAA_2147936284_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CryptInject.DAA!MTB"
+        threat_id = "2147936284"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {08 09 02 09 6f 2a 00 00 0a 03 09 07 5d 6f 2a 00 00 0a 61 d1 9d 09 17 58 0d 09 06 32 e3}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
