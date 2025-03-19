@@ -28,11 +28,37 @@ jobs:
       - name: List generated files
         run: ls -lah Lists/VPN/
 
-      - name: Commit and Push All Generated Files
+      - name: Ensure "big files" Release Exists
+        id: ensure_release
+        run: |
+          if ! gh release view "big-files" --json id --jq '.id' > /dev/null 2>&1; then
+            echo "No existing release found, creating one..."
+            gh release create "big-files" --title "big files" --notes "Release for large files" --repo ${{ github.repository }}
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload VPN_ALL_IP_List.csv to "big files" Release & Create Link File
+        run: |
+          RELEASE_URL="https://github.com/${{ github.repository }}/releases/tag/big-files"
+          FILE_PATH="Lists/VPN/VPN_ALL_IP_List.csv"
+          
+          if [ -f "$FILE_PATH" ]; then
+            echo "Uploading $FILE_PATH..."
+            gh release upload "big-files" "$FILE_PATH" --clobber
+            echo $RELEASE_URL > "$FILE_PATH.link"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Remove Large File Locally (Avoid Pushing It)
+        run: rm -f Lists/VPN/VPN_ALL_IP_List.csv
+
+      - name: Commit and Push Small Files & Release Links
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git pull
           git add Lists/VPN/
-          git commit -m "Update VPN IP List" --allow-empty
+          git commit -m "Update VPN IP List & release link" --allow-empty
           git push
