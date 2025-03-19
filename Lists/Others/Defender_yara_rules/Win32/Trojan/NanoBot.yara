@@ -26,6 +26,30 @@ rule Trojan_Win32_NanoBot_VB_2147751602_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_NanoBot_SMW_2147773620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/NanoBot.SMW!MTB"
+        threat_id = "2147773620"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "NanoBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8d 94 0d 00 fe ff ff 0f b6 34 10 0f b6 12 33 db 3b f2 74 0e 43 8b fe 33 fb 3b fa 75 f7 bf ff 01 00 00 89 9c 8d 04 f6 ff ff 41 3b cf}  //weight: 2, accuracy: High
+        $x_1_2 = "oYvesRKGsy.exe" ascii //weight: 1
+        $x_1_3 = "MnRpexjxup.vbs" ascii //weight: 1
+        $x_1_4 = "XbLABtoKOd.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_NanoBot_MA_2147812287_0
 {
     meta:

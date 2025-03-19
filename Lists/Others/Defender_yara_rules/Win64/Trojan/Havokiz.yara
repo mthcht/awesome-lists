@@ -132,3 +132,23 @@ rule Trojan_Win64_Havokiz_AK_2147936033_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havokiz_SB_2147936450_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havokiz.SB"
+        threat_id = "2147936450"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havokiz"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {10 48 89 d9 48 8b 59 10 ff 61 08 0f 1f 40 00 49 89 cb c3 49 89 ca 41 8b 43 08 41 ff 23 c3 90 48 c1 e1 04 31 c0 81 e1 f0 0f 00 00 49 01 c8 4c 8d 0c 02 4e 8d 14 00 31 c9 45 8a 1c 0a 48}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

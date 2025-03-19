@@ -4740,3 +4740,25 @@ rule Trojan_MSIL_Taskun_AJKA_2147936386_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_APOA_2147936469_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.APOA!MTB"
+        threat_id = "2147936469"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {08 1b 5a 11 07 19 5a 58 20 f4 01 00 00 5d 20 c8 00 00 00 58 13 08 11 07 1f 1e 5d 1f 0a 58 13 09 08 1f 28 5d 1b 58 13 0a 02 08 11 07 6f ?? 00 00 0a 13 0b 04 03 6f ?? 00 00 0a 59 13 0c 11 0b 11 0c 03 28 ?? 00 00 06 11 07 17 58 13 07 11 07 02 6f ?? 00 00 0a 2f 09 03 6f ?? 00 00 0a 04 32 a0}  //weight: 3, accuracy: Low
+        $x_2_2 = {01 25 16 0f 00 28 ?? 00 00 0a 9c 25 17 0f 00 28 ?? 00 00 0a 9c 25 18 0f 00 28 ?? 00 00 0a 9c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
