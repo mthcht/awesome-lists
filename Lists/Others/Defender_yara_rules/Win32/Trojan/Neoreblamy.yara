@@ -4053,6 +4053,28 @@ rule Trojan_Win32_Neoreblamy_NMK_2147936247_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 4d fc ff eb 04 83 4d fc ff 6a 04 58 6b c0 00}  //weight: 1, accuracy: High
+        $x_2_2 = {ff 99 f7 bd ?? ?? ff ff 8b c2 99 f7 bd ?? ?? ff ff 8b c2 99}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Neoreblamy_NMK_2147936247_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NMK!MTB"
+        threat_id = "2147936247"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:

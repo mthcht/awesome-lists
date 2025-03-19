@@ -151,3 +151,25 @@ rule Trojan_Win64_LummaC_YAP_2147934476_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaC_CCIS_2147936486_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaC.CCIS!MTB"
+        threat_id = "2147936486"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {45 21 da 45 09 f9 44 09 d6 41 31 f1 44 88 4c 24 0b 44 8a 44 24 0b 48 8b 4c 24 10 48 63 54 24 0c 44 88 04 11 44 8b 54 24 0c}  //weight: 1, accuracy: High
+        $x_1_2 = {44 21 de 09 f3 88 5c 24 2b 44 8a 44 24 2b 48 8b 4c 24 30 48 63 54 24 2c 44 88 04 11 44 8b 4c 24 2c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

@@ -2044,3 +2044,25 @@ rule Trojan_Win64_Bumblebee_TYP_2147933204_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Bumblebee_ZMN_2147936479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bumblebee.ZMN!MTB"
+        threat_id = "2147936479"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bumblebee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {41 ff c0 49 2b 86 38 01 00 00 49 01 82 40 03 00 00 49 8b 4e 38 48 8b 81 ?? ?? ?? ?? 49 09 86 f8 00 00 00 48 ff 81 ?? ?? ?? ?? 49 63 96 00 04 00 00 49 8b 4e 10 49 8b 46 40 8a 14 0a 42 32 14 08 49 8b 46 50 41 88 14 01 33 d2 49 63 8e 00 04 00 00}  //weight: 4, accuracy: Low
+        $x_1_2 = "sXtvnXjHyP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
