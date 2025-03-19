@@ -3,4 +3,4 @@ I'm compiling lists of IP addresses for both IN (entry) and OUT (exit) connectio
 Use these lists to monitor outbound network requests or analyze successful login connections in your environment.
 
 
-[VPN_ALL_IP_List.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/VPN/VPN_ALL_IP_List.csv) will automatically aggregate all VPN list data from the subdirectories of this directory, the key fields are src_ip, src_ip_entry and src_ip_exit - you should merge these 3 fields into a single field for your searches.
+[VPN_ALL_IP_List.csv](https://github.com/mthcht/awesome-lists/releases/download/big-files/VPN_ALL_IP_List.csv) will automatically aggregate all VPN list data from the subdirectories of this directory, the key fields are src_ip, src_ip_entry and src_ip_exit - you should merge these 3 fields into a single field for your searches.
