@@ -1908,27 +1908,6 @@ rule Trojan_MSIL_Vidar_PSLQ_2147897585_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Vidar_PTHK_2147901855_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Vidar.PTHK!MTB"
-        threat_id = "2147901855"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Vidar"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {26 00 20 e8 03 00 00 28 7a 00 00 0a 00 00 de 00}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Vidar_PTHL_2147901856_0
 {
     meta:
