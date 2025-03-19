@@ -45,7 +45,7 @@ remote access,hunting,rmm,low,for correlation,netskope
 remote.access,hunting,rmm,low,for correlation,netskope
 spyware/adware/keyloggers,detection,keylogger,high,,mcafee
 suspect,detection,suspicious,low,,bluecoat
-url shorteners,defense evasion,low,for correlation,cisco wsa
+url shorteners,hunting,defense evasion,low,for correlation,cisco wsa
 url shortening,hunting,defense evasion,low,for correlation,netskope
 backdoor,detection,malicious,critical,,paloalto
 botnet,detection,malicious,critical,,
