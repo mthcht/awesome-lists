@@ -6790,6 +6790,28 @@ rule Trojan_MSIL_Heracles_SEDA_2147934866_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_SEDA_2147934866_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SEDA!MTB"
+        threat_id = "2147934866"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {25 16 0f 00 28 ?? 00 00 0a 9c 25 17 0f 00 28 ?? 00 00 0a 9c 25 18 0f 00 28 ?? 00 00 0a 9c 6f ?? 00 00 0a 00}  //weight: 3, accuracy: Low
+        $x_1_2 = {09 1b 5a 11 08 19 5a 58 20 f4 01 00 00 5d 20 c8 00 00 00 58 13 09 11 08 1f 1e 5d 1f 0a 58 13 0a 09 1f 28 5d 1b 58 13 0b 02 09 11 08 6f ?? 00 00 0a 13 0c}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_STI_2147935240_0
 {
     meta:

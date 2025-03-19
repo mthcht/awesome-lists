@@ -413,3 +413,45 @@ rule Backdoor_MSIL_Androm_KAAI_2147929226_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Androm_AKKA_2147936387_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Androm.AKKA!MTB"
+        threat_id = "2147936387"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 8e 69 8d 19 00 00 01 13 04 16 13 05 38 1b 00 00 00 11 04 11 05 06 11 05 91 72 ?? 00 00 70 28 ?? 00 00 0a 59 d2 9c 11 05 17 58 13 05 11 05 06 8e 69 32 de}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Androm_AFLA_2147936389_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Androm.AFLA!MTB"
+        threat_id = "2147936389"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {16 13 06 38 1b 00 00 00 11 05 11 06 06 11 06 91 72 ?? 00 00 70 28 ?? 00 00 0a 59 d2 9c 11 06 17 58 13 06 11 06 06 8e 69 32 de}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

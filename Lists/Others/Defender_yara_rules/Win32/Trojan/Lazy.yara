@@ -1640,3 +1640,24 @@ rule Trojan_Win32_Lazy_GTR_2147936323_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AMOA_2147936374_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AMOA!MTB"
+        threat_id = "2147936374"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {83 ce ff 46 8d 3c 32 8d 2c 30 8a 1f 30 5d 00 39 ce 7c}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

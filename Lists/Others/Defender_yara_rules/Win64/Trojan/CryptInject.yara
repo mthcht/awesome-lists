@@ -4157,3 +4157,24 @@ rule Trojan_Win64_CryptInject_DDA_2147935433_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_PIN_2147936425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.PIN!MTB"
+        threat_id = "2147936425"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 f6 89 95 50 ff ff ff 2b 75 af 89 8d 51 ff ff ff 89 d6 01 75 cb 48 89 95 9a fe ff ff 89 c9 8b bd ce fe ff ff 66 8b 55 d7 48 31 b5 ?? ?? ff ff 0f b6 c4 4d 31 f8 48 ff 04 24 be 05 00 00 00 3b 34 24 0f 8c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

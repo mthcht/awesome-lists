@@ -124,6 +124,30 @@ rule Trojan_Win32_RemcosRAT_A_2147840694_0
         family = "RemcosRAT"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "net.webclient" wide //weight: 10
+        $x_10_2 = "[system.reflection.assembly]::load($" wide //weight: 10
+        $x_10_3 = ".invoke($" wide //weight: 10
+        $x_10_4 = "http" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_RemcosRAT_A_2147840694_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemcosRAT.A!MTB"
+        threat_id = "2147840694"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"

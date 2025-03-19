@@ -219,21 +219,22 @@ rule Trojan_Win32_ClickFix_DC_2147932130_0
         $x_10_4 = "verif" wide //weight: 10
         $x_1_5 = " ray" wide //weight: 1
         $x_1_6 = " recaptcha" wide //weight: 1
-        $x_1_7 = " re captcha" wide //weight: 1
-        $x_1_8 = " rCAPTCHA" wide //weight: 1
-        $x_1_9 = " clip FREE" wide //weight: 1
-        $x_1_10 = " Over FREE" wide //weight: 1
-        $x_1_11 = "robot: r" wide //weight: 1
-        $x_1_12 = "robot - r" wide //weight: 1
-        $x_1_13 = "robot - Cloudflare" wide //weight: 1
-        $x_1_14 = "robot: Cloudflare" wide //weight: 1
-        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_17 = "Human - r" wide //weight: 1
-        $x_1_18 = "Human: r" wide //weight: 1
-        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_7 = "Press Enter" wide //weight: 1
+        $x_1_8 = " re captcha" wide //weight: 1
+        $x_1_9 = " rCAPTCHA" wide //weight: 1
+        $x_1_10 = " clip FREE" wide //weight: 1
+        $x_1_11 = " Over FREE" wide //weight: 1
+        $x_1_12 = "robot: r" wide //weight: 1
+        $x_1_13 = "robot - r" wide //weight: 1
+        $x_1_14 = "robot - Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: Cloudflare" wide //weight: 1
+        $x_1_16 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_17 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_18 = "Human - r" wide //weight: 1
+        $x_1_19 = "Human: r" wide //weight: 1
+        $x_1_20 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_21 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_22 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -264,21 +265,22 @@ rule Trojan_Win32_ClickFix_DF_2147932251_0
         $x_5_4 = "https_" wide //weight: 5
         $x_1_5 = " ray" wide //weight: 1
         $x_1_6 = " recaptcha" wide //weight: 1
-        $x_1_7 = " re captcha" wide //weight: 1
-        $x_1_8 = " rCAPTCHA" wide //weight: 1
-        $x_1_9 = " clip FREE" wide //weight: 1
-        $x_1_10 = " Over FREE" wide //weight: 1
-        $x_1_11 = "robot: r" wide //weight: 1
-        $x_1_12 = "robot - r" wide //weight: 1
-        $x_1_13 = "robot - Cloudflare" wide //weight: 1
-        $x_1_14 = "robot: Cloudflare" wide //weight: 1
-        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_17 = "Human - r" wide //weight: 1
-        $x_1_18 = "Human: r" wide //weight: 1
-        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_7 = "Press Enter" wide //weight: 1
+        $x_1_8 = " re captcha" wide //weight: 1
+        $x_1_9 = " rCAPTCHA" wide //weight: 1
+        $x_1_10 = " clip FREE" wide //weight: 1
+        $x_1_11 = " Over FREE" wide //weight: 1
+        $x_1_12 = "robot: r" wide //weight: 1
+        $x_1_13 = "robot - r" wide //weight: 1
+        $x_1_14 = "robot - Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: Cloudflare" wide //weight: 1
+        $x_1_16 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_17 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_18 = "Human - r" wide //weight: 1
+        $x_1_19 = "Human: r" wide //weight: 1
+        $x_1_20 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_21 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_22 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -345,20 +347,21 @@ rule Trojan_Win32_ClickFix_DD_2147932646_0
         $x_1_5 = " ray" wide //weight: 1
         $x_1_6 = " recaptcha" wide //weight: 1
         $x_1_7 = " re captcha" wide //weight: 1
-        $x_1_8 = " rCAPTCHA" wide //weight: 1
-        $x_1_9 = " clip FREE" wide //weight: 1
-        $x_1_10 = " Over FREE" wide //weight: 1
-        $x_1_11 = "robot: r" wide //weight: 1
-        $x_1_12 = "robot - r" wide //weight: 1
-        $x_1_13 = "robot - Cloudflare" wide //weight: 1
-        $x_1_14 = "robot: Cloudflare" wide //weight: 1
-        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_17 = "Human - r" wide //weight: 1
-        $x_1_18 = "Human: r" wide //weight: 1
-        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_8 = "Press Enter" wide //weight: 1
+        $x_1_9 = " rCAPTCHA" wide //weight: 1
+        $x_1_10 = " clip FREE" wide //weight: 1
+        $x_1_11 = " Over FREE" wide //weight: 1
+        $x_1_12 = "robot: r" wide //weight: 1
+        $x_1_13 = "robot - r" wide //weight: 1
+        $x_1_14 = "robot - Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: Cloudflare" wide //weight: 1
+        $x_1_16 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_17 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_18 = "Human - r" wide //weight: 1
+        $x_1_19 = "Human: r" wide //weight: 1
+        $x_1_20 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_21 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_22 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -393,17 +396,18 @@ rule Trojan_Win32_ClickFix_DE_2147932647_0
         $x_1_8 = " rCAPTCHA" wide //weight: 1
         $x_1_9 = " clip FREE" wide //weight: 1
         $x_1_10 = " Over FREE" wide //weight: 1
-        $x_1_11 = "robot: r" wide //weight: 1
-        $x_1_12 = "robot - r" wide //weight: 1
-        $x_1_13 = "robot - Cloudflare" wide //weight: 1
-        $x_1_14 = "robot: Cloudflare" wide //weight: 1
-        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_17 = "Human - r" wide //weight: 1
-        $x_1_18 = "Human: r" wide //weight: 1
-        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_11 = "Press Enter" wide //weight: 1
+        $x_1_12 = "robot: r" wide //weight: 1
+        $x_1_13 = "robot - r" wide //weight: 1
+        $x_1_14 = "robot - Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: Cloudflare" wide //weight: 1
+        $x_1_16 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_17 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_18 = "Human - r" wide //weight: 1
+        $x_1_19 = "Human: r" wide //weight: 1
+        $x_1_20 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_21 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_22 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -565,21 +569,22 @@ rule Trojan_Win32_ClickFix_DR_2147933573_0
         $x_1_4 = " ray" wide //weight: 1
         $x_1_5 = " recaptcha" wide //weight: 1
         $x_1_6 = " re captcha" wide //weight: 1
-        $x_1_7 = " rCAPTCHA" wide //weight: 1
-        $x_1_8 = " clip FREE" wide //weight: 1
-        $x_1_9 = " Over FREE" wide //weight: 1
-        $x_1_10 = "robot: r" wide //weight: 1
-        $x_1_11 = "robot - r" wide //weight: 1
-        $x_1_12 = "robot - Cloudflare" wide //weight: 1
-        $x_1_13 = "robot: Cloudflare" wide //weight: 1
-        $x_1_14 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_15 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_16 = "Human - r" wide //weight: 1
-        $x_1_17 = "Human: r" wide //weight: 1
-        $x_1_18 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_19 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_20 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
-        $x_1_21 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
+        $x_1_7 = "Press Enter" wide //weight: 1
+        $x_1_8 = " rCAPTCHA" wide //weight: 1
+        $x_1_9 = " clip FREE" wide //weight: 1
+        $x_1_10 = " Over FREE" wide //weight: 1
+        $x_1_11 = "robot: r" wide //weight: 1
+        $x_1_12 = "robot - r" wide //weight: 1
+        $x_1_13 = "robot - Cloudflare" wide //weight: 1
+        $x_1_14 = "robot: Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_17 = "Human - r" wide //weight: 1
+        $x_1_18 = "Human: r" wide //weight: 1
+        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_22 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -751,25 +756,26 @@ rule Trojan_Win32_ClickFix_DQ_2147933822_0
         $x_1_5 = " recaptcha" wide //weight: 1
         $x_1_6 = " re captcha" wide //weight: 1
         $x_1_7 = " rCAPTCHA" wide //weight: 1
-        $x_1_8 = " clip FREE" wide //weight: 1
-        $x_1_9 = " Over FREE" wide //weight: 1
-        $x_1_10 = "robot: r" wide //weight: 1
-        $x_1_11 = "robot - r" wide //weight: 1
-        $x_1_12 = "robot - Cloudflare" wide //weight: 1
-        $x_1_13 = "robot: Cloudflare" wide //weight: 1
-        $x_1_14 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_15 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_16 = "Human - r" wide //weight: 1
-        $x_1_17 = "Human: r" wide //weight: 1
-        $x_1_18 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_19 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_20 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
-        $x_1_21 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
-        $x_1_22 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_23 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_24 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_25 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
-        $x_1_26 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
+        $x_1_8 = "Press Enter" wide //weight: 1
+        $x_1_9 = " clip FREE" wide //weight: 1
+        $x_1_10 = " Over FREE" wide //weight: 1
+        $x_1_11 = "robot: r" wide //weight: 1
+        $x_1_12 = "robot - r" wide //weight: 1
+        $x_1_13 = "robot - Cloudflare" wide //weight: 1
+        $x_1_14 = "robot: Cloudflare" wide //weight: 1
+        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_17 = "Human - r" wide //weight: 1
+        $x_1_18 = "Human: r" wide //weight: 1
+        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_22 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
+        $x_1_23 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_24 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_25 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_26 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
+        $x_1_27 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
@@ -848,23 +854,24 @@ rule Trojan_Win32_ClickFix_AG_2147934652_0
         $x_1_2 = "captcha" wide //weight: 1
         $x_1_3 = "robot" wide //weight: 1
         $x_1_4 = "human" wide //weight: 1
-        $x_1_5 = " ray" wide //weight: 1
-        $x_1_6 = " recaptcha" wide //weight: 1
-        $x_1_7 = " re captcha" wide //weight: 1
-        $x_1_8 = " rCAPTCHA" wide //weight: 1
-        $x_1_9 = " clip FREE" wide //weight: 1
-        $x_1_10 = " Over FREE" wide //weight: 1
-        $x_1_11 = "robot: r" wide //weight: 1
-        $x_1_12 = "robot - r" wide //weight: 1
-        $x_1_13 = "Cloudflare" wide //weight: 1
-        $x_1_14 = "- Over FREE" wide //weight: 1
-        $x_1_15 = "Google Meet" wide //weight: 1
-        $x_1_16 = "DNS service" wide //weight: 1
-        $x_1_17 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_18 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_19 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_20 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
-        $x_1_21 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
+        $x_1_5 = "Press Enter" wide //weight: 1
+        $x_1_6 = " ray" wide //weight: 1
+        $x_1_7 = " recaptcha" wide //weight: 1
+        $x_1_8 = " re captcha" wide //weight: 1
+        $x_1_9 = " rCAPTCHA" wide //weight: 1
+        $x_1_10 = " clip FREE" wide //weight: 1
+        $x_1_11 = " Over FREE" wide //weight: 1
+        $x_1_12 = "robot: r" wide //weight: 1
+        $x_1_13 = "robot - r" wide //weight: 1
+        $x_1_14 = "Cloudflare" wide //weight: 1
+        $x_1_15 = "- Over FREE" wide //weight: 1
+        $x_1_16 = "Google Meet" wide //weight: 1
+        $x_1_17 = "DNS service" wide //weight: 1
+        $x_1_18 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_19 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_20 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_21 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
+        $x_1_22 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
@@ -970,14 +977,16 @@ rule Trojan_Win32_ClickFix_AP_2147935190_0
         $x_10_2 = "powershell" wide //weight: 10
         $x_10_3 = ".content" wide //weight: 10
         $x_10_4 = "captcha" wide //weight: 10
-        $x_1_5 = "iex" wide //weight: 1
-        $x_1_6 = "invoke-expression" wide //weight: 1
-        $x_1_7 = "invoke-webrequest" wide //weight: 1
-        $x_1_8 = "iwr" wide //weight: 1
+        $x_10_5 = "Press Enter" wide //weight: 10
+        $x_1_6 = "iex" wide //weight: 1
+        $x_1_7 = "invoke-expression" wide //weight: 1
+        $x_1_8 = "invoke-webrequest" wide //weight: 1
+        $x_1_9 = "iwr" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
             ((4 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((5 of ($x_10_*))) or
             (all of ($x*))
         )
 }
@@ -1047,20 +1056,22 @@ rule Trojan_Win32_ClickFix_AO_2147935373_0
         $x_1_17 = " rCAPTCHA" wide //weight: 1
         $x_1_18 = " clip FREE" wide //weight: 1
         $x_1_19 = " Over FREE" wide //weight: 1
-        $x_1_20 = "robot: r" wide //weight: 1
-        $x_1_21 = "robot - r" wide //weight: 1
-        $x_1_22 = "Cloudflare" wide //weight: 1
-        $x_1_23 = "- Over FREE" wide //weight: 1
-        $x_1_24 = "Google Meet" wide //weight: 1
-        $x_1_25 = "DNS service" wide //weight: 1
-        $x_1_26 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_27 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_28 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_29 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
-        $x_1_30 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
+        $x_1_20 = "Press Enter" wide //weight: 1
+        $x_1_21 = "robot: r" wide //weight: 1
+        $x_1_22 = "robot - r" wide //weight: 1
+        $x_1_23 = "Cloudflare" wide //weight: 1
+        $x_1_24 = "- Over FREE" wide //weight: 1
+        $x_1_25 = "Google Meet" wide //weight: 1
+        $x_1_26 = "DNS service" wide //weight: 1
+        $x_1_27 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_28 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_29 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_30 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
+        $x_1_31 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
+            ((2 of ($x_200_*) and 21 of ($x_1_*))) or
             ((2 of ($x_200_*) and 1 of ($x_20_*) and 1 of ($x_1_*))) or
             ((2 of ($x_200_*) and 2 of ($x_20_*))) or
             (all of ($x*))
