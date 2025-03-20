@@ -14619,3 +14619,26 @@ rule Trojan_MSIL_FormBook_RVG_2147935758_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVH_2147936513_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVH!MTB"
+        threat_id = "2147936513"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 17 a2 0b 09 05 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 55 00 00 00 1d 00 00 00 25 00 00 00 80 00 00 00 66 00 00 00 0a 00 00 00 8e 00 00 00 47 00 00 00 19 00 00 00 06 00 00 00 10 00 00 00 1d 00 00 00 02 00 00 00 04 00 00 00 01 00 00 00 06 00 00 00 02 00 00 00 01}  //weight: 1, accuracy: High
+        $x_1_2 = "37b62967-05c4-46a1-a333-c314da2055cb" ascii //weight: 1
+        $x_1_3 = "ChinhDo.Transactions.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

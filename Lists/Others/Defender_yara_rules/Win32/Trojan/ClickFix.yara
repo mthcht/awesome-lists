@@ -1274,3 +1274,80 @@ rule Trojan_Win32_ClickFix_DU_2147936341_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DX_2147936522_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DX!MTB"
+        threat_id = "2147936522"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "132"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_1_2 = "irm" wide //weight: 1
+        $x_1_3 = "Invoke-RemoteMethod" wide //weight: 1
+        $x_1_4 = "iwr" wide //weight: 1
+        $x_1_5 = "Invoke-WebRequest" wide //weight: 1
+        $x_1_6 = "iex" wide //weight: 1
+        $x_1_7 = "Invoke-Expression" wide //weight: 1
+        $x_20_8 = "verif" wide //weight: 20
+        $x_100_9 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_10 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_11 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_12 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
+        $x_100_13 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: Low
+        $x_100_14 = "CIoudfIare Unique One-time" wide //weight: 100
+        $x_100_15 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_16 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_17 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_20_*) and 1 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DZ_2147936523_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DZ!MTB"
+        threat_id = "2147936523"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "107"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "mshta" wide //weight: 5
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "\\1" wide //weight: 1
+        $x_100_4 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_5 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_6 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_7 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_8 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
+        $x_100_9 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: Low
+        $x_100_10 = "CIoudfIare Unique One-time" wide //weight: 100
+        $x_100_11 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_12 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+
