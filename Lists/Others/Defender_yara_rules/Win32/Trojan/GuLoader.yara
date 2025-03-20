@@ -3239,6 +3239,31 @@ rule Trojan_Win32_GuLoader_RBN_2147935960_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "#\\briskly\\townhouses\\Informationsbehandling80" ascii //weight: 1
+        $x_1_2 = "$$\\unfrigidness\\prsentation.une" ascii //weight: 1
+        $x_1_3 = "88\\Bluejelly78\\infinituple.tet" ascii //weight: 1
+        $x_1_4 = "dramaet triflier dirigenternes" ascii //weight: 1
+        $x_1_5 = "bridgemaking rgningens" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBN_2147935960_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBN!MTB"
+        threat_id = "2147935960"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
