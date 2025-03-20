@@ -33,10 +33,14 @@ rule Trojan_PowerShell_DownInfo_B_2147933995_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = "chromeuseragentupdater" wide //weight: 10
-        $x_10_2 = "get-registryvalue \"hklm:\\software\\microsoft\\cryptography\" \"machineguid\"" wide //weight: 10
+        $x_10_2 = "microsoftversionagent" wide //weight: 10
+        $x_10_3 = "windowssoftwareupdater" wide //weight: 10
+        $x_10_4 = "versionupdaterlegacy" wide //weight: 10
+        $x_10_5 = "systemhealthcheckerlegacy" wide //weight: 10
+        $x_10_6 = "get-registryvalue \"hklm:\\software\\microsoft\\cryptography\" \"machineguid\"" wide //weight: 10
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (2 of ($x*))
 }
 
 rule Trojan_PowerShell_DownInfo_C_2147933996_0

@@ -3939,6 +3939,30 @@ rule Trojan_Win64_CobaltStrike_SMW_2147832330_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_SMW_2147832330_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.SMW!MTB"
+        threat_id = "2147832330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[i] Injecting The Reflective DLL Into" ascii //weight: 1
+        $x_1_2 = "[!] CreateToolhelp32Snapshot Failed With Error :" ascii //weight: 1
+        $x_1_3 = "RlfDllInjector.pdb" ascii //weight: 1
+        $x_1_4 = "[!] CreateRemoteThread Failed With Error: " ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CobaltStrike_RD_2147832385_0
 {
     meta:

@@ -1046,3 +1046,24 @@ rule Trojan_AndroidOS_SpyAgent_AE_2147934500_0
         (2 of ($x*))
 }
 
+rule Trojan_AndroidOS_SpyAgent_AZ_2147936555_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SpyAgent.AZ"
+        threat_id = "2147936555"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyAgent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "w8notftyhk/MainActivity$collectAndSendInitialData$1" ascii //weight: 2
+        $x_2_2 = "w8notftyhk/AppService" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

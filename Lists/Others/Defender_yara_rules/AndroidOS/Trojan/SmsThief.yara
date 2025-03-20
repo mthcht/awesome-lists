@@ -1040,3 +1040,45 @@ rule Trojan_AndroidOS_SmsThief_IY_2147928917_0
         (2 of ($x*))
 }
 
+rule Trojan_AndroidOS_SmsThief_PA_2147936551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SmsThief.PA"
+        threat_id = "2147936551"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SmsThief"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "sms/hack/DebugActivity" ascii //weight: 2
+        $x_2_2 = "_iamAntik" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_AndroidOS_SmsThief_AI_2147936556_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SmsThief.AI"
+        threat_id = "2147936556"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SmsThief"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "nsameiacwesi" ascii //weight: 2
+        $x_2_2 = "phrlscestpafe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
