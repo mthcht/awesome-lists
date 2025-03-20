@@ -4808,3 +4808,35 @@ rule Trojan_Win32_AutoitInject_HHA_2147935169_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_ZHG_2147936564_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.ZHG!MTB"
+        threat_id = "2147936564"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "FILEINSTALL" ascii //weight: 1
+        $x_1_2 = "@TEMPDIR" ascii //weight: 1
+        $x_5_3 = {44 00 4c 00 4c 00 43 00 41 00 4c 00 4c 00 20 00 28 00 20 00 [0-30] 20 00 28 00 20 00 22 00 76 00 78 00 6f 00 73 00 78 00 71 00 2e 00 2f 00 33 00 79 00 71 00 71 00 22 00 20 00 29 00 20 00 2c 00 20 00 [0-30] 20 00 28 00 20 00 22 00 7f 00 72 00 72 00 71 00 22 00 20 00 29 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {44 4c 4c 43 41 4c 4c 20 28 20 [0-30] 20 28 20 22 76 78 6f 73 78 71 2e 2f 33 79 71 71 22 20 29 20 2c 20 [0-30] 20 28 20 22 7f 72 72 71 22 20 29}  //weight: 5, accuracy: Low
+        $x_4_5 = {44 00 4c 00 4c 00 43 00 41 00 4c 00 4c 00 20 00 28 00 20 00 [0-30] 20 00 28 00 20 00 22 00 68 00 6e 00 78 00 6f 00 2e 00 2f 00 33 00 79 00 71 00 71 00 22 00 20 00 29 00 20 00 2c 00 20 00 [0-30] 20 00 28 00 20 00 22 00 6d 00 69 00 6f 00 22 00 20 00 29 00}  //weight: 4, accuracy: Low
+        $x_4_6 = {44 4c 4c 43 41 4c 4c 20 28 20 [0-30] 20 28 20 22 68 6e 78 6f 2e 2f 33 79 71 71 22 20 29 20 2c 20 [0-30] 20 28 20 22 6d 69 6f 22 20 29}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_4_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
