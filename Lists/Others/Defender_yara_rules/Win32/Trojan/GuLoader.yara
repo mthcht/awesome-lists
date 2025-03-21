@@ -3278,3 +3278,28 @@ rule Trojan_Win32_GuLoader_RBN_2147935960_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBO_2147936611_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBO!MTB"
+        threat_id = "2147936611"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "balkanland parameterfremstillingers forannvnt" ascii //weight: 1
+        $x_1_2 = "spildevandsbekendtgrelsens nonliquidating" ascii //weight: 1
+        $x_1_3 = "kvllernes spondias molendinary" ascii //weight: 1
+        $x_1_4 = "backburn" ascii //weight: 1
+        $x_1_5 = "angionoma.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

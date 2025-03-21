@@ -1233,7 +1233,7 @@ rule Trojan_Win32_ClickFix_DS_2147936340_0
         $x_5_3 = "[System.Text.Encoding]::UTF8.GetString($" wide //weight: 5
         $x_5_4 = ".Content)" wide //weight: 5
         $x_1_5 = "irm" wide //weight: 1
-        $x_1_6 = "invoke-remotemethod" wide //weight: 1
+        $x_1_6 = "invoke-restmethod" wide //weight: 1
         $x_1_7 = "iwr" wide //weight: 1
         $x_1_8 = "invoke-webrequest" wide //weight: 1
         $x_1_9 = "iex" wide //weight: 1
@@ -1291,7 +1291,7 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
     strings:
         $x_10_1 = "powershell" wide //weight: 10
         $x_1_2 = "irm" wide //weight: 1
-        $x_1_3 = "Invoke-RemoteMethod" wide //weight: 1
+        $x_1_3 = "Invoke-RestMethod" wide //weight: 1
         $x_1_4 = "iwr" wide //weight: 1
         $x_1_5 = "Invoke-WebRequest" wide //weight: 1
         $x_1_6 = "iex" wide //weight: 1

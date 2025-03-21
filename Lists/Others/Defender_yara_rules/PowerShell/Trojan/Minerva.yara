@@ -10,13 +10,14 @@ rule Trojan_PowerShell_Minerva_BE_2147935796_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "4"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "= 'silentlycontinue'" wide //weight: 1
         $x_1_2 = ".DownloadFile('http" wide //weight: 1
         $x_1_3 = ".exe', 'c:" wide //weight: 1
-        $x_1_4 = ";sTart-pRoCEss 'c:\\/TEst" wide //weight: 1
+        $x_1_4 = "Start-Process 'C:\\\\test" wide //weight: 1
+        $x_1_5 = "invoice.exe" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
