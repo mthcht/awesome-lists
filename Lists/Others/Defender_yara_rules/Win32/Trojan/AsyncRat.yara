@@ -276,3 +276,57 @@ rule Trojan_Win32_AsyncRat_ASA_2147931668_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AsyncRat_Z_2147936647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRat.Z!MTB"
+        threat_id = "2147936647"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "schtasks /create /f /sc onlogon /rl highest /tn" ascii //weight: 1
+        $x_1_2 = "Stub.exe" ascii //weight: 1
+        $x_1_3 = "get_ActivatePong" ascii //weight: 1
+        $x_1_4 = "vmware" ascii //weight: 1
+        $x_1_5 = "nuR\\noisreVtnerruC\\swodniW\\tfosorciM\\erawtfoS" ascii //weight: 1
+        $x_1_6 = "get_SslClient" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_AsyncRat_Z_2147936647_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRat.Z!MTB"
+        threat_id = "2147936647"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "schtasks /create /f /sc onlogon /rl highest /tn" ascii //weight: 1
+        $x_1_2 = "nuR\\noisreVtnerruC\\swodniW\\tfosorciM\\erawtfoS" ascii //weight: 1
+        $x_1_3 = "get_SslClient" ascii //weight: 1
+        $x_1_4 = "Select * from AntivirusProduct" ascii //weight: 1
+        $x_1_5 = "get_TcpClient" ascii //weight: 1
+        $x_1_6 = "get_SendSync" ascii //weight: 1
+        $x_1_7 = "set_UseShellExecute" ascii //weight: 1
+        $x_1_8 = "timeout" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
