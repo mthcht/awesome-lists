@@ -804,3 +804,25 @@ rule Trojan_MSIL_FileCoder_PMCD_2147929392_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FileCoder_PML_2147936649_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FileCoder.PML!MTB"
+        threat_id = "2147936649"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {11 0c 9a 6f ?? 00 00 0a 72 0e 07 00 70 28 ?? 00 00 0a 39 cc 00 00 00 11 06 11 0c 9a 6f ?? 00 00 0a 13 0d 11 0d 28 ?? 00 00 0a 26 11 06 11 0c 9a 6f ?? 00 00 0a 13 0e}  //weight: 3, accuracy: Low
+        $x_2_2 = {72 24 07 00 70 28 ?? 00 00 0a 2c 47 11 0d 11 07 72 20 07 00 70 11 06 11 0c 9a 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 09 72 f8 06 00 70 28 3f 00 00 0a 11 0e 72 20 07 00 70 11 0f 72 0e 07 00 70 28 51 00 00 0a 28 52 00 00 0a 11 0d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -303,3 +303,27 @@ rule TrojanDownloader_MSIL_CoinMiner_YRL_2147819210_0
         )
 }
 
+rule TrojanDownloader_MSIL_CoinMiner_PZM_2147936656_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/CoinMiner.PZM!MTB"
+        threat_id = "2147936656"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "http://46.8.78.172/minir.zip" ascii //weight: 5
+        $x_1_2 = "taskkill /f /im browser_broker.exe" ascii //weight: 1
+        $x_1_3 = "taskkill /f /im python.exe" ascii //weight: 1
+        $x_1_4 = "minerlol.zip" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

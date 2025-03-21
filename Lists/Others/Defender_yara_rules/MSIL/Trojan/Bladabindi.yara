@@ -4422,3 +4422,25 @@ rule Trojan_MSIL_Bladabindi_SWA_2147935622_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_PKMZ_2147936651_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.PKMZ!MTB"
+        threat_id = "2147936651"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 72 9d 00 00 70 0c 72 bb 00 00 70 0d 72 d3 00 00 70 13 04 18 13 05 72 dd 00 00 70 13 06 20 00 01 00 00 0a 28 ?? 00 00 0a 11 06 6f ?? 00 00 0a 13 07 28 ?? 00 00 0a 09 6f ?? 00 00 0a 13 08 02 28 ?? 00 00 0a 13 09 08 11 08 11 04 11 05 73 0b 00 00 0a 13 0a 11 0a 06 1e 5b 6f ?? 00 00 0a 13 0b 73 0d 00 00 0a 13 0c 11 0c 17 6f ?? 00 00 0a 00 11 0c 11 0b 11 07 6f ?? 00 00 0a 13 0d}  //weight: 4, accuracy: Low
+        $x_2_2 = {de 00 00 08 28 ?? 00 00 0a 0d 09 14 72 79 00 00 70 16 8d 03 00 00 01 14 14 14 28 ?? 00 00 0a 14 72 8f 00 00 70 18 8d 03 00 00 01 13 0c 11 0c 16 14 a2 00 11 0c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

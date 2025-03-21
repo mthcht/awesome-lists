@@ -230,3 +230,26 @@ rule Trojan_MSIL_Nekark_AYA_2147929764_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Nekark_PKM_2147936652_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nekark.PKM!MTB"
+        threat_id = "2147936652"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nekark"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {00 00 0a 07 06 28 ?? 00 00 06 72 00 14 00 70 7e 3a 00 00 04 6f ?? 00 00 0a 72 0c 14 00 70 28 ?? 00 00 06 6f ?? 00 00 0a 72 16 14 00 70 02 6f ?? 00 00 0a 6f ?? 00 00 0a 07 17 6f ?? 00 00 0a 07 17 6f ?? 00 00 0a 07 72 22 14 00 70 6f ?? 00 00 0a 07 28 ?? 00 00 0a 26 de 03}  //weight: 3, accuracy: Low
+        $x_2_2 = {06 08 91 18 5b 1f 0f 58 0d 07 09 d1 13 04 12 04 28 ?? 00 00 0a 28 ?? 00 00 0a 0b 08 18 58 0c 08 06 8e 69 32 db}  //weight: 2, accuracy: Low
+        $x_2_3 = "browser|opera|msedge|chrome|firefox|brave|vivaldi" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

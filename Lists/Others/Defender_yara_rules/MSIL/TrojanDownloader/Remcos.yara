@@ -243,3 +243,27 @@ rule TrojanDownloader_MSIL_Remcos_ARM_2147922893_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Remcos_PZJM_2147936655_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Remcos.PZJM!MTB"
+        threat_id = "2147936655"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 31 00 36 00 32 00 2e 00 32 00 33 00 30 00 2e 00 34 00 38 00 2e 00 31 00 38 00 39 00 2f 00 75 00 70 00 6c 00 6f 00 61 00 64 00 73 00 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 7, accuracy: Low
+        $x_1_2 = "WriteAllBytes" ascii //weight: 1
+        $x_1_3 = "GetByteArrayAsync" ascii //weight: 1
+        $x_1_4 = "GetTempFileName" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
