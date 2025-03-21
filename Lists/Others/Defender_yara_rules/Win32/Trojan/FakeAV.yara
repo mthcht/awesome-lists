@@ -160,3 +160,25 @@ rule Trojan_Win32_FakeAV_AFK_2147936583_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FakeAV_AFV_2147936688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FakeAV.AFV!MTB"
+        threat_id = "2147936688"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FakeAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8a d0 c0 c2 04 8a c2 24 0f bb 01 60 40 00 d7 a2 91 6b 40 00 c0 c2 04 8a c2 24 0f d7 a2 92 6b 40 00}  //weight: 3, accuracy: High
+        $x_2_2 = {ba 00 00 00 00 f7 f3 92 e8 ?? ?? ?? ?? 88 87 b0 67 40 00 4f 92 41 0b c0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

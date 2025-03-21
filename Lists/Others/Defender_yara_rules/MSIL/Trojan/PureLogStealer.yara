@@ -2597,3 +2597,24 @@ rule Trojan_MSIL_PureLogStealer_SHPA_2147936563_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_SXDA_2147936678_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.SXDA!MTB"
+        threat_id = "2147936678"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {63 d1 13 12 11 1c 11 09 91 13 22 11 1c 11 09 11 26 11 22 61 19 11 1b 58 61 11 32 61 d2 9c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

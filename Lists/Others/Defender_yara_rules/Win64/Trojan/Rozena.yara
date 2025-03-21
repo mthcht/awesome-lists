@@ -1451,3 +1451,27 @@ rule Trojan_Win64_Rozena_NBK_2147932690_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_BS_2147936686_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.BS!MTB"
+        threat_id = "2147936686"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {46 0f b6 1c 0a 45 31 c3 44 88 1c 3e 48 ff c7 4c 89 c8 4c 89 d2 48 39 fa 7e}  //weight: 2, accuracy: High
+        $x_2_2 = {49 ff c1 0f b6 14 17 44 31 d2 4d 39 c8 73}  //weight: 2, accuracy: High
+        $x_2_3 = {43 88 54 21 ff 48 ff c1 4c 89 d8 4c 89 e2 48 39 cb}  //weight: 2, accuracy: High
+        $x_1_4 = "xors7ajsuajas" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

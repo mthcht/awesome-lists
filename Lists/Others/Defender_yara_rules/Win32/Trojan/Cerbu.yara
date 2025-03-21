@@ -150,3 +150,25 @@ rule Trojan_Win32_Cerbu_AMDC_2147931938_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Cerbu_BAA_2147936693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Cerbu.BAA!MTB"
+        threat_id = "2147936693"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 45 00 83 c0 01 89 45 00 8b 4d 50 0f b7 51 06 39 55 00 0f 8c}  //weight: 2, accuracy: High
+        $x_2_2 = {6b 45 00 28 03 45 60 b9 01 00 00 00 c1 e1 00 8a 14 08 88 55 33 0f be 45 33 83 f8 72 0f 85}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

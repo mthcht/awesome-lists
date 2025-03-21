@@ -524,6 +524,30 @@ rule Trojan_MSIL_Stealer_ARA_2147847476_1
         threshold = "8"
         strings_accuracy = "High"
     strings:
+        $x_2_1 = "\\StillerRolton.pdb" ascii //weight: 2
+        $x_2_2 = "select * from logins" wide //weight: 2
+        $x_2_3 = "password_value" wide //weight: 2
+        $x_2_4 = "username_value" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Stealer_ARA_2147847476_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.ARA!MTB"
+        threat_id = "2147847476"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = "C:\\Users\\Ahmed\\Documents\\Visual Studio 2010\\Projects\\pla\\Bootmgr\\obj\\x86\\Debug\\Bootmgr.pdb" ascii //weight: 2
         $x_2_2 = "C:\\Boot\\Bootmgr.com" ascii //weight: 2
         $x_2_3 = "c:\\boot\\me.dll" ascii //weight: 2

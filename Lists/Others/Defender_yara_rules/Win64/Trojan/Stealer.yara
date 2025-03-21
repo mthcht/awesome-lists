@@ -173,3 +173,25 @@ rule Trojan_Win64_Stealer_SUN_2147934104_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_MX_2147936682_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.MX!MTB"
+        threat_id = "2147936682"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 39 c8 0f 84 17 94 09 00 66 89 10 0f b7 50 0a 48 83 c0 02 66 85 d2}  //weight: 1, accuracy: High
+        $x_1_2 = "Runtine Broker.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

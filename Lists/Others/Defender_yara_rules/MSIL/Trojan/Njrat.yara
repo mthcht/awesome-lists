@@ -816,3 +816,25 @@ rule Trojan_MSIL_Njrat_PWA_2147935793_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Njrat_PHN_2147936673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Njrat.PHN!MTB"
+        threat_id = "2147936673"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Njrat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 05 11 04 6f ?? 00 00 0a 0d 08 09 28 ?? 00 00 0a 07 da 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 0c 11 04 17 d6 13 04 00 11 04 11 06 fe 04 13 07 11 07 2d ca 08 28 ?? 00 00 0a 0c 08 0a 2b 00 06 2a}  //weight: 10, accuracy: Low
+        $x_1_2 = "Dark_decrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

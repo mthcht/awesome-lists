@@ -63,3 +63,24 @@ rule Ransom_Win32_PlayCrypt_MP_2147831401_1
         (all of ($x*))
 }
 
+rule Ransom_Win32_PlayCrypt_MKU_2147936683_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/PlayCrypt.MKU!MTB"
+        threat_id = "2147936683"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PlayCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {6b d1 07 0f b6 44 15 e0 03 85 e0 fe ff ff 2b 85 e8 fe ff ff b9 02 00 00 00 6b d1 03 66 89 84 15 ?? ?? ff ff b8 01 00 00 00 d1 e0 0f b6 4c 05 e0 ba 01 00 00 00 6b c2 00 88 4c 05 e0 8b 8d 98 fe ff ff 3b 8d 9c fe ff ff 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
