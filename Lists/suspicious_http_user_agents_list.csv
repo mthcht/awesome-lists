@@ -402,7 +402,7 @@ Microsoft Internet Browser,Suricata Malware user-agent rules,Malware,Malware,htt
 Microsoft Internet Explorer 6.0,Suricata Malware user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 Microsoft Internet Updater,Suricata trojan user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 Microsoft-CryptoAPI/*,certutil downloads,certutil,LOLBIN,N/A,high,very high,info,Hunting,no,yes,yes,yes,no,
-Microsoft-WebDAV-MiniRedir/*,Windows WebDAV User Agent,Windows WebDAV,Collection,https://blog.didierstevens.com/2017/11/13/webdav-traffic-to-malicious-sites/ + recent CVE-2024-21413 detection,high,medium,medium,Hunting,no,yes,yes,yes,no,
+Microsoft-WebDAV-MiniRedir/*,Windows WebDAV User Agent,Windows WebDAV,Collection,https://blog.didierstevens.com/2017/11/13/webdav-traffic-to-malicious-sites/ + recent CVE-2024-21413 detection,high,medium,medium,Hunting,no,yes,no,yes,no,
 miip,Suricata trojan user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 Mirar_KeywordContent,Suricata Malware user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 Mirar_Toolbar,Suricata Malware user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
