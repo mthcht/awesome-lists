@@ -617,3 +617,24 @@ rule Trojan_Win64_BlackWidow_MLU_2147936671_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_GVK_2147936709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GVK!MTB"
+        threat_id = "2147936709"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2b d1 8b ca 48 63 c9 48 0f af c1 0f b6 44 04 78 8b 4c 24 4c 33 c8 8b c1 48 63 4c 24 24 48 8b 54 24 60 88 04 0a eb}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

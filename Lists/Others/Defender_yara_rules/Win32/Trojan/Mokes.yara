@@ -500,6 +500,27 @@ rule Trojan_Win32_Mokes_SPSB_2147923219_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mokes_EAUD_2147931204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mokes.EAUD!MTB"
+        threat_id = "2147931204"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mokes"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 c7 33 c6 c7 05 ?? ?? ?? ?? ff ff ff ff 2b d8 8b 44 24 1c 29 44 24 10 83 6c 24 14 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Mokes_EARS_2147934430_0
 {
     meta:

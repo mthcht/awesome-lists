@@ -1436,3 +1436,24 @@ rule Trojan_MSIL_Injector_EARW_2147936230_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_EAPQ_2147936729_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.EAPQ!MTB"
+        threat_id = "2147936729"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {03 11 0c 16 11 0a 6f 44 00 00 0a 26 11 09 11 0c 16 11 0a 11 0b 16 6f 4f 00 00 0a 13 0e 7e 0a 00 00 04 11 0b 16 11 0e 6f 50 00 00 0a 11 0d 11 0a 58 13 0d 11 0d 11 0a 58 6a 03 6f 48 00 00 0a 32 bf}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

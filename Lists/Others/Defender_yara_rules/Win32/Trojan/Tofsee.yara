@@ -1800,3 +1800,24 @@ rule Trojan_Win32_Tofsee_BAG_2147936282_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_EAEC_2147936732_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.EAEC!MTB"
+        threat_id = "2147936732"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8a 94 01 01 24 0a 00 8b 0d ?? ?? ?? ?? 88 14 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

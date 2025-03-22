@@ -367,3 +367,45 @@ rule Trojan_Win32_BadJoke_SPLS_2147936308_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BadJoke_EAGM_2147936730_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EAGM!MTB"
+        threat_id = "2147936730"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {88 84 0d f8 f3 fa ff 41 81 f9 fe 0b 05 00 ?? ?? ?? ?? f8 f3 fa ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_BadJoke_EASX_2147936731_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.EASX!MTB"
+        threat_id = "2147936731"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {88 94 05 f8 f3 fa ff 40 3d fe 0b 05 00 ?? ?? ?? ?? f8 f3 fa ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

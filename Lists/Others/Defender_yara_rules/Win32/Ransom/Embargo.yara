@@ -84,3 +84,29 @@ rule Ransom_Win32_Embargo_B_2147917639_0
         )
 }
 
+rule Ransom_Win32_Embargo_GVA_2147936708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Embargo.GVA!MTB"
+        threat_id = "2147936708"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Embargo"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "embargo::" ascii //weight: 1
+        $x_3_2 = "logfileembargo" ascii //weight: 3
+        $x_1_3 = "Failed selfdelete:" ascii //weight: 1
+        $x_1_4 = "Deleted  shadows" ascii //weight: 1
+        $x_2_5 = "embargo::winlib::encrypt" ascii //weight: 2
+        $x_1_6 = "Failed to remove shadow:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

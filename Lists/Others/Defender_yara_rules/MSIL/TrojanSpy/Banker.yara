@@ -281,3 +281,24 @@ rule TrojanSpy_MSIL_Banker_P_2147707677_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Banker_EAFR_2147936727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Banker.EAFR!MTB"
+        threat_id = "2147936727"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Banker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {20 00 40 01 00 8d 53 00 00 01 0a 2b 09 03 06 16 07 6f a4 00 00 0a 02 06 16 06 8e 69 6f 9b 00 00 0a 25 0b 2d e8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

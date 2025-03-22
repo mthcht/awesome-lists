@@ -7011,6 +7011,28 @@ rule Trojan_MSIL_Remcos_ARC_2147840882_3
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_ARC_2147840882_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.ARC!MTB"
+        threat_id = "2147840882"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {16 13 08 2b 11 04 11 06 11 08 91 6f ?? 00 00 0a 11 08 17 58 13 08 11 08 03 32 ea}  //weight: 1, accuracy: Low
+        $x_2_2 = {16 13 08 2b 34 09 11 08 8f ?? 00 00 01 25 47 11 04 11 08 58 1f 11 5a 20 00 01 00 00 5d d2 61 d2 52 11 04 1f 1f 5a 09 11 08 91 58 20 00 01 00 00 5d 13 04 11 08 17 58 13 08 11 08 09 8e 69}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Remcos_ARS_2147840883_0
 {
     meta:
@@ -12976,6 +12998,28 @@ rule Trojan_MSIL_Remcos_ZHE_2147936480_0
     strings:
         $x_6_1 = {8d 3d 00 00 01 25 16 0f 00 28 ?? 00 00 0a 9c 25 17 0f 00 28 ?? 00 00 0a 9c 25 18 0f 00 28 ?? 00 00 0a 9c 6f ?? 00 00 0a 02}  //weight: 6, accuracy: Low
         $x_5_2 = {08 1f 28 5d 1b 58 13 0a 02 08 11 07 6f ?? 00 00 0a 13 0b 04 03}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Remcos_SXDA_2147936718_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.SXDA!MTB"
+        threat_id = "2147936718"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {25 16 0f 00 28 ?? 00 00 0a 9c 25 17 0f 00 28 ?? 00 00 0a 9c 25 18 0f 00 28 ?? 00 00 0a 9c 6f ?? 00 00 0a 06}  //weight: 2, accuracy: Low
+        $x_1_2 = {08 11 06 58 1f 64 5d 13 07 11 07 1f 1e 32 14 11 07 1f 46 32 07 72 1b 01 00 70 2b 0c 72 25 01 00 70 2b 05 72 2f 01 00 70 13 08 02 08 11 06 6f ?? 00 00 0a 13 09 04 03}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
