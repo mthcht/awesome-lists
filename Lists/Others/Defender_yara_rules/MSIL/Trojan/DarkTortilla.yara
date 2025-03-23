@@ -4676,9 +4676,14 @@ rule Trojan_MSIL_DarkTortilla_RPZ_2147927790_0
         $x_10_24 = "set_InjectionHostIndex" ascii //weight: 10
         $x_1_25 = "set_FakeMessageBody" ascii //weight: 1
         $x_10_26 = "set_HiddenStartupKey" ascii //weight: 10
+        $x_1_27 = "%InjectionPersist%" ascii //weight: 1
+        $x_1_28 = "%StartupPersist%" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((8 of ($x_10_*) and 18 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_MSIL_DarkTortilla_RPA_2147928267_0
