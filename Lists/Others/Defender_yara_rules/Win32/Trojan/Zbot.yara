@@ -3479,6 +3479,27 @@ rule Trojan_Win32_Zbot_A_2147823975_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {6a 00 c1 da 05 33 dd 33 ff bf 2a 23 39 8c ff 75 bc c1 ca 0a b9 fe 4e f7 e0 c1 de 03 ff 15 6c d1 40 00 83 c4 04 c1 c2 01 89 d9 bb b6 54 1e 34}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_A_2147823975_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.A!MTB"
+        threat_id = "2147823975"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:
@@ -5153,6 +5174,27 @@ rule Trojan_Win32_Zbot_BAG_2147845544_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {83 c6 fe 83 ee ff 29 de 89 f3 6a 00 8f 01 01 31}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_BAG_2147845544_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.BAG!MTB"
+        threat_id = "2147845544"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -5163,7 +5205,7 @@ rule Trojan_Win32_Zbot_BAG_2147845544_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zbot_BAG_2147845544_1
+rule Trojan_Win32_Zbot_BAG_2147845544_2
 {
     meta:
         author = "defender2yara"

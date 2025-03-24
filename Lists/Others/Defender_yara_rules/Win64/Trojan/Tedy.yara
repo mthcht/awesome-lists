@@ -1472,3 +1472,24 @@ rule Trojan_Win64_Tedy_GVA_2147935955_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AB_2147936820_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AB!MTB"
+        threat_id = "2147936820"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {45 89 c3 41 81 f3 ff ff ff ff 41 81 e3 14 d1 28 6f 41 81 e1 ff ff ff ff 44 09 d2 45 09 cb 44 31 da 83 f2 ff 41 89 c1 41 31 d1 41 21 c1 89 c2 83 f2 ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

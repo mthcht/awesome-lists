@@ -989,3 +989,24 @@ rule Trojan_Win32_Androm_BKL_2147928081_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Androm_EAMG_2147928922_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.EAMG!MTB"
+        threat_id = "2147928922"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f b7 14 41 0f be 45 97 03 d0 8b 8d f0 fe ff ff 03 4d a0 88 11}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5259,3 +5259,29 @@ rule Trojan_MSIL_Redline_AB_2147935991_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Redline_AB_2147935991_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Redline.AB!MTB"
+        threat_id = "2147935991"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "work\\ImageResizeTest\\geo-elevation.png" ascii //weight: 2
+        $x_1_2 = "createdecryptor" ascii //weight: 1
+        $x_1_3 = "GetBytes" ascii //weight: 1
+        $x_1_4 = "DebuggerHiddenAttribute" ascii //weight: 1
+        $x_1_5 = "debuggernonusercodeattribute" ascii //weight: 1
+        $x_1_6 = "TripleDESCryptoServiceProvider" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1555,6 +1555,27 @@ rule Trojan_Win64_Zusy_A_2147936264_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {66 85 c0 79 1d 49 8b 4c 24 08 49 2b 0c 24 48 c1 f9 05 48 ff c9 49 63 c7 48 3b c1 73 05 41 ff c7 eb 2a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_A_2147936264_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.A!MTB"
+        threat_id = "2147936264"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:

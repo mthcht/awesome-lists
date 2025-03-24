@@ -414,3 +414,24 @@ rule Trojan_Win32_Scar_RC_2147905950_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Scar_EADV_2147936812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Scar.EADV!MTB"
+        threat_id = "2147936812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Scar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f b6 45 fe 8b 4d 08 03 4d f0 0f b6 11 33 d0 8b 45 08 03 45 f0 88 10}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

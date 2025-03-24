@@ -638,3 +638,66 @@ rule Trojan_Win64_BlackWidow_GVK_2147936709_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_MPZ_2147936782_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.MPZ!MTB"
+        threat_id = "2147936782"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {49 f7 f1 44 0f 14 c0 44 0f 14 c9 66 0f 70 e2 ?? 66 0f 70 eb 00 66 41 0f d9 c0 66 41 0f d9 c1 66 41 0f d9 c2 66 41 0f d9 c3 66 41 0f d9 c4 45 8a 14 10 66 41 0f d9 c4 66 41 0f d9 c2 66 41 0f d9 c6 66 41 0f d9 c7 66 0f f1 d3 66 0f f1 d0 66 0f f2 da 0f 28 d8 0f 14 d1 66 0f 70 ec 00 66 0f 38 de d1 44 30 14 0f 66 0f 38 de f1 66 0f 38 de f9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_BlackWidow_GVL_2147936792_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GVL!MTB"
+        threat_id = "2147936792"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 04 01 89 44 24 68 48 63 4c 24 50 33 d2 48 8b c1 b9 13 00 00 00 48 f7 f1 48 8b c2 0f b6 84 04 90 00 00 00 8b 4c 24 68 33 c8 8b c1 48 63 4c 24 50 48 8b 54 24 58 88 04 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_BlackWidow_GVM_2147936793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GVM!MTB"
+        threat_id = "2147936793"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {45 8a 14 10 [0-50] 44 30 14 0f [0-80] 48 ff c1 [0-80] 48 89 c8 [0-80] 48 81 f9 ?? ?? ?? ?? [0-80] 48 31 d2 [0-80] 49 f7 f1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

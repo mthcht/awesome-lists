@@ -2913,6 +2913,27 @@ rule Trojan_Win32_LummaC_FAG_2147934836_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {32 0c 16 30 d9 88 0c 16 42 39 94 24 ?? ?? ?? ?? 89 f9 0f 84}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_FAG_2147934836_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.FAG!MTB"
+        threat_id = "2147934836"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:

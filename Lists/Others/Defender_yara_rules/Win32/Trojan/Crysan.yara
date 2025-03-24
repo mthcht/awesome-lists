@@ -61,3 +61,24 @@ rule Trojan_Win32_Crysan_AMMF_2147907582_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Crysan_EAZK_2147936810_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Crysan.EAZK!MTB"
+        threat_id = "2147936810"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 45 f8 01 d0 31 cb 89 da 88 10 83 45 f8 01 8b 45 f8 3b 45 18 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -127,3 +127,66 @@ rule Trojan_MSIL_ShellcodeRunner_EACL_2147932164_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeRunner_EAE_2147936803_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.EAE!MTB"
+        threat_id = "2147936803"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {07 06 08 6f 26 00 00 0a 6f 27 00 00 0a 6f 23 00 00 0a 26 08 17 58 0c 08 03 32 e5}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ShellcodeRunner_EAG_2147936805_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.EAG!MTB"
+        threat_id = "2147936805"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {07 08 6f 10 00 00 0a 0d 7e 01 00 00 04 12 03 28 11 00 00 0a 6f 12 00 00 0a 2c 1a 06 7e 01 00 00 04 12 03 28 11 00 00 0a 6f 13 00 00 0a 28 14 00 00 0a 0a 2b 0e 06 12 03 28 11 00 00 0a 28 14 00 00 0a 0a 08 17 58 0c 08 07 6f 15 00 00 0a 32 b0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ShellcodeRunner_EAH_2147936806_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.EAH!MTB"
+        threat_id = "2147936806"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0c 2b 0e 03 06 16 07 6f 06 00 00 0a 08 07 6a 58 0c 02 06 16 06 8e 69 6f 07 00 00 0a 25 0b 16 30 e2 08}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

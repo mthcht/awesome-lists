@@ -6458,6 +6458,27 @@ rule Trojan_MSIL_Heracles_EANT_2147928696_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_5_1 = {06 72 a5 01 00 70 7e 1d 00 00 04 16 72 a5 01 00 70 28 6e 00 00 0a 6f 6f 00 00 0a 28 70 00 00 0a 28 71 00 00 0a 6f 72 00 00 0a 08 17 58 0c 08 07 31 ce}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_EANT_2147928696_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.EANT!MTB"
+        threat_id = "2147928696"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_5_1 = {00 06 72 a5 01 00 70 7e 1d 00 00 04 16 72 a5 01 00 70 28 6f 00 00 0a 6f 70 00 00 0a 28 71 00 00 0a 28 72 00 00 0a 6f 73 00 00 0a 00 00 08 17 58 0c 08 07 fe 02 16 fe 01 0d 09 2d c4}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
@@ -6954,6 +6975,27 @@ rule Trojan_MSIL_Heracles_ZHB_2147936453_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {0c 07 16 8f ?? 00 00 01 13 0a 11 0a e0 13 09 00 16 13 0b 2b 24 00 11 09 11 0b 58 06 11 0b 58 47 08 11 0b 08 6f ?? 00 00 0a 5d 6f ?? 00 00 0a 61 d2 52 00 11 0b 17 58 13 0b 11 0b 07 8e 69 fe 04 13 0c 11 0c 2d cf}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_SEI_2147936790_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SEI!MTB"
+        threat_id = "2147936790"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {72 13 01 00 70 6f 0e 00 00 06 6f 29 00 00 06 72 1f 01 00 70 6f 10 00 00 06 09 6f 17 00 00 06 16 6f 05 00 00 06 74 05 00 00 02 25 72 2d 01 00 70 6f 08 00 00 06 72 43 01 00 70 6f 0a 00 00 06 09}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
