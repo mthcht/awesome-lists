@@ -64,3 +64,25 @@ rule Trojan_MSIL_Bodegun_KAA_2147895802_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bodegun_PGB_2147936853_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bodegun.PGB!MTB"
+        threat_id = "2147936853"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bodegun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Hi, im a mosquito, a mosquito that currently infected your computer." ascii //weight: 1
+        $x_4_2 = "would you like to stop the infection?" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3847,7 +3847,7 @@ rule Trojan_Win32_Vidar_C_2147891490_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
+        threshold = "8"
         strings_accuracy = "High"
     strings:
         $x_2_1 = {0f b6 19 30 c3 0f b6 f3 c1 e8 08 33 04 b5 74 e6 41 00 0f b6 59 01 30 c3 0f b6 f3 c1 e8 08 33 04 b5 74 e6 41 00 0f b6 59 02 30 c3 0f b6 f3 c1 e8 08 33 04 b5 74 e6 41 00 0f b6 59 03 30 c3 0f b6 f3 c1 e8 08 33 04 b5 74 e6 41 00}  //weight: 2, accuracy: High
@@ -3856,6 +3856,7 @@ rule Trojan_Win32_Vidar_C_2147891490_1
         $x_1_4 = "SOFTWARE\\monero-project\\monero-core" ascii //weight: 1
         $x_1_5 = "wallet_path" ascii //weight: 1
         $x_1_6 = "Software\\Martin Prikryl\\WinSCP 2\\Sessions" ascii //weight: 1
+        $x_1_7 = "https://t.me/l793oy" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
