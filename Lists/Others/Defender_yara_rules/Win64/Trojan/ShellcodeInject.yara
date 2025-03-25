@@ -358,3 +358,27 @@ rule Trojan_Win64_ShellcodeInject_GLN_2147935415_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeInject_TEM_2147936935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeInject.TEM!MTB"
+        threat_id = "2147936935"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Shellcode address:" ascii //weight: 1
+        $x_1_2 = "Vulnerable dll base address:" ascii //weight: 1
+        $x_1_3 = "CreateThread failed" ascii //weight: 1
+        $x_1_4 = "WRX injection successful" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

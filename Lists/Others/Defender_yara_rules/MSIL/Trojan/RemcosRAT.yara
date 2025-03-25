@@ -704,3 +704,26 @@ rule Trojan_MSIL_RemcosRAT_SUPD_2147930729_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RemcosRAT_SFDA_2147936936_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RemcosRAT.SFDA!MTB"
+        threat_id = "2147936936"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {25 16 0f 00 20 ?? ?? ?? 00 20 ?? ?? ?? 00 28 ?? 00 00 06 16 61 d2 9c 25 17 0f 00 20 ?? ?? ?? 00 20 ?? ?? ?? 00 28 ?? 00 00 06 16 60 d2 9c 25 18 0f 00 28 ?? 00 00 0a 20 ff 00 00 00 5f d2 9c 13 0a 1b 13 18}  //weight: 2, accuracy: Low
+        $x_1_2 = {04 19 8d 01 00 00 01 25 16 11 04 9c 25 17 11 05 9c 25 18 11 06 9c 6f ?? 00 00 0a 11 11}  //weight: 1, accuracy: Low
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

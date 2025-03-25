@@ -6243,3 +6243,24 @@ rule Trojan_Win32_Zusy_PGY_2147936854_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_SCPC_2147936929_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.SCPC!MTB"
+        threat_id = "2147936929"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 20 20 00 20 20 20 20 00 70 52 00 00 10 00 00 00 ea 1f 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0 2e 72 73 72 63 00 00 00 bc 0a 01 00 00 80 52 00 00 0c 01 00 00 fa 1f 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 69 64 61 74 61 20 20}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
