@@ -712,3 +712,24 @@ rule Trojan_Win32_DanaBot_SPD_2147905601_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DanaBot_CCJN_2147936884_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.CCJN!MTB"
+        threat_id = "2147936884"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 45 fc 80 b8 ?? ?? ?? ?? 09 75 0a 8b 45 fc c6 80 ?? ?? ?? ?? 0f ff 45 fc 83 7d fc 20 75 e1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

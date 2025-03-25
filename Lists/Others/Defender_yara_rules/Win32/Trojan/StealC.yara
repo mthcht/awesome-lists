@@ -3231,6 +3231,27 @@ rule Trojan_Win32_StealC_CCJN_2147925182_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 c4 04 50 6a 00 ff 15 ?? ?? ?? ?? 8b 15 ?? ?? ?? ?? 8b f0 33 c9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_StealC_CCJN_2147925182_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.CCJN!MTB"
+        threat_id = "2147925182"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

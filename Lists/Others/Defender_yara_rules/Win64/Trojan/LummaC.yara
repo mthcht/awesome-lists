@@ -173,3 +173,27 @@ rule Trojan_Win64_LummaC_CCIS_2147936486_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_LummaC_CCJU_2147936885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaC.CCJU!MTB"
+        threat_id = "2147936885"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Stop reversing the binary" ascii //weight: 1
+        $x_1_2 = "Reconsider your life choices" ascii //weight: 1
+        $x_1_3 = "And go touch some grass" ascii //weight: 1
+        $x_5_4 = "\\%SexBot%\\modules\\stubmain" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

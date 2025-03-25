@@ -1351,3 +1351,87 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         )
 }
 
+rule Trojan_Win32_ClickFix_AJ_2147936895_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AJ!MTB"
+        threat_id = "2147936895"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "51"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_10_2 = "net.sockets.tcpclient(" wide //weight: 10
+        $x_10_3 = "net.webclient" wide //weight: 10
+        $x_10_4 = ";while($" wide //weight: 10
+        $x_10_5 = ").connected" wide //weight: 10
+        $x_1_6 = ".downloadfile(" wide //weight: 1
+        $x_1_7 = ".ps1; exit" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((5 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_AQ_2147936896_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AQ!MTB"
+        threat_id = "2147936896"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2051"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = ".mp" wide //weight: 1
+        $x_1_2 = ".flv" wide //weight: 1
+        $x_1_3 = ".mdb" wide //weight: 1
+        $x_1_4 = ".eps" wide //weight: 1
+        $x_1_5 = ".dat" wide //weight: 1
+        $x_1_6 = ".cda" wide //weight: 1
+        $x_1_7 = ".m4a" wide //weight: 1
+        $x_1_8 = ".xll" wide //weight: 1
+        $x_2000_9 = "powershell" wide //weight: 2000
+        $x_50_10 = "captcha" wide //weight: 50
+        $x_50_11 = "Press Enter" wide //weight: 50
+        $x_50_12 = "robot" wide //weight: 50
+        $x_50_13 = "human" wide //weight: 50
+        $x_50_14 = " ray" wide //weight: 50
+        $x_50_15 = " recaptcha" wide //weight: 50
+        $x_50_16 = " re captcha" wide //weight: 50
+        $x_50_17 = " rCAPTCHA" wide //weight: 50
+        $x_50_18 = " clip FREE" wide //weight: 50
+        $x_50_19 = " Over FREE" wide //weight: 50
+        $x_50_20 = "robot: r" wide //weight: 50
+        $x_50_21 = "robot - r" wide //weight: 50
+        $x_50_22 = "Cloudflare" wide //weight: 50
+        $x_50_23 = "- Over FREE" wide //weight: 50
+        $x_50_24 = "Google Meet" wide //weight: 50
+        $x_50_25 = "DNS service" wide //weight: 50
+        $x_50_26 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 50, accuracy: High
+        $x_50_27 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 50, accuracy: High
+        $x_50_28 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 50, accuracy: High
+        $x_50_29 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 50, accuracy: High
+        $x_50_30 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 50, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2000_*) and 1 of ($x_50_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_2000_*) and 2 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+

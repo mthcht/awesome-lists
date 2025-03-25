@@ -2194,3 +2194,27 @@ rule Trojan_MSIL_LummaC_SWD_2147936849_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LummaC_NMB_2147936878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaC.NMB!MTB"
+        threat_id = "2147936878"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" ascii //weight: 1
+        $x_2_2 = {02 11 15 9a 12 17 28 0e 01 00 0a 3a 4a 01 00 00 11 13 2c 0a 11 05 11 13}  //weight: 2, accuracy: High
+        $x_1_3 = "script.ps1" ascii //weight: 1
+        $x_1_4 = {a2 11 22 18 72 fc 03 00 70 a2 11 22 19 11 12 a2 11 22}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
