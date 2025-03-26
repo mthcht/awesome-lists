@@ -437,7 +437,6 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Email Header Analyzer](https://emailheaders.verification-check.com/)
 - [Email Header Analysis](https://www.email-format.com/header-analysis/)
 - [Gitlab dashboard from Excel](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
-- [OPENAI](https://openai.com/playground)
 - [uncoder](https://uncoder.io/)
 - [DeHashed](https://dehashed.com/)
 - [Diff Checker](https://www.diffchecker.com/)
