@@ -102,6 +102,9 @@ def parse_folder(path, base_url):
     """
     folder_node = BookmarkNode(is_folder=True)
     for entry in sorted(os.scandir(path), key=lambda e: e.name.lower()):
+        # Skip symbolic links explicitly
+        if entry.is_symlink():
+            continue
         if entry.is_dir():
             subfolder = parse_folder(entry.path, f"{base_url}/{entry.name}")
             subfolder.title = entry.name
@@ -110,6 +113,7 @@ def parse_folder(path, base_url):
             file_node = BookmarkNode(entry.name, url=f"{base_url}/{entry.name}", is_folder=False)
             folder_node.children.append(file_node)
     return folder_node
+
 
 def generate_bookmarks_html(node, indent=0):
     """
