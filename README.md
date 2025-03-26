@@ -10,7 +10,7 @@
 
 [ThreatHunting searches](https://github.com/mthcht/Purpleteam/tree/main/Detection/Threat%20Hunting/generic)
 <details>
-  
+   
   - [Windows Services Searches](https://detect.fyi/threat-hunting-suspicious-windows-service-names-2f0dceea204c)
   - [User-Agents Searches](https://mthcht.medium.com/threat-hunting-suspicious-user-agents-3dd764470bd0)
   - [DNS Over HTTPS Searches](https://mthcht.medium.com/detecting-dns-over-https-30fddb55ac78)
