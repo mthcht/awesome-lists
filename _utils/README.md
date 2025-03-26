@@ -11,7 +11,7 @@ After each update of the main README.md, this Python script is automatically exe
 
 ## Bookmark Usage
 Download the `bookmarks.html` and import the bookmark in your browser:
-
+ 
 #### Chrome
 - At the top right "tree dot" setting, navigate to "Bookmarks and lists" and then "Import bookmarks and settings".
 - Select Choose file.
