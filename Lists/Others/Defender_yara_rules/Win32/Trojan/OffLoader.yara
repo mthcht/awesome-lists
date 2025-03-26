@@ -3547,3 +3547,51 @@ rule Trojan_Win32_OffLoader_AEPA_2147937016_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_AVJA_2147937050_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AVJA!MTB"
+        threat_id = "2147937050"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://shameservant.icu/lko.php?" ascii //weight: 4
+        $x_1_2 = "/silent" ascii //weight: 1
+        $x_1_3 = "/weaksecurity" ascii //weight: 1
+        $x_1_4 = "/nocookies" ascii //weight: 1
+        $x_1_5 = "/resume" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ANO_2147937059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ANO!MTB"
+        threat_id = "2147937059"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "aa.lockstart.host/st.php" wide //weight: 3
+        $x_1_2 = "restart the computer now" wide //weight: 1
+        $x_1_3 = "Yes, I would like to view the README file" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

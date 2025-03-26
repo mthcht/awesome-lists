@@ -429,6 +429,29 @@ rule Ransom_Win64_Filecoder_CCJB_2147915676_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_ARA_2147917869_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.ARA!MTB"
+        threat_id = "2147917869"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Payment for the decryption" ascii //weight: 2
+        $x_2_2 = "WILL attack you again" ascii //weight: 2
+        $x_2_3 = "/c2/receiver" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win64_Filecoder_GV_2147920833_0
 {
     meta:

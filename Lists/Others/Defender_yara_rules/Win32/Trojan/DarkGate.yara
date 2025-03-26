@@ -1124,3 +1124,27 @@ rule Trojan_Win32_DarkGate_EABR_2147936808_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkGate_GVA_2147937063_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkGate.GVA!MTB"
+        threat_id = "2147937063"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkGate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {48 0d 00 ff ff ff 40 8b 4d 08 0f b6 14 01 8b 45 0c 03 45 fc 0f b6 08 33 ca 8b 55 0c 03 55 fc 88 0a}  //weight: 3, accuracy: High
+        $x_1_2 = {40 8b 4d 08 88 81 00 01 00 00 8b 55 08 0f b6 82 01 01 00 00 8b 4d 08 0f b6 91 00 01 00 00 8b 4d 08 0f b6 14 11 03 c2 25}  //weight: 1, accuracy: High
+        $x_1_3 = "DllGetClassObject" ascii //weight: 1
+        $x_1_4 = "DllCanUnloadNow" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

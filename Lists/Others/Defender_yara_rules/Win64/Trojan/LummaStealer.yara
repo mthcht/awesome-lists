@@ -496,3 +496,25 @@ rule Trojan_Win64_LummaStealer_PIN_2147936194_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_2147937061_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.MTR!MTB"
+        threat_id = "2147937061"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTR: an internal category used to refer to some threats"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {65 48 8b 04 25 60 00 00 00 48 89 84 24 80 01 00 00 48 8b 84 24 80 01 00 00 48 8b 40 18 48 89 84 24 78 01 00 00 48 8b 84 24 78 01 00 00 48 8b 40 20 48 89 84 24 68 01 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

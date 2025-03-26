@@ -14713,3 +14713,26 @@ rule Trojan_MSIL_FormBook_RVI_2147936986_0
         )
 }
 
+rule Trojan_MSIL_FormBook_NME_2147937062_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.NME!MTB"
+        threat_id = "2147937062"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "4377972A-EA86-47FE-8BF0-03C541BA855D" ascii //weight: 1
+        $x_2_2 = {11 0c 11 07 58 11 09 59 93 61 11 0b}  //weight: 2, accuracy: High
+        $x_1_3 = {25 06 93 0b 06 18 58 93 07 61 0b}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
