@@ -1737,3 +1737,26 @@ rule Trojan_MSIL_XWorm_AWR_2147936631_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AFPA_2147937027_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AFPA!MTB"
+        threat_id = "2147937027"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0a 11 67 28 ?? 00 00 0a 6f ?? 00 00 0a 13 68 11 68 14 72 ?? ?? 02 70 16 8d ?? 00 00 01 14 14 14 28 ?? 00 00 0a 14 72 ?? ?? 02 70 18 8d ?? 00 00 01 13 6a 11 6a 16 14 a2 00 11 6a 17 14 a2 00 11 6a 14 14 14 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 00 2a}  //weight: 4, accuracy: Low
+        $x_2_2 = {0a a2 00 11 69 1e 11 4f 11 66 17 28 ?? 00 00 0a a2 00 11 69 1f 09 11 5a 11 66 17 28 ?? 00 00 0a a2 00 11 69 1f 0a 08 11 66 17 28 ?? 00 00 0a a2 00 11 69 1f 0b 11 04 11 66 17}  //weight: 2, accuracy: Low
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
