@@ -322,3 +322,24 @@ rule Ransom_Win32_Crowti_P_2147744741_0
         (3 of ($x*))
 }
 
+rule Ransom_Win32_Crowti_MKV_2147937068_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Crowti.MKV!MTB"
+        threat_id = "2147937068"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crowti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {c1 ee 08 0f b7 55 fe 52 e8 ?? ?? ?? ?? 83 c4 04 0f b7 c0 33 45 f8 25 ff 00 00 00 33 34 85 ?? ?? ?? ?? 89 75 f8 8b 4d f4 83 c1 02 89 4d f4 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -692,6 +692,32 @@ rule Ransom_Win64_FileCoder_MX_2147928076_1
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_MX_2147928076_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.MX!MTB"
+        threat_id = "2147928076"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "EByte-Ransomware" ascii //weight: 1
+        $x_1_2 = "EncryptFile" ascii //weight: 1
+        $x_1_3 = "EncryptDirectory" ascii //weight: 1
+        $x_1_4 = "sendLockerID" ascii //weight: 1
+        $x_1_5 = "setWallpaper" ascii //weight: 1
+        $x_1_6 = "getDrives" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win64_FileCoder_MA_2147928077_0
 {
     meta:

@@ -33,12 +33,13 @@ rule TrojanDownloader_MSIL_AsyncRat_CCJR_2147937003_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
+        threshold = "8"
+        strings_accuracy = "Low"
     strings:
-        $x_5_1 = {08 06 07 28 00 01 00 0a 16 6f 01 01 00 0a 13 07 12 07 28 02 01 00 0a 6f 03 01 00 0a 07 11 06 12 01 28 04 01 00 0a 2d d8}  //weight: 5, accuracy: High
+        $x_5_1 = {08 06 07 28 ?? 01 00 0a 16 6f ?? 01 00 0a 13 07 12 07 28 ?? 01 00 0a 6f ?? 01 00 0a 07 11 06 12 01 28 ?? 01 00 0a 2d d8}  //weight: 5, accuracy: Low
         $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
         $x_1_3 = "Select * from AntivirusProduct" wide //weight: 1
+        $x_1_4 = "RunBotKiller" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
