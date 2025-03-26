@@ -252,6 +252,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [EDR Telemetry](https://github.com/tsale/EDR-Telemetry)
 - [PurpleTeam Scripts](https://github.com/mthcht/Purpleteam)
 - [Awesome-SOC](https://github.com/cyb3rxp/awesome-soc)
+- [Awesome SOC analyst](https://github.com/st0pp3r/awesome-soc-analyst)
 - [Threat-Hunting with Splunk](https://github.com/mthcht/ThreatHunting-Keywords)
 - [Detection Lists](https://github.com/mthcht/awesome-lists/Lists)
 - [PurpleTeam atomics](https://github.com/redcanaryco/atomic-red-team)
@@ -284,6 +285,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [MITRE DeTTECT](https://github.com/rabobank-cdc/DeTTECT)
 - [MITRE PRE-ATT&CK Techniques](https://attack.mitre.org/versions/v7/techniques/pre/)
 - [APTMAP](https://github.com/andreacristaldi/APTmap)
+- [CVE Vuln Database](https://cve.mitre.org/)
 - [🔥ALL TI Reports🔥](https://github.com/mthcht/ThreatIntel-Reports)
 - [🔥ALL TI Reports searches🔥](https://mthcht.github.io/ThreatIntel-Reports/)
   
@@ -303,13 +305,13 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [emailrep](https://emailrep.io/)
   - [dnsdumpster](https://dnsdumpster.com/)
   - [nslookup.io](https://www.nslookup.io/)
-  - [cloudfare scan](https://radar.cloudflare.com/scan)
+  - [cloudfare URL scan](https://radar.cloudflare.com/scan)
   - [shodan](https://www.shodan.io/)
   - [Onyphe](https://www.onyphe.io/)
   - [haveibeenpwned](https://haveibeenpwned.com/)
   - [leakcheck.io](leakcheck.io)
   - [Censys](https://search.censys.io/)
-  - [cybergordon (reputation check)](https://cybergordon.com/)
+  - [cybergordon (URL reputation check)](https://cybergordon.com/)
   - [threatminer](https://www.threatminer.org/)
   - [urlscan](https://urlscan.io/)
   - [Apptotal (apps and extensions analysis)](https://apptotal.io/)
@@ -319,12 +321,13 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [scamdb.net](https://www.scamdb.net/)
   - [urlvoid](https://www.urlvoid.com)
   - [urldna.io](https://urldna.io/)
-  - [checkphish](https://checkphish.bolster.ai/)
+  - [url checkphish](https://checkphish.bolster.ai/)
   - [ipvoid](https://www.ipvoid.com/)
   - [mxtoolbox](https://mxtoolbox.com/NetworkTools.aspx)
   - [mxtoolbox mail header](https://mxtoolbox.com/EmailHeaders.aspx)
   - [Microsoft TI](https://ti.defender.microsoft.com/)
   - [pulsedive](https://pulsedive.com/)
+  - [URL Redirect Checker](https://redirect-checker.net/)
   - [threatbook](https://threatbook.io/)
   - [web archive](https://web.archive.org/)
   - [McAfee Threat Intelligence Exchange](https://www.mcafee.com/enterprise/en-us/products/threat-intelligence-exchange.html)
@@ -339,7 +342,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [site web-check](https://web-check.as93.net/)
   - [validin.com](https://app.validin.com/)
   - [Browser Extension CRX checker](https://crxaminer.tech/)
-  - [echotrail](https://www.echotrail.io/)
+  - [.EXE lookup - echotrail](https://www.echotrail.io/)
   - [Malware-Traffic-Analysis (PCAP files)](https://malware-traffic-analysis.net/)
   - [redhuntlabs](https://redhuntlabs.com/online-ide-search)
   - [whois domaintools](https://whois.domaintools.com/)
@@ -347,12 +350,14 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [viewdns](http://viewdns.info/)
   - [OUI mac address lookup](https://www.wireshark.org/tools/oui-lookup.html)
   - [macvendorlookup](https://www.macvendorlookup.com/)
-  - [xcyclopedia](https://strontic.github.io/xcyclopedia/)
+  - [.EXE lookup - xcyclopedia](https://strontic.github.io/xcyclopedia/)
   - [abuse.ch](https://abuse.ch/#platforms)
   - [malware-traffic-analysis](https://www.malware-traffic-analysis.net/index.html)
   - [waybackmachine](http://web.archive.org/)
+  - [Online Paste Tools Lookup](https://redhuntlabs.com/online-ide-search/)
   - [dnshistory](https://dnshistory.org/)
   - [asnlookup](https://asnlookup.com/)
+  - [Browser extension checker - CRXaminer](https://crxaminer.tech/)
   - [ipinfo.io](https://ipinfo.io)
   - [fofa.info](https://fofa.info/)
   - [SecurityTrail](https://securitytrails.com/)
@@ -368,6 +373,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [Cyren lookup](https://www.cyren.com/security-center/url-category-check-gate)
   - [Forcepoint lookup](https://support.forcepoint.com/s/site-lookup)
   - [TrendMicro lookup](https://global.sitesafety.trendmicro.com/)
+  - [USB & PCI database - DeviceHunt](https://devicehunt.com/)
 
 </details>
 
@@ -380,12 +386,14 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [capesandbox](https://www.capesandbox.com/)
 - [joesandbox](https://www.joesandbox.com/analysispaged/0)
 - [filescan.io](https://www.filescan.io/)
-- [Sandbox HA](https://www.hybrid-analysis.com/)
+- [Hybrid Analysis](https://www.hybrid-analysis.com/)
 - [virustotal](https://www.virustotal.com)
 - [threat zone](https://app.threat.zone/scan)
 - [vmray](https://www.vmray.com/)
 - [kaspersky opentip](https://opentip.kaspersky.com/requests)
 - [speakeasy (kernel and user mode emulation)](https://github.com/mandiant/speakeasy)
+- [DOGGuard](https://app.docguard.io/)
+- [Kaspersky Threat Intelligence Portal](https://opentip.kaspersky.com/?tab=upload)
 
 </details>
 
@@ -393,7 +401,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 ### 🧩 Data manipulation
 
 <details>
-  
+
+- [CyberChef](https://gchq.github.io/CyberChef/)
 - [jsoncrack](https://jsoncrack.com/editor)
 - [Grok debugger](https://grokdebugger.com/)
 - [JS deobfuscator](https://lelinhtinh.github.io/de4js/)
@@ -401,8 +410,10 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [PCAP online analyzer](https://apackets.com/)
 - [Hash calculator](https://md5calc.com/hash)
 - [regex101](https://regex101.com/)
+- [PCAP Analyzer Online](https://apackets.com/)
 - [CyberChef](https://gchq.github.io/CyberChef/)
-- [Javascript Deobfuscator](https://deobfuscate.relative.im/)
+- [Javascript Deobfuscator - deobfuscate.relative.im](https://deobfuscate.relative.im/)
+- [Javascript Deobfuscator - de4js](https://lelinhtinh.github.io/de4js/)
 - [JSONViewer](https://jsonviewer.stack.hu/)
 - [TextMechanic](https://textmechanic.com/)
 - [UrlEncode.org](https://www.urlencoder.org/)
@@ -421,6 +432,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [String Manipulation Tool](https://string-functions.com/)
 - [unshorten it](https://www.unshorten.it)
 - [urlunscrambler](https://www.urlunscrambler.com/)
+- [URLEncode & Decode](https://www.urlencoder.org/)
 - [longurl](https://www.longurl.org/)
 - [Message Header](https://mha.azurewebsites.net/pages/mha.html)
 - [MXToolbox EmailHeaders](https://mxtoolbox.com/EmailHeaders.aspx)
@@ -430,6 +442,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [OPENAI](https://openai.com/playground)
 - [uncoder](https://uncoder.io/)
 - [DeHashed](https://dehashed.com/)
+- [Diff Checker](https://www.diffchecker.com/)
+- [ChatGPT](https://chatgpt.com/)
 
 </details>
 
@@ -466,7 +480,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [detection engineering resources](https://github.com/infosecB/awesome-detection-engineering)
 - [Defender Resource](https://defenderresourcehub.info/)
 - [awesome-threat-detection](https://github.com/0x4D31/awesome-threat-detection)
-  
+- [LOLOLFarm](https://lolol.farm/)
+
 </details>
 
 
@@ -591,7 +606,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [virusbulletin](https://www.virusbulletin.com/virusbulletin/)
 - [volexity blog feed](https://www.volexity.com/blog/feed/)
 - [welivesecurity feed](https://www.welivesecurity.com/en/rss/feed/)
-
+- [tl;dr sec newsletter](https://tldrsec.com/)
 </details>
 
 
@@ -720,6 +735,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 #### SOC
 
  - tryhackme - [SOC lvl 1](https://tryhackme.com/path/outline/soclevel1)
+ - tryHackme - [SOC lvl 2](https://tryhackme.com/path/outline/soclevel2)
  - letsdefend.io @chrissanders88 - [letsdefend.io](https://app.letsdefend.io/training)
  - Constructing Defense [constructingdefense.com](https://course.constructingdefense.com/constructing-defense)
  - SANS: [SANS555](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/)
@@ -829,10 +845,39 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [Detection - Azure Attack Defense](https://github.com/Cloud-Architekt/AzureAD-Attack-Defense)
   - [Detection - Unprotect project](https://unprotect.it/snippets/)
   - [Exploitation - Hacker recipes](https://www.thehacker.recipes/)
-  - [Logs - Events - ultimatewindowssecurity](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx)
-  - [Logs - Events - microsoft](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/advanced-security-audit-policy-settings)
+  - [Logs - Events IDs - ultimatewindowssecurity](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx)
+  - [Logs - Event IDs & policies - microsoft](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/advanced-security-audit-policy-settings)
+  - [Logs - Event IDs Logon types - microsoft](https://learn.microsoft.com/en-us/windows-server/identity/securing-privileged-access/reference-tools-logon-types)
+  - [Logs - Azure SigninLogs Schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/signinlogs)
+  - [Logs - Azure SigninLogs Risk Detection](https://learn.microsoft.com/en-us/graph/api/resources/riskdetection?view=graph-rest-1.0)
+  - [Logs - AADSTS Error Codes](https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes#aadsts-error-codes)
+  - [Logs - Microsoft Errors Search](https://login.microsoftonline.com/error)
+  - [Logs - Microsoft Entra authentication and authorization error codes](https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes)
+  - [Logs - Microsoft Defender Event IDs](https://learn.microsoft.com/en-us/defender-endpoint/troubleshoot-microsoft-defender-antivirus)
+  - [Logs - Microsoft Defender for Cloud Alert References](https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-reference)
+  - [Logs - Microsoft Defender for Identity Alert References](https://learn.microsoft.com/en-us/defender-for-identity/alerts-overview)
+  - [Logs - Microsoft Defender XDR Schemas](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-schema-tables)
+  - [Logs - Microsoft DNS Debug Event IDs](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800669(v=ws.11)#dns-logging-and-diagnostics-1)
+  - [Logs - Sysmon Event IDs](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#events)
   - [more cheatsheets](https://github.com/r1cksec/cheatsheets)
   - [Exploitation - TLS details](https://tls12.xargs.org/)
+  - [SOC - Email Headers IANA](https://www.iana.org/assignments/message-headers/message-headers.xhtml)
+  - [SOC - DKIM, DMARC, SPF](https://github.com/nicanorflavier/spf-dkim-dmarc-simplified)
+  - [SOC - Kerberos Protocol explained](https://en.hackndo.com/kerberos/)
+  - [SOC - ADSecurity AD Attacks](https://adsecurity.org/?page_id=4031)
+  - [SOC - Pass the ticket explained](https://dmcxblue.gitbook.io/red-team-notes-2-0/red-team-techniques/defense-evasion/t1550-use-alternate-authentication-material/pass-the-ticket)
+  - [SOC - Kerberoasting explained](https://en.hackndo.com/kerberoasting/)
+  - [SOC - Kerberos Unconstrained Delegation explained](https://en.hackndo.com/constrained-unconstrained-delegation/)
+  - [SOC - AS_REP roasting explained](https://en.hackndo.com/kerberos-asrep-roasting/)
+  - [SOC - Golden tickets explained](https://en.hackndo.com/kerberos-silver-golden-tickets/)
+  - [SOC - Silver Ticket explained](https://en.hackndo.com/kerberos-silver-golden-tickets/)
+  - [SOC - Skeleton Key explained](https://adsecurity.org/?p=1255)
+  - [SOC - NTLM Relay explained](https://en.hackndo.com/ntlm-relay/)
+  - [SOC - LLMNR Poisoning explained](https://medium.com/@rymak/llmnr-poisoning-an-attack-on-the-active-directory-of-an-organization-9907bf0498ff)
+  - [SOC - DCsync explained](https://adsecurity.org/?p=1729)
+  - [SOC - DCshadow attack explained](https://www.dcshadow.com/)
+  - [SOC - Interview Questions by LetsDefend](https://github.com/LetsDefend/SOC-Interview-Questions)
+  - [SOC - explain shell command arguments](https://explainshell.com/)
 
 </details>
 
@@ -907,6 +952,8 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Chrome Addon for TI checks](https://chromewebstore.google.com/detail/osintlytics/kfpbbegdghffnakhgcbonaglepgoedmm)
 - [sms verification](textverified.com)
 - [temp mail](https://temp-mail.org)
+- [10 minute mail](https://10minutemail.com/)
+
 </details>
 
  ### 🏷️ Bookmarks
