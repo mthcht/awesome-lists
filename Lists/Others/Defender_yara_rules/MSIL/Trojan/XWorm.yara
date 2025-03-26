@@ -1300,6 +1300,28 @@ rule Trojan_MSIL_XWorm_ARX_2147934292_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ARX_2147934292_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ARX!MTB"
+        threat_id = "2147934292"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0a 16 0b 2b 1b 06 07 18 58 5a 06 07 17 58 1f 1f 5f 63 61 0a 06 20 87 d6 12 00 5d 0a 07 17 58 0b 07 1d}  //weight: 3, accuracy: High
+        $x_2_2 = {11 05 11 06 9a 0b 07 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 08 72 31 00 00 70 6f ?? 00 00 0a 3a 92 00 00 00 08 72 3f 00 00 70 6f}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_ARM_2147934594_0
 {
     meta:

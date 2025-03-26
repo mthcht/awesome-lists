@@ -176,3 +176,37 @@ rule Trojan_Win32_Nymeria_GPB_2147911777_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Nymeria_NMA_2147936977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nymeria.NMA!MTB"
+        threat_id = "2147936977"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nymeria"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {49 00 46 00 20 00 53 00 54 00 52 00 49 00 4e 00 47 00 4c 00 45 00 46 00 54 00 20 00 28 00 20 00 24 00 [0-47] 20 00 2c 00 20 00 32 00 20 00 29 00 20 00 3d 00 20 00 22 00 30 00 78 00 22 00 20 00 54 00 48 00 45 00 4e 00 20 00 52 00 45 00 54 00 55 00 52 00 4e 00 20 00 42 00 49 00 4e 00 41 00 52 00 59 00 20 00 28 00 20 00 24 00 [0-47] 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {49 46 20 53 54 52 49 4e 47 4c 45 46 54 20 28 20 24 [0-47] 20 2c 20 32 20 29 20 3d 20 22 30 78 22 20 54 48 45 4e 20 52 45 54 55 52 4e 20 42 49 4e 41 52 59 20 28 20 24 [0-47] 20 29}  //weight: 2, accuracy: Low
+        $x_1_3 = {49 00 46 00 20 00 53 00 54 00 52 00 49 00 4e 00 47 00 49 00 53 00 58 00 44 00 49 00 47 00 49 00 54 00 20 00 28 00 20 00 24 00 [0-47] 20 00 29 00 20 00 54 00 48 00 45 00 4e 00 20 00 52 00 45 00 54 00 55 00 52 00 4e 00 20 00 42 00 49 00 4e 00 41 00 52 00 59 00 20 00 28 00 20 00 22 00 30 00 78 00 22 00 20 00 26 00 20 00 24 00 [0-47] 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {49 46 20 53 54 52 49 4e 47 49 53 58 44 49 47 49 54 20 28 20 24 [0-47] 20 29 20 54 48 45 4e 20 52 45 54 55 52 4e 20 42 49 4e 41 52 59 20 28 20 22 30 78 22 20 26 20 24 [0-47] 20 29}  //weight: 1, accuracy: Low
+        $x_1_5 = {49 00 46 00 20 00 4e 00 4f 00 54 00 20 00 24 00 [0-47] 20 00 28 00 20 00 24 00 [0-47] 20 00 28 00 20 00 24 00 [0-47] 20 00 29 00 20 00 26 00 20 00 24 00 [0-47] 20 00 29 00 20 00 41 00 4e 00 44 00 20 00 4e 00 4f 00 54 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {49 46 20 4e 4f 54 20 24 [0-47] 20 28 20 24 [0-47] 20 28 20 24 [0-47] 20 29 20 26 20 24 [0-47] 20 29 20 41 4e 44 20 4e 4f 54}  //weight: 1, accuracy: Low
+        $x_1_7 = "= EXECUTE ( BINARYTOSTRING ( \"0x5837324851373251463043313228245837324851373251363931382C202458373248513732513639383429\" )" ascii //weight: 1
+        $x_1_8 = "AwAAAAQoAAAAAAAAAAABAAjuGW/74nfYaea+3PoomH/10Zt32/Ox0jPpahf3y4Skg0ueqEhI0w8/LW0A" ascii //weight: 1
+        $x_1_9 = "HYIT_Decrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((7 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

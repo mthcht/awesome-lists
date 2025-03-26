@@ -6264,3 +6264,25 @@ rule Trojan_Win32_Zusy_SCPC_2147936929_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_SED_2147936960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.SED!MTB"
+        threat_id = "2147936960"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "QAXiML88dr2" ascii //weight: 2
+        $x_2_2 = "cancro maledetto" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

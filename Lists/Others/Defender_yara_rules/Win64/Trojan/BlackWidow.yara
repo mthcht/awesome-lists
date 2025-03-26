@@ -672,9 +672,9 @@ rule Trojan_Win64_BlackWidow_GVL_2147936792_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = {0f b6 04 01 89 44 24 68 48 63 4c 24 50 33 d2 48 8b c1 b9 13 00 00 00 48 f7 f1 48 8b c2 0f b6 84 04 90 00 00 00 8b 4c 24 68 33 c8 8b c1 48 63 4c 24 50 48 8b 54 24 58 88 04 0a}  //weight: 1, accuracy: High
+        $x_1_1 = {0f b6 04 01 89 44 24 68 48 63 4c 24 50 33 d2 48 8b c1 b9 ?? ?? ?? ?? 48 f7 f1 48 8b c2 0f b6 84 04 ?? ?? ?? ?? 8b 4c 24 68 33 c8 8b c1 48 63 4c 24 50 48 8b 54 24 58 88 04 0a}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -382,3 +382,28 @@ rule Trojan_Win64_ShellcodeInject_TEM_2147936935_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeInject_RTS_2147936967_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeInject.RTS!MTB"
+        threat_id = "2147936967"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Shell_TrayWnd" ascii //weight: 1
+        $x_1_2 = "SetWindowLongPtr failed!" ascii //weight: 1
+        $x_1_3 = "payload.exe_x64.bin" ascii //weight: 1
+        $x_1_4 = "invalid payload" ascii //weight: 1
+        $x_1_5 = "This program is running from: %s" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -409,3 +409,24 @@ rule Trojan_Win32_BadJoke_EASX_2147936731_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BadJoke_ABD_2147936996_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.ABD!MTB"
+        threat_id = "2147936996"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {ff d0 83 ec 04 c7 44 24 04 00 00 00 00 c7 04 24 02 ?? ?? ?? ?? ?? ?? ?? ?? 83 ec 08 89 45 f4 c7 44 24 08 2c 02 00 00 c7 44 24 04 00 00 00 00 8d 85 c8 fd ff ff 89 04 24 e8 ?? ?? ?? ?? c7 85 c8 fd ff ff 2c 02 00 00 8d 85 c8 fd ff ff 89 44 24 04 8b 45 f4 89 04 24 e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
