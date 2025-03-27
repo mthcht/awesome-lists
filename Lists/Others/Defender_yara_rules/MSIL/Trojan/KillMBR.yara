@@ -939,3 +939,26 @@ rule Trojan_MSIL_KillMBR_PARX_2147935008_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_ARAZ_2147937113_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.ARAZ!MTB"
+        threat_id = "2147937113"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "bcdedit /delete {bootmgr} /f" wide //weight: 2
+        $x_2_2 = "\\\\.\\PhysicalDrive0" wide //weight: 2
+        $x_2_3 = "MbrOverwriter" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

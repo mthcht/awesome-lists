@@ -524,3 +524,25 @@ rule Trojan_Win32_Tedy_GNE_2147933343_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_ARAZ_2147937114_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARAZ!MTB"
+        threat_id = "2147937114"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "cmd.exe /c C:\\Windows\\System32\\cmstp.exe /au %TEMP%\\corpvpn.inf" ascii //weight: 2
+        $x_2_2 = "ahufgiuaguijasbiuaibuhaiuhb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -592,6 +592,9 @@ rule Trojan_Win32_ClickFix_DR_2147933573_0
         $x_1_28 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
         $x_1_29 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 1, accuracy: High
         $x_1_30 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 1, accuracy: High
+        $x_1_31 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 1, accuracy: High
+        $x_1_32 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 1, accuracy: High
+        $x_1_33 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -787,6 +790,9 @@ rule Trojan_Win32_ClickFix_DQ_2147933822_0
         $x_1_28 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
         $x_1_29 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 1, accuracy: High
         $x_1_30 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 1, accuracy: High
+        $x_1_31 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 1, accuracy: High
+        $x_1_32 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 1, accuracy: High
+        $x_1_33 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1014,24 +1020,28 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "31"
+        threshold = "111"
         strings_accuracy = "Low"
     strings:
         $x_10_1 = "powershell" wide //weight: 10
-        $x_10_2 = "http" wide //weight: 10
-        $x_10_3 = "verif" wide //weight: 10
-        $x_1_4 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_5 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_6 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_7 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
-        $x_1_8 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
-        $x_1_9 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_10 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 1, accuracy: High
-        $x_1_11 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 1, accuracy: High
+        $x_1_2 = "http" wide //weight: 1
+        $x_100_3 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_4 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_5 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_6 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
+        $x_100_7 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: Low
+        $x_100_8 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_9 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_10 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_11 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_12 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_13 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_14 = {56 00 65 00 72 00 56 04 66 00 56 04 63 00 30 04 74 00 56 04 bf 03 78 05}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
-            ((3 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_100_*))) or
             (all of ($x*))
         )
 }
@@ -1119,6 +1129,9 @@ rule Trojan_Win32_ClickFix_DW_2147935377_0
         $x_50_10 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 50, accuracy: High
         $x_50_11 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 50, accuracy: High
         $x_50_12 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 50, accuracy: High
+        $x_50_13 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 50, accuracy: High
+        $x_50_14 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 50, accuracy: High
+        $x_50_15 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 50, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1305,6 +1318,9 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_100_15 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
         $x_100_16 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
         $x_100_17 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_18 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_19 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_20 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1326,25 +1342,28 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "107"
+        threshold = "106"
         strings_accuracy = "Low"
     strings:
         $x_5_1 = "mshta" wide //weight: 5
         $x_1_2 = "http" wide //weight: 1
-        $x_1_3 = "\\1" wide //weight: 1
-        $x_100_4 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
-        $x_100_5 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_6 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_7 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_8 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
-        $x_100_9 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: Low
-        $x_100_10 = "CIoudfIare Unique One-time" wide //weight: 100
-        $x_100_11 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_12 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_3 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_4 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_5 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_6 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_7 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
+        $x_100_8 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: Low
+        $x_100_9 = "CIoudfIare Unique One-time" wide //weight: 100
+        $x_100_10 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_11 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_12 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_13 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_14 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_15 = {56 00 65 00 72 00 56 04 66 00 56 04 63 00 30 04 74 00 56 04 bf 03 78 05}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
-            ((1 of ($x_100_*) and 1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 1 of ($x_5_*) and 1 of ($x_1_*))) or
             ((2 of ($x_100_*))) or
             (all of ($x*))
         )
