@@ -44,3 +44,24 @@ rule Trojan_MSIL_XMRig_SPCB_2147929580_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XMRig_SWA_2147937144_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XMRig.SWA!MTB"
+        threat_id = "2147937144"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {06 6f 0e 00 00 0a 0b 06 6f ?? 00 00 0a 07 28 ?? 00 00 0a 0c 08 6f ?? 00 00 0a 7e 02 00 00 04 25 3a 17 00 00 00 26 7e 01 00 00 04 fe 06 06 00 00 06 73 16 00 00 0a 25 80 02 00 00 04 28 ?? 00 00 2b 0d 09 14 28 ?? 00 00 0a 39 4b 00 00 00 09 72 8d 00 00 70 1f 1c 6f ?? 00 00 0a 13 0d 11 0d 14 28 ?? 00 00 0a 39 2f 00 00 00 14 13 0e 11 0d 6f ?? 00 00 0a 3a 08 00 00 00 09 28 ?? 00 00 0a 13 0e 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
