@@ -46,6 +46,7 @@
 - 🧮 Metadata Executables: [executables_metadata_informations_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Windows%20Metadata/executables_metadata_informations_list.csv)
 - 🕸️ DNS over HTTPS server list: [dns_over_https_servers_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv)
 - 🕸️ Dynamic DNS domains list:  [dyndns_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/DYNDNS/dyndns_list.csv)
+- 🪝 Phishing lists: [Phishing domains and urls](https://github.com/mthcht/awesome-lists/tree/main/Lists/Phishing)
 - 🕸️ Domains : [\[sinkholed servers\]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Domains)
 - 🕳️ Sinkholed Domains : [sinkholed_domains.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/Domains/sinkholed_servers/sinkholed_domains.csv)
 - 🕳️ Sinkholed Site: [SINKHOLED](https://github.com/sinkholed/sinkholed.github.io) 
