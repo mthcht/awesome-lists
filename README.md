@@ -39,6 +39,7 @@
 - 🛡️ Suspicious Firewall rules: [suspicious_windows_firewall_rules_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_firewall_rules_list.csv)
 - 🆔 Suspicious User-agent: [suspicious_http_user_agents_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_http_user_agents_list.csv)
 - 📇 Suspicious USB Ids: [suspicious_usb_ids_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_usb_ids_list.csv)
+- 🏷️ Suspicious mutex names: [suspicious_mutex_names_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_mutex_names_list.csv)
 - 🔢 Suspicious MAC address: [suspicious_mac_address_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_mac_address_list.csv)
 - 📛 Suspicious Hostname: [suspicious_hostnames_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_hostnames_list.csv)
 - 🌐 Suspicious Browser Extensions: [Browser Extensions](https://github.com/mthcht/awesome-lists/tree/main/Lists/Browser%20Extensions)
