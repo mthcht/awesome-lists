@@ -153,3 +153,24 @@ rule Trojan_Win32_Lummac_EAZK_2147936811_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lummac_PGL_2147937134_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lummac.PGL!MTB"
+        threat_id = "2147937134"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lummac"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 55 fc 89 55 e8 8b 45 fc c1 e0 ?? 33 45 e8 89 45 fc 8b 4d f8 83 c1 ?? 89 4d f8 8b 55 fc c1 ea ?? 03 55 fc 89 55 fc eb b2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
