@@ -1,0 +1,318 @@
+﻿mutex,metadata_category,metadata_threat,metadata_link
+823264,malware,WailingCrab,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/securityintelligence_com/x-force_wailingcrab-malware-misues-mqtt-messaging-protocol/content.txt#L869
+290541776,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+!IETld!Mutex_*,malware,TrojanClicker_Win64_Fleercivet_A,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win64/TrojanClicker/Fleercivet.yara#L17
+%08X_gmh_mutex,malware,PWS_Win32_Lolyda_BD,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/PWS/Lolyda.yara#L1125
+)!VoqA.I4,malware,Poison Ivy RAT,https://github.com/mthcht/awesome-lists/blob/6d77e635c2d29a93351e3e946a93fa0c12f88e5b/Lists/Others/Defender_yara_rules/Win32/Backdoor/Poison.yara#L273
+/var/run/initd.lock,Persistence,BPFdoor,https://www.deepinstinct.com/blog/bpfdoor-malware-evolves-stealthy-sniffing-backdoor-ups-its-game
+\BaseNamedObjects\{3FE573D4-3FE5-DD38-399C-886767BD8875},ransomware,Lockbit,https://archive.orkl.eu/54abf2a1c6ac25c1122b96d09ece47692e481c30.pdf
+\Sessions\1\BaseNamedObjects\SM0:pid:handle:WilStaging_02,ransomware,Yanluowang ransomware,https://github.com/albertzsigovits/malware-notes/tree/master/Ransomware-Windows-Yanluowang
+\Sessions\2\BaseNamedObjects\0c91c96fd7124f21a0193cf842e3495f6daf84a394f44013e92a87ad9d2ef4a0ceec9dd2e2eca22e,ransomware,SunCrypt ransomware,https://blog.minerva-labs.com/suncrypt-ransomware-gains-new-abilities-in-2022
+_!SHMSFTHISTORY!_,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+__mutex_set_cookie__,malware,RomeoEcho,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2016/2016/2016.02.24%20-%20Operation%20Blockbuster%20Destructive%20Malware%20Report/Paper/Operation%20Blockbuster%20RAT%20and%20Staging%20Report/content.txt#L1431
+__PROXY_MUTEX_*__,malware,Spammer_Win32_Agent_AM,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Spammer/Agent.yara#L20
+__SCSWPACK_SCRUN_MUTEX__,malware,Trojan_Win32_Saycode,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Saycode.yara#L16
+_mutex_file_fake,malware,PWS_Win32_Raven_gen_A,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/PWS/Raven.yara#L18
+{01C482BA-BD31-4874-A08B-A93EA5BCE511},malware,UnitedRake,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/research_checkpoint_com/2021_a-deep-dive-into-doublefeature-equation-groups-post-exploitation-dashboard/content.txt#L813C1-L814C1
+{4216567A-4512-9825-7745F856},malware,Casper,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/vxunderground_APTs_2015/2015/2015.03.05%20-%20Casper%20Malware/Paper/Casper%20Malware/content.txt#L369
+{589b7a4a-3776-4e82-8e7d-435471a6c03c},malware,Team9 backdoor,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/blog_fox-it_com/2020_06_02_in-depth-analysis-of-the-new-team9-malware-family/content.txt#L439
+-=Reyptson=-,ransomware,Reyptson,https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/ransom_reyptson.a
+00861111-3333-4ABD-GGGG-2246FE482F99,malware,SpiceRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/vxunderground_APTs_2024/blog.talosintelligence.com-spicerat/content.txt#L150
+00866F68-6C46-4ABD-A8D6-2246FE482F99,malware,SpiceRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/vxunderground_APTs_2024/blog.talosintelligence.com-spicerat/content.txt#L150
+0123456AB,malware,APT1 malware,https://github.com/cshri7/NLP-Information-Extraction/blob/1711ae542ca88e441756e06add0e7c94dc070012/document-summarization/APT1-summary.txt#L128
+0x1A7B4C9F,malware,APT1 malware,https://github.com/mthcht/awesome-lists/blob/1b2fdd6477fe25cc9a6c1c6c556320a33a3021c3/Lists/Others/Defender_yara_rules/Win32/Backdoor/Poison.yara#L1150
+12d61a41-4b74-7610-a4d8-3028d2f56395,malware,Sunspot,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/www_crowdstrike_com/blog_sunspot-malware-technical-analysis/content.txt#L816
+183d24d29354086f9c19c24368929a8c,malware,NJRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/blog_morphisec_com/hworm-houdini-aka-njrat/content.txt#L637
+2e40abf579e4d8d5d1ba7df34d5e507a,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+2gvwnqjz1,malware,Unknown,https://unit42.paloaltonetworks.com/hunting-mutex/
+360safeupload_mutex,malware,Backdoor_Win32_Popwin_gen_E,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Backdoor/Popwin.yara#L98
+37238328-1324242-5456786-8fdff0-67547552436675,malware,Passteal,https://github.com/mthcht/awesome-lists/blob/a3177cba720a5f4b02d70f1c2cbf5a6282b3e9e8/Lists/Others/Defender_yara_rules/Win32/Trojan/Passteal.yara#L37
+3f0d73e2-4b8e-4539-90fd-812330bb39c8,malware,NetDooka RAT,https://www.trendmicro.com/en_us/research/22/e/netdooka-framework-distributed-via-privateloader-ppi.html
+4216567A-4512-9825-7745F856,malware,Casper,https://www.welivesecurity.com/2015/03/05/casper-malware-babar-bunny-another-espionage-cartoon/
+47c6313ec393d0c55d57529e2a9a418d,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+56331e4d-76a3-0390-a7ee-567adf5836b7,malware,Sunspot,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/www_crowdstrike_com/blog_sunspot-malware-technical-analysis/content.txt#L816
+57926c4f-8f06-4a2d-a8d5-a3428f4894fd,malware,RemcosRAT,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+5BB0650C,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+5f33aa0b5660bc932af969301635d818,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+5ss5c_CRYPT,ransomware,Satan,https://github.com/MeisamEb/Repository-of-yara-rules/blob/a9f3a10ceb41bbe1d7dee24f4b2b239734c3de98/ransomware/Satan_Mutexes.yar#L22C1-L30C37
+6013de3fed84d40bb173ec23f408a67e,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+60f733d6d0b077e4a668fb49aab44a30,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+62a3f867becfea136aea4ec83a4d9c44,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+666GKLJHWRnjktn32uyhrjn23io#666,ransomware,clop,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/telekom_com/en_blog_group_article_inside-of-cl0p-s-ransomware-operation-615824/content.txt#L635
+6cbe41284f6a992cc0534b,malware,PureCrypter loader,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/www_trendmicro_com/en_us_research_24_f_water-sigbin-xmrig_html/content.txt#L3807
+6E523163793968624,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+6E523163793968624,malware,Worm:W32/AutoIt.Q,http://trendmicro.com/vinfo/us/threat-encyclopedia/malware/worm_renocide.ei
+72631c3c853d706daf1153b3c8fea54f,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+823264&Prime;,malware,WailingCrab,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/securityintelligence_com/x-force_wailingcrab-malware-misues-mqtt-messaging-protocol/content.txt#L1444
+A16467FA7-343A2EC6-F2351354-B9A74ACF-1DC8406A,malware,Mikey,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+A238FB802-231ABE6B-F2351354-7FCA0C5B-B9CFE7DF,malware,Mikey,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+A238FB802-231ABE6B-F2351354-CF072D6D-090D08F1,malware,Mikey,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+A4gds89g46dfgs,malware,Tofsee,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+A5DEU79,malware,Kronos,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/research_checkpoint_com/deep-dive-upas-kit-vs-kronos/content.txt#L442C115-L442C135
+asdRFSDabormhkmfgUIYGBDURE,malware,Space Pirates,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2022/2022/2022.05.17%20-%20Space%20Pirates%20analyzing%20the%20tools%20and%20connections%20of%20a%20new%20hacker%20group/Paper/space-pirates/content.txt#L825C1-L825C27
+ASTEROPE_AUTORUN_MUTEX,malware,Trojan_Win32_Ropest_E,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Ropest.yara#L38
+ASTEROPE_CLICKER_MUTEX,malware,Trojan_Win32_Ropest_E,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Ropest.yara#L37
+AsyncMutex_6SI8OkPnk,malware,AsyncRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/empresas_blogthinkbig_com/snip3-investigacion-malware/content.txt#L1100
+B4BBD0F7883AF46401A8F944D11D8E1698B68E3C,malware,Razy,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+babuk_v3,ransomware,Babuk v3 ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/chuongdong_com/reverse_engineering_2021_01_16_BabukRansomware-v3/content.txt#L461
+BaseNamedObjects\BlackKeys,ransomware,BlackHunt ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/www_rapid7_com/blog_post_2024_02_05_exploring-the-not-so-secret-code-of-blackhunt-ransomware-2/content.txt#L607
+BLACK_HUNT_MUTEX,ransomware,BlackHunt ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/www_rapid7_com/blog_post_2024_02_05_exploring-the-not-so-secret-code-of-blackhunt-ransomware-2/content.txt#L333
+BoratRatMutex_Sa8XOfH1BudX,malware,BoratRAT,https://any.run/report/2bda73160a1cbe4448104d6e3c004094aeac6328b4ceb81bac626673be39750a/024c5f11-ba1a-4f53-8da9-d09535a38b1e
+BunnyLoader_MUTEXCONTROL,malware,BunnyLoader,https://www.zscaler.com/blogs/security-research/bunnyloader-newest-malware-service
+C2_INFO,malware,Toddycat,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/vxunderground_APTs_2022/2022/2022.06.21%20-%20APT%20ToddyCat/Paper/securelist.com-APT%20ToddyCat/content.txt#L360C1-L360C8
+c37f47c9071eed101a67532e5d412171,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+cdcd59a5fb80808cad7376c001586c6e,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+CERBER_CORE_PROTECTION_MUTEX,ransomware,Cerber ransomware,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Ransom/Cerber.yara#L209
+cFgxTERNWEVhM2V,ransomware,GermanWiper,https://twitter.com/r3c0nst/status/1158326526766657538
+chichigotmanagedyou,ransomware,Babuk old ransomware,https://x.com/fbgwls245/status/1460783049658880000
+chv8VoF8462A240TQszdiFeaRyFs610A,malware,Mikey,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Client67workProc98List3To,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ComSysAppMutex,malware,Honeybee,https://www.virustotal.com/gui/file/d31fe5cfa884e04ee26f323b8d104dcaa91146f5c7c216212fd3053afaade80f
+CRSERVER_MUTEX_ONCE,malware,TrojanProxy_Win32_Mediana,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/TrojanProxy/Mediana.yara#L17
+crypt32LogOffPortEvent,malware,Pushdo/Cutwail,https://www.sans.org/blog/looking-at-mutex-objects-for-malware-discovery-indicators-of-compromise/
+CryptoLuck_Instance,ransomware,CryptoLuck,https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/RANSOM_CRYPTOLUCK.A
+CS_Mutex,malware,TrojanClicker_Win32_RuPass_B,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/Others/Defender_yara_rules/Win32/TrojanClicker/RuPass.yara#L36
+cUUEdKgjnOOOrpkUEjHp,malware,plugx,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/news_sophos_com/en-us_2023_03_09_border-hopping-plugx-usb-worm/content.txt#L452
+CylanceMutex,ransomware,Cylance Ransomware,https://www.broadcom.com/support/security-center/protection-bulletin/cylance-ransomware-targets-both-windows-and-linux
+CYMULATE_EDR_MUTEX,malware,HackTool_MacOS_SuspBinary_B - HackTool_MacOS_SuspBinary_V,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/MacOS/HackTool/SuspBinary.yara#L21
+d0786cf52d3ddb23f820fd0d8edaf764,malware,NjRAT,https://www.vmray.com/analyses/_mb/77fb0419a75b/report/ioc.html
+da9f0e7dc6c52044fa29bea5337b4792b8b873373ba99ad816d5c9f5f275f03f,malware,BlueNoroff,https://securelist.com/bluenoroff-methods-bypass-motw/108383/
+DANCHODANCHEV_AND_BRIANKREBS_GOT_MARRIED,malware,Chebri Trojan,https://github.com/mthcht/awesome-lists/blob/fb443a6d22b24926b3e16d979c84cc33f0af90de/Lists/Others/Defender_yara_rules/Win32/Trojan/Chebri.yara#L17
+DC_MUTEX-*,malware,DarkComet RAT,https://github.com/MeisamEb/Repository-of-yara-rules/blob/a9f3a10ceb41bbe1d7dee24f4b2b239734c3de98/generic/DarkComet.yara#L56C18-L56C27
+DC_MUTEX-4WTL4ZR,malware,Trojan_Win32_KeyLogger_ASH_MTB,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/KeyLogger.yara#L388
+DcRatMutex_*,malware,DcRat,https://github.com/mthcht/ThreatHunting-Keywords/blob/b68aa3b6e86ad16bfe44825a6d4372a1a649cb68/tools/D-F/DcRat.csv#L76
+defined_setnocandy,malware,Unknown,https://unit42.paloaltonetworks.com/hunting-mutex/
+DISKCRYPTOR_MUTEX,malware,DiskCryptor,https://github.com/mthcht/ThreatHunting-Keywords/blob/b68aa3b6e86ad16bfe44825a6d4372a1a649cb68/tools/D-F/DiskCryptor.csv#L20
+Down With Bin Salman,malware,Dustman Wiper,https://www.sonicwall.com/blog/dustman-malware-overwrites-logical-drives-data-with-down-with-saudi-kingdom-down-with-bin-salman
+DoYouWantToHaveSexWithCuongDong,ransomware,Babuk v3 ransomware,https://github.com/mthcht/awesome-lists/blob/23031e5c746619f5a3713c82145ed271974cb15b/Lists/Others/Defender_yara_rules/Win32/Ransom/BabukCrypt.yara#L42
+dsajdhas.0,ransomware,BlackBasta ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/research_checkpoint_com/2022_black-basta-and-the-unnoticed-delivery/content.txt#L576
+dsl_proxy_mutex,malware,Trojan_Win32_Vundo_KZ,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Vundo.yara#L455
+dsl_rundll_mutex,malware,Trojan_Win32_Vundo_KZ,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Vundo.yara#L1230
+ec03f91ae56e478455e3786e91559194,ransomware,SolidBit ransomware,https://www.varonis.com/blog/anatomy-of-a-solidbit-ransomware-attack
+"edu v magazi gucccchi v spb, grrrrrraa,*",ransomware,Nemty 2.6,https://res.cloudinary.com/drbo0op6e/image/upload/v1677085613/cert/Nemty-Ransomware-teknik-analiz-raporu_nncuo3.pdf
+fb663100308285afb4debdcab8d67fe2,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+fdgdfdg,malware,XtremeRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/fireeye_com/blog_threat-research_2014_02_xtremerat-nuisance-or-threat_html/content.txt#L73
+FG00nxojVs4gLBnwKc7HhmdK0h,malware,APT28,https://blog.talosintelligence.com/2017/10/cyber-conflict-decoy-document.html
+"For whom the bell tolls, it tolls for thee",ransomware,RA World,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/unit42_paloaltonetworks_com/ra-world-ransomware-group-updates-tool-set/content.txt#L101
+gangrenb,malware,Pushdo/Cutwail,https://www.sans.org/blog/looking-at-mutex-objects-for-malware-discovery-indicators-of-compromise/
+germeonb,malware,Pushdo/Cutwail,https://www.sans.org/blog/looking-at-mutex-objects-for-malware-discovery-indicators-of-compromise/
+"gfhfgh6y76734d,1111",malware,BackDoor.Whitebird.1,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2020/2020/2020.07.20%20-%20APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/Paper/APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/content.txt#L2692
+gHelloKittyMutex,ransomware,HelloKitty ransomware,https://github.com/mthcht/awesome-lists/blob/fbd6d321556a6c9d8a5aeb2299d92e1e0c69372e/Lists/Others/Defender_yara_rules/Win32/Ransom/Kitty.yara#L16
+Ghy52kl69kmspgG,malware,Powershell backdoor,https://www.virustotal.com/gui/file/dda839584708cdc28f165d0f387a43dbd32b7f56bba0af7c942ee2b751e9ab75/detection
+GKLJHWRnjktn32uyhrjn23io#666,ransomware,clop,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/telekom_com/en_blog_group_article_inside-of-cl0p-s-ransomware-operation-615824/content.txt#L635
+Global\{2194ABA1-BFFA-4e6b-8C26-D1BB20190312},malware,MarkiRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/securelist_com/ferocious-kitten-6-years-of-covert-surveillance-in-iran_102806/content.txt#L681
+Global\{5FA3BC02-920F-D42A-68BC-04F2A75BE158},malware,Project Cobra,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2015/2015/2015.01.20%20-%20Project%20Cobra/Paper/Project%20Cobra/content.txt#L116
+Global\{b1324b26-be01-4620-bf4b-b68b0ae0f95b},malware,RemcosRAT,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Global\{BEF590BE-11A6-442A-A85B-656C1081E04C},ransomware,LockBit,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Ransomware-LockBit#L19
+Global\1f07524d-fb13-4d5e-8e5c-c3373860df25,ransomware,blackbyte ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/trustwave_com/en-us_resources_blogs_spiderlabs-blog_blackbyte-ransomware-pt-1-in-depth-analysis/content.txt#L1931
+Global\3cdc3f347b47506c03a9a5d806adf64a,ransomware,DarkSide,https://www.ccn-cert.cni.es/es/informes/informes-ccn-cert-publicos/6080-ccn-cert-id-09-21-dark-side-1/file.html
+Global\3e93e49583d6401ba148cd68d1f84af7,ransomware,DarkSide,https://www.ccn-cert.cni.es/es/informes/informes-ccn-cert-publicos/6080-ccn-cert-id-09-21-dark-side-1/file.html
+Global\8e50a541-4f19-11ea-a007-00501e3ae7b5,malware,RemcosRAT,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Global\Ammyy*,RAT,Ammy Admin,https://www.vmray.com/analyses/_mb/1831806fc27d/report/overview.html
+Global\BlackStoreMutex,ransomware,BlackStore ransomware,https://id-ransomware.blogspot.com/2023/05/
+Global\COMODO_KILLSWITCH_MUTEX,malware,HackTool_Win32_KillSwitch_A,https://github.com/mthcht/DefenderYara/blob/363e01a82cb79a4685833b7957db4ef0f5990aed/HackTool/Win32/KillSwitch/HackTool_Win32_KillSwitch_A.yar#L7
+Global\dawdwere4de2wrw,malware,Trojan.Mirage.1,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2020/2020/2020.07.20%20-%20APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/Paper/APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/content.txt#L1657
+Global\dbdbdbdb,ransomware,DarkBit ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/blogs_blackberry_com/en_2023_02_darkbit-ransomware-targets-israel/content.txt#L1111
+Global\DBWindowsBase,malware,Project Cobra,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2015/2015/2015.01.20%20-%20Project%20Cobra/Paper/Project%20Cobra/content.txt#L116
+Global\DelSelf*,malware,BackDoor.PlugX.38,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2020/2020/2020.07.20%20-%20APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/Paper/APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/content.txt#L5431C10-L5431C24
+Global\FwtSqmSession106829323_S-1-5-19,malware,SierraBravo-One,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2016/2016/2016.02.24%20-%20Operation%20Blockbuster%20Destructive%20Malware%20Report/Paper/Operation%20Blockbuster%20RAT%20and%20Staging%20Report/content.txt#L2784
+Global\gup0,malware,SparrowDoor,https://www.ncsc.gov.uk/static-assets/documents/malware-analysis-reports/sparrow-door/NCSC-MAR-Sparrow-Door.pdf
+Global\h48yorbq6rm87zot,malware,Glupteba,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Trojan-Glupteba#L49
+Global\I98B68E3C,malware,Emotet,https://blog.talosintelligence.com/threat-roundup-0111-0118/
+Global\IEFrame.LockDefaultBrowser,malware,Project Cobra,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2015/2015/2015.01.20%20-%20Project%20Cobra/Paper/Project%20Cobra/content.txt#L116
+Global\Mp6c3Ygukx29GbDk,malware,Glupteba,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Trojan-Glupteba#L49
+Global\MSCTF.Asm.*,malware,Rhadamanthys,https://elis531989.medium.com/dancing-with-shellcodes-analyzing-rhadamanthys-stealer-3c4986966a88
+Global\MSCTF.Shared.MUTEX.zRX,malware,Project Cobra - turla,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2015/2015/2015.01.20%20-%20Project%20Cobra/Paper/Project%20Cobra/content.txt#L116
+Global\MsWinZonesCacheCounterMutexA,ransomware,WannaCry ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/www_us-cert_gov/ncas_alerts_TA17-132A/content.txt#L1293
+Global\nbyjrjaxyahi4pq5,malware,Glupteba,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Trojan-Glupteba#L49
+Global\pc_group=*&ransom_id=*,ransomware,Gandcrab,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Global\QVomit4,malware,Espionage Campaign toolset,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/symantec-enterprise-blogs_security_com/blogs_threat-intelligence_espionage-campaign-south-east-asia/content.txt#L93
+Global\ReStart0,malware,BackDoor.PlugX.38,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2020/2020/2020.07.20%20-%20APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/Paper/APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/content.txt#L5431C10-L5431C24
+Global\RunThreadOfWinDDK8O98,malware,Trojan.XPath.3,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2020/2020/2020.07.20%20-%20APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/Paper/APT%20attacks%20on%20state%20institutions%20in%20Kazakhstan%20and%20Kyrgyzstan/content.txt#L556C48-L556C62
+Global\SENS.LockStarterCacheResource,malware,Project Cobra,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2015/2015/2015.01.20%20-%20Project%20Cobra/Paper/Project%20Cobra/content.txt#L116
+global\setup_028746_mutexitem,malware,Unknown,https://unit42.paloaltonetworks.com/hunting-mutex/
+Global\ShimSharedMemoryLock,malware,Project Cobra,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2015/2015/2015.01.20%20-%20Project%20Cobra/Paper/Project%20Cobra/content.txt#L116
+Global\TrickBot,malware,TrickBot,https://github.com/CAPESandbox/community/blob/bfced0961ef6ce08e6c928fb0fa1a98c3a8c75e0/modules/signatures/windows/trickbot_mutex.py#L16
+Global\WinSta0_DesktopSessionMut,malware,Project Cobra,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2015/2015/2015.01.20%20-%20Project%20Cobra/Paper/Project%20Cobra/content.txt#L116
+Global\wupEvent31337,malware,Glupteba,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Trojan-Glupteba#L49
+Global\xneEvent31337,malware,Glupteba,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Trojan-Glupteba#L49
+Global\y7ze3fznx1u0yc2z,malware,Glupteba,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Trojan-Glupteba#L49
+GRNtLeLPnuJGPsTxTilb,malware,plugx,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/insights_oem_avira_com/new-wave-of-plugx-targets-hong-kong/content.txt#L118
+h31415927tttt,malware,UP007/SLServer campaign,https://citizenlab.ca/2016/04/between-hong-kong-and-burma/
+HappyLife^_-,ransomware,clop,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/www_mcafee_com/blogs_other-blogs_mcafee-labs_clop-ransomware/content.txt#L1940
+HELLOKITTYMutex,ransomware,HelloKitty ransomware,https://github.com/mthcht/awesome-lists/blob/428fa2d64509a40b64e23e61b8aefc4865c60a5c/Lists/Others/Defender_yara_rules/Win32/Ransom/Kitty.yara#L16
+HelloKittyMutex,ransomware,HelloKitty ransomware,https://github.com/mthcht/awesome-lists/blob/fbd6d321556a6c9d8a5aeb2299d92e1e0c69372e/Lists/Others/Defender_yara_rules/Win32/Ransom/Kitty.yara#L16
+hfdmzbtu.,malware,CVE-2024-36401 exploit,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/www_fortinet_com/blog_threat-research_threat-actors-exploit-geoserver-vulnerability-cve-2024-36401/content.txt#L1069
+HGL345,malware,Poison Ivy RAT,https://github.com/DakotaNelson/practical-malware-analysis/blob/master/lab07/lab07.md
+hoJUpcvgHA,ransomware,PrincessEvolution ransomware,https://www.bleepingcomputer.com/news/security/princess-evolution-ransomware-is-a-raas-with-a-slick-payment-site/
+HOMEKEYLOGGER_MUTEX,malware,MonitoringTool_Win32_HomeKeylogger,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/Others/Defender_yara_rules/Win32/MonitoringTool/HomeKeylogger.yara#L15
+Hp6kvaq9BCyI,malware,AsyncRAT-C-Sharp,https://github.com/mthcht/ThreatHunting-Keywords-yara-rules/blob/c89d23dcde23cac614284af6554db6ba22cdecf1/yara_rules/offensive_tool_keyword/A-C/AsyncRAT-C-Sharp.yara#L49
+HSDFSD-HFSD-3241-91E7-ASDGSDGHH,ransomware,GermanWiper,https://twitter.com/r3c0nst/status/1158326526766657538
+hsfjuukjzloqu28oajh727190,ransomware,lockbit,https://github.com/mthcht/awesome-lists/blob/23031e5c746619f5a3713c82145ed271974cb15b/Lists/Others/Defender_yara_rules/Win64/Ransom/Lockbit.yara#L18
+HUIGEZVIP_MUTEX,malware,TrojanDropper_Win32_Hupigon,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/TrojanDropper/Hupigon.yara#L17
+ievah8eVki3Ho4oo,ransomware,avoslocker,https://blog.malwarebytes.com/threat-analysis/2021/07/avoslocker-enters-the-ransomware-scene-asks-for-partners
+IMPROVING CLIENT Want Wood To Exit?,malware,WolfsBane Gelsemium,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/www_welivesecurity_com/en_eset-research_unveiling-wolfsbane-gelsemiums-linux-counterpart-to-gelsevirine/content.txt#L159
+internationalCyberWarefare,malware,Necro Python,https://blog.talosintelligence.com/necro-python-bot-adds-new-tricks/
+internationalCyberWarefareV3,malware,Necro Python,https://blog.talosintelligence.com/necro-python-bot-adds-new-tricks/
+jhdgcjhasgdc09890gjasgcjhg2763876uyg3fhg,malware,Net-worm:W32/Allaple,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/researchcenter_paloaltonetworks_com/2014_08_hunting-mutex/content.txt#L618
+jhdheruhfrthkgjhtjkghjk5trh,malware,Net-worm:W32/Allaple,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/researchcenter_paloaltonetworks_com/2014_08_hunting-mutex/content.txt#L94
+Juan_Tracking_Mutex,malware,TrojanDownloader_Win32_Agent_ACB,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Conhook.yara#L198
+kasKDJSAFJauisiudUASIIQWUA82,ransomware,Conti ransomware,https://x.com/VK_Intel/status/1455395356230004736
+kjsidugidf99439,ransomware,Conti ransomware,https://yoroi.company/research/conti-ransomware-source-code-a-well-designed-cots-ransomware/
+KLGjigjuw4j892358u432i5,malware,FlawedAmmy RAT,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/threatrecon_nshc_net/2019_08_29_sectorj04-groups-increased-activity-in-2019/content.txt#L718
+ld_201127,malware,Bazar Loader,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/cybereason_com/blog_a-bazar-of-tricks-following-team9s-development-cycles/content.txt#L549
+Local$myprogram$,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\{076B1D08-2C01-45A5-BD0A-0CF5D6410DCB}_sporder_tester_M,malware,Ocean Lotus,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2019/2019/2019.04.19%20-%20Ocean%20Lotus%20-%20Funky%20Malware%20Format%20Found%20in%20Sample/Paper/Ocean%20Lotus/content.txt#L149
+Local\{2D6DB911-C222-9814-3135-344B99BBA4BA},malware,Nymaim,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Local\{369514D7-C789-5986-2D19-AB81D1DD3BA1},malware,Nymaim,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Local\{445DE72D-9B60-6571-D392-6925F65F5FE7},malware,Nymaim,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Local\{D0BDC0D1-57A4-C2CF-6C93-0085B58FFA2A},malware,Nymaim,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Local\{D8E7AB94-6F65-71DE-8DA1-FE621BE2E606},malware,Nymaim,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Local\{E41B13B6-7B07-8560-4026-41A66FCE339D},malware,Nymaim,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Local\{F04311D2-A565-19AE-AB73-281BA7FE97B5},malware,Nymaim,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Local\{F6F578C7-92FE-B7B1-40CF-049F3710A368},malware,Nymaim,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Local\1RCw3329,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\3CC2ryd2,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\3mCUq1z,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\8jCPd9d,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\dLjaI,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\dtrps,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\DvzjZ,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\EgMJa,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\ejZbw,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\eWjMV,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\eWjMV,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\EznTvkbq,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\fWySU,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\GBqea,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\gFvHS,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\GTQAG,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\hkrrI,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\kCHLu,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\LnOtv,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\mLBas,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\muEbW4SF,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\mutextest,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\PSBQv,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\qawsedc,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\Qq0sfw23,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\qreaO,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\qwertqewyt,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\qxMBo,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\RCw33291,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\tGlfz,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\UeXeS,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\ujBPF,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\ViZWD,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\VvSVp,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\YhxUy,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+Local\YUMMY,malware,DarkRATv2,https://github.com/binaryninja/Malware-Knowledge-Graph/blob/2faa6058ad9722fc97569a55f7d1b158374ba1d0/data_input/mw_reports/entry_999cc713-e87f-4fec-aa63-172845a5579d.text#L898
+LPLl3h3lDh1d3djP7P3&,malware,Kronos,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/research_checkpoint_com/deep-dive-upas-kit-vs-kronos/content.txt#L442C115-L442C135
+M&GX^DSF&DA@F,malware,UP007/SLServer campaign,https://citizenlab.ca/2016/04/between-hong-kong-and-burma/
+m23071644,ransomware,Makop ransomware,https://orkl.eu/libraryEntry/d471efb8-1843-4fce-bc24-f7712ccf1d0c
+MICK_DOWNLOAD_MUTEX,malware,TrojanDownloader_Win32_Agent_ZZD,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/TrojanDownloader/Agent.yara#L834
+Microsoft-Kraken-*,ransomware,Kraken ransomware,https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/ise2.12004
+MicrosoftLocalFileService,malware,toddycat,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/securelist_com/toddycat-keep-calm-and-check-logs_110696/content.txt#L1509
+MILIHPEN,ransomware,jsworm ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/securelist_com/evolution-of-jsworm-ransomware_102428/content.txt#L843C12-L843C20
+mJhcimNA,malware,NetWiredRC,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/circl_lu/pub_tr-23/content.txt#L801
+mn_185445,malware,Team9 backdoor,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/blog_fox-it_com/2020_06_02_in-depth-analysis-of-the-new-team9-malware-family/content.txt#L439
+MoneyP#666,ransomware,clop,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/www_mcafee_com/blogs_other-blogs_mcafee-labs_clop-ransomware/content.txt#L1955
+mono1234,malware,Blind Eagle,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/research_checkpoint_com/2025_blind-eagle-and-justice-for-all/content.txt#L1063
+mutex poisoned,malware,Trojan_Win64_RustStealer_DA_MTB,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win64/Trojan/RustStealer.yara#L46
+Mutex_BIDUI18NGUID_,malware,Trojan_Win32_Winexert_C_bit,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win64/Trojan/Winexert.yara#L19
+Mutex_Juan_LC,malware,TrojanDownloader_Win32_Agent_ACB,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/TrojanDownloader/Agent.yara#L1904
+MUTEX_KISSKA,malware,TrojanDownloader_Win32_Small_gen_AI,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/Others/Defender_yara_rules/Win32/TrojanDownloader/Small.yara#L685
+MUTEX_Mail_Plugin_v,malware,Spammer_Win32_Darvec_A,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Spammer/Darvec.yara#L16
+Mutex_RemWatchdog,malware,RemcosRAT,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Backdoor/Remcos.yara#L233
+MUTEX_WISE_FIXER_EXCLUDE_OBJECT_LUCK,malware,Misleading_Win32_Softeallion,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Misleading/Softeallion.yara#L16
+mymutsglwork,malware,Trojan Wintrim,https://github.com/mthcht/awesome-lists/blob/dd21c7ecb379ea91a6d0799f5d3d80b66ac4d3f3/Lists/Others/Defender_yara_rules/Win32/Trojan/Wintrim.yara#L238
+mymutsglwork,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+myss_getopt_mutex,malware,BrowserModifier_Win32_SearcherSmart,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/Others/Defender_yara_rules/Win32/BrowserModifier/SearcherSmart.yara#L26
+myss_install_mutex,malware,BrowserModifier_Win32_SearcherSmart,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/Others/Defender_yara_rules/Win32/BrowserModifier/SearcherSmart.yara#L26
+myXFSADM,malware,XFSADM,https://twitter.com/r3c0nst/status/1149043362244308992
+NNOFQoZIxAphdklhtaWw,malware,plugx,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/insights_oem_avira_com/new-wave-of-plugx-targets-hong-kong/content.txt#L118
+Oblique,malware,obliqueRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/blog_talosintelligence_com/2021_02_obliquerat-new-campaign_html/content.txt#L576
+ocmwn,malware,Qakbot,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+ofijweiuhuewhcsaxs.mutex,ransomware,BlackBasta ransomware,https://www.zscaler.com/blogs/security-research/back-black-basta
+ofijweiuhuewhcsaxs.mutex,ransomware,BlackBasta ransomware,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Linux/Ransom/BlackBasta.yara#L41
+"ONA MOYA ROZA I YA EE LUBLUUUUUUUU, ONA MOYA DOZA - SEGODNYA ZATYANU",ransomware,Nefilim ransomware,https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/ransom.win32.nefilim.g
+OPSEC_BERNHARD,Credential Access,BernhardPOS ,https://web.archive.org/web/20160309231300/http://www.morphick.com/blog/2015/7/14/bernhardpos-new-pos-malware-discovered-by-morphick
+OSRS18hd-UKGZDR,malware,RemcosRAT,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+OurMainMutex999,ransomware,matrix,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Ransomware-Matrix#L120
+OurMainMutex999net,ransomware,matrix,https://github.com/sophoslabs/IoCs/blob/797cf48f74f5167d8ccd304214ab895d9a5d64a5/Ransomware-Matrix#L120
+Paramore756Contex43,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+PEMF24,malware,Emotet,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/persianov_net/emotet-malware-analysis-part-2/content.txt#L177
+PlatFormSDK2.1,malware,SierraBravo-Two,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2016/2016/2016.02.24%20-%20Operation%20Blockbuster%20Destructive%20Malware%20Report/Paper/Operation%20Blockbuster%20RAT%20and%20Staging%20Report/content.txt#L3134
+psec_once,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+Pysa,ransomware,Pysa,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/www_cert_ssi_gouv_fr/uploads_CERTFR-2020-CTI-003_pdf/content.txt#L85
+QN4869MD,malware,REDLEAVES,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/us-cert_gov/ncas_alerts_TA17-117A/content.txt#L1296C10-L1296C32
+QQ_Exit_Info_Mutex_,malware,Trojan_Win32_BlackMoon_AGN_MTB,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/BlackMoon.yara#L821
+QSR_MUTEX_ayVRCIIhAhYn6ZIdtI,malware,RemcosRAT,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+QSR_MUTEX_rSifQNOVTwHrsBs2nd,malware,APT10 malware,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/vxunderground_APTs_2019/2019/2019.05.24%20-%20Uncovering%20New%20Activity%20By%20APT10/Paper/APT%2010/content.txt#L149
+RedLeavesCMDSimulatorMutex,malware,REDLEAVES,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/us-cert_gov/ncas_alerts_TA17-117A/content.txt#L1305
+Remcos-*,malware,RemcosRAT,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+Remcos_Mutex_Inj,malware,RemcosRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2019/2019/2019.05.18%20-%20Operation%20BlackLion/Paper/Operation%20BlackLion/content.txt#L556
+Rmc-*,malware,RemcosRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/asec_ahnlab_com/en_64921/content.txt#L826
+RV_MUTEX\u201d,malware,aggah campaign,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/unit42_paloaltonetworks_com/aggah-campaign-bit-ly-blogspot-and-pastebin-used-for-c2-in-large-scale-campaign/content.txt#L101
+RV_MUTEX-8Y2XIQ0OM6W8PAHPYI6266,malware,NjRAT,https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:MSIL/NJRat.A!bit
+RV_MUTEX-cuiGGjjtnxDpnF,malware,aggah campaign,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/unit42_paloaltonetworks_com/aggah-campaign-bit-ly-blogspot-and-pastebin-used-for-c2-in-large-scale-campaign/content.txt#L101
+RV_MUTEX-WindowsUpdateSysten32,malware,aggah campaign,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/unit42_paloaltonetworks_com/aggah-campaign-bit-ly-blogspot-and-pastebin-used-for-c2-in-large-scale-campaign/content.txt#L101
+SATAN_SCAN_APP,ransomware,Satan,https://github.com/MeisamEb/Repository-of-yara-rules/blob/a9f3a10ceb41bbe1d7dee24f4b2b239734c3de98/ransomware/Satan_Mutexes.yar#L22C1-L30C37
+SATANAPP,ransomware,Satan,https://github.com/MeisamEb/Repository-of-yara-rules/blob/a9f3a10ceb41bbe1d7dee24f4b2b239734c3de98/ransomware/Satan_Mutexes.yar#L22C1-L30C37
+sejavpsfushosuk,malware,Tofsee,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+SnipMutex,malware,SnipBot,https://unit42.paloaltonetworks.com/snipbot-romcom-malware-variant/
+Sr2W06mW,malware,Odinaff trojan,https://x.com/HuntressLabs/status/786199744414560258
+SSS_Scan,ransomware,Satan,https://github.com/MeisamEb/Repository-of-yara-rules/blob/a9f3a10ceb41bbe1d7dee24f4b2b239734c3de98/ransomware/Satan_Mutexes.yar#L22C1-L30C37
+SSSS_Scan,ransomware,Satan,https://github.com/MeisamEb/Repository-of-yara-rules/blob/a9f3a10ceb41bbe1d7dee24f4b2b239734c3de98/ransomware/Satan_Mutexes.yar#L22C1-L30C37
+STOPSCARABSTOPSCARABSTOPSCARABSTOPSCARABSTOPSCARAB,ransomware,Scarabey,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/id-ransomware_blogspot_com/2017_12_scarabey-ransomware_html/content.txt#L1374
+swolf-20010512,malware,XenoRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/asec_ahnlab_com/en_66429/content.txt#L918
+TeamViewer_LogMutex,RAT,teamviewer,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/RMM/teamviewer/teamviewer.csv#L55
+TeamViewer3_Win32_Instance_Mutex,RAT,teamviewer,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/RMM/teamviewer/teamviewer.csv#L55
+TeamViewerHooks_DynamicMemMutex,RAT,teamviewer,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/RMM/teamviewer/teamviewer.csv#L55
+tech,ransomware,Hermes 2.1 ransomware,https://www.malwarebytes.com/blog/news/2018/03/hermes-ransomware-distributed-to-south-koreans-via-recent-flash-zero-day
+teX23stNew,malware,APH network compromise,https://twitter.com/cyb3rops/status/1097423665472376832
+ThisIsMutexa,ransomware,Pandora ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/fortinet_com/blog_threat-research_looking-inside-pandoras-box/content.txt#L524
+ThisIsMutexa,ransomware,Pandora ransomware,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/kienmanowar_wordpress_com/2022_03_21_quicknote-analysis-of-pandora-ransomware/content.txt#L1380
+thunder5_app_mutex,malware,BrowserModifier_Win32_Helpth,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/BrowserModifier/Helpth.yara#L46
+thunder5_shell_mutex,malware,BrowserModifier_Win32_Helpth,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/BrowserModifier/Helpth.yara#L49
+TWiZT,malware,Phorpiex botnet,https://research.checkpoint.com/2021/phorpiex-botnet-is-back-with-a-new-twizt-hijacking-hundreds-of-crypto-transactions/
+UlswcXJJWhtHIHrVqWJJ,malware,FRESHFIRE,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/volexity_com/blog_2021_05_27_suspected-apt29-operation-launches-election-fraud-themed-phishing-campaigns/content.txt#L486
+VAmazinsdvd010201,malware,win32lethic botnet,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/resources_infosecinstitute_com/win32lethic-botnet-analysis/content.txt#L1151
+Victim_Mutex,malware,Trojan_Win32_MotePro,https://github.com/mthcht/awesome-lists/blob/853c9f08c7f37cdd34df937c0a90d0b482f98f85/Lists/Others/Defender_yara_rules/Win32/Trojan/MotePro.yara#L136
+VMFvdCsC7RFqerZinfV0sxJFo,RAT,Quasar,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2017/2017/2017.01.30%20-%20Downeks%20and%20Quasar%20RAT%20Used%20in%20Recent%20Targeted%20Attacks%20Against%20Governments/Paper/Downeks%20%26%20quasar%20rat/content.txt#L92
+Vremya tik-tak... Odinochestvo moi simvol...,ransomware,Nemty 2.5 - Mikey,https://blog.talosintelligence.com/threat-roundup-0214-0221/
+vv11287GD,malware,REDLEAVES,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/www_pwc_co_uk/cyber-security_pdf_pwc-uk-operation-cloud-hopper-technical-annex-april-2017_pdf/content.txt#L426
+VVubPDixKeBURoQIIyfb,malware,plugx,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/insights_oem_avira_com/new-wave-of-plugx-targets-hong-kong/content.txt#L118
+windows_7_windows_10_check_running_once_mutex,malware,Trojan_Win64_CryptInject_AZ_MTB,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/news_sophos_com/en-us_2024_12_11_keeping-it-real-sophos-and-the-2024-mitre-attck-evaluations-enterprise/content.txt#L444C171-L444C216
+With best wishes And good intentions...,ransomware,helloxd,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/unit42_paloaltonetworks_com/helloxd-ransomware/content.txt#L105
+WizTreeMutex,malware,WizTree,https://github.com/mthcht/ThreatHunting-Keywords/blob/b68aa3b6e86ad16bfe44825a6d4372a1a649cb68/tools/U-W/wiztree.csv#L7
+WuSh B- Is Running!,malware,Backdoor:Win32/Zegost.X,https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor%3AWin32%2FZegost.AD
+x2_alive_mutex,malware,Trojan_Win32_Vundo_gen_BX,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Vundo.yara#L2067
+XGBPPAQHSE,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+Xh16fqVD,malware,XtremeRAT,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/fireeye_com/blog_threat-research_2014_02_xtremerat-nuisance-or-threat_html/content.txt#L73
+XO1XADpO01,ransomware,lockbit,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/www_mcafee_com/blogs_other-blogs_mcafee-labs_tales-from-the-trenches-a-lockbit-ransomware-story/content.txt#L1840
+XPCSpy Pro Application Mutex,malware,MonitoringTool_Win32_XPCSpy,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/MonitoringTool/XPCSpy.yara#L15
+XUzeONpJmKCaBUtvnRGB,malware,plugx,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/insights_oem_avira_com/new-wave-of-plugx-targets-hong-kong/content.txt#L118
+xx464dg433xx16,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+xx464dg433xx16,malware,Worm:Win32/Koobface.U (Facebook worm),https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+Y1FeZFVYXllb,malware,Kasidet,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/vxunderground_APTs_2016/2016/2016.01.29%20-%20Malicious%20Office%20files%20dropping%20Kasidet%20and%20Dridex/Paper/Kasidet%20%26%20Dridex/content.txt#L43
+YiCompress_Update_Mutex,malware,Trojan_Win32_Chindo_SP_MSR,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Chindo.yara#L20
+YMING,malware,unknown,https://github.com/security-kg/oscti-data/blob/3aa77c456f56fd187ef9d5ced5a3fa3642f6704d/20220620-all-reports/attcybersecurity_html/malware-exploring-mutex-objects.html#L842
+ypFRoazKbRHpMwnXoLtW,malware,plugx,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/insights_oem_avira_com/new-wave-of-plugx-targets-hong-kong/content.txt#L118
+Zaebiz.GoogleSearch.Lsp.Mutex,malware,Trojan_Win32_Mespam_G,https://github.com/mthcht/awesome-lists/blob/ded085b0d0044080da6545da6ada9f55129edbb1/Lists/Others/Defender_yara_rules/Win32/Trojan/Mespam.yara#L253
+z-hacker-y.win,malware,Gh0stRAT,https://levelblue.com/blogs/labs-research/reversing-gh0strat-part-2-the-ddos-ening
+Zheic0WaWie6zeiy,ransomware,avoslocker,https://github.com/mthcht/ThreatIntel-Reports/blob/02cd3a86579807f7a489da8df5822a249aed41ea/Intel%20Reports/www_zscaler_com/blogs_security-research_retrospective-avoslocker/content.txt
+ZhengReversePC,malware,Kimsuky,https://github.com/mthcht/ThreatIntel-Reports/blob/cc43fb5378a4c97d26861e3727e3a609e38370df/Intel%20Reports/asec_ahnlab_com/en_57873/content.txt#L830
+Zw _ &one@ldrContext43,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexKINP64,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexLNKINFO64,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexRNDRV45scr,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexRNDRV45snd,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexRNDRV64,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexRNDRV65,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexRNDRV65new,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexRNDRV65xy,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexRNDRV65xyz,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexSkSwmA,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexSMD64,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
+ZxWinDeffContexWriteUSBIO64x,malware,Prikormka,https://web-assets.esetstatic.com/wls/2016/05/Operation-Groundbait.pdf
