@@ -407,3 +407,24 @@ rule Trojan_Win64_ShellcodeInject_RTS_2147936967_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeInject_HM_2147937234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeInject.HM!MTB"
+        threat_id = "2147937234"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 5d e8 48 c1 e3 0d 48 31 5d e8 48 8b 75 e8 48 c1 ee 07 48 31 75 e8 48 8b 4d e8 48 c1 e1 11 48 31 4d e8 8b 55 e8 89 55 f8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

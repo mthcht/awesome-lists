@@ -1953,3 +1953,25 @@ rule Trojan_MSIL_DarkComet_SEV_2147936944_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkComet_ALPA_2147937233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkComet.ALPA!MTB"
+        threat_id = "2147937233"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {06 74 04 00 00 1b 07 8f 14 00 00 01 25 71 14 00 00 01 02 07 1f 10 5d 91 61 d2 81 14 00 00 01 19 0d 38 ?? ff ff ff 07 17 58 0b 18 0d 38 ?? ff ff ff 07 06 74 04 00 00 1b 8e 69 32 17}  //weight: 3, accuracy: Low
+        $x_2_2 = {02 8e 69 1f 10 59 8d ?? 00 00 01 0a 02 1f 10 06 75 ?? 00 00 1b 16 06 75 ?? 00 00 1b 8e 69}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
