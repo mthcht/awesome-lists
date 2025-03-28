@@ -111,3 +111,24 @@ rule Ransom_Win32_GrandCrab_PCC_2147787689_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_GrandCrab_SAA_2147937161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/GrandCrab.SAA!MTB"
+        threat_id = "2147937161"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GrandCrab"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {c1 e9 05 03 4d f0 c1 e0 04 03 45 ec 33 c8 8d 04 1e 2b 75 e8 33 c8 2b f9 83 6d fc 01}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

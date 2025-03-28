@@ -172,3 +172,25 @@ rule Trojan_Win64_AsyncRat_BT_2147936628_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AsyncRat_BU_2147937165_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRat.BU!MTB"
+        threat_id = "2147937165"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 c1 e1 08 48 01 ca 48 81 c2 ?? 00 00 00 44 8b 12 45 33 11 41 01 c2 49 81 f8 ?? ?? 00 00 44 89 d0 44 89 55 ?? 4c 89 45 ?? 89 45 cc 75}  //weight: 3, accuracy: Low
+        $x_2_2 = {48 8b 45 e0 c7 05 ?? ?? ?? ?? ?? ?? 00 00 48 8b 4d f8 8a 14 01 4c 8b 45 e8 41 88 14 00 48 05 01 00 00 00 4c 8b 4d f0 4c 39 c8 48 89 45 e0 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

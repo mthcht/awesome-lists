@@ -5285,3 +5285,24 @@ rule Trojan_MSIL_Redline_AB_2147935991_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Redline_GTZ_2147937159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Redline.GTZ!MTB"
+        threat_id = "2147937159"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {1b 11 06 8f ?? ?? ?? 01 25 47 09 11 06 58 1f 11 5a 20 00 01 00 00 5d d2 61 d2 52 09 1f 1f 5a 08 75 ?? ?? ?? 1b 11 06 91 58 20 00 01 00 00 5d 0d 11 06 17 58 13 06 11 06 08 75 ?? ?? ?? 1b 8e 69 32 b9}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

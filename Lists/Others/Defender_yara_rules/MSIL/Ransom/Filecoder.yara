@@ -3085,6 +3085,29 @@ rule Ransom_MSIL_Filecoder_ARA_2147920066_0
         family = "Filecoder"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Your files have been encrypted" wide //weight: 2
+        $x_2_2 = "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" wide //weight: 2
+        $x_2_3 = "24 hours to transfer" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_ARA_2147920066_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.ARA!MTB"
+        threat_id = "2147920066"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"

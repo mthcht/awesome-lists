@@ -1007,6 +1007,28 @@ rule Trojan_Win32_Glupteba_DSA_2147759454_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {83 c0 7b 56 8b f2 89 44 24 04}  //weight: 1, accuracy: High
+        $x_1_2 = {8b 54 24 04 8a 04 32 88 04 31 5e 81 c4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Glupteba_DSA_2147759454_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.DSA!MTB"
+        threat_id = "2147759454"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:

@@ -16,8 +16,8 @@ rule Trojan_PowerShell_Minerva_BE_2147935796_0
         $x_1_1 = "= 'silentlycontinue'" wide //weight: 1
         $x_1_2 = ".DownloadFile('http" wide //weight: 1
         $x_1_3 = ".exe', 'c:" wide //weight: 1
-        $x_1_4 = "Start-Process 'C:\\\\test" wide //weight: 1
-        $x_1_5 = "invoice.exe" wide //weight: 1
+        $x_1_4 = "sTart-pRoCEss 'c:" wide //weight: 1
+        $x_1_5 = "Invoice.eXE" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
