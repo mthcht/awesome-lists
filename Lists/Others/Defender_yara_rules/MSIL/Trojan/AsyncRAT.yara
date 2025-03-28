@@ -5833,6 +5833,27 @@ rule Trojan_MSIL_AsyncRAT_EAC_2147936231_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_EAC_2147936231_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.EAC!MTB"
+        threat_id = "2147936231"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {00 08 11 04 9a 6f 30 00 00 0a 09 28 60 00 00 0a 13 05 11 05 2c 12 00 06 08 11 04 9a 6f 30 00 00 0a 6f 61 00 00 0a 00 00 00 11 04 17 58 13 04 11 04 08 8e 69 fe 04 13 06 11 06 2d c4}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_AsyncRAT_EAF_2147936804_0
 {
     meta:

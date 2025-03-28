@@ -1500,6 +1500,27 @@ rule Trojan_Win32_LummaC_EA_2147927497_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 8d 84 00 00 00 8b d3 c1 ea 08 88 14 08 ff 85 84 00 00 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_EA_2147927497_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.EA!MTB"
+        threat_id = "2147927497"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -3241,6 +3262,71 @@ rule Trojan_Win32_LummaC_BT_2147936984_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {03 c1 8b 4d ?? 30 08 8b 45 ?? 8b 4d ?? 89 45 ?? 2b 45 ?? 89 4d ?? 3b c8 0f 82}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_BV_2147937246_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.BV!MTB"
+        threat_id = "2147937246"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {32 0c 16 30 d9 88 0c 16 42 39 94 24}  //weight: 3, accuracy: High
+        $x_2_2 = {d0 e9 00 d9 0f b6 c9 8d 1c 49}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_EAT_2147937252_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.EAT!MTB"
+        threat_id = "2147937252"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {21 c1 31 d1 89 4d f0 8b 4d f0 80 c1 32 88 8c 06 b6 da 2b d9 40}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_EAY_2147937254_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.EAY!MTB"
+        threat_id = "2147937254"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f b6 8c 04 46 e8 43 cc 31 c1 89 4c 24 04 8b 4c 24 04 80 c1 62 88 8c 04 46 e8 43 cc 40 3d be 17 bc 33}  //weight: 5, accuracy: High
+        $x_5_2 = {89 4c 24 08 8b 44 24 08 89 c1 f7 d1 83 e1 1a 25 e5 00 00 00 29 c8 88 84 2c 11 f4 74 a0 45 4b}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

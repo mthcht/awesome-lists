@@ -4328,3 +4328,24 @@ rule Trojan_Win32_LummaStealer_STD_2147937198_0
         )
 }
 
+rule Trojan_Win32_LummaStealer_EA_2147937247_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.EA!MTB"
+        threat_id = "2147937247"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {89 ce 83 e6 06 89 d3 81 f3 8b 00 00 00 01 f3 32 1c 14 80 c3 49 88 1c 14 42 83 c1 02 83 fa 05}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

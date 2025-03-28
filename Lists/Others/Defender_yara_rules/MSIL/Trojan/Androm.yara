@@ -1504,3 +1504,24 @@ rule Trojan_MSIL_Androm_EAOX_2147934436_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_SIM_2147937261_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.SIM!MTB"
+        threat_id = "2147937261"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {02 20 03 e5 36 19 28 09 00 00 06 07 6f 12 00 00 06 74 1b 00 00 01 0d 02 09 02 7b 0d 00 00 04 6f 16 00 00 06}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6562,3 +6562,47 @@ rule Trojan_Win32_Vidar_AAD_2147933797_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_EAA_2147937251_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.EAA!MTB"
+        threat_id = "2147937251"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f b6 4c 24 07 00 c8 00 44 24 07 0f b6 44 24 08 0f b6 c0 89 c1 c1 e1 04 01 c1 f7 d9 00 4c 24 08}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_SEY_2147937262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.SEY!MTB"
+        threat_id = "2147937262"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8d 05 00 20 42 00 69 0c 24 00 03 00 00 01 c8 8d 0d 9c 36 42 00 6b 14 24 0c 01 d1 89 01}  //weight: 2, accuracy: High
+        $x_1_2 = "\\\\Monero\\\\wallet0123456789" ascii //weight: 1
+        $x_1_3 = "\\\\BraveWallet\\\\P" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

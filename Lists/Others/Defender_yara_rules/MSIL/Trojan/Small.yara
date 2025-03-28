@@ -364,6 +364,27 @@ rule Trojan_MSIL_Small_EC_2147838537_4
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Small_EA_2147842760_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Small.EA!MTB"
+        threat_id = "2147842760"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {72 f9 01 00 70 0a 73 34 00 00 0a 0b 73 29 00 00 0a 25 72 e9 00 00 70 6f 2a 00 00 0a 00 25 72 a0 03 00 70 06 72 b6 03 00 70}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Small_PSKW_2147845494_0
 {
     meta:

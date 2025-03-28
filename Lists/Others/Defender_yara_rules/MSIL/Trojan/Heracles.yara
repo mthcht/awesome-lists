@@ -7001,3 +7001,24 @@ rule Trojan_MSIL_Heracles_SEI_2147936790_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_EAKR_2147937250_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.EAKR!MTB"
+        threat_id = "2147937250"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {02 07 07 61 07 61 03 04 28 0a 00 00 06 00 07 17 58 0b 07 06 2f 0b 03 6f 4e 00 00 0a 04 fe 04 2b 01 16 0c 08 2d da}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

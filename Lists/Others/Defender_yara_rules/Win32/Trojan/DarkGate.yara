@@ -821,6 +821,27 @@ rule Trojan_Win32_DarkGate_SIP_2147927535_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkGate_EAA_2147927864_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkGate.EAA!MTB"
+        threat_id = "2147927864"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkGate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 8e b8 00 00 00 8b 86 84 00 00 00 c1 ea 08 88 14 01}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_DarkGate_GC_2147928155_0
 {
     meta:

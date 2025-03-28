@@ -1235,3 +1235,46 @@ rule Trojan_MSIL_Zilla_SWB_2147936848_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_EAHT_2147937253_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.EAHT!MTB"
+        threat_id = "2147937253"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {16 13 04 38 a2 00 00 00 02 11 04 09 6f 15 00 00 0a 13 05 16 13 06 38 81 00 00 00 06 19 5d 13 07 11 07 45 03 00 00 00 02 00 00 00 12 00 00 00 22 00 00 00 2b 2e 07 18 5a 12 05 28 16 00 00 0a 18 5d 58 0b 2b 1e 07 18 5a 12 05 28 17 00 00 0a 18 5d 58 0b 2b 0e 07 18 5a 12 05 28 18 00 00 0a 18 5d 58 0b 06 17 58 0a 06 1e}  //weight: 5, accuracy: High
+        $x_5_2 = {5d 2d 2a 07 28 02 00 00 06 0b 07 2d 02 08 2a 07 1f 20 32 05 07 1f 7d 31 02 14 2a 07 d1 13 08 08 12 08 28 19 00 00 0a 28 1a 00 00 0a 0c 11 06 17 58 13 06 11 06 19 3f 77 ff ff ff 11 04 17 58 13 04 11 04 02 6f 1b 00 00 0a 3f 51 ff ff ff 09 17 58 0d 09 02 6f 1c 00 00 0a 3f 39 ff ff ff}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_SED_2147937260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SED!MTB"
+        threat_id = "2147937260"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0a 02 03 05 1e 28 4f 00 00 06 0b 02 7b 63 00 00 04 07 06 04 ba 28 59 00 00 0a 7e 06 00 00 0a 28 3d 00 00 06 16}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
