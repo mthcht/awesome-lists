@@ -547,64 +547,6 @@ rule Trojan_Win32_ClickFix_Y_2147933215_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_DR_2147933573_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.DR!MTB"
-        threat_id = "2147933573"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "31"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = "powershell" wide //weight: 10
-        $x_10_2 = "http" wide //weight: 10
-        $x_10_3 = "verif" wide //weight: 10
-        $x_1_4 = " ray" wide //weight: 1
-        $x_1_5 = " recaptcha" wide //weight: 1
-        $x_1_6 = " re captcha" wide //weight: 1
-        $x_1_7 = "Press Enter" wide //weight: 1
-        $x_1_8 = " rCAPTCHA" wide //weight: 1
-        $x_1_9 = " clip FREE" wide //weight: 1
-        $x_1_10 = " Over FREE" wide //weight: 1
-        $x_1_11 = "robot: r" wide //weight: 1
-        $x_1_12 = "robot - r" wide //weight: 1
-        $x_1_13 = "robot - Cloudflare" wide //weight: 1
-        $x_1_14 = "robot: Cloudflare" wide //weight: 1
-        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_17 = "Human - r" wide //weight: 1
-        $x_1_18 = "Human: r" wide //weight: 1
-        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
-        $x_1_22 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
-        $x_1_23 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_24 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_25 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_26 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
-        $x_1_27 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
-        $x_1_28 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_29 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 1, accuracy: High
-        $x_1_30 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 1, accuracy: High
-        $x_1_31 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 1, accuracy: High
-        $x_1_32 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 1, accuracy: High
-        $x_1_33 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 21 of ($x_1_*))) or
-            ((2 of ($x_10_*) and 11 of ($x_1_*))) or
-            ((3 of ($x_10_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_ClickFix_MB_2147933575_0
 {
     meta:
