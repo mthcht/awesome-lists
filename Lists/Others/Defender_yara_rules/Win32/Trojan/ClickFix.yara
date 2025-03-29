@@ -978,7 +978,8 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         $x_100_11 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
         $x_100_12 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
         $x_100_13 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
-        $x_100_14 = {56 00 65 00 72 00 56 04 66 00 56 04 63 00 30 04 74 00 56 04 bf 03 78 05}  //weight: 100, accuracy: High
+        $x_100_14 = {72 00 0b 20 6f 00 62 00 6f 00 0d 20 74 00}  //weight: 100, accuracy: High
+        $x_100_15 = {56 00 65 00 72 00 56 04 66 00 56 04 63 00 30 04 74 00 56 04 bf 03 78 05}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1074,6 +1075,7 @@ rule Trojan_Win32_ClickFix_DW_2147935377_0
         $x_50_13 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 50, accuracy: High
         $x_50_14 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 50, accuracy: High
         $x_50_15 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 50, accuracy: High
+        $x_50_16 = {72 00 0b 20 6f 00 62 00 6f 00 0d 20 74 00}  //weight: 50, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1263,6 +1265,7 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_100_18 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
         $x_100_19 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
         $x_100_20 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_21 = {72 00 0b 20 6f 00 62 00 6f 00 0d 20 74 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1302,6 +1305,7 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_13 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
         $x_100_14 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
         $x_100_15 = {56 00 65 00 72 00 56 04 66 00 56 04 63 00 30 04 74 00 56 04 bf 03 78 05}  //weight: 100, accuracy: High
+        $x_100_16 = {72 00 0b 20 6f 00 62 00 6f 00 0d 20 74 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1606,10 +1610,36 @@ rule Trojan_Win32_ClickFix_GVA_2147937010_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = "powershell" wide //weight: 5
-        $x_5_2 = {69 00 72 00 6d 00 20 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 3a 00 [0-10] 2f 00 24 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {69 00 72 00 6d 00 20 00 [0-255] 3a 00 [0-10] 2f 00 24 00}  //weight: 5, accuracy: Low
         $x_3_3 = "|iex" wide //weight: 3
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZC_2147937321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZC!MTB"
+        threat_id = "2147937321"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = ".replace('#','')" wide //weight: 1
+        $x_1_2 = ".replace('@','')" wide //weight: 1
+        $x_10_3 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-1] 30 00 2d 00 77 00 [0-5] 68 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

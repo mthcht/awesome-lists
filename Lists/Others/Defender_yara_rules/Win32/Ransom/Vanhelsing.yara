@@ -10,7 +10,7 @@ rule Ransom_Win32_Vanhelsing_DA_2147936357_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "55"
+        threshold = "54"
         strings_accuracy = "Low"
     strings:
         $x_50_1 = ".vanhelsing" ascii //weight: 50
@@ -25,7 +25,7 @@ rule Ransom_Win32_Vanhelsing_DA_2147936357_0
     condition:
         (filesize < 20MB) and
         (
-            ((1 of ($x_50_*) and 5 of ($x_1_*))) or
+            ((1 of ($x_50_*) and 4 of ($x_1_*))) or
             ((2 of ($x_50_*))) or
             (all of ($x*))
         )
