@@ -956,7 +956,13 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 </details>
 
 ### Content creation
+
+<details>
+
 - [Attack animation creator - aceresponder](https://aceresponder.com/attackanimator)
+
+</details>
+
 
  ### 🏷️ Bookmarks
 
