@@ -7022,3 +7022,26 @@ rule Trojan_MSIL_Heracles_EAKR_2147937250_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_AOPA_2147937354_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AOPA!MTB"
+        threat_id = "2147937354"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0a 0b 07 06 6f ?? 00 00 0a 00 07 06 6f ?? 00 00 0a 00 73 ?? 00 00 0a 0c 08 07 6f ?? 00 00 0a 17 73 ?? 00 00 0a 0d 09 02 1f 10 02 8e 69 1f 10 59 6f ?? 00 00 0a 00 09 6f ?? 00 00 0a 00 08 6f ?? 00 00 0a 13 04 2b 00 11 04}  //weight: 4, accuracy: Low
+        $x_2_2 = "41 2 47 101 3 95 115 5 130 117 1 115 109 3 103 101 5 116 42 2 48 52 4 64 57 6 75 101 1 101 97 3 91 50 4 62" wide //weight: 2
+        $x_2_3 = "43 2 49 105 3 103 57 4 69 58 6 76 117 1 115 97 3 91 54 4 66 65 5 80 54 2 60 54 4 66 111 5 126 99 1 97 69 3 63 60 4 72" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
