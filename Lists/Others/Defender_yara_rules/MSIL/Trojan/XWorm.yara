@@ -1760,3 +1760,27 @@ rule Trojan_MSIL_XWorm_AFPA_2147937027_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AYB_2147937396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AYB!MTB"
+        threat_id = "2147937396"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "bitbucket.org/mcafee-online/hodh009/downloads/loader.bin" wide //weight: 2
+        $x_1_2 = "ConsoleApp1\\obj\\Release\\ConsoleApp1.pdb" ascii //weight: 1
+        $x_1_3 = "Debugger detected" wide //weight: 1
+        $x_1_4 = "Sandbox detected" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

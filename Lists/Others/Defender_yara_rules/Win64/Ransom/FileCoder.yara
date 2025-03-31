@@ -944,3 +944,27 @@ rule Ransom_Win64_FileCoder_RHAJ_2147931782_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_AYF_2147937395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.AYF!MTB"
+        threat_id = "2147937395"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Vrunner.pdb" ascii //weight: 2
+        $x_1_2 = "Your computer has been destroyed by Vrunner" ascii //weight: 1
+        $x_1_3 = "You can get the key by paying the ransom" ascii //weight: 1
+        $x_1_4 = "I have no money, I restart now, at least the computer can still use it" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -64,3 +64,24 @@ rule Trojan_Win32_Bublik_GZN_2147909743_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Bublik_AYA_2147937394_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bublik.AYA!MTB"
+        threat_id = "2147937394"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bublik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {53 8d 1c 3e 29 f2 8b cb e8 e9 ff ff ff 89 f2 89 f9 e8 e0 ff ff ff 33 c0 09 f6 74 11 8a 14 03 8a 0c 38 88 14 38 88 0c 03 40 39 f0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

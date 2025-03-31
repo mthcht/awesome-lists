@@ -42,3 +42,26 @@ rule Ransom_MSIL_BlackBit_MA_2147852278_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_BlackBit_AYA_2147937393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/BlackBit.AYA!MTB"
+        threat_id = "2147937393"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BlackBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "info.BlackBit" wide //weight: 2
+        $x_2_2 = "This file and all other files in your computer are encrypted by BlackBit" wide //weight: 2
+        $x_1_3 = "If you want to restore this file and rest of your files, Please send us message to this e-mail" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

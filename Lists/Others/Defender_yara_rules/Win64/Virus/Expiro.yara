@@ -497,3 +497,24 @@ rule Virus_Win64_Expiro_A_2147936276_0
         (all of ($x*))
 }
 
+rule Virus_Win64_Expiro_PAGJ_2147937390_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win64/Expiro.PAGJ!MTB"
+        threat_id = "2147937390"
+        type = "Virus"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Expiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {45 89 fa 47 8a 14 16 44 88 55 cf 44 0f b6 55 cf 44 8b 4d bc 41 01 f9 45 0f b6 c9 45 31 ca 44 88 55 cf 45 89 fa 44 8a 4d cf 47 88 0c 16 4d 8d 7f 01 eb}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
