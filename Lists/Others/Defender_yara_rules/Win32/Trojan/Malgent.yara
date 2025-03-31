@@ -332,3 +332,34 @@ rule Trojan_Win32_Malgent_PR_2147931153_0
         )
 }
 
+rule Trojan_Win32_Malgent_GA_2147937365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent.GA!MSR"
+        threat_id = "2147937365"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "ScriptRunner.ExecuteStartupTasks" wide //weight: 3
+        $x_3_2 = "CSharpScript.EvaluateAsync(scriptContent, scriptOptions" wide //weight: 3
+        $x_3_3 = "AppApi.dll" ascii //weight: 3
+        $x_1_4 = "D:\\a\\_work\\1\\s\\artifacts\\obj\\coreclr\\windows.x86.Release\\Corehost.Static\\singlefilehost.pdb" ascii //weight: 1
+        $x_1_5 = "G:\\repos\\ApiApp\\AppApi\\obj\\Release\\net9.0\\win-x86\\AppApi.pdb" ascii //weight: 1
+        $x_1_6 = "://fowieuryweics.online/api.php" wide //weight: 1
+        $x_1_7 = "://homestaieu.site/api.php" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 4 of ($x_1_*))) or
+            ((3 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
