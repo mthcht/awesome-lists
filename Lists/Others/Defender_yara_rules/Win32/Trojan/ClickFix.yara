@@ -1805,3 +1805,95 @@ rule Trojan_Win32_ClickFix_DAK_2147937506_0
         )
 }
 
+rule Trojan_Win32_ClickFix_SE_2147937535_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SE"
+        threat_id = "2147937535"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "http" ascii //weight: 100
+        $x_1_2 = ".top" wide //weight: 1
+        $x_1_3 = ".biz" wide //weight: 1
+        $x_1_4 = ".info" wide //weight: 1
+        $x_1_5 = ".link" wide //weight: 1
+        $x_1_6 = ".loan" wide //weight: 1
+        $x_1_7 = ".review" wide //weight: 1
+        $x_1_8 = ".work" wide //weight: 1
+        $x_1_9 = ".stream" wide //weight: 1
+        $x_1_10 = ".club" wide //weight: 1
+        $x_1_11 = ".party" wide //weight: 1
+        $x_1_12 = ".study" wide //weight: 1
+        $x_1_13 = ".technology" wide //weight: 1
+        $x_1_14 = ".gdn" wide //weight: 1
+        $x_1_15 = ".reise" wide //weight: 1
+        $x_1_16 = ".yokohama" wide //weight: 1
+        $x_1_17 = ".vip" wide //weight: 1
+        $x_1_18 = ".ren" wide //weight: 1
+        $x_1_19 = ".country" wide //weight: 1
+        $x_1_20 = ".download" wide //weight: 1
+        $x_1_21 = ".racing" wide //weight: 1
+        $x_1_22 = ".science" wide //weight: 1
+        $x_1_23 = ".shop" wide //weight: 1
+        $x_1_24 = ".xyz" wide //weight: 1
+        $x_1_25 = ".icu" wide //weight: 1
+        $x_1_26 = ".lat" wide //weight: 1
+        $x_1_27 = ".fun" wide //weight: 1
+        $x_1_28 = ".bet" wide //weight: 1
+        $x_1_29 = ".live" wide //weight: 1
+        $x_1_30 = ".life" wide //weight: 1
+        $x_1_31 = ".online" wide //weight: 1
+        $x_1_32 = ".bond" wide //weight: 1
+        $x_1_33 = ".world" wide //weight: 1
+        $x_1_34 = ".click" wide //weight: 1
+        $x_1_35 = ".forest" wide //weight: 1
+        $x_1_36 = ".mp3" wide //weight: 1
+        $x_1_37 = ".mp4" wide //weight: 1
+        $x_1_38 = ".flv" wide //weight: 1
+        $x_1_39 = ".mdb" wide //weight: 1
+        $x_1_40 = ".eps" wide //weight: 1
+        $x_1_41 = ".dat" wide //weight: 1
+        $x_1_42 = ".cda" wide //weight: 1
+        $x_1_43 = ".m4a" wide //weight: 1
+        $x_1_44 = ".xll" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_YE_2147937536_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YE!MTB"
+        threat_id = "2147937536"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6d 00 73 00 68 00 74 00 61 00 [0-255] 2e 00 6d 00 70 00 33 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {6d 00 73 00 68 00 74 00 61 00 [0-255] 2e 00 6d 00 70 00 34 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {6d 00 73 00 68 00 74 00 61 00 [0-255] 2e 00 78 00 6c 00 6c 00}  //weight: 10, accuracy: Low
+        $x_10_4 = {6d 00 73 00 68 00 74 00 61 00 20 00 68 00 74 74 70 00 73 00 3a 00 2f 00 2f 00 61 00 6e 00 61 00 61 00 6d 00 77 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-6] 2e 00 70 00 68 00 70 00 5c 00 31 00}  //weight: 10, accuracy: Low
+        $x_10_5 = {6d 00 73 00 68 00 74 00 61 00 20 00 68 00 74 74 70 00 73 00 3a 00 2f 00 2f 00 72 00 65 00 61 00 2e 00 67 00 72 00 75 00 70 00 6f 00 6c 00 61 00 6c 00 65 00 67 00 69 00 6f 00 6e 00 2e 00 65 00 63 00 2f 00 [0-6] 2e 00 70 00 68 00 70 00 5c 00 31 00}  //weight: 10, accuracy: Low
+        $x_10_6 = {6d 00 73 00 68 00 74 00 61 00 20 00 68 00 74 74 70 00 73 00 3a 00 2f 00 2f 00 67 00 72 00 65 00 65 00 6e 00 69 00 6e 00 64 00 75 00 73 00 74 00 72 00 79 00 2e 00 70 00 6c 00 2f 00 [0-6] 2e 00 70 00 68 00 70 00 5c 00 31 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

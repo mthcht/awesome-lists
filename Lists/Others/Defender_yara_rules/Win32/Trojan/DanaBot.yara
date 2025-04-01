@@ -567,6 +567,27 @@ rule Trojan_Win32_DanaBot_BA_2147758768_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {ff ff 8a 09 88 08 eb ?? 81 3d ?? ?? ?? ?? 32 09 00 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DanaBot_BA_2147758768_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.BA!MTB"
+        threat_id = "2147758768"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
