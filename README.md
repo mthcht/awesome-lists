@@ -288,6 +288,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [MITRE PRE-ATT&CK Techniques](https://attack.mitre.org/versions/v7/techniques/pre/)
 - [APTMAP](https://github.com/andreacristaldi/APTmap)
 - [CVE Vuln Database](https://cve.mitre.org/)
+- [CVE Vuln Framwork](https://github.com/CERTCC/SSVC)
 - [REACT framework](https://atc-project.github.io/react-navigator/)
 - [🔥ALL TI Reports🔥](https://github.com/mthcht/ThreatIntel-Reports)
 - [🔥ALL TI Reports searches🔥](https://mthcht.github.io/ThreatIntel-Reports/)
