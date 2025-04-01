@@ -40,3 +40,24 @@ rule Trojan_Win64_Zbot_CCIH_2147911577_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zbot_GVA_2147937569_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zbot.GVA!MTB"
+        threat_id = "2147937569"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 c2 83 e2 01 83 fa 01 19 d2 83 e2 3e 83 ea 7b 30 14 07 48 ff c0 39 c1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
