@@ -1475,3 +1475,29 @@ rule Trojan_Win64_Rozena_BS_2147936686_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_DA_2147937491_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.DA!MTB"
+        threat_id = "2147937491"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Memory dump completed" ascii //weight: 1
+        $x_10_2 = "Decoy packet sent" ascii //weight: 10
+        $x_1_3 = "MiniDumpWriteDump" ascii //weight: 1
+        $x_1_4 = "%s\\dumpfile_%u.dmp" ascii //weight: 1
+        $x_1_5 = "Enter receiver IP:" ascii //weight: 1
+        $x_1_6 = "Enter receiver port:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

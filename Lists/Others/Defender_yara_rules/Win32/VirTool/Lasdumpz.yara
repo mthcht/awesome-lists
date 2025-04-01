@@ -22,3 +22,25 @@ rule VirTool_Win32_Lasdumpz_A_2147808498_0
         (all of ($x*))
 }
 
+rule VirTool_Win32_Lasdumpz_B_2147937494_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/Lasdumpz.B!MTB"
+        threat_id = "2147937494"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lasdumpz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 b8 ff 0f 0f 00 4c 89 7d ?? 48 8d 55 ?? c7 45 ?? 1a 00 1c 00}  //weight: 10, accuracy: Low
+        $x_10_2 = "SECURITY\\Policy\\Secrets\\__GT__Decrypt" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

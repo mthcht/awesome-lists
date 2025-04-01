@@ -1643,3 +1643,34 @@ rule Trojan_Win32_ClickFix_ZC_2147937321_0
         )
 }
 
+rule Trojan_Win32_ClickFix_SH_2147937478_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SH"
+        threat_id = "2147937478"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "113"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "-w hidden" wide //weight: 10
+        $x_10_3 = "-w 1" wide //weight: 10
+        $x_10_4 = "-w h " wide //weight: 10
+        $x_1_5 = "::frombase64string(" wide //weight: 1
+        $x_1_6 = "-useb " wide //weight: 1
+        $x_1_7 = "iwr" wide //weight: 1
+        $x_1_8 = "iex" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

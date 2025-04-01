@@ -89,8 +89,10 @@ rule Trojan_Win32_NetworkConfig_D_2147768644_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {6e 00 62 00 74 00 73 00 74 00 61 00 74 00 [0-16] 2d 00 73 00}  //weight: 1, accuracy: Low
+        $n_50_2 = "nessus" wide //weight: -50
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

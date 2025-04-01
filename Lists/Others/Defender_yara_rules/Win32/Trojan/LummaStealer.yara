@@ -4229,19 +4229,18 @@ rule Trojan_Win32_LummaStealer_STB_2147937195_0
         family = "LummaStealer"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "25"
+        threshold = "15"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 10, accuracy: High
-        $x_1_2 = {b8 fe ff ff ff 90 90 90 90 90 90 90 90}  //weight: 1, accuracy: High
-        $x_1_3 = {b8 ff ff ff ff 90 90 90 90 90 90 90 90}  //weight: 1, accuracy: High
-        $x_2_4 = {0f b6 5d 00 53 e8 ?? ?? ?? ?? 83 c4 04 85 c0 74 ?? 45 90 90 90 90 90 90}  //weight: 2, accuracy: Low
-        $x_2_5 = {80 38 ef 75 ?? 80 78 01 bb 75 ?? 80 78 02 bf}  //weight: 2, accuracy: Low
-        $x_10_6 = {57 58 59 5a 00 78 58 00}  //weight: 10, accuracy: High
+        $x_1_1 = {b8 fe ff ff ff 90 90 90 90 90 90 90 90}  //weight: 1, accuracy: High
+        $x_1_2 = {b8 ff ff ff ff 90 90 90 90 90 90 90 90}  //weight: 1, accuracy: High
+        $x_2_3 = {0f b6 5d 00 53 e8 ?? ?? ?? ?? 83 c4 04 85 c0 74 ?? 45 90 90 90 90 90 90}  //weight: 2, accuracy: Low
+        $x_2_4 = {80 38 ef 75 ?? 80 78 01 bb 75 ?? 80 78 02 bf}  //weight: 2, accuracy: Low
+        $x_10_5 = {57 58 59 5a 00 78 58 00}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (
-            ((2 of ($x_10_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }
@@ -4325,5 +4324,53 @@ rule Trojan_Win32_LummaStealer_EA_2147937247_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_STE_2147937489_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.STE"
+        threat_id = "2147937489"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52 00 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 00 00 00 00 49 44 41 54}  //weight: 1, accuracy: High
+        $x_1_2 = {0f b6 d2 c1 e1 05 81 e1 e0 7f 00 00 31 d1 0f b7 94 4e 72 92 02 00 89 c7 81 e7 ff 7f 00 00 66 89 94 7e 72 92 01 00 89 da 42 66 89 84 4e 72 92 02 00 45}  //weight: 1, accuracy: High
+        $x_1_3 = {ae 42 60 82 c7 ?? ?? ?? 49 45 4e 44}  //weight: 1, accuracy: Low
+        $x_1_4 = {80 38 ef 75 ?? 80 78 01 bb 75 ?? 80 78 02 bf}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_STF_2147937492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.STF!!LummaStealer.STF"
+        threat_id = "2147937492"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "LummaStealer: an internal category used to refer to some threats"
+        info = "STF: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ARHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52 00 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 00 00 00 00 49 44 41 54}  //weight: 1, accuracy: High
+        $x_1_2 = {0f b6 d2 c1 e1 05 81 e1 e0 7f 00 00 31 d1 0f b7 94 4e 72 92 02 00 89 c7 81 e7 ff 7f 00 00 66 89 94 7e 72 92 01 00 89 da 42 66 89 84 4e 72 92 02 00 45}  //weight: 1, accuracy: High
+        $x_1_3 = {ae 42 60 82 c7 ?? ?? ?? 49 45 4e 44}  //weight: 1, accuracy: Low
+        $x_1_4 = {80 38 ef 75 ?? 80 78 01 bb 75 ?? 80 78 02 bf}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
 }
 
