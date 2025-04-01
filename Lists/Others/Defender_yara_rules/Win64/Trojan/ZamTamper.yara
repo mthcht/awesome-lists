@@ -61,3 +61,43 @@ rule Trojan_Win64_ZamTamper_C_2147936637_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ZamTamper_D_2147937405_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ZamTamper.D"
+        threat_id = "2147937405"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ZamTamper"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {7a 61 2e 73 79 73 53 74 72 69 6e 67 46 6f 72 6d 61 74 5b 5d 62 79 74 65 73 74 72 69 6e 67 33 39 30 36 32 35 68 61 6e 67 75 70 6b 69 6c 6c 65 64 6c 69 73 ?? 65 6e 73 6f 63 6b 65 74 47 65 74 41 63 65 47 65 74 41 43 50 73 65 6e 64 74 6f 75 69 6e 74 31 36}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ZamTamper_E_2147937406_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ZamTamper.E"
+        threat_id = "2147937406"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ZamTamper"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {4c 61 7a 79 50 72 6f 63 00 6d 61 69 6e 2e 4c 6f 61 64 44 72 69 76 65 72 00 66 6d 74 2e 50 72 69 6e 74 66 00 66 6d 74 2e 50 72 69 6e 74 6c 6e 00 6d 61 69 6e 2e 4c 6f 61 64 44 72 69 76 65 72 2e 66 75 6e 63 33 00 6d 61 69 6e 2e 4c 6f 61 64 44 72 69 76 65 72 2e 66 75 6e 63 32 ?? 6d 61 69 6e 2e 4c 6f 61 64 44 72 69 76 65 72 2e 66 75 6e 63 31 00 6d 61 69 6e 2e 46 69 6e 64 50 72 6f 63 65 73 73 42 79 4e 61 6d 65 00 6d 61 69 6e 2e 46 69 6e 64 50 72 6f 63 65 73 73 42 79 4e 61 6d 65 2e 66 75 6e 63 31 00 6d 61 69 6e 2e 52 65 67 69 73 74 65 72 50 72 6f 63 65 73 73 42 79 49 4f 43 54 4c}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
