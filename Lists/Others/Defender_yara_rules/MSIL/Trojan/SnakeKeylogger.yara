@@ -2373,6 +2373,28 @@ rule Trojan_MSIL_SnakeKeylogger_NS_2147823653_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {08 06 6f 1a 00 00 0a 08 07 6f 1b 00 00 0a 08 6f 1c 00 00 0a 0d 73 1d 00 00 0a 25 09 03 16 03 8e 69 6f 1e 00 00 0a 6f 1f 00 00 0a 13 04}  //weight: 2, accuracy: High
+        $x_1_2 = {28 05 00 00 0a 03 6f 06 00 00 0a 0a 06 14 28 07 00 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SnakeKeylogger_NS_2147823653_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.NS!MTB"
+        threat_id = "2147823653"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -7259,6 +7281,27 @@ rule Trojan_MSIL_SnakeKeylogger_EANK_2147937526_0
     strings:
         $x_5_1 = {11 0a 94 13 0b 11 04 11 0b 19 5a 11 0b 18 63 59 6a 58 13 04 11 04 11 04 1b 62 11 04 19 63 60 61 13 04 11 0a 17 58 13 0a 11 0a 11 09}  //weight: 5, accuracy: High
         $x_5_2 = {11 07 11 07 1f 11 5a 11 07 18 62 61 ?? ?? ?? ?? ?? 60 9e 11 07 17 58 13 07 11 07 06}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SnakeKeylogger_SWA_2147937545_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.SWA!MTB"
+        threat_id = "2147937545"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 06 72 9f 00 00 70 03 07 94 8c 36 00 00 01 04 07 94 8c 36 00 00 01 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 00 07 17 58 0b 07 03 16 6f ?? 00 00 0a fe 02 16 fe 01 0c 08 2d c8}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -68,3 +68,27 @@ rule Trojan_Win32_ProcessDiscovery_B_2147768113_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ProcessDiscovery_SH_2147937551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ProcessDiscovery.SH"
+        threat_id = "2147937551"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ProcessDiscovery"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "& tasklist /m &" ascii //weight: 1
+        $x_1_2 = "& tasklist /svc &" ascii //weight: 1
+        $x_1_3 = "& tasklist /v &" ascii //weight: 1
+        $n_10_4 = "& echo ####tasklist####" ascii //weight: -10
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (1 of ($x*))
+}
+
