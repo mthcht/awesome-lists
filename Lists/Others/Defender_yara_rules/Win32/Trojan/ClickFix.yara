@@ -1897,3 +1897,28 @@ rule Trojan_Win32_ClickFix_YE_2147937536_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DAI_2147937671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAI!MTB"
+        threat_id = "2147937671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "54"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "powershell" wide //weight: 50
+        $x_1_2 = "-UseBasicParsing).Content" wide //weight: 1
+        $x_1_3 = "iex" wide //weight: 1
+        $x_1_4 = "iwr $" wide //weight: 1
+        $x_1_5 = "verif" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
