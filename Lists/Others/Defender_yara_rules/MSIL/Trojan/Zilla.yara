@@ -1278,3 +1278,47 @@ rule Trojan_MSIL_Zilla_SED_2147937260_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_IJ_2147937597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.IJ!MTB"
+        threat_id = "2147937597"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {72 f9 01 00 70 28 07 00 00 06 11 05 28 17 00 00 0a 28 2d 00 00 0a 72 25 02 00 70 28 07 00 00 06 11 04 28 17 00 00 0a 28 2d 00 00 0a 73 2e 00 00 0a}  //weight: 2, accuracy: High
+        $x_2_2 = {6f 32 00 00 0a 11 0b 17 6f 33 00 00 0a 11 0b 28 34 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_IVK_2147937599_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.IVK!MTB"
+        threat_id = "2147937599"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {6f 29 00 00 06 6f 52 00 00 0a 25 02 6f 31 00 00 06 25 04 6f 2c 00 00 06 25 02 28 53 00 00 0a 6f 35 00 00 06 25 17 6f 33 00 00 06 25 03 6f 2e 00 00 06 6f 37 00 00 06}  //weight: 2, accuracy: High
+        $x_2_2 = {72 e7 01 00 70 03 72 c7 00 00 70 28 2e 00 00 0a 0a 73 6e 00 00 0a 25 73 37 00 00 0a 25 72 2b 02 00 70 6f 38 00 00 0a 25 72 49 02 00 70 06 72 c7 00 00 70 28 2e 00 00 0a 6f 39 00 00 0a 25 16 6f 3a 00 00 0a 25 17 6f 3b 00 00 0a 25 17 6f 3c 00 00 0a 25 17 6f 3d 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

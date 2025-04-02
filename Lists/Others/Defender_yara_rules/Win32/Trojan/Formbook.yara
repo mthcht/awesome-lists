@@ -1611,3 +1611,24 @@ rule Trojan_Win32_Formbook_AMA_2147921786_0
         )
 }
 
+rule Trojan_Win32_Formbook_ILM_2147937609_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Formbook.ILM!MTB"
+        threat_id = "2147937609"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 4c 30 01 80 e9 ?? 30 0c 30 40 3b c2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

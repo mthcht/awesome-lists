@@ -35,3 +35,30 @@ rule TrojanSpy_MSIL_ExMatter_SA_2147838601_0
         )
 }
 
+rule TrojanSpy_MSIL_ExMatter_G_2147937592_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/ExMatter.G"
+        threat_id = "2147937592"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ExMatter"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {54 69 6e 79 49 70 63 2e 49 4f 00 61 64 64 5f 46 69 6c 65 55 70 64 61 74 65 64 00 72 65 6d 6f 76 65 5f 46 69 6c 65 55 70 64 61 74 65 64 00}  //weight: 2, accuracy: High
+        $x_1_2 = {5c 62 69 6e 5c 44 65 62 75 67 5c 53 69 6e 67 6c 65 46 69 6c 65 ?? 70 64 62}  //weight: 1, accuracy: Low
+        $x_2_3 = {2d 00 69 00 70 00 63 00 00 11 2d 00 69 00 70 00 63 00 70 00 72 00 65 00 66 00 00 0b 2d 00 70 00 61 00 74 00 68 ?? 00 15 2d 00 6e 00 6f 00 72 00 65 00 77 00 72 00 69 00 74 00 65 00 00 05 2d 00 77 00}  //weight: 2, accuracy: Low
+        $x_1_4 = {43 6c 69 65 6e 74 00 57 65 62 44 41 56 43 6c 69 65 6e 74 00 4f 62 6a 65 63 74 00 49 44 69 73 70 6f 73 61 62 6c 65 ?? 6d 5f 70 72 6f 70 46 69 6e 64 4d 65 74 68 6f 64 00 48 74 74 70 4d 65 74 68 6f 64 00 6d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

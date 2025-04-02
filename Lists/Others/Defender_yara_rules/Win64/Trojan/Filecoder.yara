@@ -115,3 +115,26 @@ rule Trojan_Win64_Filecoder_SCR_2147936586_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_QZ_2147937595_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.QZ!MTB"
+        threat_id = "2147937595"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "h1:LYDUdQBzWPgCOuwoGl3qPECiKXwqE0+tA9JM1kvIpfw=" ascii //weight: 2
+        $x_2_2 = "main.setWallpaper" ascii //weight: 2
+        $x_2_3 = "Prince-Ransomware/filewalker.EncryptDirectory" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
