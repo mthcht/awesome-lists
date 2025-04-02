@@ -1629,6 +1629,35 @@ rule Trojan_Win32_ClickFix_ZC_2147937321_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "115"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_5_2 = "http" wide //weight: 5
+        $x_5_3 = " iex" wide //weight: 5
+        $x_5_4 = "iwr" wide //weight: 5
+        $x_5_5 = "irm" wide //weight: 5
+        $x_5_6 = "invoke-expression" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_ZC_2147937321_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZC!MTB"
+        threat_id = "2147937321"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "11"
         strings_accuracy = "Low"
     strings:
@@ -1917,6 +1946,28 @@ rule Trojan_Win32_ClickFix_DAI_2147937671_0
         $x_1_3 = "iex" wide //weight: 1
         $x_1_4 = "iwr $" wide //weight: 1
         $x_1_5 = "verif" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HA_2147937679_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HA!MTB"
+        threat_id = "2147937679"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2e 00 72 00 65 00 70 00 6c 00 61 00 63 00 65 00 28 00 27 00 [0-2] 27 00 2c 00 27 00 27 00 29 00}  //weight: 10, accuracy: Low
+        $x_1_2 = "powershell" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
