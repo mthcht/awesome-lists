@@ -10269,3 +10269,24 @@ rule Trojan_Win32_Zenpak_ZHY_2147937229_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zenpak_GTY_2147937687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zenpak.GTY!MTB"
+        threat_id = "2147937687"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zenpak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {29 d0 31 d2 89 15 ?? ?? ?? ?? 01 35 ?? ?? ?? ?? 42 29 c2 01 c2 8d 05 ?? ?? ?? ?? 31 d2 89 10 31 18 e8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
