@@ -180,6 +180,7 @@
             "2620:1ec:40::/42"
         ],
         "tcpPorts": "80,443",
+        "udpPorts": "443",
         "expressRoute": true,
         "category": "Allow",
         "required": true
