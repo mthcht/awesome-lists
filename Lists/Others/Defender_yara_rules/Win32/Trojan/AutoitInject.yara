@@ -4872,3 +4872,30 @@ rule Trojan_Win32_AutoitInject_ZHP_2147936930_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_NMD_2147937715_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.NMD!MTB"
+        threat_id = "2147937715"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SHELLEXECUTE ( @COMSPEC , CHR ( 32 ) & CHR ( 47 ) & CHR ( 99 ) & CHR ( 32 ) & CHR ( 32 ) & CHR" ascii //weight: 2
+        $x_1_2 = "= EXECUTE ( BINARYTOSTRING ( \"0x20475549476574437572736F72496E666F2829\" ) )" ascii //weight: 1
+        $x_1_3 = "= REGREAD ( BINARYTOSTRING ( CHR ( 48 ) & CHR ( 120 ) & CHR ( 52 ) & CHR ( 56 ) & CHR ( 52 ) & CHR" ascii //weight: 1
+        $x_1_4 = "& CHR ( BITXOR ( ASC ( STRINGMID ( $S_ENCRYPTTEXT , $I_ENCRYPTCOUNTG , 1 ) ) , ASC ( STRINGMID (" ascii //weight: 1
+        $x_1_5 = "= BITXOR ( DEC ( STRINGMID ( $S_ENCRYPTTEXT , $I_ENCRYPTCOUNTA , 2 ) ) , $I_ENCRYPTCOUNTE )" ascii //weight: 1
+        $x_1_6 = "= ASC ( STRINGMID ( $S_ENCRYPTPASSWORD , MOD ( $I_ENCRYPTCOUNTA , STRINGLEN (" ascii //weight: 1
+        $x_1_7 = "FUNC _STRINGENCRYPT ( $I_ENCRYPT , $S_ENCRYPTTEXT , $S_ENCRYPTPASSWORD , $I_ENCRYPTLEVEL = 1 )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

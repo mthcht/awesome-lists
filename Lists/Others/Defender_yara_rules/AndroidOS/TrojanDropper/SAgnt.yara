@@ -287,3 +287,54 @@ rule TrojanDropper_AndroidOS_SAgnt_Q_2147934091_0
         (all of ($x*))
 }
 
+rule TrojanDropper_AndroidOS_SAgnt_R_2147937712_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:AndroidOS/SAgnt.R!MTB"
+        threat_id = "2147937712"
+        type = "TrojanDropper"
+        platform = "AndroidOS: Android operating system"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {14 c1 04 91 e0 03 14 aa b5 a3 02 d1 ea 69 fe 97 40 01 80 52 e1 03 14 aa 0f 68 fe 97 b8 db 36 a9 b7 e7 35 a9 a1 02 40 ad a0 23 02 d1 e2 03 03 91 e1 03 13 aa e1 03 06 ad 1b 69 fe 97 a0 83 57 f8 fd 68 fe 97 c0 00 00 90 00 80 08 91 e1 03 1f 2a e2 03 1f 2a b4 6b fe 97 a2 83 57 f8 c1 00 00 90 21 50 09 91 40 00 80 52}  //weight: 2, accuracy: High
+        $x_2_2 = {c6 10 63 f7 5d d3 5d ab 6c d4 5d ab 6c 1f 55 0a 4e d7 5d ab 6c 06 10 db 23 ac 92 cb 41 d7 5d ab 6c 30 12 54 b7 f4 88 ab f4 d8 5d ab 6c 7f bc c0 2b d8 5d ab 6c a5 76 c9 48 40 bc 4d 6a dc 0d a6 78 8b 7f 97 9a fd bc 5e ea 4b 26 43 a6 19 f4 03 32 95 1d 22 73 44 d2 7e 2e 47 0b 1a 6c 53 5e 72 dd d5 4e 25 9e 45 bd 19 7b b1 56 11 93 ba 5b 8a b8 3f ce ed ea 4f 8c ee 75 35 76 e9 68 29 ac a6 40 66 23 2a 48 c5 35 f4 e1 1b c5 97 ca 33 bd 8c 66 f9 4c 0c a4 cb 3f 7b 81 17 62 b5 86 14 55 e1 5e df 2d e3 88 45 83 ae 78 14 b0 c6 f9 7d f3 83 9a 11 52 36 36 cd a8 87 f9 bf 3e bb 6f 35 56 cd f4 28 10 d3 7d ef 33 05 b0 f0 33 05 b0 12 89 9b 9d e9 9f b4 76 8e e3}  //weight: 2, accuracy: High
+        $x_1_3 = {a0 64 f5 63 aa 62 73 d7 80 83 97 a3 40 c9 b5 16 2b 3d ee f0 95 47 01 81 f0 c1 43 18 2b 3d ee 4f 91 61 4b 1b 2b 3d ee 1a 2b 3d ee 2b 5e fd 56 73 19 b3 7b fe cd 2a 25 44 32 7a 70 97 8d a9 0f 8d c3 72 dc 21 2b 3d ee 23 2b 3d ee 40 66 02 88 54 74 e2 d4 3b 08 36 c1 6d 23 41 8d 7f 6c 90 b7 28 2b 3d ee 47 b4 33 dc e3 c4 e6 c5 f0 da 10 18 2d 2b 3d ee 2e 2b 3d ee 09 27 eb b2}  //weight: 1, accuracy: High
+        $x_1_4 = "01357kTDFXWUHJP;K#jQG" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule TrojanDropper_AndroidOS_SAgnt_T_2147937713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:AndroidOS/SAgnt.T!MTB"
+        threat_id = "2147937713"
+        type = "TrojanDropper"
+        platform = "AndroidOS: Android operating system"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {37 5f 6a 63 6c 61 73 73 50 31 30 5f 6a 6d 65 74 68 6f 64 49 44 7a 00 4a 61 76 61 5f 6b 5f 77 7a 5f 6b 30 00 5f 5f 73 74 72 63 61 74 5f 63 68 6b 00 4a 61 76 61 5f 6b 5f 77 7a 5f 6b 31 00 4a 61 76 61 5f 6b 5f 77 7a 5f 6b 33 00 4a 61 76 61 5f 6b 5f 77 7a 5f 6b 32 00 4a 61 76 61 5f 6b 5f 77 7a 5f 6f 31 00 5f 5a 4e 37 5f 4a 4e 49 45 6e 76 32 30 43 61 6c 6c 53}  //weight: 2, accuracy: High
+        $x_1_2 = {e5 93 fd 8a 6f c6 fe 8a 6f c6 da 8a 6f c6 3d 8b 6f c6 7c 14 b7 a7 78 0c de e5 3e 8b 6f c6 3f 8b 6f c6 d4 d6 b4 c6 32 91 45 0b 16 5b 0b 71 00 fe 5d c2 3f 8b 6f c6 4e 92 22 e1 6c e6 60 94 40 8b 6f c6 39 8b 6f c6 ce 2e fc 37 fa 8a 6f c6 80 8b 6f c6 b0 0b b8 0c c6 ff 28 fd 40 8b 6f c6 e3 23 82 8e d4 47 78 91 ce d6 87 0a fd 8a 6f c6 00 5f 5f 63 78 61 5f 66 69 6e 61 6c 69 7a 65 00 5f 5f 63 78 61 5f 61 74 65 78 69 74 00 5f 5f 72 65 67 69 73 74 65 72 5f}  //weight: 1, accuracy: High
+        $x_1_3 = {6f 64 45 50 37 5f 6a 63 6c 61 73 73 50 31 30 5f 6a 6d 65 74 68 6f 64 49 44 7a 00 4a 61 76 61 5f 6b 5f 77 7a 5f 68 73 00 4a 61 76 61 5f 6b 5f 77 7a 5f 68 73 32 00 4a 61 76 61 5f 6b 5f 77 7a 5f 6d 30 00 66 6f 70 65 6e 00 66 77 72 69 74 65 00 66 63 6c 6f 73 65 00 4a 61 76 61 5f 6b 5f 77 7a 5f 6d 31 00 4a 61 76 61 5f 6b 5f 77 7a 5f 6d 32 00 5f 5a 4e 37 5f 4a 4e 49 45 6e 76 31 33 43 61 6c 6c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

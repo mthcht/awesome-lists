@@ -16,8 +16,13 @@ rule TrojanDownloader_Win64_LummaC_CCJR_2147937097_0
         $x_1_1 = "powershell -Command \"Add-MpPreference -ExclusionPath" wide //weight: 1
         $x_1_2 = "powershell -Command \"Invoke-WebRequest -Uri" wide //weight: 1
         $x_5_3 = "https://github.com/ricocajpg/farmac/raw/refs/heads/main/" wide //weight: 5
+        $x_5_4 = "https://github.com/diperkla/deljack/raw/refs/heads/main/" wide //weight: 5
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
 }
 
