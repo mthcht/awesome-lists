@@ -755,3 +755,24 @@ rule Trojan_Win32_Doina_MX_2147933716_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_MZZ_2147937613_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.MZZ!MTB"
+        threat_id = "2147937613"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 c9 83 fa 2c 0f 45 cb 33 db 8a 84 0d ?? ?? ?? ?? 30 04 16 42 8d 41 01 89 95 30 ff ff ff 83 f8 14 0f 4c d8 8b c2 99 3b 95 28 ff ff ff 8b 95 30 ff ff ff 7c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
