@@ -726,3 +726,34 @@ rule Trojan_Win32_Zloader_MKD_2147924863_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zloader_B_2147937650_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zloader.B"
+        threat_id = "2147937650"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zloader"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {ba 12 27 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {ba 29 27 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = {ba 11 27 00 00}  //weight: 1, accuracy: High
+        $x_1_4 = {ba 13 27 00 00}  //weight: 1, accuracy: High
+        $x_1_5 = {ba 16 27 00 00}  //weight: 1, accuracy: High
+        $x_1_6 = {ba e0 2e 00 00}  //weight: 1, accuracy: High
+        $x_10_7 = {48 63 44 24 ?? 48 8d 0d ?? ?? ?? ?? 8a 04 01 0f b6 ?? 48 63 44 24 ?? 48 8d}  //weight: 10, accuracy: Low
+        $x_10_8 = {48 89 c2 e8 ?? ?? ?? ?? 0f b6 ?? ?? ?? ?? ?? 32 1d}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -663,3 +663,33 @@ rule Ransom_Win64_Filecoder_2147935029_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_UDP_2147937647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.UDP!MTB"
+        threat_id = "2147937647"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Ransomware Simulation" ascii //weight: 1
+        $x_1_2 = "DefenseEvasion+<>c+<<DisableSecuritySoftware>" ascii //weight: 1
+        $x_1_3 = "<EncryptDirectories>" ascii //weight: 1
+        $x_1_4 = "<DisableSecuritySoftware>" ascii //weight: 1
+        $x_1_5 = "EnsureRunningAsAdmin" ascii //weight: 1
+        $x_1_6 = "Modern Woodmen of America" ascii //weight: 1
+        $x_1_7 = "Command & Control" ascii //weight: 1
+        $x_1_8 = "vssadmin delete shadows /all /quiet" ascii //weight: 1
+        $x_1_9 = "Pay the ransom to get the decryption key." ascii //weight: 1
+        $x_1_10 = "detect and stop AV & EDR" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
