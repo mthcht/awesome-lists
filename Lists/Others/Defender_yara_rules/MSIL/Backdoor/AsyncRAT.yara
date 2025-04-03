@@ -712,3 +712,25 @@ rule Backdoor_MSIL_AsyncRAT_PAEU_2147913350_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_AsyncRAT_PAGL_2147937778_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/AsyncRAT.PAGL!MTB"
+        threat_id = "2147937778"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0b 17 8d 09 00 00 01 13 05 11 05 16 72 01 00 00 70 a2 11 05 0c 07 08 16}  //weight: 2, accuracy: High
+        $x_2_2 = "[024578974asf6843sr6g87g67]" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

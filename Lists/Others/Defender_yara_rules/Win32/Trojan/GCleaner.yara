@@ -959,3 +959,24 @@ rule Trojan_Win32_GCleaner_SHV_2147933133_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_FZK_2147937723_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.FZK!MTB"
+        threat_id = "2147937723"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 c0 8b 55 ec 01 13 8b 55 d4 03 55 ac 03 55 ec 03 c2 ba 89 15 00 00 03 d0 81 ea 89 15 00 00 31 13 83 45 ?? 04 83 c3 04 8b 45 ec 3b 45 dc 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -204,7 +204,7 @@ rule Trojan_Win32_Socgolsh_SH_2147934464_0
         $x_1_5 = "net use" wide //weight: 1
         $x_1_6 = "findstr" wide //weight: 1
         $x_1_7 = "powershell" wide //weight: 1
-        $n_100_8 = "$env:appdata\\microsoft\\signatures" wide //weight: -100
+        $x_1_8 = "ls $env:appdata\\microsoft\\signatures" wide //weight: 1
         $n_100_9 = "maxuserports1.log" wide //weight: -100
     condition:
         (filesize < 20MB) and
@@ -232,6 +232,76 @@ rule Trojan_Win32_Socgolsh_SJ_2147934465_0
         $x_1_1 = "schtasks" wide //weight: 1
         $x_1_2 = "ssh.exe" wide //weight: 1
         $x_1_3 = "StrictHostKeyChecking=no" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Socgolsh_SCA_2147937797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Socgolsh.SCA"
+        threat_id = "2147937797"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Socgolsh"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {63 00 6d 00 64 00 [0-16] 2f 00 63 00}  //weight: 1, accuracy: Low
+        $x_1_2 = "powershell" wide //weight: 1
+        $x_1_3 = "expand-archive" wide //weight: 1
+        $x_1_4 = "-literalpath" wide //weight: 1
+        $x_1_5 = "-destinationpath" wide //weight: 1
+        $x_1_6 = "python" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Socgolsh_SKA_2147937798_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Socgolsh.SKA"
+        threat_id = "2147937798"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Socgolsh"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-executiontimelimit '00:00:00'" wide //weight: 1
+        $x_1_2 = "-dontstopifgoingonbatteries" wide //weight: 1
+        $x_1_3 = "python" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Socgolsh_SL_2147937799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Socgolsh.SL"
+        threat_id = "2147937799"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Socgolsh"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "new-scheduledtaskaction" wide //weight: 1
+        $x_1_2 = "\\appdata\\local\\connecteddevicesplatform\\get-pip" wide //weight: 1
+        $x_1_3 = "-execute 'pythonw.exe'" wide //weight: 1
+        $x_1_4 = "register-scheduledtask -taskname" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

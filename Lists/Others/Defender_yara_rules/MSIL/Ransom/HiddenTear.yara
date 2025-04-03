@@ -978,3 +978,29 @@ rule Ransom_MSIL_HiddenTear_SWA_2147927263_0
         )
 }
 
+rule Ransom_MSIL_HiddenTear_BA_2147937749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.BA!MTB"
+        threat_id = "2147937749"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Ransomeware.pdb" ascii //weight: 1
+        $x_1_2 = "Decrypt Your System" ascii //weight: 1
+        $x_1_3 = "EncryptionKey" ascii //weight: 1
+        $x_1_4 = "pay your payment faster before your system crashed" ascii //weight: 1
+        $x_1_5 = "The File Have Been Decrypted" ascii //weight: 1
+        $x_1_6 = "crypto and instructions on how to decrypt the system" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

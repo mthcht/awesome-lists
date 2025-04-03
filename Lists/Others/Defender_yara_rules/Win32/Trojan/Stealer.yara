@@ -1132,3 +1132,24 @@ rule Trojan_Win32_Stealer_DAC_2147936285_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_FZK_2147937764_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.FZK!MTB"
+        threat_id = "2147937764"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 55 cc 8b 42 0c 8b 4d dc 8b 51 0c 8b 8d ?? ?? ?? ?? 8b b5 00 ff ff ff 8a 04 08 32 04 32 8b 4d cc 8b 51 0c 8b 8d f8 fe ff ff 88 04 0a c7 45 fc 0b 00 00 00 e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
