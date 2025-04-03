@@ -3639,3 +3639,48 @@ rule Ransom_MSIL_Filecoder_AKK_2147932586_0
         (3 of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_PAGM_2147937837_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.PAGM!MTB"
+        threat_id = "2147937837"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "All your files were encrypted, good luck, discord: xcrypter." wide //weight: 2
+        $x_2_2 = ".xcrypt" wide //weight: 2
+        $x_1_3 = "background" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_PAGN_2147937838_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.PAGN!MTB"
+        threat_id = "2147937838"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "All your files have been encrypted with some super RansomWare!!" wide //weight: 2
+        $x_2_2 = ".RANSOM" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

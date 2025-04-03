@@ -699,27 +699,6 @@ rule Trojan_MSIL_Keylogger_PSSV_2147851383_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Keylogger_PSVW_2147888832_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Keylogger.PSVW!MTB"
-        threat_id = "2147888832"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Keylogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {07 16 73 0e 00 00 0a 0c 73 0f 00 00 0a 0d 08 09 28 ?? 00 00 06 09 16 6a 6f ?? 00 00 0a 09 13 04 de 1c}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Keylogger_PSWO_2147889555_0
 {
     meta:

@@ -275,3 +275,25 @@ rule Trojan_Win64_Midie_GTC_2147931139_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_NS_2147937841_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.NS!MTB"
+        threat_id = "2147937841"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4d 29 fe 4c 39 f7 4d 89 f0 4c 0f 42 c7 48 89 d9 31 d2 e8 a4 fe ff ff 42 8d 0c fd 00 00 00 00 48 d3 e0 48 0b 46 ?? 48 89 46 ?? 49 39 fe}  //weight: 2, accuracy: Low
+        $x_1_2 = {48 89 f1 e8 2e ff ff ff 48 8b 46 ?? 48 31 06 48 83 66}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

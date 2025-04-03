@@ -754,6 +754,35 @@ rule Trojan_Win64_CoinMiner_BSA_2147929053_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Usage: xmrig" ascii //weight: 10
+        $x_1_2 = "cryptonight-heavy" ascii //weight: 1
+        $x_2_3 = "cryptonight-ultralite" ascii //weight: 2
+        $x_2_4 = "xmr.pool" ascii //weight: 2
+        $x_2_5 = "XMRig CPU miner" ascii //weight: 2
+        $x_3_6 = "minergate" ascii //weight: 3
+        $x_4_7 = "cryptonight_turtle" ascii //weight: 4
+        $x_5_8 = "cryptonight/gpu" ascii //weight: 5
+        $x_6_9 = "stratum+tcp://" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoinMiner_BSA_2147929053_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.BSA!MTB"
+        threat_id = "2147929053"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "27"
         strings_accuracy = "High"
     strings:

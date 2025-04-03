@@ -558,3 +558,25 @@ rule Trojan_MSIL_MassLogger_AUPA_2147937710_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MassLogger_ABQA_2147937840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.ABQA!MTB"
+        threat_id = "2147937840"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {11 0a 11 0b 94 13 0c 00 11 04 11 0c 19 5a 11 0c 18 63 59 6a 58 13 04 11 04 11 04 1b 62 11 04 19 63 60 61 13 04 00 11 0b 17 58 13 0b 11 0b 11 0a 8e 69 32 cc}  //weight: 3, accuracy: High
+        $x_2_2 = {06 11 06 11 06 1f 11 5a 11 06 18 62 61 20 aa 00 00 00 60 9e 00 11 06 17 58 13 06 11 06 06 8e 69 fe 04 13 07 11 07 2d d7}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
