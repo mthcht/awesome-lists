@@ -116,3 +116,47 @@ rule Trojan_MacOS_SAgnt_E_2147935634_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_SAgnt_F_2147937881_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SAgnt.F!MTB"
+        threat_id = "2147937881"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 7d d8 4c 39 ff 0f 8d 53 01 00 00 45 31 f6 48 89 f8 31 db 48 85 ff 0f 88 37 01 00 00 41 8a 4c 04 08 8d 51 d0 80 fa 0a 73 4d 0f b6 c9 89 da 48 c1 eb 20 48 01 d2 48 8d 14 92 89 d6 48 c1 ea 20 48 8d 1c 9b 48 8d 14 5a 48 89 d3 48 c1 eb 20 48 c1 e2 20 48 09 f2 4d 01 f6 4f 8d 34 b6 48 83 c1 d0 48 01 d1 49 11 de 48 89 cb 48 ff c0 49 39 c7}  //weight: 1, accuracy: High
+        $x_1_2 = {49 d3 e2 4c 89 d7 48 c1 ef 20 48 89 f0 31 d2 48 f7 f7 49 89 c1 48 89 d0 45 89 d7 45 89 c3 4c 89 ca 49 0f af d7 4c 0f a4 c0 20 48 39 d0 73 25 4c 01 d0 4c 39 d0 41 0f 93 c0 48 39 d0 0f 92 c3 31 f6 44 20 c3 49 0f 45 f2 48 01 f0 0f b6 f3 48 f7 d6 49 01 f1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_SAgnt_G_2147937883_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SAgnt.G!MTB"
+        threat_id = "2147937883"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 d3 e4 4c 89 e7 48 c1 ef 20 48 89 d0 31 d2 48 f7 f7 49 89 c1 48 89 d0 45 89 e2 45 89 c3 4c 89 ca 49 0f af d2 4c 0f a4 c0 20 48 39 d0 73 27 4c 01 e0 4c 39 e0 41 0f 93 c0 48 39 d0 41 0f 92 c7 31 db 45 20 c7 49 0f 45 dc 48 01 d8 41 0f b6 df 48 f7 d3 49 01 d9}  //weight: 1, accuracy: High
+        $x_1_2 = {48 29 d0 31 d2 48 f7 f7 4c 0f af d0 48 c1 e2 20 4c 09 da 4c 39 d2 73 25 4c 01 e2 4c 39 e2 41 0f 93 c0 4c 39 d2 0f 92 c3 31 ff 44 20 c3 49 0f 45 fc 48 01 fa 0f b6 fb 48 f7 d7 48 01 f8 4c 29 d2 49 c1 e1 20 49 09 c1 48 d3 ea}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -209,3 +209,25 @@ rule Trojan_AndroidOS_Thamera_E_2147935646_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Thamera_F_2147937882_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Thamera.F!MTB"
+        threat_id = "2147937882"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Thamera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {72 20 c0 29 51 00 0c 08 1f 08 47 01 6e 10 28 06 08 00 0c 09 1f 09 2d 02 52 9d d6 00 b1 7d 52 97 d7 00 b1 27 12 02 71 20 23 28 d2 00 0a 09 71 20 23 28 72 00 0a 0e 7b dd 71 20 23 28 d2 00 0a 0d 7b 77 71 20 23 28 72 00 0a 07 6e 10 31 06 08 00 0a 08 b0 98 b0 e8 b0 86 d8 05 05 01 01 72 01 d7}  //weight: 1, accuracy: High
+        $x_1_2 = {12 03 6e 20 26 07 30 00 0c 01 6e 10 31 06 01 00 0a 03 6e 10 2e 06 01 00 0a 05 db 04 04 02 db 06 03 02 b1 64 db 06 05 02 b1 62 b0 43 b0 25 6e 55 79 06 41 32 0e 00 df 03 09 01 b1 3a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -478,3 +478,29 @@ rule Ransom_Linux_Filecoder_AA_2147935640_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Filecoder_AC_2147937876_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Filecoder.AC!MTB"
+        threat_id = "2147937876"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.esxi_encoder" ascii //weight: 1
+        $x_1_2 = "main.local_drop_note" ascii //weight: 1
+        $x_1_3 = "main.progress_logger" ascii //weight: 1
+        $x_1_4 = "main.is_exclude_dir" ascii //weight: 1
+        $x_1_5 = "main.scan_ip" ascii //weight: 1
+        $x_1_6 = "main.remote_init" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

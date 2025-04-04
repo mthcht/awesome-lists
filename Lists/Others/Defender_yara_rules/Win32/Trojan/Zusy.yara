@@ -6307,3 +6307,25 @@ rule Trojan_Win32_Zusy_JKT_2147937368_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_EAET_2147937894_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.EAET!MTB"
+        threat_id = "2147937894"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b d0 8b d8 c1 ea 18 c1 eb 10 0f b6 d2 0f b6 92 ?? ?? ?? ?? 88 5c 24 11 8b d8 0f b6 c0 8a 80 ?? ?? ?? ?? 88 44 24 0f 33 c0 88 54 24 0c}  //weight: 5, accuracy: Low
+        $x_5_2 = {01 d1 01 d0 c7 01 4d 4a 43 3b 01 d1 01 d0 c7 01 44 36 4f a1 01 d1 01 d0 89 ec}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

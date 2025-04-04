@@ -69,3 +69,25 @@ rule Trojan_Win32_SpyVoltar_EM_2147917648_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SpyVoltar_KAA_2147937898_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SpyVoltar.KAA!MTB"
+        threat_id = "2147937898"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SpyVoltar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {99 b9 e8 03 00 00 f7 f9 8b f2 81 c6 c8}  //weight: 2, accuracy: High
+        $x_2_2 = {99 b9 b0 04 00 00 f7 f9 83 c2 64}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

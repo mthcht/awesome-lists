@@ -43,3 +43,24 @@ rule Ransom_Win32_GandCrypt_DB_2147899394_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_GandCrypt_EAAN_2147937891_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/GandCrypt.EAAN!MTB"
+        threat_id = "2147937891"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GandCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 94 06 32 09 00 00 88 14 08 8b 7c 24 10 40 3b c7}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
