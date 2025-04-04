@@ -3475,3 +3475,28 @@ rule Trojan_Win32_GuLoader_RBW_2147937709_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBX_2147937955_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBX!MTB"
+        threat_id = "2147937955"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "indeslut fritidsbukser kvadersten" ascii //weight: 1
+        $x_1_2 = "ferierejsende scruple" ascii //weight: 1
+        $x_1_3 = "hvordan" ascii //weight: 1
+        $x_1_4 = "premourn" ascii //weight: 1
+        $x_1_5 = "proffesionelle.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

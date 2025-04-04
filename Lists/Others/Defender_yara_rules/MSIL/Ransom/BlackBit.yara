@@ -65,3 +65,25 @@ rule Ransom_MSIL_BlackBit_AYA_2147937393_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_BlackBit_NIT_2147937967_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/BlackBit.NIT!MTB"
+        threat_id = "2147937967"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BlackBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {7e 05 00 00 0a 72 01 00 00 70 72 d0 02 00 70 1f 40 28 ?? 00 00 06 26 1f 23 28 ?? 00 00 0a 72 e2 02 00 70 28 ?? 00 00 0a 0a 06 28 ?? 00 00 0a 2c 1b 72 fe 02 00 70 72 12 03 00 70 06 72 12 03 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a 26 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "info.BlackBit" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

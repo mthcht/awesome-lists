@@ -1230,6 +1230,29 @@ rule Trojan_MSIL_Jalapeno_NIT_2147926893_1
         )
 }
 
+rule Trojan_MSIL_Jalapeno_NIT_2147926893_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.NIT!MTB"
+        threat_id = "2147926893"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 28 df 03 00 0a 00 28 ?? 03 00 06 80 4f 00 00 0a 28 ?? 05 00 06 6f 00 06 00 06 80 1a 03 00 0a 28 ?? 05 00 06 6f 02 06 00 06 72 77 03 00 70 28 ?? 00 00 0a 16 fe 01 0b 07 2d 1b 00 28 ?? 05 00 06 6f 02 06 00 06 72 17 22 00 70 28 ?? 01 00 0a 80 10 02 00 0a 00 16 28 ?? 03 00 0a 00 73 df 00 00 06 0a 06 6f e2 00 00 0a 17 fe 01 16 fe 01 0b 07 2d 0b 73 89 02 00 06 28 ?? 03 00 0a 00 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "DecryptString" ascii //weight: 1
+        $x_1_3 = "DecryptDES" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Jalapeno_MX_2147927894_0
 {
     meta:

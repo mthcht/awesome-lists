@@ -1375,3 +1375,24 @@ rule Trojan_Win32_Razy_BSA_2147926366_0
         )
 }
 
+rule Trojan_Win32_Razy_PGR_2147937929_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.PGR!MTB"
+        threat_id = "2147937929"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {89 4d b4 8a 10 8b 45 e8 89 c1 81 c1 ?? ?? ?? ?? 89 4d e8 8a 75 cb 80 c6 4f 88 75 cb 88 10 8b 45 d8 8b 4d b0 01 c8 89 45 d8 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

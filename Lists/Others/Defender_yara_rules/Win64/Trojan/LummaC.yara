@@ -239,3 +239,24 @@ rule Trojan_Win64_LummaC_GTK_2147937737_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaC_PGLC_2147937927_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaC.PGLC!MTB"
+        threat_id = "2147937927"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {34 01 24 00 41 80 e4 01 45 08 ee 44 08 e0 41 30 c6 41 80 f6 ff 40 88 f8 34 00 41 88 fc 41 80 f4 01 41 08 c6 41 80 cc 01 41 80 f6 ff 45 20 e6 40 88 f8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

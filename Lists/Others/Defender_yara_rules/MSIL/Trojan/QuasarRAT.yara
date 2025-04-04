@@ -655,3 +655,27 @@ rule Trojan_MSIL_QuasarRAT_SEDA_2147934599_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRAT_NIT_2147937966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRAT.NIT!MTB"
+        threat_id = "2147937966"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {38 27 00 00 00 28 ?? 00 00 0a 72 01 00 00 70 28 ?? 00 00 0a 25 11 01 28 ?? 00 00 0a 28 ?? 00 00 0a 26 20 02 00 00 00 38 bb ff ff ff 38 66 00 00 00 20 04 00 00 00 fe 0e 03 00 38 a4 ff ff ff 11 04 72 0b 00 00 70 6f 08 00 00 0a 6f 09 00 00 0a 13 01 20 00 00 00 00 7e 0b 00 00 04 7b 30 00 00 04 3a 81 ff ff ff 26 20 01 00 00 00 38 76 ff ff ff 11 01 3a 8d ff ff ff 20 00 00 00 00 7e 0b 00 00 04 7b 48 00 00 04 3a 5b ff ff ff 26 20 00 00 00 00 38 50 ff ff ff}  //weight: 2, accuracy: Low
+        $x_2_2 = "WriteAllBytes" ascii //weight: 2
+        $x_2_3 = "GetByteArrayAsync" ascii //weight: 2
+        $x_1_4 = "FromMinutes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

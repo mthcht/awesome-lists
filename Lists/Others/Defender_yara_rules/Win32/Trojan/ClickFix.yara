@@ -735,9 +735,19 @@ rule Trojan_Win32_ClickFix_DQ_2147933822_0
         $x_1_31 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 1, accuracy: High
         $x_1_32 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 1, accuracy: High
         $x_1_33 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 1, accuracy: High
+        $x_1_34 = {43 00 41 00 a1 03 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: High
+        $x_1_35 = {72 00 6f 00 84 01 6f 00 74 00}  //weight: 1, accuracy: High
+        $x_1_36 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 1, accuracy: High
+        $x_1_37 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 1, accuracy: High
+        $x_1_38 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 1, accuracy: High
+        $x_1_39 = {56 00 35 04 72 00 56 04 66 00}  //weight: 1, accuracy: High
+        $x_1_40 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 1, accuracy: High
+        $x_1_41 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 1, accuracy: High
+        $x_1_42 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (
+            ((31 of ($x_1_*))) or
             ((1 of ($x_10_*) and 21 of ($x_1_*))) or
             ((2 of ($x_10_*) and 11 of ($x_1_*))) or
             ((3 of ($x_10_*) and 1 of ($x_1_*))) or
@@ -987,6 +997,9 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         $x_100_19 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
         $x_100_20 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
         $x_100_21 = {56 00 35 04 72 00 56 04 66 00}  //weight: 100, accuracy: High
+        $x_100_22 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 100, accuracy: High
+        $x_100_23 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
+        $x_100_24 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1088,6 +1101,9 @@ rule Trojan_Win32_ClickFix_DW_2147935377_0
         $x_50_19 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 50, accuracy: High
         $x_50_20 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 50, accuracy: High
         $x_50_21 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 50, accuracy: High
+        $x_50_22 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 50, accuracy: High
+        $x_50_23 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 50, accuracy: High
+        $x_50_24 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 50, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1283,6 +1299,9 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_100_24 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 100, accuracy: High
         $x_100_25 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
         $x_100_26 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $x_100_27 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 100, accuracy: High
+        $x_100_28 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
+        $x_100_29 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1329,6 +1348,9 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_20 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
         $x_100_21 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
         $x_100_22 = {56 00 35 04 72 00 56 04 66 00}  //weight: 100, accuracy: High
+        $x_100_23 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 100, accuracy: High
+        $x_100_24 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
+        $x_100_25 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
