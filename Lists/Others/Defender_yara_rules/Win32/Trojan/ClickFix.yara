@@ -826,11 +826,12 @@ rule Trojan_Win32_ClickFix_AG_2147934652_0
         $x_1_15 = "- Over FREE" wide //weight: 1
         $x_1_16 = "Google Meet" wide //weight: 1
         $x_1_17 = "DNS service" wide //weight: 1
-        $x_1_18 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_19 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_20 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_21 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
-        $x_1_22 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
+        $x_1_18 = "filtered by CF" wide //weight: 1
+        $x_1_19 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_20 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_21 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_22 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
+        $x_1_23 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
@@ -985,6 +986,7 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         $x_100_18 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 100, accuracy: High
         $x_100_19 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
         $x_100_20 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $x_100_21 = {56 00 35 04 72 00 56 04 66 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1326,6 +1328,7 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_19 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 100, accuracy: High
         $x_100_20 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
         $x_100_21 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $x_100_22 = {56 00 35 04 72 00 56 04 66 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (

@@ -291,3 +291,50 @@ rule HackTool_Win64_Mimikatz_IB_2147850503_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_Mimikatz_G_2147937867_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Mimikatz.G"
+        threat_id = "2147937867"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mimikatz"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {48 8d 6e 30 48 8d 0d}  //weight: 10, accuracy: High
+        $x_10_2 = {48 8d 94 24 b0 00 00 00 48 8d 0d}  //weight: 10, accuracy: High
+        $x_10_3 = {4c 8d 85 30 01 00 00 48 8d 15}  //weight: 10, accuracy: High
+        $x_10_4 = {0f b6 4c 24 30 85 c0 0f 45 cf 8a c1}  //weight: 10, accuracy: High
+        $x_10_5 = {44 8b 45 80 85 c0 0f 84}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule HackTool_Win64_Mimikatz_H_2147937868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Mimikatz.H"
+        threat_id = "2147937868"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mimikatz"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {b9 14 00 00 00 f3 aa 48 8d 3d}  //weight: 10, accuracy: High
+        $x_10_2 = {48 8b ca f3 aa 48 8d 3d}  //weight: 10, accuracy: High
+        $x_10_3 = {8b ca f3 aa 48 8d 3d}  //weight: 10, accuracy: High
+        $x_10_4 = {8d 50 14 8b ca 44 8d 48 01 44}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

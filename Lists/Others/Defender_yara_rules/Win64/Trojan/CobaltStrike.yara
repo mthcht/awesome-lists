@@ -16655,12 +16655,12 @@ rule Trojan_Win64_CobaltStrike_FIZ_2147937649_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CobaltStrike_QQK_2147937862_0
+rule Trojan_Win64_CobaltStrike_QQK_2147937869_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CobaltStrike.QQK!MTB"
-        threat_id = "2147937862"
+        threat_id = "2147937869"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CobaltStrike"
