@@ -2778,3 +2778,27 @@ rule Trojan_Win32_ClipBanker_FAA_2147936777_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_ACI_2147937977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.ACI!MTB"
+        threat_id = "2147937977"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {be 01 00 00 00 8d 45 fc 50 68 06 00 02 00 6a 00 68 21 81 40 00 68 01 00 00 80}  //weight: 1, accuracy: High
+        $x_2_2 = {53 56 57 33 db 8b 75 08 8b fb 8b c7 66 83 c0 78 0f b7 d0 52 56 e8 ?? ?? ?? ?? 66 81 c7 82 00 0f b7 cf}  //weight: 2, accuracy: Low
+        $x_3_3 = "NP-0000-0000000-0000-0CaOrRAe" ascii //weight: 3
+        $x_4_4 = "Software\\edisys\\eNotePad" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
