@@ -3182,3 +3182,24 @@ rule Trojan_Win32_Lokibot_AEMA_2147934364_0
         )
 }
 
+rule Trojan_Win32_Lokibot_LIT_2147937990_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lokibot.LIT!MTB"
+        threat_id = "2147937990"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 44 16 01 88 85 00 fd ff ff 83 f0 cc 88 44 13 01 8d 42 02 39 f8 73 0c 0f b6 44 16 ?? 83 f0 cc 88 44 13 02 83 bd 04 fd ff ff 0e 0f 86}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

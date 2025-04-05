@@ -614,3 +614,25 @@ rule Trojan_Win32_Nanocore_NE_2147918604_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Nanocore_SCRE_2147937240_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nanocore.SCRE!MTB"
+        threat_id = "2147937240"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "vokskrtedirigentudgravningerc" ascii //weight: 2
+        $x_2_2 = "crossflowerpositionssystemssi" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
