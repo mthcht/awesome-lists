@@ -207,3 +207,28 @@ rule MonitoringTool_MacOS_Spyrix_C_452031_0
         (all of ($x*))
 }
 
+rule MonitoringTool_MacOS_Spyrix_D_454393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "MonitoringTool:MacOS/Spyrix.D!MTB"
+        threat_id = "454393"
+        type = "MonitoringTool"
+        platform = "MacOS: "
+        family = "Spyrix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "com.spyrix.emp-helper" ascii //weight: 1
+        $x_1_2 = "group.com.spyrix.emp.share" ascii //weight: 1
+        $x_1_3 = "/Library/emp/Spyrix.app" ascii //weight: 1
+        $x_1_4 = "dashboard.spyrix.com/prg-actions" ascii //weight: 1
+        $x_1_5 = "$s13Spyrix_Helper23_ACResourceInitProtocolP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
