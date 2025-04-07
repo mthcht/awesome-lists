@@ -64,3 +64,25 @@ rule Trojan_Win32_Nekark_NK_2147915401_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Nekark_MBV_2147938050_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nekark.MBV!MTB"
+        threat_id = "2147938050"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nekark"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "se\\ModifiedProctatic.pdb" ascii //weight: 1
+        $x_2_2 = "DO YOU WANT TO EXECUTE THIS MALWARE" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
