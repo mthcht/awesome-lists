@@ -1732,6 +1732,34 @@ rule Trojan_Win32_LummaStealer_PH_2147915993_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_PH_2147915993_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.PH!MTB"
+        threat_id = "2147915993"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0f b6 c0 8b 04 85 ?? ?? ?? ?? b9 ?? ?? ?? ?? 33 0d ?? ?? ?? ?? 01 c8 40}  //weight: 3, accuracy: Low
+        $x_1_2 = {80 38 ef 75 ?? 80 78 01 bb 75 ?? 80 78 02 bf}  //weight: 1, accuracy: Low
+        $x_1_3 = {0f b6 5d 00 53 e8 ?? ?? ?? ?? 83 c4 04 85 c0 74 ?? 45 90 90 90 90 90 90}  //weight: 1, accuracy: Low
+        $x_3_4 = {0f b6 d2 c1 e1 05 81 e1 e0 7f 00 00 31 d1 0f b7 94 4e 72 92 02 00 89 c7 81 e7 ff 7f 00 00 66 89 94 7e 72 92 01 00 89 da 42 66 89 84 4e 72 92 02 00 45}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_LummaStealer_QTW_2147916525_0
 {
     meta:
@@ -4439,6 +4467,27 @@ rule Trojan_Win32_LummaStealer_DIZ_2147937648_0
 }
 
 rule Trojan_Win32_LummaStealer_PI_2147937796_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.PI!MTB"
+        threat_id = "2147937796"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b0 40 c3 b0 3f c3 89 c8 04 d0 3c 09 77 06 80 c1 04 89 c8 c3 89 c8 04 bf 3c 1a 72}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_PI_2147937796_1
 {
     meta:
         author = "defender2yara"

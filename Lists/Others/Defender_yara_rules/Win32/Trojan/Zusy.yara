@@ -6329,3 +6329,24 @@ rule Trojan_Win32_Zusy_EAET_2147937894_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_PGZ_2147938068_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.PGZ!MTB"
+        threat_id = "2147938068"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {31 3b 09 c8 81 c3 04 00 00 00 46 46 39 d3 75 eb}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

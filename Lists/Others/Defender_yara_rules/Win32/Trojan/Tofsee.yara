@@ -1842,3 +1842,24 @@ rule Trojan_Win32_Tofsee_EAOO_2147937529_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_BAH_2147938081_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.BAH!MTB"
+        threat_id = "2147938081"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 c9 8a 55 ff 8a 5d fd 0a df 88 14 06 8a 55 fe 89 0d}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -44,3 +44,24 @@ rule Ransom_Win64_Booran_A_2147935905_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Booran_PB_2147938064_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Booran.PB!MTB"
+        threat_id = "2147938064"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Booran"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {4c 89 e9 e8 ?? ?? ?? ?? 48 8b 8d ?? ?? ?? ?? 31 04 b9 48 ff c7 48 39 fe 75}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
