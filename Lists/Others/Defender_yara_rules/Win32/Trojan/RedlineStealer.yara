@@ -505,3 +505,28 @@ rule Trojan_Win32_RedlineStealer_AMCA_2147898622_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RedlineStealer_Z_2147938091_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RedlineStealer.Z!MTB"
+        threat_id = "2147938091"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "#+3;CScs" wide //weight: 1
+        $x_1_2 = {68 10 84 2d 2c 71 ea 7e 2c 71 ea 7e 2c 71 ea 7e 32 23 7f 7e 3f 71 ea 7e 0b b7 91 7e 2b 71 ea 7e 2c 71 eb 7e 5c 71 ea 7e 32 23 6e 7e 1c 71 ea 7e 32 23 69 7e a2 71 ea 7e 32 23 7b 7e 2d 71 ea 7e}  //weight: 1, accuracy: High
+        $x_1_3 = {83 ec 38 53 b0 d7 88 44 24 2b 88 44 24 2f b0 c1 88 44 24 30 88 44 24 31 88 44 24 33 55 56 8b f1 b8 0c 00 fe ff 2b c6 89 44 24 14 b8 0d 00 fe ff 2b c6 89 44 24 1c b8 02 00 fe ff 2b c6 89 44 24}  //weight: 1, accuracy: High
+        $x_1_4 = "delete[]" ascii //weight: 1
+        $x_1_5 = "constructor or from DllMain" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
