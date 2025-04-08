@@ -1,0 +1,3 @@
+http_user_agent,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_from_external,metadata_flow_from_internal,metadata_flow_to_internal,metadata_flow_to_external,metadata_for_successful_external_login_events,metadata_comment
+NetSupport Manager/*,used by NetSupport RAT,NetSupport,RMM,https://www.netsupportmanager.com/,high,low,medium,Hunting,no,yes,no,yes,yes,
+NetSupport Gateway/*,used by NetSupport RAT server,NetSupport,RMM,https://www.netsupportmanager.com/,high,low,medium,Hunting,yes,no,yes,yes,no,
