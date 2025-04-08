@@ -1001,6 +1001,9 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         $x_100_23 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
         $x_100_24 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
         $x_100_25 = {9d 03 bf 03 6e 00 2d 00 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_26 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_27 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
+        $x_100_28 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1105,6 +1108,8 @@ rule Trojan_Win32_ClickFix_DW_2147935377_0
         $x_50_22 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 50, accuracy: High
         $x_50_23 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 50, accuracy: High
         $x_50_24 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 50, accuracy: High
+        $x_50_25 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 50, accuracy: High
+        $x_50_26 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 50, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1304,6 +1309,9 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_100_28 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
         $x_100_29 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
         $x_100_30 = {9d 03 bf 03 6e 00 2d 00 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_31 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_32 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
+        $x_100_33 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1354,6 +1362,9 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_24 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
         $x_100_25 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
         $x_100_26 = {9d 03 bf 03 6e 00 2d 00 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_27 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_28 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
+        $x_100_29 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -2135,17 +2146,16 @@ rule Trojan_Win32_ClickFix_STA_2147938015_0
         $x_10_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 10, accuracy: High
         $x_2_2 = {64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 2e 00 65 00 78 00 65 00 63 00 43 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 28 00 [0-2] 63 00 6f 00 70 00 79 00 [0-2] 29 00}  //weight: 2, accuracy: Low
         $x_2_3 = {64 6f 63 75 6d 65 6e 74 2e 65 78 65 63 43 6f 6d 6d 61 6e 64 28 [0-2] 63 6f 70 79 [0-2] 29}  //weight: 2, accuracy: Low
-        $x_1_4 = "setClipboardCopyData(textToCopy)" ascii //weight: 1
-        $x_1_5 = {64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 2e 00 63 00 72 00 65 00 61 00 74 00 65 00 45 00 6c 00 65 00 6d 00 65 00 6e 00 74 00 28 00 [0-2] 74 00 65 00 78 00 74 00 61 00 72 00 65 00 61 00 [0-2] 29 00}  //weight: 1, accuracy: Low
-        $x_1_6 = {64 6f 63 75 6d 65 6e 74 2e 63 72 65 61 74 65 45 6c 65 6d 65 6e 74 28 [0-2] 74 65 78 74 61 72 65 61 [0-2] 29}  //weight: 1, accuracy: Low
-        $x_1_7 = {64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 2e 00 62 00 6f 00 64 00 79 00 2e 00 61 00 70 00 70 00 65 00 6e 00 64 00 [0-48] 2e 00 73 00 65 00 6c 00 65 00 63 00 74 00 28 00 29 00}  //weight: 1, accuracy: Low
-        $x_1_8 = {64 6f 63 75 6d 65 6e 74 2e 62 6f 64 79 2e 61 70 70 65 6e 64 [0-48] 2e 73 65 6c 65 63 74 28 29}  //weight: 1, accuracy: Low
-        $x_1_9 = "captcha" ascii //weight: 1
-        $x_1_10 = "verification-id" ascii //weight: 1
-        $x_1_11 = {79 00 6f 00 75 00 20 00 61 00 72 00 65 00 [0-6] 68 00 75 00 6d 00 61 00 6e 00}  //weight: 1, accuracy: Low
-        $x_1_12 = {79 6f 75 20 61 72 65 [0-6] 68 75 6d 61 6e}  //weight: 1, accuracy: Low
-        $x_1_13 = {2e 00 61 00 64 00 64 00 45 00 76 00 65 00 6e 00 74 00 4c 00 69 00 73 00 74 00 65 00 6e 00 65 00 72 00 28 00 [0-2] 63 00 6c 00 69 00 63 00 6b 00}  //weight: 1, accuracy: Low
-        $x_1_14 = {2e 61 64 64 45 76 65 6e 74 4c 69 73 74 65 6e 65 72 28 [0-2] 63 6c 69 63 6b}  //weight: 1, accuracy: Low
+        $x_1_4 = {64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 2e 00 63 00 72 00 65 00 61 00 74 00 65 00 45 00 6c 00 65 00 6d 00 65 00 6e 00 74 00 28 00 [0-2] 74 00 65 00 78 00 74 00 61 00 72 00 65 00 61 00 [0-2] 29 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {64 6f 63 75 6d 65 6e 74 2e 63 72 65 61 74 65 45 6c 65 6d 65 6e 74 28 [0-2] 74 65 78 74 61 72 65 61 [0-2] 29}  //weight: 1, accuracy: Low
+        $x_1_6 = {64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 2e 00 62 00 6f 00 64 00 79 00 2e 00 61 00 70 00 70 00 65 00 6e 00 64 00 [0-48] 2e 00 73 00 65 00 6c 00 65 00 63 00 74 00 28 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_7 = {64 6f 63 75 6d 65 6e 74 2e 62 6f 64 79 2e 61 70 70 65 6e 64 [0-48] 2e 73 65 6c 65 63 74 28 29}  //weight: 1, accuracy: Low
+        $x_1_8 = "captcha" ascii //weight: 1
+        $x_1_9 = "verification-id" ascii //weight: 1
+        $x_1_10 = {79 00 6f 00 75 00 20 00 61 00 72 00 65 00 [0-6] 68 00 75 00 6d 00 61 00 6e 00}  //weight: 1, accuracy: Low
+        $x_1_11 = {79 6f 75 20 61 72 65 [0-6] 68 75 6d 61 6e}  //weight: 1, accuracy: Low
+        $x_1_12 = {2e 00 61 00 64 00 64 00 45 00 76 00 65 00 6e 00 74 00 4c 00 69 00 73 00 74 00 65 00 6e 00 65 00 72 00 28 00 [0-2] 63 00 6c 00 69 00 63 00 6b 00}  //weight: 1, accuracy: Low
+        $x_1_13 = {2e 61 64 64 45 76 65 6e 74 4c 69 73 74 65 6e 65 72 28 [0-2] 63 6c 69 63 6b}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
@@ -2175,5 +2185,118 @@ rule Trojan_Win32_ClickFix_TFB_2147938017_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_STB_2147938198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.STB"
+        threat_id = "2147938198"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "350"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "mshta" wide //weight: 100
+        $x_100_2 = " # " wide //weight: 100
+        $x_100_3 = "://" wide //weight: 100
+        $x_50_4 = {2e 00 73 00 68 00 6f 00 70 00 2f 00 90 00 02 00 40 00 2e 00 6f 00 67 00 67 00 20 00}  //weight: 50, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DAO_2147938209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAO!MTB"
+        threat_id = "2147938209"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_5_2 = "-UseBasicParsing).Content" wide //weight: 5
+        $x_1_3 = "iex" wide //weight: 1
+        $x_1_4 = "iwr" wide //weight: 1
+        $x_1_5 = "$_ -bxor" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DAR_2147938210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAR!MTB"
+        threat_id = "2147938210"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "mshta" wide //weight: 100
+        $x_1_2 = "CIoudfIare Unique One-time" wide //weight: 1
+        $x_1_3 = "User Ref: Alpha" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DAS_2147938211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAS!MTB"
+        threat_id = "2147938211"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "mshta" wide //weight: 100
+        $x_1_2 = {20 00 49 00 09 20}  //weight: 1, accuracy: High
+        $x_1_3 = {09 20 49 00 09 20}  //weight: 1, accuracy: High
+        $x_1_4 = {09 20 49 00 20 00}  //weight: 1, accuracy: High
+        $x_1_5 = {20 00 99 03 20 00}  //weight: 1, accuracy: High
+        $x_1_6 = {09 20 99 03 09 20}  //weight: 1, accuracy: High
+        $x_1_7 = {20 00 99 03 09 20}  //weight: 1, accuracy: High
+        $x_1_8 = {20 00 72 00 3e 04}  //weight: 1, accuracy: High
+        $x_1_9 = {20 00 7e 02 80 05}  //weight: 1, accuracy: High
+        $x_1_10 = {20 00 52 00 bf 03}  //weight: 1, accuracy: High
+        $x_1_11 = {02 00 43 00 91 03}  //weight: 1, accuracy: High
+        $x_1_12 = {02 00 21 04 91 03}  //weight: 1, accuracy: High
+        $x_1_13 = {02 00 21 04 41 00}  //weight: 1, accuracy: High
+        $x_1_14 = {09 20 43 00 91 03}  //weight: 1, accuracy: High
+        $x_1_15 = {09 20 21 04 91 03}  //weight: 1, accuracy: High
+        $x_1_16 = {09 20 21 04 41 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

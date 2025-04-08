@@ -710,3 +710,120 @@ rule Trojan_Win32_CryptBot_BM_2147933473_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CryptBot_DA_2147938204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CryptBot.DA!MTB"
+        threat_id = "2147938204"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "612"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = "Browsers\\Cookies\\Google" ascii //weight: 100
+        $x_1_2 = {47 00 6f 00 6f 00 67 00 6c 00 65 00 5c 00 43 00 68 00 72 00 6f 00 6d 00 65 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {47 6f 6f 67 6c 65 5c 43 68 72 6f 6d 65 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_4 = {47 00 6f 00 6f 00 67 00 6c 00 65 00 5c 00 43 00 68 00 72 00 6f 00 6d 00 65 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {47 6f 6f 67 6c 65 5c 43 68 72 6f 6d 65 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_6 = "Browsers\\Cookies\\Opera" ascii //weight: 100
+        $x_1_7 = {4f 00 70 00 65 00 72 00 61 00 20 00 53 00 6f 00 66 00 74 00 77 00 61 00 72 00 65 00 5c 00 [0-15] 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {4f 70 65 72 61 20 53 6f 66 74 77 61 72 65 5c [0-15] 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_9 = {4f 00 70 00 65 00 72 00 61 00 20 00 53 00 6f 00 66 00 74 00 77 00 61 00 72 00 65 00 5c 00 [0-15] 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_10 = {4f 70 65 72 61 20 53 6f 66 74 77 61 72 65 5c [0-15] 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_11 = "Browsers\\Cookies\\360" ascii //weight: 100
+        $x_1_12 = {33 00 36 00 30 00 43 00 68 00 72 00 6f 00 6d 00 65 00 5c 00 43 00 68 00 72 00 6f 00 6d 00 65 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_13 = {33 36 30 43 68 72 6f 6d 65 5c 43 68 72 6f 6d 65 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_14 = {33 00 36 00 30 00 43 00 68 00 72 00 6f 00 6d 00 65 00 5c 00 43 00 68 00 72 00 6f 00 6d 00 65 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_15 = {33 36 30 43 68 72 6f 6d 65 5c 43 68 72 6f 6d 65 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_16 = "Browsers\\Cookies\\CocCoc" ascii //weight: 100
+        $x_1_17 = {43 00 6f 00 63 00 43 00 6f 00 63 00 5c 00 42 00 72 00 6f 00 77 00 73 00 65 00 72 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_18 = {43 6f 63 43 6f 63 5c 42 72 6f 77 73 65 72 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_19 = {43 00 6f 00 63 00 43 00 6f 00 63 00 5c 00 42 00 72 00 6f 00 77 00 73 00 65 00 72 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_20 = {43 6f 63 43 6f 63 5c 42 72 6f 77 73 65 72 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_21 = "Browsers\\Cookies\\Comodo" ascii //weight: 100
+        $x_1_22 = {43 00 6f 00 6d 00 6f 00 64 00 6f 00 5c 00 44 00 72 00 61 00 67 00 6f 00 6e 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_23 = {43 6f 6d 6f 64 6f 5c 44 72 61 67 6f 6e 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_24 = {43 00 6f 00 6d 00 6f 00 64 00 6f 00 5c 00 44 00 72 00 61 00 67 00 6f 00 6e 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_25 = {43 6f 6d 6f 64 6f 5c 44 72 61 67 6f 6e 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_26 = "Browsers\\Cookies\\Slimjet" ascii //weight: 100
+        $x_1_27 = {53 00 6c 00 69 00 6d 00 6a 00 65 00 74 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_28 = {53 6c 69 6d 6a 65 74 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_29 = {53 00 6c 00 69 00 6d 00 6a 00 65 00 74 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_30 = {53 6c 69 6d 6a 65 74 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_31 = "Browsers\\Cookies\\Cent" ascii //weight: 100
+        $x_1_32 = {43 00 65 00 6e 00 74 00 42 00 72 00 6f 00 77 00 73 00 65 00 72 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_33 = {43 65 6e 74 42 72 6f 77 73 65 72 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_34 = {43 00 65 00 6e 00 74 00 42 00 72 00 6f 00 77 00 73 00 65 00 72 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_35 = {43 65 6e 74 42 72 6f 77 73 65 72 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_36 = "Browsers\\Cookies\\Torch" ascii //weight: 100
+        $x_1_37 = {54 00 6f 00 72 00 63 00 68 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_38 = {54 6f 72 63 68 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_39 = {54 00 6f 00 72 00 63 00 68 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_40 = {54 6f 72 63 68 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_41 = "Browsers\\Cookies\\Vivaldi" ascii //weight: 100
+        $x_1_42 = {56 00 69 00 76 00 61 00 6c 00 64 00 69 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_43 = {56 69 76 61 6c 64 69 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_44 = {56 00 69 00 76 00 61 00 6c 00 64 00 69 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_45 = {56 69 76 61 6c 64 69 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+        $x_100_46 = "Browsers\\Cookies\\Brave" ascii //weight: 100
+        $x_1_47 = "brave\\LoginData" ascii //weight: 1
+        $x_1_48 = "brave\\Cookies" ascii //weight: 1
+        $x_100_49 = "Browsers\\Cookies\\Chromium" ascii //weight: 100
+        $x_1_50 = {43 00 68 00 72 00 6f 00 6d 00 69 00 75 00 6d 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 4c 00 6f 00 67 00 69 00 6e 00 44 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_51 = {43 68 72 6f 6d 69 75 6d 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 4c 6f 67 69 6e 44 61 74 61}  //weight: 1, accuracy: Low
+        $x_1_52 = {43 00 68 00 72 00 6f 00 6d 00 69 00 75 00 6d 00 5c 00 [0-15] 5c 00 44 00 65 00 66 00 61 00 75 00 6c 00 74 00 5c 00 43 00 6f 00 6f 00 6b 00 69 00 65 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_53 = {43 68 72 6f 6d 69 75 6d 5c [0-15] 5c 44 65 66 61 75 6c 74 5c 43 6f 6f 6b 69 65 73}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((6 of ($x_100_*) and 12 of ($x_1_*))) or
+            ((7 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_CryptBot_DB_2147938205_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CryptBot.DB!MTB"
+        threat_id = "2147938205"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "403"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "wallet.dat" ascii //weight: 100
+        $x_100_2 = "logins.json" ascii //weight: 100
+        $x_100_3 = "cookies.sqlite" ascii //weight: 100
+        $x_100_4 = "Passwords.txt" ascii //weight: 100
+        $x_100_5 = "Screen.jpg" ascii //weight: 100
+        $x_1_6 = "Vivaldi" ascii //weight: 1
+        $x_1_7 = "Torch" ascii //weight: 1
+        $x_1_8 = "brave" ascii //weight: 1
+        $x_1_9 = "Slimjet" ascii //weight: 1
+        $x_1_10 = "CentBrowser" ascii //weight: 1
+        $x_1_11 = "Comodo" ascii //weight: 1
+        $x_1_12 = "CocCoc" ascii //weight: 1
+        $x_1_13 = "Google" ascii //weight: 1
+        $x_1_14 = "360Chrome" ascii //weight: 1
+        $x_1_15 = "Opera" ascii //weight: 1
+        $x_1_16 = "Chromium" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_100_*) and 3 of ($x_1_*))) or
+            ((5 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+
