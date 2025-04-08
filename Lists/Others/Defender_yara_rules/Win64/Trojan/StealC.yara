@@ -139,12 +139,11 @@ rule Trojan_Win64_StealC_GY_2147937379_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "4"
         strings_accuracy = "High"
     strings:
         $x_3_1 = {89 d1 44 30 c1 20 ca 30 d1 08 d1 44 30 c1 44 30 c0 89 c2 30 ca 20 c8}  //weight: 3, accuracy: High
         $x_1_2 = {30 c8 20 d1 44 08 c2 44 30 e2 08 c2 89 d0 44 30 e0 44 20 c3 08 cb 89 c1 20 d1}  //weight: 1, accuracy: High
-        $x_1_3 = {30 d8 20 d3 08 d9 20 d0 89 c2 20 ca 30 c8 08 d0}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -1322,3 +1322,25 @@ rule Trojan_MSIL_Zilla_IVK_2147937599_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_ZZM_2147938162_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ZZM!MTB"
+        threat_id = "2147938162"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {08 11 06 11 04 6f ?? 00 00 0a 13 07 07 25 13 08 72 ?? 09 00 70 11 08 72 ?? 09 00 70 6f ?? 00 00 0a 12 07 28 ?? 00 00 0a d6 6f ?? 00 00 0a 00 07 25 13 08}  //weight: 10, accuracy: Low
+        $x_1_2 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

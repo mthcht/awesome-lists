@@ -171,3 +171,29 @@ rule Trojan_Win32_Makoob_SLVM_2147937765_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Makoob_GVA_2147938149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Makoob.GVA!MTB"
+        threat_id = "2147938149"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Makoob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "uncollapsable hyaenodon" wide //weight: 1
+        $x_1_2 = "parallaxes forlagsredaktren" wide //weight: 1
+        $x_1_3 = "unsimpleness.exe" wide //weight: 1
+        $x_3_4 = "revoke quartermasters sporogenic" wide //weight: 3
+        $x_1_5 = "SeShutdownPrivilege" wide //weight: 1
+        $x_1_6 = "avledygtigheds" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

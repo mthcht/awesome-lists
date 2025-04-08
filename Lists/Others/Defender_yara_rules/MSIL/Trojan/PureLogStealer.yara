@@ -2730,3 +2730,54 @@ rule Trojan_MSIL_PureLogStealer_ACQA_2147937962_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_ZZK_2147938143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.ZZK!MTB"
+        threat_id = "2147938143"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {01 25 16 0f 01 28 ?? 00 00 0a 9c 25 17 0f 01 28 ?? 00 00 0a 9c 25 18 0f 01 28 ?? 00 00 0a 9c 13 0e 16 13 0f 2b 14}  //weight: 6, accuracy: Low
+        $x_5_2 = {03 07 11 04 6f ?? 00 00 0a 13 05 0e 04 0e 04 4a 17 58 54 23 00 00 00 00 00 00 00 00 13 06 11 06}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_PureLogStealer_RPA_2147938161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.RPA!MTB"
+        threat_id = "2147938161"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Failed to decrypt payload: " wide //weight: 10
+        $x_1_2 = "Fetching payload from {0}" wide //weight: 1
+        $x_1_3 = "https://example.com/dynamic_code.bin" wide //weight: 1
+        $x_10_4 = "Invalid payload source." wide //weight: 10
+        $x_1_5 = "DynamicCodeExecutor.dynamic_code.bin" wide //weight: 1
+        $x_1_6 = "Loading and executing dynamic code" wide //weight: 1
+        $x_1_7 = "Failed to execute dynamic code: " wide //weight: 1
+        $x_1_8 = "Entry type not found in dynamic code." wide //weight: 1
+        $x_1_9 = "Entry method not found in dynamic code." wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

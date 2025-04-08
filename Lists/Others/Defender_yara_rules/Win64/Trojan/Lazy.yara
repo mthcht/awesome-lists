@@ -2452,3 +2452,53 @@ rule Trojan_Win64_Lazy_VVZ_2147937235_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_GC_2147938146_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GC!MTB"
+        threat_id = "2147938146"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "good.5dfruitjkgreat" ascii //weight: 1
+        $x_1_2 = "Cwon.ttheir2Kabundantly.land" ascii //weight: 1
+        $x_1_3 = "o:\\dir_for_builds\\bldObj" ascii //weight: 1
+        $x_1_4 = "giveneveryn" ascii //weight: 1
+        $x_1_5 = "ktreelman,Rm" ascii //weight: 1
+        $x_1_6 = "sayingr7Zshe.dfruitfuldzfemalegreater" ascii //weight: 1
+        $x_1_7 = "6maleyou.re,multiply,Thegreenreplenishfitselfw" ascii //weight: 1
+        $x_1_8 = "vg05b3wE.Dll" ascii //weight: 1
+        $x_1_9 = "sELF.eXe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_GVB_2147938151_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GVB!MTB"
+        threat_id = "2147938151"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 03 c8 48 8b c1 0f b6 00 83 f0 36 48 8b 8c 24 ?? ?? ?? ?? 48 8b 94 24 ?? ?? ?? ?? 48 03 d1 48 8b ca 88 01 48 8b 84 24 ?? ?? ?? ?? 48 8b 8c 24 ?? ?? ?? ?? 48 03 c8 48 8b c1 0f b6 00 83 c0 12 48 8b 8c 24 ?? ?? ?? ?? 48 8b 94 24 ?? ?? ?? ?? 48 03 d1 48 8b ca 88 01 48 8b 84 24 ?? ?? ?? ?? 48 ff c0 48 89 84 24 ?? ?? ?? ?? 48 81 bc 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

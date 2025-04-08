@@ -1660,3 +1660,24 @@ rule Trojan_Win64_Zusy_UDP_2147937832_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_GF_2147938155_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.GF!MTB"
+        threat_id = "2147938155"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 8b c1 4d 85 c9 74 22 66 66 0f 1f 84 00 00 00 00 00 48 8b 08 48 83 c0 08 48 89 0a 48 83 c2 08 49 83 e9 01 75 ec 8b 4c 24 48 41 83 e0 07 74 26 48 2b d0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

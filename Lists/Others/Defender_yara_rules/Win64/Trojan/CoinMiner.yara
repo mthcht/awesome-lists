@@ -754,7 +754,7 @@ rule Trojan_Win64_CoinMiner_BSA_2147929053_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "35"
+        threshold = "33"
         strings_accuracy = "High"
     strings:
         $x_10_1 = "Usage: xmrig" ascii //weight: 10
@@ -762,13 +762,26 @@ rule Trojan_Win64_CoinMiner_BSA_2147929053_0
         $x_2_3 = "cryptonight-ultralite" ascii //weight: 2
         $x_2_4 = "xmr.pool" ascii //weight: 2
         $x_2_5 = "XMRig CPU miner" ascii //weight: 2
-        $x_3_6 = "minergate" ascii //weight: 3
-        $x_4_7 = "cryptonight_turtle" ascii //weight: 4
-        $x_5_8 = "cryptonight/gpu" ascii //weight: 5
-        $x_6_9 = "stratum+tcp://" ascii //weight: 6
+        $x_2_6 = "no active pools, stop mining" ascii //weight: 2
+        $x_3_7 = "cryptonight-monero" ascii //weight: 3
+        $x_3_8 = "minergate" ascii //weight: 3
+        $x_4_9 = "cryptonight_turtle" ascii //weight: 4
+        $x_5_10 = "cryptonight/gpu" ascii //weight: 5
+        $x_6_11 = "stratum+tcp://" ascii //weight: 6
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 4 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 3 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 4 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 4 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 4 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win64_CoinMiner_BSA_2147929053_1

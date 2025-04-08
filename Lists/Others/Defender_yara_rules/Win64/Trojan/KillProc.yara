@@ -19,3 +19,29 @@ rule Trojan_Win64_KillProc_EB_2147836522_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillProc_GVA_2147938150_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillProc.GVA!MTB"
+        threat_id = "2147938150"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillProc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "main.avlist" ascii //weight: 3
+        $x_1_2 = "main.isProcessRunning" ascii //weight: 1
+        $x_1_3 = "main.LoadDriver" ascii //weight: 1
+        $x_1_4 = "main.FindProcessByName" ascii //weight: 1
+        $x_1_5 = "main.TerminateProcessByIOCTL" ascii //weight: 1
+        $x_1_6 = "main.RegisterProcessByIOCTL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

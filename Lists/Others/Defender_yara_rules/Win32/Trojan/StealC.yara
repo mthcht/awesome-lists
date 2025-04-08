@@ -4187,3 +4187,24 @@ rule Trojan_Win32_StealC_BAA_2147934831_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealC_GJ_2147938145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.GJ!MTB"
+        threat_id = "2147938145"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 0c 57 8d 14 06 e8 be ff ff ff 30 02 46 59 3b 75 10 72 eb}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

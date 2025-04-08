@@ -3725,3 +3725,25 @@ rule Trojan_MSIL_AsyncRat_ADQA_2147937984_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRat_AHQA_2147938136_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRat.AHQA!MTB"
+        threat_id = "2147938136"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {fe 0e 04 00 fe 0c 04 00 20 01 00 00 00 40 00 00 00 00 02 28 ?? 00 00 0a 0a 28 ?? 00 00 0a 03 6f ?? 00 00 0a 0b 06 8e 69 8d 1f 00 00 01 0c 16 0d 38 13 00 00 00 08 09 06 09 91 07 09 07 8e 69 5d 91 61 d2 9c 09 17 58 0d 09 06 8e 69 3f e4 ff ff ff}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
