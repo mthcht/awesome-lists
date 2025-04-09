@@ -69,3 +69,26 @@ rule Trojan_Win64_ClassCuts_C_2147933299_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClassCuts_D_2147938290_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClassCuts.D!dha"
+        threat_id = "2147938290"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClassCuts"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "delkill /F /IM explENT_USER\\Softwar" ascii //weight: 1
+        $x_1_2 = "[+] ShortTimer and FailCounter changed." ascii //weight: 1
+        $x_1_3 = "[+] Endpoint changed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

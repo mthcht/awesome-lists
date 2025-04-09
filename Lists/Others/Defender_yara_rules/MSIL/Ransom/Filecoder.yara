@@ -3684,3 +3684,26 @@ rule Ransom_MSIL_Filecoder_PAGN_2147937838_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_PAGP_2147938307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.PAGP!MTB"
+        threat_id = "2147938307"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "wallpaper.bmp" wide //weight: 2
+        $x_1_2 = "But why steal this software? no shame? DO NOT USE!" wide //weight: 1
+        $x_2_3 = "Are you sure want to proceed open this software on unsupported platform? It may harm your computer. You have been warn!" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

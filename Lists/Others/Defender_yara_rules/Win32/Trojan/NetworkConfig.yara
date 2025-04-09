@@ -74,28 +74,6 @@ rule Trojan_Win32_NetworkConfig_B_2147768111_0
         (1 of ($x*))
 }
 
-rule Trojan_Win32_NetworkConfig_D_2147768644_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/NetworkConfig.D"
-        threat_id = "2147768644"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "NetworkConfig"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {6e 00 62 00 74 00 73 00 74 00 61 00 74 00 [0-16] 2d 00 73 00}  //weight: 1, accuracy: Low
-        $n_50_2 = "nessus" wide //weight: -50
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_NetworkConfig_E_2147770145_0
 {
     meta:

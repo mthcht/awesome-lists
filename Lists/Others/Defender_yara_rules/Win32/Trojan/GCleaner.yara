@@ -980,3 +980,24 @@ rule Trojan_Win32_GCleaner_FZK_2147937723_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_UDP_2147938274_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.UDP!MTB"
+        threat_id = "2147938274"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5a 2b d0 31 13 83 45 ec 04 83 c3 04 8b 45 ec 3b 45 dc 72 bc}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

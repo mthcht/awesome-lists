@@ -2962,9 +2962,13 @@ rule Trojan_MSIL_Zusy_GE_2147932968_0
         $x_2_1 = {06 11 07 7e 01 00 00 04 11 07 91 7e 01 00 00 04 16 91 61 d2 9c 11 07 17 58 13 07}  //weight: 2, accuracy: High
         $x_1_2 = {7e 01 00 00 04 8e 69 8d ?? 00 00 01 0a 16 13 07}  //weight: 1, accuracy: Low
         $x_1_3 = "Fsignature.compressed" ascii //weight: 1
+        $x_1_4 = "pfx.strongname.compressed" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_MSIL_Zusy_EAQH_2147934427_0
