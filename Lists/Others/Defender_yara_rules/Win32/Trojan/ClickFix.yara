@@ -2348,3 +2348,28 @@ rule Trojan_Win32_ClickFix_DAT_2147938309_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DAU_2147938314_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAU!MTB"
+        threat_id = "2147938314"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_1_2 = "-UseBasicParsing).Content" wide //weight: 1
+        $x_1_3 = "iex" wide //weight: 1
+        $x_1_4 = "iwr" wide //weight: 1
+        $x_5_5 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-9] 2e 00 [0-9] 2e 00 [0-9] 2e 00 [0-9] 3a 00 [0-9] 2f 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
