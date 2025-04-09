@@ -1807,3 +1807,24 @@ rule Trojan_MSIL_XWorm_AFQA_2147938118_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_JKT_2147938382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.JKT!MTB"
+        threat_id = "2147938382"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {25 09 6f 24 00 00 0a 6f 28 00 00 0a 11 04 16 11 04 8e 69 6f 29 00 00 0a 13 05 28 10 00 00 0a 11 05 6f 12 00 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

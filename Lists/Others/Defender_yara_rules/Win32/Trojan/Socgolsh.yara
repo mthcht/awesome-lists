@@ -307,3 +307,26 @@ rule Trojan_Win32_Socgolsh_SL_2147937799_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Socgolsh_SM_2147938352_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Socgolsh.SM"
+        threat_id = "2147938352"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Socgolsh"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "$env:localappdata\\google\\chrome\\user data\\default\\login data" wide //weight: 1
+        $x_1_2 = "$env:appdata\\mozilla\\firefox\\profiles\\*\\logins.json" wide //weight: 1
+        $x_1_3 = "$env:localappdata\\microsoft\\edge\\user data\\default\\login data" wide //weight: 1
+        $x_1_4 = {61 00 70 00 70 00 64 00 61 00 74 00 61 00 5c 00 6c 00 6f 00 63 00 61 00 6c 00 5c 00 67 00 6f 00 6f 00 67 00 6c 00 65 00 5c 00 63 00 68 00 72 00 6f 00 6d 00 65 00 [0-16] 75 00 73 00 65 00 72 00 20 00 64 00 61 00 74 00 61 00 [0-16] 6c 00 6f 00 63 00 61 00 6c 00 20 00 73 00 74 00 61 00 74 00 65 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

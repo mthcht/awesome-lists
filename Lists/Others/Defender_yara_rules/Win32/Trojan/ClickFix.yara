@@ -2429,3 +2429,26 @@ rule Trojan_Win32_ClickFix_STD_2147938322_0
         )
 }
 
+rule Trojan_Win32_ClickFix_AA_2147938353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AA"
+        threat_id = "2147938353"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = {13 20 65 00 4e 00 63 00 6f}  //weight: 1, accuracy: High
+        $x_1_3 = "uwb0ageacgb0ac0auabyag8aywblahmacwagaciaaab0ahqacaa6a" wide //weight: 1
+        $x_1_4 = "guazaa9ahqacgb1aguaigagaa==" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
