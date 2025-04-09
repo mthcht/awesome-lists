@@ -2373,3 +2373,59 @@ rule Trojan_Win32_ClickFix_DAU_2147938314_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_STC_2147938321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.STC"
+        threat_id = "2147938321"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "103"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {50 00 6f 00 77 00 65 00 72 00 53 00 68 00 65 00 6c 00 6c 00 [0-16] 20 00 2d 00 77 00 20 00 68 00 20 00 2d 00 63 00 20 00 [0-4] 69 00 65 00 78 00 20 00 24 00 28 00 69 00 72 00 6d 00}  //weight: 100, accuracy: Low
+        $x_2_2 = ":8080/$($z = datetime" wide //weight: 2
+        $x_1_3 = "('01/01/' + '1970')); $x = ($z - $y).TotalSeconds; $w = math" wide //weight: 1
+        $x_1_4 = "::Floor($x); $v = $w - ($w % 16); int64" wide //weight: 1
+        $x_1_5 = "::UtcNow; $y = (datetime" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_STD_2147938322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.STD"
+        threat_id = "2147938322"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "103"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {50 00 6f 00 77 00 65 00 72 00 53 00 68 00 65 00 6c 00 6c 00 [0-16] 20 00 2d 00 77 00 20 00 68 00 20 00 2d 00 63 00 20 00 [0-4] 69 00 65 00 78 00 20 00 24 00 28 00 69 00 72 00 6d 00}  //weight: 100, accuracy: Low
+        $x_1_2 = "MQA5ADcAMAA=" wide //weight: 1
+        $x_1_3 = "MAAxAC8AMAAxAC8A" wide //weight: 1
+        $x_1_4 = "(datetime($(Text.Encoding::Unicode.GetString(Convert::FromBase64String" wide //weight: 1
+        $x_1_5 = "math::Floor(${__/==\\_/\\___/===\\})" wide //weight: 1
+        $x_1_6 = "int64${___/==\\/=\\/\\__/==}))" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
