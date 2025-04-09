@@ -3294,6 +3294,29 @@ rule Trojan_MSIL_CryptInject_BSA_2147935496_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "29"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {57 9d a2 1d 09 0e 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 37 00 00 00 12 00}  //weight: 10, accuracy: High
+        $x_10_2 = "Hallaj.Properties" ascii //weight: 10
+        $x_9_3 = "lover.exe" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_CryptInject_BSA_2147935496_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CryptInject.BSA!MTB"
+        threat_id = "2147935496"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "23"
         strings_accuracy = "High"
     strings:

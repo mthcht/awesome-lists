@@ -560,3 +560,24 @@ rule Trojan_Win64_LummaStealer_BU_2147938333_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_LBT_2147938397_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.LBT!MTB"
+        threat_id = "2147938397"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {89 c1 f6 d1 80 e1 46 24 b9 08 c8 89 c1 80 f1 55 34 aa 89 ca 80 e2 fe 24 ?? 80 e1 ?? 08 c1 89 d0 20 c8 30 d1 08 c1 89 c8 f6 d0 24 67 80 e1 98 08 c1 80 f1 98 b8 ad 08 0c 30 41 0f 44 c6 3d ac 08 0c 30 0f 8f}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
