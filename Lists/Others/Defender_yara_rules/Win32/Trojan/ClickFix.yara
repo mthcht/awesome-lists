@@ -2388,10 +2388,12 @@ rule Trojan_Win32_ClickFix_STC_2147938321_0
         strings_accuracy = "Low"
     strings:
         $x_100_1 = {50 00 6f 00 77 00 65 00 72 00 53 00 68 00 65 00 6c 00 6c 00 [0-16] 20 00 2d 00 77 00 20 00 68 00 20 00 2d 00 63 00 20 00 [0-4] 69 00 65 00 78 00 20 00 24 00 28 00 69 00 72 00 6d 00}  //weight: 100, accuracy: Low
-        $x_2_2 = ":8080/$($z = datetime" wide //weight: 2
-        $x_1_3 = "('01/01/' + '1970')); $x = ($z - $y).TotalSeconds; $w = math" wide //weight: 1
-        $x_1_4 = "::Floor($x); $v = $w - ($w % 16); int64" wide //weight: 1
-        $x_1_5 = "::UtcNow; $y = (datetime" wide //weight: 1
+        $x_2_2 = ":8080/$($z" wide //weight: 2
+        $x_1_3 = "('01/01/' + '1970')" wide //weight: 1
+        $x_1_4 = "$x = ($z - $y).TotalSeconds" wide //weight: 1
+        $x_1_5 = "::Floor($x); $v = $w - ($w % 16)" wide //weight: 1
+        $x_1_6 = {3a 00 3a 00 55 00 74 00 63 00 4e 00 6f 00 77 00 3b 00 20 00 24 00 79 00 20 00 3d 00 20 00 [0-4] 64 00 61 00 74 00 65 00 74 00 69 00 6d 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_7 = "[int64]$v))" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (

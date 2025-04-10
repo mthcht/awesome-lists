@@ -6280,3 +6280,24 @@ rule Trojan_Win32_Zbot_PAZB_2147936650_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zbot_SLY_2147938426_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.SLY!MTB"
+        threat_id = "2147938426"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8d 44 24 04 50 33 db 53 53 68 28 82 41 00 68 02 00 00 80 ff 15 0c 80 41 00 3b c3 74 06 83 f8 02 0f 95 c3 8a c3}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

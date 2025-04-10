@@ -95,6 +95,27 @@ rule Trojan_Win64_AsyncRAT_ARA_2147902716_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 45 e8 48 89 c1 48 83 c0 01 48 89 45 e8 eb d9 48 8b 45 e8 48 8b 4d f0 48 01 c1 48 8b 45 e8 48 8b 55 10 48 01 c2 0f be 02 8b 55 18 31 d0 88 01 eb cd}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_AsyncRAT_ARA_2147902716_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRAT.ARA!MTB"
+        threat_id = "2147902716"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:

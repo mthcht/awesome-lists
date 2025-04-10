@@ -3500,3 +3500,28 @@ rule Trojan_Win32_GuLoader_RBX_2147937955_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBY_2147938418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBY!MTB"
+        threat_id = "2147938418"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Witnessers153\\raabte\\amuletters" ascii //weight: 1
+        $x_1_2 = "reasonings demoraliser radioamplifier" ascii //weight: 1
+        $x_1_3 = "commingler dialyses" ascii //weight: 1
+        $x_1_4 = "swordgrass" ascii //weight: 1
+        $x_1_5 = "apprizal.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

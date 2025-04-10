@@ -1851,3 +1851,26 @@ rule Trojan_MSIL_XWorm_AOQA_2147938410_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_APQA_2147938419_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.APQA!MTB"
+        threat_id = "2147938419"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0a 13 04 11 04 17 6f ?? 04 00 0a 18 2c 18 11 04 18 6f ?? 04 00 0a 11 04 08 6f ?? 04 00 0a 11 04 09 6f ?? 04 00 0a 73 ?? 04 00 0a 13 05 11 05 11 04 6f ?? 04 00 0a 17 73 ?? 04 00 0a 13 06 11 06 02 16 02 8e 69 6f ?? 04 00 0a 11 06 6f ?? 04 00 0a de 0c}  //weight: 3, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
