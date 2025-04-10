@@ -4465,3 +4465,45 @@ rule Trojan_MSIL_Bladabindi_PKMZ_2147936651_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_GPPA_2147938484_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.GPPA!MTB"
+        threat_id = "2147938484"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {7a 06 14 6f ?? 00 00 0a 75 ?? 00 00 01 0b 07 14 28 ?? 00 00 0a 13}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_GPPB_2147938485_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.GPPB!MTB"
+        threat_id = "2147938485"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "R///e///////g/A//////s/m/./e////x/////e" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

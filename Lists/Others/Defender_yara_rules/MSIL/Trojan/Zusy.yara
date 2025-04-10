@@ -3234,3 +3234,24 @@ rule Trojan_MSIL_Zusy_CCJR_2147936886_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_GPPC_2147938487_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.GPPC!MTB"
+        threat_id = "2147938487"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8d 07 00 00 01 25 16 03 1f 4d 6f ?? 00 00 0a d2 9c 25 17 03 1f 5a}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -643,3 +643,45 @@ rule Backdoor_Win32_Tofsee_KAD_2147924323_0
         (all of ($x*))
 }
 
+rule Backdoor_Win32_Tofsee_GNQ_2147938459_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Tofsee.GNQ!MTB"
+        threat_id = "2147938459"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {d3 ea 89 55 ?? 8b 45 ?? 03 45 ?? 89 45 ?? 8b 4d ?? 33 4d ?? 89 4d ?? 81 3d ?? ?? ?? ?? c1 10 00 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Win32_Tofsee_GNR_2147938460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Tofsee.GNR!MTB"
+        threat_id = "2147938460"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {00 ff 30 e8 e4 6e 00 00 83 ec ?? c6 04 24 ?? 8d 1d ?? ?? ?? ?? 81 eb ?? ?? ?? ?? 53 8d 15 ?? ?? ?? ?? 81 ea ?? ?? ?? ?? 52}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

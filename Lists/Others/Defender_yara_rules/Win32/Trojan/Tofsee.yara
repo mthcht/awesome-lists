@@ -1863,24 +1863,3 @@ rule Trojan_Win32_Tofsee_BAH_2147938081_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tofsee_GNQ_2147938450_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Tofsee.GNQ!MTB"
-        threat_id = "2147938450"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Tofsee"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {d3 ea 89 55 ?? 8b 45 ?? 03 45 ?? 89 45 ?? 8b 4d ?? 33 4d ?? 89 4d ?? 81 3d ?? ?? ?? ?? c1 10 00 00}  //weight: 10, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

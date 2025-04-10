@@ -41,3 +41,28 @@ rule Trojan_Win64_RustyStealer_ZX_2147913787_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_GPXB_2147938495_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.GPXB!MTB"
+        threat_id = "2147938495"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Prysmax Stealer Cookies" ascii //weight: 2
+        $x_2_2 = "Windows DefenderC:\\Program Files\\Windows DefenderKasperskyC:\\Program Files (x86)\\Kaspersky LabAvast" ascii //weight: 2
+        $x_1_3 = "LOCALAPPDATAsrc/modules/cookies.rs" ascii //weight: 1
+        $x_1_4 = "chromeGoogle\\Chrome\\Application\\chrome.exeGoogle\\Chrome\\User Dataedge" ascii //weight: 1
+        $x_1_5 = "schtasks/Delete/TN/Create/SC/RLHIGHEST/RUNT AUTHORITY\\SYSTEM/TR[CLIPPER]" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -578,3 +578,31 @@ rule Trojan_MSIL_Stealerc_AMDA_2147932347_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealerc_GPXA_2147938494_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealerc.GPXA!MTB"
+        threat_id = "2147938494"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealerc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "sendDocument?chat_id=" ascii //weight: 2
+        $x_2_2 = {1b 49 00 4d 00 41 00 50 00 20 00 50 00 61 00 73 00 73 00 77 00 6f 00 72 00 64 00 00 1b 50 00 4f 00 50 00 33 00 20 00 50 00 61 00 73 00 73 00 77 00 6f 00 72 00 64}  //weight: 2, accuracy: High
+        $x_1_3 = {65 00 6e 00 63 00 72 00 79 00 70 00 74 00 65 00 64 00 5f 00 6b 00 65 00 79 00 22 00 3a 00 22 00 28 00 2e 00 2a 00 3f 00 29}  //weight: 1, accuracy: High
+        $x_1_4 = "Microsoft\\Edge\\User Data\\Default\\Login Data" ascii //weight: 1
+        $x_1_5 = "logins.json" ascii //weight: 1
+        $x_1_6 = "Thunderbird\\Profiles" ascii //weight: 1
+        $x_1_7 = "nss3.dll" ascii //weight: 1
+        $x_1_8 = "PK11SDR_Decrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
