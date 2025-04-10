@@ -2363,3 +2363,49 @@ rule Ransom_Win32_Filecoder_NMA_2147935908_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PAGQ_2147938531_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAGQ!MTB"
+        threat_id = "2147938531"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "cmd /c \"vssadmin Delete Shadows /All /Quiet\"" ascii //weight: 2
+        $x_2_2 = "cmd /c \"bcdedit /set {default} bootstatuspolicy ignoreallfailures\"" ascii //weight: 2
+        $x_1_3 = "cmd /c \"taskkill /F /IM" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Filecoder_PAGR_2147938532_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAGR!MTB"
+        threat_id = "2147938532"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "You are hit with a virus." wide //weight: 2
+        $x_2_2 = "Your key files are locked." wide //weight: 2
+        $x_1_3 = "Upon payment, your key will be dispatched to you at" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

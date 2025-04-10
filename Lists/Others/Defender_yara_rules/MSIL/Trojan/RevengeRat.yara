@@ -417,6 +417,29 @@ rule Trojan_MSIL_RevengeRat_ARR_2147896938_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 06 09 28 ?? 00 00 0a 04 6f ?? 00 00 0a 6f ?? 00 00 0a 13 07 11 07 16 11 06 16 1f 10 28 ?? 00 00 0a 11 07 16 11 06 1f 0f 1f 10 28 ?? 00 00 0a 06 11 06 6f ?? 00 00 0a 06 18 6f ?? 00 00 0a 06 6f ?? 00 00 0a 13 05 03 13 04 11 05 11 04 16 11 04 8e b7 6f ?? 00 00 0a 0c 08 0b de 0f}  //weight: 1, accuracy: Low
+        $x_2_2 = "CACAO.trololo" wide //weight: 2
+        $x_3_3 = "BETISE" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARR_2147896938_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARR!MTB"
+        threat_id = "2147896938"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
