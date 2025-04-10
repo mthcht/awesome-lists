@@ -482,3 +482,26 @@ rule TrojanDownloader_MSIL_Ader_MBWE_2147927870_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Ader_ASQA_2147938547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Ader.ASQA!MTB"
+        threat_id = "2147938547"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Ader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 03 16 03 8e 69 6f ?? 00 00 0a 13 01 20 01 00 00 00 7e ?? 02 00 04 7b ?? 02 00 04 3a ?? ff ff ff 26 20 01 00 00 00 38 ?? ff ff ff 11 03 72 93 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 20 02 00 00 00 7e ?? 02 00 04 7b ?? 02 00 04 39 ?? ff ff ff 26 20 01 00 00 00 38}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
