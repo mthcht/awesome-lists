@@ -4254,6 +4254,27 @@ rule Trojan_Win32_LummaStealer_GVA_2147934993_0
         threshold = "1"
         strings_accuracy = "Low"
     strings:
+        $x_1_1 = {0f 9c c0 0f 9c 44 24 ?? 30 c3 89 da f6 d2 20 c2 89 d0 30 d8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_GVA_2147934993_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.GVA!MTB"
+        threat_id = "2147934993"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
         $x_1_1 = {02 ca 8a 8c 0d ?? ?? ?? ?? 30 0e ff c6 ff cf fe c3 8a 94 1d ?? ?? ?? ?? 02 c2 8a 8c 05 ?? ?? ?? ?? 88 8c 1d ?? ?? ?? ?? 88 94 05}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and

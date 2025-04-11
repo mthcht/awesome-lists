@@ -161,3 +161,25 @@ rule Trojan_AndroidOS_EvilInst_E_2147923682_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_EvilInst_F_2147938558_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/EvilInst.F!MTB"
+        threat_id = "2147938558"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "EvilInst"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0a 02 12 00 38 02 18 00 12 13 32 32 03 00 28 24 22 02 46 0c 70 20 46 34 52 00 5b 42 71 00 38 06 05 00 5b 64 6f 00 28 18 22 06 29 00 70 30 58 00 06 04 28 12 22 02 46 0c}  //weight: 1, accuracy: High
+        $x_1_2 = {0a 02 12 00 38 02 13 00 12 13 32 32 03 00 28 1b 22 02 46 0c 70 20 46 34 52 00 5b 42 70 00 22 02 29 00 70 30 58 00 02 04 28 0d 22 02 46 0c 70 20 46 34 52 00 5b 32 70 00 22 02 29 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

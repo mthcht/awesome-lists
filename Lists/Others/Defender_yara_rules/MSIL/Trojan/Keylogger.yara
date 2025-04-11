@@ -952,27 +952,6 @@ rule Trojan_MSIL_Keylogger_LL_2147901054_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Keylogger_NN_2147902542_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Keylogger.NN!MTB"
-        threat_id = "2147902542"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Keylogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {02 4b 03 04 61 05 61 58 0e 07 0e 04 e0 95 58 7e 19 ?? ?? ?? 0e 06 17 59 e0 95 58 0e 05 28 ac ?? ?? ?? 58 54 2a}  //weight: 5, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Keylogger_SAA_2147927537_0
 {
     meta:
