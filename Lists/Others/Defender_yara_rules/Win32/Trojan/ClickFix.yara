@@ -2142,7 +2142,7 @@ rule Trojan_Win32_ClickFix_STA_2147938015_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "17"
+        threshold = "18"
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 10, accuracy: High
@@ -2161,9 +2161,9 @@ rule Trojan_Win32_ClickFix_STA_2147938015_0
     condition:
         (filesize < 20MB) and
         (
-            ((1 of ($x_10_*) and 7 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_2_*) and 5 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 2 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 8 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_2_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 2 of ($x_2_*) and 4 of ($x_1_*))) or
             (all of ($x*))
         )
 }
@@ -2591,5 +2591,35 @@ rule Trojan_Win32_ClickFix_STX_2147938567_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DAW_2147938589_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAW!MTB"
+        threat_id = "2147938589"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell $" wide //weight: 100
+        $x_100_2 = "powershell -Command $" wide //weight: 100
+        $x_10_3 = "-UseBasicParsing" wide //weight: 10
+        $x_10_4 = ".Content" wide //weight: 10
+        $x_1_5 = "Invoke-WebRequest" wide //weight: 1
+        $x_1_6 = "iwr" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
 }
 
