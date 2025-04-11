@@ -5331,13 +5331,34 @@ rule Trojan_Win32_Zbot_BAH_2147848122_0
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {83 ee 02 8d 76 01 29 de 31 db 4b 21 f3 c7 42 ?? ?? ?? ?? ?? 31 32}  //weight: 2, accuracy: Low
+        $x_2_1 = {50 5a c1 c2 0a c1 ca 02 c7 01 ?? ?? ?? ?? 31 01 83 c1 04}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_Win32_Zbot_BAH_2147848122_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.BAH!MTB"
+        threat_id = "2147848122"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {83 ee 02 8d 76 01 29 de 31 db 4b 21 f3 c7 42 ?? ?? ?? ?? ?? 31 32}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_BAH_2147848122_2
 {
     meta:
         author = "defender2yara"
@@ -6296,6 +6317,27 @@ rule Trojan_Win32_Zbot_SLY_2147938426_0
         strings_accuracy = "High"
     strings:
         $x_2_1 = {8d 44 24 04 50 33 db 53 53 68 28 82 41 00 68 02 00 00 80 ff 15 0c 80 41 00 3b c3 74 06 83 f8 02 0f 95 c3 8a c3}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_BAJ_2147938609_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.BAJ!MTB"
+        threat_id = "2147938609"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b c1 32 d8 89 44 24 ?? 8a 84 24 ?? ?? ?? ?? 8d bc 14 ?? ?? ?? ?? 88 1f}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

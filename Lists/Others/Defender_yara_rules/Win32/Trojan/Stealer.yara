@@ -1174,3 +1174,24 @@ rule Trojan_Win32_Stealer_DAD_2147938018_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_DAE_2147938526_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.DAE!MTB"
+        threat_id = "2147938526"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 44 0c 04 8d 14 80 8d 04 50 04 05 88 44 0c 04 41 81 f9 ?? ?? ?? ?? 74}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

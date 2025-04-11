@@ -1262,3 +1262,30 @@ rule Trojan_MSIL_NjRAT_GPPG_2147938492_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRAT_NMK_2147938608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRAT.NMK!MTB"
+        threat_id = "2147938608"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "FuckCrypt.Resources" ascii //weight: 2
+        $x_1_2 = "https://pastebin." ascii //weight: 1
+        $x_1_3 = "cyber-password-freepik" ascii //weight: 1
+        $x_1_4 = "UpCry\\obj\\Debug\\FuckCrypt.pdb" ascii //weight: 1
+        $x_1_5 = "Ati Vmware, VirtualBox" ascii //weight: 1
+        $x_1_6 = "[system.Convert]::FromBase64String" ascii //weight: 1
+        $x_1_7 = "powershell -ExecutionPolicy Bypass -File" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

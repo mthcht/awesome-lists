@@ -3523,3 +3523,67 @@ rule Trojan_Win32_LummaC_GH_2147938163_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_EAOO_2147938595_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.EAOO!MTB"
+        threat_id = "2147938595"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {31 fb 89 5c 24 04 8b 5c 24 04 80 c3 78 88 9c 3c e8 53 1f 1e 47}  //weight: 5, accuracy: High
+        $x_5_2 = {21 c7 89 7c 24 04 8b 44 24 04 04 4e 88 84 14 ca e2 4c bf 42 4e}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_EAH_2147938602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.EAH!MTB"
+        threat_id = "2147938602"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 4d ec 80 c1 22 88 8c 1e 86 87 6c 1e 40 89 45 e8 8b 45 e0 43 48}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_EAN_2147938604_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.EAN!MTB"
+        threat_id = "2147938604"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {29 d0 8b 55 f0 04 e6 8b 75 e8 88 84 0e 1c 8a ef d9 41 4a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

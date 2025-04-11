@@ -2152,3 +2152,24 @@ rule Trojan_MSIL_Crysan_EAXO_2147936728_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_EARX_2147938601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.EARX!MTB"
+        threat_id = "2147938601"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {02 8e 69 8d 0b 00 00 01 0a 16 0b 38 25 00 00 00 02 07 91 0c 08 18 28 06 00 00 06 0c 08 03 59 07 59 20 ff 00 00 00 5f d2 0c 08 66 d2 0c 06 07 08 9c 07 17 58 0b 07 02 8e 69 32 d5 06 2a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

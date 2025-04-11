@@ -7066,3 +7066,24 @@ rule Trojan_MSIL_Heracles_EAED_2147937890_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_BAD_2147938454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.BAD!MTB"
+        threat_id = "2147938454"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 8e 69 8d 04 00 00 01 0a 03 8e 69 0b 16 0c 2b 11 06 08 02 08 91 03 08 07 5d 91 61 d2 9c 08 17 58 0c 08 02 8e 69 32 e9 06 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

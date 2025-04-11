@@ -376,3 +376,66 @@ rule Trojan_Win32_Chapak_EAJW_2147936807_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Chapak_EAFR_2147938596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Chapak.EAFR!MTB"
+        threat_id = "2147938596"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chapak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8a 84 01 e1 bf 01 00 8b 15 ?? ?? ?? ?? 88 04 11 41 3b 0d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Chapak_EAFR_2147938596_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Chapak.EAFR!MTB"
+        threat_id = "2147938596"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chapak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8a 84 06 e1 bf 01 00 8b 0d ?? ?? ?? ?? 88 04 0e 46 3b 35}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Chapak_EAUM_2147938598_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Chapak.EAUM!MTB"
+        threat_id = "2147938598"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chapak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8a 94 01 3b 2d 0b 00 8b 0d ?? ?? ?? ?? 88 14 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
