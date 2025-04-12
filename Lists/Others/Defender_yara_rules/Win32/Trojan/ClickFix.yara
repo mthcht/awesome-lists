@@ -361,8 +361,10 @@ rule Trojan_Win32_ClickFix_DD_2147932646_0
         $x_1_19 = "Human: CAPTCHA" wide //weight: 1
         $x_1_20 = "Human - CAPTCHA" wide //weight: 1
         $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $n_100_22 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((2 of ($x_10_*) and 11 of ($x_1_*))) or
             ((3 of ($x_10_*) and 1 of ($x_1_*))) or

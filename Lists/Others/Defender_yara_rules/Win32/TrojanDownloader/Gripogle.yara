@@ -25,8 +25,10 @@ rule TrojanDownloader_Win32_Gripogle_A_2147767489_0
         $x_1_11 = "1pnPe7" wide //weight: 1
         $x_1_12 = "1pzPe7" wide //weight: 1
         $x_1_13 = "1Spuu7" wide //weight: 1
+        $n_100_14 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((5 of ($x_1_*))) or
             ((1 of ($x_2_*) and 3 of ($x_1_*))) or
