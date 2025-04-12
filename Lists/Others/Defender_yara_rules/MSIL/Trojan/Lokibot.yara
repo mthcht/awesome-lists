@@ -2791,3 +2791,26 @@ rule Trojan_MSIL_Lokibot_AKQA_2147938273_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lokibot_AWQA_2147938673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.AWQA!MTB"
+        threat_id = "2147938673"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {07 11 05 07 11 05 94 02 5a 1f 64 5d 9e 00 11 05 17 58 13 05}  //weight: 3, accuracy: High
+        $x_3_2 = {07 11 07 07 11 07 94 03 5a 1f 64 5d 9e}  //weight: 3, accuracy: High
+        $x_2_3 = "Student_Housing.Properties.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

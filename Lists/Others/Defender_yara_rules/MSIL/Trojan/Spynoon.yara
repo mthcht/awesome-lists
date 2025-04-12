@@ -2068,3 +2068,27 @@ rule Trojan_MSIL_Spynoon_AALA_2147936388_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Spynoon_AXQA_2147938674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.AXQA!MTB"
+        threat_id = "2147938674"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {07 11 05 07 11 05 94 02 5a 1f 64 5d 9e}  //weight: 3, accuracy: High
+        $x_3_2 = {07 11 07 07 11 07 94 03 5a 1f 64 5d 9e}  //weight: 3, accuracy: High
+        $x_3_3 = {11 08 16 28 ?? ?? 00 06 13 11 11 08 17 28 ?? ?? 00 06 13 12 11 08 18 28 ?? ?? 00 06 13 13 03}  //weight: 3, accuracy: Low
+        $x_2_4 = "Student_Housing.Properties.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

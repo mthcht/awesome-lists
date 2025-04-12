@@ -25,3 +25,27 @@ rule Trojan_Win32_PowerBypass_DA_2147938432_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PowerBypass_DB_2147938691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PowerBypass.DB!MTB"
+        threat_id = "2147938691"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PowerBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "HttpBrowser" wide //weight: 10
+        $x_10_3 = "Opera" wide //weight: 10
+        $x_10_4 = "Wget" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

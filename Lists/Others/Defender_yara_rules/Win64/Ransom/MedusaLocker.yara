@@ -156,3 +156,24 @@ rule Ransom_Win64_MedusaLocker_A_2147936646_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_MedusaLocker_MZT_2147938677_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/MedusaLocker.MZT!MTB"
+        threat_id = "2147938677"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MedusaLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 c0 48 c7 83 80 ?? ?? ?? ?? ?? ?? ?? 0f b6 44 18 40 30 07 48 ff c7 48 ff 83 80 00 00 00 48 83 ee 01 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

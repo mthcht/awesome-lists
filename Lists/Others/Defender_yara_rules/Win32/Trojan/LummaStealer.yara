@@ -4790,3 +4790,24 @@ rule Trojan_Win32_LummaStealer_SUPC_2147938401_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_MMR_2147938689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.MMR!MTB"
+        threat_id = "2147938689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 2c d8 8b 32 8b 7a 04 89 34 2a 89 7c 2a 04 43 8d 69 ff 39 eb 7c e9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

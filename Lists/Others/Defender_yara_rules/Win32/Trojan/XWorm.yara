@@ -158,3 +158,25 @@ rule Trojan_Win32_XWorm_BSA_2147938306_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_GVB_2147938658_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.GVB!MTB"
+        threat_id = "2147938658"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 1c 02 88 1c 01 83 c0 01 83 d6 00 3d d7 08 00 00 89 f7 83 df}  //weight: 2, accuracy: Low
+        $x_1_2 = {89 f3 83 e3 07 8a 1c 1c 80 f3 4a 88 1c 32 83 c6 01 83 d7 00 39 ce 89 fb 19 c3}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
