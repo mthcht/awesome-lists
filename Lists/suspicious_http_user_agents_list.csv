@@ -150,6 +150,7 @@ AntivirXP,Suricata Malware user-agent rules,Malware,Malware,https://raw.githubus
 anycleaner,Suricata Malware user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 AnyDesk,Anydesk application,anydesk,RMM,N/A,high,medium,high,Hunting,no,yes,yes,yes,no,
 AnyDesk/*,Anydesk application,anydesk,RMM,N/A,high,medium,high,Hunting,no,yes,yes,yes,no,
+AnyDesk *,Anydesk application,anydesk,RMM,N/A,high,medium,high,Hunting,no,yes,yes,yes,no,
 Apache (compatible...,Suricata trojan user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 API-Guide test program,Suricata trojan user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 App4,Suricata trojan user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
