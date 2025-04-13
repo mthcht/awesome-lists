@@ -1,5 +1,5 @@
 http_user_agent,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_from_external,metadata_flow_from_internal,metadata_flow_to_internal,metadata_flow_to_external,metadata_for_successful_external_login_events,metadata_comment
-RemotePC *,used by remotepc rat agent,remotepc,RMM,https://www.remotedesktop.com/download,medium,low,medium,no,yes,yes,yes,yes,
+RemotePC *,used by remotepc rat agent,remotepc,RMM,https://www.remotedesktop.com/download,medium,low,medium,Hunting,no,yes,yes,yes,yes,
 Box Edit/*,used by box agent file host,box,Data Exfiltration,https://www.box.com/,low,medium,low,Hunting,no,yes,yes,yes,no,
 Box/2.*,used by box agent file host,box,Data Exfiltration,https://www.box.com/,low,medium,low,Hunting,no,yes,yes,yes,no,
 * DesktopCentral Agent,used by Zoho Assist RMM agent,Zoho Assist,RMM,https://www.zoho.com/fr/assist/remote-desktop-software.html,high,medium,medium,Hunting,no,yes,yes,yes,no,
