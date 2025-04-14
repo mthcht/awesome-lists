@@ -6627,3 +6627,62 @@ rule Trojan_Win32_Vidar_EAAA_2147937337_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_EB_2147938908_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.EB!MTB"
+        threat_id = "2147938908"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "39"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "*wallet*.*" ascii //weight: 1
+        $x_1_2 = "*seed*.*" ascii //weight: 1
+        $x_1_3 = "*btc*.*" ascii //weight: 1
+        $x_1_4 = "*key*.*" ascii //weight: 1
+        $x_1_5 = "*2fa*.*" ascii //weight: 1
+        $x_1_6 = "*crypto*.*" ascii //weight: 1
+        $x_1_7 = "*coin*.*" ascii //weight: 1
+        $x_1_8 = "*private*.*" ascii //weight: 1
+        $x_1_9 = "*auth*.*" ascii //weight: 1
+        $x_1_10 = "*ledger*.*" ascii //weight: 1
+        $x_1_11 = "*trezor*.*" ascii //weight: 1
+        $x_1_12 = "*pass*.*" ascii //weight: 1
+        $x_1_13 = "*wal*.*" ascii //weight: 1
+        $x_1_14 = "*upbit*.*" ascii //weight: 1
+        $x_1_15 = "*bcex*.*" ascii //weight: 1
+        $x_1_16 = "*bithimb*.*" ascii //weight: 1
+        $x_1_17 = "*hitbtc*.*" ascii //weight: 1
+        $x_1_18 = "*bitflyer*.*" ascii //weight: 1
+        $x_1_19 = "*kucoin*.*" ascii //weight: 1
+        $x_1_20 = "*huobi*.*" ascii //weight: 1
+        $x_1_21 = "*poloniex*.*" ascii //weight: 1
+        $x_1_22 = "*kraken*.*" ascii //weight: 1
+        $x_1_23 = "*okex*.*" ascii //weight: 1
+        $x_1_24 = "*binance*.*" ascii //weight: 1
+        $x_1_25 = "*bitfinex*.*" ascii //weight: 1
+        $x_1_26 = "*gdax*.*" ascii //weight: 1
+        $x_1_27 = "*ethereum*.*" ascii //weight: 1
+        $x_1_28 = "*exodus*.*" ascii //weight: 1
+        $x_1_29 = "*metamask*.*" ascii //weight: 1
+        $x_1_30 = "*myetherwallet*.*" ascii //weight: 1
+        $x_1_31 = "*electrum*.*" ascii //weight: 1
+        $x_1_32 = "*bitcoin*.*" ascii //weight: 1
+        $x_1_33 = "*blockchain*.*" ascii //weight: 1
+        $x_1_34 = "*coinomi*.*" ascii //weight: 1
+        $x_1_35 = "*words*.*" ascii //weight: 1
+        $x_1_36 = "*meta*.*" ascii //weight: 1
+        $x_1_37 = "*mask*.*" ascii //weight: 1
+        $x_1_38 = "*eth*.*" ascii //weight: 1
+        $x_1_39 = "*recovery*.*" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

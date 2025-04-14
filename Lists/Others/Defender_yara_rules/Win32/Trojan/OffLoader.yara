@@ -156,6 +156,29 @@ rule Trojan_Win32_OffLoader_EN_2147850145_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "teethbubble.icu/ido.php" wide //weight: 1
+        $x_1_2 = "ido.exe" wide //weight: 1
+        $x_1_3 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_EN_2147850145_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.EN!MTB"
+        threat_id = "2147850145"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "High"
     strings:
@@ -167,7 +190,31 @@ rule Trojan_Win32_OffLoader_EN_2147850145_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_EN_2147850145_1
+rule Trojan_Win32_OffLoader_EN_2147850145_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.EN!MTB"
+        threat_id = "2147850145"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pointdinosaurs.xyz/ido.php" wide //weight: 1
+        $x_1_2 = "streetpage.icu/idos.php" wide //weight: 1
+        $x_1_3 = "ido.exe" wide //weight: 1
+        $x_1_4 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_EN_2147850145_3
 {
     meta:
         author = "defender2yara"
@@ -194,7 +241,7 @@ rule Trojan_Win32_OffLoader_EN_2147850145_1
         )
 }
 
-rule Trojan_Win32_OffLoader_EN_2147850145_2
+rule Trojan_Win32_OffLoader_EN_2147850145_4
 {
     meta:
         author = "defender2yara"
@@ -3734,6 +3781,30 @@ rule Trojan_Win32_OffLoader_GPPC_2147938486_0
         strings_accuracy = "Low"
     strings:
         $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 60 33 00 33 a5 c9 0f 3a 46 0e}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ANP_2147938909_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ANP!MTB"
+        threat_id = "2147938909"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "teethbubble.icu/ido.php" wide //weight: 3
+        $x_3_2 = "picklebat.xyz/idos.php" wide //weight: 3
+        $x_1_3 = "nocookies" wide //weight: 1
+        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
