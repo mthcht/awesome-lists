@@ -545,6 +545,27 @@ rule Trojan_Win32_Upatre_BAA_2147935614_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 db 8a 06 c6 04 1f ff 20 04 1f 46 47 49 eb eb}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_BAA_2147935614_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.BAA!MTB"
+        threat_id = "2147935614"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

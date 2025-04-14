@@ -493,6 +493,27 @@ rule Trojan_Win32_IcedID_PAA_2147773281_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {48 89 44 24 10 8b 54 24 10 0f b6 c3 0f b6 da 0f af d8 8b 15 ?? ?? ?? ?? c0 e3 05}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_IcedID_PAA_2147773281_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedID.PAA!MTB"
+        threat_id = "2147773281"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
