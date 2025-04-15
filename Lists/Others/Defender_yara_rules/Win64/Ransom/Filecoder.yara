@@ -717,3 +717,27 @@ rule Ransom_Win64_Filecoder_NIT_2147937965_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAQ_2147939019_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAQ!MTB"
+        threat_id = "2147939019"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Your files have been encrypted, and your sensitive data has been exfiltrated" ascii //weight: 2
+        $x_2_2 = "What drive do you want to encrypt" ascii //weight: 2
+        $x_2_3 = "To unlock your files and prevent public disclosure of data a payment is required" ascii //weight: 2
+        $x_1_4 = "encv2.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

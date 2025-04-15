@@ -292,6 +292,28 @@ rule Trojan_MSIL_Bulz_NB_2147896153_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {6f 24 00 00 0a 73 1b 00 00 0a 0c 08 07 6f 25 00 00 0a 25 26 1f 4c 28 18 00 00 06 73 26 00 00 0a 0d 09 02 1f 50 28 18 00 00 06 02 8e 69 1f 54 28 18 00 00 06 59 6f 1d 00 00 0a}  //weight: 3, accuracy: High
+        $x_1_2 = "Loader CSGO v2- CheatsTDM.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bulz_NB_2147896153_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bulz.NB!MTB"
+        threat_id = "2147896153"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bulz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

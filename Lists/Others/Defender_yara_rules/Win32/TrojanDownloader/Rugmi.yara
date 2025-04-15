@@ -646,3 +646,27 @@ rule TrojanDownloader_Win32_Rugmi_DF_2147928455_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Rugmi_PAGN_2147939017_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Rugmi.PAGN!MTB"
+        threat_id = "2147939017"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rugmi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "fivem injector" ascii //weight: 2
+        $x_2_2 = "mode con: cols=30 lines=10" ascii //weight: 2
+        $x_1_3 = "loader.pdb" ascii //weight: 1
+        $x_1_4 = "URLDownloadToFileW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

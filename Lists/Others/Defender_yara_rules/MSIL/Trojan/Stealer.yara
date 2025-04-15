@@ -2751,3 +2751,24 @@ rule Trojan_MSIL_Stealer_EAET_2147935747_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_WRT_2147939018_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.WRT!MTB"
+        threat_id = "2147939018"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 7b 72 01 00 04 7b 6f 01 00 04 02 7b 71 01 00 04 03 6f ?? 01 00 0a 0a 02 7b 72 01 00 04 7b 6c 01 00 04 02 7b 72 01 00 04 7b 6b 01 00 04 6f ?? 01 00 0a 59 0b 07 19 fe 04 16 fe 01 0c 08 2c 39 00 02 7b 72 01 00 04 7b 6b 01 00 04 19 8d a1 00 00 01 25 16 12 00 28 1c 01 00 0a 9c 25 17 12 00 28 1d 01 00 0a 9c 25 18 12 00 28 ?? 01 00 0a 9c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
