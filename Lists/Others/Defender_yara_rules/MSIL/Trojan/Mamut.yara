@@ -573,3 +573,26 @@ rule Trojan_MSIL_Mamut_NK_2147928372_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mamut_NT_2147939124_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mamut.NT!MTB"
+        threat_id = "2147939124"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mamut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {28 36 00 00 0a 7e 01 00 00 04 02 1a 58 08 6f 37 00 00 0a 28 38 00 00 0a a5 01 00 00 1b 0b 11 08 20 e5 35 0c 49 5a 20 38 6c 42 4a 61}  //weight: 3, accuracy: High
+        $x_1_2 = "Autokeoxe.pdb" ascii //weight: 1
+        $x_1_3 = "WriteProcessMemory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

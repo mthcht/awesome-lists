@@ -31,6 +31,28 @@ rule Trojan_Win64_ShellCodeRunner_NS_2147914182_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {41 8b e8 45 33 c0 48 85 ed 74 4e 43 0f b7 34 44 49 3b f1 75 37 47 8b 5c 85 00 4d 03 da 33 ff eb 16 8b d7 8b c7 c1 e0 19 d3 ea}  //weight: 3, accuracy: High
+        $x_2_2 = {45 84 ff 75 e2 3b 7c 24 40 75 07 41 8b 1c b6 49 03 da 49 ff c0 4c 3b c5}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellCodeRunner_NS_2147914182_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeRunner.NS!MTB"
+        threat_id = "2147914182"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -41,7 +63,7 @@ rule Trojan_Win64_ShellCodeRunner_NS_2147914182_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ShellCodeRunner_NS_2147914182_1
+rule Trojan_Win64_ShellCodeRunner_NS_2147914182_2
 {
     meta:
         author = "defender2yara"
@@ -259,5 +281,26 @@ rule Trojan_Win64_ShellCodeRunner_RPH_2147931390_0
             ((2 of ($x_10_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win64_ShellCodeRunner_MX_2147939134_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeRunner.MX!MTB"
+        threat_id = "2147939134"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {12 01 00 4c 8b c7 48 8b d3 8b 08 e8 ?? 9a ff ff 8b d8 e8 61 05 00 00 84 c0 74 55}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

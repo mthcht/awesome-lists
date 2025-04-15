@@ -137,3 +137,31 @@ rule Trojan_MSIL_Disabler_ST_2147935953_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disabler_ND_2147939165_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disabler.ND!MTB"
+        threat_id = "2147939165"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disabler"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "You were encrypted by Clutter, good luck..." wide //weight: 3
+        $x_2_2 = "worm_tool.sys" wide //weight: 2
+        $x_1_3 = "minecraft_cheats_2020.Properties.Resources" wide //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_2_5 = "ransom_voice.vbs" wide //weight: 2
+        $x_1_6 = "DownloadFile" ascii //weight: 1
+        $x_1_7 = "worm_locker" wide //weight: 1
+        $x_1_8 = "DisableTaskMgr" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

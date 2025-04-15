@@ -2759,3 +2759,27 @@ rule Trojan_Win32_ClickFix_ZF_2147939088_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_RXH_2147939166_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.RXH!MTB"
+        threat_id = "2147939166"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_5_2 = ").Downlo'" wide //weight: 5
+        $x_2_3 = "http" wide //weight: 2
+        $x_1_4 = "-Join" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

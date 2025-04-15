@@ -7375,3 +7375,26 @@ rule Trojan_MSIL_SnakeKeylogger_SFDA_2147938389_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_RVB_2147939152_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.RVB!MTB"
+        threat_id = "2147939152"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 95 a2 29 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 82 00 00 00 3b 00 00 00 49 03 00 00 82 02 00 00 42 02 00 00 2c 01 00 00 9f 01 00 00 01 00 00 00 83 00 00 00 0c 00 00 00 64 00 00 00 c5 00 00 00 19 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 17 00 00 00 04 00 00 00 01}  //weight: 1, accuracy: High
+        $x_1_2 = "6d6d6f58-52b9-4c6f-8a9b-407cbae81d75" ascii //weight: 1
+        $x_1_3 = "SBMS.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

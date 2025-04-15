@@ -3587,3 +3587,25 @@ rule Trojan_Win32_LummaC_EAN_2147938604_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_ALA_2147939122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.ALA!MTB"
+        threat_id = "2147939122"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {f7 d6 33 1d 9c 2d 48 00 c1 c9 0d c1 ce 12 c1 c6 12 c1 c1 0d f7 d6 01 35 29 29 48 00 c7 05 87 28 48 00 a4 ff b0 51 4f c1 cb 1a 40 33 ca f7 de ff 15}  //weight: 3, accuracy: High
+        $x_1_2 = {c1 c6 0d 2b 1d 4b 07 48 00 09 05 5a 28 48 00 43 e8 ?? ?? ?? ?? c1 e0 15 33 d2 f7 d6 ff c9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
