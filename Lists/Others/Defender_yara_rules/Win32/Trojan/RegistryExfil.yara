@@ -39,8 +39,10 @@ rule Trojan_Win32_RegistryExfil_B_2147833161_0
         $x_1_3 = "copy" wide //weight: 1
         $x_1_4 = "save" wide //weight: 1
         $x_1_5 = "export" wide //weight: 1
+        $n_1000_6 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((2 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))

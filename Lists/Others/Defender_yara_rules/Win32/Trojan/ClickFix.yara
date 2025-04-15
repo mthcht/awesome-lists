@@ -193,8 +193,10 @@ rule Trojan_Win32_ClickFix_DB_2147932129_0
         $x_1_3 = ".html #" wide //weight: 1
         $x_1_4 = "verif" wide //weight: 1
         $x_1_5 = "- ray" wide //weight: 1
+        $n_1000_6 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -281,8 +283,10 @@ rule Trojan_Win32_ClickFix_DF_2147932251_0
         $x_1_20 = "Human: CAPTCHA" wide //weight: 1
         $x_1_21 = "Human - CAPTCHA" wide //weight: 1
         $x_1_22 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $n_1000_23 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((2 of ($x_5_*) and 16 of ($x_1_*))) or
             ((1 of ($x_10_*) and 16 of ($x_1_*))) or
@@ -437,8 +441,10 @@ rule Trojan_Win32_ClickFix_L_2147932742_0
         $x_1_2 = "mshta" wide //weight: 1
         $x_1_3 = "captcha" wide //weight: 1
         $x_1_4 = "verif" wide //weight: 1
+        $n_100_5 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -678,8 +684,10 @@ rule Trojan_Win32_ClickFix_AB_2147933821_0
         $x_10_7 = ".click" wide //weight: 10
         $x_1_8 = ".mp" wide //weight: 1
         $x_1_9 = ".flv" wide //weight: 1
+        $n_1000_10 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((2 of ($x_20_*) and 3 of ($x_10_*) and 1 of ($x_1_*))) or
             ((2 of ($x_20_*) and 4 of ($x_10_*))) or
@@ -1314,8 +1322,10 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_100_31 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
         $x_100_32 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
         $x_100_33 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
+        $n_1000_34 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 1 of ($x_20_*) and 1 of ($x_10_*) and 2 of ($x_1_*))) or
             ((2 of ($x_100_*))) or
@@ -1594,63 +1604,63 @@ rule Trojan_Win32_ClickFix_ZD_2147937008_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "2051"
+        threshold = "51"
         strings_accuracy = "Low"
     strings:
-        $x_1000_1 = "mshta" wide //weight: 1000
-        $x_1000_2 = "http" wide //weight: 1000
-        $x_50_3 = ".shop" wide //weight: 50
-        $x_50_4 = ".xyz" wide //weight: 50
-        $x_50_5 = ".icu" wide //weight: 50
-        $x_50_6 = ".lat" wide //weight: 50
-        $x_50_7 = ".fun" wide //weight: 50
-        $x_50_8 = ".bet" wide //weight: 50
-        $x_50_9 = ".live" wide //weight: 50
-        $x_50_10 = ".life" wide //weight: 50
-        $x_50_11 = ".online" wide //weight: 50
-        $x_50_12 = ".bond" wide //weight: 50
-        $x_50_13 = ".top" wide //weight: 50
-        $x_50_14 = ".world" wide //weight: 50
-        $x_50_15 = ".click" wide //weight: 50
-        $x_50_16 = ".forest" wide //weight: 50
-        $x_1_17 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_18 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_19 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_20 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
-        $x_1_21 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
-        $x_1_22 = "CIoudfIare Unique One-time" ascii //weight: 1
-        $x_1_23 = "captcha" wide //weight: 1
-        $x_1_24 = "Press Enter" wide //weight: 1
-        $x_1_25 = "robot" wide //weight: 1
-        $x_1_26 = "human" wide //weight: 1
-        $x_1_27 = " ray" wide //weight: 1
-        $x_1_28 = "verif" wide //weight: 1
-        $x_1_29 = " recaptcha" wide //weight: 1
-        $x_1_30 = " re captcha" wide //weight: 1
-        $x_1_31 = " rCAPTCHA" wide //weight: 1
-        $x_1_32 = " clip FREE" wide //weight: 1
-        $x_1_33 = " Over FREE" wide //weight: 1
-        $x_1_34 = "robot: r" wide //weight: 1
-        $x_1_35 = "robot - r" wide //weight: 1
-        $x_1_36 = "Cloudflare" wide //weight: 1
-        $x_1_37 = "- Over FREE" wide //weight: 1
-        $x_1_38 = "Google Meet" wide //weight: 1
-        $x_1_39 = "DNS service" wide //weight: 1
-        $x_1_40 = "robot - Cloudflare" wide //weight: 1
-        $x_1_41 = "robot: Cloudflare" wide //weight: 1
-        $x_1_42 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_43 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_44 = "Human - r" wide //weight: 1
-        $x_1_45 = "Human: r" wide //weight: 1
-        $x_1_46 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_47 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_48 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
-        $x_1_49 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
+        $x_50_1 = ".shop\\" wide //weight: 50
+        $x_50_2 = ".xyz\\" wide //weight: 50
+        $x_50_3 = ".icu\\" wide //weight: 50
+        $x_50_4 = ".lat\\" wide //weight: 50
+        $x_50_5 = ".fun\\" wide //weight: 50
+        $x_50_6 = ".bet\\" wide //weight: 50
+        $x_50_7 = ".live\\" wide //weight: 50
+        $x_50_8 = ".life\\" wide //weight: 50
+        $x_50_9 = ".online\\" wide //weight: 50
+        $x_50_10 = ".bond\\" wide //weight: 50
+        $x_50_11 = ".top\\" wide //weight: 50
+        $x_50_12 = ".world\\" wide //weight: 50
+        $x_50_13 = ".click\\" wide //weight: 50
+        $x_50_14 = ".forest\\" wide //weight: 50
+        $x_1_15 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_16 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_17 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
+        $x_1_18 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
+        $x_1_19 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
+        $x_1_20 = "CIoudfIare Unique One-time" ascii //weight: 1
+        $x_1_21 = "captcha" wide //weight: 1
+        $x_1_22 = "Press Enter" wide //weight: 1
+        $x_1_23 = "robot" wide //weight: 1
+        $x_1_24 = "human" wide //weight: 1
+        $x_1_25 = " ray" wide //weight: 1
+        $x_1_26 = "verif" wide //weight: 1
+        $x_1_27 = " recaptcha" wide //weight: 1
+        $x_1_28 = " re captcha" wide //weight: 1
+        $x_1_29 = " rCAPTCHA" wide //weight: 1
+        $x_1_30 = " clip FREE" wide //weight: 1
+        $x_1_31 = " Over FREE" wide //weight: 1
+        $x_1_32 = "robot: r" wide //weight: 1
+        $x_1_33 = "robot - r" wide //weight: 1
+        $x_1_34 = "Cloudflare" wide //weight: 1
+        $x_1_35 = "- Over FREE" wide //weight: 1
+        $x_1_36 = "Google Meet" wide //weight: 1
+        $x_1_37 = "DNS service" wide //weight: 1
+        $x_1_38 = "robot - Cloudflare" wide //weight: 1
+        $x_1_39 = "robot: Cloudflare" wide //weight: 1
+        $x_1_40 = "robot: CAPTCHA" wide //weight: 1
+        $x_1_41 = "robot - CAPTCHA" wide //weight: 1
+        $x_1_42 = "Human - r" wide //weight: 1
+        $x_1_43 = "Human: r" wide //weight: 1
+        $x_1_44 = "Human: CAPTCHA" wide //weight: 1
+        $x_1_45 = "Human - CAPTCHA" wide //weight: 1
+        $x_1_46 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_47 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
+        $n_5000_48 = "msedgewebview2.exe" wide //weight: -5000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
-            ((2 of ($x_1000_*) and 1 of ($x_50_*) and 1 of ($x_1_*))) or
-            ((2 of ($x_1000_*) and 2 of ($x_50_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_50_*))) or
             (all of ($x*))
         )
 }
@@ -2102,8 +2112,10 @@ rule Trojan_Win32_ClickFix_TFA_2147938012_0
         $x_1_4 = "Your ID" wide //weight: 1
         $x_1_5 = "confirm" wide //weight: 1
         $x_1_6 = "human" wide //weight: 1
+        $n_1000_7 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((2 of ($x_10_*) and 2 of ($x_1_*))) or
             (all of ($x*))
@@ -2623,5 +2635,125 @@ rule Trojan_Win32_ClickFix_DAW_2147938589_0
             ((2 of ($x_100_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_ClickFix_SI_2147939078_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SI"
+        threat_id = "2147939078"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {63 00 6d 00 64 00 [0-16] 2f 00 63 00}  //weight: 10, accuracy: Low
+        $x_10_2 = "/min" wide //weight: 10
+        $x_10_3 = "start " wide //weight: 10
+        $x_10_4 = "powershell " wide //weight: 10
+        $x_10_5 = "http" wide //weight: 10
+        $n_100_6 = ".ps1" wide //weight: -100
+        $n_100_7 = ".hta" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_STY_2147939083_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.STY"
+        threat_id = "2147939083"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-16] 63 00 75 00 72 00 6c 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_2 = ".txt | iex'#" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_STZ_2147939084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.STZ"
+        threat_id = "2147939084"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-16] 63 00 75 00 72 00 6c 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00}  //weight: 10, accuracy: Low
+        $x_10_2 = "| iex" wide //weight: 10
+        $x_1_3 = "piverif.txt" wide //weight: 1
+        $x_1_4 = "patoss.txt" wide //weight: 1
+        $x_1_5 = "zipzig.txt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_ZE_2147939086_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZE"
+        threat_id = "2147939086"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "mshta" wide //weight: 10
+        $x_10_2 = {68 00 74 00 74 00 70 00 90 00 02 00 ff 00 2e 00 6f 00 67 00 67 00}  //weight: 10, accuracy: High
+        $x_10_3 = {20 00 05 27 20 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZF_2147939088_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZF"
+        threat_id = "2147939088"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "curl" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "powershell" wide //weight: 1
+        $x_1_4 = "hidden" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

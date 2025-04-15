@@ -205,3 +205,30 @@ rule Trojan_Win32_PShellDlr_SG_2147937656_0
         )
 }
 
+rule Trojan_Win32_PShellDlr_YH_2147939072_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PShellDlr.YH!MTB"
+        threat_id = "2147939072"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PShellDlr"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = ".shop/" wide //weight: 100
+        $x_100_2 = ".xyz/" wide //weight: 100
+        $x_100_3 = ".today/" wide //weight: 100
+        $x_100_4 = ".run/" wide //weight: 100
+        $x_100_5 = ".cyou/" wide //weight: 100
+        $x_100_6 = ".click/" wide //weight: 100
+        $x_100_7 = ".lat/" wide //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

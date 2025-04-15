@@ -59,8 +59,10 @@ rule Ransom_Win32_Fog_SA_2147927090_0
         $x_10_2 = "-size" wide //weight: 10
         $x_10_3 = "-target" wide //weight: 10
         $x_10_4 = "\\c$" wide //weight: 10
+        $n_1000_5 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
