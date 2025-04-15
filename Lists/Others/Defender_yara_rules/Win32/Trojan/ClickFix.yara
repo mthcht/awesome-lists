@@ -1346,7 +1346,7 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "106"
-        strings_accuracy = "Low"
+        strings_accuracy = "High"
     strings:
         $x_5_1 = "mshta" wide //weight: 5
         $x_1_2 = "http" wide //weight: 1
@@ -1355,7 +1355,7 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_5 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
         $x_100_6 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
         $x_100_7 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
-        $x_100_8 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: Low
+        $x_100_8 = {48 00 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
         $x_100_9 = "CIoudfIare Unique One-time" wide //weight: 100
         $x_100_10 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
         $x_100_11 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
@@ -1377,6 +1377,8 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_27 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
         $x_100_28 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
         $x_100_29 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
+        $x_100_30 = {7e 02 80 05 62 00 80 05 1f 1d}  //weight: 100, accuracy: High
+        $x_100_31 = {33 04 bf 03 62 00 3e 04 74 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
