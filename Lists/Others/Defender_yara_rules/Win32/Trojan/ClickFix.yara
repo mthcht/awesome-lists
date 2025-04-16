@@ -1491,7 +1491,7 @@ rule Trojan_Win32_ClickFix_AF_2147937004_0
         $x_100_2 = "powershell" wide //weight: 100
         $x_10_3 = ":FromBase64String($" wide //weight: 10
         $x_10_4 = ".content" wide //weight: 10
-        $x_10_5 = "start-process" wide //weight: 10
+        $x_10_5 = "start" wide //weight: 10
         $x_10_6 = "curl" wide //weight: 10
         $x_10_7 = "-Encoded" wide //weight: 10
         $x_1_8 = "iex" wide //weight: 1
@@ -2781,5 +2781,55 @@ rule Trojan_Win32_ClickFix_RXH_2147939166_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZG_2147939200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZG"
+        threat_id = "2147939200"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "start" wide //weight: 1
+        $x_1_4 = "iex((iwr" wide //weight: 1
+        $x_1_5 = "-UseBasicParsing" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DBC_2147939201_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBC!MTB"
+        threat_id = "2147939201"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "mshta" wide //weight: 1
+        $x_10_3 = "irs.gov-" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
