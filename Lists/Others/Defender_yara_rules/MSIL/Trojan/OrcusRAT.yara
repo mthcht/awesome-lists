@@ -20,3 +20,24 @@ rule Trojan_MSIL_OrcusRAT_NR_2147907485_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_OrcusRAT_EABP_2147939207_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/OrcusRAT.EABP!MTB"
+        threat_id = "2147939207"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "OrcusRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {06 09 06 09 91 08 09 08 8e 69 5d 91 61 d2 9c 09 17 58 0d 09 06 8e 69 32 e7}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

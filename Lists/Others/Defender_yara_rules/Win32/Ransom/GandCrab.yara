@@ -968,3 +968,24 @@ rule Ransom_Win32_GandCrab_SB_2147889459_0
         (4 of ($x*))
 }
 
+rule Ransom_Win32_GandCrab_EAXY_2147939209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/GandCrab.EAXY!MTB"
+        threat_id = "2147939209"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GandCrab"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 01 32 c2 02 c2 88 01 8d 49 01 4e}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

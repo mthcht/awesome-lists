@@ -22,6 +22,7 @@ rule HackTool_Linux_WinExeExecution_BA_2147765788_0
         $n_20_8 = "/airflow/" wide //weight: -20
         $n_20_9 = "winexe -U datahub%" wide //weight: -20
         $n_20_10 = "airflow task runner:" wide //weight: -20
+        $n_20_11 = "SQLSERVER:\\SQLAS" wide //weight: -20
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
