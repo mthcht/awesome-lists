@@ -501,24 +501,3 @@ rule Trojan_MSIL_Perseus_MA_2147901836_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Perseus_APE_2147938657_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Perseus.APE!MTB"
-        threat_id = "2147938657"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Perseus"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {09 8e 69 16 3e 1f 00 00 00 08 72 1b 00 00 70 28 ?? 00 00 0a 13 04 11 04 8e 69 16 3e 2f 00 00 00 08 13 05 dd 42 00 00 00 02 08 04 17 58 05 28}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

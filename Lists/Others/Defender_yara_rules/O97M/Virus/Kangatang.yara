@@ -10,6 +10,30 @@ rule Virus_O97M_Kangatang_A_2147933087_0
         severity = "Critical"
         info = "gen: malware that is detected using a generic signature"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = " Application.ScreenUpdating = False" ascii //weight: 1
+        $x_1_2 = "ThisWorkbook.SaveCopyAs Filename:=Application.StartupPath & \"\\mypersonnel.xls\"" ascii //weight: 1
+        $x_1_3 = "If ActiveWorkbook.Sheets(1).Name <> \"Kangatang\" Then" ascii //weight: 1
+        $x_1_4 = "ThisWorkbook.Sheets(\"Kangatang\").Copy before:=ActiveWorkbook.Sheets(1)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Virus_O97M_Kangatang_A_2147933087_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:O97M/Kangatang.gen!A"
+        threat_id = "2147933087"
+        type = "Virus"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Kangatang"
+        severity = "Critical"
+        info = "gen: malware that is detected using a generic signature"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
