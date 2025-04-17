@@ -3708,3 +3708,25 @@ rule Trojan_Win32_Amadey_BAA_2147939310_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_BW_2147939329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.BW!MTB"
+        threat_id = "2147939329"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {03 c7 50 6a 00 e8 ?? ?? ?? ?? 5a 2b d0 31 13 83 45}  //weight: 4, accuracy: Low
+        $x_1_2 = {04 6a 00 e8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

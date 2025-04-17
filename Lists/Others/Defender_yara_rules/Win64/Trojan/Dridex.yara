@@ -2858,6 +2858,28 @@ rule Trojan_Win64_Dridex_ADR_2147924205_0
         threshold = "3"
         strings_accuracy = "Low"
     strings:
+        $x_2_1 = {31 c0 48 8b 4c 24 40 48 81 c1 ?? ?? ?? ?? 89 44 24 4c 8a 54 24 03 80 f2 ff 4c 8b 44 24 28 88 54 24 37 8a 54 24 03 80 f2 d7 4c 8b 4c 24 20 47 8a 14 01 88 54 24 37 4c 8b 5c 24 10 47 88 14 03 66 8b 34 24 66 81 ce 07 0d 49 01 c8}  //weight: 2, accuracy: Low
+        $x_1_2 = "Eofkiwerez4" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dridex_ADR_2147924205_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.ADR!MTB"
+        threat_id = "2147924205"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
         $x_1_1 = {48 29 d1 66 44 8b 44 24 ?? 66 45 21 c0 66 44 89 84 24 ?? ?? ?? ?? 48 8b 94 24 ?? ?? ?? ?? 66 44 8b 44 24 ?? 66 41 83 f0 ff 66 44 89 84 24 ?? ?? ?? ?? 4c 8b 4c 24}  //weight: 1, accuracy: Low
         $x_2_2 = {44 29 c2 44 8b 4c 24 28 89 54 24 3c 44 8a 54 24 39 66 44 8b 5c 24 22 66 44 89 5c 24 3a 41 80 f2 28 c6 44 24 4f 18 8a 5c 24 39 48 8b 44 24 18 48 83 f0 ff}  //weight: 2, accuracy: High
     condition:
