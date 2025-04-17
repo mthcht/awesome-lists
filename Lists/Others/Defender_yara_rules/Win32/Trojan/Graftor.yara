@@ -527,3 +527,26 @@ rule Trojan_Win32_Graftor_BAC_2147937531_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Graftor_SEFT_2147938420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.SEFT!MTB"
+        threat_id = "2147938420"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "titisimiumislima" wide //weight: 2
+        $x_2_2 = "josplovismiuzilama" wide //weight: 2
+        $x_2_3 = "dazaboravimnasve" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

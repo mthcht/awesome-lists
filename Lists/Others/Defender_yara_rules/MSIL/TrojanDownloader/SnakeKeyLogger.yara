@@ -73,3 +73,26 @@ rule TrojanDownloader_MSIL_SnakeKeyLogger_RDE_2147896467_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_SnakeKeyLogger_RK_2147939356_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/SnakeKeyLogger.RK!MTB"
+        threat_id = "2147939356"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "http://161.248.239.119/ADOLF/Penwcb.dat" wide //weight: 1
+        $x_1_2 = "Lcdqv.exe" wide //weight: 1
+        $x_1_3 = "yYBUA3LsPtLfx9UdR7.SGCU8x3RS0HdW3ntkH" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

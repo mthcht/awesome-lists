@@ -806,3 +806,24 @@ rule Trojan_Win64_BlackWidow_MKA_2147939261_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_ERD_2147939357_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.ERD!MTB"
+        threat_id = "2147939357"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 8b d0 c1 ea 18 88 14 01 41 8b d0 ff 05 87 0b 01 00 8b 05 c1 0b 01 00 01 83 58 01 00 00 48 8b 05 cc 0b 01 00 48 63 8b ?? ?? ?? ?? c1 ea 10 88 14 01 41 8b d0 ff 83 ?? ?? ?? ?? 48 8b 0d b7 0a 01 00 c1 ea 08 8b 81 1c 01 00 00 33 05 28 0c 01 00 35 8a 56 0f 00 89 81 1c 01 00 00 48 63 0d 36 0b 01 00 48 8b 83 e8 00 00 00 88 14 01 ff 05 26 0b 01 00 48 63 8b ?? ?? ?? ?? 48 8b 83 e8 00 00 00 44 88 04 01 ff 83 ?? ?? ?? ?? 49 81 f9 c0 5d 00 00 0f 8c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

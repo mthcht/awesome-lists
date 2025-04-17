@@ -1572,3 +1572,45 @@ rule Trojan_MSIL_Androm_SIM_2147937261_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_SIR_2147939382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.SIR!MTB"
+        threat_id = "2147939382"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 16 02 8e 69 6f 27 00 00 0a 6f 28 00 00 0a 6f 29 00 00 0a 7e 08 00 00 04 20 25 01 00 00 7e 08 00 00 04 20 25 01 00 00 94 7e 02 00 00 04 20 18 02 00 00 94 61 20 8c 00 00 00 5f 9e}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Androm_SLU_2147939386_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.SLU!MTB"
+        threat_id = "2147939386"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 28 09 00 00 06 0a 73 0f 00 00 0a 25 02 06 28 08 00 00 06 6f 10 00 00 0a 0b}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -219,3 +219,25 @@ rule Trojan_Win32_Makoob_SLOU_2147939186_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Makoob_SERY_2147939384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Makoob.SERY!MTB"
+        threat_id = "2147939384"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Makoob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bordvinenes lovgivningernes" wide //weight: 1
+        $x_1_2 = "vort skoldende convoluta" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

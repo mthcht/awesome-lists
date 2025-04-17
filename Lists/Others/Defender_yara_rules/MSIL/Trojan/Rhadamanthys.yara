@@ -270,3 +270,24 @@ rule Trojan_MSIL_Rhadamanthys_UDP_2147937925_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rhadamanthys_RK_2147939368_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rhadamanthys.RK!MTB"
+        threat_id = "2147939368"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {07 1f 10 8d 1d 00 00 01 25 d0 55 02 00 04 28 6f 00 00 0a 6f d6 00 00 0a 06 07 6f d7 00 00 0a 17 73 3b 00 00 0a 25 02 16 02 8e 69 6f d8 00 00 0a 6f d9 00 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
