@@ -978,39 +978,6 @@ rule Trojan_MSIL_Downloader_MRP_2147809594_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Downloader_BK_2147809806_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Downloader.BK!MTB"
-        threat_id = "2147809806"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Downloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "https://cdn.discordapp.com/attachments" wide //weight: 2
-        $x_2_2 = "aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvO" wide //weight: 2
-        $x_2_3 = "c:\\vart.bat" wide //weight: 2
-        $x_2_4 = "AppData\\Local\\Temp\\Skype.exe" wide //weight: 2
-        $x_1_5 = "DownloadFile" ascii //weight: 1
-        $x_1_6 = "Form1" ascii //weight: 1
-        $x_1_7 = "Dispose" ascii //weight: 1
-        $x_1_8 = "DebuggableAttribute" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((2 of ($x_2_*) and 4 of ($x_1_*))) or
-            ((3 of ($x_2_*) and 2 of ($x_1_*))) or
-            ((4 of ($x_2_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_MSIL_Downloader_BN_2147810203_0
 {
     meta:

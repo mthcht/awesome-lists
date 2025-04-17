@@ -13688,28 +13688,6 @@ rule Trojan_Win32_Qakbot_QQ_2147837733_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Qakbot_SAJ_2147837738_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Qakbot.SAJ!MTB"
-        threat_id = "2147837738"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Qakbot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {88 06 03 c2 25 ?? ?? ?? ?? 88 17 8b 55 ?? 8a 44 08 ?? 32 04 1a 88 03 43 ff 4d ?? 75}  //weight: 1, accuracy: Low
-        $x_1_2 = "Updt" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Qakbot_PL_2147837921_0
 {
     meta:

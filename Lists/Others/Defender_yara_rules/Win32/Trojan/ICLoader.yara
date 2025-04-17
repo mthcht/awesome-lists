@@ -470,27 +470,6 @@ rule Trojan_Win32_ICLoader_RPY_2147897492_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {ff 30 8b 04 24 50 89 e0 05 04 00 00 00 51 b9 04 00 00 00 01 c8 59 33 04 24 31 04 24 33 04 24}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_ICLoader_RPY_2147897492_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ICLoader.RPY!MTB"
-        threat_id = "2147897492"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ICLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
@@ -501,7 +480,7 @@ rule Trojan_Win32_ICLoader_RPY_2147897492_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_ICLoader_RPY_2147897492_2
+rule Trojan_Win32_ICLoader_RPY_2147897492_1
 {
     meta:
         author = "defender2yara"
@@ -523,7 +502,7 @@ rule Trojan_Win32_ICLoader_RPY_2147897492_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_ICLoader_RPY_2147897492_3
+rule Trojan_Win32_ICLoader_RPY_2147897492_2
 {
     meta:
         author = "defender2yara"

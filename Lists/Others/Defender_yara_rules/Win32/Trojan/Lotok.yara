@@ -354,27 +354,6 @@ rule Trojan_Win32_Lotok_GPA_2147898302_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Lotok_RA_2147898497_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Lotok.RA!MTB"
-        threat_id = "2147898497"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Lotok"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {9d 66 49 60 [0-6] 61 32 06 60 [0-8] 61 88 07 9c}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Lotok_GPB_2147902461_0
 {
     meta:

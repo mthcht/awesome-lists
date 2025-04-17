@@ -2833,3 +2833,26 @@ rule Trojan_Win32_ClickFix_DBC_2147939201_0
         )
 }
 
+rule Trojan_Win32_ClickFix_YG_2147939281_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YG!MTB"
+        threat_id = "2147939281"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_10_2 = "iex(irm($" wide //weight: 10
+        $x_10_3 = ".ToString()" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2409,3 +2409,25 @@ rule Ransom_Win32_Filecoder_PAGR_2147938532_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PAGS_2147939254_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAGS!MTB"
+        threat_id = "2147939254"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "LOCKIFY R1 RANSOMEWARE!" ascii //weight: 3
+        $x_2_2 = "All your personal informations, datas, Files, Documents, Pictures, Logins, Videos etc.. all were completely ENCRYPTED" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

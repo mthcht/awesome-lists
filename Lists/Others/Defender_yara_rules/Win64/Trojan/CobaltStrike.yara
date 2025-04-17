@@ -5737,29 +5737,6 @@ rule Trojan_Win64_CobaltStrike_AA_2147839904_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CobaltStrike_AA_2147839904_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/CobaltStrike.AA!MTB"
-        threat_id = "2147839904"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "CobaltStrike"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Go build ID:" ascii //weight: 1
-        $x_1_2 = "UDRbotTOMtkuf7TTJQPiSVjdRZqUmi1oGe5fUs2hLww=" ascii //weight: 1
-        $x_1_3 = "eG7RXZHdqOJ1i+0lgLgCpSXAp6M3LYlAo6osgSi0xOM=" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_CobaltStrike_SH_2147840252_0
 {
     meta:
