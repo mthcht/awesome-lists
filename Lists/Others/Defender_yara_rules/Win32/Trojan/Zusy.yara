@@ -5241,6 +5241,27 @@ rule Trojan_Win32_Zusy_CCJR_2147927757_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_CCJX_2147927764_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.CCJX!MTB"
+        threat_id = "2147927764"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 8a 0c 01 30 0c 17 47 3b 7d ?? 0f 82}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_GTM_2147928151_0
 {
     meta:
