@@ -3859,3 +3859,27 @@ rule Trojan_Win32_OffLoader_ANQ_2147939239_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ANS_2147939414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ANS!MTB"
+        threat_id = "2147939414"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "rabbitsweek.icu/bik.php?" wide //weight: 3
+        $x_3_2 = "factlow.xyz/biks.php?" wide //weight: 3
+        $x_1_3 = "nocookies" wide //weight: 1
+        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
