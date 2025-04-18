@@ -174,3 +174,25 @@ rule Trojan_Win32_Lummac_PGL_2147937134_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lummac_SDA_2147939400_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lummac.SDA"
+        threat_id = "2147939400"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lummac"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {32 1d 30 f9 48 77 82 5a 3c bf 73 7f dd 4f 15 75}  //weight: 5, accuracy: High
+        $x_5_2 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" ascii //weight: 5
+        $x_5_3 = {fe dc ba 98 76 54 32 10 f0 e1 d2 c3}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
