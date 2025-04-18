@@ -1020,6 +1020,8 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         $x_100_31 = {1d 04 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
         $x_100_32 = {21 04 10 04 20 04 22 04 43 00 97 03 41 00}  //weight: 100, accuracy: High
         $x_100_33 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
+        $x_100_34 = {21 04 10 04 20 04 22 04 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_35 = {56 00 35 04 72 00 69 00 66 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1398,6 +1400,8 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_32 = {1d 04 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
         $x_100_33 = {21 04 10 04 20 04 22 04 43 00 97 03 41 00}  //weight: 100, accuracy: High
         $x_100_34 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
+        $x_100_35 = {21 04 10 04 20 04 22 04 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_36 = {56 00 35 04 72 00 69 00 66 00}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -2938,5 +2942,93 @@ rule Trojan_Win32_ClickFix_HD_2147939326_0
         (filesize < 20MB) and
         (not (any of ($n*))) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_GVC_2147939392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GVC!MTB"
+        threat_id = "2147939392"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "powershell" wide //weight: 2
+        $x_2_2 = "start-process" wide //weight: 2
+        $x_2_3 = "runas" wide //weight: 2
+        $x_2_4 = "http" wide //weight: 2
+        $x_2_5 = "download" wide //weight: 2
+        $x_1_6 = "new-object" wide //weight: 1
+        $x_1_7 = "net.webclient" wide //weight: 1
+        $x_1_8 = ".invoke" wide //weight: 1
+        $x_1_9 = "scriptblock" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_STV_2147939395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.STV"
+        threat_id = "2147939395"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "103"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "not a robot" wide //weight: 100
+        $x_1_2 = "curl" wide //weight: 1
+        $x_1_3 = "verif" wide //weight: 1
+        $x_1_4 = "confirm" wide //weight: 1
+        $x_1_5 = "press" wide //weight: 1
+        $x_1_6 = "captcha" wide //weight: 1
+        $x_1_7 = "cloudflare" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DAZ_2147939396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAZ!MTB"
+        threat_id = "2147939396"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "171"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "mshta" wide //weight: 100
+        $x_50_2 = "gclid=" wide //weight: 50
+        $x_20_3 = ".wav?" wide //weight: 20
+        $x_20_4 = ".opus?" wide //weight: 20
+        $x_1_5 = ".shop/" wide //weight: 1
+        $x_1_6 = ".online/" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_50_*) and 1 of ($x_20_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 1 of ($x_50_*) and 2 of ($x_20_*))) or
+            (all of ($x*))
+        )
 }
 
