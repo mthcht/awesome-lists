@@ -66,3 +66,24 @@ rule Ransom_Win32_Fog_SA_2147927090_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Fog_WQ_2147939444_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Fog.WQ!MTB"
+        threat_id = "2147939444"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fog"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {33 d2 f7 75 14 8b 45 10 0f b6 14 10 23 fa 0b f7 0b ce 8b 85 68 ff ff ff 03 45 98 88 08}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

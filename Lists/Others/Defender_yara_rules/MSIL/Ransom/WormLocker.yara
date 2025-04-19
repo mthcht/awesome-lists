@@ -123,3 +123,25 @@ rule Ransom_MSIL_WormLocker_MX_2147920860_0
         )
 }
 
+rule Ransom_MSIL_WormLocker_AWM_2147939425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/WormLocker.AWM!MTB"
+        threat_id = "2147939425"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WormLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {16 13 09 2b 22 00 11 04 11 09 9a 28 ?? 00 00 0a 00 11 05 11 04 11 09 9a 11 06 6f ?? 00 00 06 00 00 11 09 17 58 13 09 11 09 11 04 8e 69}  //weight: 2, accuracy: Low
+        $x_1_2 = "Worm_Locker\\obj\\Debug\\Worm_Locker.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
