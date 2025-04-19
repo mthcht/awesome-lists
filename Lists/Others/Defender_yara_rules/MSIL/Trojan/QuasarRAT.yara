@@ -679,3 +679,38 @@ rule Trojan_MSIL_QuasarRAT_NIT_2147937966_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRAT_DB_2147939453_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRAT.DB!MTB"
+        threat_id = "2147939453"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "136"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = "SharpBeacon-master" ascii //weight: 100
+        $x_10_2 = "DllCanUnloadNow" ascii //weight: 10
+        $x_10_3 = {68 00 74 00 74 00 70 00 [0-1] 3a 00 2f 00 2f 00 [0-100] 2e 00 65 00 78 00 65 00}  //weight: 10, accuracy: Low
+        $x_10_4 = {68 74 74 70 [0-1] 3a 2f 2f [0-100] 2e 65 78 65}  //weight: 10, accuracy: Low
+        $x_10_5 = "amsi.dll" ascii //weight: 10
+        $x_1_6 = "AMSIBypass" ascii //weight: 1
+        $x_1_7 = "Patch" ascii //weight: 1
+        $x_1_8 = "GetProcAddress" ascii //weight: 1
+        $x_1_9 = "FindAddress" ascii //weight: 1
+        $x_1_10 = "LoadLibrary" ascii //weight: 1
+        $x_1_11 = "VirtualProtect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_10_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 4 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

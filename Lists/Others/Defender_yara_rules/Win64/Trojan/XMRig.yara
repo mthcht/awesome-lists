@@ -65,3 +65,27 @@ rule Trojan_Win64_XMRig_RK_2147939292_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XMRig_WQ_2147939454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XMRig.WQ!MTB"
+        threat_id = "2147939454"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "OmNom.exe" ascii //weight: 1
+        $x_1_2 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_3 = "Defender-Ausnahmen" ascii //weight: 1
+        $x_1_4 = "ubrin.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
