@@ -3453,6 +3453,29 @@ rule Trojan_Win64_CryptInject_BSA_2147927064_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Harns.dll" ascii //weight: 30
+        $x_10_2 = {4c 8b 41 10 41 8b 40 38 c1 e8 04 a8 01 75 0b 48 8b d1 49 8b c8}  //weight: 10, accuracy: High
+        $x_10_3 = {45 33 c0 33 c9 41 8d 50 02 e9 8a ff}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CryptInject_BSA_2147927064_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.BSA!MTB"
+        threat_id = "2147927064"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "High"
     strings:
@@ -3463,7 +3486,7 @@ rule Trojan_Win64_CryptInject_BSA_2147927064_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_CryptInject_BSA_2147927064_2
+rule Trojan_Win64_CryptInject_BSA_2147927064_3
 {
     meta:
         author = "defender2yara"
@@ -3485,7 +3508,7 @@ rule Trojan_Win64_CryptInject_BSA_2147927064_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_CryptInject_BSA_2147927064_3
+rule Trojan_Win64_CryptInject_BSA_2147927064_4
 {
     meta:
         author = "defender2yara"
@@ -3507,7 +3530,7 @@ rule Trojan_Win64_CryptInject_BSA_2147927064_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_CryptInject_BSA_2147927064_4
+rule Trojan_Win64_CryptInject_BSA_2147927064_5
 {
     meta:
         author = "defender2yara"

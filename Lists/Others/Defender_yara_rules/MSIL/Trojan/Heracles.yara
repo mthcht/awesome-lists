@@ -201,6 +201,28 @@ rule Trojan_MSIL_Heracles_MBX_2147838302_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "CreateDecryptor" ascii //weight: 1
+        $x_2_2 = {53 00 65 00 6e 00 69 00 6f 00 72 00 00 11 20 00 4d 00 61 00 6e 00 61 00 67 00 65 00 72 00 00 0f 4c 00 20 00 6f 00 20 00 61 00 20 00 64}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_MBX_2147838302_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.MBX!MTB"
+        threat_id = "2147838302"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "Low"
     strings:
