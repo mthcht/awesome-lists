@@ -744,3 +744,45 @@ rule Trojan_Win32_Babar_ABB_2147936478_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Babar_A_2147939497_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Babar.A!MTB"
+        threat_id = "2147939497"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Babar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5d b3 32 a5 35 5c af 0a af eb 1a ce 3d ca 22 bf 2f 4a b9 71 eb 71 e1 80 73 d8 21 b8 2e 49 b8 07}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Babar_AB_2147939500_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Babar.AB!MTB"
+        threat_id = "2147939500"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Babar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {50 45 43 6f 6d 70 61 63 74 32 00 16 a4 3a f5 7a a1 68 9d 1c 79 f6 48 4d 51}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

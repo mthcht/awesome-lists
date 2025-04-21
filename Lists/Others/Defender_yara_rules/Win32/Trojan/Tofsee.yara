@@ -1968,3 +1968,45 @@ rule Trojan_Win32_Tofsee_EAWE_2147939215_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_AB_2147939486_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.AB!MTB"
+        threat_id = "2147939486"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 f8 00 0f 85 b5 7c 00 00 ?? b8 7e a5 40 00 68 7e a5 40 00 8d 05 00 00 00 00 50 8d 05 00 00 10 00 50 e8 9b 7c 00 00 83 f8 00 0f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tofsee_BAK_2147939513_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.BAK!MTB"
+        threat_id = "2147939513"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {29 f8 29 ff 29 c7 f7 df 6a 00 8f 01 01 41 00 83 e9 fc 83 c3 fc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

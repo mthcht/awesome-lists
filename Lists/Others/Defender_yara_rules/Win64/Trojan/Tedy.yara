@@ -1536,3 +1536,67 @@ rule Trojan_Win64_Tedy_PGT_2147939099_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AD_2147939495_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AD!MTB"
+        threat_id = "2147939495"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f 57 c0 33 c0 0f 11 45 a0 0f 11 45 b0 0f 11 45 c0 0f 11 45 d0 0f 11 45 e0 0f 11 45 f0 0f 11 45 00 4c 89 6d a0 0f 11 45 a8 4c 89 6d b8 48 c7 45 c0 0f 00 00 00 88 45 a8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AH_2147939502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AH!MTB"
+        threat_id = "2147939502"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {32 db 48 8b 54 24 58 48 83 fa 07 0f 86 c1 00 00 00 48 8b 4c 24 40 48 8d 14 55 02 00 00 00 48 8b c1 48 81 fa 00 10 00 00 0f 82 9f 00 00 00 48 8b 49 f8}  //weight: 1, accuracy: High
+        $x_1_2 = "Vixen.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AJ_2147939503_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AJ!MTB"
+        threat_id = "2147939503"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 07 88 03 48 ff c3 48 ff c6 48 89 5d 97 48 83 fe 08 0f 8c fc fe ff ff 44 89 7d a7 4d 85 e4 0f 84 5d 01 00 00 4c 8b 64 24 48 49 f7 dc}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

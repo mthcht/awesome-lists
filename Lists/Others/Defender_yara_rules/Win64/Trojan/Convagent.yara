@@ -544,3 +544,25 @@ rule Trojan_Win64_Convagent_ARAZ_2147937060_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_A_2147939483_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.A!MTB"
+        threat_id = "2147939483"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4d 8b ad d8 03 00 00 49 83 ef 01 73 f3 6a 01 58 48 89 85 c0 01 00 00 45 31 ff 45 31 c0 eb 29}  //weight: 1, accuracy: High
+        $x_1_2 = "Convert]::FromBase64String(" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

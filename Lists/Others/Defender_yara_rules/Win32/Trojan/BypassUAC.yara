@@ -33,3 +33,24 @@ rule Trojan_Win32_BypassUAC_BN_2147839340_0
         )
 }
 
+rule Trojan_Win32_BypassUAC_A_2147939499_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BypassUAC.A!MTB"
+        threat_id = "2147939499"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 81 d1 06 00 00 00 48 c7 44 24 00 09 f4 84 ca 48 ff 44 24 00 48 c1 74 24 00 9a 0f ad d6 68 ba 35 01 8f 41 89 31 e9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

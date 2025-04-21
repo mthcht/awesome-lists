@@ -2853,27 +2853,6 @@ rule Trojan_MSIL_PureLogStealer_ANQA_2147938409_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PureLogStealer_ACRA_2147939185_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/PureLogStealer.ACRA!MTB"
-        threat_id = "2147939185"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "PureLogStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {11 09 11 02 11 04 11 02 8e 69 5d 91 11 01 11 04 91 61 d2 6f ?? 00 00 0a 20 07 00 00 00 28 ?? 00 00 06 3a ?? ff ff ff 26}  //weight: 5, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_PureLogStealer_AFRA_2147939279_0
 {
     meta:

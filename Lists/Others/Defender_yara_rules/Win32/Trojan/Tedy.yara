@@ -546,3 +546,24 @@ rule Trojan_Win32_Tedy_ARAZ_2147937114_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_AB_2147939485_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.AB!MTB"
+        threat_id = "2147939485"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {66 a9 00 80 0f 95 c0 8b 15 c0 97 6b 00 8b 12 32 82 d4 00 00 00 0f 84 fa 00 00 00 a1 14 f6 6b 00 8b 10 ff 52 08 a1 10 f6 6b 00 8b 58 08 4b 85 db 0f 8c ae 00 00 00 43 33 ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

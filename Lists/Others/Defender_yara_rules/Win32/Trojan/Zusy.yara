@@ -5299,6 +5299,28 @@ rule Trojan_Win32_Zusy_GTM_2147928151_1
         threshold = "10"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {0f be 14 10 33 ca 8b 85 ?? ?? ?? ?? 03 45 f8 88 08}  //weight: 5, accuracy: Low
+        $x_5_2 = {03 45 f8 0f be 08 8b 55 f8 81 e2 07 00 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_GTM_2147928151_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.GTM!MTB"
+        threat_id = "2147928151"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
         $x_5_1 = {0f b6 4c 05 ?? 8d 34 71 33 75 ?? 40 83 f8}  //weight: 5, accuracy: Low
         $x_5_2 = {8a 44 0d d4 32 04 3a 32 c2 41 83 f9 ?? 88 04 3a ?? ?? 33 c9 42 3b d6}  //weight: 5, accuracy: Low
     condition:
@@ -6432,5 +6454,32 @@ rule Trojan_Win32_Zusy_SPDH_2147938958_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_BAA_2147939510_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAA!MTB"
+        threat_id = "2147939510"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c5 89 45 fc 53 56 57}  //weight: 1, accuracy: High
+        $x_2_2 = {89 45 e0 64 a1 30 00 00 00 8b 40 0c 8b 40 0c 8b 00 8b 00 8b 40 18}  //weight: 2, accuracy: High
+        $x_1_3 = {ff d0 85 c0 0f 84 ?? ?? ?? ?? 83 f8 57 0f 85}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_1_*))) or
+            ((1 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

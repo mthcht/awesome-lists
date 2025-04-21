@@ -85,3 +85,24 @@ rule Trojan_Win32_Mint_SPDB_2147907936_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mint_AC_2147939488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.AC!MTB"
+        threat_id = "2147939488"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {33 c0 89 08 50 45 43 6f 6d 70 61 63 74 32 00 00 4c 6a 00 8b 4f 0e a3 00 4c 6a 00 8b 09 62 8b 5d 40 e1 6d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

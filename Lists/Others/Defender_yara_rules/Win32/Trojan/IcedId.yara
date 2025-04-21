@@ -2034,3 +2034,24 @@ rule Trojan_Win32_IcedId_EC_2147831658_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_IcedId_PAB_2147939514_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IcedId.PAB!MTB"
+        threat_id = "2147939514"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IcedId"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8d 0c 50 8b 15 ?? ?? ?? ?? 2b d1 89 15 ?? ?? ?? ?? a1 ?? ?? ?? ?? 05}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

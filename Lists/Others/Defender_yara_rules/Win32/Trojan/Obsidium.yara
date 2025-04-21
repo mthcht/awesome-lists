@@ -19,3 +19,24 @@ rule Trojan_Win32_Obsidium_AMMF_2147906576_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Obsidium_A_2147939482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Obsidium.A!MTB"
+        threat_id = "2147939482"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Obsidium"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {36 dc 71 5b eb 03 d2 a5 00 eb 05 32 ae 3f 9b 0a b8 0e 48 3c f7 eb 01 76 eb}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

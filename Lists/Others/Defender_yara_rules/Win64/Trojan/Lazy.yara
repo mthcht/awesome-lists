@@ -2502,3 +2502,67 @@ rule Trojan_Win64_Lazy_GVB_2147938151_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AB_2147939489_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AB!MTB"
+        threat_id = "2147939489"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {c0 a8 e2 76 09 00 46 04 15 1f e4 10 b4 dd 01 82 3a 52 eb 20 14 ef d8 be 2c 0e 8d 42 5c 0f a0 dc fa 80 c9 4f}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AC_2147939494_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AC!MTB"
+        threat_id = "2147939494"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {80 f2 00 80 e2 01 45 88 c2 41 80 f2 01 41 80 e2 00 44 08 d2 41 88 c2 41 80 f2 ff 41 88 d3 41 80 f3 ff 44 88 c3 80 f3 01 45 08 da 80 cb 01 41 80 f2 ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_PGY_2147939521_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.PGY!MTB"
+        threat_id = "2147939521"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2e 6d 61 6e 61 67 65 64 28 74 31 00 00 70 0b 00 00 76 31 00 00 64 0b 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60}  //weight: 1, accuracy: High
+        $x_4_2 = {68 79 64 72 61 74 65 64 10 9a 13 00 00 f0 3c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 00 00 c0}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
