@@ -1661,6 +1661,27 @@ rule Trojan_Win32_Lazy_AMOA_2147936374_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_HNU_2147938934_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.HNU!MTB"
+        threat_id = "2147938934"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {c4 60 c3 48 8d 05 68 6d 17 00 bb 21 00 00 00 e8 ec 37 02 00 90 48 89 44 24 08 48 89 5c 24 10 48 89 4c 24 18 48 89 7c 24 20 e8 d2 dc 04 00 48 8b 44 24 08 48 8b 5c 24 10 48 8b 4c 24 18 48 8b 7c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Lazy_WQ_2147939390_0
 {
     meta:

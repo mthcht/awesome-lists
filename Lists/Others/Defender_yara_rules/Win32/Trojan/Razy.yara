@@ -1417,3 +1417,26 @@ rule Trojan_Win32_Razy_PGR_2147937929_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Razy_ARZ_2147939574_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.ARZ!MTB"
+        threat_id = "2147939574"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {c6 85 5c ff ff ff 56 c6 85 5d ff ff ff 69 c6 85 5e ff ff ff 72 c6 85 5f ff ff ff 74 c6 85 60 ff ff ff 75 c6 85 61 ff ff ff 61 c6 85 62 ff ff ff 6c c6 85 63 ff ff ff 41 c6 85 64 ff ff ff 6c c6 85 65 ff ff ff 6c c6 85 66 ff ff ff 6f c6 85 67 ff ff ff 63}  //weight: 3, accuracy: High
+        $x_2_2 = {c6 85 4c ff ff ff 43 c6 85 4d ff ff ff 72 c6 85 4e ff ff ff 65 c6 85 4f ff ff ff 61 c6 85 50 ff ff ff 74 c6 85 51 ff ff ff 65 c6 85 52 ff ff ff 54 c6 85 53 ff ff ff 68 c6 85 54 ff ff ff 72 c6 85 55 ff ff ff 65 c6 85 56 ff ff ff 61 c6 85 57 ff ff ff 64}  //weight: 2, accuracy: High
+        $x_1_3 = {c6 45 98 57 c6 45 99 69 c6 45 9a 6e c6 45 9b 45 c6 45 9c 78 c6 45 9d 65 c6 45 9e 63}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

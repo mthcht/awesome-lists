@@ -262,3 +262,24 @@ rule Trojan_Win32_Tiny_ATY_2147908635_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tiny_EN_2147939573_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tiny.EN!MTB"
+        threat_id = "2147939573"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {c1 e2 02 8b 5d 00 8b 5b 08 8b 1b 89 d9 8b 1b 8b 45 08 c1 e0 02 01 c3 8b 1b 85 db 81 fb 01}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
