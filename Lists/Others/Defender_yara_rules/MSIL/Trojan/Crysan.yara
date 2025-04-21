@@ -2195,3 +2195,45 @@ rule Trojan_MSIL_Crysan_PGC_2147939519_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_EAFS_2147939541_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.EAFS!MTB"
+        threat_id = "2147939541"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {08 23 00 00 00 00 00 00 f0 3f 11 04 6c 23 00 00 00 00 00 00 24 40 5b 28 cd 00 00 0a 23 7b 14 ae 47 e1 7a 94 3f 5a 58 5a 0c 11 04 17 d6 13 04 11 04 09 31 cc}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Crysan_EAZE_2147939542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.EAZE!MTB"
+        threat_id = "2147939542"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {00 0f 00 08 20 00 04 00 00 58 28 01 00 00 2b 00 07 02 08 20 00 04 00 00 6f 13 00 00 0a 0d 08 09 58 0c 09 20 00 04 00 00 fe 04 13 04 11 04 2c 0c 00 0f 00 08 28 01 00 00 2b 00 2b 06 00 17 13 05 2b be}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

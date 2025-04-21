@@ -840,3 +840,24 @@ rule Trojan_Win32_KillMBR_EANH_2147938600_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillMBR_EAUQ_2147939537_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillMBR.EAUQ!MTB"
+        threat_id = "2147939537"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8a c3 c0 e0 05 0a d0 88 94 1d ?? ?? ?? ?? 43 81 fb 80 a9 03 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

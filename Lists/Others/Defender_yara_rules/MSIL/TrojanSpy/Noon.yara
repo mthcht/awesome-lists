@@ -728,3 +728,46 @@ rule TrojanSpy_MSIL_Noon_SLK_2147936256_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Noon_SOK_2147939553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SOK!MTB"
+        threat_id = "2147939553"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 09 11 0b 18 5d 16 fe 01 11 0b 19 5d 16 fe 01 60 2d 03 17 2b 01 16 6a d6 13 09 11 0b 17 d6 13 0b 11 0b}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_MSIL_Noon_SPK_2147939556_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SPK!MTB"
+        threat_id = "2147939556"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {07 17 58 0b 00 07 02 7b a8 01 00 04 2f 06 07 19 fe 04 2b 01 16 0c 08 2d d2}  //weight: 2, accuracy: High
+        $x_2_2 = "QLBH.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

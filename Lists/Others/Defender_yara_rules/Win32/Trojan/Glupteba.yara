@@ -6104,6 +6104,28 @@ rule Trojan_Win32_Glupteba_GTM_2147814418_0
         threshold = "10"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {31 03 49 81 c7 ?? ?? ?? ?? 43 01 c9 39 d3}  //weight: 10, accuracy: Low
+        $x_10_2 = {31 06 46 bf ?? ?? ?? ?? 47 39 ce ?? ?? c3 47 21 ff 8d 04 10}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_Glupteba_GTM_2147814418_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.GTM!MTB"
+        threat_id = "2147814418"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {be d8 85 40 00 89 ff 81 ef 34 68 a4 a9 e8 ?? ?? ?? ?? 29 ff 81 eb 97 48 80 39 31 32 4f 89 ff 42 53 5f 39 c2 75 da 21 ff c3}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and

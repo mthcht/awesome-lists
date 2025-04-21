@@ -2010,3 +2010,24 @@ rule Trojan_Win32_Tofsee_BAK_2147939513_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_EAVN_2147939540_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.EAVN!MTB"
+        threat_id = "2147939540"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {c0 e0 06 c0 e3 04 0a f8 0a de 88 45 ff 88 14 31 88 5c 31 01 88 7c 31 02}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

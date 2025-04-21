@@ -5216,3 +5216,25 @@ rule Trojan_MSIL_Taskun_BAB_2147939511_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_SR_2147939557_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.SR!MTB"
+        threat_id = "2147939557"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 0c 94 13 0d 11 04 11 0d 6c 58 13 04 11 0c 17 58 13 0c 11 0c 11 0b}  //weight: 2, accuracy: High
+        $x_2_2 = "AmirCalendar.Properties.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

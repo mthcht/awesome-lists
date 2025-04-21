@@ -45,3 +45,24 @@ rule Trojan_Win32_Dorifel_EC_2147850304_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dorifel_EALB_2147939538_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dorifel.EALB!MTB"
+        threat_id = "2147939538"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dorifel"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {c7 44 24 10 00 00 00 00 8d 55 e4 89 54 24 0c d1 e0 89 44 24 08 89 74 24 04 89 1c 24}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
