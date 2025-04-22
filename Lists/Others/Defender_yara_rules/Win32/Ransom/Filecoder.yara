@@ -2431,3 +2431,25 @@ rule Ransom_Win32_Filecoder_PAGS_2147939254_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PAQD_2147939604_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAQD!MTB"
+        threat_id = "2147939604"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 45 f4 c1 e0 08 89 c2 8b 45 f0 01 d0 8b 14 85 ?? ?? ?? ?? 8b 45 14 8b 4d f4 89 cb c1 e3 08 8b 4d f0 01 d9 89 14 88 83 45 f0 01 81 7d f0 ff}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 45 f4 ba 00 00 00 00 f7 75 f0 89 d0 8b 44 85 b4 31 c1 8b 45 14 8b 55 f4 81 c2 00 04 00 00 89 0c 90 83 45 f4 01 83 7d f4 11}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

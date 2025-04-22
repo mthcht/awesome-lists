@@ -19,3 +19,27 @@ rule TrojanDownloader_MSIL_Zusy_CCIG_2147913305_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Zusy_PZMZ_2147939602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Zusy.PZMZ!MTB"
+        threat_id = "2147939602"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Add-MpPreference -ExclusionPath C:\\" ascii //weight: 3
+        $x_2_2 = "$output = \"$env:Temp/RuntimeBroker.exe" ascii //weight: 2
+        $x_1_3 = "Start-Process PowerShell -Verb RunAs \"-NoProfile -ExecutionPolicy Bypass -Command" ascii //weight: 1
+        $x_1_4 = "GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

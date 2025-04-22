@@ -938,3 +938,25 @@ rule Trojan_Win64_CoinMiner_BT_2147936687_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_PPCD_2147939601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.PPCD!MTB"
+        threat_id = "2147939601"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 89 44 24 60 48 8b 44 24 60 8b 40 10 48 8b 4c 24 60 8b 49 14 48 8b 94 24 30 01 00 00 48 03 d1 48 8b ca 48 8b 54 24 60 8b 52 0c 4c 8b 44 24 68 4c 03 c2 49 8b d0 48 c7 44 24 20 00 00 00 00 44 8b c8 4c 8b c1 48 8b 4c 24 78 ff 15}  //weight: 4, accuracy: High
+        $x_2_2 = {41 b9 20 00 00 00 44 8b c0 48 8b d1 48 8b 4c 24 78 ff 15}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

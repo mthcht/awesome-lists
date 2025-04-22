@@ -365,3 +365,25 @@ rule Trojan_MSIL_Convagent_AMCU_2147928401_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_AORA_2147939597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.AORA!MTB"
+        threat_id = "2147939597"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 0b 16 73 ?? 00 00 0a 13 09 20 03 00 00 00 38 ?? ff ff ff 11 0b 11 08 16 1a 6f ?? 00 00 0a 26 20 02 00 00 00 38 ?? ff ff ff 11 08 16 28 ?? 00 00 0a 13 02 20 00 00 00 00 7e ?? 01 00 04 7b ?? 01 00 04 39 ?? ff ff ff 26 20 00 00 00 00 38}  //weight: 5, accuracy: Low
+        $x_2_2 = {11 09 11 0c 11 05 11 02 11 05 59 6f ?? 00 00 0a 13 06}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
