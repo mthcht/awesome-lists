@@ -849,6 +849,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [Detection - Azure Attack Defense](https://github.com/Cloud-Architekt/AzureAD-Attack-Defense)
   - [Detection - Unprotect project](https://unprotect.it/snippets/)
   - [Exploitation - Hacker recipes](https://www.thehacker.recipes/)
+  - [Logs - Events IDs and others - eventlog-compendium](https://eventlog-compendium.streamlit.app/)
   - [Logs - Events IDs - ultimatewindowssecurity](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx)
   - [Logs - Event IDs & policies - microsoft](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/advanced-security-audit-policy-settings)
   - [Logs - Event IDs Logon types - microsoft](https://learn.microsoft.com/en-us/windows-server/identity/securing-privileged-access/reference-tools-logon-types)
