@@ -342,3 +342,24 @@ rule Trojan_Win32_Tepfer_PGT_2147938920_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tepfer_SGGL_2147939669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.SGGL!MTB"
+        threat_id = "2147939669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {57 33 c9 89 5d f8 8b c6 8b 7e 10 47 83 7e 14 10 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -87,3 +87,30 @@ rule Ransom_Win32_Fog_WQ_2147939444_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Fog_BA_2147939671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Fog.BA!MTB"
+        threat_id = "2147939671"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fog"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "IPv6 Shellcode Parsing Failed" ascii //weight: 1
+        $x_1_2 = "OBSIDIANMIRROR - PSYOPS/PSYWAR" ascii //weight: 1
+        $x_1_3 = "RANSOMNOTE.txt" ascii //weight: 1
+        $x_1_4 = "Executed anti-debug-thread" ascii //weight: 1
+        $x_1_5 = "Sandbox detected! Exiting process" ascii //weight: 1
+        $x_1_6 = "Debugger detected! Exiting" ascii //weight: 1
+        $x_1_7 = "Failed to create sensitive check thread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2929,3 +2929,24 @@ rule Trojan_Win64_Dridex_BVV_2147931266_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dridex_PGD_2147939656_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.PGD!MTB"
+        threat_id = "2147939656"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {89 44 24 64 8b 44 24 34 35 07 18 8d 5a 89 84 24 a8 00 00 00 e9}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
