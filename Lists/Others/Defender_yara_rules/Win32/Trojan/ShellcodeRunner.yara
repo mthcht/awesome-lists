@@ -241,3 +241,34 @@ rule Trojan_Win32_ShellcodeRunner_DB_2147938206_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_RPD_2147939624_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.RPD!MTB"
+        threat_id = "2147939624"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Failed to take process snapshot!" ascii //weight: 10
+        $x_10_2 = "Failed to retrieve first process!" ascii //weight: 10
+        $x_10_3 = "Ven_sign" ascii //weight: 10
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_10_5 = "chonging" wide //weight: 10
+        $x_1_6 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders" wide //weight: 1
+        $x_1_7 = "Startup" wide //weight: 1
+        $x_10_8 = "%ProgramData%\\Venlnk" wide //weight: 10
+        $x_1_9 = "Process is running, exiting..." wide //weight: 1
+        $x_1_10 = "\\static.ini" wide //weight: 1
+        $x_10_11 = "OpenAi_Service" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

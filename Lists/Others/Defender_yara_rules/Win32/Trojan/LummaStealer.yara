@@ -4767,6 +4767,27 @@ rule Trojan_Win32_LummaStealer_PI_2147937796_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_ZA_2147938090_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.ZA!MTB"
+        threat_id = "2147938090"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {6a 2c a5 bb 2b 97 3d ba 89 d4 65 8e cb 3b db e5 39 1d 90 c4 de 39 6f b3 cd 63 bd a5 a8 85 f0 4c 98 aa 97 1b 50 d5 05 e6 c3 39 f3 33 66 76 b9 e2 bf 28 27 75 5b be b0 7d 98 4a b3 f2 d4 46 3b ff 19 27 c8 15 8a 4f 07 22 ec cc 7b 67 39 16 1f 0e 83 cf 84 6f 7a e4 47 5b 60 b3 3d 91 d4 b2 44 ea 74 5a df ee a0 8d 5c 6e c9 14 34 7c d1 b5 62 7d be a2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_DM_2147938203_0
 {
     meta:
@@ -4896,6 +4917,48 @@ rule Trojan_Win32_LummaStealer_YA_2147939087_0
         $x_1_3 = ".name" wide //weight: 1
         $x_1_4 = "value" wide //weight: 1
         $x_1_5 = "|where-object" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_ZB_2147939634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.ZB!MTB"
+        threat_id = "2147939634"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {40 cb 10 66 32 c5 10 66 78 ce 03 66 1e 6b 10 66 03 88 04 66 12 af 0f 66 88 83 03 66 bc c8 0e 66 87 69 10 66 d6 c5 10 66 67 90 05 66 00 46 01 66 ef 60 10 66 b8 49 01 66 0d 16 11 66 70 17 04 66 d4 d9 01 66 51 e2 00 66 d4 68 10 66 d3 a7 0f 66 6b a7 0e 66 3e da 01 66 6d d7 01 66 af 0e 0f 66 5a ae 0f 66 a0 d4 0e 66 3a 16 04 66 bb c4 0e 66 f1 d9 00 66 34 c8 0e 66 23 31 0f 66 a8 c6 10 66 23 a3 00 66 b3 68 05 66 ed ee 0f 66 5f 28 04 66 21 9f 0e 66 a5 3f 0f 66 c2 27 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_ZC_2147939635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.ZC!MTB"
+        threat_id = "2147939635"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5d 54 8d 25 99 09 20 36 1b d1 a0 29 4c 3e 6e a2 8c bd 39 3a 14 06 75 f9 8b 82 4f 8f e6 6c cc 5a 92 9f 58 f3 09 38 c6 62 53 43 87 51 f8 aa e4 e2 9b f7 48 e1 b4 c1 da 21 0e 6d 2b 28 a1 bb 93 36 f4 9c ec 11 8d 7e 82 f5 e3 8f e6 fb 58 0a 33 17 14 71 36 82 b3 fc 5b ee 0d 1c d8 45 3a ea 5b 13 8a 01 9c d7 d2 ae db 2e 87 9e 0b 02 85 c1 14 3c 43 db 02 9f 81 7e 60 f4 7b 6b 7f f6 3e 77 b0 d7 d6 80 c5 07 f9 28 5e 84 c0 69 9c a7}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

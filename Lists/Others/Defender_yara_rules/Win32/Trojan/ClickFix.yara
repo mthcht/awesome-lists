@@ -1022,6 +1022,8 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
         $x_100_33 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
         $x_100_34 = {21 04 10 04 20 04 22 04 43 00 48 00 41 00}  //weight: 100, accuracy: High
         $x_100_35 = {56 00 35 04 72 00 69 00 66 00}  //weight: 100, accuracy: High
+        $x_100_36 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_37 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1133,6 +1135,8 @@ rule Trojan_Win32_ClickFix_DW_2147935377_0
         $x_50_29 = {1d 04 75 00 6d 00 30 04 6e 00}  //weight: 50, accuracy: High
         $x_50_30 = {21 04 10 04 20 04 22 04 43 00 97 03 41 00}  //weight: 50, accuracy: High
         $x_50_31 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 50, accuracy: High
+        $x_50_32 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 50, accuracy: High
+        $x_50_33 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 50, accuracy: High
     condition:
         (filesize < 20MB) and
         (
@@ -1340,7 +1344,9 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_100_36 = {1d 04 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
         $x_100_37 = {21 04 10 04 20 04 22 04 43 00 97 03 41 00}  //weight: 100, accuracy: High
         $x_100_38 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
-        $n_1000_39 = "msedgewebview2.exe" wide //weight: -1000
+        $x_100_39 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_40 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $n_1000_41 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -1402,8 +1408,12 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_34 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
         $x_100_35 = {21 04 10 04 20 04 22 04 43 00 48 00 41 00}  //weight: 100, accuracy: High
         $x_100_36 = {56 00 35 04 72 00 69 00 66 00}  //weight: 100, accuracy: High
+        $x_100_37 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_38 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $n_1000_39 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 1 of ($x_5_*) and 1 of ($x_1_*))) or
             ((2 of ($x_100_*))) or
@@ -3023,8 +3033,10 @@ rule Trojan_Win32_ClickFix_DAZ_2147939396_0
         $x_20_4 = ".opus?" wide //weight: 20
         $x_1_5 = ".shop/" wide //weight: 1
         $x_1_6 = ".online/" wide //weight: 1
+        $n_1000_7 = "msedgewebview2.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 1 of ($x_50_*) and 1 of ($x_20_*) and 1 of ($x_1_*))) or
             ((1 of ($x_100_*) and 1 of ($x_50_*) and 2 of ($x_20_*))) or

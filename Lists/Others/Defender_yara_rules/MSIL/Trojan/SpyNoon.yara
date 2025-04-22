@@ -2748,3 +2748,25 @@ rule Trojan_MSIL_SpyNoon_NITs_2147932223_0
         )
 }
 
+rule Trojan_MSIL_SpyNoon_NS_2147939636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyNoon.NS!MTB"
+        threat_id = "2147939636"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyNoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {6f e7 00 00 0a 07 1f 10 8d 24 00 00 01 25 d0 0a 01 00 04 28 99 00 00 0a 6f e8 00 00 0a 06 07 6f e9 00 00 0a 17 73 6c 00 00 0a 0c 08 02 16 02 8e 69 6f ea 00 00 0a 08 6f eb 00 00 0a 06 28 bf 01 00 06 0d 09}  //weight: 3, accuracy: High
+        $x_1_2 = "USBWallet.g.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

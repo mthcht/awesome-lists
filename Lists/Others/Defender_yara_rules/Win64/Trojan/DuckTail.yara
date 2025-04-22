@@ -95,3 +95,25 @@ rule Trojan_Win64_DuckTail_GA_2147932198_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DuckTail_GTM_2147939645_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DuckTail.GTM!MTB"
+        threat_id = "2147939645"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DuckTail"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {20 50 00 60 0a 00 00 2e 69 64 61 ?? 61 24 35 00 00 00 00 60 ?? 50 00 38 00 00 00 2e 30 30 63 66 ?? 00 00 98 2a 50 ?? 08 00 00 00 2e 43 52 54 24 58}  //weight: 10, accuracy: Low
+        $x_1_2 = "APEX_NOWAX_LOADER" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

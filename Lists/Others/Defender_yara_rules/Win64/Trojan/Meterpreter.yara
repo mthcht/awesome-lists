@@ -668,3 +668,27 @@ rule Trojan_Win64_Meterpreter_CCIQ_2147914414_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_GAD_2147939647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.GAD!MTB"
+        threat_id = "2147939647"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "EDR_attacks_path:string" ascii //weight: 2
+        $x_2_2 = "\\programdata\\Cymulate\\Agent\\AttacksLogs" ascii //weight: 2
+        $x_2_3 = "source\\repos\\windows-scenarios\\Payloads\\CymulateStagelessMeterpreter\\x64\\Release\\CymulateStagelessMeterpreter.pdb" ascii //weight: 2
+        $x_1_4 = "TARGETRESOURCE" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

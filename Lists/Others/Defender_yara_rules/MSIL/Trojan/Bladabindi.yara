@@ -4133,6 +4133,29 @@ rule Trojan_MSIL_Bladabindi_NP_2147917944_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "i_Shitted_My_Self.exe" ascii //weight: 2
+        $x_2_2 = "sKiDtOoLs_WhY_u_LoOkIg_HeRe" wide //weight: 2
+        $x_1_3 = "ShopChop#6936" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_NP_2147917944_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.NP!MTB"
+        threat_id = "2147917944"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

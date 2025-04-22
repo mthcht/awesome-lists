@@ -741,3 +741,28 @@ rule Ransom_Win64_Filecoder_PAQ_2147939019_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_CCJX_2147939639_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.CCJX!MTB"
+        threat_id = "2147939639"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "INC-README.txt..windowsprogram filesappdata$recycle.binINC.log.dll" ascii //weight: 2
+        $x_1_2 = "Successfully deleted shadow copies from" ascii //weight: 1
+        $x_1_3 = "Successfully killed processes by mask" ascii //weight: 1
+        $x_1_4 = "Successfully killed services by mask" ascii //weight: 1
+        $x_1_5 = "while encrypting file:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

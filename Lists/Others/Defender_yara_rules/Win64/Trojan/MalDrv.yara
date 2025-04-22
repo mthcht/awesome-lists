@@ -94,3 +94,57 @@ rule Trojan_Win64_MalDrv_RPA_2147929543_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_MalDrv_G_2147939632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MalDrv.G!MTB"
+        threat_id = "2147939632"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MalDrv"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 d6 ce 3f fd 96 37 76 43 fd ed 48 5a a1 4c 73 0d ee 24 a8 14 47 02 9e 5e fc 20 87 7a bf e1 d3 19 ea a5 00 66 0d 0e 72 c5 9c 5a 71 6c 17 12 ae 71 4a d1 b1 69 f7 96 1d bb ce b7 ec 74 dc ee fb ad a0 53 bf 0e 71 80 a7 70 9d f3 03 ae a7 9d 38 59 73 11 c6 66 e6 3f f3 76 83 52 a7 dc bc 6a 85 90 98 b9 8d 59 64 f9 2c 2d 75 07 02 1e 91 3f 56 cb 5e 41 79 15 0e 83 dd ab 77 af cf 1e de 73 2e 0a 3d df 60 a1 18 82 c5 75 e1 46 0b e7 20 d6 17 ae 06 d9 2f 9e 26 b0 b0 62 af 0b cd 05 9c a9 46 63 75 1f ec 0e 95 7c a1 61 ff f1 3e 04 27 2f 4b 37 54 b7 50 59 51 1b e5 f9 b9 e7 53 f3 ca 5b fd 54 a4 cc 8c da 3b 69 29 7d 78 c0 da c4 84 b2 e9 6f 42 1b 4a 0f 50 c1 c7 75 d3 c4 e5 53 5c d4 74 b6 15 bf 43 70 ce 0c 84 38 91 2d ae 8f 40 28 a3 1b 8e 4f f1 de 93 79 c7 46 e4 60}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_MalDrv_I_2147939633_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MalDrv.I!MTB"
+        threat_id = "2147939633"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MalDrv"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DriverEntry failed 0x%x for driver %w" ascii //weight: 1
+        $x_1_2 = "\\Release\\DDriver.pdb" ascii //weight: 1
+        $x_1_3 = "MpCmdRun.exe" ascii //weight: 1
+        $x_1_4 = "SmartScreen.exe" ascii //weight: 1
+        $x_1_5 = "SecurityHealthSystray.exe" ascii //weight: 1
+        $x_1_6 = "SecurityHealthHost.exe" ascii //weight: 1
+        $x_1_7 = "uhssvc.exe" ascii //weight: 1
+        $x_1_8 = "MsMpEng.exe" ascii //weight: 1
+        $x_1_9 = "MpDefenderCoreService.exe" ascii //weight: 1
+        $x_1_10 = "NisSrv.exe" ascii //weight: 1
+        $x_1_11 = "MsSense.exe" ascii //weight: 1
+        $x_1_12 = "SgrmBroker.exe" ascii //weight: 1
+        $x_1_13 = "SecurityHealthService.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

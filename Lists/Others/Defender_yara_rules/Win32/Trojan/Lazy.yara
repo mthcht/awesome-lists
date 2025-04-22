@@ -1728,3 +1728,24 @@ rule Trojan_Win32_Lazy_BSA_2147939623_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_GPJ_2147939646_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.GPJ!MTB"
+        threat_id = "2147939646"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {39 ff 74 01 ea 31 3b 81 c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

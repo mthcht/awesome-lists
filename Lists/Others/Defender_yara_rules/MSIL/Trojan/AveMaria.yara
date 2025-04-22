@@ -3228,6 +3228,29 @@ rule Trojan_MSIL_AveMaria_NA_2147847494_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {28 8b 00 00 0a 6f 3b 00 00 06 0c 28 08 00 00 06 6f 85 00 00 0a 09 72 19 01 00 70 06 18 9a 28 8c 00 00 0a 07 16 6f 8d 00 00 0a 00 28 08 00 00 06 6f 85 00 00 0a}  //weight: 3, accuracy: High
+        $x_1_2 = {13 04 00 28 8f 00 00 0a 6f 90 00 00 0a 00 28 38 00 00 0a}  //weight: 1, accuracy: High
+        $x_1_3 = "stub.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AveMaria_NA_2147847494_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AveMaria.NA!MTB"
+        threat_id = "2147847494"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AveMaria"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
