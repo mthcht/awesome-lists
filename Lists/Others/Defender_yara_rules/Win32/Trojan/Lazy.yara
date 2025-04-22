@@ -1703,3 +1703,28 @@ rule Trojan_Win32_Lazy_WQ_2147939390_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_BSA_2147939623_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.BSA!MTB"
+        threat_id = "2147939623"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "aHR0cDovLzg0LjI0Ny4xNzAuMjM3OjQ4NTgvZmx5X2JhY2s=" ascii //weight: 30
+        $x_10_2 = "ScreenCap.png" ascii //weight: 10
+        $x_5_3 = "pkill" ascii //weight: 5
+        $x_3_4 = "shellexec" ascii //weight: 3
+        $x_2_5 = "upload" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
