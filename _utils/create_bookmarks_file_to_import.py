@@ -6,7 +6,7 @@ from datetime import datetime
 # URL to ignore
 IGNORED_URL = "https://github.com/mthcht/awesome-lists/assets/75267080/059432aa-cfe9-46d1-a611-fbb225bce66e"
 # Base URL for the Lists folder on GitHub
-LISTS_BASE_URL = "https://github.com/mthcht/awesome-lists/Lists"
+LISTS_BASE_URL = "https://github.com/mthcht/awesome-lists/tree/main/Lists"
 # Local folder containing the full detection lists structure
 LISTS_FOLDER = "../Lists"
 
