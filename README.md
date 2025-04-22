@@ -23,7 +23,7 @@
   - [PSEXEC & similar tools Searches](https://mthcht.medium.com/detecting-psexec-and-similar-tools-c812bf3dca6c)
   - [Time Slipping detection](https://mthcht.medium.com/event-log-manipulations-1-time-slipping-55bf95631c40)
   - [Suspicious Named pipes](https://detect.fyi/threat-hunting-suspicious-named-pipes-a4206e8a4bc8)
-
+ 
 </details>
 
 ## 📂 My Detection Lists 
