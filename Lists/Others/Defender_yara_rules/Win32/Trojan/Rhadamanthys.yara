@@ -782,3 +782,29 @@ rule Trojan_Win32_Rhadamanthys_AC_2147939501_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rhadamanthys_GVA_2147939732_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rhadamanthys.GVA!MTB"
+        threat_id = "2147939732"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {ec 8b c5 eb}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 4c 24 38 33 cc e8 ?? ?? ?? ?? 83 c4 48}  //weight: 1, accuracy: Low
+        $x_1_3 = {8b cd eb 02 8b 09 eb 02}  //weight: 1, accuracy: High
+        $x_1_4 = {0f be 08 eb 03}  //weight: 1, accuracy: High
+        $x_1_5 = {0f 9d c2 4a 8b c2}  //weight: 1, accuracy: High
+        $x_1_6 = {88 0a e9 98}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

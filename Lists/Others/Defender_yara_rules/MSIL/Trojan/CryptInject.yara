@@ -3317,6 +3317,28 @@ rule Trojan_MSIL_CryptInject_BSA_2147935496_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "Low"
+    strings:
+        $x_13_1 = {41 6d 65 63 64 2e 65 78 65 00 41 6d 65 63 64 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 4d 65 6d 62 65 72 52 65 66 73 50 72 6f 78 79 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 48 6f 75 73 65 4f 66 43}  //weight: 13, accuracy: Low
+        $x_10_2 = "2b73c51c-9d53-4a40-8269-a53478fa16d4" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_CryptInject_BSA_2147935496_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CryptInject.BSA!MTB"
+        threat_id = "2147935496"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "38"
         strings_accuracy = "High"
     strings:
@@ -3329,7 +3351,7 @@ rule Trojan_MSIL_CryptInject_BSA_2147935496_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_CryptInject_BSA_2147935496_2
+rule Trojan_MSIL_CryptInject_BSA_2147935496_3
 {
     meta:
         author = "defender2yara"

@@ -2964,6 +2964,7 @@ rule Trojan_MSIL_Zusy_GE_2147932968_0
         $x_1_3 = "Fsignature.compressed" ascii //weight: 1
         $x_1_4 = "pfx.strongname.compressed" ascii //weight: 1
         $x_1_5 = "pfx.stgname.compressed" ascii //weight: 1
+        $x_1_6 = "crt.pfx.compressed" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (

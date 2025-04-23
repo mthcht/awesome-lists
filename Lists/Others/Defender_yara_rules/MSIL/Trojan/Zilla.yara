@@ -624,6 +624,27 @@ rule Trojan_MSIL_Zilla_AZL_2147921667_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {26 16 0c 2b 74 20 f4 01 00 00 28 ?? 00 00 0a 12 03 fe 15 ?? 00 00 02 12 03 28 ?? 00 00 06 2d 0e 03 72 ?? 17 00 70 6f ?? 00 00 0a 26 2b 47 09 7b ?? 00 00 04 07 7b ?? 00 00 04 33 0e 09 7b ?? 00 00 04 07}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_AZL_2147921667_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AZL!MTB"
+        threat_id = "2147921667"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "Low"
     strings:
@@ -636,7 +657,7 @@ rule Trojan_MSIL_Zilla_AZL_2147921667_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Zilla_AZL_2147921667_1
+rule Trojan_MSIL_Zilla_AZL_2147921667_2
 {
     meta:
         author = "defender2yara"
