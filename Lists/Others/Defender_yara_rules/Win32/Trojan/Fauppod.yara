@@ -2566,3 +2566,24 @@ rule Trojan_Win32_Fauppod_ZZY_2147938642_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fauppod_GTB_2147939772_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fauppod.GTB!MTB"
+        threat_id = "2147939772"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fauppod"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {31 d0 31 d2 89 15 ?? ?? ?? ?? 01 35 ?? ?? ?? ?? 8d 05 ?? ?? ?? ?? 31 d2 89 10 31 18}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

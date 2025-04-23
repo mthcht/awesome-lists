@@ -831,6 +831,27 @@ rule Trojan_MSIL_Androm_AND_2147852834_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 02 03 59 11 03 59 20 ff 00 00 00 5f d2 13 02 20 05 00 00 00 7e 16 00 00 04 7b 29 00 00 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Androm_AND_2147852834_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.AND!MTB"
+        threat_id = "2147852834"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {fe 01 16 fe 01 13 42 11 42 2d 1e 00 14 13 0b 14 13 0c 11 0b 11 0c 6f ?? ?? ?? 0a 13 0d 14 13 0e 11 0e 6f ?? ?? ?? 0a 26 00 02 11 09 91}  //weight: 1, accuracy: Low

@@ -21,29 +21,3 @@ rule Virus_X97M_Slacker_G_2147731093_0
         (all of ($x*))
 }
 
-rule Virus_X97M_Slacker_A_2147939222_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Virus:X97M/Slacker.gen!A"
-        threat_id = "2147939222"
-        type = "Virus"
-        platform = "X97M: Excel 97, 2000, XP, 2003, 2007, and 2010 macros"
-        family = "Slacker"
-        severity = "Critical"
-        info = "gen: malware that is detected using a generic signature"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "If w2.Lines(1, 1) <> \"'OOO\" Then" ascii //weight: 1
-        $x_1_2 = "If UCase(Dir(Application.StartupPath + \"\\book1.\")) <> \"BOOK1\" Then" ascii //weight: 1
-        $x_1_3 = "xlCM.InsertLines 1, w1.Lines(1, w1.CountOfLines)" ascii //weight: 1
-        $x_1_4 = "xlWB.SaveAs Filename:=Application.StartupPath + \"\\Book1.\", FileFormat:=xlNormal, AddToMru:=False" ascii //weight: 1
-        $x_1_5 = "mFileName = \"C:\\TMP\\\" + oldname" ascii //weight: 1
-        $x_1_6 = "Application.Selection.EntireRow.Hidden = True" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

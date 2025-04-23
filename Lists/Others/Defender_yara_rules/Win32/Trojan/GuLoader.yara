@@ -3675,3 +3675,28 @@ rule Trojan_Win32_GuLoader_RAE_2147939320_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RAF_2147939795_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAF!MTB"
+        threat_id = "2147939795"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\fejelistens\\ingrossing" ascii //weight: 1
+        $x_1_2 = "%manyatta%\\displeasurement\\Underclutch193" ascii //weight: 1
+        $x_1_3 = "\\sandwichmnd\\jennets.ini" ascii //weight: 1
+        $x_1_4 = "lingerer formatlngdes" ascii //weight: 1
+        $x_1_5 = "sermoning unionsdannelsers" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

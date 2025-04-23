@@ -154,3 +154,33 @@ rule Trojan_AndroidOS_Iconosys_D_2147935642_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Iconosys_E_2147939800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Iconosys.E!MTB"
+        threat_id = "2147939800"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Iconosys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Lcincodemayo/buzzer/iconosys/ChristmasTimer" ascii //weight: 1
+        $x_1_2 = "chiristmascount11" ascii //weight: 1
+        $x_1_3 = "newyearbuzzerstates" ascii //weight: 1
+        $x_2_4 = "tricktrackerstates" ascii //weight: 2
+        $x_2_5 = "drivereplaystates" ascii //weight: 2
+        $x_2_6 = "santa_buttons_pressed" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

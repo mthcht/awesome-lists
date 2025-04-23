@@ -3153,3 +3153,24 @@ rule Trojan_Win32_ClickFix_STU_2147939755_0
         )
 }
 
+rule Trojan_Win32_ClickFix_SAA_2147939763_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SAA"
+        threat_id = "2147939763"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "mshta" wide //weight: 10
+        $x_10_2 = {20 00 05 27 20 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
