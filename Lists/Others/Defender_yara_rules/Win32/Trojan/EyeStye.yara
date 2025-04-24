@@ -536,3 +536,26 @@ rule Trojan_Win32_EyeStye_AK_2147658791_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_EyeStye_AEYE_2147939905_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/EyeStye.AEYE!MTB"
+        threat_id = "2147939905"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "EyeStye"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {08 00 a4 00 a2 ?? ?? ?? ?? e0 cb 00 00 94 08 00 a4 00 a2 ?? ?? ?? ?? e1 cb 00 00 94 08 00 a4 00 a2 ?? ?? ?? ?? e2 cb 00 00 94 08 00 a4}  //weight: 3, accuracy: Low
+        $x_2_2 = "TFONILAKlQEYetLfZYoE" ascii //weight: 2
+        $x_1_3 = "kEYedSMuZpDwVKUWPOIR" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -572,3 +572,25 @@ rule Trojan_Win32_SystemBC_ITR_2147934901_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SystemBC_BW_2147939904_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SystemBC.BW!MTB"
+        threat_id = "2147939904"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SystemBC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8b 4d f0 85 c9 0f 88 ?? ?? 00 00 39 c1 0f 86 ?? ?? 00 00 89 c1 83 e1 1f 0f b6 89 ?? ?? ?? ?? 8b 55 ec 30 0c 02 40 3d ?? ?? ?? ?? 72}  //weight: 4, accuracy: Low
+        $x_1_2 = "DllRegisterServer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

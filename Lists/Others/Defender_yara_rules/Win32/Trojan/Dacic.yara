@@ -171,3 +171,25 @@ rule Trojan_Win32_Dacic_ARAZ_2147928951_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dacic_PGC_2147939894_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dacic.PGC!MTB"
+        threat_id = "2147939894"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {33 c5 89 45 fc 57 8d 85 f0 ee ff ff 50 68 00 10 00 00 8d 8d f8 ee ff ff 33 ff 51 89 bd f4 ee ff ff}  //weight: 5, accuracy: High
+        $x_5_2 = {43 3a 5c 48 57 49 44 2e 74 78 74 00 43 3a 5c 00 0d 2b 32 22 3a 27 2f 3f 03 3d 2b 21 07 71 34 32 3d 39 33 33 70 31 13 35 28 38 2c 31 05 15 4b 59 44}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

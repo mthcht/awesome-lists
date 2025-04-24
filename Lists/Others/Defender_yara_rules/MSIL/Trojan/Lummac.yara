@@ -82,3 +82,90 @@ rule Trojan_MSIL_Lummac_PPE_2147923505_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lummac_PGL_2147939225_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lummac.PGL!MTB"
+        threat_id = "2147939225"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lummac"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 05 11 07 1f 28 5a 58 13 08 28 ?? 00 00 0a 07 11 08 1e 6f ?? 00 00 0a 17 8d ?? 00 00 01 6f ?? 00 00 0a 13 09 11 09 28 ?? 00 00 0a 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lummac_PGL_2147939225_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lummac.PGL!MTB"
+        threat_id = "2147939225"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lummac"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 2e 11 2b 11 2d 91 58 28 ?? 00 00 0a 72 f8 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 0a 5d 13 2e 20 ?? 00 00 00 fe 0e 33 00 38 9f fc ff ff 16 13 2e 38 0d 00 00 00 16 13 2d 20 ?? 00 00 00 38 8e fc ff ff}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lummac_PGL_2147939225_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lummac.PGL!MTB"
+        threat_id = "2147939225"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lummac"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {16 13 07 38 e3 ff ff ff 28 ?? 00 00 0a 11 01 11 08 1e 6f ?? 00 00 0a 17 8d ?? 00 00 01 6f ?? 00 00 0a 28 ?? 00 00 06 28 ?? 00 00 0a 72 02 01 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 0a 39 b0 ff ff ff 38 17 00 00 00 11 01 11 02 1c 58 28 ?? 00 00 0a 13 03 20 03 00 00 00 38 eb fd ff ff 11 01 11 08 1f 14 58 28 ?? 00 00 0a 13 09}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lummac_PGL_2147939225_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lummac.PGL!MTB"
+        threat_id = "2147939225"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lummac"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "YTVlY2ZkN2RjODQzZTM5ZTA4ZmE4MWExMzQ2NTFkNjVhNjI2MDEwNDc0ZTJmNzQ3YzUxMDg3MWJjMTc1N2QyMg==" ascii //weight: 1
+        $x_2_2 = "AD446C34F2704865A9E424BE5755BC8F9140414FD7E1456F1A4581F8C2D778A0" ascii //weight: 2
+        $x_3_3 = "RSACryptoServiceProvider" ascii //weight: 3
+        $x_4_4 = "CreateEncryptor" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
