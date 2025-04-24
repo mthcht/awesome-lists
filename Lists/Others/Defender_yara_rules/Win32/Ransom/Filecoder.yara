@@ -2453,3 +2453,48 @@ rule Ransom_Win32_Filecoder_PAQD_2147939604_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PAGT_2147939857_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAGT!MTB"
+        threat_id = "2147939857"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "/c vssadmin.exe delete shadows /all /quiet" wide //weight: 3
+        $x_2_2 = "worth of bitcoin to wallet:" wide //weight: 2
+        $x_2_3 = "ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v EnableLUA /t REG_DWORD /d 1 /f" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Filecoder_PAGV_2147939858_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAGV!MTB"
+        threat_id = "2147939858"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c7 00 5c 72 65 63 c7 40 04 6f 76 65 72 c7 40 06 65 72 79 2e c7 40 0a 65 78 65 00 c7 44 24 08 00 00 00 00 8d 85 f0 fd ff ff 89 44 24 04 8d 85 f4 fe ff ff 89 04 24 a1}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 45 f4 ba 00 00 00 00 f7 75 f0 89 d0 8b 44 85 b4 31 c1 8b 45 14 8b 55 f4 81 c2 00 04 00 00 89 0c 90 83 45 f4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

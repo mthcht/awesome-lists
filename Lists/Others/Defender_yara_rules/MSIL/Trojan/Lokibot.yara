@@ -2814,3 +2814,26 @@ rule Trojan_MSIL_Lokibot_AWQA_2147938673_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lokibot_AURA_2147939840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.AURA!MTB"
+        threat_id = "2147939840"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 0e 02 11 0b 11 0d 6f ?? 00 00 0a 7d ?? 00 00 04 11 0e 04 11 0e 7b ?? 00 00 04 7b ?? 00 00 04 6f ?? 00 00 0a 59 7d ?? 00 00 04 11 17}  //weight: 5, accuracy: Low
+        $x_2_2 = {01 25 16 02 7c ?? 00 00 04 28 ?? 00 00 0a 9c 25 17 02 7c ?? 00 00 04 28 ?? 00 00 0a 9c 25 18 02 7c ?? 00 00 04 28 ?? 00 00 0a 9c}  //weight: 2, accuracy: Low
+        $x_2_3 = "Assignment2_Winform.Properties.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

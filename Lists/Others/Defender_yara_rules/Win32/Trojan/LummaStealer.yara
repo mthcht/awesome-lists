@@ -3512,6 +3512,29 @@ rule Trojan_Win32_LummaStealer_RPM_2147927904_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_RPM_2147927904_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.RPM!MTB"
+        threat_id = "2147927904"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {40 00 00 e0 2e 72 73 72 63 00 00 00 ?? ?? 00 00 ?? ?? 00 00 00 06 00 00 00 60 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 69 64 61 74 61 20 20 00 20 00 00 00 80 00 00 00 02 00 00 00 66 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: Low
+        $x_10_2 = {49 00 6e 00 74 00 65 00 72 00 6e 00 61 00 6c 00 4e 00 61 00 6d 00 65 00 00 00 64 00 65 00 66 00 4f 00 66 00 66 00 2e 00 65 00 78 00 65 00}  //weight: 10, accuracy: High
+        $x_1_3 = "Software\\WinLicense" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_PIP_2147928100_0
 {
     meta:

@@ -18,7 +18,8 @@ rule Trojan_Win32_MasqProcessLaunchLolbins_B_2147778155_0
         $x_1_3 = {5c 00 73 00 63 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_4 = {5c 00 6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $n_10_5 = "qprotection sense" wide //weight: -10
-        $n_10_6 = "schtasks.exe /delete" wide //weight: -10
+        $n_10_6 = "DataManagementGateway" wide //weight: -10
+        $n_10_7 = "schtasks.exe /delete" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

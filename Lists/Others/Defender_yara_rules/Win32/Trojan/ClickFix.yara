@@ -3138,19 +3138,15 @@ rule Trojan_Win32_ClickFix_STU_2147939755_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "101"
+        threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-10] 20 00 2d 00 77 00 20 00 68 00 20 00 22 00 63 00 75 00 72 00 6c 00 [0-64] 7c 00 69 00 65 00 78 00}  //weight: 100, accuracy: Low
-        $x_1_2 = "/ps|iex" wide //weight: 1
-        $x_1_3 = "/txt|iex" wide //weight: 1
-        $x_1_4 = "/log|iex" wide //weight: 1
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-32] 63 00 75 00 72 00 6c 00 [0-64] 2f 00 70 00 73 00 7c 00 69 00 65 00 78 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-32] 63 00 75 00 72 00 6c 00 [0-64] 2f 00 74 00 78 00 74 00 7c 00 69 00 65 00 78 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-32] 63 00 75 00 72 00 6c 00 [0-64] 2f 00 6c 00 6f 00 67 00 7c 00 69 00 65 00 78 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
+        (1 of ($x*))
 }
 
 rule Trojan_Win32_ClickFix_SAA_2147939763_0
