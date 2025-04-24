@@ -1151,3 +1151,25 @@ rule Trojan_Win32_PonyStealer_DAD_2147937532_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PonyStealer_GTB_2147939924_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.GTB!MTB"
+        threat_id = "2147939924"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {47 57 00 01 00 08 00 39 48 57 00 01 00 08}  //weight: 5, accuracy: High
+        $x_5_2 = {31 00 08 37 c8 9b fa a3 96 5f 43 91}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

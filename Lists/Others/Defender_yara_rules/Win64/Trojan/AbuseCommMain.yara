@@ -6231,3 +6231,26 @@ rule Trojan_Win64_AbuseCommMain_JK_2147937468_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_AbuseCommMain_JL_2147939913_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommMain.JL"
+        threat_id = "2147939913"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "tox:0C8E5B45C57AE244E9C904C5BC74F73306937469D9CEA22541CA69AC162B8D42" wide //weight: 1
+        $x_1_2 = {30 43 38 45 35 42 34 35 43 35 37 41 45 32 34 34 45 39 43 39 30 34 43 35 42 43 37 34 46 37 33 33 30 36 39 33 37 34 36 39 44 39 43 45 41 32 32 35 34 31 43 41 36 39 41 43 31 36 32 42 38 44 34 32 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 4c 00 00 00 00 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {30 43 38 45 35 42 34 35 43 35 37 41 45 32 34 34 45 39 43 39 30 34 43 35 42 43 37 34 46 37 33 33 30 36 39 33 37 34 36 39 44 39 43 45 41 32 32 35 34 31 43 41 36 39 41 43 31 36 32 42 38 44 34 32 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 4c 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "\\tox\\0C8E5B45C57AE244E9C904C5BC74F73306937469D9CEA22541CA69AC162B8D42.hstr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
