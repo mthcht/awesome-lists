@@ -283,3 +283,25 @@ rule TrojanSpy_AndroidOS_RewardSteal_K_2147925721_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_RewardSteal_AA_2147940013_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/RewardSteal.AA!MTB"
+        threat_id = "2147940013"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "RewardSteal"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {1a 01 b9 02 08 13 02 00 08 02 12 00 72 30 72 01 12 07 02 12 03 00 1a 03 63 02 72 30 72 01 32 08 08 14 05 00 1a 05 f6 02 72 30 72 01 52 0f 08 15 02 00 71 00 23 01 00 00 0c 02 08 16 06 00 1a 06 db 02 6e 20 24 01 62 00 0c 02 6e 20 1f 01 92 00 0c 02 08 17 0b 00 1a 0b 66 02 6e 20 1f 01 b2 00 0c 02 6e 20 21 01 a2 00 71 00 23 01 00 00 0c 0b 6e 20 24 01 6b 00 0c 0b 6e 20 1f 01 9b 00 0c 0b 08 18 02 00}  //weight: 1, accuracy: High
+        $x_1_2 = {6e 20 1f 01 16 00 0c 01 6e 20 21 01 71 00 6e 20 1f 01 36 00 0c 01 6e 20 21 01 81 00 6e 20 1f 01 56 00 0c 01 6e 20 21 01 f1 00 d8 04 04 01 08 00 1a 00 08 01 10 00 02 03 12 00 08 02 13 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

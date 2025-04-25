@@ -191,3 +191,50 @@ rule TrojanSpy_AndroidOS_SpyNote_P_2147933421_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_SpyNote_Q_2147940015_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SpyNote.Q!MTB"
+        threat_id = "2147940015"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyNote"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "invoke_spynote_payload" ascii //weight: 1
+        $x_1_2 = "key_logger_Started" ascii //weight: 1
+        $x_1_3 = "getPassKeyLoggerText" ascii //weight: 1
+        $x_1_4 = "OfflineLoggerID" ascii //weight: 1
+        $x_1_5 = "getLockPIN" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_AndroidOS_SpyNote_R_2147940018_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SpyNote.R!MTB"
+        threat_id = "2147940018"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyNote"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {22 00 08 00 70 10 11 00 00 00 1c 01 1c 00 6e 10 43 00 01 00 0c 01 1a 02 45 00 6e 30 12 00 20 01 1a 01 0a 00 12 12 6e 30 13 00 10 02 12 21 23 11 3a 00 12 03 4d 00 01 03 4d 05 01 02 71 20 36 00 14 00 0e 00}  //weight: 1, accuracy: High
+        $x_1_2 = {22 05 25 00 71 10 48 00 01 00 0c 06 6e 10 10 00 09 00 0c 07 70 30 3d 00 65 07 1a 06 00 00 23 37 3a 00 1a 08 61 00 4d 08 07 00 1a 08 66 00 4d 08 07 04 71 20 46 00 76 00 0c 06 6e 20 44 00 65 00 0c 05 1a 06 71 00 23 47 39 00 1c 08 3a 00 4d 08 07 00 6e 30 42 00 65 07 0c 05 69 05 15 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

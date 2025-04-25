@@ -72,3 +72,25 @@ rule Trojan_AndroidOS_Pootel_M_2147898983_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Pootel_C_2147940020_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Pootel.C!MTB"
+        threat_id = "2147940020"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Pootel"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {74 01 ee 0d 1d 00 0a 04 b5 84 33 84 0f 00 6e 20 e9 0d 91 00 0a 0a 74 01 99 0e 1c 00 0a 04 db 0b 04 02 13 04 1a 00 28 04 12 04 12 0a 12 0b}  //weight: 1, accuracy: High
+        $x_1_2 = {22 00 ce 01 70 10 1c 11 00 00 6e 20 1b 11 03 00 22 00 6b 03 70 10 0a 11 00 00 6e 20 19 11 03 00 6e 20 46 0f 23 00 71 10 1a 11 01 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
