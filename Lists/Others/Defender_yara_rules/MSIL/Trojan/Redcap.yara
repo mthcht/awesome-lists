@@ -646,3 +646,25 @@ rule Trojan_MSIL_Redcap_ARP_2147908459_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Redcap_NR_2147940057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Redcap.NR!MTB"
+        threat_id = "2147940057"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8d 09 00 00 01 0a 06 20 00 00 00 00 fe 09 00 00 a2 06 28 ?? 07 00 06 74 10 00 00 01}  //weight: 2, accuracy: Low
+        $x_1_2 = "HoffCon.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

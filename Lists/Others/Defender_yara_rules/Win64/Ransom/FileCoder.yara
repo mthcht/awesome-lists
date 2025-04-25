@@ -968,3 +968,27 @@ rule Ransom_Win64_FileCoder_AYF_2147937395_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_SP_2147940039_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.SP!MTB"
+        threat_id = "2147940039"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "I am the walrus. I have taken the liberty of protecting the data on your machine by encrypting it all" ascii //weight: 1
+        $x_1_2 = "C:\\flag.txt.tusk" ascii //weight: 1
+        $x_1_3 = "C:\\DECRYPT_YOUR_FILES.txt" ascii //weight: 1
+        $x_1_4 = "repos\\TuskLocker2\\x64\\Release\\TuskLocker2.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

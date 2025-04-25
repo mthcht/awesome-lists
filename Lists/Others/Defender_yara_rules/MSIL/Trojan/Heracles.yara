@@ -574,6 +574,28 @@ rule Trojan_MSIL_Heracles_NH_2147840063_6
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {28 14 00 00 0a 13 09 11 09 6f 0b 00 00 0a 25 2d 0c 26 72 01 00 00 70 73 15 00 00 0a 7a 13 0a 11 0a 6f 16 00 00 0a 8e 69 8d 01 00 00 01 13 0b 11 0b 8e 16 fe 03 13 11 11 11 2c 05 11 0b 16 02 a2 11 0a 14 11 0b 6f 17 00 00 0a}  //weight: 3, accuracy: High
+        $x_1_2 = "EntryPoint not found!!!!!!" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_NH_2147840063_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.NH!MTB"
+        threat_id = "2147840063"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -584,7 +606,7 @@ rule Trojan_MSIL_Heracles_NH_2147840063_6
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_NH_2147840063_7
+rule Trojan_MSIL_Heracles_NH_2147840063_8
 {
     meta:
         author = "defender2yara"

@@ -195,3 +195,25 @@ rule Trojan_Win64_Stealer_MX_2147936682_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NS_2147940059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NS!MTB"
+        threat_id = "2147940059"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {44 89 16 45 31 d2 4c 89 c6 49 89 d1 eb dc 0f b6 48 06 0f b7 40 04 35 65 b1 00 00}  //weight: 3, accuracy: High
+        $x_2_2 = {88 4a 06 66 89 42 04 4c 8d ac 24 f8 00 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

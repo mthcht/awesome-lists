@@ -222,3 +222,26 @@ rule Trojan_MSIL_Dapato_AMDG_2147932966_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dapato_NP_2147940058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dapato.NP!MTB"
+        threat_id = "2147940058"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {02 28 07 00 00 06 00 00 72 13 00 00 70 28 23 00 00 0a 8e 69 17 fe 02 0c 08 2c 14 00 72 13 00 00 70 28 23 00 00 0a 16 9a}  //weight: 3, accuracy: High
+        $x_1_2 = "Knocker.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "knksvc.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

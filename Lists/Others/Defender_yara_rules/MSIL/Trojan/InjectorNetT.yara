@@ -87,3 +87,24 @@ rule Trojan_MSIL_InjectorNetT_AJLA_2147933548_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_InjectorNetT_ADSA_2147940055_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/InjectorNetT.ADSA!MTB"
+        threat_id = "2147940055"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "InjectorNetT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {72 94 07 00 70 38 77 00 00 00 38 7c 00 00 00 72 c6 07 00 70 38 78 00 00 00 38 7d 00 00 00 16 2d ee 38 7b 00 00 00 38 80 00 00 00 08 06 6f ?? ?? 00 0a 08 07 6f ?? ?? 00 0a 08 6f ?? ?? 00 0a 0d 2b 10 2b 11 16 2b 11 8e 69 6f ?? ?? 00 0a 13 04 de 26 09 2b ed 02 2b ec 02 2b ec}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
