@@ -66,3 +66,24 @@ rule Trojan_Win32_Shelma_NS_2147901793_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Shelma_AMX_2147939944_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Shelma.AMX!MTB"
+        threat_id = "2147939944"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Shelma"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {66 85 c0 74 39 66 3b 02 74 29 66 83 f8 61 72 06 66 83 f8 7a 76 0c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
