@@ -827,3 +827,49 @@ rule Trojan_Win64_BlackWidow_ERD_2147939357_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_GVR_2147939959_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GVR!MTB"
+        threat_id = "2147939959"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 f7 f1 48 8b c2 0f b6 84 04 ?? ?? ?? ?? 8b 4c 24 5c 33 c8 8b c1 48 63 4c 24 50 48 8b 54 24 60 88 04 0a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_BlackWidow_GVS_2147939960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GVS!MTB"
+        threat_id = "2147939960"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {49 81 c0 c6 cf 0e 00 c5 f5 fd f9}  //weight: 2, accuracy: High
+        $x_1_2 = {45 8a 14 10}  //weight: 1, accuracy: High
+        $x_1_3 = {44 30 14 0f}  //weight: 1, accuracy: High
+        $x_1_4 = {48 ff c1 0f 28 f0}  //weight: 1, accuracy: High
+        $x_1_5 = {48 89 c8 66 44 0f 38 de c1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

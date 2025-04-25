@@ -269,3 +269,32 @@ rule Trojan_Win32_Flystudio_AB_2147936814_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Flystudio_DB_2147939992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Flystudio.DB!MTB"
+        threat_id = "2147939992"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Flystudio"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "140"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {39 00 34 00 2d 00 31 00 33 00 34 00 33 00 31 00 33 00 32 00 36 00 33 00 36 00 2e 00 63 00 6f 00 73 00 2e 00 61 00 70 00 2d 00 6e 00 61 00 6e 00 6a 00 69 00 6e 00 67 00 2e 00 6d 00 79 00 71 00 63 00 6c 00 6f 00 75 00 64 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-50] 2e 00 74 00 78 00 74 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {39 34 2d 31 33 34 33 31 33 32 36 33 36 2e 63 6f 73 2e 61 70 2d 6e 61 6e 6a 69 6e 67 2e 6d 79 71 63 6c 6f 75 64 2e 63 6f 6d 2f [0-50] 2e 74 78 74}  //weight: 10, accuracy: Low
+        $x_100_3 = "csgonec.lanzn.com" ascii //weight: 100
+        $x_10_4 = "SetCredentials" ascii //weight: 10
+        $x_10_5 = "set-cookie:" ascii //weight: 10
+        $x_10_6 = "SetRequestHeader" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 4 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

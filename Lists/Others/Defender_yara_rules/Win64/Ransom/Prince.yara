@@ -18,3 +18,28 @@ rule Ransom_Win64_Prince_E_2147936877_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Prince_YAC_2147939973_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Prince.YAC!MTB"
+        threat_id = "2147939973"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Prince"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "stolen and encrypted" ascii //weight: 1
+        $x_10_2 = "pay the ransom" ascii //weight: 10
+        $x_1_3 = "want your money" ascii //weight: 1
+        $x_1_4 = "decrypt one file" ascii //weight: 1
+        $x_1_5 = "buy Bitcoin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
