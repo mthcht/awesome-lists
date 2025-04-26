@@ -1322,6 +1322,7 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_100_39 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
         $x_100_40 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
         $n_1000_41 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_42 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -1671,10 +1672,11 @@ rule Trojan_Win32_ClickFix_ZD_2147937008_0
         $x_1_52 = "Human: r" wide //weight: 1
         $x_1_53 = "Human: CAPTCHA" wide //weight: 1
         $x_1_54 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_55 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
-        $x_1_56 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
-        $x_1_57 = "netstatuscheck" wide //weight: 1
-        $n_5000_58 = "msedgewebview2.exe" wide //weight: -5000
+        $x_1_55 = "Guard: Answer" wide //weight: 1
+        $x_1_56 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
+        $x_1_57 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
+        $x_1_58 = "netstatuscheck" wide //weight: 1
+        $n_5000_59 = "msedgewebview2.exe" wide //weight: -5000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -2015,9 +2017,14 @@ rule Trojan_Win32_ClickFix_SJ_2147937800_0
         $x_1_3 = "substring" wide //weight: 1
         $x_1_4 = "where-object {$_}" wide //weight: 1
         $x_1_5 = "foreach-object {[char]([convert]::toint32($_,16))}" wide //weight: 1
+        $x_3_6 = "'(?<=\\g..)'|%{[char]([convert]::toint32($_,16))})" wide //weight: 3
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((5 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_SZZ_2147937801_0
@@ -3075,5 +3082,31 @@ rule Trojan_Win32_ClickFix_SAA_2147939763_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_AB_2147940112_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AB"
+        threat_id = "2147940112"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "iplogger.co" wide //weight: 1
+        $x_1_2 = "whim-proof.beauty" wide //weight: 1
+        $x_1_3 = "stag-cnd-files.oss-ap-southeast-1.aliyuncs.com" wide //weight: 1
+        $x_1_4 = "helperection.top" wide //weight: 1
+        $x_1_5 = "abodeshop.shop" wide //weight: 1
+        $x_1_6 = "dybep.fun" wide //weight: 1
+        $x_1_7 = "esyn.live" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
 }
 

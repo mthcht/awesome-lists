@@ -2498,3 +2498,54 @@ rule Ransom_Win32_Filecoder_PAGV_2147939858_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PAGW_2147940067_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAGW!MTB"
+        threat_id = "2147940067"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Desktop wallpaper changed successfully." ascii //weight: 2
+        $x_1_2 = "Failed to create flash window. Error code:" ascii //weight: 1
+        $x_1_3 = "Screen flash complete." ascii //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_2_5 = "Failed to set autostart registry value. Error code:" ascii //weight: 2
+        $x_2_6 = "%s.enc" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Filecoder_PAGX_2147940068_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAGX!MTB"
+        threat_id = "2147940068"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "d21pYyBTSEFET1dDT1BZIERFTEVURTsKdnNzYWRtaW4gRGVsZXRlIFNoYWRvd3MgL" ascii //weight: 2
+        $x_2_2 = "SGVsbG8sIAp5b3VyIGZpbGVzIGhhdmUgYmVlbiBlbmNyeXB0ZWQhIFRvIHJldHVyb" ascii //weight: 2
+        $x_1_3 = "IGNhbGwgdGVybWluYXRlOwpiY2RlZGl0IC9zZXQge2RlZmF1bHR9IHJlY292ZXJ5Z" ascii //weight: 1
+        $x_1_4 = "W5hYmxlZCBObzsKYmNkZWRpdCAvc2V0IHtkZWZhdWx0fSBib290c3RhdHVzcG9saW" ascii //weight: 1
+        $x_1_5 = "N5IGlnbm9yZWFsbGZhaWx1cmVzOw==" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

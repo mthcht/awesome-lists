@@ -41,6 +41,33 @@ rule Trojan_Win64_FileCoder_NF_2147893871_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_FileCoder_NF_2147893871_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.NF!MTB"
+        threat_id = "2147893871"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "File encrypted and original deleted" ascii //weight: 2
+        $x_1_2 = "Error encrypting file" ascii //weight: 1
+        $x_2_3 = "Send X Bitcoin to address Y to theoretically decrypt them" ascii //weight: 2
+        $x_1_4 = "Your files have been theoretically encrypted" ascii //weight: 1
+        $x_1_5 = "Starting theoretical encryption of directory:" ascii //weight: 1
+        $x_2_6 = "THEORETICAL RANSOM NOTE" ascii //weight: 2
+        $x_1_7 = "Generated Key" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_FileCoder_ARAZ_2147933262_0
 {
     meta:

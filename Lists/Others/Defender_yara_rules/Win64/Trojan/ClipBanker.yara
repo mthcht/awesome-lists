@@ -908,3 +908,27 @@ rule Trojan_Win64_ClipBanker_AUJ_2147932197_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_WQ_2147940103_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.WQ!MTB"
+        threat_id = "2147940103"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/panel/gate.php" ascii //weight: 1
+        $x_1_2 = "Monitoring clipboard for cryptocurrency addresses" ascii //weight: 1
+        $x_1_3 = "wallet. Replacing " ascii //weight: 1
+        $x_1_4 = "[INFO] tor.exe found, skipping download" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

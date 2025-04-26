@@ -2916,3 +2916,26 @@ rule Trojan_MSIL_PureLogStealer_AYRA_2147939925_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_NP_2147940070_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.NP!MTB"
+        threat_id = "2147940070"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {7e 2f 00 00 04 07 9a 06 28 79 00 00 0a 39 0b 00 00 00 7e 30 00 00 04 74 1d 00 00 01 2a 07 17 58 0b 07 7e 2f 00 00 04 8e 69 3f d2 ff ff ff}  //weight: 3, accuracy: High
+        $x_1_2 = "$95d5eed8-3808-421e-9b11-62d54f0de265" ascii //weight: 1
+        $x_1_3 = "JavaScript-plugin.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
