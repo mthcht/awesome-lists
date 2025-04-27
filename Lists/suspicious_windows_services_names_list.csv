@@ -136,7 +136,7 @@ RemCom Service,,RemCom.exe,Lateral movement,offensive_tool,critical,,https://git
 RustDesk Service,,RustDesk,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RustDesk.csv
 Chrome Remote Desktop Service,*remoting_host.exe,Chrome Remote Desktop,RMM,greyware_tool,medium,service name,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
 Service Bureau à distance Google Chrome,*remoting_host.exe,Chrome Remote Desktop,RMM,greyware_tool,medium,french service name,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
-chromoting,,Chrome Remote Desktop,RMM,greyware_tool,medium,N/A,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
+chromoting,,Chrome Remote Desktop,RMM,greyware_tool,medium,usually located in C:\Program Files (x86)\Google\Chrome Remote Desktop\*\remoting_host.exe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
 ScreenConnect Client*,,ConnectWise,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
 ScreenConnect Session Manager,ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
 ScreenConnect Relay,*\ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
