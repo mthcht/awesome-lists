@@ -40,12 +40,12 @@ Shadowsocks Local Service,,Shadowsocks,C2,greyware_tool,high,https://github.com/
 shadowsocks-local-service,,Shadowsocks,C2,greyware_tool,high,https://github.com/shadowsocks/shadowsocks-rust/blob/846752866e0b52c3d93efa2036204eadc36cc696/README.md?plain=1#L458,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/shadowsocks.csv
 *sharpsploit*,,sharpsploit,Lateral Movement,offensive_tool,critical,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SharpSploit.csv,https://github.com/cobbr/SharpSploit/blob/c16931ddb8cd2335e0bd26feb9aaa35f449d48db/SharpSploit/LateralMovement/SCM.cs#L209
 meshNotificationServer,,meshcentral,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv
-Mesh,,meshcentral,RMM,greyware_tool,high,\CurrentControlSet\Services\Mesh,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-MeshCommander,,meshcentral,RMM,greyware_tool,high,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-Mesh Agent,,meshcentral,RMM,greyware_tool,high,\CurrentControlSet\\Services\\Mesh Agent,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-Mesh Agent Service,,meshcentral,RMM,greyware_tool,high,https://github.com/Ylianst/MeshCentral/blob/65d1346e062ae35e114caa54733c3d0bb07a62a1/docs/docs/meshcentral/customization.md?plain=1#L81,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-MeshCentral,,meshcentral,RMM,greyware_tool,high,https://meshcentral.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-meshcentral.exe,"C:\Program Files\Open Source\MeshCentral\winservice\daemon\meshcentral.exe",meshcentral,RMM,greyware_tool,high,https://meshcentral.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+Mesh,,meshcentral,RMM,greyware_tool,medium,\CurrentControlSet\Services\Mesh,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+MeshCommander,,meshcentral,RMM,greyware_tool,medium,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+Mesh Agent,,meshcentral,RMM,greyware_tool,medium,\CurrentControlSet\\Services\\Mesh Agent,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+Mesh Agent Service,,meshcentral,RMM,greyware_tool,medium,https://github.com/Ylianst/MeshCentral/blob/65d1346e062ae35e114caa54733c3d0bb07a62a1/docs/docs/meshcentral/customization.md?plain=1#L81,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+MeshCentral,,meshcentral,RMM,greyware_tool,medium,https://meshcentral.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+meshcentral.exe,"C:\Program Files\Open Source\MeshCentral\winservice\daemon\meshcentral.exe",meshcentral,RMM,greyware_tool,medium,https://meshcentral.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
 DWAgent,*:\Program Files\DWAgent\native\dwagsvc.exe,DWAgent,RMM,greyware_tool,high,command observed: C:\Program Files\DWAgent\native\dwagsvc.exe run,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/dwagent.csv
 TightVNC Server,,TightVNC,RMM,greyware_tool,high,C:\Program Files (x86)\TightVNC\tvnserver.exe -service,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
 tvnserver,*:\Program Files (x86)\TightVNC\tvnserver.exe,TightVNC,RMM,greyware_tool,high,C:\Program Files (x86)\TightVNC\tvnserver.exe -service,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
@@ -61,26 +61,28 @@ KrbSCM,,KrbRelayUp,Privilege Escalation,offensive_tool,critical,https://github.c
 BASupportExpressSrvcUpdater_Dameware,*\Dameware Remote Everywhere Agent\BASupSrvcUpdater.exe,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/Dameware.csv
 Dameware Remote Everywhere Updater,,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/Dameware.csv
 BASupportExpressStandaloneService_Dameware,*\Dameware Remote Everywhere Agent\BASupSrvc.exe,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/Dameware.csv
-Dameware Remote Everywhere,,Dameware,RMM,greyware_tool,high,https://www.solarwinds.com/dameware,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/Dameware.csv
+Dameware Remote Everywhere,,Dameware,RMM,greyware_tool,medium,https://www.solarwinds.com/dameware,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/Dameware.csv
 ShTemporaryService1*,,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM https://simple-help.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SimpleHelp.csv
-Remote Access Service,*\SimpleService.exe,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM https://simple-help.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SimpleHelp.csv
-SimpleHelp Server Service,,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM https://simple-help.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SimpleHelp.csv
-SimpleHelp Server,*\SimpleService.exe,SimpleHelp,RMM,greyware_tool,high,SimpleHelp RMM https://simple-help.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SimpleHelp.csv
+Remote Access Service,*\SimpleService.exe,SimpleHelp,RMM,greyware_tool,medium,SimpleHelp RMM https://simple-help.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SimpleHelp.csv
+SimpleHelp Server Service,,SimpleHelp,RMM,greyware_tool,medium,SimpleHelp RMM https://simple-help.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SimpleHelp.csv
+SimpleHelp Server,*\SimpleService.exe,SimpleHelp,RMM,greyware_tool,medium,SimpleHelp RMM https://simple-help.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SimpleHelp.csv
 VSA X,*\PCMonitorSrv.exe,Kaseya VSA,RMM,greyware_tool,high,VSA RMM service name https://www.kaseya.com/products/vsa/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
 VSAX,,Kaseya VSA,RMM,greyware_tool,high,VSA RMM service name https://www.kaseya.com/products/vsa/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
 RPCPerformanceService,*\RPCPerformanceService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-RemotePC Performance Service,,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-RemotePCAttendedService,,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-RPCService,*\RemotePCService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-ViewerService,*\ViewerService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-PC Monitor,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,high,https://www.pulseway.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Pulseway.csv
-Pulseway,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,high,https://www.pulseway.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Pulseway.csv
+RemotePC Performance Service,,RemotePC,RMM,greyware_tool,medium,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+RemotePCAttendedService,,RemotePC,RMM,greyware_tool,medium,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+RPCService,*\RemotePCService.exe,RemotePC,RMM,greyware_tool,medium,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+ViewerService,*\ViewerService.exe,RemotePC,RMM,greyware_tool,medium,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+PC Monitor,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,medium,https://www.pulseway.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Pulseway.csv
+Pulseway,*\PCMonitorSrv.exe,Pulseway,RMM,greyware_tool,medium,https://www.pulseway.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Pulseway.csv
 Client32,*\NetSupport\*\client32.exe,NetSupport,RMM,greyware_tool,high,False positives expected,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/NetSupport.csv
 c3pool_miner,,xmrig,Cryptominer,greyware_tool,critical,https://github.com/C3Pool/xmrig_setup/blob/82c4e9bf7ee3c0c9cd925ede6e46e9ed4cc5f195/setup_c3pool_miner.bat#L380,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/X-Z/xmrig.csv
-tacticalrmm,,tacticalrmm,RMM,greyware_tool,high,https://github.com/amidaware/tacticalrmm/blob/6855493b2f1e1e46455325d98ffeb841071d1a98/api/tacticalrmm/core/installer.ps1#L16,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/X-Z/xmrig.csv
-Supremo,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,high,https://www.supremocontrol.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Supremo.csv
-SupremoService,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,high,https://www.supremocontrol.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Supremo.csv
-uvnc_service,*\WinVNC.exe*,UltraVNC,RMM,greyware_tool,high,https://uvnc.com/downloads/ultravnc.html,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/UltraVNC.csv
+tacticalrmm,,tacticalrmm,RMM,greyware_tool,medium,https://github.com/amidaware/tacticalrmm/blob/6855493b2f1e1e46455325d98ffeb841071d1a98/api/tacticalrmm/core/installer.ps1#L16,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/X-Z/xmrig.csv
+Supremo,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,medium,https://www.supremocontrol.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Supremo.csv
+SupremoService,*\Program Files (x86)\Supremo\SupremoService.exe,Supremo,RMM,greyware_tool,medium,https://www.supremocontrol.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Supremo.csv
+UltraViewService,,UltraViewer,RMM,greyware_tool,medium,service name used by UltraViewer RAT,https://github.com/mthcht/awesome-lists
+uvnc_service,*\WinVNC.exe*,UltraVNC,RMM,greyware_tool,medium,https://uvnc.com/downloads/ultravnc.html,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/UltraVNC.csv
+WinVNC*,,RealVNC,RMM,greyware_tool,medium,service name used by RealVNC RAT,https://github.com/mthcht/awesome-lists
 3proxy,,3proxy,Defense Evasion,offensive_tool,medium,https://github.com/3proxy/3proxy/blob/a80bef9ecf0c0ed98ccb1a1a764f6b79a620b78f/src/stringtable.c#L14,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/_Others/3proxy.csv
 chopper,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Tchopper.csv
 final_seg,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Tchopper.csv
@@ -88,9 +90,9 @@ RustDesk Service,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/ru
 RustDesk,,RustDesk,RMM,greyware_tool,high,https://github.com/rustdesk/rustdesk,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RustDesk.csv
 OpenSSH SSH Server,,OpenSSH Server,C2,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Openssh.csv
 sshd,,OpenSSH Server,C2,greyware_tool,high,https://github.com/PowerShell/openssh-portable/blob/661803c9ec4d7dee6574eb6ff0c85b2b7006edb1/contrib/win32/openssh/install-sshd.ps1#L137C1-L138C1,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Openssh.csv
-AeroadminService,*AeroAdmin.exe*,AeroAdmin,RMM,greyware_tool,high,https://ulm.aeroadmin.com/AeroAdmin.exe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/aeroadmin.csv
-AmmyyAdmin,,AmmyyAdmin,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Ammyy%20Admin.csv
-Ammyy Admin,,AmmyyAdmin,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Ammyy%20Admin.csv
+AeroadminService,*AeroAdmin.exe*,AeroAdmin,RMM,greyware_tool,medium,https://ulm.aeroadmin.com/AeroAdmin.exe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/aeroadmin.csv
+AmmyyAdmin,,AmmyyAdmin,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Ammyy%20Admin.csv
+Ammyy Admin,,AmmyyAdmin,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Ammyy%20Admin.csv
 ,*\tmp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths,https://github.com/mthcht/awesome-lists
 ,*\Temp\*,others,Defense Evasions,greyware_tool,medium,suspicious paths,https://github.com/mthcht/awesome-lists
 ,*\Users\Public\*,suspicious path,Defense Evasions,greyware_tool,critical,suspicious paths,https://github.com/mthcht/awesome-lists
@@ -105,20 +107,20 @@ AnyDesk,,anydesk,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunti
 AnyDeskMSI,,anydesk,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/anydesk.csv
 Action1 Agent,,Action1,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/action1.csv
 A1Agent,,Action1,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/action1.csv
-AteraAgent,,ateragent,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Atera.csv
+AteraAgent,,ateragent,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Atera.csv
 BTOBTO,,smbExec,Lateral Movement,offensive_tool,critical,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/impacket.csv
 CreatSvcRpc_*,,CreateSvcRpc,Privilege Escalation,offensive_tool,critical,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SspiUacBypass.csv
-DWAgent Service,,DWService,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/dwagent.csv
+DWAgent Service,,DWService,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/dwagent.csv
 GoToMyPC,*g2svc.exe*,GoToMyPC,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/GoToMyPC.csv
 GoodSync Server,,goodync,Data Exfiltration,greyware_tool,high,,https://www.goodsync.com/
 KrbSCM,,S4UTomato,Privilege Escalation,offensive_tool,critical,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/S4UTomato.csv
 LMIGuardianSvc,*LMIGuardianSvc.exe*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
 LMIMaint,,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
 CorpVPN,,UacMe,Persistence,offensive_tool,critical,https://github.com/r00t-3xp10it/redpill/blob/611d39b8bff717ac84d58550dc04e1b312acb19e/bin/UacMe.ps1#L291,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/redpill.csv
-LogMeIn Engine Maintenance Service,*ramaint.exe*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
-LogMeIn Kernel Information Provider,*LMIInfo.sys*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
-LogMeIn Maintenance Service,*RaMaint.exe*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
-LogMeIn Remote File System Driver,*LMIRfsDriver.sys*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
+LogMeIn Engine Maintenance Service,*ramaint.exe*,LogMeIn,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
+LogMeIn Kernel Information Provider,*LMIInfo.sys*,LogMeIn,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
+LogMeIn Maintenance Service,*RaMaint.exe*,LogMeIn,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
+LogMeIn Remote File System Driver,*LMIRfsDriver.sys*,LogMeIn,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
 LogMeIn,*LogMeIn.exe*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
 MagnetRAMCapture Driver,,MAGNET RAM Capture,Credential Access,greyware_tool,critical,,https://startupstash.com/tools/magnet-ram-capture/
 Mesh Agent,,MeshAgent,RMM,greyware_tool,high,,https://github.com/Ylianst/MeshAgent
@@ -130,33 +132,36 @@ PAExec,,paexec,Lateral Movement,offensive_tool,critical,,https://github.com/mthc
 PC Monitor,*PCMonitorSrv.exe*,Pulseway,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Pulseway.csv
 PPLBlade,,pplblade,Defense Evasion,offensive_tool,critical,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/PPLBlade.csv
 PSEXESVC,*PSEXESVC.exe*,psexec,Lateral Movement,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/psexec.csv
-Pulseway,,Pulseway,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Pulseway.csv
+Pulseway,,Pulseway,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/Pulseway.csv
 Radmin Server*,,Radmin,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Radmin.csv
-RemCom Service,,RemCom.exe,Lateral movement,offensive_tool,critical,,https://github.com/kavika13/RemCom
+RemCom Service,,RemCom.exe,Lateral movement,offensive_tool,high,,https://github.com/kavika13/RemCom
 RustDesk Service,,RustDesk,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RustDesk.csv
 Chrome Remote Desktop Service,*remoting_host.exe,Chrome Remote Desktop,RMM,greyware_tool,medium,service name,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
 Service Bureau à distance Google Chrome,*remoting_host.exe,Chrome Remote Desktop,RMM,greyware_tool,medium,french service name,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
 chromoting,,Chrome Remote Desktop,RMM,greyware_tool,medium,usually located in C:\Program Files (x86)\Google\Chrome Remote Desktop\*\remoting_host.exe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
-ScreenConnect Client*,,ConnectWise,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
-ScreenConnect Session Manager,ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
-ScreenConnect Relay,*\ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
-ScreenConnect Security Manager,*\ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
-ScreenConnect Web Server,*\ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
-Splashtop Software Updater Service,,splashtop,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Splashtop.csv
-SplashtopRemoteService,,splashtop,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Splashtop.csv
-Splashtop® Remote Service,,splashtop,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Splashtop.csv
-Supremo,,SupRemo,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Supremo.csv
-TacticalRMM Agent Service,,tacticalrmm,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tacticalrmm.csv
-TeamViewer,*TeamViewer_Service.exe,TeamViewer,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/teamviewer.csv
+ScreenConnect Client*,,ConnectWise,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
+ScreenConnect Session Manager,ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
+ScreenConnect Relay,*\ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
+ScreenConnect Security Manager,*\ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
+ScreenConnect Web Server,*\ScreenConnect.Service.exe,ConnectWise,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/ScreenConnect.csv
+Splashtop Software Updater Service,,splashtop,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Splashtop.csv
+SplashtopRemoteService,,splashtop,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Splashtop.csv
+Splashtop® Remote Service,,splashtop,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Splashtop.csv
+SplashtopAutoUpdateService,,splashtop,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Splashtop.csv
+SplashtopRemoteService,,splashtop,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Splashtop.csv
+Supremo,,SupRemo,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Supremo.csv
+TacticalRMM Agent Service,,tacticalrmm,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tacticalrmm.csv
+TeamViewer*,*TeamViewer_Service.exe,TeamViewer,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/teamviewer.csv
 TeamViewer VPN Adapter,,TeamViewer,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/teamviewer.csv
-TightVNC Server,,TightVNCServer,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
-WCESERVICE,,wce,Lateral Movement,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/wce.csv
-WRBoot,,Webroot SecureAnywhere,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
-WRCore,,Webroot SecureAnywhere,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
-WRCoreService,,Webroot SecureAnywhere,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
-WRSMSVC,,Webroot SecureAnywhere,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
-WRSVC,,Webroot SecureAnywhere,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
-WRSkyClient,,Webroot SecureAnywhere,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
+TightVNC Server,,TightVNCServer,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
+tvnserver,,TightVNCServer,RMM,greyware_tool,medium,tvnserver.exe used by TightVNC server,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
+WCESERVICE,,wce,Lateral Movement,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/wce.csv
+WRBoot,,Webroot SecureAnywhere,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
+WRCore,,Webroot SecureAnywhere,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
+WRCoreService,,Webroot SecureAnywhere,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
+WRSMSVC,,Webroot SecureAnywhere,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
+WRSVC,,Webroot SecureAnywhere,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
+WRSkyClient,,Webroot SecureAnywhere,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
 WRkrn,,Webroot SecureAnywhere,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
 Webroot Core Driver,,Webroot SecureAnywhere,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/kaseya%20VSA.csv
 WinRing0_*,,xmrig,Cryptomining,greyware_tool,critical,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/X-Z/xmrig.csv
@@ -189,14 +194,20 @@ ProcProtect,,ProcProtect,Defense Evasion,offensive_tool,critical,PoCs to manipul
 Zoho Assist-Remote Support,*\ZAService.exe*,Zoho Assist,RMM,greyware_tool,high,Zoho Assist https://www.zoho.com/pt-br/assist/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/PSMapExec.csv
 Agent,*:\Program Files (x86)\Common Files\Two Pilots\VPDAgent.exe,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
 VPDAgent,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
-RManService,*:\Program Files (x86)\Remote Utilities - Host\rutserv.exe*,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
-Remote Utilities - Host,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
+RManService,*:\Program Files (x86)\Remote Utilities - Host\rutserv.exe*,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
+Remote Utilities - Host,,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
 MiniInternetIdService,*:\Program Files (x86)\Remote Utilities - Server\InternetIdService.exe,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
-Remote Utilities - Mini Internet-ID Server,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
+Remote Utilities - Mini Internet-ID Server,,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
 AADInternals,,AADInternals,Credential Access,greyware_tools,high,A little service to steal the AD FS DKM secret,https://github.com/Gerenios/AADInternals/blob/0fa2edf5676439cd3fe7c92ed8006b63f0be9632/ADFS.ps1#L484C132-L484C144
-CyberGhost*Service,,CyberGhost VPN,Defense Evasion,greyware_tools,medium,CyberGhost VPN service,https://github.com/mthcht/awesome-lists
+CyberGhost*Service,,CyberGhost VPN,Defense Evasion,greyware_tools,low,CyberGhost VPN service,https://github.com/mthcht/awesome-lists
 FileZilla Server,,Filezilla,Data Exfiltration,greyware_tools,medium,FileZilla Server FTP server,https://github.com/mthcht/awesome-lists
 filezilla-server,,Filezilla,Data Exfiltration,greyware_tools,medium,filezilla-server,https://github.com/mthcht/awesome-lists
 GoToAssist,,GoToAssist,RMM,greyware_tools,medium,service name used by GoToAssist,https://github.com/mthcht/awesome-lists
 LogMeIn,,LogMeIn,RMM,greyware_tools,medium,service name used by LogMeIn,https://github.com/mthcht/awesome-lists
 GoToAssist Remote Support Customer,,GoToAssist,RMM,greyware_tools,medium,service name used by GoToAssist,https://github.com/mthcht/awesome-lists
+NinjaRMMAgent,,NinjaRMM,RMM,greyware_tools,medium,service name used by NinjaOne NinjaRMM,https://github.com/mthcht/awesome-lists
+OpenSSHd,,OpenSSH,greyware_tools,low,service name used by OpenSSH Server cygrunsrv.exe,https://github.com/mthcht/awesome-lists
+ssh-agent,,OpenSSH,greyware_tools,low,service name used by OpenSSH Agent ssh-agent.exe,https://github.com/mthcht/awesome-lists
+sshd,,OpenSSH,greyware_tools,low,service name used by OpenSSH Agent sshd.exe,https://github.com/mthcht/awesome-lists
+OpenVPNService*,,OpenVPN,greyware_tools,low,service name used by openvpnserv from OpenVPN software,https://github.com/mthcht/awesome-lists
+ProtonVPN*,,ProtonVPN,greyware_tools,low,service name used by ProtonVPN service ProtonVPNService.exe or ProtonVPN.WireGuardService.exe,https://github.com/mthcht/awesome-lists
