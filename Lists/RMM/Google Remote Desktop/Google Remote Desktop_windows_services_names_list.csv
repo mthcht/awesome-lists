@@ -1,4 +1,4 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
 Chrome Remote Desktop Service,*remoting_host.exe,Chrome Remote Desktop,RMM,greyware_tool,medium,service name,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
 Service Bureau à distance Google Chrome,*remoting_host.exe,Chrome Remote Desktop,RMM,greyware_tool,medium,french service name,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
-chromoting,,Chrome Remote Desktop,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
+chromoting,,Chrome Remote Desktop,RMM,greyware_tool,medium,usually located in C:\Program Files (x86)\Google\Chrome Remote Desktop\*\remoting_host.exe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/E-H/Google%20Remote%20Desktop.csv
