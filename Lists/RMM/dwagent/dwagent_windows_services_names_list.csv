@@ -1,3 +1,3 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
 DWAgent,*:\Program Files\DWAgent\native\dwagsvc.exe,DWAgent,RMM,greyware_tool,high,command observed: C:\Program Files\DWAgent\native\dwagsvc.exe run,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/dwagent.csv
-DWAgent Service,,DWService,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/dwagent.csv
+DWAgent Service,,DWService,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/D-F/dwagent.csv

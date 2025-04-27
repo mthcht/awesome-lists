@@ -1,8 +1,8 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
 meshNotificationServer,,meshcentral,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv
-Mesh,,meshcentral,RMM,greyware_tool,high,\CurrentControlSet\Services\Mesh,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-MeshCommander,,meshcentral,RMM,greyware_tool,high,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-Mesh Agent,,meshcentral,RMM,greyware_tool,high,\CurrentControlSet\\Services\\Mesh Agent,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-Mesh Agent Service,,meshcentral,RMM,greyware_tool,high,https://github.com/Ylianst/MeshCentral/blob/65d1346e062ae35e114caa54733c3d0bb07a62a1/docs/docs/meshcentral/customization.md?plain=1#L81,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-MeshCentral,,meshcentral,RMM,greyware_tool,high,https://meshcentral.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
-meshcentral.exe,C:\Program Files\Open Source\MeshCentral\winservice\daemon\meshcentral.exe,meshcentral,RMM,greyware_tool,high,https://meshcentral.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+Mesh,,meshcentral,RMM,greyware_tool,medium,\CurrentControlSet\Services\Mesh,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+MeshCommander,,meshcentral,RMM,greyware_tool,medium,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+Mesh Agent,,meshcentral,RMM,greyware_tool,medium,\CurrentControlSet\\Services\\Mesh Agent,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+Mesh Agent Service,,meshcentral,RMM,greyware_tool,medium,https://github.com/Ylianst/MeshCentral/blob/65d1346e062ae35e114caa54733c3d0bb07a62a1/docs/docs/meshcentral/customization.md?plain=1#L81,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+MeshCentral,,meshcentral,RMM,greyware_tool,medium,https://meshcentral.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	
+meshcentral.exe,C:\Program Files\Open Source\MeshCentral\winservice\daemon\meshcentral.exe,meshcentral,RMM,greyware_tool,medium,https://meshcentral.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/meshcentral.csv	

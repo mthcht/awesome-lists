@@ -1,6 +1,6 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
 RPCPerformanceService,*\RPCPerformanceService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-RemotePC Performance Service,,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-RemotePCAttendedService,,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-RPCService,*\RemotePCService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
-ViewerService,*\ViewerService.exe,RemotePC,RMM,greyware_tool,high,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+RemotePC Performance Service,,RemotePC,RMM,greyware_tool,medium,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+RemotePCAttendedService,,RemotePC,RMM,greyware_tool,medium,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+RPCService,*\RemotePCService.exe,RemotePC,RMM,greyware_tool,medium,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv
+ViewerService,*\ViewerService.exe,RemotePC,RMM,greyware_tool,medium,https://www.remotedesktop.com/ or remotepc.com,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemotePC.csv

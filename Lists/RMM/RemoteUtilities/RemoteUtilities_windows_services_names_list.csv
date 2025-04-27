@@ -1,7 +1,7 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
 Agent,*:\Program Files (x86)\Common Files\Two Pilots\VPDAgent.exe,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
 VPDAgent,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
-RManService,*:\Program Files (x86)\Remote Utilities - Host\rutserv.exe*,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
-Remote Utilities - Host,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
+RManService,*:\Program Files (x86)\Remote Utilities - Host\rutserv.exe*,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
+Remote Utilities - Host,,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
 MiniInternetIdService,*:\Program Files (x86)\Remote Utilities - Server\InternetIdService.exe,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
-Remote Utilities - Mini Internet-ID Server,,remoteutilities,RMM,greyware_tools,high,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv
+Remote Utilities - Mini Internet-ID Server,,remoteutilities,RMM,greyware_tools,medium,https://www.remoteutilities.com/,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/RemoteUtilities.csv

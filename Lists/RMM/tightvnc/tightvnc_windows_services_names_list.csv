@@ -1,4 +1,5 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
 TightVNC Server,,TightVNC,RMM,greyware_tool,high,C:\Program Files (x86)\TightVNC\tvnserver.exe -service,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
 tvnserver,*:\Program Files (x86)\TightVNC\tvnserver.exe,TightVNC,RMM,greyware_tool,high,C:\Program Files (x86)\TightVNC\tvnserver.exe -service,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
-TightVNC Server,,TightVNCServer,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
+TightVNC Server,,TightVNCServer,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv
+tvnserver,,TightVNCServer,RMM,greyware_tool,medium,tvnserver.exe used by TightVNC server,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/tightvnc.csv

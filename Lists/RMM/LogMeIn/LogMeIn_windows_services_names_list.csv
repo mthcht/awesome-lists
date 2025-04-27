@@ -1,9 +1,9 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
 LMIGuardianSvc,*LMIGuardianSvc.exe*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
 LMIMaint,,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
-LogMeIn Engine Maintenance Service,*ramaint.exe*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
-LogMeIn Kernel Information Provider,*LMIInfo.sys*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
-LogMeIn Maintenance Service,*RaMaint.exe*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
-LogMeIn Remote File System Driver,*LMIRfsDriver.sys*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
+LogMeIn Engine Maintenance Service,*ramaint.exe*,LogMeIn,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
+LogMeIn Kernel Information Provider,*LMIInfo.sys*,LogMeIn,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
+LogMeIn Maintenance Service,*RaMaint.exe*,LogMeIn,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
+LogMeIn Remote File System Driver,*LMIRfsDriver.sys*,LogMeIn,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
 LogMeIn,*LogMeIn.exe*,LogMeIn,RMM,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/L-N/LogMeIn.csv
 LogMeIn,,LogMeIn,RMM,greyware_tools,medium,service name used by LogMeIn,https://github.com/mthcht/awesome-lists

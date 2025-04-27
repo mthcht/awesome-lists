@@ -1,3 +1,3 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
-TeamViewer,*TeamViewer_Service.exe,TeamViewer,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/teamviewer.csv
+TeamViewer*,*TeamViewer_Service.exe,TeamViewer,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/teamviewer.csv
 TeamViewer VPN Adapter,,TeamViewer,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/teamviewer.csv
