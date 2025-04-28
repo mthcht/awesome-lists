@@ -1299,27 +1299,6 @@ rule Trojan_Win32_Zusy_RK_2147842704_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8a 48 09 32 ca 32 48 07 32 48 06 32 48 05 32 48 04 32 48 03 32 48 02 32 48 01 c6 40 0c 0a 66 0f b6 d1}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Zusy_RK_2147842704_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Zusy.RK!MTB"
-        threat_id = "2147842704"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Zusy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {0f 11 84 24 ?? ?? ?? ?? c7 84 24 ?? ?? ?? ?? ?? ?? ?? ?? 0f 28 05 ?? ?? ?? ?? 0f 11 84 24 ?? ?? ?? ?? 66 ?? 8a 84 24 08 01 00 00 30 84 0c 09 01 00 00 41 81 f9 d2 00 00 00 72 e9}  //weight: 1, accuracy: Low

@@ -1390,13 +1390,34 @@ rule Trojan_Win32_Razy_PGR_2147937929_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = {66 bb e0 2c 8d 15 ?? ?? ?? ?? 87 cb c1 db 0a 89 d7 ?? 33 f7 c1 e3 0d 33 d8 81 f2}  //weight: 5, accuracy: Low
+        $x_5_1 = {83 ec 04 c7 04 24 ?? ?? ?? ?? 59 09 f6 ?? ?? ?? ?? ?? 31 10 81 c0 ?? ?? ?? ?? 46 39 d8 75}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_Win32_Razy_PGR_2147937929_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.PGR!MTB"
+        threat_id = "2147937929"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {66 bb e0 2c 8d 15 ?? ?? ?? ?? 87 cb c1 db 0a 89 d7 ?? 33 f7 c1 e3 0d 33 d8 81 f2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_PGR_2147937929_2
 {
     meta:
         author = "defender2yara"
@@ -1435,6 +1456,28 @@ rule Trojan_Win32_Razy_ARZ_2147939574_0
         $x_3_1 = {c6 85 5c ff ff ff 56 c6 85 5d ff ff ff 69 c6 85 5e ff ff ff 72 c6 85 5f ff ff ff 74 c6 85 60 ff ff ff 75 c6 85 61 ff ff ff 61 c6 85 62 ff ff ff 6c c6 85 63 ff ff ff 41 c6 85 64 ff ff ff 6c c6 85 65 ff ff ff 6c c6 85 66 ff ff ff 6f c6 85 67 ff ff ff 63}  //weight: 3, accuracy: High
         $x_2_2 = {c6 85 4c ff ff ff 43 c6 85 4d ff ff ff 72 c6 85 4e ff ff ff 65 c6 85 4f ff ff ff 61 c6 85 50 ff ff ff 74 c6 85 51 ff ff ff 65 c6 85 52 ff ff ff 54 c6 85 53 ff ff ff 68 c6 85 54 ff ff ff 72 c6 85 55 ff ff ff 65 c6 85 56 ff ff ff 61 c6 85 57 ff ff ff 64}  //weight: 2, accuracy: High
         $x_1_3 = {c6 45 98 57 c6 45 99 69 c6 45 9a 6e c6 45 9b 45 c6 45 9c 78 c6 45 9d 65 c6 45 9e 63}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_PGZ_2147940189_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.PGZ!MTB"
+        threat_id = "2147940189"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {2e 74 65 78 74 00 00 00 ae 18 00 00 00 ?? ?? 00 00 1a 00 00 00 ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60}  //weight: 4, accuracy: Low
+        $x_1_2 = {2e 64 61 74 61 00 00 00 00 ?? 09 00 00 ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 00 00 e0}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

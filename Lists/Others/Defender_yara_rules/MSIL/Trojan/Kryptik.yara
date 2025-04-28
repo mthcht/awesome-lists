@@ -2097,3 +2097,24 @@ rule Trojan_MSIL_Kryptik_PGKR_2147939660_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Kryptik_PGT_2147940190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Kryptik.PGT!MTB"
+        threat_id = "2147940190"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Kryptik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {94 58 20 00 01 00 00 5d 94 fe 0e 0e 00 fe 0c 07 00 fe 0c 0c 00 fe 09 00 00 fe 0c 0c 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

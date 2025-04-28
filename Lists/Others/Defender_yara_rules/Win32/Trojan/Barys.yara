@@ -275,3 +275,24 @@ rule Trojan_Win32_Barys_AC_2147939492_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Barys_PGA_2147940183_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Barys.PGA!MTB"
+        threat_id = "2147940183"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 45 ec 89 45 ec 8b 4d 10 89 4d f0 ?? ?? 8b 55 f0 83 c2 ?? 89 55 f0 8b 45 10 05 ?? ?? ?? ?? 39 45 f0}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

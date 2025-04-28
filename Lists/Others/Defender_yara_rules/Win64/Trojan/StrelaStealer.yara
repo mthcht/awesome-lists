@@ -1303,3 +1303,25 @@ rule Trojan_Win64_StrelaStealer_GVA_2147936310_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StrelaStealer_PGS_2147940182_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StrelaStealer.PGS!MTB"
+        threat_id = "2147940182"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StrelaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "mkhViulPiqHHOEocCvVciLqRTwkgwGHcgRTBlPKkkAxFVLqMHzFlfCAAbgSacgxeBLbMyapxQwMT" ascii //weight: 3
+        $x_1_2 = "DllRegisterServer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
