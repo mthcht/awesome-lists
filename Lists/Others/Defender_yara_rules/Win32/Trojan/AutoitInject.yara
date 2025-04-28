@@ -4961,3 +4961,28 @@ rule Trojan_Win32_AutoitInject_AWRA_2147939855_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_AK_2147940149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.AK!MTB"
+        threat_id = "2147940149"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FILEINSTALL ( \"Cocles\" , @TEMPDIR & \"\\Cocles\" , 1 )" ascii //weight: 1
+        $x_1_2 = "REGDELETE ( \"default\" , \"pZjWU8gy\" )" ascii //weight: 1
+        $x_1_3 = "HOTKEYSET ( \"default\" , \"hHcbbFPAH\" )" ascii //weight: 1
+        $x_1_4 = "CONSOLEWRITE ( \"KdU5fIGyg\" )" ascii //weight: 1
+        $x_1_5 = "SEND ( \"DmnvWai9ze\" , 139 )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

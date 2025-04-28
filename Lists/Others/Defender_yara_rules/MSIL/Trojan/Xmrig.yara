@@ -777,3 +777,24 @@ rule Trojan_MSIL_Xmrig_AXR_2147925472_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xmrig_AXR_2147925472_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xmrig.AXR!MTB"
+        threat_id = "2147925472"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xmrig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {72 5b 00 00 70 28 ?? 00 00 0a 0b 28 ?? 00 00 0a 0c 08 06 6f ?? 00 00 0a 08 07 6f ?? 00 00 0a 73 05 00 00 0a 0d 09 08 6f ?? 00 00 0a 17 73 07 00 00 0a 13 04 11 04 7e 01 00 00 04 16 7e 01 00 00 04 8e 69 6f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
