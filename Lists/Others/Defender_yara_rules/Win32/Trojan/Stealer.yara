@@ -1216,3 +1216,24 @@ rule Trojan_Win32_Stealer_DAG_2147940153_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_EABD_2147940169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.EABD!MTB"
+        threat_id = "2147940169"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 c7 03 c8 81 e1 ff 00 00 00 8b f9 8a 97 ?? ?? ?? ?? 89 3d ?? ?? ?? ?? 88 96 ?? ?? ?? ?? 81 fe 39 0f 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

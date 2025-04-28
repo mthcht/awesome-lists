@@ -36,3 +36,25 @@ rule Worm_Win32_Sfone_A_2147609829_0
         )
 }
 
+rule Worm_Win32_Sfone_ECP_2147940178_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Sfone.ECP!MTB"
+        threat_id = "2147940178"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Sfone"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {83 e0 1f 50 59 8d 04 8d ?? ?? ?? ?? 8b 10 89 15 ?? ?? ?? ?? 8b 15 ?? ?? ?? ?? 89 10 a1}  //weight: 5, accuracy: Low
+        $x_5_2 = {99 f7 f9 89 14 bb 83 c7 01 89 f8 39 f0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -962,3 +962,24 @@ rule Trojan_MSIL_KillMBR_ARAZ_2147937113_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_EAZE_2147940172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.EAZE!MTB"
+        threat_id = "2147940172"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {06 07 02 07 6f 0a 00 00 0a 20 ff 00 00 00 5f d2 9c 07 17 58 0b 07 20 aa ae 01 00 32 e3}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

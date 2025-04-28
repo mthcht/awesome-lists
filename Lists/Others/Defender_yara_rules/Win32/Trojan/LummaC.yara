@@ -3651,3 +3651,45 @@ rule Trojan_Win32_LummaC_GXM_2147939552_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_EANI_2147940173_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.EANI!MTB"
+        threat_id = "2147940173"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {83 ec 10 0f b7 45 da 83 c0 01 66 89 45 da 8b 45 cc 0f b7 40 06 66 39 45 da}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_EHI_2147940175_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.EHI!MTB"
+        threat_id = "2147940175"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 95 64 ed ff ff 01 c2 83 c0 01 89 95 64 ed ff ff 3d 10 27 00 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

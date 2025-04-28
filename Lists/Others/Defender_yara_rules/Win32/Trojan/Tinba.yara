@@ -614,3 +614,24 @@ rule Trojan_Win32_Tinba_CCJX_2147940071_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tinba_EDG_2147940174_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tinba.EDG!MTB"
+        threat_id = "2147940174"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tinba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 c0 2b 44 24 10 03 c1 89 44 24 24 8b 44 24 40 0f af 44 24 2c 8d 44 10 0a 89 44 24 14 a1 ?? ?? ?? ?? 3b 05}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
