@@ -305,3 +305,27 @@ rule Trojan_Win32_Blackmoon_GAS_2147939648_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Blackmoon_AYA_2147940216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Blackmoon.AYA!MTB"
+        threat_id = "2147940216"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Blackmoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "r.cvcvn.cn/ACE/Scvhost.exe" ascii //weight: 2
+        $x_2_2 = "C:\\Windows\\SysWOW64\\Scvhost.exe" ascii //weight: 2
+        $x_1_3 = "BlackMoon RunTime Error:" ascii //weight: 1
+        $x_1_4 = "schtasks /create /tn XN-DTZY /TR C:\\Windows\\SysWOW64\\VIP.exe /delay" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

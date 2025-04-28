@@ -64,3 +64,29 @@ rule TrojanDownloader_Win64_AsyncRat_CCJU_2147932185_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_AsyncRat_CCJX_2147940233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/AsyncRat.CCJX!MTB"
+        threat_id = "2147940233"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "powershell.exe" wide //weight: 2
+        $x_2_2 = "-Command \"Add-MpPreference -ExclusionPath" wide //weight: 2
+        $x_2_3 = "Start-Process" wide //weight: 2
+        $x_2_4 = "-OutFile" wide //weight: 2
+        $x_2_5 = "-Command \"Invoke-WebRequest -Uri" wide //weight: 2
+        $x_1_6 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 31 00 38 00 35 00 2e 00 33 00 39 00 2e 00 31 00 37 00 2e 00 37 00 30 00 2f 00 [0-15] 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

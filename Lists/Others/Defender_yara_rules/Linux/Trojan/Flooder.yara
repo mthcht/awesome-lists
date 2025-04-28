@@ -221,3 +221,27 @@ rule Trojan_Linux_Flooder_H_2147935544_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Flooder_I_2147940232_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Flooder.I!MTB"
+        threat_id = "2147940232"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Flooder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.performHTTPFlood" ascii //weight: 1
+        $x_1_2 = "TCPfloodAttack" ascii //weight: 1
+        $x_1_3 = "performGREFlood" ascii //weight: 1
+        $x_1_4 = "main.udpsmart" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -74,3 +74,28 @@ rule Ransom_Win32_Satan_SIB_2147805926_0
         (4 of ($x*))
 }
 
+rule Ransom_Win32_Satan_AYA_2147940214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Satan.AYA!MTB"
+        threat_id = "2147940214"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Satan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\source\\ransomware\\ransomware.cpp" ascii //weight: 2
+        $x_1_2 = "Infection thread started" wide //weight: 1
+        $x_1_3 = "This is not the first time the ransomware is running." wide //weight: 1
+        $x_1_4 = "Encrypting the files in the profile directory ended." wide //weight: 1
+        $x_1_5 = "Failed to allocate memory for the ransom note." wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -105,3 +105,28 @@ rule Ransom_MSIL_HiddenTears_AYB_2147930965_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTears_AYC_2147940215_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTears.AYC!MTB"
+        threat_id = "2147940215"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTears"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Desktop\\READ_ME.TXT" wide //weight: 2
+        $x_1_2 = "Secure Encryptor" wide //weight: 1
+        $x_1_3 = "ransom01/createkeys.php" wide //weight: 1
+        $x_1_4 = "This is a Blockchain" ascii //weight: 1
+        $x_1_5 = "SendEncryptedKey" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

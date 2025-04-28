@@ -1875,3 +1875,28 @@ rule Trojan_Win32_Lazy_SC_2147939746_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AYC_2147940217_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AYC!MTB"
+        threat_id = "2147940217"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Encrypting payload with ChaCha20+XOR." ascii //weight: 2
+        $x_1_2 = "Encrypted payload size: %u bytes." ascii //weight: 1
+        $x_1_3 = "Output saved to packed.exe" ascii //weight: 1
+        $x_1_4 = "\\Release\\bigDawg.pdb" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\Paths" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

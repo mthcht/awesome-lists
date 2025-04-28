@@ -1573,3 +1573,27 @@ rule Ransom_MSIL_FileCoder_SO_2147936300_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_AYR_2147940212_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AYR!MTB"
+        threat_id = "2147940212"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "freemovies.liveblog365.com" wide //weight: 2
+        $x_1_2 = "Do you confirm your intention to utilize this string for decryption purposes?" wide //weight: 1
+        $x_1_3 = "You are hit with a virus." wide //weight: 1
+        $x_1_4 = "Your issue is that your computer is completely locked down. You need to pay up." wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

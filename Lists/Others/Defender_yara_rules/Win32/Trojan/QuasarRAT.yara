@@ -19,3 +19,28 @@ rule Trojan_Win32_QuasarRAT_A_2147893085_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_QuasarRAT_AYA_2147940213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/QuasarRAT.AYA!MTB"
+        threat_id = "2147940213"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "141.98.7.51/stub/Shell.exe" ascii //weight: 2
+        $x_1_2 = "XWORM NOT FIXED" ascii //weight: 1
+        $x_1_3 = "powershell -inputformat none -outputformat none -NonInteractive -Command" ascii //weight: 1
+        $x_1_4 = "Add-MpPreference -ExclusionPath C:\\Windows\\PowerShell" ascii //weight: 1
+        $x_1_5 = "Injection completed!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
