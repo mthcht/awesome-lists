@@ -2802,3 +2802,28 @@ rule Trojan_Win32_ClipBanker_ACI_2147937977_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_SL_2147940309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.SL!MTB"
+        threat_id = "2147940309"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+        $x_2_2 = "SvcHostUpdate" ascii //weight: 2
+        $x_2_3 = "SvcHostSys" ascii //weight: 2
+        $x_2_4 = "start C:\\Windows\\Runtime Broker.exe" ascii //weight: 2
+        $x_2_5 = "C:\\Windows\\System32\\svchost" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
