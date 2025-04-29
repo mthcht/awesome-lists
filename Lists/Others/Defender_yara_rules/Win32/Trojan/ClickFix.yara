@@ -3105,6 +3105,7 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_5 = "abodeshop.shop" wide //weight: 1
         $x_1_6 = "dybep.fun" wide //weight: 1
         $x_1_7 = "esyn.live" wide //weight: 1
+        $x_1_8 = "lwhkr.press/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))

@@ -2031,3 +2031,70 @@ rule Trojan_Win32_Tofsee_EAVN_2147939540_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_Z_2147940287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.Z!MTB"
+        threat_id = "2147940287"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 8b ec 8b 45 08 57 8b 7d 10 b1 01 85 ff 74 1d 56 8b 75 0c 2b f0 8a 14 06 32 55 14 88 10 8a d1 02 55 18 f6 d9 00 55 14 40 4f 75 ea 5e 8b 45 08 5f 5d c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tofsee_Z_2147940287_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.Z!MTB"
+        threat_id = "2147940287"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 44 24 04 53 8a 18 84 db 74 2d 8b d0 2b 54 24 0c 8b 4c 24 0c 84 db 74 12 8a 19 84 db 74 1b 38 1c 0a 75 07 41 80 3c 0a 00 75 ee 80 39 00 74 0a 40 8a 18 42 84 db 75 d9 33 c0 5b c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tofsee_Z_2147940287_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.Z!MTB"
+        threat_id = "2147940287"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "loader_id" ascii //weight: 1
+        $x_1_2 = "start_srv" ascii //weight: 1
+        $x_1_3 = "lid_file_upd" ascii //weight: 1
+        $x_1_4 = "localcfg" ascii //weight: 1
+        $x_1_5 = "Incorrect respons" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
