@@ -8935,6 +8935,28 @@ rule Trojan_Win32_Glupteba_GZZ_2147906106_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Glupteba_GZZ_2147906106_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.GZZ!MTB"
+        threat_id = "2147906106"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {31 0f 81 c7 04 00 00 00 39 f7 ?? ?? 81 c0 ?? ?? ?? ?? 81 c3}  //weight: 10, accuracy: Low
+        $x_10_2 = {31 17 81 c7 04 00 00 00 09 d9 39 c7}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
 rule Trojan_Win32_Glupteba_GZY_2147906968_0
 {
     meta:

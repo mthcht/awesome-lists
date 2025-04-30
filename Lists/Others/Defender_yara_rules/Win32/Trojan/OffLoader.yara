@@ -4002,3 +4002,27 @@ rule Trojan_Win32_OffLoader_GPPD_2147940234_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ANC_2147940397_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ANC!MTB"
+        threat_id = "2147940397"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "creatoreggs.icu/oiu.php?" wide //weight: 3
+        $x_3_2 = "buttonsize.xyz/oius.php?pe" wide //weight: 3
+        $x_1_3 = "nocookies" wide //weight: 1
+        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
