@@ -169,8 +169,6 @@
         "ips": [
             "52.112.0.0/14",
             "52.122.0.0/15",
-            "52.238.119.141/32",
-            "52.244.160.207/32",
             "2603:1027::/48",
             "2603:1037::/48",
             "2603:1047::/48",
@@ -641,8 +639,7 @@
             "*.sharepointonline.com",
             "dc.services.visualstudio.com",
             "mem.gfx.ms",
-            "staffhub.ms",
-            "staffhubweb.azureedge.net"
+            "staffhub.ms"
         ],
         "tcpPorts": "443",
         "expressRoute": false,
