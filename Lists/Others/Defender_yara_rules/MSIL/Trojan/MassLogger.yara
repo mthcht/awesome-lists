@@ -687,3 +687,26 @@ rule Trojan_MSIL_MassLogger_AHSA_2147940240_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MassLogger_AISA_2147940326_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.AISA!MTB"
+        threat_id = "2147940326"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 11 04 09 06 07 6f ?? ?? 00 0a 17 73 ?? ?? 00 0a 13 05 16 2d 14 2b 38 2b 3a 16 03 8e 69 6f ?? ?? 00 0a 11 05 6f ?? ?? 00 0a 11 04 6f ?? ?? 00 0a 13 06 11 06 8e 69 28 ?? ?? 00 06 0c 11 06 16 08 16 11 06 8e 69 28 ?? ?? 00 0a 08 13 07 de 2c 11 05 2b c4 03 2b c3}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

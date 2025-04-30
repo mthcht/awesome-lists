@@ -3693,3 +3693,25 @@ rule Trojan_Win32_LummaC_EHI_2147940175_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaC_NFS_2147940329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.NFS!MTB"
+        threat_id = "2147940329"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 c8 21 f8 89 da 21 f2 0f a4 c2 01 01 c0 01 f9 11 f3 89 d6 31 de 89 c7 31 cf f7 d2 f7 d0 21 c8 21 da}  //weight: 1, accuracy: High
+        $x_2_2 = {01 f1 fe c1 89 c6 0f ad d6 89 d7 d3 ef f6 c1 ?? ?? ?? 89 fe 31 ff 31 d7 31 c6}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

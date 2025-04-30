@@ -100,28 +100,6 @@ rule Trojan_Win32_Grandoreiro_2147838139_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Grandoreiro_2147838140_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Grandoreiro.psyJ!MTB"
-        threat_id = "2147838140"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Grandoreiro"
-        severity = "Critical"
-        info = "psyJ: an internal category used to refer to some threats"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_7_1 = {74 04 85 ce 75 26 e8 94 ff ff ff 8b c8 3b cf 75 07 b9 4f e6 40 bb eb 0e 85 ce 75 0a 0d 11 47 00 00 c1 e0 10 0b c8 89 0d 18 7c 40 00 f7 d1}  //weight: 7, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Grandoreiro_2147838141_0
 {
     meta:

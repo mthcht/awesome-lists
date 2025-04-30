@@ -3725,3 +3725,27 @@ rule Trojan_Win32_GuLoader_RAF_2147939795_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RAG_2147940325_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAG!MTB"
+        threat_id = "2147940325"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "beskyttelsesvrdige karle" ascii //weight: 1
+        $x_1_2 = "prorektorers descendent noncasuistically" ascii //weight: 1
+        $x_1_3 = "sylnnen aftrkningens dizorganisation" ascii //weight: 1
+        $x_1_4 = "broderparrene.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
