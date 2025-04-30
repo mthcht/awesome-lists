@@ -514,3 +514,24 @@ rule Trojan_Win64_LummaC_MGB_2147940256_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaC_ALCM_2147940410_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaC.ALCM!MTB"
+        threat_id = "2147940410"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f 94 c0 41 0f 95 c3 83 fe 0a 0f 9c c2 83 fe 09 0f 9f c3 20 d8 44 08 db 44 20 da 08 c2 89 d8 30 d0 84 d2 41 bb ?? ?? ?? ?? 45 0f 45 df 84 db 45 0f 45 dc 84 c0 45 0f 44 df}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

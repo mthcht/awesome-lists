@@ -224,3 +224,29 @@ rule Ransom_Win32_HydraCrypt_NH_2147935367_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_HydraCrypt_NIT_2147940413_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/HydraCrypt.NIT!MTB"
+        threat_id = "2147940413"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "HydraCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "files has been encrypted" ascii //weight: 2
+        $x_2_2 = "wbadmin delete catalog -quiet" wide //weight: 2
+        $x_2_3 = "bcdedit /set {default} recoveryenabled no" wide //weight: 2
+        $x_2_4 = "vssadmin.exe Delete Shadows /All /Quiet" wide //weight: 2
+        $x_1_5 = "wmic shadowcopy delete" wide //weight: 1
+        $x_1_6 = "get your files back" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
