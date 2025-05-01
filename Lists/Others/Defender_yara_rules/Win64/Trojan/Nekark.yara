@@ -43,3 +43,33 @@ rule Trojan_Win64_Nekark_NIT_2147928821_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Nekark_NN_2147940430_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Nekark.NN!MTB"
+        threat_id = "2147940430"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nekark"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "in esecuzione come amministratore. Riavvio con privilegi elevati..." ascii //weight: 2
+        $x_1_2 = "Inserisci il testo da analizzare" ascii //weight: 1
+        $x_1_3 = "ramerson patrick solution fabric omebralesrtup beraitod" ascii //weight: 1
+        $x_1_4 = "Nessun input ricevuto. Utilizzo del testo predefinito" ascii //weight: 1
+        $x_1_5 = "opretorsa.pdb" ascii //weight: 1
+        $x_1_6 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_7 = "Invoke-WebRequest -Uri" ascii //weight: 1
+        $x_1_8 = "Download del file 3 fallito" ascii //weight: 1
+        $x_1_9 = "powershell -Command" ascii //weight: 1
+        $x_1_10 = "Cartelle aggiunte alle esclusioni di Windows Defender" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

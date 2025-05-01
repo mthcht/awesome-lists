@@ -2962,3 +2962,26 @@ rule Trojan_MSIL_PureLogStealer_AFSA_2147940203_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_PNED_2147940440_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.PNED!MTB"
+        threat_id = "2147940440"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {13 04 11 04 17 6f ?? 00 00 0a 11 04 18 6f ?? 00 00 0a 11 04 08 6f ?? 00 00 0a 11 04 09 6f ?? 00 00 0a 73 0c 00 00 0a 13 05 11 05 11 04 6f ?? 00 00 0a 17 73 0e 00 00 0a 13 06 11 06 02 16 02 8e 69 6f ?? 00 00 0a 11 06 6f ?? 00 00 0a de 0c}  //weight: 4, accuracy: Low
+        $x_2_2 = {28 13 00 00 0a 7e 17 00 00 04 6f 72 00 00 0a 74 29 00 00 01 fe 09 00 00 8c 41 00 00 01 6f 4d 00 00 0a 74 18 00 00 01 2a}  //weight: 2, accuracy: High
+        $x_1_3 = {06 28 05 00 00 0a 0c 07 28 05 00 00 0a 0d de 07}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
