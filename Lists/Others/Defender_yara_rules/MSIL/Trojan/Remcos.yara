@@ -13179,3 +13179,24 @@ rule Trojan_MSIL_Remcos_PKDZ_2147940439_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_ANSA_2147940455_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.ANSA!MTB"
+        threat_id = "2147940455"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {09 1f 1c 28 ?? 00 00 06 28 ?? 00 00 06 09 1f 20 28 ?? 00 00 06 28 ?? 00 00 06 28 ?? 00 00 06 25 26 1f 38 28 ?? 00 00 06 25 26 28 ?? ?? 00 06 25 26 13 04 11 04 07 1f 24 28 ?? 00 00 06 28 ?? 00 00 06 25 26 13 05 09 11 05 09 28 ?? 00 00 06 25 26 1f 28 28 ?? 00 00 06 5b 28 ?? 00 00 06 25 26 28 ?? ?? 00 06 09 11 05 09 28 ?? ?? 00 06 25 26 1f 2c 28 ?? 00 00 06 5b 28 ?? 00 00 06 25 26 28 ?? 00 00 06 09 1f 30 28 ?? 00 00 06 28 ?? 00 00 06 08 09 28 ?? 00 00 06 25 26 1f 34 28 ?? 00 00 06 28 ?? 00 00 06 25 26 13 06 11 06 02 1f 38 28 ?? 00 00 06 02 28 ?? ?? 00 06 25 26 69 28 ?? 00 00 06 11 06 28 ?? ?? 00 06 de 1f}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

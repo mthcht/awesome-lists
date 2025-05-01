@@ -3303,3 +3303,105 @@ rule Trojan_Win32_ClickFix_SEZ_2147940391_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_SG_2147940467_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SG"
+        threat_id = "2147940467"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "mshta.exe" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $n_100_3 = ".hta" wide //weight: -100
+        $n_100_4 = ".html" wide //weight: -100
+        $n_100_5 = ".htm" wide //weight: -100
+        $n_100_6 = ".ps1" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ABA_2147940468_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ABA"
+        threat_id = "2147940468"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "chatcdn" wide //weight: 1
+        $x_1_2 = "duckdns" wide //weight: 1
+        $x_1_3 = "digikex.com" wide //weight: 1
+        $x_1_4 = "bodlsan.com" wide //weight: 1
+        $x_1_5 = ".r2.dev" wide //weight: 1
+        $x_1_6 = ".trycloudflare.com" wide //weight: 1
+        $x_1_7 = "cloudflare" wide //weight: 1
+        $x_1_8 = "pastebin" wide //weight: 1
+        $x_1_9 = "pastes.io" wide //weight: 1
+        $x_1_10 = "cutt.ly" wide //weight: 1
+        $x_1_11 = "tinyurl.com" wide //weight: 1
+        $x_1_12 = "rentry.co" wide //weight: 1
+        $x_1_13 = "blogspot.com" wide //weight: 1
+        $x_1_14 = "bit.ly" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DAC_2147940469_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAC!MTB"
+        threat_id = "2147940469"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_100_2 = ".shop/" wide //weight: 100
+        $x_100_3 = ".xyz/" wide //weight: 100
+        $x_100_4 = ".icu/" wide //weight: 100
+        $x_100_5 = ".lat/" wide //weight: 100
+        $x_100_6 = ".fun/" wide //weight: 100
+        $x_100_7 = ".bet/" wide //weight: 100
+        $x_100_8 = ".live/" wide //weight: 100
+        $x_100_9 = ".life/" wide //weight: 100
+        $x_100_10 = ".online/" wide //weight: 100
+        $x_100_11 = ".bond/" wide //weight: 100
+        $x_100_12 = ".top/" wide //weight: 100
+        $x_100_13 = ".world/" wide //weight: 100
+        $x_100_14 = ".click/" wide //weight: 100
+        $x_100_15 = ".forest/" wide //weight: 100
+        $x_100_16 = ".run/" wide //weight: 100
+        $x_100_17 = ".was/" wide //weight: 100
+        $x_100_18 = ".today/" wide //weight: 100
+        $x_100_19 = ".cyou/" wide //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+

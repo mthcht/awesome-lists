@@ -5293,3 +5293,24 @@ rule Trojan_Win32_LummaStealer_ZM_2147940291_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_GVF_2147940466_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.GVF!MTB"
+        threat_id = "2147940466"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {33 c7 2b cd f7 de 81 f1 60 9b b7 35 03 dd 87 c6 33 d0 81 eb 7c 09 51 1b 83 c1 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
