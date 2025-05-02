@@ -387,3 +387,33 @@ rule Trojan_MSIL_Convagent_AORA_2147939597_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_NG_2147940552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.NG!MTB"
+        threat_id = "2147940552"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Beendet sich selbst ohne Benutzerbenachrichtigung" ascii //weight: 1
+        $x_1_2 = "Windows Error Reporting deaktivieren" ascii //weight: 1
+        $x_1_3 = "Windows Security Notifications deaktivieren" ascii //weight: 1
+        $x_1_4 = "DisableWindowsUpdateAccess" ascii //weight: 1
+        $x_1_5 = "DisableAntiSpyware" ascii //weight: 1
+        $x_2_6 = "WindowStyle Hidden -ExecutionPolicy Bypass -File" ascii //weight: 2
+        $x_1_7 = "DisableRealtimeMonitoring $true" ascii //weight: 1
+        $x_1_8 = "DisableIOAVProtection $true" ascii //weight: 1
+        $x_1_9 = "DisableScriptScanning $true" ascii //weight: 1
+        $x_1_10 = "Stop-Service WinDefend -Force" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
