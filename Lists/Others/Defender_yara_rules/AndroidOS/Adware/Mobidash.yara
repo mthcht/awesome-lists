@@ -156,3 +156,137 @@ rule Adware_AndroidOS_Mobidash_AE_443018_0
         (all of ($x*))
 }
 
+rule Adware_AndroidOS_Mobidash_AF_456843_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Adware:AndroidOS/Mobidash.AF!MTB"
+        threat_id = "456843"
+        type = "Adware"
+        platform = "AndroidOS: Android operating system"
+        family = "Mobidash"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "com/mobappsbaker/uaeoffers" ascii //weight: 1
+        $x_1_2 = {6e 10 b4 01 01 00 62 01 ?? 24 6e 10 b4 01 01 00 22 01 c4 00 54 02}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Adware_AndroidOS_Mobidash_AG_456844_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Adware:AndroidOS/Mobidash.AG!MTB"
+        threat_id = "456844"
+        type = "Adware"
+        platform = "AndroidOS: Android operating system"
+        family = "Mobidash"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {65 00 14 06 1c 00 0d 7f 6e 20 ?? 11 65 00 6e 10 ?? 15 05 00 0c 06 5b 56}  //weight: 1, accuracy: Low
+        $x_1_2 = {96 14 06 b8 00 0a 7f 6e 20 ?? 11 65 00 0c 06 5b 56 ?? 96 14 06 9d 02 0a 7f 6e 20}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Adware_AndroidOS_Mobidash_AH_456845_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Adware:AndroidOS/Mobidash.AH!MTB"
+        threat_id = "456845"
+        type = "Adware"
+        platform = "AndroidOS: Android operating system"
+        family = "Mobidash"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "distinction/cflow/activitites" ascii //weight: 1
+        $x_1_2 = "CocktailBooksActivity" ascii //weight: 1
+        $x_1_3 = "/pages/glossary_notes_widget" ascii //weight: 1
+        $x_1_4 = {74 00 00 0a 01 38 01 37 00 72 10 ?? 74 00 00 0c 01 1f 01 de 11 6e 10}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule Adware_AndroidOS_Mobidash_AI_456846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Adware:AndroidOS/Mobidash.AI!MTB"
+        threat_id = "456846"
+        type = "Adware"
+        platform = "AndroidOS: Android operating system"
+        family = "Mobidash"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {43 54 00 0c 04 21 45 01 26 35 56 11 00 46 07 04 06 6e 10 ?? 43 07 00 1a 08}  //weight: 1, accuracy: Low
+        $x_1_2 = {12 00 6e 20 50 01 03 00 0c 00 1a 01 ?? 7e 1a 02 00 00 72 30 73 03 10 02 0c 00 1a 01}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Adware_AndroidOS_Mobidash_AJ_456847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Adware:AndroidOS/Mobidash.AJ!MTB"
+        threat_id = "456847"
+        type = "Adware"
+        platform = "AndroidOS: Android operating system"
+        family = "Mobidash"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "com/dextrade/android/MainActivity" ascii //weight: 1
+        $x_1_2 = {32 04 00 6e 10 ?? 3d 04 00 0c 00 72 10 ?? 55 00 00 0c 00 54 41 ?? 21 38 01 0c 00 22 02 19 00 12 03 70 30 62 00 42 03 6e 30 ?? 9f 10 02 0e 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Adware_AndroidOS_Mobidash_AK_456848_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Adware:AndroidOS/Mobidash.AK!MTB"
+        threat_id = "456848"
+        type = "Adware"
+        platform = "AndroidOS: Android operating system"
+        family = "Mobidash"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "com/expressexpense/bluetooth/print/Main_Activity" ascii //weight: 1
+        $x_1_2 = {5d 01 00 54 30 ?? 48 14 01 0c 00 01 7f 14 02 0d 00 01 7f 6e 30 ?? 5d 10 02 54 30}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

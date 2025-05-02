@@ -144,3 +144,25 @@ rule TrojanSpy_AndroidOS_Fakecalls_F_2147938560_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_Fakecalls_N_2147940484_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/Fakecalls.N!MTB"
+        threat_id = "2147940484"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "Fakecalls"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {04 00 0c 04 6e 20 ?? 02 43 00 0c 03 6e 20 ?? 02 13 00 0c 03 13 04 3a 00 6e 20 ?? 02 43 00 0c 03 62 04 03 00 6e 20 ?? 02 43 00 0c 03 13 04 20 00 6e 20 ?? 02 43 00 0c 03 60 04 02 00 6e 20 ?? 02 43 00 0c 03 13 04 20 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {06 00 0c 06 12 07 6e 30 ?? 01 69 07 0c 04 6e 10 ?? 02 04 00 0a 06 39 06 a4 00 6e 10 ?? 01 09 00 0c 02 6e 10 ?? 02 02 00 0a 06 39 06 98 00 6e 10 ?? 01 09 00 0c 00 6e 10 ?? 02 00 00 0a 06 39 06 8c 00 60 06 02 00 13 07 15 00 34 76 5f 00 6e 10}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

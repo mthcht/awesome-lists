@@ -86,9 +86,11 @@ rule TrojanDownloader_Win64_AsyncRat_CCJX_2147940233_0
         $x_2_5 = "-Command \"Invoke-WebRequest -Uri" wide //weight: 2
         $x_1_6 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 31 00 38 00 35 00 2e 00 33 00 39 00 2e 00 31 00 37 00 2e 00 37 00 30 00 2f 00 [0-15] 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
         $x_1_7 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 37 00 37 00 2e 00 32 00 32 00 33 00 2e 00 31 00 31 00 39 00 2e 00 38 00 35 00 2f 00 [0-15] 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 38 00 30 00 2e 00 36 00 34 00 2e 00 31 00 38 00 2e 00 31 00 37 00 33 00 2f 00 [0-15] 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
+            ((4 of ($x_2_*) and 3 of ($x_1_*))) or
             ((5 of ($x_2_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )

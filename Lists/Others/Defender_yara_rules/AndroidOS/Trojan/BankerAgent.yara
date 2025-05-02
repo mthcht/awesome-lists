@@ -309,3 +309,47 @@ rule Trojan_AndroidOS_BankerAgent_AE_2147924226_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_BankerAgent_BX_2147940548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/BankerAgent.BX"
+        threat_id = "2147940548"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "BankerAgent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "com/example/omantelprize/ServiceRestarterBroadcastReceiver" ascii //weight: 2
+        $x_2_2 = "New, better app experiance" ascii //weight: 2
+        $x_2_3 = "omantelprize/OnboardingActivity" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_AndroidOS_BankerAgent_BI_2147940549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/BankerAgent.BI"
+        threat_id = "2147940549"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "BankerAgent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ChangeSmsDefaultAppActivity" ascii //weight: 2
+        $x_2_2 = "FitnessAccessibilityService" ascii //weight: 2
+        $x_2_3 = "UserPresentReceiverService" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

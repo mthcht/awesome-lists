@@ -1900,3 +1900,26 @@ rule Trojan_Win32_Lazy_AYC_2147940217_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_HNV_2147940511_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.HNV!MTB"
+        threat_id = "2147940511"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {00 00 5c 00 5c 00 25 00 6c 00 73 00 5c 00 25 00 6c 00 73 00 5c 00 25 00 6c 00 73 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 10, accuracy: High
+        $x_2_2 = "CreateToolhelp32Snapshot" ascii //weight: 2
+        $x_1_3 = "GetComputerNameW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3531,3 +3531,25 @@ rule Trojan_MSIL_Injuke_AYNA_2147935933_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_APSA_2147940528_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.APSA!MTB"
+        threat_id = "2147940528"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {07 11 06 09 11 06 91 06 11 06 91 61 d2 9c 11 06 17 58 13 06 11 06 09 8e 69 32 e5}  //weight: 5, accuracy: High
+        $x_2_2 = {11 04 08 59 02 8e 69 58 02 8e 69 5d 13 05 09 11 05 02 11 04 91 9c 11 04 17 58 13 04 11 04 02 8e 69 32 dd}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

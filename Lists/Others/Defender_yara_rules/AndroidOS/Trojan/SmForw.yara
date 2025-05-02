@@ -94,3 +94,26 @@ rule Trojan_AndroidOS_SmForw_G_2147852114_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_SmForw_AV_2147940547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SmForw.AV"
+        threat_id = "2147940547"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SmForw"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "cancelNotJoinTimerTask" ascii //weight: 2
+        $x_2_2 = "APICAL_NOTIFICATION_ACTION" ascii //weight: 2
+        $x_2_3 = "startVideoCallRestTimeCountDownTimer" ascii //weight: 2
+        $x_2_4 = "ACTION_VOICE_SYSTEM_CTRL_SCREEN" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
