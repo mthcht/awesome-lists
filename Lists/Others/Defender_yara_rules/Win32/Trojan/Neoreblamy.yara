@@ -4363,3 +4363,50 @@ rule Trojan_Win32_Neoreblamy_NMY_2147939670_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_CI_2147940579_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.CI!MTB"
+        threat_id = "2147940579"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2b c8 8b 45 f4 2b 4d f8 ff 34 8f ff 34 b0 e8 ?? ?? ?? ff 59 59 8b 4d f4 89 04 b1 46 8b 45 f0 03 c3}  //weight: 5, accuracy: Low
+        $x_5_2 = {2b c8 03 4d fc ff 34 8b ff 34 b7 e8 ?? ?? ?? ff 89 04 b7 46 8b 45 f4 03 45 f0 59 59 3b f0 0f 82}  //weight: 5, accuracy: Low
+        $x_5_3 = {ff 34 8b ff 34 b8 e8 ?? ?? ?? ff 59 59 8b 4d f4 89 04 b9 47 8b 45 f0 03 c6 3b f8 0f 82}  //weight: 5, accuracy: Low
+        $x_5_4 = {2b c8 2b 4d f8 ff 34 8f ff 34 b3 e8 ?? ?? ?? ff 89 04 b3 46 8b 45 f4 03 45 ec 59 59 3b f0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_Neoreblamy_NFZ_2147940581_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NFZ!MTB"
+        threat_id = "2147940581"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {eb 1b 6a 04 58 6b c0 00 8b 84 05 0c ff ff ff 40 6a 04 59 6b c9 00}  //weight: 1, accuracy: High
+        $x_1_2 = {eb 07 8b 45 c0 40 89 45 c0 83 7d c0 01 7d 10}  //weight: 1, accuracy: High
+        $x_2_3 = {6a 04 5a 6b d2 00 8b 94 15 ?? ?? ff ff 4a 6a 04 5e 6b f6 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
