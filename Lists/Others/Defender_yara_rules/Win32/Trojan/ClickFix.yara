@@ -3108,6 +3108,29 @@ rule Trojan_Win32_ClickFix_STU_2147939755_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "|iex" wide //weight: 1
+        $x_1_2 = "curl" wide //weight: 1
+        $n_1000_3 = "http" wide //weight: -1000
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_STU_2147939755_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.STU"
+        threat_id = "2147939755"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
@@ -3401,6 +3424,34 @@ rule Trojan_Win32_ClickFix_DAC_2147940469_0
         (
             ((1 of ($x_100_*) and 1 of ($x_10_*))) or
             ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DBL_2147940607_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBL!MTB"
+        threat_id = "2147940607"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "-UseBasicParsing" wide //weight: 10
+        $x_10_3 = "[ScRiPtBlOcK]::CrEaTe($" wide //weight: 10
+        $x_1_4 = "-W h -C" wide //weight: 1
+        $x_1_5 = "-WindowStyle hidden -Command" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }
