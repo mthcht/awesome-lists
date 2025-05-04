@@ -825,6 +825,9 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [RTRM: Red Team Reference Manual](https://www.amazon.com/RTRM-Red-Team-Reference-Manual/dp/B08N37KDPQ)
   - [POC||GTFO](https://nostarch.com/search/gtfo)
 
+#### AI
+  - [Hands Machine Learning](https://www.amazon.fr/Hands-Machine-Learning-Scikit-learn-Tensorflow/dp/1492032646)
+
 </details>
 
 ### 📚 Knowledge sites
