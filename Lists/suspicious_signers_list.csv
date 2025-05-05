@@ -31,7 +31,7 @@
 "*WireGuard LLC*","WireGuard","greyware_tool","VPN","low",
 "*Wireshark Foundation*","Wireshark","greyware_tool","Discovery","low",
 "*uvnc bvba*","UltraVNC","greyware_tool","Remote Access","medium",
-"Famatech Corp.","Advanced Port Scanner","greyware_tool","Discovery","medium",
+"Famatech Corp.","Advanced IP/Port Scanner","greyware_tool","Discovery","medium",
 "Tailscale Inc.","TailScale","greyware_tool","VPN","low",
 "*ProtonVPN*","ProtonVPN","greyware_tool","VPN","low",
 "Proton AG","ProtonVPN","greyware_tool","VPN","low",
@@ -86,7 +86,7 @@
 "Mega Limited","MEGAsync","greyware_tool","Data Exfiltration","low",
 "Mobatek","MobaXterm","greyware_tool","Lateral Movement","info",
 "Nanosystems S.r.l.","Supremo","greyware_tool","Remote Access","low",
-"Nir Sofer","Nirsoft Softwares","greyware_tool","Admin tools","info",
+"*Nir Sofer*","Nirsoft Softwares","greyware_tool","Admin tools","info","signer include all the Nirsoft products"
 "philandro Software GmbH","Anydesk","greyware_tool","Remote Access","low",
 "Proxy Networks, Inc.","PROXY Pro Host","greyware_tool","Remote Access","low",
 "RealVNC Limited","RealVNC","greyware_tool","Remote Access","low",
@@ -94,3 +94,14 @@
 "Remote Utilities LLC","Remote Utilities","greyware_tool","Remote Access","medium",
 "Secure Plus d.o.o.","freeFTPd","greyware_tool","Data Exfiltration","low",
 "Sentinelone, Inc.","Sentinelone","greyware_tool","EDR","info",
+"*SoftPerfect Pty Ltd*","SoftPerfect Network Scanner","greyware_tool","Discovery","low","signer also include all the SoftPerfect products"
+"Action1 Corporation","Action1","greyware_tool","Remote Access","medium",
+"Ammyy LLC","Ammyy Admin","greyware_tool","Remote Access","high",
+"Rocket Software, Inc.","ASG Remote Desktop","greyware_tool","Remote Access","low","signer also include all the rocketsoftware products"
+"N-ABLE TECHNOLOGIES LTD","BeAnywhere","greyware_tool","Remote Access","low","signer also include all the n-able products"
+"Domotz Inc","Domotz","greyware_tool","Remote Access","low","signer also include all the Domotz products"
+"Techinline Ltd","FixMeIt","greyware_tool","Remote Access","medium",
+"FLEETDECK INC.","Fleetdeck","greyware_tool","Remote Access","medium",
+"Comodo Security Solutions*","Itarian RMM","greyware_tool","Remote Access","low",greyware_tool","Remote Access","low",
+"Level Software, Inc.","Level.io","greyware_tool","Remote Access","low",
+"ZOHO Corporation Private Limited","ManageEngineRMM","greyware_tool","Remote Access","low","signer also include all the ZOHO products"
