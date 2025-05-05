@@ -447,6 +447,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [uncoder](https://uncoder.io/)
 - [DeHashed](https://dehashed.com/)
 - [Diff Checker](https://www.diffchecker.com/)
+- [IT tools](https://it-tools.tech/)
 - [ChatGPT](https://chatgpt.com/)
 
 </details>
