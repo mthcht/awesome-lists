@@ -597,3 +597,34 @@ rule Trojan_Win32_Grandoreiro_AB_2147924172_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Grandoreiro_GMX_2147940657_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Grandoreiro.GMX!MTB"
+        threat_id = "2147940657"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Grandoreiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "AGANGALOSTRUMPTOTALDOLLARESFAKAKAKAKANOWWADDASASASADAD" ascii //weight: 5
+        $x_5_2 = "APALONIUSPROCEDARIUSAHHCARAIUADHADAHDAREISAHDUSAHUDHUADUHAUHDBAUX" ascii //weight: 5
+        $x_5_3 = "ACARLAOQUEISSOUNIVERSOPARALELOETOTALNAMORAL666777" ascii //weight: 5
+        $x_5_4 = "ARABANEVIATRIBOLATUMKAPBOOOMKAPBOOOOOOOOOOOOMNOTORIUSRIG" ascii //weight: 5
+        $x_5_5 = "ADEIXEIGAMEIAGAMAMOUGAMEINESSAXOXOTAQUEEDEOROOUROOURONUNCABRONZENEMPRATA666777" ascii //weight: 5
+        $x_1_6 = "http://cld.pt" wide //weight: 1
+        $x_1_7 = "txSHrJrERMQXhFphJ.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
