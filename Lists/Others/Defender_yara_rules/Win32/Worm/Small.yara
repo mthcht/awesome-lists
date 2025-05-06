@@ -21,3 +21,24 @@ rule Worm_Win32_Small_AF_2147630897_0
         (3 of ($x*))
 }
 
+rule Worm_Win32_Small_GD_2147940797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Small.GD!MTB"
+        threat_id = "2147940797"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {34 44 47 47 59 9c 31 cb b5 19 d1 31 0d ?? ?? ?? ?? 19 ec e4 52 2a c2 2c a5 6c 52 e2}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
