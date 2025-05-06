@@ -15239,3 +15239,26 @@ rule Trojan_MSIL_FormBook_IGB_2147940381_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_NAV_2147940774_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.NAV!MTB"
+        threat_id = "2147940774"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "9c950443-1b8d-4602-a3ee-6634b3d256af" ascii //weight: 2
+        $x_1_2 = {c3 f1 5e e0 06 8d 72 55 a2 5e d9 84 cb 62 02 84 99 d3 7d 32 23 01 44 44 10 65 c7 b6 fe 33 89 4f}  //weight: 1, accuracy: High
+        $x_1_3 = {80 cc cc 59 ba cf d7 cb f7 3e cf fb 24 2c 99 74 57 fd 7f 75 55 77 2d 03 06 10 42 08 21 84 10 42 08 21 84 10 42 08 89 1f 1d cb 66 6d e6 15 b2 e3 3d 27 7b b0 9b 53 c7 bb 8e fe b6 e7 a8 2b 3c a3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
