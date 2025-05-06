@@ -2192,3 +2192,157 @@ rule Trojan_MacOS_Amos_DR_2147940016_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Amos_DJ_2147940730_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DJ!MTB"
+        threat_id = "2147940730"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 89 e5 48 83 ec 20 48 89 7d f8 48 89 75 f0 48 8b 7d f8 48 89 7d e0 48 8b 45 f0 48 89 45 e8 e8 ab 7f 52 00 48 89 c1 48 8b 45 e8 48 39 c8 0f 83 05 00 00 00 e9 05 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {55 48 89 e5 48 83 ec 10 48 89 7d f8 48 8b 7d f8 e8 8b 95 52 00 48 83 c4 10 5d c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_DL_2147940731_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DL!MTB"
+        threat_id = "2147940731"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 7d b0 8b 45 a0 89 45 c8 8b 45 cc c1 e0 04 8b 4d c8 09 c8 88 45 c7 0f be 75 c7 e8 5f a9 52 00 e9 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {55 48 89 e5 48 83 ec 20 48 89 7d f0 48 8b 7d f0 48 89 7d e0 e8 97 7e 52 00 48 8b 7d e0 48 89 c6 e8 4b 80 52 00 48 89 45 e8 e9 00 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_DM_2147940732_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DM!MTB"
+        threat_id = "2147940732"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 89 e5 48 83 ec 10 48 89 7d f8 48 8b 7d f8 e8 cb 2d 76 00 48 83 c4 10 5d c3}  //weight: 1, accuracy: High
+        $x_1_2 = {48 8d bd a8 bb ff ff e8 40 2c 32 00 88 85 fc e4 fe ff eb 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_DO_2147940733_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DO!MTB"
+        threat_id = "2147940733"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 89 e5 48 83 ec 20 48 89 7d f8 48 8b 7d f8 48 89 7d f0 e8 b7 79 94 00 a8 01 0f 85 05 00 00 00 e9 12 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {48 8b 7d d8 e8 f8 79 94 00 48 03 45 e8 48 89 45 f8 48 8b 45 f8 48 83 c4 30 5d c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_DQ_2147940734_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DQ!MTB"
+        threat_id = "2147940734"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 89 e5 48 83 ec 20 48 89 7d f8 48 89 75 f0 48 8b 7d f8 48 89 7d e0 48 8b 45 f0 48 89 45 e8 e8 ab 2b 76 00 48 89 c1 48 8b 45 e8 48 39 c8 73 02 eb 05}  //weight: 1, accuracy: High
+        $x_1_2 = {31 c0 89 c6 48 8d 7d a8 ba 10 00 00 00 e8 b2 41 76 00 48 89 85 60 ff ff ff eb 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_DS_2147940735_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DS!MTB"
+        threat_id = "2147940735"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {ff 83 00 d1 fd 7b 01 a9 fd 43 00 91 e0 07 00 f9 00 00 00 d0 00 f4 15 91 86 00 00 94}  //weight: 1, accuracy: High
+        $x_1_2 = {e0 0b 40 f9 a8 43 5b b8 08 21 00 71 a8 43 1b b8 a8 83 5b b8 a9 43 5b b8 08 29 c9 1a 08 1d 00 12 e8 bf 00 39 e1 bf c0 39 6a 0a 00 94 01 00 00 14}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_DT_2147940736_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DT!MTB"
+        threat_id = "2147940736"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 89 e5 48 83 ec 20 48 89 7d f8 48 8b 7d f8 48 89 7d f0 e8 77 1f 00 00 a8 01 75 02 eb 0f}  //weight: 1, accuracy: High
+        $x_1_2 = {48 8b 7d f0 e8 98 1f 00 00 48 89 45 e8 eb 0d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

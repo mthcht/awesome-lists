@@ -430,16 +430,19 @@ rule TrojanDownloader_Win32_Renos_2147799811_8
         family = "Renos"
         severity = "9"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "31"
+        threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = "Windows\\xpupdate.exe" ascii //weight: 10
-        $x_10_2 = {4e 6f 43 68 61 6e 67 69 6e 67 57 61 6c 6c 70 61 70 65 72 [0-16] 53 4f 46 54 57 41 52 45 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 50 6f 6c 69 63 69 65 73 5c 41 63 74 69 76 65 44 65 73 6b 74 6f 70}  //weight: 10, accuracy: Low
-        $x_10_3 = {46 6f 72 63 65 41 63 74 69 76 65 44 65 73 6b 74 6f 70 4f 6e [0-16] 53 4f 46 54 57 41 52 45 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 50 6f 6c 69 63 69 65 73 5c 45 78 70 6c 6f 72 65 72}  //weight: 10, accuracy: Low
-        $x_1_4 = "69.50.1" ascii //weight: 1
+        $x_1_1 = "Host: download.%s.com" ascii //weight: 1
+        $x_1_2 = "C:\\Windows\\xpupdate.exe" ascii //weight: 1
+        $x_1_3 = "Windows update loader" ascii //weight: 1
+        $x_1_4 = "C:\\Install" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\General" ascii //weight: 1
+        $x_1_6 = {47 45 54 20 2f [0-8] 2e 70 68 70 3f 26 61 64 76 69 64 3d}  //weight: 1, accuracy: Low
+        $x_1_7 = {47 45 54 20 68 74 74 70 3a 2f 2f 64 6f 77 6e 6c 6f 61 64 2e 25 73 2e 63 6f 6d 2f [0-8] 2e 70 68 70 3f 26 61 64 76 69 64 3d}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (6 of ($x*))
 }
 
 rule TrojanDownloader_Win32_Renos_2147799811_9
@@ -602,18 +605,28 @@ rule TrojanDownloader_Win32_Renos_2147799811_14
         family = "Renos"
         severity = "9"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
+        threshold = "68"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = {4e 6f 52 65 6d 6f 76 65 20 41 70 70 49 44 ?? ?? ?? ?? ?? ?? ?? ?? 27 25 41 50 50 49 44 25 27 20 3d 20 73 20 27 53 70 79 53 68 72 65 64 64 65 72 27 ?? ?? ?? ?? 27 77 65 62 69 6e 73 74 2e 64 6c 6c 27}  //weight: 1, accuracy: Low
-        $x_1_2 = {53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 2e 31 20 3d 20 73 20 27 57 65 62 49 6e 73 74 61 6c 6c 20 43 6c 61 73 73 27 ?? ?? ?? ?? ?? ?? ?? ?? 43 4c 53 49 44 20 3d 20 73 20 27 7b 33 34 33 43 45 32 31 34 2d 39 39 39 38 2d 34 42 32 31 2d 41 31 35 31 2d 46 46 45 39 37 30 31 36 37 32 39 37 7d 27}  //weight: 1, accuracy: Low
-        $x_1_3 = {53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 20 3d 20 73 20 27 57 65 62 49 6e 73 74 61 6c 6c 20 43 6c 61 73 73 27 ?? ?? ?? ?? ?? ?? ?? ?? 43 4c 53 49 44 20 3d 20 73 20 27 7b 33 34 33 43 45 32 31 34 2d 39 39 39 38 2d 34 42 32 31 2d 41 31 35 31 2d 46 46 45 39 37 30 31 36 37 32 39 37 7d 27}  //weight: 1, accuracy: Low
-        $x_1_4 = {43 75 72 56 65 72 20 3d 20 73 20 27 53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 2e 31 27 ?? ?? ?? ?? ?? ?? ?? 4e 6f 52 65 6d 6f 76 65 20 43 4c 53 49 44 ?? ?? ?? ?? ?? ?? ?? ?? 46 6f 72 63 65 52 65 6d 6f 76 65 20 7b 33 34 33 43 45 32 31 34 2d 39 39 39 38 2d 34 42 32 31 2d 41 31 35 31 2d 46 46 45 39 37 30 31 36 37 32 39 37 7d 20 3d 20 73 20 27 57 65 62 49 6e 73 74 61 6c 6c 20 43 6c 61 73 73 27}  //weight: 1, accuracy: Low
-        $x_1_5 = {50 72 6f 67 49 44 20 3d 20 73 20 27 53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 2e 31 27 ?? ?? ?? ?? ?? 56 65 72 73 69 6f 6e 49 6e 64 65 70 65 6e 64 65 6e 74 50 72 6f 67 49 44 20 3d 20 73 20 27 53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 27}  //weight: 1, accuracy: Low
-        $x_1_6 = "'TypeLib' = s '{D2436533-33F9-495C-9CD9-DAF21E67FFEB}'" ascii //weight: 1
+        $x_10_1 = "{ABCDECF0-4B15-11D1-ABED-709549C10000}" ascii //weight: 10
+        $x_10_2 = "{393921-e939391-3919139-3d3a738-11}" ascii //weight: 10
+        $x_10_3 = "SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\AuthorizedApplications\\List" ascii //weight: 10
+        $x_10_4 = "DisableRegistryTools" ascii //weight: 10
+        $x_10_5 = "EnableBalloonTips" ascii //weight: 10
+        $x_5_6 = "\\drivers\\etc\\hosts" ascii //weight: 5
+        $x_3_7 = "windowsupdate.microsoft.com" ascii //weight: 3
+        $x_3_8 = "kaspersky.com" ascii //weight: 3
+        $x_3_9 = "mcafee.com" ascii //weight: 3
+        $x_3_10 = "symantec.com" ascii //weight: 3
+        $x_1_11 = "192.168.200.3" ascii //weight: 1
+        $x_1_12 = "Warning! Potential Spyware Operation!" ascii //weight: 1
+        $x_1_13 = "Your computer is making unauthorized copies of your system and" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((5 of ($x_10_*) and 1 of ($x_5_*) and 4 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule TrojanDownloader_Win32_Renos_2147799811_15
@@ -627,51 +640,18 @@ rule TrojanDownloader_Win32_Renos_2147799811_15
         family = "Renos"
         severity = "9"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "12"
+        threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = "SpywareLocked" ascii //weight: 1
-        $x_2_2 = "spylocked.com/?aff=" ascii //weight: 2
-        $x_3_3 = "keratomir2.biz/get.php?partner=" ascii //weight: 3
-        $x_3_4 = "keratomir.biz/get.php?partner=" ascii //weight: 3
-        $x_1_5 = "pornmag.com/install/" ascii //weight: 1
-        $x_2_6 = "Your system is infected" ascii //weight: 2
-        $x_1_7 = "Are you fucking crazy man?" ascii //weight: 1
-        $x_1_8 = "All porn links what are worth your visit." ascii //weight: 1
-        $x_5_9 = {68 74 74 70 3a 2f 2f 6b 65 72 61 74 6f 6d 69 72 [0-2] 2e 62 69 7a 2f 67 65 74 2e 70 68 70 3f 70 61 72 74 6e 65 72 3d [0-4] 53 70 79 77 61 72 65 4c 6f 63 6b 65 64}  //weight: 5, accuracy: Low
-        $x_5_10 = {68 74 74 70 3a 2f 2f 6b 65 72 61 74 6f 6d 69 72 [0-2] 2e 62 69 7a 2f 67 65 74 2e 70 68 70 3f 70 61 72 74 6e 65 72 3d [0-4] 53 70 79 6c 6f 63 6b 65 64}  //weight: 5, accuracy: Low
-        $x_5_11 = {68 74 74 70 3a 2f 2f 6b 65 72 61 74 6f 6d 69 72 [0-2] 2e 62 69 7a 2f 67 65 74 2e 70 68 70 3f 70 61 72 74 6e 65 72 3d [0-4] 6b 48 41 74 77 5b 53 5d}  //weight: 5, accuracy: Low
-        $x_5_12 = {50 4c 4c 48 02 17 17 53 5d 4a 59 4c 57 55 51 4a}  //weight: 5, accuracy: High
-        $x_5_13 = {81 7d 14 03 02 00 00 74 20 81 7d 14 04 02 00 00 74 17 81 7d 14 01 02 00 00 74 0e 81 7d 14 05 04 00 00 74 05 e9 8e 00 00 00 e8 [0-5] 83 f8 01 75 07 e8 [0-5] eb 2d 80 3d}  //weight: 5, accuracy: Low
-        $x_5_14 = {81 7d 14 03 02 00 00 74 1d 81 7d 14 04 02 00 00 74 14 81 7d 14 01 02 00 00 74 0b 81 7d 14 05 04 00 00 74 02 eb 6b e8 [0-5] 83 f8 01 75 07 e8}  //weight: 5, accuracy: Low
-        $x_4_15 = {8b ec 83 c4 f8 6a 01 6a 00 ff 75 08 8d 05 [0-4] 50 8d 05 [0-4] 50 6a 00 ff 15 [0-4] b8 01 00 00 00 c9}  //weight: 4, accuracy: Low
+        $x_1_1 = {4e 6f 52 65 6d 6f 76 65 20 41 70 70 49 44 ?? ?? ?? ?? ?? ?? ?? ?? 27 25 41 50 50 49 44 25 27 20 3d 20 73 20 27 53 70 79 53 68 72 65 64 64 65 72 27 ?? ?? ?? ?? 27 77 65 62 69 6e 73 74 2e 64 6c 6c 27}  //weight: 1, accuracy: Low
+        $x_1_2 = {53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 2e 31 20 3d 20 73 20 27 57 65 62 49 6e 73 74 61 6c 6c 20 43 6c 61 73 73 27 ?? ?? ?? ?? ?? ?? ?? ?? 43 4c 53 49 44 20 3d 20 73 20 27 7b 33 34 33 43 45 32 31 34 2d 39 39 39 38 2d 34 42 32 31 2d 41 31 35 31 2d 46 46 45 39 37 30 31 36 37 32 39 37 7d 27}  //weight: 1, accuracy: Low
+        $x_1_3 = {53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 20 3d 20 73 20 27 57 65 62 49 6e 73 74 61 6c 6c 20 43 6c 61 73 73 27 ?? ?? ?? ?? ?? ?? ?? ?? 43 4c 53 49 44 20 3d 20 73 20 27 7b 33 34 33 43 45 32 31 34 2d 39 39 39 38 2d 34 42 32 31 2d 41 31 35 31 2d 46 46 45 39 37 30 31 36 37 32 39 37 7d 27}  //weight: 1, accuracy: Low
+        $x_1_4 = {43 75 72 56 65 72 20 3d 20 73 20 27 53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 2e 31 27 ?? ?? ?? ?? ?? ?? ?? 4e 6f 52 65 6d 6f 76 65 20 43 4c 53 49 44 ?? ?? ?? ?? ?? ?? ?? ?? 46 6f 72 63 65 52 65 6d 6f 76 65 20 7b 33 34 33 43 45 32 31 34 2d 39 39 39 38 2d 34 42 32 31 2d 41 31 35 31 2d 46 46 45 39 37 30 31 36 37 32 39 37 7d 20 3d 20 73 20 27 57 65 62 49 6e 73 74 61 6c 6c 20 43 6c 61 73 73 27}  //weight: 1, accuracy: Low
+        $x_1_5 = {50 72 6f 67 49 44 20 3d 20 73 20 27 53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 2e 31 27 ?? ?? ?? ?? ?? 56 65 72 73 69 6f 6e 49 6e 64 65 70 65 6e 64 65 6e 74 50 72 6f 67 49 44 20 3d 20 73 20 27 53 70 79 53 68 72 65 64 64 65 72 2e 57 65 62 49 6e 73 74 61 6c 6c 27}  //weight: 1, accuracy: Low
+        $x_1_6 = "'TypeLib' = s '{D2436533-33F9-495C-9CD9-DAF21E67FFEB}'" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((2 of ($x_3_*) and 1 of ($x_2_*) and 4 of ($x_1_*))) or
-            ((2 of ($x_3_*) and 2 of ($x_2_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 2 of ($x_2_*) and 4 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 3 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 2 of ($x_3_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 2 of ($x_2_*) and 3 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_3_*) and 4 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 2 of ($x_3_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_4_*) and 3 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
-            ((2 of ($x_5_*) and 2 of ($x_1_*))) or
-            ((2 of ($x_5_*) and 1 of ($x_2_*))) or
-            ((2 of ($x_5_*) and 1 of ($x_3_*))) or
-            ((2 of ($x_5_*) and 1 of ($x_4_*))) or
-            ((3 of ($x_5_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 
 rule TrojanDownloader_Win32_Renos_LT_2147799814_0
