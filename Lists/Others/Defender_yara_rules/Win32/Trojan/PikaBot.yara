@@ -331,6 +331,7 @@ rule Trojan_Win32_PikaBot_AA_2147895241_0
         $x_1_9 = "Excpt" wide //weight: 1
         $x_10_10 = "exit" wide //weight: 10
         $n_100_11 = "msedgewebview2.exe" wide //weight: -100
+        $n_1000_12 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

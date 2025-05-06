@@ -90,3 +90,24 @@ rule Trojan_Win32_Fero_SPPP_2147914750_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fero_SEC_2147940751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fero.SEC!MTB"
+        threat_id = "2147940751"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fero"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 45 0c 8a 4d 08 8b 15 ?? ?? ?? ?? 81 c2 ?? ?? ?? ?? 88 45 ff 88 4d fe 89 55 f8 8b 45 f8 a3 ?? ?? ?? ?? 8a 4d ff 8a 55 fe 30 d1 0f b6 c1 83 c4 08 5d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

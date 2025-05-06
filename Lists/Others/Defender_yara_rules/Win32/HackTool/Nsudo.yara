@@ -16,6 +16,7 @@ rule HackTool_Win32_Nsudo_B_2147829957_0
         $x_1_2 = "u=t" wide //weight: 1
         $x_2_3 = "nsudo" wide //weight: 2
         $n_1000_4 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_5 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

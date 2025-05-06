@@ -26,6 +26,7 @@ rule TrojanDownloader_Win32_Gripogle_A_2147767489_0
         $x_1_12 = "1pzPe7" wide //weight: 1
         $x_1_13 = "1Spuu7" wide //weight: 1
         $n_100_14 = "msedgewebview2.exe" wide //weight: -100
+        $n_1000_15 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

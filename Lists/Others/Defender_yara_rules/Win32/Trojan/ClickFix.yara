@@ -194,6 +194,7 @@ rule Trojan_Win32_ClickFix_DB_2147932129_0
         $x_1_4 = "verif" wide //weight: 1
         $x_1_5 = "- ray" wide //weight: 1
         $n_1000_6 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_7 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -284,6 +285,7 @@ rule Trojan_Win32_ClickFix_DF_2147932251_0
         $x_1_21 = "Human - CAPTCHA" wide //weight: 1
         $x_1_22 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
         $n_1000_23 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_24 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -366,6 +368,7 @@ rule Trojan_Win32_ClickFix_DD_2147932646_0
         $x_1_20 = "Human - CAPTCHA" wide //weight: 1
         $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
         $n_100_22 = "msedgewebview2.exe" wide //weight: -100
+        $n_1000_23 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -442,6 +445,7 @@ rule Trojan_Win32_ClickFix_L_2147932742_0
         $x_1_3 = "captcha" wide //weight: 1
         $x_1_4 = "verif" wide //weight: 1
         $n_100_5 = "msedgewebview2.exe" wide //weight: -100
+        $n_1000_6 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -660,6 +664,7 @@ rule Trojan_Win32_ClickFix_AB_2147933821_0
         $x_1_8 = ".mp" wide //weight: 1
         $x_1_9 = ".flv" wide //weight: 1
         $n_1000_10 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_11 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -1387,6 +1392,7 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_37 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
         $x_100_38 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
         $n_1000_39 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_40 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -1677,6 +1683,7 @@ rule Trojan_Win32_ClickFix_ZD_2147937008_0
         $x_1_57 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
         $x_1_58 = "netstatuscheck" wide //weight: 1
         $n_5000_59 = "msedgewebview2.exe" wide //weight: -5000
+        $n_1000_60 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -2073,6 +2080,7 @@ rule Trojan_Win32_ClickFix_TFA_2147938012_0
         $x_1_5 = "confirm" wide //weight: 1
         $x_1_6 = "human" wide //weight: 1
         $n_1000_7 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_8 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -2777,23 +2785,17 @@ rule Trojan_Win32_ClickFix_ZG_2147939200_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "400"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
-        $x_200_1 = "powershell" wide //weight: 200
-        $x_200_2 = "-w" wide //weight: 200
-        $x_400_3 = {6d 73 68 74 61 2e 65 78 65 90 02 ff 68 74 74 70}  //weight: 400, accuracy: High
-        $x_400_4 = {6d 73 69 65 78 65 63 2e 65 78 65 90 02 ff 68 74 74 70}  //weight: 400, accuracy: High
-        $n_500_5 = ".ps1" wide //weight: -500
-        $n_500_6 = ".hta" wide //weight: -500
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "start" wide //weight: 1
+        $x_1_4 = "iex((iwr" wide //weight: 1
+        $x_1_5 = "-UseBasicParsing" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (
-            ((2 of ($x_200_*))) or
-            ((1 of ($x_400_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 
 rule Trojan_Win32_ClickFix_ZG_2147939200_1
@@ -2807,17 +2809,24 @@ rule Trojan_Win32_ClickFix_ZG_2147939200_1
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "5"
+        threshold = "400"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "powershell" wide //weight: 1
-        $x_1_2 = "http" wide //weight: 1
-        $x_1_3 = "start" wide //weight: 1
-        $x_1_4 = "iex((iwr" wide //weight: 1
-        $x_1_5 = "-UseBasicParsing" wide //weight: 1
+        $x_200_1 = "powershell" wide //weight: 200
+        $x_200_2 = "-w" wide //weight: 200
+        $x_400_3 = {6d 73 68 74 61 2e 65 78 65 90 02 ff 68 74 74 70}  //weight: 400, accuracy: High
+        $x_400_4 = {6d 73 69 65 78 65 63 2e 65 78 65 90 02 ff 68 74 74 70}  //weight: 400, accuracy: High
+        $x_400_5 = {63 6d 64 90 02 30 63 75 72 6c 90 02 30 68 74 74 70}  //weight: 400, accuracy: High
+        $n_500_6 = ".ps1" wide //weight: -500
+        $n_500_7 = ".hta" wide //weight: -500
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (not (any of ($n*))) and
+        (
+            ((2 of ($x_200_*))) or
+            ((1 of ($x_400_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_DBC_2147939201_0
@@ -3087,6 +3096,7 @@ rule Trojan_Win32_ClickFix_DAZ_2147939396_0
         $x_1_5 = ".shop/" wide //weight: 1
         $x_1_6 = ".online/" wide //weight: 1
         $n_1000_7 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_8 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -3454,5 +3464,53 @@ rule Trojan_Win32_ClickFix_DBL_2147940607_0
             ((1 of ($x_100_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_ClickFix_DBM_2147940752_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBM!MTB"
+        threat_id = "2147940752"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "201"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-7] 2d 00 77 00 20 00 68 00}  //weight: 100, accuracy: Low
+        $x_100_2 = ") | powershell" wide //weight: 100
+        $x_1_3 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DBN_2147940753_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBN!MTB"
+        threat_id = "2147940753"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "131"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "mshta" wide //weight: 100
+        $x_10_2 = "SHELLEXECUTE" wide //weight: 10
+        $x_10_3 = "DeleteFile" wide //weight: 10
+        $x_10_4 = "javascript:var" wide //weight: 10
+        $x_1_5 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

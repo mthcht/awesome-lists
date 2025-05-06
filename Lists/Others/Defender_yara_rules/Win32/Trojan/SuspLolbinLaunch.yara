@@ -197,6 +197,7 @@ rule Trojan_Win32_SuspLolbinLaunch_B_2147768665_0
         $n_5_3 = "thor\\signatures" wide //weight: -5
         $n_5_4 = ".yms-textfilter" wide //weight: -5
         $n_1000_5 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_6 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

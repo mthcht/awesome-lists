@@ -39,6 +39,7 @@ rule Trojan_Win32_Mesdetty_A_2147819722_0
         $x_1_25 = "/hi`" wide //weight: 1
         $x_1_26 = {70 00 63 00 77 00 64 00 69 00 61 00 67 00 6e 00 6f 00 73 00 74 00 69 00 63 00 [0-80] 61 00 66 00 20 00}  //weight: 1, accuracy: Low
         $n_200_27 = "msedgewebview2.exe" wide //weight: -200
+        $n_1000_28 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
