@@ -1937,6 +1937,27 @@ rule Trojan_MSIL_XWorm_SUBS_2147939385_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_SLJ_2147939388_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.SLJ!MTB"
+        threat_id = "2147939388"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {1a 11 04 a2 25 1b 11 05 a2 28 ?? 00 00 0a 11 06 28 ?? 00 00 06 28 ?? 00 00 0a 13 07 11 07 28 ?? 00 00 0a 13 08}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_WQ_2147939947_0
 {
     meta:
@@ -2017,6 +2038,27 @@ rule Trojan_MSIL_XWorm_AQW_2147940699_0
         strings_accuracy = "High"
     strings:
         $x_3_1 = {06 7e 01 00 00 04 7e 02 00 00 04 28 02 00 00 06 0d 07 7e 01 00 00 04 7e 02 00 00 04 28 02 00 00 06 13 04 28 05 00 00 0a 13 05 11 05 72 0b 00 00 70 28 06 00 00 0a 13 06 11 05 72 1f 00 00 70 08 28 07 00 00 0a 28 06 00 00 0a 13 07 11 06 09 28 08 00 00 0a 11 07 11 04 28 08 00 00 0a 11 06 28 09 00 00 0a 26 11 07}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_STUP_2147940712_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.STUP!MTB"
+        threat_id = "2147940712"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 3c 00 00 0a 0c 03 7e ?? 00 00 04 73 3d 00 00 0a 0d 08 09 1f 20 6f 3e 00 00 0a 6f 3f 00 00 0a}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -40,3 +40,24 @@ rule Trojan_MSIL_Purelogstealer_SOLD_2147938427_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Purelogstealer_SEAW_2147940709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Purelogstealer.SEAW!MTB"
+        threat_id = "2147940709"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Purelogstealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 28 0a 00 00 06 0a 73 0b 00 00 0a 25 06 28 09 00 00 06 6f 0c 00 00 0a 0b}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

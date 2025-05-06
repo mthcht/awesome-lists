@@ -2877,3 +2877,24 @@ rule Trojan_MSIL_Stealer_BAB_2147940672_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_SUG_2147940708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.SUG!MTB"
+        threat_id = "2147940708"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {08 8d 1d 00 00 01 13 04 7e ?? ?? ?? 04 02 1a 58 11 04 16 08 28 d0 00 00 0a 28 23 00 00 0a 11 04 16 11 04 8e 69}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

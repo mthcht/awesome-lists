@@ -3891,6 +3891,28 @@ rule Trojan_Win32_Zusy_AZU_2147898966_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {c1 e9 02 f3 a5 8b ca 83 e1 03 68 98 64 41 00 f3 a4 50 e8 ?? ?? ?? ?? 8b f0 8d 85 8c fe ff ff 56 6a 64 6a 01 50}  //weight: 2, accuracy: Low
+        $x_1_2 = {8a 47 01 8d 7f 01 84 c0 75 f6 a1 ?? ?? ?? ?? 89 07 8d 45 8c 6a 00 50 ff 15 ?? ?? ?? ?? 8b 4d fc 5f 33 cd 5e}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AZU_2147898966_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AZU!MTB"
+        threat_id = "2147898966"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:
@@ -3900,7 +3922,7 @@ rule Trojan_Win32_Zusy_AZU_2147898966_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_AZU_2147898966_2
+rule Trojan_Win32_Zusy_AZU_2147898966_3
 {
     meta:
         author = "defender2yara"
@@ -6503,32 +6525,6 @@ rule Trojan_Win32_Zusy_PGC_2147939663_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
-}
-
-rule Trojan_Win32_Zusy_HNT_2147940510_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Zusy.HNT!MTB"
-        threat_id = "2147940510"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Zusy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {ec 5c 00 00 00 c7 45 fc 00 00 00 00 c7 45 f8 00 00 00 00 c7 45 f4 00 00 00 00 c7 45 f0 13 00 68 ?? ?? ?? ?? e8 ?? ?? ?? ?? e9 ?? ?? ?? ff 55 8b ec 81}  //weight: 5, accuracy: Low
-        $x_5_2 = {ec 5c 00 00 00 c7 45 fc 00 00 00 00 c7 45 f8 00 00 00 00 c7 45 f4 00 00 00 00 c7 45 f0 13 00 90 90 90 90 90 90 90 90 90 90 e9 ?? ?? ?? ff 55 8b ec 81}  //weight: 5, accuracy: Low
-        $x_5_3 = {ff c3 8b ec 81 ec 5c 00 00 00 c7 45 fc 00 00 00 00 c7 45 f8 00 00 0e 00 68 ?? ?? ?? ?? e8 ?? ?? ?? ?? e9 ?? ?? ?? ff}  //weight: 5, accuracy: Low
-        $x_5_4 = {55 8b ec 81 ec 5c 00 00 00 c7 45 fc 00 00 00 00 c7 45 f8 00 00 00 00 c7 45 f4 00 00 00 00 0f 00 68 ?? ?? ?? ?? e8 ?? 00 00 00 e9}  //weight: 5, accuracy: Low
-        $x_5_5 = {e8 05 00 00 00 e9 ?? ?? ?? ?? 55 8b ec 81 ec 5c 00 00 00 c7 45 fc 00 00 00 00 c7 45 f8 00 00 00 00 c7 45 f4 00 00 00 00 c7 45 f0 00 00 00 00}  //weight: 5, accuracy: Low
-        $x_5_6 = {55 8b ec 81 ec 5c 00 00 00 c7 45 fc 00 00 00 00 c7 45 f8 00 00 00 00 c7 45 f4 00 00 00 00 c7 45 f0 0f 00 68 ?? ?? ?? ?? 90 ?? ?? ?? ?? e9 ?? ?? ?? ?? 55}  //weight: 5, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
 }
 
 rule Trojan_Win32_Zusy_SCP_2147940664_0
