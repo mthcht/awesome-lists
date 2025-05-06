@@ -1748,3 +1748,24 @@ rule Trojan_Win64_Tedy_STAO_2147940714_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_PGL_2147940784_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PGL!MTB"
+        threat_id = "2147940784"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 44 24 50 48 3b c5 7d 17 48 05 ?? ?? ?? ?? 48 8d 4c 24 40 48 89 44 24 40}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

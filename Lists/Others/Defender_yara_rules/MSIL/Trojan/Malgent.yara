@@ -102,3 +102,27 @@ rule Trojan_MSIL_Malgent_PR_2147933223_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Malgent_PGM_2147940785_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Malgent.PGM!MTB"
+        threat_id = "2147940785"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Malgent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f 7b 00 30 00 7d 00 2f 00 7b 00 31 00 7d 00 00 1f 5c 00 73 00 28 00 3f 00 3c 00 6b 00 65 00 79 00 3e 00 2e 00 2a 00 3f 00 29 00 5c 00 2e 00 00 07 6b 00 65 00 79}  //weight: 1, accuracy: High
+        $x_1_2 = "info-sec.jp/attach" ascii //weight: 1
+        $x_1_3 = "stgsec-info.jp/acon" ascii //weight: 1
+        $x_2_4 = "PdfAttachProduction.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

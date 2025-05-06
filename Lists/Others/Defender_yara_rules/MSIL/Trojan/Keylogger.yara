@@ -1095,3 +1095,25 @@ rule Trojan_MSIL_Keylogger_SWR_2147939427_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Keylogger_PGK_2147940783_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.PGK!MTB"
+        threat_id = "2147940783"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 06 17 6f ?? 00 00 0a 0d 09 14 fe 01 13 04 11 04 2c 0e 00 7e ?? 00 00 0a 06 6f ?? 00 00 0a 0d 00 09 07 08 6f}  //weight: 2, accuracy: Low
+        $x_3_2 = {6d 00 6f 00 6e 00 69 00 74 00 6f 00 72 00 69 00 6e 00 67}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

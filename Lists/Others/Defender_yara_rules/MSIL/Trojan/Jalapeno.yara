@@ -1906,6 +1906,50 @@ rule Trojan_MSIL_Jalapeno_PGJ_2147939896_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_PGJ_2147939896_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.PGJ!MTB"
+        threat_id = "2147939896"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {12 00 12 01 28 ?? 00 00 06 02 06 07 28 ?? 00 00 06 51 28 ?? 00 00 06 0c 03 08 28 ?? 00 00 06 51 2a}  //weight: 4, accuracy: Low
+        $x_1_2 = "jYD4qT79ijWbcPokxlX7kiHdzr+mqTdPtAORkQe04MRlvMFR0YUgI7QDkZEHtODE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Jalapeno_PGJ_2147939896_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.PGJ!MTB"
+        threat_id = "2147939896"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {68 00 69 00 72 00 6f 00 73 00 61 00 76 00 76 00 61 00 2d 00 63 00 6e 00 2e 00 63 00 6f 00 6d 00 2f 00 70 00 61 00 6e 00 65 00 6c 00 2f 00 75 00 70 00 6c 00 6f 00 61 00 64 00 73 00 2f}  //weight: 1, accuracy: High
+        $x_4_2 = "cmVmZXJyZXI9ZnJlZS1kb3dubG9hZCZnYWRfc291cmNlPTEmZ2NsaWQ9RUFJYUlRb2JDaE1JN3F6VG85X01pd01WUFVMX0FSMWdyQWNTRUFBWUFTQUFFZ0xHTGZEX0J3RQ==" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Jalapeno_AVN_2147940696_0
 {
     meta:
