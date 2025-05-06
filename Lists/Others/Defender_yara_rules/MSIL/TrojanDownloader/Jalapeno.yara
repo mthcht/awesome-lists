@@ -53,3 +53,27 @@ rule TrojanDownloader_MSIL_Jalapeno_NIT_2147928359_0
         )
 }
 
+rule TrojanDownloader_MSIL_Jalapeno_ALK_2147940693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Jalapeno.ALK!MTB"
+        threat_id = "2147940693"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "http://edditdev.com" wide //weight: 2
+        $x_2_2 = "discord.gg/mchsEXg2fc or dsc.gg/flexxcheats" wide //weight: 2
+        $x_2_3 = "FLEXX_LOADER.Resources" wide //weight: 2
+        $x_2_4 = "$c97ed578-ee4d-4ba7-8e6c-76d04c741a15" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

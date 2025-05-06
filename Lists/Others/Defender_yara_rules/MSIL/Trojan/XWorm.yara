@@ -1979,3 +1979,46 @@ rule Trojan_MSIL_XWorm_AJSA_2147940352_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_IZK_2147940694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.IZK!MTB"
+        threat_id = "2147940694"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {6f 5c 00 00 0a 06 07 16 07 8e b7 6f 5c 00 00 0a 7e 10 00 00 04 15 17 6f 63 00 00 0a 26 7e 10 00 00 04 06 6f 58 00 00 0a 16 06 6f 5d 00 00 0a b7 16 14 fe 06 1d 00 00 06 73 48 00 00 0a 14 6f 64 00 00 0a}  //weight: 3, accuracy: High
+        $x_1_2 = "RunBotKiller" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_AQW_2147940699_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AQW!MTB"
+        threat_id = "2147940699"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {06 7e 01 00 00 04 7e 02 00 00 04 28 02 00 00 06 0d 07 7e 01 00 00 04 7e 02 00 00 04 28 02 00 00 06 13 04 28 05 00 00 0a 13 05 11 05 72 0b 00 00 70 28 06 00 00 0a 13 06 11 05 72 1f 00 00 70 08 28 07 00 00 0a 28 06 00 00 0a 13 07 11 06 09 28 08 00 00 0a 11 07 11 04 28 08 00 00 0a 11 06 28 09 00 00 0a 26 11 07}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

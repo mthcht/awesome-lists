@@ -3707,3 +3707,25 @@ rule Ransom_MSIL_Filecoder_PAGP_2147938307_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_AKD_2147940700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.AKD!MTB"
+        threat_id = "2147940700"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {02 7b 12 00 00 04 72 2c 06 00 70 28 ?? 00 00 06 6f 4a 00 00 0a 72 3a 06 00 70 28 ?? 00 00 0a 6f 4a 00 00 0a 72 48 06 00 70 28 ?? 00 00 06 6f 4c 00 00 0a 6f 4d 00 00 0a 6f 4a 00 00 0a 72 52 06 00 70 72 66 06 00 70 6f 4a 00 00 0a 28 ?? 00 00 0a 11 09 17 d6 13 09}  //weight: 3, accuracy: Low
+        $x_3_2 = {03 28 64 00 00 0a 0a 02 06 05 28 1a 00 00 06 0b 04 07 28 65 00 00 0a de 0e}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

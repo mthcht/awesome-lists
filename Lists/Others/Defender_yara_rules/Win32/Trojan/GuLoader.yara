@@ -3749,3 +3749,29 @@ rule Trojan_Win32_GuLoader_RAG_2147940325_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RAH_2147940692_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAH!MTB"
+        threat_id = "2147940692"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Kobberstikket169\\helicograph" ascii //weight: 1
+        $x_1_2 = "%mulishness%\\Nonleaking.bin" ascii //weight: 1
+        $x_1_3 = "galeidae oparbejdelsernes outbear" ascii //weight: 1
+        $x_1_4 = "eftersidninger bistandsklientens unsuperficial" ascii //weight: 1
+        $x_1_5 = "skillevgge" ascii //weight: 1
+        $x_1_6 = "dedicerendes sintoism.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

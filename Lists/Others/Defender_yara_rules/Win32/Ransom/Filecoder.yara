@@ -2549,3 +2549,27 @@ rule Ransom_Win32_Filecoder_PAGX_2147940068_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_QL_2147940695_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.QL!MTB"
+        threat_id = "2147940695"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C:\\nodecryptor.txt" ascii //weight: 2
+        $x_2_2 = "All your important files have been encrypted! Your data is locked." ascii //weight: 2
+        $x_2_3 = "YOU CAN NOT RECOVER YOUR FILES" ascii //weight: 2
+        $x_2_4 = "INFECTED BY NODECRYPT" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
