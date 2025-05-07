@@ -3259,3 +3259,24 @@ rule Trojan_Win32_Copak_GPJ_2147939821_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Copak_GPAK_2147940823_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Copak.GPAK!MTB"
+        threat_id = "2147940823"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Copak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {68 e0 ea 40 00 [0-32] 31 [0-48] 81 ?? ff 00 00 00 [0-32] f4 01 00 00 75 05}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
