@@ -89,3 +89,24 @@ rule Trojan_Win64_XMRig_WQ_2147939454_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XMRig_SD_2147940855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XMRig.SD!MTB"
+        threat_id = "2147940855"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {c7 05 b7 da 00 00 ee d9 d2 73 e8 ?? ?? ?? ?? c7 05 a8 da 00 00 ec 07 75 ec e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

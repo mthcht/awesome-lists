@@ -518,3 +518,36 @@ rule Virus_Win64_Expiro_PAGJ_2147937390_0
         (all of ($x*))
 }
 
+rule Virus_Win64_Expiro_HNW_2147940877_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win64/Expiro.HNW!MTB"
+        threat_id = "2147940877"
+        type = "Virus"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Expiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "700"
+        strings_accuracy = "Low"
+    strings:
+        $x_700_1 = {00 00 40 00 00 40 2e 72 65 6c 6f 63 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e2 00 00 00}  //weight: 700, accuracy: Low
+        $x_699_2 = {00 00 00 00 40 00 00 40 2e 72 73 72 63 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 (e0|e2) 00 00 00 00}  //weight: 699, accuracy: Low
+        $x_1_3 = {24 00 04 00 00 00 54 00 72 00 61 ?? 6e 00 73 00 6c 00 61 00 74 00 69 00 6f 00 6e 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {3c 61 73 73 65 6d 62 6c 79 ?? 78 6d 6c 6e 73 3d}  //weight: 1, accuracy: Low
+        $x_1_5 = {3c 2f 73 65 63 75 72 69 74 79 3e 3c 2f 74 72 ?? 73 74 49 6e 66 6f 3e 3c 2f 61 73 73 65 6d 62 6c 79 3e}  //weight: 1, accuracy: Low
+        $x_1_6 = {3c 2f 64 65 70 65 6e 64 65 6e 63 79 3e ?? 0a 3c 2f 61 73 73 65 6d 62 6c 79 3e}  //weight: 1, accuracy: Low
+        $x_1_7 = {3c 2f 61 73 73 65 6d 62 6c 79 [0-16] 50 41 44 44 49 4e 47 58 58}  //weight: 1, accuracy: Low
+        $x_1_8 = {3e 50 41 50 41 44 44 49 4e 47 58 58 ?? 41 44 44 49 4e 47}  //weight: 1, accuracy: Low
+        $x_1_9 = {7d 50 41 50 41 44 44 49 4e 47 58 58 ?? 41 44 44 49 4e 47 50 41 44 44 49 4e 47}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_699_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_700_*))) or
+            (all of ($x*))
+        )
+}
+

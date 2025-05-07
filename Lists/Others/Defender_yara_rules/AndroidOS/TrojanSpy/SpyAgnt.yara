@@ -152,3 +152,28 @@ rule TrojanSpy_AndroidOS_SpyAgnt_H_2147822907_0
         (6 of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_SpyAgnt_N_2147940854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SpyAgnt.N!MTB"
+        threat_id = "2147940854"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "psyberia/alpinequest/full/tele/TelegramService" ascii //weight: 1
+        $x_1_2 = "tps://detect-infohelp.com/parse/" ascii //weight: 1
+        $x_1_3 = "getTeleBotUrl" ascii //weight: 1
+        $x_1_4 = "sendDataToSrv" ascii //weight: 1
+        $x_1_5 = "pingTele" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

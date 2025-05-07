@@ -1483,3 +1483,24 @@ rule Trojan_Win32_Razy_PGZ_2147940189_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Razy_AYR_2147940861_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.AYR!MTB"
+        threat_id = "2147940861"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {09 fa 83 ec 04 c7 04 24 ?? ?? ?? ?? 09 d1 81 e9 ?? ?? ?? ?? 21 fe ff d3 81 c7 ?? ?? ?? ?? 42 29 d7 5b 89 ca f7 d6 89 d7 68 ?? ?? ?? ?? 46 09 f2 f7 d2 50 42 29 d1 ff d3}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

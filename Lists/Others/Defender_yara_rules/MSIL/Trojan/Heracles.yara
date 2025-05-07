@@ -7217,3 +7217,27 @@ rule Trojan_MSIL_Heracles_ZLW_2147940412_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_MBZ_2147940853_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.MBZ!MTB"
+        threat_id = "2147940853"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {2c 05 16 13 04 de 32 07 08 03 03 8e 69 12 03}  //weight: 2, accuracy: High
+        $x_1_2 = "CreateRemoteThread" ascii //weight: 1
+        $x_1_3 = "Corrupted payload" ascii //weight: 1
+        $x_1_4 = "WaffleDecode" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

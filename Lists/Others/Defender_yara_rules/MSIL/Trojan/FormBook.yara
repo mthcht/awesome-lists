@@ -15262,3 +15262,25 @@ rule Trojan_MSIL_FormBook_NAV_2147940774_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_AKN_2147940889_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.AKN!MTB"
+        threat_id = "2147940889"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {02 08 11 04 6f ?? 00 00 0a 13 09 19 8d ?? 00 00 01 25 16 12 09 28 ?? 00 00 0a 6c 07 16 9a 16 99 5a a1 25 17 12 09 28 ?? 00 00 0a 6c 07 17 9a 17 99 5a a1 25 18 12 09 28 ?? 00 00 0a 6c 07 18 9a 18 99 5a a1}  //weight: 2, accuracy: Low
+        $x_1_2 = "CalculadoraMediaAluno" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
