@@ -635,3 +635,25 @@ rule Trojan_Win32_Tinba_EDG_2147940174_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tinba_ATI_2147940999_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tinba.ATI!MTB"
+        threat_id = "2147940999"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tinba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {33 d2 f7 f1 89 45 c4 8b 55 a8 81 e2 b9 02 00 00 8b 45 c8 2b c2 89 45 c8 c7 85 a8 fe ff ff e8 c5 41 00 8b 8d a8 fe ff ff 51 68 98 0f 00 00 68 78 0a 00 00 ff 15 ?? ?? ?? ?? 8b 75 b4 03 75 c8 8b 4d d8 d3 e6}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 45 c4 33 d2 f7 f6 89 45 c4 ba 71 02 00 00 2b 55 d8 8b 45 c4 33 c2 89 45 c4 68 79 01 00 00 8d 8d 98 fe ff ff 51 ff 15 ?? ?? ?? ?? 8b 55 c0 8b 4d dc d3 e2 8b 4d d8 d3 e2}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1877,6 +1877,31 @@ rule Trojan_Win32_GuLoader_AYE_2147827644_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_ASM_2147833276_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.ASM!MTB"
+        threat_id = "2147833276"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Exship59\\optrnende.dll" ascii //weight: 1
+        $x_1_2 = "Baandskifternes\\protohistorian\\Knuses187" ascii //weight: 1
+        $x_1_3 = "socialbegivenheden\\hallucinationers.dll" ascii //weight: 1
+        $x_1_4 = "physophore\\straedet.ini" ascii //weight: 1
+        $x_1_5 = "Gulvhjderne149\\helsilkes.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_DB_2147833650_0
 {
     meta:

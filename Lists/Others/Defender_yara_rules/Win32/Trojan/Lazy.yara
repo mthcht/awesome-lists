@@ -1923,3 +1923,24 @@ rule Trojan_Win32_Lazy_HNV_2147940511_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_MBZ_2147940964_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.MBZ!MTB"
+        threat_id = "2147940964"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "d ID: \"N2ILNbUimIXCE0IMV_xd/Cin94ZCSPQPVagQSCpa0/cT5BkHWKzhyB0QFem" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
