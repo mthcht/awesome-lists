@@ -7241,3 +7241,25 @@ rule Trojan_MSIL_Heracles_MBZ_2147940853_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_GPAL_2147940925_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.GPAL!MTB"
+        threat_id = "2147940925"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "apstori.ru/panel/uploads/" ascii //weight: 4
+        $x_1_2 = "CompressedBytes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

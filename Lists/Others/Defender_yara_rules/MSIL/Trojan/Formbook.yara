@@ -4736,6 +4736,28 @@ rule Trojan_MSIL_Formbook_AKF_2147847542_1
         threshold = "3"
         strings_accuracy = "Low"
     strings:
+        $x_2_1 = {6c 07 16 9a 16 99 5a a1 25 17 12 09 28 ?? 00 00 0a 6c 07 17 9a 17 99 5a a1 25 18 12 09 28 ?? 00 00 0a 6c 07 18 9a 18 99 5a a1 13 0a 19 8d ?? 00 00 01 25 16 11 0a 16 99 d2 9c 25 17 11 0a 17 99}  //weight: 2, accuracy: Low
+        $x_1_2 = "HarvestPigmentSequence" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_AKF_2147847542_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.AKF!MTB"
+        threat_id = "2147847542"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
         $x_2_1 = {13 06 2b 27 00 07 11 05 11 06 6f ?? ?? ?? 0a 13 07 08 12 07 28 ?? ?? ?? 0a 8c 5a 00 00 01 6f ?? ?? ?? 0a 26 00 11 06 17 58 13 06 11 06 07 6f ?? ?? ?? 0a fe 04 13 08 11 08 2d c9 00 11 05 17 58 13 05 11 05 07 6f ?? ?? ?? 0a fe 04 13 09 11 09 2d ac}  //weight: 2, accuracy: Low
         $x_1_2 = "SalesInventory" wide //weight: 1
     condition:

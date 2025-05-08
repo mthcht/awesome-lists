@@ -3785,11 +3785,63 @@ rule Trojan_Win32_FormBook_Z_2147916944_0
         threshold = "2"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = {3c 30 50 4f 53 54 74 09 40}  //weight: 1, accuracy: High
+        $x_1_2 = {04 83 c4 0c 83 06 07 5b 5f 5e 8b e5 5d c3 8b 17 03 55 0c 6a 01 83}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FormBook_Z_2147916944_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FormBook.Z!MTB"
+        threat_id = "2147916944"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = {74 0a 4e 0f b6 08 8d 44 08 01 75 f6 8d 70 01 0f b6 00 8d 55}  //weight: 1, accuracy: High
         $x_1_2 = {1a d2 80 e2 af 80 c2 7e eb 2a 80 fa 2f 75 11 8a d0 80 e2 01}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_FormBook_Z_2147916944_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FormBook.Z!MTB"
+        threat_id = "2147916944"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {03 c8 0f 31 2b c1 89 45 fc}  //weight: 1, accuracy: High
+        $x_1_2 = {3c 24 0f 84 76 ff ff ff 3c 25 74 94}  //weight: 1, accuracy: High
+        $x_1_3 = {3b 4f 14 73 95 85 c9 74 91}  //weight: 1, accuracy: High
+        $x_1_4 = {3c 69 75 44 8b 7d 18 8b 0f}  //weight: 1, accuracy: High
+        $x_1_5 = {5d c3 8d 50 7c 80 fa 07}  //weight: 1, accuracy: High
+        $x_1_6 = {0f be 5c 0e 01 0f b6 54 0e 02 83 e3 0f c1 ea 06}  //weight: 1, accuracy: High
+        $x_1_7 = {57 89 45 fc 89 45 f4 89 45 f8}  //weight: 1, accuracy: High
+        $x_1_8 = {66 89 0c 02 5b 8b e5 5d}  //weight: 1, accuracy: High
+        $x_1_9 = {3c 54 74 04 3c 74 75 f4}  //weight: 1, accuracy: High
+        $x_1_10 = {56 68 03 01 00 00 8d 85 95 fe ff ff 6a 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
 }
 
 rule Trojan_Win32_FormBook_AFO_2147919711_0
@@ -4310,5 +4362,28 @@ rule Trojan_Win32_FormBook_NAY_2147939788_0
             ((2 of ($x_2_*) and 2 of ($x_1_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_FormBook_ZC_2147940907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FormBook.ZC!MTB"
+        threat_id = "2147940907"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {68 34 1c 7b e1}  //weight: 1, accuracy: High
+        $x_1_2 = {68 38 2a 90 c5}  //weight: 1, accuracy: High
+        $x_1_3 = {68 53 d8 7f 8c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

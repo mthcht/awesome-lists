@@ -1053,3 +1053,24 @@ rule Ransom_Win32_Cerber_YAD_2147932627_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Cerber_ARA_2147940934_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Cerber.ARA!MTB"
+        threat_id = "2147940934"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Cerber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 4c 24 14 8a 0c 0a 03 d8 a1 6c 06 44 00 32 cb 83 e8 01 88 4c 24 13 75 21}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

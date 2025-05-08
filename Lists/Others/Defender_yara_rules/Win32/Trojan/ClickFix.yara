@@ -3514,3 +3514,27 @@ rule Trojan_Win32_ClickFix_DBN_2147940753_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_STT_2147940919_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.STT"
+        threat_id = "2147940919"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = " # " wide //weight: 1
+        $x_1_2 = "://" wide //weight: 1
+        $x_1_3 = "'+'" wide //weight: 1
+        $x_1_4 = "]::" wide //weight: 1
+        $x_1_5 = ";&$" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

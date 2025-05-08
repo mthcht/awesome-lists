@@ -420,3 +420,25 @@ rule Trojan_Win32_RemcosRAT_ZB_2147932429_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RemcosRAT_BSA_2147940933_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemcosRAT.BSA!MTB"
+        threat_id = "2147940933"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_12_1 = {61 00 73 00 73 00 75 00 72 00 65 00 72 00 20 00 67 00 65 00 6e 00 73 00 74 00 61 00 72 00 74 00 65 00 64 00 65 00 73}  //weight: 12, accuracy: High
+        $x_8_2 = {73 00 69 00 66 00 74 00 65 00 72 00 20 00 73 00 6b 00 61 00 6b 00 6b 00 65 00 72 00 6e 00 65 00 73}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
