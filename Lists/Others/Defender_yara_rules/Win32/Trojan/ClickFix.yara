@@ -2445,29 +2445,6 @@ rule Trojan_Win32_ClickFix_STD_2147938322_0
         )
 }
 
-rule Trojan_Win32_ClickFix_AA_2147938353_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.AA"
-        threat_id = "2147938353"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "powershell" wide //weight: 1
-        $x_1_2 = {13 20 65 00 4e 00 63 00 6f}  //weight: 1, accuracy: High
-        $x_1_3 = "uwb0ageacgb0ac0auabyag8aywblahmacwagaciaaab0ahqacaa6a" wide //weight: 1
-        $x_1_4 = "guazaa9ahqacgb1aguaigagaa==" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_ClickFix_SF_2147938437_0
 {
     meta:
@@ -2810,13 +2787,13 @@ rule Trojan_Win32_ClickFix_ZG_2147939200_1
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "400"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_200_1 = "powershell" wide //weight: 200
         $x_200_2 = "-w" wide //weight: 200
-        $x_400_3 = {6d 73 68 74 61 2e 65 78 65 90 02 ff 68 74 74 70}  //weight: 400, accuracy: High
-        $x_400_4 = {6d 73 69 65 78 65 63 2e 65 78 65 90 02 ff 68 74 74 70}  //weight: 400, accuracy: High
-        $x_400_5 = {63 6d 64 90 02 30 63 75 72 6c 90 02 30 68 74 74 70}  //weight: 400, accuracy: High
+        $x_400_3 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_4 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_5 = {63 00 6d 00 64 00 [0-48] 63 00 75 00 72 00 6c 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
         $n_500_6 = ".ps1" wide //weight: -500
         $n_500_7 = ".hta" wide //weight: -500
     condition:
@@ -3195,6 +3172,8 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_6 = "dybep.fun" wide //weight: 1
         $x_1_7 = "esyn.live" wide //weight: 1
         $x_1_8 = "lwhkr.press/" wide //weight: 1
+        $x_1_9 = "thob.live/" wide //weight: 1
+        $x_1_10 = "e.overallwobbly.ru/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -3536,5 +3515,96 @@ rule Trojan_Win32_ClickFix_STT_2147940919_0
     condition:
         (filesize < 20MB) and
         (4 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_AAA_2147940949_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AAA"
+        threat_id = "2147940949"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = {13 20 65 00 4e 00 63 00 6f}  //weight: 1, accuracy: High
+        $x_1_3 = "uwb0ageacgb0ac0auabyag8aywblahmacwagaciaaab0ahqacaa6a" wide //weight: 1
+        $x_1_4 = "guazaa9ahqacgb1aguaigagaa==" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZFA_2147940950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZFA"
+        threat_id = "2147940950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "powershell" wide //weight: 2
+        $x_2_2 = "-w" wide //weight: 2
+        $x_2_3 = "curl" wide //weight: 2
+        $n_5000_4 = ".ps1" wide //weight: -5000
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZFB_2147940951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZFB"
+        threat_id = "2147940951"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "powershell" wide //weight: 2
+        $x_2_2 = "-w" wide //weight: 2
+        $x_2_3 = "curl" wide //weight: 2
+        $x_2_4 = "|iex" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZI_2147940953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZI"
+        threat_id = "2147940953"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "replace" wide //weight: 10
+        $x_1_2 = "powershell" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

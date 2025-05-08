@@ -91,3 +91,27 @@ rule Trojan_MSIL_Lockscreen_PAE_2147924247_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lockscreen_PDR_2147940942_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lockscreen.PDR!MTB"
+        threat_id = "2147940942"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lockscreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Keygroup777" wide //weight: 3
+        $x_2_2 = "Omnilocker - BANG!" wide //weight: 2
+        $x_1_3 = "taskkill /im explorer.exe /f" wide //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

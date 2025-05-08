@@ -70,3 +70,28 @@ rule Trojan_Win32_SuspExec_SB_2147940113_0
         (4 of ($x*))
 }
 
+rule Trojan_Win32_SuspExec_SE_2147940952_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.SE"
+        threat_id = "2147940952"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "node.exe" wide //weight: 2
+        $x_2_2 = "spawn(" wide //weight: 2
+        $x_2_3 = "execsync" wide //weight: 2
+        $n_100_4 = "msedgewebview2.exe" wide //weight: -100
+        $n_1000_5 = "if false == false echo" wide //weight: -1000
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
