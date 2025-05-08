@@ -25,3 +25,4 @@ WORKSTATION,suspicious spoofed names observed in various RDP Bruteforce attacks 
 WIN-JGRMF8L11HO,workstation name observed in log entries during multiple incidents,https://www.huntress.com/blog/akira-ransomware-indicators,high,Detection,Successful Authentication
 WIN-*,default machine name pattern - could be interresting to search in Successful authentication logs,https://www.huntress.com/blog/akira-ransomware-indicators,low,Hunting,Successful Authentication
 DESKTOP-*,default machine name pattern - could be interresting to search in Successful authentication logs,https://www.huntress.com/blog/akira-ransomware-indicators,low,Hunting,Successful Authentication
+metasploitable,default hostname for vulnerable machine metasploitable,https://sourceforge.net/projects/metasploitable/,high,Detection,DHCP - Successful Authentication
