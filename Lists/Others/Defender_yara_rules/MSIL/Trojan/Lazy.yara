@@ -3102,3 +3102,25 @@ rule Trojan_MSIL_Lazy_PGY_2147940191_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_NITA_2147941024_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.NITA!MTB"
+        threat_id = "2147941024"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {12 00 02 7d 10 00 00 04 12 00 03 7d 11 00 00 04 12 00 04 7d 12 00 00 04 12 00 28 14 00 00 0a 7d 0f 00 00 04 12 00 15 7d 0e 00 00 04 12 00 7b 0f 00 00 04 0b 12 01 12 00 28 01 00 00 2b 12 00 7c 0f 00 00 04 28 16 00 00 0a 2a}  //weight: 2, accuracy: High
+        $x_2_2 = {03 11 0e 1f 0c 58 28 ?? 00 00 0a 13 10 03 11 0e 1f 10 58 28 ?? 00 00 0a 13 11 03 11 0e 1f 14 58 28 ?? 00 00 0a 13 12 11 11 2c 2e 11 11 8d 23 00 00 01 13 13 03 11 12 11 13 16 11 11 28 ?? 00 00 0a 12 00 7b 0a 00 00 04 11 0a 11 10 58 11 13 11 11 12 0b 28 ?? 00 00 06 26 11 0e 1f 28 58 13 0e 11 0f 17 58 13 0f 11 0f 11 0d 32 94 11 0a 28 29 00 00 0a 13 14 12 00 7b 0a 00 00 04 11 06 1f 29 94 1e 58 11 14 1a 12 0b 28 06 00 00 06 26 03 11 04 1f 28}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

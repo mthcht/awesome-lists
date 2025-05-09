@@ -3729,3 +3729,25 @@ rule Ransom_MSIL_Filecoder_AKD_2147940700_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_NITB_2147941023_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.NITB!MTB"
+        threat_id = "2147941023"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {73 0b 00 00 0a 25 72 d3 00 00 70 6f ?? 00 00 0a 25 72 ed 00 00 70 6f ?? 00 00 0a 25 72 2d 00 00 70 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = {73 0b 00 00 0a 25 72 4d 01 00 70 6f ?? 00 00 0a 25 72 67 01 00 70 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 2a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

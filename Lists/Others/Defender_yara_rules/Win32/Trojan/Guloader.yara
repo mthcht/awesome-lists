@@ -2988,6 +2988,30 @@ rule Trojan_Win32_Guloader_RPH_2147840589_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "cat -raw '" wide //weight: 10
+        $x_1_2 = "powershell.exe" wide //weight: 1
+        $x_100_3 = "\\Tekstbehandlingsdokumenter\\" wide //weight: 100
+        $x_10_4 = {2e 00 73 00 75 00 62 00 73 00 74 00 72 00 69 00 6e 00 67 00 28 00 [0-12] 2c 00 33 00 29 00 3b 00 2e 00 24 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RPH_2147840589_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RPH!MTB"
+        threat_id = "2147840589"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:

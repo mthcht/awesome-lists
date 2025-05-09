@@ -44,6 +44,7 @@ rule Trojan_Win32_WebShellTerminal_B_2147829110_0
         $x_1_4 = {65 00 63 00 68 00 6f 00 [0-2] 5b 00 [0-6] 5d 00 [0-2] 26 00 [0-2] 63 00 64 00 [0-2] 26 00 [0-2] 65 00 63 00 68 00 6f 00 [0-2] 5b 00 [0-6] 5d 00}  //weight: 1, accuracy: Low
         $n_50_5 = "Directory: &&cd&&echo" wide //weight: -50
         $n_50_6 = "WARP" wide //weight: -50
+        $n_50_7 = "msedgewebview2.exe" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

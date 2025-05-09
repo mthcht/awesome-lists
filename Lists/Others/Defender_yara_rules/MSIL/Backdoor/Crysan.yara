@@ -1845,3 +1845,26 @@ rule Backdoor_MSIL_Crysan_ADRA_2147939253_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Crysan_NIT_2147941025_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Crysan.NIT!MTB"
+        threat_id = "2147941025"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {02 7b 01 00 00 04 6f ?? 00 00 0a 0a 06 8e 69 18 3c 01 00 00 00 2a 06 16 9a 75 03 00 00 01 0b 07 14 28 ?? 00 00 0a 39 01 00 00 00 2a 07 6f ?? 00 00 0a 7e 03 00 00 04 25 3a 17 00 00 00 26 7e 02 00 00 04 fe 06 0b 00 00 06 73 06 00 00 0a 25 80 03 00 00 04 28 ?? 00 00 2b 0c 08 14 28 ?? 00 00 0a 39 0c 00 00 00 02 7b 01 00 00 04 08 6f ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_3 = "CreateEncryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

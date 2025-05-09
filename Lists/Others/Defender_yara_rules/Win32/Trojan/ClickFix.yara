@@ -1792,8 +1792,9 @@ rule Trojan_Win32_ClickFix_SH_2147937478_0
         $x_10_4 = "-w h " wide //weight: 10
         $x_1_5 = "::frombase64string(" wide //weight: 1
         $x_1_6 = "-useb " wide //weight: 1
-        $x_1_7 = "iwr" wide //weight: 1
-        $x_1_8 = "iex" wide //weight: 1
+        $x_1_7 = {2d 00 75 00 72 00 69 00 90 00 02 00 10 00 2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 3b 00}  //weight: 1, accuracy: High
+        $x_1_8 = "iwr" wide //weight: 1
+        $x_1_9 = "iex" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -3369,6 +3370,7 @@ rule Trojan_Win32_ClickFix_ABA_2147940468_0
         $x_1_12 = "rentry.co" wide //weight: 1
         $x_1_13 = "blogspot.com" wide //weight: 1
         $x_1_14 = "bit.ly" wide //weight: 1
+        $x_1_15 = "psee.io" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
