@@ -1,3 +1,24 @@
+rule TrojanDownloader_MSIL_AsyncRat_CH_2147851349_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/AsyncRat.CH!MTB"
+        threat_id = "2147851349"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 04 11 07 11 04 11 07 91 20 ?? ?? ?? ?? 59 d2 9c 00 11 07 17 58 13 07 11 07 11 04 8e 69 fe 04 13 08 11 08}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule TrojanDownloader_MSIL_AsyncRat_CCHZ_2147905552_0
 {
     meta:

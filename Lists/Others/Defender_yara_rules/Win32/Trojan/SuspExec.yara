@@ -95,3 +95,25 @@ rule Trojan_Win32_SuspExec_SE_2147940952_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SuspExec_SEA_2147941102_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.SEA"
+        threat_id = "2147941102"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {72 00 65 00 67 00 [0-48] 61 00 64 00 64 00 [0-48] 72 00 65 00 67 00 5f 00 73 00 7a 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {5c 00 61 00 70 00 70 00 64 00 61 00 74 00 61 00 5c 00 72 00 6f 00 61 00 6d 00 69 00 6e 00 67 00 5c 00 6e 00 6f 00 64 00 65 00 [0-48] 6e 00 6f 00 64 00 65 00 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {5c 00 61 00 70 00 70 00 64 00 61 00 74 00 61 00 5c 00 72 00 6f 00 61 00 6d 00 69 00 6e 00 67 00 5c 00 6e 00 6f 00 64 00 65 00 [0-255] 2e 00 6c 00 6f 00 67 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

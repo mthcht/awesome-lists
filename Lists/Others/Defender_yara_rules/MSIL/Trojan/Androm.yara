@@ -1656,3 +1656,26 @@ rule Trojan_MSIL_Androm_AFTA_2147940977_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_AKTA_2147941068_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.AKTA!MTB"
+        threat_id = "2147941068"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 8e 69 1a 3c 07 00 00 00 16 0b dd 70 00 00 00 72 ?? ?? 00 70 28 ?? 00 00 0a 0c 72 ?? ?? 00 70 28 ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 11 04 08 6f ?? 00 00 0a 11 04 09 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 05 03 72 ?? ?? 00 70 11 05 06 16 06 8e 69 6f ?? 00 00 0a 6f ?? 00 00 06 dd}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

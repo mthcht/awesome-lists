@@ -210,3 +210,36 @@ rule Trojan_Win32_Nymeria_NMA_2147936977_0
         )
 }
 
+rule Trojan_Win32_Nymeria_NAZ_2147941069_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nymeria.NAZ!MTB"
+        threat_id = "2147941069"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nymeria"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "&= DLLSTRUCTGETDATA" ascii //weight: 2
+        $x_1_2 = "EXECUTE ( \"1\" )" ascii //weight: 1
+        $x_1_3 = {3d 00 20 00 40 00 55 00 53 00 45 00 52 00 50 00 52 00 4f 00 46 00 49 00 4c 00 45 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 [0-47] 22 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {3d 20 40 55 53 45 52 50 52 4f 46 49 4c 45 44 49 52 20 26 20 22 5c [0-47] 22}  //weight: 1, accuracy: Low
+        $x_1_5 = "( \"wscript.exe\" , \"djoin\" , \"+\" , FALSE )" ascii //weight: 1
+        $x_1_6 = "RUN ( @PROGRAMFILESDIR & \"\\Internet Explorer\\iexplore.exe \" & $STEMP )" ascii //weight: 1
+        $x_1_7 = "$RESULT &= CHRW ( $XOR )" ascii //weight: 1
+        $x_1_8 = {26 00 3d 00 20 00 43 00 48 00 52 00 57 00 20 00 28 00 20 00 24 00 [0-47] 20 00 5b 00 20 00 24 00 [0-47] 20 00 5d 00 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_9 = {26 3d 20 43 48 52 57 20 28 20 24 [0-47] 20 5b 20 24 [0-47] 20 5d 20 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((8 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 6 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

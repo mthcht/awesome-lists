@@ -6242,6 +6242,32 @@ rule Trojan_MSIL_FormBook_AFB_2147832252_32
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_AFB_2147832252_33
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.AFB!MTB"
+        threat_id = "2147832252"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "RoyNES Nexus" wide //weight: 6
+        $x_5_2 = "Nebula Horizon Technologies" wide //weight: 5
+        $x_4_3 = "Quantum.2025.Spring" wide //weight: 4
+        $x_3_4 = "Take Screenshot" wide //weight: 3
+        $x_2_5 = "listenning on port" wide //weight: 2
+        $x_1_6 = "client stopped without closing properly" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_AJBI_2147832254_0
 {
     meta:

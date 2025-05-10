@@ -3032,7 +3032,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_1
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {89 56 48 83 c0 f8 89 46 44 83 f8 07 76 42 8b 4e 30 3b 4e 34 73 e7 8d 41}  //weight: 1, accuracy: High
+        $x_1_1 = {26 60 08 01 b3 85 d7 34 66 85 80 b5 4a a9 2b 43 09 2a d6 47 e5 d2}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3053,7 +3053,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_2
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {fd 41 80 e5 29 41 80 e2 10 45 08 ea 45 08 df 41 80 e3 29 80 e1 d6 44 08 d9 44 30 d1 41 f6 d7 41 08 cf 89 d9 20 d1 30 da 08 ca 44 89 f9 f6 d1 20 d1 f6 d2 44 20 fa 08 ca 44 08 c8 f6 d0 89 d1 20}  //weight: 1, accuracy: High
+        $x_1_1 = {d3 e6 09 f2 89 57 48 01 c8 89 47 44 83 f8 08 72 39 8b 74 24 08 eb 14}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3074,7 +3074,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_3
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {0f b6 1c 38 88 1c 39 0f b6 5c 38 ff 88 5c 39 ff 0f b6 5c 38 fe 88 5c 39 fe 0f b6 5c 38 fd 88 5c 39 fd 0f b6 5c 38 fc 88 5c 39 fc 0f b6 5c 38 fb 88 5c 39 fb 0f b6 5c 38 fa 88 5c 39 fa 0f b6 5c 38 f9 88 5c 39 f9 83 c7 f8}  //weight: 1, accuracy: High
+        $x_1_1 = {89 56 48 83 c0 f8 89 46 44 83 f8 07 76 42 8b 4e 30 3b 4e 34 73 e7 8d 41}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3095,7 +3095,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_4
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {44 20 f3 45 88 d3 41 20 fb 41 30 fa 45 08 d3 41 88 ea 41 80 f2 ff 40 88 df 40 80 f7 ff 41 88 f6 41 80 f6 01 45 88 d7 41 80 e7 ff 44 20 f5 41 88 fc 41 80 e4 ff 44 20 f3 41 08 ef 41 08 dc 45 30 e7 41 08 fa 41 80 f2 ff 41 80 ce 01 45 20 f2 45 08 d7 45 88 da 41 80}  //weight: 1, accuracy: High
+        $x_1_1 = {39 77 28 73 25 56 ff 77 2c ff 77 20 ff 71 34 ff 51 30 83 c4 10 85 c0 0f 84 7c 02}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3116,7 +3116,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_5
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {41 30 c7 40 88 f0 34 ff 45 88 f4 41 80 f4 ff 41 88 fd 41 80 f5 00 88 c1 80 e1 00 44 20 ee 44 88 e2 80 e2 00 45 20 ee 40 08 f1 44 08 f2 30 d1 44 08 e0 34 ff 41 80 cd 00 44 20 e8 08 c1 40 88 f8 34 00 44 88 fa 80 f2 ff 40 88 fe 40 80 f6 01 41 88 c6 41 80 e6 ff 41 88 f4 41 80}  //weight: 1, accuracy: High
+        $x_1_1 = {7a 36 14 1b 4f b1 6b 6b 91 3c f8 0c ed 40 a6 38 f9 ef 8b 67 d6 8c b2 1b af 31 c5}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3137,13 +3137,118 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_6
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {3c af c6 43 3d c1 c6 43 3e e0 c6 43 3f c7 c6 43 40 8c c6 43 41 c5 c6 43 42 ab c6 43 43 cb c6 43 44 a6 c6 43 45 c9 c6 43 46 a3 c6 43 47 cf c6 43 48 5b c6 43 49 cd c6 43 4a b0 c6 43 4b f3 c6 43 4c 9a c6 43 4d f1 c6 43 4e 61 c6 43 4f f7 c6 43 50 64 c6 43 51 f5 c6 43 52 9f c6 43 53 fb c6 43 54 65 c6 43 55}  //weight: 1, accuracy: High
+        $x_1_1 = {fd 41 80 e5 29 41 80 e2 10 45 08 ea 45 08 df 41 80 e3 29 80 e1 d6 44 08 d9 44 30 d1 41 f6 d7 41 08 cf 89 d9 20 d1 30 da 08 ca 44 89 f9 f6 d1 20 d1 f6 d2 44 20 fa 08 ca 44 08 c8 f6 d0 89 d1 20}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_Win32_LummaStealer_Z_2147927310_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.Z!MTB"
+        threat_id = "2147927310"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 63 52 3c 4d 03 c2 4d 8b d0 4c 89 55 b8 4c 89 45 b0 45 33 c9 66 41 81 7a 18 0b 02 41 0f 94 c1 44 89 4d ac 45 85 c9 4d 8b d8 4d 0f 45 da 4c 89 5d a0 b9 60 00 00 00 89 4d 9c bb 18 00 00 00 48 63 c9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_Z_2147927310_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.Z!MTB"
+        threat_id = "2147927310"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 1c 38 88 1c 39 0f b6 5c 38 ff 88 5c 39 ff 0f b6 5c 38 fe 88 5c 39 fe 0f b6 5c 38 fd 88 5c 39 fd 0f b6 5c 38 fc 88 5c 39 fc 0f b6 5c 38 fb 88 5c 39 fb 0f b6 5c 38 fa 88 5c 39 fa 0f b6 5c 38 f9 88 5c 39 f9 83 c7 f8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_Z_2147927310_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.Z!MTB"
+        threat_id = "2147927310"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 20 f3 45 88 d3 41 20 fb 41 30 fa 45 08 d3 41 88 ea 41 80 f2 ff 40 88 df 40 80 f7 ff 41 88 f6 41 80 f6 01 45 88 d7 41 80 e7 ff 44 20 f5 41 88 fc 41 80 e4 ff 44 20 f3 41 08 ef 41 08 dc 45 30 e7 41 08 fa 41 80 f2 ff 41 80 ce 01 45 20 f2 45 08 d7 45 88 da 41 80}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_Z_2147927310_10
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.Z!MTB"
+        threat_id = "2147927310"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 30 c7 40 88 f0 34 ff 45 88 f4 41 80 f4 ff 41 88 fd 41 80 f5 00 88 c1 80 e1 00 44 20 ee 44 88 e2 80 e2 00 45 20 ee 40 08 f1 44 08 f2 30 d1 44 08 e0 34 ff 41 80 cd 00 44 20 e8 08 c1 40 88 f8 34 00 44 88 fa 80 f2 ff 40 88 fe 40 80 f6 01 41 88 c6 41 80 e6 ff 41 88 f4 41 80}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_Z_2147927310_11
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.Z!MTB"
+        threat_id = "2147927310"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {3c af c6 43 3d c1 c6 43 3e e0 c6 43 3f c7 c6 43 40 8c c6 43 41 c5 c6 43 42 ab c6 43 43 cb c6 43 44 a6 c6 43 45 c9 c6 43 46 a3 c6 43 47 cf c6 43 48 5b c6 43 49 cd c6 43 4a b0 c6 43 4b f3 c6 43 4c 9a c6 43 4d f1 c6 43 4e 61 c6 43 4f f7 c6 43 50 64 c6 43 51 f5 c6 43 52 9f c6 43 53 fb c6 43 54 65 c6 43 55}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_Z_2147927310_12
 {
     meta:
         author = "defender2yara"
@@ -3165,7 +3270,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_7
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_8
+rule Trojan_Win32_LummaStealer_Z_2147927310_13
 {
     meta:
         author = "defender2yara"
@@ -3188,7 +3293,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_8
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_9
+rule Trojan_Win32_LummaStealer_Z_2147927310_14
 {
     meta:
         author = "defender2yara"
@@ -3212,7 +3317,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_9
         (2 of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_10
+rule Trojan_Win32_LummaStealer_Z_2147927310_15
 {
     meta:
         author = "defender2yara"
@@ -3233,7 +3338,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_10
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_11
+rule Trojan_Win32_LummaStealer_Z_2147927310_16
 {
     meta:
         author = "defender2yara"
@@ -3260,7 +3365,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_11
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_12
+rule Trojan_Win32_LummaStealer_Z_2147927310_17
 {
     meta:
         author = "defender2yara"
@@ -3289,7 +3394,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_12
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_13
+rule Trojan_Win32_LummaStealer_Z_2147927310_18
 {
     meta:
         author = "defender2yara"
@@ -3317,7 +3422,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_13
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_14
+rule Trojan_Win32_LummaStealer_Z_2147927310_19
 {
     meta:
         author = "defender2yara"
@@ -3345,7 +3450,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_14
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_15
+rule Trojan_Win32_LummaStealer_Z_2147927310_20
 {
     meta:
         author = "defender2yara"
@@ -3380,7 +3485,7 @@ rule Trojan_Win32_LummaStealer_Z_2147927310_15
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_Z_2147927310_16
+rule Trojan_Win32_LummaStealer_Z_2147927310_21
 {
     meta:
         author = "defender2yara"
@@ -5414,27 +5519,6 @@ rule Trojan_Win32_LummaStealer_DY_2147940748_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {89 ca c1 ea 1e 31 ca 69 ca ?? ?? ?? ?? 01 c1 41 8b 15 ?? ?? ?? ?? 89 4c 82 08 3d ?? ?? ?? ?? 74 ?? 89 ca c1 ea 1e 31 ca 69 ca ?? ?? ?? ?? 01 c1 83 c1 02 8b 15 ?? ?? ?? ?? 89 4c 82 0c 83 c0 02 eb}  //weight: 10, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_LummaStealer_ZO_2147940908_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/LummaStealer.ZO!MTB"
-        threat_id = "2147940908"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "LummaStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {4c 63 52 3c 4d 03 c2 4d 8b d0 4c 89 55 b8 4c 89 45 b0 45 33 c9 66 41 81 7a 18 0b 02 41 0f 94 c1 44 89 4d ac 45 85 c9 4d 8b d8 4d 0f 45 da 4c 89 5d a0 b9 60 00 00 00 89 4d 9c bb 18 00 00 00 48 63 c9}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
