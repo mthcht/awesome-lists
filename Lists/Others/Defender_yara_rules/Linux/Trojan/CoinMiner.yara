@@ -236,3 +236,37 @@ rule Trojan_Linux_CoinMiner_AX_2147915802_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_CoinMiner_C12_2147941154_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/CoinMiner.C12"
+        threat_id = "2147941154"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "xmrig" ascii //weight: 2
+        $x_2_2 = "stratum+ssl" ascii //weight: 2
+        $x_2_3 = "randomx" ascii //weight: 2
+        $x_2_4 = "Monero" ascii //weight: 2
+        $x_2_5 = "Kevacoin" ascii //weight: 2
+        $x_2_6 = "Ravencoin" ascii //weight: 2
+        $x_2_7 = "wownero" ascii //weight: 2
+        $x_2_8 = "memory-pool" ascii //weight: 2
+        $x_2_9 = "huge-pages" ascii //weight: 2
+        $x_2_10 = "pool address" ascii //weight: 2
+        $x_2_11 = "socks5://" ascii //weight: 2
+        $x_2_12 = "stratum+tcp://" ascii //weight: 2
+        $x_2_13 = "/nr_hugepages" ascii //weight: 2
+        $x_2_14 = "cryptonight" ascii //weight: 2
+        $x_2_15 = "mining.authorize" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

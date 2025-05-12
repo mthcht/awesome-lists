@@ -3027,3 +3027,26 @@ rule Trojan_MSIL_PureLogStealer_SWA_2147940761_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_AOTA_2147941155_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.AOTA!MTB"
+        threat_id = "2147941155"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 11 04 08 6f ?? 00 00 0a 11 04 09 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 05 72 ?? ?? 00 70 13 06 11 05 06 16 06 8e 69 6f ?? 00 00 0a 13 07 11 07 11 06 03 28 ?? 00 00 06 de 0c}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
