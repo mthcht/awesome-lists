@@ -2827,3 +2827,27 @@ rule Trojan_Win32_ClipBanker_SL_2147940309_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_GVB_2147941184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.GVB!MTB"
+        threat_id = "2147941184"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {55 8b ec 83 ec ?? c6 45 ?? 4c c6 45 ?? 6f c6 45 ?? 61 c6 45 ?? 64 c6 45 ?? 4c c6 45 ?? 69 c6 45 ?? 62 c6 45 ?? 72 c6 45 ?? 61 c6 45 ?? 72 c6 45 ?? 79 c6 45 ?? 45 c6 45 ?? 78 c6 45 ?? 41 c6 45 ?? 00 c6 45 ?? 6b c6 45 ?? 65 c6 45 ?? 72 c6 45 ?? 6e c6 45 ?? 65 c6 45 ?? 6c c6 45 ?? 33 c6 45 ?? 32 c6 45 ?? 2e c6 45 ?? 64 c6 45 ?? 6c c6 45 ?? 6c c6 45 ?? 00 6a 00 e8}  //weight: 2, accuracy: Low
+        $x_1_2 = "Tgbot/Telegram Bot Base/bin" ascii //weight: 1
+        $x_1_3 = "main.fetchAndDecrypt" ascii //weight: 1
+        $x_1_4 = "main.trySend" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5404,3 +5404,30 @@ rule Trojan_Win32_Guloader_ASL_2147940813_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_ASN_2147941170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.ASN!MTB"
+        threat_id = "2147941170"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "moneychanger\\submicrogram\\Tailorisation117" ascii //weight: 1
+        $x_1_2 = "Reduktioner211\\Uninstall\\vocalist\\Regionsplanretningslinje" ascii //weight: 1
+        $x_1_3 = "alkali\\Uninstall\\Iconically95" ascii //weight: 1
+        $x_1_4 = "Imperialises%\\squibb.txt" ascii //weight: 1
+        $x_1_5 = "Vrdiskabende32.jpg" ascii //weight: 1
+        $x_1_6 = "dokumentfalskner\\heltalsvaerdier.exe" ascii //weight: 1
+        $x_1_7 = "skiegh\\empathised.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

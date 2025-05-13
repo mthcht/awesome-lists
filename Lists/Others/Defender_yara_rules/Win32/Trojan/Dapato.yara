@@ -220,3 +220,25 @@ rule Trojan_Win32_Dapato_GVA_2147940499_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dapato_GVB_2147941183_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dapato.GVB!MTB"
+        threat_id = "2147941183"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {5a 2b d0 31 13 83 45 ec 04 6a 00}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 13 03 55 ec 2b d0 89 13 8b 45 d4 03 45 a4 03 45 ec 03 f0 bf 89 15 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

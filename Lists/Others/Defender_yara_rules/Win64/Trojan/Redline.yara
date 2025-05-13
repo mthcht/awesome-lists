@@ -235,3 +235,24 @@ rule Trojan_Win64_Redline_SIM_2147935242_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Redline_GZZ_2147941181_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redline.GZZ!MTB"
+        threat_id = "2147941181"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {64 21 21 00 00 00 73 68 65 6c 6c 33 32 2e 64 6c 6c 00 00 00 00 00 53 48 47 65 74 46 6f 6c 64 65}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

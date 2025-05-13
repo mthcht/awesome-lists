@@ -1134,3 +1134,24 @@ rule Ransom_Win32_Basta_PAGY_2147940392_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Basta_KTS_2147941172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Basta.KTS!MTB"
+        threat_id = "2147941172"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Basta"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {f7 f7 8b 44 24 14 31 14 98 33 d2 a1 ?? ?? ?? ?? f7 f3 0f b7 05 ?? ?? ?? ?? 03 d0 8b 44 24 5c 0f b7 44 68 06 8b 6c 24 10 23 d0 8b 44 24 50 0f af 14 88 89 14 88 41 3b 4c 24 40 7f}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
