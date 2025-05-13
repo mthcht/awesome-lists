@@ -70,3 +70,24 @@ rule Trojan_MSIL_BadJoke_PZML_2147937213_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BadJoke_SLC_2147941273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BadJoke.SLC!MTB"
+        threat_id = "2147941273"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {1c 72 86 04 00 70 a2 28 27 00 00 0a 0b 06 07 28 28 00 00 0a 00 06 28 29 00 00 0a 26 72 98 04 00 70 72 b0 04 00 70 72 d2 04 00 70 72 e6 04 00 70 28 04 00 00 06 00 02 28 2a 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

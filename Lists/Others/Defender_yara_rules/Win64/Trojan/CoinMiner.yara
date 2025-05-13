@@ -960,3 +960,26 @@ rule Trojan_Win64_CoinMiner_PPCD_2147939601_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_ASTA_2147941257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.ASTA!MTB"
+        threat_id = "2147941257"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4d 8b c5 48 83 3d ?? ?? ?? ?? 0f 4c 0f 47 05 ?? ?? ?? ?? 33 d2 48 8b c1 48 f7 35 ?? ?? ?? ?? 49 03 d0 4c 8d 44 24 50 48 83 7c 24 68 0f 4c 0f 47 44 24 50 0f b6 02 41 32 04 09 41 88 04 08 48 ff c1 49 3b ca 72}  //weight: 5, accuracy: Low
+        $x_1_2 = "\\Sapphire_Miner_Source\\SapphireClient\\x64\\Release\\SapphireClient.pdb" ascii //weight: 1
+        $x_1_3 = "powershell -Command \"Add-MpPreference -ExclusionProcess 'cmd.exe'; Add-MpPreference -ExclusionPath 'C:\\'\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
