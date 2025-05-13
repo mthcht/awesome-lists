@@ -1013,3 +1013,87 @@ rule Trojan_MSIL_KillMBR_BR_2147941218_0
         )
 }
 
+rule Trojan_MSIL_KillMBR_EAB_2147941298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.EAB!MTB"
+        threat_id = "2147941298"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {00 09 11 05 11 05 1f 0a 11 05 1f 17 62 11 05 1c 63 60 11 05 20 80 00 00 00 61 60 11 05 1b 62 11 05 1d 63 60 5f 5a 5a d2 9c 00 11 05 17 58 13 05 11 05 09 8e 69 fe 04 13 06 11 06 2d c3}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_KillMBR_EHB_2147941301_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.EHB!MTB"
+        threat_id = "2147941301"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {00 06 07 02 07 6f 2a 00 00 0a 20 ff 00 00 00 5f d2 9c 00 07 17 58 0b 07 20 00 5e 01 00 fe 04 0c 08 2d dd}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_KillMBR_EHM_2147941304_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.EHM!MTB"
+        threat_id = "2147941304"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 20 f8 2f 14 00 8d 15 00 00 01 0a 16 0b 2b 15 06 07 02 07 6f 19 00 00 0a 20 00 01 00 00 5d d2 9c 07 17 58 0b 07 20 f8 2f 14 00 32 e3}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_KillMBR_EUA_2147941315_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.EUA!MTB"
+        threat_id = "2147941315"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {58 08 09 07 16 1f ec 11 05 58 20 84 75 98 00 ?? ?? ?? ?? ?? 26 07 16 1f ec 11 05 58 08 09 07 16 1f 14 11 04 58 20 84 75 98 00 ?? ?? ?? ?? ?? 26}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

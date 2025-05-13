@@ -1258,3 +1258,24 @@ rule Trojan_Win32_Stealer_DAH_2147940676_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_EAOZ_2147941297_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.EAOZ!MTB"
+        threat_id = "2147941297"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 c6 0f b6 d3 03 d0 81 e2 ff 00 00 00 8b f2 8a 86 ?? ?? ?? ?? 89 35 ?? ?? ?? ?? 88 81 ?? ?? ?? ?? 81 f9 39 0f 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

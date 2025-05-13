@@ -28,3 +28,25 @@ rule Worm_Win32_Mofei_P_2147667654_0
         )
 }
 
+rule Worm_Win32_Mofei_ENAW_2147941300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Mofei.ENAW!MTB"
+        threat_id = "2147941300"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mofei"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8a da fe c3 32 19 88 18 40 41 42 3b 54 24 10}  //weight: 3, accuracy: High
+        $x_3_2 = {8a 45 f4 83 c4 0c 88 04 1e 8a 45 f5 46 88 04 1e 46}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

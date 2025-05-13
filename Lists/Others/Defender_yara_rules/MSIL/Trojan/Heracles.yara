@@ -7217,6 +7217,48 @@ rule Trojan_MSIL_Heracles_ZLW_2147940412_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_SWT_2147940667_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SWT!MTB"
+        threat_id = "2147940667"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {72 09 00 00 70 28 02 00 00 06 de 03 26 de 00 20 b8 0b 00 00 28 05 00 00 0a 1f ?? 28 06 00 00 0a 72 ?? 00 00 70 28 07 00 00 0a 28 08 00 00 0a 1f 23 28 06 00 00 0a 72 ?? 00 00 70 28 07 00 00 0a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_SHO_2147940775_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SHO!MTB"
+        threat_id = "2147940775"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 15 00 00 0a 72 8e 01 00 70 28 16 00 00 0a 6f 17 00 00 0a 28 18 00 00 0a 0b 00 28 15 00 00 0a 72 a8 01 00 70 28 16 00 00 0a 6f 17 00 00 0a 0c 73 23 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_MBZ_2147940853_0
 {
     meta:

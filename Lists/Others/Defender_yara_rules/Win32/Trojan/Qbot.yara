@@ -5956,3 +5956,30 @@ rule Trojan_Win32_Qbot_AC_2147903123_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Qbot_BAA_2147941280_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Qbot.BAA!MTB"
+        threat_id = "2147941280"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Qbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Couldn't open the file" ascii //weight: 1
+        $x_1_2 = "@echo off" ascii //weight: 1
+        $x_1_3 = "%windir%\\system32\\slmgr.vbs" ascii //weight: 1
+        $x_1_4 = "net stop DPS" ascii //weight: 1
+        $x_1_5 = "sc config DPS start= disabled" ascii //weight: 1
+        $x_1_6 = "netsh advfirewall set allprofiles state offvisua" ascii //weight: 1
+        $x_1_7 = "@%SystemRoot%\\system32\\shell32.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

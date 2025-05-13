@@ -321,3 +321,24 @@ rule Ransom_Win32_TeslaCrypt_GNM_2147929201_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_TeslaCrypt_ERL_2147941305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/TeslaCrypt.ERL!MTB"
+        threat_id = "2147941305"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "TeslaCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {66 8b 94 24 ba 00 00 00 8a 5c 24 2f 88 9c 24 b9 00 00 00 66 2b 8c 24 ba 00 00 00 66 29 d0 66 89 84 24 b2 00 00 00 66 39 8c 24 b2 00 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

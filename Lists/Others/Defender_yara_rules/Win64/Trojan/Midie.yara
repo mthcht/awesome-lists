@@ -319,3 +319,24 @@ rule Trojan_Win64_Midie_NS_2147937841_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_GZK_2147941295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.GZK!MTB"
+        threat_id = "2147941295"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {b4 1f 4d bf 85 e6 08 f6 9c fa 43 1b 08 1e 32 f9 bf}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

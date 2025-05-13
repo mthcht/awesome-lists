@@ -9423,3 +9423,24 @@ rule Trojan_Win32_Glupteba_GYZ_2147940201_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Glupteba_EAS_2147941310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.EAS!MTB"
+        threat_id = "2147941310"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b f3 d3 ee 03 c3 89 45 e4 03 75 dc 8b 45 e4 31 45 fc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

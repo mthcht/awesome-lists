@@ -211,3 +211,24 @@ rule Trojan_MSIL_ShellcodeRunner_EDJ_2147940176_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeRunner_EAJ_2147941307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.EAJ!MTB"
+        threat_id = "2147941307"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 17 11 18 11 05 11 18 91 20 aa 00 00 00 61 20 ff 00 00 00 5f d2 9c 11 18 17 58 13 18 11 18 11 05 8e 69 3f d8 ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2642,3 +2642,24 @@ rule Trojan_MSIL_Rozena_CCJR_2147934174_0
         )
 }
 
+rule Trojan_MSIL_Rozena_EAJ_2147941306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.EAJ!MTB"
+        threat_id = "2147941306"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {08 02 07 02 8e 69 5d 91 58 06 07 91 58 20 ff 00 00 00 5f 0c 06 07 08 28 04 00 00 06 07 17 58 0b 07 20 00 01 00 00 32 d8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

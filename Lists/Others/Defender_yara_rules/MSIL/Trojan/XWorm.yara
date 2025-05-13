@@ -2064,3 +2064,24 @@ rule Trojan_MSIL_XWorm_STUP_2147940712_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ENJ_2147941314_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ENJ!MTB"
+        threat_id = "2147941314"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {2b 17 06 07 6f 25 00 00 0a 28 26 00 00 0a 1f 1e 28 12 00 00 0a 07 17 58 0b 07 06 6f 20 00 00 0a 32 e0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

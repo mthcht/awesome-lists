@@ -688,3 +688,24 @@ rule Ransom_Win32_Gandcrab_RPF_2147834602_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Gandcrab_EN_2147941303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Gandcrab.EN!MTB"
+        threat_id = "2147941303"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Gandcrab"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8d a4 24 00 00 00 00 90 0f b6 4c 85 d4 40 30 8a ?? ?? ?? ?? 33 c9 83 f8 0b 0f 44 c1}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
