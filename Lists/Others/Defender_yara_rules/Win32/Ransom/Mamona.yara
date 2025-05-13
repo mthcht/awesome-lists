@@ -22,3 +22,26 @@ rule Ransom_Win32_Mamona_CCJX_2147938504_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Mamona_DA_2147941222_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Mamona.DA!MTB"
+        threat_id = "2147941222"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mamona"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "your files have been encrypted" ascii //weight: 10
+        $x_5_2 = "README.HAes.txt" ascii //weight: 5
+        $x_5_3 = ".HAES" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

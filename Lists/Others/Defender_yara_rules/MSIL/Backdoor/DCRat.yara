@@ -592,3 +592,24 @@ rule Backdoor_MSIL_DCRat_RHC_2147916588_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_DCRat_GZZ_2147941219_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/DCRat.GZZ!MTB"
+        threat_id = "2147941219"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {01 25 16 72 ?? 00 00 70 72 ?? 00 00 70 72 ?? 00 00 70 28 ?? 00 00 0a a2 25 17 72 ?? 00 00 70 72 ?? 00 00 70 72 ?? 00 00 70 28 ?? 00 00 0a a2 25 18 72 ?? 00 00 70 72 ?? 00 00 70 72 ?? 01 00 70 28 ?? 00 00 0a a2 25 19 72 ?? 01 00 70 72 ?? 00 00 70 72 ?? 01 00 70 28 ?? 00 00 0a a2 25 1a 72 ?? 01 00 70 72 ?? 00 00 70 72 ?? 01 00 70 28 ?? 00 00 0a a2 25 1b 72 ?? 01 00 70 72 ?? 00 00 70 72 ?? 01 00 70 28 ?? 00 00 0a a2 7e}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

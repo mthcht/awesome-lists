@@ -2680,6 +2680,34 @@ rule Trojan_Win32_ClickFix_ZE_2147939086_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_ZE_2147939086_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZE"
+        threat_id = "2147939086"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1150"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "mshta" wide //weight: 50
+        $x_50_2 = "http" wide //weight: 50
+        $x_50_3 = "2no.co" wide //weight: 50
+        $x_1000_4 = "=+=" wide //weight: 1000
+        $x_1000_5 = "+=+" wide //weight: 1000
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_1000_*) and 3 of ($x_50_*))) or
+            ((2 of ($x_1000_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_ClickFix_ZF_2147939088_0
 {
     meta:
@@ -3639,6 +3667,53 @@ rule Trojan_Win32_ClickFix_SQ_2147941103_0
         $x_1_2 = "windowsinstaller.installer" wide //weight: 1
         $x_1_3 = "uilevel=2" wide //weight: 1
         $x_1_4 = "installproduct" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DBO_2147941223_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBO!MTB"
+        threat_id = "2147941223"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "120"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "[ScRiPtBlOcK]::CrEaTe(" wide //weight: 10
+        $x_10_3 = "[array]::Reverse($" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DBQ_2147941224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBQ!MTB"
+        threat_id = "2147941224"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "-UseBasicParsing" wide //weight: 10
+        $x_10_3 = "-join" wide //weight: 10
+        $x_10_4 = ".Length]" wide //weight: 10
     condition:
         (filesize < 20MB) and
         (all of ($x*))

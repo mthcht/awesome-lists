@@ -983,3 +983,33 @@ rule Trojan_MSIL_KillMBR_EAZE_2147940172_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_BR_2147941218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.BR!MTB"
+        threat_id = "2147941218"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "All your exe files have been locked by ????? (:" wide //weight: 2
+        $x_2_2 = "-NoP -EP Bypass -W Hidden -C \"iwr 'https://files.catbox.moe/ab4icn.rar' -OutFile $env:TEMP\\file.com" wide //weight: 2
+        $x_1_3 = "exefile\\shell\\runasuser\\command" wide //weight: 1
+        $x_1_4 = "MasonVirus" ascii //weight: 1
+        $x_1_5 = "cmd /k echo {0} && pause" wide //weight: 1
+        $x_1_6 = "/k reg delete HKCR /f" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
