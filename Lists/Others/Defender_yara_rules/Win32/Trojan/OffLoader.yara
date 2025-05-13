@@ -4198,3 +4198,28 @@ rule Trojan_Win32_OffLoader_ANTA_2147941146_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_AQTA_2147941251_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AQTA!MTB"
+        threat_id = "2147941251"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://yamhot.icu/ier.php?" ascii //weight: 4
+        $x_1_2 = "/silent" ascii //weight: 1
+        $x_1_3 = "/weaksecurity" ascii //weight: 1
+        $x_1_4 = "/nocookies" ascii //weight: 1
+        $x_1_5 = "/resume" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
