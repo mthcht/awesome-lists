@@ -781,3 +781,24 @@ rule Trojan_Win32_DllInject_NIT_2147932228_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DllInject_GVC_2147941418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllInject.GVC!MTB"
+        threat_id = "2147941418"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {55 8b ec 83 ec 1c a1 ?? ?? ?? ?? 33 c5 89 45 fc 89 4d e8 c7 45 e4 0f 00 00 00 c6 45 ec c3 c6 45 ed 7e c6 45 ee 3b c6 45 ef 8f c6 45 f0 2c c6 45 f1 17 c6 45 f2 52 c6 45 f3 0c c6 45 f4 ef c6 45 f5 6f c6 45 f6 3b c6 45 f7 9d c6 45 f8 2b c6 45 f9 33 c6 45 fa 02 a1 ?? ?? ?? ?? 64 8b 0d 2c 00 00 00 8b 14 81 8b 82 2c 00 00 00 83 e0 01}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
