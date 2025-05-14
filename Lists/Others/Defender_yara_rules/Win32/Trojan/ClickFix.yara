@@ -2669,12 +2669,12 @@ rule Trojan_Win32_ClickFix_ZE_2147939086_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "30"
+        threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_10_1 = "mshta" wide //weight: 10
-        $x_10_2 = {68 00 74 00 74 00 70 00 90 00 02 00 ff 00 2e 00 6f 00 67 00 67 00}  //weight: 10, accuracy: High
-        $x_10_3 = {20 00 05 27 20 00}  //weight: 10, accuracy: High
+        $x_1_1 = "mshta" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "2no.co/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -2691,21 +2691,15 @@ rule Trojan_Win32_ClickFix_ZE_2147939086_1
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1150"
+        threshold = "30"
         strings_accuracy = "High"
     strings:
-        $x_50_1 = "mshta" wide //weight: 50
-        $x_50_2 = "http" wide //weight: 50
-        $x_50_3 = "2no.co" wide //weight: 50
-        $x_1000_4 = "=+=" wide //weight: 1000
-        $x_1000_5 = "+=+" wide //weight: 1000
+        $x_10_1 = "mshta" wide //weight: 10
+        $x_10_2 = {68 00 74 00 74 00 70 00 90 00 02 00 ff 00 2e 00 6f 00 67 00 67 00}  //weight: 10, accuracy: High
+        $x_10_3 = {20 00 05 27 20 00}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_1000_*) and 3 of ($x_50_*))) or
-            ((2 of ($x_1000_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 
 rule Trojan_Win32_ClickFix_ZF_2147939088_0

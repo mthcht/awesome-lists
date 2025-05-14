@@ -932,3 +932,31 @@ rule Trojan_Win64_Latrodectus_DL_2147941365_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Latrodectus_STZ_2147941368_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Latrodectus.STZ"
+        threat_id = "2147941368"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Latrodectus"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 10, accuracy: High
+        $x_1_2 = {4d 5a 45 52 e8 00 00 00 00 59 48 83 ?? 09 48 8b c1 48 05 ?? ?? ?? ?? ff d0 c3}  //weight: 1, accuracy: Low
+        $x_1_3 = {b9 02 9f e6 6a}  //weight: 1, accuracy: High
+        $x_1_4 = {ba 8d bd c1 3f}  //weight: 1, accuracy: High
+        $x_1_5 = {ba ff 1f 7c c9}  //weight: 1, accuracy: High
+        $x_1_6 = {41 81 f0 20 83 b8 ed}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
