@@ -886,3 +886,24 @@ rule Trojan_MSIL_Netwire_IFA_2147896144_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Netwire_CH_2147941361_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Netwire.CH!MTB"
+        threat_id = "2147941361"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Netwire"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {6a 5f 6d 0b 11 04 06 95 13 06 11 04 06 11 04 07 95 9e 11 04 07 11 06 9e 09 11 07 02 11 07 91 11 04 11 04 06 95 11 04 07 95 58 6e 20 ?? ?? ?? ?? 6a 5f 69 95 61 d2 9c 00 11 07 17 58}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

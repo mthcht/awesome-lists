@@ -2358,3 +2358,26 @@ rule Trojan_Win64_BumbleBee_TL_2147940840_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BumbleBee_BH_2147941332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BumbleBee.BH!MTB"
+        threat_id = "2147941332"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BumbleBee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b 00 48 33 c1 48 89 84 24 ?? ?? 00 00 8b 84 24 ?? ?? 00 00 99 48 8b 8c 24 ?? ?? 00 00 f7 39 48 8b 8c 24 ?? ?? 00 00 89 01}  //weight: 2, accuracy: Low
+        $x_2_2 = {48 03 c8 48 8b c1 48 89 84 24 ?? 00 00 00 48 8b 44 24 ?? 0f bf 00 0f bf 4c 24 ?? 33 c1 48 8b 4c 24 ?? 66 89 01 48}  //weight: 2, accuracy: Low
+        $x_1_3 = "lW6z\\Machopolyp\\Coyish\\8jFmgk\\dQ" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

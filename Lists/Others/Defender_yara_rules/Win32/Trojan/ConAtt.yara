@@ -65,3 +65,24 @@ rule Trojan_Win32_ConAtt_SE_2147933993_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ConAtt_HA_2147941337_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ConAtt.HA!MTB"
+        threat_id = "2147941337"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ConAtt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 20 00 72 00 75 00 6e 00 6c 00 65 00 67 00 61 00 63 00 79 00 63 00 70 00 6c 00 65 00 6c 00 65 00 76 00 61 00 74 00 65 00 64 00 [0-8] 20 00 [0-32] 22 01 01 02 20 2c [0-32] 20 00 [0-2] 63 00 3a 00 5c 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 5c 00 [0-70] 2e 00 [0-10] 04}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

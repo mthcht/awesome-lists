@@ -1702,3 +1702,26 @@ rule Trojan_Win64_Zusy_AC_2147939484_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_EN_2147941353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.EN!MTB"
+        threat_id = "2147941353"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Game Repack Install" wide //weight: 1
+        $x_1_2 = {8e 39 44 b9 2a 50 47 b8 8e 39 b8 b8 2a 50 47 b8 2b 50 d0 b8 2a 50 47 b8 8e 39 45 b9 2a 50 47 b8 52 69 63 68 2b 50 47 b8}  //weight: 1, accuracy: High
+        $x_1_3 = {2e 74 68 65 6d 69 64 61 00 e0 79 00 00 60 15 00 00 00 00 00 00 b2 0c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

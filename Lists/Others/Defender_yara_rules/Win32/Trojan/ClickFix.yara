@@ -3725,3 +3725,29 @@ rule Trojan_Win32_ClickFix_SIA_2147941234_0
         )
 }
 
+rule Trojan_Win32_ClickFix_YAR_2147941336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YAR!MTB"
+        threat_id = "2147941336"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "303"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "curl.exe" wide //weight: 100
+        $x_100_2 = "http" wide //weight: 100
+        $x_100_3 = "cmd /c" wide //weight: 100
+        $x_1_4 = "verify" wide //weight: 1
+        $x_1_5 = "youre" wide //weight: 1
+        $x_1_6 = "human" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
