@@ -323,8 +323,10 @@ rule Trojan_Win32_ClickFix_J_2147932433_0
         $x_1_5 = ".mp4" wide //weight: 1
         $x_1_6 = ".mp3" wide //weight: 1
         $x_1_7 = ".flv" wide //weight: 1
+        $n_100_8 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((4 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
@@ -3740,6 +3742,30 @@ rule Trojan_Win32_ClickFix_YAR_2147941336_0
         $x_1_4 = "verify" wide //weight: 1
         $x_1_5 = "youre" wide //weight: 1
         $x_1_6 = "human" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DBT_2147941458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBT!MTB"
+        threat_id = "2147941458"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = ")|%{$" wide //weight: 10
+        $x_10_3 = "+=[char]($_+" wide //weight: 10
+        $x_10_4 = ")};.(" wide //weight: 10
     condition:
         (filesize < 20MB) and
         (all of ($x*))

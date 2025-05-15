@@ -5860,3 +5860,24 @@ rule Trojan_Win32_LummaStealer_DAB_2147941392_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_ZMK_2147941453_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.ZMK!MTB"
+        threat_id = "2147941453"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 53 94 d8 6a 4f c4 05 0b c6 d2 e0 af ba a8 2b c5 64 2f 2f c2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
