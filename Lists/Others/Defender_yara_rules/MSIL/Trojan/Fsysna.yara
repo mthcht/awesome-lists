@@ -419,3 +419,28 @@ rule Trojan_MSIL_Fsysna_SID_2147927536_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Fsysna_AYA_2147941499_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Fsysna.AYA!MTB"
+        threat_id = "2147941499"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Fsysna"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "mrlogonui.ru" wide //weight: 2
+        $x_1_2 = "svchost.Form1.resources" ascii //weight: 1
+        $x_1_3 = "DisableAntiSpyware" wide //weight: 1
+        $x_1_4 = "DisableAntiVirus" wide //weight: 1
+        $x_1_5 = "DisableRealtimeMonitoring" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

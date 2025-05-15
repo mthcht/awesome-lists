@@ -961,3 +961,24 @@ rule Trojan_Win64_Latrodectus_STZ_2147941368_0
         )
 }
 
+rule Trojan_Win64_Latrodectus_GVA_2147941489_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Latrodectus.GVA!MTB"
+        threat_id = "2147941489"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Latrodectus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {c5 dd fd e6 c5 d5 fd ef 44 30 14 0f 66 0f 70 fe ?? 66 0f 70 fd ?? 66 0f f1 da 66 0f f1 ec}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
