@@ -909,3 +909,24 @@ rule Trojan_MSIL_Barys_PHT_2147934640_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_ZABY_2147941597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.ZABY!MTB"
+        threat_id = "2147941597"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {06 0b 07 28 ?? 00 00 06 13 05 11 05 72 49 00 00 70 1b 8d ?? 00 00 01 13 0b 11 0b 16 72 3f 01 00 70 a2 11 0b 17 72 45 01 00 70 a2 11 0b 18 72 4d 01 00 70 a2 11 0b 19 72 51 01 00 70 a2 11 0b 1a 72 57 01 00 70}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -452,6 +452,27 @@ rule Trojan_Win64_Zusy_GZZ_2147905373_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 ff c0 48 31 d0 48 c7 c2 ?? ?? ?? ?? 48 31 c0 48 89 05 ?? ?? ?? ?? 4c 01 35 ?? ?? ?? ?? 48 89 f8 50 8f 05 ?? ?? ?? ?? 48 83 f0 ?? 48 31 d0 4c 89 e0 50 8f 05}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_GZZ_2147905373_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.GZZ!MTB"
+        threat_id = "2147905373"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
