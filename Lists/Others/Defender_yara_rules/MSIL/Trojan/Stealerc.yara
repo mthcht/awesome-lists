@@ -606,3 +606,25 @@ rule Trojan_MSIL_Stealerc_GPXA_2147938494_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealerc_GPAL_2147941551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealerc.GPAL!MTB"
+        threat_id = "2147941551"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealerc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "www.new.eventawardsrussia.com" ascii //weight: 4
+        $x_1_2 = "DownloadData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3815,3 +3815,53 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         )
 }
 
+rule Trojan_Win32_ClickFix_YAP_2147941556_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YAP!MTB"
+        threat_id = "2147941556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "301"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "PowerShell.exe" wide //weight: 100
+        $x_100_2 = "Hidden " wide //weight: 100
+        $x_100_3 = "htps://" wide //weight: 100
+        $x_1_4 = "Insert(2,'t')" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_YAS_2147941557_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YAS!MTB"
+        threat_id = "2147941557"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "51"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_10_2 = "minimized " wide //weight: 10
+        $x_10_3 = "mshta" wide //weight: 10
+        $x_10_4 = "http" wide //weight: 10
+        $x_10_5 = "Guard Access:" wide //weight: 10
+        $x_1_6 = "Guardian Step. Code:" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

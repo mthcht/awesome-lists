@@ -1915,6 +1915,27 @@ rule Backdoor_Win32_Farfli_BAA_2147836755_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {33 c9 0f b7 d1 8a 94 55 ?? ?? ?? ?? 30 10 41 40 4e 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Win32_Farfli_BAA_2147836755_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Farfli.BAA!MTB"
+        threat_id = "2147836755"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:

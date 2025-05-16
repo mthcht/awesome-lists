@@ -721,3 +721,27 @@ rule Trojan_MSIL_Dcstl_ZHAA_2147923325_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dcstl_ASKA_2147941512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dcstl.ASKA!MTB"
+        threat_id = "2147941512"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dcstl"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0a 0a 06 20 00 01 00 00 6f ?? 00 00 0a 06 20 00 01 00 00 6f ?? 00 00 0a 06 72 15 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 06 72 6f 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 06 06 6f ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 0b}  //weight: 3, accuracy: Low
+        $x_2_2 = {08 11 05 16 11 06 6f ?? 00 00 0a 11 04 11 05 16 11 05 8e 69 6f ?? 00 00 0a 25 13 06 16 3d}  //weight: 2, accuracy: Low
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

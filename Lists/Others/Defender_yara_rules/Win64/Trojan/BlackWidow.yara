@@ -966,3 +966,26 @@ rule Trojan_Win64_BlackWidow_GVT_2147941093_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_BI_2147941564_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.BI!MTB"
+        threat_id = "2147941564"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {45 8a 1c 11}  //weight: 1, accuracy: High
+        $x_1_2 = {44 30 1c 0f}  //weight: 1, accuracy: High
+        $x_3_3 = "Gd6^pHbMaIm84dK?CLx^F" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
