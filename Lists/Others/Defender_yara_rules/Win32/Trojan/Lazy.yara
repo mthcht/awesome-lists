@@ -1944,3 +1944,24 @@ rule Trojan_Win32_Lazy_MBZ_2147940964_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_SCP_2147941654_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.SCP!MTB"
+        threat_id = "2147941654"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {88 08 8b 85 ?? ?? ?? ?? 8b 8d ?? ?? ?? ?? 8b 51 0c 31 c9 29 c1 31 c0 29 d0 01 c1 31 c0 29 c8 89 85}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

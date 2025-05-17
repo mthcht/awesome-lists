@@ -201,3 +201,26 @@ rule Trojan_Win32_XWorm_BAA_2147939311_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_AHB_2147941647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.AHB!MTB"
+        threat_id = "2147941647"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 50 1b 8b 74 24 30 80 f1 e7 80 f2 78 88 4c 24 1e 0f b6 48 1c 88 54 24 1f 0f b6 50 1d 80 f1 98 80 f2 e9 88 4c 24 20 0f b6 48 1e 88 54 24 21 0f b6 50 1f}  //weight: 10, accuracy: High
+        $x_5_2 = {50 57 57 ff 15 ?? ?? ?? 00 85 c0 74 0c c7 05 ?? ?? ?? 00 01 00 00 00 eb 15 ff 15 ?? ?? ?? 00 83 f8 78 75 0a c7 05 ?? ?? ?? 00 02 00 00 00}  //weight: 5, accuracy: Low
+        $x_5_3 = {0b 0b 0b 83 74 74 74 f8 b9 b9 b9 ff 00 73 e1 ff 00 7f f9 ff 00 7f f9 ff 00 49 f7 ff 00 49 f7 ff 00 49 f7 ff 00 49 f7 ff 00 16 f5 ff 00 16 f5 ff 00 04 f3 ff 00 04 f3 ff 00 04 f3 ff 00 00 f2 ff 00 00 f2 ff 00 00 f2 ff 00 00 f0 ff 00 00 f0 ff}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -111,3 +111,24 @@ rule Trojan_Win64_RustyStealer_MMR_2147939052_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_SMW_2147941644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.SMW!MTB"
+        threat_id = "2147941644"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 8b 44 11 08 4c 33 44 08 08 4c 89 84 0d 48 24 00 00 48 83 c1 08 48 83 f9 50 72 e4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

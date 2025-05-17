@@ -2062,6 +2062,32 @@ rule Trojan_Win32_AgentTesla_SOR_2147909338_0
         (4 of ($x*))
 }
 
+rule Trojan_Win32_AgentTesla_RVG_2147911509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AgentTesla.RVG!MTB"
+        threat_id = "2147911509"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "soy\\avicularimorphae\\kmpestore" ascii //weight: 1
+        $x_1_2 = "\\aandsarbejdere\\fidusen" ascii //weight: 1
+        $x_1_3 = "discommodiously fondsaktiens trykstbnings" ascii //weight: 1
+        $x_1_4 = "irke utaknemligheden sofas" ascii //weight: 1
+        $x_1_5 = "herlighedsvrdierne paasejler" ascii //weight: 1
+        $x_1_6 = "appliable decalcifies blegfedt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
 rule Trojan_Win32_AgentTesla_SAUY_2147911532_0
 {
     meta:

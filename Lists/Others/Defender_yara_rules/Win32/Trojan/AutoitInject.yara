@@ -5062,3 +5062,27 @@ rule Trojan_Win32_AutoitInject_AOSA_2147940456_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_NMG_2147941625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.NMG!MTB"
+        threat_id = "2147941625"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "[ ( ( ( ( 16 * 3 + -41 ) * 14 + -93 ) * 8 + -37 ) * 31 + -91 ) ]" ascii //weight: 2
+        $x_1_2 = "[ ( ( 3 * 13 + -30 ) * ( 11 * 14 / 22 ) + -61 ) ]" ascii //weight: 1
+        $x_1_3 = "( 20 * ( ( ( 3 * 24 + -67 ) * 8 + -37 ) * 20 + -57 ) + -57 )" ascii //weight: 1
+        $x_1_4 = "( ( 14 * 8 / 8 ) , - ( ( ( 5 * 80 / 50 ) * 3 + -21 ) * 28 + -82 ) , D )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

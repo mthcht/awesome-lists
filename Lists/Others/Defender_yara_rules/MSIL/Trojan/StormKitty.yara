@@ -426,3 +426,24 @@ rule Trojan_MSIL_StormKitty_EAPQ_2147937893_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_StormKitty_MKV_2147941624_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/StormKitty.MKV!MTB"
+        threat_id = "2147941624"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "StormKitty"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {32 e6 02 06 28 ?? 01 00 0a 0b 07 7e b0 02 00 04 32 02 14 2a 06 1a 58 0a 07 8d ac 00 00 01 0c 02 06 08 16 07 28 ?? 01 00 0a 06 07 58 0a 02 06 28 ?? 01 00 0a 0d 09 7e b0 02 00 04 32 02 14 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

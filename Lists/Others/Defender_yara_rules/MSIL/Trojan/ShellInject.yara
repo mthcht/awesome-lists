@@ -43,3 +43,32 @@ rule Trojan_MSIL_ShellInject_NEAA_2147838071_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellInject_DA_2147941682_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellInject.DA!MTB"
+        threat_id = "2147941682"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell.exe" ascii //weight: 10
+        $x_10_2 = "shellcode" ascii //weight: 10
+        $x_10_3 = "CreateObject(Replace(" ascii //weight: 10
+        $x_10_4 = "reg add \"HKCU\\Software\\Classes\\.pwn\\Shell\\Open\\command" ascii //weight: 10
+        $x_1_5 = "a*m*s*i.*********************dl******l*" ascii //weight: 1
+        $x_1_6 = "A**m*siS**c*a*******n*Buf*f*er" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -44,3 +44,28 @@ rule Trojan_Win32_QuasarRAT_AYA_2147940213_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_QuasarRAT_DC_2147941678_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/QuasarRAT.DC!MTB"
+        threat_id = "2147941678"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Process already elevated." ascii //weight: 1
+        $x_1_2 = "get_PotentiallyVulnerablePasswords" ascii //weight: 1
+        $x_1_3 = "GetKeyloggerLogsDirectory" ascii //weight: 1
+        $x_1_4 = "set_PotentiallyVulnerablePasswords" ascii //weight: 1
+        $x_1_5 = "BQuasar.Client.Extensions." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
