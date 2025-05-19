@@ -4235,16 +4235,21 @@ rule Trojan_Win32_OffLoader_AZTA_2147941476_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
+        threshold = "14"
         strings_accuracy = "High"
     strings:
-        $x_4_1 = "://truckobservation.icu/aar.php?" ascii //weight: 4
-        $x_1_2 = "/silent" ascii //weight: 1
-        $x_1_3 = "/weaksecurity" ascii //weight: 1
-        $x_1_4 = "/nocookies" ascii //weight: 1
-        $x_1_5 = "/resume" ascii //weight: 1
+        $x_10_1 = "://truckobservation.icu/aar.php?" ascii //weight: 10
+        $x_10_2 = "://mintborder.icu/bie.php?" ascii //weight: 10
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "/weaksecurity" ascii //weight: 1
+        $x_1_5 = "/nocookies" ascii //weight: 1
+        $x_1_6 = "/resume" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_10_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
