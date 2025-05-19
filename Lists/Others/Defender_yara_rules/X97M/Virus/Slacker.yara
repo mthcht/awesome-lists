@@ -33,7 +33,7 @@ rule Virus_X97M_Slacker_A_2147939222_0
         severity = "Critical"
         info = "gen: malware that is detected using a generic signature"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "6"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "If w2.Lines(1, 1) <> \"'OOO\" Then" ascii //weight: 1
@@ -41,7 +41,6 @@ rule Virus_X97M_Slacker_A_2147939222_0
         $x_1_3 = "xlCM.InsertLines 1, w1.Lines(1, w1.CountOfLines)" ascii //weight: 1
         $x_1_4 = "xlWB.SaveAs Filename:=Application.StartupPath + \"\\Book1.\", FileFormat:=xlNormal, AddToMru:=False" ascii //weight: 1
         $x_1_5 = "mFileName = \"C:\\TMP\\\" + oldname" ascii //weight: 1
-        $x_1_6 = "Application.Selection.EntireRow.Hidden = True" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
