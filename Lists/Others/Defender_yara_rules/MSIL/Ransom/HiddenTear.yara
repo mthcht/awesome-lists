@@ -1004,3 +1004,27 @@ rule Ransom_MSIL_HiddenTear_BA_2147937749_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_PDZ_2147941719_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.PDZ!MTB"
+        threat_id = "2147941719"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Your files have been encrypted" ascii //weight: 3
+        $x_3_2 = "Any attempts to decrypt a file without permission will result in its deletion" ascii //weight: 3
+        $x_2_3 = "ransom payment" ascii //weight: 2
+        $x_2_4 = "FileKrypter Encrypted FIle|*.filekrypter|All Files|*.*" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

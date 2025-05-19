@@ -67,3 +67,26 @@ rule Ransom_Win64_RALord_B_2147940829_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_RALord_SCR_2147941705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/RALord.SCR!MTB"
+        threat_id = "2147941705"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RALord"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "DECRYPTION_KEY.txt" ascii //weight: 2
+        $x_1_2 = "MACHINE_INFO.txt" ascii //weight: 1
+        $x_1_3 = ".encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

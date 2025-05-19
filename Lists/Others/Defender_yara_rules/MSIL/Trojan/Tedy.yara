@@ -2211,3 +2211,24 @@ rule Trojan_MSIL_Tedy_PGTK_2147939661_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_EPL_2147941727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.EPL!MTB"
+        threat_id = "2147941727"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 02 07 6f a6 00 00 0a 03 07 6f a6 00 00 0a 61 60 0a 07 17 58 0b 07 02 6f 3f 00 00 0a 32 e1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

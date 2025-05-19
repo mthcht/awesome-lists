@@ -784,3 +784,26 @@ rule Trojan_MSIL_DarkCloud_AXTA_2147941415_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_AKUA_2147941704_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.AKUA!MTB"
+        threat_id = "2147941704"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 11 04 08 6f ?? 00 00 0a 11 04 09 6f ?? 00 00 0a 73 ?? 00 00 0a 13 05 11 05 11 04 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 06 2b 1c 2b 1e 16 2b 1e 8e 69 2b 1d 2b 22 2b 24 2b 29 2b 2a 2b 2c 6f ?? 00 00 06 17 0b de 6a 11 06 2b e0 06 2b df 06 2b df 6f ?? 00 00 0a 2b dc 11 06 2b da 6f ?? 00 00 0a 2b d5 03 2b d4 11 05 2b d2 6f ?? 00 00 0a 2b cd}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
