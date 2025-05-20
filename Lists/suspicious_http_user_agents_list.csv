@@ -1,4 +1,5 @@
 http_user_agent,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_from_external,metadata_flow_from_internal,metadata_flow_to_internal,metadata_flow_to_external,metadata_for_successful_external_login_events,metadata_comment
+LogMeIn/*,LogMeIn Remote Access application,LogMeIn,RMM,N/A,high,medium,high,Hunting,no,yes,yes,yes,no,
 Windows Installer,typically associated with .msi installation processes that perform HTTP downloads. While it can be legitimate - it may also indicate the use of remotely hosted malicious installers,msiexec,Compliance,https://kavigihan.medium.com/using-windows-installer-files-to-deliver-malware-bf3e40b6b188,low,high,info,Hunting,no,yes,no,yes,no,
 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edq/135.0.0.0",used by default on a Device Code Phishing project,DeviceCodePhishing,Phishing,https://github.com/denniskniep/DeviceCodePhishing,critical,none,critical,Detection rule,yes,yes,yes,yes,yes,
 *splashtop*,used by splashtop rat agent,splashtop,RMM,https://www.splashtop.com/,low,medium,low,Hunting,no,yes,yes,yes,yes,
@@ -157,7 +158,7 @@ AntiVerminser,Suricata Malware user-agent rules,Malware,Malware,https://raw.gith
 AntiVirGear,Suricata Malware user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 AntivirXP,Suricata Malware user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
 anycleaner,Suricata Malware user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-malware.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
-AnyDesk,Anydesk application,anydesk,RMM,N/A,high,medium,high,Hunting,no,yes,yes,yes,no,
+AnyDesk,Anydesk Remote Access application,anydesk,RMM,N/A,high,medium,high,Hunting,no,yes,yes,yes,no,
 AnyDesk/*,Anydesk application,anydesk,RMM,N/A,high,medium,high,Hunting,no,yes,yes,yes,no,
 AnyDesk *,Anydesk application,anydesk,RMM,N/A,high,medium,high,Hunting,no,yes,yes,yes,no,
 Apache (compatible...,Suricata trojan user-agent rules,Malware,Malware,https://raw.githubusercontent.com/seanlinmt/suricata/master/files/rules/emerging-trojan.rules,high,low,medium,Detection rule,no,yes,yes,yes,no,
