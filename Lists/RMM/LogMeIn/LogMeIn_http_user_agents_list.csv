@@ -1,4 +1,2 @@
 http_user_agent,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_usage,metadata_flow_from_external,metadata_flow_from_internal,metadata_flow_to_internal,metadata_flow_to_external,metadata_for_successful_external_login_events,metadata_comment
-AnyDesk,Anydesk Remote Access application,anydesk,RMM,,high,medium,high,Hunting,no,yes,yes,yes,no,
-AnyDesk/*,Anydesk application,anydesk,RMM,,high,medium,high,Hunting,no,yes,yes,yes,no,
-AnyDesk *,Anydesk application,anydesk,RMM,,high,medium,high,Hunting,no,yes,yes,yes,no,
+LogMeIn/*,LogMeIn Remote Access application,LogMeIn,RMM,,high,medium,high,Hunting,no,yes,yes,yes,no,
