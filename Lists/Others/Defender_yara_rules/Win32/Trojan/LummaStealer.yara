@@ -5881,3 +5881,24 @@ rule Trojan_Win32_LummaStealer_ZMK_2147941453_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_CCJX_2147941742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.CCJX!MTB"
+        threat_id = "2147941742"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {45 31 c5 33 1c ad ?? ?? ?? ?? 89 d8 c1 e8 ?? 83 e3 ?? c1 ef ?? 31 df}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

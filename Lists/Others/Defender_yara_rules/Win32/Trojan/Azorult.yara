@@ -6585,3 +6585,28 @@ rule Trojan_Win32_Azorult_BAO_2147935615_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Azorult_CL_2147941760_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Azorult.CL!MTB"
+        threat_id = "2147941760"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Azorult"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Vobixosidiyove0Yitobodi nahazuwuriguhi sugidov mos moyurizuwehe" wide //weight: 1
+        $x_1_2 = "Hakal berizes cak dovaz3Rojeyopirey wazetam yowayah sasetakitoxap kojunocag" wide //weight: 1
+        $x_1_3 = "Wuhirufu lipekuf yobozep" wide //weight: 1
+        $x_1_4 = "Tuxipemakapawu)Zinazesod komixuwitok sepabopoducojuy ciw0Sawe cepebuwahunar movapoluculax posugodiziparuk" wide //weight: 1
+        $x_1_5 = "Xilafewic zawumiyalele" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -200,30 +200,6 @@ rule Adware_AndroidOS_Mobidash_AG_456844_0
         (all of ($x*))
 }
 
-rule Adware_AndroidOS_Mobidash_AH_456845_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Adware:AndroidOS/Mobidash.AH!MTB"
-        threat_id = "456845"
-        type = "Adware"
-        platform = "AndroidOS: Android operating system"
-        family = "Mobidash"
-        severity = "High"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "distinction/cflow/activitites" ascii //weight: 1
-        $x_1_2 = "CocktailBooksActivity" ascii //weight: 1
-        $x_1_3 = "/pages/glossary_notes_widget" ascii //weight: 1
-        $x_1_4 = {74 00 00 0a 01 38 01 37 00 72 10 ?? 74 00 00 0c 01 1f 01 de 11 6e 10}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (3 of ($x*))
-}
-
 rule Adware_AndroidOS_Mobidash_AI_456846_0
 {
     meta:
