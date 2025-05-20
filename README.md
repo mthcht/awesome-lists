@@ -305,6 +305,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [Virustotal](https://www.virustotal.com/#/home/search)
   - [SpamHaus](https://check.spamhaus.org/)
   - [AbuseIPDB](https://www.abuseipdb.com/)
+  - [Telegram BOT hunting](https://matkap.cti.monster/)
   - [Malwarebazaar](https://bazaar.abuse.ch/)
   - [emailrep](https://emailrep.io/)
   - [dnsdumpster](https://dnsdumpster.com/)
