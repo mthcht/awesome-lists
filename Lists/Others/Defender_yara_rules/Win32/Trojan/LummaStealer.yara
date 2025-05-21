@@ -5434,7 +5434,7 @@ rule Trojan_Win32_LummaStealer_GVG_2147940727_0
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {8b c1 83 e0 03 8a 44 05 08 30 04 0a 41 3b ce 72 ef}  //weight: 1, accuracy: High
+        $x_1_1 = {57 33 ff 33 c9 89 7d 08 8b c1 83 e0 03 8a 44 05 08 30 04 0a 41 3b ce}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

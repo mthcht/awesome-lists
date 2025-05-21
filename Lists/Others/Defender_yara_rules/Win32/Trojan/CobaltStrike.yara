@@ -5017,3 +5017,24 @@ rule Trojan_Win32_CobaltStrike_GTT_2147935431_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CobaltStrike_OTV_2147941814_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CobaltStrike.OTV!MTB"
+        threat_id = "2147941814"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {49 81 c9 00 ff ff ff 41 8b 85 ?? ?? ff ff 8b 95 f4 fd ff ff 0f b6 8c 0d ?? ?? ff ff 30 0c 10 40 89 85 f8 fd ff ff 3b c7 7c 82}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

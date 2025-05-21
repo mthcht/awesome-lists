@@ -2437,3 +2437,28 @@ rule Trojan_MSIL_DCRat_SISI_2147940711_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DCRat_SLEO_2147941409_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.SLEO!MTB"
+        threat_id = "2147941409"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "DarkCrystal RAT" ascii //weight: 5
+        $x_5_2 = "Something is fishy. [{0}]" ascii //weight: 5
+        $x_1_3 = "[Screenshot] Saving screenshots from" ascii //weight: 1
+        $x_1_4 = "[Clipboard] Saving information..." ascii //weight: 1
+        $x_1_5 = "[SystemInfromation] Saving information..." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

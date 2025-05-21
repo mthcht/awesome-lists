@@ -2073,6 +2073,35 @@ rule Trojan_Win32_AutoitInject_SZ_2147910546_0
         (4 of ($x*))
 }
 
+rule Trojan_Win32_AutoitInject_SZ_2147910546_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.SZ!MTB"
+        threat_id = "2147910546"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {46 00 49 00 4c 00 45 00 49 00 4e 00 53 00 54 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 [0-20] 22 00 20 00 2c 00 20 00 40 00 54 00 45 00 4d 00 50 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 [0-20] 22 00 20 00 2c 00 20 00 31 00 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {46 49 4c 45 49 4e 53 54 41 4c 4c 20 28 20 22 [0-20] 22 20 2c 20 40 54 45 4d 50 44 49 52 20 26 20 22 5c [0-20] 22 20 2c 20 31 20 29}  //weight: 1, accuracy: Low
+        $x_5_3 = "CALL ( \"Dl\" & \"lCall\" , EAEDFIVLEZ ( \"111 105 118 114 105 112 55 54 50 104 112 112\" ) , EAEDFIVLEZ ( \"102 115 115 112\" )" ascii //weight: 5
+        $x_5_4 = "CALL ( \"Dl\" & \"lCall\" , EAEDFIVLEZ ( \"121 119 105 118 55 54 50 104 112 112\" )" ascii //weight: 5
+        $x_1_5 = {43 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 53 00 74 00 22 00 20 00 26 00 20 00 22 00 72 00 69 00 6e 00 67 00 53 00 22 00 20 00 26 00 20 00 22 00 70 00 6c 00 69 00 74 00 22 00 20 00 2c 00 20 00 24 00 [0-20] 20 00 2c 00 20 00 22 00 27 00 20 00 26 00 20 00 27 00 20 00 22 00 20 00 2c 00 20 00 32 00 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {43 41 4c 4c 20 28 20 22 53 74 22 20 26 20 22 72 69 6e 67 53 22 20 26 20 22 70 6c 69 74 22 20 2c 20 24 [0-20] 20 2c 20 22 27 20 26 20 27 20 22 20 2c 20 32 20 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_AutoitInject_NTAA_2147911490_0
 {
     meta:
@@ -5084,5 +5113,37 @@ rule Trojan_Win32_AutoitInject_NMG_2147941625_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_AutoitInject_GPXC_2147941839_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.GPXC!MTB"
+        threat_id = "2147941839"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {46 00 49 00 4c 00 45 00 49 00 4e 00 53 00 54 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 [0-47] 22 00 20 00 2c 00 20 00 40 00 54 00 45 00 4d 00 50 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 00 22 00 20 00 2c 00 20 00 31 00 20 00 29 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {46 49 4c 45 49 4e 53 54 41 4c 4c 20 28 20 22 [0-47] 22 20 2c 20 40 54 45 4d 50 44 49 52 20 26 20 22 5c 00 22 20 2c 20 31 20 29}  //weight: 5, accuracy: Low
+        $x_3_3 = {43 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 46 00 69 00 6c 00 65 00 22 00 20 00 26 00 20 00 22 00 52 00 65 00 61 00 64 00 22 00 20 00 2c 00 20 00 43 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 46 00 69 00 6c 00 65 00 4f 00 22 00 20 00 26 00 20 00 22 00 70 00 65 00 6e 00 22 00 20 00 2c 00 20 00 40 00 54 00 45 00 4d 00 50 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 [0-47] 22 00 20 00 29 00 20 00 29 00}  //weight: 3, accuracy: Low
+        $x_3_4 = {43 41 4c 4c 20 28 20 22 46 69 6c 65 22 20 26 20 22 52 65 61 64 22 20 2c 20 43 41 4c 4c 20 28 20 22 46 69 6c 65 4f 22 20 26 20 22 70 65 6e 22 20 2c 20 40 54 45 4d 50 44 49 52 20 26 20 22 5c [0-47] 22 20 29 20 29}  //weight: 3, accuracy: Low
+        $x_2_5 = {44 00 6c 00 22 00 20 00 26 00 20 00 22 00 6c 00 43 00 61 00 6c 00 6c 00 22 00 20 00 2c 00 20 00 [0-47] 20 00 28 00 20 00 22 00}  //weight: 2, accuracy: Low
+        $x_2_6 = {44 6c 22 20 26 20 22 6c 43 61 6c 6c 22 20 2c 20 [0-47] 20 28 20 22}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_3_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
 }
 

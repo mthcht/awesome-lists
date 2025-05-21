@@ -3921,3 +3921,82 @@ rule Trojan_Win32_ClickFix_DCC_2147941679_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DBV_2147941843_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBV!MTB"
+        threat_id = "2147941843"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_1_2 = "-W h -C" wide //weight: 1
+        $x_1_3 = "-W HiDdEn -C" wide //weight: 1
+        $x_1_4 = "-WindowStyle hidden -Command" wide //weight: 1
+        $x_1_5 = "-w minimized -c" wide //weight: 1
+        $x_1_6 = "-w 1 -c" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DCA_2147941844_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCA!MTB"
+        threat_id = "2147941844"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = ".rePlAce(" wide //weight: 10
+        $x_10_3 = ".tosTrINg()" wide //weight: 10
+        $x_1_4 = "-JoiN" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DCB_2147941845_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCB!MTB"
+        threat_id = "2147941845"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "163"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_50_2 = "wscript $" wide //weight: 50
+        $x_10_3 = "ActiveXObject(" wide //weight: 10
+        $x_1_4 = ".split(" wide //weight: 1
+        $x_1_5 = ".reverse(" wide //weight: 1
+        $x_1_6 = ".join(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

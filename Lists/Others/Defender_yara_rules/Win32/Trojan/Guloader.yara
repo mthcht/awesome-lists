@@ -5431,3 +5431,30 @@ rule Trojan_Win32_Guloader_ASN_2147941170_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_AO_2147941811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.AO!MTB"
+        threat_id = "2147941811"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "kommunikationskommando.ret" ascii //weight: 1
+        $x_1_2 = "Akkvisitivt.lnk" ascii //weight: 1
+        $x_1_3 = "Fibertilskud.Hom" ascii //weight: 1
+        $x_1_4 = "PROGRAMFILES%\\Infanterienheder2.fan" ascii //weight: 1
+        $x_1_5 = "Bindemiddelets120.dll" ascii //weight: 1
+        $x_1_6 = "Sniglbe225.HAN" ascii //weight: 1
+        $x_1_7 = "Inkaminationens.str" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

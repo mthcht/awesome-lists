@@ -232,3 +232,24 @@ rule Trojan_Win64_Ulise_ARAZ_2147928717_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_AUL_2147941838_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.AUL!MTB"
+        threat_id = "2147941838"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 fc 48 63 d0 48 8b 45 e0 48 01 d0 0f b6 10 8b 45 fc 48 63 c8 48 8b 45 e0 48 01 c8 83 f2 55 88 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

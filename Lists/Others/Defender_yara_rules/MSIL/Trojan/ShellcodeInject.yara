@@ -22,3 +22,28 @@ rule Trojan_MSIL_ShellcodeInject_AX_2147905008_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeInject_CFN_2147941803_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeInject.CFN!MTB"
+        threat_id = "2147941803"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Queue of target process. PoolParty Success!" ascii //weight: 1
+        $x_1_2 = "malicious TP_JOB" ascii //weight: 1
+        $x_1_3 = "sacrificial edge process will be created for the injection" ascii //weight: 1
+        $x_1_4 = "Writing shellcode to start routine address" ascii //weight: 1
+        $x_1_5 = "worker factory start routine, bytesWritten" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

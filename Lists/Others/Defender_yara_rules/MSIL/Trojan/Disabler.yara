@@ -165,3 +165,28 @@ rule Trojan_MSIL_Disabler_ND_2147939165_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disabler_NITA_2147941842_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disabler.NITA!MTB"
+        threat_id = "2147941842"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disabler"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Kill_exe" ascii //weight: 1
+        $x_1_2 = "FileShareWrite" ascii //weight: 1
+        $x_1_3 = "gdi_payload" ascii //weight: 1
+        $x_1_4 = "final_payload" ascii //weight: 1
+        $x_1_5 = "kill_process" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
