@@ -176,3 +176,32 @@ rule Ransom_Win64_LockBit_GVA_2147934998_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_AQUA_2147941881_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.AQUA!MTB"
+        threat_id = "2147941881"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-----BEGIN RSA PUBLIC KEY-----" ascii //weight: 1
+        $x_1_2 = "-----END RSA PUBLIC KEY-----" ascii //weight: 1
+        $x_3_3 = "\\work\\tools\\ai\\ak47\\cpp\\encrypt\\encrypt\\x64\\Release\\encrypt.pdb" ascii //weight: 3
+        $x_1_4 = "GetLogicalDrives" ascii //weight: 1
+        $x_1_5 = "How to decrypt my data.txt" ascii //weight: 1
+        $x_1_6 = "decryptiondescription.pdf" ascii //weight: 1
+        $x_3_7 = "Important!!!.pdf" ascii //weight: 3
+        $x_1_8 = ".lock" ascii //weight: 1
+        $x_1_9 = "How to decrypt my data.log" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
