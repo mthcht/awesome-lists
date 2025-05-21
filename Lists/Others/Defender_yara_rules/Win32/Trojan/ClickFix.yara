@@ -4026,3 +4026,30 @@ rule Trojan_Win32_ClickFix_ZMM_2147941856_0
         )
 }
 
+rule Trojan_Win32_ClickFix_HE_2147941868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HE!MTB"
+        threat_id = "2147941868"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "202"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "invoke-expression $script" wide //weight: 1
+        $x_1_3 = "iex $script" wide //weight: 1
+        $x_200_4 = "$script = Invoke-RestMethod -Uri" wide //weight: 200
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_200_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
