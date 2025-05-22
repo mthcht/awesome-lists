@@ -4060,3 +4060,64 @@ rule Trojan_Win32_ClickFix_HE_2147941868_0
         )
 }
 
+rule Trojan_Win32_ClickFix_DCD_2147941961_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCD!MTB"
+        threat_id = "2147941961"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "131"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "$env:tmp" wide //weight: 10
+        $x_10_3 = "Expand-Archive" wide //weight: 10
+        $x_10_4 = "-Force" wide //weight: 10
+        $x_1_5 = "irm -Uri" wide //weight: 1
+        $x_1_6 = "iwr -Uri" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DCH_2147941962_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCH!MTB"
+        threat_id = "2147941962"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "-OutFile" wide //weight: 10
+        $x_1_3 = "-W h -C" wide //weight: 1
+        $x_1_4 = "-W HiDdEn -C" wide //weight: 1
+        $x_1_5 = "-WindowStyle hidden -Command" wide //weight: 1
+        $x_1_6 = "-w minimized -c" wide //weight: 1
+        $x_1_7 = "-w 1 -c" wide //weight: 1
+        $x_1_8 = {e2 00 80 00 95 00 57 00 20 00 68 00 20 00 2d 00 63 00}  //weight: 1, accuracy: High
+        $x_1_9 = "-w h -NoP -c" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

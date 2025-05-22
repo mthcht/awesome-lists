@@ -3344,3 +3344,24 @@ rule Trojan_MSIL_Zusy_SWE_2147941423_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_GPAN_2147941960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.GPAN!MTB"
+        threat_id = "2147941960"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {11 07 8e 69 5d 91 61 d2 81 ?? 00 00 01 11 08 17 58 13 08 11 08 11 06 8e 69}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
