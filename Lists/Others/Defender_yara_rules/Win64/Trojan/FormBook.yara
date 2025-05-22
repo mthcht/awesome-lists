@@ -40,3 +40,25 @@ rule Trojan_Win64_FormBook_AFK_2147911695_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_FormBook_BSA_2147941901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FormBook.BSA!MTB"
+        threat_id = "2147941901"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "aYF5jO6I7xTpy9h9O0cOUGnLv2.dll" ascii //weight: 1
+        $x_1_2 = "0MxRU53g7cTT9JjSuFiR6x5FUh" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

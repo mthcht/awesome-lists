@@ -498,6 +498,27 @@ rule Trojan_MSIL_Marsilia_AMR_2147899662_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {16 13 08 2b 3b 11 07 11 08 9a 13 09 11 05 11 09 6f ?? 00 00 0a 13 0a 12 0a 28 ?? 00 00 0a 58 13 05 11 06 11 09 6f ?? 00 00 0a 13 0a 12 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 13 06 11 08 17 58}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Marsilia_AMR_2147899662_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.AMR!MTB"
+        threat_id = "2147899662"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
@@ -508,7 +529,7 @@ rule Trojan_MSIL_Marsilia_AMR_2147899662_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Marsilia_AMR_2147899662_2
+rule Trojan_MSIL_Marsilia_AMR_2147899662_3
 {
     meta:
         author = "defender2yara"

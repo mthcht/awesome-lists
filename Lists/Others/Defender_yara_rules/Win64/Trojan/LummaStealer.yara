@@ -1070,3 +1070,25 @@ rule Trojan_Win64_LummaStealer_SLBP_2147941626_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_GVM_2147941894_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GVM!MTB"
+        threat_id = "2147941894"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 01 30 d0 88 44 24 27 44 89 ce e9}  //weight: 2, accuracy: High
+        $x_1_2 = {44 30 c2 48 8b 84 24 d0 08 00 00 88 10 48 8b 84 24 a0 03 00 00 48 83 c0 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
