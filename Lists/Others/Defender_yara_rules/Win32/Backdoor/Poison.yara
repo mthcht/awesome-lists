@@ -1396,3 +1396,27 @@ rule Backdoor_Win32_Poison_AM_2147819039_0
         (all of ($x*))
 }
 
+rule Backdoor_Win32_Poison_GTZ_2147942006_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Poison.GTZ!MTB"
+        threat_id = "2147942006"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Poison"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6d 31 00 0d ?? ?? ?? ?? 53 53 59 33 32 00 19 01 00}  //weight: 10, accuracy: Low
+        $x_1_2 = "svchoct.exe" ascii //weight: 1
+        $x_1_3 = "taskkill /f /im  svchoct" ascii //weight: 1
+        $x_1_4 = "k3ylogger.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

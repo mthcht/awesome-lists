@@ -1,3 +1,35 @@
+rule Trojan_Win32_Autoitinject_SS_2147789479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Autoitinject.SS!MTB"
+        threat_id = "2147789479"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Autoitinject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "EXECUTE ( \"D\" & \"l\" & \"l\" & \"C\" & \"a\" & \"l\" & \"l\" )" ascii //weight: 1
+        $x_1_2 = "EXECUTE ( \"D\" & \"l\" & \"l\" & \"C\" & \"a\" & \"l\" & \"l\" & \"A\" & \"d\" & \"d\" & \"r\" & \"e\" & \"s\" & \"s\" )" ascii //weight: 1
+        $x_2_3 = {46 00 49 00 4c 00 45 00 49 00 4e 00 53 00 54 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 [0-20] 22 00 20 00 2c 00 20 00 40 00 54 00 45 00 4d 00 50 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 [0-20] 22 00 20 00 2c 00 20 00 31 00 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_4 = {46 49 4c 45 49 4e 53 54 41 4c 4c 20 28 20 22 [0-20] 22 20 2c 20 40 54 45 4d 50 44 49 52 20 26 20 22 5c [0-20] 22 20 2c 20 31 20 29}  //weight: 2, accuracy: Low
+        $x_2_5 = {44 00 4c 00 4c 00 53 00 54 00 52 00 55 00 43 00 54 00 53 00 45 00 54 00 44 00 41 00 54 00 41 00 20 00 28 00 20 00 24 00 [0-20] 20 00 2c 00 20 00 31 00 20 00 2c 00 20 00 24 00 [0-20] 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_6 = {44 4c 4c 53 54 52 55 43 54 53 45 54 44 41 54 41 20 28 20 24 [0-20] 20 2c 20 31 20 2c 20 24 [0-20] 20 29}  //weight: 2, accuracy: Low
+        $x_1_7 = "REGDELETE ( \"default\" , \"Pd\" )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((4 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_Autoitinject_PQH_2147920847_0
 {
     meta:

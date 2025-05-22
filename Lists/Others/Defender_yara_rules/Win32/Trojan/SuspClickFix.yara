@@ -16,11 +16,13 @@ rule Trojan_Win32_SuspClickFix_A_2147941552_0
         $x_3_2 = "http" wide //weight: 3
         $x_3_3 = " -o " wide //weight: 3
         $x_1_4 = {43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 [0-32] 5c 00 [0-32] 2e 00 62 00 61 00 74 00}  //weight: 1, accuracy: Low
-        $x_1_5 = ".aliyuncs.com/" wide //weight: 1
-        $x_1_6 = ".myqcloud.com/" wide //weight: 1
+        $x_1_5 = {43 00 3a 00 5c 00 50 00 72 00 6f 00 67 00 72 00 61 00 6d 00 44 00 61 00 74 00 61 00 5c 00 [0-32] 2e 00 62 00 61 00 74 00}  //weight: 1, accuracy: Low
+        $x_1_6 = ".aliyuncs.com/" wide //weight: 1
+        $x_1_7 = ".myqcloud.com/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
+            ((2 of ($x_3_*) and 4 of ($x_1_*))) or
             ((3 of ($x_3_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )

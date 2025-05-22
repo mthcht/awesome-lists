@@ -92,6 +92,28 @@ rule Trojan_Win64_Zusy_BW_2147845937_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_EK_2147853092_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.EK!MTB"
+        threat_id = "2147853092"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Game Repack Install" wide //weight: 1
+        $x_1_2 = {2e 74 68 65 6d 69 64 61 00 c0 76 00 00 60 15 00 00 00 00 00 00 b2 0c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_RG_2147889353_0
 {
     meta:
@@ -231,6 +253,28 @@ rule Trojan_Win64_Zusy_EM_2147901026_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Game Repack Install" wide //weight: 1
+        $x_1_2 = {2e 74 68 65 6d 69 64 61 00 a0 73 00 00 60 15 00 00 00 00 00 00 b2 0c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_EM_2147901026_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.EM!MTB"
+        threat_id = "2147901026"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -244,7 +288,7 @@ rule Trojan_Win64_Zusy_EM_2147901026_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_EM_2147901026_2
+rule Trojan_Win64_Zusy_EM_2147901026_3
 {
     meta:
         author = "defender2yara"
@@ -271,7 +315,7 @@ rule Trojan_Win64_Zusy_EM_2147901026_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_EM_2147901026_3
+rule Trojan_Win64_Zusy_EM_2147901026_4
 {
     meta:
         author = "defender2yara"
@@ -297,7 +341,7 @@ rule Trojan_Win64_Zusy_EM_2147901026_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_EM_2147901026_4
+rule Trojan_Win64_Zusy_EM_2147901026_5
 {
     meta:
         author = "defender2yara"

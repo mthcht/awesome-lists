@@ -267,3 +267,30 @@ rule Ransom_Win32_Petya_PGP_2147936336_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Petya_BA_2147941997_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Petya.BA!MTB"
+        threat_id = "2147941997"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Petya"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "RANSOMWARE!" ascii //weight: 1
+        $x_1_2 = "encryption algorithm." ascii //weight: 1
+        $x_1_3 = "Tor Browser" ascii //weight: 1
+        $x_1_4 = "access onion page" ascii //weight: 1
+        $x_1_5 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-18] 2e 00 6f 00 6e 00 69 00 6f 00 6e 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {68 74 74 70 3a 2f 2f [0-18] 2e 6f 6e 69 6f 6e 2f}  //weight: 1, accuracy: Low
+        $x_1_7 = "decryption code" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
