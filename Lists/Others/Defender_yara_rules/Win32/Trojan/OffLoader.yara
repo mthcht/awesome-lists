@@ -4241,10 +4241,11 @@ rule Trojan_Win32_OffLoader_AZTA_2147941476_0
         $x_10_1 = "://truckobservation.icu/aar.php?" ascii //weight: 10
         $x_10_2 = "://mintborder.icu/bie.php?" ascii //weight: 10
         $x_10_3 = "://pointrespect.xyz/hrt.php?" ascii //weight: 10
-        $x_1_4 = "/silent" ascii //weight: 1
-        $x_1_5 = "/weaksecurity" ascii //weight: 1
-        $x_1_6 = "/nocookies" ascii //weight: 1
-        $x_1_7 = "/resume" ascii //weight: 1
+        $x_10_4 = "://dogsjar.xyz/hit.php?" ascii //weight: 10
+        $x_1_5 = "/silent" ascii //weight: 1
+        $x_1_6 = "/weaksecurity" ascii //weight: 1
+        $x_1_7 = "/nocookies" ascii //weight: 1
+        $x_1_8 = "/resume" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (

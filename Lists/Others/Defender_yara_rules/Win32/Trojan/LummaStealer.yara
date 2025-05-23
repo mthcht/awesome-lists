@@ -6209,3 +6209,32 @@ rule Trojan_Win32_LummaStealer_ABC_2147942037_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_STH_2147942049_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.STH!!LummaStealer.STH"
+        threat_id = "2147942049"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "LummaStealer: an internal category used to refer to some threats"
+        info = "STH: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ARHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {74 24 2e 88 54 24 2f 66 c7 44 24 30 00 00 8b 54}  //weight: 2, accuracy: High
+        $x_1_2 = {3d 8b 04 24 b9 13 00 80 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90}  //weight: 1, accuracy: High
+        $x_1_3 = {d1 a0 75 ad 22 ab 52 37 67 50 13 8c e7 61 5a c5}  //weight: 1, accuracy: High
+        $x_1_4 = {ce 88 84 0c 7a 37 52 4d 41 4e 81 f9 ba c8 ad b2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

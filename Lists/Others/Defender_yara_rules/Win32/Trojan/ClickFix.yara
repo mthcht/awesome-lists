@@ -4126,3 +4126,223 @@ rule Trojan_Win32_ClickFix_DCH_2147941962_0
         )
 }
 
+rule Trojan_Win32_ClickFix_ZJC_2147942050_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZJC!MTB"
+        threat_id = "2147942050"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = ".replace" wide //weight: 1
+        $x_1_3 = "-JoiN" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZHC_2147942051_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZHC!MTB"
+        threat_id = "2147942051"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ActiveXObject(" wide //weight: 1
+        $x_1_2 = "..reverse" wide //weight: 1
+        $x_1_3 = ".split(" wide //weight: 1
+        $x_1_4 = ".join(" wide //weight: 1
+        $x_1_5 = ";eval(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZMN_2147942052_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZMN!MTB"
+        threat_id = "2147942052"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "hidden" wide //weight: 1
+        $x_1_3 = "]+$" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZMP_2147942053_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZMP!MTB"
+        threat_id = "2147942053"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ForEach-Object {[Convert]::ToByte($" wide //weight: 1
+        $x_1_2 = ".Substring" wide //weight: 1
+        $x_1_3 = ".GetString(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZMQ_2147942054_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZMQ!MTB"
+        threat_id = "2147942054"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".Read($" wide //weight: 1
+        $x_1_2 = "Net.Sockets.TCPClient" wide //weight: 1
+        $x_1_3 = ".GetStream(" wide //weight: 1
+        $x_1_4 = "while" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZMR_2147942055_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZMR!MTB"
+        threat_id = "2147942055"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-Headers" wide //weight: 1
+        $x_1_2 = ".GetString($" wide //weight: 1
+        $x_1_3 = ".content" wide //weight: 1
+        $x_1_4 = "iex $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DBU_2147942057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBU!MTB"
+        threat_id = "2147942057"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "[ScRiPtBlOcK]::CrEaTe(" wide //weight: 10
+        $x_1_3 = "-W h -C" wide //weight: 1
+        $x_1_4 = "-W HiDdEn -C" wide //weight: 1
+        $x_1_5 = "-WindowStyle hidden -Command" wide //weight: 1
+        $x_1_6 = "-w minimized -c" wide //weight: 1
+        $x_1_7 = "-w 1 -c" wide //weight: 1
+        $n_1000_8 = "github.com" wide //weight: -1000
+        $n_1000_9 = "raw.githubusercontent.com" wide //weight: -1000
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DBY_2147942058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DBY!MTB"
+        threat_id = "2147942058"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "[string]::join(" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DCI_2147942059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCI!MTB"
+        threat_id = "2147942059"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "c^ur^l.ex^e" wide //weight: 100
+        $x_10_2 = "-k -Ss -X" wide //weight: 10
+        $x_1_3 = "&& start /min" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
