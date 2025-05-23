@@ -155,3 +155,27 @@ rule Ransom_Win32_Babuk_ARA_2147912661_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Babuk_MKZ_2147942075_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Babuk.MKZ!MTB"
+        threat_id = "2147942075"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Babuk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 45 88 33 44 8a 08 b9 04 00 00 00 d1 e1 8b 55 0c 89 04 0a b8 04 00 00 00 6b c8 07 8b 55 08 8a 84 0a ?? ?? ?? ?? 88 45 f6 b9 04 00 00 00 6b d1 07 8b 45 08 8b 8c 10 ?? ?? ?? ?? c1 e9 10 88 4d f5}  //weight: 5, accuracy: Low
+        $x_2_2 = "all your data has been encrypted" ascii //weight: 2
+        $x_2_3 = "PLEASE READ ME.txt" ascii //weight: 2
+        $x_2_4 = "vssadmin.exe delete shadows /all /quiet" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

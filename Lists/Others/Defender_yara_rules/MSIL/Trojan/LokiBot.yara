@@ -3481,3 +3481,27 @@ rule Trojan_MSIL_LokiBot_AY_2147940958_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LokiBot_MBZ_2147942072_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LokiBot.MBZ!MTB"
+        threat_id = "2147942072"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LokiBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {52 00 50 00 53 00 5f 00 47 00 61 00 6d 00 65}  //weight: 2, accuracy: High
+        $x_1_2 = "Barzzers" wide //weight: 1
+        $x_1_3 = {78 00 78 00 78 00 78 00 78 00 78 00 78 00 00 1b 73 00 73 00 73 00 73 00 73 00 73 00 73 00 73 00 73 00 73}  //weight: 1, accuracy: High
+        $x_1_4 = "PronHub" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
