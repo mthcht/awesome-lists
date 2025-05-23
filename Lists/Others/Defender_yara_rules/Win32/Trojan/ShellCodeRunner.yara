@@ -43,3 +43,25 @@ rule Trojan_Win32_ShellCodeRunner_GPA_2147899027_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellCodeRunner_NZL_2147942096_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellCodeRunner.NZL!MTB"
+        threat_id = "2147942096"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b c3 8b 5d f0 88 0c 3a 8b 55 e0 0f b6 0c 02 0f b6 04 3a 03 c8 83 7e ?? 0f 0f b6 c1 8b ce 89 45 ec 76}  //weight: 5, accuracy: Low
+        $x_4_2 = {8a 0c 01 32 0c 16 8b 53 ?? 88 4d ff 3b 53 08 74}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

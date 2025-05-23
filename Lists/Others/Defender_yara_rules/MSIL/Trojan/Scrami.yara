@@ -25,3 +25,24 @@ rule Trojan_MSIL_Scrami_GPA_2147902462_0
         )
 }
 
+rule Trojan_MSIL_Scrami_GZZ_2147942095_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Scrami.GZZ!MTB"
+        threat_id = "2147942095"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Scrami"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 12 1e 1f 40 12 15 28 ?? 00 00 06 26 1e 8d 47 00 00 01 16 11 12 28 ?? 00 00 0a 1e 28 ?? 00 00 0a 11 12 1f 28 58 13 12 11 1f 17 58 13 1f 11 1f 11 13 32 cc 2a}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

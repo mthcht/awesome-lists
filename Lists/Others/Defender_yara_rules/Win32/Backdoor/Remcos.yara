@@ -534,3 +534,25 @@ rule Backdoor_Win32_Remcos_GXB_2147911990_0
         (all of ($x*))
 }
 
+rule Backdoor_Win32_Remcos_GZZ_2147942120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Remcos.GZZ!MTB"
+        threat_id = "2147942120"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {33 d8 33 fa 89 5c 24 ?? 8b cf 8b 74 24 ?? 8b df 8b c6 c1 eb 0f 0f a4 c1 11 33 d2 89 7c 24 ?? c1 e0 ?? 0b d1 0b d8}  //weight: 10, accuracy: Low
+        $x_5_2 = {f0 64 a1 30 00 00 00 89 78 ?? 8b 42 ?? 03 c7 ff d0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
