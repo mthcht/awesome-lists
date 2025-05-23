@@ -3757,3 +3757,30 @@ rule Trojan_Win32_Amadey_Z_2147941857_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_NMQ_2147942039_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.NMQ!MTB"
+        threat_id = "2147942039"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "AppPolicyGetProcessTerminationMethod" ascii //weight: 1
+        $x_1_2 = "USNpVx9lbxq TZtl tZg6DoY" ascii //weight: 1
+        $x_1_3 = "QwNzVYNibLKj9DB9" ascii //weight: 1
+        $x_1_4 = "Io2ARBc1YNqVUTJX dfW9N==" ascii //weight: 1
+        $x_1_5 = "InternetOpenUrlA" ascii //weight: 1
+        $x_1_6 = "7919770680e9bb04829c00e5bc047c3b" ascii //weight: 1
+        $x_2_7 = "e0d27f0433178d157a8a1848a75bca2c" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
