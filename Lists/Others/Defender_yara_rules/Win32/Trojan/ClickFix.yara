@@ -4313,11 +4313,12 @@ rule Trojan_Win32_ClickFix_DBY_2147942058_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "110"
+        threshold = "111"
         strings_accuracy = "High"
     strings:
         $x_100_1 = "powershell" wide //weight: 100
         $x_10_2 = "[string]::join(" wide //weight: 10
+        $x_1_3 = "-w h -NoP -c" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
