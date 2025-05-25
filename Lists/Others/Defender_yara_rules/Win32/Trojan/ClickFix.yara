@@ -2498,13 +2498,14 @@ rule Trojan_Win32_ClickFix_ZA_2147938438_0
     strings:
         $x_1_1 = "powershell" wide //weight: 1
         $x_1_2 = "-w" wide //weight: 1
-        $x_1_3 = "http" wide //weight: 1
-        $n_100_4 = ".ps1" wide //weight: -100
-        $n_100_5 = ".hta" wide //weight: -100
+        $x_1_3 = {e2 00 80 00 95 00 77 00}  //weight: 1, accuracy: High
+        $x_1_4 = "http" wide //weight: 1
+        $n_100_5 = ".ps1" wide //weight: -100
+        $n_100_6 = ".hta" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
-        (all of ($x*))
+        (3 of ($x*))
 }
 
 rule Trojan_Win32_ClickFix_ZB_2147938439_0
@@ -2523,16 +2524,18 @@ rule Trojan_Win32_ClickFix_ZB_2147938439_0
     strings:
         $x_100_1 = "powershell" wide //weight: 100
         $x_10_2 = "-w" wide //weight: 10
-        $x_1_3 = "http" wide //weight: 1
-        $x_1_4 = "iex" wide //weight: 1
-        $x_1_5 = "iwr" wide //weight: 1
-        $n_300_6 = ".ps1" wide //weight: -300
-        $n_300_7 = ".hta" wide //weight: -300
+        $x_10_3 = {e2 00 80 00 95 00 77 00}  //weight: 10, accuracy: High
+        $x_1_4 = "http" wide //weight: 1
+        $x_1_5 = "iex" wide //weight: 1
+        $x_1_6 = "iwr" wide //weight: 1
+        $n_300_7 = ".ps1" wide //weight: -300
+        $n_300_8 = ".hta" wide //weight: -300
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
             (all of ($x*))
         )
 }
