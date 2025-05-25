@@ -6,7 +6,7 @@ as_number,rir,domain,cc,asname
 9164,ripencc,bignet.ua,UA,R-TEL-AS
 11331,arin,us53.com,HK,BINNETSOL-APC
 11938,arin,ncryptd.net,GB,NCRYPTD
-13875,arin,mxfiber.com,US,T-MOBILE-AS13875
+13875,arin,mxfiber.com,HK,T-MOBILE-AS13875
 17447,apnic,net4india.com,IN,NET4-IN
 22801,arin,intap.net,US,INTAP-1
 23865,apnic,netinnovation.net,US,NETINNOVATIONLLC-AS-AP
@@ -56,7 +56,6 @@ as_number,rir,domain,cc,asname
 44589,ripencc,eurotelecom.info,MD,Hosting
 44774,ripencc,62yun.com,RU,STARK
 44801,ripencc,bignet.ua,UA,R-TEL-AS
-44853,ripencc,uplink.in.md,MD,HOSTING
 46664,arin,volumedrive.com,US,VDI-NETWORK
 47500,ripencc,eurotelecom.info,MD,BLACKHOLE-ASN
 47893,ripencc,bignet.ua,UA,R-TEL-AS
@@ -73,7 +72,7 @@ as_number,rir,domain,cc,asname
 49443,ripencc,eurotelecom.info,MD,SISTEME
 50138,ripencc,eurotelecom.info,MD,CTC-ALFA-AS
 50236,ripencc,62yun.com,RU,Vertexlink_Communications
-50308,ripencc,ozon.ru,RU,AS50308
+50308,ripencc,ozon.ru,RU,FREE50308
 50935,ripencc,hosting.international,GB,International-Hosting-Solutions-AS
 51045,ripencc,bignet.ua,UA,DEMENIN-AS
 51124,ripencc,bignet.ua,UA,ITPLUS-UA-AS
@@ -94,6 +93,7 @@ as_number,rir,domain,cc,asname
 57523,ripencc,changway.hk,HK,changway-as
 57678,ripencc,changway.hk,HK,CATTECHNOLOGIES-AS
 57916,ripencc,eurotelecom.info,MD,LAROM-AS
+58349,ripencc,innetra.com,GB,INNETRA-AS
 58854,apnic,kaopuyun.com,CN,kaopy
 59425,ripencc,changway.hk,HK,HORIZONMSK-AS
 59683,ripencc,vip-net.net,RU,iridatelecom
@@ -103,13 +103,13 @@ as_number,rir,domain,cc,asname
 60842,ripencc,62yun.com,RU,HUIZE-HOLDINGS-AS
 61432,ripencc,link-host.com,UA,VAIZ-AS
 61879,lacnic,aleducacional.com.br,BR,América_Latina_Educacional_Adm._e_Serviços_LTDA
+62189,ripencc,innetra.com,GB,INNETRA-EU
 62281,ripencc,eurotelecom.info,MD,VIDEOMAG-AS
 62864,arin,netinnovation.net,US,NILAS
 63881,apnic,medianetdigital.co,ID,MDI-AS-ID
 64425,ripencc,skb-enterprise.com,NL,SKB-Enterprise
 131750,apnic,sufia.tv,ID,SUFIANET-AS-ID
 132574,arin,alphainfolab.com,IN,AI-1720-132574
-132781,apnic,karix.com,IN,UNICEL-AS
 132827,apnic,g-w.bz,JP,GATEWAY-AS-AP
 132899,apnic,urnets.com,TW,USL-AS-AP
 132930,apnic,herbalvedawellness.com,IN,HERBALVE-AS-IN
@@ -117,7 +117,6 @@ as_number,rir,domain,cc,asname
 133488,apnic,servicehk.net,HK,SERVICE-AS-AP
 133668,apnic,eikontech.net,IN,INFOBB-AS-IN
 133692,apnic,fastnetcpl.com,IN,Fastnet-AS-IN
-133883,apnic,karix.com,IN,MGAGEIND-AS-AP
 133994,apnic,rmhospitality.co.in,IN,RMHOSPITALITY-AS-IN
 135271,apnic,globtelgroup.com,US,GLOBTELGROUP-AS-AP
 135752,apnic,evokedigital.in,IN,EVOKEDS-AS
@@ -178,7 +177,6 @@ as_number,rir,domain,cc,asname
 152327,apnic,rasuhost.com.bd,BD,RASUWEBHOST-AS-AP
 152485,apnic,hosterdaddy.com,IN,HOSTER-AS-IN
 152486,apnic,jdmbroadband.com,IN,NTSHIELD-AS-IN
-153318,apnic,karix.com,IN,MGAGEIND-AS-AP
 197414,ripencc,zservers.ru,RU,XHOST-INTERNET-SOLUTIONS
 197450,ripencc,sunucun.com.tr,TR,SUNUCUN
 197555,ripencc,smartmieten.in,IN,SMARTMIETEN
@@ -323,9 +321,10 @@ as_number,rir,domain,cc,asname
 213389,ripencc,netip.com.ua,UA,ASPODOLSK
 213438,ripencc,colocatel.com,SC,colocatel-inc
 213511,ripencc,vonie.net,TR,VSVK
-213622,ripencc,baremetal.ae,AE,BAREMETAL
+213622,ripencc,baremetal.ae,AE,FALCON
 213659,ripencc,eksenbilisim.com.tr,TR,SEYMEN-CIFTCI
 213676,ripencc,eksenbilisim.com.tr,TR,NEO_INTERNET
+213725,ripencc,03ai.org,GB,UK-03AI
 213790,ripencc,btcloud.ro,GB,LimitedNetwork-AS
 213828,ripencc,whitelabel.sh,IL,OXIWAVE-AS
 213889,ripencc,meric.net.tr,TR,AS209737
@@ -339,6 +338,7 @@ as_number,rir,domain,cc,asname
 214295,ripencc,audit-data.info,MD,SKYNET
 214318,ripencc,cloudsolution.host,HR,NETCODE
 214351,ripencc,as214351.com,GB,FEMOIT
+214357,ripencc,almaseabi.net,IR,MM500
 214472,ripencc,offshore.cx,LU,OFFSHORE
 214497,ripencc,whitelabel.sh,IL,WHITELABEL
 214717,ripencc,dolphinhost.net,GB,DOLPHINHOST-AS
@@ -367,6 +367,7 @@ as_number,rir,domain,cc,asname
 215930,ripencc,almaseabi.net,IR,COD
 216240,ripencc,mortalsoft.online,RS,MortalSoft
 216246,ripencc,aeza.net,RU,RU-AEZA-AS
+216341,ripencc,optimllc.ru,RU,OPTIMA-AS
 266724,lacnic,donserver.cl,CL,MYRIAM_PILAR_ESCOBAR_VEGA_(DON_SERVER)
 327837,afrinic,seyix.sc,SC,SEY-IX-MANAGEMENT
 328095,afrinic,bluegate-exchange.co.za,ZA,BLUEGATE-EXCHANGE-AS
