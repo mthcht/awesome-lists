@@ -328,3 +328,25 @@ rule Trojan_MSIL_Filecoder_SWA_2147940146_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Filecoder_MBZ_2147942167_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Filecoder.MBZ!MTB"
+        threat_id = "2147942167"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0b 02 06 07 28 ?? 00 00 06 0c 03 08 28 ?? 00 00 0a 00 03 03 72 ff 00 00 70}  //weight: 2, accuracy: Low
+        $x_1_2 = "64b54f4acb8d" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

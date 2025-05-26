@@ -549,3 +549,25 @@ rule Trojan_Win64_Dacic_UTD_2147934739_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_SEC_2147942173_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.SEC!MTB"
+        threat_id = "2147942173"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "*u9JmmX*LFD9D1" ascii //weight: 2
+        $x_1_2 = "tV#*vV9i4ex6zW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

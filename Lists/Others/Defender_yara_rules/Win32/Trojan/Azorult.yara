@@ -6610,3 +6610,25 @@ rule Trojan_Win32_Azorult_CL_2147941760_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Azorult_SEZC_2147942172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Azorult.SEZC!MTB"
+        threat_id = "2147942172"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Azorult"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "xovahuges.exe" ascii //weight: 2
+        $x_1_2 = "MyFunc124@@4" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
