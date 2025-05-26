@@ -1097,3 +1097,24 @@ rule Trojan_MSIL_KillMBR_EUA_2147941315_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_EXO_2147942196_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.EXO!MTB"
+        threat_id = "2147942196"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 06 07 02 07 ?? ?? ?? ?? ?? 20 ff 00 00 00 5f d2 9c 00 07 17 58 0b 07 20 6a 77 78 00 fe 04 0c 08 2d dd}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

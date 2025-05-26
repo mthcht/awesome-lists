@@ -1727,3 +1727,24 @@ rule Trojan_Win32_Convagent_BAC_2147941284_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_EGD_2147942198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.EGD!MTB"
+        threat_id = "2147942198"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 4c 24 1c 8b c5 2b cd 8b fe 8a 1c 01 30 18 40 4f}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

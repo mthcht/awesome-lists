@@ -6707,3 +6707,25 @@ rule Trojan_Win32_Vidar_AD_2147939487_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_EAAQ_2147942200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.EAAQ!MTB"
+        threat_id = "2147942200"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {6b 14 24 0c 01 d1 89 41 08 8b 04 24 83 c0 01 89 04 24}  //weight: 2, accuracy: High
+        $x_2_2 = {83 c4 0c 01 ef 89 bc 9e 44 1e 00 00 0f b6 0c 9d ?? ?? ?? ?? bd 01 00 00 00 d3 e5 8b 04 24}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
