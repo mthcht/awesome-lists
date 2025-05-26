@@ -123,7 +123,7 @@ rule Trojan_Win32_SuspClickFix_E_2147941628_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {5c 00 57 00 4d 00 49 00 43 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
-        $x_1_2 = {20 00 70 00 72 00 6f 00 64 00 75 00 63 00 74 00 20 00 63 00 61 00 6c 00 6c 00 20 00 69 00 6e 00 73 00 74 00 61 00 6c 00 6c 00 20 00 [0-32] 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {20 00 70 00 72 00 6f 00 64 00 75 00 63 00 74 00 20 00 63 00 61 00 6c 00 6c 00 20 00 69 00 6e 00 73 00 74 00 61 00 6c 00 6c 00 20 00 [0-64] 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
