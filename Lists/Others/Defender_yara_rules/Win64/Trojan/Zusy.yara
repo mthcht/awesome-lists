@@ -1790,3 +1790,25 @@ rule Trojan_Win64_Zusy_EN_2147941353_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_EH_2147942237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.EH!MTB"
+        threat_id = "2147942237"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2e 74 68 65 6d 69 64 61 00 c0 76 00 00 80 18 00 00 00 00 00 00 58 0d}  //weight: 1, accuracy: High
+        $x_1_2 = "DVDSetup.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

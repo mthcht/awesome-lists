@@ -1135,3 +1135,28 @@ rule Trojan_Win64_LummaStealer_LZL_2147942228_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_NFU_2147942239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.NFU!MTB"
+        threat_id = "2147942239"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell -Command \"Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_2 = "powershell -Command \"Invoke-WebRequest -Uri" ascii //weight: 1
+        $x_2_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+        $x_1_4 = "Windows Defender" ascii //weight: 1
+        $x_1_5 = "C:\\Users\\danar\\source\\repos\\opretorsa\\x64\\Release\\opretorsa.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
