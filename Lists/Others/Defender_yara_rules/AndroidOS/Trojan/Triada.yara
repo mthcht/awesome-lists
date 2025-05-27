@@ -160,3 +160,28 @@ rule Trojan_AndroidOS_Triada_M_2147901920_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Triada_H_2147942303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Triada.H!MTB"
+        threat_id = "2147942303"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Triada"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "os.config.ppgl.btcore.devicekey" ascii //weight: 1
+        $x_1_2 = "os.config.opp.build.status" ascii //weight: 1
+        $x_1_3 = "version_ex_config.dat" ascii //weight: 1
+        $x_1_4 = "os.config.opp.build.model" ascii //weight: 1
+        $x_1_5 = "com.hwsen.abc.SDK" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

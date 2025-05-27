@@ -2171,3 +2171,24 @@ rule Trojan_Win64_Bumblebee_PPG_2147942009_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Bumblebee_AZL_2147942279_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bumblebee.AZL!MTB"
+        threat_id = "2147942279"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bumblebee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 00 0f b6 8c 24 69 9a 01 00 2b c1 48 8b 8c 24 f0 01 00 00 88 01 e8 ?? ?? ?? ?? 48 8b 80 f8 0f 00 00 48 8b 8c 24 98 ca 00 00 48 89 4c 24 20 45 33 c9 45 33 c0 ba 02 00 00 00 48 8b 8c 24 ?? 60 01 00 ff 50 48}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

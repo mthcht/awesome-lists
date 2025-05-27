@@ -64,3 +64,25 @@ rule Trojan_Linux_Ebury_D_2147844751_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Ebury_E_2147942305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Ebury.E!MTB"
+        threat_id = "2147942305"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Ebury"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {83 e8 02 31 d2 45 31 c9 45 31 e4 41 c1 e2 02 41 c0 e8 04 44 88 67 01 45 09 d0 44 88 4f 02 83 ea 04 44 88 07 48 83 c6 04 48 83 c7 03 85 d2 0f 8f 9d fe ff ff 5b 5d 41 5c c3}  //weight: 2, accuracy: High
+        $x_2_2 = {89 e8 8b 4b 60 c1 e8 06 23 43 5c 89 c0 48 8b 04 c2 89 ea d3 ea 89 d1 83 e1 3f 48 89 c2 48 d3 ea 89 e9 83 e1 3f 48 d3 e8 48 85 c2 0f 84 44 01 00 00 31 d2 89 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

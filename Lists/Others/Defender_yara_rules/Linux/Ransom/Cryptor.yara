@@ -78,3 +78,28 @@ rule Ransom_Linux_Cryptor_D_2147911822_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Cryptor_E_2147942304_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Cryptor.E!MTB"
+        threat_id = "2147942304"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Cryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.saveCurrPID" ascii //weight: 1
+        $x_1_2 = "main.removeCron" ascii //weight: 1
+        $x_1_3 = "main.checkReadmeExists" ascii //weight: 1
+        $x_1_4 = "main.writemessage" ascii //weight: 1
+        $x_1_5 = "/src/rct_cryptor_universal/main.go" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

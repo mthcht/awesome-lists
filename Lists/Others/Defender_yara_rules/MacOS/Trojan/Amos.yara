@@ -2346,3 +2346,47 @@ rule Trojan_MacOS_Amos_DT_2147940736_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Amos_DW_2147942302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DW!MTB"
+        threat_id = "2147942302"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 83 fb f8 73 50 48 89 d8 48 83 e0 f8 48 83 c0 08 49 89 dc 49 83 cc 07 49 83 fc 17 4c 0f 44 e0 49 ff c4 4c 89 e7 e8 a2 1d 00 00 49 89 47 10 49 83 cc 01 4d 89 27 49 89 5f 08 49 89 c7}  //weight: 1, accuracy: High
+        $x_1_2 = {4c 89 f0 48 83 e0 f8 48 83 c0 08 4d 89 f7 49 83 cf 07 49 83 ff 17 4c 0f 44 f8 49 ff c7 4c 89 ff e8 bb 0e 00 00 49 83 cf 01 4c 89 3b 48 89 43 10 4c 89 73 08 48 83 c4 08 5b 41 5e 41 5f 5d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_DY_2147942312_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.DY!MTB"
+        threat_id = "2147942312"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {ff c3 02 d1 fd 7b 0a a9 fd 83 02 91 e8 17 00 f9 a8 83 1f f8 a0 03 1f f8 a8 63 00 d1 e8 1b 00 f9 a1 83 1e f8 a2 03 1e f8 a3 83 1d f8 a4 03 1d f8 a0 03 5f f8 a8 fc ff 97 a0 83 1c f8 08 00 80 52 e8 17 00 b9 08 01 00 12 08 01 00 12 a8 73 1c 38 a0 83 5c f8 21 00 80 d2 57 01 00 94 e8 17 40 b9 e0 0f 00 f9 a1 83 5c f8 e0 43 01 91 e0 13 00 f9 02 01 00 12}  //weight: 1, accuracy: High
+        $x_1_2 = {e8 5b 40 f9 00 41 00 91 99 fd ff 97 8c 01 00 94 a0 03 15 f8 a8 03 55 f8 08 01 40 f9 e8 23 00 f9 a0 23 02 d1 e0 27 00 f9 8e 01 00 94 e8 23 40 f9 e9 03 00 aa e0 27 40 f9 28 01 00 f9 93 01 00 94 7f 01 00 94 e8 03 00 aa e0 5b 40 f9 a9 03 55 f8 28 01 00 f9 a8 03 55 f8 e8 2b 00 f9 a1 03 59 f8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

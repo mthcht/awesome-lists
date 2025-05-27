@@ -238,3 +238,25 @@ rule TrojanSpy_AndroidOS_SpyNote_R_2147940018_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_SpyNote_S_2147942309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SpyNote.S!MTB"
+        threat_id = "2147942309"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyNote"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {22 00 08 00 70 10 11 00 00 00 1c 01 31 00 6e 10 1b 00 01 00 0c 01 1a 02 41 00 6e 30 12 00 20 01 1a 01 06 00 12 12 6e 30 13 00 10 02 12 21 23 11 3a 00 12 03 4d 00 01 03 4d 05 01 02 71 20 4d 00 14 00 0e 00}  //weight: 1, accuracy: High
+        $x_1_2 = {1a 08 7e 00 4d 08 07 00 1a 08 5d 00 4d 08 07 04 71 20 1e 00 76 00 0c 06 6e 20 1c 00 65 00 0c 05 1a 06 68 00 23 47 39 00 1c 08 3a 00 4d 08 07 00 6e 30 1a 00 65 07 0c 05 69 05 0f 00 6e 10 23 00 02 00 0c 02 72 10 24 00 02 00 0a 05 38 05 36 00 72 10 25 00 02 00 0c 05 1f 05 12 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

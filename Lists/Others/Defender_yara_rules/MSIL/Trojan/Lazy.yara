@@ -2870,6 +2870,32 @@ rule Trojan_MSIL_Lazy_AMCW_2147929515_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_MBWJ_2147929763_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.MBWJ!MTB"
+        threat_id = "2147929763"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "lRlWTmZwmpDk4Kd7pJQZgjNpli9ZPF6ZLIQgcLvqdN1vlY8NpJM1hSY9l3o2HWfISVG8iNTpLBeinA" ascii //weight: 2
+        $x_1_2 = "m8eG6wl856F8jPMhMARQ9etQ" ascii //weight: 1
+        $x_1_3 = "Em/fE47ClCu263lwWIPe3GASleLBc/E" ascii //weight: 1
+        $x_1_4 = "Anti-VT.exe" ascii //weight: 1
+        $x_1_5 = "ConfusedByAttribute" ascii //weight: 1
+        $x_1_6 = "ae9ced6271c1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_AYA_2147930961_0
 {
     meta:

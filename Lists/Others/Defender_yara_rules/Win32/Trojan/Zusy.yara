@@ -6658,3 +6658,47 @@ rule Trojan_Win32_Zusy_BAE_2147942206_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_MBWM_2147942276_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.MBWM!MTB"
+        threat_id = "2147942276"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {2e 72 64 61 74 61 00 00 8e 9d 01 00 00 c0 0d 00 00 a0 01 00 00 c0 0d 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61 00 00 00 0a 05 05 00 00 60 0f 00 00 80 01 00 00 60 0f 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 72 73 72 63 00 00 00 10 5d 00 00 00 70 14 00 00 60 00 00 00 e0 10 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 2, accuracy: High
+        $x_2_2 = {2e 74 65 78 74 00 00 00 e6 a6 0d 00 00 10 00 00 00 b0 0d 00 00 10}  //weight: 2, accuracy: High
+        $x_1_3 = {33 c0 c3 90 85 db 75 03 33 c0 c3 8b cb f7 c1 03 00 00 00 74 0f 8a 01 41 84 c0 74 3b f7 c1 03}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_MBWN_2147942277_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.MBWN!MTB"
+        threat_id = "2147942277"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {74 65 78 74 00 00 00 06 9c 0d 00 00 10 00 00 00 a0 0d 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 72 64 61 74 61 00 00 5e 9d 01 00 00 b0 0d 00 00 a0 01 00 00 b0 0d 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61 00 00 00 0a 05 05 00 00 50 0f 00 00 80 01 00 00 50 0f 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 72 73 72 63 00 00 00 9a 18 00 00 00 60 14 00 00 20 00 00 00 d0 10 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
