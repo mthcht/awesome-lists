@@ -41,3 +41,23 @@ rule Backdoor_Win64_PipeMagic_E_2147940253_0
         (all of ($x*))
 }
 
+rule Backdoor_Win64_PipeMagic_F_2147942261_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/PipeMagic.F"
+        threat_id = "2147942261"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PipeMagic"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {52 53 41 20 74 6f 6f 20 73 68 6f 72 74 29 2e 00 00 00 00 00 ?? 00 30 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46 00 00 00 00 34 34 33 00 47 45 54 20 2f 25 73 20 48 54 54 50 2f 31 2e 31 0d 0a 00 00 00 00 00 00 31 32 37 2e 30 2e 30 2e 31 00 00 00 00 00 00 00 48 6f 73 74 3a 20 25 73 0d 0a 00 00 00 00 00 00 43 6f 6e 6e 65 63 74 69 6f 6e 3a 20 55 70 67 72 61 64 65 0d 0a 00 00 00 00 00 00 00 00 00 00 00 50 72 61 67 6d 61 3a 20 6e 6f 2d 63 61 63 68 65 0d 0a 43 61 63 68 65 2d 43 6f 6e 74 72 6f 6c 3a 20 6e 6f 2d 63 61 63 68 65 0d 0a 55 73 65 72 2d 41 67 65 6e 74 3a 20}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
