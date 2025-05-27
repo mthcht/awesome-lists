@@ -783,3 +783,27 @@ rule Trojan_MSIL_Mardom_ASUA_2147941983_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_MBZ_2147942266_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.MBZ!MTB"
+        threat_id = "2147942266"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Abawomis.Nuyadev.Iyela" ascii //weight: 2
+        $x_1_2 = "RrHh7" ascii //weight: 1
+        $x_1_3 = "Rokijal" ascii //weight: 1
+        $x_1_4 = "ntqjrzznpykjm" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
