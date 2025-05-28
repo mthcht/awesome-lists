@@ -215,3 +215,24 @@ rule Trojan_Win64_AsyncRat_CCJX_2147941161_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AsyncRat_CCJY_2147942343_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRat.CCJY!MTB"
+        threat_id = "2147942343"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {41 83 f1 85 45 88 4c 1b ff 48 ff c0 4c 89 de 48 39 05 ad e7 0f 00 7e ?? 4c 8b 0d 9c e7 0f 00 4c 8d 5e 01 45 0f b6 0c 01 4c 39 d9 73}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1384,3 +1384,29 @@ rule Ransom_Win32_FileCoder_RHAC_2147927821_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCoder_BAA_2147942344_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder.BAA!MTB"
+        threat_id = "2147942344"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Encrypted" ascii //weight: 1
+        $x_1_2 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_3 = "To recover your data" ascii //weight: 1
+        $x_1_4 = "Note dropped" ascii //weight: 1
+        $x_1_5 = "svchost_log.txt" ascii //weight: 1
+        $x_1_6 = "Important files encrypted. Check README files" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

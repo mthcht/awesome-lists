@@ -6259,3 +6259,108 @@ rule Trojan_Win32_LummaStealer_GZZ_2147942339_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_DAC_2147942355_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.DAC!MTB"
+        threat_id = "2147942355"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {89 c1 83 f1 7e 83 e0 01 01 c0 29 c8 8b 4c 24 0c 04 89 88 01 46 41 83 c2 02 83 fa 08 0f 85 35}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_DAD_2147942356_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.DAD!MTB"
+        threat_id = "2147942356"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {83 c1 02 81 e1 ?? ?? ?? ?? 81 e7 ?? ?? ?? ?? 09 cf 81 f7 ?? ?? ?? ?? 09 f7 f7 d7 21 ef 8b 2c 24 89 7c 24 10 8b 4c 24 10 80 c1 f6 88 4c 04 09 40 4d 83 f8 07 0f 85}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_DAE_2147942357_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.DAE!MTB"
+        threat_id = "2147942357"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 0c 2c 89 c2 81 e2 ?? ?? ?? ?? 89 eb 83 e3 02 09 d3 31 cb 81 f3 ?? ?? ?? ?? 8d 55 64 21 ca f7 d2 21 da 89 54 24 08 8b 4c 24 08 80 c1 74 88 0c 2c 45 48 83 fd 04 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_DAF_2147942358_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.DAF!MTB"
+        threat_id = "2147942358"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {c0 e1 02 0f b6 c1 8b 4d fc c1 e9 06 0b c1 8b c8 c1 e9 03 33 c8 b8 ?? ?? ?? ?? f7 eb 03 d3 c1 fa 02 8b c2 c1 e8 1f 03 c2 2b c8 8d 04 cd 00 00 00 00 2b c1 03 c3 25 ?? ?? ?? ?? 79}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_DAH_2147942359_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.DAH!MTB"
+        threat_id = "2147942359"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 20 20 00 20 20 20 20 00 a0 05 00 00 10 00 00 00 b0 02 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0 2e 72 73 72 63 00 00 00 78 03 00 00 00 b0 05 00 00 04 00 00 00 c0 02 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 69 64 61 74 61 20 20 00 10 00 00 00 c0 05 00 00 02 00 00 00 c4 02 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
