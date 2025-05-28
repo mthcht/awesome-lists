@@ -2329,24 +2329,3 @@ rule Trojan_Win32_Delf_OKP_2147937533_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Delf_OKQ_2147942111_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Delf.OKQ!MTB"
-        threat_id = "2147942111"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Delf"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {d1 e9 81 f1 ?? ?? ?? ?? eb 02 d1 e9 4a 3b d7 7f ?? 8b 16 89 0c 82 40 3d ?? ?? ?? ?? 7c}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
