@@ -500,6 +500,28 @@ rule Trojan_MSIL_XWorm_AXW_2147908235_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {11 04 11 0b 11 0a 11 0b 6f ?? 00 00 0a 5d 6f ?? 00 00 0a 6f ?? 00 00 0a 26 11 04 09 11 0a 6f ?? 00 00 0a 16 6f ?? 00 00 0a 6f ?? 00 00 0a 26 00 11 0a 17 58 13 0a 11 0a 09 6f}  //weight: 3, accuracy: Low
+        $x_2_2 = "phantom.ext" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_AXW_2147908235_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AXW!MTB"
+        threat_id = "2147908235"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
@@ -510,7 +532,7 @@ rule Trojan_MSIL_XWorm_AXW_2147908235_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_AXW_2147908235_1
+rule Trojan_MSIL_XWorm_AXW_2147908235_2
 {
     meta:
         author = "defender2yara"
