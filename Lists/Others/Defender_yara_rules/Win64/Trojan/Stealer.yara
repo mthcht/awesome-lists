@@ -239,3 +239,30 @@ rule Trojan_Win64_Stealer_GVA_2147941530_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NFA_2147942380_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NFA!MTB"
+        threat_id = "2147942380"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%s\\wallet_dump_%s" ascii //weight: 1
+        $x_1_2 = "encrypted_key" ascii //weight: 1
+        $x_2_3 = "Credentials/Microsoft_Mail.txt" ascii //weight: 2
+        $x_1_4 = "Software\\Microsoft\\Office\\%s\\Outlook\\Profiles\\Outlook" ascii //weight: 1
+        $x_1_5 = "BraveWallet" ascii //weight: 1
+        $x_1_6 = "Exodus" ascii //weight: 1
+        $x_1_7 = "%s\\katz_ontop.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

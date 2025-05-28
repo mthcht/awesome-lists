@@ -124,6 +124,27 @@ rule Trojan_Win32_Dapato_ADA_2147905699_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b d3 03 55 c8 03 c2 8b 55 e4 03 d6 8b cf e8 ?? ?? ?? ?? 01 7d c8 6a 00 e8 ?? ?? ?? ?? 03 c7 01 c6 8b 45 d0 01 c6}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Dapato_ADA_2147905699_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dapato.ADA!MTB"
+        threat_id = "2147905699"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
