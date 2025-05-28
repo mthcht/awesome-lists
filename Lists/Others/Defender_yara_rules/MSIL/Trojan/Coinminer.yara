@@ -445,3 +445,24 @@ rule Trojan_MSIL_Coinminer_AIU_2147904180_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Coinminer_CM_2147942319_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Coinminer.CM!MTB"
+        threat_id = "2147942319"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Coinminer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {02 03 07 58 91 0d 07 17 58 0b 09 20 80 00 00 00 5f 16 fe 01 13 05 11 05 2d 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -974,3 +974,25 @@ rule Trojan_Win64_Latrodectus_GVA_2147941489_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Latrodectus_CCJY_2147942321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Latrodectus.CCJY!MTB"
+        threat_id = "2147942321"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Latrodectus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {48 8b 44 24 28 48 8b 4c 24 58 48 03 c8 48 8b c1 0f b6 00 48 63 4c 24 20 0f b6 4c 0c 30 33 c1 48 8b 4c 24 28 48 8b 54 24 58 48 03 d1 48 8b ca 88 01 e9}  //weight: 6, accuracy: High
+        $x_4_2 = {65 78 74 72 61 00 66 6f 6c 6c 6f 77 65 72 00 72 75 6e 00 73 63 75 62}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
