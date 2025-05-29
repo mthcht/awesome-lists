@@ -32,6 +32,6 @@ jobs:
           git pull
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git add Lists/Ranges_IP_Address_Company_List/Github/*
+          git add github_ip_ranges.csv
           git commit -m "Update GitHub IP ranges [auto]" || echo "No changes to commit"
           git push
