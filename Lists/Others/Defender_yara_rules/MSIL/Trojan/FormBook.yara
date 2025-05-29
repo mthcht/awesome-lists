@@ -15374,3 +15374,26 @@ rule Trojan_MSIL_FormBook_MBZ_2147941160_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_BSA_2147942406_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.BSA!MTB"
+        threat_id = "2147942406"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 6c 61 72 6d 00 41 6c 61 72 6d 65 72 00 4f 62 6a 65 63 74 00 3c 52 75 6e}  //weight: 2, accuracy: High
+        $x_4_2 = "dc83410f-364e-4413-bbdf-3148fef27842" ascii //weight: 4
+        $x_8_3 = "sVca.exe" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
