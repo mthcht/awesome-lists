@@ -875,3 +875,33 @@ rule Trojan_Win32_Autoitinject_SYHZ_2147938557_0
         )
 }
 
+rule Trojan_Win32_Autoitinject_SR_2147942456_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Autoitinject.SR!MTB"
+        threat_id = "2147942456"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Autoitinject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "DLLCALL ( BINARYTOSTRING ( \"0x6B65726E656C33322E646C6C\" ) , BINARYTOSTRING ( \"0x68616E646C65\" )" ascii //weight: 1
+        $x_1_2 = "DLLCALL ( BINARYTOSTRING ( \"0x7573657233322E646C6C\" ) ," ascii //weight: 1
+        $x_2_3 = {44 00 4c 00 4c 00 53 00 54 00 52 00 55 00 43 00 54 00 43 00 52 00 45 00 41 00 54 00 45 00 20 00 28 00 20 00 42 00 49 00 4e 00 41 00 52 00 59 00 54 00 4f 00 53 00 54 00 52 00 49 00 4e 00 47 00 20 00 28 00 20 00 22 00 30 00 78 00 36 00 32 00 37 00 39 00 37 00 34 00 36 00 35 00 35 00 42 00 22 00 20 00 29 00 20 00 26 00 20 00 24 00 [0-50] 20 00 26 00 20 00 42 00 49 00 4e 00 41 00 52 00 59 00 54 00 4f 00 53 00 54 00 52 00 49 00 4e 00 47 00 20 00 28 00 20 00 22 00 30 00 78 00 35 00 44 00 22 00 20 00 29 00 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_4 = {44 4c 4c 53 54 52 55 43 54 43 52 45 41 54 45 20 28 20 42 49 4e 41 52 59 54 4f 53 54 52 49 4e 47 20 28 20 22 30 78 36 32 37 39 37 34 36 35 35 42 22 20 29 20 26 20 24 [0-50] 20 26 20 42 49 4e 41 52 59 54 4f 53 54 52 49 4e 47 20 28 20 22 30 78 35 44 22 20 29 20 29}  //weight: 2, accuracy: Low
+        $x_2_5 = "DLLOPEN ( BINARYTOSTRING ( \"0x7573657233322E646C6C\" ) )" ascii //weight: 2
+        $x_1_6 = "IF @ERROR THEN RETURN SETERROR ( @ERROR , @EXTENDED , FALSE )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
