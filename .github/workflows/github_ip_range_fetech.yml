@@ -1,0 +1,37 @@
+name: Fetch GitHub IP Ranges
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:       # Allows manual trigger
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Lists/Ranges_IP_Address_Company_List/Github
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run GitHub IP range fetch script
+        run: python fetch_github_ip_range.py
+
+      - name: Commit and push updates
+        run: |
+          git pull
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add Lists/Ranges_IP_Address_Company_List/Github/*
+          git commit -m "Update GitHub IP ranges [auto]" || echo "No changes to commit"
+          git push
