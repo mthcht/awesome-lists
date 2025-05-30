@@ -138,3 +138,28 @@ rule Trojan_Win64_Filecoder_QZ_2147937595_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_PGF_2147942477_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.PGF!MTB"
+        threat_id = "2147942477"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "vssadmin delete shadows /all /quiet >nul" ascii //weight: 2
+        $x_2_2 = "wbadmin delete catalog -quiet >nul" ascii //weight: 2
+        $x_2_3 = "bcdedit /set {default} recoveryenabled no >nul" ascii //weight: 2
+        $x_2_4 = "svchost_log.txt" ascii //weight: 2
+        $x_2_5 = "files encrypted. Check README" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
