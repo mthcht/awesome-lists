@@ -13354,3 +13354,24 @@ rule Trojan_MSIL_Remcos_AKVA_2147942283_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_PXE_2147942525_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.PXE!MTB"
+        threat_id = "2147942525"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {32 08 16 13 05 38 88 01 00 00 17 39 56 01 00 00 06 72 11 12 00 70 6f ?? 00 00 0a 16 61 13 06 06 72 25 12 00 70 6f ?? 00 00 0a 16 61 13 07 11 06 11 06 60 20 ff ff ff 7f 5f 13 06 11 07 11 07 60 20 ff ff ff 7f 5f 13 07 02 11 06 11 07 6f ?? 00 00 0a 13 08 12 08 28 ?? 00 00 0a 16 61 d2 13 09 12 08 28 ?? 00 00 0a 16 61 d2 13 0a 12 08 28 ?? 00 00 0a 16 61 d2 13 0b 07 11 09 6f ?? 00 00 0a 08 11 0a 6f ?? 00 00 0a 09 11 0b 6f ?? 00 00 0a 04 03 6f ?? 00 00 0a 59 13 0c 11 0c 19 32 32 07 6f ?? 00 00 0a 13 0d 08 6f ?? 00 00 0a 13 0e 09 6f ?? 00 00 0a 13 0f 03 11 0d 6f ?? 00 00 0a 03 11 0e 6f ?? 00 00 0a 03 11 0f 6f ?? 00 00 0a 2b 79}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

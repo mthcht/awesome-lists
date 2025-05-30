@@ -4429,3 +4429,74 @@ rule Trojan_Win32_ClickFix_HI_2147942492_0
         )
 }
 
+rule Trojan_Win32_ClickFix_ZZA_2147942526_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZZA!MTB"
+        threat_id = "2147942526"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Invoke-Command ([ScriptBlock]::Create($_.Content" wide //weight: 1
+        $x_1_2 = "powershell" wide //weight: 1
+        $x_1_3 = {68 00 74 00 74 00 70 00 3a 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 2f 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZZB_2147942527_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZZB!MTB"
+        threat_id = "2147942527"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "New-Object" wide //weight: 1
+        $x_1_2 = "WinHttp.WinHttpRequest" wide //weight: 1
+        $x_1_3 = {68 00 74 00 74 00 70 00 3a 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_4 = ".Send(" wide //weight: 1
+        $x_1_5 = "iex $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZZC_2147942528_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZZC!MTB"
+        threat_id = "2147942528"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "iex $" wide //weight: 1
+        $x_1_2 = "[System.Convert]::FromBase64String($" wide //weight: 1
+        $x_1_3 = "Confirm access" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
