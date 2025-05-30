@@ -31,8 +31,11 @@ rule Trojan_Win32_PapCut_B_2147846688_0
         $x_10_17 = "taskkill" wide //weight: 10
         $x_10_18 = "mspaint.exe" wide //weight: 10
         $x_10_19 = "calc.exe" wide //weight: 10
+        $n_1000_20 = ":\\\\ProgramData\\\\Microsoft\\\\Windows Defender Advanced Threat Protection\\\\" wide //weight: -1000
+        $n_1000_21 = ":\\ProgramData\\Microsoft\\Windows Defender Advanced Threat Protection\\" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
