@@ -638,8 +638,7 @@
         "urls": [
             "*.sharepointonline.com",
             "dc.services.visualstudio.com",
-            "mem.gfx.ms",
-            "staffhub.ms"
+            "mem.gfx.ms"
         ],
         "tcpPorts": "443",
         "expressRoute": false,
@@ -871,7 +870,7 @@
         "expressRoute": false,
         "category": "Default",
         "required": false,
-        "notes": "Yammer"
+        "notes": "Viva Engage"
     },
     {
         "id": 118,
@@ -884,7 +883,7 @@
         "expressRoute": false,
         "category": "Default",
         "required": false,
-        "notes": "Yammer CDN"
+        "notes": "Viva Engage Assets CDN"
     },
     {
         "id": 121,
@@ -1103,7 +1102,7 @@
             "*.static.microsoft",
             "*.usercontent.microsoft"
         ],
-        "tcpPorts": "443,80",
+        "tcpPorts": "443",
         "udpPorts": "443",
         "expressRoute": false,
         "category": "Default",
