@@ -224,3 +224,34 @@ rule Trojan_Win32_XWorm_AHB_2147941647_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_HA_2147942491_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.HA!MTB"
+        threat_id = "2147942491"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "104"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "'gnirts46esabmorf'[-1..-16] -join ''" wide //weight: 50
+        $x_50_2 = "'txetlladaer'[-1..-11] -join ''" wide //weight: 50
+        $x_50_3 = "'daoL'[-1..-4] -join ''" wide //weight: 50
+        $x_1_4 = ".MemoryStream;" wide //weight: 1
+        $x_1_5 = ".GZipStream($" wide //weight: 1
+        $x_1_6 = ".Invoke(" wide //weight: 1
+        $x_1_7 = ".CopyTo($" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_50_*) and 4 of ($x_1_*))) or
+            ((3 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+

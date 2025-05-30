@@ -279,3 +279,31 @@ rule Trojan_Win32_PShellDlr_HA_2147940742_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PShellDlr_HD_2147942495_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PShellDlr.HD!MTB"
+        threat_id = "2147942495"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PShellDlr"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {5b 00 63 00 68 00 61 00 72 00 5d 00 [0-6] 20 00 2b 00 20 00 27 00 [0-48] 27 00 20 00 2b 00 20 00 5b 00 63 00 68 00 61 00 72 00 5d 00 00 20 00 2b 00 20 00 27 00 [0-48] 27 00 20 00 2b 00 20 00 5b 00 63 00 68 00 61 00 72 00 5d 00 00 20 00 2b 00 20 00 27 00 [0-48] 27 00 20 00 2b 00 20 00 5b 00 63 00 68 00 61 00 72 00 5d 00 00}  //weight: 100, accuracy: Low
+        $x_10_2 = ".replace(" wide //weight: 10
+        $x_1_3 = "-command " wide //weight: 1
+        $x_1_4 = "[system.convert]::" wide //weight: 1
+        $x_1_5 = "frombase64string" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

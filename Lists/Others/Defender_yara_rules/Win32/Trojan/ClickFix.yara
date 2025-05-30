@@ -4403,3 +4403,29 @@ rule Trojan_Win32_ClickFix_ZMS_2147942424_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_HI_2147942492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HI!MTB"
+        threat_id = "2147942492"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "|iex #" wide //weight: 100
+        $x_1_2 = "powershell" wide //weight: 1
+        $x_1_3 = "mshta" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
