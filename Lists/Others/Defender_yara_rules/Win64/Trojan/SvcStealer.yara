@@ -42,3 +42,27 @@ rule Trojan_Win64_SvcStealer_RJP_2147937594_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SvcStealer_CM_2147942571_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SvcStealer.CM!MTB"
+        threat_id = "2147942571"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SvcStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "9APARW83Z6" ascii //weight: 2
+        $x_2_2 = "62.60.226.191" ascii //weight: 2
+        $x_1_3 = "uid=%s&ver=%s" ascii //weight: 1
+        $x_1_4 = "SELECT name_on_card, expiration_month, expiration_year, card_numb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

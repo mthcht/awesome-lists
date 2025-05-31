@@ -6817,3 +6817,26 @@ rule Trojan_Win32_CryptInject_MDD_2147939307_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CryptInject_CCJZ_2147942572_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CryptInject.CCJZ!MTB"
+        threat_id = "2147942572"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {99 83 e2 1f 01 d0 c1 f8 05 83 e8 01 0f b6 44 05 ?? 31 c8 88 45 ?? c7 45}  //weight: 6, accuracy: Low
+        $x_4_2 = {01 ca 0f b6 1a 8d 4d ?? 8b 55 ?? 01 ca 0f b6 12 31 da 88 10 83 45 ?? 01 83 7d ?? 03 7e}  //weight: 4, accuracy: Low
+        $x_1_3 = "PAYLOAD_" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

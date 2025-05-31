@@ -40,3 +40,24 @@ rule Trojan_Win64_GhostRat_DCP_2147935876_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_GhostRat_AGO_2147942563_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GhostRat.AGO!MTB"
+        threat_id = "2147942563"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GhostRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 04 10 32 45 d7 8b 55 fc 48 63 d2 48 8d 0d ?? ?? ?? ?? 88 04 0a 83 45 fc 01 8b 55 fc}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
