@@ -166,3 +166,29 @@ rule Trojan_MSIL_Clipbanker_KAE_2147913974_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Clipbanker_NITA_2147942582_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Clipbanker.NITA!MTB"
+        threat_id = "2147942582"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Clipbanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b 3f 12 00 28 ?? 00 00 0a 0b 02 12 01 28 ?? 00 00 0a 28 ?? 00 00 0a 2c 28 28 ?? 00 00 0a 7e 06 00 00 04 7e 08 00 00 04 12 01 28 ?? 00 00 0a 6f 52 00 00 0a 28 ?? 00 00 06 6f 53 00 00 0a 0c de 1b 12 00 28 ?? 00 00 0a 2d b8}  //weight: 2, accuracy: Low
+        $x_2_2 = {72 97 05 00 70 0a 28 ?? 00 00 0a 0b 07 06 28 ?? 00 00 0a 2c 18 07 0a 07 28 ?? 00 00 06 0c 08 07 28 ?? 00 00 0a 2c 06 08 28 ?? 00 00 0a 20 58 02 00 00 28 ?? 00 00 0a 2b cd}  //weight: 2, accuracy: Low
+        $x_1_3 = "SendToTelegram" ascii //weight: 1
+        $x_1_4 = "DecryptData" ascii //weight: 1
+        $x_1_5 = "Keylogger started" wide //weight: 1
+        $x_1_6 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
