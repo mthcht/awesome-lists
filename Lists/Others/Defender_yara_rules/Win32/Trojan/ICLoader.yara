@@ -2226,3 +2226,24 @@ rule Trojan_Win32_ICLoader_ATPA_2147937384_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_DA_2147942631_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.DA!MTB"
+        threat_id = "2147942631"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 00 32 c8 a1 ?? ?? 4c 00 88 0d ?? ?? 4c 00 8b 0d ?? ?? 4c 00 8b 15 ?? ?? 4c 00 83 e1 04 03 c1 83 e2 0c a3 ?? ?? 4c 00 a1 ?? ?? 4c 00 25 ff 00 00 00 8b 0d ?? ?? 4c 00 0f af d0 55 56 8b 35}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

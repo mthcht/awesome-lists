@@ -668,6 +668,33 @@ rule Trojan_Win32_KillMBR_NM_2147917175_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "bizhi.bmp" ascii //weight: 2
+        $x_2_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\DisableTaskMgr" ascii //weight: 2
+        $x_1_3 = "_EL_HideOwner" ascii //weight: 1
+        $x_1_4 = "start-aaqa" ascii //weight: 1
+        $x_1_5 = "ransom" ascii //weight: 1
+        $x_1_6 = "by zuoluo" ascii //weight: 1
+        $x_1_7 = "your computer have a lock" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_KillMBR_NM_2147917175_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillMBR.NM!MTB"
+        threat_id = "2147917175"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
