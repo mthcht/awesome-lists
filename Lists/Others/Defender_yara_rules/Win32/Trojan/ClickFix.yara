@@ -1799,7 +1799,7 @@ rule Trojan_Win32_ClickFix_SH_2147937478_0
         $x_1_6 = "-useb " wide //weight: 1
         $x_1_7 = {2d 00 75 00 72 00 69 00 90 00 02 00 10 00 2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 3b 00}  //weight: 1, accuracy: High
         $x_1_8 = "iwr" wide //weight: 1
-        $x_1_9 = {24 00 72 00 65 00 73 00 70 00 6f 00 6e 00 73 00 65 00 [0-16] 69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 77 00 65 00 62 00 72 00 65 00 71 00 75 00 65 00 73 00 74 00 20 00}  //weight: 1, accuracy: Low
+        $x_1_9 = {24 00 72 00 65 00 73 00 [0-48] 69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 77 00 65 00 62 00 72 00 65 00 71 00 75 00 65 00 73 00 74 00 20 00}  //weight: 1, accuracy: Low
         $x_1_10 = "iex" wide //weight: 1
     condition:
         (filesize < 20MB) and
@@ -3228,8 +3228,12 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_24 = "6t.czlw.ru" wide //weight: 1
         $x_1_25 = "v7q.pw/" wide //weight: 1
         $x_1_26 = "events-data-microsoft.com" wide //weight: 1
-        $x_1_27 = "dnsg-windows-ds-data.com" wide //weight: 1
-        $x_1_28 = "firewatches.quest" wide //weight: 1
+        $x_1_27 = "eventsdata-microsoft-live.com" wide //weight: 1
+        $x_1_28 = "dnsg-windows-ds-data.com" wide //weight: 1
+        $x_1_29 = "firewatches.quest" wide //weight: 1
+        $x_1_30 = "finalstepgetshere.com" wide //weight: 1
+        $x_1_31 = "funbunistica.b-cdn.net" wide //weight: 1
+        $x_1_32 = "pltx11.b-cdn.net" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -3435,6 +3439,7 @@ rule Trojan_Win32_ClickFix_ABA_2147940468_0
         $x_1_12 = "blogspot.com" wide //weight: 1
         $x_1_13 = "bit.ly" wide //weight: 1
         $x_1_14 = "psee.io" wide //weight: 1
+        $x_1_15 = "files.catbox.moe" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -4495,6 +4500,62 @@ rule Trojan_Win32_ClickFix_ZZC_2147942528_0
         $x_1_1 = "iex $" wide //weight: 1
         $x_1_2 = "[System.Convert]::FromBase64String($" wide //weight: 1
         $x_1_3 = "Confirm access" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZC_2147942686_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZC"
+        threat_id = "2147942686"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "powershell" wide //weight: 20
+        $x_20_2 = "-w" wide //weight: 20
+        $x_20_3 = "http" wide //weight: 20
+        $n_500_4 = ".ps1" wide //weight: -500
+        $n_500_5 = ".hta" wide //weight: -500
+        $n_500_6 = "bp-pytrack" wide //weight: -500
+        $n_500_7 = "localhost:" wide //weight: -500
+        $n_700_8 = "\\edge\\application\\msedge.exe" wide //weight: -700
+        $x_500_9 = "greed-warranty.digikex" wide //weight: 500
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((3 of ($x_20_*))) or
+            ((1 of ($x_500_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DCP_2147942687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCP!MTB"
+        threat_id = "2147942687"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "120"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = ".ToCHaRarRay()" wide //weight: 10
+        $x_10_3 = "[array]::Reverse($" wide //weight: 10
     condition:
         (filesize < 20MB) and
         (all of ($x*))
