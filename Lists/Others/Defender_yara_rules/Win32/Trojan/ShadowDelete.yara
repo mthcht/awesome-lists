@@ -21,3 +21,28 @@ rule Trojan_Win32_ShadowDelete_BB_2147937655_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_ShadowDelete_CC_2147942696_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShadowDelete.CC!MTB"
+        threat_id = "2147942696"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShadowDelete"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vssadmin delete shadows /all" wide //weight: 1
+        $x_1_2 = "wmic shadowcopy delete" wide //weight: 1
+        $x_1_3 = "bcdedit /set {default} bootstatuspolicy ignoreallfailures" wide //weight: 1
+        $x_1_4 = "bcdedit /set {default} recoveryenabled no" wide //weight: 1
+        $x_1_5 = "wbadmin delete catalog -quiet" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
