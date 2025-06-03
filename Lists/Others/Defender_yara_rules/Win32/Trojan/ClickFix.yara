@@ -4561,27 +4561,3 @@ rule Trojan_Win32_ClickFix_DCP_2147942687_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_ZJG_2147942697_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.ZJG!MTB"
-        threat_id = "2147942697"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "cmd.exe /c  c^u" wide //weight: 1
-        $x_1_2 = "cmd.exe /c  cu^" wide //weight: 1
-        $x_1_3 = "cmd.exe /c  cur^" wide //weight: 1
-        $x_1_4 = "cmd.exe /c  c^u^" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
