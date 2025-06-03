@@ -65,3 +65,25 @@ rule Trojan_Win64_Strab_ASB_2147927969_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Strab_GZK_2147942726_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Strab.GZK!MTB"
+        threat_id = "2147942726"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Strab"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {b2 30 1b 36 e4 bc 33 12 00 ab ?? ?? ?? ?? c6 f8 c1 fe 33 b6 ?? ?? ?? ?? f2 00 ee}  //weight: 5, accuracy: Low
+        $x_5_2 = {2e 74 68 65 6d 69 64 61 00 e0 2e 00 00 10 16 00 00 00 00 00 00 40 14 00 00 00 00 00 00 00 00 00 00 00 00 00 60 00 00 e0 2e 62 6f 6f 74 00 00 00 00 dc 1c 00 00 f0 44 00 00 dc 1c 00 00 40 14}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
