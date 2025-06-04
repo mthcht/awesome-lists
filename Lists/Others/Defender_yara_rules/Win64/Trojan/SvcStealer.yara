@@ -66,3 +66,24 @@ rule Trojan_Win64_SvcStealer_CM_2147942571_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SvcStealer_DIG_2147942778_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SvcStealer.DIG!MTB"
+        threat_id = "2147942778"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SvcStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 63 ca 8d 42 87 ff c2 42 30 44 21 0a 83 fa 57 72 ee}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

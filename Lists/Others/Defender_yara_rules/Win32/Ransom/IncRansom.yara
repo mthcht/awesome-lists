@@ -43,3 +43,29 @@ rule Ransom_Win32_IncRansom_YAF_2147918524_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_IncRansom_YAE_2147942791_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/IncRansom.YAE!MTB"
+        threat_id = "2147942791"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IncRansom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "33"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FILE RECOVERY.txt" ascii //weight: 1
+        $x_10_2 = "decrypt one file for free" ascii //weight: 10
+        $x_1_3 = "Run qTox" ascii //weight: 1
+        $x_1_4 = "Decryption Tool:" ascii //weight: 1
+        $x_10_5 = "permanently damage them" ascii //weight: 10
+        $x_10_6 = "files have been encrypted" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

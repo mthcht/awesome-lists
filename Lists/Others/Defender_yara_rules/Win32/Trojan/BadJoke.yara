@@ -493,3 +493,25 @@ rule Trojan_Win32_BadJoke_EALB_2147940170_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BadJoke_PGB_2147942774_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.PGB!MTB"
+        threat_id = "2147942774"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b ca 8b c2 c1 e8 ?? c1 e9 ?? 32 c8 8b c2 c1 e8 ?? 0a c8 0f be c2 0f be c9 0f af c8 8a c1 02 c9 02 c1 c0 e0 ?? 88 84 15 ?? ?? ?? ?? 42 81 fa ?? ?? ?? ?? 72}  //weight: 5, accuracy: Low
+        $x_5_2 = {8b ca 4d 8d 40 ?? c1 e9 ?? 8b c2 c1 e8 ?? 32 c8 8b c2 c1 e8 ?? 0a c8 0f be c2 0f be c9 ff c2 0f af c8 0f b6 c1 02 c0 02 c8 c0 e1 ?? 41 88 48 ?? 81 fa ?? ?? ?? ?? 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

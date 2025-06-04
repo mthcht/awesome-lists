@@ -1248,3 +1248,26 @@ rule Trojan_Win64_LummaStealer_PGJ_2147942647_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_YAK_2147942758_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.YAK!MTB"
+        threat_id = "2147942758"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {3d ab 30 f1 93 0f 8e ?? ?? ?? ?? 3d 66 bd 2d 9a 0f 8e ?? ?? ?? ?? 3d 67 bd 2d 9a}  //weight: 1, accuracy: Low
+        $x_1_2 = {0f af c8 f6 c1 01 b8 25 f4 dd 44 b9 29 b0 01 38}  //weight: 1, accuracy: High
+        $x_10_3 = {48 8b 4d b8 0f b6 04 01 48 63 4d f0 48 8b 55 90 30 04 0a 8b 5d f0 83 c3 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

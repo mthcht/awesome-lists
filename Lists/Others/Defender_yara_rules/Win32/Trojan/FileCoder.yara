@@ -326,6 +326,33 @@ rule Trojan_Win32_FileCoder_NF_2147909824_3
         (all of ($x*))
 }
 
+rule Trojan_Win32_FileCoder_NF_2147909824_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileCoder.NF!MTB"
+        threat_id = "2147909824"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "nebezpecnyweb.eu/cmFuc29td2FyZQ/detail.php" ascii //weight: 2
+        $x_1_2 = "hijacked" ascii //weight: 1
+        $x_1_3 = "REG ADD HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /V Sys" ascii //weight: 1
+        $x_1_4 = "ransomware" ascii //weight: 1
+        $x_1_5 = "DeleteFiles" ascii //weight: 1
+        $x_1_6 = "GetEncryptedFiles" ascii //weight: 1
+        $x_1_7 = "decrypting message" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_FileCoder_ARAX_2147910935_0
 {
     meta:

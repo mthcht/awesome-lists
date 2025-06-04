@@ -2919,6 +2919,27 @@ rule Trojan_MSIL_Stealer_GFF_2147941402_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_SLGA_2147942190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.SLGA!MTB"
+        threat_id = "2147942190"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {25 28 0d 00 00 06 6f 02 00 00 0a 25 16 6f 03 00 00 0a 74 04 00 00 01 13 00 25 11 00 72 01 00 00 70 6f 04 00 00 0a 72 31 00 00 70 6f 05 00 00 0a 6f 02 00 00 0a 25 17}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Stealer_ARVA_2147942443_0
 {
     meta:

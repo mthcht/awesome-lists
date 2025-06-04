@@ -43,3 +43,25 @@ rule Trojan_MSIL_Darktortilla_NA_2147927149_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Darktortilla_ZUU_2147942759_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Darktortilla.ZUU!MTB"
+        threat_id = "2147942759"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Darktortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0c 00 08 07 28 ?? 01 00 06 0d 09 02 28 ?? 01 00 06 00 08 6f ?? 00 00 0a 0a de 24 00 09 2c 07 09 6f ?? 00 00 0a 00 dc 00 08 2c 07 08}  //weight: 6, accuracy: Low
+        $x_5_2 = {a2 02 03 17 da 9a 28 ?? 00 00 0a 28 ?? 00 00 06 0a 02 03 1c da 06 a2 02 03 1d da 06 6f ?? 01 00 0a 1f 18 9a a2 02 03 1d da 9a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

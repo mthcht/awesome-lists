@@ -3720,3 +3720,28 @@ rule TrojanDownloader_MSIL_AgentTesla_AS_2147896626_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_AgentTesla_DIG_2147942740_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/AgentTesla.DIG!MTB"
+        threat_id = "2147942740"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "evXCrwb/ca0kO5SN3lwjbw==" ascii //weight: 1
+        $x_1_2 = "XPTcA7LGf5R6Jbesh8.jIuNk0l1PwYyv2bEFd" ascii //weight: 1
+        $x_1_3 = "(Macintosh; Intel Mac OS X 13_3_1)" ascii //weight: 1
+        $x_2_4 = "https://files.catbox.moe/jty6a2.wav" ascii //weight: 2
+        $x_1_5 = "Leswvbebd.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

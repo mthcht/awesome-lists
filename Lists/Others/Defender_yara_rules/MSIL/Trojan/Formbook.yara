@@ -8191,6 +8191,27 @@ rule Trojan_MSIL_Formbook_CF_2147942400_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_SLER_2147942459_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.SLER!MTB"
+        threat_id = "2147942459"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 4f 00 00 06 28 2c 00 00 0a 0b 00 06 28 05 00 00 06 0c 08 39 0a 00 00 00 08 8e 16 fe 03 38 01 00 00 00 16 0d 09 39 0f 00 00 00 00 07 08 28 0a 00 00 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Formbook_ZSU_2147942638_0
 {
     meta:
@@ -8207,6 +8228,27 @@ rule Trojan_MSIL_Formbook_ZSU_2147942638_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {03 11 07 6f ?? 00 00 0a 03 11 07 17 da 6f ?? 00 00 0a 28 ?? 00 00 0a 03 11 07 17 da 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 13 08 08 11 08 6f ?? 00 00 0a 00 11 07 17 d6 13 07 11 07 11 06 31 be}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_ZZT_2147942840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.ZZT!MTB"
+        threat_id = "2147942840"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {26 02 11 13 11 14 6f ?? 01 00 0a 13 16 11 0b 11 15 12 16 28 ?? 01 00 0a 6f ?? 01 00 0a 12 16 28 ?? 01 00 0a 13 17 12 16 28 ?? 01 00 0a 13 18 12 16 28 ?? 01 00 0a 13 19 11 17 11 18 58 11 19 58 26 04 03 6f ?? 01 00 0a 59 25 17 28 ?? 01 00 0a 8d db 00 00 01 26 19 28 ?? 01 00 0a 13 1a 11 1a}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

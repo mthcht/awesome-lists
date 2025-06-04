@@ -954,3 +954,57 @@ rule Trojan_Win64_ClipBanker_ACL_2147941665_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_NJA_2147942816_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NJA!MTB"
+        threat_id = "2147942816"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Diamotrix" ascii //weight: 2
+        $x_1_2 = "TWbAkXq2SupYU6umEVMvxWhAA7t8LyLWJD" ascii //weight: 1
+        $x_1_3 = "0x2291d605f6fd3e7e3974d75f7c1cef36aa8e8e3a" ascii //weight: 1
+        $x_1_4 = "\\b4[0-9AB][1-9A-HJ-NP-Za-km-z]{93}\\b" ascii //weight: 1
+        $x_1_5 = "\\bbitcoincash:[a-zA-HJ-NP-Z0-9]{26,42}\\b" ascii //weight: 1
+        $x_1_6 = "1H27c3wZzSebHCYVhfjy4334jFdyM5kHsB" ascii //weight: 1
+        $x_1_7 = "GetClipboardData" ascii //weight: 1
+        $x_1_8 = "SetClipboardData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_NJB_2147942834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NJB!MTB"
+        threat_id = "2147942834"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "Diamotrix" ascii //weight: 2
+        $x_1_2 = "bbitcoincash" ascii //weight: 1
+        $x_1_3 = {4c 8b c3 33 d2 48 8b c6 48 f7 77 ?? 42 8a 04 0a 32 04 31 41 88 04 30 48 ff c6 48 3b 74 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

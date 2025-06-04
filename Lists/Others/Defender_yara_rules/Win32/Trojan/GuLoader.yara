@@ -1,25 +1,3 @@
-rule Trojan_Win32_GuLoader_AM_2147754207_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GuLoader.AM!MTB"
-        threat_id = "2147754207"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GuLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {39 cb d9 d0 [0-8] 75 50 00 4a [0-21] 29 db [0-21] 0b 1a [0-32] 39 cb d9 d0 [0-8] 75}  //weight: 1, accuracy: Low
-        $x_1_2 = {46 85 ff 8b 0f [0-8] 0f 6e c6 [0-8] 0f 6e c9 [0-8] 0f ef c8 [0-8] 0f 7e c9 [0-8] 39 c1 [0-8] 75}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_GuLoader_GS_2147761303_0
 {
     meta:

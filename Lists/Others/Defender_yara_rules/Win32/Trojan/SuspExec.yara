@@ -117,3 +117,26 @@ rule Trojan_Win32_SuspExec_SEA_2147941102_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SuspExec_HB_2147942785_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.HB!MTB"
+        threat_id = "2147942785"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "/c sc create" wide //weight: 1
+        $x_5_2 = {62 00 69 00 6e 00 70 00 61 00 74 00 68 00 3d 00 [0-34] 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 73 00 76 00 63 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_35_3 = {72 00 65 00 67 00 20 00 61 00 64 00 64 00 20 00 68 00 6b 00 6c 00 6d 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 5c 00 63 00 75 00 72 00 72 00 65 00 6e 00 74 00 63 00 6f 00 6e 00 74 00 72 00 6f 00 6c 00 73 00 65 00 74 00 5c 00 73 00 65 00 72 00 76 00 69 00 63 00 65 00 73 00 5c 00 [0-20] 5c 00 70 00 61 00 72 00 61 00 6d 00 65 00 74 00 65 00 72 00 73 00 20 00 2f 00 76 00 20 00 73 00 65 00 72 00 76 00 69 00 63 00 65 00 64 00 6c 00 6c 00 20 00 2f 00 74 00 20 00 72 00 65 00 67 00 5f 00 65 00 78 00 70 00 61 00 6e 00 64 00 5f 00 73 00 7a 00 20 00 2f 00 64 00 20 00 [0-22] 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 [0-20] 2e 00 64 00 61 00 74 00}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

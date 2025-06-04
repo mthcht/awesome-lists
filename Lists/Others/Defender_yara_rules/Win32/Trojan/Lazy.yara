@@ -1965,3 +1965,45 @@ rule Trojan_Win32_Lazy_SCP_2147941654_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_GVA_2147942760_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.GVA!MTB"
+        threat_id = "2147942760"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c1 99 f7 bd ?? ?? ?? ?? 8a 04 ?? 30 04 31 41 3b ?? 72 ec}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Lazy_GVB_2147942761_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.GVB!MTB"
+        threat_id = "2147942761"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {bf 60 01 00 00 99 f7 ff 8b bd ?? ?? ?? ?? 8a 04 3a 8b bd ?? ?? ?? ?? 30 04 39 41 3b ce}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

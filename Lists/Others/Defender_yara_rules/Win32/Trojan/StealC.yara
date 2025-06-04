@@ -4229,3 +4229,24 @@ rule Trojan_Win32_StealC_SCPC_2147939391_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealC_LJV_2147942792_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.LJV!MTB"
+        threat_id = "2147942792"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {ff d6 8b f0 89 b4 24 a0 00 00 00 b2 78 c7 84 24 b0 00 00 00 78 19 1d 0b 33 c9 c7 84 24 b4 00 00 00 58 1d 0a 0a c7 84 24 b8 00 00 00 17 0a 42 58 c6 84 24 bc 00 00 00 00 8d 84 24 ?? ?? ?? ?? 30 14 08 41 83 f9 0b 73}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

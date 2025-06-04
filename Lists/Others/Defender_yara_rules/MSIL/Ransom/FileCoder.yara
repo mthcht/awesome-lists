@@ -1597,3 +1597,26 @@ rule Ransom_MSIL_FileCoder_AYR_2147940212_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_SPX_2147942781_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.SPX!MTB"
+        threat_id = "2147942781"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {20 00 04 00 00 73 ?? 00 00 0a 0b 07 03 6f ?? 00 00 0a 6f ?? 00 00 0a 07 06 17 6f ?? 00 00 0a 0c 08 28 ?? 00 00 0a 0d 09 13 04 de 12 07 16 6f ?? 00 00 0a dc 07 2c 06 07 6f ?? 00 00 0a dc 11 04 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "vssadmin delete shadows /all /quiet & wmic shadowcopy delete" wide //weight: 1
+        $x_1_3 = "bcdedit /set {default} bootstatuspolicy ignoreallfailures & bcdedit /set {default} recoveryenabled no" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
