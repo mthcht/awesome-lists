@@ -44,3 +44,28 @@ rule TrojanDownloader_MSIL_XWorm_OKA_2147920555_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_XWorm_SFD_2147942896_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/XWorm.SFD!MTB"
+        threat_id = "2147942896"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Copying shellcode failed" ascii //weight: 2
+        $x_1_2 = "amsi.exe" ascii //weight: 1
+        $x_1_3 = "x_64.txt" ascii //weight: 1
+        $x_1_4 = "Shortcut created at" ascii //weight: 1
+        $x_1_5 = "Task created successfully" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
