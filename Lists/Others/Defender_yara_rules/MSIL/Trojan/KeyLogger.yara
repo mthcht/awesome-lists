@@ -390,6 +390,32 @@ rule Trojan_MSIL_KeyLogger_SPBF_2147915070_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KeyLogger_NK_2147928809_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.NK!MTB"
+        threat_id = "2147928809"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "argumentum.info/wp-includes/js/jquery/jquery-migrate.min.js" wide //weight: 2
+        $x_1_2 = "POST.php?passwordenter" wide //weight: 1
+        $x_1_3 = "Local\\Google\\Chrome\\User Data\\Default\\Login Data" wide //weight: 1
+        $x_1_4 = "WindowsApplication710.Resources" ascii //weight: 1
+        $x_1_5 = "get_RootDirectory" ascii //weight: 1
+        $x_1_6 = "$83e17252-1a27-46c6-8ba1-65c2c91b90d0" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_KeyLogger_SO_2147931331_0
 {
     meta:

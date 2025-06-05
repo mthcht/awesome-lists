@@ -266,3 +266,35 @@ rule Trojan_Win64_Stealer_NFA_2147942380_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NR_2147942888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NR!MTB"
+        threat_id = "2147942888"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "stealWork" ascii //weight: 2
+        $x_2_2 = "ProcSteal" ascii //weight: 2
+        $x_1_3 = "hangupkilledlistensocket" ascii //weight: 1
+        $x_1_4 = "killing Cmdexe" ascii //weight: 1
+        $x_1_5 = "destroy" ascii //weight: 1
+        $x_1_6 = "bad restart PC" ascii //weight: 1
+        $x_1_7 = "GetUserProfileDirectory" ascii //weight: 1
+        $x_1_8 = "Bot/New/Launcher" ascii //weight: 1
+        $x_1_9 = "GetSystemInfo" ascii //weight: 1
+        $x_1_10 = "saveInfoFromPath" ascii //weight: 1
+        $x_1_11 = "targetpc" ascii //weight: 1
+        $x_1_12 = "remote address changed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6067,3 +6067,34 @@ rule Trojan_MSIL_AsyncRAT_JK_2147940698_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_RPA_2147942884_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.RPA!MTB"
+        threat_id = "2147942884"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "coposProject.forgotpasswordForm.resources" ascii //weight: 1
+        $x_1_2 = "coposProject.statisticsForm.resources" ascii //weight: 1
+        $x_1_3 = "coposProject.historyForm.resources" ascii //weight: 1
+        $x_1_4 = "coposProject.startFormTwo.resources" ascii //weight: 1
+        $x_1_5 = "coposProject.startFormThree.resources" ascii //weight: 1
+        $x_1_6 = "coposProject.ucInventoryEmployee.resources" ascii //weight: 1
+        $x_1_7 = "coposProject.ucSalesEmployee.resources" ascii //weight: 1
+        $x_1_8 = "coposProject.ucSalesReceiptEmployee.resources" ascii //weight: 1
+        $x_1_9 = "coposProject.ucReceiptPo.resources" ascii //weight: 1
+        $x_1_10 = "coposProject.ucInventory.resources" ascii //weight: 1
+        $x_100_11 = "coposProject.userControl.purchaseOrderUc.resources" ascii //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

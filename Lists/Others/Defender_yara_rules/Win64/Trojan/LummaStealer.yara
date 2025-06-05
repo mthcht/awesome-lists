@@ -1271,3 +1271,35 @@ rule Trojan_Win64_LummaStealer_YAK_2147942758_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_NR_2147942887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.NR!MTB"
+        threat_id = "2147942887"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {41 64 64 2d 4d 70 50 72 65 66 65 72 65 6e 63 65 20 2d 45 78 63 6c 75 73 69 6f 6e 50 72 6f 63 65 73 73 20 22 [0-47] 2e 65 78 65 22 20 2d 46 6f 72 63 65}  //weight: 2, accuracy: Low
+        $x_2_2 = "BExplorer Launcher" ascii //weight: 2
+        $x_1_3 = "ExecutionPolicyRead after Close" ascii //weight: 1
+        $x_1_4 = "127.0.0.1:53" ascii //weight: 1
+        $x_1_5 = "powershell" ascii //weight: 1
+        $x_1_6 = "BypassHidden" ascii //weight: 1
+        $x_1_7 = "Command" ascii //weight: 1
+        $x_1_8 = "Hidden" ascii //weight: 1
+        $x_1_9 = "Decrypt" ascii //weight: 1
+        $x_1_10 = "KeyLogWriter" ascii //weight: 1
+        $x_1_11 = "hangupkilled" ascii //weight: 1
+        $x_1_12 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
