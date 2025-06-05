@@ -1620,3 +1620,28 @@ rule Ransom_MSIL_FileCoder_SPX_2147942781_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_BAA_2147942852_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.BAA!MTB"
+        threat_id = "2147942852"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "RansomwareEncryption" wide //weight: 1
+        $x_1_2 = ".raped" wide //weight: 1
+        $x_1_3 = "DisplayRansomNote" wide //weight: 1
+        $x_1_4 = "readme.txt" wide //weight: 1
+        $x_1_5 = "MalwareHelper.dat" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

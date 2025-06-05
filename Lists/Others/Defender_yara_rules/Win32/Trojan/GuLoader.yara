@@ -3948,3 +3948,27 @@ rule Trojan_Win32_GuLoader_CCJZ_2147942670_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RAP_2147942847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAP!MTB"
+        threat_id = "2147942847"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "clock skrmskemaer danic" ascii //weight: 1
+        $x_1_2 = "sluttered" ascii //weight: 1
+        $x_1_3 = "eugenius beskringernes" ascii //weight: 1
+        $x_1_4 = "amfibietankenes.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
