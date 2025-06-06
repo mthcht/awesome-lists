@@ -141,3 +141,24 @@ rule Trojan_Win64_XWorm_SDEL_2147940094_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_GZK_2147943016_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.GZK!MTB"
+        threat_id = "2147943016"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 89 d1 48 8d 15 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 85 c0 0f 84 ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 48 89 f1 48 89 c7 ff d0 48 89 45 ?? 48 8d 15 ?? ?? ?? ?? 48 89 f1 ff d7 48 89 45 ?? 48 8d 15 ?? ?? ?? ?? 48 89 f1 ff d7 48 89 45 00 48 8d 15 ?? ?? ?? ?? 48 89 f1 48 89 7d ?? ff d7}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
