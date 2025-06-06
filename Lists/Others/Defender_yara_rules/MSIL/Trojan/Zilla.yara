@@ -1539,3 +1539,28 @@ rule Trojan_MSIL_Zilla_SLD_2147941057_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_AYB_2147942951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AYB!MTB"
+        threat_id = "2147942951"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "a1043077.xsph.ru" wide //weight: 2
+        $x_1_2 = "select * from Win32_OperatingSystem" wide //weight: 1
+        $x_1_3 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_4 = "DonwoaldFileStart" ascii //weight: 1
+        $x_1_5 = "RemoveFromStartup" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

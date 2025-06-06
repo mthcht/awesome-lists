@@ -992,3 +992,28 @@ rule Ransom_Win64_FileCoder_SP_2147940039_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_AYG_2147942953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.AYG!MTB"
+        threat_id = "2147942953"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "This IS real ransomware. Are you sure you want to run it?" ascii //weight: 2
+        $x_1_2 = "Do not close the window or it could lead to data loss!" ascii //weight: 1
+        $x_1_3 = "encrypted_files.txt" ascii //weight: 1
+        $x_1_4 = "aaa_TouchMeNot_.txt" ascii //weight: 1
+        $x_1_5 = "Software\\Classes\\.xcrypt\\DefaultIcon" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

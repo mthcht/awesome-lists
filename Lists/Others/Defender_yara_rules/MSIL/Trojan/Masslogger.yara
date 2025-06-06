@@ -391,3 +391,25 @@ rule Trojan_MSIL_Masslogger_ZSY_2147939137_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Masslogger_ZET_2147942956_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Masslogger.ZET!MTB"
+        threat_id = "2147942956"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Masslogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {25 16 03 6f ?? 01 00 0a 0a 12 00 20 53 01 00 00 20 0c 01 00 00 28 ?? 00 00 06 9c 25 17 03 6f ?? 01 00 0a 0a 12 00 28 ?? 00 00 0a 9c 25 18 03}  //weight: 6, accuracy: Low
+        $x_5_2 = {9c 2b 21 19 8d ?? 00 00 01 25 16 03 6f ?? 01 00 0a 9c 25 17 03 6f ?? 01 00 0a 9c 25 18 03 6f ?? 01 00 0a 9c 73 ?? 01 00 0a 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

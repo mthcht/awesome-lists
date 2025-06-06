@@ -2997,3 +2997,26 @@ rule Trojan_MSIL_LummaStealer_BSA_2147942025_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LummaStealer_AZVA_2147942931_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.AZVA!MTB"
+        threat_id = "2147942931"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 07 03 07 91 07 04 28 ?? ?? 00 06 9c 07 17 d6 0b 00 07 05 fe 02 16 fe 01 0c 08 2d e3}  //weight: 5, accuracy: Low
+        $x_2_2 = {1f 09 0b 04 03 07 5d 9a 28 ?? 00 00 0a 02 28 ?? ?? 00 06 28 ?? ?? 00 0a 0a 2b 00 06 2a}  //weight: 2, accuracy: Low
+        $x_2_3 = {02 03 66 5f 02 66 03 5f 60 8c ?? 00 00 01 0a 2b 00 06 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

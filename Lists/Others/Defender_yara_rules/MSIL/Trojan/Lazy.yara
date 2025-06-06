@@ -3150,3 +3150,28 @@ rule Trojan_MSIL_Lazy_NITA_2147941024_0
         (2 of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_AYB_2147942952_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.AYB!MTB"
+        threat_id = "2147942952"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "mdridefys.info" wide //weight: 2
+        $x_1_2 = "SELECT * FROM AntivirusProduct" wide //weight: 1
+        $x_1_3 = "/c wmic path win32_computersystemproduct get uuid" wide //weight: 1
+        $x_1_4 = "Cmd mode enabled, all commands will be redirect to CMD. Response delay is :" wide //weight: 1
+        $x_1_5 = "SELECT * FROM Win32_Product" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

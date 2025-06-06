@@ -3972,3 +3972,52 @@ rule Trojan_Win32_GuLoader_RAP_2147942847_0
         (2 of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RAQ_2147942910_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAQ!MTB"
+        threat_id = "2147942910"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%antimonopoly%\\muscavado\\Bustrafik" ascii //weight: 1
+        $x_1_2 = "rutate kurv" ascii //weight: 1
+        $x_1_3 = "halenesses trykstavelses undershine" ascii //weight: 1
+        $x_1_4 = "sirup vulgres pretentiousnesses" ascii //weight: 1
+        $x_1_5 = "misadjust konfigurationsprogram.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RAR_2147942930_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAR!MTB"
+        threat_id = "2147942930"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "staphylococcic garblings overbygningerne" ascii //weight: 1
+        $x_1_2 = "fortrngninger" ascii //weight: 1
+        $x_1_3 = "refragability gomasta" ascii //weight: 1
+        $x_1_4 = "presubmitting klaustrofobi.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

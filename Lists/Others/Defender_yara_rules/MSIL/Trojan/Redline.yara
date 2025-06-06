@@ -5306,3 +5306,26 @@ rule Trojan_MSIL_Redline_GTZ_2147937159_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Redline_AYVA_2147942924_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Redline.AYVA!MTB"
+        threat_id = "2147942924"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0c 08 02 7b ?? 00 00 04 6f ?? 00 00 0a 08 02 7b ?? 00 00 04 6f ?? 00 00 0a 08 6f ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 11 04 09 17 73 ?? 00 00 0a 13 05 2b 24 2b 26 16 2b 26 8e 69 2b 25 2b 2a 2b 2c 2b 31 2b 33 2b 38 11 06 03 72 ?? ?? 00 70 28 ?? ?? 00 06 17 0b de 5c 11 05 2b d8 06 2b d7 06 2b d7 6f ?? 00 00 0a 2b d4 11 05 2b d2 6f ?? 00 00 0a 2b cd 11 04 2b cb 6f ?? 00 00 0a 2b c6 13 06 2b c4}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
