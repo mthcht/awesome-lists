@@ -3197,6 +3197,12 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_30 = "finalstepgetshere.com" wide //weight: 1
         $x_1_31 = "funbunistica.b-cdn.net" wide //weight: 1
         $x_1_32 = "pltx11.b-cdn.net" wide //weight: 1
+        $x_1_33 = "bokneg.com" wide //weight: 1
+        $x_1_34 = "kolepz.com" wide //weight: 1
+        $x_1_35 = "microsoft-iplcloud.live" wide //weight: 1
+        $x_1_36 = "pullfile321.b-cdn.net" wide //weight: 1
+        $x_1_37 = "tinselweaver.boats" wide //weight: 1
+        $x_1_38 = "xilx222.b-cdn.net" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -3654,7 +3660,7 @@ rule Trojan_Win32_ClickFix_SQ_2147941103_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "4"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_1_1 = "powershell" wide //weight: 1
         $x_1_2 = "windowsinstaller.installer" wide //weight: 1
@@ -3662,11 +3668,13 @@ rule Trojan_Win32_ClickFix_SQ_2147941103_0
         $x_1_4 = "uilevel" wide //weight: 1
         $x_1_5 = "installproduct" wide //weight: 1
         $x_2_6 = "($u.startswith('htps://')){$u.insert(2,'t')" wide //weight: 2
+        $x_2_7 = {6e 00 65 00 77 00 2d 00 6f 00 62 00 6a 00 65 00 63 00 74 00 20 00 2d 00 63 00 6f 00 6d 00 6f 00 62 00 6a 00 65 00 63 00 74 00 [0-80] 69 00 6e 00 73 00 74 00 61 00 6c 00 6c 00 65 00 72 00 [0-48] 2e 00 72 00 65 00 70 00 6c 00 61 00 63 00 65 00 28 00 [0-80] 75 00 69 00 6c 00 65 00 76 00 65 00 6c 00}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
             ((4 of ($x_1_*))) or
             ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
             (all of ($x*))
         )
 }
@@ -4817,5 +4825,76 @@ rule Trojan_Win32_ClickFix_ZZI_2147942984_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZZR_2147942988_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZZR!MTB"
+        threat_id = "2147942988"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "mshta" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "Activating Key Snapshot" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DCW_2147942994_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCW!MTB"
+        threat_id = "2147942994"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "202"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_100_2 = " # " wide //weight: 100
+        $x_1_3 = "iwr" wide //weight: 1
+        $x_1_4 = "| iex" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DCX_2147942995_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCX!MTB"
+        threat_id = "2147942995"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "152"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_50_2 = "$a+$b+$c+$d" wide //weight: 50
+        $x_1_3 = "New-Object Net.WebClient" wide //weight: 1
+        $x_1_4 = ".DownloadFile($" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
