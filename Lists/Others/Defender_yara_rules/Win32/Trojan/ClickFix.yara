@@ -4771,3 +4771,51 @@ rule Trojan_Win32_ClickFix_DDA_2147942899_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_ZZH_2147942983_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZZH!MTB"
+        threat_id = "2147942983"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[IO.File]::ReadAllBytes($" wide //weight: 1
+        $x_1_2 = "ForEach-Object { $_.ToString" wide //weight: 1
+        $x_1_3 = "-join" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ZZI_2147942984_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ZZI!MTB"
+        threat_id = "2147942984"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".replace('^'," wide //weight: 1
+        $x_1_2 = ".replace('`'," wide //weight: 1
+        $x_1_3 = ".replace('+'," wide //weight: 1
+        $x_1_4 = ".replace('$'," wide //weight: 1
+        $x_1_5 = ".replace('*'," wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
