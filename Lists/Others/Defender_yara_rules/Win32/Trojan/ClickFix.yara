@@ -1797,7 +1797,7 @@ rule Trojan_Win32_ClickFix_SH_2147937478_0
         $x_10_4 = "-w h " wide //weight: 10
         $x_1_5 = "::frombase64string(" wide //weight: 1
         $x_1_6 = "-useb " wide //weight: 1
-        $x_1_7 = {2d 00 75 00 72 00 69 00 90 00 02 00 10 00 2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 3b 00}  //weight: 1, accuracy: High
+        $x_1_7 = {2d 00 75 00 72 00 69 00 [0-16] 2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00}  //weight: 1, accuracy: Low
         $x_1_8 = "iwr" wide //weight: 1
         $x_1_9 = {24 00 72 00 65 00 73 00 [0-48] 69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 77 00 65 00 62 00 72 00 65 00 71 00 75 00 65 00 73 00 74 00 20 00}  //weight: 1, accuracy: Low
         $x_1_10 = "iex" wide //weight: 1
@@ -3163,7 +3163,7 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "1"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_1_1 = "iplogger.co" wide //weight: 1
         $x_1_2 = "whim-proof.beauty" wide //weight: 1
@@ -3203,6 +3203,9 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_36 = "pullfile321.b-cdn.net" wide //weight: 1
         $x_1_37 = "tinselweaver.boats" wide //weight: 1
         $x_1_38 = "xilx222.b-cdn.net" wide //weight: 1
+        $x_1_39 = "clouds-verify.com/" ascii //weight: 1
+        $x_1_40 = "coreun.com/" ascii //weight: 1
+        $x_1_41 = {68 00 74 00 74 00 70 00 [0-255] 2f 00 77 00 70 00 2d 00 70 00 72 00 6f 00 74 00 65 00 63 00 74 00 2f 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))

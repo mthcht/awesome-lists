@@ -328,3 +328,54 @@ rule Trojan_Win32_PShellDlr_HG_2147942786_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PShellDlr_HE_2147943008_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PShellDlr.HE!MTB"
+        threat_id = "2147943008"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PShellDlr"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_10_2 = "iex(" wide //weight: 10
+        $x_10_3 = "iex $" wide //weight: 10
+        $x_10_4 = "invoke-expression" wide //weight: 10
+        $x_11_5 = {61 00 70 00 70 00 64 00 61 00 74 00 61 00 [0-3] 5c 00 [0-160] 2e 00 76 00 62 00 65 00}  //weight: 11, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            ((1 of ($x_11_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_PShellDlr_HF_2147943009_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PShellDlr.HF!MTB"
+        threat_id = "2147943009"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PShellDlr"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {5b 00 73 00 79 00 73 00 74 00 65 00 6d 00 2e 00 74 00 65 00 78 00 74 00 2e 00 65 00 6e 00 63 00 6f 00 64 00 69 00 6e 00 67 00 5d 00 27 00 2b 00 5b 00 63 00 68 00 61 00 72 00 5d 00 [0-8] 2b 00 5b 00 63 00 68 00 61 00 72 00 5d 00 [0-8] 2b 00 27 00 75 00 74 00 66 00 38 00 2e 00 67 00 65 00 74 00 73 00 74 00 72 00 69 00 6e 00 67 00 28 00 5b 00 73 00 79 00 73 00 74 00 65 00 6d 00 2e 00 63 00 6f 00 6e 00 76 00 65 00 72 00 74 00 5d 00 27 00 2b 00 5b 00 63 00 68 00 61 00 72 00 5d 00 [0-8] 2b 00 5b 00 63 00 68 00 61 00 72 00 5d 00 [0-8] 2b 00 27 00 66 00 72 00 6f 00 6d 00 62 00 61 00 73 00 65 00 36 00 34 00 73 00 74 00 72 00 69 00 6e 00 67 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
