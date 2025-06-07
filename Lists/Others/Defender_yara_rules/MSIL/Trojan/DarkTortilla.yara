@@ -5406,3 +5406,48 @@ rule Trojan_MSIL_DarkTortilla_AXVA_2147942923_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_ZKV_2147943021_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.ZKV!MTB"
+        threat_id = "2147943021"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {17 13 04 11 04 45 07 00 00 00 00 00 00 00 00 00 00 00 40 00 00 00 1b 00 00 00 40 00 00 00 1b 00 00 00 51 00 00 00 28 ?? 01 00 0a 0b 07 74 34 00 00 01 14 fe 03 0c 08 2c 05 19 13 04 2b c5 1c 2b f9 07 74 34 00 00 01 7e 6c 00 00 04 6f 3b 01 00 0a 07 75 34 00 00 01 7e 6c 00 00 04 6f ?? 01 00 0a 1a 13 04 2b 9d}  //weight: 5, accuracy: Low
+        $x_4_2 = {02 7b 83 00 00 04 6f ?? 01 00 0a 0a 06 75 37 00 00 01 2a}  //weight: 4, accuracy: Low
+        $x_3_3 = {02 03 16 03 8e 69 6f ?? 01 00 0a 02 6f ?? 01 00 0a 1a 0b 2b d1}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DarkTortilla_ABWA_2147943044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.ABWA!MTB"
+        threat_id = "2147943044"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 11 04 74 ?? 00 00 01 14 fe 03 13 07 11 07 2c 05 1a 13 11 2b a5 17 2b f9 11 04 74 ?? 00 00 01 08 75 ?? 00 00 1b 6f ?? 00 00 0a 11 04 74 ?? 00 00 01 08 75 ?? 00 00 1b 6f ?? 00 00 0a 16 13 11 38 ?? ff ff ff 11 04 75 ?? 00 00 01 6f ?? 00 00 0a 13 08 73 ?? 00 00 0a 13 05 11 05 74 ?? 00 00 01 11 08 74 ?? 00 00 01 17 73 ?? 00 00 0a 13 06 1c 13 11 38 ?? ff ff ff 11 06 14 16}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4901,3 +4901,46 @@ rule Trojan_Win32_ClickFix_DCX_2147942995_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DAD_2147943081_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DAD!MTB"
+        threat_id = "2147943081"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "mshta" wide //weight: 10
+        $x_100_2 = ".shop" wide //weight: 100
+        $x_100_3 = ".xyz" wide //weight: 100
+        $x_100_4 = ".icu" wide //weight: 100
+        $x_100_5 = ".lat" wide //weight: 100
+        $x_100_6 = ".fun" wide //weight: 100
+        $x_100_7 = ".bet" wide //weight: 100
+        $x_100_8 = ".live" wide //weight: 100
+        $x_100_9 = ".life" wide //weight: 100
+        $x_100_10 = ".online" wide //weight: 100
+        $x_100_11 = ".bond" wide //weight: 100
+        $x_100_12 = ".top" wide //weight: 100
+        $x_100_13 = ".world" wide //weight: 100
+        $x_100_14 = ".click" wide //weight: 100
+        $x_100_15 = ".forest" wide //weight: 100
+        $x_100_16 = ".run" wide //weight: 100
+        $x_100_17 = ".was" wide //weight: 100
+        $x_100_18 = ".today" wide //weight: 100
+        $x_100_19 = ".cyou" wide //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+

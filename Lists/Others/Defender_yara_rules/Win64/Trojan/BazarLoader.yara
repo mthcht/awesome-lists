@@ -1547,3 +1547,24 @@ rule Trojan_Win64_BazarLoader_KAA_2147901163_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BazarLoader_ABZR_2147943043_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BazarLoader.ABZR!MTB"
+        threat_id = "2147943043"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BazarLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 fc 83 c0 01 99 c1 ea 18 01 d0 0f b6 c0 29 d0 89 45 fc 8b 45 fc 48 63 d0 48 8b 45 20 48 01 d0 0f b6 00 0f b6 d0 8b 45 f8 01 d0 99 c1 ea 18 01 d0 0f b6 c0 29 d0 89 45 f8 8b 45 fc 48 63 d0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

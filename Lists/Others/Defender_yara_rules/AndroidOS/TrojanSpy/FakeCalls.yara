@@ -78,3 +78,25 @@ rule TrojanSpy_AndroidOS_FakeCalls_E_2147841013_0
         (4 of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_FakeCalls_V_2147943034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/FakeCalls.V!MTB"
+        threat_id = "2147943034"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "FakeCalls"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "com/wish/defaultcallservice/activity/ValidActivitySKV" ascii //weight: 1
+        $x_1_2 = {81 01 02 14 02 8d 00 08 7f 6e 20 ?? 81 21 00 0c 02 6e 20 ?? 0a 12 00 14 02 07 01 08 7f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
