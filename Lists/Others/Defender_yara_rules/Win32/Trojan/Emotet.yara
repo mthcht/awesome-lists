@@ -8955,28 +8955,6 @@ rule Trojan_Win32_Emotet_CC_2147745210_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Emotet_CC_2147745210_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Emotet.CC!MTB"
-        threat_id = "2147745210"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {81 e1 32 88 db 0e 33 c1 8b 55 ec c1 e2 1b c1 fa 1f 81 e2 64 10 b7 1d 33 c2 8b 4d ec c1 e1 1a c1 f9 1f 81 e1 c8 20 6e 3b 33 c1 8b 55 ec c1 e2 19 c1 fa 1f 81 e2 ?? 41 dc 76 33 c2 8b 4d ec c1 e1 18 c1 f9 1f 81 e1 20 83 b8 ed 33 c1}  //weight: 1, accuracy: Low
-        $x_1_2 = {20 83 b8 ed c7 45 ?? ?? 41 dc 76 c7 45 ?? c8 20 6e 3b c7 45 ?? 64 10 b7 1d c7 45 ?? 32 88 db 0e c7 45 ?? 19 c4 6d 07 c7 45 ?? 2c 61 0e ee c7 45 ?? 96 30 07 77}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Emotet_CD_2147745211_0
 {
     meta:
@@ -9099,28 +9077,6 @@ rule Trojan_Win32_Emotet_AW_2147745239_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Emotet_GP_2147745295_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Emotet.GP!MTB"
-        threat_id = "2147745295"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {33 c1 8b cb c1 [0-2] 33 c1 8b cb c1 [0-2] c1 [0-2] c1 [0-2] 81 [0-5] c1 [0-2] 33 ?? 81 [0-5] 33 ?? ff [0-7] 0f [0-2] 3b [0-7] 5e 8b c3 [0-3] f7 d0 c3}  //weight: 1, accuracy: Low
-        $x_1_2 = {f7 d8 1b c0 23 c6 5f 5e 5b c9 c3}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Emotet_AZ_2147745332_0
 {
     meta:
@@ -9188,27 +9144,6 @@ rule Trojan_Win32_Emotet_DHM_2147745350_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {0f b6 5c 24 1c c1 e3 02 0f b6 54 24 1d 89 d1 c1 f9 04 09 d9 88 0f 89 d3 c1 e3 04 0f b6 54 24 1e 89 d1 c1 f9 02 09 d9 88 4f 01 8d 4f 03 c1 e2 06 0a 54 24 1f 88 57 02}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Emotet_DHO_2147745351_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Emotet.DHO!MTB"
-        threat_id = "2147745351"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8b f0 c1 e6 18 c1 fe 1f c1 e0 1e 81 e6 ?? ?? ?? ?? c1 f8 1f 33 ce 25 ?? ?? ?? ?? 33 c1 42 33 c9 8a 0a}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -20666,27 +20601,6 @@ rule Trojan_Win32_Emotet_GH_2147812619_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
-}
-
-rule Trojan_Win32_Emotet_RPO_2147812789_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Emotet.RPO!MTB"
-        threat_id = "2147812789"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {ff 4d 0c ac 31 ff 89 d7 81 e7 ff 00 00 00 30 c3 c1 ea 08 81 e2 ff ff ff 00 b9 08 00 00 00 d1 ef 73 06 81 f7 20 83 b8 ed e2 f4 31 fa eb cc}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
 }
 
 rule Trojan_Win32_Emotet_RWA_2147813426_0

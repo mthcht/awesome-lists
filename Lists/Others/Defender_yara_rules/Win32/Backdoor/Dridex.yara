@@ -38,29 +38,6 @@ rule Backdoor_Win32_Dridex_2147708899_1
         (all of ($x*))
 }
 
-rule Backdoor_Win32_Dridex_SD_2147731466_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Backdoor:Win32/Dridex.SD!MTB"
-        threat_id = "2147731466"
-        type = "Backdoor"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Dridex"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {6a 08 8b c1 5d a8 01 74 09 d1 e8 35 20 83 b8 ed eb 02 d1 e8 83 ed 01 75 ec 89 04 8a 41 81 f9 00 01 00 00 7c db}  //weight: 1, accuracy: High
-        $x_1_2 = {8b 08 33 d2 03 ce 8a 01 88 44 24 30 84 c0 74 16 8d 44 24 30 2b c8 42 8d 04 11 8a 44 04 30 88 44 14 30 84 c0 75 f0 8d 4c 24 30 e8 [0-6] 39 44 24 28 74 1f 8b 4c 24 18 83 c5 02 8b 44 24 1c 41 83 c0 04 89 4c 24 18 89 44 24 1c 3b 4c 37 18 72 ae}  //weight: 1, accuracy: Low
-        $x_1_3 = {8b 08 33 d2 03 ce 8a 01 88 44 ?? ?? 84 c0 74 16 8d 44 ?? ?? 2b c8 42 8d 04 11 8a 44 ?? ?? 88 44 ?? ?? 84 c0 75 f0 8d 4c ?? ?? e8 ?? ?? ?? ?? 39 44 ?? ?? 74 1f 8b 4c ?? ?? 83 c5 02 8b 44 ?? ?? 41 83 c0 04 89 4c ?? ?? 89 44 ?? ?? 3b 4c ?? ?? 72}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (2 of ($x*))
-}
-
 rule Backdoor_Win32_Dridex_SE_2147731694_0
 {
     meta:

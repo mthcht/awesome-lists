@@ -64,27 +64,6 @@ rule Trojan_Win64_ShellcodeInject_MKB_2147909278_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ShellcodeInject_ADG_2147918453_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/ShellcodeInject.ADG!MTB"
-        threat_id = "2147918453"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "ShellcodeInject"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {81 e1 20 83 b8 ed 33 ca 8b d1 d1 e9 41 23 d5 f7 da 81 e2 20 83 b8 ed 33 d1 41 0f b6 09}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_ShellcodeInject_FEM_2147920231_0
 {
     meta:
