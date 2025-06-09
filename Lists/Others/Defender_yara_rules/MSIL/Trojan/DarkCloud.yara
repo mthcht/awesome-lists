@@ -874,3 +874,24 @@ rule Trojan_MSIL_DarkCloud_MRE_2147942475_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_AFWA_2147943192_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.AFWA!MTB"
+        threat_id = "2147943192"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 11 11 16 6f ?? 00 00 0a 13 17 73 ?? 00 00 0a 13 18 11 18 72 ?? ?? 00 70 11 11 11 16 73 ?? 00 00 0a 6f ?? 00 00 0a 11 18 72 ?? ?? 00 70 28 ?? 00 00 0a 8c ?? 00 00 01 6f ?? 00 00 0a 11 18 72 ?? ?? 00 70 72 ?? ?? 00 70 11 09 1e 5d 13 1f 12 1f 28 ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 11 18 72 ?? ?? 00 70 11 10 8c ?? 00 00 01 6f ?? 00 00 0a 11 0e 11 18 6f ?? 00 00 0a 12 17 28 ?? 00 00 0a 13 19 12 17 28 ?? 00 00 0a 13 1a 12 17 28 ?? 00 00 0a 13 1b 1b 8d ?? 00 00 01 25 16}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

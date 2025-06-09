@@ -365,3 +365,28 @@ rule Trojan_Win32_Jaik_TL_2147940841_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_NH_2147943200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.NH!MTB"
+        threat_id = "2147943200"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "wwwww.php" ascii //weight: 2
+        $x_1_2 = "exepayload\\http" wide //weight: 1
+        $x_1_3 = {54 45 4d 50 [0-4] 2e 74 78 74}  //weight: 1, accuracy: Low
+        $x_1_4 = "msslac.dll" ascii //weight: 1
+        $x_1_5 = "INTERNET_OPTION_PASSWORD" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

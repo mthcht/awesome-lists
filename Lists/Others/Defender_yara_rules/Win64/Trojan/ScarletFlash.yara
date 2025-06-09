@@ -20,24 +20,3 @@ rule Trojan_Win64_ScarletFlash_NS_2147901480_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ScarletFlash_ASA_2147902448_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/ScarletFlash.ASA!MTB"
-        threat_id = "2147902448"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "ScarletFlash"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {45 33 c9 48 8d 15 fa 04 0d 00 41 83 c8 ff 48 8d 0d e7 04 0d 00 ff 15}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
