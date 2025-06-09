@@ -453,6 +453,56 @@ rule TrojanDownloader_Win32_Renos_2147799811_9
         family = "Renos"
         severity = "9"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Host: download.%s.com" ascii //weight: 1
+        $x_1_2 = "C:\\Windows\\xpupdate.exe" ascii //weight: 1
+        $x_1_3 = "Windows update loader" ascii //weight: 1
+        $x_1_4 = "C:\\Install" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\General" ascii //weight: 1
+        $x_1_6 = {47 45 54 20 2f [0-8] 2e 70 68 70 3f 26 61 64 76 69 64 3d}  //weight: 1, accuracy: Low
+        $x_1_7 = {47 45 54 20 68 74 74 70 3a 2f 2f 64 6f 77 6e 6c 6f 61 64 2e 25 73 2e 63 6f 6d 2f [0-8] 2e 70 68 70 3f 26 61 64 76 69 64 3d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
+rule TrojanDownloader_Win32_Renos_2147799811_10
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Renos"
+        threat_id = "2147799811"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Renos"
+        severity = "9"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {47 45 54 20 2f [0-8] 2e 70 68 70 3f 26 61 64 76 69 64 3d}  //weight: 10, accuracy: Low
+        $x_10_2 = "Windows update loader" ascii //weight: 10
+        $x_10_3 = {4e 6f 43 68 61 6e 67 69 6e 67 57 61 6c 6c 70 61 70 65 72 [0-16] 53 4f 46 54 57 41 52 45 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 50 6f 6c 69 63 69 65 73 5c 41 63 74 69 76 65 44 65 73 6b 74 6f 70}  //weight: 10, accuracy: Low
+        $x_10_4 = {46 6f 72 63 65 41 63 74 69 76 65 44 65 73 6b 74 6f 70 4f 6e [0-16] 53 4f 46 54 57 41 52 45 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 50 6f 6c 69 63 69 65 73 5c 45 78 70 6c 6f 72 65 72}  //weight: 10, accuracy: Low
+        $x_1_5 = "69.50.1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win32_Renos_2147799811_11
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Renos"
+        threat_id = "2147799811"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Renos"
+        severity = "9"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "106"
         strings_accuracy = "High"
     strings:
@@ -474,7 +524,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_9
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_10
+rule TrojanDownloader_Win32_Renos_2147799811_12
 {
     meta:
         author = "defender2yara"
@@ -506,7 +556,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_10
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_11
+rule TrojanDownloader_Win32_Renos_2147799811_13
 {
     meta:
         author = "defender2yara"
@@ -535,7 +585,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_11
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_12
+rule TrojanDownloader_Win32_Renos_2147799811_14
 {
     meta:
         author = "defender2yara"
@@ -567,34 +617,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_12
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_13
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win32/Renos"
-        threat_id = "2147799811"
-        type = "TrojanDownloader"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Renos"
-        severity = "9"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = " is infected" ascii //weight: 1
-        $x_1_2 = {55 8b ec 81 c4 18 fe ff ff [0-3] e8 ?? ?? ?? ?? 83 f8 00 0f 85 ?? 00 00 00}  //weight: 1, accuracy: Low
-        $x_1_3 = {30 fe ff ff 00 8d 85 18 fe ff ff 50 6a 01 e8 ?? ?? ?? ?? [0-4] 0b c0 75 00}  //weight: 1, accuracy: Low
-        $x_1_4 = {6a 06 6a 00 6a 00 6a 00 6a 00 6a ff ff 75 08 e8}  //weight: 1, accuracy: High
-        $x_1_5 = {75 1e 6a 64 ff 35 ?? ?? ?? ?? e8 ?? ?? ?? ?? a3 ?? ?? ?? ?? c7 05 ?? ?? ?? ?? 01 00 00 00 eb 1c 6a 66 ff 35 ?? ?? ?? ?? e8 ?? ?? ?? ?? a3 ?? ?? ?? ?? c7 05 ?? ?? ?? ?? 00 00 00 00 68 ?? ?? ?? ?? 6a 01 e8 ?? ?? ?? ?? c9 c2 10 00}  //weight: 1, accuracy: Low
-        $x_1_6 = {68 e0 93 04 00 68 ?? ?? ?? ?? ff 75 08 e8 ?? ?? ?? ?? e9 ?? 00 00 00 81 7d 14 03 02 00 00 74 ?? 81 7d 14 04 02 00 00 74 ?? 81 7d 14 01 02 00 00 74 ?? 81 7d 14 05 04 00 00}  //weight: 1, accuracy: Low
-        $x_1_7 = {55 8b ec 81 c4 00 fe ff ff 51 56 57 68 ff 00 00 00 8d ?? 01 ff ff ff ?? e8 ?? ?? ?? ?? 8d 85 02 fe ff ff 50 6a 00 68 ?? ?? ?? ?? 8d 85 01 ff ff ff 50 e8 ?? ?? ?? ?? 8d 85 02 fe ff ff 50 e8 ?? ?? ?? ?? 8d 85 02 fe ff ff 50 ff 15 ?? ?? ?? ?? 83 c4 04 b9 03 00 00 00 2b c1 8d bd 02 fe ff ff}  //weight: 1, accuracy: Low
-        $x_1_8 = {8d 85 02 fe ff ff 50 ff 75 08 e8 ?? ?? ?? ?? 83 f8 01 75 30}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (5 of ($x*))
-}
-
-rule TrojanDownloader_Win32_Renos_2147799811_14
+rule TrojanDownloader_Win32_Renos_2147799811_15
 {
     meta:
         author = "defender2yara"
@@ -629,7 +652,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_14
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_15
+rule TrojanDownloader_Win32_Renos_2147799811_16
 {
     meta:
         author = "defender2yara"
@@ -654,7 +677,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_15
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_16
+rule TrojanDownloader_Win32_Renos_2147799811_17
 {
     meta:
         author = "defender2yara"
