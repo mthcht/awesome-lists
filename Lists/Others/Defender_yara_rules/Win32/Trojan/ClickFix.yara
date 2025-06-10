@@ -1795,12 +1795,17 @@ rule Trojan_Win32_ClickFix_SH_2147937478_0
         $x_10_2 = "-w hidden" wide //weight: 10
         $x_10_3 = "-w 1" wide //weight: 10
         $x_10_4 = "-w h " wide //weight: 10
-        $x_1_5 = "::frombase64string(" wide //weight: 1
-        $x_1_6 = "-useb " wide //weight: 1
-        $x_1_7 = {2d 00 75 00 72 00 69 00 [0-16] 2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00}  //weight: 1, accuracy: Low
-        $x_1_8 = "iwr" wide //weight: 1
-        $x_1_9 = {24 00 72 00 65 00 73 00 [0-48] 69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 77 00 65 00 62 00 72 00 65 00 71 00 75 00 65 00 73 00 74 00 20 00}  //weight: 1, accuracy: Low
-        $x_1_10 = "iex" wide //weight: 1
+        $x_10_5 = {e2 00 80 00 95 00 77 00 20 00 68 00 20 00}  //weight: 10, accuracy: High
+        $x_10_6 = {e2 00 80 00 95 00 77 00 20 00 31 00 20 00}  //weight: 10, accuracy: High
+        $x_10_7 = "/w h " wide //weight: 10
+        $x_10_8 = "/w 1 " wide //weight: 10
+        $x_1_9 = "::frombase64string(" wide //weight: 1
+        $x_1_10 = "-useb " wide //weight: 1
+        $x_1_11 = {2d 00 75 00 72 00 69 00 [0-16] 2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00}  //weight: 1, accuracy: Low
+        $x_1_12 = "iwr" wide //weight: 1
+        $x_1_13 = {24 00 72 00 65 00 73 00 [0-48] 69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 77 00 65 00 62 00 72 00 65 00 71 00 75 00 65 00 73 00 74 00 20 00}  //weight: 1, accuracy: Low
+        $x_1_14 = {69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 72 00 65 00 73 00 74 00 6d 00 65 00 74 00 68 00 6f 00 64 00 [0-48] 2d 00 75 00 72 00 69 00 [0-48] 3b 00 [0-16] 69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 65 00 78 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 [0-32] 24 00}  //weight: 1, accuracy: Low
+        $x_1_15 = "iex" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -2787,16 +2792,18 @@ rule Trojan_Win32_ClickFix_ZG_2147939200_1
         $x_200_1 = "powershell" wide //weight: 200
         $x_200_2 = "-w" wide //weight: 200
         $x_200_3 = {e2 00 80 00 95 00 77 00}  //weight: 200, accuracy: High
-        $x_400_4 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_5 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_6 = {63 00 6d 00 64 00 [0-48] 63 00 75 00 72 00 6c 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_7 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-48] 63 00 75 00 72 00 6c 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_8 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
-        $x_400_9 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
-        $x_400_10 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00}  //weight: 400, accuracy: Low
-        $x_400_11 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 77 00 6d 00 69 00 63 00}  //weight: 400, accuracy: Low
-        $n_500_12 = ".ps1" wide //weight: -500
-        $n_500_13 = ".hta" wide //weight: -500
+        $x_200_4 = "/w" wide //weight: 200
+        $x_200_5 = {e2 00 80 00 93 00 77 00}  //weight: 200, accuracy: High
+        $x_400_6 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_7 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_8 = {63 00 6d 00 64 00 [0-48] 63 00 75 00 72 00 6c 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_9 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-48] 63 00 75 00 72 00 6c 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_10 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
+        $x_400_11 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
+        $x_400_12 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00}  //weight: 400, accuracy: Low
+        $x_400_13 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 77 00 6d 00 69 00 63 00}  //weight: 400, accuracy: Low
+        $n_500_14 = ".ps1" wide //weight: -500
+        $n_500_15 = ".hta" wide //weight: -500
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -3203,8 +3210,8 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_36 = "pullfile321.b-cdn.net" wide //weight: 1
         $x_1_37 = "tinselweaver.boats" wide //weight: 1
         $x_1_38 = "xilx222.b-cdn.net" wide //weight: 1
-        $x_1_39 = "clouds-verify.com/" ascii //weight: 1
-        $x_1_40 = "coreun.com/" ascii //weight: 1
+        $x_1_39 = "clouds-verify.com/" wide //weight: 1
+        $x_1_40 = "coreun.com/" wide //weight: 1
         $x_1_41 = {68 00 74 00 74 00 70 00 [0-255] 2f 00 77 00 70 00 2d 00 70 00 72 00 6f 00 74 00 65 00 63 00 74 00 2f 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
@@ -3250,8 +3257,9 @@ rule Trojan_Win32_ClickFix_ZH_2147940389_0
     strings:
         $x_2_1 = "powershell" wide //weight: 2
         $x_2_2 = "mshta" wide //weight: 2
-        $x_5_3 = "http" wide //weight: 5
-        $x_5_4 = {69 00 77 00 72 00 [0-48] 69 00 65 00 78 00 [0-255] 69 00 64 00 3a 00}  //weight: 5, accuracy: Low
+        $x_2_3 = "curl" wide //weight: 2
+        $x_5_4 = "http" wide //weight: 5
+        $x_5_5 = {69 00 77 00 72 00 [0-48] 69 00 65 00 78 00 [0-255] 69 00 64 00 3a 00}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
@@ -3822,22 +3830,24 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         $x_200_1 = "powershell" wide //weight: 200
         $x_200_2 = "-w" wide //weight: 200
         $x_200_3 = {e2 00 80 00 95 00 77 00}  //weight: 200, accuracy: High
-        $x_400_4 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_5 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_6 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-48] 63 00 75 00 72 00 6c 00}  //weight: 400, accuracy: Low
-        $x_400_7 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-80] 69 00 77 00 72 00}  //weight: 400, accuracy: Low
-        $x_400_8 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 63 00 75 00 72 00 6c 00}  //weight: 400, accuracy: Low
-        $x_400_9 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_10 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 69 00 77 00 72 00 20 00 [0-80] 69 00 65 00 78 00 20 00 [0-255] 3a 00}  //weight: 400, accuracy: Low
-        $x_400_11 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-255] 5e 00 [0-5] 5e 00 [0-80] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_12 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
-        $x_400_13 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
-        $x_400_14 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00}  //weight: 400, accuracy: Low
-        $x_400_15 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 77 00 6d 00 69 00 63 00}  //weight: 400, accuracy: Low
-        $n_600_16 = ".ps1" wide //weight: -600
-        $n_600_17 = ".hta" wide //weight: -600
-        $n_600_18 = "explorer http:" wide //weight: -600
-        $n_600_19 = "\\application\\chrome.exe" wide //weight: -600
+        $x_200_4 = {e2 00 80 00 93 00 77 00}  //weight: 200, accuracy: High
+        $x_200_5 = "/w" wide //weight: 200
+        $x_400_6 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_7 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_8 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-48] 63 00 75 00 72 00 6c 00}  //weight: 400, accuracy: Low
+        $x_400_9 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-80] 69 00 77 00 72 00}  //weight: 400, accuracy: Low
+        $x_400_10 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 63 00 75 00 72 00 6c 00}  //weight: 400, accuracy: Low
+        $x_400_11 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_12 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 69 00 77 00 72 00 20 00 [0-80] 69 00 65 00 78 00 20 00 [0-255] 3a 00}  //weight: 400, accuracy: Low
+        $x_400_13 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-255] 5e 00 [0-5] 5e 00 [0-80] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
+        $x_400_14 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
+        $x_400_15 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
+        $x_400_16 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00}  //weight: 400, accuracy: Low
+        $x_400_17 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 77 00 6d 00 69 00 63 00}  //weight: 400, accuracy: Low
+        $n_600_18 = ".ps1" wide //weight: -600
+        $n_600_19 = ".hta" wide //weight: -600
+        $n_600_20 = "explorer http:" wide //weight: -600
+        $n_600_21 = "\\application\\chrome.exe" wide //weight: -600
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -4941,5 +4951,113 @@ rule Trojan_Win32_ClickFix_DAD_2147943081_0
             ((2 of ($x_100_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_ClickFix_SHA_2147943279_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SHA"
+        threat_id = "2147943279"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = "curl" wide //weight: 1
+        $x_1_3 = "[convert]::frombase64string" wide //weight: 1
+        $x_1_4 = {7c 00 90 00 27 00 10 00 00 00 69 00 65 00 78 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_ABB_2147943280_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ABB"
+        threat_id = "2147943280"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 100, accuracy: High
+        $x_10_2 = "chatcdn" wide //weight: 10
+        $x_10_3 = "duckdns" wide //weight: 10
+        $x_10_4 = "digikex.com" wide //weight: 10
+        $x_10_5 = "bodlsan.com" wide //weight: 10
+        $x_10_6 = ".r2.dev" wide //weight: 10
+        $x_10_7 = ".trycloudflare.com" wide //weight: 10
+        $x_10_8 = "pastebin" wide //weight: 10
+        $x_10_9 = "pastes.io" wide //weight: 10
+        $x_10_10 = "cutt.ly" wide //weight: 10
+        $x_10_11 = "tinyurl.com" wide //weight: 10
+        $x_10_12 = "rentry.co" wide //weight: 10
+        $x_10_13 = "blogspot.com" wide //weight: 10
+        $x_10_14 = "bit.ly" wide //weight: 10
+        $x_10_15 = "psee.io" wide //weight: 10
+        $x_10_16 = "files.catbox.moe" wide //weight: 10
+        $n_500_17 = "($instance -eq 'mssqlserver')" ascii //weight: -500
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((11 of ($x_10_*))) or
+            ((1 of ($x_100_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_SFB_2147943281_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SFB"
+        threat_id = "2147943281"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 00 [0-32] 68 00 74 00 74 00 70 00 [0-255] 2e 00 6d 00 73 00 69 00}  //weight: 10, accuracy: Low
+        $x_1_2 = "/q" wide //weight: 1
+        $x_1_3 = "/i" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SKDA_2147943282_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SKDA"
+        threat_id = "2147943282"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 10, accuracy: High
+        $x_1_2 = "cmd.exe" wide //weight: 1
+        $x_1_3 = {2e 00 70 00 68 00 70 00 [0-48] 2d 00 6f 00 [0-255] 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
