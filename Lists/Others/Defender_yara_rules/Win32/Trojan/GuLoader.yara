@@ -4021,3 +4021,27 @@ rule Trojan_Win32_GuLoader_RAR_2147942930_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RAS_2147943225_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAS!MTB"
+        threat_id = "2147943225"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "prcedensens\\Barselsorlovernes\\retshjlpens" ascii //weight: 1
+        $x_1_2 = "%Pointers%\\Prevalidly246\\Sammenklumpet" ascii //weight: 1
+        $x_1_3 = "masturbation lserinderne" ascii //weight: 1
+        $x_1_4 = "thakurate.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

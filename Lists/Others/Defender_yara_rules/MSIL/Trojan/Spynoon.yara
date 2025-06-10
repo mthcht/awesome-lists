@@ -2178,3 +2178,25 @@ rule Trojan_MSIL_Spynoon_AVVA_2147942848_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Spynoon_AHWA_2147943238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.AHWA!MTB"
+        threat_id = "2147943238"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 73 ?? ?? 00 0a 13 05 11 04 14 fe 03 13 06 11 06 2c 56 11 04 08 6f ?? ?? 00 0a 00 11 04 08 6f ?? ?? 00 0a 00 11 04 6f ?? ?? 00 0a 13 07 00 11 05 11 07 17 73 ?? ?? 00 0a 13 08 11 08 02 16 02 8e 69 6f ?? ?? 00 0a 00 11 08 6f ?? ?? 00 0a 00 11 05 6f ?? ?? 00 0a 0d de 0e}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4770,13 +4770,12 @@ rule Trojan_Win32_ClickFix_DDA_2147942899_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "130"
+        threshold = "120"
         strings_accuracy = "High"
     strings:
         $x_100_1 = "powershell" wide //weight: 100
         $x_10_2 = "-Window HID -c $" wide //weight: 10
         $x_10_3 = ".php?an=1';" wide //weight: 10
-        $x_10_4 = "='https://' + $" wide //weight: 10
     condition:
         (filesize < 20MB) and
         (all of ($x*))

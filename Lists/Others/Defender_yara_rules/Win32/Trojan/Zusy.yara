@@ -6702,3 +6702,24 @@ rule Trojan_Win32_Zusy_MBWN_2147942277_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_PGZY_2147943226_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.PGZY!MTB"
+        threat_id = "2147943226"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {39 db 74 01 ea 31 ?? ?? ?? 81 c3 04 00 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

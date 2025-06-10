@@ -1324,3 +1324,24 @@ rule Trojan_Win64_LummaStealer_PGLG_2147943193_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_PGLC_2147943228_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PGLC!MTB"
+        threat_id = "2147943228"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {89 c1 30 d1 20 c1 44 20 c3 20 d0 08 d8 89 ca 30 c2 ba ?? ?? ?? ?? bb ?? ?? ?? ?? 0f 45 d3 8b 6f ?? 84 c0 89 d0 0f 45 c3 89 ac 24}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
