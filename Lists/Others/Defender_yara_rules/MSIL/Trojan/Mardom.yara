@@ -849,3 +849,25 @@ rule Trojan_MSIL_Mardom_ACWA_2147943053_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_GVA_2147943382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.GVA!MTB"
+        threat_id = "2147943382"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {6f 1b 00 00 0a 14 18 8d 01 00 00 01 25 16 02 a2 25 17 03 a2 6f 1c 00 00 0a 26 2a}  //weight: 2, accuracy: High
+        $x_1_2 = {6f 16 00 00 0a 26 07 17 6f 17 00 00 0a 07 17 8d 17 00 00 01 25 16 06 a2 6f 18 00 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

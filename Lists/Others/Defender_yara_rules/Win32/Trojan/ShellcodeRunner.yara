@@ -262,3 +262,27 @@ rule Trojan_Win32_ShellcodeRunner_BAA_2147940677_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_SCP_2147943379_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.SCP!MTB"
+        threat_id = "2147943379"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {c1 e8 04 69 c0 ?? ?? ?? ?? 29 c1 89 c8 83 c0 64 89 04 24}  //weight: 3, accuracy: Low
+        $x_2_2 = {89 d0 69 c0 ?? ?? ?? ?? 29 c1 89 c8 05 ?? ?? ?? ?? 89 04 24 e8}  //weight: 2, accuracy: Low
+        $x_1_3 = "%s\\sys_check_%lu.tmp" ascii //weight: 1
+        $x_1_4 = "resource_data.png" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

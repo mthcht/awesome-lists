@@ -1833,3 +1833,26 @@ rule Trojan_Win64_Zusy_EH_2147942237_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SX_2147943341_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SX!MTB"
+        threat_id = "2147943341"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {48 c7 44 24 68 07 00 00 00 4c 89 74 24 60 66 44 89 74 24 50 4c 8d 45 60 48 83 7d 78 08 4c 0f 43 45 60 33 d2 b9 01 00 1f 00}  //weight: 15, accuracy: High
+        $x_10_2 = {48 89 03 48 83 f8 ff 74 54 33 d2 48 8b c8 ff 15 ?? ?? ?? ?? 89 06 ff c8 83 f8 fd 77 40 48 8b 0b 45 33 c9 48 89 6c 24 28 33 d2 89 6c 24 20 45 8d 41 02 ff 15 ?? ?? ?? ?? 48 89 07 48 85 c0 74 1d 45 33 c9 48 89 6c 24 20 45 33 c0 48 8b c8 41 8d 51 04}  //weight: 10, accuracy: Low
+        $x_10_3 = {48 63 4f 3c b8 0b 02 00 00 44 8b 5c 0f 50 48 89 5c 24 40 48 8d 1c 0f 48 89 74 24 48 0f b7 73 06 4c 89 7c 24 20}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

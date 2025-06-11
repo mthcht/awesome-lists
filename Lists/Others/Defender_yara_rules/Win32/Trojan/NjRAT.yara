@@ -54,3 +54,34 @@ rule Trojan_Win32_NjRAT_NK_2147921844_0
         )
 }
 
+rule Trojan_Win32_NjRAT_SAC_2147943377_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/NjRAT.SAC!MTB"
+        threat_id = "2147943377"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {22 00 43 00 3a 00 5c 00 57 00 49 00 4e 00 44 00 4f 00 57 00 53 00 5c 00 53 00 59 00 53 00 54 00 45 00 4d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 22 00 20 00 2f 00 63 00 20 00 43 00 3a 00 5c 00 54 00 45 00 4d 00 50 00 5c 00 [0-20] 2e 00 62 00 61 00 74 00 20 00 43 00 3a 00 5c 00 [0-20] 2e 00 65 00 78 00 65 00}  //weight: 2, accuracy: Low
+        $x_1_2 = "powershell -Command \"(New-Object System.Net.WebClient).DownloadFile('%url1%', '%output1%')\"" ascii //weight: 1
+        $x_1_3 = {74 00 6d 00 70 00 5c 00 [0-20] 2e 00 74 00 6d 00 70 00 5c 00 [0-20] 2e 00 74 00 6d 00 70 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "Debugger breakpoint reached" wide //weight: 1
+        $x_1_5 = "start \"\" \"%output1%\"" wide //weight: 1
+        $x_1_6 = "b2eincfilepath" wide //weight: 1
+        $x_1_7 = {54 00 45 00 4d 00 50 00 5c 00 [0-20] 2e 00 74 00 6d 00 70 00 5c 00 [0-20] 2e 00 74 00 6d 00 70 00 5c 00 65 00 78 00 74 00 64 00 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {54 45 4d 50 5c [0-20] 2e 74 6d 70 5c [0-20] 2e 74 6d 70 5c 65 78 74 64 2e 65 78 65}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 6 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

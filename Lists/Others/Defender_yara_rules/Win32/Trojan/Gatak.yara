@@ -405,3 +405,24 @@ rule Trojan_Win32_Gatak_BH_2147941067_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Gatak_SPDH_2147943378_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Gatak.SPDH!MTB"
+        threat_id = "2147943378"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Gatak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 85 e8 0b 00 00 48 89 85 68 06 00 00 0f 10 85 d8 0b 00 00 0f 11 85 58 06 00 00 48 8b 45 c0 48 89 85 80 06 00 00 f3 0f 6f 45 b0 66 0f 7f 85 70 06 00 00 b9 02 00 00 00 31 d2 e8 ?? ?? ?? ?? 48 89 c6 48 83 f8 ff 0f 84 ?? ?? ?? ?? 48 8d 7d dc 41 b8 08 02 00 00 48 89 f9 31 d2 e8 ?? ?? ?? ?? 48 c7 45 b0 38 02 00 00 c7 45 b8 00 00 00 00 66 0f ef c0 f3 0f 7f 45 c0 f3 0f 7f 45 cc 48 8d 55 b0 48 89 f1 e8 ?? ?? ?? ?? 85 c0 0f 84}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
