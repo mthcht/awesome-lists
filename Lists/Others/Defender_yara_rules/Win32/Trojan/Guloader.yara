@@ -5241,6 +5241,33 @@ rule Trojan_Win32_Guloader_SVM_2147933263_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_AQ_2147933693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.AQ!MTB"
+        threat_id = "2147933693"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "interruptory\\driftschefs.zip" ascii //weight: 1
+        $x_1_2 = "brugerdisciplinen\\aktuaren.txt" ascii //weight: 1
+        $x_1_3 = "faconstaalet\\guahiban" ascii //weight: 1
+        $x_1_4 = "immatures\\dividerer\\paleostylic" ascii //weight: 1
+        $x_1_5 = "monoureide.bin" ascii //weight: 1
+        $x_1_6 = "subtilised\\esquiline.ini" ascii //weight: 1
+        $x_1_7 = "lycoperdon.cyl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_ASJ_2147934135_0
 {
     meta:

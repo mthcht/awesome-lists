@@ -2851,3 +2851,29 @@ rule Trojan_Win32_ClipBanker_GVB_2147941184_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_NJH_2147943446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.NJH!MTB"
+        threat_id = "2147943446"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "121>1G1R1\\1b1h1n1" ascii //weight: 2
+        $x_1_2 = "GetClipboardSequenceNumber" ascii //weight: 1
+        $x_1_3 = "GetClipboardData" ascii //weight: 1
+        $x_1_4 = "GlobalUnlock" ascii //weight: 1
+        $x_1_5 = {01 d8 89 d1 21 f1 09 d6 0f af f1 01 c6 89 f0 83 e0 fc 89 f1 83 e1 02 89 f2 83 ca 02 0f af d1 83 f1 02 0f af c8 01 ca}  //weight: 1, accuracy: High
+        $x_1_6 = {89 c1 83 c9 01 21 d1 83 f0 01 8d 1c 48 89 de 83 e6 02 89 f2 83 f2 02 89 54 24 04 89 f5}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

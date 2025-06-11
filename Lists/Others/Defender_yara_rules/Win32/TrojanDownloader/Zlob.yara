@@ -55,28 +55,6 @@ rule TrojanDownloader_Win32_Zlob_16998_1
         threshold = "3"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {6c 64 72 49 6e 73 75 72 61 6e 63 65 45 76 65 6e 74 45 78 00}  //weight: 1, accuracy: High
-        $x_1_2 = {4c 6f 61 64 65 72 53 74 61 72 74 65 64 5f 25 58 00}  //weight: 1, accuracy: High
-        $x_1_3 = "/php/loader3/download.php" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_Win32_Zlob_16998_2
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win32/Zlob"
-        threat_id = "16998"
-        type = "TrojanDownloader"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Zlob"
-        severity = "16"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
         $x_1_1 = "IESPlugin" ascii //weight: 1
         $x_1_2 = "ToolbarWindow32" ascii //weight: 1
         $x_1_3 = "Software\\Microsoft\\Internet Explorer\\Toolbar" ascii //weight: 1
@@ -85,7 +63,7 @@ rule TrojanDownloader_Win32_Zlob_16998_2
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_3
+rule TrojanDownloader_Win32_Zlob_16998_2
 {
     meta:
         author = "defender2yara"
@@ -109,39 +87,7 @@ rule TrojanDownloader_Win32_Zlob_16998_3
         (4 of ($x*))
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_4
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win32/Zlob"
-        threat_id = "16998"
-        type = "TrojanDownloader"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Zlob"
-        severity = "16"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "420"
-        strings_accuracy = "High"
-    strings:
-        $x_100_1 = "Attention!" ascii //weight: 100
-        $x_100_2 = "Removable" ascii //weight: 100
-        $x_100_3 = "reboot your computer" ascii //weight: 100
-        $x_50_4 = "createtoolhelp32snapshot" ascii //weight: 50
-        $x_50_5 = "del " ascii //weight: 50
-        $x_10_6 = "Media-Codec" ascii //weight: 10
-        $x_10_7 = ".Chl" ascii //weight: 10
-        $x_10_8 = "video" ascii //weight: 10
-        $n_500_9 = "SOFTWARE\\GREATIS\\REGRUN2\\" ascii //weight: -500
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (
-            ((3 of ($x_100_*) and 2 of ($x_50_*) and 2 of ($x_10_*))) or
-            (all of ($x*))
-        )
-}
-
-rule TrojanDownloader_Win32_Zlob_16998_5
+rule TrojanDownloader_Win32_Zlob_16998_3
 {
     meta:
         author = "defender2yara"
@@ -168,7 +114,7 @@ rule TrojanDownloader_Win32_Zlob_16998_5
         )
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_6
+rule TrojanDownloader_Win32_Zlob_16998_4
 {
     meta:
         author = "defender2yara"
@@ -190,7 +136,7 @@ rule TrojanDownloader_Win32_Zlob_16998_6
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_7
+rule TrojanDownloader_Win32_Zlob_16998_5
 {
     meta:
         author = "defender2yara"
@@ -222,7 +168,7 @@ rule TrojanDownloader_Win32_Zlob_16998_7
         )
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_8
+rule TrojanDownloader_Win32_Zlob_16998_6
 {
     meta:
         author = "defender2yara"
@@ -256,7 +202,7 @@ rule TrojanDownloader_Win32_Zlob_16998_8
         )
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_9
+rule TrojanDownloader_Win32_Zlob_16998_7
 {
     meta:
         author = "defender2yara"
@@ -283,7 +229,7 @@ rule TrojanDownloader_Win32_Zlob_16998_9
         )
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_10
+rule TrojanDownloader_Win32_Zlob_16998_8
 {
     meta:
         author = "defender2yara"
@@ -313,7 +259,7 @@ rule TrojanDownloader_Win32_Zlob_16998_10
         )
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_11
+rule TrojanDownloader_Win32_Zlob_16998_9
 {
     meta:
         author = "defender2yara"
@@ -341,6 +287,63 @@ rule TrojanDownloader_Win32_Zlob_16998_11
             ((3 of ($x_10_*) and 4 of ($x_1_*))) or
             (all of ($x*))
         )
+}
+
+rule TrojanDownloader_Win32_Zlob_16998_10
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Zlob"
+        threat_id = "16998"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zlob"
+        severity = "16"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "InternetReadFile" ascii //weight: 10
+        $x_10_2 = "OpenEventW" ascii //weight: 10
+        $x_10_3 = "Netbios" ascii //weight: 10
+        $x_3_4 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 74 00 68 00 65 00 6e 00 6d 00 65 00 74 00 77 00 6f 00 72 00 6b 00 63 00 6f 00 2e 00 63 00 6f 00 6d 00 2f 00 64 00 77 00 2e 00 70 00 68 00 70 00}  //weight: 3, accuracy: Low
+        $x_2_5 = "?code=00-00-00-00-00-00&hash=" wide //weight: 2
+        $x_1_6 = "bx18dxv.dat" wide //weight: 1
+        $x_1_7 = "bx18dxv.dat" ascii //weight: 1
+        $x_2_8 = "MyBITSTrans_new" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_10_*) and 2 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_10_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_10_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule TrojanDownloader_Win32_Zlob_16998_11
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Zlob"
+        threat_id = "16998"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zlob"
+        severity = "16"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "/search.php?qq=%s" ascii //weight: 10
+        $x_10_2 = {43 4c 41 46 2e 64 6c 6c 00 44 6c 6c 43 61 6e 55 6e 6c 6f 61 64 4e 6f 77 00 44 6c 6c 47 65 74 43 6c 61 73 73 4f 62 6a 65 63 74 00 44 6c 6c 52 65 67 69 73 74 65 72 53 65 72 76 65 72 00}  //weight: 10, accuracy: High
+        $x_5_3 = "http://auto.search.msn.com/response.asp?MT=" wide //weight: 5
+        $x_5_4 = "/search.php?qq=%s" wide //weight: 5
+        $x_5_5 = {72 65 6c 65 61 73 65 00}  //weight: 5, accuracy: High
+        $x_1_6 = "{5DDE5591-A8AB-4897-93EF-1E4E943F85A7}" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
 rule TrojanDownloader_Win32_Zlob_16998_12
