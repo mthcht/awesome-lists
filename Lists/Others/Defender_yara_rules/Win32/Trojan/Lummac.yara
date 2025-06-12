@@ -189,13 +189,15 @@ rule Trojan_Win32_Lummac_SDA_2147939400_0
         strings_accuracy = "Low"
     strings:
         $x_100_1 = {32 1d 30 f9 48 77 82 5a 3c bf 73 7f dd 4f 15 75}  //weight: 100, accuracy: High
-        $x_5_2 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" ascii //weight: 5
-        $x_5_3 = {57 58 59 5a 00 78 58 00}  //weight: 5, accuracy: High
-        $x_5_4 = {ae 42 60 82 c7 ?? ?? ?? 49 45 4e 44}  //weight: 5, accuracy: Low
-        $x_5_5 = {fe dc ba 98 76 54 32 10 f0 e1 d2 c3}  //weight: 5, accuracy: High
-        $x_5_6 = {b8 fe ff ff ff 90 90 90 90 90 90 90 90}  //weight: 5, accuracy: High
+        $x_5_2 = {57 58 59 5a 00 78 58 00}  //weight: 5, accuracy: High
+        $x_5_3 = {ae 42 60 82 c7 ?? ?? ?? 49 45 4e 44}  //weight: 5, accuracy: Low
+        $x_5_4 = {fe dc ba 98 76 54 32 10 f0 e1 d2 c3}  //weight: 5, accuracy: High
+        $x_5_5 = {b8 fe ff ff ff 90 90 90 90 90 90 90 90}  //weight: 5, accuracy: High
+        $n_100_6 = "crypto\\evp\\encode.c.assertion" ascii //weight: -100
+        $n_100_7 = "\\libcef.dll" ascii //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 3 of ($x_5_*))) or
             (all of ($x*))

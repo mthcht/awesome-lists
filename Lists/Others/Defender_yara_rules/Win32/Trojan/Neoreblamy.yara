@@ -4941,3 +4941,26 @@ rule Trojan_Win32_Neoreblamy_NJU_2147943447_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_HA_2147943523_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.HA!MTB"
+        threat_id = "2147943523"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "forfiles" wide //weight: 1
+        $x_5_2 = "wscript.exe /c cmd /C @FNAME" wide //weight: 5
+        $x_10_3 = {70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 [0-56] 2e 00 77 00 73 00 66 00 5e 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

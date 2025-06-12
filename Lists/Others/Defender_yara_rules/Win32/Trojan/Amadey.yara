@@ -3925,3 +3925,25 @@ rule Trojan_Win32_Amadey_ZE_2147942701_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_RPB_2147943510_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.RPB!MTB"
+        threat_id = "2147943510"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = {d6 b6 42 53 92 d7 2c 00 92 d7 2c 00 92 d7 2c 00 86 bc 2f 01 9f d7 2c 00 86 bc 29 01 28 d7 2c 00 c0 a2 28 01 80 d7 2c 00 c0 a2 2f 01 84 d7 2c 00 c0 a2 29 01 cb d7 2c 00 a3 8b d1 00 90 d7 2c 00 86 bc 28 01 85 d7 2c 00 86 bc 2d 01 81 d7 2c 00 92 d7 2d 00 62 d7 2c 00 5e a2 25 01 93 d7 2c 00 5e a2 d3 00 93 d7 2c 00 5e a2 2e 01 93 d7 2c 00 52 69 63 68 92 d7 2c}  //weight: 100, accuracy: High
+        $x_1_2 = "\\\\.\\Global\\oreansx64" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

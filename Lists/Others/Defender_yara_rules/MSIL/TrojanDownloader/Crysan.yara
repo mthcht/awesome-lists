@@ -69,3 +69,26 @@ rule TrojanDownloader_MSIL_Crysan_RDA_2147841235_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Crysan_ACY_2147943529_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Crysan.ACY!MTB"
+        threat_id = "2147943529"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 04 16 6f ?? 00 00 0a 0a 06 14 28 ?? 00 00 0a 39 ?? 00 00 00 0e 04 04 25 3a ?? 00 00 00 26 72 ?? 00 00 70 51 16 0b}  //weight: 2, accuracy: Low
+        $x_1_2 = {0a 0b 07 72 ?? 00 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 0a}  //weight: 1, accuracy: Low
+        $x_5_3 = "filecrumb.nl/panel/uploads/Aepnziwy.wav" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

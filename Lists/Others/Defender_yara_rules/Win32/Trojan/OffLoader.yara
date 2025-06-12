@@ -4244,10 +4244,11 @@ rule Trojan_Win32_OffLoader_AZTA_2147941476_0
         $x_10_4 = "://dogsjar.xyz/hit.php?" ascii //weight: 10
         $x_10_5 = "://skintemper.xyz/biu.php?" ascii //weight: 10
         $x_10_6 = "://governmentmoney.icu/glf.php?" ascii //weight: 10
-        $x_1_7 = "/silent" ascii //weight: 1
-        $x_1_8 = "/weaksecurity" ascii //weight: 1
-        $x_1_9 = "/nocookies" ascii //weight: 1
-        $x_1_10 = "/resume" ascii //weight: 1
+        $x_10_7 = "://robinkiss.info/krr.php?" ascii //weight: 10
+        $x_1_8 = "/silent" ascii //weight: 1
+        $x_1_9 = "/weaksecurity" ascii //weight: 1
+        $x_1_10 = "/nocookies" ascii //weight: 1
+        $x_1_11 = "/resume" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (
