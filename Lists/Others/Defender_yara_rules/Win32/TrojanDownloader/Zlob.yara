@@ -305,31 +305,6 @@ rule TrojanDownloader_Win32_Zlob_16998_10
         family = "Zlob"
         severity = "16"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "36"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "/search.php?qq=%s" ascii //weight: 10
-        $x_10_2 = {43 4c 41 46 2e 64 6c 6c 00 44 6c 6c 43 61 6e 55 6e 6c 6f 61 64 4e 6f 77 00 44 6c 6c 47 65 74 43 6c 61 73 73 4f 62 6a 65 63 74 00 44 6c 6c 52 65 67 69 73 74 65 72 53 65 72 76 65 72 00}  //weight: 10, accuracy: High
-        $x_5_3 = "http://auto.search.msn.com/response.asp?MT=" wide //weight: 5
-        $x_5_4 = "/search.php?qq=%s" wide //weight: 5
-        $x_5_5 = {72 65 6c 65 61 73 65 00}  //weight: 5, accuracy: High
-        $x_1_6 = "{5DDE5591-A8AB-4897-93EF-1E4E943F85A7}" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_Win32_Zlob_16998_11
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win32/Zlob"
-        threat_id = "16998"
-        type = "TrojanDownloader"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Zlob"
-        severity = "16"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "640"
         strings_accuracy = "Low"
     strings:
@@ -356,7 +331,7 @@ rule TrojanDownloader_Win32_Zlob_16998_11
         )
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_12
+rule TrojanDownloader_Win32_Zlob_16998_11
 {
     meta:
         author = "defender2yara"
@@ -385,7 +360,7 @@ rule TrojanDownloader_Win32_Zlob_16998_12
         )
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_13
+rule TrojanDownloader_Win32_Zlob_16998_12
 {
     meta:
         author = "defender2yara"
@@ -432,7 +407,7 @@ rule TrojanDownloader_Win32_Zlob_16998_13
         )
 }
 
-rule TrojanDownloader_Win32_Zlob_16998_14
+rule TrojanDownloader_Win32_Zlob_16998_13
 {
     meta:
         author = "defender2yara"
