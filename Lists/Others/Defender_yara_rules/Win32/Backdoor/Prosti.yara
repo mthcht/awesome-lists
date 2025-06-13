@@ -97,3 +97,31 @@ rule Backdoor_Win32_Prosti_AG_2147627798_0
         )
 }
 
+rule Backdoor_Win32_Prosti_CCJZ_2147943648_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Prosti.CCJZ!MTB"
+        threat_id = "2147943648"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Prosti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Start To InJect" ascii //weight: 2
+        $x_2_2 = "Dllrun" ascii //weight: 2
+        $x_1_3 = "Buf_CoolDll" ascii //weight: 1
+        $x_1_4 = "RealHost:" ascii //weight: 1
+        $x_1_5 = "HostPID:" ascii //weight: 1
+        $x_1_6 = "SYSTEM\\CurrentControlSet\\Services\\NetDDE\\SysDll" ascii //weight: 1
+        $x_1_7 = "\\Temp\\comb.dll" ascii //weight: 1
+        $x_1_8 = "C:\\$RECYCLE.BIN" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

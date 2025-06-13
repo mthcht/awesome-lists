@@ -1363,3 +1363,28 @@ rule Trojan_Win32_Stealer_DAK_2147941711_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_NJD_2147943629_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.NJD!MTB"
+        threat_id = "2147943629"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b c8 83 e1 0f 03 c1 1b c9 0b c1 59 e9 ?? ?? ?? ?? 51 8d 4c 24 08 2b c8 83 e1 07 03 c1 1b c9 0b c1}  //weight: 2, accuracy: Low
+        $x_1_2 = {49 f1 60 68 21 00 9d c1 95 3f 90 42 fb a7 65 de eb 9b b2 32 fa 19 32 91 db 06 cc d1 6e 6a 19 48}  //weight: 1, accuracy: High
+        $x_1_3 = {f0 e6 98 0f 4f 4b b7 95 85 05 f8 d2 ec 54 fd 59 5f bc 6e d7 76 91 55 59 df 06 1d 9c 5b e0 39 07}  //weight: 1, accuracy: High
+        $x_1_4 = {99 4c 95 a1 ce 78 0a 5c 91 39 69 79 c6 c7 f0 ee ce a2 f8 f5 39 da f0 09 f7 64 06 37 54 cb 92 60}  //weight: 1, accuracy: High
+        $x_1_5 = {74 d7 de 71 a6 40 82 21 a7 97 12 aa 64 69 9d 50 67 32 3f a9 cd e9 65 ec cb 95 e6 30 30 33 f2 45}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

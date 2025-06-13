@@ -19,11 +19,13 @@ rule Trojan_Win32_SuspClickFix_A_2147941552_0
         $x_1_5 = {43 00 3a 00 5c 00 50 00 72 00 6f 00 67 00 72 00 61 00 6d 00 44 00 61 00 74 00 61 00 5c 00 [0-32] 2e 00 62 00 61 00 74 00}  //weight: 1, accuracy: Low
         $x_1_6 = {5c 00 41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 52 00 6f 00 61 00 6d 00 69 00 6e 00 67 00 5c 00 [0-32] 2e 00 7a 00 69 00 70 00}  //weight: 1, accuracy: Low
         $x_1_7 = {43 00 3a 00 5c 00 50 00 72 00 6f 00 67 00 72 00 61 00 6d 00 44 00 61 00 74 00 61 00 5c 00 [0-32] 2e 00 7a 00 69 00 70 00}  //weight: 1, accuracy: Low
-        $x_1_8 = ".aliyuncs.com/" wide //weight: 1
-        $x_1_9 = ".myqcloud.com/" wide //weight: 1
+        $x_1_8 = {43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 [0-32] 5c 00 [0-32] 2e 00 7a 00 69 00 70 00}  //weight: 1, accuracy: Low
+        $x_1_9 = ".aliyuncs.com/" wide //weight: 1
+        $x_1_10 = ".myqcloud.com/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
+            ((1 of ($x_3_*) and 7 of ($x_1_*))) or
             ((2 of ($x_3_*) and 4 of ($x_1_*))) or
             ((3 of ($x_3_*) and 1 of ($x_1_*))) or
             (all of ($x*))
@@ -150,11 +152,39 @@ rule Trojan_Win32_SuspClickFix_F_2147942715_0
         $x_1_3 = {20 00 2d 00 43 00 20 00 43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 [0-32] 5c 00 41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 52 00 6f 00 61 00 6d 00 69 00 6e 00 67 00 5c 00}  //weight: 1, accuracy: Low
         $x_1_4 = {20 00 2d 00 78 00 66 00 20 00 43 00 3a 00 5c 00 50 00 72 00 6f 00 67 00 72 00 61 00 6d 00 44 00 61 00 74 00 61 00 5c 00 [0-32] 2e 00 7a 00 69 00 70 00}  //weight: 1, accuracy: Low
         $x_1_5 = " -C C:\\ProgramData\\" wide //weight: 1
+        $x_1_6 = {20 00 2d 00 78 00 66 00 20 00 43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 50 00 75 00 62 00 6c 00 69 00 63 00 5c 00 [0-48] 2e 00 7a 00 69 00 70 00}  //weight: 1, accuracy: Low
+        $x_1_7 = " -C C:\\Users\\Public\\" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
             ((1 of ($x_5_*) and 2 of ($x_1_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_SuspClickFix_H_2147943617_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.H"
+        threat_id = "2147943617"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = " cmd.exe /c cmd.exe /c " wide //weight: 1
+        $x_1_3 = "POST" wide //weight: 1
+        $x_1_4 = "http" wide //weight: 1
+        $x_1_5 = ".php" wide //weight: 1
+        $x_1_6 = " -o " wide //weight: 1
+        $x_1_7 = "&& start " wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
