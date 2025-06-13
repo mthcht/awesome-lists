@@ -1429,3 +1429,25 @@ rule Trojan_AndroidOS_SAgnt_BH_2147926122_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_SAgnt_CA_2147943674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SAgnt.CA!MTB"
+        threat_id = "2147943674"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0c 00 6e 10 81 01 00 00 0c 00 1c 01 9c 00 1a 02 03 54 12 13 23 34 3d 16 1c 05 21 0f 12 06 4d 05 04 06 6e 30 67 59 21 04 0c 01 23 32 40 16 4d 08 02 06 6e 30 d6 5a 01 02 0c 00 1f 00 f0 0e 6e 10 2b 59 00 00 0a 07}  //weight: 1, accuracy: High
+        $x_1_2 = {22 00 52 01 6e 10 0e 01 02 00 0c 01 70 20 fd 06 10 00 22 01 87 04 70 20 ed 1f 21 00 6e 20 07 07 10 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

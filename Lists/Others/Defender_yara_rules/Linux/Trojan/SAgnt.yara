@@ -479,3 +479,49 @@ rule Trojan_Linux_SAgnt_Z_2147943545_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_SAgnt_V_2147943673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SAgnt.V!MTB"
+        threat_id = "2147943673"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 31 ed 48 89 e7 48 8d 35 2a 46 27 00 48 83 e4 f0 e8 00 00 00 00 48 81 ec 90 01 00 00 8b 07 49 89 f8 48 89 f1 ff c0 48 98}  //weight: 1, accuracy: High
+        $x_1_2 = {44 89 fa 31 c0 48 89 54 24 08 e8 9f 4e 06 00 44 89 ff 48 89 04 24 e8 6e d9 06 00 31 c0 e8 8c 4e 06 00 48 8b 0c 24 48 8b 54 24 08 48 29 c8 78 78 66 0f ef c0 f2 48 0f 2a c0}  //weight: 1, accuracy: High
+        $x_1_3 = {4c 8d 25 96 03 00 00 4c 89 e7 e8 ce 50 06 00 4c 89 e7 48 8d 74 24 18 e8 f1 50 06 00 41 89 c4 85 c0 75 a1 48 83 7c 24 18 00 0f 84 06 01 00 00 80 3d 4f 49 27 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_Linux_SAgnt_Y_2147943677_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SAgnt.Y!MTB"
+        threat_id = "2147943677"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e0 03 00 90 00 e8 47 f9 26 94 01 94 e0 03 00 90 00 e8 47 f9 e1 a3 01 91 32 94 01 94 c0 fc ff 35 e0 37 40 f9 20 05 00 b4 03 03 00 91 60 60 40 39}  //weight: 1, accuracy: High
+        $x_1_2 = {fd 7b b9 a9 fd 03 00 91 f3 53 01 a9 f7 63 03 a9 f8 03 00 b0 13 03 00 91 f7 03 00 2a f5 5b 02 a9 f6 03 02 aa 60 12 40 b9 f5 03 01 aa a1 a7 01 94 e1 03 00 2a 60 06 40 b9 61 12 00 b9 9d a7 01 94}  //weight: 1, accuracy: High
+        $x_1_3 = {fd 7b be a9 fd 03 00 91 f3 0b 00 f9 f3 03 00 b0 60 c2 4e 39 40 01 00 37 de ff ff 97 e0 03 00 90 00 c8 47 f9 80 00 00 b4 c0 03 00 f0 00 c0 1d 91}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

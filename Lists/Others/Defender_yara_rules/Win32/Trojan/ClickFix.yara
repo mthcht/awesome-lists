@@ -3859,6 +3859,7 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         $n_600_20 = ".hta" wide //weight: -600
         $n_600_21 = "explorer http:" wide //weight: -600
         $n_600_22 = "\\application\\chrome.exe" wide //weight: -600
+        $n_600_23 = ".nbsdev.co.uk" wide //weight: -600
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
