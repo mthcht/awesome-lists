@@ -6723,3 +6723,49 @@ rule Trojan_Win32_Zusy_PGZY_2147943226_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_HBD_2147943583_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.HBD!MTB"
+        threat_id = "2147943583"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {ff 74 24 10 ff 74 24 10 83 04 24 05 ?? ?? ?? ?? ?? 8f 44 24 28 8f 44 24 28 ff 74 24 08 ff 74 24 08 8d 44 24 2c 8b 10 29 14 24 8b 50 04 19 54 24 04 8f 44 24 30 8f 44 24 30 ff 74 24 30 ff 74 24 30 5b 5f 83 ff 00 7f 0b 7c 05 83 fb 05 77 04 31 c0 eb 05}  //weight: 10, accuracy: Low
+        $x_1_2 = {89 44 24 34 8b 44 24 2c 50 ff 74 24 38 ff 74 24 08}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_LMA_2147943593_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LMA!MTB"
+        threat_id = "2147943593"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {83 e1 04 33 c2 03 f9 6a 00 6a 02 89 3d ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 32 d1 8b 44 24 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 80 ca 0c 50 c0 ea 02 81 e2 ff 00 00 00 89 54 24 0c db 44 24 0c}  //weight: 2, accuracy: Low
+        $x_1_2 = {50 64 89 25 00 00 00 00 83 ec 1c 53 56 57 89 65 e8 9b 33 ff 89 7d fc}  //weight: 1, accuracy: High
+        $x_1_3 = {40 4e e6 40 bb fe ff ff ff 7b}  //weight: 1, accuracy: High
+        $x_1_4 = {6a 00 6a 00 68 ?? ?? ?? ?? ?? ?? ?? ?? ?? ff d0 ff d7 48}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

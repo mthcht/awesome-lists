@@ -228,35 +228,6 @@ rule TrojanDownloader_Win32_Renos_2147799811_4
         family = "Renos"
         severity = "9"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "33"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = {73 00 68 00 65 00 72 00 69 00 66 00 66 00 2e 00 65 00 78 00 65 00 00 00 77}  //weight: 10, accuracy: High
-        $x_10_2 = "InternetGetConnectedState" ascii //weight: 10
-        $x_10_3 = "gethostbyname" ascii //weight: 10
-        $x_1_4 = "System error: spyware intrusion detected!" ascii //weight: 1
-        $x_1_5 = "Critical error: system in danger!" ascii //weight: 1
-        $x_1_6 = "Windows has detected spyware" ascii //weight: 1
-        $x_1_7 = "System Alert!" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((3 of ($x_10_*) and 3 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule TrojanDownloader_Win32_Renos_2147799811_5
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win32/Renos"
-        threat_id = "2147799811"
-        type = "TrojanDownloader"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Renos"
-        severity = "9"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "208"
         strings_accuracy = "High"
     strings:
@@ -288,7 +259,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_5
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_6
+rule TrojanDownloader_Win32_Renos_2147799811_5
 {
     meta:
         author = "defender2yara"
@@ -395,7 +366,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_6
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_7
+rule TrojanDownloader_Win32_Renos_2147799811_6
 {
     meta:
         author = "defender2yara"
@@ -417,7 +388,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_7
         (1 of ($x*))
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_8
+rule TrojanDownloader_Win32_Renos_2147799811_7
 {
     meta:
         author = "defender2yara"
@@ -446,6 +417,29 @@ rule TrojanDownloader_Win32_Renos_2147799811_8
             ((7 of ($x_10_*) and 1 of ($x_5_*))) or
             (all of ($x*))
         )
+}
+
+rule TrojanDownloader_Win32_Renos_2147799811_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Renos"
+        threat_id = "2147799811"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Renos"
+        severity = "9"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "Windows\\xpupdate.exe" ascii //weight: 10
+        $x_10_2 = {4e 6f 43 68 61 6e 67 69 6e 67 57 61 6c 6c 70 61 70 65 72 [0-16] 53 4f 46 54 57 41 52 45 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 50 6f 6c 69 63 69 65 73 5c 41 63 74 69 76 65 44 65 73 6b 74 6f 70}  //weight: 10, accuracy: Low
+        $x_10_3 = {46 6f 72 63 65 41 63 74 69 76 65 44 65 73 6b 74 6f 70 4f 6e [0-16] 53 4f 46 54 57 41 52 45 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 50 6f 6c 69 63 69 65 73 5c 45 78 70 6c 6f 72 65 72}  //weight: 10, accuracy: Low
+        $x_1_4 = "69.50.1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
 rule TrojanDownloader_Win32_Renos_2147799811_9

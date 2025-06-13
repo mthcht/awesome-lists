@@ -2302,3 +2302,46 @@ rule Trojan_MSIL_Crysan_ACA_2147943543_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_GVA_2147943601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.GVA!MTB"
+        threat_id = "2147943601"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "://apstori.ru/panel" wide //weight: 2
+        $x_1_2 = "RgyNO7Fqn" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Crysan_GVB_2147943602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.GVB!MTB"
+        threat_id = "2147943602"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7e 05 00 00 04 25 39 05 00 00 00 38 17 00 00 00 26 7e 04 00 00 04 fe 06 0f 00 00 06 73 07 00 00 0a 25 80 05 00 00 04 28 01 00 00 2b 13 02}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -44,3 +44,25 @@ rule Trojan_Win32_KoiLoader_GX_2147915512_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KoiLoader_C_2147943600_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KoiLoader.C!MTB"
+        threat_id = "2147943600"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KoiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {33 d2 f7 75 ?? 8b 45 ?? 0f b6 0c 10 8b 55 ?? 03 55 ?? 0f b6 02 33 c1 8b 4d ?? 03 4d ?? 88 01}  //weight: 2, accuracy: Low
+        $x_2_2 = {0f b7 45 ec 6b c8 ?? 8b 55 e8 8b 44 0a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

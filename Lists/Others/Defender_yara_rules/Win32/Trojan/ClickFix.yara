@@ -5308,3 +5308,50 @@ rule Trojan_Win32_ClickFix_DDJ_2147943522_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DCN_2147943608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DCN!MTB"
+        threat_id = "2147943608"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_1_2 = "-\"w\" h -C" wide //weight: 1
+        $x_1_3 = {e2 00 80 00 94 00 77 00 20 00 68 00 20 00 2d 00 22 00 43 00}  //weight: 1, accuracy: High
+        $x_1_4 = "/w h /\"C" wide //weight: 1
+        $x_1_5 = "-W h -C" wide //weight: 1
+        $x_1_6 = "-W HiDdEn -C " wide //weight: 1
+        $x_1_7 = "-w minimized -c" wide //weight: 1
+        $x_1_8 = "-w 1 -c" wide //weight: 1
+        $x_1_9 = "-w h -com" wide //weight: 1
+        $x_1_10 = "-windowstyle h -c" wide //weight: 1
+        $x_1_11 = "-wi 1 -com" wide //weight: 1
+        $x_1_12 = "-window h -co" wide //weight: 1
+        $x_1_13 = "-wi h -co" wide //weight: 1
+        $x_1_14 = "-w h -command" wide //weight: 1
+        $x_1_15 = {e2 00 80 00 95 00 77 00 20 00 68 00 20 00 e2 00 80 00 94 00 43 00}  //weight: 1, accuracy: High
+        $x_1_16 = "/w h /C" wide //weight: 1
+        $x_1_17 = {e2 00 80 00 95 00 57 00 20 00 68 00 20 00 2d 00 63 00}  //weight: 1, accuracy: High
+        $x_1_18 = {2d 00 57 00 20 00 68 00 20 00 e2 00 80 00 94 00 43 00}  //weight: 1, accuracy: High
+        $x_1_19 = "-w h -NoP -c" wide //weight: 1
+        $x_1_20 = {e2 00 80 00 95 00 77 00 20 00 68 00 20 00 2f 00 63 00}  //weight: 1, accuracy: High
+        $x_1_21 = "/w h -C" wide //weight: 1
+        $n_1000_22 = "github.com" wide //weight: -1000
+        $n_1000_23 = "raw.githubusercontent.com" wide //weight: -1000
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

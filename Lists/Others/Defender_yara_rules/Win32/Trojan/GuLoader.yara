@@ -4045,3 +4045,26 @@ rule Trojan_Win32_GuLoader_RAS_2147943225_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RAT_2147943599_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAT!MTB"
+        threat_id = "2147943599"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "underopdelendes countertreason intensivering" ascii //weight: 1
+        $x_1_2 = "svanesang sectarial" ascii //weight: 1
+        $x_1_3 = "disaugment thrummed.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
