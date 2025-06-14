@@ -34,8 +34,10 @@ rule Trojan_Win32_Beaconpy_B_2147779712_0
         strings_accuracy = "Low"
     strings:
         $x_3_1 = {75 00 72 00 6c 00 6c 00 69 00 62 00 2e 00 72 00 65 00 71 00 75 00 65 00 73 00 74 00 [0-16] 65 00 78 00 65 00 63 00 28 00}  //weight: 3, accuracy: Low
+        $n_100_2 = "install.python-poetry.org" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

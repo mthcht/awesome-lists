@@ -2340,8 +2340,9 @@ rule Trojan_MSIL_Crysan_GVB_2147943602_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {7e 05 00 00 04 25 39 05 00 00 00 38 17 00 00 00 26 7e 04 00 00 04 fe 06 0f 00 00 06 73 07 00 00 0a 25 80 05 00 00 04 28 01 00 00 2b 13 02}  //weight: 1, accuracy: High
+        $x_1_2 = {0b 07 20 c0 00 00 00 5f 20 c0 00 00 00 40 2d 00 00 00 07 20 c0 00 00 00 61 1e 62 02 28 c1 02 00 06 60 0c 02 7b 14 01 00 04 08 6f 11 01 00 0a 0d 02 7b 14 01 00 04}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 

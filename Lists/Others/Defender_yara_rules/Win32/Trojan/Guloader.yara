@@ -2752,6 +2752,37 @@ rule Trojan_Win32_Guloader_RPM_2147826306_0
         family = "Guloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "29"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Analerotikken\\cay.htm" ascii //weight: 1
+        $x_1_2 = "affldigst\\flyman.gif" ascii //weight: 1
+        $x_1_3 = "Kyststrkninger.zip" ascii //weight: 1
+        $x_1_4 = "skolegaarde.txt" ascii //weight: 1
+        $x_10_5 = "torulas.zip" ascii //weight: 10
+        $x_1_6 = "smudsets\\doubleheartedness.bin" ascii //weight: 1
+        $x_1_7 = "Cataleptize\\hksaksens.ini" ascii //weight: 1
+        $x_1_8 = "furfur.lnk" ascii //weight: 1
+        $x_1_9 = "humdrumminess\\rdvines.zip" ascii //weight: 1
+        $x_10_10 = "oxyderingerne\\kalkenes\\Svederemmenes" ascii //weight: 10
+        $x_1_11 = "Indtappes.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RPM_2147826306_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RPM!MTB"
+        threat_id = "2147826306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "High"
@@ -5502,6 +5533,28 @@ rule Trojan_Win32_Guloader_AO_2147941811_0
         $x_1_5 = "Bindemiddelets120.dll" ascii //weight: 1
         $x_1_6 = "Sniglbe225.HAN" ascii //weight: 1
         $x_1_7 = "Inkaminationens.str" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_SLEF_2147943697_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SLEF!MTB"
+        threat_id = "2147943697"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "hurtlingly ergometercyklen.exe" wide //weight: 2
+        $x_2_2 = "polyphasal snotnset" wide //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))
