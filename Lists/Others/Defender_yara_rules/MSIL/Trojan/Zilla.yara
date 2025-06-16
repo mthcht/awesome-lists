@@ -1606,3 +1606,25 @@ rule Trojan_MSIL_Zilla_GPP_2147943033_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_NITC_2147943750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.NITC!MTB"
+        threat_id = "2147943750"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 73 10 00 00 0a 0b 07 72 61 00 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 0a dd 0d 00 00 00 07 39 06 00 00 00 07 6f ?? 00 00 0a dc dd 03 00 00 00 26 de bf}  //weight: 2, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

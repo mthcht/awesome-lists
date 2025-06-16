@@ -2479,6 +2479,28 @@ rule Trojan_MSIL_Stealer_NITA_2147926210_1
         )
 }
 
+rule Trojan_MSIL_Stealer_NITA_2147926210_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.NITA!MTB"
+        threat_id = "2147926210"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b 5a 12 01 28 ?? 00 00 0a 0c 12 02 28 ?? 00 00 0a 0d 7e 01 00 00 04 12 02 28 ?? 00 00 0a 28 ?? 00 00 0a 13 04 09 28 ?? 00 00 0a 2c 2f 12 02 28 ?? 00 00 0a 72 01 00 00 70 28 ?? 00 00 0a 2c 0f 09 11 04 7e 07 00 00 04 28 ?? 00 00 06 2b 0d 09 11 04 7e 06 00 00 04 28 ?? 00 00 06 12 01 28 ?? 00 00 0a 2d 9d}  //weight: 2, accuracy: Low
+        $x_1_2 = {72 17 00 00 70 6f ?? 00 00 0a 17 58 6f ?? 00 00 0a 13 06 02 11 05 28 ?? 00 00 0a 13 07 11 07 8e 2c 1e 11 07 16 9a 11 06 28 ?? 00 00 0a 0c 03 11 07 16 9a 28 ?? 00 00 0a 11 06 28 ?? 00 00 0a 0d 09 28 ?? 00 00 0a 13 04 11 04 28 ?? 00 00 0a 2d 08}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Stealer_AJEA_2147926954_0
 {
     meta:

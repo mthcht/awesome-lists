@@ -286,3 +286,26 @@ rule Trojan_Win32_ShellcodeRunner_SCP_2147943379_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_NIT_2147943747_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.NIT!MTB"
+        threat_id = "2147943747"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {22 6c 69 62 2e 6d 69 6e 2e 6a 73 22 3b 0d 0a 20 20 20 20 20 20 20 20 75 73 69 6e 67 20 28 46 69 6c 65 53 74 72 65 61 6d 20 66 73 20 3d 20 6e 65 77 20 46 69 6c 65 53 74 72 65 61 6d 28 70 61 74 68 2c 20 46 69 6c 65 4d 6f 64 65 2e 4f 70 65 6e 2c 20 46 69 6c 65 41 63 63 65 73 73 2e 52 65 61 64 29 29}  //weight: 2, accuracy: High
+        $x_2_2 = {6c 65 6e 20 3d 20 28 75 69 6e 74 29 66 73 2e 4c 65 6e 67 74 68 20 2f 20 34 20 2d 20 32 35 36 3b 0d 0a 0d 0a 20 20 20 20 20 20 20 20 20 20 20 20 49 6e 74 50 74 72 20 61 20 3d 20 42 6c 61 47 65 74 28 6c 65 6e 29 3b 0d 0a 0d 0a 20 20 20 20 20 20 20 20 20 20 20 20 66 6f 72 20 28 69 6e 74 20 69 20 3d 20 30 3b 20 69 20 3c 20 32 35 36 3b 20 69 2b 2b 29 20 7b 0d 0a 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 69 66 20 28 66 73 2e 52 65 61 64 28 62 75 66 66 65 72 2c 20 30 2c 20 34 29 20 21 3d 20 34 29}  //weight: 2, accuracy: High
+        $x_1_3 = ".WriteByte(a, pos, (byte)((map[key] + 256 - (pos % 256)) % 256))" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
