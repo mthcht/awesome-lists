@@ -983,3 +983,31 @@ rule Trojan_Win64_CoinMiner_ASTA_2147941257_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_KK_2147943866_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.KK!MTB"
+        threat_id = "2147943866"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {76 00 70 00 70 00 65 00 70 00 7a 00 7d 00 7f 00 60 00 0f 00 7e 00 62 00 61 00 60 00 67 00 60 00 13 00 14 00 12 00 1b 00 6e 00 27 00 5b 00 00 00 67 42 5b 7d 57 4e 5e 4e 7e 4c 56 34 28 21 22 28}  //weight: 6, accuracy: High
+        $x_2_2 = {8b c2 c1 e8 1f 03 d0 0f b7 c2 6b d0 ?? 41 0f b7 c2 41 ff c2 66 2b c2 66 83 c0 ?? 66 31 41 fe 41 83 fa 1d}  //weight: 2, accuracy: Low
+        $x_3_3 = {4c 8d 85 a8 04 00 00 49 83 fb 0f 4d 0f 47 c2 49 8b cd 48 83 3d ?? 0e 05 00 0f 48 0f 47 0d ?? ?? 05 00 33 d2 49 8b c1 48 f7 35 ?? ?? 05 00 48 03 d1 48 8d 8d 38 05 00 00 48 83 bd 50 05 00 00 0f 48 0f 47 8d 38 05 00 00 43 0f b6 04 08 32 02 42 88 04 09 49 ff c1 4c 3b cb}  //weight: 3, accuracy: Low
+        $x_1_4 = "xai830k.com" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -906,6 +906,33 @@ rule Trojan_Win32_Guloader_AC_2147761824_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_AR_2147762216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.AR!MTB"
+        threat_id = "2147762216"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Colobium29\\Nomaden.dll" ascii //weight: 1
+        $x_1_2 = "madlavningsskribenter\\lipotropy.ini" ascii //weight: 1
+        $x_1_3 = "Recorporify\\enhjrnings.ini" ascii //weight: 1
+        $x_1_4 = "Renommeers\\Tobaksaskes.bin" ascii //weight: 1
+        $x_1_5 = "orgasmerne.ini" ascii //weight: 1
+        $x_1_6 = "skovhugsten\\xiphopagous.htm" ascii //weight: 1
+        $x_1_7 = "Rammeloves222.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_AV_2147773835_0
 {
     meta:

@@ -1075,3 +1075,27 @@ rule TrojanDownloader_MSIL_AsyncRAT_SO_2147931330_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_AsyncRAT_ELM_2147943878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/AsyncRAT.ELM!MTB"
+        threat_id = "2147943878"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Bookings_056_07.exe" ascii //weight: 1
+        $x_2_2 = "Helpfeel Inc" ascii //weight: 2
+        $x_1_3 = "Gyazo: Screen Uploader" ascii //weight: 1
+        $x_2_4 = "http://144.172.116.121/uiu/Awuolavee.mp3" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

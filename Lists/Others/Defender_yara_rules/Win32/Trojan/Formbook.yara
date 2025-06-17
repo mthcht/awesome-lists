@@ -636,6 +636,32 @@ rule Trojan_Win32_Formbook_AK_2147766119_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Formbook_AK_2147766119_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Formbook.AK!MTB"
+        threat_id = "2147766119"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FILEINSTALL ( \"biopsies\" , @TEMPDIR & \"\\biopsies\" , 1 )" ascii //weight: 1
+        $x_1_2 = "81 116 119 112 90 123 112 121" ascii //weight: 1
+        $x_1_3 = "FILEWRITE ( 818 , \"07ekpXoM\" )" ascii //weight: 1
+        $x_1_4 = "HOTKEYSET ( \"eFnO2BEwhd" ascii //weight: 1
+        $x_1_5 = "CONSOLEWRITE ( \"16lsG6Dw\" )" ascii //weight: 1
+        $x_1_6 = "REGDELETE ( \"default\" , \"R8pbb7J2\" )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Formbook_SB_2147781179_0
 {
     meta:
