@@ -1,0 +1,22 @@
+{
+    "name": "MicrosoftCloudAppSecurity.EastAsia",
+    "id": "MicrosoftCloudAppSecurity.EastAsia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "MicrosoftCloudAppSecurity",
+        "addressPrefixes": [
+            "4.192.252.174/31",
+            "4.192.252.176/28",
+            "4.192.252.192/29",
+            "4.192.252.200/30",
+            "4.252.149.40/29",
+            "4.252.149.64/28",
+            "4.252.149.128/25",
+            "13.75.39.128/27"
+        ],
+        "networkFeatures": null
+    }
+}

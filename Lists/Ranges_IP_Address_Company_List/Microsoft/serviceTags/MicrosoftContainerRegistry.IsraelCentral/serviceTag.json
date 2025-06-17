@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.IsraelCentral",
+    "id": "MicrosoftContainerRegistry.IsraelCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.217.58.64/29",
+            "20.217.74.64/29",
+            "20.217.90.64/29",
+            "2603:1040:1402:400::40/125",
+            "2603:1040:1402:800::40/125",
+            "2603:1040:1402:c00::40/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

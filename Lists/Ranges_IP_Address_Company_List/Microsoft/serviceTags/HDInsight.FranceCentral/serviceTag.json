@@ -1,0 +1,24 @@
+{
+    "name": "HDInsight.FranceCentral",
+    "id": "HDInsight.FranceCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "centralfrance",
+        "regionId": 19,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "20.43.45.224/29",
+            "20.188.39.64/32",
+            "40.79.130.248/29",
+            "40.89.157.135/32",
+            "2603:1020:805:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

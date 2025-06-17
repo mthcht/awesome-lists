@@ -1,0 +1,21 @@
+{
+    "name": "PowerQueryOnline.SouthAfricaWest",
+    "id": "PowerQueryOnline.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 7,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "102.37.64.182/31",
+            "102.37.87.176/29",
+            "102.133.56.96/31",
+            "172.209.9.232/29",
+            "172.209.15.16/28",
+            "2603:1000:4::200/123",
+            "2603:1000:4:402::160/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "ApiManagement.FranceSouth",
+    "id": "ApiManagement.FranceSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.39.80.2/32",
+            "20.111.111.0/28",
+            "40.79.178.68/31",
+            "40.79.179.192/28",
+            "2603:1020:905:2::740/124",
+            "2603:1020:905:402::140/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

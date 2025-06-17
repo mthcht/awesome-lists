@@ -1,0 +1,20 @@
+{
+    "name": "Dynamics365ForMarketingEmail.CanadaCentral",
+    "id": "Dynamics365ForMarketingEmail.CanadaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "Dynamics365ForMarketingEmail",
+        "addressPrefixes": [
+            "13.71.171.0/24"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

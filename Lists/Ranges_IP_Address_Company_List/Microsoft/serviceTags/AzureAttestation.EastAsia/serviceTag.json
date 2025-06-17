@@ -1,0 +1,17 @@
+{
+    "name": "AzureAttestation.EastAsia",
+    "id": "AzureAttestation.EastAsia",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "20.187.197.228/30",
+            "104.214.164.108/30",
+            "2603:1040:207:1::4c0/124"
+        ],
+        "networkFeatures": null
+    }
+}

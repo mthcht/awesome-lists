@@ -1,0 +1,20 @@
+{
+    "name": "MicrosoftContainerRegistry.SouthCentralUSSTG",
+    "id": "MicrosoftContainerRegistry.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.44.2.16/29"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

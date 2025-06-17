@@ -1,0 +1,30 @@
+{
+    "name": "AzureUpdateDelivery.CentralUS",
+    "id": "AzureUpdateDelivery.CentralUS",
+    "properties": {
+        "changeNumber": 16,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "AzureUpdateDelivery",
+        "addressPrefixes": [
+            "13.67.191.143/32",
+            "20.12.236.228/32",
+            "20.109.209.108/31",
+            "23.99.220.122/32",
+            "40.83.50.80/28",
+            "52.165.164.15/32",
+            "52.165.164.33/32",
+            "52.165.165.26/32",
+            "52.173.87.47/32",
+            "2603:1030:7::10/128",
+            "2603:1030:7::26/128",
+            "2603:1030:7::106/127",
+            "2603:1030:7::65e/128",
+            "2603:1030:7::712/128",
+            "2603:1030:7::79c/128",
+            "2603:1030:7:5::350/124"
+        ],
+        "networkFeatures": null
+    }
+}

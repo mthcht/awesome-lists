@@ -1,0 +1,23 @@
+{
+    "name": "HDInsight.SwitzerlandWest",
+    "id": "HDInsight.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 4,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "51.107.148.24/29",
+            "51.107.156.56/29",
+            "2603:1020:b04:5::350/124",
+            "2603:1020:b04:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

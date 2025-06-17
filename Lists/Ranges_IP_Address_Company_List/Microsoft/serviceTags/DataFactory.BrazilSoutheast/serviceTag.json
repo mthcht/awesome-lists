@@ -1,0 +1,24 @@
+{
+    "name": "DataFactory.BrazilSoutheast",
+    "id": "DataFactory.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "108.140.86.160/27",
+            "108.140.86.192/29",
+            "191.233.12.0/23",
+            "191.233.54.224/28",
+            "2603:1050:403::480/121",
+            "2603:1050:403::500/122",
+            "2603:1050:403:400::240/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

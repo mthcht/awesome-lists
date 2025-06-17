@@ -1,0 +1,21 @@
+{
+    "name": "PowerPlatformPlex.SouthCentralUS",
+    "id": "PowerPlatformPlex.SouthCentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southcentralus",
+        "regionId": 35,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "20.97.35.52/30",
+            "20.97.39.56/29",
+            "20.97.39.112/30",
+            "2603:1061:2004:200::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "AppService.PolandCentral",
+    "id": "AppService.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "20.215.12.0/24",
+            "2603:1020:1302:1::700/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

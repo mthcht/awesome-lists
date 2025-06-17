@@ -1,0 +1,17 @@
+{
+    "name": "AzureResourceManager.SouthCentralUSSTG",
+    "id": "AzureResourceManager.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "20.44.3.240/28",
+            "20.44.6.0/23",
+            "20.45.118.0/23"
+        ],
+        "networkFeatures": null
+    }
+}

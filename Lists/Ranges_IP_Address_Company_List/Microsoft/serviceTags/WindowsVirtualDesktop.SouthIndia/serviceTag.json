@@ -1,0 +1,17 @@
+{
+    "name": "WindowsVirtualDesktop.SouthIndia",
+    "id": "WindowsVirtualDesktop.SouthIndia",
+    "properties": {
+        "changeNumber": 8,
+        "region": "southindia",
+        "regionId": 22,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "40.64.144.208/29",
+            "40.64.145.32/28",
+            "2603:1061:2010:15::/117"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "DataFactory.WestIndia",
+    "id": "DataFactory.WestIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "4.187.66.0/23",
+            "20.38.133.192/28",
+            "2603:1040:806::440/122",
+            "2603:1040:806::500/121",
+            "2603:1040:806:402::330/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

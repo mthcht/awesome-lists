@@ -1,0 +1,18 @@
+{
+    "name": "AzureBackup.KoreaSouth",
+    "id": "AzureBackup.KoreaSouth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "52.147.113.0/26",
+            "52.231.147.32/27",
+            "52.231.147.64/26",
+            "2603:1040:e05:5::300/121"
+        ],
+        "networkFeatures": null
+    }
+}

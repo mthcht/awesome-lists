@@ -1,0 +1,23 @@
+{
+    "name": "HDInsight.SouthCentralUS",
+    "id": "HDInsight.SouthCentralUS",
+    "properties": {
+        "changeNumber": 4,
+        "region": "southcentralus",
+        "regionId": 35,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "13.73.240.8/29",
+            "13.73.254.192/29",
+            "172.215.132.128/29",
+            "2603:1030:807:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

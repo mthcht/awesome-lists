@@ -1,0 +1,30 @@
+{
+    "name": "AppServiceManagement.EastAsia",
+    "id": "AppServiceManagement.EastAsia",
+    "properties": {
+        "changeNumber": 5,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "13.75.34.192/26",
+            "13.75.127.117/32",
+            "20.205.69.32/28",
+            "20.205.74.192/26",
+            "20.205.82.192/26",
+            "23.99.115.5/32",
+            "40.83.120.64/32",
+            "40.83.121.56/32",
+            "40.83.125.161/32",
+            "65.52.172.237/32",
+            "168.63.132.240/32",
+            "2603:1040:207:402::100/122",
+            "2603:1040:207:800::80/122",
+            "2603:1040:207:c00::80/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "AzureMachineLearning.PolandCentral",
+    "id": "AzureMachineLearning.PolandCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.215.1.0/27",
+            "20.215.174.32/27",
+            "2603:1020:1302::200/122"
+        ],
+        "networkFeatures": null
+    }
+}

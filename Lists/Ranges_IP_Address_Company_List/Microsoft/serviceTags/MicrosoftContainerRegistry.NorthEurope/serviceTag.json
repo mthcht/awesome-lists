@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.NorthEurope",
+    "id": "MicrosoftContainerRegistry.NorthEurope",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "13.69.227.80/29",
+            "13.74.107.72/29",
+            "52.138.226.72/29",
+            "2603:1020:5:402::88/125",
+            "2603:1020:5:802::88/125",
+            "2603:1020:5:c02::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

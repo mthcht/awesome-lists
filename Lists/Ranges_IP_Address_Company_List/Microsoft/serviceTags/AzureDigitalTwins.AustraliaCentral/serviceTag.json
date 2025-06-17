@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.AustraliaCentral",
+    "id": "AzureDigitalTwins.AustraliaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.53.48.0/27",
+            "20.53.48.32/29",
+            "2603:1010:304:2::700/121"
+        ],
+        "networkFeatures": null
+    }
+}

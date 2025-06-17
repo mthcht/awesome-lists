@@ -1,0 +1,37 @@
+{
+    "name": "PowerPlatformInfra.GermanyWestCentral",
+    "id": "PowerPlatformInfra.GermanyWestCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "germanywc",
+        "regionId": 71,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "4.182.43.80/28",
+            "4.182.44.192/26",
+            "4.182.45.0/25",
+            "20.52.93.224/27",
+            "20.52.94.0/26",
+            "20.52.94.120/29",
+            "51.116.99.200/32",
+            "51.116.132.85/32",
+            "51.116.132.99/32",
+            "51.116.133.151/32",
+            "51.116.134.132/32",
+            "51.116.134.136/32",
+            "51.116.138.202/32",
+            "51.116.145.240/28",
+            "51.116.146.128/26",
+            "51.116.146.192/28",
+            "51.116.148.224/29",
+            "2603:1061:2002:5100::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

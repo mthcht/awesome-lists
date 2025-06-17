@@ -1,0 +1,16 @@
+{
+    "name": "AzureCognitiveSearch.UAENorth",
+    "id": "AzureCognitiveSearch.UAENorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "AzureCognitiveSearch",
+        "addressPrefixes": [
+            "20.38.136.128/26",
+            "2603:1040:904:1::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

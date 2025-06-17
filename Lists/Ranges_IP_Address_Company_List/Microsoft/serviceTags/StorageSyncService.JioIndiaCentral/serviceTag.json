@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.JioIndiaCentral",
+    "id": "StorageSyncService.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.192.32.232/29",
+            "20.207.4.104/29",
+            "2603:1040:1104:400::320/123"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "ServiceFabric.SwedenSouth",
+    "id": "ServiceFabric.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "51.12.203.64/29",
+            "51.12.204.240/30",
+            "2603:1020:1104:400::98/125"
+        ],
+        "networkFeatures": null
+    }
+}

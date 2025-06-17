@@ -1,0 +1,25 @@
+{
+    "name": "AppServiceManagement.PolandCentral",
+    "id": "AppServiceManagement.PolandCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.215.128.50/32",
+            "20.215.128.214/32",
+            "20.215.130.192/32",
+            "20.215.208.45/32",
+            "2603:1020:1302:400::80/122",
+            "2603:1020:1302:800::80/122",
+            "2603:1020:1302:c00::80/122",
+            "2603:10e1:100:2::14d7:8032/128",
+            "2603:10e1:100:2::14d7:80d6/128"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "AzureArcInfrastructure.NewZealandNorth",
+    "id": "AzureArcInfrastructure.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "172.204.165.72/30",
+            "172.204.177.160/32",
+            "2603:1010:502:2::130/124"
+        ],
+        "networkFeatures": null
+    }
+}

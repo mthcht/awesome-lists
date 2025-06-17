@@ -1,0 +1,17 @@
+{
+    "name": "AzureIoTHub.SouthCentralUSSTG",
+    "id": "AzureIoTHub.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "20.44.4.128/27",
+            "20.45.114.224/27",
+            "20.45.115.0/25"
+        ],
+        "networkFeatures": null
+    }
+}

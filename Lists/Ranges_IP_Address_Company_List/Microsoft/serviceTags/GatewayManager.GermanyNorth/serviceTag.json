@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.GermanyNorth",
+    "id": "GatewayManager.GermanyNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "51.116.48.72/29",
+            "51.116.59.32/29",
+            "51.116.77.96/27",
+            "2603:1020:d04::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

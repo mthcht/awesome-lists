@@ -1,0 +1,31 @@
+{
+    "name": "AzureKeyVault.WestEurope",
+    "id": "AzureKeyVault.WestEurope",
+    "properties": {
+        "changeNumber": 8,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "13.69.64.72/30",
+            "13.69.111.192/30",
+            "20.61.103.224/29",
+            "20.61.103.232/30",
+            "52.236.189.80/30",
+            "2603:1020:206::340/125",
+            "2603:1020:206:c::410/125",
+            "2603:1020:206:c::418/126",
+            "2603:1020:206:402::80/125",
+            "2603:1020:206:403::20/125",
+            "2603:1020:206:802::80/125",
+            "2603:1020:206:c02::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.NorthCentralUS",
+    "id": "StorageSyncService.NorthCentralUS",
+    "properties": {
+        "changeNumber": 3,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "40.80.188.24/29",
+            "2603:1030:608::340/123",
+            "2603:1030:608:402::5e0/123"
+        ],
+        "networkFeatures": null
+    }
+}

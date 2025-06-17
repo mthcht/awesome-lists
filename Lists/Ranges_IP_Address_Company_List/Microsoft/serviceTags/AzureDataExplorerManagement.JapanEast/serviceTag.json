@@ -1,0 +1,20 @@
+{
+    "name": "AzureDataExplorerManagement.JapanEast",
+    "id": "AzureDataExplorerManagement.JapanEast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "20.43.89.90/32",
+            "40.79.187.16/28",
+            "40.81.220.38/32",
+            "172.207.68.80/28",
+            "2603:1040:407::600/121",
+            "2603:1040:407:402::150/124"
+        ],
+        "networkFeatures": null
+    }
+}

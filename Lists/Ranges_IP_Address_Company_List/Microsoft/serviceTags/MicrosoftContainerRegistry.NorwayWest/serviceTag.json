@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.NorwayWest",
+    "id": "MicrosoftContainerRegistry.NorwayWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "norwayw",
+        "regionId": 74,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "51.120.218.16/29",
+            "2603:1020:f04:402::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

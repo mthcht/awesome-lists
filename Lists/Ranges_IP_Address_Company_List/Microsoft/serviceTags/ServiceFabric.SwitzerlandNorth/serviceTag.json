@@ -1,0 +1,21 @@
+{
+    "name": "ServiceFabric.SwitzerlandNorth",
+    "id": "ServiceFabric.SwitzerlandNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "switzerlandn",
+        "regionId": 66,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "20.208.18.72/30",
+            "51.103.202.72/30",
+            "51.107.59.40/29",
+            "51.107.76.20/32",
+            "2603:1020:a04:402::98/125",
+            "2603:1020:a04:802::98/125",
+            "2603:1020:a04:c02::98/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "AzureArcInfrastructure.MalaysiaSouth",
+    "id": "AzureArcInfrastructure.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.17.28.8/29",
+            "20.17.28.80/31"
+        ],
+        "networkFeatures": null
+    }
+}

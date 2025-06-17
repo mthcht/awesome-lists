@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.UAECentral",
+    "id": "AzureEventGrid.UAECentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.37.65.0/25",
+            "20.37.82.224/27",
+            "2603:1040:b04::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

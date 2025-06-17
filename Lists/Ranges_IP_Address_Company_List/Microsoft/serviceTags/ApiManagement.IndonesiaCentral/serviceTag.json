@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.IndonesiaCentral",
+    "id": "ApiManagement.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "70.153.154.240/28",
+            "2603:1040:1802::2c0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

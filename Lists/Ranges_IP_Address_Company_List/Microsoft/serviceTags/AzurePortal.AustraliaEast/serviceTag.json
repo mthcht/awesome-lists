@@ -1,0 +1,21 @@
+{
+    "name": "AzurePortal.AustraliaEast",
+    "id": "AzurePortal.AustraliaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "australiaeast",
+        "regionId": 3,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "20.37.195.224/27",
+            "20.37.196.252/30",
+            "20.37.198.64/27",
+            "20.53.44.4/30",
+            "20.53.44.64/29",
+            "2603:1010:6::100/121",
+            "2603:1010:6:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

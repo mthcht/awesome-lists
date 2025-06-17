@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.FranceCentral",
+    "id": "AzureEventGrid.FranceCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "centralfrance",
+        "regionId": 19,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.40.152.128/27",
+            "20.43.42.128/25",
+            "2603:1020:805:1::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

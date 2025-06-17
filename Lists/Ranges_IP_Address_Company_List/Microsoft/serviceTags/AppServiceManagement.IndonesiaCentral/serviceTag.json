@@ -1,0 +1,18 @@
+{
+    "name": "AppServiceManagement.IndonesiaCentral",
+    "id": "AppServiceManagement.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "70.153.166.0/26",
+            "2603:1040:1802:1::740/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

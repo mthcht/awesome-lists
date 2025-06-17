@@ -1,0 +1,24 @@
+{
+    "name": "AzureBackup.UAENorth",
+    "id": "AzureBackup.UAENorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.38.155.64/26",
+            "40.120.74.192/26",
+            "40.120.75.0/27",
+            "40.120.82.0/26",
+            "65.52.251.0/26",
+            "65.52.251.64/27",
+            "2603:1040:904:2::780/121",
+            "2603:1040:904:402::200/121",
+            "2603:1040:904:802::180/121",
+            "2603:1040:904:c02::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

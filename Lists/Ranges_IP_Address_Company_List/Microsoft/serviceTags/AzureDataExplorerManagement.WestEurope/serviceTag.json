@@ -1,0 +1,20 @@
+{
+    "name": "AzureDataExplorerManagement.WestEurope",
+    "id": "AzureDataExplorerManagement.WestEurope",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "13.69.106.240/28",
+            "51.145.176.215/32",
+            "57.153.217.192/28",
+            "2603:1020:206::600/121",
+            "2603:1020:206:402::150/124",
+            "2603:1020:206:403::190/124"
+        ],
+        "networkFeatures": null
+    }
+}

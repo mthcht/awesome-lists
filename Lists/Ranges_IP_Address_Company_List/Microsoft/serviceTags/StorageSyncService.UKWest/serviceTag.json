@@ -1,0 +1,18 @@
+{
+    "name": "StorageSyncService.UKWest",
+    "id": "StorageSyncService.UKWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "51.11.98.144/29",
+            "51.137.161.240/29",
+            "2603:1020:605::340/123",
+            "2603:1020:605:402::5e0/123"
+        ],
+        "networkFeatures": null
+    }
+}

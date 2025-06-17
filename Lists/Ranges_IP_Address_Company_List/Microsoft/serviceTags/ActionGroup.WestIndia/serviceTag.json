@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.WestIndia",
+    "id": "ActionGroup.WestIndia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.38.133.4/30",
+            "20.207.175.176/30",
+            "2603:1040:806::10c/126",
+            "2603:1040:806:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.JioIndiaWest",
+    "id": "AzureEventGrid.JioIndiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.192.164.0/25",
+            "2603:1040:d04::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

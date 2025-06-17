@@ -1,0 +1,28 @@
+{
+    "name": "AzureCosmosDB.JioIndiaWest",
+    "id": "AzureCosmosDB.JioIndiaWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "20.192.166.192/27",
+            "20.193.202.64/26",
+            "20.244.192.0/26",
+            "20.244.193.128/25",
+            "40.64.15.0/26",
+            "2603:1040:d04:1::60/123",
+            "2603:1040:d04:400::c0/122",
+            "2603:1040:d04:400::280/122",
+            "2603:1040:d04:400::3c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

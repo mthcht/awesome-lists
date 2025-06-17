@@ -1,0 +1,25 @@
+{
+    "name": "HDInsight.AustraliaSoutheast",
+    "id": "HDInsight.AustraliaSoutheast",
+    "properties": {
+        "changeNumber": 4,
+        "region": "australiasoutheast",
+        "regionId": 4,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "13.77.2.56/32",
+            "13.77.2.94/32",
+            "13.77.52.8/29",
+            "104.46.176.168/29",
+            "2603:1010:101:402::320/124",
+            "2603:1010:207::4a0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

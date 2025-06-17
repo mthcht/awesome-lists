@@ -1,0 +1,20 @@
+{
+    "name": "AzureIoTHub.IndonesiaCentral",
+    "id": "AzureIoTHub.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "70.153.177.0/27",
+            "70.153.200.224/27",
+            "70.153.216.224/27",
+            "2603:1040:1802:400::80/123",
+            "2603:1040:1802:800::40/123",
+            "2603:1040:1802:c00::40/123"
+        ],
+        "networkFeatures": null
+    }
+}

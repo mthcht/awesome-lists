@@ -1,0 +1,22 @@
+{
+    "name": "ApiManagement.WestUS3",
+    "id": "ApiManagement.WestUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.150.167.160/28",
+            "20.150.170.224/28",
+            "2603:1030:504:2::80/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

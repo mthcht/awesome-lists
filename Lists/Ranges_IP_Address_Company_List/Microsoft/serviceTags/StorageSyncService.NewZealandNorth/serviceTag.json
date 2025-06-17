@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.NewZealandNorth",
+    "id": "StorageSyncService.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "172.204.177.56/29",
+            "2603:1010:502:400::180/123"
+        ],
+        "networkFeatures": null
+    }
+}

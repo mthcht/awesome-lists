@@ -1,0 +1,22 @@
+{
+    "name": "DataFactory.SwedenSouth",
+    "id": "DataFactory.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "13.104.254.128/28",
+            "51.12.18.0/23",
+            "51.12.206.16/28",
+            "2603:1020:1104::600/121",
+            "2603:1020:1104:400::500/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

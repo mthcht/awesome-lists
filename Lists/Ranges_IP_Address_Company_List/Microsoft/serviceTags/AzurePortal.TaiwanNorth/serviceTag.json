@@ -1,0 +1,16 @@
+{
+    "name": "AzurePortal.TaiwanNorth",
+    "id": "AzurePortal.TaiwanNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorth",
+        "regionId": 8,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "51.53.30.224/27",
+            "2603:1040:1302:2::/121"
+        ],
+        "networkFeatures": null
+    }
+}

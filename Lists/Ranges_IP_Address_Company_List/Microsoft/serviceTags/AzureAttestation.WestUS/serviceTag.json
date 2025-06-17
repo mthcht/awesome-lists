@@ -1,0 +1,17 @@
+{
+    "name": "AzureAttestation.WestUS",
+    "id": "AzureAttestation.WestUS",
+    "properties": {
+        "changeNumber": 3,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "13.86.223.192/30",
+            "20.49.127.244/30",
+            "2603:1030:a07:9::90/124"
+        ],
+        "networkFeatures": null
+    }
+}

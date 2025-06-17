@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.IndonesiaCentral",
+    "id": "MicrosoftContainerRegistry.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "70.153.176.0/29",
+            "70.153.200.0/29",
+            "70.153.216.0/29",
+            "2603:1040:1802:400::/125",
+            "2603:1040:1802:800::/125",
+            "2603:1040:1802:c00::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

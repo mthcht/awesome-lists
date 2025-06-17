@@ -1,0 +1,19 @@
+{
+    "name": "AzureBackup.FranceSouth",
+    "id": "AzureBackup.FranceSouth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "40.79.179.32/27",
+            "40.79.179.64/26",
+            "52.136.185.192/26",
+            "2603:1020:905:5::/121",
+            "2603:1020:905:402::200/121"
+        ],
+        "networkFeatures": null
+    }
+}

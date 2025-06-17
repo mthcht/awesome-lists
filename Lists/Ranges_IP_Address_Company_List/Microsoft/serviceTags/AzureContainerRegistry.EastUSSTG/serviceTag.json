@@ -1,0 +1,32 @@
+{
+    "name": "AzureContainerRegistry.EastUSSTG",
+    "id": "AzureContainerRegistry.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "20.49.82.16/29",
+            "20.49.84.64/26",
+            "20.49.86.0/25",
+            "20.99.8.192/26",
+            "40.67.58.24/29",
+            "2603:1030:104::348/125",
+            "2603:1030:104:402::90/125",
+            "2603:1030:104:402::168/125",
+            "2603:1030:104:402::340/122",
+            "2603:1030:104:402::580/122",
+            "2603:1030:104:402::780/121",
+            "2603:1030:104:802::58/125",
+            "2603:1030:104:802::200/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

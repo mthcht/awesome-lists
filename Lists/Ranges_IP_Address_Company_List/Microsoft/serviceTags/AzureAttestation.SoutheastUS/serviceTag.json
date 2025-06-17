@@ -1,0 +1,16 @@
+{
+    "name": "AzureAttestation.SoutheastUS",
+    "id": "AzureAttestation.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "57.151.208.20/30",
+            "2603:1030:902::5c0/124"
+        ],
+        "networkFeatures": null
+    }
+}

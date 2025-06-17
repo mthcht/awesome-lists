@@ -1,0 +1,22 @@
+{
+    "name": "AzureArcInfrastructure.AustraliaCentral",
+    "id": "AzureArcInfrastructure.AustraliaCentral",
+    "properties": {
+        "changeNumber": 6,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.37.226.52/30",
+            "20.37.228.8/30",
+            "20.53.0.34/31",
+            "20.53.0.112/30",
+            "20.53.0.120/29",
+            "20.213.229.2/31",
+            "20.213.229.8/29",
+            "2603:1010:304:5::420/124"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.MexicoCentral",
+    "id": "StorageSyncService.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "158.23.11.176/29",
+            "2603:1030:702:400::1e0/123"
+        ],
+        "networkFeatures": null
+    }
+}

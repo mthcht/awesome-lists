@@ -1,0 +1,21 @@
+{
+    "name": "AzureMachineLearning.KoreaCentral",
+    "id": "AzureMachineLearning.KoreaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreacentral",
+        "regionId": 26,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.41.64.80/28",
+            "20.44.26.224/28",
+            "20.200.192.16/28",
+            "52.141.25.58/32",
+            "52.141.26.97/32",
+            "52.231.18.192/28",
+            "2603:1040:f05:1::2c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

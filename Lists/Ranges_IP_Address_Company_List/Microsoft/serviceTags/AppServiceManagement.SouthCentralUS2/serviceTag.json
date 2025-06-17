@@ -1,0 +1,18 @@
+{
+    "name": "AppServiceManagement.SouthCentralUS2",
+    "id": "AppServiceManagement.SouthCentralUS2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southcentralus2",
+        "regionId": 102,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "48.216.28.192/26",
+            "2603:1030:1102:2::240/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.TaiwanNorth",
+    "id": "BatchNodeManagement.TaiwanNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorth",
+        "regionId": 8,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "51.53.25.32/27",
+            "2603:1040:1302::240/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "AzureContainerRegistry.ChileCentral",
+    "id": "AzureContainerRegistry.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "68.211.2.192/26",
+            "68.211.152.64/26",
+            "68.211.154.0/25",
+            "68.211.168.64/26",
+            "68.211.170.0/25",
+            "68.211.184.64/26",
+            "68.211.186.0/25",
+            "2603:1050:301::3e0/125",
+            "2603:1050:301:400::8/125",
+            "2603:1050:301:400::80/121",
+            "2603:1050:301:800::8/125",
+            "2603:1050:301:800::80/121",
+            "2603:1050:301:c00::8/125",
+            "2603:1050:301:c00::80/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

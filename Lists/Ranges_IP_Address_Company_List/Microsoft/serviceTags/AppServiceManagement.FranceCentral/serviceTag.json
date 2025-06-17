@@ -1,0 +1,23 @@
+{
+    "name": "AppServiceManagement.FranceCentral",
+    "id": "AppServiceManagement.FranceCentral",
+    "properties": {
+        "changeNumber": 5,
+        "region": "centralfrance",
+        "regionId": 19,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.111.0.208/28",
+            "40.79.130.64/26",
+            "52.143.136.64/32",
+            "2603:1020:805:2::500/123",
+            "2603:1020:805:402::100/122",
+            "2603:1020:805:802::100/122",
+            "2603:1020:805:c02::100/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

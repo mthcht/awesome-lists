@@ -1,0 +1,19 @@
+{
+    "name": "AzureResourceManager.BrazilSouth",
+    "id": "AzureResourceManager.BrazilSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "brazilsouth",
+        "regionId": 9,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "191.233.205.16/28",
+            "191.234.140.0/23",
+            "191.234.158.0/23",
+            "2603:1050:6::180/122",
+            "2603:1050:6:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

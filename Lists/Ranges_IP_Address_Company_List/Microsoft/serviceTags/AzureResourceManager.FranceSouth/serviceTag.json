@@ -1,0 +1,20 @@
+{
+    "name": "AzureResourceManager.FranceSouth",
+    "id": "AzureResourceManager.FranceSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "40.79.180.0/28",
+            "40.79.182.0/23",
+            "51.105.94.0/23",
+            "2603:1020:905::6c0/122",
+            "2603:1020:905:5::200/120",
+            "2603:1020:905:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

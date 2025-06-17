@@ -1,0 +1,17 @@
+{
+    "name": "AzureArcInfrastructure.SouthCentralUS2",
+    "id": "AzureArcInfrastructure.SouthCentralUS2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southcentralus2",
+        "regionId": 102,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "48.216.8.52/32",
+            "48.216.28.144/30",
+            "2603:1030:1102:2::200/124"
+        ],
+        "networkFeatures": null
+    }
+}

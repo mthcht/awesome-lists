@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.EastAsia",
+    "id": "MicrosoftContainerRegistry.EastAsia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "13.75.34.152/29",
+            "20.205.74.64/29",
+            "20.205.82.64/29",
+            "2603:1040:207:402::88/125",
+            "2603:1040:207:800::40/125",
+            "2603:1040:207:c00::40/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

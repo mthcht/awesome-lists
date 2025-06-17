@@ -1,0 +1,18 @@
+{
+    "name": "AzureDataLake.EastUS2",
+    "id": "AzureDataLake.EastUS2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus2",
+        "regionId": 33,
+        "platform": "Azure",
+        "systemService": "AzureDataLake",
+        "addressPrefixes": [
+            "65.52.108.31/32",
+            "65.52.108.38/32",
+            "104.44.88.106/31",
+            "104.44.88.112/31"
+        ],
+        "networkFeatures": null
+    }
+}

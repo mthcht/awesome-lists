@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.UAENorth",
+    "id": "AzureDigitalTwins.UAENorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.38.142.112/29",
+            "20.38.142.192/27",
+            "2603:1040:904:2::700/121"
+        ],
+        "networkFeatures": null
+    }
+}

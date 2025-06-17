@@ -1,0 +1,23 @@
+{
+    "name": "AzureEventGrid.WestUS",
+    "id": "AzureEventGrid.WestUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "13.88.73.16/28",
+            "13.88.73.32/27",
+            "13.88.135.208/28",
+            "13.91.193.0/28",
+            "40.82.254.128/25",
+            "52.159.210.0/24",
+            "52.160.136.16/28",
+            "52.160.136.32/28",
+            "2603:1030:a07::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.NorwayWest",
+    "id": "AzureEventGrid.NorwayWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "norwayw",
+        "regionId": 74,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "51.120.131.64/27",
+            "51.120.225.0/25",
+            "2603:1020:f04::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

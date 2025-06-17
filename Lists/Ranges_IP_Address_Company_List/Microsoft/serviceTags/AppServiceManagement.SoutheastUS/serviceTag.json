@@ -1,0 +1,18 @@
+{
+    "name": "AppServiceManagement.SoutheastUS",
+    "id": "AppServiceManagement.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "57.151.221.128/26",
+            "2603:1030:902:2::2c0/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

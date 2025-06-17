@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.JioIndiaCentral",
+    "id": "MicrosoftContainerRegistry.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.192.234.16/29",
+            "2603:1040:1104:400::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

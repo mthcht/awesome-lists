@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.UAECentral",
+    "id": "GatewayManager.UAECentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.37.64.72/29",
+            "20.37.74.88/29",
+            "20.45.95.128/27",
+            "2603:1040:b04::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

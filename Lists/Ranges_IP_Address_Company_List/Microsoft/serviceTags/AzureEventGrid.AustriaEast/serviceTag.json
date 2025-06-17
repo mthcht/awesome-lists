@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.AustriaEast",
+    "id": "AzureEventGrid.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "68.210.161.128/25",
+            "2603:1020:104:4::100/121"
+        ],
+        "networkFeatures": null
+    }
+}

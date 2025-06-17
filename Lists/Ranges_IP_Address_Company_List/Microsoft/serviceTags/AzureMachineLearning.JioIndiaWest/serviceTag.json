@@ -1,0 +1,17 @@
+{
+    "name": "AzureMachineLearning.JioIndiaWest",
+    "id": "AzureMachineLearning.JioIndiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.192.160.48/28",
+            "20.193.194.176/28",
+            "2603:1040:d04::2c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

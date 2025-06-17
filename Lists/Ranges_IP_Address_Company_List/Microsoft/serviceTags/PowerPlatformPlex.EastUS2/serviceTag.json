@@ -1,0 +1,21 @@
+{
+    "name": "PowerPlatformPlex.EastUS2",
+    "id": "PowerPlatformPlex.EastUS2",
+    "properties": {
+        "changeNumber": 3,
+        "region": "eastus2",
+        "regionId": 33,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "20.186.165.112/28",
+            "40.84.87.96/27",
+            "40.84.87.128/28",
+            "2603:1061:2004:7300::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

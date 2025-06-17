@@ -1,0 +1,26 @@
+{
+    "name": "ApiManagement.UAENorth",
+    "id": "ApiManagement.UAENorth",
+    "properties": {
+        "changeNumber": 5,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.46.144.85/32",
+            "40.120.87.48/31",
+            "65.52.250.4/31",
+            "65.52.252.32/28",
+            "74.162.75.118/31",
+            "2603:1040:904:2::690/124",
+            "2603:1040:904:402::140/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

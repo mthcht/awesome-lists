@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.CanadaEast",
+    "id": "ActionGroup.CanadaEast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "canadaeast",
+        "regionId": 12,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "4.248.83.192/30",
+            "40.69.111.196/30",
+            "2603:1030:1005::10c/126",
+            "2603:1030:1005:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

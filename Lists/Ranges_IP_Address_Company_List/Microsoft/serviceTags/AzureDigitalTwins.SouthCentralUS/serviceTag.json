@@ -1,0 +1,27 @@
+{
+    "name": "AzureDigitalTwins.SouthCentralUS",
+    "id": "AzureDigitalTwins.SouthCentralUS",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southcentralus",
+        "regionId": 35,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.65.130.72/29",
+            "20.65.130.96/27",
+            "40.124.97.243/32",
+            "40.124.98.14/31",
+            "40.124.98.23/32",
+            "40.124.98.34/31",
+            "40.124.98.48/32",
+            "40.124.98.52/32",
+            "40.124.98.70/32",
+            "40.124.99.100/32",
+            "157.55.90.48/29",
+            "157.55.90.56/31",
+            "2603:1030:807:9::320/126"
+        ],
+        "networkFeatures": null
+    }
+}

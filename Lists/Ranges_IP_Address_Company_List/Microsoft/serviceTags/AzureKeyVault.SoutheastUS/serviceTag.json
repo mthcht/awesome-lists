@@ -1,0 +1,24 @@
+{
+    "name": "AzureKeyVault.SoutheastUS",
+    "id": "AzureKeyVault.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "57.151.214.204/30",
+            "57.151.228.168/29",
+            "68.154.140.184/30",
+            "2603:1030:902:1::228/125",
+            "2603:1030:902:400::50/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

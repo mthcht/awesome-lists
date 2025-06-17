@@ -1,0 +1,30 @@
+{
+    "name": "Sql.AustriaEast",
+    "id": "Sql.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "68.210.154.128/27",
+            "68.210.154.160/29",
+            "68.210.175.32/27",
+            "68.210.175.64/26",
+            "68.210.179.128/27",
+            "68.210.192.48/29",
+            "68.210.192.224/27",
+            "68.210.208.48/29",
+            "68.210.208.224/27",
+            "2603:1020:104:3::4a0/123",
+            "2603:1020:104:3::500/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

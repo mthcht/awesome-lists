@@ -1,0 +1,24 @@
+{
+    "name": "HDInsight.KoreaSouth",
+    "id": "HDInsight.KoreaSouth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "40.80.172.120/29",
+            "52.231.147.24/29",
+            "52.231.203.16/32",
+            "52.231.205.214/32",
+            "2603:1040:e05:5::4b0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

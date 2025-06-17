@@ -1,0 +1,16 @@
+{
+    "name": "AzureAttestation.JioIndiaWest",
+    "id": "AzureAttestation.JioIndiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "20.192.166.188/30",
+            "2603:1040:d04:1::720/123"
+        ],
+        "networkFeatures": null
+    }
+}

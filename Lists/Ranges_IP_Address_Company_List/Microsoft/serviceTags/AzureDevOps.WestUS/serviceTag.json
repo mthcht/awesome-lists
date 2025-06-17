@@ -1,0 +1,17 @@
+{
+    "name": "AzureDevOps.WestUS",
+    "id": "AzureDevOps.WestUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "AzureDevOps",
+        "addressPrefixes": [
+            "40.82.252.0/24",
+            "2603:1030:a07:15::3d2/127",
+            "2603:1030:a07:15::3d8/125"
+        ],
+        "networkFeatures": null
+    }
+}

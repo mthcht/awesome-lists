@@ -1,0 +1,19 @@
+{
+    "name": "AzurePortal.JioIndiaWest",
+    "id": "AzurePortal.JioIndiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "20.192.161.192/27",
+            "20.192.164.180/30",
+            "20.192.166.160/29",
+            "2603:1040:d04::680/121",
+            "2603:1040:d04:1::100/121"
+        ],
+        "networkFeatures": null
+    }
+}

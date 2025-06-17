@@ -1,0 +1,21 @@
+{
+    "name": "AzureCosmosDB.MalaysiaWest",
+    "id": "AzureCosmosDB.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "20.17.114.64/26",
+            "2603:1040:1602::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

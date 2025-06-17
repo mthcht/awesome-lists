@@ -1,0 +1,26 @@
+{
+    "name": "PowerPlatformPlex.JapanWest",
+    "id": "PowerPlatformPlex.JapanWest",
+    "properties": {
+        "changeNumber": 5,
+        "region": "japanwest",
+        "regionId": 25,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "4.190.136.184/29",
+            "4.190.136.192/28",
+            "4.190.143.216/29",
+            "20.39.179.192/26",
+            "20.189.194.180/30",
+            "20.189.198.88/29",
+            "20.189.198.136/29",
+            "20.189.199.32/30",
+            "2603:1061:2004:3100::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

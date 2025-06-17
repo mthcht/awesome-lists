@@ -1,0 +1,31 @@
+{
+    "name": "Sql.JioIndiaCentral",
+    "id": "Sql.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "20.192.48.32/27",
+            "20.192.48.64/27",
+            "20.192.48.128/26",
+            "20.192.232.0/27",
+            "20.192.233.0/27",
+            "20.192.233.32/29",
+            "20.207.7.0/25",
+            "2603:1040:1104::500/123",
+            "2603:1040:1104:1::300/121",
+            "2603:1040:1104:5::80/121",
+            "2603:1040:1104:400::440/123",
+            "2603:1040:1104:402::/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

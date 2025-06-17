@@ -1,0 +1,16 @@
+{
+    "name": "PowerQueryOnline.SoutheastUS",
+    "id": "PowerQueryOnline.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "57.151.208.40/29",
+            "2603:1030:902::1c0/123"
+        ],
+        "networkFeatures": null
+    }
+}

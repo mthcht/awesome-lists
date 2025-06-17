@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.SwedenSouth",
+    "id": "AzureSecurityCenter.SwedenSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "51.12.205.64/27",
+            "74.241.3.128/26",
+            "74.241.3.192/27",
+            "74.241.4.0/22",
+            "74.241.8.0/23",
+            "74.241.10.0/24"
+        ],
+        "networkFeatures": null
+    }
+}

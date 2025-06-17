@@ -1,0 +1,19 @@
+{
+    "name": "AzurePortal.NorthCentralUS",
+    "id": "AzurePortal.NorthCentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "20.49.115.184/29",
+            "40.80.190.160/27",
+            "40.80.191.200/30",
+            "135.224.40.0/27",
+            "2603:1030:608::700/121"
+        ],
+        "networkFeatures": null
+    }
+}

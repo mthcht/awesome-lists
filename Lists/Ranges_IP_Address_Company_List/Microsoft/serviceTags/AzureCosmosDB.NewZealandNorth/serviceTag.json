@@ -1,0 +1,21 @@
+{
+    "name": "AzureCosmosDB.NewZealandNorth",
+    "id": "AzureCosmosDB.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "172.204.154.64/26",
+            "2603:1010:502::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

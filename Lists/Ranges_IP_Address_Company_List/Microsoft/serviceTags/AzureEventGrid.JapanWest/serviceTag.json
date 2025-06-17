@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.JapanWest",
+    "id": "AzureEventGrid.JapanWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "japanwest",
+        "regionId": 25,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "40.74.106.96/27",
+            "40.80.58.0/25",
+            "2603:1040:606::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

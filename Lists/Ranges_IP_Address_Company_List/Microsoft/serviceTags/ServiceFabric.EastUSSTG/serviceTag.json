@@ -1,0 +1,19 @@
+{
+    "name": "ServiceFabric.EastUSSTG",
+    "id": "ServiceFabric.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "20.49.82.4/30",
+            "40.67.59.72/29",
+            "2603:1030:104:402::98/125",
+            "2603:1030:104:402::3d8/125",
+            "2603:1030:104:802::60/125"
+        ],
+        "networkFeatures": null
+    }
+}

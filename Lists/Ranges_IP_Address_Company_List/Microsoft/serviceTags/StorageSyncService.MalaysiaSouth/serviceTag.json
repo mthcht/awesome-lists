@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.MalaysiaSouth",
+    "id": "StorageSyncService.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.17.67.240/29",
+            "2603:1040:1503:400::260/123"
+        ],
+        "networkFeatures": null
+    }
+}

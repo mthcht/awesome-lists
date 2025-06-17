@@ -1,0 +1,21 @@
+{
+    "name": "AzureCloud.brazilne",
+    "id": "AzureCloud.brazilne",
+    "properties": {
+        "changeNumber": 2,
+        "region": "brazilne",
+        "regionId": 78,
+        "platform": "Azure",
+        "systemService": "",
+        "addressPrefixes": [
+            "23.97.112.224/27",
+            "2603:1050:100::/40",
+            "2603:1056:1402::/48",
+            "2603:1061:1315::/54"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

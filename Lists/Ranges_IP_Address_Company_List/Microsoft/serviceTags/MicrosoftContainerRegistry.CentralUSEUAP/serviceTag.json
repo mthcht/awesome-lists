@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.CentralUSEUAP",
+    "id": "MicrosoftContainerRegistry.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "40.78.202.64/29",
+            "2603:1030:f:400::888/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

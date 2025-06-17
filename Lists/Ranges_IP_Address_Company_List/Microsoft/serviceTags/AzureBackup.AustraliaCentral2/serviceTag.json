@@ -1,0 +1,19 @@
+{
+    "name": "AzureBackup.AustraliaCentral2",
+    "id": "AzureBackup.AustraliaCentral2",
+    "properties": {
+        "changeNumber": 4,
+        "region": "australiacentral2",
+        "regionId": 59,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.36.114.224/27",
+            "20.36.115.0/26",
+            "20.53.56.192/26",
+            "2603:1010:404:5::/121",
+            "2603:1010:404:402::200/121"
+        ],
+        "networkFeatures": null
+    }
+}

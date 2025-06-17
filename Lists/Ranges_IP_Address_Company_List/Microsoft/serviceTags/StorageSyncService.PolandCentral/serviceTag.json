@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.PolandCentral",
+    "id": "StorageSyncService.PolandCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "74.248.175.152/29",
+            "2603:1020:1302:400::240/123"
+        ],
+        "networkFeatures": null
+    }
+}

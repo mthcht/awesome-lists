@@ -1,0 +1,17 @@
+{
+    "name": "AzureMachineLearning.EastUSSTG",
+    "id": "AzureMachineLearning.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.99.8.96/27",
+            "40.67.59.80/28",
+            "2603:1030:104:1::2c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

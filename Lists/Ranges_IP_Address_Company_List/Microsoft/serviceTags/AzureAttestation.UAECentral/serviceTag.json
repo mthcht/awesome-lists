@@ -1,0 +1,17 @@
+{
+    "name": "AzureAttestation.UAECentral",
+    "id": "AzureAttestation.UAECentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "20.37.71.40/30",
+            "40.120.8.176/30",
+            "2603:1040:b04:2::6b0/124"
+        ],
+        "networkFeatures": null
+    }
+}

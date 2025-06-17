@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.NorwayWest",
+    "id": "AzureBotService.NorwayWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "norwayw",
+        "regionId": 74,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "51.120.218.4/30",
+            "51.120.224.64/30",
+            "2603:1020:f04::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "SCCservice.UKWest",
+    "id": "SCCservice.UKWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "SCCservice",
+        "addressPrefixes": [
+            "51.140.215.160/29",
+            "172.186.27.0/27",
+            "2603:1020:605:9::640/123"
+        ],
+        "networkFeatures": null
+    }
+}

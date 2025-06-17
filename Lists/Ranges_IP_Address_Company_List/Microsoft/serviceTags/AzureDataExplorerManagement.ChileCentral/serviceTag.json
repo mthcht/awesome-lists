@@ -1,0 +1,16 @@
+{
+    "name": "AzureDataExplorerManagement.ChileCentral",
+    "id": "AzureDataExplorerManagement.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "68.211.7.0/28",
+            "2603:1050:301:1::1c0/123"
+        ],
+        "networkFeatures": null
+    }
+}

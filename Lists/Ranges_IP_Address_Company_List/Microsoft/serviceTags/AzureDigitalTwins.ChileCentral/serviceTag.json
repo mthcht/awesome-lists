@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.ChileCentral",
+    "id": "AzureDigitalTwins.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "68.211.4.64/27",
+            "68.211.20.192/29",
+            "2603:1050:301::580/121"
+        ],
+        "networkFeatures": null
+    }
+}

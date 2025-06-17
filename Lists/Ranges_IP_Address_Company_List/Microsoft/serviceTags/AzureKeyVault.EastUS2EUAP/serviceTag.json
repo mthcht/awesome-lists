@@ -1,0 +1,31 @@
+{
+    "name": "AzureKeyVault.EastUS2EUAP",
+    "id": "AzureKeyVault.EastUS2EUAP",
+    "properties": {
+        "changeNumber": 8,
+        "region": "eastus2euap",
+        "regionId": 49,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "20.51.20.84/30",
+            "20.51.21.64/29",
+            "40.74.150.68/30",
+            "40.89.121.172/30",
+            "52.138.92.188/30",
+            "68.220.82.76/30",
+            "2603:1030:40b:1::108/125",
+            "2603:1030:40b:1::110/126",
+            "2603:1030:40b:2::220/125",
+            "2603:1030:40b:400::880/125",
+            "2603:1030:40b:800::80/125",
+            "2603:1030:40b:c00::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

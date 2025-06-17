@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.FranceSouth",
+    "id": "AzureBotService.FranceSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "40.79.180.24/30",
+            "51.105.88.64/30",
+            "2603:1020:905::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

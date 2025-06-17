@@ -1,0 +1,30 @@
+{
+    "name": "AzureConnectors.CanadaEast",
+    "id": "AzureConnectors.CanadaEast",
+    "properties": {
+        "changeNumber": 7,
+        "region": "canadaeast",
+        "regionId": 12,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "20.104.170.166/32",
+            "20.104.170.192/32",
+            "40.69.106.240/28",
+            "40.69.111.0/27",
+            "52.139.111.0/27",
+            "52.139.111.32/28",
+            "52.242.30.112/32",
+            "52.242.35.152/32",
+            "52.242.36.40/32",
+            "2603:1030:1005:3::640/122",
+            "2603:1030:1005:402::180/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

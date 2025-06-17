@@ -1,0 +1,23 @@
+{
+    "name": "AppServiceManagement.AustraliaEast",
+    "id": "AppServiceManagement.AustraliaEast",
+    "properties": {
+        "changeNumber": 5,
+        "region": "australiaeast",
+        "regionId": 3,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "13.70.73.128/26",
+            "20.70.222.64/28",
+            "104.210.90.65/32",
+            "2603:1010:6:2::700/123",
+            "2603:1010:6:402::100/122",
+            "2603:1010:6:802::100/122",
+            "2603:1010:6:c02::100/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "PowerPlatformPlex.QatarCentral",
+    "id": "PowerPlatformPlex.QatarCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "4.171.31.160/28",
+            "20.21.91.16/29",
+            "2603:1061:2004:9000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

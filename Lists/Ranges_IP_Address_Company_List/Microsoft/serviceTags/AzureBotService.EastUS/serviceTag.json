@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.EastUS",
+    "id": "AzureBotService.EastUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastus",
+        "regionId": 32,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "20.42.0.64/30",
+            "40.71.12.244/30",
+            "2603:1030:210:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

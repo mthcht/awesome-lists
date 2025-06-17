@@ -1,0 +1,16 @@
+{
+    "name": "AzureUpdateDelivery.NorthCentralUS",
+    "id": "AzureUpdateDelivery.NorthCentralUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "AzureUpdateDelivery",
+        "addressPrefixes": [
+            "52.252.198.176/28",
+            "2a01:111:f100:1002::4134:dba0/124"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "AzureMachineLearning.CentralUSEUAP",
+    "id": "AzureMachineLearning.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 4,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.45.240.64/28",
+            "20.46.13.192/28",
+            "40.78.202.80/28",
+            "2603:1030:f:1::300/122"
+        ],
+        "networkFeatures": null
+    }
+}

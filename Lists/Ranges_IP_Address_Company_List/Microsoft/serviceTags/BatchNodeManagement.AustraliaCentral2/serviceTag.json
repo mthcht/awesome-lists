@@ -1,0 +1,16 @@
+{
+    "name": "BatchNodeManagement.AustraliaCentral2",
+    "id": "BatchNodeManagement.AustraliaCentral2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "australiacentral2",
+        "regionId": 59,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.36.121.160/27",
+            "2603:1010:404::400/122"
+        ],
+        "networkFeatures": null
+    }
+}

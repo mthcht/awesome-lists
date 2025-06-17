@@ -1,0 +1,17 @@
+{
+    "name": "ServiceFabric.KoreaSouth",
+    "id": "ServiceFabric.KoreaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "52.231.147.16/29",
+            "52.231.200.124/32",
+            "2603:1040:e05:402::158/125"
+        ],
+        "networkFeatures": null
+    }
+}

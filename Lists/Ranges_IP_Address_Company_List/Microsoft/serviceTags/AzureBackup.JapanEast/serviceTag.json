@@ -1,0 +1,24 @@
+{
+    "name": "AzureBackup.JapanEast",
+    "id": "AzureBackup.JapanEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "13.78.108.32/27",
+            "13.78.108.64/26",
+            "20.191.166.128/26",
+            "40.79.187.32/27",
+            "40.79.187.64/26",
+            "40.79.195.32/27",
+            "40.79.195.64/26",
+            "2603:1040:407:402::200/121",
+            "2603:1040:407:802::180/121",
+            "2603:1040:407:c02::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.SouthAfricaWest",
+    "id": "GatewayManager.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "102.37.86.224/27",
+            "102.133.27.16/29",
+            "102.133.56.72/29",
+            "2603:1000:4::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

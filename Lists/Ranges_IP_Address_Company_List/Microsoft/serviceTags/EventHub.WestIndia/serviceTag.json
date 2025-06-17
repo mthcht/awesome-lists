@@ -1,0 +1,26 @@
+{
+    "name": "EventHub.WestIndia",
+    "id": "EventHub.WestIndia",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "20.192.83.0/24",
+            "104.211.146.32/27",
+            "104.211.160.121/32",
+            "104.211.160.144/32",
+            "2603:1040:806::240/122",
+            "2603:1040:806:2::/120",
+            "2603:1040:806:402::1c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

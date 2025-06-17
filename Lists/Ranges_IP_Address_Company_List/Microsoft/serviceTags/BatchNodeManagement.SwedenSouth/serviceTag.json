@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.SwedenSouth",
+    "id": "BatchNodeManagement.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "51.12.193.192/27",
+            "51.12.204.0/27",
+            "2603:1020:1104::300/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

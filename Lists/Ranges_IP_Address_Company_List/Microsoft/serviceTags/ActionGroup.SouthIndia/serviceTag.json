@@ -1,0 +1,19 @@
+{
+    "name": "ActionGroup.SouthIndia",
+    "id": "ActionGroup.SouthIndia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southindia",
+        "regionId": 22,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "52.172.33.114/32",
+            "52.172.87.0/30",
+            "104.211.231.103/32",
+            "2603:1040:c06::10c/126",
+            "2603:1040:c06:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

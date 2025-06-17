@@ -1,0 +1,24 @@
+{
+    "name": "AzureConnectors.SwedenSouth",
+    "id": "AzureConnectors.SwedenSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "51.12.20.224/27",
+            "51.12.22.128/28",
+            "51.12.202.240/28",
+            "51.12.205.192/26",
+            "2603:1020:1104:400::180/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

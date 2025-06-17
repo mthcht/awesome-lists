@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.SouthCentralUSSTG",
+    "id": "ApiManagement.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.44.2.4/31",
+            "20.44.3.224/28"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

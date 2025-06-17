@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.SouthAfricaNorth",
+    "id": "GatewayManager.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.87.82.0/27",
+            "102.133.155.16/29",
+            "102.133.216.72/29",
+            "2603:1000:104:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

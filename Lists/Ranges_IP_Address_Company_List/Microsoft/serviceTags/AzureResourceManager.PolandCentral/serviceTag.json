@@ -1,0 +1,18 @@
+{
+    "name": "AzureResourceManager.PolandCentral",
+    "id": "AzureResourceManager.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "20.215.10.0/23",
+            "20.215.156.0/26",
+            "2603:1020:1302:1::400/120",
+            "2603:1020:1302:400::1c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

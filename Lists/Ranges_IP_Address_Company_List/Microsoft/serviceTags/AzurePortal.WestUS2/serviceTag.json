@@ -1,0 +1,23 @@
+{
+    "name": "AzurePortal.WestUS2",
+    "id": "AzurePortal.WestUS2",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus2",
+        "regionId": 38,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "40.64.128.128/27",
+            "40.64.132.88/30",
+            "40.64.132.96/28",
+            "40.64.135.88/29",
+            "40.65.114.234/32",
+            "40.78.245.208/28",
+            "52.233.66.46/32",
+            "74.179.37.192/27",
+            "2603:1030:c06:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

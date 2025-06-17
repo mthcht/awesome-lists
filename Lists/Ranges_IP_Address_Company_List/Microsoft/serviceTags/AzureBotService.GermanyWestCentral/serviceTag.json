@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.GermanyWestCentral",
+    "id": "AzureBotService.GermanyWestCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "germanywc",
+        "regionId": 71,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "51.116.144.64/30",
+            "2603:1020:c04:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

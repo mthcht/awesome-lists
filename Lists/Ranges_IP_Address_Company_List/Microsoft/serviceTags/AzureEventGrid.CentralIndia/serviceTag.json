@@ -1,0 +1,18 @@
+{
+    "name": "AzureEventGrid.CentralIndia",
+    "id": "AzureEventGrid.CentralIndia",
+    "properties": {
+        "changeNumber": 1,
+        "region": "centralindia",
+        "regionId": 21,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "13.71.56.240/28",
+            "13.71.57.0/28",
+            "52.140.106.0/25",
+            "2603:1040:a06:1::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

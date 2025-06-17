@@ -1,0 +1,19 @@
+{
+    "name": "ActionGroup.CanadaCentral",
+    "id": "ActionGroup.CanadaCentral",
+    "properties": {
+        "changeNumber": 5,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "4.206.229.96/30",
+            "20.38.149.132/30",
+            "20.116.43.108/31",
+            "2603:1030:f05:1::120/126",
+            "2603:1030:f05:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.SwitzerlandWest",
+    "id": "AzureEventGrid.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "51.107.99.32/27",
+            "51.107.145.0/25",
+            "2603:1020:b04::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

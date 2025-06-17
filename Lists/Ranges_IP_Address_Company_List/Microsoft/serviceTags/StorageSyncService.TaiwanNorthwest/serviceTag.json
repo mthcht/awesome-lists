@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.TaiwanNorthwest",
+    "id": "StorageSyncService.TaiwanNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorthwest",
+        "regionId": 96,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "51.53.187.240/29",
+            "2603:1040:1202:400::260/123"
+        ],
+        "networkFeatures": null
+    }
+}

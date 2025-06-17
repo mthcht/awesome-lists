@@ -1,0 +1,27 @@
+{
+    "name": "Storage.JioIndiaWest",
+    "id": "Storage.JioIndiaWest",
+    "properties": {
+        "changeNumber": 6,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.60.54.0/23",
+            "20.150.65.0/24",
+            "20.150.97.0/24",
+            "20.153.59.0/24",
+            "20.157.153.0/24",
+            "20.157.234.0/24",
+            "57.150.242.0/23",
+            "2603:1040:d00::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

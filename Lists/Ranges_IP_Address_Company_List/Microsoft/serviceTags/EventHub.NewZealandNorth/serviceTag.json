@@ -1,0 +1,24 @@
+{
+    "name": "EventHub.NewZealandNorth",
+    "id": "EventHub.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "172.204.157.0/24",
+            "172.204.183.0/26",
+            "172.204.192.128/26",
+            "172.204.208.128/26",
+            "2603:1010:502:1::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

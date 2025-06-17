@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.SouthIndia",
+    "id": "GatewayManager.SouthIndia",
+    "properties": {
+        "changeNumber": 4,
+        "region": "southindia",
+        "regionId": 22,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.41.192.72/29",
+            "20.192.153.224/27",
+            "40.78.194.88/29",
+            "2603:1040:c06::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

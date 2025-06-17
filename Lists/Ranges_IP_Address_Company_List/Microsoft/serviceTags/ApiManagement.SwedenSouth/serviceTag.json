@@ -1,0 +1,23 @@
+{
+    "name": "ApiManagement.SwedenSouth",
+    "id": "ApiManagement.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "51.12.17.0/28",
+            "51.12.202.224/28",
+            "2603:1020:1104:1::3c0/124",
+            "2603:1020:1104:400::140/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

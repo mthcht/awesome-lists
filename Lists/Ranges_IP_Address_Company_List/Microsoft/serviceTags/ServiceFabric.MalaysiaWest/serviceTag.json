@@ -1,0 +1,20 @@
+{
+    "name": "ServiceFabric.MalaysiaWest",
+    "id": "ServiceFabric.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "20.17.130.12/30",
+            "20.17.168.8/30",
+            "20.17.184.8/30",
+            "2603:1040:1602:400::18/125",
+            "2603:1040:1602:800::20/125",
+            "2603:1040:1602:c00::20/125"
+        ],
+        "networkFeatures": null
+    }
+}

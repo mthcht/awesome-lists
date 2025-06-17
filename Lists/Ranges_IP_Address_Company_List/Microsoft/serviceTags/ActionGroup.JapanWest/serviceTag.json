@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.JapanWest",
+    "id": "ActionGroup.JapanWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "japanwest",
+        "regionId": 25,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "4.190.136.180/30",
+            "40.74.102.24/30",
+            "2603:1040:606::10c/126",
+            "2603:1040:606:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

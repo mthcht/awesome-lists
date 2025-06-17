@@ -1,0 +1,20 @@
+{
+    "name": "AzurePortal.SouthAfricaNorth",
+    "id": "AzurePortal.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "102.133.217.192/27",
+            "102.133.218.56/30",
+            "102.133.221.0/29",
+            "2603:1000:104::200/121",
+            "2603:1000:104::400/121",
+            "2603:1000:104:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

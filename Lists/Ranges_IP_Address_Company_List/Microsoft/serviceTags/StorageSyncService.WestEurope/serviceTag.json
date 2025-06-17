@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.WestEurope",
+    "id": "StorageSyncService.WestEurope",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.50.1.0/29",
+            "2603:1020:206:1::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

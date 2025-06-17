@@ -1,0 +1,32 @@
+{
+    "name": "Storage.NorwayEast",
+    "id": "Storage.NorwayEast",
+    "properties": {
+        "changeNumber": 10,
+        "region": "norwaye",
+        "regionId": 63,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.33.194.0/24",
+            "20.38.120.0/24",
+            "20.47.48.0/24",
+            "20.60.206.0/23",
+            "20.150.53.0/24",
+            "20.150.121.0/24",
+            "20.153.16.0/24",
+            "20.153.94.0/24",
+            "20.157.165.0/24",
+            "20.209.24.0/23",
+            "20.209.252.0/23",
+            "57.150.208.0/23",
+            "2603:1020:e05::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

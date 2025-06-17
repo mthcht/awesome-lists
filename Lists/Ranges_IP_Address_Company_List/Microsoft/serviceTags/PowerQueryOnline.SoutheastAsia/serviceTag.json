@@ -1,0 +1,23 @@
+{
+    "name": "PowerQueryOnline.SoutheastAsia",
+    "id": "PowerQueryOnline.SoutheastAsia",
+    "properties": {
+        "changeNumber": 7,
+        "region": "southeastasia",
+        "regionId": 2,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "13.67.15.208/30",
+            "20.43.128.70/31",
+            "20.195.87.112/29",
+            "20.205.192.106/31",
+            "57.155.34.128/29",
+            "2603:1040:5:1::200/123",
+            "2603:1040:5:402::160/125",
+            "2603:1040:5:802::140/125",
+            "2603:1040:5:c00::20/125"
+        ],
+        "networkFeatures": null
+    }
+}

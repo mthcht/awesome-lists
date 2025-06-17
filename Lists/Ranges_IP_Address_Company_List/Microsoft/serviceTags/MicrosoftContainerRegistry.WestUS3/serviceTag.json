@@ -1,0 +1,27 @@
+{
+    "name": "MicrosoftContainerRegistry.WestUS3",
+    "id": "MicrosoftContainerRegistry.WestUS3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.150.170.16/29",
+            "20.150.178.136/29",
+            "20.150.186.136/29",
+            "2603:1030:504:402::88/125",
+            "2603:1030:504:402::3b0/125",
+            "2603:1030:504:802::148/125",
+            "2603:1030:504:802::3e8/125",
+            "2603:1030:504:c02::398/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

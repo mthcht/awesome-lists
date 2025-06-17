@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.MexicoCentral",
+    "id": "ActionGroup.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "158.23.10.88/30",
+            "158.23.119.232/30",
+            "2603:1030:702:1::2a8/126",
+            "2603:1030:702:400::100/125"
+        ],
+        "networkFeatures": null
+    }
+}

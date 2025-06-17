@@ -1,0 +1,27 @@
+{
+    "name": "AzureContainerRegistry.SoutheastUS",
+    "id": "AzureContainerRegistry.SoutheastUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "57.151.210.128/26",
+            "68.154.136.64/26",
+            "68.154.137.128/25",
+            "68.154.145.64/26",
+            "2603:1030:902::560/125",
+            "2603:1030:902:4::180/121",
+            "2603:1030:902:400::8/125",
+            "2603:1030:902:400::100/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

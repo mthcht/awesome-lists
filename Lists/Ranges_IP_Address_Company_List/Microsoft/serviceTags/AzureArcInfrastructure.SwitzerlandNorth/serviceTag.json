@@ -1,0 +1,22 @@
+{
+    "name": "AzureArcInfrastructure.SwitzerlandNorth",
+    "id": "AzureArcInfrastructure.SwitzerlandNorth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "switzerlandn",
+        "regionId": 66,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.208.21.162/31",
+            "20.208.151.204/31",
+            "20.208.152.48/29",
+            "51.103.205.160/31",
+            "51.107.50.56/30",
+            "51.107.53.32/30",
+            "51.107.60.152/32",
+            "51.107.129.104/30"
+        ],
+        "networkFeatures": null
+    }
+}

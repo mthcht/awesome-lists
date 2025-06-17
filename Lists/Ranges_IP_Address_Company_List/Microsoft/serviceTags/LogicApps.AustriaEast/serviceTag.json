@@ -1,0 +1,22 @@
+{
+    "name": "LogicApps.AustriaEast",
+    "id": "LogicApps.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "LogicApps",
+        "addressPrefixes": [
+            "68.210.156.32/28",
+            "68.210.156.64/27",
+            "68.210.183.160/28",
+            "68.210.183.192/27",
+            "2603:1020:104:6::300/122",
+            "2603:1020:104:7::1c0/122",
+            "2603:1020:104:800::330/124",
+            "2603:1020:104:800::340/123"
+        ],
+        "networkFeatures": null
+    }
+}

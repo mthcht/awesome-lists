@@ -1,0 +1,19 @@
+{
+    "name": "AzureResourceManager.AustraliaEast",
+    "id": "AzureResourceManager.AustraliaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "australiaeast",
+        "regionId": 3,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "13.70.74.64/28",
+            "13.70.76.0/23",
+            "20.53.42.0/23",
+            "2603:1010:6::180/122",
+            "2603:1010:6:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

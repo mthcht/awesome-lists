@@ -1,0 +1,21 @@
+{
+    "name": "AzureIoTHub.CentralUSEUAP",
+    "id": "AzureIoTHub.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 1,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "20.45.198.32/27",
+            "20.45.198.128/25",
+            "40.78.204.64/27",
+            "52.180.165.88/32",
+            "52.180.165.248/32",
+            "52.180.177.125/32",
+            "2603:1030:f:400::b00/123"
+        ],
+        "networkFeatures": null
+    }
+}

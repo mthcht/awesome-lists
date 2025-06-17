@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.GermanyWestCentral",
+    "id": "AzureSecurityCenter.GermanyWestCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "germanywc",
+        "regionId": 71,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "51.116.245.224/27",
+            "131.189.124.0/22",
+            "135.220.88.224/27",
+            "135.220.89.0/24",
+            "135.220.90.0/23",
+            "135.220.92.0/26"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.IsraelCentral",
+    "id": "AzureBotService.IsraelCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "20.217.40.16/30",
+            "2603:1040:1402::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

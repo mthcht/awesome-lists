@@ -1,0 +1,17 @@
+{
+    "name": "AzureMachineLearning.UAENorth",
+    "id": "AzureMachineLearning.UAENorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.74.195.32/27",
+            "65.52.250.192/28",
+            "2603:1040:904:1::2c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

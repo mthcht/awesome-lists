@@ -1,0 +1,22 @@
+{
+    "name": "EventHub.TaiwanNorthwest",
+    "id": "EventHub.TaiwanNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorthwest",
+        "regionId": 96,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "51.53.173.0/24",
+            "51.53.187.128/26",
+            "2603:1040:1202:1::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

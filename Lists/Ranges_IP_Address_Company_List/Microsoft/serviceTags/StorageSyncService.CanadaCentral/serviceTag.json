@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.CanadaCentral",
+    "id": "StorageSyncService.CanadaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "52.228.81.248/29",
+            "2603:1030:f05:1::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

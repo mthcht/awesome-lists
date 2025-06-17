@@ -1,0 +1,26 @@
+{
+    "name": "Storage.BrazilSoutheast",
+    "id": "Storage.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 4,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.150.73.0/24",
+            "20.150.80.0/24",
+            "20.150.123.0/24",
+            "20.157.42.0/24",
+            "20.157.189.0/24",
+            "20.209.210.0/23",
+            "2603:1050:404::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

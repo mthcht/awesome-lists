@@ -1,0 +1,20 @@
+{
+    "name": "AzureIoTHub.PolandCentral",
+    "id": "AzureIoTHub.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "20.215.19.160/27",
+            "20.215.27.160/27",
+            "20.215.156.96/27",
+            "2603:1020:1302:400::220/123",
+            "2603:1020:1302:800::e0/123",
+            "2603:1020:1302:c00::e0/123"
+        ],
+        "networkFeatures": null
+    }
+}

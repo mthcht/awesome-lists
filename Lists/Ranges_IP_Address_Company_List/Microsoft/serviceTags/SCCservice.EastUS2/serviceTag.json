@@ -1,0 +1,17 @@
+{
+    "name": "SCCservice.EastUS2",
+    "id": "SCCservice.EastUS2",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastus2",
+        "regionId": 33,
+        "platform": "Azure",
+        "systemService": "SCCservice",
+        "addressPrefixes": [
+            "20.44.19.48/29",
+            "128.24.2.0/24",
+            "2603:1030:40c:f::400/120"
+        ],
+        "networkFeatures": null
+    }
+}

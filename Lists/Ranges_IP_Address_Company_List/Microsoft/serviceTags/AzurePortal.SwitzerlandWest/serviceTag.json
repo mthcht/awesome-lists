@@ -1,0 +1,18 @@
+{
+    "name": "AzurePortal.SwitzerlandWest",
+    "id": "AzurePortal.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "51.107.145.128/27",
+            "51.107.146.56/30",
+            "51.107.149.248/29",
+            "2603:1020:b04::700/121"
+        ],
+        "networkFeatures": null
+    }
+}

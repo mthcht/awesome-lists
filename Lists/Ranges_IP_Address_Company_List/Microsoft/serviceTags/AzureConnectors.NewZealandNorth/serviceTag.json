@@ -1,0 +1,22 @@
+{
+    "name": "AzureConnectors.NewZealandNorth",
+    "id": "AzureConnectors.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "172.204.164.128/26",
+            "172.204.174.128/28",
+            "2603:1010:502:2::40/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

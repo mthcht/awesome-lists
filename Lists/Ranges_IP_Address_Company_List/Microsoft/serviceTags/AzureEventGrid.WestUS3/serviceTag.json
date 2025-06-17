@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.WestUS3",
+    "id": "AzureEventGrid.WestUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.150.164.0/25",
+            "2603:1030:504:1::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "PowerQueryOnline.AustriaEast",
+    "id": "PowerQueryOnline.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "68.210.160.40/29",
+            "2603:1020:104:4::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

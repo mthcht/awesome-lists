@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.KoreaCentral",
+    "id": "StorageSyncService.KoreaCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "koreacentral",
+        "regionId": 26,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.41.65.184/29",
+            "2603:1040:f05:1::300/123",
+            "2603:1040:f05:802::2a0/123"
+        ],
+        "networkFeatures": null
+    }
+}

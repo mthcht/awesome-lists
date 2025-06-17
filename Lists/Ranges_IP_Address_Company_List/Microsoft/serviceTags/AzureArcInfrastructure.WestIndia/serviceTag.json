@@ -1,0 +1,19 @@
+{
+    "name": "AzureArcInfrastructure.WestIndia",
+    "id": "AzureArcInfrastructure.WestIndia",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.207.175.32/29",
+            "20.207.175.102/31",
+            "52.136.51.68/30",
+            "104.211.146.248/30",
+            "2603:1040:806:3::7c0/124"
+        ],
+        "networkFeatures": null
+    }
+}

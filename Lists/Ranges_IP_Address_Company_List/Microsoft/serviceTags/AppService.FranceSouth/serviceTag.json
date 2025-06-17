@@ -1,0 +1,26 @@
+{
+    "name": "AppService.FranceSouth",
+    "id": "AppService.FranceSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "40.79.178.96/27",
+            "51.105.90.32/27",
+            "52.136.138.55/32",
+            "52.136.190.0/25",
+            "52.136.190.128/27",
+            "2603:1020:905:2::300/120",
+            "2603:1020:905:402::a0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

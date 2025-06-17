@@ -1,0 +1,18 @@
+{
+    "name": "AzureArcInfrastructure.SwedenSouth",
+    "id": "AzureArcInfrastructure.SwedenSouth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.91.96.162/31",
+            "20.91.100.128/29",
+            "51.12.22.220/30",
+            "51.12.168.72/30"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "PowerBI.SwitzerlandWest",
+    "id": "PowerBI.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "20.199.201.80/29",
+            "51.107.144.122/31",
+            "51.107.144.124/30",
+            "51.107.144.208/29",
+            "51.107.251.184/30",
+            "51.107.255.128/29",
+            "74.242.4.32/27",
+            "2603:1020:b04::620/123",
+            "2603:1020:b04::640/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

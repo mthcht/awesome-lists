@@ -1,0 +1,28 @@
+{
+    "name": "Sql.KoreaSouth",
+    "id": "Sql.KoreaSouth",
+    "properties": {
+        "changeNumber": 7,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "20.200.165.192/26",
+            "52.147.112.160/27",
+            "52.231.144.0/27",
+            "52.231.145.0/27",
+            "52.231.151.88/29",
+            "52.231.151.96/27",
+            "2603:1040:e05::/123",
+            "2603:1040:e05:6::440/122",
+            "2603:1040:e05:6::480/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

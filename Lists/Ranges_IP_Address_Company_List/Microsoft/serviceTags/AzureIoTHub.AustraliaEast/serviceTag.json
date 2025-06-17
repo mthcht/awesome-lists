@@ -1,0 +1,25 @@
+{
+    "name": "AzureIoTHub.AustraliaEast",
+    "id": "AzureIoTHub.AustraliaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "australiaeast",
+        "regionId": 3,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "13.70.74.192/27",
+            "20.37.198.160/27",
+            "20.37.199.0/25",
+            "40.79.163.32/27",
+            "40.79.171.128/27",
+            "52.147.10.141/32",
+            "52.147.10.149/32",
+            "104.210.105.7/32",
+            "2603:1010:6:402::300/123",
+            "2603:1010:6:802::240/123",
+            "2603:1010:6:c02::240/123"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "AzureDigitalTwins.CentralUS",
+    "id": "AzureDigitalTwins.CentralUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.40.225.48/29",
+            "20.40.225.128/27"
+        ],
+        "networkFeatures": null
+    }
+}

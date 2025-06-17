@@ -1,0 +1,22 @@
+{
+    "name": "PowerPlatformInfra.WestCentralUS",
+    "id": "PowerPlatformInfra.WestCentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westcentralus",
+        "regionId": 36,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "52.150.154.48/28",
+            "52.150.154.128/26",
+            "2603:1061:2002:400::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

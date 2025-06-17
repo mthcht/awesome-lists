@@ -1,0 +1,22 @@
+{
+    "name": "GatewayManager.FranceCentral",
+    "id": "GatewayManager.FranceCentral",
+    "properties": {
+        "changeNumber": 5,
+        "region": "centralfrance",
+        "regionId": 19,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.43.40.72/29",
+            "20.74.0.115/32",
+            "20.74.0.127/32",
+            "20.111.2.224/27",
+            "40.79.130.224/29",
+            "2603:1020:805:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

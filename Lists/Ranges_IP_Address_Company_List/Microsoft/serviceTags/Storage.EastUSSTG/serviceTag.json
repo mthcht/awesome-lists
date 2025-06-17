@@ -1,0 +1,27 @@
+{
+    "name": "Storage.EastUSSTG",
+    "id": "Storage.EastUSSTG",
+    "properties": {
+        "changeNumber": 2,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.33.142.0/24",
+            "20.38.119.0/24",
+            "20.47.13.0/24",
+            "20.60.5.0/24",
+            "20.60.198.0/23",
+            "20.150.57.0/24",
+            "20.209.254.0/23",
+            "2603:1030:108::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

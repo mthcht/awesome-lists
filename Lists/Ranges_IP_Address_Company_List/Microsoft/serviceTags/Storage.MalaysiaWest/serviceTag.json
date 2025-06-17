@@ -1,0 +1,28 @@
+{
+    "name": "Storage.MalaysiaWest",
+    "id": "Storage.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.33.140.0/24",
+            "20.33.235.0/24",
+            "20.60.103.0/24",
+            "20.60.104.0/24",
+            "20.153.53.0/24",
+            "20.209.140.0/23",
+            "57.150.94.0/23",
+            "57.150.100.0/24",
+            "2603:1040:1603::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

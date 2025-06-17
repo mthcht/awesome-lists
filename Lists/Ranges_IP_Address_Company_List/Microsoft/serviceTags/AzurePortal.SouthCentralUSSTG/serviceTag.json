@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.SouthCentralUSSTG",
+    "id": "AzurePortal.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "20.45.112.124/30",
+            "20.45.113.128/27",
+            "20.45.116.64/29"
+        ],
+        "networkFeatures": null
+    }
+}

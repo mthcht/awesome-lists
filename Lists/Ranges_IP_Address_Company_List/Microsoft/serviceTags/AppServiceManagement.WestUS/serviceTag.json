@@ -1,0 +1,23 @@
+{
+    "name": "AppServiceManagement.WestUS",
+    "id": "AppServiceManagement.WestUS",
+    "properties": {
+        "changeNumber": 5,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.59.79.208/28",
+            "20.168.162.192/26",
+            "40.112.242.192/26",
+            "104.45.227.37/32",
+            "2603:1030:a07:4::140/123",
+            "2603:1030:a07:402::880/122",
+            "2603:1030:a07:c00::80/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

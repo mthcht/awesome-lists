@@ -1,0 +1,31 @@
+{
+    "name": "Storage.SwitzerlandNorth",
+    "id": "Storage.SwitzerlandNorth",
+    "properties": {
+        "changeNumber": 10,
+        "region": "switzerlandn",
+        "regionId": 66,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.33.155.0/24",
+            "20.47.53.0/24",
+            "20.60.174.0/23",
+            "20.150.59.0/24",
+            "20.150.118.0/24",
+            "20.153.54.0/24",
+            "20.157.175.0/24",
+            "20.209.28.0/23",
+            "20.209.174.0/23",
+            "52.239.251.0/24",
+            "135.130.42.0/23",
+            "2603:1020:a05::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

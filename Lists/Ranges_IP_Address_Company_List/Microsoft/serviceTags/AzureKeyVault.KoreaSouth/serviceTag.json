@@ -1,0 +1,26 @@
+{
+    "name": "AzureKeyVault.KoreaSouth",
+    "id": "AzureKeyVault.KoreaSouth",
+    "properties": {
+        "changeNumber": 5,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "52.147.113.72/29",
+            "52.147.113.80/30",
+            "52.231.146.80/30",
+            "2603:1040:e05::20/125",
+            "2603:1040:e05:5::4a0/125",
+            "2603:1040:e05:5::4a8/126",
+            "2603:1040:e05:402::430/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

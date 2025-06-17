@@ -1,0 +1,21 @@
+{
+    "name": "AzureMachineLearning.EastAsia",
+    "id": "AzureMachineLearning.EastAsia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "13.75.36.16/28",
+            "20.189.106.80/28",
+            "20.195.75.48/28",
+            "20.195.75.96/27",
+            "40.81.27.228/32",
+            "52.184.87.76/32",
+            "2603:1040:207::300/122"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.AustriaEast",
+    "id": "BatchNodeManagement.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "68.210.161.64/27",
+            "2603:1020:104:4::c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "AzureFrontDoor.MicrosoftSecurity",
+    "id": "AzureFrontDoor.MicrosoftSecurity",
+    "properties": {
+        "changeNumber": 1,
+        "region": "",
+        "regionId": 0,
+        "platform": "Azure",
+        "systemService": "AzureFrontDoor",
+        "addressPrefixes": [
+            "13.107.219.0/24",
+            "13.107.227.0/24",
+            "13.107.228.0/23",
+            "150.171.97.0/24",
+            "2620:1ec:40::/48",
+            "2620:1ec:49::/48",
+            "2620:1ec:4a::/47"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

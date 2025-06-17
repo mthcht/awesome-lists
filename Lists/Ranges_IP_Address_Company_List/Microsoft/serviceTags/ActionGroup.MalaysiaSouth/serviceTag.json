@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.MalaysiaSouth",
+    "id": "ActionGroup.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.17.63.212/30",
+            "20.17.66.88/30",
+            "2603:1040:1503:1::1c4/126",
+            "2603:1040:1503:400::180/125"
+        ],
+        "networkFeatures": null
+    }
+}

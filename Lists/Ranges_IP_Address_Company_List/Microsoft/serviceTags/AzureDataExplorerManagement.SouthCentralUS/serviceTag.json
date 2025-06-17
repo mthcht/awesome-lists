@@ -1,0 +1,20 @@
+{
+    "name": "AzureDataExplorerManagement.SouthCentralUS",
+    "id": "AzureDataExplorerManagement.SouthCentralUS",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southcentralus",
+        "regionId": 35,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "13.73.240.96/28",
+            "20.45.3.60/32",
+            "40.119.3.195/32",
+            "172.215.131.64/28",
+            "2603:1030:807::600/121",
+            "2603:1030:807:402::150/124"
+        ],
+        "networkFeatures": null
+    }
+}

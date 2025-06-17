@@ -1,0 +1,25 @@
+{
+    "name": "HDInsight.EastUS2EUAP",
+    "id": "HDInsight.EastUS2EUAP",
+    "properties": {
+        "changeNumber": 4,
+        "region": "eastus2euap",
+        "regionId": 49,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "20.39.15.48/29",
+            "40.74.146.88/29",
+            "40.89.65.220/32",
+            "40.89.68.134/32",
+            "68.220.123.200/29",
+            "2603:1030:40b:400::b20/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

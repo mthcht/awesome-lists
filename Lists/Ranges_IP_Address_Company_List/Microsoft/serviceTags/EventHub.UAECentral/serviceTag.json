@@ -1,0 +1,25 @@
+{
+    "name": "EventHub.UAECentral",
+    "id": "EventHub.UAECentral",
+    "properties": {
+        "changeNumber": 5,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "20.37.74.0/27",
+            "20.45.92.0/24",
+            "74.243.18.128/26",
+            "2603:1040:b04::240/122",
+            "2603:1040:b04:2::/120",
+            "2603:1040:b04:402::1c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

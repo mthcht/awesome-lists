@@ -1,0 +1,29 @@
+{
+    "name": "AzureDigitalTwins.EastUS2EUAP",
+    "id": "AzureDigitalTwins.EastUS2EUAP",
+    "properties": {
+        "changeNumber": 5,
+        "region": "eastus2euap",
+        "regionId": 49,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.39.2.134/32",
+            "20.39.2.208/32",
+            "20.39.2.237/32",
+            "20.39.3.11/32",
+            "20.39.3.14/32",
+            "20.39.3.17/32",
+            "20.39.3.38/32",
+            "20.39.18.169/32",
+            "20.51.16.176/29",
+            "20.51.17.0/27",
+            "52.253.224.146/32",
+            "52.253.224.154/32",
+            "68.220.126.120/29",
+            "172.173.44.192/27",
+            "2603:1030:40b:6::67c/126"
+        ],
+        "networkFeatures": null
+    }
+}

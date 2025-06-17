@@ -1,0 +1,16 @@
+{
+    "name": "AzureBackup.IndonesiaCentral",
+    "id": "AzureBackup.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "70.153.156.64/26",
+            "2603:1040:1802::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

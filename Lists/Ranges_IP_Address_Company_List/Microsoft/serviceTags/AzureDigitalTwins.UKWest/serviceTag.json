@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.UKWest",
+    "id": "AzureDigitalTwins.UKWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.58.66.0/27",
+            "20.58.66.32/29",
+            "2603:1020:605:3::400/121"
+        ],
+        "networkFeatures": null
+    }
+}

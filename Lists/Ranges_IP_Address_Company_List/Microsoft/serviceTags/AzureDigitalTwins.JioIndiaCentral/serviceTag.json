@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.JioIndiaCentral",
+    "id": "AzureDigitalTwins.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.192.231.192/27",
+            "20.192.231.224/29",
+            "2603:1040:1104:1::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

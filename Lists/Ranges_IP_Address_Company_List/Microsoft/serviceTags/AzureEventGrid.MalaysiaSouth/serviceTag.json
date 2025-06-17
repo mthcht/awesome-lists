@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.MalaysiaSouth",
+    "id": "AzureEventGrid.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.17.49.128/25",
+            "2603:1040:1503::280/121"
+        ],
+        "networkFeatures": null
+    }
+}

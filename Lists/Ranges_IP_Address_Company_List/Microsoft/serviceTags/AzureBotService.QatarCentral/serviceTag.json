@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.QatarCentral",
+    "id": "AzureBotService.QatarCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "20.21.32.16/30",
+            "2603:1040:1002::60/123"
+        ],
+        "networkFeatures": null
+    }
+}

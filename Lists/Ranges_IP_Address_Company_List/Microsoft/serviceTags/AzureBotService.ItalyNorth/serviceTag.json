@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.ItalyNorth",
+    "id": "AzureBotService.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "4.232.24.16/30",
+            "2603:1020:1204::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

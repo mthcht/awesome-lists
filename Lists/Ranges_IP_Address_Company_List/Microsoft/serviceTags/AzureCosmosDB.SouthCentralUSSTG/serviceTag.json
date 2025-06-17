@@ -1,0 +1,21 @@
+{
+    "name": "AzureCosmosDB.SouthCentralUSSTG",
+    "id": "AzureCosmosDB.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "20.44.2.64/26",
+            "20.45.115.160/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

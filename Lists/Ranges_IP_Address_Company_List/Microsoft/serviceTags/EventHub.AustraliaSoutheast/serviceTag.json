@@ -1,0 +1,30 @@
+{
+    "name": "EventHub.AustraliaSoutheast",
+    "id": "EventHub.AustraliaSoutheast",
+    "properties": {
+        "changeNumber": 6,
+        "region": "australiasoutheast",
+        "regionId": 4,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "4.199.88.128/26",
+            "13.77.50.32/27",
+            "20.92.2.0/24",
+            "40.115.79.2/32",
+            "40.127.83.123/32",
+            "48.215.144.128/26",
+            "191.239.160.45/32",
+            "191.239.160.178/32",
+            "2603:1010:101::240/122",
+            "2603:1010:101:2::600/119",
+            "2603:1010:101:402::1c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

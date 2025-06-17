@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.NorwayWest",
+    "id": "BatchNodeManagement.NorwayWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "norwayw",
+        "regionId": 74,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "51.120.220.0/27",
+            "51.120.225.160/27",
+            "2603:1020:f04::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

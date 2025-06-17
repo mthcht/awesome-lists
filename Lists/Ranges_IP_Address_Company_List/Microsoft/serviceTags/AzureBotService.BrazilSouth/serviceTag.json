@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.BrazilSouth",
+    "id": "AzureBotService.BrazilSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "brazilsouth",
+        "regionId": 9,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "191.233.205.96/30",
+            "191.235.224.64/30",
+            "2603:1050:6:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

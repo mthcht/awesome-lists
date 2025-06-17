@@ -1,0 +1,25 @@
+{
+    "name": "BatchNodeManagement.BrazilSouth",
+    "id": "BatchNodeManagement.BrazilSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "brazilsouth",
+        "regionId": 9,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "23.97.97.29/32",
+            "104.41.2.182/32",
+            "191.232.37.60/32",
+            "191.233.204.96/27",
+            "191.234.147.96/27",
+            "191.234.155.96/27",
+            "191.235.227.192/27",
+            "2603:1050:6:1::340/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

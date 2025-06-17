@@ -1,0 +1,16 @@
+{
+    "name": "AzureResourceManager.AustriaEast",
+    "id": "AzureResourceManager.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "68.210.168.0/23",
+            "2603:1020:104:5::200/120"
+        ],
+        "networkFeatures": null
+    }
+}

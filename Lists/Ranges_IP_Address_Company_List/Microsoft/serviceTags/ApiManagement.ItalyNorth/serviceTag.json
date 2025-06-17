@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.ItalyNorth",
+    "id": "ApiManagement.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "4.232.28.0/28",
+            "2603:1020:1204::5c0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

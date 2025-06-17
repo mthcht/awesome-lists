@@ -1,0 +1,16 @@
+{
+    "name": "AzureArcInfrastructure.EastUSSTG",
+    "id": "AzureArcInfrastructure.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.99.27.84/31",
+            "20.99.27.96/29"
+        ],
+        "networkFeatures": null
+    }
+}

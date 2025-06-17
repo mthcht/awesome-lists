@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.SwedenSouth",
+    "id": "AzureEventGrid.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "51.12.199.0/25",
+            "2603:1020:1104::280/121"
+        ],
+        "networkFeatures": null
+    }
+}

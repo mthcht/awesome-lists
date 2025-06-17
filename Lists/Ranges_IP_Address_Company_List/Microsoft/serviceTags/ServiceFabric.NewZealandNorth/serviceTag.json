@@ -1,0 +1,20 @@
+{
+    "name": "ServiceFabric.NewZealandNorth",
+    "id": "ServiceFabric.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "172.204.182.128/30",
+            "172.204.192.8/30",
+            "172.204.208.8/30",
+            "2603:1010:502:400::58/125",
+            "2603:1010:502:800::10/125",
+            "2603:1010:502:c00::10/125"
+        ],
+        "networkFeatures": null
+    }
+}

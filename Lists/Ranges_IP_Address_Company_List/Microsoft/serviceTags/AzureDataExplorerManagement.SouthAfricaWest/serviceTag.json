@@ -1,0 +1,19 @@
+{
+    "name": "AzureDataExplorerManagement.SouthAfricaWest",
+    "id": "AzureDataExplorerManagement.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "102.133.0.192/32",
+            "102.133.28.112/28",
+            "172.209.12.48/28",
+            "2603:1000:4:1::380/121",
+            "2603:1000:4:402::150/124"
+        ],
+        "networkFeatures": null
+    }
+}

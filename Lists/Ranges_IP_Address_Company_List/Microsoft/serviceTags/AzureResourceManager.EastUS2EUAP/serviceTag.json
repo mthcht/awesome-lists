@@ -1,0 +1,20 @@
+{
+    "name": "AzureResourceManager.EastUS2EUAP",
+    "id": "AzureResourceManager.EastUS2EUAP",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus2euap",
+        "regionId": 49,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "20.51.18.0/23",
+            "40.75.35.32/28",
+            "40.75.38.0/23",
+            "52.138.94.0/23",
+            "2603:1030:40b:2::40/122",
+            "2603:1030:40b:400::a80/122"
+        ],
+        "networkFeatures": null
+    }
+}

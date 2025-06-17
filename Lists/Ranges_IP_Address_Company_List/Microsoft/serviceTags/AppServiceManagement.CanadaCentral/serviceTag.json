@@ -1,0 +1,23 @@
+{
+    "name": "AppServiceManagement.CanadaCentral",
+    "id": "AppServiceManagement.CanadaCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "13.71.170.64/26",
+            "20.48.202.48/28",
+            "40.85.230.101/32",
+            "2603:1030:f05:2::700/123",
+            "2603:1030:f05:402::100/122",
+            "2603:1030:f05:802::100/122",
+            "2603:1030:f05:c02::100/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

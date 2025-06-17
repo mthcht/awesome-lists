@@ -1,0 +1,29 @@
+{
+    "name": "AzureContainerRegistry.UKWest",
+    "id": "AzureContainerRegistry.UKWest",
+    "properties": {
+        "changeNumber": 8,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "51.11.97.128/26",
+            "51.137.166.192/26",
+            "51.140.210.192/29",
+            "51.140.215.0/25",
+            "172.186.31.64/26",
+            "2603:1020:605:3::280/122",
+            "2603:1020:605:402::90/125",
+            "2603:1020:605:402::340/122",
+            "2603:1020:605:402::580/122",
+            "2603:1020:605:402::600/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

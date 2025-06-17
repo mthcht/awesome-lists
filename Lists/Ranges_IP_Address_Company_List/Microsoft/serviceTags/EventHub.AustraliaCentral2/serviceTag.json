@@ -1,0 +1,26 @@
+{
+    "name": "EventHub.AustraliaCentral2",
+    "id": "EventHub.AustraliaCentral2",
+    "properties": {
+        "changeNumber": 5,
+        "region": "australiacentral2",
+        "regionId": 59,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "20.36.74.130/32",
+            "20.36.114.32/27",
+            "20.53.59.0/24",
+            "20.193.97.0/26",
+            "2603:1010:404::240/122",
+            "2603:1010:404:2::/120",
+            "2603:1010:404:402::1c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

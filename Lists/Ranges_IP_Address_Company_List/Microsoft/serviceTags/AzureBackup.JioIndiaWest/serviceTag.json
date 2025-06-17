@@ -1,0 +1,21 @@
+{
+    "name": "AzureBackup.JioIndiaWest",
+    "id": "AzureBackup.JioIndiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.193.192.192/26",
+            "20.193.203.0/26",
+            "20.193.203.64/27",
+            "2603:1040:d04:1::780/121",
+            "2603:1040:d04:400::100/121",
+            "2603:1040:d04:400::300/121",
+            "2603:1040:d04:c02::200/121"
+        ],
+        "networkFeatures": null
+    }
+}

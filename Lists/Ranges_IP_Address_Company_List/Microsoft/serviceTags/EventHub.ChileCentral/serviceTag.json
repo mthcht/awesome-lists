@@ -1,0 +1,24 @@
+{
+    "name": "EventHub.ChileCentral",
+    "id": "EventHub.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "68.211.6.0/24",
+            "68.211.152.128/26",
+            "68.211.168.128/26",
+            "68.211.184.128/26",
+            "2603:1050:301::700/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.SwitzerlandNorth",
+    "id": "AzureBotService.SwitzerlandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "switzerlandn",
+        "regionId": 66,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "51.107.48.64/30",
+            "51.107.58.4/30",
+            "2603:1020:a04:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

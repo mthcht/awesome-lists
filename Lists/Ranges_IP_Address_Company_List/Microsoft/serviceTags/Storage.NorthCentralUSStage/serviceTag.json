@@ -1,0 +1,26 @@
+{
+    "name": "Storage.NorthCentralUSStage",
+    "id": "Storage.NorthCentralUSStage",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "168.62.96.192/29",
+            "168.62.96.200/30",
+            "168.62.96.204/32",
+            "168.62.96.206/31",
+            "168.62.96.208/32",
+            "168.62.96.212/30",
+            "168.62.96.216/29"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

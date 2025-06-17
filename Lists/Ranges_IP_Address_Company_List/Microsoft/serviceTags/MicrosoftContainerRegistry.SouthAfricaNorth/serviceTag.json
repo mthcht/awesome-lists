@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.SouthAfricaNorth",
+    "id": "MicrosoftContainerRegistry.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "102.133.122.136/29",
+            "102.133.154.16/29",
+            "102.133.250.136/29",
+            "2603:1000:104:402::88/125",
+            "2603:1000:104:802::88/125",
+            "2603:1000:104:c02::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

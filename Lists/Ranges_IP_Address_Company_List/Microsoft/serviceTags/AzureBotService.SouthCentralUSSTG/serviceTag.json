@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.SouthCentralUSSTG",
+    "id": "AzureBotService.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "20.44.4.72/30",
+            "20.45.112.64/30"
+        ],
+        "networkFeatures": null
+    }
+}

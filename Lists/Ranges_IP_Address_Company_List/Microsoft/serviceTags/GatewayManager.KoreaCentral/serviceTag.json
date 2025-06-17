@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.KoreaCentral",
+    "id": "GatewayManager.KoreaCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "koreacentral",
+        "regionId": 26,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.41.64.72/29",
+            "20.194.75.128/26",
+            "52.231.18.224/29",
+            "2603:1040:f05:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

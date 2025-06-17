@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.SouthCentralUSSTG",
+    "id": "AzureConnectors.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "20.44.3.0/28",
+            "23.100.208.0/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

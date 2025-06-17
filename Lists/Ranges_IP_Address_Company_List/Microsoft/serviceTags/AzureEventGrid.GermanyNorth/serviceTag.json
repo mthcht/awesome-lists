@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.GermanyNorth",
+    "id": "AzureEventGrid.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "51.116.3.32/27",
+            "51.116.72.0/25",
+            "2603:1020:d04::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

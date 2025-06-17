@@ -1,0 +1,22 @@
+{
+    "name": "AzureMachineLearning.BrazilSouth",
+    "id": "AzureMachineLearning.BrazilSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "brazilsouth",
+        "regionId": 9,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "191.233.203.144/28",
+            "191.233.240.165/32",
+            "191.233.242.167/32",
+            "191.234.147.64/28",
+            "191.234.155.64/28",
+            "191.235.224.96/28",
+            "191.238.73.80/28",
+            "2603:1050:6:1::2c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

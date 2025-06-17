@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.NorthCentralUS",
+    "id": "AzureBotService.NorthCentralUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "40.80.184.64/30",
+            "52.162.111.16/30",
+            "2603:1030:608::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

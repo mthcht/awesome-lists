@@ -1,0 +1,26 @@
+{
+    "name": "BatchNodeManagement.JapanEast",
+    "id": "BatchNodeManagement.JapanEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "13.71.144.135/32",
+            "13.78.108.128/27",
+            "20.43.66.96/27",
+            "23.100.100.145/32",
+            "23.100.103.112/32",
+            "40.79.186.128/27",
+            "40.79.194.32/27",
+            "138.91.1.114/32",
+            "2603:1040:407:1::340/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

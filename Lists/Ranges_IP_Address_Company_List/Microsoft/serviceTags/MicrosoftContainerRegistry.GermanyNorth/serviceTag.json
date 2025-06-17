@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.GermanyNorth",
+    "id": "MicrosoftContainerRegistry.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "51.116.58.16/29",
+            "2603:1020:d04:402::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

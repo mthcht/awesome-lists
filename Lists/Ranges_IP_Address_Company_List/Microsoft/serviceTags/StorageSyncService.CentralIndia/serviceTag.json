@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.CentralIndia",
+    "id": "StorageSyncService.CentralIndia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "centralindia",
+        "regionId": 21,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "52.140.105.184/29",
+            "2603:1040:a06:1::300/123",
+            "2603:1040:a06:802::2a0/123"
+        ],
+        "networkFeatures": null
+    }
+}

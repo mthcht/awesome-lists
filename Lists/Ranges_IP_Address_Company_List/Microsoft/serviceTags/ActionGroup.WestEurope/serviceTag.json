@@ -1,0 +1,20 @@
+{
+    "name": "ActionGroup.WestEurope",
+    "id": "ActionGroup.WestEurope",
+    "properties": {
+        "changeNumber": 6,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "13.69.109.132/30",
+            "20.105.215.20/31",
+            "172.201.232.60/30",
+            "2603:1020:206:b::fc/126",
+            "2603:1020:206:402::178/125",
+            "2603:1020:206:403::78/125"
+        ],
+        "networkFeatures": null
+    }
+}

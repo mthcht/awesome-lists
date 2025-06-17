@@ -1,0 +1,23 @@
+{
+    "name": "AzureSecurityCenter.SouthCentralUS",
+    "id": "AzureSecurityCenter.SouthCentralUS",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southcentralus",
+        "regionId": 35,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "20.45.126.64/27",
+            "135.233.204.32/27",
+            "135.233.205.128/25",
+            "135.233.207.0/24",
+            "135.233.216.0/23",
+            "172.215.184.0/23",
+            "172.215.186.0/24",
+            "172.215.187.0/25",
+            "172.215.187.128/26"
+        ],
+        "networkFeatures": null
+    }
+}

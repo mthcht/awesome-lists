@@ -1,0 +1,27 @@
+{
+    "name": "AzureIoTHub.WestUS",
+    "id": "AzureIoTHub.WestUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "13.86.221.0/25",
+            "20.49.120.96/27",
+            "20.49.120.128/25",
+            "20.49.121.0/25",
+            "20.168.163.160/27",
+            "40.78.22.17/32",
+            "40.83.177.42/32",
+            "40.112.221.188/32",
+            "40.112.223.235/32",
+            "52.250.225.32/27",
+            "104.40.49.44/32",
+            "2603:1030:a07:402::980/123",
+            "2603:1030:a07:c00::e0/123"
+        ],
+        "networkFeatures": null
+    }
+}

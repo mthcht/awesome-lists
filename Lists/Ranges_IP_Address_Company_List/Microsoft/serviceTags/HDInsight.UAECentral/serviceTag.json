@@ -1,0 +1,23 @@
+{
+    "name": "HDInsight.UAECentral",
+    "id": "HDInsight.UAECentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "20.37.68.40/29",
+            "20.37.76.96/29",
+            "2603:1040:b04:5::240/124",
+            "2603:1040:b04:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "AzureConnectors.CentralUSEUAP",
+    "id": "AzureConnectors.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 7,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "20.45.240.112/28",
+            "20.45.241.128/27",
+            "20.45.250.177/32",
+            "20.228.37.79/32",
+            "40.78.202.96/28",
+            "52.180.164.214/32",
+            "168.61.140.0/27",
+            "168.61.143.64/26",
+            "2603:1030:f:400::980/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

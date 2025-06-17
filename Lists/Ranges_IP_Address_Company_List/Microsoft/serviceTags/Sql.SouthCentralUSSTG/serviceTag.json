@@ -1,0 +1,21 @@
+{
+    "name": "Sql.SouthCentralUSSTG",
+    "id": "Sql.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "20.44.0.0/27",
+            "20.44.1.0/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

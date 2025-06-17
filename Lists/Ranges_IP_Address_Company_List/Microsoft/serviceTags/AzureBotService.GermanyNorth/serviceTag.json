@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.GermanyNorth",
+    "id": "AzureBotService.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "51.116.48.64/30",
+            "2603:1020:d04::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

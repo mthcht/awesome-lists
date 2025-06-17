@@ -1,0 +1,17 @@
+{
+    "name": "ServiceFabric.FranceSouth",
+    "id": "ServiceFabric.FranceSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "40.79.179.0/29",
+            "52.136.136.27/32",
+            "2603:1020:905:402::98/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "ApiManagement.CentralUSEUAP",
+    "id": "ApiManagement.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 3,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.46.13.224/28",
+            "40.78.202.128/31",
+            "40.78.203.160/28",
+            "52.253.159.160/32",
+            "2603:1030:f:2::490/124",
+            "2603:1030:f:400::940/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.PolandCentral",
+    "id": "AzureEventGrid.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.215.1.128/25",
+            "2603:1020:1302::280/121"
+        ],
+        "networkFeatures": null
+    }
+}

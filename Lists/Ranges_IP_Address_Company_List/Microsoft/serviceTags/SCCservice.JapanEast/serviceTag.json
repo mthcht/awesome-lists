@@ -1,0 +1,17 @@
+{
+    "name": "SCCservice.JapanEast",
+    "id": "SCCservice.JapanEast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "SCCservice",
+        "addressPrefixes": [
+            "13.78.111.200/29",
+            "48.210.98.160/27",
+            "2603:1040:407:8::220/123"
+        ],
+        "networkFeatures": null
+    }
+}

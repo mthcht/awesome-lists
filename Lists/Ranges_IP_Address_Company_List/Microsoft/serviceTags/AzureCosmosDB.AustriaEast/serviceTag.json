@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.AustriaEast",
+    "id": "AzureCosmosDB.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "68.210.163.0/26",
+            "68.210.179.0/27",
+            "2603:1020:104:4::300/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.JioIndiaWest",
+    "id": "AzureBotService.JioIndiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "20.192.160.16/30",
+            "2603:1040:d04::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

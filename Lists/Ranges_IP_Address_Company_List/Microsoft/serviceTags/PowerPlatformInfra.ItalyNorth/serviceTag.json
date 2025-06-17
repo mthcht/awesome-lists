@@ -1,0 +1,26 @@
+{
+    "name": "PowerPlatformInfra.ItalyNorth",
+    "id": "PowerPlatformInfra.ItalyNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "4.232.50.136/29",
+            "4.232.50.160/27",
+            "4.232.50.192/26",
+            "4.232.51.128/30",
+            "4.232.100.30/31",
+            "172.213.127.64/26",
+            "2603:1061:2002:a800::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

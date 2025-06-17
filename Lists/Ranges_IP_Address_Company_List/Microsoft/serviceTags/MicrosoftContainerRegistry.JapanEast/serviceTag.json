@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.JapanEast",
+    "id": "MicrosoftContainerRegistry.JapanEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "13.78.106.192/29",
+            "40.79.186.0/29",
+            "40.79.194.88/29",
+            "2603:1040:407:402::88/125",
+            "2603:1040:407:802::88/125",
+            "2603:1040:407:c02::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

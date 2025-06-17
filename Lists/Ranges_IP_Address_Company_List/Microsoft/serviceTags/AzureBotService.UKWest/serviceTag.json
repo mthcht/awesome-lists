@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.UKWest",
+    "id": "AzureBotService.UKWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "51.137.160.64/30",
+            "51.140.212.72/30",
+            "2603:1020:605::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

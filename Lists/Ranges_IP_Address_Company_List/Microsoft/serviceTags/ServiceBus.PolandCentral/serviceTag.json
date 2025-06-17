@@ -1,0 +1,26 @@
+{
+    "name": "ServiceBus.PolandCentral",
+    "id": "ServiceBus.PolandCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "20.215.6.0/25",
+            "20.215.18.80/29",
+            "20.215.18.96/28",
+            "20.215.26.80/29",
+            "20.215.26.96/28",
+            "20.215.78.128/26",
+            "20.215.154.80/29",
+            "20.215.154.96/28",
+            "2603:1020:1302::780/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

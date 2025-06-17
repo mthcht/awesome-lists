@@ -1,0 +1,22 @@
+{
+    "name": "DataFactory.GermanyNorth",
+    "id": "DataFactory.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "20.52.73.160/28",
+            "20.170.170.0/23",
+            "2603:1020:d04::440/122",
+            "2603:1020:d04::500/121",
+            "2603:1020:d04:402::330/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

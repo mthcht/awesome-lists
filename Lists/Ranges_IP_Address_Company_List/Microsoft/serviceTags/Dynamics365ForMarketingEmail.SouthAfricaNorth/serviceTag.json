@@ -1,0 +1,20 @@
+{
+    "name": "Dynamics365ForMarketingEmail.SouthAfricaNorth",
+    "id": "Dynamics365ForMarketingEmail.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "Dynamics365ForMarketingEmail",
+        "addressPrefixes": [
+            "102.133.251.96/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

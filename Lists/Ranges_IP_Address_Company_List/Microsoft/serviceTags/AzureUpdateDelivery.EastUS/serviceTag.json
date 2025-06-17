@@ -1,0 +1,18 @@
+{
+    "name": "AzureUpdateDelivery.EastUS",
+    "id": "AzureUpdateDelivery.EastUS",
+    "properties": {
+        "changeNumber": 5,
+        "region": "eastus",
+        "regionId": 32,
+        "platform": "Azure",
+        "systemService": "AzureUpdateDelivery",
+        "addressPrefixes": [
+            "40.117.248.145/32",
+            "52.152.180.144/28",
+            "74.235.227.153/32",
+            "2a01:111:f100:2003::8975:3840/124"
+        ],
+        "networkFeatures": null
+    }
+}

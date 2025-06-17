@@ -1,0 +1,28 @@
+{
+    "name": "PowerBI.MexicoCentral",
+    "id": "PowerBI.MexicoCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "68.155.79.224/27",
+            "68.155.128.0/28",
+            "68.155.128.16/29",
+            "158.23.109.128/31",
+            "158.23.109.132/30",
+            "158.23.109.136/29",
+            "158.23.200.128/27",
+            "2603:1030:702:2::160/123",
+            "2603:1030:702:2::200/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

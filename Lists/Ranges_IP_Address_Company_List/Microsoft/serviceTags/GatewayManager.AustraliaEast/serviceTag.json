@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.AustraliaEast",
+    "id": "GatewayManager.AustraliaEast",
+    "properties": {
+        "changeNumber": 4,
+        "region": "australiaeast",
+        "regionId": 3,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "13.70.72.208/29",
+            "20.37.192.72/29",
+            "20.70.222.128/27",
+            "2603:1010:6:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

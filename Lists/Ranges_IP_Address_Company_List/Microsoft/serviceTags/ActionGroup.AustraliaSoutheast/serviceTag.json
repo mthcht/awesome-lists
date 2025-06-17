@@ -1,0 +1,19 @@
+{
+    "name": "ActionGroup.AustraliaSoutheast",
+    "id": "ActionGroup.AustraliaSoutheast",
+    "properties": {
+        "changeNumber": 5,
+        "region": "australiasoutheast",
+        "regionId": 4,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "4.200.251.84/30",
+            "13.77.53.216/30",
+            "20.92.5.114/31",
+            "2603:1010:101::10c/126",
+            "2603:1010:101:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

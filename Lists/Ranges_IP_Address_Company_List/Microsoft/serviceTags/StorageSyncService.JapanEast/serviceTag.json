@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.JapanEast",
+    "id": "StorageSyncService.JapanEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.43.66.0/29",
+            "2603:1040:407:1::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

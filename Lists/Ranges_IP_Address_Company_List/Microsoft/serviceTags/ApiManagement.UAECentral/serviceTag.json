@@ -1,0 +1,25 @@
+{
+    "name": "ApiManagement.UAECentral",
+    "id": "ApiManagement.UAECentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.37.74.224/31",
+            "20.37.76.32/28",
+            "20.37.81.41/32",
+            "20.203.91.208/28",
+            "2603:1040:b04:2::690/124",
+            "2603:1040:b04:402::140/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

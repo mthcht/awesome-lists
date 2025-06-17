@@ -1,0 +1,23 @@
+{
+    "name": "AppServiceManagement.GermanyWestCentral",
+    "id": "AppServiceManagement.GermanyWestCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "germanywc",
+        "regionId": 71,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.52.95.16/28",
+            "51.116.155.0/26",
+            "51.116.175.204/32",
+            "2603:1020:c04:2::500/123",
+            "2603:1020:c04:402::100/122",
+            "2603:1020:c04:802::100/122",
+            "2603:1020:c04:c02::100/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

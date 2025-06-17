@@ -1,0 +1,23 @@
+{
+    "name": "PowerQueryOnline.NorwayEast",
+    "id": "PowerQueryOnline.NorwayEast",
+    "properties": {
+        "changeNumber": 5,
+        "region": "norwaye",
+        "regionId": 63,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "20.100.4.184/29",
+            "51.13.1.30/31",
+            "51.120.40.70/31",
+            "51.120.110.220/31",
+            "51.120.214.210/31",
+            "2603:1020:e04:1::200/123",
+            "2603:1020:e04:402::160/125",
+            "2603:1020:e04:802::140/125",
+            "2603:1020:e04:c00::20/125"
+        ],
+        "networkFeatures": null
+    }
+}

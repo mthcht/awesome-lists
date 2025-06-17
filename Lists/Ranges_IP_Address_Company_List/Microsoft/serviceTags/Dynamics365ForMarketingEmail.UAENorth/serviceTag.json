@@ -1,0 +1,21 @@
+{
+    "name": "Dynamics365ForMarketingEmail.UAENorth",
+    "id": "Dynamics365ForMarketingEmail.UAENorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "Dynamics365ForMarketingEmail",
+        "addressPrefixes": [
+            "40.120.64.224/27",
+            "65.52.252.128/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

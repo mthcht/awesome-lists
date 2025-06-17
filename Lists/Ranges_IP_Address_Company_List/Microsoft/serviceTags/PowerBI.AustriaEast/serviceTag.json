@@ -1,0 +1,26 @@
+{
+    "name": "PowerBI.AustriaEast",
+    "id": "PowerBI.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "68.210.172.148/31",
+            "68.210.172.184/30",
+            "68.210.173.160/29",
+            "68.210.182.48/28",
+            "68.210.182.192/28",
+            "2603:1020:104:3::140/122",
+            "2603:1020:104:3::180/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

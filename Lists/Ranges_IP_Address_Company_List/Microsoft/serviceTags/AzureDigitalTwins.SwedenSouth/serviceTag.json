@@ -1,0 +1,18 @@
+{
+    "name": "AzureDigitalTwins.SwedenSouth",
+    "id": "AzureDigitalTwins.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "51.12.194.120/29",
+            "51.12.195.192/27",
+            "2603:1020:1104:1::380/122",
+            "2603:1020:1104:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

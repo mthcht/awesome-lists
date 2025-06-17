@@ -1,0 +1,36 @@
+{
+    "name": "PowerPlatformInfra.GermanyNorth",
+    "id": "PowerPlatformInfra.GermanyNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "4.184.2.208/28",
+            "4.184.3.0/26",
+            "4.184.3.128/25",
+            "51.116.1.237/32",
+            "51.116.2.101/32",
+            "51.116.2.239/32",
+            "51.116.3.16/32",
+            "51.116.3.73/32",
+            "51.116.3.87/32",
+            "51.116.3.102/32",
+            "51.116.50.128/26",
+            "51.116.50.192/27",
+            "51.116.51.184/29",
+            "51.116.74.96/27",
+            "51.116.74.128/26",
+            "51.116.75.64/29",
+            "2603:1061:2002:5000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

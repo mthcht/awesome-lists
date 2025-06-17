@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.UAENorth",
+    "id": "StorageSyncService.UAENorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.38.136.224/29",
+            "2603:1040:904:1::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

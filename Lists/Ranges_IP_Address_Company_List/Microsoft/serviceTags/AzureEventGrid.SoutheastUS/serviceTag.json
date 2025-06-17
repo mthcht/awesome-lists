@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.SoutheastUS",
+    "id": "AzureEventGrid.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "57.151.209.128/25",
+            "2603:1030:902::280/121"
+        ],
+        "networkFeatures": null
+    }
+}

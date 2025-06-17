@@ -1,0 +1,21 @@
+{
+    "name": "AppService.ItalyNorth",
+    "id": "AppService.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "4.232.99.0/24",
+            "2603:1020:1204:1::700/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

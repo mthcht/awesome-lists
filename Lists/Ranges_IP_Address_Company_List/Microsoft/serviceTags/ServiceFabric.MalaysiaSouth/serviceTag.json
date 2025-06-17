@@ -1,0 +1,16 @@
+{
+    "name": "ServiceFabric.MalaysiaSouth",
+    "id": "ServiceFabric.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "20.17.66.76/30",
+            "2603:1040:1503:400::58/125"
+        ],
+        "networkFeatures": null
+    }
+}

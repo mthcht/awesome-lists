@@ -1,0 +1,27 @@
+{
+    "name": "AppService.BrazilSoutheast",
+    "id": "AppService.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "20.206.0.200/29",
+            "20.206.1.0/24",
+            "20.206.2.0/25",
+            "191.232.16.16/32",
+            "191.232.16.52/32",
+            "191.233.50.32/27",
+            "2603:1050:403:2::400/119",
+            "2603:1050:403:400::a0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

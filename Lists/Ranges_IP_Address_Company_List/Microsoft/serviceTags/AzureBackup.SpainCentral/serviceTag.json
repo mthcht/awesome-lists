@@ -1,0 +1,17 @@
+{
+    "name": "AzureBackup.SpainCentral",
+    "id": "AzureBackup.SpainCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "spaincentral",
+        "regionId": 88,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "68.221.84.192/26",
+            "2603:1020:1403::680/121",
+            "2603:1020:1403:400::80/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.SoutheastUS",
+    "id": "ApiManagement.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "57.151.210.240/28",
+            "2603:1030:902::5a0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

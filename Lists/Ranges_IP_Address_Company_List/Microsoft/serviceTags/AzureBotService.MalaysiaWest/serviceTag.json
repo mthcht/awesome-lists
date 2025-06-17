@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.MalaysiaWest",
+    "id": "AzureBotService.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "20.17.112.16/30",
+            "2603:1040:1602::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

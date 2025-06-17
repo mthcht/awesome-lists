@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.MexicoCentral",
+    "id": "AzureEventGrid.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "158.23.97.128/25",
+            "2603:1030:702::280/121"
+        ],
+        "networkFeatures": null
+    }
+}

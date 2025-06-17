@@ -1,0 +1,30 @@
+{
+    "name": "AppService.SwedenCentral",
+    "id": "AppService.SwedenCentral",
+    "properties": {
+        "changeNumber": 5,
+        "region": "swedencentral",
+        "regionId": 76,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "51.12.31.0/24",
+            "51.12.73.224/27",
+            "51.12.74.0/25",
+            "51.12.98.192/27",
+            "51.12.226.160/27",
+            "51.12.234.160/27",
+            "2603:1020:1004:2::500/120",
+            "2603:1020:1004:3::100/120",
+            "2603:1020:1004:400::a0/123",
+            "2603:1020:1004:800::160/123",
+            "2603:1020:1004:800::360/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "PowerQueryOnline.SwedenSouth",
+    "id": "PowerQueryOnline.SwedenSouth",
+    "properties": {
+        "changeNumber": 7,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "20.91.9.56/29",
+            "51.12.169.68/31",
+            "51.12.198.208/31",
+            "2603:1020:1104::200/123",
+            "2603:1020:1104:400::160/125"
+        ],
+        "networkFeatures": null
+    }
+}

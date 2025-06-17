@@ -1,0 +1,16 @@
+{
+    "name": "AzureResourceManager.MexicoCentral",
+    "id": "AzureResourceManager.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "158.23.106.0/23",
+            "2603:1030:702:1::400/120"
+        ],
+        "networkFeatures": null
+    }
+}

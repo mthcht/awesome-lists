@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.ChileCentral",
+    "id": "AzureConnectors.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "68.211.12.64/26",
+            "2603:1050:301:1::6c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

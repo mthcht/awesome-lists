@@ -1,0 +1,23 @@
+{
+    "name": "ServiceFabric.WestUS3",
+    "id": "ServiceFabric.WestUS3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "20.150.171.72/29",
+            "20.150.181.160/30",
+            "20.150.189.28/30",
+            "20.150.225.4/30",
+            "2603:1030:504:402::98/125",
+            "2603:1030:504:802::c8/125",
+            "2603:1030:504:802::158/125",
+            "2603:1030:504:802::350/125",
+            "2603:1030:504:c02::408/125"
+        ],
+        "networkFeatures": null
+    }
+}

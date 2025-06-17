@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.AustriaEast",
+    "id": "MicrosoftContainerRegistry.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "68.210.152.0/29",
+            "68.210.192.0/29",
+            "68.210.208.0/29",
+            "2603:1020:104:403::/125",
+            "2603:1020:104:800::/125",
+            "2603:1020:104:c00::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

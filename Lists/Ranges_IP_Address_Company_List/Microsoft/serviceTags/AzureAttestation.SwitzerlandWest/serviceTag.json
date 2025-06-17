@@ -1,0 +1,17 @@
+{
+    "name": "AzureAttestation.SwitzerlandWest",
+    "id": "AzureAttestation.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "51.107.192.152/30",
+            "51.107.250.40/30",
+            "2603:1020:b04:5::b0/124"
+        ],
+        "networkFeatures": null
+    }
+}

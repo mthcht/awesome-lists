@@ -1,0 +1,20 @@
+{
+    "name": "AzurePortal.EastUSSTG",
+    "id": "AzurePortal.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "40.67.48.124/30",
+            "40.67.49.128/27",
+            "40.67.50.192/27",
+            "40.67.52.88/29",
+            "2603:1030:104::100/121",
+            "2603:1030:104:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

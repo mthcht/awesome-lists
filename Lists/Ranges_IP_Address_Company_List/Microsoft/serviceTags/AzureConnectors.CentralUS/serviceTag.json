@@ -1,0 +1,31 @@
+{
+    "name": "AzureConnectors.CentralUS",
+    "id": "AzureConnectors.CentralUS",
+    "properties": {
+        "changeNumber": 7,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "13.89.171.80/28",
+            "13.89.178.64/27",
+            "20.80.123.57/32",
+            "20.80.123.134/32",
+            "20.98.144.224/27",
+            "20.98.145.0/28",
+            "40.113.242.246/32",
+            "52.141.219.147/32",
+            "52.141.220.24/32",
+            "52.173.241.27/32",
+            "52.173.245.164/32",
+            "2603:1030:10:402::180/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

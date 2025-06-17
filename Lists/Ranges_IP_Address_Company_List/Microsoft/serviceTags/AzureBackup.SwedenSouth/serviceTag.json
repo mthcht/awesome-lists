@@ -1,0 +1,19 @@
+{
+    "name": "AzureBackup.SwedenSouth",
+    "id": "AzureBackup.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "51.12.17.64/26",
+            "51.12.203.96/27",
+            "51.12.203.128/26",
+            "2603:1020:1104:1::400/121",
+            "2603:1020:1104:400::200/121"
+        ],
+        "networkFeatures": null
+    }
+}

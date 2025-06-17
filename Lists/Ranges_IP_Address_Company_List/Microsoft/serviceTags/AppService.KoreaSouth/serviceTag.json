@@ -1,0 +1,28 @@
+{
+    "name": "AppService.KoreaSouth",
+    "id": "AppService.KoreaSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "40.80.170.224/27",
+            "52.147.117.224/27",
+            "52.147.118.128/25",
+            "52.147.119.64/27",
+            "52.147.119.128/25",
+            "52.231.146.96/27",
+            "52.231.200.101/32",
+            "52.231.200.179/32",
+            "2603:1040:e05:1::200/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

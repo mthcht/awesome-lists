@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.ChileCentral",
+    "id": "AzurePortal.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "68.211.15.0/27",
+            "68.211.20.228/30",
+            "2603:1050:301:2::500/121"
+        ],
+        "networkFeatures": null
+    }
+}

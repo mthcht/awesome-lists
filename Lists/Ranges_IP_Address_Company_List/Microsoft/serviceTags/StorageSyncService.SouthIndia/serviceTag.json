@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.SouthIndia",
+    "id": "StorageSyncService.SouthIndia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southindia",
+        "regionId": 22,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.41.193.160/29",
+            "2603:1040:c06::340/123"
+        ],
+        "networkFeatures": null
+    }
+}

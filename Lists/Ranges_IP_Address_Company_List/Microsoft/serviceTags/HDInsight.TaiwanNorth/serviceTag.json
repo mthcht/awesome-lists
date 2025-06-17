@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.TaiwanNorth",
+    "id": "HDInsight.TaiwanNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorth",
+        "regionId": 8,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "51.53.30.168/29",
+            "2603:1040:1302:1::470/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

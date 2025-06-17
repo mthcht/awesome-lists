@@ -1,0 +1,17 @@
+{
+    "name": "AzureAttestation.NorwayEast",
+    "id": "AzureAttestation.NorwayEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "norwaye",
+        "regionId": 63,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "51.120.100.244/30",
+            "51.120.233.128/30",
+            "2603:1020:e04::7a0/123"
+        ],
+        "networkFeatures": null
+    }
+}

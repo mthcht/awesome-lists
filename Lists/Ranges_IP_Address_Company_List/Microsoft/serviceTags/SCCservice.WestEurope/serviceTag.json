@@ -1,0 +1,19 @@
+{
+    "name": "SCCservice.WestEurope",
+    "id": "SCCservice.WestEurope",
+    "properties": {
+        "changeNumber": 3,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "SCCservice",
+        "addressPrefixes": [
+            "40.74.56.205/32",
+            "48.209.79.32/27",
+            "52.178.17.16/28",
+            "104.46.32.191/32",
+            "2603:1020:206:12::440/123"
+        ],
+        "networkFeatures": null
+    }
+}

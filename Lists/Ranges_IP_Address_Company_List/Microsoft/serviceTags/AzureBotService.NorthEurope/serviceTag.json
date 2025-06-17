@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.NorthEurope",
+    "id": "AzureBotService.NorthEurope",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "13.69.227.252/30",
+            "20.38.80.64/30",
+            "2603:1020:5:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

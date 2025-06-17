@@ -1,0 +1,16 @@
+{
+    "name": "AzureResourceManager.ChileCentral",
+    "id": "AzureResourceManager.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "68.211.10.0/23",
+            "2603:1050:301:1::400/120"
+        ],
+        "networkFeatures": null
+    }
+}

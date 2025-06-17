@@ -1,0 +1,20 @@
+{
+    "name": "AzureDataExplorerManagement.CentralUS",
+    "id": "AzureDataExplorerManagement.CentralUS",
+    "properties": {
+        "changeNumber": 3,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "13.86.36.42/32",
+            "13.89.174.80/28",
+            "40.67.188.68/32",
+            "172.212.135.160/28",
+            "2603:1030:10::600/121",
+            "2603:1030:10:402::150/124"
+        ],
+        "networkFeatures": null
+    }
+}

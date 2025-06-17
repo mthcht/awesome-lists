@@ -1,0 +1,24 @@
+{
+    "name": "ApiManagement.SwitzerlandNorth",
+    "id": "ApiManagement.SwitzerlandNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "switzerlandn",
+        "regionId": 66,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "51.107.0.91/32",
+            "51.107.59.0/28",
+            "51.107.246.176/28",
+            "2603:1020:a04:2::510/124",
+            "2603:1020:a04:402::140/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

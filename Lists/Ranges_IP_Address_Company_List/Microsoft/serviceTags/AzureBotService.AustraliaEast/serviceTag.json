@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.AustraliaEast",
+    "id": "AzureBotService.AustraliaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "australiaeast",
+        "regionId": 3,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "13.70.74.112/30",
+            "20.37.192.64/30",
+            "2603:1010:6:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

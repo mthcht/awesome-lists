@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.IsraelCentral",
+    "id": "StorageSyncService.IsraelCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.217.58.120/29",
+            "51.4.37.240/29",
+            "2603:1040:1402:400::240/123"
+        ],
+        "networkFeatures": null
+    }
+}

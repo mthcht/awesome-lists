@@ -1,0 +1,27 @@
+{
+    "name": "AzureKeyVault.NewZealandNorth",
+    "id": "AzureKeyVault.NewZealandNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "172.204.160.32/29",
+            "172.204.182.132/30",
+            "172.204.192.12/30",
+            "172.204.208.12/30",
+            "2603:1010:502:1::228/125",
+            "2603:1010:502:400::410/125",
+            "2603:1010:502:800::18/125",
+            "2603:1010:502:c00::18/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

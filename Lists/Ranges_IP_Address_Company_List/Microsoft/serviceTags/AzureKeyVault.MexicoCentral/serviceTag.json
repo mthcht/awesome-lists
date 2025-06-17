@@ -1,0 +1,29 @@
+{
+    "name": "AzureKeyVault.MexicoCentral",
+    "id": "AzureKeyVault.MexicoCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "158.23.10.124/30",
+            "158.23.103.112/29",
+            "158.23.122.76/30",
+            "158.23.194.76/30",
+            "2603:1030:702:1::204/126",
+            "2603:1030:702:1::208/125",
+            "2603:1030:702:1::2a0/125",
+            "2603:1030:702:400::130/125",
+            "2603:1030:702:800::38/125",
+            "2603:1030:702:c00::38/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

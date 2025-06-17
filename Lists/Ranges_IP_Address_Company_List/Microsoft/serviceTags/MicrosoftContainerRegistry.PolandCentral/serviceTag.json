@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.PolandCentral",
+    "id": "MicrosoftContainerRegistry.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.215.18.64/29",
+            "20.215.26.64/29",
+            "20.215.154.64/29",
+            "2603:1020:1302:400::40/125",
+            "2603:1020:1302:800::40/125",
+            "2603:1020:1302:c00::40/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

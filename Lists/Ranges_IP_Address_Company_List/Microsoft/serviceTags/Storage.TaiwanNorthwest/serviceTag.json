@@ -1,0 +1,25 @@
+{
+    "name": "Storage.TaiwanNorthwest",
+    "id": "Storage.TaiwanNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorthwest",
+        "regionId": 96,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.60.114.0/24",
+            "20.157.174.0/24",
+            "20.157.188.0/24",
+            "20.209.44.0/23",
+            "20.209.144.0/23",
+            "2603:1040:1203::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

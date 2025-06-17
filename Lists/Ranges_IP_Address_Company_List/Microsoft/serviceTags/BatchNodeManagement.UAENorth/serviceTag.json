@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.UAENorth",
+    "id": "BatchNodeManagement.UAENorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.38.137.192/27",
+            "65.52.251.224/27",
+            "2603:1040:904:1::340/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

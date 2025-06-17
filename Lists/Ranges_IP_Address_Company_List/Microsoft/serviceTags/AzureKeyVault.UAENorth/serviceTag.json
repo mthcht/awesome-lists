@@ -1,0 +1,30 @@
+{
+    "name": "AzureKeyVault.UAENorth",
+    "id": "AzureKeyVault.UAENorth",
+    "properties": {
+        "changeNumber": 6,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "20.38.157.128/30",
+            "40.120.74.0/30",
+            "40.120.82.104/29",
+            "40.120.82.112/30",
+            "65.52.250.0/30",
+            "2603:1040:904::340/125",
+            "2603:1040:904:1::108/125",
+            "2603:1040:904:1::110/126",
+            "2603:1040:904:402::80/125",
+            "2603:1040:904:802::80/125",
+            "2603:1040:904:c02::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.JapanWest",
+    "id": "AzureBotService.JapanWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "japanwest",
+        "regionId": 25,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "40.80.56.64/30",
+            "40.80.176.32/30",
+            "2603:1040:606::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

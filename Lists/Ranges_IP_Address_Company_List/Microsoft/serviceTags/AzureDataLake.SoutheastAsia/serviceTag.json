@@ -1,0 +1,17 @@
+{
+    "name": "AzureDataLake.SoutheastAsia",
+    "id": "AzureDataLake.SoutheastAsia",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia",
+        "regionId": 2,
+        "platform": "Azure",
+        "systemService": "AzureDataLake",
+        "addressPrefixes": [
+            "104.44.89.39/32",
+            "104.44.89.42/32",
+            "104.44.90.128/27"
+        ],
+        "networkFeatures": null
+    }
+}

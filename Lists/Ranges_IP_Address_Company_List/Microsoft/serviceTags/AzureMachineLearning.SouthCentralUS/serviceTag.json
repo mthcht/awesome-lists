@@ -1,0 +1,24 @@
+{
+    "name": "AzureMachineLearning.SouthCentralUS",
+    "id": "AzureMachineLearning.SouthCentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southcentralus",
+        "regionId": 35,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "13.66.87.135/32",
+            "13.73.240.16/28",
+            "13.73.240.112/28",
+            "13.73.240.240/28",
+            "13.73.248.96/28",
+            "20.65.135.0/28",
+            "40.119.8.80/28",
+            "52.249.59.91/32",
+            "104.214.19.32/28",
+            "2603:1030:807:1::2c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

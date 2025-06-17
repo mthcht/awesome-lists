@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.NewZealandNorth",
+    "id": "AzureEventGrid.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "172.204.153.128/25",
+            "2603:1010:502::280/121"
+        ],
+        "networkFeatures": null
+    }
+}

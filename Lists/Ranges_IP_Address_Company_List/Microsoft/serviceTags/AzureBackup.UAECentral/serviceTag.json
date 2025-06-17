@@ -1,0 +1,19 @@
+{
+    "name": "AzureBackup.UAECentral",
+    "id": "AzureBackup.UAECentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.37.75.0/26",
+            "20.37.75.64/27",
+            "20.45.90.0/26",
+            "2603:1040:b04:2::780/121",
+            "2603:1040:b04:402::200/121"
+        ],
+        "networkFeatures": null
+    }
+}

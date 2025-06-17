@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.WestIndia",
+    "id": "MicrosoftContainerRegistry.WestIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "104.211.146.72/29",
+            "2603:1040:806:402::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

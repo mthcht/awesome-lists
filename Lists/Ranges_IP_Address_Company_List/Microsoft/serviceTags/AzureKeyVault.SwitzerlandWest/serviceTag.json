@@ -1,0 +1,26 @@
+{
+    "name": "AzureKeyVault.SwitzerlandWest",
+    "id": "AzureKeyVault.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 4,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "51.107.154.0/30",
+            "51.107.250.44/30",
+            "51.107.251.104/29",
+            "2603:1020:b04::2a0/125",
+            "2603:1020:b04:2::5a8/125",
+            "2603:1020:b04:2::5b0/126",
+            "2603:1020:b04:402::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

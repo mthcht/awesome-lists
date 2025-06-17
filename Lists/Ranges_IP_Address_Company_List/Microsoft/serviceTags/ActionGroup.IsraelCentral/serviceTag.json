@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.IsraelCentral",
+    "id": "ActionGroup.IsraelCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.217.8.56/30",
+            "20.217.58.88/30",
+            "2603:1040:1402:2::520/126",
+            "2603:1040:1402:400::180/125"
+        ],
+        "networkFeatures": null
+    }
+}

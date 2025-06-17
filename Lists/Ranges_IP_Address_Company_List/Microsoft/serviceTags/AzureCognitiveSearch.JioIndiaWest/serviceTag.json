@@ -1,0 +1,17 @@
+{
+    "name": "AzureCognitiveSearch.JioIndiaWest",
+    "id": "AzureCognitiveSearch.JioIndiaWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureCognitiveSearch",
+        "addressPrefixes": [
+            "20.192.161.0/26",
+            "40.64.8.64/26",
+            "2603:1040:d04::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Sql.NorthCentralUSStage",
+    "id": "Sql.NorthCentralUSStage",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "168.62.115.112/28"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

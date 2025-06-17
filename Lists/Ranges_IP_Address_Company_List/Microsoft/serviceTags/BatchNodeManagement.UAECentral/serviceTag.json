@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.UAECentral",
+    "id": "BatchNodeManagement.UAECentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.37.65.160/27",
+            "20.37.75.224/27",
+            "2603:1040:b04::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

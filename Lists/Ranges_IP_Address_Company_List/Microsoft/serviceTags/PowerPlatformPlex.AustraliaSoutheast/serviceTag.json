@@ -1,0 +1,27 @@
+{
+    "name": "PowerPlatformPlex.AustraliaSoutheast",
+    "id": "PowerPlatformPlex.AustraliaSoutheast",
+    "properties": {
+        "changeNumber": 5,
+        "region": "australiasoutheast",
+        "regionId": 4,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "4.200.251.88/29",
+            "4.200.251.160/27",
+            "20.40.165.192/26",
+            "20.92.4.220/30",
+            "20.92.5.80/28",
+            "20.92.5.124/30",
+            "20.92.6.8/29",
+            "20.92.6.192/29",
+            "68.218.170.16/29",
+            "2603:1061:2004:5800::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

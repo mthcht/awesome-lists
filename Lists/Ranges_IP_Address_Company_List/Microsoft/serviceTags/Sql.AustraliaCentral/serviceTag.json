@@ -1,0 +1,30 @@
+{
+    "name": "Sql.AustraliaCentral",
+    "id": "Sql.AustraliaCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "20.36.104.0/27",
+            "20.36.105.0/27",
+            "20.36.105.32/29",
+            "20.53.48.96/27",
+            "20.53.48.128/27",
+            "20.53.48.192/26",
+            "20.213.225.0/25",
+            "2603:1010:304::280/123",
+            "2603:1010:304:1::200/121",
+            "2603:1010:304:2::580/121",
+            "2603:1010:304:400::/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

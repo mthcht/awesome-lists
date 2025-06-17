@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.PolandCentral",
+    "id": "ActionGroup.PolandCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.215.74.56/30",
+            "20.215.154.88/30",
+            "2603:1020:1302:2::5a0/126",
+            "2603:1020:1302:400::180/125"
+        ],
+        "networkFeatures": null
+    }
+}

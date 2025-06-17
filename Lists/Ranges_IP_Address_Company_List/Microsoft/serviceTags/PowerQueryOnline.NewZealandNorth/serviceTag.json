@@ -1,0 +1,18 @@
+{
+    "name": "PowerQueryOnline.NewZealandNorth",
+    "id": "PowerQueryOnline.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "172.204.152.40/29",
+            "172.204.172.24/29",
+            "172.204.174.16/28",
+            "2603:1010:502::1c0/123"
+        ],
+        "networkFeatures": null
+    }
+}

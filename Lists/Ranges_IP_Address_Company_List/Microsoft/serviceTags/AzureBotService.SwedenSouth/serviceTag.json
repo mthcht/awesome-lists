@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.SwedenSouth",
+    "id": "AzureBotService.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "51.12.192.64/26",
+            "2603:1020:1104::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

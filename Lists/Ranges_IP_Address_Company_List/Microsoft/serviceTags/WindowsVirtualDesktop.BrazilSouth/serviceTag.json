@@ -1,0 +1,17 @@
+{
+    "name": "WindowsVirtualDesktop.BrazilSouth",
+    "id": "WindowsVirtualDesktop.BrazilSouth",
+    "properties": {
+        "changeNumber": 7,
+        "region": "brazilsouth",
+        "regionId": 9,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "40.64.144.224/29",
+            "40.64.145.64/28",
+            "2603:1061:2010:2::/117"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "AzureResourceManager.UKWest",
+    "id": "AzureResourceManager.UKWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "20.58.64.0/23",
+            "51.11.96.0/24",
+            "51.140.212.16/28",
+            "51.140.214.0/24",
+            "2603:1020:605::6c0/122",
+            "2603:1020:605:3::700/120",
+            "2603:1020:605:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

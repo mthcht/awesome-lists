@@ -1,0 +1,21 @@
+{
+    "name": "PowerPlatformPlex.SwedenCentral",
+    "id": "PowerPlatformPlex.SwedenCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "swedencentral",
+        "regionId": 76,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "20.91.155.144/29",
+            "74.241.226.96/29",
+            "172.160.216.16/29",
+            "2603:1061:2004:8000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

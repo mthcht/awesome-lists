@@ -1,0 +1,19 @@
+{
+    "name": "AzureArcInfrastructure.KoreaSouth",
+    "id": "AzureArcInfrastructure.KoreaSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "4.243.24.48/29",
+            "4.243.24.56/31",
+            "40.80.172.12/30",
+            "52.231.151.80/30",
+            "2603:1040:e05:6::90/124"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "PowerBI.ChileCentral",
+    "id": "PowerBI.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "68.211.13.20/31",
+            "68.211.13.48/30",
+            "68.211.13.56/29",
+            "68.211.24.16/28",
+            "68.211.24.32/28",
+            "2603:1050:301:2::380/122",
+            "2603:1050:301:2::3c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

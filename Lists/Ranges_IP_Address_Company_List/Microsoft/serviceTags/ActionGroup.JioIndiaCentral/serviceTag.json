@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.JioIndiaCentral",
+    "id": "ActionGroup.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "4.240.148.92/30",
+            "20.192.238.124/30",
+            "2603:1040:1104::10c/126",
+            "2603:1040:1104:400::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

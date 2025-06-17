@@ -1,0 +1,17 @@
+{
+    "name": "ActionGroup.GermanyNorth",
+    "id": "ActionGroup.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.170.175.8/30",
+            "2603:1020:d04::10c/126",
+            "2603:1020:d04:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

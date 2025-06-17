@@ -1,0 +1,16 @@
+{
+    "name": "AzureDigitalTwins.NewZealandNorth",
+    "id": "AzureDigitalTwins.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "172.204.156.0/27",
+            "2603:1010:502::600/121"
+        ],
+        "networkFeatures": null
+    }
+}

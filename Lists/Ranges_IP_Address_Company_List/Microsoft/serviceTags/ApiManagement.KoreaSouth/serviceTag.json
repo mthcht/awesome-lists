@@ -1,0 +1,24 @@
+{
+    "name": "ApiManagement.KoreaSouth",
+    "id": "ApiManagement.KoreaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.200.166.32/28",
+            "40.80.232.185/32",
+            "52.231.146.84/31",
+            "52.231.147.176/28",
+            "2603:1040:e05:5::210/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "name": "AzureSecurityCenter.WestUS2",
+    "id": "AzureSecurityCenter.WestUS2",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westus2",
+        "regionId": 38,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "13.66.145.192/27",
+            "20.9.204.128/25",
+            "20.9.206.0/23",
+            "128.85.92.64/27",
+            "128.85.92.128/25",
+            "128.85.93.0/24",
+            "128.85.94.0/23",
+            "172.179.36.0/24",
+            "172.179.37.0/26"
+        ],
+        "networkFeatures": null
+    }
+}

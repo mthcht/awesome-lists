@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.MexicoCentral",
+    "id": "ApiManagement.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "158.23.100.128/28",
+            "2603:1030:702::5c0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

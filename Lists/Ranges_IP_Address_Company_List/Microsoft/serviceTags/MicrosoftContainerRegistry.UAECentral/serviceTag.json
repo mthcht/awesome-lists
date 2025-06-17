@@ -1,0 +1,23 @@
+{
+    "name": "MicrosoftContainerRegistry.UAECentral",
+    "id": "MicrosoftContainerRegistry.UAECentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.37.74.64/29",
+            "74.243.18.0/29",
+            "2603:1040:b04:402::88/125",
+            "2603:1040:b04:800::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

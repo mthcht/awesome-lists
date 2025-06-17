@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.CentralIndia",
+    "id": "MicrosoftContainerRegistry.CentralIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centralindia",
+        "regionId": 21,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.192.98.136/29",
+            "40.80.50.136/29",
+            "104.211.81.128/29",
+            "2603:1040:a06:402::88/125",
+            "2603:1040:a06:802::88/125",
+            "2603:1040:a06:c02::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

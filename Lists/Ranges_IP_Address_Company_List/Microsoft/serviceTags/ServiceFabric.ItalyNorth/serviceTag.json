@@ -1,0 +1,20 @@
+{
+    "name": "ServiceFabric.ItalyNorth",
+    "id": "ServiceFabric.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "4.232.106.76/30",
+            "4.232.122.72/30",
+            "4.232.194.72/30",
+            "2603:1020:1204:400::58/125",
+            "2603:1020:1204:800::10/125",
+            "2603:1020:1204:c00::10/125"
+        ],
+        "networkFeatures": null
+    }
+}

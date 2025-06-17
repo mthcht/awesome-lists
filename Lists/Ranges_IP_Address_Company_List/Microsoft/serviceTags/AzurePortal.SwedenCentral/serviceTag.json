@@ -1,0 +1,19 @@
+{
+    "name": "AzurePortal.SwedenCentral",
+    "id": "AzurePortal.SwedenCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedencentral",
+        "regionId": 76,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "51.12.41.20/30",
+            "51.12.41.160/27",
+            "51.12.43.128/29",
+            "2603:1020:1004::680/121",
+            "2603:1020:1004:1::100/121"
+        ],
+        "networkFeatures": null
+    }
+}

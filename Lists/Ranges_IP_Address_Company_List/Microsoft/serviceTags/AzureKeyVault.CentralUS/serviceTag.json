@@ -1,0 +1,30 @@
+{
+    "name": "AzureKeyVault.CentralUS",
+    "id": "AzureKeyVault.CentralUS",
+    "properties": {
+        "changeNumber": 9,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "13.89.170.200/30",
+            "20.40.230.32/28",
+            "20.40.230.48/29",
+            "20.44.13.224/30",
+            "20.98.145.80/28",
+            "52.182.143.192/30",
+            "2603:1030:10::340/125",
+            "2603:1030:10:b::380/123",
+            "2603:1030:10:402::80/125",
+            "2603:1030:10:802::80/125",
+            "2603:1030:10:c02::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

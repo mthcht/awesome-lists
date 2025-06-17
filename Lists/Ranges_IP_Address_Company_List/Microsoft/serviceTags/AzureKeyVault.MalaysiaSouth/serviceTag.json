@@ -1,0 +1,28 @@
+{
+    "name": "AzureKeyVault.MalaysiaSouth",
+    "id": "AzureKeyVault.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "20.17.51.64/27",
+            "20.17.58.48/29",
+            "20.17.66.124/30",
+            "20.17.194.176/30",
+            "2603:1040:1503::520/123",
+            "2603:1040:1503:1::1c8/125",
+            "2603:1040:1503:2::6a8/125",
+            "2603:1040:1503:2::6b0/126",
+            "2603:1040:1503:400::508/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

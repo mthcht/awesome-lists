@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.JioIndiaWest",
+    "id": "BatchNodeManagement.JioIndiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.192.161.224/27",
+            "20.193.203.128/27",
+            "2603:1040:d04::340/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

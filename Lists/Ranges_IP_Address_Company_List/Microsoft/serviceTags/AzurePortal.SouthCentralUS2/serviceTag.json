@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.SouthCentralUS2",
+    "id": "AzurePortal.SouthCentralUS2",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southcentralus2",
+        "regionId": 102,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "48.216.28.164/30",
+            "48.216.48.32/27",
+            "2603:1030:1102:2::500/121"
+        ],
+        "networkFeatures": null
+    }
+}

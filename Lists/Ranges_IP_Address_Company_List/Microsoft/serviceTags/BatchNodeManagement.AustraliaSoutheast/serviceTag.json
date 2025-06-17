@@ -1,0 +1,24 @@
+{
+    "name": "BatchNodeManagement.AustraliaSoutheast",
+    "id": "BatchNodeManagement.AustraliaSoutheast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "australiasoutheast",
+        "regionId": 4,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "13.73.117.100/32",
+            "13.77.52.128/27",
+            "20.42.227.224/27",
+            "52.189.217.254/32",
+            "191.239.160.161/32",
+            "191.239.160.185/32",
+            "2603:1010:101::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

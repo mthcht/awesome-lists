@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.WestUS3",
+    "id": "GatewayManager.WestUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.150.160.64/29",
+            "20.150.161.0/26",
+            "20.150.171.64/29",
+            "2603:1030:504:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

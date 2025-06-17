@@ -1,0 +1,16 @@
+{
+    "name": "AzureMachineLearning.ChileCentral",
+    "id": "AzureMachineLearning.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "68.211.1.128/27",
+            "2603:1050:301::200/122"
+        ],
+        "networkFeatures": null
+    }
+}

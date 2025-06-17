@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.SwedenSouth",
+    "id": "StorageSyncService.SwedenSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.91.11.144/29",
+            "51.12.204.248/29",
+            "2603:1020:1104:400::320/123"
+        ],
+        "networkFeatures": null
+    }
+}

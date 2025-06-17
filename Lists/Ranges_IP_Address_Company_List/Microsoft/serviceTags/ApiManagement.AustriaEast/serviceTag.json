@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.AustriaEast",
+    "id": "ApiManagement.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "68.210.163.176/28",
+            "2603:1020:104:4::400/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

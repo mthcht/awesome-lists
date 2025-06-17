@@ -1,0 +1,23 @@
+{
+    "name": "EventHub.SwedenSouth",
+    "id": "EventHub.SwedenSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "51.12.21.0/24",
+            "51.12.202.160/27",
+            "51.12.206.64/26",
+            "2603:1020:1104:400::1c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

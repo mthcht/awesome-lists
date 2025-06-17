@@ -1,0 +1,19 @@
+{
+    "name": "AzureResourceManager.KoreaSouth",
+    "id": "AzureResourceManager.KoreaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "40.80.174.0/23",
+            "52.147.96.0/24",
+            "52.231.148.64/28",
+            "52.231.150.0/24",
+            "2603:1040:e05:5::500/120"
+        ],
+        "networkFeatures": null
+    }
+}

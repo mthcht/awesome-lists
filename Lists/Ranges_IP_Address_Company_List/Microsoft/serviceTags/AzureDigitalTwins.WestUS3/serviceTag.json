@@ -1,0 +1,19 @@
+{
+    "name": "AzureDigitalTwins.WestUS3",
+    "id": "AzureDigitalTwins.WestUS3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.150.166.176/29",
+            "20.150.167.128/27",
+            "2603:1030:504::560/123",
+            "2603:1030:504:2::/121",
+            "2603:1030:504:8::5f0/126"
+        ],
+        "networkFeatures": null
+    }
+}

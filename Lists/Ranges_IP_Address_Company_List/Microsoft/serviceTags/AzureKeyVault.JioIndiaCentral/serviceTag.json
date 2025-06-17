@@ -1,0 +1,26 @@
+{
+    "name": "AzureKeyVault.JioIndiaCentral",
+    "id": "AzureKeyVault.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "20.192.50.216/29",
+            "20.192.50.224/30",
+            "20.192.234.0/30",
+            "2603:1040:1104::100/125",
+            "2603:1040:1104::108/126",
+            "2603:1040:1104:1::158/125",
+            "2603:1040:1104:400::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

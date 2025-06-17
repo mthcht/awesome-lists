@@ -1,0 +1,19 @@
+{
+    "name": "AzureDataExplorerManagement.BrazilSouth",
+    "id": "AzureDataExplorerManagement.BrazilSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "brazilsouth",
+        "regionId": 9,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "20.40.114.21/32",
+            "191.233.25.183/32",
+            "191.233.205.0/28",
+            "2603:1050:6::600/121",
+            "2603:1050:6:402::150/124"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "AzureConnectors.EastAsia",
+    "id": "AzureConnectors.EastAsia",
+    "properties": {
+        "changeNumber": 8,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "13.75.36.64/28",
+            "13.75.110.131/32",
+            "13.75.113.224/32",
+            "20.24.118.173/32",
+            "20.24.118.184/32",
+            "20.205.67.48/28",
+            "20.205.67.64/27",
+            "52.175.23.169/32",
+            "104.208.120.76/32",
+            "104.208.120.198/32",
+            "104.214.164.0/27",
+            "104.214.165.128/26",
+            "2603:1040:207:402::180/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

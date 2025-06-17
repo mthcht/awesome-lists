@@ -1,0 +1,20 @@
+{
+    "name": "AppServiceManagement.JioIndiaCentral",
+    "id": "AppServiceManagement.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.192.234.192/26",
+            "20.207.1.32/28",
+            "2603:1040:1104:2::260/123",
+            "2603:1040:1104:400::100/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

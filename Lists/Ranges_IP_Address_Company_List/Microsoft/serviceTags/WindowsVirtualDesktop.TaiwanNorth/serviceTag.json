@@ -1,0 +1,16 @@
+{
+    "name": "WindowsVirtualDesktop.TaiwanNorth",
+    "id": "WindowsVirtualDesktop.TaiwanNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "taiwannorth",
+        "regionId": 8,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "40.64.144.168/29",
+            "2603:1061:2010:34::/117"
+        ],
+        "networkFeatures": null
+    }
+}

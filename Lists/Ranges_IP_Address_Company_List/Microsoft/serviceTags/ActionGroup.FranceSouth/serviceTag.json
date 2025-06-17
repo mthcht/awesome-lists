@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.FranceSouth",
+    "id": "ActionGroup.FranceSouth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.111.76.188/30",
+            "51.138.160.220/30",
+            "2603:1020:905::10c/126",
+            "2603:1020:905:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

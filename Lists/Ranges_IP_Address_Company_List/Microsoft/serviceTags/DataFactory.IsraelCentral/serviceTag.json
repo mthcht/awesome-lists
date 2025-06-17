@@ -1,0 +1,30 @@
+{
+    "name": "DataFactory.IsraelCentral",
+    "id": "DataFactory.IsraelCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "20.217.11.240/28",
+            "20.217.12.128/25",
+            "20.217.13.0/26",
+            "20.217.48.0/23",
+            "20.217.62.64/28",
+            "20.217.75.208/28",
+            "20.217.91.208/28",
+            "51.4.8.192/27",
+            "2603:1040:1402:1::200/121",
+            "2603:1040:1402:4::60/124",
+            "2603:1040:1402:400::3a0/124",
+            "2603:1040:1402:800::2c0/124",
+            "2603:1040:1402:c00::2c0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

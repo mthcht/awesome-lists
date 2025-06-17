@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.GermanyNorth",
+    "id": "BatchNodeManagement.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "51.116.48.224/27",
+            "51.116.59.224/27",
+            "2603:1020:d04::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

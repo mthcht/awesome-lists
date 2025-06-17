@@ -1,0 +1,16 @@
+{
+    "name": "AzureBackup.NewZealandNorth",
+    "id": "AzureBackup.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "172.204.156.64/26",
+            "2603:1010:502::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

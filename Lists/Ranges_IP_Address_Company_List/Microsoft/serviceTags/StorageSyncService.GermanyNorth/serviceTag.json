@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.GermanyNorth",
+    "id": "StorageSyncService.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "51.116.60.244/30",
+            "51.116.78.200/29",
+            "2603:1020:d04::340/123"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "name": "AzureContainerRegistry.PolandCentral",
+    "id": "AzureContainerRegistry.PolandCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "20.215.3.128/26",
+            "20.215.18.128/26",
+            "20.215.21.0/25",
+            "20.215.26.128/26",
+            "20.215.29.0/25",
+            "20.215.76.0/26",
+            "20.215.154.128/26",
+            "20.215.156.128/25",
+            "2603:1020:1302::540/125",
+            "2603:1020:1302:3::80/122",
+            "2603:1020:1302:400::48/125",
+            "2603:1020:1302:400::280/121",
+            "2603:1020:1302:800::48/125",
+            "2603:1020:1302:800::180/121",
+            "2603:1020:1302:c00::48/125",
+            "2603:1020:1302:c00::180/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.QatarCentral",
+    "id": "StorageSyncService.QatarCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "4.171.52.120/29",
+            "2603:1040:1002:400::240/123"
+        ],
+        "networkFeatures": null
+    }
+}

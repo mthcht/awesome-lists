@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.ItalyNorth",
+    "id": "HDInsight.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "4.232.30.208/29",
+            "2603:1020:1204:1::290/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "name": "PowerBI.PolandCentral",
+    "id": "PowerBI.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "20.215.4.248/31",
+            "20.215.4.252/30",
+            "20.215.6.128/29",
+            "20.215.170.120/29",
+            "20.215.173.80/29",
+            "20.215.173.88/31",
+            "20.215.173.96/28",
+            "20.215.174.0/30",
+            "2603:1020:1302:1::1e0/123",
+            "2603:1020:1302:1::280/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

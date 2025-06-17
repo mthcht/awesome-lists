@@ -1,0 +1,24 @@
+{
+    "name": "ServiceBus.AustraliaCentral",
+    "id": "ServiceBus.AustraliaCentral",
+    "properties": {
+        "changeNumber": 6,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "20.36.46.187/32",
+            "20.36.106.224/27",
+            "20.53.50.128/25",
+            "20.213.247.76/32",
+            "2603:1010:304::220/123",
+            "2603:1010:304:1::500/120",
+            "2603:1010:304:402::170/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

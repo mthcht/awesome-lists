@@ -1,0 +1,27 @@
+{
+    "name": "AzureIoTHub.SoutheastAsia",
+    "id": "AzureIoTHub.SoutheastAsia",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia",
+        "regionId": 2,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "13.67.10.224/27",
+            "13.76.83.155/32",
+            "13.76.217.46/32",
+            "23.98.86.0/27",
+            "23.98.104.192/27",
+            "23.98.106.0/25",
+            "23.101.29.228/32",
+            "40.78.238.0/27",
+            "52.163.212.39/32",
+            "52.163.215.122/32",
+            "2603:1040:5:402::300/123",
+            "2603:1040:5:802::240/123",
+            "2603:1040:5:c02::240/123"
+        ],
+        "networkFeatures": null
+    }
+}

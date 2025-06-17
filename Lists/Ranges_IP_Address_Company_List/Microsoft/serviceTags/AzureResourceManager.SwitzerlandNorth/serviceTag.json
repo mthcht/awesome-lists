@@ -1,0 +1,20 @@
+{
+    "name": "AzureResourceManager.SwitzerlandNorth",
+    "id": "AzureResourceManager.SwitzerlandNorth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "switzerlandn",
+        "regionId": 66,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "51.107.54.0/23",
+            "51.107.60.32/28",
+            "51.107.62.0/23",
+            "2603:1020:a04::180/122",
+            "2603:1020:a04:2::700/120",
+            "2603:1020:a04:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "AzureDataExplorerManagement.WestUS2",
+    "id": "AzureDataExplorerManagement.WestUS2",
+    "properties": {
+        "changeNumber": 3,
+        "region": "westus2",
+        "regionId": 38,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "13.66.141.160/28",
+            "40.90.219.23/32",
+            "40.91.74.95/32",
+            "172.179.35.240/28",
+            "2603:1030:c06:2::400/121",
+            "2603:1030:c06:400::950/124"
+        ],
+        "networkFeatures": null
+    }
+}

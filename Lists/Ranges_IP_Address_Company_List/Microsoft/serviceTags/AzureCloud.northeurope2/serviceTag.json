@@ -1,0 +1,27 @@
+{
+    "name": "AzureCloud.northeurope2",
+    "id": "AzureCloud.northeurope2",
+    "properties": {
+        "changeNumber": 4,
+        "region": "northeurope2",
+        "regionId": 16,
+        "platform": "Azure",
+        "systemService": "",
+        "addressPrefixes": [
+            "40.78.212.0/24",
+            "40.80.4.0/22",
+            "52.108.128.0/24",
+            "2603:1020:500::/47",
+            "2603:1020:503::/48",
+            "2603:1020:504::/48",
+            "2603:1026:240d::/48",
+            "2603:1026:3000:160::/59",
+            "2603:1027:1:160::/59",
+            "2603:1061:1311:2400::/54"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

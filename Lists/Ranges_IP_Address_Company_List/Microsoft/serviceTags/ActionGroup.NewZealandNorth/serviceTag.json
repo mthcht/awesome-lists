@@ -1,0 +1,16 @@
+{
+    "name": "ActionGroup.NewZealandNorth",
+    "id": "ActionGroup.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "172.204.177.28/30",
+            "2603:1010:502:400::80/125"
+        ],
+        "networkFeatures": null
+    }
+}

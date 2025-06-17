@@ -1,0 +1,19 @@
+{
+    "name": "AzureArcInfrastructure.TaiwanNorthwest",
+    "id": "AzureArcInfrastructure.TaiwanNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorthwest",
+        "regionId": 96,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "51.53.136.60/31",
+            "51.53.139.72/29",
+            "51.53.182.200/30",
+            "51.53.191.138/32",
+            "2603:1040:1202:2::680/124"
+        ],
+        "networkFeatures": null
+    }
+}

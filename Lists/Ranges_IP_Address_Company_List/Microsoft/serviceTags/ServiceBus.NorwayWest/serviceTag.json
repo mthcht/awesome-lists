@@ -1,0 +1,23 @@
+{
+    "name": "ServiceBus.NorwayWest",
+    "id": "ServiceBus.NorwayWest",
+    "properties": {
+        "changeNumber": 5,
+        "region": "norwayw",
+        "regionId": 74,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "51.13.141.0/25",
+            "51.120.164.31/32",
+            "51.120.218.8/29",
+            "2603:1020:f04::220/123",
+            "2603:1020:f04:1::500/120",
+            "2603:1020:f04:402::170/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

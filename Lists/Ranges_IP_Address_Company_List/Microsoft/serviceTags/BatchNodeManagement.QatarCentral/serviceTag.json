@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.QatarCentral",
+    "id": "BatchNodeManagement.QatarCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.21.33.32/27",
+            "2603:1040:1002::500/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

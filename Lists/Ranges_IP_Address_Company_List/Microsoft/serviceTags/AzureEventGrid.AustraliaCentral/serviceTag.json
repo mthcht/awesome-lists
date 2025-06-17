@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.AustraliaCentral",
+    "id": "AzureEventGrid.AustraliaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.37.55.32/27",
+            "20.37.225.0/25",
+            "2603:1010:304::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "SCCservice.NorthEurope",
+    "id": "SCCservice.NorthEurope",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "SCCservice",
+        "addressPrefixes": [
+            "13.69.233.48/29",
+            "74.178.86.160/27",
+            "2603:1020:5:12::640/123"
+        ],
+        "networkFeatures": null
+    }
+}

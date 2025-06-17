@@ -1,0 +1,25 @@
+{
+    "name": "AzurePortal.SouthCentralUS",
+    "id": "AzurePortal.SouthCentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southcentralus",
+        "regionId": 35,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "13.73.249.32/27",
+            "13.73.249.160/28",
+            "13.73.255.248/29",
+            "20.45.125.240/28",
+            "40.84.132.239/32",
+            "40.84.228.255/32",
+            "40.119.9.236/30",
+            "104.214.117.155/32",
+            "104.215.120.160/32",
+            "2603:1030:807::100/121",
+            "2603:1030:807:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

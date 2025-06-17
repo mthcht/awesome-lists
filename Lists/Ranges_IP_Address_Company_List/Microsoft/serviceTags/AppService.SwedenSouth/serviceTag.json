@@ -1,0 +1,25 @@
+{
+    "name": "AppService.SwedenSouth",
+    "id": "AppService.SwedenSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "20.91.8.64/27",
+            "20.91.8.128/25",
+            "51.12.23.0/24",
+            "51.12.202.192/27",
+            "2603:1020:1104:2::300/120",
+            "2603:1020:1104:400::a0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

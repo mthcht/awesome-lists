@@ -1,0 +1,16 @@
+{
+    "name": "MicrosoftCloudAppSecurity.CentralUSEUAP",
+    "id": "MicrosoftCloudAppSecurity.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 1,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "MicrosoftCloudAppSecurity",
+        "addressPrefixes": [
+            "172.215.37.14/31",
+            "172.215.37.136/29"
+        ],
+        "networkFeatures": null
+    }
+}

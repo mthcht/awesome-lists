@@ -1,0 +1,25 @@
+{
+    "name": "AzureConnectors.JioIndiaWest",
+    "id": "AzureConnectors.JioIndiaWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "20.193.206.192/26",
+            "20.244.242.190/32",
+            "20.244.246.22/32",
+            "40.64.8.48/28",
+            "40.64.8.128/27",
+            "2603:1040:d04:c02::80/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

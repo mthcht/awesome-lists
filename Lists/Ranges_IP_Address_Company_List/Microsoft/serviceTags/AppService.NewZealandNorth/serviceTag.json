@@ -1,0 +1,21 @@
+{
+    "name": "AppService.NewZealandNorth",
+    "id": "AppService.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "172.204.161.0/24",
+            "2603:1010:502:1::700/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

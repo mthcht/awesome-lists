@@ -1,0 +1,26 @@
+{
+    "name": "AzureKeyVault.SwedenSouth",
+    "id": "AzureKeyVault.SwedenSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "51.12.17.232/29",
+            "51.12.17.240/30",
+            "51.12.202.0/30",
+            "2603:1020:1104::100/125",
+            "2603:1020:1104::108/126",
+            "2603:1020:1104:1::158/125",
+            "2603:1020:1104:400::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "ActionGroup.SoutheastUS",
+    "id": "ActionGroup.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "68.154.136.24/30",
+            "2603:1030:902:400::40/125"
+        ],
+        "networkFeatures": null
+    }
+}

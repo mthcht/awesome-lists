@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.CentralIndia",
+    "id": "AzureDigitalTwins.CentralIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centralindia",
+        "regionId": 21,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "52.140.111.112/29",
+            "52.140.111.192/27",
+            "2603:1040:a06:2::200/121"
+        ],
+        "networkFeatures": null
+    }
+}

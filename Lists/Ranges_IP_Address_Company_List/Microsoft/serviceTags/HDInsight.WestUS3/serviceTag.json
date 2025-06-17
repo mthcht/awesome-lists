@@ -1,0 +1,23 @@
+{
+    "name": "HDInsight.WestUS3",
+    "id": "HDInsight.WestUS3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "20.150.167.176/29",
+            "20.150.172.232/29",
+            "172.182.175.168/29",
+            "2603:1030:504::1e0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

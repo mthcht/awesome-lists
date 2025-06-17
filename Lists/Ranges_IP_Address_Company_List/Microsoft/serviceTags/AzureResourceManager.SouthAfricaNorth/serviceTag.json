@@ -1,0 +1,19 @@
+{
+    "name": "AzureResourceManager.SouthAfricaNorth",
+    "id": "AzureResourceManager.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "102.133.123.224/28",
+            "102.133.158.0/23",
+            "102.133.222.0/23",
+            "2603:1000:104::480/122",
+            "2603:1000:104:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

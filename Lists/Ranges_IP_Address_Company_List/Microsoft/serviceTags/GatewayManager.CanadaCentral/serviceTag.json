@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.CanadaCentral",
+    "id": "GatewayManager.CanadaCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "13.71.170.240/29",
+            "20.116.42.128/27",
+            "52.228.80.72/29",
+            "2603:1030:f05:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "name": "ServiceBus.CanadaEast",
+    "id": "ServiceBus.CanadaEast",
+    "properties": {
+        "changeNumber": 6,
+        "region": "canadaeast",
+        "regionId": 12,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "4.248.102.128/25",
+            "40.69.106.16/28",
+            "52.139.110.0/25",
+            "2603:1030:1005::220/123",
+            "2603:1030:1005:1::500/120",
+            "2603:1030:1005:402::170/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

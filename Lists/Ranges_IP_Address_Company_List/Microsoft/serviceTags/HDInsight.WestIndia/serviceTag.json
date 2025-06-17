@@ -1,0 +1,17 @@
+{
+    "name": "HDInsight.WestIndia",
+    "id": "HDInsight.WestIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "52.136.52.40/29",
+            "2603:1040:806:3::600/124",
+            "2603:1040:806:402::320/124"
+        ],
+        "networkFeatures": null
+    }
+}

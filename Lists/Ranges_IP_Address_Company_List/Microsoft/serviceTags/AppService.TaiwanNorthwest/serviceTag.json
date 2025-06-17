@@ -1,0 +1,21 @@
+{
+    "name": "AppService.TaiwanNorthwest",
+    "id": "AppService.TaiwanNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorthwest",
+        "regionId": 96,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "51.53.179.0/24",
+            "2603:1040:1202:2::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

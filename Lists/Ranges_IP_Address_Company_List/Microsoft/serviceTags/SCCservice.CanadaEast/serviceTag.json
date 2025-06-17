@@ -1,0 +1,17 @@
+{
+    "name": "SCCservice.CanadaEast",
+    "id": "SCCservice.CanadaEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "canadaeast",
+        "regionId": 12,
+        "platform": "Azure",
+        "systemService": "SCCservice",
+        "addressPrefixes": [
+            "4.229.81.128/27",
+            "40.69.111.96/29",
+            "2603:1030:1005:8::420/123"
+        ],
+        "networkFeatures": null
+    }
+}

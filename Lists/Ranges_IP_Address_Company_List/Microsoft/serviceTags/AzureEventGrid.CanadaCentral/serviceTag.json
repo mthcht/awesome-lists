@@ -1,0 +1,18 @@
+{
+    "name": "AzureEventGrid.CanadaCentral",
+    "id": "AzureEventGrid.CanadaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "52.139.9.80/28",
+            "52.139.11.16/28",
+            "52.228.83.0/25",
+            "2603:1030:f05:1::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "AzureIoTHub.NewZealandNorth",
+    "id": "AzureIoTHub.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "172.204.183.64/27",
+            "172.204.192.224/27",
+            "172.204.208.224/27",
+            "2603:1010:502:400::c0/123",
+            "2603:1010:502:800::40/123",
+            "2603:1010:502:c00::40/123"
+        ],
+        "networkFeatures": null
+    }
+}

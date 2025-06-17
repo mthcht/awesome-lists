@@ -1,0 +1,18 @@
+{
+    "name": "AzureArcInfrastructure.SouthAfricaWest",
+    "id": "AzureArcInfrastructure.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "40.117.28.40/29",
+            "40.117.28.96/31",
+            "102.37.64.160/30",
+            "102.133.57.188/30"
+        ],
+        "networkFeatures": null
+    }
+}

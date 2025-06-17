@@ -1,0 +1,20 @@
+{
+    "name": "AzureMachineLearning.WestUS3",
+    "id": "AzureMachineLearning.WestUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.150.161.128/28",
+            "20.150.171.80/28",
+            "20.150.179.64/28",
+            "20.150.187.64/28",
+            "20.150.246.16/28",
+            "2603:1030:504:1::2c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

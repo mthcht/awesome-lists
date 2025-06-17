@@ -1,0 +1,22 @@
+{
+    "name": "BatchNodeManagement.WestUS3",
+    "id": "BatchNodeManagement.WestUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.150.161.224/27",
+            "20.150.172.0/27",
+            "20.150.179.96/27",
+            "20.150.187.96/27",
+            "2603:1030:504:1::340/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

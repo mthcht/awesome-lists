@@ -1,0 +1,18 @@
+{
+    "name": "AzureBackup.TaiwanNorthwest",
+    "id": "AzureBackup.TaiwanNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorthwest",
+        "regionId": 96,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "51.53.172.0/26",
+            "51.53.187.64/26",
+            "2603:1040:1202::680/121",
+            "2603:1040:1202:400::100/121"
+        ],
+        "networkFeatures": null
+    }
+}

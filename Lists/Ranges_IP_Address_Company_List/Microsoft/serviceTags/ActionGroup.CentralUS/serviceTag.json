@@ -1,0 +1,17 @@
+{
+    "name": "ActionGroup.CentralUS",
+    "id": "ActionGroup.CentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "172.202.80.168/30",
+            "2603:1030:10:1::118/126",
+            "2603:1030:10:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

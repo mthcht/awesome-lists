@@ -1,0 +1,22 @@
+{
+    "name": "EventHub.SouthCentralUSSTG",
+    "id": "EventHub.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 2,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "20.44.2.128/26",
+            "20.45.117.128/26",
+            "2603:1030:302::200/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

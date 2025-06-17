@@ -1,0 +1,19 @@
+{
+    "name": "AzureResourceManager.CanadaCentral",
+    "id": "AzureResourceManager.CanadaCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "13.71.173.192/28",
+            "20.38.150.0/23",
+            "20.48.194.0/23",
+            "2603:1030:f05::180/122",
+            "2603:1030:f05:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

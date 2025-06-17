@@ -1,0 +1,28 @@
+{
+    "name": "PowerBI.WestUS",
+    "id": "PowerBI.WestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "20.59.79.96/27",
+            "20.59.79.192/28",
+            "40.82.248.68/31",
+            "40.82.253.96/28",
+            "40.82.253.128/26",
+            "40.82.254.0/25",
+            "52.159.201.0/25",
+            "2603:1030:a07::620/123",
+            "2603:1030:a07::640/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.SpainCentral",
+    "id": "AzurePortal.SpainCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "spaincentral",
+        "regionId": 88,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "68.221.40.32/27",
+            "68.221.93.140/30",
+            "2603:1020:1403:2::300/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "HDInsight.BrazilSoutheast",
+    "id": "HDInsight.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "191.233.10.184/29",
+            "191.233.51.152/29",
+            "2603:1050:403:400::420/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

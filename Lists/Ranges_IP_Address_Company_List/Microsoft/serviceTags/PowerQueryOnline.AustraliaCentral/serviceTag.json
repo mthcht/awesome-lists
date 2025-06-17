@@ -1,0 +1,23 @@
+{
+    "name": "PowerQueryOnline.AustraliaCentral",
+    "id": "PowerQueryOnline.AustraliaCentral",
+    "properties": {
+        "changeNumber": 7,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "4.199.130.40/29",
+            "4.199.130.96/28",
+            "20.37.224.120/31",
+            "20.53.1.66/31",
+            "20.53.1.216/31",
+            "20.53.54.168/29",
+            "20.53.54.176/31",
+            "2603:1010:304::200/123",
+            "2603:1010:304:402::168/125"
+        ],
+        "networkFeatures": null
+    }
+}

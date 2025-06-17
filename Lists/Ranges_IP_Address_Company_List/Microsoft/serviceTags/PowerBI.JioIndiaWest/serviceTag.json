@@ -1,0 +1,26 @@
+{
+    "name": "PowerBI.JioIndiaWest",
+    "id": "PowerBI.JioIndiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "20.192.160.22/31",
+            "20.192.161.112/30",
+            "20.192.161.120/29",
+            "2603:1040:d04::5e0/123",
+            "2603:1040:d04::600/122",
+            "2603:1040:d04:1::/122",
+            "2603:1040:d04:1::40/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

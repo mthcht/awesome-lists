@@ -1,0 +1,26 @@
+{
+    "name": "Storage.NewZealandNorth",
+    "id": "Storage.NewZealandNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.33.190.0/24",
+            "20.33.196.0/24",
+            "20.60.115.0/24",
+            "20.60.116.0/23",
+            "20.153.23.0/24",
+            "20.209.246.0/23",
+            "2603:1010:503::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

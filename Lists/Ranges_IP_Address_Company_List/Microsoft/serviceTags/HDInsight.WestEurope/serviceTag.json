@@ -1,0 +1,25 @@
+{
+    "name": "HDInsight.WestEurope",
+    "id": "HDInsight.WestEurope",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "13.69.65.8/29",
+            "20.61.96.160/29",
+            "52.166.243.90/32",
+            "52.174.36.244/32",
+            "172.211.123.144/28",
+            "2603:1020:206:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

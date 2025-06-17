@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.ChileCentral",
+    "id": "AzureBotService.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "68.211.18.148/30",
+            "2603:1050:301::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

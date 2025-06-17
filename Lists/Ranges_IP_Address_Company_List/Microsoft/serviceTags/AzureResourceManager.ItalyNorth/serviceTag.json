@@ -1,0 +1,18 @@
+{
+    "name": "AzureResourceManager.ItalyNorth",
+    "id": "AzureResourceManager.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "4.232.96.0/23",
+            "4.232.107.192/26",
+            "2603:1020:1204:1::400/120",
+            "2603:1020:1204:400::180/122"
+        ],
+        "networkFeatures": null
+    }
+}

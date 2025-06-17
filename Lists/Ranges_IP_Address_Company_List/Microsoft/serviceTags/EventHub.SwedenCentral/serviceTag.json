@@ -1,0 +1,28 @@
+{
+    "name": "EventHub.SwedenCentral",
+    "id": "EventHub.SwedenCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "swedencentral",
+        "regionId": 76,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "51.12.30.0/24",
+            "51.12.98.160/27",
+            "51.12.102.64/26",
+            "51.12.226.64/26",
+            "51.12.234.64/26",
+            "2603:1020:1004::240/122",
+            "2603:1020:1004:2::400/120",
+            "2603:1020:1004:400::2c0/123",
+            "2603:1020:1004:c02::c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

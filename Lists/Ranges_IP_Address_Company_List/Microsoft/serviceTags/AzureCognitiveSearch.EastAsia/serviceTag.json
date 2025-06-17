@@ -1,0 +1,18 @@
+{
+    "name": "AzureCognitiveSearch.EastAsia",
+    "id": "AzureCognitiveSearch.EastAsia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "AzureCognitiveSearch",
+        "addressPrefixes": [
+            "20.189.106.128/26",
+            "40.81.29.152/32",
+            "52.184.80.221/32",
+            "2603:1040:207::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

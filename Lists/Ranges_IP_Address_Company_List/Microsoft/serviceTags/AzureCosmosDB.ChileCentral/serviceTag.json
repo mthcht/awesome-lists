@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.ChileCentral",
+    "id": "AzureCosmosDB.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "68.211.2.128/26",
+            "68.211.20.160/27",
+            "2603:1050:301::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

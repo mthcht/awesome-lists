@@ -1,0 +1,27 @@
+{
+    "name": "AzureContainerRegistry.MalaysiaSouth",
+    "id": "AzureContainerRegistry.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "20.17.51.128/26",
+            "20.17.66.128/26",
+            "20.17.68.128/25",
+            "20.17.192.128/26",
+            "2603:1040:1503::540/125",
+            "2603:1040:1503:3::4c0/122",
+            "2603:1040:1503:400::48/125",
+            "2603:1040:1503:400::280/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

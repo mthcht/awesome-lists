@@ -1,0 +1,22 @@
+{
+    "name": "AzureResourceManager.NorwayEast",
+    "id": "AzureResourceManager.NorwayEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "norwaye",
+        "regionId": 63,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "51.120.46.0/23",
+            "51.120.100.32/28",
+            "51.120.102.0/23",
+            "2603:1020:e04::180/122",
+            "2603:1020:e04:3::300/120",
+            "2603:1020:e04:402::280/122"
+        ],
+        "networkFeatures": [
+            "API"
+        ]
+    }
+}

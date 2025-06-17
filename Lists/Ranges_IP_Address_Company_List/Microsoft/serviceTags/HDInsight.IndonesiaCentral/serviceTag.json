@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.IndonesiaCentral",
+    "id": "HDInsight.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "70.153.160.24/29",
+            "2603:1040:1802:1::110/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "name": "PowerPlatformInfra.SouthAfricaNorth",
+    "id": "PowerPlatformInfra.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "4.222.196.192/26",
+            "4.222.197.0/25",
+            "20.87.80.0/29",
+            "40.127.10.187/32",
+            "40.127.11.11/32",
+            "40.127.14.98/32",
+            "40.127.14.104/32",
+            "40.127.23.12/32",
+            "102.37.166.224/27",
+            "102.37.167.0/26",
+            "102.133.132.151/32",
+            "102.133.219.144/28",
+            "102.133.219.160/28",
+            "102.133.219.192/26",
+            "102.133.221.24/29",
+            "2603:1061:2002:2800::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

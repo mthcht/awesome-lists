@@ -1,0 +1,26 @@
+{
+    "name": "PowerQueryOnline.NorthCentralUS",
+    "id": "PowerQueryOnline.NorthCentralUS",
+    "properties": {
+        "changeNumber": 8,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "20.125.162.146/31",
+            "20.125.162.152/29",
+            "20.125.173.170/31",
+            "20.125.205.170/31",
+            "40.80.184.68/31",
+            "52.240.245.250/31",
+            "135.224.32.160/28",
+            "172.183.233.72/29",
+            "2603:1030:608::200/123",
+            "2603:1030:608:402::168/125",
+            "2603:1030:608:800::2d0/125",
+            "2603:1030:608:c00::380/125"
+        ],
+        "networkFeatures": null
+    }
+}

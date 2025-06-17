@@ -1,0 +1,22 @@
+{
+    "name": "GatewayManager.WestIndia",
+    "id": "GatewayManager.WestIndia",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.192.84.224/27",
+            "40.81.94.172/32",
+            "40.81.94.182/32",
+            "52.136.48.72/29",
+            "104.211.146.88/29",
+            "2603:1040:806::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

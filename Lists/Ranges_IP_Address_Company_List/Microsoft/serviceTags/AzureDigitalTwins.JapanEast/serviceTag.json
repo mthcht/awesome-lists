@@ -1,0 +1,19 @@
+{
+    "name": "AzureDigitalTwins.JapanEast",
+    "id": "AzureDigitalTwins.JapanEast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.191.161.96/27",
+            "20.191.161.192/29",
+            "172.207.65.54/31",
+            "172.207.65.56/29",
+            "2603:1040:407:7::51c/126"
+        ],
+        "networkFeatures": null
+    }
+}

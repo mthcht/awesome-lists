@@ -1,0 +1,16 @@
+{
+    "name": "MicrosoftCloudAppSecurity.EastUS2EUAP",
+    "id": "MicrosoftCloudAppSecurity.EastUS2EUAP",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus2euap",
+        "regionId": 49,
+        "platform": "Azure",
+        "systemService": "MicrosoftCloudAppSecurity",
+        "addressPrefixes": [
+            "172.173.47.82/31",
+            "172.173.47.88/29"
+        ],
+        "networkFeatures": null
+    }
+}

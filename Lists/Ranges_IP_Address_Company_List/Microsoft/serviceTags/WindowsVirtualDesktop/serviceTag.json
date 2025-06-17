@@ -1,0 +1,23 @@
+{
+    "name": "WindowsVirtualDesktop",
+    "id": "WindowsVirtualDesktop",
+    "properties": {
+        "changeNumber": 32,
+        "region": "",
+        "regionId": 0,
+        "platform": "Azure",
+        "systemService": "WVDRelays",
+        "addressPrefixes": [
+            "40.64.144.0/20",
+            "51.5.0.0/16",
+            "2603:1061:2010::/48",
+            "2603:1061:2011::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "FW",
+            "UDR"
+        ]
+    }
+}

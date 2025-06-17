@@ -1,0 +1,23 @@
+{
+    "name": "MicrosoftCloudAppSecurity.WestCentralUS",
+    "id": "MicrosoftCloudAppSecurity.WestCentralUS",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westcentralus",
+        "regionId": 36,
+        "platform": "Azure",
+        "systemService": "MicrosoftCloudAppSecurity",
+        "addressPrefixes": [
+            "4.255.218.227/32",
+            "13.71.196.192/27",
+            "172.208.163.48/28",
+            "172.208.163.128/25",
+            "172.208.164.0/30",
+            "172.208.164.4/31",
+            "172.215.248.128/25",
+            "172.215.249.0/24",
+            "172.215.250.0/25"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "PowerQueryOnline.WestCentralUS",
+    "id": "PowerQueryOnline.WestCentralUS",
+    "properties": {
+        "changeNumber": 8,
+        "region": "westcentralus",
+        "regionId": 36,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "20.69.8.120/29",
+            "40.67.122.228/31",
+            "52.150.139.72/30",
+            "172.208.172.80/28",
+            "172.208.172.96/29",
+            "2603:1030:b04::200/123",
+            "2603:1030:b04:402::160/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "name": "AzureBackup.NorthCentralUS",
+    "id": "AzureBackup.NorthCentralUS",
+    "properties": {
+        "changeNumber": 5,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.51.0.0/26",
+            "20.125.171.0/26",
+            "20.125.203.0/26",
+            "52.162.107.192/26",
+            "52.162.110.0/27",
+            "2603:1030:608:3::700/121",
+            "2603:1030:608:402::200/121",
+            "2603:1030:608:800::100/121",
+            "2603:1030:608:c00::100/121"
+        ],
+        "networkFeatures": null
+    }
+}

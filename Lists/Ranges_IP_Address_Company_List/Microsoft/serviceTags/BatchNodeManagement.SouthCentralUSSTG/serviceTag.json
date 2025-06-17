@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.SouthCentralUSSTG",
+    "id": "BatchNodeManagement.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.44.4.112/29",
+            "20.45.113.160/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

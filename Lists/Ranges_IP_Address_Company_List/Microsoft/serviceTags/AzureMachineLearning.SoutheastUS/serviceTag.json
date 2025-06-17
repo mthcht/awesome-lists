@@ -1,0 +1,16 @@
+{
+    "name": "AzureMachineLearning.SoutheastUS",
+    "id": "AzureMachineLearning.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "57.151.209.0/27",
+            "2603:1030:902::200/122"
+        ],
+        "networkFeatures": null
+    }
+}

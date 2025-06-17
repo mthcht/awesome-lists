@@ -1,0 +1,25 @@
+{
+    "name": "ServiceBus.MexicoCentral",
+    "id": "ServiceBus.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "158.23.10.80/29",
+            "158.23.10.96/28",
+            "158.23.101.128/25",
+            "158.23.122.80/29",
+            "158.23.122.96/28",
+            "158.23.194.80/29",
+            "158.23.194.96/28",
+            "2603:1030:702:1::100/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

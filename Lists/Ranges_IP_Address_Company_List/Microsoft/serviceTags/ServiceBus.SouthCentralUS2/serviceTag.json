@@ -1,0 +1,21 @@
+{
+    "name": "ServiceBus.SouthCentralUS2",
+    "id": "ServiceBus.SouthCentralUS2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southcentralus2",
+        "regionId": 102,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "48.216.8.16/29",
+            "48.216.8.32/28",
+            "48.216.22.0/25",
+            "2603:1030:1102:1::/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

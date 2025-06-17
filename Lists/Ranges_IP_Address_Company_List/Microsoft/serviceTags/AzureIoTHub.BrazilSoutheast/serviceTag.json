@@ -1,0 +1,18 @@
+{
+    "name": "AzureIoTHub.BrazilSoutheast",
+    "id": "AzureIoTHub.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "191.233.11.160/27",
+            "191.233.14.0/25",
+            "191.233.54.0/27",
+            "2603:1050:403:400::220/123"
+        ],
+        "networkFeatures": null
+    }
+}

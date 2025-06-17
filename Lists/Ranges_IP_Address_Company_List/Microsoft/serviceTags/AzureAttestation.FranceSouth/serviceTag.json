@@ -1,0 +1,17 @@
+{
+    "name": "AzureAttestation.FranceSouth",
+    "id": "AzureAttestation.FranceSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "51.138.160.76/30",
+            "52.136.184.232/30",
+            "2603:1020:905:2::760/124"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.NewZealandNorth",
+    "id": "HDInsight.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "172.204.160.24/29",
+            "2603:1010:502:1::2f0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

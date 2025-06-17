@@ -1,0 +1,21 @@
+{
+    "name": "AzureArcInfrastructure.CentralUSEUAP",
+    "id": "AzureArcInfrastructure.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 4,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.45.197.224/30",
+            "20.45.199.32/30",
+            "20.45.208.12/30",
+            "20.45.208.40/30",
+            "40.78.204.46/32",
+            "168.61.233.50/31",
+            "168.61.233.56/29"
+        ],
+        "networkFeatures": null
+    }
+}

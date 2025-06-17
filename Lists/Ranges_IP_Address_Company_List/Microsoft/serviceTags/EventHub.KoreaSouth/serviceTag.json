@@ -1,0 +1,26 @@
+{
+    "name": "EventHub.KoreaSouth",
+    "id": "EventHub.KoreaSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "52.147.98.64/26",
+            "52.147.115.0/24",
+            "52.231.146.32/27",
+            "52.231.200.144/32",
+            "52.231.200.153/32",
+            "52.231.207.155/32",
+            "2603:1040:e05::500/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

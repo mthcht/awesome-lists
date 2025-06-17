@@ -1,0 +1,16 @@
+{
+    "name": "AzureBackup.SouthCentralUSSTG",
+    "id": "AzureBackup.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.44.3.64/26",
+            "20.44.3.128/27"
+        ],
+        "networkFeatures": null
+    }
+}

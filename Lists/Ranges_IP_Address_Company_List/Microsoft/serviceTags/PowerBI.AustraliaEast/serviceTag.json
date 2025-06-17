@@ -1,0 +1,33 @@
+{
+    "name": "PowerBI.AustraliaEast",
+    "id": "PowerBI.AustraliaEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "australiaeast",
+        "regionId": 3,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "4.198.215.224/27",
+            "20.37.195.24/31",
+            "20.37.195.48/29",
+            "20.37.195.64/28",
+            "20.37.195.128/26",
+            "20.70.221.0/28",
+            "20.70.221.224/27",
+            "20.213.198.0/26",
+            "68.218.123.134/31",
+            "68.218.134.44/30",
+            "2603:1010:6::/122",
+            "2603:1010:6::40/123",
+            "2603:1010:6:1::5e0/123",
+            "2603:1010:6:1::600/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

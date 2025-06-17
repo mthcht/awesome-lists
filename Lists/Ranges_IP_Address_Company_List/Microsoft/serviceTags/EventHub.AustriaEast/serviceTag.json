@@ -1,0 +1,24 @@
+{
+    "name": "EventHub.AustriaEast",
+    "id": "EventHub.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "68.210.152.128/26",
+            "68.210.165.0/24",
+            "68.210.192.128/26",
+            "68.210.208.128/26",
+            "2603:1020:104:4::600/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

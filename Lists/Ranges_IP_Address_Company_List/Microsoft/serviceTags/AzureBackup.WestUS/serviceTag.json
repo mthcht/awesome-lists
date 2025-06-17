@@ -1,0 +1,22 @@
+{
+    "name": "AzureBackup.WestUS",
+    "id": "AzureBackup.WestUS",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "13.86.218.0/25",
+            "13.86.218.128/26",
+            "20.66.4.0/25",
+            "20.66.4.128/26",
+            "20.168.163.0/26",
+            "2603:1030:a07:4::300/121",
+            "2603:1030:a07:402::180/121",
+            "2603:1030:a07:c00::100/121"
+        ],
+        "networkFeatures": null
+    }
+}

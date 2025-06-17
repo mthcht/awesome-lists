@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.WestCentralUS",
+    "id": "MicrosoftContainerRegistry.WestCentralUS",
+    "properties": {
+        "changeNumber": 4,
+        "region": "westcentralus",
+        "regionId": 36,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "13.71.194.120/29",
+            "57.151.152.0/29",
+            "172.215.202.0/29",
+            "2603:1030:b04:402::88/125",
+            "2603:1030:b04:800::/125",
+            "2603:1030:b04:c00::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

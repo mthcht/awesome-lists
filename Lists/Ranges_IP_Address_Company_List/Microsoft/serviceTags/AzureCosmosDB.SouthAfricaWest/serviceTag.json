@@ -1,0 +1,25 @@
+{
+    "name": "AzureCosmosDB.SouthAfricaWest",
+    "id": "AzureCosmosDB.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 5,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "40.117.25.64/26",
+            "40.117.27.0/25",
+            "40.117.27.128/26",
+            "102.133.26.64/26",
+            "102.133.60.64/27",
+            "2603:1000:4:402::c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

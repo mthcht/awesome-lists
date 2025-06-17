@@ -1,0 +1,26 @@
+{
+    "name": "PowerQueryOnline.WestUS3",
+    "id": "PowerQueryOnline.WestUS3",
+    "properties": {
+        "changeNumber": 6,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "20.118.139.212/31",
+            "20.118.139.216/29",
+            "20.150.160.108/31",
+            "20.150.174.158/31",
+            "172.173.16.4/31",
+            "172.173.24.4/31",
+            "172.182.191.88/29",
+            "172.182.191.96/28",
+            "2603:1030:504:1::200/123",
+            "2603:1030:504:402::450/125",
+            "2603:1030:504:802::480/125",
+            "2603:1030:504:c00::20/125"
+        ],
+        "networkFeatures": null
+    }
+}

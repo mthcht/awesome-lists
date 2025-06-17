@@ -1,0 +1,17 @@
+{
+    "name": "AzureAttestation.CanadaEast",
+    "id": "AzureAttestation.CanadaEast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "canadaeast",
+        "regionId": 12,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "40.69.111.116/30",
+            "40.89.23.44/30",
+            "2603:1030:1005:3::1e0/124"
+        ],
+        "networkFeatures": null
+    }
+}

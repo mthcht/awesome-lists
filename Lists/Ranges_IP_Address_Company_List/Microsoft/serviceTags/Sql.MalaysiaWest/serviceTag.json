@@ -1,0 +1,29 @@
+{
+    "name": "Sql.MalaysiaWest",
+    "id": "Sql.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "20.17.127.96/27",
+            "20.17.127.128/26",
+            "20.17.131.40/29",
+            "20.17.131.64/27",
+            "20.17.168.24/29",
+            "20.17.168.224/27",
+            "20.17.184.24/29",
+            "20.17.184.224/27",
+            "2603:1040:1602:2::680/123",
+            "2603:1040:1602:2::700/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

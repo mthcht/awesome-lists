@@ -1,0 +1,18 @@
+{
+    "name": "AzureIoTHub.SouthAfricaWest",
+    "id": "AzureIoTHub.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "102.133.28.160/27",
+            "102.133.59.0/25",
+            "102.133.59.128/27",
+            "2603:1000:4:402::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

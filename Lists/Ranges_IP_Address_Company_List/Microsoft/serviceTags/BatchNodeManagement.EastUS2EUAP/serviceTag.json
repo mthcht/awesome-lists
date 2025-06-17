@@ -1,0 +1,35 @@
+{
+    "name": "BatchNodeManagement.EastUS2EUAP",
+    "id": "BatchNodeManagement.EastUS2EUAP",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastus2euap",
+        "regionId": 49,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.39.1.125/32",
+            "20.39.1.239/32",
+            "20.39.2.44/32",
+            "20.39.2.122/32",
+            "20.39.3.157/32",
+            "20.39.3.186/32",
+            "20.39.12.64/27",
+            "40.74.149.48/29",
+            "40.75.35.136/29",
+            "40.89.65.161/32",
+            "40.89.66.236/32",
+            "40.89.67.77/32",
+            "40.89.70.17/32",
+            "52.138.90.64/27",
+            "52.225.185.38/32",
+            "52.225.191.67/32",
+            "52.253.227.240/32",
+            "2603:1030:40b:1::340/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.FranceSouth",
+    "id": "AzureSecurityCenter.FranceSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "20.111.82.0/23",
+            "20.111.84.0/22",
+            "20.111.88.0/24",
+            "20.111.89.0/26",
+            "20.111.89.64/27",
+            "51.138.160.32/27"
+        ],
+        "networkFeatures": null
+    }
+}

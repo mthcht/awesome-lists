@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.ItalyNorth",
+    "id": "StorageSyncService.ItalyNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "72.146.91.200/29",
+            "2603:1020:1204:400::2a0/123"
+        ],
+        "networkFeatures": null
+    }
+}

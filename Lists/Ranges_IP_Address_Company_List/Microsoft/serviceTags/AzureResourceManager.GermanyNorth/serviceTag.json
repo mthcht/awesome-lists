@@ -1,0 +1,20 @@
+{
+    "name": "AzureResourceManager.GermanyNorth",
+    "id": "AzureResourceManager.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "51.116.52.0/23",
+            "51.116.60.32/28",
+            "51.116.62.0/23",
+            "2603:1020:d04::6c0/122",
+            "2603:1020:d04:5::200/120",
+            "2603:1020:d04:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

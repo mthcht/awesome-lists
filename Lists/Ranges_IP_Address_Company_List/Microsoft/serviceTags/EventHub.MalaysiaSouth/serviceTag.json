@@ -1,0 +1,22 @@
+{
+    "name": "EventHub.MalaysiaSouth",
+    "id": "EventHub.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "20.17.53.0/24",
+            "20.17.67.128/26",
+            "2603:1040:1503:1::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

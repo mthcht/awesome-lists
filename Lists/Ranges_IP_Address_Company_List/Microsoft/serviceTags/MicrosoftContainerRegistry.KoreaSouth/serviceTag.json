@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.KoreaSouth",
+    "id": "MicrosoftContainerRegistry.KoreaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "52.231.146.88/29",
+            "2603:1040:e05:402::140/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

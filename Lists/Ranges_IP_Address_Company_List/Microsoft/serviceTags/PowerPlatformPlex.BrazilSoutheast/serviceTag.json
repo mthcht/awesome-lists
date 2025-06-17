@@ -1,0 +1,23 @@
+{
+    "name": "PowerPlatformPlex.BrazilSoutheast",
+    "id": "PowerPlatformPlex.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 5,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "20.206.3.20/30",
+            "20.206.4.64/29",
+            "20.206.4.224/29",
+            "20.206.4.232/30",
+            "108.140.24.168/29",
+            "2603:1061:2004::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

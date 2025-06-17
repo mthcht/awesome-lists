@@ -1,0 +1,27 @@
+{
+    "name": "AzureKeyVault.WestUS",
+    "id": "AzureKeyVault.WestUS",
+    "properties": {
+        "changeNumber": 6,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "20.66.2.28/30",
+            "20.66.5.128/29",
+            "20.168.162.76/30",
+            "40.112.242.144/30",
+            "2603:1030:a07::2a0/125",
+            "2603:1030:a07:b::53c/126",
+            "2603:1030:a07:b::5b0/125",
+            "2603:1030:a07:402::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

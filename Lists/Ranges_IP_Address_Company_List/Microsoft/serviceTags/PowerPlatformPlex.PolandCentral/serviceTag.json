@@ -1,0 +1,20 @@
+{
+    "name": "PowerPlatformPlex.PolandCentral",
+    "id": "PowerPlatformPlex.PolandCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "20.215.74.80/28",
+            "20.215.78.96/29",
+            "2603:1061:2004:9800::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

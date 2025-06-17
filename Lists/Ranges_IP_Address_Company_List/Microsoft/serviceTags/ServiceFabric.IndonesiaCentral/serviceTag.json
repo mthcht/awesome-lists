@@ -1,0 +1,20 @@
+{
+    "name": "ServiceFabric.IndonesiaCentral",
+    "id": "ServiceFabric.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "70.153.176.12/30",
+            "70.153.200.8/30",
+            "70.153.216.8/30",
+            "2603:1040:1802:400::18/125",
+            "2603:1040:1802:800::10/125",
+            "2603:1040:1802:c00::10/125"
+        ],
+        "networkFeatures": null
+    }
+}

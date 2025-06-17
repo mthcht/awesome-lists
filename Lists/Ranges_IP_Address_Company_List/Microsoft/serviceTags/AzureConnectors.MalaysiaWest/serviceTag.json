@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.MalaysiaWest",
+    "id": "AzureConnectors.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "20.17.124.128/26",
+            "2603:1040:1602:2::40/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

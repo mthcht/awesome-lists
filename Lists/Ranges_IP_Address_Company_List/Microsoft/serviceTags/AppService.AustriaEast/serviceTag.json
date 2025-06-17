@@ -1,0 +1,21 @@
+{
+    "name": "AppService.AustriaEast",
+    "id": "AppService.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "68.210.171.0/24",
+            "2603:1020:104:5::500/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

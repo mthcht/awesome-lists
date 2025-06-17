@@ -1,0 +1,24 @@
+{
+    "name": "HDInsight.CanadaCentral",
+    "id": "HDInsight.CanadaCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "13.71.172.240/29",
+            "20.48.192.24/29",
+            "52.228.37.66/32",
+            "52.228.45.222/32",
+            "2603:1030:f05:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

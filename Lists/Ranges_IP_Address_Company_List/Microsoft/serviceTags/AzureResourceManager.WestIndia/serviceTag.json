@@ -1,0 +1,20 @@
+{
+    "name": "AzureResourceManager.WestIndia",
+    "id": "AzureResourceManager.WestIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "20.38.128.32/28",
+            "20.38.130.0/23",
+            "52.136.54.0/23",
+            "2603:1040:806::6c0/122",
+            "2603:1040:806:3::500/120",
+            "2603:1040:806:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

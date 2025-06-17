@@ -1,0 +1,17 @@
+{
+    "name": "AzureDataLake.NorthEurope",
+    "id": "AzureDataLake.NorthEurope",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "AzureDataLake",
+        "addressPrefixes": [
+            "40.90.141.128/29",
+            "40.90.145.224/27",
+            "104.44.88.66/31"
+        ],
+        "networkFeatures": null
+    }
+}

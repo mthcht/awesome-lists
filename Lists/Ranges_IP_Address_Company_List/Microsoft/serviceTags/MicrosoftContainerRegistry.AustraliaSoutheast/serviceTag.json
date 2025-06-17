@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.AustraliaSoutheast",
+    "id": "MicrosoftContainerRegistry.AustraliaSoutheast",
+    "properties": {
+        "changeNumber": 4,
+        "region": "australiasoutheast",
+        "regionId": 4,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "4.199.88.0/29",
+            "13.77.50.72/29",
+            "48.215.144.0/29",
+            "2603:1010:101:402::88/125",
+            "2603:1010:101:800::/125",
+            "2603:1010:207:400::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

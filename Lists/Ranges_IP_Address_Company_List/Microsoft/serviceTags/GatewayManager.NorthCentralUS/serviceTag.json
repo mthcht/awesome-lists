@@ -1,0 +1,22 @@
+{
+    "name": "GatewayManager.NorthCentralUS",
+    "id": "GatewayManager.NorthCentralUS",
+    "properties": {
+        "changeNumber": 4,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.51.6.64/26",
+            "23.100.231.72/32",
+            "23.100.231.96/32",
+            "40.80.184.72/29",
+            "52.162.106.168/29",
+            "2603:1030:608::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

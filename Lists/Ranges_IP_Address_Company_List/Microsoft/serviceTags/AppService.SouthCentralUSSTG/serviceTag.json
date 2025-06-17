@@ -1,0 +1,23 @@
+{
+    "name": "AppService.SouthCentralUSSTG",
+    "id": "AppService.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 3,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "20.44.2.32/27",
+            "23.100.216.96/27",
+            "23.100.216.128/25",
+            "2603:1030:302::600/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

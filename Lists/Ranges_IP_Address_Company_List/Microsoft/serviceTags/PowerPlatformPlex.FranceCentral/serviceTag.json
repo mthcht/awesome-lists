@@ -1,0 +1,24 @@
+{
+    "name": "PowerPlatformPlex.FranceCentral",
+    "id": "PowerPlatformPlex.FranceCentral",
+    "properties": {
+        "changeNumber": 5,
+        "region": "centralfrance",
+        "regionId": 19,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "20.111.3.152/29",
+            "20.111.3.204/30",
+            "20.111.3.216/30",
+            "51.138.205.48/28",
+            "98.66.132.224/28",
+            "98.66.147.160/29",
+            "2603:1061:2004:4000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

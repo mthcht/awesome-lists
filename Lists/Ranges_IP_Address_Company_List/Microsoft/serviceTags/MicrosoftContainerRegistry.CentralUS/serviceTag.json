@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.CentralUS",
+    "id": "MicrosoftContainerRegistry.CentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "13.89.170.208/29",
+            "52.182.138.200/29",
+            "104.208.16.72/29",
+            "2603:1030:10:402::88/125",
+            "2603:1030:10:802::88/125",
+            "2603:1030:10:c02::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

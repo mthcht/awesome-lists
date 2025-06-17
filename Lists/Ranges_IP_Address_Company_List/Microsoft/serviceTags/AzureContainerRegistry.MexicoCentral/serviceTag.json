@@ -1,0 +1,35 @@
+{
+    "name": "AzureContainerRegistry.MexicoCentral",
+    "id": "AzureContainerRegistry.MexicoCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "158.23.10.128/26",
+            "158.23.12.128/25",
+            "158.23.100.0/26",
+            "158.23.122.128/26",
+            "158.23.125.0/25",
+            "158.23.194.128/26",
+            "158.23.197.0/25",
+            "158.23.201.0/26",
+            "2603:1030:702::580/125",
+            "2603:1030:702:3::4c0/122",
+            "2603:1030:702:400::8/125",
+            "2603:1030:702:400::200/121",
+            "2603:1030:702:800::8/125",
+            "2603:1030:702:800::180/121",
+            "2603:1030:702:c00::8/125",
+            "2603:1030:702:c00::180/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Sql.EastUS2Stage",
+    "id": "Sql.EastUS2Stage",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus2",
+        "regionId": 33,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "137.116.31.224/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

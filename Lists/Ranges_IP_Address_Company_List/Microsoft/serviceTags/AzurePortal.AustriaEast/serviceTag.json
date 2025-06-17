@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.AustriaEast",
+    "id": "AzurePortal.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "68.210.173.224/27",
+            "68.210.179.88/30",
+            "2603:1020:104:3::280/121"
+        ],
+        "networkFeatures": null
+    }
+}

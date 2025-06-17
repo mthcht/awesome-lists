@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.TaiwanNorth",
+    "id": "ApiManagement.TaiwanNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorth",
+        "regionId": 8,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "51.53.27.224/28",
+            "2603:1040:1302::560/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

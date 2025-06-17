@@ -1,0 +1,17 @@
+{
+    "name": "ActionGroup.NorthEurope",
+    "id": "ActionGroup.NorthEurope",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "4.207.242.64/30",
+            "2603:1020:5:1::114/126",
+            "2603:1020:5:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

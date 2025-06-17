@@ -1,0 +1,25 @@
+{
+    "name": "AzureConnectors.AustraliaCentral",
+    "id": "AzureConnectors.AustraliaCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "20.36.107.0/28",
+            "20.53.0.0/27",
+            "20.53.52.64/27",
+            "20.53.52.96/28",
+            "2603:1010:304:5::340/122",
+            "2603:1010:304:402::180/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

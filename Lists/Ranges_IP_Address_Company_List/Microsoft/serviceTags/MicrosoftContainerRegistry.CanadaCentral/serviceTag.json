@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.CanadaCentral",
+    "id": "MicrosoftContainerRegistry.CanadaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "13.71.170.48/29",
+            "20.38.146.136/29",
+            "52.246.154.136/29",
+            "2603:1030:f05:402::88/125",
+            "2603:1030:f05:802::88/125",
+            "2603:1030:f05:c02::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

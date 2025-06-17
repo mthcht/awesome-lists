@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.NorwayEast",
+    "id": "StorageSyncService.NorwayEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "norwaye",
+        "regionId": 63,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "51.120.40.224/29",
+            "2603:1020:e04:1::300/123",
+            "2603:1020:e04:802::2a0/123"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "PowerBI.AustraliaCentral2",
+    "id": "PowerBI.AustraliaCentral2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "australiacentral2",
+        "regionId": 59,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "20.36.120.122/31",
+            "20.36.120.124/30",
+            "20.36.120.208/29",
+            "2603:1010:404::620/123",
+            "2603:1010:404::640/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

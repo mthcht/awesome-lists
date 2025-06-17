@@ -1,0 +1,20 @@
+{
+    "name": "Storage.EastUS2Stage",
+    "id": "Storage.EastUS2Stage",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus2",
+        "regionId": 33,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "137.116.2.64/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

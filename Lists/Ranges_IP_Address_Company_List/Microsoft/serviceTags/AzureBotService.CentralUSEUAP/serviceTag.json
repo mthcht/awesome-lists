@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.CentralUSEUAP",
+    "id": "AzureBotService.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "20.45.192.64/30",
+            "40.78.202.132/30",
+            "2603:1030:f:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

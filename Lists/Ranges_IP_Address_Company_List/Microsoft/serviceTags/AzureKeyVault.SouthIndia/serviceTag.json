@@ -1,0 +1,26 @@
+{
+    "name": "AzureKeyVault.SouthIndia",
+    "id": "AzureKeyVault.SouthIndia",
+    "properties": {
+        "changeNumber": 6,
+        "region": "southindia",
+        "regionId": 22,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "40.78.194.64/30",
+            "52.172.116.4/30",
+            "52.172.116.136/29",
+            "2603:1040:c06::100/125",
+            "2603:1040:c06::108/126",
+            "2603:1040:c06::2a0/125",
+            "2603:1040:c06:402::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "AzureCosmosDB.BrazilSoutheast",
+    "id": "AzureCosmosDB.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "20.206.6.64/26",
+            "108.140.0.0/25",
+            "108.140.0.128/26",
+            "191.233.11.192/27",
+            "191.233.50.64/26",
+            "2603:1050:403:400::c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

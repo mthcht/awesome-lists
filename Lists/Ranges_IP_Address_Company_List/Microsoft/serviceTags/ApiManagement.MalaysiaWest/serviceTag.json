@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.MalaysiaWest",
+    "id": "ApiManagement.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.17.114.240/28",
+            "2603:1040:1602::5a0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.UAENorth",
+    "id": "MicrosoftContainerRegistry.UAENorth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.38.152.72/29",
+            "40.120.74.8/29",
+            "65.52.250.8/29",
+            "2603:1040:904:402::88/125",
+            "2603:1040:904:802::88/125",
+            "2603:1040:904:c02::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

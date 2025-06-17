@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.CentralUS",
+    "id": "StorageSyncService.CentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.37.157.80/29",
+            "2603:1030:10:1::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

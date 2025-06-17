@@ -1,0 +1,28 @@
+{
+    "name": "Storage.MexicoCentral",
+    "id": "Storage.MexicoCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.33.130.0/24",
+            "20.33.179.0/24",
+            "20.60.96.0/23",
+            "20.60.110.0/23",
+            "20.153.92.0/24",
+            "20.157.241.0/24",
+            "20.209.122.0/23",
+            "20.209.222.0/23",
+            "2603:1030:704::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

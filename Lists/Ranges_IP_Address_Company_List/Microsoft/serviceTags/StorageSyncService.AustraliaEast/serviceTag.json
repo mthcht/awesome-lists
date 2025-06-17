@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.AustraliaEast",
+    "id": "StorageSyncService.AustraliaEast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "australiaeast",
+        "regionId": 3,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.37.195.96/29",
+            "2603:1010:6:1::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

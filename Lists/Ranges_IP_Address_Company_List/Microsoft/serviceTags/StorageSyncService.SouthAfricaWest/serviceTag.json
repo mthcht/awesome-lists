@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.SouthAfricaWest",
+    "id": "StorageSyncService.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "102.133.56.128/29",
+            "2603:1000:4::340/123"
+        ],
+        "networkFeatures": null
+    }
+}

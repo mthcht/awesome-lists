@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.SouthCentralUSSTG",
+    "id": "HDInsight.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "20.44.4.64/29",
+            "20.45.115.128/29"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

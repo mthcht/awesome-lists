@@ -1,0 +1,18 @@
+{
+    "name": "AzureDataExplorerManagement.KoreaSouth",
+    "id": "AzureDataExplorerManagement.KoreaSouth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "20.200.166.48/28",
+            "40.80.234.9/32",
+            "52.231.148.16/28",
+            "2603:1040:e05::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

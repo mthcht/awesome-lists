@@ -1,0 +1,16 @@
+{
+    "name": "AzureIoTHub.SoutheastUS",
+    "id": "AzureIoTHub.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "68.154.137.0/27",
+            "2603:1030:902:400::80/123"
+        ],
+        "networkFeatures": null
+    }
+}

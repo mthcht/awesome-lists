@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.ChileCentral",
+    "id": "MicrosoftContainerRegistry.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "68.211.152.0/29",
+            "68.211.168.0/29",
+            "68.211.184.0/29",
+            "2603:1050:301:400::/125",
+            "2603:1050:301:800::/125",
+            "2603:1050:301:c00::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

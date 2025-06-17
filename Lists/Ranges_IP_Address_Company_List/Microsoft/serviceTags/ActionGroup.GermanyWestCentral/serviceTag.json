@@ -1,0 +1,20 @@
+{
+    "name": "ActionGroup.GermanyWestCentral",
+    "id": "ActionGroup.GermanyWestCentral",
+    "properties": {
+        "changeNumber": 7,
+        "region": "germanywc",
+        "regionId": 71,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.52.95.254/31",
+            "20.52.214.122/32",
+            "20.52.214.191/32",
+            "98.67.183.188/30",
+            "2603:1020:c04:1::130/126",
+            "2603:1020:c04:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.SoutheastUS",
+    "id": "AzureConnectors.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "57.151.220.0/26",
+            "2603:1030:902:2::40/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

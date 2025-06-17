@@ -1,0 +1,18 @@
+{
+    "name": "AzurePortal.WestIndia",
+    "id": "AzurePortal.WestIndia",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "52.136.49.160/27",
+            "52.136.51.72/30",
+            "52.136.52.232/29",
+            "2603:1040:806::700/121"
+        ],
+        "networkFeatures": null
+    }
+}

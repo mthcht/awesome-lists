@@ -1,0 +1,20 @@
+{
+    "name": "AzureArcInfrastructure.QatarCentral",
+    "id": "AzureArcInfrastructure.QatarCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "4.171.27.116/31",
+            "4.171.27.176/29",
+            "20.21.46.136/31",
+            "20.21.69.176/31",
+            "20.21.77.184/31",
+            "2603:1040:1002:5::420/124"
+        ],
+        "networkFeatures": null
+    }
+}

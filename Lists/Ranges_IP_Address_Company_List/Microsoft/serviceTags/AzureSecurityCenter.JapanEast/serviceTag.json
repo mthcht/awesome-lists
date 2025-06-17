@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.JapanEast",
+    "id": "AzureSecurityCenter.JapanEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "40.79.190.128/27",
+            "74.176.228.64/26",
+            "74.176.230.0/23",
+            "130.33.120.0/22",
+            "130.33.124.0/24",
+            "130.33.125.0/27"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "GatewayManager.EastUS2",
+    "id": "GatewayManager.EastUS2",
+    "properties": {
+        "changeNumber": 5,
+        "region": "eastus2",
+        "regionId": 33,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.41.0.72/29",
+            "20.98.194.96/27",
+            "40.70.146.224/29",
+            "52.184.255.23/32",
+            "52.251.12.161/32",
+            "2603:1030:40c:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

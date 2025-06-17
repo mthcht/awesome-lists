@@ -1,0 +1,21 @@
+{
+    "name": "AppService.IsraelCentral",
+    "id": "AppService.IsraelCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "20.217.52.0/24",
+            "2603:1040:1402:1::700/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

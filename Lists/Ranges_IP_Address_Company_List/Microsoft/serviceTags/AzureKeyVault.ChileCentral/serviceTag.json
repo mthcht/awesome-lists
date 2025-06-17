@@ -1,0 +1,28 @@
+{
+    "name": "AzureKeyVault.ChileCentral",
+    "id": "AzureKeyVault.ChileCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "68.211.7.88/30",
+            "68.211.20.32/29",
+            "68.211.154.176/30",
+            "68.211.168.56/30",
+            "68.211.186.232/30",
+            "2603:1050:301:1::1a8/125",
+            "2603:1050:301:400::48/125",
+            "2603:1050:301:800::18/125",
+            "2603:1050:301:c00::18/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

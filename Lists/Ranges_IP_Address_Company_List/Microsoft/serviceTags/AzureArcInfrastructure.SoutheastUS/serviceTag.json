@@ -1,0 +1,17 @@
+{
+    "name": "AzureArcInfrastructure.SoutheastUS",
+    "id": "AzureArcInfrastructure.SoutheastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus",
+        "regionId": 101,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "57.151.220.212/30",
+            "68.154.136.52/32",
+            "2603:1030:902:2::280/124"
+        ],
+        "networkFeatures": null
+    }
+}

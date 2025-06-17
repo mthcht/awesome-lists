@@ -1,0 +1,22 @@
+{
+    "name": "BatchNodeManagement.WestIndia",
+    "id": "BatchNodeManagement.WestIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "52.136.49.192/27",
+            "104.211.147.96/27",
+            "104.211.160.72/32",
+            "104.211.160.74/31",
+            "2603:1040:806::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

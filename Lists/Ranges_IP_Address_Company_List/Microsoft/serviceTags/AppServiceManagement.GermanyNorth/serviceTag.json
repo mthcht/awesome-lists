@@ -1,0 +1,21 @@
+{
+    "name": "AppServiceManagement.GermanyNorth",
+    "id": "AppServiceManagement.GermanyNorth",
+    "properties": {
+        "changeNumber": 3,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "51.116.58.192/26",
+            "51.116.75.96/28",
+            "51.116.208.94/32",
+            "2603:1020:d04:1::480/123",
+            "2603:1020:d04:402::100/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

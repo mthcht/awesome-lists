@@ -1,0 +1,20 @@
+{
+    "name": "Dynamics365ForMarketingEmail.FranceCentral",
+    "id": "Dynamics365ForMarketingEmail.FranceCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "centralfrance",
+        "regionId": 19,
+        "platform": "Azure",
+        "systemService": "Dynamics365ForMarketingEmail",
+        "addressPrefixes": [
+            "40.79.138.192/26"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

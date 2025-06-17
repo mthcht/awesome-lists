@@ -1,0 +1,24 @@
+{
+    "name": "EventHub.IsraelCentral",
+    "id": "EventHub.IsraelCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "20.217.45.0/24",
+            "20.217.59.128/26",
+            "20.217.75.64/26",
+            "20.217.91.64/26",
+            "2603:1040:1402:1::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

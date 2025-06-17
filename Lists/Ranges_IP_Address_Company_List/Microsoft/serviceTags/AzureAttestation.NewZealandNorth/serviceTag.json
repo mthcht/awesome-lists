@@ -1,0 +1,16 @@
+{
+    "name": "AzureAttestation.NewZealandNorth",
+    "id": "AzureAttestation.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "172.204.152.20/30",
+            "2603:1010:502::5c0/124"
+        ],
+        "networkFeatures": null
+    }
+}

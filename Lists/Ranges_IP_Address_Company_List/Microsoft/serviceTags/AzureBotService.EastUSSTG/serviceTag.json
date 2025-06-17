@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.EastUSSTG",
+    "id": "AzureBotService.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "40.67.48.64/30",
+            "40.67.58.4/30",
+            "2603:1030:104:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

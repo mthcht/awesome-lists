@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.SouthAfricaNorth",
+    "id": "AzureSecurityCenter.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "4.253.63.64/26",
+            "102.133.124.160/27",
+            "172.209.168.0/22",
+            "172.209.172.0/23",
+            "172.209.174.0/24",
+            "172.209.175.0/27"
+        ],
+        "networkFeatures": null
+    }
+}

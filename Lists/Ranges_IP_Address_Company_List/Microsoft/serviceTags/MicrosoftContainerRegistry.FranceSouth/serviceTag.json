@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.FranceSouth",
+    "id": "MicrosoftContainerRegistry.FranceSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "40.79.178.72/29",
+            "2603:1020:905:402::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "name": "PowerBI.GermanyNorth",
+    "id": "PowerBI.GermanyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "20.113.251.128/28",
+            "20.170.175.32/27",
+            "20.170.220.184/29",
+            "51.116.48.68/31",
+            "51.116.48.128/30",
+            "51.116.48.136/29",
+            "51.116.55.168/30",
+            "51.116.75.72/29",
+            "2603:1020:d04::620/123",
+            "2603:1020:d04::640/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

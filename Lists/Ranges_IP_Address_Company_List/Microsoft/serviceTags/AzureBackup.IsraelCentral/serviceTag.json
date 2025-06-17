@@ -1,0 +1,22 @@
+{
+    "name": "AzureBackup.IsraelCentral",
+    "id": "AzureBackup.IsraelCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.217.44.0/26",
+            "20.217.59.64/26",
+            "20.217.75.0/26",
+            "20.217.91.0/26",
+            "2603:1040:1402::680/121",
+            "2603:1040:1402:400::100/121",
+            "2603:1040:1402:800::100/121",
+            "2603:1040:1402:c00::100/121"
+        ],
+        "networkFeatures": null
+    }
+}

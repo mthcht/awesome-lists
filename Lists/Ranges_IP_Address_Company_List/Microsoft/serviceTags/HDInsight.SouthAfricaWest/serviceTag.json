@@ -1,0 +1,22 @@
+{
+    "name": "HDInsight.SouthAfricaWest",
+    "id": "HDInsight.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "102.133.28.80/29",
+            "102.133.60.32/29",
+            "2603:1000:4:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

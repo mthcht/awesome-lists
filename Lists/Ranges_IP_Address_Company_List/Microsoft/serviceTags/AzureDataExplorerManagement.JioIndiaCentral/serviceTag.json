@@ -1,0 +1,18 @@
+{
+    "name": "AzureDataExplorerManagement.JioIndiaCentral",
+    "id": "AzureDataExplorerManagement.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "20.192.235.128/28",
+            "20.207.2.112/28",
+            "2603:1040:1104:1::680/121",
+            "2603:1040:1104:400::150/124"
+        ],
+        "networkFeatures": null
+    }
+}

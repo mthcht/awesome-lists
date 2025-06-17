@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.SoutheastAsia",
+    "id": "AzureBotService.SoutheastAsia",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia",
+        "regionId": 2,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "13.67.10.88/30",
+            "20.43.128.64/30",
+            "2603:1040:5:1::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

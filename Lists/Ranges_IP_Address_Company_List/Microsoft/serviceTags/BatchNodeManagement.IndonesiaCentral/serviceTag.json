@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.IndonesiaCentral",
+    "id": "BatchNodeManagement.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "70.153.153.64/27",
+            "2603:1040:1802::/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

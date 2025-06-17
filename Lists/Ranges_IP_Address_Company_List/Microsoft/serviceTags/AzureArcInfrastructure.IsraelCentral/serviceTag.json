@@ -1,0 +1,19 @@
+{
+    "name": "AzureArcInfrastructure.IsraelCentral",
+    "id": "AzureArcInfrastructure.IsraelCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.217.9.46/31",
+            "20.217.10.36/30",
+            "20.217.13.112/29",
+            "20.217.62.136/32",
+            "2603:1040:1402:3::2b0/124"
+        ],
+        "networkFeatures": null
+    }
+}

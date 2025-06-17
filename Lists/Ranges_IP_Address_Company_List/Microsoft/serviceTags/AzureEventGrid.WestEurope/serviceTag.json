@@ -1,0 +1,21 @@
+{
+    "name": "AzureEventGrid.WestEurope",
+    "id": "AzureEventGrid.WestEurope",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "4.210.129.0/24",
+            "40.74.31.128/25",
+            "40.114.160.176/28",
+            "40.114.160.192/28",
+            "40.114.169.0/28",
+            "51.137.16.224/28",
+            "2603:1020:206:1::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

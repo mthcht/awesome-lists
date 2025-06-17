@@ -1,0 +1,17 @@
+{
+    "name": "ActionGroup.NorwayEast",
+    "id": "ActionGroup.NorwayEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "norwaye",
+        "regionId": 63,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "4.219.249.220/30",
+            "2603:1020:e04:1::128/126",
+            "2603:1020:e04:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

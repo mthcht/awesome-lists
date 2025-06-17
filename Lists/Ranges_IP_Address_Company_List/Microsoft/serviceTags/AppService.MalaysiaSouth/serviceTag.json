@@ -1,0 +1,21 @@
+{
+    "name": "AppService.MalaysiaSouth",
+    "id": "AppService.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "20.17.62.0/24",
+            "2603:1040:1503:2::100/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

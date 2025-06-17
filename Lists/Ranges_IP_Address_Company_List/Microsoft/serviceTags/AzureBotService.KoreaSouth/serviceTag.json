@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.KoreaSouth",
+    "id": "AzureBotService.KoreaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "40.80.168.64/30",
+            "52.231.148.88/30",
+            "2603:1040:e05:1::540/123"
+        ],
+        "networkFeatures": null
+    }
+}

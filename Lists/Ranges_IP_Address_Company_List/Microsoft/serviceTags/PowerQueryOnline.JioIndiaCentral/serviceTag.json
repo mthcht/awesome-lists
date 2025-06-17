@@ -1,0 +1,20 @@
+{
+    "name": "PowerQueryOnline.JioIndiaCentral",
+    "id": "PowerQueryOnline.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 6,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "4.240.148.184/29",
+            "20.192.225.32/31",
+            "20.207.2.166/31",
+            "20.207.2.168/29",
+            "2603:1040:1104::200/123",
+            "2603:1040:1104:400::168/125"
+        ],
+        "networkFeatures": null
+    }
+}

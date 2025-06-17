@@ -1,0 +1,30 @@
+{
+    "name": "AzureContainerRegistry.FranceSouth",
+    "id": "AzureContainerRegistry.FranceSouth",
+    "properties": {
+        "changeNumber": 7,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "20.111.77.0/26",
+            "20.111.79.0/26",
+            "40.79.178.80/29",
+            "51.138.160.128/26",
+            "51.138.161.64/26",
+            "51.138.162.0/25",
+            "2603:1020:905::128/125",
+            "2603:1020:905:402::90/125",
+            "2603:1020:905:402::340/122",
+            "2603:1020:905:402::580/122",
+            "2603:1020:905:402::600/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

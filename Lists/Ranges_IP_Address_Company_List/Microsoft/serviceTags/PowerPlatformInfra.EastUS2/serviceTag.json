@@ -1,0 +1,23 @@
+{
+    "name": "PowerPlatformInfra.EastUS2",
+    "id": "PowerPlatformInfra.EastUS2",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastus2",
+        "regionId": 33,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "40.84.87.192/26",
+            "40.84.88.0/23",
+            "40.84.90.0/26",
+            "2603:1061:2002:300::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

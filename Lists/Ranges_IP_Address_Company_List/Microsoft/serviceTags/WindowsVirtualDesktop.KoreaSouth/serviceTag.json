@@ -1,0 +1,16 @@
+{
+    "name": "WindowsVirtualDesktop.KoreaSouth",
+    "id": "WindowsVirtualDesktop.KoreaSouth",
+    "properties": {
+        "changeNumber": 5,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "40.64.147.16/28",
+            "2603:1061:2010:10::/117"
+        ],
+        "networkFeatures": null
+    }
+}

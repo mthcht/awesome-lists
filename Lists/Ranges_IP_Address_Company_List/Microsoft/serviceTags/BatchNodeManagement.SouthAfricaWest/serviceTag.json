@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.SouthAfricaWest",
+    "id": "BatchNodeManagement.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "102.133.27.192/27",
+            "102.133.56.192/27",
+            "2603:1000:4::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

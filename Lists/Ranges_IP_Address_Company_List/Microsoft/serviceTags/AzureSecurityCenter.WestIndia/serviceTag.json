@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.WestIndia",
+    "id": "AzureSecurityCenter.WestIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "20.38.132.32/27",
+            "57.159.130.224/27",
+            "57.159.131.128/26",
+            "57.159.132.0/22",
+            "57.159.136.0/23",
+            "57.159.138.0/24"
+        ],
+        "networkFeatures": null
+    }
+}

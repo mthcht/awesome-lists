@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.EastUSSTG",
+    "id": "AzureEventGrid.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "40.67.49.0/25",
+            "2603:1030:104:1::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

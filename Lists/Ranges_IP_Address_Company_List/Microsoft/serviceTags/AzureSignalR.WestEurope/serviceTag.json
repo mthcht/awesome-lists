@@ -1,0 +1,17 @@
+{
+    "name": "AzureSignalR.WestEurope",
+    "id": "AzureSignalR.WestEurope",
+    "properties": {
+        "changeNumber": 5,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "AzureSignalR",
+        "addressPrefixes": [
+            "20.61.102.64/27",
+            "20.86.94.128/25",
+            "2603:1020:206:4::200/120"
+        ],
+        "networkFeatures": null
+    }
+}

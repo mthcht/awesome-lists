@@ -1,0 +1,17 @@
+{
+    "name": "WindowsVirtualDesktop.EastUS2",
+    "id": "WindowsVirtualDesktop.EastUS2",
+    "properties": {
+        "changeNumber": 7,
+        "region": "eastus2",
+        "regionId": 33,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "40.64.144.192/29",
+            "40.64.145.0/28",
+            "2603:1061:2010:a::/117"
+        ],
+        "networkFeatures": null
+    }
+}

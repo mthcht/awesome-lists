@@ -1,0 +1,26 @@
+{
+    "name": "ServiceBus.IsraelCentral",
+    "id": "ServiceBus.IsraelCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "20.217.46.0/25",
+            "20.217.58.80/29",
+            "20.217.58.96/28",
+            "20.217.74.80/29",
+            "20.217.74.96/28",
+            "20.217.90.80/29",
+            "20.217.90.96/28",
+            "20.217.166.128/25",
+            "2603:1040:1402::780/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

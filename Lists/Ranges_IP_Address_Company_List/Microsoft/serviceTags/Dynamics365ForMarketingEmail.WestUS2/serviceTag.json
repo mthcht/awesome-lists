@@ -1,0 +1,21 @@
+{
+    "name": "Dynamics365ForMarketingEmail.WestUS2",
+    "id": "Dynamics365ForMarketingEmail.WestUS2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus2",
+        "regionId": 38,
+        "platform": "Azure",
+        "systemService": "Dynamics365ForMarketingEmail",
+        "addressPrefixes": [
+            "13.66.138.128/25",
+            "40.78.242.0/25"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

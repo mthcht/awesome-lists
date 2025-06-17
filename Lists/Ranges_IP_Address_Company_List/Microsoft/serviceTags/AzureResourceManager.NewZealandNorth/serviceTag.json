@@ -1,0 +1,16 @@
+{
+    "name": "AzureResourceManager.NewZealandNorth",
+    "id": "AzureResourceManager.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "172.204.162.0/23",
+            "2603:1010:502:1::400/120"
+        ],
+        "networkFeatures": null
+    }
+}

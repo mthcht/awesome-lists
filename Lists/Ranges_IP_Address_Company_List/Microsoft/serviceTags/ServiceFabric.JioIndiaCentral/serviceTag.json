@@ -1,0 +1,17 @@
+{
+    "name": "ServiceFabric.JioIndiaCentral",
+    "id": "ServiceFabric.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "20.192.32.224/30",
+            "20.192.235.0/29",
+            "2603:1040:1104:400::98/125"
+        ],
+        "networkFeatures": null
+    }
+}

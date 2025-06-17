@@ -1,0 +1,18 @@
+{
+    "name": "AzureDigitalTwins.QatarCentral",
+    "id": "AzureDigitalTwins.QatarCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.21.36.64/27",
+            "2603:1040:1002::7c0/123",
+            "2603:1040:1002:1::/121",
+            "2603:1040:1002:5::64c/126"
+        ],
+        "networkFeatures": null
+    }
+}

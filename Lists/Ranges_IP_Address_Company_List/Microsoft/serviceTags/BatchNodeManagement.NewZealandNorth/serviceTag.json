@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.NewZealandNorth",
+    "id": "BatchNodeManagement.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "172.204.153.64/27",
+            "2603:1010:502::300/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

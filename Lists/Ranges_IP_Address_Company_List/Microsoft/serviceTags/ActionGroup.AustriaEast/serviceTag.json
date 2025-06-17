@@ -1,0 +1,16 @@
+{
+    "name": "ActionGroup.AustriaEast",
+    "id": "ActionGroup.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "68.210.152.24/30",
+            "2603:1020:104:800::40/125"
+        ],
+        "networkFeatures": null
+    }
+}

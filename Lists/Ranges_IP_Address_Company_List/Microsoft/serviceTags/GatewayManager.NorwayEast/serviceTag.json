@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.NorwayEast",
+    "id": "GatewayManager.NorwayEast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "norwaye",
+        "regionId": 63,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "51.120.40.72/29",
+            "51.120.98.168/29",
+            "51.120.235.128/26",
+            "2603:1020:e04:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

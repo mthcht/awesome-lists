@@ -1,0 +1,16 @@
+{
+    "name": "ActionGroup.SouthCentralUSSTG",
+    "id": "ActionGroup.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "23.100.222.168/30",
+            "2603:1030:302:1::90/126"
+        ],
+        "networkFeatures": null
+    }
+}

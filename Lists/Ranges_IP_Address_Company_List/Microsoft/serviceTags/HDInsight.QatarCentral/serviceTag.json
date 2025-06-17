@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.QatarCentral",
+    "id": "HDInsight.QatarCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "20.21.37.56/29",
+            "2603:1040:1002:1::460/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

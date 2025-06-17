@@ -1,0 +1,18 @@
+{
+    "name": "AzureResourceManager.IsraelCentral",
+    "id": "AzureResourceManager.IsraelCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "20.217.50.0/23",
+            "20.217.60.0/26",
+            "2603:1040:1402:1::400/120",
+            "2603:1040:1402:400::1c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

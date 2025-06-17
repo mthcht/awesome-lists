@@ -1,0 +1,19 @@
+{
+    "name": "AppServiceManagement.TaiwanNorth",
+    "id": "AppServiceManagement.TaiwanNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "taiwannorth",
+        "regionId": 8,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "51.53.43.0/26",
+            "2603:1040:1302:2::660/123",
+            "2603:1040:1302:4::7c0/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

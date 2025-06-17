@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.MexicoCentral",
+    "id": "BatchNodeManagement.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "158.23.97.64/27",
+            "2603:1030:702::300/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

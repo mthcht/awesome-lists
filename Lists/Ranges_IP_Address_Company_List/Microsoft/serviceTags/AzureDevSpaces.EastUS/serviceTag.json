@@ -1,0 +1,17 @@
+{
+    "name": "AzureDevSpaces.EastUS",
+    "id": "AzureDevSpaces.EastUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus",
+        "regionId": 32,
+        "platform": "Azure",
+        "systemService": "AzureDevSpaces",
+        "addressPrefixes": [
+            "20.42.6.32/27",
+            "20.42.6.128/28",
+            "20.42.64.64/26"
+        ],
+        "networkFeatures": null
+    }
+}

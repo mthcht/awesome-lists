@@ -1,0 +1,19 @@
+{
+    "name": "AzurePortal.EastUS2EUAP",
+    "id": "AzurePortal.EastUS2EUAP",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastus2euap",
+        "regionId": 49,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "20.39.12.32/27",
+            "20.39.12.232/30",
+            "20.47.232.32/28",
+            "20.51.16.120/29",
+            "2603:1030:40b:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

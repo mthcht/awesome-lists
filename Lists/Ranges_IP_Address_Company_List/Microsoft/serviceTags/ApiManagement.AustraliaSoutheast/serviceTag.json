@@ -1,0 +1,26 @@
+{
+    "name": "ApiManagement.AustraliaSoutheast",
+    "id": "ApiManagement.AustraliaSoutheast",
+    "properties": {
+        "changeNumber": 4,
+        "region": "australiasoutheast",
+        "regionId": 4,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "4.199.83.96/28",
+            "13.77.50.68/31",
+            "13.77.52.224/28",
+            "20.40.160.107/32",
+            "20.92.3.250/31",
+            "2603:1010:101:402::140/124",
+            "2603:1010:207::3c0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

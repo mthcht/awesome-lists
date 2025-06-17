@@ -1,0 +1,15 @@
+{
+    "name": "WindowsVirtualDesktop.ChileCentral",
+    "id": "WindowsVirtualDesktop.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "2603:1061:2010:7::/117"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "AzureIoTHub.JioIndiaCentral",
+    "id": "AzureIoTHub.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "AzureIoTHub",
+        "addressPrefixes": [
+            "20.192.230.32/27",
+            "20.192.230.128/25",
+            "20.192.238.0/27",
+            "2603:1040:1104:400::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

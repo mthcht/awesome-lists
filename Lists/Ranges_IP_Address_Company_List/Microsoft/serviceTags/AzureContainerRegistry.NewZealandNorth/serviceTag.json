@@ -1,0 +1,34 @@
+{
+    "name": "AzureContainerRegistry.NewZealandNorth",
+    "id": "AzureContainerRegistry.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "172.204.154.128/26",
+            "172.204.171.0/26",
+            "172.204.182.64/26",
+            "172.204.183.128/25",
+            "172.204.192.64/26",
+            "172.204.194.0/25",
+            "172.204.208.64/26",
+            "172.204.210.0/25",
+            "2603:1010:502::560/125",
+            "2603:1010:502:400::48/125",
+            "2603:1010:502:400::100/121",
+            "2603:1010:502:800::8/125",
+            "2603:1010:502:800::80/121",
+            "2603:1010:502:c00::8/125",
+            "2603:1010:502:c00::80/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

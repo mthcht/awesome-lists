@@ -1,0 +1,23 @@
+{
+    "name": "AzureArcInfrastructure.BrazilSouth",
+    "id": "AzureArcInfrastructure.BrazilSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "brazilsouth",
+        "regionId": 9,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.226.211.158/31",
+            "20.226.212.160/29",
+            "191.233.207.26/32",
+            "191.233.207.30/31",
+            "191.234.136.44/30",
+            "191.234.138.144/30",
+            "191.234.149.138/32",
+            "191.234.157.42/32",
+            "191.234.157.172/30"
+        ],
+        "networkFeatures": null
+    }
+}

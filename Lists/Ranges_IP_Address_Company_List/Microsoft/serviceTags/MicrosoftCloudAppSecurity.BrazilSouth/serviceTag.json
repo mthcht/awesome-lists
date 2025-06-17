@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftCloudAppSecurity.BrazilSouth",
+    "id": "MicrosoftCloudAppSecurity.BrazilSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "brazilsouth",
+        "regionId": 9,
+        "platform": "Azure",
+        "systemService": "MicrosoftCloudAppSecurity",
+        "addressPrefixes": [
+            "4.203.121.92/30",
+            "4.203.121.96/28",
+            "4.203.121.112/29",
+            "4.203.121.120/31",
+            "4.203.148.128/25",
+            "4.203.149.0/28",
+            "4.203.149.16/29"
+        ],
+        "networkFeatures": null
+    }
+}

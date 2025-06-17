@@ -1,0 +1,20 @@
+{
+    "name": "AzureResourceManager.AustraliaCentral",
+    "id": "AzureResourceManager.AustraliaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "20.36.108.48/28",
+            "20.36.110.0/23",
+            "20.37.230.0/23",
+            "2603:1010:304::6c0/122",
+            "2603:1010:304:5::200/120",
+            "2603:1010:304:402::280/122"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.SwedenCentral",
+    "id": "HDInsight.SwedenCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedencentral",
+        "regionId": 76,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "51.12.25.48/29",
+            "2603:1020:1004:1::1e0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

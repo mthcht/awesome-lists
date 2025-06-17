@@ -1,0 +1,16 @@
+{
+    "name": "ServiceFabric.SouthCentralUS2",
+    "id": "ServiceFabric.SouthCentralUS2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southcentralus2",
+        "regionId": 102,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "48.216.8.12/30",
+            "2603:1030:1102:400::18/125"
+        ],
+        "networkFeatures": null
+    }
+}

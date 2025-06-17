@@ -1,0 +1,16 @@
+{
+    "name": "WindowsVirtualDesktop.NorthEurope",
+    "id": "WindowsVirtualDesktop.NorthEurope",
+    "properties": {
+        "changeNumber": 5,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "40.64.144.64/27",
+            "2603:1061:2010:12::/117"
+        ],
+        "networkFeatures": null
+    }
+}

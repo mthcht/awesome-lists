@@ -1,0 +1,15 @@
+{
+    "name": "AzureDevOps.UAENorth",
+    "id": "AzureDevOps.UAENorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "AzureDevOps",
+        "addressPrefixes": [
+            "20.233.130.0/25"
+        ],
+        "networkFeatures": null
+    }
+}

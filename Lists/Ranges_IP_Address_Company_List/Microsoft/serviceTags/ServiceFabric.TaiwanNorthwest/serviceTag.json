@@ -1,0 +1,16 @@
+{
+    "name": "ServiceFabric.TaiwanNorthwest",
+    "id": "ServiceFabric.TaiwanNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorthwest",
+        "regionId": 96,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "51.53.186.76/30",
+            "2603:1040:1202:400::58/125"
+        ],
+        "networkFeatures": null
+    }
+}

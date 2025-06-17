@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.JapanEast",
+    "id": "GatewayManager.JapanEast",
+    "properties": {
+        "changeNumber": 4,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "13.78.108.16/29",
+            "20.43.64.72/29",
+            "20.210.68.160/27",
+            "2603:1040:407:1::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

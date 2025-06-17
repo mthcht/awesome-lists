@@ -1,0 +1,27 @@
+{
+    "name": "MicrosoftContainerRegistry.EastUS2EUAP",
+    "id": "MicrosoftContainerRegistry.EastUS2EUAP",
+    "properties": {
+        "changeNumber": 3,
+        "region": "eastus2euap",
+        "regionId": 49,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "40.74.146.40/29",
+            "40.75.34.24/29",
+            "52.138.90.24/29",
+            "68.220.82.64/29",
+            "2603:1030:40b:400::888/125",
+            "2603:1030:40b:800::88/125",
+            "2603:1030:40b:c00::88/125",
+            "2603:1030:40b:1000::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

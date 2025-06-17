@@ -1,0 +1,16 @@
+{
+    "name": "WindowsVirtualDesktop.UAENorth",
+    "id": "WindowsVirtualDesktop.UAENorth",
+    "properties": {
+        "changeNumber": 9,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "40.64.145.112/28",
+            "2603:1061:2010:22::/117"
+        ],
+        "networkFeatures": null
+    }
+}

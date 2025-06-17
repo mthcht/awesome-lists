@@ -1,0 +1,23 @@
+{
+    "name": "BatchNodeManagement.UKWest",
+    "id": "BatchNodeManagement.UKWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "51.137.162.192/27",
+            "51.140.211.128/27",
+            "51.141.8.61/32",
+            "51.141.8.62/32",
+            "51.141.8.64/32",
+            "2603:1020:605::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "ApiManagement.UKWest",
+    "id": "ApiManagement.UKWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "51.137.136.0/32",
+            "51.140.210.84/31",
+            "51.140.211.176/28",
+            "51.142.134.224/28",
+            "2603:1020:605:3::3b0/124",
+            "2603:1020:605:402::140/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

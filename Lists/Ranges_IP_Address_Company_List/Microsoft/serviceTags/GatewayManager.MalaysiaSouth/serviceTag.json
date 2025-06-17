@@ -1,0 +1,18 @@
+{
+    "name": "GatewayManager.MalaysiaSouth",
+    "id": "GatewayManager.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.17.48.64/26",
+            "2603:1040:1503::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

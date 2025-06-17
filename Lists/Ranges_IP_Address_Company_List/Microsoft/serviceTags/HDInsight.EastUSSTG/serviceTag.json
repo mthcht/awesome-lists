@@ -1,0 +1,23 @@
+{
+    "name": "HDInsight.EastUSSTG",
+    "id": "HDInsight.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "40.67.50.248/29",
+            "40.67.60.64/29",
+            "2603:1030:104::7b0/124",
+            "2603:1030:104:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

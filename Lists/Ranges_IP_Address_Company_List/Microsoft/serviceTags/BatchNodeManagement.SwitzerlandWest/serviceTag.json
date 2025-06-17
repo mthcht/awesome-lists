@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.SwitzerlandWest",
+    "id": "BatchNodeManagement.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "51.107.145.160/27",
+            "51.107.155.224/27",
+            "2603:1020:b04::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

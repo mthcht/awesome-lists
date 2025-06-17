@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.SwitzerlandWest",
+    "id": "MicrosoftContainerRegistry.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "51.107.154.16/29",
+            "2603:1020:b04:402::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

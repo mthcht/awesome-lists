@@ -1,0 +1,17 @@
+{
+    "name": "AzureSignalR.EastUS",
+    "id": "AzureSignalR.EastUS",
+    "properties": {
+        "changeNumber": 5,
+        "region": "eastus",
+        "regionId": 32,
+        "platform": "Azure",
+        "systemService": "AzureSignalR",
+        "addressPrefixes": [
+            "20.62.133.64/27",
+            "20.88.155.0/25",
+            "2603:1030:210:5::/120"
+        ],
+        "networkFeatures": null
+    }
+}

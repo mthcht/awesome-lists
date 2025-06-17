@@ -1,0 +1,17 @@
+{
+    "name": "ActionGroup.SwitzerlandNorth",
+    "id": "ActionGroup.SwitzerlandNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "switzerlandn",
+        "regionId": 66,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.208.157.48/30",
+            "2603:1020:a04:1::10c/126",
+            "2603:1020:a04:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

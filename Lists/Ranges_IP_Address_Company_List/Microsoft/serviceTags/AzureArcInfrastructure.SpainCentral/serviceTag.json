@@ -1,0 +1,19 @@
+{
+    "name": "AzureArcInfrastructure.SpainCentral",
+    "id": "AzureArcInfrastructure.SpainCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "spaincentral",
+        "regionId": 88,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "68.221.41.72/30",
+            "68.221.44.32/29",
+            "68.221.44.40/31",
+            "68.221.98.112/32",
+            "2603:1020:1403:2::570/124"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "AzureConnectors.JioIndiaCentral",
+    "id": "AzureConnectors.JioIndiaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "jioindiacentral",
+        "regionId": 64,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "20.192.32.64/26",
+            "20.207.0.0/26",
+            "2603:1040:1104:400::180/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

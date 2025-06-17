@@ -1,0 +1,22 @@
+{
+    "name": "AppServiceManagement.SouthIndia",
+    "id": "AppServiceManagement.SouthIndia",
+    "properties": {
+        "changeNumber": 4,
+        "region": "southindia",
+        "regionId": 22,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.192.153.112/28",
+            "40.78.194.128/26",
+            "104.211.225.66/32",
+            "2603:1040:c06:1::4a0/123",
+            "2603:1040:c06:6::240/122",
+            "2603:1040:c06:402::100/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

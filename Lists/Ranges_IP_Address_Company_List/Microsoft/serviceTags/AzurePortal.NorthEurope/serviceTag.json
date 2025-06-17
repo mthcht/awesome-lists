@@ -1,0 +1,22 @@
+{
+    "name": "AzurePortal.NorthEurope",
+    "id": "AzurePortal.NorthEurope",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "20.38.85.192/27",
+            "20.38.87.224/27",
+            "20.50.65.72/30",
+            "52.146.132.80/29",
+            "104.41.216.228/32",
+            "137.116.247.179/32",
+            "2603:1020:5::100/121",
+            "2603:1020:5:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

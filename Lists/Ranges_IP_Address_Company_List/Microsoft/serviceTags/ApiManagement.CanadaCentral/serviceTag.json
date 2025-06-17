@@ -1,0 +1,25 @@
+{
+    "name": "ApiManagement.CanadaCentral",
+    "id": "ApiManagement.CanadaCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "canadacentral",
+        "regionId": 11,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "13.71.170.44/31",
+            "13.71.172.144/28",
+            "20.48.201.76/31",
+            "52.139.20.34/32",
+            "130.107.71.152/31",
+            "2603:1030:f05:402::140/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

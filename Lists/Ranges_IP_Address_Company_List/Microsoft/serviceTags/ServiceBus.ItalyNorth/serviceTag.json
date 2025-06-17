@@ -1,0 +1,26 @@
+{
+    "name": "ServiceBus.ItalyNorth",
+    "id": "ServiceBus.ItalyNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "4.232.30.0/25",
+            "4.232.55.0/25",
+            "4.232.106.80/29",
+            "4.232.106.96/28",
+            "4.232.122.80/29",
+            "4.232.122.96/28",
+            "4.232.194.80/29",
+            "4.232.194.96/28",
+            "2603:1020:1204:1::100/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

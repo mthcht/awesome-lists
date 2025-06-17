@@ -1,0 +1,21 @@
+{
+    "name": "AzureCosmosDB.MexicoCentral",
+    "id": "AzureCosmosDB.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "158.23.113.192/26",
+            "2603:1030:702::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

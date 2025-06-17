@@ -1,0 +1,21 @@
+{
+    "name": "AzureCognitiveSearch.WestUS2",
+    "id": "AzureCognitiveSearch.WestUS2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus2",
+        "regionId": 38,
+        "platform": "Azure",
+        "systemService": "AzureCognitiveSearch",
+        "addressPrefixes": [
+            "20.42.129.192/26",
+            "40.91.93.84/32",
+            "40.91.127.116/32",
+            "40.91.127.241/32",
+            "51.143.104.54/32",
+            "51.143.104.90/32",
+            "2603:1030:c06:1::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

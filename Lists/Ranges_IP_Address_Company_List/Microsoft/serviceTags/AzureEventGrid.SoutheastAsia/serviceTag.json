@@ -1,0 +1,20 @@
+{
+    "name": "AzureEventGrid.SoutheastAsia",
+    "id": "AzureEventGrid.SoutheastAsia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southeastasia",
+        "regionId": 2,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.43.131.128/25",
+            "20.43.165.144/28",
+            "20.43.172.128/27",
+            "20.44.205.112/28",
+            "57.155.33.0/25",
+            "2603:1040:5:1::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

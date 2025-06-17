@@ -1,0 +1,17 @@
+{
+    "name": "AzureBackup.ChileCentral",
+    "id": "AzureBackup.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "68.211.4.128/26",
+            "68.211.20.208/28",
+            "2603:1050:301::600/121"
+        ],
+        "networkFeatures": null
+    }
+}

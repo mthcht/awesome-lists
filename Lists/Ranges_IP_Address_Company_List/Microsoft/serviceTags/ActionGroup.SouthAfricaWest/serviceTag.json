@@ -1,0 +1,17 @@
+{
+    "name": "ActionGroup.SouthAfricaWest",
+    "id": "ActionGroup.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "172.209.8.40/30",
+            "2603:1000:4::10c/126",
+            "2603:1000:4:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

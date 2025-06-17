@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.NewZealandNorth",
+    "id": "ApiManagement.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "172.204.154.240/28",
+            "2603:1010:502::5a0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.UAECentral",
+    "id": "ActionGroup.UAECentral",
+    "properties": {
+        "changeNumber": 5,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.203.88.62/31",
+            "20.203.93.200/30",
+            "2603:1040:b04::10c/126",
+            "2603:1040:b04:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

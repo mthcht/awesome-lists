@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.WestUS",
+    "id": "AzureBotService.WestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus",
+        "regionId": 37,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "13.86.219.168/30",
+            "40.82.248.64/30",
+            "2603:1030:a07::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

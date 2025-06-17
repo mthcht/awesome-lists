@@ -1,0 +1,18 @@
+{
+    "name": "AzureEventGrid.NorthCentralUS",
+    "id": "AzureEventGrid.NorthCentralUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.41.136.240/28",
+            "40.80.190.0/25",
+            "52.252.213.192/28",
+            "2603:1030:608::380/121"
+        ],
+        "networkFeatures": null
+    }
+}

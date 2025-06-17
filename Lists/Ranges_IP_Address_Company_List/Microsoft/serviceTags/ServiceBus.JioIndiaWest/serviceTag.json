@@ -1,0 +1,29 @@
+{
+    "name": "ServiceBus.JioIndiaWest",
+    "id": "ServiceBus.JioIndiaWest",
+    "properties": {
+        "changeNumber": 4,
+        "region": "jioindiawest",
+        "regionId": 65,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "20.192.160.40/29",
+            "20.193.199.0/25",
+            "20.193.204.104/29",
+            "20.193.204.112/28",
+            "40.64.16.60/32",
+            "2603:1040:d04::220/123",
+            "2603:1040:d04:2::400/120",
+            "2603:1040:d04:800::e0/124",
+            "2603:1040:d04:800::f0/125",
+            "2603:1040:d04:800::358/125",
+            "2603:1040:d04:800::3c0/125",
+            "2603:1040:d04:800::3e8/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

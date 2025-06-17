@@ -1,0 +1,21 @@
+{
+    "name": "AzurePortal.EastAsia",
+    "id": "AzurePortal.EastAsia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "13.88.220.109/32",
+            "13.88.222.0/32",
+            "20.187.197.0/29",
+            "20.189.108.96/27",
+            "20.189.109.88/30",
+            "20.189.109.160/27",
+            "2603:1040:207::700/121"
+        ],
+        "networkFeatures": null
+    }
+}

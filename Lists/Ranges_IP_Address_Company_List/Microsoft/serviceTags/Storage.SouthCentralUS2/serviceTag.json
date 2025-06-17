@@ -1,0 +1,25 @@
+{
+    "name": "Storage.SouthCentralUS2",
+    "id": "Storage.SouthCentralUS2",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southcentralus2",
+        "regionId": 102,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.33.220.0/24",
+            "20.153.37.0/24",
+            "57.150.88.0/23",
+            "57.150.92.0/24",
+            "57.150.240.0/23",
+            "2603:1030:1103::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

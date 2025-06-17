@@ -1,0 +1,19 @@
+{
+    "name": "ActionGroup.UKSouth",
+    "id": "ActionGroup.UKSouth",
+    "properties": {
+        "changeNumber": 5,
+        "region": "uksouth",
+        "regionId": 27,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.117.193.34/31",
+            "51.104.9.100/30",
+            "172.187.67.44/30",
+            "2603:1020:705:3::234/126",
+            "2603:1020:705:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

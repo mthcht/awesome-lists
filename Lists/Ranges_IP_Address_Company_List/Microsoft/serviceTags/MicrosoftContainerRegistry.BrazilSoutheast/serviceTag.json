@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.BrazilSoutheast",
+    "id": "MicrosoftContainerRegistry.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "191.233.50.8/29",
+            "2603:1050:403:400::90/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "ServiceBus.MalaysiaSouth",
+    "id": "ServiceBus.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "20.17.54.0/25",
+            "20.17.66.80/29",
+            "20.17.66.96/28",
+            "2603:1040:1503::780/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

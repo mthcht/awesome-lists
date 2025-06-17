@@ -1,0 +1,16 @@
+{
+    "name": "AzureEventGrid.QatarCentral",
+    "id": "AzureEventGrid.QatarCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "20.21.33.128/25",
+            "2603:1040:1002::480/121"
+        ],
+        "networkFeatures": null
+    }
+}

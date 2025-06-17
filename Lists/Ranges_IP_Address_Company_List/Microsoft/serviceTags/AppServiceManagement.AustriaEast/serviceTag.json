@@ -1,0 +1,18 @@
+{
+    "name": "AppServiceManagement.AustriaEast",
+    "id": "AppServiceManagement.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "68.210.172.192/26",
+            "2603:1020:104:6::c0/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "Storage.IndonesiaCentral",
+    "id": "Storage.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.33.210.0/24",
+            "20.33.219.0/24",
+            "20.60.123.0/24",
+            "20.60.124.0/22",
+            "20.153.52.0/24",
+            "57.150.6.0/23",
+            "2603:1040:1803::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

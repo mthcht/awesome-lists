@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.ItalyNorth",
+    "id": "MicrosoftContainerRegistry.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "4.232.106.64/29",
+            "4.232.122.64/29",
+            "4.232.194.64/29",
+            "2603:1020:1204:400::40/125",
+            "2603:1020:1204:800::/125",
+            "2603:1020:1204:c00::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

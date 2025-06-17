@@ -1,0 +1,29 @@
+{
+    "name": "Sql.SwitzerlandWest",
+    "id": "Sql.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 4,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "20.199.205.0/25",
+            "51.107.152.0/27",
+            "51.107.153.0/27",
+            "51.107.153.32/29",
+            "51.107.250.64/26",
+            "51.107.250.128/26",
+            "2603:1020:b04::280/123",
+            "2603:1020:b04:1::200/121",
+            "2603:1020:b04:2::680/121",
+            "2603:1020:b04:400::/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

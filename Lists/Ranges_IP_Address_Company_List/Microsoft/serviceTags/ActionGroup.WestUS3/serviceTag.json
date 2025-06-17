@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.WestUS3",
+    "id": "ActionGroup.WestUS3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.150.172.228/30",
+            "172.182.164.108/30",
+            "2603:1030:504:1::10c/126",
+            "2603:1030:504:802::f8/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "ActionGroup.KoreaCentral",
+    "id": "ActionGroup.KoreaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreacentral",
+        "regionId": 26,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "4.218.236.160/30",
+            "2603:1040:f05:1::10c/126",
+            "2603:1040:f05:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

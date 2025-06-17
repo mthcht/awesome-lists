@@ -1,0 +1,21 @@
+{
+    "name": "AzureMachineLearning.NorthCentralUS",
+    "id": "AzureMachineLearning.NorthCentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northcentralus",
+        "regionId": 34,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.51.1.48/28",
+            "23.100.232.216/32",
+            "40.80.184.80/28",
+            "40.80.188.96/28",
+            "52.162.106.176/28",
+            "52.252.160.26/32",
+            "2603:1030:608::300/122"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "StorageSyncService.SwitzerlandNorth",
+    "id": "StorageSyncService.SwitzerlandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "switzerlandn",
+        "regionId": 66,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "51.107.48.224/29",
+            "2603:1020:a04:1::300/123"
+        ],
+        "networkFeatures": null
+    }
+}

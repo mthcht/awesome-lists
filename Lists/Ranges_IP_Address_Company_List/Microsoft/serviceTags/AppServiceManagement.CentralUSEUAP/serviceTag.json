@@ -1,0 +1,20 @@
+{
+    "name": "AppServiceManagement.CentralUSEUAP",
+    "id": "AppServiceManagement.CentralUSEUAP",
+    "properties": {
+        "changeNumber": 3,
+        "region": "centraluseuap",
+        "regionId": 48,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.45.242.144/28",
+            "52.180.179.14/32",
+            "104.208.54.11/32",
+            "168.61.143.0/26",
+            "2603:1030:f:3::700/123",
+            "2603:1030:f:400::900/122"
+        ],
+        "networkFeatures": null
+    }
+}

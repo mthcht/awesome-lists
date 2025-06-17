@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.JapanWest",
+    "id": "AzureDigitalTwins.JapanWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "japanwest",
+        "regionId": 25,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "20.189.224.224/27",
+            "20.189.225.64/29",
+            "2603:1040:606:3::100/121"
+        ],
+        "networkFeatures": null
+    }
+}

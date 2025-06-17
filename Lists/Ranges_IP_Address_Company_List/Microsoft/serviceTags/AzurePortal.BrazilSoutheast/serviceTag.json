@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.BrazilSoutheast",
+    "id": "AzurePortal.BrazilSoutheast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "brazilse",
+        "regionId": 77,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "191.233.10.96/27",
+            "191.233.15.0/29",
+            "2603:1050:403::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

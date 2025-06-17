@@ -1,0 +1,16 @@
+{
+    "name": "AzureAttestation.SwedenSouth",
+    "id": "AzureAttestation.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "51.12.198.4/30",
+            "2603:1020:1104:1::3e0/123"
+        ],
+        "networkFeatures": null
+    }
+}

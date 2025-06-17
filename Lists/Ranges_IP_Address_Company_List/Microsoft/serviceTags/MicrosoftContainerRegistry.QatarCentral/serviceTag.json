@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.QatarCentral",
+    "id": "MicrosoftContainerRegistry.QatarCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.21.42.64/29",
+            "20.21.66.64/29",
+            "20.21.74.64/29",
+            "2603:1040:1002:400::40/125",
+            "2603:1040:1002:800::40/125",
+            "2603:1040:1002:c00::40/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

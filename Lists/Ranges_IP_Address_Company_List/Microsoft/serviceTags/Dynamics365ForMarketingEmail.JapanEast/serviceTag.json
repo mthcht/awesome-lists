@@ -1,0 +1,20 @@
+{
+    "name": "Dynamics365ForMarketingEmail.JapanEast",
+    "id": "Dynamics365ForMarketingEmail.JapanEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "japaneast",
+        "regionId": 24,
+        "platform": "Azure",
+        "systemService": "Dynamics365ForMarketingEmail",
+        "addressPrefixes": [
+            "13.78.107.0/24"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

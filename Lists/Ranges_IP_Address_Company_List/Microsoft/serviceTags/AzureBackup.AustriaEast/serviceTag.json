@@ -1,0 +1,17 @@
+{
+    "name": "AzureBackup.AustriaEast",
+    "id": "AzureBackup.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "68.210.164.0/26",
+            "68.210.179.48/28",
+            "2603:1020:104:4::480/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "ServiceFabric.NorwayWest",
+    "id": "ServiceFabric.NorwayWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "norwayw",
+        "regionId": 74,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "51.120.164.23/32",
+            "51.120.219.72/29",
+            "2603:1020:f04:402::98/125"
+        ],
+        "networkFeatures": null
+    }
+}

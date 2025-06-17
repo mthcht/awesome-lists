@@ -1,0 +1,23 @@
+{
+    "name": "ServiceFabric.SouthAfricaNorth",
+    "id": "ServiceFabric.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "102.37.48.12/32",
+            "102.133.126.144/30",
+            "102.133.155.24/29",
+            "102.133.160.28/32",
+            "102.133.235.169/32",
+            "102.133.251.216/30",
+            "2603:1000:104:402::98/125",
+            "2603:1000:104:802::98/125",
+            "2603:1000:104:c02::98/125"
+        ],
+        "networkFeatures": null
+    }
+}

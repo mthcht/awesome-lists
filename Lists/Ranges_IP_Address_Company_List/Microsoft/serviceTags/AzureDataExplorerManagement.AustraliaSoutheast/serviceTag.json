@@ -1,0 +1,20 @@
+{
+    "name": "AzureDataExplorerManagement.AustraliaSoutheast",
+    "id": "AzureDataExplorerManagement.AustraliaSoutheast",
+    "properties": {
+        "changeNumber": 3,
+        "region": "australiasoutheast",
+        "regionId": 4,
+        "platform": "Azure",
+        "systemService": "AzureDataExplorerManagement",
+        "addressPrefixes": [
+            "13.77.52.240/28",
+            "20.40.161.39/32",
+            "40.81.56.122/32",
+            "68.218.170.48/28",
+            "2603:1010:101:1::380/121",
+            "2603:1010:101:402::150/124"
+        ],
+        "networkFeatures": null
+    }
+}

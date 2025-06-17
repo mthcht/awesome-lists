@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.AustraliaCentral",
+    "id": "ActionGroup.AustraliaCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "20.53.1.68/30",
+            "20.213.228.120/30",
+            "2603:1010:304::10c/126",
+            "2603:1010:304:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

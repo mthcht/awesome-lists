@@ -1,0 +1,22 @@
+{
+    "name": "BatchNodeManagement.SwedenCentral",
+    "id": "BatchNodeManagement.SwedenCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedencentral",
+        "regionId": 76,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "51.12.41.192/27",
+            "51.12.100.0/27",
+            "51.12.227.96/27",
+            "51.12.235.96/27",
+            "2603:1020:1004::340/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

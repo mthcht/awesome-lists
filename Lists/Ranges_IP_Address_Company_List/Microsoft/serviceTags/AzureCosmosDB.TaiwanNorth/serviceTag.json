@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.TaiwanNorth",
+    "id": "AzureCosmosDB.TaiwanNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "taiwannorth",
+        "regionId": 8,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "51.53.27.0/27",
+            "51.53.103.64/26",
+            "2603:1040:1302::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

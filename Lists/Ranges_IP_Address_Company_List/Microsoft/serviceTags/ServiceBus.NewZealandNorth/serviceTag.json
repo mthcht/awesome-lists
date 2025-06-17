@@ -1,0 +1,25 @@
+{
+    "name": "ServiceBus.NewZealandNorth",
+    "id": "ServiceBus.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "172.204.158.0/25",
+            "172.204.182.136/29",
+            "172.204.182.208/28",
+            "172.204.192.16/29",
+            "172.204.192.32/28",
+            "172.204.208.16/29",
+            "172.204.208.32/28",
+            "2603:1010:502::780/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

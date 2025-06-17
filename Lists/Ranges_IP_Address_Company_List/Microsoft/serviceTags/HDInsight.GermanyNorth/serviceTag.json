@@ -1,0 +1,23 @@
+{
+    "name": "HDInsight.GermanyNorth",
+    "id": "HDInsight.GermanyNorth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "germanyn",
+        "regionId": 72,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "51.116.49.168/29",
+            "51.116.60.48/29",
+            "2603:1020:d04:5::300/124",
+            "2603:1020:d04:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

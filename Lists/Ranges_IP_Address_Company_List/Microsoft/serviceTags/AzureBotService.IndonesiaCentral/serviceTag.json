@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.IndonesiaCentral",
+    "id": "AzureBotService.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "70.153.152.16/30",
+            "2603:1040:1802:2::740/123"
+        ],
+        "networkFeatures": null
+    }
+}

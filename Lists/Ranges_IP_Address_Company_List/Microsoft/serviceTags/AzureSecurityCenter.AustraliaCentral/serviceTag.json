@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.AustraliaCentral",
+    "id": "AzureSecurityCenter.AustraliaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "4.199.157.0/24",
+            "4.199.158.0/23",
+            "4.199.160.0/22",
+            "4.199.164.0/26",
+            "4.199.164.64/27",
+            "20.53.0.64/27"
+        ],
+        "networkFeatures": null
+    }
+}

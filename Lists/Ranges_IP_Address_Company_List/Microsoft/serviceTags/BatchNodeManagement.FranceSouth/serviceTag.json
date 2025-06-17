@@ -1,0 +1,20 @@
+{
+    "name": "BatchNodeManagement.FranceSouth",
+    "id": "BatchNodeManagement.FranceSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "51.105.89.192/27",
+            "52.136.143.192/31",
+            "2603:1020:905::400/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "AzureKeyVault.SouthAfricaWest",
+    "id": "AzureKeyVault.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 4,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "102.37.81.88/29",
+            "102.37.81.128/30",
+            "102.133.26.0/30",
+            "2603:1000:4::100/125",
+            "2603:1000:4::108/126",
+            "2603:1000:4::2a0/125",
+            "2603:1000:4:402::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

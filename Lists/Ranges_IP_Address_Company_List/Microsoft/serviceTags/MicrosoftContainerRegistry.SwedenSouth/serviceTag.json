@@ -1,0 +1,21 @@
+{
+    "name": "MicrosoftContainerRegistry.SwedenSouth",
+    "id": "MicrosoftContainerRegistry.SwedenSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "51.12.202.16/29",
+            "2603:1020:1104:400::88/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

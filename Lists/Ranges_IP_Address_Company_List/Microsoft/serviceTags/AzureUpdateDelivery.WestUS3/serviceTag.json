@@ -1,0 +1,16 @@
+{
+    "name": "AzureUpdateDelivery.WestUS3",
+    "id": "AzureUpdateDelivery.WestUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "westus3",
+        "regionId": 79,
+        "platform": "Azure",
+        "systemService": "AzureUpdateDelivery",
+        "addressPrefixes": [
+            "20.163.45.176/28",
+            "2603:1030:501:2::f0/124"
+        ],
+        "networkFeatures": null
+    }
+}

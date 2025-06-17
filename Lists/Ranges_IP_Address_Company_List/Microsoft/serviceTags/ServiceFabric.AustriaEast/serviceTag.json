@@ -1,0 +1,20 @@
+{
+    "name": "ServiceFabric.AustriaEast",
+    "id": "ServiceFabric.AustriaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "68.210.152.12/30",
+            "68.210.192.8/30",
+            "68.210.208.8/30",
+            "2603:1020:104:403::10/125",
+            "2603:1020:104:800::18/125",
+            "2603:1020:104:c00::10/125"
+        ],
+        "networkFeatures": null
+    }
+}

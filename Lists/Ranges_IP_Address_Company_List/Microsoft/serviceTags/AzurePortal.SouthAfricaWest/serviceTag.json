@@ -1,0 +1,18 @@
+{
+    "name": "AzurePortal.SouthAfricaWest",
+    "id": "AzurePortal.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "102.133.56.160/27",
+            "102.133.58.192/30",
+            "102.133.61.176/29",
+            "2603:1000:4::700/121"
+        ],
+        "networkFeatures": null
+    }
+}

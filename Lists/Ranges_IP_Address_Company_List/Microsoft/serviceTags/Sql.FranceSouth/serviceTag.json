@@ -1,0 +1,29 @@
+{
+    "name": "Sql.FranceSouth",
+    "id": "Sql.FranceSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "southfrance",
+        "regionId": 20,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "40.79.176.0/27",
+            "40.79.176.40/29",
+            "40.79.177.0/27",
+            "40.79.177.32/29",
+            "40.80.102.128/25",
+            "52.136.185.0/25",
+            "2603:1020:905::280/123",
+            "2603:1020:905:1::200/121",
+            "2603:1020:905:2::580/121",
+            "2603:1020:905:400::/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

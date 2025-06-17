@@ -1,0 +1,24 @@
+{
+    "name": "EventHub.PolandCentral",
+    "id": "EventHub.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "20.215.5.0/24",
+            "20.215.19.64/26",
+            "20.215.27.64/26",
+            "20.215.155.128/26",
+            "2603:1020:1302:1::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

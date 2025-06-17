@@ -1,0 +1,25 @@
+{
+    "name": "PowerPlatformInfra.IsraelCentral",
+    "id": "PowerPlatformInfra.IsraelCentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "20.217.161.88/29",
+            "20.217.162.32/27",
+            "20.217.162.64/26",
+            "51.4.87.32/29",
+            "51.4.87.64/26",
+            "2603:1061:2002:9000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

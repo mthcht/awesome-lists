@@ -1,0 +1,21 @@
+{
+    "name": "AzureMachineLearning.SwedenCentral",
+    "id": "AzureMachineLearning.SwedenCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "swedencentral",
+        "regionId": 76,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "51.12.29.0/28",
+            "51.12.29.64/27",
+            "51.12.47.32/28",
+            "51.12.99.80/28",
+            "51.12.227.64/28",
+            "51.12.235.64/28",
+            "2603:1020:1004::2c0/122"
+        ],
+        "networkFeatures": null
+    }
+}

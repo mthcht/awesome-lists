@@ -1,0 +1,17 @@
+{
+    "name": "AzureMachineLearning.SouthIndia",
+    "id": "AzureMachineLearning.SouthIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southindia",
+        "regionId": 22,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "20.41.197.0/28",
+            "40.78.194.224/28",
+            "2603:1040:c06::300/122"
+        ],
+        "networkFeatures": null
+    }
+}

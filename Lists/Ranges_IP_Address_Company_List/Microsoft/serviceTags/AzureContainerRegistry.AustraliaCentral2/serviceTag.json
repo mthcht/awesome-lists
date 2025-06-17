@@ -1,0 +1,30 @@
+{
+    "name": "AzureContainerRegistry.AustraliaCentral2",
+    "id": "AzureContainerRegistry.AustraliaCentral2",
+    "properties": {
+        "changeNumber": 7,
+        "region": "australiacentral2",
+        "regionId": 59,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "4.198.41.0/26",
+            "20.167.130.192/26",
+            "20.193.96.64/26",
+            "20.193.96.128/26",
+            "20.193.97.128/25",
+            "2603:1010:404:1::4b8/125",
+            "2603:1010:404:5::7c0/122",
+            "2603:1010:404:402::90/125",
+            "2603:1010:404:402::340/122",
+            "2603:1010:404:402::580/122",
+            "2603:1010:404:402::600/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

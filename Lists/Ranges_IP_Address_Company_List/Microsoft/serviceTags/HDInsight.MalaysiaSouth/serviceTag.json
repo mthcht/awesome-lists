@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.MalaysiaSouth",
+    "id": "HDInsight.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "20.17.54.184/29",
+            "2603:1040:1503:1::350/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

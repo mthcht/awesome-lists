@@ -1,0 +1,24 @@
+{
+    "name": "PowerPlatformPlex.KoreaSouth",
+    "id": "PowerPlatformPlex.KoreaSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "4.243.28.48/28",
+            "4.243.44.208/29",
+            "20.200.160.28/30",
+            "20.200.160.208/30",
+            "20.200.160.236/30",
+            "20.200.160.248/30",
+            "2603:1061:2004:1900::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "AppServiceManagement.EastUSSTG",
+    "id": "AppServiceManagement.EastUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagee",
+        "regionId": 68,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.99.24.16/28",
+            "2603:1030:104:2::c0/123",
+            "2603:1030:104:402::100/122",
+            "2603:1030:104:402::600/122",
+            "2603:1030:104:802::c0/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

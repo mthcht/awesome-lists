@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.UAECentral",
+    "id": "StorageSyncService.UAECentral",
+    "properties": {
+        "changeNumber": 3,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "20.37.64.216/29",
+            "2603:1040:b04::340/123",
+            "2603:1040:b04:402::5e0/123"
+        ],
+        "networkFeatures": null
+    }
+}

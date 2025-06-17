@@ -1,0 +1,25 @@
+{
+    "name": "PowerQueryOnline.EastAsia",
+    "id": "PowerQueryOnline.EastAsia",
+    "properties": {
+        "changeNumber": 7,
+        "region": "eastasia",
+        "regionId": 1,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "4.192.252.32/28",
+            "4.192.253.200/29",
+            "20.189.104.68/31",
+            "20.205.49.192/29",
+            "20.205.77.220/31",
+            "20.205.85.206/31",
+            "104.214.166.138/31",
+            "2603:1040:207::200/123",
+            "2603:1040:207:402::168/125",
+            "2603:1040:207:800::2c0/125",
+            "2603:1040:207:c00::2c0/125"
+        ],
+        "networkFeatures": null
+    }
+}

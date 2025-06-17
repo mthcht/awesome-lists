@@ -1,0 +1,16 @@
+{
+    "name": "ServiceFabric.SouthCentralUSSTG",
+    "id": "ServiceFabric.SouthCentralUSSTG",
+    "properties": {
+        "changeNumber": 1,
+        "region": "usstagec",
+        "regionId": 69,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "20.44.3.24/29",
+            "23.100.199.230/32"
+        ],
+        "networkFeatures": null
+    }
+}

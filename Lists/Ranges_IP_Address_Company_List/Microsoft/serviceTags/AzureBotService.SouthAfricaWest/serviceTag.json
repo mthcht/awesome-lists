@@ -1,0 +1,17 @@
+{
+    "name": "AzureBotService.SouthAfricaWest",
+    "id": "AzureBotService.SouthAfricaWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southafricawest",
+        "regionId": 83,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "102.133.28.88/30",
+            "102.133.56.64/30",
+            "2603:1000:4::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

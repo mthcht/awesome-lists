@@ -1,0 +1,19 @@
+{
+    "name": "AzureCognitiveSearch.CentralUS",
+    "id": "AzureCognitiveSearch.CentralUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "AzureCognitiveSearch",
+        "addressPrefixes": [
+            "13.86.5.51/32",
+            "20.37.156.128/26",
+            "52.158.208.11/32",
+            "52.242.214.45/32",
+            "2603:1030:10:1::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "name": "DataFactory.MalaysiaWest",
+    "id": "DataFactory.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "20.17.89.32/27",
+            "20.17.90.64/28",
+            "20.17.131.112/28",
+            "20.17.136.0/23",
+            "20.17.170.144/28",
+            "20.17.186.144/28",
+            "2603:1040:1602:2::280/121",
+            "2603:1040:1602:2::6b8/125",
+            "2603:1040:1602:3::590/124",
+            "2603:1040:1602:402::c0/124",
+            "2603:1040:1602:403::40/124",
+            "2603:1040:1602:800::1c0/124",
+            "2603:1040:1602:c00::1c0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

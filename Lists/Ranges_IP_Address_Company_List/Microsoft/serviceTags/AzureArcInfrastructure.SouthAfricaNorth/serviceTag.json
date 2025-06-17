@@ -1,0 +1,22 @@
+{
+    "name": "AzureArcInfrastructure.SouthAfricaNorth",
+    "id": "AzureArcInfrastructure.SouthAfricaNorth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "southafricanorth",
+        "regionId": 82,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "20.164.154.166/31",
+            "20.164.158.128/29",
+            "102.133.127.176/31",
+            "102.133.154.6/31",
+            "102.133.218.52/30",
+            "102.133.219.188/30",
+            "102.133.254.200/30",
+            "102.133.254.204/32"
+        ],
+        "networkFeatures": null
+    }
+}

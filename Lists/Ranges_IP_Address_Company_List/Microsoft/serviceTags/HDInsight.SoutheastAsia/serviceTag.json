@@ -1,0 +1,24 @@
+{
+    "name": "HDInsight.SoutheastAsia",
+    "id": "HDInsight.SoutheastAsia",
+    "properties": {
+        "changeNumber": 3,
+        "region": "southeastasia",
+        "regionId": 2,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "13.67.9.152/29",
+            "13.76.136.249/32",
+            "13.76.245.160/32",
+            "23.98.107.192/29",
+            "2603:1040:5:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "ApiManagement.UKSouth",
+    "id": "ApiManagement.UKSouth",
+    "properties": {
+        "changeNumber": 4,
+        "region": "uksouth",
+        "regionId": 27,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.90.131.114/31",
+            "51.140.146.60/31",
+            "51.140.149.0/28",
+            "51.145.56.125/32",
+            "131.145.110.138/31",
+            "2603:1020:705:402::140/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

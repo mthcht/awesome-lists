@@ -1,0 +1,19 @@
+{
+    "name": "AzurePortal.NorwayEast",
+    "id": "AzurePortal.NorwayEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "norwaye",
+        "regionId": 63,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "51.120.41.160/27",
+            "51.120.42.60/30",
+            "51.120.232.16/29",
+            "2603:1020:e04::100/121",
+            "2603:1020:e04:1::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

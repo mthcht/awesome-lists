@@ -1,0 +1,17 @@
+{
+    "name": "SCCservice.FranceCentral",
+    "id": "SCCservice.FranceCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centralfrance",
+        "regionId": 19,
+        "platform": "Azure",
+        "systemService": "SCCservice",
+        "addressPrefixes": [
+            "4.251.58.160/27",
+            "40.79.139.200/29",
+            "2603:1020:805:8::500/123"
+        ],
+        "networkFeatures": null
+    }
+}

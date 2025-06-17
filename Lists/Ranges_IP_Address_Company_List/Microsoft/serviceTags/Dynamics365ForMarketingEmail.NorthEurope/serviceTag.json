@@ -1,0 +1,21 @@
+{
+    "name": "Dynamics365ForMarketingEmail.NorthEurope",
+    "id": "Dynamics365ForMarketingEmail.NorthEurope",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "Dynamics365ForMarketingEmail",
+        "addressPrefixes": [
+            "13.69.226.128/25",
+            "13.74.106.128/25"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

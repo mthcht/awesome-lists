@@ -1,0 +1,27 @@
+{
+    "name": "PowerPlatformPlex.CentralIndia",
+    "id": "PowerPlatformPlex.CentralIndia",
+    "properties": {
+        "changeNumber": 6,
+        "region": "centralindia",
+        "regionId": 21,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "4.213.28.0/29",
+            "20.193.248.192/26",
+            "20.204.192.108/30",
+            "20.204.192.192/29",
+            "20.204.193.100/30",
+            "20.204.193.104/29",
+            "20.204.199.160/28",
+            "20.204.199.176/29",
+            "20.244.74.96/28",
+            "2603:1061:2004:3900::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

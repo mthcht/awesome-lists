@@ -1,0 +1,20 @@
+{
+    "name": "GatewayManager.SwitzerlandWest",
+    "id": "GatewayManager.SwitzerlandWest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "switzerlandw",
+        "regionId": 67,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "20.199.200.128/27",
+            "51.107.144.72/29",
+            "51.107.155.32/29",
+            "2603:1020:b04::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

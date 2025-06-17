@@ -1,0 +1,17 @@
+{
+    "name": "ServiceFabric.UKWest",
+    "id": "ServiceFabric.UKWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "51.140.211.16/29",
+            "51.141.8.30/32",
+            "2603:1020:605:402::98/125"
+        ],
+        "networkFeatures": null
+    }
+}

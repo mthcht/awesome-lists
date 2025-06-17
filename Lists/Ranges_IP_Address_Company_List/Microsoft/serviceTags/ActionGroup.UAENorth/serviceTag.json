@@ -1,0 +1,17 @@
+{
+    "name": "ActionGroup.UAENorth",
+    "id": "ActionGroup.UAENorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "uaenorth",
+        "regionId": 60,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "172.164.208.220/30",
+            "2603:1040:904:1::114/126",
+            "2603:1040:904:402::178/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "GatewayManager.IndonesiaCentral",
+    "id": "GatewayManager.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "70.153.152.64/26",
+            "2603:1040:1802:2::700/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "AzureBackup.MalaysiaWest",
+    "id": "AzureBackup.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.17.116.64/26",
+            "2603:1040:1602::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "AppServiceManagement.IsraelCentral",
+    "id": "AppServiceManagement.IsraelCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "20.217.11.64/26",
+            "20.217.58.192/26",
+            "20.217.74.192/26",
+            "20.217.90.192/26",
+            "2603:1040:1402:3::3c0/123",
+            "2603:1040:1402:400::80/122",
+            "2603:1040:1402:800::80/122",
+            "2603:1040:1402:c00::80/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

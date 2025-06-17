@@ -1,0 +1,17 @@
+{
+    "name": "AzureAttestation.WestIndia",
+    "id": "AzureAttestation.WestIndia",
+    "properties": {
+        "changeNumber": 2,
+        "region": "westindia",
+        "regionId": 23,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "20.38.132.24/30",
+            "52.136.53.132/30",
+            "2603:1040:806:3::1f0/124"
+        ],
+        "networkFeatures": null
+    }
+}

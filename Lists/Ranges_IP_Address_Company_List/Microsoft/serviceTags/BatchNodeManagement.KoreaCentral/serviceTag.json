@@ -1,0 +1,23 @@
+{
+    "name": "BatchNodeManagement.KoreaCentral",
+    "id": "BatchNodeManagement.KoreaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreacentral",
+        "regionId": 26,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.41.66.128/27",
+            "20.44.27.64/27",
+            "52.231.19.96/27",
+            "52.231.32.70/31",
+            "52.231.32.82/32",
+            "2603:1040:f05:1::340/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

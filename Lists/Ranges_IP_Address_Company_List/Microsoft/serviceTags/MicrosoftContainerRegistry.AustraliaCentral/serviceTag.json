@@ -1,0 +1,16 @@
+{
+    "name": "MicrosoftContainerRegistry.AustraliaCentral",
+    "id": "MicrosoftContainerRegistry.AustraliaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "australiacentral",
+        "regionId": 58,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "20.53.1.72/29",
+            "2603:1010:304:402::88/125"
+        ],
+        "networkFeatures": null
+    }
+}

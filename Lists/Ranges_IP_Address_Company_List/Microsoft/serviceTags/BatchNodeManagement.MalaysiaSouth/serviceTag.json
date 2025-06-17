@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.MalaysiaSouth",
+    "id": "BatchNodeManagement.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.17.49.32/27",
+            "2603:1040:1503::240/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

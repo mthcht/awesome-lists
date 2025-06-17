@@ -1,0 +1,24 @@
+{
+    "name": "HDInsight.NorthEurope",
+    "id": "HDInsight.NorthEurope",
+    "properties": {
+        "changeNumber": 3,
+        "region": "northeurope",
+        "regionId": 17,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "13.69.229.72/29",
+            "13.74.153.132/32",
+            "52.146.130.184/29",
+            "52.164.210.96/32",
+            "2603:1020:5:402::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "PowerQueryOnline.IsraelCentral",
+    "id": "PowerQueryOnline.IsraelCentral",
+    "properties": {
+        "changeNumber": 4,
+        "region": "israelcentral",
+        "regionId": 85,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "20.217.40.20/31",
+            "20.217.47.60/31",
+            "20.217.47.232/29",
+            "20.217.62.138/31",
+            "20.217.74.8/31",
+            "20.217.90.8/31",
+            "20.217.165.0/29",
+            "2603:1040:1402::1c0/123",
+            "2603:1040:1402:400::198/126",
+            "2603:1040:1402:402::40/126",
+            "2603:1040:1402:800::/125",
+            "2603:1040:1402:c00::/125"
+        ],
+        "networkFeatures": null
+    }
+}

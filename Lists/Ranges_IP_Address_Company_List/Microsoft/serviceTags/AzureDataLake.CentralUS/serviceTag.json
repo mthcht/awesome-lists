@@ -1,0 +1,17 @@
+{
+    "name": "AzureDataLake.CentralUS",
+    "id": "AzureDataLake.CentralUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "AzureDataLake",
+        "addressPrefixes": [
+            "104.44.88.176/31",
+            "104.44.88.184/29",
+            "104.44.91.160/27"
+        ],
+        "networkFeatures": null
+    }
+}

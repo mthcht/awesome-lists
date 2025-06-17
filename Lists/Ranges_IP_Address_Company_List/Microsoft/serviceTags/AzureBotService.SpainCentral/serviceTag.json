@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.SpainCentral",
+    "id": "AzureBotService.SpainCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "spaincentral",
+        "regionId": 88,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "68.221.80.16/30",
+            "2603:1020:1403::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

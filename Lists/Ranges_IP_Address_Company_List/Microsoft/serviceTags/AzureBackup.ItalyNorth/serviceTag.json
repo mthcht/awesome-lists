@@ -1,0 +1,23 @@
+{
+    "name": "AzureBackup.ItalyNorth",
+    "id": "AzureBackup.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "4.232.28.64/26",
+            "4.232.107.0/26",
+            "4.232.123.0/26",
+            "4.232.125.192/27",
+            "4.232.195.0/26",
+            "2603:1020:1204::680/121",
+            "2603:1020:1204:400::100/121",
+            "2603:1020:1204:800::80/121",
+            "2603:1020:1204:c00::80/121"
+        ],
+        "networkFeatures": null
+    }
+}

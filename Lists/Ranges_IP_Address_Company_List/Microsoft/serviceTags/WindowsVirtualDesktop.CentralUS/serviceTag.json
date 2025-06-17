@@ -1,0 +1,16 @@
+{
+    "name": "WindowsVirtualDesktop.CentralUS",
+    "id": "WindowsVirtualDesktop.CentralUS",
+    "properties": {
+        "changeNumber": 5,
+        "region": "centralus",
+        "regionId": 31,
+        "platform": "Azure",
+        "systemService": "WindowsVirtualDesktop",
+        "addressPrefixes": [
+            "40.64.145.176/28",
+            "2603:1061:2010:6::/117"
+        ],
+        "networkFeatures": null
+    }
+}

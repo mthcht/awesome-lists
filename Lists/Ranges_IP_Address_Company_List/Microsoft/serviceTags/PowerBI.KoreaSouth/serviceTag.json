@@ -1,0 +1,28 @@
+{
+    "name": "PowerBI.KoreaSouth",
+    "id": "PowerBI.KoreaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "koreasouth",
+        "regionId": 50,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "4.243.117.16/29",
+            "20.200.166.224/28",
+            "40.80.168.122/31",
+            "40.80.168.124/30",
+            "40.80.169.144/29",
+            "52.147.113.176/30",
+            "52.147.119.8/29",
+            "2603:1040:e05:6::1c0/122",
+            "2603:1040:e05:6::200/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}
