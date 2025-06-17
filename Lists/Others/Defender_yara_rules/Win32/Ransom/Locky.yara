@@ -712,3 +712,24 @@ rule Ransom_Win32_Locky_TOZ_2147937228_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Locky_ZID_2147943832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Locky.ZID!MTB"
+        threat_id = "2147943832"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Locky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {d2 e8 d2 eb 24 01 80 e3 01 02 d8 0f b6 c3 0d 32 c1 2c 65 03 d0 8a 45 ff 80 e3 01 02 c0 0f b6 f3 02 c3 88 45 ff 8b ce 83 c9 19 8b c6 83 f0 2e 03 d1 03 d0 83 7d f8 00 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

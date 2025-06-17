@@ -5604,3 +5604,25 @@ rule Trojan_MSIL_Taskun_AJWA_2147943376_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_AQWA_2147943830_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.AQWA!MTB"
+        threat_id = "2147943830"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 0e 11 13 6f ?? 00 00 0a 13 14 11 08 1f 64 6a 5d 3a ?? 00 00 00 72 ?? ?? 00 70 1d 8d ?? 00 00 01 25 16 11 0e 8c ?? 00 00 01 a2 25 17 11 13 8c ?? 00 00 01 a2 25 18 12 14 28 ?? 00 00 0a 8c ?? 00 00 01 a2 25 19 12 14 28 ?? 00 00 0a 8c ?? 00 00 01 a2 25 1a 12 14 28 ?? 00 00 0a 8c ?? 00 00 01 a2 25 1b 11 04 8c ?? 00 00 01 a2}  //weight: 5, accuracy: Low
+        $x_2_2 = {25 1c 09 a2 28 ?? 00 00 0a 6f ?? 00 00 0a 13 10 12 10 72 ?? ?? 00 70 28 ?? 00 00 0a 13 1d 08 11 1d 6f ?? 00 00 0a 11 1d 0d 11 04 17 58 13 04 12 14 28 ?? 00 00 0a 11 0b 11 08 20 00 01 00 00 6a 5d d4 91 61 d2 13 15 12 14 28 ?? 00 00 0a 11 0b 11 08 17 6a 58 20 00 01 00 00 6a 5d d4 91 61 d2 13 16 12 14 28 ?? 00 00 0a 11 0b 11 08 18 6a 58 20 00 01 00 00 6a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

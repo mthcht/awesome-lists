@@ -173,3 +173,24 @@ rule Trojan_Win64_Donut_MKV_2147942982_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Donut_ZID_2147943831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Donut.ZID!MTB"
+        threat_id = "2147943831"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 2b c2 41 8b cf 41 2b c9 0f 1f 40 00 42 0f b6 04 02 30 02 48 8d 52 01 48 83 e9 01 75 ef 4d 63 c7 48 8b d7 48 8d 8c 24 ?? ?? ?? ?? e8}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5038,3 +5038,81 @@ rule Trojan_Win32_CobaltStrike_OTV_2147941814_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CobaltStrike_AM_2147943815_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CobaltStrike.AM"
+        threat_id = "2147943815"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 65 61 63 6f 6e 44 61 74 61 53 68 6f 72 74 00}  //weight: 1, accuracy: High
+        $x_1_2 = {42 65 61 63 6f 6e 55 73 65 54 6f 6b 65 6e 00}  //weight: 1, accuracy: High
+        $x_1_3 = {42 65 61 63 6f 6e 52 65 76 65 72 74 54 6f 6b 65 6e 00}  //weight: 1, accuracy: High
+        $x_1_4 = {42 65 61 63 6f 6e 43 6c 65 61 6e 75 70 50 72 6f 63 65 73 73 00}  //weight: 1, accuracy: High
+        $x_1_5 = {42 65 61 63 6f 6e 49 73 41 64 6d 69 6e 00}  //weight: 1, accuracy: High
+        $x_1_6 = {42 65 61 63 6f 6e 47 65 74 53 70 61 77 6e 54 6f 00}  //weight: 1, accuracy: High
+        $x_1_7 = {42 65 61 63 6f 6e 53 70 61 77 6e 54 65 6d 70 6f 72 61 72 79 50 72 6f 63 65 73 73 00}  //weight: 1, accuracy: High
+        $x_1_8 = {42 65 61 63 6f 6e 49 6e 6a 65 63 74 50 72 6f 63 65 73 73 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
+rule Trojan_Win32_CobaltStrike_CE_2147943816_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CobaltStrike.CE"
+        threat_id = "2147943816"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 65 61 63 6f 6e 44 61 74 61 50 61 72 73 65 00}  //weight: 1, accuracy: High
+        $x_1_2 = {42 65 61 63 6f 6e 44 61 74 61 49 6e 74 00}  //weight: 1, accuracy: High
+        $x_1_3 = {42 65 61 63 6f 6e 44 61 74 61 4c 65 6e 67 74 68 00}  //weight: 1, accuracy: High
+        $x_1_4 = {42 65 61 63 6f 6e 49 6e 6a 65 63 74 54 65 6d 70 6f 72 61 72 79 50 72 6f 63 65 73 73 00}  //weight: 1, accuracy: High
+        $x_1_5 = {42 65 61 63 6f 6e 44 61 74 61 45 78 74 72 61 63 74 00}  //weight: 1, accuracy: High
+        $x_1_6 = {42 65 61 63 6f 6e 4f 75 74 70 75 74 00}  //weight: 1, accuracy: High
+        $x_1_7 = {42 65 61 63 6f 6e 46 6f 72 6d 61 74 41 70 70 65 6e 64 00}  //weight: 1, accuracy: High
+        $x_1_8 = {42 65 61 63 6f 6e 46 6f 72 6d 61 74 54 6f 53 74 72 69 6e 67 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
+rule Trojan_Win32_CobaltStrike_MK_2147943817_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CobaltStrike.MK"
+        threat_id = "2147943817"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 65 61 63 6f 6e 46 6f 72 6d 61 74 41 6c 6c 6f 63 00}  //weight: 1, accuracy: High
+        $x_1_2 = {42 65 61 63 6f 6e 46 6f 72 6d 61 74 52 65 73 65 74 00}  //weight: 1, accuracy: High
+        $x_1_3 = {42 65 61 63 6f 6e 46 6f 72 6d 61 74 46 72 65 65 00}  //weight: 1, accuracy: High
+        $x_1_4 = {42 65 61 63 6f 6e 46 6f 72 6d 61 74 50 72 69 6e 74 66 00}  //weight: 1, accuracy: High
+        $x_1_5 = {42 65 61 63 6f 6e 46 6f 72 6d 61 74 49 6e 74 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

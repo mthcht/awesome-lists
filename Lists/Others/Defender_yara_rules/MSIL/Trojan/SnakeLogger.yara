@@ -1001,3 +1001,24 @@ rule Trojan_MSIL_SnakeLogger_ALWA_2147943481_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeLogger_AOWA_2147943789_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeLogger.AOWA!MTB"
+        threat_id = "2147943789"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {70 0b 06 8e 69 8d ?? 00 00 01 0c 16 0d 38 ?? 00 00 00 08 09 06 09 91 07 09 07 6f ?? 00 00 0a 5d 6f ?? 00 00 0a 61 d2 9c 09 17 58 0d 09 06 8e 69 32 e0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

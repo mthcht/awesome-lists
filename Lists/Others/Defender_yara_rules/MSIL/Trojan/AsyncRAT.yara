@@ -6098,3 +6098,34 @@ rule Trojan_MSIL_AsyncRAT_RPA_2147942884_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_RPC_2147943834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.RPC!MTB"
+        threat_id = "2147943834"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {73 12 00 00 06 73 ?? 00 00 06 28 ?? 00 00 06 73 ?? 00 00 06 6f ?? 00 00 06 72 ?? 00 00 70 72 ?? 00 00 70 73 ?? 00 00 06 6f ?? 00 00 06 11 ?? 11 00 6f ?? 00 00 0a 11 ?? 6f}  //weight: 100, accuracy: Low
+        $x_1_2 = "process_working_set" wide //weight: 1
+        $x_1_3 = "Process working set" wide //weight: 1
+        $x_1_4 = "process_cpu_seconds_total" wide //weight: 1
+        $x_1_5 = "Total user and system CPU time spent in seconds" wide //weight: 1
+        $x_1_6 = "process_private_bytes" wide //weight: 1
+        $x_1_7 = "process_num_threads" wide //weight: 1
+        $x_1_8 = "process_start_time_seconds" wide //weight: 1
+        $x_1_9 = "process_virtual_bytes" wide //weight: 1
+        $x_1_10 = "Process virtual memory size" wide //weight: 1
+        $x_1_11 = "process_processid" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
