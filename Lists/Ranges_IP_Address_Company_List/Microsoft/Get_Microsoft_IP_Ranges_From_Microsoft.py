@@ -68,6 +68,11 @@ def extract_service_tags_to_folders(json_file, output_dir):
         with open(tag_dir / "ipv6.json", "w") as f:
             json.dump(ipv6, f, indent=4)
 
+        # Save CSV with tag name
+        csv_name = f"{tag_id}_ips.csv"
+        df_ips = pd.DataFrame(prefixes, columns=["dest_ip"])
+        df_ips.to_csv(tag_dir / csv_name, index=False)
+
 
 def json_to_custom_csv_service_tags(json_file, csv_file):
     with open(json_file, 'r') as f:
