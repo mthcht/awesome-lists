@@ -69,6 +69,7 @@ rule Trojan_Win32_Ceprolad_A_2147726914_1
         $n_50_18 = {61 00 62 00 62 00 2e 00 63 00 6f 00 6d 00 2f 00 61 00 62 00 62 00 [0-255] 2e 00 63 00 72 00 6c 00}  //weight: -50, accuracy: Low
         $n_50_19 = "https://transparency.michigan.gov" wide //weight: -50
         $n_50_20 = "http://ccbdistweb.ch.intel.com" wide //weight: -50
+        $n_50_21 = "https://tkccodesigningv2.vault.azure.net" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

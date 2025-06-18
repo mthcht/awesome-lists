@@ -2715,3 +2715,28 @@ rule Trojan_Win64_Lazy_AZLY_2147942839_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_PAD_2147943902_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.PAD!MTB"
+        threat_id = "2147943902"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {48 8b 4d b8 0f b6 14 81 88 55 a0 0f b6 45 a1 44 0f b6 0c 81 44 88 4d a1 0f b6 45 a2 0f b6 34 81 40 88 75 a2}  //weight: 3, accuracy: High
+        $x_2_2 = "DisableRealtimeMonitoring" ascii //weight: 2
+        $x_2_3 = "DisableBehaviorMonitoring" ascii //weight: 2
+        $x_2_4 = "DisableAntiSpyware" ascii //weight: 2
+        $x_1_5 = "SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\Paths" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

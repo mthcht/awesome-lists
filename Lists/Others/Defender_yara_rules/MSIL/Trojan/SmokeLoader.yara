@@ -376,3 +376,25 @@ rule Trojan_MSIL_SmokeLoader_RDAB_2147917072_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SmokeLoader_ZVT_2147943885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SmokeLoader.ZVT!MTB"
+        threat_id = "2147943885"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SmokeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {02 11 11 11 18 6f ?? 00 00 0a 13 19 11 08 1f 64 6a 5d 16 6a fe 01 13 25 11 25 39 8c 00 00 00 00 72 75 14 00 70 1d 8d 10 00 00 01 25 16 11 11}  //weight: 6, accuracy: Low
+        $x_5_2 = {a2 25 18 12 19 28 ?? 00 00 0a 8c 57 00 00 01 a2 25 19 12 19 28 ?? 00 00 0a 8c 57 00 00 01 a2 25 1a 12 19 28 ?? 00 00 0a 8c 57 00 00 01 a2 25 1b 11 04 8c 51 00 00 01 a2 25}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5494,3 +5494,27 @@ rule Trojan_MSIL_DarkTortilla_ANWA_2147943788_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_ELM_2147943938_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.ELM!MTB"
+        threat_id = "2147943938"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "InjectionHostIndex" ascii //weight: 2
+        $x_1_2 = "get_AntiSandBoxie" ascii //weight: 1
+        $x_1_3 = "get_AntiVM" ascii //weight: 1
+        $x_1_4 = "get_StartupPersistence" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
