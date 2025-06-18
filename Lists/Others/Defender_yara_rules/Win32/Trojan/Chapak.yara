@@ -460,3 +460,25 @@ rule Trojan_Win32_Chapak_EAUM_2147938598_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Chapak_EAAL_2147943997_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Chapak.EAAL!MTB"
+        threat_id = "2147943997"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chapak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 8c 31 f5 d0 00 00 8b 15 ?? ?? ?? ?? 88 0c 32 46 3b f0 72}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b 45 08 8d 0c 07 e8 ?? ?? ?? ?? 30 01 47 3b fb 7c}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

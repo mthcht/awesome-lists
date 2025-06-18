@@ -4379,3 +4379,27 @@ rule Trojan_Win32_OffLoader_AG_2147943736_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_AI_2147943980_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AI!MTB"
+        threat_id = "2147943980"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "memoryneck.info/goo.php?pe" wide //weight: 3
+        $x_3_2 = "volleyballsong.xyz/goos.php" wide //weight: 3
+        $x_1_3 = "nocookies" wide //weight: 1
+        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

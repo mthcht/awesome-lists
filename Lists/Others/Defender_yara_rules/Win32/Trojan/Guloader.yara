@@ -5587,3 +5587,30 @@ rule Trojan_Win32_Guloader_SLEF_2147943697_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_AS_2147943981_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.AS!MTB"
+        threat_id = "2147943981"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "overliberalized\\gaestfri\\antigonorrheal" ascii //weight: 1
+        $x_1_2 = "plastre\\Interessesammenfaldets.ini" ascii //weight: 1
+        $x_1_3 = "vsentlighedskriterium.txt" ascii //weight: 1
+        $x_1_4 = "Antikverets173\\Demiurgic" ascii //weight: 1
+        $x_1_5 = "Theophilosophic\\chirruping.ini" ascii //weight: 1
+        $x_1_6 = "Buffing\\unexplained.htm" ascii //weight: 1
+        $x_1_7 = "unlubricative.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

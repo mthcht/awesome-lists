@@ -43,3 +43,66 @@ rule Trojan_Win32_Badur_SNN_2147920105_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Badur_EGRP_2147943989_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Badur.EGRP!MTB"
+        threat_id = "2147943989"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Badur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 4d bc 8b 55 a4 8b 04 8a 33 45 f8 8b 4d bc 8b 55 cc 89 04 8a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Badur_EDEQ_2147943992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Badur.EDEQ!MTB"
+        threat_id = "2147943992"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Badur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 55 c0 8b 45 dc 8b 0c 90 33 4d 80 8b 55 c0 8b 85 50 ff ff ff 89 0c 90}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Badur_EDE_2147943994_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Badur.EDE!MTB"
+        threat_id = "2147943994"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Badur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 0c 90 2b 8d 0c ff ff ff 8b 95 64 ff ff ff 8b 45 b4 89 0c 90}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

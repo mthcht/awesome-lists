@@ -2346,3 +2346,66 @@ rule Trojan_MSIL_Crysan_GVB_2147943602_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_EYII_2147943991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.EYII!MTB"
+        threat_id = "2147943991"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 2a 1d 11 0b 5f 91 13 1e 11 1e 19 62 11 1e 1b 63 60 d2 13 1e 11 06 11 0b 11 06 11 0b 91 11 1e 61 d2}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Crysan_EHHL_2147943993_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.EHHL!MTB"
+        threat_id = "2147943993"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 07 11 0e 11 10 11 0e 6c 11 10 6c ?? ?? ?? ?? ?? 11 0e 11 10 d6 17 d6 6c 5b ?? ?? ?? ?? ?? 11 10 17 d6 13 10 11 10 11 0f 31 d5}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Crysan_ENTP_2147943995_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.ENTP!MTB"
+        threat_id = "2147943995"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {03 08 03 08 91 08 04 ?? ?? ?? ?? ?? 9c 08 17 d6 0c 08 07 31 eb}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -61,3 +61,24 @@ rule Trojan_Win32_Cerber_DA_2147899398_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Cerber_ENE_2147943983_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Cerber.ENE!MTB"
+        threat_id = "2147943983"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Cerber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {40 00 5c 91 40 00 dc 32 cb 01 00 c0 42 00 f8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

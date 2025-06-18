@@ -1748,3 +1748,45 @@ rule Trojan_Win32_Convagent_EGD_2147942198_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_EGRP_2147943985_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.EGRP!MTB"
+        threat_id = "2147943985"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {03 55 fc 0f be 02 83 f0 34 8b 4d f8 03 4d fc 88 01 ?? ?? ba 01 00 00 00 6b c2 42 8b 4d f8 c6 04 01 00 8b 45 f8 8b e5}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_EUHE_2147943988_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.EUHE!MTB"
+        threat_id = "2147943988"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c1 e9 05 03 4d d4 33 d1 8b 45 e0 2b c2 89 45 e0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
