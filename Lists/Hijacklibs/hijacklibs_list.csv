@@ -258,6 +258,7 @@ lpksetupproxyserv.dll,C:\Windows\System32*;C:\Windows\SysWOW64*,C:\Windows\Syste
 nlaapi.dll,C:\Windows\System32*;C:\Windows\SysWOW64*,C:\Windows\System32\netsh.exe,Sideloading,,https://wietze.github.io/blog/hijacking-dlls-in-windows,HijackLibs/yml/microsoft/built-in/nlaapi.yml
 mlang.dll,C:\Windows\System32*;C:\Windows\SysWOW64*,C:\Windows\System32\calc.exe,Sideloading,,https://wietze.github.io/blog/hijacking-dlls-in-windows,HijackLibs/yml/microsoft/built-in/mlang.yml
 iumbase.dll,C:\Windows\System32*,C:\Windows\System32\bioiso.exe,Sideloading,,https://wietze.github.io/blog/hijacking-dlls-in-windows,HijackLibs/yml/microsoft/built-in/iumbase.yml
+offdmpsvc.dll,C:\Windows\System32*,C:\Windows\System32\wermgr.exe,Phantom,,https://www.hexacorn.com/blog/2025/06/14/wermgr-exe-boot-offdmpsvc-dll-lolbin/,HijackLibs/yml/microsoft/built-in/offdmpsvc.yml
 desktopshellext.dll,C:\Windows\System32*;C:\Windows\SysWOW64*,C:\Windows\System32\sihost.exe,Environment Variable,,https://wietze.github.io/blog/save-the-environment-variables,HijackLibs/yml/microsoft/built-in/desktopshellext.yml
 firewallapi.dll,C:\Windows\System32*;C:\Windows\SysWOW64*,C:\Windows\System32\checknetisolation.exe,Sideloading,,https://wietze.github.io/blog/hijacking-dlls-in-windows,HijackLibs/yml/microsoft/built-in/firewallapi.yml
 dmenterprisediagnostics.dll,C:\Windows\System32*,C:\Windows\System32\deviceenroller.exe,Sideloading,,https://wietze.github.io/blog/hijacking-dlls-in-windows,HijackLibs/yml/microsoft/built-in/dmenterprisediagnostics.yml
