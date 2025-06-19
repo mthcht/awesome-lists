@@ -5669,3 +5669,48 @@ rule Trojan_MSIL_Taskun_EHDF_2147943986_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_MCD_2147944149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.MCD!MTB"
+        threat_id = "2147944149"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {6f 00 72 00 6d 00 20 00 43 00 61 00 73 00 74 00 00 03 20 00 00 1f 45 00 78 00 65 00 63 00 75 00 74 00 65 00 20 00 50 00 72 00 6f 00 63 00 65 00 73 00 73}  //weight: 2, accuracy: High
+        $x_1_2 = {57 17 b6 09 09 0b 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 ?? 00 00 00 2b 00 00 00 0d 01 00 00 41 07 00 00 cd 01 00 00 12}  //weight: 1, accuracy: Low
+        $x_1_3 = {41 70 70 65 6e 64 00 67 65 74 5f 4c 65 6e 67 74 68 00 43 6c 65 61 72 00 47 65 74 50 69 78 65 6c}  //weight: 1, accuracy: High
+        $x_1_4 = "StormCast.Properties.Resources.resource" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Taskun_ZBS_2147944150_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.ZBS!MTB"
+        threat_id = "2147944150"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {26 02 11 21 11 29 6f ?? 00 00 0a 13 2b 11 0a 12 2b 28 ?? 00 00 0a 58 13 0a 11 0b 12 2b 28 ?? 00 00 0a 58 13 0b 11 0c 12 2b 28 ?? 00 00 0a 58 13 0c}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1645,3 +1645,29 @@ rule Ransom_MSIL_FileCoder_BAA_2147942852_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_BAC_2147944151_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.BAC!MTB"
+        threat_id = "2147944151"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files are encrypted, including documents, photos, videos, databases, and other files" ascii //weight: 1
+        $x_1_2 = "ransomware.pdb" ascii //weight: 1
+        $x_1_3 = "Input Decrypt Key" ascii //weight: 1
+        $x_1_4 = "Check Payment" ascii //weight: 1
+        $x_1_5 = "Ransomware" ascii //weight: 1
+        $x_1_6 = ".lock" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
