@@ -16996,26 +16996,3 @@ rule Trojan_Win64_CobaltStrike_ELM_2147943915_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CobaltStrike_QLM_2147943975_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/CobaltStrike.QLM!MTB"
-        threat_id = "2147943975"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "CobaltStrike"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {c3 49 89 c8 31 c9 41 0f be 04 08 d3 e0 48 ff c1 08 02 48 83 f9 ?? 75 ?? 31 c0 c3}  //weight: 2, accuracy: Low
-        $x_2_2 = {c3 31 c0 41 39 c0 7e ?? 44 8a 0c 02 44 30 0c 01 48 ff c0 eb ?? 31 c0 c3}  //weight: 2, accuracy: Low
-        $x_2_3 = {48 89 02 4b 8d 14 0a 4b 8d 0c cb 49 ff c1 e8 ?? ?? ff ff 49 83 f9 ?? 75 ?? 31 c0 48 83 c4 28 c3}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

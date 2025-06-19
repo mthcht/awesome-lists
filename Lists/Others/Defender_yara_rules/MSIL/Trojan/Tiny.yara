@@ -835,3 +835,24 @@ rule Trojan_MSIL_Tiny_NIT_2147943276_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tiny_GVA_2147944038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tiny.GVA!MTB"
+        threat_id = "2147944038"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {08 28 37 00 00 0a 2d 0c 06 08 6f 38 00 00 0a 6f 39 00 00 0a 07 6f 3a 00 00 0a 25 0c 2d e2 06 0d de 0a 07 2c 06 07 6f 27 00 00 0a dc 09}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

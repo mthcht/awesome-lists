@@ -3196,3 +3196,24 @@ rule Trojan_MSIL_Lazy_SPF_2147944006_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_GVC_2147944037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.GVC!MTB"
+        threat_id = "2147944037"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 0f 11 20 11 09 91 13 28 11 20 11 09 11 26 11 28 61 ?? ?? ?? 58 61 11 2d 61 d2 9c 11 28 13 1e ?? ?? ?? 58 13 09}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

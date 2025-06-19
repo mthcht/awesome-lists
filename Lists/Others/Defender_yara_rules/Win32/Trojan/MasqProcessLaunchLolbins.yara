@@ -20,6 +20,8 @@ rule Trojan_Win32_MasqProcessLaunchLolbins_B_2147778155_0
         $n_10_5 = "qprotection sense" wide //weight: -10
         $n_10_6 = "DataManagementGateway" wide //weight: -10
         $n_10_7 = "schtasks.exe /delete" wide //weight: -10
+        $n_10_8 = "\\iCloud\\" wide //weight: -10
+        $n_10_9 = "iCloudMigrate.exe" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

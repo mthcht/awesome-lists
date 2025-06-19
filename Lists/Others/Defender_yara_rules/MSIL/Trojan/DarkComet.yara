@@ -1988,6 +1988,27 @@ rule Trojan_MSIL_DarkComet_AKD_2147932045_1
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {07 17 58 20 00 01 00 00 5d 0b 11 05 11 08 07 91 58 20 00 01 00 00 5d 13 05 11 08 07 91 13 0d 11 08 07 11 08 11 05 91 9c 11 08 11 05 11 0d 9c 11 08 07 91 11 08 11 05 91 58 d2 20 00 01 00 00 5d 13 0c 02}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DarkComet_AKD_2147932045_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkComet.AKD!MTB"
+        threat_id = "2147932045"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {11 0a 11 09 07 94 d6 11 06 07 94 d6 20 00 01 00 00 5d 13 0a 11 09 07 94 13 0c 11 09 07 11 09 11 0a 94 9e 11 09 11 0a 11 0c 9e 7e ?? 00 00 04 7e ?? 00 00 04 12 01 28 ?? 00 00 06 07 17 da 28}  //weight: 1, accuracy: Low

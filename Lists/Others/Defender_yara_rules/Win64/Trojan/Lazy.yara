@@ -2740,3 +2740,55 @@ rule Trojan_Win64_Lazy_PAD_2147943902_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_BOE_2147944026_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.BOE!MTB"
+        threat_id = "2147944026"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {c0 e9 03 c0 e0 05 08 c8 34 a0 41 88 04 24 49 8b 76 18 48 8b 05 ?? ?? ?? ?? 4c 01 f8 ff d0 48 98 48 8d 0d a8 17 24 00 48 3b 34 c1 0f 86}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_KK_2147944057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KK!MTB"
+        threat_id = "2147944057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 8b dc 48 83 ec 48 33 c0 c7 44 24 38 ?? ?? 00 00 89 44 24 50 4d 8d 4b 10 49 89 43 10 4d 8d 43 18 49 89 43 18 49 8d 53 20 49 89 43 20 49 8d 4b e8 48 8d 05 ?? ?? ff ff 48 05 ?? ?? 00 00 48 89 44 24 30 49 8d 43 08 0f 28 44 24 30 66 0f 7f 44 24 30 49 89 43 d8 e8 ?? ?? 00 00 48 83 c4 48}  //weight: 5, accuracy: Low
+        $x_5_2 = {47 0f b6 04 13 41 c1 e0 18 41 33 c0 8d 0c 00 8b d1 81 f2 b7 1d c1 04 85 c0 0f 49 d1 8d 04 12 8b c8 81 f1 b7 1d c1 04 85 d2 0f 49 c8 8d 04 09 8b d0 81 f2 b7 1d c1 04 85 c9 0f 49 d0 8d 04 12 8b c8 81 f1 b7 1d c1 04 85 d2 0f 49 c8 8d 04 09 8b d0 81 f2 b7 1d c1 04 85 c9 0f 49 d0 8d 04 12 8b c8 81 f1 b7 1d c1 04 85 d2 0f 49 c8 8d 04 09 8b d0 81 f2 b7 1d c1 04 85 c9 0f 49 d0 8d 0c 12 8b c1 35 b7 1d c1 04 85 d2 0f 49 c1 49 ff c2 4d 3b d1}  //weight: 5, accuracy: High
+        $x_3_3 = "MpoafAKODVSnai" ascii //weight: 3
+        $x_2_4 = "DDD **** 123" ascii //weight: 2
+        $x_1_5 = "MMM **** 567" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

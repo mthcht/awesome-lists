@@ -1628,3 +1628,27 @@ rule Trojan_MSIL_Zilla_NITC_2147943750_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_ZYT_2147944029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ZYT!MTB"
+        threat_id = "2147944029"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {03 1f 64 5a 06 6f ?? 00 00 0a 5b 5a 1f 64 5b 0c 03 03 1f 64 5a 06 6f ?? 00 00 0a 5b 03 5a 1f 64 5b 58 1f 64 58 0d 06 09 08}  //weight: 6, accuracy: Low
+        $x_5_2 = {20 b1 04 00 00 28 ?? 00 00 0a 00 02 1c 28 ?? 00 00 0a 00 20 50 46}  //weight: 5, accuracy: Low
+        $x_1_3 = "SO_FT_W_AR_E\\Mi_cr_o_so_f_t\\W_in_do_w_s\\C_u_rr_en_tV_er_s_ion\\R_u_n" ascii //weight: 1
+        $x_1_4 = "pr_ogr_am files (x8_6)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

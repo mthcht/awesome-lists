@@ -89,3 +89,26 @@ rule Trojan_MSIL_Vimditator_SL_2147921711_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Vimditator_AWWA_2147944050_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Vimditator.AWWA!MTB"
+        threat_id = "2147944050"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Vimditator"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {1f 09 0b 05 04 07 5d 9a 28 ?? ?? 00 0a 03 28 ?? 02 00 06 28 ?? ?? 00 0a 0a 2b 00 06 2a}  //weight: 3, accuracy: Low
+        $x_2_2 = {02 03 66 5f 02 66 03 5f 60 8c ?? 00 00 01 0a 2b 00 06 2a}  //weight: 2, accuracy: Low
+        $x_2_3 = {03 08 02 03 08 91 08 04 28 ?? ?? 00 06 9c 08 17 d6 0c 08 07 31 ea}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

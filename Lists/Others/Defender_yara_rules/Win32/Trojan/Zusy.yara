@@ -6769,3 +6769,26 @@ rule Trojan_Win32_Zusy_LMA_2147943593_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_KK_2147944060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KK!MTB"
+        threat_id = "2147944060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {83 ec 18 c7 44 24 0c 60 1a 40 00 c7 44 24 08 64 00 00 00 c7 44 24 04 01 00 00 00 c7 04 24 00 00 00 00 e8 ?? ?? ?? ?? 83 ec 10 89 c7 c7 44 24 0c a0 19 40 00 c7 44 24 08 64 00 00 00 c7 44 24 04 02 00 00 00 c7 04 24 00 00 00 00 e8 ?? ?? ?? ?? 83 ec 10 89 85 3c f9 ff ff c7 44 24 0c 8c 18 40 00 c7 44 24 08 64 00 00 00 c7 44 24 04 03 00 00 00 c7 04 24 00 00 00 00 e8 ?? ?? ?? ?? 83 ec 10 89 85 40 f9 ff ff c7 44 24 0c c4 17 40 00 c7 44 24 08 64 00 00 00 c7 44 24 04 04 00 00 00 c7 04 24 00 00 00 00 e8}  //weight: 10, accuracy: Low
+        $x_4_2 = {c7 44 24 14 00 00 00 00 c7 44 24 10 00 00 00 00 89 5c 24 0c c7 44 24 08 24 40 40 00 c7 44 24 04 34 40 40 00 c7 04 24 00 00 00 00 e8}  //weight: 4, accuracy: High
+        $x_6_3 = "libgcj_s.dll" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
