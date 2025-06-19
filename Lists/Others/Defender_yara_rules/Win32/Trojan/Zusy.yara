@@ -6792,3 +6792,68 @@ rule Trojan_Win32_Zusy_KK_2147944060_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_BAC_2147944114_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAC!MTB"
+        threat_id = "2147944114"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 14 10 33 ca 8b 45 08 03 45 98 0f b6 30}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_BAF_2147944120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAF!MTB"
+        threat_id = "2147944120"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 52 0c 8a 14 1a 8a 1c 39 32 d3 83 c6 01 88 14 01 8b 45 ?? 0f 80}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_LM_2147944138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LM!MTB"
+        threat_id = "2147944138"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 55 f0 8b 45 f4 01 d0 0f b6 00 89 c2 8b 45 e8 89 d1 31 c1 8b 55 f0 8b 45 f4 01 d0 89 ca 88 10}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 55 d8 89 d0 c1 e0 02 01 d0 c1 e0 03 89 c2 8b 45 c8 01 d0 8b 40 08 8d 95 7c ff ff ff 89 54 24 0c 8b 55 d4 89 54 24 08 89 44 24 04 8b 45 a4 89 04 24 a1 74 20 40 00 ff d0 83 ec 10}  //weight: 1, accuracy: High
+        $x_1_3 = {8b 55 f0 89 d0 c1 e0 02 01 d0 c1 e0 03 89 c2 8b 45 e0 01 d0 89 c2 8d 45 d4 89 44 24 04 89 14 24 e8 ?? ?? ?? ?? 85 c0 75 ?? 8b 55 f0 89 d0 c1 e0 02 01 d0 c1 e0 03 89 c2 8b 45 e0 01 d0 8b 50 0c 8b 45 ec 01 d0 89 45 f4}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

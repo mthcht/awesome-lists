@@ -6619,3 +6619,24 @@ rule Trojan_Win32_LummaStealer_GDI_2147944025_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_GDF_2147944135_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.GDF!MTB"
+        threat_id = "2147944135"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {89 d1 f7 d1 89 c6 21 ce 89 c7 31 d7 89 c1 01 f9 29 f1 21 d0 f7 d0 89 ca 31 c2 f7 d2 09 c1 21 d1 89 0c 24 8b 04 24 2d}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

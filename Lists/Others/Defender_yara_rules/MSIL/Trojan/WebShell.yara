@@ -197,3 +197,32 @@ rule Trojan_MSIL_WebShell_AQ_2147923791_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_ACH_2147944105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.ACH!MTB"
+        threat_id = "2147944105"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 02 06 7d ?? 00 00 0a 06 02 6f ?? 00 00 0a 00 06 72 ?? ?? 00 70 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 72 ?? ?? 00 70 6f ?? 00 00 0a 00 06 72 ?? ?? 00 70 6f ?? 00 00 0a 00 06 0b 2b 00 07 2a}  //weight: 2, accuracy: Low
+        $x_2_2 = {0a 02 06 7d ?? ?? 00 0a 06 02 6f ?? 00 00 0a 00 06 72 ?? ?? 00 70 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 72 ?? ?? 00 70 6f ?? 00 00 0a 00 06 72 ?? ?? 00 70 6f ?? 00 00 0a 00 06 1f 19 6f ?? 00 00 0a 00 06 0b 2b 00 07 2a}  //weight: 2, accuracy: Low
+        $x_1_3 = "hidBaoBiao" wide //weight: 1
+        $x_1_4 = "txtPassWord" wide //weight: 1
+        $x_1_5 = "d4539315521e0e79" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -103,3 +103,48 @@ rule Trojan_Win64_Havoc_AA_2147916018_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havoc_PAGZ_2147944108_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.PAGZ!MTB"
+        threat_id = "2147944108"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {53 48 83 ec 30 80 ?? ?? ?? ?? ?? 00 48 8d 5c 24 28 74 ?? 49 89 d8 ba 01 00 00 00 b9 01 00 00 00 ff 15}  //weight: 3, accuracy: Low
+        $x_2_2 = {45 31 c0 48 8d 54 24 68 4c 8d 4c 24 70 c7 44 24 28 04 00 00 00 48 89 c1 c7 44 24 20 00 30 00 00 e8}  //weight: 2, accuracy: High
+        $x_2_3 = {41 b9 00 96 01 00 49 89 f0 48 c7 44 24 20 00 00 00 00 48 89 c1 48 89 fa e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Havoc_PAHA_2147944109_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.PAHA!MTB"
+        threat_id = "2147944109"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {53 48 83 ec 40 0f 11 74 24 30 80 3d ?? ?? ?? ?? 00 0f 10 f0 48 8d 5c 24 28 74 1a 49 89 d8 ba 01 00 00 00 b9 01 00 00 00 ff 15}  //weight: 2, accuracy: Low
+        $x_1_2 = {45 31 c0 4c 8d 4c 24 40 4c 89 e2 48 89 c1 c7 44 24 28 04 00 00 00 c7 44 24 20 00 30 00 00 ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

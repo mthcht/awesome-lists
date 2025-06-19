@@ -405,3 +405,24 @@ rule Trojan_Win32_Tepfer_BAC_2147941283_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tepfer_BAD_2147943151_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.BAD!MTB"
+        threat_id = "2147943151"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {2b f8 8b 45 dc 31 38 83 45 ec 04 83 45 dc 04 8b 45 ec 3b 45 d8 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
