@@ -180,3 +180,27 @@ rule Trojan_Win64_Lotok_PNT_2147935007_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lotok_NC_2147944295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lotok.NC!MTB"
+        threat_id = "2147944295"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lotok"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "8154938939:AAFv22mAUWYk9yAvodHUNhDObC1ybZkKXAQ" ascii //weight: 2
+        $x_1_2 = "curl -s ifconfig.me > ip.txt" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "MyAutoStartApp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

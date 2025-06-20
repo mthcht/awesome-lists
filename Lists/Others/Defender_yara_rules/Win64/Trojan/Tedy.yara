@@ -312,6 +312,29 @@ rule Trojan_Win64_Tedy_NT_2147899511_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {49 8b c0 48 f7 e1 48 c1 ea ?? 48 8d 04 92 48 2b c8 0f b6 44 0d ?? 4b 8d 0c 39 41 00 41 ?? 49 8b c0 48 f7 e1 48 c1 ea}  //weight: 3, accuracy: Low
+        $x_1_2 = "runas" ascii //weight: 1
+        $x_1_3 = "BackDoor.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_NT_2147899511_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.NT!MTB"
+        threat_id = "2147899511"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:
@@ -322,7 +345,7 @@ rule Trojan_Win64_Tedy_NT_2147899511_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_NT_2147899511_2
+rule Trojan_Win64_Tedy_NT_2147899511_3
 {
     meta:
         author = "defender2yara"
@@ -347,7 +370,7 @@ rule Trojan_Win64_Tedy_NT_2147899511_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_NT_2147899511_3
+rule Trojan_Win64_Tedy_NT_2147899511_4
 {
     meta:
         author = "defender2yara"
@@ -370,7 +393,7 @@ rule Trojan_Win64_Tedy_NT_2147899511_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_NT_2147899511_4
+rule Trojan_Win64_Tedy_NT_2147899511_5
 {
     meta:
         author = "defender2yara"
@@ -394,7 +417,7 @@ rule Trojan_Win64_Tedy_NT_2147899511_4
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_NT_2147899511_5
+rule Trojan_Win64_Tedy_NT_2147899511_6
 {
     meta:
         author = "defender2yara"

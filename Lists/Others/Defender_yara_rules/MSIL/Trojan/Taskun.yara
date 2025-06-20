@@ -5735,3 +5735,27 @@ rule Trojan_MSIL_Taskun_PGT_2147944169_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_MCE_2147944293_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.MCE!MTB"
+        threat_id = "2147944293"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {43 00 72 00 65 00 61 00 74 00 65 00 49 00 6e 00 73 00 74 00 61 00 6e 00 63 00 65}  //weight: 2, accuracy: High
+        $x_1_2 = {42 00 36 00 36 00 35 00 34 00 36 00 41 00 00 0d 37 00 36 00 37 00 32 00 36 00 42}  //weight: 1, accuracy: High
+        $x_1_3 = "StormCast" wide //weight: 1
+        $x_1_4 = "CreateInstance" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

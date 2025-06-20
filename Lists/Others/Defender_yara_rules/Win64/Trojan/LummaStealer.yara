@@ -1114,6 +1114,28 @@ rule Trojan_Win64_LummaStealer_BSA_2147942014_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_BSA_2147942014_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.BSA!MTB"
+        threat_id = "2147942014"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {48 83 ec 28 e8 9f f6 ?? ?? e8 a6 b9 ff ff 8b c8 48 83 c4 28}  //weight: 8, accuracy: Low
+        $x_3_2 = {48 8d 0d 51 42 03 00 e8 08 8d 00 00 85 c0 74 0a [0-22] 00 48 8d 0d 88 41 03 00 e8 a3 8c 00}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_LummaStealer_LZL_2147942228_0
 {
     meta:
@@ -1425,6 +1447,29 @@ rule Trojan_Win64_LummaStealer_PGLS_2147944137_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {01 c1 0f b6 c1 0f b6 84 04 ?? ?? ?? ?? 48 63 4c 24 ?? 48 8b 54 24 ?? 30 04 0a 8b 7c 24 ?? 83 c7 01 b8 ?? ?? ?? ?? 3d ?? ?? ?? ?? 0f 8f ?? ?? ?? ?? e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_PP_2147944296_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PP!MTB"
+        threat_id = "2147944296"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 89 8c 24 ?? 00 00 00 48 8d 0d 29 58 15 00 48 89 8c 24 ?? 00 00 00 48 8b 1d aa 99 34 00 48 8d 05 43 74 15 00 48 8d 8c 24 ?? 00 00 00 bf 01 00 00 00 48 89 fe e8 ce 78 eb ff 48 81 c4 28 01 00 00}  //weight: 2, accuracy: Low
+        $x_1_2 = "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v AdobeUpdater /t REG_SZ /d \"%s\" /f" ascii //weight: 1
+        $x_1_3 = "cmd.exe /c" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
