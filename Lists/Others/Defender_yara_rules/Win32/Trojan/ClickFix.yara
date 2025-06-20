@@ -6030,3 +6030,136 @@ rule Trojan_Win32_ClickFix_BBJ_2147944210_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_GVB_2147944234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GVB!MTB"
+        threat_id = "2147944234"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "iex" wide //weight: 1
+        $x_10_2 = "http" wide //weight: 10
+        $x_10_3 = "net.webclient" wide //weight: 10
+        $x_10_4 = "download" wide //weight: 10
+        $x_10_5 = "curl" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_GVD_2147944235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GVD!MTB"
+        threat_id = "2147944235"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2101"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "$appdata" wide //weight: 1
+        $x_1_3 = "$chrome)" wide //weight: 1
+        $x_1000_4 = "-UseBasicParsing).Content)" wide //weight: 1000
+        $x_1000_5 = "forse restart" wide //weight: 1000
+        $x_100_6 = "http" wide //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_1000_*) and 1 of ($x_100_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_GVE_2147944236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GVE!MTB"
+        threat_id = "2147944236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2401"
+        strings_accuracy = "High"
+    strings:
+        $x_1000_1 = ".run('" wide //weight: 1000
+        $x_1000_2 = "identifica" wide //weight: 1000
+        $x_100_3 = "join-path $" wide //weight: 100
+        $x_100_4 = "http" wide //weight: 100
+        $x_100_5 = "start" wide //weight: 100
+        $x_100_6 = "cscript" wide //weight: 100
+        $x_1_7 = "powershell" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_GVF_2147944237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GVF!MTB"
+        threat_id = "2147944237"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "141"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = ".xyz" wide //weight: 100
+        $x_40_2 = ".repLaCE(([ChAr]" wide //weight: 40
+        $x_1_3 = "jOiN" wide //weight: 1
+        $n_100_4 = "Cloud" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_GVG_2147944238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GVG!MTB"
+        threat_id = "2147944238"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1001"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_500_2 = "iex(irm($" wide //weight: 500
+        $x_500_3 = {5b 00 73 00 74 00 72 00 69 00 6e 00 67 00 5d 00 24 00 [0-2] 2b 00 27 00 2e 00 27 00 2b 00 24 00 [0-2] 2b 00 27 00 2e 00 27 00 2b 00 24 00 [0-2] 2b 00 27 00 2e 00 27 00 2b 00 24 00 [0-2] 2b 00 24 00 [0-2] 3b 00}  //weight: 500, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

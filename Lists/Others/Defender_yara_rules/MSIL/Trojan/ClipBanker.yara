@@ -3864,3 +3864,28 @@ rule Trojan_MSIL_ClipBanker_NJK_2147943564_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_NJM_2147944242_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.NJM!MTB"
+        threat_id = "2147944242"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {60 66 11 06 5a 17 5f 16 2e 11 00 11 06 66 1f 40 5f 1f 40}  //weight: 2, accuracy: High
+        $x_1_2 = "/c schtasks /create /tn \"{0}\" /tr \"{1}\" /SC MINUTE /MO 1 /IT /F" ascii //weight: 1
+        $x_1_3 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon" ascii //weight: 1
+        $x_1_4 = "uDK6q4Jgad9g8NTMKuWJaovRBCxvKXMYztau" ascii //weight: 1
+        $x_1_5 = "UserOOBEBroker" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
