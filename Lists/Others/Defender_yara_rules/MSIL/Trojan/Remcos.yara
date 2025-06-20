@@ -13481,3 +13481,26 @@ rule Trojan_MSIL_Remcos_APWA_2147943818_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_ZES_2147944264_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.ZES!MTB"
+        threat_id = "2147944264"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 13 01 38 ?? 01 00 00 00 11 02 20 00 01 00 00 6f ?? 00 00 0a 38 ?? 00 00 00 11 02 11 00 6f ?? 00 00 0a 38 ?? 00 00 00 11 02 11 01 6f ?? 00 00 0a 38 ?? 00 00 00 11 02 6f ?? 00 00 0a 13 03 38 ?? 00 00 00 00 02 73 ?? 00 00 0a 13 04 38 ?? 00 00 00 00 11 04 11 03 16}  //weight: 10, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3025,3 +3025,25 @@ rule Trojan_MSIL_Stealer_AGWA_2147943216_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_ABXA_2147944260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.ABXA!MTB"
+        threat_id = "2147944260"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {11 09 74 0a 00 00 1b 11 21 1f 64 5d 17 9c 11 08 74 ?? 00 00 1b 11 21 11 08 74 ?? 00 00 1b 8e 69 5d 11 21 20 00 01 00 00 5d d2 9c}  //weight: 3, accuracy: Low
+        $x_2_2 = {19 8d 05 00 00 01 25 16 12 2b 20 6b 01 00 00 20 43 01 00 00 28 ?? 00 00 06 9c 25 17 12 2b 20 df 03 00 00 20 f6 03 00 00 28 ?? 00 00 06 9c 25 18 12 2b 20 e7 01 00 00 20 cd 01 00 00 28 ?? 00 00 06 9c 13 43 1f 2f 13 53}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
