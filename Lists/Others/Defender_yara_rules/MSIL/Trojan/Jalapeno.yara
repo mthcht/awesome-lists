@@ -2190,3 +2190,30 @@ rule Trojan_MSIL_Jalapeno_BAD_2147944122_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_DB_2147944222_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.DB!MTB"
+        threat_id = "2147944222"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "106"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "Okqiczyic.Properties.Resources" ascii //weight: 100
+        $x_1_2 = "Shrblc" ascii //weight: 1
+        $x_1_3 = "Ayvigver" ascii //weight: 1
+        $x_1_4 = "Oalglxuvxkt" ascii //weight: 1
+        $x_1_5 = "Btfzdwuqw" ascii //weight: 1
+        $x_1_6 = "w3wp.exe" ascii //weight: 1
+        $x_1_7 = "aspnet_wp.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

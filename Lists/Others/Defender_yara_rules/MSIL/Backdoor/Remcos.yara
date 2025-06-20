@@ -1892,3 +1892,26 @@ rule Backdoor_MSIL_Remcos_AROA_2147941513_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Remcos_STK_2147944226_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.STK!MTB"
+        threat_id = "2147944226"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SlicingDice LLC" ascii //weight: 2
+        $x_2_2 = "$9daeffca-9f89-4e09-9129-4248afa353ea" ascii //weight: 2
+        $x_2_3 = "Slicer.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
