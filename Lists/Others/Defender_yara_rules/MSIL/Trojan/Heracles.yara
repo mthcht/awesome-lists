@@ -7505,3 +7505,26 @@ rule Trojan_MSIL_Heracles_SLCD_2147943696_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_ZCS_2147944168_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.ZCS!MTB"
+        threat_id = "2147944168"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 07 2a 72 01 00 00 70 28 ?? 00 00 0a 13 00 38 19 01 00 00 28 ?? 00 00 0a 13 02 38 00 00 00 00 00 11 02 20 00 01 00 00 6f ?? 00 00 0a 38 0e 00 00 00 11 02 6f ?? 00 00 0a 13 03 38 1c 00 00 00 11 02 11 00 6f ?? 00 00 0a 38 00 00 00 00 11 02 11 01}  //weight: 10, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
