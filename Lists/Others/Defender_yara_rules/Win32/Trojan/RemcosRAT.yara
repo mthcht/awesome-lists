@@ -432,6 +432,28 @@ rule Trojan_Win32_RemcosRAT_BSA_2147940933_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {57 e8 18 0c fb ff 83 f8 01 1b c0 40 84 c0 0f 84 98 00 00 00 b3 01 83}  //weight: 10, accuracy: High
+        $x_1_2 = "AmsiInitialize" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_RemcosRAT_BSA_2147940933_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemcosRAT.BSA!MTB"
+        threat_id = "2147940933"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "High"
     strings:

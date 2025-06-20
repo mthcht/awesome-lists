@@ -2007,3 +2007,24 @@ rule Trojan_Win32_Lazy_GVB_2147942761_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_TRZ_2147944204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.TRZ!MTB"
+        threat_id = "2147944204"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {6a ff 68 f0 87 0a 10 50 64 89 25 00 00 00 00 81 ec f0 02 00 00 33 c0 8a 88 ?? ?? ?? ?? 32 ca 42 88 4c 05 dd 81 e2 ff 00 00 80 79}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
