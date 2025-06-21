@@ -109,17 +109,17 @@ rule Trojan_Win64_Donut_MA_2147849240_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Donut_C_2147906065_0
+rule Trojan_Win64_Donut_C_2147929321_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/Donut.C!MTB"
-        threat_id = "2147906065"
+        detection_name = "Trojan:Win64/Donut.C!sms"
+        threat_id = "2147929321"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Donut"
         severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
+        info = "sms: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
