@@ -6163,3 +6163,29 @@ rule Trojan_Win32_ClickFix_GVG_2147944238_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_YAT_2147944322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YAT!MTB"
+        threat_id = "2147944322"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_10_2 = "-w h" wide //weight: 10
+        $x_10_3 = "-join" wide //weight: 10
+        $x_10_4 = "New-Object Net.WebClient" wide //weight: 10
+        $x_10_5 = "'DownloadStri'+'ng'" wide //weight: 10
+        $x_10_6 = "'i'+'e'+'x'" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

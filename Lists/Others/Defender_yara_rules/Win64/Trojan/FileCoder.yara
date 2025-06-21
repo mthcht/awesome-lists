@@ -68,6 +68,35 @@ rule Trojan_Win64_FileCoder_NF_2147893871_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_FileCoder_NF_2147893871_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.NF!MTB"
+        threat_id = "2147893871"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "RansomwareWindowClass" ascii //weight: 2
+        $x_1_2 = "cmd /c reg delete HKCU\\Software\\Classes\\ms-settings /f" ascii //weight: 1
+        $x_1_3 = "vssadmin delete shadows /all /quiet" ascii //weight: 1
+        $x_1_4 = "wbadmin delete catalog -quiet" ascii //weight: 1
+        $x_1_5 = "Your PC is Encrypted" ascii //weight: 1
+        $x_1_6 = "lol, maddox" ascii //weight: 1
+        $x_1_7 = "lets sit down as your files are encrypted and then deleted" ascii //weight: 1
+        $x_1_8 = "don't try to reset, your pc is already fucked by the time you read this line." ascii //weight: 1
+        $x_1_9 = "file decryption is impossible. the decryption keys have already been deleted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_FileCoder_ARAZ_2147933262_0
 {
     meta:
