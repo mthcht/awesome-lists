@@ -21,3 +21,32 @@ rule Ransom_Win64_Anubis_C_2147943929_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Anubis_A_2147944333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Anubis.A"
+        threat_id = "2147944333"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Anubis"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".anubis" ascii //weight: 1
+        $x_1_2 = "RESTORE FILES.txt" ascii //weight: 1
+        $x_1_3 = "/KEY=" ascii //weight: 1
+        $x_1_4 = "/WIPEMODE" ascii //weight: 1
+        $x_1_5 = "/elevated" ascii //weight: 1
+        $x_1_6 = "/PFAD=" ascii //weight: 1
+        $x_1_7 = "Deleting services..." ascii //weight: 1
+        $x_1_8 = "Encryption completed in:" ascii //weight: 1
+        $x_1_9 = "Directory walk completed with warnings: %v" ascii //weight: 1
+        $x_1_10 = "=== Encryption Statistics ===" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
