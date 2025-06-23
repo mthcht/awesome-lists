@@ -6738,7 +6738,7 @@ rule Trojan_Win32_Zusy_HBD_2147943583_0
         threshold = "11"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = {ff 74 24 10 ff 74 24 10 83 04 24 05 ?? ?? ?? ?? ?? 8f 44 24 28 8f 44 24 28 ff 74 24 08 ff 74 24 08 8d 44 24 2c 8b 10 29 14 24 8b 50 04 19 54 24 04 8f 44 24 30 8f 44 24 30 ff 74 24 30 ff 74 24 30 5b 5f 83 ff 00 7f 0b 7c 05 83 fb 05 77 04 31 c0 eb 05}  //weight: 10, accuracy: Low
+        $x_10_1 = {ff 74 24 10 ff 74 24 10 83 04 24 05 ?? ?? ?? ?? ?? 8f 44 24 28 8f 44 24 28 ff 74 24 08 ff 74 24 08 8d 44 24 2c 8b 10 29 14 24 8b 50 04 19 54 24 04 8f 44 24 30 8f 44 24 30 ff 74 24 30 ff 74 24 30 5b 5f 83 ff 00 7f 0b 7c 05 83 fb 05 77 04 ?? c0 eb 05}  //weight: 10, accuracy: Low
         $x_1_2 = {89 44 24 34 8b 44 24 2c 50 ff 74 24 38 ff 74 24 08}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and

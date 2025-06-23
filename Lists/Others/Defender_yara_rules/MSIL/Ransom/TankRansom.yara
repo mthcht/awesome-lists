@@ -48,3 +48,28 @@ rule Ransom_MSIL_TankRansom_SL_2147944227_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_TankRansom_SM_2147944391_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/TankRansom.SM!MTB"
+        threat_id = "2147944391"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "TankRansom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "TankiXRansomware.Properties.Resources.resources" ascii //weight: 2
+        $x_2_2 = "$ccedb98b-bcbb-4adb-b5da-a8086981c6e9" ascii //weight: 2
+        $x_2_3 = "TankiXRansomware\\obj\\Debug\\TankiXRansomware.pdb" ascii //weight: 2
+        $x_2_4 = "Welcome! Your all files, and data is FULLY ENCRYPTED with a special algoritm TX!" ascii //weight: 2
+        $x_2_5 = "Don't try to kill ransomware - Your PC will burn" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

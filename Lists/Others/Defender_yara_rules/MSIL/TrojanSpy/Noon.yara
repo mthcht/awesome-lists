@@ -836,3 +836,25 @@ rule TrojanSpy_MSIL_Noon_SQK_2147940890_1
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Noon_SRK_2147944392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SRK!MTB"
+        threat_id = "2147944392"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {03 11 3f 11 40 91 6f 22 01 00 0a 00 11 14 1d 17 9c 11 0c 11 3f 11 40 91 58 13 0c 00 11 40 17 58 13 40 11 40 11 32 fe 04 13 41 11 41 2d d1}  //weight: 2, accuracy: High
+        $x_2_2 = "QLNS.Properties.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
