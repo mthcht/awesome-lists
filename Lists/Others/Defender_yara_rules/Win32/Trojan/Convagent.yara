@@ -1790,3 +1790,24 @@ rule Trojan_Win32_Convagent_EUHE_2147943988_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_BAD_2147944384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.BAD!MTB"
+        threat_id = "2147944384"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 45 fe 03 c2 88 45 ?? 0f b6 4d ?? 8b 55 ?? 2b d1 89 55 ?? 0f b6 45 ?? 03 05}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

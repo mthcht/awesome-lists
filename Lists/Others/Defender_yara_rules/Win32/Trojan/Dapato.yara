@@ -263,3 +263,45 @@ rule Trojan_Win32_Dapato_GVB_2147941183_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dapato_BAB_2147944383_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dapato.BAB!MTB"
+        threat_id = "2147944383"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 00 34 b9 8b 15 ?? ?? ?? ?? 03 13 73 ?? e8 ?? ?? ?? ?? 88 02 ff 03 81 3b ?? ?? ?? ?? 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Dapato_BAD_2147944385_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dapato.BAD!MTB"
+        threat_id = "2147944385"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {03 fe 81 ef ?? ?? ?? ?? 2b f8 31 3b 83 45 ec 04 83 c3 04 8b 45 ec 3b 45 dc 72}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

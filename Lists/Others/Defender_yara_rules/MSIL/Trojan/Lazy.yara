@@ -3217,3 +3217,29 @@ rule Trojan_MSIL_Lazy_GVC_2147944037_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_NJA_2147944382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.NJA!MTB"
+        threat_id = "2147944382"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "1618af20-7450-47cf-a78d-03e017000dc8" ascii //weight: 2
+        $x_1_2 = "\"a\"W\"P\"P\"G\"L\"V\"t\"G\"P\"Q\"K\"M\"L\"" ascii //weight: 1
+        $x_1_3 = "C\"@\"A\"F\"G\"D\"E\"J\"K\"H\"I\"N\"O\"L\"M\"R\"S\"P\"Q\"V\"W\"T\"U\"Z\"[\"X\"" ascii //weight: 1
+        $x_1_4 = "N*C*Y*Z*F*K*S*d*K*G*O***" ascii //weight: 1
+        $x_1_5 = "g*E*P*C*F*F*K*" ascii //weight: 1
+        $x_1_6 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
