@@ -6189,3 +6189,27 @@ rule Trojan_Win32_ClickFix_YAT_2147944322_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_BSA_2147944439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.BSA!MTB"
+        threat_id = "2147944439"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "env:AppData" wide //weight: 2
+        $x_1_2 = "curl" wide //weight: 1
+        $x_10_3 = "luckyseaworld.com/now.msi" wide //weight: 10
+        $x_2_4 = "msiexec.exe /i" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
