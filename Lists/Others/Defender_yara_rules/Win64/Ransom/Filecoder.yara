@@ -766,3 +766,50 @@ rule Ransom_Win64_Filecoder_CCJX_2147939639_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAHC_2147944542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHC!MTB"
+        threat_id = "2147944542"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "vssadmin delete shadows /all /quiet" ascii //weight: 2
+        $x_1_2 = "wbadmin delete catalog -quiet" ascii //weight: 1
+        $x_2_3 = "YOUR FILES ARE ENCRYPTED" ascii //weight: 2
+        $x_1_4 = "cmd /c reg add HKCU\\Software\\Classes\\ms-settings\\shell\\open\\command /v DelegateExecute /f" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PAHD_2147944543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHD!MTB"
+        threat_id = "2147944543"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {89 d0 c1 e8 1e 31 d0 69 c0 65 89 07 6c 42 8d 14 20 42 89 14 a3 49 83 c4 01 49 81 fc 70 02 00 00 75}  //weight: 3, accuracy: High
+        $x_1_2 = "All your files have been encrypted" wide //weight: 1
+        $x_2_3 = "Ransomware" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
