@@ -1296,40 +1296,41 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_1_6 = "iex" wide //weight: 1
         $x_1_7 = "Invoke-Expression" wide //weight: 1
         $x_20_8 = "verif" wide //weight: 20
-        $x_100_9 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_10 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_11 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_12 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
-        $x_100_13 = {48 00 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
-        $x_100_14 = "CIoudfIare Unique One-time" wide //weight: 100
-        $x_100_15 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_16 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
-        $x_100_17 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
-        $x_100_18 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
-        $x_100_19 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
-        $x_100_20 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
-        $x_100_21 = {72 00 0b 20 6f 00 62 00 6f 00 0d 20 74 00}  //weight: 100, accuracy: High
-        $x_100_22 = {43 00 41 00 a1 03 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: High
-        $x_100_23 = {72 00 6f 00 84 01 6f 00 74 00}  //weight: 100, accuracy: High
-        $x_100_24 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 100, accuracy: High
-        $x_100_25 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
-        $x_100_26 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
-        $x_100_27 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 100, accuracy: High
-        $x_100_28 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
-        $x_100_29 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
-        $x_100_30 = {9d 03 bf 03 6e 00 2d 00 62 00 bf 03 74 00}  //weight: 100, accuracy: High
-        $x_100_31 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
-        $x_100_32 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
-        $x_100_33 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
-        $x_100_34 = {7e 02 80 05 62 00 80 05 1f 1d}  //weight: 100, accuracy: High
-        $x_100_35 = {33 04 bf 03 62 00 3e 04 74 00}  //weight: 100, accuracy: High
-        $x_100_36 = {1d 04 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
-        $x_100_37 = {21 04 10 04 20 04 22 04 43 00 97 03 41 00}  //weight: 100, accuracy: High
-        $x_100_38 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
-        $x_100_39 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
-        $x_100_40 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
-        $n_1000_41 = "msedgewebview2.exe" wide //weight: -1000
-        $n_1000_42 = "if false == false echo" wide //weight: -1000
+        $n_100_9 = "msedgewebview2" wide //weight: -100
+        $x_100_10 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_11 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_12 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_13 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
+        $x_100_14 = {48 00 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_15 = "CIoudfIare Unique One-time" wide //weight: 100
+        $x_100_16 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_17 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_18 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_19 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_20 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_21 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_22 = {72 00 0b 20 6f 00 62 00 6f 00 0d 20 74 00}  //weight: 100, accuracy: High
+        $x_100_23 = {43 00 41 00 a1 03 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_24 = {72 00 6f 00 84 01 6f 00 74 00}  //weight: 100, accuracy: High
+        $x_100_25 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 100, accuracy: High
+        $x_100_26 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
+        $x_100_27 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $x_100_28 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 100, accuracy: High
+        $x_100_29 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
+        $x_100_30 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
+        $x_100_31 = {9d 03 bf 03 6e 00 2d 00 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_32 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_33 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
+        $x_100_34 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
+        $x_100_35 = {7e 02 80 05 62 00 80 05 1f 1d}  //weight: 100, accuracy: High
+        $x_100_36 = {33 04 bf 03 62 00 3e 04 74 00}  //weight: 100, accuracy: High
+        $x_100_37 = {1d 04 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_38 = {21 04 10 04 20 04 22 04 43 00 97 03 41 00}  //weight: 100, accuracy: High
+        $x_100_39 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
+        $x_100_40 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_41 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $n_1000_42 = "msedgewebview2.exe" wide //weight: -1000
+        $n_1000_43 = "if false == false echo" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -1517,8 +1518,11 @@ rule Trojan_Win32_ClickFix_AF_2147937004_0
         $x_1_11 = "iwr" wide //weight: 1
         $x_1_12 = "irm" wide //weight: 1
         $x_1_13 = "invoke-restmethod" wide //weight: 1
+        $n_100_14 = "chocolatey" wide //weight: -100
+        $n_100_15 = "zoom" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((2 of ($x_100_*) and 1 of ($x_10_*) and 2 of ($x_1_*))) or
             ((2 of ($x_100_*) and 2 of ($x_10_*))) or
@@ -2682,8 +2686,10 @@ rule Trojan_Win32_ClickFix_ZE_2147939086_1
         $x_10_1 = "mshta" wide //weight: 10
         $x_10_2 = {68 00 74 00 74 00 70 00 90 00 02 00 ff 00 2e 00 6f 00 67 00 67 00}  //weight: 10, accuracy: High
         $x_10_3 = {20 00 05 27 20 00}  //weight: 10, accuracy: High
+        $n_100_4 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -3871,6 +3877,8 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         $n_600_21 = "explorer http:" wide //weight: -600
         $n_600_22 = "\\application\\chrome.exe" wide //weight: -600
         $n_600_23 = ".nbsdev.co.uk" wide //weight: -600
+        $n_600_24 = "([scriptblock]::Create([Microsoft.Win32.Registry]::GetValue" wide //weight: -600
+        $n_600_25 = "PSAppDeployToolkit" wide //weight: -600
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -4747,6 +4755,7 @@ rule Trojan_Win32_ClickFix_DCT_2147942877_0
         $x_1_3 = "New-Object Net.WebClient).DownloadString($" wide //weight: 1
         $n_1000_4 = "github.com" wide //weight: -1000
         $n_1000_5 = "raw.githubusercontent.com" wide //weight: -1000
+        $n_1000_6 = "maven.scm" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -5996,8 +6005,10 @@ rule Trojan_Win32_ClickFix_BBG_2147944208_0
         $x_100_2 = "i'e'x" wide //weight: 100
         $x_100_3 = "i`e`x" wide //weight: 100
         $x_1_4 = "powershell" wide //weight: 1
+        $n_100_5 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 1 of ($x_1_*))) or
             ((2 of ($x_100_*))) or
