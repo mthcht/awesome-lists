@@ -6534,6 +6534,27 @@ rule Trojan_Win32_Zenpak_GZN_2147902283_0
         threshold = "10"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {4a 31 d0 89 f0 50 8f 05 ?? ?? ?? ?? 48 01 c2 01 3d ?? ?? ?? ?? 29 c2 83 f0 01 42 89 d0 31 1d}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zenpak_GZN_2147902283_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zenpak.GZN!MTB"
+        threat_id = "2147902283"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zenpak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {4a 31 d0 40 8d 05 ?? ?? ?? ?? 01 20 83 f2 01 e8 ?? ?? ?? ?? ba ?? ?? ?? ?? 8d 05 ?? ?? ?? ?? 01 18 8d 05 ?? ?? ?? ?? ff e0 8d 05 ?? ?? ?? ?? 89 30 89 d0 8d 05 ?? ?? ?? ?? 01 28 40 8d 05 ?? ?? ?? ?? 31 38 b9 02 00 00 00}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and

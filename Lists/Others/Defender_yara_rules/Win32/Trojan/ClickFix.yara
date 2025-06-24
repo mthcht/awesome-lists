@@ -5713,35 +5713,6 @@ rule Trojan_Win32_ClickFix_SKE_2147943848_0
         )
 }
 
-rule Trojan_Win32_ClickFix_ZGC_2147943962_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.ZGC!MTB"
-        threat_id = "2147943962"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 3a 00 [0-8] 2f 00}  //weight: 1, accuracy: Low
-        $x_1_2 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2f 00 [0-16] 29 00 3b 00 26 00 28 00 24 00}  //weight: 1, accuracy: Low
-        $n_100_3 = "http://127.0.0.1" wide //weight: -100
-        $n_100_4 = "http://10." wide //weight: -100
-        $n_100_5 = "http://172." wide //weight: -100
-        $n_100_6 = "http://192." wide //weight: -100
-        $n_100_7 = "http://255." wide //weight: -100
-        $n_100_8 = ":8080/api/UkeireTerminalControlTable -TimeoutSec 900" wide //weight: -100
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (1 of ($x*))
-}
-
 rule Trojan_Win32_ClickFix_BBD_2147943963_0
 {
     meta:

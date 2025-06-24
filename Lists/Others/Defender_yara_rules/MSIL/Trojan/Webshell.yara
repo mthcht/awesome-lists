@@ -359,3 +359,31 @@ rule Trojan_MSIL_Webshell_MBT_2147934981_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Webshell_AWB_2147944502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Webshell.AWB!MTB"
+        threat_id = "2147944502"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Webshell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {13 04 00 02 11 04 6f ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 06 16 fe 01 13 10 11 10 3a ?? ?? ?? ?? 00 09 17 58 0d 07 ?? ?? ?? 00 70 11 04 6f ?? 00 00 0a 6f}  //weight: 3, accuracy: Low
+        $x_1_2 = "Directory delete new success" wide //weight: 1
+        $x_1_3 = "Directory Renamed Success" wide //weight: 1
+        $x_1_4 = "File Renamed Success" wide //weight: 1
+        $x_1_5 = "File Copy Success" wide //weight: 1
+        $x_1_6 = "Directory created success" wide //weight: 1
+        $x_1_7 = "File Delete Success" wide //weight: 1
+        $x_1_8 = "Process Kill Success" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
