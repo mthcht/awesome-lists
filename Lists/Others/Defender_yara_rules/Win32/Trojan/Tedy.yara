@@ -588,3 +588,25 @@ rule Trojan_Win32_Tedy_PGC_2147939901_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_SCP_2147944457_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.SCP!MTB"
+        threat_id = "2147944457"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4c 8b c0 48 c7 44 24 20 ?? ?? ?? ?? 45 33 c9 48 8d 15 ?? ?? ?? ?? 33 c9 ff 15 ?? ?? ?? ?? 48 8d 54 24 30 48 8d 4c 24 50 e8 ?? ?? ?? ?? 48 8d 4c 24 50 e8 ?? ?? ?? ?? 4c 8b c0 c7 44 24 28 ?? ?? ?? ?? 4c 8b cb 48 89 5c 24 20 48 8d 15 ?? ?? ?? ?? 33 c9 ff 15}  //weight: 2, accuracy: Low
+        $x_1_2 = "exot1c.vercel.app/kxz-free/idk/msedge.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

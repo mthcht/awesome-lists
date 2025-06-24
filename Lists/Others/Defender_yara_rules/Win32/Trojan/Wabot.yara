@@ -195,3 +195,29 @@ rule Trojan_Win32_Wabot_DY_2147908214_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Wabot_SCP_2147944466_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Wabot.SCP!MTB"
+        threat_id = "2147944466"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Wabot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {2e 72 73 72 63 00 00 00 58 15 00 00 00 90 01 00 00 16 00 00 00 a0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 50 00 00 00 00 00 00 00 00 00 e0 78 00 00 b0 01 00 00 28 03 00 00 b6 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0 2e 64 61 74 61}  //weight: 3, accuracy: High
+        $x_2_2 = {67 56 61 49 6c b2 bb 4e 1a 93 7a 65 bc 9c f4 f5 58 93 78 f5 ce 83 89 7d 32 62 d3 c3 ec 2c b1 b9 69 d2 4c 73 79 bc bb 61 2b 8b eb 1e 0c c9 ae 29 99 c1 3c 76 0e 8c 79 6f 52 62 e1 0b}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*))) or
+            ((1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

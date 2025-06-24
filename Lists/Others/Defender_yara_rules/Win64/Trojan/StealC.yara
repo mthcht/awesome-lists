@@ -170,3 +170,25 @@ rule Trojan_Win64_StealC_GZ_2147940726_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_GVB_2147944460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.GVB!MTB"
+        threat_id = "2147944460"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {01 c1 0f b6 c1 8a 84 04 90 01 00 00 48 63 4c 24 74 41 30 04 0f}  //weight: 2, accuracy: High
+        $x_2_2 = {01 c1 0f b6 c1 8a 84 04 90 01 00 00 48 63 4c 24 74 49 89 df 30 04 0b}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
