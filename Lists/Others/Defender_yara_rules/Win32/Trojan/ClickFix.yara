@@ -835,8 +835,15 @@ rule Trojan_Win32_ClickFix_AG_2147934652_0
         $x_1_21 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
         $x_1_22 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
         $x_1_23 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
+        $n_100_24 = "enter to hibernate" wide //weight: -100
+        $n_100_25 = "trycloudflare.com" wide //weight: -100
+        $n_100_26 = "my.sharepoint.com" wide //weight: -100
+        $n_100_27 = "OneDrive" wide //weight: -100
+        $n_100_28 = "nike.com" wide //weight: -100
+        $n_100_29 = "adminapp" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_200_*) and 1 of ($x_1_*))) or
             (all of ($x*))
@@ -1940,8 +1947,10 @@ rule Trojan_Win32_ClickFix_YE_2147937536_0
         $x_10_4 = {6d 00 73 00 68 00 74 00 61 00 20 00 68 00 74 74 70 00 73 00 3a 00 2f 00 2f 00 61 00 6e 00 61 00 61 00 6d 00 77 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-6] 2e 00 70 00 68 00 70 00 5c 00 31 00}  //weight: 10, accuracy: Low
         $x_10_5 = {6d 00 73 00 68 00 74 00 61 00 20 00 68 00 74 74 70 00 73 00 3a 00 2f 00 2f 00 72 00 65 00 61 00 2e 00 67 00 72 00 75 00 70 00 6f 00 6c 00 61 00 6c 00 65 00 67 00 69 00 6f 00 6e 00 2e 00 65 00 63 00 2f 00 [0-6] 2e 00 70 00 68 00 70 00 5c 00 31 00}  //weight: 10, accuracy: Low
         $x_10_6 = {6d 00 73 00 68 00 74 00 61 00 20 00 68 00 74 74 70 00 73 00 3a 00 2f 00 2f 00 67 00 72 00 65 00 65 00 6e 00 69 00 6e 00 64 00 75 00 73 00 74 00 72 00 79 00 2e 00 70 00 6c 00 2f 00 [0-6] 2e 00 70 00 68 00 70 00 5c 00 31 00}  //weight: 10, accuracy: Low
+        $n_100_7 = "github.com" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
@@ -3010,6 +3019,7 @@ rule Trojan_Win32_ClickFix_HD_2147939326_0
         $x_1_1 = "mshta" wide //weight: 1
         $x_10_2 = "http" wide //weight: 10
         $n_10_3 = ".hta" wide //weight: -10
+        $n_100_4 = "verriffy.com" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -4906,8 +4916,10 @@ rule Trojan_Win32_ClickFix_ZZI_2147942984_0
         $x_1_3 = ".replace('+'," wide //weight: 1
         $x_1_4 = ".replace('$'," wide //weight: 1
         $x_1_5 = ".replace('*'," wide //weight: 1
+        $n_100_6 = "AVEVA" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
@@ -5437,8 +5449,11 @@ rule Trojan_Win32_ClickFix_AAC_2147943703_0
     strings:
         $x_1_1 = "powershell" wide //weight: 1
         $x_1_2 = "raw.github" wide //weight: 1
+        $n_100_3 = "SecurityProtocol" wide //weight: -100
+        $n_100_4 = "ServicePointManager" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -5777,8 +5792,10 @@ rule Trojan_Win32_ClickFix_BBE_2147943964_0
         $x_1_1 = "powershell" wide //weight: 1
         $x_1_2 = ".Split(',');$" wide //weight: 1
         $x_1_3 = "'+'" wide //weight: 1
+        $n_100_4 = "CMW_Signaling_Tx" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -5952,8 +5969,10 @@ rule Trojan_Win32_ClickFix_ZZN_2147944207_0
         $x_1_10 = "po^w" wide //weight: 1
         $x_1_11 = "pow^" wide //weight: 1
         $x_1_12 = "p^o^w" wide //weight: 1
+        $n_100_13 = "HSBCPAY" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
@@ -5977,6 +5996,7 @@ rule Trojan_Win32_ClickFix_BBG_2147944208_0
         $x_100_3 = "i`e`x" wide //weight: 100
         $x_1_4 = "powershell" wide //weight: 1
         $n_100_5 = "msedgewebview2.exe" wide //weight: -100
+        $n_100_6 = "ChromeUpdate" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

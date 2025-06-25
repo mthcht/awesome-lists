@@ -1815,3 +1815,32 @@ rule Trojan_Win64_Tedy_KK_2147943868_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GVD_2147944553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GVD!MTB"
+        threat_id = "2147944553"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "38"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {0f b6 45 de 83 e0 01 88 45 f6 83 7d f8 00 7e 1a 0f b6 45 f7 32 45 f6 0f b6 c0 0f b6 55 df 83 e2 01 39 d0 74 4f}  //weight: 30, accuracy: High
+        $x_2_2 = "**User:** %s\\n**Computer:** %s\\n**IP:** %s" ascii //weight: 2
+        $x_3_3 = "\\Google\\Chrome\\User Data" wide //weight: 3
+        $x_3_4 = "\\Microsoft\\Edge\\User Data" wide //weight: 3
+        $x_3_5 = "\\Yandex\\YandexBrowser\\User Data" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_30_*) and 3 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -2534,3 +2534,26 @@ rule Trojan_Win32_Fragtor_ARAX_2147943931_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_MR_2147944554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.MR!MTB"
+        threat_id = "2147944554"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "Fe3048124832f0cef883941e6035e2bbbc237.exe" ascii //weight: 50
+        $x_25_2 = {28 ad c0 14 83 c0 04 eb 0b dd 35 e9 48 a8 46 a1 9e 6a ec 23 83 ea 01 f9 72}  //weight: 25, accuracy: High
+        $x_25_3 = {1f 93 ee 29 42 8a 27 67 13 bb ed 45 28 ad c0 14 83 c0}  //weight: 25, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
