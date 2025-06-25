@@ -452,6 +452,38 @@ rule Trojan_MSIL_RevengeRat_ARR_2147896938_4
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RevengeRat_ARR_2147896938_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARR!MTB"
+        threat_id = "2147896938"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {16 0b 07 b5 1f 64 28 ?? ?? ?? 0a 0d 12 03 1f 64 14 13 04 12 04 1f 64 28 ?? ?? ?? 06 13 05 11 05 2c 08 ?? ?? ?? ?? ?? 0a de 28 00 00 07 17 d6 0b 07 1a 13 06}  //weight: 2, accuracy: Low
+        $x_1_2 = "RunFileFromLink" wide //weight: 1
+        $x_1_3 = "RunFileFromDisk" wide //weight: 1
+        $x_1_4 = "EncryptHostPort" wide //weight: 1
+        $x_1_5 = "MessgboxFakeCheck" wide //weight: 1
+        $x_1_6 = "StartupCheack" wide //weight: 1
+        $x_1_7 = "InstallinShulderTask" wide //weight: 1
+        $x_1_8 = "SCHTaskTiem" wide //weight: 1
+        $x_1_9 = "HideAfterRun" wide //weight: 1
+        $x_1_10 = "InstallIno" wide //weight: 1
+        $x_1_11 = "Installinop" wide //weight: 1
+        $x_3_12 = "Revenge-RAT" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_RevengeRat_AREV_2147900446_0
 {
     meta:
