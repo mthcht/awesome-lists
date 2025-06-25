@@ -61,6 +61,28 @@ rule Trojan_Win32_ZBot_RDB_2147896556_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ZBot_NZ_2147896909_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ZBot.NZ!MTB"
+        threat_id = "2147896909"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ZBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b d1 8d 4a fe 41 8b d1 8b c8 85 d2 75 15 c1 e2 ?? 33 c0 41 85 e4 74 04 03 c9}  //weight: 5, accuracy: Low
+        $x_1_2 = "bLjAQA_.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ZBot_CCEK_2147897316_0
 {
     meta:

@@ -813,3 +813,26 @@ rule Ransom_Win64_Filecoder_PAHD_2147944543_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAHE_2147944645_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHE!MTB"
+        threat_id = "2147944645"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {44 6b c1 1c b8 09 04 02 81 41 f7 e8 41 03 d0 c1 fa 06 8b c2 c1 e8 1f 03 d0 6b c2 7f 44 2b c0 41 83 c0 7f b8 09 04 02 81 41 f7 e8 41 03 d0 c1 fa 06 8b c2 c1 e8}  //weight: 2, accuracy: High
+        $x_1_2 = "<BACKUP_EMAIL>" wide //weight: 1
+        $x_1_3 = "<README_FILENAME>" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
