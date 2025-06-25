@@ -705,6 +705,27 @@ rule Trojan_Win32_QakBot_RPB_2147834564_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 04 24 8b 4c 24 ?? 8a 14 01 8b 74 24 ?? 88 14 06 83 c0 01 8b 7c 24 ?? 39 f8 89 04 24 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_QakBot_RPB_2147834564_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/QakBot.RPB!MTB"
+        threat_id = "2147834564"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "QakBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:
@@ -714,7 +735,7 @@ rule Trojan_Win32_QakBot_RPB_2147834564_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_QakBot_RPB_2147834564_1
+rule Trojan_Win32_QakBot_RPB_2147834564_2
 {
     meta:
         author = "defender2yara"

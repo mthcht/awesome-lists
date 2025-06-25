@@ -6813,6 +6813,27 @@ rule Trojan_Win32_Zusy_BAC_2147944114_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_BAC_2147944114_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAC!MTB"
+        threat_id = "2147944114"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {b9 62 00 00 00 f3 a4 8d 85 62 ff ff ff 89 04 24 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_BAF_2147944120_0
 {
     meta:
