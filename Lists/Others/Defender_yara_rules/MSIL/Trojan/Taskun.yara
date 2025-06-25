@@ -5368,6 +5368,28 @@ rule Trojan_MSIL_Taskun_SS_2147940310_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_SS_2147940310_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.SS!MTB"
+        threat_id = "2147940310"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {03 11 4a 11 4b 91 6f e3 00 00 0a 00 17 11 42 28 db 00 00 0a 13 04 1c 8d 3c 00 00 01 25 16 72 d7 0e 00 70 a2 25 17 12 4b 28 48 00 00 0a a2 25 18 72 e9 0e 00 70 a2 25 19 12 31 28 48 00 00 0a a2 25 1a 72 e9 0e 00 70 a2 25 1b 12 35 28 48 00 00 0a a2 28 e2 00 00 0a 13 0a 00 11 4b 17 58 13 4b 11 4b 11 42 fe 04 13 4c 11 4c 2d 93}  //weight: 2, accuracy: High
+        $x_2_2 = "Oyunu.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Taskun_ALSA_2147940411_0
 {
     meta:
