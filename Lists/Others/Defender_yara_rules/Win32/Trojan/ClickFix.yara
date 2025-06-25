@@ -1338,6 +1338,7 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $x_100_41 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
         $n_1000_42 = "msedgewebview2.exe" wide //weight: -1000
         $n_1000_43 = "if false == false echo" wide //weight: -1000
+        $n_1000_44 = "Cinterion_Snapdragon_X20_LTE" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -1527,6 +1528,8 @@ rule Trojan_Win32_ClickFix_AF_2147937004_0
         $x_1_13 = "invoke-restmethod" wide //weight: 1
         $n_100_14 = "chocolatey" wide //weight: -100
         $n_100_15 = "zoom" wide //weight: -100
+        $n_100_16 = "intune-resources" wide //weight: -100
+        $n_100_17 = "start-menu" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -1587,8 +1590,10 @@ rule Trojan_Win32_ClickFix_AK_2147937006_0
         $x_1_4 = "foreach" wide //weight: 1
         $x_1_5 = "http" wide //weight: 1
         $x_1_6 = "new-object" wide //weight: 1
+        $n_100_7 = "youtube.com" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -3019,7 +3024,6 @@ rule Trojan_Win32_ClickFix_HD_2147939326_0
         $x_1_1 = "mshta" wide //weight: 1
         $x_10_2 = "http" wide //weight: 10
         $n_10_3 = ".hta" wide //weight: -10
-        $n_100_4 = "verriffy.com" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -5306,8 +5310,10 @@ rule Trojan_Win32_ClickFix_AAG_2147943520_0
         $x_1_2 = "log.log" wide //weight: 1
         $x_1_3 = "ftp " wide //weight: 1
         $x_1_4 = "http" wide //weight: 1
+        $n_100_5 = "awpdc.com" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -6487,6 +6493,51 @@ rule Trojan_Win32_ClickFix_BBT_2147944482_0
     strings:
         $x_1_1 = "|%{$_.Content" wide //weight: 1
         $x_1_2 = "join" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_BBU_2147944600_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.BBU!MTB"
+        threat_id = "2147944600"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "-join([char[]]" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DEB_2147944601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DEB!MTB"
+        threat_id = "2147944601"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "120"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "&(gcM *wr) -uri" wide //weight: 10
+        $x_10_3 = "|&(gcm i*x)" wide //weight: 10
     condition:
         (filesize < 20MB) and
         (all of ($x*))

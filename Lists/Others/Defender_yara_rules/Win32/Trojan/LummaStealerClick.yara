@@ -473,9 +473,9 @@ rule Trojan_Win32_LummaStealerClick_X_2147935729_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = "net.webclient" wide //weight: 10
-        $x_10_2 = "[system.reflection.assembly]::load($" wide //weight: 10
+        $x_10_2 = "reflection.assembly]::load($" wide //weight: 10
         $x_10_3 = ".invoke($" wide //weight: 10
-        $x_10_4 = "[System.Convert]::FromBase64String($" wide //weight: 10
+        $x_10_4 = ".Convert]::FromBase64String($" wide //weight: 10
         $x_10_5 = ".GetMethod(" wide //weight: 10
         $x_10_6 = "http" wide //weight: 10
         $x_10_7 = ".DownloadData($" wide //weight: 10

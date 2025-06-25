@@ -7550,3 +7550,25 @@ rule Trojan_MSIL_Heracles_ACXA_2147944261_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_APXA_2147944589_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.APXA!MTB"
+        threat_id = "2147944589"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {03 1f 3c 28 ?? 00 00 0a 13 08 03 11 08 1f 34 58 28 ?? 00 00 0a 13 09 20 b3 00 00 00 8d ?? 00 00 01 13 0a 16 13 0b 2b 0f 11 0a 11 0b 11 0b 06 61 9e 11 0b 17 58 13 0b 11 0b 11 0a 8e 69 32 e9 11 0a 16 20 02 00 01 00 9e 28 ?? 00 00 0a 1a 33 1b}  //weight: 4, accuracy: Low
+        $x_2_2 = {03 11 12 1f 0c 58 28 ?? 00 00 0a 13 16 03 11 12 1f 10 58 28 ?? 00 00 0a 13 17 03 11 12 1f 14 58 28 ?? 00 00 0a 13 18 11 17 2c 3e 11 17 8d ?? 00 00 01 13 19 03 11 18 11 19 16 11 19 8e 69 28 ?? 00 00 0a 7e ?? 00 00 04 12 07 7b ?? 00 00 04 11 11 11 16 58 11 19 11 19 8e 69 12 05 6f ?? 00 00 06 2d 06 73 ?? 00 00 0a 7a 11 12 1f 28 58 13 12 11 15 17 58 13 15 11 15 11 13 32 84}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
