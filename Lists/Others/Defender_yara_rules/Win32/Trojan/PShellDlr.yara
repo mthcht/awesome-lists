@@ -328,36 +328,6 @@ rule Trojan_Win32_PShellDlr_HG_2147942786_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_PShellDlr_HE_2147943008_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/PShellDlr.HE!MTB"
-        threat_id = "2147943008"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "PShellDlr"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "11"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "powershell" wide //weight: 1
-        $x_10_2 = "iex(" wide //weight: 10
-        $x_10_3 = "iex $" wide //weight: 10
-        $x_10_4 = "invoke-expression" wide //weight: 10
-        $x_11_5 = {61 00 70 00 70 00 64 00 61 00 74 00 61 00 [0-3] 5c 00 [0-160] 2e 00 76 00 62 00 65 00}  //weight: 11, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
-            ((2 of ($x_10_*))) or
-            ((1 of ($x_11_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_PShellDlr_HF_2147943009_0
 {
     meta:

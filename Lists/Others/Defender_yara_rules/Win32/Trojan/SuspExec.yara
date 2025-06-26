@@ -140,3 +140,45 @@ rule Trojan_Win32_SuspExec_HB_2147942785_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SuspExec_HC_2147944673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.HC!MTB"
+        threat_id = "2147944673"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {2e 00 74 00 6d 00 70 00 20 00 2f 00 45 00 6e 00 66 00 6f 00 72 00 63 00 65 00 64 00 52 00 75 00 6e 00 41 00 73 00 41 00 64 00 6d 00 69 00 6e 00 20 00 2f 00 52 00 75 00 6e 00 41 00 73 00 41 00 64 00 6d 00 69 00 6e 00 20 00 43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 50 00 75 00 62 00 6c 00 69 00 63 00 5c 00 44 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 73 00 5c 00 [0-16] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspExec_HD_2147944674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.HD!MTB"
+        threat_id = "2147944674"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/c choice /C Y /N /D Y /T 3 & Del C:\\Windows\\Microsoft.NET\\Framework\\v" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
