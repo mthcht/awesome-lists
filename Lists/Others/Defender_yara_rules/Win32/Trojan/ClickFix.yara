@@ -6543,3 +6543,128 @@ rule Trojan_Win32_ClickFix_DEB_2147944601_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_CCA_2147944690_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCA!MTB"
+        threat_id = "2147944690"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "'iw' + 'r'" wide //weight: 1
+        $x_1_2 = "'i' + 'wr'" wide //weight: 1
+        $x_1_3 = "'ie' + 'x'" wide //weight: 1
+        $x_1_4 = "'i' + 'ex'" wide //weight: 1
+        $x_1_5 = "'i'+'ex'" wide //weight: 1
+        $x_1_6 = "'ie'+'x'" wide //weight: 1
+        $x_1_7 = "'iw'+'r'" wide //weight: 1
+        $x_1_8 = "'i'+'wr'" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CCC_2147944691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCC!MTB"
+        threat_id = "2147944691"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "+[char]" wide //weight: 1
+        $x_1_2 = "join" wide //weight: 1
+        $x_1_3 = ".content" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CCD_2147944692_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCD!MTB"
+        threat_id = "2147944692"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "'iex'" wide //weight: 1
+        $x_1_4 = "'iwr'" wide //weight: 1
+        $x_1_5 = ";&$" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CCH_2147944693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCH!MTB"
+        threat_id = "2147944693"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 90 00 02 00 20 00 69 00 77 00 72 00 90 00 02 00 20 00 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 90 00 02 00 06 00 2e 00 78 00 39 00 30 00 02 00 06 00 2e 00 78 00 39 00 30 00 02 00 06 00 2e 00 78 00 39 00 30 00 02 00 06 00 2f 00 78 00 39 00 30 00 02 00 06 00 2e 00 6a 00 70 00 67 00 90 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = "WScript.Shell" wide //weight: 1
+        $x_1_3 = "vbscript:close" wide //weight: 1
+        $x_1_4 = "CreateObject" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CCK_2147944694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCK!MTB"
+        threat_id = "2147944694"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".DownloadFile($" wide //weight: 1
+        $x_1_2 = ".Headers.Add(" wide //weight: 1
+        $x_1_3 = "Net.WebClient" wide //weight: 1
+        $x_1_4 = ");&$" wide //weight: 1
+        $x_1_5 = "$env:TEMP" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
