@@ -147,6 +147,27 @@ rule Trojan_MSIL_MassLogger_AML_2147920453_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {16 13 40 2b 23 00 03 11 3f 11 40 91 6f ?? ?? ?? 0a 00 11 14 1d 17 9c 11 0c 11 3f 11 40 91 58 13 0c 00 11 40 17 58 13 40 11 40 11 32 fe 04 13 41}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_MassLogger_AML_2147920453_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.AML!MTB"
+        threat_id = "2147920453"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
@@ -157,7 +178,7 @@ rule Trojan_MSIL_MassLogger_AML_2147920453_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_MassLogger_AML_2147920453_1
+rule Trojan_MSIL_MassLogger_AML_2147920453_2
 {
     meta:
         author = "defender2yara"
@@ -179,7 +200,7 @@ rule Trojan_MSIL_MassLogger_AML_2147920453_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_MassLogger_AML_2147920453_2
+rule Trojan_MSIL_MassLogger_AML_2147920453_3
 {
     meta:
         author = "defender2yara"

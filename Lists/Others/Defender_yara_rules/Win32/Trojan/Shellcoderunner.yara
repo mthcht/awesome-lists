@@ -19,3 +19,24 @@ rule Trojan_Win32_Shellcoderunner_SCRT_2147939380_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Shellcoderunner_PGSR_2147944715_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Shellcoderunner.PGSR!MTB"
+        threat_id = "2147944715"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Shellcoderunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {41 00 f8 08 41 00 30 22 41 00 18 22 41 00 00 22}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

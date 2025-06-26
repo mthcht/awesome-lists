@@ -1446,6 +1446,27 @@ rule Trojan_Win64_LummaStealer_PGLS_2147944137_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {89 f8 c1 e8 0d 31 f8 69 c0 ?? ?? ?? ?? 89 c6 c1 ee ?? 31 c6 48 8b 4c 24 ?? 48 31 e1 e8 ?? ?? ?? ?? 89 f0 48 83 c4 ?? 5b 5d 5f 5e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_PGLS_2147944137_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PGLS!MTB"
+        threat_id = "2147944137"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
         $x_5_1 = {01 c1 0f b6 c1 0f b6 84 04 ?? ?? ?? ?? 48 63 4c 24 ?? 48 8b 54 24 ?? 30 04 0a 8b 7c 24 ?? 83 c7 01 b8 ?? ?? ?? ?? 3d ?? ?? ?? ?? 0f 8f ?? ?? ?? ?? e9}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
