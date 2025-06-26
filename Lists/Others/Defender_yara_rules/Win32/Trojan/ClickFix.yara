@@ -5291,32 +5291,6 @@ rule Trojan_Win32_ClickFix_ZZX_2147943519_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_AAG_2147943520_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.AAG!MTB"
-        threat_id = "2147943520"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "curl" wide //weight: 1
-        $x_1_2 = "log.log" wide //weight: 1
-        $x_1_3 = "ftp " wide //weight: 1
-        $x_1_4 = "http" wide //weight: 1
-        $n_100_5 = "awpdc.com" wide //weight: -100
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_ClickFix_AAH_2147943521_0
 {
     meta:
@@ -6663,6 +6637,76 @@ rule Trojan_Win32_ClickFix_CCK_2147944694_0
         $x_1_3 = "Net.WebClient" wide //weight: 1
         $x_1_4 = ");&$" wide //weight: 1
         $x_1_5 = "$env:TEMP" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_BBBM_2147944703_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.BBBM!MTB"
+        threat_id = "2147944703"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "&& curl -k -o" wide //weight: 1
+        $x_1_2 = "&& start" wide //weight: 1
+        $x_1_3 = "&& echo" wide //weight: 1
+        $x_1_4 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CCN_2147944704_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCN!MTB"
+        threat_id = "2147944704"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "msiexec" wide //weight: 1
+        $x_1_2 = ".msi" wide //weight: 1
+        $x_1_3 = "/qn" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CCO_2147944705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCO!MTB"
+        threat_id = "2147944705"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "curl" wide //weight: 1
+        $x_1_2 = ".content" wide //weight: 1
+        $x_1_3 = "http" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
