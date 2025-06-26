@@ -484,3 +484,26 @@ rule Trojan_MSIL_PureCrypter_AKWA_2147943480_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureCrypter_ZNV_2147944768_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.ZNV!MTB"
+        threat_id = "2147944768"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 06 20 00 01 00 00 6f ?? 00 00 0a 06 20 ?? 76 8f 37 28 ?? 00 00 06 28 ?? 00 00 0a 6f ?? 00 00 0a 06 20 ?? 76 8f 37 28 ?? 00 00 06 28 ?? 00 00 0a 6f ?? 00 00 0a 06 06 6f ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 02 73 ?? 00 00 0a 0c 73 ?? 00 00 0a 0d 08 07 16 73 ?? 00 00 0a 13 04}  //weight: 10, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
