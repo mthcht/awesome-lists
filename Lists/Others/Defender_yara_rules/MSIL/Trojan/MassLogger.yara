@@ -1034,3 +1034,24 @@ rule Trojan_MSIL_MassLogger_ZIS_2147944545_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MassLogger_PGM_2147944756_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.PGM!MTB"
+        threat_id = "2147944756"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 31 11 34 6f ?? 00 00 0a 13 37 12 37 28 ?? 00 00 0a 06 61 d2 13 38 12 37 28 ?? 00 00 0a 06 61 d2 13 39 12 37 28 ?? 00 00 0a 06 61 d2 13 3a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5781,3 +5781,25 @@ rule Trojan_MSIL_Taskun_MCE_2147944293_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_ST_2147944752_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.ST!MTB"
+        threat_id = "2147944752"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {16 72 c5 05 00 70 a2 25 17 12 45 28 2b 00 00 0a a2 25 18 72 00 0a 00 70 a2 25 19 12 31 28 2b 00 00 0a a2 25 1a 72 00 0a 00 70 a2 25 1b 12 34 28 2b 00 00 0a a2 28 35 00 00 0a 13 0a 11 45 17 58 13 45 11 45 11 41 32 9c}  //weight: 2, accuracy: High
+        $x_2_2 = "BackEndLibrary.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

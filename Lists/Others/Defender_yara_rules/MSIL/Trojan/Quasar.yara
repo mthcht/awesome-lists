@@ -659,6 +659,27 @@ rule Trojan_MSIL_Quasar_AQU_2147843998_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_AQU_2147843998_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.AQU!MTB"
+        threat_id = "2147843998"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 0f 11 0f 2c 25 00 72 ?? 05 00 70 11 0e 7b ?? 00 00 04 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 00 17 13 0b ?? ?? ?? ?? ?? 00 de 05 26 00 00 de 00 00 11 0d 17 58}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Quasar_MBCW_2147844200_0
 {
     meta:
@@ -1739,6 +1760,27 @@ rule Trojan_MSIL_Quasar_AUQ_2147944516_0
     strings:
         $x_2_1 = {11 05 08 11 04 6f ?? 00 00 0a de 0c 11 05 2c 07 11 05 6f ?? 00 00 0a dc 73 ?? 00 00 0a 25 11 04 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 17 6f}  //weight: 2, accuracy: Low
         $x_5_2 = "193.151.108.34" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_AQI_2147944751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.AQI!MTB"
+        threat_id = "2147944751"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 12 2b 23 11 11 11 12 9a 13 13 00 11 13 28 ?? ?? ?? 0a 13 14 11 14 2c 07 00 07 17 58 0b 2b 0f 00 11 12 17 58 13 12 11 12 11 11 8e 69}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
