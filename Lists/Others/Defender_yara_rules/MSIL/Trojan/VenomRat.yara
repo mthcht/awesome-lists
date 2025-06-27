@@ -19,3 +19,24 @@ rule Trojan_MSIL_VenomRat_AVN_2147929611_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VenomRat_AXXA_2147944906_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VenomRat.AXXA!MTB"
+        threat_id = "2147944906"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VenomRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {16 0c 2b 29 02 14 72 ?? ?? 00 70 16 8d ?? 00 00 01 14 14 14 28 ?? 00 00 0a 28 ?? 00 00 0a 0d 07 09 b4 6f ?? 00 00 0a 00 08 17 d6 0c 00 08 8c ?? 00 00 01 02 14 72 ?? ?? 00 70 16 8d ?? 00 00 01 14 14 14 28 ?? 00 00 0a 16 28 ?? 00 00 0a 13 04 11 04 2d b0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1893,3 +1893,29 @@ rule TrojanDropper_O97M_Obfuse_PDA_2147816414_0
         (all of ($x*))
 }
 
+rule TrojanDropper_O97M_Obfuse_SLA_2147944915_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:O97M/Obfuse.SLA!MTB"
+        threat_id = "2147944915"
+        type = "TrojanDropper"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Obfuse"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {3d 20 45 6e 76 69 72 6f 6e 28 22 50 52 4f 47 52 41 4d 44 41 54 41 22 29 20 26 20 22 5c [0-31] 22 0d 0a 20 20 20 20 49 66 20 44 69 72 28 [0-15] 2c 20 76 62 44 69 72 65 63 74 6f 72 79 29 20 3d 20 22 22 20 54 68 65 6e}  //weight: 1, accuracy: Low
+        $x_1_2 = "Do While uikjhnmt.Value <> \"\"" ascii //weight: 1
+        $x_1_3 = "Set uikjhnmt = uikjhnmt.Offset(1, 0)" ascii //weight: 1
+        $x_1_4 = {53 68 65 6c 6c 20 [0-31] 2c 20 76 62 4e 6f 72 6d 61 6c 46 6f 63 75 73}  //weight: 1, accuracy: Low
+        $x_1_5 = {53 65 74 20 [0-15] 20 3d 20 53 68 65 65 74 73 28 22 [0-15] 22 29 2e 52 61 6e 67 65 28 22 [0-3] 22 29}  //weight: 1, accuracy: Low
+        $x_1_6 = ".SaveToFile yjktbyt, 2" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

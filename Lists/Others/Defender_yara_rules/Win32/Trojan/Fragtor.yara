@@ -2557,3 +2557,24 @@ rule Trojan_Win32_Fragtor_MR_2147944554_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_SPB_2147944908_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SPB!MTB"
+        threat_id = "2147944908"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {88 1c 08 89 4a 04 33 c0 40 8b 95 ?? ?? ff ff 03 f8 e9}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

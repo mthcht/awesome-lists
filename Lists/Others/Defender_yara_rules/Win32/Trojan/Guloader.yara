@@ -5639,3 +5639,54 @@ rule Trojan_Win32_Guloader_SPS_2147944782_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SLUP_2147944793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SLUP!MTB"
+        threat_id = "2147944793"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\sprngemners.ini" wide //weight: 2
+        $x_2_2 = "\\udgavernes.htm" wide //weight: 2
+        $x_2_3 = "autochthonal.run" wide //weight: 2
+        $x_2_4 = "Unbeatably\\rustet\\bredninger" wide //weight: 2
+        $x_2_5 = "trforarbejdningsvirksomheds\\ekoi\\taagedes" wide //weight: 2
+        $x_2_6 = "antibiotika.jpg" wide //weight: 2
+        $x_2_7 = "stikpillerne.sli" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_SLTI_2147944920_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SLTI!MTB"
+        threat_id = "2147944920"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Lektoraternes.txt" wide //weight: 2
+        $x_2_2 = "adgangskursus.txt" wide //weight: 2
+        $x_2_3 = "forandringsuvillig.bur" wide //weight: 2
+        $x_2_4 = "schizoneura.jpg" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -241,3 +241,47 @@ rule Trojan_Win32_Makoob_SERY_2147939384_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Makoob_SLYY_2147944892_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Makoob.SLYY!MTB"
+        threat_id = "2147944892"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Makoob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "elevatortrucks" wide //weight: 2
+        $x_2_2 = "syndebukkens busstoppestedets" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Makoob_SCE_2147944918_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Makoob.SCE!MTB"
+        threat_id = "2147944918"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Makoob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "vedheftninger maladive" wide //weight: 2
+        $x_2_2 = "civiliser spikiest ekstranummer" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

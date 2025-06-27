@@ -4598,41 +4598,6 @@ rule Trojan_Win32_ClickFix_DCP_2147942687_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_ZJG_2147942697_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.ZJG!MTB"
-        threat_id = "2147942697"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "c^u^rl.e^x^e" wide //weight: 1
-        $x_1_2 = "c^ur^l.e" wide //weight: 1
-        $x_1_3 = "c^ur^l.^e" wide //weight: 1
-        $x_1_4 = "cu^rl.^e" wide //weight: 1
-        $x_1_5 = "curl^.^e" wide //weight: 1
-        $x_1_6 = "cur^l^" wide //weight: 1
-        $x_1_7 = "curl.^e" wide //weight: 1
-        $x_1_8 = "curl.e^" wide //weight: 1
-        $x_1_9 = "curl.ex^" wide //weight: 1
-        $x_1_10 = "curl.exe^" wide //weight: 1
-        $x_1_11 = "curl^" wide //weight: 1
-        $x_1_12 = "c^ur" wide //weight: 1
-        $x_1_13 = "cu^r" wide //weight: 1
-        $x_1_14 = "cur^" wide //weight: 1
-        $x_1_15 = "c^u^r" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
 rule Trojan_Win32_ClickFix_HH_2147942784_0
 {
     meta:

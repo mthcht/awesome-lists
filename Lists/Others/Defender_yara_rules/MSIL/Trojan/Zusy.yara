@@ -3451,3 +3451,24 @@ rule Trojan_MSIL_Zusy_BAC_2147944121_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SLF_2147944919_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SLF!MTB"
+        threat_id = "2147944919"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {73 7c 00 00 0a 13 05 11 04 28 7d 00 00 0a 13 06 16 13 07 2b 34 11 06 11 07 9a 25 28 45 00 00 0a 28 46 00 00 0a 13 08 28 7e 00 00 0a 11 08}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
