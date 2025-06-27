@@ -3889,3 +3889,48 @@ rule Trojan_MSIL_ClipBanker_NJM_2147944242_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_SL_2147944857_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.SL!MTB"
+        threat_id = "2147944857"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {16 0a 16 7e 05 00 00 04 12 00 73 1c 00 00 0a 26 06 2d 06 17 28 1d 00 00 0a 2a}  //weight: 2, accuracy: High
+        $x_2_2 = "predst014" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ClipBanker_SM_2147944858_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.SM!MTB"
+        threat_id = "2147944858"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 07 58 0a 00 06 02 fe 04 0d 09 2d b0}  //weight: 2, accuracy: High
+        $x_2_2 = "CoinClipper" ascii //weight: 2
+        $x_2_3 = "cc_Config.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

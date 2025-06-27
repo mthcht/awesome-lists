@@ -22,6 +22,8 @@ rule Trojan_Win32_SuspClickFix_A_2147941552_0
         $x_1_8 = {43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 [0-32] 5c 00 [0-32] 2e 00 7a 00 69 00 70 00}  //weight: 1, accuracy: Low
         $x_1_9 = ".aliyuncs.com/" wide //weight: 1
         $x_1_10 = ".myqcloud.com/" wide //weight: 1
+        $x_1_11 = {5c 00 4d 00 75 00 73 00 69 00 63 00 5c 00 [0-48] 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_12 = {5c 00 41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 4c 00 6f 00 63 00 61 00 6c 00 5c 00 [0-48] 2e 00 70 00 64 00 66 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (

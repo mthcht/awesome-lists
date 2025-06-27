@@ -13180,6 +13180,29 @@ rule Trojan_MSIL_Remcos_RVF_2147939145_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_RVF_2147939145_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.RVF!MTB"
+        threat_id = "2147939145"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 7d a2 1d 09 01 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 76 00 00 00 0d 00 00 00 36 00 00 00 43 00 00 00 2b 00 00 00 d3 00 00 00 03 00 00 00 34 00 00 00 01 00 00 00 01 00 00 00 10 00 00 00 08 00 00 00 1a 00 00 00 24 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 01 00 00 00 07 00 00 00 03}  //weight: 1, accuracy: High
+        $x_1_2 = "F1E2D3C4-B5A6-9785-432F-876543210ABC" ascii //weight: 1
+        $x_1_3 = "PitchAnalytics.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Remcos_ZKW_2147940375_0
 {
     meta:
