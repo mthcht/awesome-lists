@@ -258,3 +258,25 @@ rule Trojan_Win64_DCRat_RPA_2147936606_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DCRat_ETL_2147944790_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.ETL!MTB"
+        threat_id = "2147944790"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {b8 a1 a0 a0 a0 41 f7 e0 c1 ea 05 0f be c2 6b c8 33 41 0f b6 c0 2a c1 04 32 41 30 01 41 ff c0 4d 8d 49 01 41 83 f8 10 7c d7}  //weight: 2, accuracy: High
+        $x_1_2 = "Loader.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2814,3 +2814,24 @@ rule Trojan_Win64_Lazy_KK_2147944057_0
         )
 }
 
+rule Trojan_Win64_Lazy_ETL_2147944784_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ETL!MTB"
+        threat_id = "2147944784"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {30 84 0d a0 00 00 00 8d 41 88 30 84 0d a1 00 00 00 8d 41 89 30 84 0d a2 00 00 00 8d 41 8a 30 84 0d a3 00 00 00 8d 41 8b 30 84 0d a4 00 00 00 8d 41 8c 30 84 0d a5 00 00 00 8d 41 8d 30 84 0d a6 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
