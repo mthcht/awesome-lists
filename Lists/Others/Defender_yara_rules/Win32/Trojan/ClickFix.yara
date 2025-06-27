@@ -6746,50 +6746,6 @@ rule Trojan_Win32_ClickFix_CCO_2147944705_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_ZGAA_2147944805_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.ZGAA"
-        threat_id = "2147944805"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "400"
-        strings_accuracy = "Low"
-    strings:
-        $x_200_1 = "powershell" wide //weight: 200
-        $x_200_2 = "-w" wide //weight: 200
-        $x_200_3 = {e2 00 80 00 95 00 77 00}  //weight: 200, accuracy: High
-        $x_200_4 = {e2 00 80 00 94 00 77 00}  //weight: 200, accuracy: High
-        $x_400_5 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_6 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_7 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-48] 63 00 75 00 72 00 6c 00}  //weight: 400, accuracy: Low
-        $x_400_8 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-80] 69 00 77 00 72 00}  //weight: 400, accuracy: Low
-        $x_400_9 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 63 00 75 00 72 00 6c 00}  //weight: 400, accuracy: Low
-        $x_400_10 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_11 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 [0-48] 69 00 77 00 72 00 20 00 [0-80] 69 00 65 00 78 00 20 00 [0-255] 3a 00}  //weight: 400, accuracy: Low
-        $x_400_12 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 [0-255] 5e 00 [0-5] 5e 00 [0-80] 68 00 74 00 74 00 70 00}  //weight: 400, accuracy: Low
-        $x_400_13 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
-        $x_400_14 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
-        $x_400_15 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00}  //weight: 400, accuracy: Low
-        $x_400_16 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 77 00 6d 00 69 00 63 00}  //weight: 400, accuracy: Low
-        $n_600_17 = "explorer http:" wide //weight: -600
-        $n_600_18 = "\\application\\chrome.exe" wide //weight: -600
-        $n_600_19 = "([scriptblock]::Create([Microsoft.Win32.Registry]::GetValue" wide //weight: -600
-        $n_600_20 = "PSAppDeployToolkit" wide //weight: -600
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (
-            ((2 of ($x_200_*))) or
-            ((1 of ($x_400_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_ClickFix_SKD_2147944806_0
 {
     meta:
