@@ -22,3 +22,27 @@ rule DoS_Win64_ElekiWiper_B_2147944723_0
         (3 of ($x*))
 }
 
+rule DoS_Win64_ElekiWiper_A_2147944817_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "DoS:Win64/ElekiWiper.A!dha"
+        threat_id = "2147944817"
+        type = "DoS"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ElekiWiper"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {00 44 72 69 76 65 57 69 64 65 45 6e 63 72 79 70 74 6f 72 2e 6c 6f 67 00}  //weight: 1, accuracy: High
+        $x_1_2 = "[START] Running DriveWideEncryptor" wide //weight: 1
+        $x_1_3 = "[UNKNOWN EXTENSIONS] Found file(s) with the following unknown extensions:" wide //weight: 1
+        $x_1_4 = "Skipping self executable:" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
