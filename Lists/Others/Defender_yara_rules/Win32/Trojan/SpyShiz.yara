@@ -31,6 +31,29 @@ rule Trojan_Win32_SpyShiz_MX_2147926201_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "c:\\oil\\feet\\Seven\\Send\\Gather\\Dividerail.pdb" ascii //weight: 1
+        $x_1_2 = "listen above" wide //weight: 1
+        $x_1_3 = "familycould cost" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SpyShiz_MX_2147926201_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SpyShiz.MX!MTB"
+        threat_id = "2147926201"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SpyShiz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "4"
         strings_accuracy = "High"
     strings:

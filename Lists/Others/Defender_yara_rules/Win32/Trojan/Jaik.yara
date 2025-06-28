@@ -390,3 +390,29 @@ rule Trojan_Win32_Jaik_NH_2147943200_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_NH_2147943200_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.NH!MTB"
+        threat_id = "2147943200"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {85 f6 75 15 e8 91 f4 ff ff c7 00 ?? 00 00 00 e8 ac f3 ff ff 83 c8 ff eb 3c 8b 46 0c}  //weight: 2, accuracy: Low
+        $x_1_2 = "agent" ascii //weight: 1
+        $x_1_3 = "shutdown /r /t 0" ascii //weight: 1
+        $x_1_4 = "Definec.exe" ascii //weight: 1
+        $x_1_5 = "msslac.dll" ascii //weight: 1
+        $x_1_6 = "AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\cbas.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

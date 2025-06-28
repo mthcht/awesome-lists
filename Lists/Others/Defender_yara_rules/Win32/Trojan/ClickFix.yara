@@ -7081,3 +7081,133 @@ rule Trojan_Win32_ClickFix_GVH_2147944827_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_CCJ_2147944949_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCJ!MTB"
+        threat_id = "2147944949"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "System.Net.Sockets.TCPClient" wide //weight: 1
+        $x_1_2 = "powershell" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CCS_2147944950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCS!MTB"
+        threat_id = "2147944950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "iex (Invoke-RestMethod" wide //weight: 10
+        $x_10_2 = "invoke-expression (Invoke-RestMethod" wide //weight: 10
+        $x_1_3 = "powershell" wide //weight: 1
+        $x_1_4 = "hidden" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_CCS_2147944950_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCS!MTB"
+        threat_id = "2147944950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {77 00 68 00 69 00 6c 00 65 00 28 00 [0-16] 29 00 7b 00 74 00 72 00 79 00 7b 00}  //weight: 1, accuracy: Low
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "-Method Post).Content" wide //weight: 1
+        $x_10_4 = "Invoke-Expression(Invoke-WebRequest -Uri" wide //weight: 10
+        $x_10_5 = "iex(Invoke-WebRequest -Uri" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DED_2147944951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DED!MTB"
+        threat_id = "2147944951"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "120"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "New-Object -ComObject WScript.Shell" wide //weight: 10
+        $x_10_3 = ".SpecialFolders('Startup')" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DEM_2147944952_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DEM!MTB"
+        threat_id = "2147944952"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = ".Headers.Add(" wide //weight: 10
+        $x_10_3 = ".DownloadFile($" wide //weight: 10
+        $x_1_4 = "=$env:temp+" wide //weight: 1
+        $x_1_5 = "=Join-Path $env:TEMP" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

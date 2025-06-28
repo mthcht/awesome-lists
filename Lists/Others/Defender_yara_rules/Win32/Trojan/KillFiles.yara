@@ -73,3 +73,24 @@ rule Trojan_Win32_KillFiles_CCIN_2147924340_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillFiles_TMX_2147944947_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillFiles.TMX!MTB"
+        threat_id = "2147944947"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillFiles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 0c 06 8d 41 01 fe c9 80 e2 01 0f b6 c0 0f b6 c9 0f 45 c8 8b 45 e4 88 0c 06 46 3b f7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

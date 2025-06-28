@@ -237,6 +237,28 @@ rule Trojan_Win64_Barys_NB_2147901865_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 07 09 c0 74 4a 8b 5f 04 48 8d 8c 30 ?? ?? ?? ?? 48 01 f3 48 83 c7 08 ff 15 60 0b 00 00 48 95}  //weight: 3, accuracy: Low
+        $x_1_2 = {48 89 f9 48 89 fa ff c8 f2 ae 48 89 e9 ff 15 52 0b 00 00 48 09 c0 74 09}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Barys_NB_2147901865_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.NB!MTB"
+        threat_id = "2147901865"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:

@@ -1882,3 +1882,25 @@ rule Trojan_Win64_Zusy_NIT_2147943748_0
         )
 }
 
+rule Trojan_Win64_Zusy_NS_2147944940_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.NS!MTB"
+        threat_id = "2147944940"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 8d 0d 81 2e 00 00 ff 15 c3 2a 00 00 48 8d 3d a0 2e 00 00 48 8b d7 48 8d 4d ?? e8 30 02 00 00}  //weight: 3, accuracy: Low
+        $x_1_2 = {45 33 c9 48 8d 15 56 2f 00 00 33 c9 ff 15 46 2b 00 00 48 8d 4d ?? e8 65 00 00 00 4c 8b c0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2835,3 +2835,26 @@ rule Trojan_Win64_Lazy_ETL_2147944784_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MX_2147944946_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MX!MTB"
+        threat_id = "2147944946"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "start /min cmd.exe /c powershell -WindowStyle Hidden" ascii //weight: 1
+        $x_5_2 = "zetolacs-cloud.top" ascii //weight: 5
+        $x_5_3 = "textpubshiers.top" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
