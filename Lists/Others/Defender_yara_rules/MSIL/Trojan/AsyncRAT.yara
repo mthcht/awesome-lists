@@ -6172,3 +6172,36 @@ rule Trojan_MSIL_AsyncRAT_ZBV_2147944767_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_GZN_2147945036_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.GZN!MTB"
+        threat_id = "2147945036"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "KillSystemSettingsProcess" ascii //weight: 1
+        $x_1_2 = "\\NjRat" ascii //weight: 1
+        $x_1_3 = "KillSwitch" ascii //weight: 1
+        $x_1_4 = "killing SystemSettings" ascii //weight: 1
+        $x_1_5 = "Task Kill" ascii //weight: 1
+        $x_1_6 = "Process Hacker" ascii //weight: 1
+        $x_1_7 = "HijackCleaner64" ascii //weight: 1
+        $x_1_8 = "PowerShell" ascii //weight: 1
+        $x_1_9 = "Wireshark" ascii //weight: 1
+        $x_1_10 = "confuser" ascii //weight: 1
+        $x_1_11 = "Procmon" ascii //weight: 1
+        $x_1_12 = "Process Explorer" ascii //weight: 1
+        $x_1_13 = "Xvirus" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
