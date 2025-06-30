@@ -945,6 +945,27 @@ rule Trojan_Win32_Small_ECP_2147941299_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Small_C_2147945084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Small.C!MTB"
+        threat_id = "2147945084"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {c3 55 89 e5 90 c9 68 ?? ?? ?? ?? c3 80 74 0a ff 20 e2}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Small_11283_0
 {
     meta:

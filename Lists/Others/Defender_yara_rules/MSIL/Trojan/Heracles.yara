@@ -3664,6 +3664,31 @@ rule Trojan_MSIL_Heracles_AAYA_2147897728_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_AAYA_2147897728_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AAYA!MTB"
+        threat_id = "2147897728"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {03 1f 3c 28 ?? 00 00 0a 13 04 03 11 04 1f 34 58 28 ?? 00 00 0a 13 05 20 b3 00 00 00 8d ?? 00 00 01 13 06 11 06 16 20 02 00 01 00 9e 28 ?? 00 00 0a 1a 33 1b 7e ?? 00 00 04 12 03 7b ?? 00 00 04 11 06 6f ?? 00 00 06 2d 21}  //weight: 4, accuracy: Low
+        $x_4_2 = {03 11 0d 1f 0c 58 28 ?? 00 00 0a 13 10 03 11 0d 1f 10 58 28 ?? 00 00 0a 13 11 03 11 0d 1f 14 58 28 ?? 00 00 0a 13 12 11 11 2c 3e 11 11 8d ?? 00 00 01 13 13 03 11 12 11 13 16 11 13 8e 69 28 ?? 00 00 0a 7e ?? 00 00 04 12 03 7b ?? 00 00 04 11 0c 11 10 58 11 13 11 13 8e 69 12 01 6f ?? 00 00 06 2d 06 73 ?? 00 00 0a 7a 11 0d 1f 28 58 13 0d 11 0f 17 58 13 0f 11 0f 11 0e 32 84}  //weight: 4, accuracy: Low
+        $x_1_3 = "a2VybmVsMzI=" wide //weight: 1
+        $x_1_4 = "VmlydHVhbEFsbG9jRXg=" wide //weight: 1
+        $x_1_5 = "Q3JlYXRlUHJvY2Vzc0E=" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_KAI_2147898337_0
 {
     meta:

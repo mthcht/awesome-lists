@@ -836,3 +836,27 @@ rule Ransom_Win64_Filecoder_PAHE_2147944645_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAHF_2147945091_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHF!MTB"
+        threat_id = "2147945091"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 8c 24 80 00 00 00 48 8b 49 30 48 8b 94 24 98 00 00 00 48 89 14 24 48 8b 54 24 68 48 89 54 24 08 48 8b 54 24 70 48 89 54 24 10 44 0f 11 7c 24 18 48 c7 44 24 28 00 00 00 00 48 8b 84}  //weight: 2, accuracy: High
+        $x_2_2 = {24 a0 00 00 00 48 8b 9c 24 b0 00 00 00 48 8b 7c 24 78 48 89 de 49 89 f8 49 89 f9 48 89 ca 48 89 f9 ff d2 48 89 84 24 a8 00 00 00 48 89 9c 24 88 00 00 00 48 89 8c 24}  //weight: 2, accuracy: High
+        $x_1_3 = ".enc" ascii //weight: 1
+        $x_1_4 = "Encrypting" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
