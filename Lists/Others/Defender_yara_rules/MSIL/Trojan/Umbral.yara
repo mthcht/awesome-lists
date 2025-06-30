@@ -50,3 +50,24 @@ rule Trojan_MSIL_Umbral_GA_2147915381_0
         )
 }
 
+rule Trojan_MSIL_Umbral_AB_2147944984_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Umbral.AB!MTB"
+        threat_id = "2147944984"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Umbral"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 61 13 1c 11 1d 02 7c 0f 00 00 04 7c 15 00 00 04 1e 58 4c 61 13 1d 11 1e 02 7c 10 00 00 04 7c 16 00 00 04 4c 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

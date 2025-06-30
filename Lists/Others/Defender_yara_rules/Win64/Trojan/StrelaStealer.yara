@@ -1325,3 +1325,24 @@ rule Trojan_Win64_StrelaStealer_PGS_2147940182_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StrelaStealer_AB_2147945007_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StrelaStealer.AB!MTB"
+        threat_id = "2147945007"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StrelaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f af d0 f6 c2 01 0f 94 44 24 36 ba 16 c9 84 07 b8 95 81 79 a6 0f 44 c2 83 f9 0a 0f 9c 44 24 37 0f 4c c2 ba}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

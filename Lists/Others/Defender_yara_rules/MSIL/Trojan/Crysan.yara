@@ -2430,3 +2430,24 @@ rule Trojan_MSIL_Crysan_ENTP_2147943995_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_AE_2147945010_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.AE!MTB"
+        threat_id = "2147945010"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 a6 c5 6b cd 80 9e 00 00 04 17 80 9f 00 00 04 72 d7 0a 00 70 80 a0 00 00 04 17 80 a1 00 00 04 72 05 0b 00 70 80 a2 00 00 04 21}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

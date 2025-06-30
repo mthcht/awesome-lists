@@ -1844,3 +1844,24 @@ rule Trojan_Win64_Tedy_GVD_2147944553_0
         )
 }
 
+rule Trojan_Win64_Tedy_AK_2147945011_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AK!MTB"
+        threat_id = "2147945011"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 33 c4 8b f8 0f 57 c0 0f 11 03 48 89 73 10 48 c7 43 18 0f 00 00 00 c6 03 00 c7 44 24 20 01 00 00 00 4c 8b 6c 24 48 4c 8b 7c 24 30 83 f8 0f 74 1a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

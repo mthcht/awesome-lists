@@ -1385,3 +1385,24 @@ rule Trojan_Win32_Stealc_EABA_2147930129_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealc_AB_2147945015_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealc.AB!MTB"
+        threat_id = "2147945015"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c9 ba 65 00 00 00 b8 6e 00 00 00 68 d0 63 51 00 66 89 0d e8 63 51 00 66 89 15 d2 63 51 00 66 a3 d6 63 51 00 ff 15 ?? ?? ?? ?? 68 b8 dd 43 00 50 c6 05 ba dd 43 00 72}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

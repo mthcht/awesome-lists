@@ -2858,3 +2858,66 @@ rule Trojan_Win64_Lazy_MX_2147944946_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AQ_2147944995_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AQ!MTB"
+        threat_id = "2147944995"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 44 24 40 0f be 00 44 31 e8 44 69 e0 95 e9 d1 5b 44 33 64 24 54 b8 00 ad 85 3a 3d 58 15 53 f9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AR_2147944997_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AR!MTB"
+        threat_id = "2147944997"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "jYR3AXLUy0BX30OQNfgSukljV5" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AS_2147945006_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AS!MTB"
+        threat_id = "2147945006"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 33 c4 48 89 84 24 00 18 00 00 45 33 e4 44 89 a4 24 c0 00 00 00 c6 84 24 d0 00 00 00 ?? b0 ?? b1 ?? b2 ?? 41 b0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -40,3 +40,45 @@ rule Trojan_Win32_Obsidium_A_2147939482_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Obsidium_AB_2147944970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Obsidium.AB!MTB"
+        threat_id = "2147944970"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Obsidium"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {40 eb 03 36 03 51 33 c1 71 01 8f 33 d1 70 1b 89 45 f0 eb 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Obsidium_AC_2147944998_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Obsidium.AC!MTB"
+        threat_id = "2147944998"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Obsidium"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b8 c8 c9 3e b6 42 c6 1e dc 6b 7a e2 b9 e0 0e 89 04 c1 8e 6b 18 09 88 2c 86 ed 84}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
