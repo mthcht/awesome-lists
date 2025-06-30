@@ -39,3 +39,24 @@ rule Trojan_Win32_Loader_ZY_2147778497_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Loader_BAA_2147944357_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Loader.BAA!MTB"
+        threat_id = "2147944357"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Loader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 07 8d 0c 88 8b 45 f8 03 c2 33 d2 01 01 8b 01 b9 2a 00 00 00 89 45 f0 03 45 f8 01 04 9e 8b 04 9e}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

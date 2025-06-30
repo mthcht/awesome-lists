@@ -1504,3 +1504,28 @@ rule Trojan_Win32_Razy_AYR_2147940861_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Razy_C_2147945058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.C!MTB"
+        threat_id = "2147945058"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Spy Is Active !" wide //weight: 2
+        $x_2_2 = "Reporting : This Computer Turned On At:" wide //weight: 2
+        $x_1_3 = "InformationAccess.txt" wide //weight: 1
+        $x_1_4 = "Adobe!.exe" wide //weight: 1
+        $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

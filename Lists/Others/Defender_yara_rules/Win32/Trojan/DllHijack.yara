@@ -147,3 +147,24 @@ rule Trojan_Win32_DllHijack_BZ_2147944777_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DllHijack_BJ_2147945056_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllHijack.BJ!MTB"
+        threat_id = "2147945056"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {59 59 8b 45 08 03 45 fc 0f b6 00 33 45 10 8b 4d 08 03 4d fc 88 01 eb}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
