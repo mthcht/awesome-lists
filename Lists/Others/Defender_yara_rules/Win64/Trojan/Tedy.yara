@@ -1865,3 +1865,25 @@ rule Trojan_Win64_Tedy_AK_2147945011_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_TMX_2147945109_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.TMX!MTB"
+        threat_id = "2147945109"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 83 c0 10 31 d2 48 3b 95 f0 02 00 00 48 8d 95 f8 02 00 00 48 0f 41 ca 4c 8b 09 48 8d 8d}  //weight: 1, accuracy: High
+        $x_1_2 = "pintest.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

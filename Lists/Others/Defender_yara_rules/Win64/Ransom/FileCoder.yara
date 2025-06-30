@@ -1017,3 +1017,30 @@ rule Ransom_Win64_FileCoder_AYG_2147942953_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_TMX_2147945110_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.TMX!MTB"
+        threat_id = "2147945110"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8d 48 01 48 8b 45 f0 48 8b 55 10 89 4c 24 28 48 8b 4d 18 48 89 4c 24 20}  //weight: 5, accuracy: High
+        $x_5_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 5
+        $x_1_3 = "Cookies" ascii //weight: 1
+        $x_1_4 = "MyClone" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
