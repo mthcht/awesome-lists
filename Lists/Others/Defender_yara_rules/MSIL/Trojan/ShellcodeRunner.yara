@@ -254,3 +254,26 @@ rule Trojan_MSIL_ShellcodeRunner_NP_2147944297_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeRunner_ZRS_2147945121_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.ZRS!MTB"
+        threat_id = "2147945121"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {16 0d 2b 1f 00 06 09 8f ?? 00 00 01 25 71 ?? 00 00 01 20 a1 00 00 00 61 d2 81 ?? 00 00 01 00 09 17 58 0d 09 06 8e 69 fe 04 13 0b 11 0b 2d d5}  //weight: 10, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

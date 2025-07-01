@@ -4229,3 +4229,25 @@ rule Trojan_Win32_StealC_LJV_2147942792_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealC_GVD_2147945134_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.GVD!MTB"
+        threat_id = "2147945134"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {01 f1 81 e9 ?? ?? ?? ?? 31 01 59 52}  //weight: 2, accuracy: Low
+        $x_1_2 = {01 d1 01 19 59 5a 83 ec 04 89 14 24}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

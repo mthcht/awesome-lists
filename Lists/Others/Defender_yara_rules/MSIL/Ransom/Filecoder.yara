@@ -3772,3 +3772,26 @@ rule Ransom_MSIL_Filecoder_AFL_2147941812_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_NITF_2147945122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.NITF!MTB"
+        threat_id = "2147945122"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {11 04 72 77 00 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a 2c 21 11 04 72 87 00 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a 2c 0e 11 04 72 9f 00 00 70 28 ?? 00 00 0a 13 05 11 05 28 ?? 00 00 0a 2d 02 de 33 11 05 28 ?? 00 00 06 06 7b 0c 00 00 04 25 2d 18 26 06 06 fe 06 19 00 00 06 73 3b 00 00 0a 25 13 06 7d 0c 00 00 04 11 06 28 ?? 00 00 2b 26 de 03}  //weight: 3, accuracy: Low
+        $x_3_2 = {05 00 00 11 02 72 ?? 01 00 70 6f ?? 00 00 0a 2d 79 02 72 ?? 01 00 70 6f ?? 00 00 0a 2d 6c 02 72 ?? 01 00 70 6f ?? 00 00 0a 2d 5f 02 72 ?? 01 00 70 6f ?? 00 00 0a 2d 52 02 73 43 00 00 0a 6f ?? 00 00 0a 0a 02 03 72 ?? 01 00 70 28 ?? 00 00 06 02 28 ?? 00 00 0a 72 ?? 01 00 70 28 ?? 00 00 0a 0b 02 72 ?? 01 00 70 28 ?? 00 00 0a 06 28 ?? 00 00 0a 07 28 ?? 00 00 0a 2d 10 07 7e 05 00 00 04 28 ?? 00 00 06 28 ?? 00 00 0a 2a}  //weight: 3, accuracy: Low
+        $x_2_3 = {07 00 00 11 28 ?? 00 00 06 28 ?? 00 00 0a 72 ?? 01 00 70 28 ?? 00 00 0a 0a 06 28 ?? 00 00 0a 6f ?? 00 00 0a 1f 14 16 06 19 28 ?? 00 00 06 2d 0a 72 ?? 01 00 70 28 ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
