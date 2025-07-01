@@ -6682,7 +6682,7 @@ rule Trojan_Win32_ClickFix_CCN_2147944704_0
     strings:
         $x_1_1 = "msiexec" wide //weight: 1
         $x_1_2 = ".msi" wide //weight: 1
-        $x_1_3 = "/qn" wide //weight: 1
+        $x_1_3 = "/q" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
