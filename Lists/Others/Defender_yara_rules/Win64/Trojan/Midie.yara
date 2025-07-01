@@ -367,3 +367,26 @@ rule Trojan_Win64_Midie_GZZ_2147941354_0
         )
 }
 
+rule Trojan_Win64_Midie_SPR_2147945181_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SPR!MTB"
+        threat_id = "2147945181"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {33 ff 45 33 c9 48 89 7c 24 30 45 33 c0 c7 44 24 28 ?? ?? ?? ?? ba ?? ?? ?? ?? c7 44 24 20 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8b e8 48 83 f8 ff 75}  //weight: 3, accuracy: Low
+        $x_3_2 = {c7 44 24 28 ?? ?? ?? ?? 48 83 64 24 20 00 48 8d 15 ?? ?? ?? ?? 33 c9 45 33 c9 ff 15 ?? ?? ?? ?? 48 83 f8 20 0f 9f c0 48 83 c4 38}  //weight: 3, accuracy: Low
+        $x_1_3 = "posdfcc.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
