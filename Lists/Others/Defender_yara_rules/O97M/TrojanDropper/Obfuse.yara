@@ -1919,3 +1919,26 @@ rule TrojanDropper_O97M_Obfuse_SLA_2147944915_0
         (all of ($x*))
 }
 
+rule TrojanDropper_O97M_Obfuse_SLB_2147945237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:O97M/Obfuse.SLB!MTB"
+        threat_id = "2147945237"
+        type = "TrojanDropper"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Obfuse"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".RunOnlyIfNetworkAvailable = (Len(fff1a755ab7f7f89adf85eab4a800915) = CInt(StrReverse(Asc(Right(fff1a755ab7f7f89adf85eab4a800915, 1)) - Str(Mid(fff1a755ab7f7f89adf85eab4a800915, 14, 1)))))" ascii //weight: 1
+        $x_1_2 = "= Replace(bbf1a755ab7f7f89adf95e1ad2fe4a800915((Asc(Mid(Right(fff1a755ab7f7f89adf85eab4a800915, 2), 1, 1)) - Asc(Mid(Right(fff1a755ab7f7f89adf85eab4a800915, 3), 1, 1)))" ascii //weight: 1
+        $x_1_3 = "= b211ac55ab7f689adf50ad1aa4a812916 Xor &HC0000000 Xor b211ac55ab7f689adf50ad1aa4a8109168 Xor b211ac55ab7f689adf50ad1aa4a8119168:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

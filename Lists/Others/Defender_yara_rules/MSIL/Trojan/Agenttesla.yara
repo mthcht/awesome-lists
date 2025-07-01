@@ -485,3 +485,57 @@ rule Trojan_MSIL_Agenttesla_PGA_2147942842_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_PGY_2147943194_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGY!MTB"
+        threat_id = "2147943194"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 34 00 35 00 2e 00 38 00 37 00 2e 00 36 00 30 00 2e 00 31 00 32 00 37 00 2f 00 77 00 61 00 79 00 2f 00 [0-64] 2e 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 00 74 00 74 00 70 00 3a 00 2f 2f 34 35 2e 38 37 2e 36 30 2e 31 32 37 2f 77 61 79 2f [0-64] 2e}  //weight: 5, accuracy: Low
+        $x_5_3 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 63 00 69 00 61 00 2e 00 74 00 66 00 2f 00 [0-64] 2e 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 2f 63 69 61 2e 74 66 2f [0-64] 2e}  //weight: 5, accuracy: Low
+        $x_1_5 = ".pdf" ascii //weight: 1
+        $x_1_6 = ".wav" ascii //weight: 1
+        $x_1_7 = ".vdf" ascii //weight: 1
+        $x_1_8 = ".mp4" ascii //weight: 1
+        $x_5_9 = {28 04 00 00 06 72 01 00 00 70 72 33 00 00 70 28 05 00 00 06 72 4d 00 00 70 72 99 00 00 70 28 06 00 00 06 20 00 00 00 00 7e ?? ?? 00 04 7b ?? ?? 00 04 ?? 0f 00 00 00 26 20 00 00 00 00 38 04 00 00 00 fe 0c ?? 00 45 01 00 00 00 05 00 00 00 38 00 00 00 00 dd}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_Agenttesla_PGAT_2147945221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGAT!MTB"
+        threat_id = "2147945221"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 08 11 1c 11 0c 6f ?? ?? 00 0a 23 00 00 00 00 00 00 59 40 5a a1 11 09 11 1c 11 0c 6f ?? ?? 00 0a 23 00 00 00 00 00 00 24 40 5a 23 00 00 00 00 00 00 14 40 59 a1 11 1c 17 d6 13 1c 11 1c 11 1b 31 be}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

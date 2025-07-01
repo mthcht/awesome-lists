@@ -103,3 +103,34 @@ rule Trojan_Win64_DonutLoader_C_2147944570_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_PCO_2147945189_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.PCO!MTB"
+        threat_id = "2147945189"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {31 00 34 00 31 00 2e 00 39 00 38 00 2e 00 36 00 2e 00 31 00 34 00 3a 00 35 00 35 00 36 00 33 00 2f 00 [0-7] 2e 00 65 00 78 00 65 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {31 34 31 2e 39 38 2e 36 2e 31 34 3a 35 35 36 33 2f [0-7] 2e 65 78 65}  //weight: 2, accuracy: Low
+        $x_1_3 = "executePowerShell" ascii //weight: 1
+        $x_1_4 = "downloadAndRunFile" ascii //weight: 1
+        $x_2_5 = "createRandomFolderInAppDataLocal" ascii //weight: 2
+        $x_1_6 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_7 = "restartAsAdmin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

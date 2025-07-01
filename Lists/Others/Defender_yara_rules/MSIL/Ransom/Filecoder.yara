@@ -3795,3 +3795,28 @@ rule Ransom_MSIL_Filecoder_NITF_2147945122_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_EDK_2147945216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.EDK!MTB"
+        threat_id = "2147945216"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ransomeware.ps1" ascii //weight: 1
+        $x_1_2 = "DO NOT ignore this message" ascii //weight: 1
+        $x_1_3 = "your files will be lost forever!" ascii //weight: 1
+        $x_1_4 = "UniKeyNT.exe" ascii //weight: 1
+        $x_1_5 = "getPassword" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

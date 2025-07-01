@@ -1055,3 +1055,66 @@ rule Trojan_MSIL_MassLogger_PGM_2147944756_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MassLogger_EANW_2147945209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.EANW!MTB"
+        threat_id = "2147945209"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 11 09 11 4f 16 9c 00 11 4f 17 58 13 4f 11 4f 1f 0a 11 09 8e 69 ?? ?? ?? ?? ?? fe 04 13 50 11 50 2d dd}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_MassLogger_EHJY_2147945212_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.EHJY!MTB"
+        threat_id = "2147945212"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 11 10 1f 0a 58 13 10 11 0c 11 2c 1f 1f 5a 58 13 0c 11 0d 11 2c 61 13 0d 11 2c 1f 32 5d 16 fe 01 13 2d 11 2d 2c 20 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_MassLogger_EHKA_2147945218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.EHKA!MTB"
+        threat_id = "2147945218"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 04 06 09 93 13 05 06 09 06 11 04 93 9d 06 11 04 11 05 9d 00 09 17 58 0d 09 06 8e 69 fe 04 13 06 11 06 2d cc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

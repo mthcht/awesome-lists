@@ -979,3 +979,35 @@ rule Trojan_Win32_Autoitinject_SPM_2147944263_0
         )
 }
 
+rule Trojan_Win32_Autoitinject_SDS_2147945220_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Autoitinject.SDS!MTB"
+        threat_id = "2147945220"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Autoitinject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 00 20 00 22 00 4d 00 6f 00 64 00 22 00 20 00 2c 00 20 00 24 00 [0-20] 20 00 2b 00 20 00 31 00 33 00 20 00 2c 00 20 00 32 00 35 00 36 00 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {28 20 22 4d 6f 64 22 20 2c 20 24 [0-20] 20 2b 20 31 33 20 2c 20 32 35 36 20 29}  //weight: 2, accuracy: Low
+        $x_2_3 = {46 00 49 00 4c 00 45 00 49 00 4e 00 53 00 54 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 [0-20] 22 00 20 00 2c 00 20 00 40 00 54 00 45 00 4d 00 50 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 [0-20] 22 00 20 00 2c 00 20 00 31 00 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_4 = {46 49 4c 45 49 4e 53 54 41 4c 4c 20 28 20 22 [0-20] 22 20 2c 20 40 54 45 4d 50 44 49 52 20 26 20 22 5c [0-20] 22 20 2c 20 31 20 29}  //weight: 2, accuracy: Low
+        $x_2_5 = {28 00 20 00 22 00 43 00 68 00 72 00 22 00 20 00 2c 00 20 00 24 00 [0-20] 20 00 28 00 20 00 22 00 42 00 69 00 74 00 58 00 4f 00 52 00 22 00 20 00 2c 00 20 00 24 00 [0-20] 20 00 2c 00 20 00 24 00 [0-20] 20 00 29 00 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_6 = {28 20 22 43 68 72 22 20 2c 20 24 [0-20] 20 28 20 22 42 69 74 58 4f 52 22 20 2c 20 24 [0-20] 20 2c 20 24 [0-20] 20 29 20 29}  //weight: 2, accuracy: Low
+        $x_1_7 = {52 00 45 00 47 00 44 00 45 00 4c 00 45 00 54 00 45 00 20 00 28 00 20 00 22 00 64 00 65 00 66 00 61 00 75 00 6c 00 74 00 22 00 20 00 2c 00 20 00 24 00 [0-20] 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {52 45 47 44 45 4c 45 54 45 20 28 20 22 64 65 66 61 75 6c 74 22 20 2c 20 24 [0-20] 20 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((4 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
