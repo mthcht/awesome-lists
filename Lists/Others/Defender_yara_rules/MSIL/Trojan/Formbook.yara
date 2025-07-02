@@ -4472,6 +4472,28 @@ rule Trojan_MSIL_Formbook_AOK_2147841229_1
         threshold = "3"
         strings_accuracy = "Low"
     strings:
+        $x_2_1 = {0a 16 0b 2b 13 00 06 07 06 07 91 ?? ?? ?? ?? ?? 59 d2 9c 07 17 58 0b 00 07 06 8e 69 fe 01 16 fe 01 0c 08}  //weight: 2, accuracy: Low
+        $x_1_2 = "qataris.agency/423" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_AOK_2147841229_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.AOK!MTB"
+        threat_id = "2147841229"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
         $x_2_1 = {16 0a 2b 11 00 02 03 06 04 05 28 ?? 00 00 06 00 06 17 58 0a 00 06 02 6f ?? 00 00 0a 2f 0b 04 6f ?? 00 00 0a 05 fe 04 2b 01 16 0b 07 2d d6}  //weight: 2, accuracy: Low
         $x_1_2 = {02 03 04 6f ?? 00 00 0a 0a 0e 04 05 6f ?? 00 00 0a 59 0b 06 07 05 28}  //weight: 1, accuracy: Low
     condition:
@@ -4479,7 +4501,7 @@ rule Trojan_MSIL_Formbook_AOK_2147841229_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Formbook_AOK_2147841229_2
+rule Trojan_MSIL_Formbook_AOK_2147841229_3
 {
     meta:
         author = "defender2yara"
