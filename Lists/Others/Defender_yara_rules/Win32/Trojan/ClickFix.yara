@@ -6733,7 +6733,8 @@ rule Trojan_Win32_ClickFix_SKD_2147944806_0
         $n_100_6 = "psappdeploytoolkit" wide //weight: -100
         $n_100_7 = "openwebsearch.cmd" wide //weight: -100
         $n_100_8 = "winget-autoupdate" wide //weight: -100
-        $n_100_9 = "([scriptblock]::Create([Microsoft.Win32.Registry]::GetValue" wide //weight: -100
+        $n_100_9 = "://inventory.kitenet.ch/pub" wide //weight: -100
+        $n_100_10 = "([scriptblock]::Create([Microsoft.Win32.Registry]::GetValue" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
