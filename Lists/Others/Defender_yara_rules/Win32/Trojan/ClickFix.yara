@@ -7305,3 +7305,122 @@ rule Trojan_Win32_ClickFix_DEN_2147945139_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_CCV_2147945257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCV!MTB"
+        threat_id = "2147945257"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = ";iex (iwr $" wide //weight: 1
+        $x_1_2 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CCX_2147945258_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CCX!MTB"
+        threat_id = "2147945258"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 27 00 2b 00 24 00 [0-16] 2b 00 27 00 3a 00 27 00 2b 00 24 00}  //weight: 1, accuracy: Low
+        $x_1_2 = "h'+'t'+'t'+'p" wide //weight: 1
+        $x_1_3 = "h '+' t '+' t' +' p" wide //weight: 1
+        $x_1_4 = "ht'+'tp" wide //weight: 1
+        $x_1_5 = "'h'+'tt'+'p" wide //weight: 1
+        $x_1_6 = "htt'+'p" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DEC_2147945259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DEC!MTB"
+        threat_id = "2147945259"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "160"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_50_2 = {7b 00 26 00 20 00 28 00 64 00 69 00 72 00 20 00 [0-2] 5c 00 57 00 2a 00 [0-2] 5c 00 2a 00 33 00 32 00 [0-2] 5c 00 63 00 3f 00 3f 00 6c 00 2e 00 65 00 2a 00 29 00}  //weight: 50, accuracy: Low
+        $x_10_3 = "| iex" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DEO_2147945260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DEO!MTB"
+        threat_id = "2147945260"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "[Net.ServicePointManager]::SecurityProtocol=" wide //weight: 10
+        $x_10_3 = "irm $" wide //weight: 10
+        $x_1_4 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DEP_2147945261_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DEP!MTB"
+        threat_id = "2147945261"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "[System.Convert]::FromBase64String($" wide //weight: 10
+        $x_10_3 = "[System.Text.Encoding]::UTF8.GetString(" wide //weight: 10
+        $x_10_4 = "iex $cmd" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

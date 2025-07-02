@@ -7,7 +7,7 @@ rule TrojanSpy_Win32_SilentRoute_A_2147944484_0
         type = "TrojanSpy"
         platform = "Win32: Windows 32-bit platform"
         family = "SilentRoute"
-        severity = "Critical"
+        severity = "Mid"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
