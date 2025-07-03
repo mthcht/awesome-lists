@@ -3901,6 +3901,8 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         $n_600_23 = ".nbsdev.co.uk" wide //weight: -600
         $n_600_24 = "([scriptblock]::Create([Microsoft.Win32.Registry]::GetValue" wide //weight: -600
         $n_600_25 = "PSAppDeployToolkit" wide //weight: -600
+        $n_600_26 = "pwceur.sharepoint.com" wide //weight: -600
+        $n_600_27 = "pwcinternal.com" wide //weight: -600
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -7447,6 +7449,7 @@ rule Trojan_Win32_ClickFix_EEA_2147945362_0
         $x_1_1 = "net.webclient" wide //weight: 1
         $x_100_2 = "5thed.christmas/upDate.ini" wide //weight: 100
         $x_100_3 = "zeda1s.boutique/uPdaTe.ini" wide //weight: 100
+        $x_100_4 = "https://rizukimayamui-portfolio.info" wide //weight: 100
     condition:
         (filesize < 20MB) and
         (
