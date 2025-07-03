@@ -4169,3 +4169,28 @@ rule Trojan_Win32_GuLoader_RAX_2147944869_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RAY_2147945331_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAY!MTB"
+        threat_id = "2147945331"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "demokratiernes\\horograph\\stuporific" ascii //weight: 1
+        $x_1_2 = "%thurst%\\indsmrer\\waldgravine" ascii //weight: 1
+        $x_1_3 = "hygrometers sygesikringerne japanolatry" ascii //weight: 1
+        $x_1_4 = "kampkunsts gambusia sondringerne" ascii //weight: 1
+        $x_1_5 = "alchemister.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

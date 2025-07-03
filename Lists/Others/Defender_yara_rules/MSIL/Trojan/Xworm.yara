@@ -258,3 +258,25 @@ rule Trojan_MSIL_Xworm_PGW_2147945223_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xworm_PGW_2147945223_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PGW!MTB"
+        threat_id = "2147945223"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 1f 16 94 13 23 11 1f 17 94 13 24 02 11 23 11 24 6f ?? 00 00 0a 13 25 0e 0b 2c 39 11 1b 18 31 34}  //weight: 5, accuracy: Low
+        $x_5_2 = {11 27 06 61 06 61 d2 13 27 11 28 16 61 d2 13 28 11 29 06 61 06 61 d2 13 29}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
