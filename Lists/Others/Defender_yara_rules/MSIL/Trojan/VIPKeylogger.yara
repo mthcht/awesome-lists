@@ -145,6 +145,27 @@ rule Trojan_MSIL_VIPKeylogger_ACH_2147943978_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {02 05 0e 04 6f ?? 00 00 0a 0a 06 0e 05 28 ?? 00 00 06 0b 04 03 6f ?? 00 00 0a 59 0c 08 19 32 0a 03 07 0e 05 28 ?? 00 00 06 2a 08 16 31 0a 03 07 08 0e 05 28}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_ACH_2147943978_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.ACH!MTB"
+        threat_id = "2147943978"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
         $x_5_1 = {6c 5b 13 0d 02 11 15 11 17 6f ?? 00 00 0a 13 18 12 18 28 ?? 00 00 0a 16 32 19 12 18 28 ?? 00 00 0a 16 32 0f 12 18 28 ?? 00 00 0a 16 fe 04 16 fe 01 2b 01 16}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and

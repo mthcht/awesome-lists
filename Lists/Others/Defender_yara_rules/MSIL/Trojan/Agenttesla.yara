@@ -478,6 +478,27 @@ rule Trojan_MSIL_Agenttesla_PGA_2147942842_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {02 05 0e 04 6f ?? 00 00 0a 0a 06 0e 05 28 ?? 00 00 06 0b 04 03 6f ?? 00 00 0a 59 0c 08 19 32 0a 03 07 0e 05 28 ?? 00 00 06 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGA_2147942842_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGA!MTB"
+        threat_id = "2147942842"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
         $x_4_1 = {72 01 00 00 70 72 33 00 00 70 28 ?? 00 00 06 72 4d 00 00 70 72 99 00 00 70}  //weight: 4, accuracy: Low
         $x_1_2 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 63 00 69 00 61 00 2e 00 74 00 66 00 2f 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 2e 00}  //weight: 1, accuracy: Low
     condition:
