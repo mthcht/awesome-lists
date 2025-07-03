@@ -226,7 +226,7 @@ rule Backdoor_Win32_IRCbot_A_2147792326_0
         severity = "Critical"
         info = "gen: malware that is detected using a generic signature"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "6"
+        threshold = "7"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "root" ascii //weight: 1
@@ -236,9 +236,10 @@ rule Backdoor_Win32_IRCbot_A_2147792326_0
         $x_1_5 = "%s\\c$\\windows\\system" ascii //weight: 1
         $x_1_6 = "%s\\Admin$\\system" ascii //weight: 1
         $x_1_7 = "%s\\ipc$" ascii //weight: 1
+        $x_1_8 = "PRIVMSG " ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (6 of ($x*))
+        (7 of ($x*))
 }
 
 rule Backdoor_Win32_IRCbot_OE_2147792330_0

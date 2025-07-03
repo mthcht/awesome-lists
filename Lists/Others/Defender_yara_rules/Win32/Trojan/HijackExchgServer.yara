@@ -34,6 +34,7 @@ rule Trojan_Win32_HijackExchgServer_A_2147841738_0
         $n_50_20 = "-tenantid " wide //weight: -50
         $n_50_21 = "-newAlias" wide //weight: -50
         $n_50_22 = "-removeAlias" wide //weight: -50
+        $n_50_23 = "SaviyntApp" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
