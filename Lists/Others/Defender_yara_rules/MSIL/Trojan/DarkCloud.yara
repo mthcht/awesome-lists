@@ -917,3 +917,26 @@ rule Trojan_MSIL_DarkCloud_AIXA_2147944420_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_SKC_2147945411_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.SKC!MTB"
+        threat_id = "2147945411"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {07 08 20 00 96 00 00 16 17 72 7f 00 00 70 22 00 00 80 3f 17 17 72 1d 01 00 70 20 00 01 00 00 16 72 2d 02 00 70 28 07 00 00 06 00 72 05 17 00 70 13 07 11 07 72 21 17 00 70 6f 1d 00 00 0a 13 08 11 08 2c 0e}  //weight: 1, accuracy: High
+        $x_1_2 = "$C8F7E6D5-A4B3-9281-7654-098765432CBA" ascii //weight: 1
+        $x_1_3 = "UPA_HELPER.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -21,3 +21,26 @@ rule Trojan_Linux_GetShell_C_2147899551_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_GetShell_H_2147945395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/GetShell.H!MTB"
+        threat_id = "2147945395"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "GetShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f3 0f 1e fa 31 ed 49 89 d1 5e 48 89 e2 48 83 e4 f0 50 54 45 31 c0 31 c9 48 8d 3d 01 ff ff ff ff 15 b3 2d 00 00 f4}  //weight: 1, accuracy: High
+        $x_1_2 = {80 3d 65 2d 00 00 00 75 2b 55 48 83 3d 42 2d 00 00 00 48 89 e5 74 0c 48 8b 3d 46 2d 00 00 e8 d9 fd ff ff}  //weight: 1, accuracy: High
+        $x_1_3 = {31 f6 89 df e8 3a ff ff ff be 01 00 00 00 89 df e8 2e ff ff ff be 02 00 00 00 89 df e8 22 ff ff ff 48 8d 3d 6b 10 00 00 31 c0 31 d2 48 8d 74 24 08 48 89 7c 24 08 48 89 44 24 10 e8 13 ff ff ff 48 8d 3d 56 10 00 00 e8 d7 fe ff ff 48 8b 44 24 28 64 48 2b 04 25 28 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

@@ -15697,3 +15697,26 @@ rule Trojan_MSIL_FormBook_EGFB_2147945208_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_AMYA_2147945401_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.AMYA!MTB"
+        threat_id = "2147945401"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 2f 6c 02 7b ?? 01 00 04 6f ?? 01 00 0a 02 7b ?? 01 00 04 2f 53 17 8d ?? 00 00 01 25 16 02 7b ?? 01 00 04 03 04 6f ?? 01 00 0a a4 ?? 00 00 01 02 7b ?? 01 00 04 25 2d 16 26 02 02 fe ?? ?? 00 00 06 73 ?? 01 00 0a 25 0a 7d ?? 01 00 04 06 28 ?? 00 00 2b 02 7b ?? 01 00 04 03 04 17 58 6f ?? 01 00 0a 28 ?? 00 00 2b 2a 28 ?? 00 00 2b 2a 02 7b ?? 01 00 04 03 17 58 16 6f ?? 01 00 0a 2a 28 ?? 00 00 2b 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {01 25 16 09 16 18 6f ?? 01 00 0a a2 25 17 72 d4 10 00 70 a2 25 18 11 04 16 18 6f ?? 01 00 0a 6f ?? 01 00 0a a2 25 19 72 d4 10 00 70 a2 25 1a 11 06 2d 07}  //weight: 2, accuracy: Low
+        $x_2_3 = {0a 11 05 61 11 0c 6f ?? 00 00 0a 61 13 0f 1b 8d ?? 00 00 01 25 16 12 0f 72 a6 3a 00 70 28 ?? 01 00 0a a2 25 17 72 aa 3a 00 70 a2 25 18}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

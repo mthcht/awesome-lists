@@ -226,3 +226,34 @@ rule Trojan_MSIL_WebShell_ACH_2147944105_0
         )
 }
 
+rule Trojan_MSIL_WebShell_GVB_2147945398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.GVB!MTB"
+        threat_id = "2147945398"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {28 0f 00 00 06 2c 14 7e 02 00 00 04 72 15 00 00 70 28 2f 00 00 0a 80 02 00 00 04 06 72 1d 00 00 70 7e 02 00 00 04 28 2f 00 00 0a 7d 18 00 00 04 06 fe 06 48 00 00 06 73 30 00 00 0a 28 31 00 00 0a 6f 32 00 00 0a 2a}  //weight: 5, accuracy: High
+        $x_2_2 = "powershell" wide //weight: 2
+        $x_2_3 = "RunAs" wide //weight: 2
+        $x_1_4 = "/restart" wide //weight: 1
+        $x_1_5 = "/suicide" wide //weight: 1
+        $x_1_6 = "/startup" wide //weight: 1
+        $x_1_7 = "/delstartup" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -3956,30 +3956,6 @@ rule Trojan_Win32_OffLoader_ANA_2147939889_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_ANB_2147940150_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANB!MTB"
-        threat_id = "2147940150"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "frogtruck.xyz/mee.php?" wide //weight: 3
-        $x_3_2 = "quincestreet.icu/mees.php?" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_OffLoader_GPPD_2147940234_0
 {
     meta:
@@ -3997,54 +3973,6 @@ rule Trojan_Win32_OffLoader_GPPD_2147940234_0
     strings:
         $x_5_1 = "auntberry.xyz/pe/start/index.php" ascii //weight: 5
         $x_2_2 = "/VERYSILENT" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_ANC_2147940397_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANC!MTB"
-        threat_id = "2147940397"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "creatoreggs.icu/oiu.php?" wide //weight: 3
-        $x_3_2 = "buttonsize.xyz/oius.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AND_2147940596_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AND!MTB"
-        threat_id = "2147940596"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "teethelbow.icu/tri.php?pe" wide //weight: 3
-        $x_3_2 = "ministerkiss.xyz/tris.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -4095,30 +4023,6 @@ rule Trojan_Win32_OffLoader_AXSA_2147940762_0
         $x_1_3 = "/weaksecurity" ascii //weight: 1
         $x_1_4 = "/nocookies" ascii //weight: 1
         $x_1_5 = "/resume" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_ANE_2147940910_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANE!MTB"
-        threat_id = "2147940910"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "cakestoothbrush.icu/lui.php?pe" wide //weight: 3
-        $x_3_2 = "sodabedroom.xyz/luis.php" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -4284,30 +4188,6 @@ rule Trojan_Win32_OffLoader_AMUA_2147941782_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_ANF_2147942618_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANF!MTB"
-        threat_id = "2147942618"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "daughtercemetery.xyz/par.php?pe" wide //weight: 3
-        $x_3_2 = "committeedinner.icu/pars.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_OffLoader_ZBT_2147942851_0
 {
     meta:
@@ -4333,150 +4213,6 @@ rule Trojan_Win32_OffLoader_ZBT_2147942851_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_ANG_2147943163_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANG!MTB"
-        threat_id = "2147943163"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "stoveweather.info/too.php?pe" wide //weight: 3
-        $x_3_2 = "yarncontool.icu/toos.php?" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AG_2147943736_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AG!MTB"
-        threat_id = "2147943736"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "airplanemove.info/yut.php?pe" wide //weight: 3
-        $x_3_2 = "producesound.xyz/yuts.php?" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AI_2147943980_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AI!MTB"
-        threat_id = "2147943980"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "memoryneck.info/goo.php?pe" wide //weight: 3
-        $x_3_2 = "volleyballsong.xyz/goos.php" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AJ_2147944233_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AJ!MTB"
-        threat_id = "2147944233"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "railwaytime.xyz/slfs.php" wide //weight: 3
-        $x_3_2 = "laughincome.icu/slf.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AK_2147944370_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AK!MTB"
-        threat_id = "2147944370"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "biketoes.xyz/slf.php?pe" wide //weight: 3
-        $x_3_2 = "smellstamp.icu/slfs.php" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AL_2147944714_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AL!MTB"
-        threat_id = "2147944714"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "eventauthority.info/kkk.php?pe" wide //weight: 3
-        $x_3_2 = "quincepart.icu/kkks.php?" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_OffLoader_AH_2147945057_0
 {
     meta:
@@ -4494,11 +4230,37 @@ rule Trojan_Win32_OffLoader_AH_2147945057_0
     strings:
         $x_3_1 = "seabusiness.xyz/fkis.php" wide //weight: 3
         $x_3_2 = "sonplane.info/fki.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
+        $x_3_3 = "cakestoothbrush.icu/lui.php?pe" wide //weight: 3
+        $x_3_4 = "sodabedroom.xyz/luis.php" wide //weight: 3
+        $x_3_5 = "teethelbow.icu/tri.php?pe" wide //weight: 3
+        $x_3_6 = "ministerkiss.xyz/tris.php?pe" wide //weight: 3
+        $x_3_7 = "frogtruck.xyz/mee.php?" wide //weight: 3
+        $x_3_8 = "quincestreet.icu/mees.php?" wide //weight: 3
+        $x_3_9 = "creatoreggs.icu/oiu.php?" wide //weight: 3
+        $x_3_10 = "buttonsize.xyz/oius.php?pe" wide //weight: 3
+        $x_3_11 = "eventauthority.info/kkk.php?pe" wide //weight: 3
+        $x_3_12 = "quincepart.icu/kkks.php?" wide //weight: 3
+        $x_3_13 = "biketoes.xyz/slf.php?pe" wide //weight: 3
+        $x_3_14 = "smellstamp.icu/slfs.php" wide //weight: 3
+        $x_3_15 = "railwaytime.xyz/slfs.php" wide //weight: 3
+        $x_3_16 = "laughincome.icu/slf.php?pe" wide //weight: 3
+        $x_3_17 = "memoryneck.info/goo.php?pe" wide //weight: 3
+        $x_3_18 = "volleyballsong.xyz/goos.php" wide //weight: 3
+        $x_3_19 = "airplanemove.info/yut.php?pe" wide //weight: 3
+        $x_3_20 = "producesound.xyz/yuts.php?" wide //weight: 3
+        $x_3_21 = "stoveweather.info/too.php?pe" wide //weight: 3
+        $x_3_22 = "yarncontool.icu/toos.php?" wide //weight: 3
+        $x_3_23 = "daughtercemetery.xyz/par.php?pe" wide //weight: 3
+        $x_3_24 = "committeedinner.icu/pars.php?pe" wide //weight: 3
+        $x_1_25 = "nocookies" wide //weight: 1
+        $x_1_26 = "Do you want to reboot now?" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_3_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_3_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_OffLoader_SPV_2147945075_0

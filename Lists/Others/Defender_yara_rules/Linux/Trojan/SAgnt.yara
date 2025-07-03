@@ -525,3 +525,25 @@ rule Trojan_Linux_SAgnt_Y_2147943677_0
         (2 of ($x*))
 }
 
+rule Trojan_Linux_SAgnt_AC_2147945380_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SAgnt.AC!MTB"
+        threat_id = "2147945380"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {01 00 3f 89 01 00 ff 38 00 00 09 2c 14 01 82 40 78 53 43 7d 45 8d 00 48 00 00 00 60 e8 00 61 e8 f1 fe ff 4b 00 00 00 60 78 00 41 e9 80 00 21 e9 00 48 2a 7c 20 00 82 40 88 00 41 e9 90 00 21 e9 00 48 2a 7c 10 00 82 40 d8 00 21 e9 00 00 29 2c}  //weight: 1, accuracy: High
+        $x_1_2 = {b4 07 fb 7f d2 c1 7b 7f 10 00 5b 39 40 48 2a 7c cc 04 81 40 f9 ff 5c 39 00 00 80 3a 1f 00 0a 28 54 00 81 41 b4 07 4a 7d 14 52 5d 7d 50 03 0a 89 70 03 2a 89 00 00 08 2c 3e 06 34 55 3e 06 27 55 63 00 94 22 e0 0f 94 7a 2c 00 82 41 00 00 00 60 00 89 c2 88 50 30 08 7d 09 00 08 2c 18 00 81 41 62 00 07 28 01 00 29 39 08 00 81 40 96 ff 20 39}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
