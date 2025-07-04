@@ -170,3 +170,24 @@ rule Trojan_MSIL_ShellCodeRunner_GA_2147924833_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellCodeRunner_GAF_2147945454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellCodeRunner.GAF!MTB"
+        threat_id = "2147945454"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2f 00 4f 00 69 00 50 00 41 00 41 00 41 00 41 00 59 00 44 00 48 00 53 00 69 00 65 00 56 00 6b 00 69 00 31 00 49 00 3d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

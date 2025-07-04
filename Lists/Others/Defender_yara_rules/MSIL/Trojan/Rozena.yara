@@ -2663,3 +2663,24 @@ rule Trojan_MSIL_Rozena_EAJ_2147941306_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_GAF_2147945455_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GAF!MTB"
+        threat_id = "2147945455"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {08 61 d2 13 0a 11 0a 18 59 20 ff 00 00 00 5f d2 13 0a 07 11 09 11 0a 9c 11 09 17 58}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
