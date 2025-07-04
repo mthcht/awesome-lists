@@ -1904,3 +1904,26 @@ rule Trojan_Win64_Zusy_NS_2147944940_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_MR_2147945445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MR!MTB"
+        threat_id = "2147945445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {30 01 48 8d 49 01 ff c0 3b c7 7c}  //weight: 10, accuracy: High
+        $x_30_2 = {44 8b c0 b8 4f ec c4 4e 41 f7 e8 c1 fa 03 8b ca c1 e9 1f 03 d1 6b ca 1a 44 2b c1 49 63 c0 0f b6 04 38 88 44 1c 30 48 ff c3 48 83 fb 08}  //weight: 30, accuracy: High
+        $x_10_3 = "EyeLoveMyMuteX" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

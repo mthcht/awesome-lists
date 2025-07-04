@@ -571,3 +571,32 @@ rule Trojan_Win64_Dacic_SEC_2147942173_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_C_2147945427_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.C!MTB"
+        threat_id = "2147945427"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "app_bound_encrypted_key" ascii //weight: 2
+        $x_2_2 = "chrome_appbound_key.txt" ascii //weight: 2
+        $x_2_3 = "SELECT host_key, name, encrypted_value FROM cookies;" ascii //weight: 2
+        $x_2_4 = "SELECT origin_url, username_value, password_value FROM logins;" ascii //weight: 2
+        $x_2_5 = "SELECT guid, name_on_card, expiration_month, expiration_year, card_number_encrypted FROM credit_cards;" ascii //weight: 2
+        $x_1_6 = "ReflectiveLoader" ascii //weight: 1
+        $x_1_7 = "User Data" ascii //weight: 1
+        $x_1_8 = "Login Data" ascii //weight: 1
+        $x_1_9 = "chrome_decrypt.log" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

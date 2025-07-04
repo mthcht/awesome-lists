@@ -7550,7 +7550,92 @@ rule Trojan_Win32_ClickFix_DEY_2147945366_0
         $x_100_1 = "msiexec" wide //weight: 100
         $x_10_2 = "/norestart" wide //weight: 10
         $x_10_3 = "/package" wide //weight: 10
-        $x_1_4 = ".msi" wide //weight: 1
+        $x_10_4 = "/passive" wide //weight: 10
+        $x_1_5 = ".msi" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 3 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DEW_2147945450_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DEW!MTB"
+        threat_id = "2147945450"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "=$env:TEMP+" wide //weight: 100
+        $x_10_2 = "[guid]::NewGuid()" wide //weight: 10
+        $x_10_3 = "[io.file]::WriteAllBytes($" wide //weight: 10
+        $x_1_4 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DFA_2147945451_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DFA!MTB"
+        threat_id = "2147945451"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "net.webclient" wide //weight: 1
+        $x_100_2 = "5thed.christmas/upDate.iso" wide //weight: 100
+        $x_100_3 = "zeda1s.boutique/uPdaTe.iso" wide //weight: 100
+        $x_100_4 = "https://danili-myhomework.info" wide //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DFC_2147945452_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DFC!MTB"
+        threat_id = "2147945452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "='ie'+$" wide //weight: 10
+        $x_10_3 = "='ir'+$" wide //weight: 10
+        $x_10_4 = "];&$" wide //weight: 10
     condition:
         (filesize < 20MB) and
         (all of ($x*))
