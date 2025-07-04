@@ -331,11 +331,14 @@ rule Trojan_Win64_Stealer_NK_2147945420_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
+        threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_3_1 = {48 8b 44 24 ?? 48 89 84 24 ?? 00 00 00 48 8b 8c 24 ?? 00 00 00 e8 3b 05 00 00 48 89 84 24 ?? 00 00 00 48 8b 8c 24 ?? 00 00 00 e8 56 f6 ff ff 88 44 24 2f eb 00}  //weight: 3, accuracy: Low
-        $x_1_2 = {48 8d 8c 24 ?? 00 00 00 e8 e8 04 00 00 48 8d 8c 24 ?? 00 00 00 e8 db 04 00 00 48 8d 8c 24 ?? 00 00 00 e8 ce 04 00 00 e9 e3 01 00 00}  //weight: 1, accuracy: Low
+        $x_2_1 = {48 8b 44 24 ?? 48 89 84 24 ?? 00 00 00 48 8b 8c 24 ?? 00 00 00 e8 ?? ?? 00 00 48 89 84 24 ?? 00 00 00 48 8b 8c 24 ?? 00 00 00 e8}  //weight: 2, accuracy: Low
+        $x_1_2 = {48 8d 8c 24 ?? 00 00 00 e8 ?? ?? 00 00 48 8d 8c 24 ?? 00 00 00 e8 ?? ?? 00 00 48 8d 8c 24 ?? 00 00 00 e8 ?? ?? 00 00 e9 e3 01 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "Telegram Desktop" ascii //weight: 1
+        $x_1_4 = "Roaming" ascii //weight: 1
+        $x_1_5 = "USERPROFILE" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
