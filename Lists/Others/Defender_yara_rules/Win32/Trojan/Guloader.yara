@@ -5690,3 +5690,27 @@ rule Trojan_Win32_Guloader_SLTI_2147944920_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SLHE_2147945502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SLHE!MTB"
+        threat_id = "2147945502"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Typicon\\Kuomintang" ascii //weight: 2
+        $x_2_2 = "Spildevandscirkulres25.gen" ascii //weight: 2
+        $x_2_3 = "trafikelever.ini" ascii //weight: 2
+        $x_2_4 = "\\subsystems\\reconciliability.htm" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

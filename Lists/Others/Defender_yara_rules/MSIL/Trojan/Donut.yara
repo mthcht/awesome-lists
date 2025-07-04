@@ -191,3 +191,24 @@ rule Trojan_MSIL_Donut_MKV_2147941401_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Donut_SLG_2147941585_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Donut.SLG!MTB"
+        threat_id = "2147941585"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {16 02 8e 69 7e 05 00 00 04 7e 08 00 00 04 6f ?? 00 00 06 13 0c 72 ?? 05 1a 70 13 04 00 11 04}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
