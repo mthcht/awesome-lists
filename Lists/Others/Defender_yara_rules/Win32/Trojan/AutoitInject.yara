@@ -5375,3 +5375,25 @@ rule Trojan_Win32_AutoitInject_ACYA_2147945143_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_AQYA_2147945484_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.AQYA!MTB"
+        threat_id = "2147945484"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "%50%6f%77%65%72%53%68%65%6c%6c%20%2d%57%69%6e%64%6f%77%53%74%79%6c%65%20%48%69%64%64%65%6e%20%24%64%3d%24%65%6e%76%3a%" ascii //weight: 2
+        $x_4_2 = "%68%74%74%70%3a%2f%2f%31%37%36%2e%34%36%2e%31%35%37%2e%33%32%2f%74%65%73%74%6d%69%6e%65%2f%72%61%6e%64%6f%6d%2e%65%78%65%" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
