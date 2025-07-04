@@ -3,7 +3,7 @@ blackarch,default hostname blackarch live cd,https://blackarch.org/blackarch-ins
 RULER,CreateStringPayload with static hostname 'RULER' showing in logs,https://github.com/sensepost/ruler/issues/47#issuecomment-320162718,critical,Detection,DHCP - Successful Authentication
 kali*,kali linux offensive distribution,https://www.kali.org/,high,Detection,DHCP - Successful Authentication
 parrot*,offensive distribution,https://www.parrotsec.org/,high,Detection,DHCP - Successful Authentication
-localhost*,offensive distribution,https://www.parrotsec.org/,high,Detection,DHCP - Successful Authentication
+localhost*,offensive distribution,https://www.parrotsec.org/,high,Hunting,DHCP - Successful Authentication
 *ArchStrike*,archstrike offensive distribution,https://archstrike.org/,high,Detection,DHCP - Successful Authentication
 tails,OS distribution including offensive tools and TOR,https://tails.net/install,high,Detection,DHCP - Successful Authentication
 amnesia,OS distribution including offensive tools and TOR,https://tails.net/install,high,Detection,DHCP - Successful Authentication
