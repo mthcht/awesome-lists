@@ -218,3 +218,27 @@ rule Trojan_Win64_DriverLoader_SAO_2147934648_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DriverLoader_NR_2147945553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DriverLoader.NR!MTB"
+        threat_id = "2147945553"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DriverLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {88 54 24 10 88 4c 24 08 48 83 ec ?? 0f b6 05 5d b0 06 00 85 c0 74 0d}  //weight: 2, accuracy: Low
+        $x_1_2 = "MyWFHack\\CryKiller\\NEW BYPASS\\w1nner" ascii //weight: 1
+        $x_1_3 = "limited\\x64\\Release\\w1nner.pdb" ascii //weight: 1
+        $x_1_4 = "hide" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3493,3 +3493,27 @@ rule Trojan_MSIL_Zusy_AI_2147945014_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_GAF_2147945554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.GAF!MTB"
+        threat_id = "2147945554"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "MTg4LjIxNC4xMDcuMjA=" ascii //weight: 2
+        $x_1_2 = "R2xvYmFsXFxXaW5FeHBsb3JlclN5bmM=" ascii //weight: 1
+        $x_1_3 = "U29mdHdhcmVcXE1pY3Jvc29mdFxcV2luZG93c1xcQ3VycmVudFZlcnNpb25cXFJ1bg==" ascii //weight: 1
+        $x_1_4 = "RXhwbG9yZXJTZXJ2aWNl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

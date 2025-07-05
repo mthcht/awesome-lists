@@ -1,12 +1,12 @@
-rule Ransom_Win64_Crypticware_PA_2147945540_0
+rule Ransom_Win64_MadiLockCrypt_PA_2147945552_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win64/Crypticware.PA!MTB"
-        threat_id = "2147945540"
+        detection_name = "Ransom:Win64/MadiLockCrypt.PA!MTB"
+        threat_id = "2147945552"
         type = "Ransom"
         platform = "Win64: Windows 64-bit platform"
-        family = "Crypticware"
+        family = "MadiLockCrypt"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
