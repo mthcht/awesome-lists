@@ -15720,3 +15720,25 @@ rule Trojan_MSIL_FormBook_AMYA_2147945401_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_ACH_2147945515_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.ACH!MTB"
+        threat_id = "2147945515"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {05 07 0e 06 23 00 00 00 00 00 00 ?? ?? 19 28 ?? 00 00 06 0c 02 05 07 6f ?? 00 00 0a 0d 03 04 09 08 06 05 07}  //weight: 3, accuracy: Low
+        $x_2_2 = {0a 0f 02 28 ?? 00 00 0a 0b 0f 02 28 ?? 00 00 0a 0c 06 07 08 05}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

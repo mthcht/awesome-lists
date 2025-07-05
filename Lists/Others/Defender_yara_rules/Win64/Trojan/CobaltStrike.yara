@@ -17080,3 +17080,49 @@ rule Trojan_Win64_CobaltStrike_JHG_2147945074_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_HAZ_2147945516_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.HAZ!MTB"
+        threat_id = "2147945516"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 c9 41 b9 40 00 00 00 41 b8 00 30 00 00 41 ff d6 48 8b f0}  //weight: 5, accuracy: High
+        $x_4_2 = {8b d0 ff c0 0f b6 0c 17 88 0c 16 41 3b 44 24 ?? 72}  //weight: 4, accuracy: Low
+        $x_1_3 = "ReflectiveLoader" ascii //weight: 1
+        $x_1_4 = "SELECT host_key, name, encrypted_value FROM cookies;" ascii //weight: 1
+        $x_1_5 = "chrome_decrypt.log" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_HMZ_2147945517_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.HMZ!MTB"
+        threat_id = "2147945517"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 98 0f b6 44 05 b0 83 f0 0a 8b 95 4c 03 00 00 48 63 d2 88 44 15 b0 83 85 4c 03 00 00 01 8b 85 4c 03 00 00 3b 85 ?? 03 00 00 7c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

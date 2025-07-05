@@ -255,3 +255,25 @@ rule Trojan_Win32_XWorm_HA_2147942491_0
         )
 }
 
+rule Trojan_Win32_XWorm_GZQ_2147945528_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.GZQ!MTB"
+        threat_id = "2147945528"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {c6 85 ac fe ff ff 4c c6 85 ad fe ff ff 6f c6 85 ae fe ff ff 61 c6 85 af fe ff ff 64 c6 85 b0 fe ff ff 4c c6 85 b1 fe ff ff 69 c6 85 b2 fe ff ff 62 c6 85 b3 fe ff ff 72 c6 85 b4 fe ff ff 61 c6 85 b5 fe ff ff 72 c6 85 b6 fe ff ff 79 c6 85 b7 fe ff ff 57}  //weight: 5, accuracy: High
+        $x_5_2 = {5a b8 6b 00 00 00 66 89 85 50 fd ff ff b9 65 00 00 00 66 89 8d 52 fd ff ff ba 72 00 00 00 66 89 95 54 fd ff ff b8 6e 00 00 00 66 89 85 56 fd ff ff b9 65 00 00 00 66 89 8d 58 fd ff ff ba 6c 00 00 00 66 89 95 5a fd ff ff b8 33 00 00 00 66 89 85 5c fd ff ff b9 32 00 00 00 66 89 8d 5e fd ff ff ba 2e 00 00 00 66 89 95 60 fd ff ff b8 64 00 00 00 66 89 85 62 fd ff ff b9 6c 00 00 00 66 89 8d 64 fd ff ff ba 6c 00 00 00 66 89 95 66 fd ff ff 33 c0 66 89 85 68 fd ff ff c7 85}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

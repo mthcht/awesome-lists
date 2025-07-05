@@ -2942,3 +2942,26 @@ rule Trojan_Win64_Lazy_AS_2147945006_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_GZP_2147945542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GZP!MTB"
+        threat_id = "2147945542"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {80 74 24 21 35 80 74 24 22 36 80 74 24 23 37 80 74 24 24 38 80 74 24 25 39 80 74 24 26 3a 80 74 24 27 3b 66 89 4c 24 28 80 f1 3c 80 74 24 29 3d 34 3e c6 44 24 20 6c 88 44 24 2a 48 8d 44 24 20 88 4c 24 28 0f 1f 44 00 00 49 ff c0 42 80 3c 00 00}  //weight: 10, accuracy: High
+        $x_10_2 = {80 74 24 21 36 80 74 24 22 37 80 74 24 23 38 80 74 24 24 39 80 74 24 25 3a 80 74 24 26 3b 80 74 24 27 3c 66 89 4c 24 28 80 f1 3d 80 74 24 29 3e 34 3f c6 44 24 20 6c 88 44 24 2a 48 8d 44 24 20 88 4c 24 28 0f 1f 44 00 00 49 ff c0 42 80 3c 00 00}  //weight: 10, accuracy: High
+        $x_10_3 = {80 74 24 21 39 80 74 24 22 3a 80 74 24 23 3b 80 74 24 24 3c 80 74 24 25 3d 80 74 24 26 3e 80 74 24 27 3f 66 89 4c 24 28 80 f1 40 80 74 24 29 41 34 42 c6 44 24 20 6c 88 44 24 2a 48 8d 44 24 20 88 4c 24 28 0f 1f 44 00 00 49 ff c0 42 80 3c 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

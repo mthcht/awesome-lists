@@ -596,3 +596,27 @@ rule Trojan_Win32_Upatre_BAA_2147935614_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Upatre_MR_2147945547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.MR!MTB"
+        threat_id = "2147945547"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 44 24 10 8b 14 ?? ?? 30 40 00 29 c0 57 59 40 c1 e9 02 3b c8 76}  //weight: 20, accuracy: Low
+        $x_10_2 = {83 4c 24 10 ff c7 44 24 34 18 21 40 00 c7 44 24 38 28 21 40 00 89 74 24 3c 89 74 24 20 89 74 24 14}  //weight: 10, accuracy: High
+        $x_1_3 = {32 1d 32 25 32 4a 32 5a 32 6a 32}  //weight: 1, accuracy: High
+        $x_1_4 = "C:\\TEMP\\gffos.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

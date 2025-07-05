@@ -3955,3 +3955,29 @@ rule Trojan_MSIL_ClipBanker_PLZ_2147944893_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_GAF_2147945544_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.GAF!MTB"
+        threat_id = "2147945544"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "tethersol" ascii //weight: 2
+        $x_1_2 = "ProcessClipboardContent" ascii //weight: 1
+        $x_1_3 = "ClipboardListener" ascii //weight: 1
+        $x_1_4 = "^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$" ascii //weight: 1
+        $x_1_5 = "^(?:[LM3][a-km-zA-HJ-NP-Z1-9]{26,33})$" ascii //weight: 1
+        $x_1_6 = "(?:^0x[a-fA-F0-9]{40}$)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
