@@ -4152,10 +4152,11 @@ rule Trojan_Win32_OffLoader_AZTA_2147941476_0
         $x_10_8 = "://eventauthority.info/kkk.php?" ascii //weight: 10
         $x_10_9 = "://yearducks.info/yyy.php?" ascii //weight: 10
         $x_10_10 = "://creampump.info/bno.php?" ascii //weight: 10
-        $x_1_11 = "/silent" ascii //weight: 1
-        $x_1_12 = "/weaksecurity" ascii //weight: 1
-        $x_1_13 = "/nocookies" ascii //weight: 1
-        $x_1_14 = "/resume" ascii //weight: 1
+        $x_10_11 = "://nutkittens.info/kul.php?" ascii //weight: 10
+        $x_1_12 = "/silent" ascii //weight: 1
+        $x_1_13 = "/weaksecurity" ascii //weight: 1
+        $x_1_14 = "/nocookies" ascii //weight: 1
+        $x_1_15 = "/resume" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (

@@ -6695,6 +6695,27 @@ rule Trojan_Win32_LummaStealer_PGLS_2147944621_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 c7 f7 75 ?? 8b 45 ?? 8a 04 02 32 c1 8b 4d ?? 32 01 8b 4d ?? 88 04 31 46 81 fb ?? ?? ?? ?? 0f 82}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_PGLS_2147944621_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.PGLS!MTB"
+        threat_id = "2147944621"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "Low"
     strings:

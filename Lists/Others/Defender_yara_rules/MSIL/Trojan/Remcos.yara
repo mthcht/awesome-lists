@@ -13612,3 +13612,24 @@ rule Trojan_MSIL_Remcos_ATXA_2147944786_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_ATYA_2147945574_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.ATYA!MTB"
+        threat_id = "2147945574"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 25 26 0a 28 ?? 00 00 06 0b 00 07 03 28 ?? 00 00 06 00 07 04 28 ?? ?? 00 06 00 07 1f 18 28 ?? 00 00 06 28 ?? ?? 00 06 00 07 1f 1c 28 ?? 00 00 06 28 ?? 00 00 06 00 28 ?? 00 00 06 0c 08 07 28 ?? 00 00 06 1f 20 28 ?? 00 00 06 28 ?? 00 00 06 25 26 0d 00 09 06 1f 24 28 ?? 00 00 06 06 8e 69 28 ?? ?? 00 06 00 09 28 ?? 00 00 06 00 08 28 ?? ?? 00 06 25 26 13 04 de 45}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
