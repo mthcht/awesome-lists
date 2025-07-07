@@ -3,6 +3,7 @@ import subprocess
 import os
 import json
 import requests
+import time
 
 # Paths to the CSV files
 latest_csv_file_path = 'latest_bad_asn_phishing_list.csv'
@@ -83,13 +84,44 @@ subprocess.run(command, shell=True)
 
 print(f"Command executed: {command}")
 
-# Move all output CSVs into subfolder
+
+# Construct the command
+command = f'python {script_path} -list {as_numbers_str} -format csv'
+
+# Execute the command
+subprocess.run(command, shell=True, check=True)
+
+# Wait for sentinel log file to confirm completion
+sentinel_file = 'ASN_FETCH_DONE.log'
+timeout_seconds = 1000
+poll_interval = 6
+elapsed = 0
+
+while not os.path.exists(sentinel_file):
+    if elapsed >= timeout_seconds:
+        raise TimeoutError(f"Timeout: {sentinel_file} not found after {timeout_seconds} seconds")
+    print(f"Waiting for {sentinel_file}... ({elapsed}s)")
+    time.sleep(poll_interval)
+    elapsed += poll_interval
+
+# Move output CSVs to subfolder
 output_folder = 'ASN_IP_Ranges'
 os.makedirs(output_folder, exist_ok=True)
 
+# Empty the output folder before new files are moved
+for file in os.listdir(output_folder):
+    file_path = os.path.join(output_folder, file)
+    if os.path.isfile(file_path):
+        os.remove(file_path)
+
+moved = 0
 for file in os.listdir('.'):
     if file.startswith('AS') and file.endswith('_IP_Ranges.csv'):
         os.rename(file, os.path.join(output_folder, file))
+        moved += 1
 
-print(f"Command executed: {command}")
-print(f"Moved output CSVs to {output_folder}/")
+# Cleanup the sentinel file
+os.remove(sentinel_file)
+
+print(f"Moved {moved} CSV files to {output_folder}/ after confirming completion.")
+
