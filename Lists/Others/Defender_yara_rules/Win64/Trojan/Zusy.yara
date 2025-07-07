@@ -1927,3 +1927,24 @@ rule Trojan_Win64_Zusy_MR_2147945445_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_HMZ_2147945594_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.HMZ!MTB"
+        threat_id = "2147945594"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {01 c1 0f b6 c1 8a 84 04 ?? ?? ?? ?? 48 63 8c 24 84 00 00 00 48 8b 54 24 48 30 04 0a 8b 84 24 84 00 00 00 83 c0 01 89 44 24 70 8b 05 ?? ?? ?? ?? 8d 48 ff 0f af c8 f6 c1 01 b8 17 f9 ce f2 b9 47 a4 cc 08 0f 44 c1 83 3d a6 5a 09 00 0a 0f 4c c1 44 8b 74 24 44 4d 89 ef e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

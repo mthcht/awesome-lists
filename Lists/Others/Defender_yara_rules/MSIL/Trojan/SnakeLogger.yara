@@ -1108,3 +1108,25 @@ rule Trojan_MSIL_SnakeLogger_ACH_2147945419_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeLogger_AVYA_2147945592_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeLogger.AVYA!MTB"
+        threat_id = "2147945592"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 03 04 6f ?? 00 00 0a 0a 12 01 fe ?? ?? 00 00 02 12 01 12 00 28 ?? 00 00 0a 7d ?? 01 00 04 12 01 12 00 28 ?? 00 00 0a 7d ?? 01 00 04 12 01 12 00 28 ?? 00 00 0a 7d ?? 01 00 04 12 01 07 7b ?? 01 00 04 07 7b ?? 01 00 04 5a 07 7b ?? 01 00 04 07 7b ?? 01 00 04 5a 58 07 7b ?? 01 00 04 07 7b ?? 01 00 04 5a 58 6c}  //weight: 5, accuracy: Low
+        $x_2_2 = {04 6c 11 05 5a 13 06 07 11 06 58 0b 2b 24 02 7b ?? 01 00 04 6c 11 05 5a 13 06 08 11 06 58 0c 2b 11 02 7b ?? 01 00 04 6c 11 05 5a 13 06 09 11 06 58 0d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

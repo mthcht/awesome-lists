@@ -507,3 +507,24 @@ rule Trojan_MSIL_PureCrypter_ZNV_2147944768_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureCrypter_BAA_2147945618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.BAA!MTB"
+        threat_id = "2147945618"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 01 38 1e 00 00 00 11 01 16 ?? ?? 00 00 0a 13 02 38 00 00 00 00 11 00 16 73 15 00 00 0a 13 03 38 11 00 00 00 11 00 11 01 16 1a ?? ?? 00 00 0a 26 38 d1 ff ff ff 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
