@@ -82,3 +82,14 @@ command = f'python {script_path} -list {as_numbers_str} -format csv'
 subprocess.run(command, shell=True)
 
 print(f"Command executed: {command}")
+
+# Move all output CSVs into subfolder
+output_folder = 'ASN_IP_Ranges'
+os.makedirs(output_folder, exist_ok=True)
+
+for file in os.listdir('.'):
+    if file.startswith('AS') and file.endswith('_IP_Ranges.csv'):
+        os.rename(file, os.path.join(output_folder, file))
+
+print(f"Command executed: {command}")
+print(f"Moved output CSVs to {output_folder}/")
