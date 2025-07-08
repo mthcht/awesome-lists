@@ -87,8 +87,10 @@ rule HackTool_Linux_Chisel_B_2147945396_0
         $x_1_2 = "jpillora/chisel/share/tunnel.NewProxy" ascii //weight: 1
         $x_1_3 = "chisel-masterwoserver/main.go" ascii //weight: 1
         $x_1_4 = "chisel/share/tunnel.listenUDP" ascii //weight: 1
+        $n_2_5 = "github.com/portainer/agent/" ascii //weight: -2
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (3 of ($x*))
 }
 
