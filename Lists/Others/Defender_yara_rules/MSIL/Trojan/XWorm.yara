@@ -1519,6 +1519,30 @@ rule Trojan_MSIL_XWorm_NIT_2147935436_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_NIT_2147935436_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.NIT!MTB"
+        threat_id = "2147935436"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {73 35 00 00 0a 13 06 11 06 17 6f ?? 00 00 0a 11 06 1b 8d 35 00 00 01 13 0a 11 0a 16 72 ?? 01 00 70 a2 11 0a 17 7e 0f 00 00 04 28 37 00 00 0a a2 11 0a 18 72 ?? 01 00 70 a2 11 0a 19 07 a2 11 0a 1a 72 ?? 01 00 70 a2 11 0a 28 38 00 00 0a 6f ?? 00 00 0a 11 06 28 3a 00 00 0a 13 05 11 05 6f ?? 00 00 0a de 0f}  //weight: 2, accuracy: Low
+        $x_2_2 = {0a de 00 72 ?? 01 00 70 28 ?? 00 00 0a 72 ?? 01 00 70 7e 0f 00 00 04 28 ?? 00 00 0a 28 ?? 00 00 0a 13 08 28 ?? 00 00 06 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 01 00 70 17 6f ?? 00 00 0a 7e 0f 00 00 04 28 ?? 00 00 0a 11 08 6f ?? 00 00 0a 7e 0f 00 00 04 11 08 28 ?? 00 00 0a de 0f}  //weight: 2, accuracy: Low
+        $x_1_3 = "schtasks.exe" wide //weight: 1
+        $x_1_4 = "AntivirusProduct" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_DB_2147935494_0
 {
     meta:

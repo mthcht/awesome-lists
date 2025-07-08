@@ -609,3 +609,29 @@ rule Trojan_Win64_Convagent_NL_2147944294_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_NR_2147945688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.NR!MTB"
+        threat_id = "2147945688"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 c7 85 b8 00 00 00 1f 00 00 00 0f 10 05 a3 bf 02 00 0f 11 00 f2 0f 10 05 a8 bf 02 00 f2 0f 11 40 10 0f b7 0d a4 bf 02 00 66 89 48 18 0f b6 0d 9b bf 02 00 88 48 1a c6 40 1b 00 80 3d 33 2c 04 00 00 0f 84 93 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = "WriteProcessMemory of DLL path to remote address" ascii //weight: 1
+        $x_1_3 = "DLL injected" ascii //weight: 1
+        $x_1_4 = "DLL decryption tasks to complete" ascii //weight: 1
+        $x_1_5 = "chrome_inject.exe" wide //weight: 1
+        $x_1_6 = "chrome_decrypt.dll" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
