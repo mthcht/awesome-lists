@@ -1,0 +1,97 @@
+name: Upload Detection Lists to Existing Release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  zip-and-upload:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Prepare Folder
+        run: mkdir -p detection_lists
+
+      - name: Copy Local Files
+        run: |
+          LOCAL_FILES=(
+            "Lists/TOR/TOR_nodes_list.csv"
+            "Lists/TOR/only_tor_exit_nodes_IP_list.csv"
+            "Lists/TOR/only_tor_guard_nodes_IP_list.csv"
+            "Lists/Ranges_IP_Address_Company_List/Github/github_ip_ranges.csv"
+            "Lists/ASNs/_ALL_BAD_ASN_IP_Ranges_List.csv"
+            "Lists/Domains/sinkholed_servers/sinkholed_domains.csv"
+            "Lists/Others/sinkhole_ns_list.csv"
+            "Lists/Drivers/loldrivers_only_hashes_list.csv"
+            "Lists/IP/Threatfox/threatfox_ip_ports_list.csv"
+            "Lists/Phishing/redflag_domains/red_flag_domains.csv"
+            "Lists/Phishing/phishing_army/phishing_army_domains_list.csv"
+            "Lists/Phishing/phishing-db/phish_co_za_domains_list.csv"
+            "Lists/Phishing/openphish/openphish_url_list.csv"
+            "Lists/Others/top_port_list.csv"
+            "Lists/SSL CERTS/ssl_certificates_malicious_list.csv"
+            "Lists/TLDs/latest_bad_tlds_phishing_cybercrimeinfocenter_list.csv"
+            "Lists/Phishing/DNSTWIST/get_dnstwist.py"
+            "Lists/permissions/AD/windows_sensitives_ad_groups_list.csv"
+            "Lists/permissions/AWS/aws_roles_list.csv"
+            "Lists/permissions/EntraID/entraid_roles_list.csv"
+            "Lists/permissions/Microsoft Graph/microsoft_graph_permissions.csv"
+            "Lists/dns_over_https_servers_list.csv"
+            "Lists/microsoft_apps_list.csv"
+            "Lists/ransomware_extensions_list.csv"
+            "Lists/ransomware_notes_list.csv"
+            "Lists/suspicious_file_double_extension.csv"
+            "Lists/suspicious_hostnames_list.csv"
+            "Lists/suspicious_http_user_agents_list.csv"
+            "Lists/suspicious_mac_address_list.csv"
+            "Lists/suspicious_mutex_names_list.csv"
+            "Lists/suspicious_named_pipe_list.csv"
+            "Lists/suspicious_ports_list.csv"
+            "Lists/suspicious_signers_list.csv"
+            "Lists/suspicious_usb_ids_list.csv"
+            "Lists/suspicious_windows_firewall_rules_list.csv"
+            "Lists/suspicious_windows_services_names_list.csv"
+            "Lists/suspicious_windows_tasks_list.csv"
+            "Lists/Browser Extensions/browser_extensions_list.csv"
+          )
+
+          for file in "${LOCAL_FILES[@]}"; do
+            cp "$file" detection_lists/
+          done
+
+      - name: Download Remote Files
+        run: |
+          REMOTE_FILES=(
+            "https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/offensive_tool_keyword_network_detection.csv"
+            "https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/offensive_tool_keyword_endpoint_detection.csv"
+            "https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/greyware_tool_keyword_endpoint_detection.csv"
+            "https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/threathunting-keywords.csv"
+            "https://raw.githubusercontent.com/mthcht/ThreatHunting-Keywords/main/greyware_tool_keyword_network_detection.csv"
+            "https://github.com/mthcht/awesome-lists/releases/download/big-files/TOP1M_domains.csv"
+            "https://github.com/mthcht/awesome-lists/releases/download/big-files/VPN_ALL_IP_List.csv"
+          )
+
+          for url in "${REMOTE_FILES[@]}"; do
+            curl -fsSL "$url" -o "detection_lists/$(basename "$url")"
+            sleep 2
+          done
+
+      - name: Create ZIP
+        run: zip -r detection_lists.zip detection_lists
+
+      - name: Upload ZIP to Existing Release (big-files)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: big-files
+          name: Big Files Release
+          files: detection_lists.zip
+          fail_on_unmatched_files: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
