@@ -7947,3 +7947,96 @@ rule Trojan_Win32_ClickFix_DEZ_2147945704_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_EEI_2147945790_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.EEI!MTB"
+        threat_id = "2147945790"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "[guid]::NewGuid()" wide //weight: 10
+        $x_10_3 = "$env:TEMP" wide //weight: 10
+        $x_10_4 = "curl" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_EEK_2147945791_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.EEK!MTB"
+        threat_id = "2147945791"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "New-Object Net.WebClient;iex $" wide //weight: 1
+        $x_1_2 = ".DownloadString($" wide //weight: 1
+        $x_1_3 = "$env:TEMP" wide //weight: 1
+        $x_1_4 = "-join '';$" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_EEL_2147945792_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.EEL!MTB"
+        threat_id = "2147945792"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = ".send();iex([Text.Encoding]::UTF8.GetString($" wide //weight: 1
+        $x_1_2 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-32] 3b 00 24 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_EEM_2147945793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.EEM!MTB"
+        threat_id = "2147945793"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {24 00 65 00 6e 00 76 00 3a 00 74 00 65 00 6d 00 70 00 20 00 2b 00 20 00 [0-32] 2e 00 76 00 62 00 73 00 27 00 29 00 3b 00 20 00 73 00 74 00 61 00 72 00 74 00 2d 00 70 00 72 00 6f 00 63 00 65 00 73 00 73 00 20 00 77 00 73 00 63 00 72 00 69 00 70 00 74 00 20 00 24 00}  //weight: 10, accuracy: Low
+        $x_10_2 = "Net.WebClient" wide //weight: 10
+        $x_10_3 = ".DownloadFile" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
