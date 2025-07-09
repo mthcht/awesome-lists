@@ -1,0 +1,38 @@
+name: AWS IP Ranges Sync update
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Every 2 hours
+  workflow_dispatch:
+
+jobs:
+  update-aws-ip-ranges:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run update script
+        run: |
+          cd "Lists/Ranges_IP_Address_Company_List/Cloud Hosting Providers/AWS"
+          python3 update_aws_ip_range.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add "Lists/Ranges_IP_Address_Company_List/Cloud Hosting Providers/AWS/aws_ip_ranges.csv"
+          git commit -m "Update AWS IP Ranges (every 2 hours)" --allow-empty
+          git push
