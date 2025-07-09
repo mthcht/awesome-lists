@@ -377,3 +377,27 @@ rule Trojan_Win32_DarkComet_ADO_2147942474_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkComet_AKD_2147945772_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkComet.AKD!MTB"
+        threat_id = "2147945772"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "dontuseme.ct8.pl" ascii //weight: 5
+        $x_4_2 = "cmd /c sc delete IntelGpuUpdater && cmd /c sc stop IntelGpuUpdater" ascii //weight: 4
+        $x_1_3 = "Unable to reach the server" ascii //weight: 1
+        $x_2_4 = "Please restart your router or your PC to make sure it's connected to the internet" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
