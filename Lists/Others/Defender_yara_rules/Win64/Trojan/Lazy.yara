@@ -3008,3 +3008,48 @@ rule Trojan_Win64_Lazy_GZF_2147945905_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SX_2147945952_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SX!MTB"
+        threat_id = "2147945952"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b 45 10 48 8b 48 48 8b 45 fc 48 63 d0 48 89 d0 48 01 c0 48 01 d0 48 c1 e0 03 48 01 c8 48 8b 00 48 8b 55 18 48 89 c1 e8 ?? ?? ?? ?? 85 c0 75 24 48 8b 45 10 48 8b 48 48 8b 45 fc 48 63 d0 48 89 d0 48 01 c0 48 01 d0 48 c1 e0 03 48 01 c8 48 8b 40 08 eb 19}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 85 2c 04 00 00 48 98 0f b6 44 05 a0 0f b6 c8 8b 85 2c 04 00 00 01 c0 48 63 d0 48 8b 85 10 04 00 00 48 01 d0 41 89 c8 48 8d 15 ?? ?? ?? ?? 48 89 c1 e8 ?? ?? ?? ?? 83 85 2c 04 00 00 01 83 bd 2c 04 00 00 0f 7e}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_SXB_2147945953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXB!MTB"
+        threat_id = "2147945953"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b 85 00 07 00 00 48 8b 48 48 8b 85 c4 06 00 00 48 63 d0 48 89 d0 48 01 c0 48 01 d0 48 c1 e0 ?? 48 01 c8 48 8b 00 48 8b 95 c0 05 00 00 48 89 c1 e8 ?? ?? ?? ?? 85 c0 75 31 48 8b 85 00 07 00 00 48 8b 48 48 8b 85 c4 06 00 00 48 63 d0 48 89 d0 48 01 c0 48 01 d0 48 c1 e0 ?? 48 01 c8 48 8b 40 08 48 89 85 c8 06 00 00 eb 1d 83 85 c4 06 00 00 01 48 8b 85 00 07 00 00 8b 40 50 39 85 c4 06 00 00}  //weight: 20, accuracy: Low
+        $x_15_2 = {89 c2 89 d1 b8 ?? ?? ?? ?? 48 0f af c1 48 c1 e8 20 c1 e8 0d 69 c8 ?? ?? ?? ?? 89 d0 29 c8 01 d8 89 85 18 05 00 00 8b 85 18 05 00 00 89 c1}  //weight: 15, accuracy: Low
+        $x_10_3 = {48 63 d0 48 89 d0 48 01 c0 48 01 d0 48 c1 e0 03 48 83 e8 18 48 01 c1 48 8b 85 f0 04 00 00 48 8b 95 f8 04 00 00 48 89 01 48 89 51 08 48 8b 85 00 05 00 00 48 89 41 10 48 8b 95 ?? 05 00 00 48 8d 85 c0 00 00 00 49 89 d1 4c 8d 05 ?? ?? ?? ?? ba 00 01 00 00 48 89 c1}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

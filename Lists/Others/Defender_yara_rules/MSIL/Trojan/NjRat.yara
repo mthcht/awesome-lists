@@ -3463,3 +3463,25 @@ rule Trojan_MSIL_NjRat_AUYA_2147945577_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_AGZA_2147945947_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.AGZA!MTB"
+        threat_id = "2147945947"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0a 17 da 0c 16 0d 2b 3b 06 6f ?? 00 00 0a 17 da 13 04 16 13 05 2b 22 7e ?? 00 00 04 06 11 05 09 6f ?? 00 00 0a 13 06 12 06 28 ?? 00 00 0a 6f ?? 00 00 0a 11 05 17 d6 13 05 11 05 11 04 31 d8 09 17 d6 0d 09 08 31 c1 7e ?? 00 00 04 6f ?? 00 00 0a 0b 07 28 ?? 00 00 06 2c 15}  //weight: 4, accuracy: Low
+        $x_2_2 = {20 0f 27 00 00 8d ?? 00 00 01 0d 73 ?? 00 00 0a 0a 72 ?? 00 00 70 d0 ?? 00 00 01 28 ?? 00 00 0a 06 6f ?? 00 00 0a d0 ?? 00 00 02 28 ?? 00 00 0a 6f ?? 00 00 0a 17 73 ?? 00 00 0a 0b 07 6f ?? 00 00 0a 0c 08}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
