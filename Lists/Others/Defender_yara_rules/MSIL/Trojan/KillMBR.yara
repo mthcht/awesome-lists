@@ -889,6 +889,31 @@ rule Trojan_MSIL_KillMBR_ARAX_2147923238_2
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_ARAX_2147923238_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.ARAX!MTB"
+        threat_id = "2147923238"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Booster.pdb" ascii //weight: 2
+        $x_2_2 = "Google\\Chrome\\User Data\\Default\\History" wide //weight: 2
+        $x_2_3 = "\\\\.\\PhysicalDrive0" wide //weight: 2
+        $x_1_4 = "GetWiFiPasswords" ascii //weight: 1
+        $x_1_5 = "GetMBRData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_KillMBR_PAGH_2147932409_0
 {
     meta:

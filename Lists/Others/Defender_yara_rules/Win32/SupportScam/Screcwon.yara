@@ -21,10 +21,17 @@ rule SupportScam_Win32_Screcwon_MA_2147944259_0
         $x_1_6 = ".ratoscreenco.com" ascii //weight: 1
         $x_1_7 = ".screensconnectpro.com" ascii //weight: 1
         $x_1_8 = "slplegalfinance.com" ascii //weight: 1
-        $x_1_9 = "mail.filesdonwloads.com" ascii //weight: 1
+        $x_1_9 = ".filesdonwloads.com" ascii //weight: 1
         $x_1_10 = "wizz.infinitycloud.org" ascii //weight: 1
         $x_1_11 = "llkt501.ddns.net" ascii //weight: 1
         $x_1_12 = "yourrldns22.hopto.org" ascii //weight: 1
+        $x_1_13 = "wk36back966.site" ascii //weight: 1
+        $x_1_14 = "relay.shipperzone.online" ascii //weight: 1
+        $x_1_15 = "void.corsazone.com" ascii //weight: 1
+        $x_1_16 = "relay.ale3rt.in" ascii //weight: 1
+        $x_1_17 = "relay.ziadpaneel.com" ascii //weight: 1
+        $x_1_18 = "mail.securedocumentfiledownload.com" ascii //weight: 1
+        $x_1_19 = "dual.saltuta.com" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (

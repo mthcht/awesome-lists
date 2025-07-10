@@ -16411,3 +16411,26 @@ rule TrojanDownloader_O97M_Donoff_RVC_2147935198_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_O97M_Donoff_SRH_2147945888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/Donoff.SRH!MSR"
+        threat_id = "2147945888"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Donoff"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Open \"POST\", \"http://38.180.206.61/engine.php\"" ascii //weight: 2
+        $x_1_2 = "Environ(\"COMPUTERNAME\")" ascii //weight: 1
+        $x_1_3 = "Environ(\"Username\")" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

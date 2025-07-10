@@ -19,6 +19,15 @@ rule Trojan_Linux_FirewallOutHttpsBlock_PI2_2147937216_0
         $x_10_5 = "port 443 " ascii //weight: 10
         $x_10_6 = "-j DROP" ascii //weight: 10
         $n_10_7 = "sport 443 " ascii //weight: -10
+        $n_20_8 = " -d 1" ascii //weight: -20
+        $n_20_9 = " -d 2" ascii //weight: -20
+        $n_20_10 = " -d 3" ascii //weight: -20
+        $n_20_11 = " -d 4" ascii //weight: -20
+        $n_20_12 = " -d 5" ascii //weight: -20
+        $n_20_13 = " -d 6" ascii //weight: -20
+        $n_20_14 = " -d 7" ascii //weight: -20
+        $n_20_15 = " -d 8" ascii //weight: -20
+        $n_20_16 = " -d 9" ascii //weight: -20
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
