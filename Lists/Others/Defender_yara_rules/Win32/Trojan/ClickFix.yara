@@ -6875,12 +6875,12 @@ rule Trojan_Win32_ClickFix_DEG_2147944814_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "130"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_100_1 = "powershell" wide //weight: 100
-        $x_10_2 = "[guid]::NewGuid().ToString()" wide //weight: 10
+        $x_10_2 = "[guid]::NewGuid()" wide //weight: 10
         $x_10_3 = "$env:TEMP" wide //weight: 10
-        $x_10_4 = ".DownloadFile($" wide //weight: 10
+        $x_10_4 = {2e 00 64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 66 00 69 00 6c 00 65 00 28 00 [0-80] 24 00}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -7447,11 +7447,13 @@ rule Trojan_Win32_ClickFix_EEA_2147945362_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = "net.webclient" wide //weight: 1
-        $x_100_2 = "5thed.christmas" wide //weight: 100
-        $x_100_3 = "zeda1s.boutique" wide //weight: 100
-        $x_100_4 = "px3.click/theme.iso" wide //weight: 100
-        $x_100_5 = "rizukimayamui-portfolio.info" wide //weight: 100
-        $x_100_6 = "danili-myhomework.info" wide //weight: 100
+        $x_1_2 = "iex" wide //weight: 1
+        $x_1_3 = "iwr" wide //weight: 1
+        $x_100_4 = "5thed.christmas" wide //weight: 100
+        $x_100_5 = "zeda1s.boutique" wide //weight: 100
+        $x_100_6 = "px3.click/theme.iso" wide //weight: 100
+        $x_100_7 = "rizukimayamui-portfolio.info" wide //weight: 100
+        $x_100_8 = "danili-myhomework.info" wide //weight: 100
     condition:
         (filesize < 20MB) and
         (
@@ -8035,6 +8037,77 @@ rule Trojan_Win32_ClickFix_EEM_2147945793_0
         $x_10_1 = {24 00 65 00 6e 00 76 00 3a 00 74 00 65 00 6d 00 70 00 20 00 2b 00 20 00 [0-32] 2e 00 76 00 62 00 73 00 27 00 29 00 3b 00 20 00 73 00 74 00 61 00 72 00 74 00 2d 00 70 00 72 00 6f 00 63 00 65 00 73 00 73 00 20 00 77 00 73 00 63 00 72 00 69 00 70 00 74 00 20 00 24 00}  //weight: 10, accuracy: Low
         $x_10_2 = "Net.WebClient" wide //weight: 10
         $x_10_3 = ".DownloadFile" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_EEN_2147945921_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.EEN!MTB"
+        threat_id = "2147945921"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "[System.IO.Path]::GetTempFileName()+'" wide //weight: 100
+        $x_10_2 = "; & $" wide //weight: 10
+        $x_10_3 = "hidden" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_EEO_2147945922_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.EEO!MTB"
+        threat_id = "2147945922"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".send();iex([Text.Encoding]::UTF8.GetString($" wide //weight: 1
+        $x_1_2 = "open('GET',$" wide //weight: 1
+        $x_1_3 = "responseBody" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_EEP_2147945923_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.EEP!MTB"
+        threat_id = "2147945923"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "gwmi Win32_ComputerSystem" wide //weight: 1
+        $x_1_2 = "#Verification Code" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

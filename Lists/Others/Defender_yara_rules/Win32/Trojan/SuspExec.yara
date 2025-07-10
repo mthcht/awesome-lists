@@ -182,3 +182,26 @@ rule Trojan_Win32_SuspExec_HD_2147944674_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SuspExec_HF_2147945901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.HF!MTB"
+        threat_id = "2147945901"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {66 00 72 00 61 00 6d 00 65 00 77 00 6f 00 72 00 6b 00 5c 00 76 00 [0-20] 5c 00 72 00 65 00 67 00 73 00 76 00 63 00 73 00 2e 00 65 00 78 00 65 00 [0-6] 3a 00 5c 00}  //weight: 1, accuracy: Low
+        $n_100_2 = ".dll" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

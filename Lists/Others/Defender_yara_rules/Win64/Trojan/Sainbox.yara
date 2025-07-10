@@ -31,3 +31,30 @@ rule Trojan_Win64_Sainbox_A_2147945808_0
         )
 }
 
+rule Trojan_Win64_Sainbox_C_2147945910_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Sainbox.C"
+        threat_id = "2147945910"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Sainbox"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "\\\\.\\TrueSight" wide //weight: 10
+        $x_10_2 = {ba 44 e0 22 00 48 8b cb ?? e8}  //weight: 10, accuracy: Low
+        $x_10_3 = {45 88 54 06 ff 1a 00 83 fd 04}  //weight: 10, accuracy: Low
+        $x_1_4 = {83 fd 0a e9 00 00 00 00 0f 8d 0d 00 00 00 83 ed 03 e9 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_5 = {83 fd 0a 0f 8d 0d 00 00 00 83 ed 03 e9 00 00 00 00 e9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
