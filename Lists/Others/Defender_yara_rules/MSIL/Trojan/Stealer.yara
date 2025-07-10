@@ -3112,3 +3112,25 @@ rule Trojan_MSIL_Stealer_ZGR_2147945838_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_ACZA_2147945932_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.ACZA!MTB"
+        threat_id = "2147945932"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0c 08 28 ?? 00 00 0a 72 ?? ?? 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 11 04 09 6f ?? 00 00 0a 00 11 04 18 6f ?? 00 00 0a 00 11 04 6f ?? 00 00 0a 07 16 07 8e 69 6f ?? 00 00 0a 13 05 02}  //weight: 5, accuracy: Low
+        $x_1_2 = "H584597B8G47D2HZC5KSF7" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
