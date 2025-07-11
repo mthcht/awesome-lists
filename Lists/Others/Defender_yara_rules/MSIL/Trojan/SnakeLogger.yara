@@ -1172,3 +1172,24 @@ rule Trojan_MSIL_SnakeLogger_ZKR_2147945949_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeLogger_AIZA_2147946102_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeLogger.AIZA!MTB"
+        threat_id = "2147946102"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {05 0e 04 0e 06 0e 08 17 1f 20 28 ?? ?? 00 06 0a 06 0e 05 0e 07 1f 40 23 66 66 66 66 66 66 e6 3f 28 ?? ?? 00 06 0b 16 0d 2b b8 02 03 04 06 07 17 28 ?? ?? 00 06 06 07 0e 06 0e 08 1f 0c 17 28 ?? ?? 00 06 18 0d 2b 9b}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
