@@ -67,3 +67,25 @@ rule Trojan_Win32_Spy_RPM_2147797355_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Spy_Casbaneiro_2147946058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Spy.Casbaneiro.GA!MTB"
+        threat_id = "2147946058"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Spy"
+        severity = "Critical"
+        info = "GA: an internal category used to refer to some threats"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 45 0c 83 e8 02 74 21 2d 10 01 00 00 75 23 8b 45 14 50 8b 45 10 50 8b 45 0c 50 8b 45 08 50 ?? ?? ?? ?? ?? 89 45 fc eb 28 6a 00 ?? ?? ?? ?? ?? eb 1a 8b 45 14 50 8b 45 10 50 8b 45 0c 50 8b 45 08 50 ?? ?? ?? ?? ?? 89 45 fc eb 05 33 c0 89 45 fc}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

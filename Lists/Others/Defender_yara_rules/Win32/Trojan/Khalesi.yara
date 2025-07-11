@@ -452,3 +452,25 @@ rule Trojan_Win32_Khalesi_HNA_2147908322_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Khalesi_PGK_2147946038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Khalesi.PGK!MTB"
+        threat_id = "2147946038"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Khalesi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {2e 74 65 78 74 00 00 00 c0 78 00 00 00 10 00 00 00 7a 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 e0}  //weight: 5, accuracy: High
+        $x_5_2 = {2e 74 65 78 74 00 00 00 00 20 00 00 00 90 0a 00 00 14 00 00 00 30 04 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 42}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5714,3 +5714,31 @@ rule Trojan_Win32_Guloader_SLHE_2147945502_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SPF_2147946056_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SPF!MTB"
+        threat_id = "2147946056"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Unsalubriously.jpg" ascii //weight: 2
+        $x_2_2 = "knhje\\hypohyal" wide //weight: 2
+        $x_1_3 = "Torumslejligheders\\pontal" ascii //weight: 1
+        $x_1_4 = "betatrons.tid" ascii //weight: 1
+        $x_1_5 = "coemptive.bri" ascii //weight: 1
+        $x_1_6 = "objektiviseringers.txt" ascii //weight: 1
+        $x_1_7 = "Scoreboards\\Forskydningers" ascii //weight: 1
+        $x_1_8 = "soothsaw.afs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

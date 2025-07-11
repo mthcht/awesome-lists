@@ -387,3 +387,37 @@ rule Trojan_MSIL_Webshell_AWB_2147944502_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Webshell_GVA_2147946063_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Webshell.GVA!MTB"
+        threat_id = "2147946063"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Webshell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "24"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "txtNewPasswordConfirmed" ascii //weight: 3
+        $x_3_2 = "lnkForgotPassword" ascii //weight: 3
+        $x_3_3 = "lnkForgotPassword_Click" ascii //weight: 3
+        $x_3_4 = "chkAutoLogin" ascii //weight: 3
+        $x_1_5 = "~/frmResetURL.aspx" wide //weight: 1
+        $x_1_6 = "~/MasterPages/Dummy.Master" wide //weight: 1
+        $x_1_7 = "~/frmForgotPassword.aspx" wide //weight: 1
+        $x_1_8 = "@EmailAddress" wide //weight: 1
+        $x_2_9 = "imgCaptcha" wide //weight: 2
+        $x_2_10 = "CaptchaImage" wide //weight: 2
+        $x_1_11 = "txtCaptcha" wide //weight: 1
+        $x_1_12 = "~/CompileSite.aspx" wide //weight: 1
+        $x_1_13 = "~/LoginPreview.aspx" wide //weight: 1
+        $x_1_14 = "grenhy" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

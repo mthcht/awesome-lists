@@ -2868,3 +2868,25 @@ rule Trojan_Win32_Remcos_HB_2147942493_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_GVC_2147946059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.GVC!MTB"
+        threat_id = "2147946059"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {30 84 0a 17 00 00 00 02 84 0a 17 00 00 00 e2 f0}  //weight: 3, accuracy: High
+        $x_3_2 = {30 94 0e 17 00 00 00 02 94 0e 17 00 00 00 e2 f0}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
