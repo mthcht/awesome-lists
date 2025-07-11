@@ -1809,7 +1809,7 @@ rule Trojan_Win64_Tedy_KK_2147943868_0
     strings:
         $x_5_1 = {48 89 5d e0 48 89 5c 24 50 48 89 5c 24 48 48 89 5c 24 40 48 89 5c 24 38 89 5c 24 30 4c 89 74 24 28 4c 89 7c 24 20 4c 8b ce 45 33 c0 ba ff ff 1f 00 48 8d 4d e0 ff}  //weight: 5, accuracy: High
         $x_3_2 = "chrome_decrypt_cookies.txt" ascii //weight: 3
-        $x_2_3 = "chrome_decrypt_payments.tx" ascii //weight: 2
+        $x_2_3 = "chrome_decrypt_payments.txt" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

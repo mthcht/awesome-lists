@@ -179,7 +179,7 @@ rule VirTool_Win32_UACBypassExp_B_2147837947_0
         info = "gen: malware that is detected using a generic signature"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "1"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_1_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_2 = {5c 00 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
@@ -195,15 +195,16 @@ rule VirTool_Win32_UACBypassExp_B_2147837947_0
         $x_1_12 = {5c 00 70 00 79 00 74 00 68 00 6f 00 6e 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_13 = {5c 00 70 00 79 00 74 00 68 00 6f 00 6e 00 77 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_14 = {5c 00 70 00 77 00 73 00 68 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
-        $n_10_15 = "ddbf9b05-fcb0-4fce-949e-a6ae899ab273" wide //weight: -10
-        $n_10_16 = "C:\\ProgramData\\Microsoft\\Windows Defender Advanced Threat Protection\\" wide //weight: -10
-        $n_10_17 = "C:\\Program Files" wide //weight: -10
-        $n_10_18 = "C:\\WINDOWS\\ccmcache\\" wide //weight: -10
-        $n_10_19 = "C:\\WINDOWS\\CCM\\" wide //weight: -10
-        $n_10_20 = "\\SysVol\\" wide //weight: -10
-        $n_10_21 = "\\netlogon\\" wide //weight: -10
-        $n_10_22 = "\\WindowsDefenderATPOnboardingScript" wide //weight: -10
-        $n_10_23 = " -Noninteractive " wide //weight: -10
+        $x_1_15 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 [0-16] 20 00 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 20 00}  //weight: 1, accuracy: Low
+        $n_10_16 = "ddbf9b05-fcb0-4fce-949e-a6ae899ab273" wide //weight: -10
+        $n_10_17 = "C:\\ProgramData\\Microsoft\\Windows Defender Advanced Threat Protection\\" wide //weight: -10
+        $n_10_18 = "C:\\Program Files" wide //weight: -10
+        $n_10_19 = "C:\\WINDOWS\\ccmcache\\" wide //weight: -10
+        $n_10_20 = "C:\\WINDOWS\\CCM\\" wide //weight: -10
+        $n_10_21 = "\\SysVol\\" wide //weight: -10
+        $n_10_22 = "\\netlogon\\" wide //weight: -10
+        $n_10_23 = "\\WindowsDefenderATPOnboardingScript" wide //weight: -10
+        $n_10_24 = " -Noninteractive " wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -223,7 +224,7 @@ rule VirTool_Win32_UACBypassExp_C_2147838063_0
         info = "gen: malware that is detected using a generic signature"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "1"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_1_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_2 = {5c 00 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
@@ -236,15 +237,16 @@ rule VirTool_Win32_UACBypassExp_C_2147838063_0
         $x_1_9 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_10 = {5c 00 72 00 65 00 67 00 73 00 76 00 72 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_11 = {5c 00 70 00 77 00 73 00 68 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
-        $n_10_12 = "6ab33e61-41c3-4b70-b64d-9a1d1b48abbc" wide //weight: -10
-        $n_10_13 = "C:\\ProgramData\\Microsoft\\Windows Defender Advanced Threat Protection\\" wide //weight: -10
-        $n_10_14 = "C:\\Program Files" wide //weight: -10
-        $n_10_15 = "C:\\WINDOWS\\ccmcache\\" wide //weight: -10
-        $n_10_16 = "C:\\WINDOWS\\CCM\\" wide //weight: -10
-        $n_10_17 = "\\SysVol\\" wide //weight: -10
-        $n_10_18 = "\\netlogon\\" wide //weight: -10
-        $n_10_19 = "\\WindowsDefenderATPOnboardingScript" wide //weight: -10
-        $n_10_20 = " -Noninteractive " wide //weight: -10
+        $x_1_12 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 [0-16] 20 00 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 20 00}  //weight: 1, accuracy: Low
+        $n_10_13 = "6ab33e61-41c3-4b70-b64d-9a1d1b48abbc" wide //weight: -10
+        $n_10_14 = "C:\\ProgramData\\Microsoft\\Windows Defender Advanced Threat Protection\\" wide //weight: -10
+        $n_10_15 = "C:\\Program Files" wide //weight: -10
+        $n_10_16 = "C:\\WINDOWS\\ccmcache\\" wide //weight: -10
+        $n_10_17 = "C:\\WINDOWS\\CCM\\" wide //weight: -10
+        $n_10_18 = "\\SysVol\\" wide //weight: -10
+        $n_10_19 = "\\netlogon\\" wide //weight: -10
+        $n_10_20 = "\\WindowsDefenderATPOnboardingScript" wide //weight: -10
+        $n_10_21 = " -Noninteractive " wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

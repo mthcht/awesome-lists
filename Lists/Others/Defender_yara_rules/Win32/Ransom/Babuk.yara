@@ -179,3 +179,32 @@ rule Ransom_Win32_Babuk_MKZ_2147942075_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Babuk_KK_2147946089_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Babuk.KK!MTB"
+        threat_id = "2147946089"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Babuk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a b9 ff 0f 40 00 [0-16] 88 b9 ff 0f 40 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {8a 9a 00 10 40 00 80 c3 1c c0 cb 2f c0 c3 1c c0 cb 24 88 9a 00 10 40 00 42 81 fa 9b 31 02 00 75}  //weight: 10, accuracy: High
+        $x_5_3 = "m so cool :)" ascii //weight: 5
+        $x_3_4 = "Yeap , i`m a bad mother fucker !" ascii //weight: 3
+        $x_2_5 = "How lame can u be ?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

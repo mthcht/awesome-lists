@@ -2070,28 +2070,6 @@ rule Trojan_Win32_Lazy_AG_2147945017_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Lazy_KK_2147945650_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Lazy.KK!MTB"
-        threat_id = "2147945650"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Lazy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "30"
-        strings_accuracy = "High"
-    strings:
-        $x_20_1 = {09 00 44 41 54 41 2e 62 61 74 00 0d 00 00 00 6e 6f 74 65 70 61 64 2e 65 78 65 0d 0a 31 07 00 5c 78 2e 65 78 65 00 04 00 00 00 61 42 43 44 72 0c 00 6e 6f 74 65 70 61 64 2e 65 78 65 00 00}  //weight: 20, accuracy: High
-        $x_10_2 = {01 47 65 74 57 69 6e 64 6f 77 73 44 69 72 65 63 74 6f 72 79 41 00 00 94 02 57 69 6e 45 78 65 63 00 9e 02 57 72 69 74 65 46 69 6c 65 00 b5 02 6c 73 74 72 63 61 74 41 00 00}  //weight: 10, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Lazy_AD_2147945966_0
 {
     meta:
@@ -2129,6 +2107,28 @@ rule Trojan_Win32_Lazy_AE_2147945967_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {41 83 f8 0a 0f 9c c3 20 c3 89 d0 20 c8 08 d8 30 d1 20 d1 89 ca 20 c2 30 c1 08 d1 89 c2 30 ca 80 f1 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Lazy_KKB_2147946091_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.KKB!MTB"
+        threat_id = "2147946091"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {09 00 44 41 54 41 2e 62 61 74 00 0d 00 00 00 6e 6f 74 65 70 61 64 2e 65 78 65 0d 0a 31 07 00 5c 78 2e 65 78 65 00 04 00 00 00 61 42 43 44 72 0c 00 6e 6f 74 65 70 61 64 2e 65 78 65 00 00}  //weight: 20, accuracy: High
+        $x_10_2 = {01 47 65 74 57 69 6e 64 6f 77 73 44 69 72 65 63 74 6f 72 79 41 00 00 94 02 57 69 6e 45 78 65 63 00 9e 02 57 72 69 74 65 46 69 6c 65 00 b5 02 6c 73 74 72 63 61 74 41 00 00}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

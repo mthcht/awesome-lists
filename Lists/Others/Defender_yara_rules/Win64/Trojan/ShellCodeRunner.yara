@@ -346,3 +346,31 @@ rule Trojan_Win64_ShellCodeRunner_GZN_2147944522_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeRunner_KKB_2147946090_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeRunner.KKB!MTB"
+        threat_id = "2147946090"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 89 c2 48 8d 45 a0 b9 3a 08 00 00 4c 8b 00 4c 89 02 41 89 c8 49 01 d0 4d 8d 48 08 41 89 c8 49 01 c0 49 83 c0 08 4d 8b 40 f0 4d 89 41 f0 4c 8d 42 08 49 83 e0 f8 4c 29 c2 48 29 d0 01 d1 83 e1 f8 c1 e9 03 89 ca 89 d2 4c 89 c7 48 89 c6 48 89 d1 f3 48 a5}  //weight: 10, accuracy: High
+        $x_10_2 = {8b 85 fc 07 00 00 48 98 0f b6 44 05 a0 8b 95 fc 07 00 00 48 63 ca 48 8b 95 f0 07 00 00 48 01 ca 32 85 fb 07 00 00 88 02 83 85 fc 07 00 00 01 8b 85 fc 07 00 00 3d 39 08 00 00 76}  //weight: 10, accuracy: High
+        $x_3_3 = {41 b9 40 00 00 00 41 b8 00 30 00 00 ba 3a 08 00 00 b9 00 00 00 00 48 8b 05 ?? ?? ?? ?? ff d0 48 89 85}  //weight: 3, accuracy: Low
+        $x_2_4 = {48 89 84 24 87 00 00 00 48 b8 41 64 64 72 65 73 73 00 48 89 84 24 8e 00 00 00 c7 84 24 81 00 00 00 ?? ?? ?? ?? 66 c7 84 24 85 00 00 00 70 00 48 b8 45 78 69 74 50 72 6f 63 48 89 44 24 75 c7 44 24 7d ?? ?? ?? ?? 48 b8 57 73 32 5f 33 32 2e 64 48 89 44 24 6a c7 44 24 71 ?? ?? ?? ?? 48 b8 57 53 41}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

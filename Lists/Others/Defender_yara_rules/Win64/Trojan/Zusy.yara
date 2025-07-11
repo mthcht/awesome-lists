@@ -1971,3 +1971,26 @@ rule Trojan_Win64_Zusy_LMG_2147946030_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_KK_2147946085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KK!MTB"
+        threat_id = "2147946085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {f3 43 0f 6f 04 08 0f 57 c2 f3 43 0f 7f 04 08 41 8d 42 f0 f3 42 0f 6f 04 08 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 08 41 8b c2 f3 42 0f 6f 04 08 0f 57 c2 f3 42 0f 7f 04 08 41 8d 42 10 f3 42 0f 6f 04 08 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 08 41 83 c0 40 41 83 c2 40 45 3b c3}  //weight: 6, accuracy: High
+        $x_10_2 = {41 8d 4a 01 45 8b ca 44 0f b6 04 19 42 0f b6 0c 13 41 80 e8 41 fe c9 49 d1 e9 c0 e1 04 41 83 c2 02 44 0a c1 45 88 04 01 8b 0f 44 3b d1 72 d1}  //weight: 10, accuracy: High
+        $x_4_3 = "TuoniAgent.dll" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
