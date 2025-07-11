@@ -2969,6 +2969,31 @@ rule Trojan_Win32_GuLoader_RBB_2147934688_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "#\\imprgneringer\\Botilla\\hjlpefilens" ascii //weight: 1
+        $x_1_2 = "quarterland" ascii //weight: 1
+        $x_1_3 = "gastrophilus timeforbrugenes" ascii //weight: 1
+        $x_1_4 = "steprelationship" ascii //weight: 1
+        $x_1_5 = "grundlovstalens redhandedness.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBB_2147934688_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBB!MTB"
+        threat_id = "2147934688"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

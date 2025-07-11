@@ -7105,6 +7105,28 @@ rule Trojan_Win32_Zusy_MR_2147945546_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {8b ec 83 c4 b0 8b 45 10 40 8a 10 80 fa 20}  //weight: 25, accuracy: High
+        $x_10_2 = {68 fa 00 00 00 68 29 30 40 00 6a ff 68 23 31 40 00 6a 00 6a 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_MR_2147945546_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.MR!MTB"
+        threat_id = "2147945546"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "55"
         strings_accuracy = "High"
     strings:
@@ -7112,6 +7134,72 @@ rule Trojan_Win32_Zusy_MR_2147945546_0
         $x_15_2 = {8d 85 5c ff ff ff 50 8d 85 60 ff ff ff 50 8d 85 64 ff ff ff 50 8d 85 68 ff ff ff 50 8d 85 6c ff ff ff 50 8d 45 c0 50 8b 45 08 8b 00 ff}  //weight: 15, accuracy: High
         $x_10_3 = {89 45 84 c7 45 a4 02 00 00 00 c7 45 9c 02 00 00 00 c7 45 b4 34 63 40 00 c7 45 ac 08 00 00 00 8d 45 c0}  //weight: 10, accuracy: High
         $x_25_4 = {8b 45 e4 8b 00 99 2b c2 d1 f8 8b 55 c8 88 0c 02 8d 45 a8 50 8d 45 ac 50 6a 02}  //weight: 25, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AF_2147945986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AF!MTB"
+        threat_id = "2147945986"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 01 8b 51 04 89 46 04 8b 46 08 89 56 0c 8b 48 04 89 4e 10 89 d1 8b 10 8b 46 04 33 4e 10 31 d0 89 56 14 31 d2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AHC_2147946024_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AHC!MTB"
+        threat_id = "2147946024"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 45 fc 8b 55 f4 8a 44 10 ff 8b 55 f8 8a 54 1a ff 32 c2 25 ff 00 00 00 8d 4d f0 ba 02 00 00 00 e8}  //weight: 3, accuracy: High
+        $x_2_2 = {8a 54 1f ff 0f b7 ce c1 e9 08 32 d1 88 54 18 ff 33 c0 8a 44 1f ff 66 03 f0 66 0f af 35 ?? ?? ?? 00 66 03 35 ?? ?? ?? 00 43 ff 4d f8 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AHD_2147946025_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AHD!MTB"
+        threat_id = "2147946025"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 55 08 8b 45 fc 01 d0 0f b6 00 32 45 ec 89 c1 8b 55 14 8b 45 fc 01 d0 89 ca 88 10 83 45 fc 01}  //weight: 3, accuracy: High
+        $x_2_2 = {ff ff 76 c7 45 f0 09 00 00 00 8d 85 ?? ?? ff ff 89 44 24 0c c7 44 24 08 37 00 00 00 8b 45 f0 89 44 24 04 8d 85 ?? ?? ff ff 89 04 24 e8}  //weight: 2, accuracy: Low
+        $x_1_3 = "cmd.exe /C timeout /T 1 /NOBREAK >nul" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

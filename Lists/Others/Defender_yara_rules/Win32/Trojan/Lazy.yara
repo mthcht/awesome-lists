@@ -2092,3 +2092,45 @@ rule Trojan_Win32_Lazy_KK_2147945650_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AD_2147945966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AD!MTB"
+        threat_id = "2147945966"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c1 83 e0 0f 8a 80 f8 e0 42 00 30 81 10 1b 43 00 8d ?? 10 1b 43 00 03 c1 83 e0 0f 8a 80 f8 e0 42 00 30 81 11 1b 43 00 8d ?? 10 1b 43 00 03 c1 83 e0 0f 8a 80 f8 e0 42 00 30 81 12 1b 43 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Lazy_AE_2147945967_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AE!MTB"
+        threat_id = "2147945967"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 83 f8 0a 0f 9c c3 20 c3 89 d0 20 c8 08 d8 30 d1 20 d1 89 ca 20 c2 30 c1 08 d1 89 c2 30 ca 80 f1 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

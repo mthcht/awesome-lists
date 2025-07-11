@@ -19013,3 +19013,24 @@ rule Trojan_Win32_Redline_PARD_2147931477_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Redline_AC_2147945969_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Redline.AC!MTB"
+        threat_id = "2147945969"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {18 29 4a 5b cd 35 d5 84 17 f3 ?? 4c d1 44 ec a7 37 59 8a 68 a5 86 f0 f9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
