@@ -3146,40 +3146,6 @@ rule Trojan_Win32_CoinMiner_ACM_2147925085_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_CoinMiner_BSA_2147927868_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/CoinMiner.BSA!MTB"
-        threat_id = "2147927868"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "CoinMiner"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "25"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "Usage: xmrig [OPTIONS]" ascii //weight: 10
-        $x_1_2 = "cryptonight" ascii //weight: 1
-        $x_2_3 = "cryptonight-lite" ascii //weight: 2
-        $x_3_4 = "maximum CPU usage for automatic threadsmode" ascii //weight: 3
-        $x_4_5 = "print hashrate report every N seconds" ascii //weight: 4
-        $x_5_6 = "port for the miner API" ascii //weight: 5
-        $x_6_7 = "enable nicehash/xmrig-proxy" ascii //weight: 6
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_CoinMiner_HNAB_2147930739_0
 {
     meta:
