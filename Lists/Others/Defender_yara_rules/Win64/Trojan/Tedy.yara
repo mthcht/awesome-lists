@@ -1909,3 +1909,25 @@ rule Trojan_Win64_Tedy_GVB_2147946061_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_ZXU_2147946135_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ZXU!MTB"
+        threat_id = "2147946135"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "! fud cat shit also fuck niggers frfrfr." ascii //weight: 6
+        $x_5_2 = "0XYZAXAY" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -856,3 +856,24 @@ rule Trojan_MSIL_Tiny_GVA_2147944038_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tiny_ZKU_2147946134_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tiny.ZKU!MTB"
+        threat_id = "2147946134"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {09 20 ff 00 00 00 33 53 07 6f ?? 00 00 0a 13 04 11 04 2d 0d 08 20 ff 00 00 00 6f ?? 00 00 0a 2b 42 1a 8d 39 00 00 01 13 05 11 05 16 11 04 d2 9c 07 11 05 17 19 6f ?? 00 00 0a 26 11 05 16 28 ?? 00 00 0a 13 06 11 06 8d 39 00 00 01 13 07 08 11 07 16 11 06 6f ?? 00 00 0a 2b 08 08 09 d2 6f ?? 00 00 0a 07 6f ?? 00 00 0a 25 0d 15 33 92}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
