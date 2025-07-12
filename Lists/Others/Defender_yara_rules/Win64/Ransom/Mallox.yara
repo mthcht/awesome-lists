@@ -104,3 +104,31 @@ rule Ransom_Win64_Mallox_AMA_2147915511_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Mallox_C_2147946172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Mallox.C!MTB"
+        threat_id = "2147946172"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mallox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Your files has been encrypted" ascii //weight: 3
+        $x_3_2 = "delete shadows /all /quiet" wide //weight: 3
+        $x_1_3 = "$windows.~ws" wide //weight: 1
+        $x_1_4 = "$windows.~bt" wide //weight: 1
+        $x_1_5 = "FILE RECOVERY.txt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

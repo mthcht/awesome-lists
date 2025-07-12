@@ -2594,3 +2594,26 @@ rule Ransom_Win32_Filecoder_QL_2147940695_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PAHH_2147946170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAHH!MTB"
+        threat_id = "2147946170"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "SGVsbG8sIGFsbCB5b3VyIGZpbGVzIGhhdmUgYmVlbiBvdmVyd3JpdHRlbi4gU2VuZCAxMDAkIHRvIHRoaXMgYnRjIGFkZHJlc3MgMUNLOENTWU1NbVM3OUdXOHJtNndQUVJZczdlSGhSdlpINCB0byByZWNvdmVyIGl0Lg==" ascii //weight: 5
+        $x_1_2 = "\\Desktop\\readme.txt" ascii //weight: 1
+        $x_1_3 = "USERPROFILE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

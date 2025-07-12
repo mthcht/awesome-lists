@@ -628,3 +628,45 @@ rule Trojan_MSIL_Stealerc_GPAL_2147941551_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealerc_AIAB_2147946177_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealerc.AIAB!MTB"
+        threat_id = "2147946177"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealerc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {61 11 1e 19 58 61 11 2e 61 d2 9c 11 2a 13 1e 11 09 17 58 13 09 11 09 11 24 32 a4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Stealerc_AIAC_2147946178_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealerc.AIAC!MTB"
+        threat_id = "2147946178"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealerc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {61 19 11 1e 58 61 11 2e 61 d2 9c 11 2a 13 1e 17 11 09 58 13 09 11 09 11 24 32 a4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
