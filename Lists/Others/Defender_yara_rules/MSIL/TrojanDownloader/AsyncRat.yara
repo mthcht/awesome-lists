@@ -98,3 +98,24 @@ rule TrojanDownloader_MSIL_AsyncRat_CCJR_2147937003_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_AsyncRat_C_2147946153_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/AsyncRat.C!MTB"
+        threat_id = "2147946153"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {08 11 04 06 11 04 91 07 11 04 09 5d 6f ?? ?? ?? ?? 61 d2 9c 11 04 17 58 13 04 11 04 06 8e 69 32 df}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

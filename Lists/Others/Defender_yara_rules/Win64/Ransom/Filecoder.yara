@@ -883,3 +883,32 @@ rule Ransom_Win64_Filecoder_BMX_2147945108_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAHG_2147946145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHG!MTB"
+        threat_id = "2147946145"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "vssadmin delete shadowstorage /all /quiet" ascii //weight: 10
+        $x_10_2 = "vssadmin delete shadows /all /quiet" ascii //weight: 10
+        $x_2_3 = "reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableAntiSpyware /t REG_DWORD /d 1 /f" ascii //weight: 2
+        $x_2_4 = "reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableRealtimeMonitoring /t REG_DWORD /d 1 /f" ascii //weight: 2
+        $x_1_5 = "DisableTaskMgr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
