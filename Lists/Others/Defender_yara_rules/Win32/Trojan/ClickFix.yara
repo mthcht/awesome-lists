@@ -6356,8 +6356,8 @@ rule Trojan_Win32_ClickFix_DDC_2147944471_1
     strings:
         $x_1_1 = "http" wide //weight: 1
         $x_100_2 = "-Method Post).Content" wide //weight: 100
-        $x_1_3 = "Invoke-Expression(Invoke-WebRequest -Uri" wide //weight: 1
-        $x_1_4 = "iex(Invoke-WebRequest -Uri" wide //weight: 1
+        $x_1_3 = "Invoke-Expression(Invoke-WebRequest -" wide //weight: 1
+        $x_1_4 = "iex(Invoke-WebRequest -" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
