@@ -6539,11 +6539,15 @@ rule Trojan_Win32_ClickFix_DEB_2147944601_0
         strings_accuracy = "High"
     strings:
         $x_100_1 = "powershell" wide //weight: 100
-        $x_10_2 = "&(gcM *wr) -uri" wide //weight: 10
+        $x_10_2 = "&(gcM *wr)" wide //weight: 10
         $x_10_3 = "|&(gcm i*x)" wide //weight: 10
+        $x_10_4 = "|iex" wide //weight: 10
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_CCA_2147944690_0
@@ -7477,15 +7481,18 @@ rule Trojan_Win32_ClickFix_EEA_2147945362_0
         $x_1_1 = "net.webclient" wide //weight: 1
         $x_1_2 = "iex" wide //weight: 1
         $x_1_3 = "iwr" wide //weight: 1
-        $x_100_4 = "5thed.christmas" wide //weight: 100
-        $x_100_5 = "ui3.fit" wide //weight: 100
-        $x_100_6 = "zeda1s.boutique" wide //weight: 100
-        $x_100_7 = "px3.click/theme.iso" wide //weight: 100
-        $x_100_8 = "walkin.college" wide //weight: 100
-        $x_100_9 = "t0urist.cv" wide //weight: 100
-        $x_100_10 = "rizukimayamui-portfolio.info" wide //weight: 100
-        $x_100_11 = "danili-myhomework.info" wide //weight: 100
-        $x_100_12 = "ct-humancheck.info" wide //weight: 100
+        $x_1_4 = "invoke-webrequest" wide //weight: 1
+        $x_100_5 = "5thed.christmas" wide //weight: 100
+        $x_100_6 = "ui3.fit" wide //weight: 100
+        $x_100_7 = "zeda1s.boutique" wide //weight: 100
+        $x_100_8 = "px3.click/theme.iso" wide //weight: 100
+        $x_100_9 = "walkin.college" wide //weight: 100
+        $x_100_10 = "t0urist.cv" wide //weight: 100
+        $x_100_11 = "otmuqi.com" wide //weight: 100
+        $x_100_12 = "rizukimayamui-portfolio.info" wide //weight: 100
+        $x_100_13 = "danili-myhomework.info" wide //weight: 100
+        $x_100_14 = "-humancheck.info" wide //weight: 100
+        $x_100_15 = "mylybnews.com" wide //weight: 100
     condition:
         (filesize < 20MB) and
         (
@@ -7851,7 +7858,8 @@ rule Trojan_Win32_ClickFix_BBS_2147945698_0
         $x_1_1 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 73 00 61 00 6d 00 70 00 6c 00 65 00 73 00 73 00 2d 00 66 00 69 00 6c 00 65 00 73 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
         $x_1_2 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 63 00 6c 00 6c 00 6f 00 75 00 64 00 73 00 76 00 65 00 72 00 69 00 66 00 79 00}  //weight: 1, accuracy: Low
         $x_1_3 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 66 00 79 00 2d 00 63 00 6c 00 69 00 65 00 6e 00 74 00 73 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
-        $x_1_4 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 63 00 6c 00 61 00 75 00 64 00 2d 00 63 00 6c 00 69 00 65 00 6e 00 74 00 73 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -8245,5 +8253,27 @@ rule Trojan_Win32_ClickFix_DFO_2147946183_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DDR_2147946200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DDR!MTB"
+        threat_id = "2147946200"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "|iex #Pass Verification Acces" wide //weight: 1
+        $x_1_2 = "|invoke-expression #Pass Verification Access" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
 }
 
