@@ -4696,6 +4696,35 @@ rule Backdoor_Linux_Gafgyt_DF_2147932283_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Gafgyt_DF_2147932283_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Gafgyt.DF!MTB"
+        threat_id = "2147932283"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Gafgyt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = ".sh; curl -O http://%s/cat.sh; chmod 777 cat.sh; sh cat.sh;" ascii //weight: 2
+        $x_2_2 = "92.113.29.232:81" ascii //weight: 2
+        $x_1_3 = "[0mWrong password!" ascii //weight: 1
+        $x_1_4 = "[0mNo shell available" ascii //weight: 1
+        $x_1_5 = "telecomadmin" ascii //weight: 1
+        $x_1_6 = "klv1234" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Backdoor_Linux_Gafgyt_DE_2147932896_0
 {
     meta:

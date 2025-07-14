@@ -6224,3 +6224,25 @@ rule Trojan_Win64_AbuseCommBack_JW_2147946175_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_AbuseCommBack_JX_2147946257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.JX"
+        threat_id = "2147946257"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>6A340207246B47E37F6D094D2236E5C6242B6E4461EEF8021FED2C9855240C3E</p>" wide //weight: 1
+        $x_1_2 = {36 41 33 34 30 32 30 37 32 34 36 42 34 37 45 33 37 46 36 44 30 39 34 44 32 32 33 36 45 35 43 36 32 34 32 42 36 45 34 34 36 31 45 45 46 38 30 32 31 46 45 44 32 43 39 38 35 35 32 34 30 43 33 45 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableid6A340207246B47E37F6D094D2236E5C6242B6E4461EEF8021FED2C9855240C3Eid" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

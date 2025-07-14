@@ -350,3 +350,24 @@ rule Trojan_MSIL_Filecoder_MBZ_2147942167_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Filecoder_EBIO_2147946272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Filecoder.EBIO!MTB"
+        threat_id = "2147946272"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {5f 0b 03 1b 5a 03 1d 63 5f 03 1f 0c 63 60 1f 7f 5f 0c 03 1f 2a 03 1f 0a 63 5f 5a 03 1e 63 61 1f 3f 5f 0d}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

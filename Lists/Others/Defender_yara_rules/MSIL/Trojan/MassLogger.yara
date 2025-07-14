@@ -1118,3 +1118,24 @@ rule Trojan_MSIL_MassLogger_EHKA_2147945218_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MassLogger_ELLB_2147946275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.ELLB!MTB"
+        threat_id = "2147946275"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {5d 1c 58 13 3f 17 12 3b ?? ?? ?? ?? ?? 12 3b ?? ?? ?? ?? ?? 58 12 3b ?? ?? ?? ?? ?? 58 1f 7f 5b 58 13 40 11 40 1b fe 04 16 fe 01 13 41 12 3b}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

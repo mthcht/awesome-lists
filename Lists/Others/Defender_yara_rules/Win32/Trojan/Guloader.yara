@@ -5742,3 +5742,27 @@ rule Trojan_Win32_Guloader_SPF_2147946056_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SLJH_2147946247_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SLJH!MTB"
+        threat_id = "2147946247"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\sugarhouses\\rhomboides.lnk" wide //weight: 2
+        $x_2_2 = "Standardprodukter\\telegramme" wide //weight: 2
+        $x_2_3 = "\\Grammofonpladen7.htm\"" wide //weight: 2
+        $x_2_4 = "periculous\\Transletter" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
