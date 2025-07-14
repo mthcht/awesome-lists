@@ -7228,3 +7228,48 @@ rule Trojan_Win32_Zusy_LMG_2147946146_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_AHB_2147946218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AHB!MTB"
+        threat_id = "2147946218"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {89 ca c1 e2 05 0f be c0 01 d0 01 c1 83 c3 01 0f b6 43 ff 84 c0 75}  //weight: 2, accuracy: High
+        $x_1_2 = "BK: Succesfully deleted registry key: HKEY_LOCAL_MACHINE\\%s - \"%s" ascii //weight: 1
+        $x_1_3 = "BK: Successfully killed Process: %s (PID: %ld)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AHF_2147946219_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AHF!MTB"
+        threat_id = "2147946219"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {6b 45 e8 1c 8b 4d e0 8b 54 01 14 89 55 ac 6b 45 e8 1c 8b 4d e0 8b 54 01 10 89 55 88 8b 45 ac 25 ff ff 00 00 50 ff 15}  //weight: 2, accuracy: High
+        $x_2_2 = {8b 45 e0 8b 08 8b 51 10 89 55 90 6a 00 6a 00 8d 45 80 50 6a 00 68 ?? ?? ?? 10 8b 4d e0 51 ff 55}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
