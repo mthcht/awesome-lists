@@ -3033,6 +3033,31 @@ rule Trojan_Win32_GuLoader_RBC_2147934700_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBC_2147934700_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBC!MTB"
+        threat_id = "2147934700"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "levnets\\semireflexively" ascii //weight: 1
+        $x_1_2 = "\\Desertioner\\uskikken.gif" ascii //weight: 1
+        $x_1_3 = "\\aandsevner\\natricinae.ini" ascii //weight: 1
+        $x_1_4 = "opkrvedes grafikprogrammer antitragal" ascii //weight: 1
+        $x_1_5 = "macrosymbiont.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBD_2147934845_0
 {
     meta:

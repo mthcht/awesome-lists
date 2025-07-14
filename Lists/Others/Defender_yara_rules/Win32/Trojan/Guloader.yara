@@ -2045,6 +2045,35 @@ rule Trojan_Win32_Guloader_RPN_2147805919_2
         family = "Guloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Software\\nonreasoning\\dagsaktuelt" wide //weight: 10
+        $x_1_2 = "Bikuber11.com" wide //weight: 1
+        $x_1_3 = "Forlems.bar" wide //weight: 1
+        $x_1_4 = "Refers.ini" wide //weight: 1
+        $x_1_5 = "Renownless.ini" wide //weight: 1
+        $x_1_6 = "Sundhedstegnene.txt" wide //weight: 1
+        $x_1_7 = "Uncharacterized.ini" wide //weight: 1
+        $x_1_8 = "skatteaarene.txt" wide //weight: 1
+        $x_1_9 = "nsis.sf.net/NSIS_Error" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RPN_2147805919_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RPN!MTB"
+        threat_id = "2147805919"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "High"
