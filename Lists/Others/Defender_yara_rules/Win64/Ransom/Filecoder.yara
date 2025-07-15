@@ -912,3 +912,27 @@ rule Ransom_Win64_Filecoder_PAHG_2147946145_0
         )
 }
 
+rule Ransom_Win64_Filecoder_AMX_2147946340_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.AMX!MTB"
+        threat_id = "2147946340"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "files have been encrypted" ascii //weight: 1
+        $x_1_2 = "infected with a ransomware virus" ascii //weight: 1
+        $x_1_3 = "bitcoins.com" ascii //weight: 1
+        $x_1_4 = "Get-WmiObject Win32_ShadowCopy" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

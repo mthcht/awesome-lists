@@ -8277,3 +8277,31 @@ rule Trojan_Win32_ClickFix_DDR_2147946200_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_MY_2147946332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MY!MTB"
+        threat_id = "2147946332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = ".php" wide //weight: 1
+        $x_1_4 = "'w'+'sc'+'r'+'ipt" wide //weight: 1
+        $x_1_5 = "'ra'+'mdata" wide //weight: 1
+        $x_1_6 = "cur'+'l.e'+'xe" wide //weight: 1
+        $x_1_7 = "'s'+'cht' + 'asks'" wide //weight: 1
+        $x_1_8 = "cre'+'ate" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
