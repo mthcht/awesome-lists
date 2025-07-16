@@ -5393,6 +5393,33 @@ rule Trojan_Win32_ClickFix_DDJ_2147943522_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "&& ftp" wide //weight: 1
+        $x_1_2 = "&& curl" wide //weight: 1
+        $x_1_3 = "http" wide //weight: 1
+        $x_1_4 = "service" wide //weight: 1
+        $x_1_5 = ".log" wide //weight: 1
+        $n_100_6 = "msedgewebview2.exe" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DDJ_2147943522_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DDJ!MTB"
+        threat_id = "2147943522"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "121"
         strings_accuracy = "High"
     strings:
@@ -6591,6 +6618,32 @@ rule Trojan_Win32_ClickFix_DDQ_2147944474_0
     strings:
         $x_100_1 = "powershell" wide //weight: 100
         $x_10_2 = ")|%{[char]$_})-join" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DDQ_2147944474_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DDQ!MTB"
+        threat_id = "2147944474"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "IO.File]::Create($" wide //weight: 1
+        $x_1_2 = "[Net.WebRequest]::Create" wide //weight: 1
+        $x_1_3 = ".CopyTo($" wide //weight: 1
+        $x_1_4 = "Join-Path $" wide //weight: 1
+        $x_1_5 = "replace" ascii //weight: 1
+        $x_1_6 = "Start-Process" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -8614,6 +8667,124 @@ rule Trojan_Win32_ClickFix_DFY_2147946489_0
         $x_10_2 = "[ScriptBlock]::Create(" wide //weight: 10
         $x_10_3 = "/HWID" wide //weight: 10
         $x_10_4 = "/Ohook" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_AAAG_2147946512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AAAG!MTB"
+        threat_id = "2147946512"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "&& curl" wide //weight: 1
+        $x_1_2 = ".log" wide //weight: 1
+        $x_1_3 = "&& ftp" wide //weight: 1
+        $x_1_4 = "http" wide //weight: 1
+        $n_100_5 = "awpdc.com" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DDS_2147946513_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DDS!MTB"
+        threat_id = "2147946513"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Net.WebClient" wide //weight: 1
+        $x_1_2 = ".UploadString($" wide //weight: 1
+        $x_1_3 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DDT_2147946514_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DDT!MTB"
+        threat_id = "2147946514"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "iex((get-clipboard -raw).substring(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DDT_2147946514_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DDT!MTB"
+        threat_id = "2147946514"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "Net.WebClient" wide //weight: 1
+        $x_1_3 = "); # " wide //weight: 1
+        $x_1_4 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DDU_2147946515_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DDU!MTB"
+        threat_id = "2147946515"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "[Windows.Clipboard]::SetText([DateTime]::UtcNow.ToString" wide //weight: 1
+        $x_1_3 = "hidden" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
