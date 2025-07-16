@@ -45,3 +45,26 @@ rule Ransom_Win64_LockCrypt_PC_2147797015_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockCrypt_PA_2147946499_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockCrypt.PA!MTB"
+        threat_id = "2147946499"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "READ_TO_DECRYPT.txt" ascii //weight: 1
+        $x_1_2 = "/upload_stolen.php" ascii //weight: 1
+        $x_2_3 = "YOUR FILES HAVE BEEN ENCRYPTED!" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

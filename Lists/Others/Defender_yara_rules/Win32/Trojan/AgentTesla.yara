@@ -2255,3 +2255,26 @@ rule Trojan_Win32_AgentTesla_RVH_2147941922_0
         (4 of ($x*))
 }
 
+rule Trojan_Win32_AgentTesla_MR_2147946479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AgentTesla.MR!MTB"
+        threat_id = "2147946479"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = "64696D6T6Y6_6d6j6o6u6z" ascii //weight: 15
+        $x_5_2 = {39 1e 39 25 39 33 39 39 39 3f 39 4a 39 59 39 68 39 6d 39 73 39 78 39}  //weight: 5, accuracy: High
+        $x_10_3 = {31 6f 31 a8 31 b4 31 ba ?? ?? ?? ?? 31 ed 31 f3 31 02 32 44 32 52 32 63 32}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

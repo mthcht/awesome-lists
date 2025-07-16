@@ -30,6 +30,10 @@ rule SupportScam_Win32_Screcwon_MA_2147944259_0
         $x_1_15 = "relay.ziadpaneel.com" ascii //weight: 1
         $x_1_16 = "mail.securedocumentfiledownload.com" ascii //weight: 1
         $x_1_17 = "dual.saltuta.com" ascii //weight: 1
+        $x_1_18 = ".organzoperate.com" ascii //weight: 1
+        $x_1_19 = ".ephelp.site" ascii //weight: 1
+        $x_1_20 = "dcontrol.guidzin.com" ascii //weight: 1
+        $x_1_21 = "docs.viewyourstatementonline.com" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (

@@ -680,3 +680,26 @@ rule Trojan_Win64_Mikey_AHC_2147945647_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_LMB_2147946480_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.LMB!MTB"
+        threat_id = "2147946480"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {8b 7c 24 24 83 c9 ff 33 c0 8b f7 f2 ae f7 d1 49 6a 01 8b e9 8d 4c 24 18 55}  //weight: 15, accuracy: High
+        $x_10_2 = {8b 44 24 10 8b 54 24 38 8b c8 c1 e9 10 89 0a 8b 4c 24 3c 25 ff ff 00 00 89 01}  //weight: 10, accuracy: High
+        $x_5_3 = {8b 44 24 08 81 ec 28 06 00 00 53 8b d9 56 57 8b 73 08 8b 7b 04 8b 53 0c 8b c8 46 03 fa 8b d1 89 73 08 8b b4 24 38 06 00 00 c1 e9 02 f3 a5 8b ca 83 e1 03}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2365,3 +2365,26 @@ rule Trojan_MSIL_XWorm_EHUA_2147946277_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AOZA_2147946401_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AOZA!MTB"
+        threat_id = "2147946401"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {05 0e 04 0e 06 0e 08 17 1f 40 28 ?? 00 00 06 0a 06 0e 05 0e 07 20 00 02 00 00 23 66 66 66 66 66 66 e6 3f 28 ?? 00 00 06 0b}  //weight: 5, accuracy: Low
+        $x_2_2 = {02 03 04 06 07 17 28 ?? 00 00 06 06 07 0e 06 0e 08 1f 0f 17 28}  //weight: 2, accuracy: Low
+        $x_2_3 = {06 05 0e 04 23 00 00 00 00 a3 e1 b1 41 17 28 ?? 00 00 06 0b 02 03 04 06 07 05 0e 04 0e 05 23 33 33 33 33 33 33 d3 3f 28}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

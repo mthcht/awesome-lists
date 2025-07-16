@@ -1960,6 +1960,28 @@ rule Trojan_Win32_LummaStealer_MFF_2147919627_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_NT_2147920275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.NT!MTB"
+        threat_id = "2147920275"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c7 44 24 04 00 00 00 00 c7 44 24 08 00 00 00 00 c7 44 24 0c 00 00 00 00 c6 44 24 10 00 c7 44 24 14 04 00 00 08 c7 44 24 18 00 00 00 00 c7 44 24 1c 00 00 00 00 8d 94 24 20 01 00 00 89 54 24 20}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 4c 24 28 89 4c 24 3c c7 04 24 00 00 00 00 c7 44 24 04 00 00 00 00 c7 44 24 08 00 00 00 00 c7 44 24 0c 00 00 00 00 c7 44 24 10 00 00 00 00 c7 44 24 14 00 00 00 00 c7 44 24 18 00 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_TRI_2147920357_0
 {
     meta:
@@ -6894,5 +6916,26 @@ rule Trojan_Win32_LummaStealer_RPP_2147946351_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_JSM_2147946434_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.JSM!MTB"
+        threat_id = "2147946434"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 0c 01 31 c8 35 5e fc 19 aa 89 44 24 04 8b 44 24 04 04 5a 8b 4c 24 ?? 8b 14 24 88 04 11 8b 04 24 89 c1 83 e1 01 89 c2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

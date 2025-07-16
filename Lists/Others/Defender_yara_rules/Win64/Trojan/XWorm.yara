@@ -183,3 +183,28 @@ rule Trojan_Win64_XWorm_GZM_2147944854_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_GXF_2147946470_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.GXF!MTB"
+        threat_id = "2147946470"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 8d 55 b0 48 8b 85 d0 00 00 00 48 c7 44 24 20 00 00 00 00 41 b9 00 00 00 00 49 89 d0 48 89 c2 b9 00 00 00 00 e8}  //weight: 5, accuracy: High
+        $x_1_2 = "cmd.exe /c sc config WinDefend start=disabled > nul 2>&1" ascii //weight: 1
+        $x_1_3 = "sc stop WinDefend > nul 2>&1" ascii //weight: 1
+        $x_1_4 = "TEMP\\svchost.exe" ascii //weight: 1
+        $x_1_5 = "DisableRealtimeMonitoring" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
