@@ -40,3 +40,33 @@ rule Trojan_Win64_Rugmi_MV_2147935917_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rugmi_HI_2147946531_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rugmi.HI!MTB"
+        threat_id = "2147946531"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rugmi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {ff d0 48 89 c7 ?? 8b 05}  //weight: 20, accuracy: Low
+        $x_20_2 = {ff d3 48 89 df ?? 8b 1d}  //weight: 20, accuracy: Low
+        $x_20_3 = {ff d1 48 89 cf ?? 8b 0d}  //weight: 20, accuracy: Low
+        $x_1_4 = {48 63 40 3c 8b 84 06 88 00 00 00 ?? 8b}  //weight: 1, accuracy: Low
+        $x_1_5 = {48 63 5b 3c 8b 9c 1e 88 00 00 00 ?? 8b}  //weight: 1, accuracy: Low
+        $x_1_6 = {48 63 49 3c 8b 8c 0e 88 00 00 00 ?? 8b}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
