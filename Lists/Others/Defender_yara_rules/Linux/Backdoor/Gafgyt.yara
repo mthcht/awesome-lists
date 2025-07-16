@@ -2376,8 +2376,10 @@ rule Backdoor_Linux_Gafgyt_BA_2147817853_0
         $x_2_2 = "xmhdipc" ascii //weight: 2
         $x_1_3 = "admin1234" ascii //weight: 1
         $x_1_4 = "klv123" ascii //weight: 1
+        $n_1_5 = "com.bitdefender" ascii //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

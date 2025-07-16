@@ -27,33 +27,6 @@ rule Trojan_MSIL_Agenttesla_XNHU_2147805871_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Agenttesla_ZARS_2147807215_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Agenttesla.ZARS!MTB"
-        threat_id = "2147807215"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Agenttesla"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "BeginRead" ascii //weight: 1
-        $x_1_2 = "isDisconnected" ascii //weight: 1
-        $x_1_3 = "BeginReceive" ascii //weight: 1
-        $x_1_4 = "AES_Decryptor" ascii //weight: 1
-        $x_1_5 = "AES_Encryptor" ascii //weight: 1
-        $x_1_6 = "Shot" ascii //weight: 1
-        $x_1_7 = "Read" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Agenttesla_EVD_2147821516_0
 {
     meta:
