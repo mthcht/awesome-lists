@@ -8078,8 +8078,10 @@ rule Trojan_Win32_ClickFix_EEG_2147945699_0
         $x_1_1 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-60] 76 00 65 00 72 00 69 00 66 00 69 00 63 00 61 00 74 00 69 00 6f 00 6e 00}  //weight: 1, accuracy: Low
         $x_1_2 = "W*\\*32\\c??l.e" wide //weight: 1
         $x_1_3 = "Cloudflare Verification" wide //weight: 1
+        $n_5_4 = "NationalSignatureVerificationSystem01.msi" wide //weight: -5
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 

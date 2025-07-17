@@ -3944,6 +3944,27 @@ rule Trojan_Win32_Redline_GTD_2147832568_0
         threshold = "10"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {8b 55 f8 8a 14 11 80 f2 42 88 14 01 41 3b 4d fc ?? ?? 8b 4d fc 50 88 1c 08}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Redline_GTD_2147832568_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Redline.GTD!MTB"
+        threat_id = "2147832568"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {0f be c0 69 c8 ?? ?? ?? ?? ba ?? ?? ?? ?? 89 c8 f7 ea 8d 04 0a c1 f8 ?? 89 c2 89 c8 c1 f8 ?? 29 c2 89 d0 ba ?? ?? ?? ?? 0f af c2 89 c1 8b 55 f0 8b 45 0c 01 d0 31 cb 89 da 88 10 83 45 f0 01 eb}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
