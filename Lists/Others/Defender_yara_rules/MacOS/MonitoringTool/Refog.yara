@@ -50,3 +50,28 @@ rule MonitoringTool_MacOS_Refog_TA_322243_0
         (5 of ($x*))
 }
 
+rule MonitoringTool_MacOS_Refog_B_462960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "MonitoringTool:MacOS/Refog.B!MTB"
+        threat_id = "462960"
+        type = "MonitoringTool"
+        platform = "MacOS: "
+        family = "Refog"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "com.hoverwatch.monitor" ascii //weight: 1
+        $x_1_2 = "MAChatGrabber" ascii //weight: 1
+        $x_1_3 = "installedMonitorURL" ascii //weight: 1
+        $x_1_4 = "com.hw.hwinstaller" ascii //weight: 1
+        $x_1_5 = "kTCCServiceScreenCapture" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

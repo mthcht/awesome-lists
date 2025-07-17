@@ -32,3 +32,27 @@ rule HackTool_Linux_Mirai_2147765816_0
         )
 }
 
+rule HackTool_Linux_Mirai_B_2147946604_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/Mirai.B!MTB"
+        threat_id = "2147946604"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.BuildKillSelf" ascii //weight: 1
+        $x_1_2 = "/mirai/cnc/bot.go" ascii //weight: 1
+        $x_1_3 = "main.AttackSend" ascii //weight: 1
+        $x_1_4 = "main.encryptCredentials" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
