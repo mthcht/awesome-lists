@@ -2791,3 +2791,25 @@ rule Trojan_MSIL_SpyNoon_ZJS_2147944576_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyNoon_ZTR_2147946643_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyNoon.ZTR!MTB"
+        threat_id = "2147946643"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyNoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {02 05 06 6f ?? 00 00 0a 0b 23 00 00 00 00 00 80 41 40 23 00 00 00 00 00 00 14 40 28 ?? 00 00 06 58 0c 08 23 33 33 33 33 33 33 e3 3f 5a 0d 12 01 28 ?? 00 00 0a 12 01}  //weight: 6, accuracy: Low
+        $x_5_2 = {59 13 09 11 09 19 32 29 03 12 01 28 ?? 00 00 0a 6f ?? 00 00 0a 03 12 01 28 ?? 00 00 0a 6f ?? 00 00 0a 03 12 01 28 ?? 00 00 0a 6f ?? 00 00 0a 2b 3b 11 09}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
