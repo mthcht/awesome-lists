@@ -58,7 +58,6 @@ def write_csv(headers, rows, path):
             writer.writerow(converted)
     logging.debug("CSV write complete")
 
-# The script logic can be run via main() or manually triggered
 def main():
     csv_raw = download_csv(CSV_URL)
     headers, rows = convert_headers_to_cim(csv_raw)
