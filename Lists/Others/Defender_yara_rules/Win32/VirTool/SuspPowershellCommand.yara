@@ -17,6 +17,7 @@ rule VirTool_Win32_SuspPowershellCommand_A_2147768895_0
         $x_1_3 = "-enc" wide //weight: 1
         $n_100_4 = "CgAkAFMAYwByAGkAcAB0ACAAPQAgAHsAbgBlAHQAcwB0AGEAdAAuAGUAeABlACAALQBhAG4AIAAt" wide //weight: -100
         $n_100_5 = " -NoLogo -NonInteractive -ExecutionPolicy Unrestricted -WindowStyle Hidden -NoProfile -EncodedCommand " wide //weight: -100
+        $n_100_6 = "@{}; $List = New-Object System.Collections.Generic.List[System.Object];Get-ChildItem 'HKLM:\\SOFTWARE\\" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
