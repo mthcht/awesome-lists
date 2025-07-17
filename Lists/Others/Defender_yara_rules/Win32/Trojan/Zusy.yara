@@ -7273,3 +7273,29 @@ rule Trojan_Win32_Zusy_AHF_2147946219_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_SXE_2147946647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.SXE!MTB"
+        threat_id = "2147946647"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {33 f6 90 8b 54 b4 14 8b 44 24 10 8d 4c 24 0c}  //weight: 5, accuracy: High
+        $x_3_2 = "G3T WIND0WS D3F3ND3R N3XT TIM3!" ascii //weight: 3
+        $x_1_3 = "taskmgr.exe" ascii //weight: 1
+        $x_1_4 = "msconfig.exe" ascii //weight: 1
+        $x_1_5 = "shutdown.exe" ascii //weight: 1
+        $x_1_6 = "taskkill.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
