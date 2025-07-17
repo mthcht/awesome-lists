@@ -1,2 +1,2 @@
-- Suspicious and compromised Signers from CertCentral: [certcentral_signers_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/CERTS/certcentral_signers_list.csv]
+- Suspicious and compromised Signers from CertCentral: [certcentral_signers_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/CERTS/certcentral_signers_list.csv)
 - My Suspicious Signers list: [suspicious_signers_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/CERTS/suspicious_signers_list.csv)
