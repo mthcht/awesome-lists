@@ -963,3 +963,25 @@ rule Trojan_MSIL_DarkCloud_AB_2147945968_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_GTD_2147946777_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.GTD!MTB"
+        threat_id = "2147946777"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0b 00 07 03 6f ?? 00 00 0a 00 07 04 6f ?? 00 00 0a 00 07 17 6f ?? 00 00 0a 00 07 18 6f ?? 00 00 0a 00 73 ?? ?? ?? ?? 0c 08 07 6f ?? 00 00 0a 17 73 ?? ?? ?? ?? 0d 00 09 06 16 06 8e 69 6f ?? 00 00 0a 00 09 6f ?? 00 00 0a 00 08 6f ?? 00 00 0a 13 04 de 28}  //weight: 10, accuracy: Low
+        $x_1_2 = "Confuser.Core" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

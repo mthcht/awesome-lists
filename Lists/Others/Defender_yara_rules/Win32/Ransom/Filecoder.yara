@@ -2617,3 +2617,29 @@ rule Ransom_Win32_Filecoder_PAHH_2147946170_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PAHK_2147946769_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAHK!MTB"
+        threat_id = "2147946769"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SANDBOX_MODE" wide //weight: 1
+        $x_2_2 = "read_it.txt" wide //weight: 2
+        $x_1_3 = "Your files have been encrypted" wide //weight: 1
+        $x_2_4 = "Local\\CHAOS_RUNNING" wide //weight: 2
+        $x_2_5 = "MALWARE" wide //weight: 2
+        $x_1_6 = "virus" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
