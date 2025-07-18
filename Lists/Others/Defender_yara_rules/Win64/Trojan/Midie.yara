@@ -390,3 +390,26 @@ rule Trojan_Win64_Midie_SPR_2147945181_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_AHB_2147946815_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.AHB!MTB"
+        threat_id = "2147946815"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 03 c8 48 89 4c 24 30 89 44 24 38 0f 28 44 24 30 66 0f 7f 44 24 30 48 8d 85 d0 01 00 00 48 89 44 24 20 4c 8d 8d d8 01 00 00 4c 8d 85 e0 01 00 00 48 8d 95 e8}  //weight: 5, accuracy: High
+        $x_5_2 = {44 8b c0 b8 4f ec c4 4e 41 f7 e8 c1 fa 03 8b ca c1 e9 1f 03 d1 6b ca 1a 44 2b c1 41 8d 50 41 48 8d 4d c0 e8}  //weight: 5, accuracy: High
+        $x_5_3 = "MP3SimWnd" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4349,3 +4349,33 @@ rule Trojan_Win64_CryptInject_C_2147945361_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_AHD_2147946816_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.AHD!MTB"
+        threat_id = "2147946816"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 fc 48 63 d0 48 8b 45 10 48 01 d0 0f b6 10 8b 45 fc 48 63 c8 48 8b 45 10 48 01 c8 83 f2 ?? 88 10 83 45 fc 01 8b 45 fc 3b 45 18 7c}  //weight: 20, accuracy: Low
+        $x_20_2 = {8b 45 f8 c1 e0 04 89 c2 8b 45 f4 09 d0 88 45 e9 0f b6 45 e9 83 f0 31 89 c1 8b 45 fc 48 63 d0 48 8b 45 18 48 01 d0 89 ca 88 10 83 45 fc 01 8b 45 fc 3b 45 ec 0f}  //weight: 20, accuracy: High
+        $x_30_3 = {8b 45 f0 89 c2 c1 ea 1f 01 d0 d1 f8 89 45 ec 8b 45 ec 3b 45 20 7c}  //weight: 30, accuracy: High
+        $x_30_4 = {8b 45 f8 89 c2 c1 ea 1f 01 d0 d1 f8 89 45 f4 8b 45 f4 3b 45 20 7e}  //weight: 30, accuracy: High
+        $x_5_5 = "34170797c7055707056707260705556735870797c707870730870700c0c1613" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_30_*) and 2 of ($x_20_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

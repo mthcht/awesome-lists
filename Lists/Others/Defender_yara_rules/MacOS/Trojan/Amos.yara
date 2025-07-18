@@ -2455,3 +2455,47 @@ rule Trojan_MacOS_Amos_EC_2147944190_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Amos_EE_2147946805_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.EE!MTB"
+        threat_id = "2147946805"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 49 89 f6 48 89 fb 0f b6 36 40 f6 c6 01 75 1d 40 f6 c6 02 0f 85 e4 00 00 00 0f 57 c0 0f 11 03 48 c7 43 10 00 00 00 00 48 d1 ee eb 1c}  //weight: 1, accuracy: High
+        $x_1_2 = {45 31 ff 45 31 e4 eb 14 66 66 66 2e 0f 1f 84 00 00 00 00 00 49 83 c4 02 49 83 c7 fe 45 0f b6 2e 41 f6 c5 01 75 0e 49 d1 ed 4d 39 ec 73 79 48 8b 75 b8 eb 0d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_EF_2147946806_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.EF!MTB"
+        threat_id = "2147946806"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {c1 e3 06 41 0b 58 14 41 8d 44 24 06 41 83 fc 02 7c 36 41 83 c4 fe 44 89 e6 c1 ee 03 ff c6 31 d2 41 83 fc 18 73 2a 41 89 c4 eb 78 89 c8 31 d2 f7 f7 89 d6 49 8b 06 48 8b 04 f0 48 85 c0}  //weight: 1, accuracy: High
+        $x_1_2 = {48 89 cf 48 c1 ef 3e 48 31 cf 48 0f af f8 48 01 f7 48 ff cf 48 89 bc f5 e8 f5 ff ff 48 81 fe 38 01 00 00 74 2a 48 8d 4a 01 49 89 f8 49 c1 e8 3e 49 31 f8 4c 0f af c0 4c 01 c1 49 01 f0 4c 89 84 f5 f0 f5 ff ff 48 83 c2 02 48 83 c6 02 eb b1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
