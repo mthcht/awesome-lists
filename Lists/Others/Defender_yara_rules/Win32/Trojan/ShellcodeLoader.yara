@@ -19,3 +19,24 @@ rule Trojan_Win32_ShellcodeLoader_A_2147917888_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeLoader_MRZ_2147946840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeLoader.MRZ!MTB"
+        threat_id = "2147946840"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 0f b6 94 8d ?? ?? ?? ?? 88 55 ea 8b 55 f0 0f b6 4d ea 30 0c 32 46 ff 4d e4 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

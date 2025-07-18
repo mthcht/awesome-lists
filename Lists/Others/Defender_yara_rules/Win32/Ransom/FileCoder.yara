@@ -1410,3 +1410,28 @@ rule Ransom_Win32_FileCoder_BAA_2147942344_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCoder_BAB_2147946855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder.BAB!MTB"
+        threat_id = "2147946855"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Ransom Note" ascii //weight: 1
+        $x_1_2 = "Desktop wallpaper changed to ransom image" ascii //weight: 1
+        $x_1_3 = "Your files have been encrypted. Contact attacker" ascii //weight: 1
+        $x_1_4 = "Ransom note sent to printers" ascii //weight: 1
+        $x_1_5 = "diskshadow_script.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

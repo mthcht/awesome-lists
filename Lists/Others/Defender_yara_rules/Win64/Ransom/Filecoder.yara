@@ -958,3 +958,83 @@ rule Ransom_Win64_Filecoder_PZD_2147946435_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_YBC_2147946846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBC!MTB"
+        threat_id = "2147946846"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\Windows\\System32\\drivers\\etc\\hosts" ascii //weight: 1
+        $x_1_2 = "encryption_log.txt" ascii //weight: 1
+        $x_1_3 = "!!! SYSTEM COMPROMISED !!!" wide //weight: 1
+        $x_1_4 = "YOUR FILES ARE GONE" wide //weight: 1
+        $x_1_5 = "!!! SYSTEM LOCKED !!!" wide //weight: 1
+        $x_1_6 = "YOUR COMPUTER IS UNDER CONTROL" wide //weight: 1
+        $x_1_7 = "LockScreenClass" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_YBD_2147946847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBD!MTB"
+        threat_id = "2147946847"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".ransom" wide //weight: 1
+        $x_1_2 = "Software\\Policies\\Microsoft\\Windows NT\\Security" wide //weight: 1
+        $x_1_3 = "DisableFirewall" wide //weight: 1
+        $x_1_4 = "Software\\Policies\\Microsoft\\Windows NT\\SystemRestore" wide //weight: 1
+        $x_1_5 = "DisableSR" wide //weight: 1
+        $x_1_6 = "To decrypt them" wide //weight: 1
+        $x_1_7 = "Your files have been encrypted" wide //weight: 1
+        $x_1_8 = "wallet address" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_YBE_2147946848_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBE!MTB"
+        threat_id = "2147946848"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Files Have Been Encrypted" ascii //weight: 1
+        $x_1_2 = "encrypted by our advanced attack" ascii //weight: 1
+        $x_1_3 = "HOW-TO-RESTORE-YOUR-FILES.txt" wide //weight: 1
+        $x_1_4 = "located in every encrypted folder" wide //weight: 1
+        $x_1_5 = "Buy Bitcoin" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
