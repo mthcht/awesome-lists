@@ -70,6 +70,7 @@ rule Trojan_Win32_Ceprolad_A_2147726914_1
         $n_50_19 = "https://transparency.michigan.gov" wide //weight: -50
         $n_50_20 = "http://ccbdistweb.ch.intel.com" wide //weight: -50
         $n_50_21 = "https://tkccodesigningv2.vault.azure.net" wide //weight: -50
+        $n_50_22 = "http://localhost/fio-62833e7bae788a6973cdf8d5.crl" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

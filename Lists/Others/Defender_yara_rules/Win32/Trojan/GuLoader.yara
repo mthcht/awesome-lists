@@ -3130,6 +3130,32 @@ rule Trojan_Win32_GuLoader_RBE_2147934990_0
         (3 of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBE_2147934990_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBE!MTB"
+        threat_id = "2147934990"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Sybaritism\\Underprikkede" ascii //weight: 1
+        $x_1_2 = "Skemalisterne.ini" ascii //weight: 1
+        $x_1_3 = "\\kontortelefon\\octaval.jpg" ascii //weight: 1
+        $x_1_4 = "afloesningsopgaven quantitiveness" ascii //weight: 1
+        $x_1_5 = "boller" ascii //weight: 1
+        $x_1_6 = "nedsablingen" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBF_2147935104_0
 {
     meta:

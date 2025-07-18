@@ -731,6 +731,28 @@ rule Trojan_Win32_Smokeloader_GKV_2147835707_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Smokeloader_GTP_2147836216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Smokeloader.GTP!MTB"
+        threat_id = "2147836216"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Smokeloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b c3 c1 e8 05 c7 05 ?? ?? ?? ?? 19 36 6b ff 89 45 ?? 8b 45 ?? 01 45 ?? ff 75 ?? 8b c3 c1 e0 ?? 03 c6 33 45 ?? 89 45 ?? 8d 45 ?? 50 e8 ?? ?? ?? ?? ff 75 ?? 8d 45 ?? 50 e8 ?? ?? ?? ?? 81 45 ?? 47 86 c8 61 ff 4d ?? 0f 85}  //weight: 10, accuracy: Low
+        $x_10_2 = {c1 e8 05 c7 05 ?? ?? ?? ?? 19 36 6b ff 89 45 ?? 8b 45 ?? 01 45 ?? ff 75 ?? 03 f3 33 75 ?? 8d 45 ?? 50 89 75 ?? e8 ?? ?? ?? ?? ff 75 ?? 8d 45 ?? 50 e8 ?? ?? ?? ?? 81 45 ?? 47 86 c8 61 ff 4d ?? 0f 85}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
 rule Trojan_Win32_Smokeloader_GAB_2147836348_0
 {
     meta:
