@@ -877,3 +877,25 @@ rule Trojan_MSIL_Tiny_ZKU_2147946134_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tiny_NITF_2147946883_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tiny.NITF!MTB"
+        threat_id = "2147946883"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {d8 00 00 70 0a 72 ?? 00 00 70 06 02 28 ?? 00 00 0a 0b 73 36 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 01 00 70 07 28 ?? 00 00 0a 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 28 ?? 00 00 0a 0c 08 6f ?? 00 00 0a 08 6f ?? 00 00 0a 2c 1b 72 ?? 02 00 70 08 6f ?? 00 00 0a 8c 32 00 00 01 28 ?? 00 00 0a 73 3f 00 00 0a 7a de 0a}  //weight: 3, accuracy: Low
+        $x_2_2 = {72 25 00 00 70 0a 1f 24 28 ?? 00 00 0a 72 b8 00 00 70 28 ?? 00 00 0a 0b 73 2b 00 00 0a 0c 07 28 ?? 00 00 06 08 06 07 6f ?? 00 00 0a de 0a 08 2c 06 08 6f ?? 00 00 0a dc 07 73 2e 00 00 0a 25 17 6f ?? 00 00 0a 25 72 cc 00 00 70 6f ?? 00 00 0a 26 de 19}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

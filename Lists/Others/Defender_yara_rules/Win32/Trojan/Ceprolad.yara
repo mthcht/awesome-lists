@@ -26,6 +26,7 @@ rule Trojan_Win32_Ceprolad_A_2147726914_0
         $n_50_12 = "https://ss64.com" wide //weight: -50
         $n_50_13 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 6c 00 6f 00 63 00 61 00 6c 00 68 00 6f 00 73 00 74 00 2f 00 61 00 62 00 62 00 [0-255] 2e 00 63 00 72 00 6c 00}  //weight: -50, accuracy: Low
         $n_50_14 = "https://transparency.michigan.gov" wide //weight: -50
+        $n_50_15 = "http://localhost/fio-62833e7bae788a6973cdf8d5.crl" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -120,6 +121,7 @@ rule Trojan_Win32_Ceprolad_A_2147726914_2
         $n_50_23 = {61 00 62 00 62 00 2e 00 63 00 6f 00 6d 00 2f 00 61 00 62 00 62 00 [0-255] 2e 00 63 00 72 00 6c 00}  //weight: -50, accuracy: Low
         $n_50_24 = "https://transparency.michigan.gov" wide //weight: -50
         $n_50_25 = "http://ccbdistweb.ch.intel.com" wide //weight: -50
+        $n_50_26 = "http://localhost/fio-62833e7bae788a6973cdf8d5.crl" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

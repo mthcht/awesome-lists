@@ -167,3 +167,26 @@ rule Trojan_Win32_Matanbuchus_MKZ_2147933800_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Matanbuchus_CCIM_2147946885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Matanbuchus.CCIM!MTB"
+        threat_id = "2147946885"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Matanbuchus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 45 f8 83 c0 01 8b 4d fc 83 d1 00 89 45 f8 89 4d fc 8b 55 fc 3b 55 10}  //weight: 2, accuracy: High
+        $x_2_2 = {6a 00 6a 01 8b 4d fc 51 8b 55 f8 52 e8 ?? ?? ?? ?? 8b f0 6a 00 6a 08 8b 45 fc 50 8b 4d f8 51 e8}  //weight: 2, accuracy: Low
+        $x_1_3 = {0f be d0 8b 45 08 0f be 1c 30 33 da 6a 00 6a 01 8b 4d fc 51 8b 55 f8 52 e8 ?? ?? ?? ?? 8b 4d 08 88 1c 01}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
