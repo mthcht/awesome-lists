@@ -19,3 +19,23 @@ rule TrojanSpy_Win64_RustyStealer_B_2147946254_0
         (all of ($x*))
 }
 
+rule TrojanSpy_Win64_RustyStealer_C_2147946999_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:Win64/RustyStealer.C"
+        threat_id = "2147946999"
+        type = "TrojanSpy"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\Users\\lucak\\Desktop\\rust-c2\\client\\libs\\memexec\\src\\peparser\\pe.rs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
