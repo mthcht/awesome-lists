@@ -4002,3 +4002,26 @@ rule Trojan_MSIL_ClipBanker_GTD_2147946562_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_ACAB_2147946972_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.ACAB!MTB"
+        threat_id = "2147946972"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {07 08 06 7e 44 00 00 04 06 28 ?? 01 00 06 28 ?? 01 00 06 28 ?? 01 00 06 9d 08 17 13 04 1f fd 20 73 dc 05 4a 20 4f ?? db 25 61 20 3c 4c de 6f 33 0a 18 13 04 fe 1c 0d 00 00 1b 58 00 58 0c 08 02 32 be}  //weight: 4, accuracy: Low
+        $x_2_2 = "ILoveYourMother" ascii //weight: 2
+        $x_1_3 = "Confuser.Core" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
