@@ -3538,3 +3538,23 @@ rule Trojan_MSIL_Zusy_GAF_2147945554_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SM_2147947056_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SM"
+        threat_id = "2147947056"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 07 02 07 91 07 03 28 7b 00 00 06 9c 07 17 d6 0b 07 06 31 eb}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

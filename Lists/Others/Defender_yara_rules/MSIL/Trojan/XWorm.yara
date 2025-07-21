@@ -488,6 +488,40 @@ rule Trojan_MSIL_XWorm_GPB_2147906996_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_GPB_2147906996_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.GPB!MTB"
+        threat_id = "2147906996"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "MasonRAT" ascii //weight: 2
+        $x_1_2 = "appdatas" ascii //weight: 1
+        $x_1_3 = "RegWrite" ascii //weight: 1
+        $x_1_4 = "MasonKit" ascii //weight: 1
+        $x_1_5 = "DDosT" ascii //weight: 1
+        $x_1_6 = "Cilpper" ascii //weight: 1
+        $x_1_7 = "injRun" ascii //weight: 1
+        $x_1_8 = "taskkill" ascii //weight: 1
+        $x_1_9 = "create /f /sc minute" ascii //weight: 1
+        $x_1_10 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((7 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 5 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_MSIL_XWorm_AXW_2147908235_0
 {
     meta:

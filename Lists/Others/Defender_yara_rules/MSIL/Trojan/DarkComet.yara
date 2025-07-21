@@ -1062,6 +1062,27 @@ rule Trojan_MSIL_DarkComet_ADK_2147849043_12
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {13 04 16 13 06 2b 5d 11 04 17 58 20 00 01 00 00 5d 13 04 11 05 07 11 04 91 58 20 00 01 00 00 5d 13 05 07 11 04 91 0d 07 11 04 07 11 05 91 9c 07 11 05 09 9c 07 11 04 91 07 11 05 91 58 20 00 01 00 00 5d 13 07 02 11 06}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DarkComet_ADK_2147849043_13
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkComet.ADK!MTB"
+        threat_id = "2147849043"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {0a 06 0d 16 0c 2b 2b 09 08 9a 0b 07 6f ?? 00 00 0a 72 d1 0d 00 70 6f ?? 00 00 0a 13 04 11 04 2c 0b 28 ?? 00 00 0a 6f ?? 00 00 0a 00 00 08 17 d6 0c 00 08 09 8e b7 fe 04 13 04 11 04 2d c9}  //weight: 1, accuracy: Low
@@ -1070,7 +1091,7 @@ rule Trojan_MSIL_DarkComet_ADK_2147849043_12
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkComet_ADK_2147849043_13
+rule Trojan_MSIL_DarkComet_ADK_2147849043_14
 {
     meta:
         author = "defender2yara"
@@ -1091,7 +1112,7 @@ rule Trojan_MSIL_DarkComet_ADK_2147849043_13
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkComet_ADK_2147849043_14
+rule Trojan_MSIL_DarkComet_ADK_2147849043_15
 {
     meta:
         author = "defender2yara"
@@ -1113,7 +1134,7 @@ rule Trojan_MSIL_DarkComet_ADK_2147849043_14
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkComet_ADK_2147849043_15
+rule Trojan_MSIL_DarkComet_ADK_2147849043_16
 {
     meta:
         author = "defender2yara"
@@ -1134,7 +1155,7 @@ rule Trojan_MSIL_DarkComet_ADK_2147849043_15
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkComet_ADK_2147849043_16
+rule Trojan_MSIL_DarkComet_ADK_2147849043_17
 {
     meta:
         author = "defender2yara"
@@ -1156,7 +1177,7 @@ rule Trojan_MSIL_DarkComet_ADK_2147849043_16
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkComet_ADK_2147849043_17
+rule Trojan_MSIL_DarkComet_ADK_2147849043_18
 {
     meta:
         author = "defender2yara"
@@ -1179,7 +1200,7 @@ rule Trojan_MSIL_DarkComet_ADK_2147849043_17
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkComet_ADK_2147849043_18
+rule Trojan_MSIL_DarkComet_ADK_2147849043_19
 {
     meta:
         author = "defender2yara"
@@ -1201,7 +1222,7 @@ rule Trojan_MSIL_DarkComet_ADK_2147849043_18
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkComet_ADK_2147849043_19
+rule Trojan_MSIL_DarkComet_ADK_2147849043_20
 {
     meta:
         author = "defender2yara"
