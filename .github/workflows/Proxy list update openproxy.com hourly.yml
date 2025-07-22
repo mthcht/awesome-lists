@@ -1,8 +1,8 @@
-name: Hourly OpenProxyList.com Fetch
+name: Prowy OpenProxyList.com Fetch
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '15 */2 * * *'  # Runs every 2 hours
   workflow_dispatch:
 
 jobs:
