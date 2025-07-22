@@ -1,8 +1,8 @@
-name: Hourly KangProxy Fetch
+name: Proxy KangProxy Fetch
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '0 */2 * * *'  # Runs every 2 hours
   workflow_dispatch:
 
 jobs:
