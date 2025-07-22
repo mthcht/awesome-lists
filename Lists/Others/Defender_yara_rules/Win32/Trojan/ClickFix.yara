@@ -3260,6 +3260,13 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_55 = "mnvuz3gvy3.top/" wide //weight: 1
         $x_1_56 = "xilx222.b-cdn.net/" wide //weight: 1
         $x_1_57 = "oswyka.com/" wide //weight: 1
+        $x_1_58 = "ignifugacionsarguix.com/" wide //weight: 1
+        $x_1_59 = "dortessas.com/" wide //weight: 1
+        $x_1_60 = "annoyingfiler.com/" wide //weight: 1
+        $x_1_61 = "vericloudx.com/" wide //weight: 1
+        $x_1_62 = "view31.b-cdn.net/" wide //weight: 1
+        $x_1_63 = "mistyexycapt.com/" wide //weight: 1
+        $x_1_64 = "youcheckineco.com/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -6965,7 +6972,8 @@ rule Trojan_Win32_ClickFix_SKD_2147944806_0
         $n_100_7 = "openwebsearch.cmd" wide //weight: -100
         $n_100_8 = "winget-autoupdate" wide //weight: -100
         $n_100_9 = "://inventory.kitenet.ch/pub" wide //weight: -100
-        $n_100_10 = "([scriptblock]::Create([Microsoft.Win32.Registry]::GetValue" wide //weight: -100
+        $n_100_10 = "([scriptblock]::create([microsoft.win32.registry]::getvalue" wide //weight: -100
+        $n_100_11 = "\\salvage2onedrive\\salvage2onedrive.ps1" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

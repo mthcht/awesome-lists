@@ -1038,3 +1038,27 @@ rule Ransom_Win64_Filecoder_YBE_2147946848_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_YBF_2147947084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBF!MTB"
+        threat_id = "2147947084"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f 57 c8 f3 0f 7f 48 ?? 66 0f 6f ca f3 0f 6f 40 ?? 0f 57 c2 f3 0f 7f 40 ?? f3 0f 6f}  //weight: 1, accuracy: Low
+        $x_1_2 = {80 30 3f 48 8d 40 01 ff c1 81 f9 2c 3c 00 00 72}  //weight: 1, accuracy: High
+        $x_1_3 = "Global\\lockv7" wide //weight: 1
+        $x_1_4 = "locked.html" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
