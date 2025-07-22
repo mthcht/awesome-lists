@@ -1,8 +1,8 @@
-name: Hourly hookzof Update
+name: Proxy hookzof Update
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '10 */2 * * *'  # Runs every 2 hours
   workflow_dispatch:
 
 jobs:
