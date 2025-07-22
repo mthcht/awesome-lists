@@ -1,8 +1,8 @@
-name: Hourly Sunny9577 Proxy Fetch
+name: Proxy Sunny9577 Fetch
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '10 */2 * * *'  # Runs every 2 hours
   workflow_dispatch:
 
 jobs:
