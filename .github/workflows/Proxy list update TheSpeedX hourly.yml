@@ -1,8 +1,8 @@
-name: Hourly TheSpeedX PROXY-List Update
+name: Proxy TheSpeedX Update
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '0 */2 * * *'  # Runs every 2 hours
   workflow_dispatch:
 
 jobs:
