@@ -330,3 +330,25 @@ rule Trojan_Win32_DCRat_MPX_2147928219_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DCRat_MX_2147947137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.MX!MTB"
+        threat_id = "2147947137"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 7d 08 8b c7 c1 f8 05 8d 34 85 60 3f 42 00 8b 06 83 e7 1f c1 e7 06 03 c7 8a 58 24 02 db d0 fb}  //weight: 1, accuracy: High
+        $x_1_2 = "libGLESv2.dll" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
