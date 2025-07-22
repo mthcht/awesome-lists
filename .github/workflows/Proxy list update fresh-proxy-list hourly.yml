@@ -1,8 +1,8 @@
-name: Hourly fresh-proxy-list Update
+name: Proxy fresh-proxy-list Update
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '10 */2 * * *'  # Runs every 2 hour
   workflow_dispatch:
 
 jobs:
