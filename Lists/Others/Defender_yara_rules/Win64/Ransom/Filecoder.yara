@@ -1089,3 +1089,28 @@ rule Ransom_Win64_Filecoder_YBF_2147947084_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_C_2147947184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.C!MTB"
+        threat_id = "2147947184"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "main.deleteVSS" ascii //weight: 3
+        $x_3_2 = "main.encryptFile" ascii //weight: 3
+        $x_3_3 = "main.scanAndEncrypt" ascii //weight: 3
+        $x_2_4 = "main.shouldEncrypt" ascii //weight: 2
+        $x_2_5 = "main.shouldExclude" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
