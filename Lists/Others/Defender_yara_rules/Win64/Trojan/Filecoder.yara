@@ -163,3 +163,30 @@ rule Trojan_Win64_Filecoder_PGF_2147942477_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_NIA_2147947157_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.NIA!MTB"
+        threat_id = "2147947157"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = ".ENCRYPT" ascii //weight: 2
+        $x_1_2 = "Ooops, your files have been encrypted!" ascii //weight: 1
+        $x_1_3 = "Send $1000 worth of Monero to this address" ascii //weight: 1
+        $x_1_4 = "Your files will be lost on" ascii //weight: 1
+        $x_1_5 = "RansomWindowClass" ascii //weight: 1
+        $x_1_6 = "Encrypted Key:" ascii //weight: 1
+        $x_1_7 = "Decryption Key:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

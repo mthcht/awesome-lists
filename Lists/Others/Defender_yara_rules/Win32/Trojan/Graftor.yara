@@ -550,3 +550,25 @@ rule Trojan_Win32_Graftor_SEFT_2147938420_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Graftor_SX_2147947158_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.SX!MTB"
+        threat_id = "2147947158"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {ff 36 8d 85 f8 fe ff ff 50 ff 15 ?? ?? ?? ?? 59 85 c0 59 74 1b 47 83 c6 04 3b 7d 0c 7c e2}  //weight: 3, accuracy: Low
+        $x_2_2 = {b9 81 00 00 00 33 c0 8d bd ee fa ff ff f3 ab 80 a5 f8 fd ff ff 00 6a 40 66 ab 59 33 c0 8d bd f9 fd ff ff 68 e0 40 40 00 f3 ab 66 ab aa}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

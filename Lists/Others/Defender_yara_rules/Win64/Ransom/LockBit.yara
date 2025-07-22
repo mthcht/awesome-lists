@@ -205,3 +205,28 @@ rule Ransom_Win64_LockBit_AQUA_2147941881_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_MKC_2147947169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.MKC!MTB"
+        threat_id = "2147947169"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-----BEGIN RSA PUBLIC KEY-----" ascii //weight: 1
+        $x_1_2 = "-----END RSA PUBLIC KEY-----" ascii //weight: 1
+        $x_3_3 = "hijacked.pdb" ascii //weight: 3
+        $x_1_4 = "decryptiondescription.pdf" ascii //weight: 1
+        $x_2_5 = ".lock" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

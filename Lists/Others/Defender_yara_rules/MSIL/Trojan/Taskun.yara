@@ -5930,3 +5930,28 @@ rule Trojan_MSIL_Taskun_EHJW_2147946273_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_2147947156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.MTE!MTB"
+        threat_id = "2147947156"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTE: an internal category used to refer to some threats"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Buttrey Food & Drug" ascii //weight: 1
+        $x_1_2 = "Montero.dll" ascii //weight: 1
+        $x_1_3 = "Peugeot 206" ascii //weight: 1
+        $x_1_4 = "File Clerker" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

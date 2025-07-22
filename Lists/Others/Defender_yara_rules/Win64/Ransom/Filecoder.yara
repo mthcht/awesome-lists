@@ -592,6 +592,33 @@ rule Ransom_Win64_Filecoder_NITD_2147931302_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "WannaDecryption.pdb" ascii //weight: 2
+        $x_2_2 = "encrypted file" ascii //weight: 2
+        $x_2_3 = "Your files are encrypted" ascii //weight: 2
+        $x_2_4 = "Decryption completed!" ascii //weight: 2
+        $x_2_5 = "Decrypting files" ascii //weight: 2
+        $x_1_6 = "To decrypt your files" ascii //weight: 1
+        $x_1_7 = "drop of the panic payload panicked" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_NITD_2147931302_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.NITD!MTB"
+        threat_id = "2147931302"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "16"
         strings_accuracy = "High"
     strings:
