@@ -65,3 +65,27 @@ rule Ransom_Win32_Chaos_C_2147935687_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Chaos_AMX_2147947328_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.AMX!MTB"
+        threat_id = "2147947328"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" wide //weight: 1
+        $x_1_2 = "CHAOS RANSOMWARE" wide //weight: 1
+        $x_1_3 = "recover your files" wide //weight: 1
+        $x_1_4 = "ransom in Bitcoin" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

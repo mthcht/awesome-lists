@@ -5869,3 +5869,27 @@ rule Trojan_Win32_Guloader_GOY_2147947192_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GOZ_2147947329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GOZ!MTB"
+        threat_id = "2147947329"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "trevlers pizzapakke grundkursets" ascii //weight: 1
+        $x_1_2 = "logeredes vari" ascii //weight: 1
+        $x_1_3 = "sydkoreaneren" ascii //weight: 1
+        $x_1_4 = "Knsdiskrimineredes.tan" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
