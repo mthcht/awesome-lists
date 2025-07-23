@@ -7691,3 +7691,48 @@ rule Trojan_MSIL_Heracles_SLYO_2147946814_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_ZAQ_2147947265_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.ZAQ!MTB"
+        threat_id = "2147947265"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0c 08 06 28 ?? 00 00 0a 07 28 ?? 00 00 0a 6f ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 11 04 09 17 73 ?? 00 00 0a 13 05 02 28 ?? 00 00 06 75 ?? 00 00 1b 13 06 11 05 11 06 16 11 06 8e 69 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 07 de 22}  //weight: 10, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_EHHK_2147947295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.EHHK!MTB"
+        threat_id = "2147947295"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b 40 07 09 0f 02 ?? ?? ?? ?? ?? 05 0e 04 09 6b 06 5a 58 6c ?? ?? ?? ?? ?? 6b 5a 58 0f 02 ?? ?? ?? ?? ?? 05 0e 04 09 6b 06 5a 58 6c ?? ?? ?? ?? ?? 6b 5a 58 73 2b 00 00 0a a4 15 00 00 01 09 17 58 0d 09 19 32 bc}  //weight: 2, accuracy: Low
+        $x_2_2 = {1f 19 18 11 04 5a 59 13 05 11 05 20 ff 00 00 00 16 16 ?? ?? ?? ?? ?? 73 32 00 00 0a 13 06 05 11 04 18 5a 6b 58 13 07 03 11 06 0f 02}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

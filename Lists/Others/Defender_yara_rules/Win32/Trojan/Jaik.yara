@@ -416,3 +416,26 @@ rule Trojan_Win32_Jaik_NH_2147943200_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_KK_2147947318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.KK!MTB"
+        threat_id = "2147947318"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 8d e4 fd ff ff 03 c2 8b 95 e0 fd ff ff 0f b6 c0 0f b6 84 05 f0 fe ff ff 30 04 0a}  //weight: 30, accuracy: High
+        $x_20_2 = {03 c8 81 e1 ff 00 00 80 79 ?? 49 81 c9 00 ff ff ff 41 8a 84 0d ?? ?? ?? ?? 88 84 3d 01 47 89 8d ?? ?? ff ff 88 9c 0d 02 81 ff}  //weight: 20, accuracy: Low
+        $x_10_3 = "msgdeupdate.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

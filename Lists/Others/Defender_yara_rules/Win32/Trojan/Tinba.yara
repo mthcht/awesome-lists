@@ -657,3 +657,25 @@ rule Trojan_Win32_Tinba_ATI_2147940999_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tinba_AHB_2147947302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tinba.AHB!MTB"
+        threat_id = "2147947302"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tinba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8b 85 6c ff ff ff 8b 55 dc c1 f8 1f 8b c8 33 ca 8b 55 d8 33 c2 3b c1 0f}  //weight: 3, accuracy: High
+        $x_2_2 = {89 85 38 fe ff ff 89 85 34 fe ff ff 89 85 30 fe ff ff 89 85 2c fe ff ff 89 85 28 fe ff ff 89 85 18 fe ff ff 89 85 08 fe ff ff ff 15}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

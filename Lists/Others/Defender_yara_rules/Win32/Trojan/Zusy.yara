@@ -7322,3 +7322,24 @@ rule Trojan_Win32_Zusy_LMF_2147946817_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_SXD_2147947303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.SXD!MTB"
+        threat_id = "2147947303"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b fe 8b 36 66 83 7f 2e 00 74 23 8b 4f 30 85 c9 74 1c 51 8d 94 24 14 02 00 00 e8 ?? ?? ?? ?? 8d 94 24 10 02 00 00 51 8b ca e8 ?? ?? ?? ?? 51 8d 54 24 14 8d 8c 24 14 02 00 00 e8 ?? ?? ?? ?? 85 c0 74 08 3b f3 75 b9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

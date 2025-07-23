@@ -6234,3 +6234,24 @@ rule Trojan_Win32_Smokeloader_NEW_2147942085_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Smokeloader_EAPG_2147947300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Smokeloader.EAPG!MTB"
+        threat_id = "2147947300"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Smokeloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {89 14 24 89 4c 24 0c 8b 44 24 0c 31 04 24 8b 04 24 33 44 24 04 83 c4 08}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3108,3 +3108,49 @@ rule Trojan_Win64_Lazy_AHD_2147947242_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_KKA_2147947319_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KKA!MTB"
+        threat_id = "2147947319"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {89 41 04 b8 00 08 00 00 41 2b c0 c1 e8 05 66 41 03 c0 66 41 89 02 33 c0 eb ?? 44 2b c8 2b d0 41 8b c0 44 89 49 04 c1 e8 05 66 44 2b c0 89 11 66 45 89 02}  //weight: 8, accuracy: Low
+        $x_7_2 = {48 8b fa 41 c1 e2 08 44 0b d0 0f b6 41 02 41 c1 e2 08 44 0b d0 0f b6 41 01 41 c1 e2 08 b9 00 10 00 00 44 0b d0 48 8b 44 24 28 44 89 10 44 3b d1}  //weight: 7, accuracy: High
+        $x_5_3 = {41 8b c8 48 8d 7d 00 66 f3 ab 41 0f b7 c2 48 8d 7d a0 41 8b c9 66 f3 ab 41 0f b7 c2 48 8d 7d b8 41 8b c9 66 f3 ab 41 8b c8 41 0f b7 c2 48 8d bd 80 01 00 00 66 f3 ab}  //weight: 5, accuracy: High
+        $x_10_4 = "crackmy.app/" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_KKC_2147947320_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KKC!MTB"
+        threat_id = "2147947320"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 f7 d9 48 89 54 24 70 4c 8b e2 44 8a 24 01 44 88 20 49 03 c3 44 89 a5 68 0f 00 00 83 c7 ff 75}  //weight: 20, accuracy: High
+        $x_10_2 = {48 8b fa 41 c1 e2 08 44 0b d0 0f b6 41 02 41 c1 e2 08 44 0b d0 0f b6 41 01 41 c1 e2 08 b9 00 10 00 00 44 0b d0 48 8b 44 24 28}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

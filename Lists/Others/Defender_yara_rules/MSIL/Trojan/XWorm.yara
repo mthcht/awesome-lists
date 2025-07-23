@@ -2510,3 +2510,24 @@ rule Trojan_MSIL_XWorm_AIAB_2147947150_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ENXO_2147947294_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ENXO!MTB"
+        threat_id = "2147947294"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 04 2b 7b 11 04 ?? ?? ?? ?? ?? ?? ?? 00 00 0a 13 05 11 05 14 ?? ?? ?? ?? ?? 17 ?? ?? ?? ?? ?? 25 16 06 a2 25 13 07 14 14 17 ?? ?? ?? ?? ?? 25 16 17 9c 25}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

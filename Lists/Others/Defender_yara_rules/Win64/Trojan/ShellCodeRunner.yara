@@ -374,3 +374,24 @@ rule Trojan_Win64_ShellCodeRunner_KKB_2147946090_0
         )
 }
 
+rule Trojan_Win64_ShellCodeRunner_KAB_2147947323_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeRunner.KAB!MTB"
+        threat_id = "2147947323"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 89 c2 48 8d 45 a0 b9 20 08 00 00 4c 8b 00 4c 89 02 41 89 c8 49 01 d0 4d 8d 48 08 41 89 c8 49 01 c0 49 83 c0 08 4d 8b 40 f0 4d 89 41 f0 4c 8d 42 08 49 83 e0 f8 4c 29 c2 48 29 d0 01 d1 83 e1 f8 c1 e9 03 89 ca 89 d2 4c 89 c7 48 89 c6 48 89 d1 f3 48 a5}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
