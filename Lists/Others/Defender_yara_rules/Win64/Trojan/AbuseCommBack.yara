@@ -6334,3 +6334,91 @@ rule Trojan_Win64_AbuseCommBack_KB_2147946881_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_AbuseCommBack_KC_2147947218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.KC"
+        threat_id = "2147947218"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>3DCE1C43491FC92EA7010322040B254FDD2731001C2DDC2B9E819F0C946BDC3C</p>" wide //weight: 1
+        $x_1_2 = {33 44 43 45 31 43 34 33 34 39 31 46 43 39 32 45 41 37 30 31 30 33 32 32 30 34 30 42 32 35 34 46 44 44 32 37 33 31 30 30 31 43 32 44 44 43 32 42 39 45 38 31 39 46 30 43 39 34 36 42 44 43 33 43 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableid3DCE1C43491FC92EA7010322040B254FDD2731001C2DDC2B9E819F0C946BDC3Cid" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_AbuseCommBack_KD_2147947222_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.KD"
+        threat_id = "2147947222"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>F79A71AD8BB2E3E7EDFC38970FDC05E922E429B5DFC325C7D0E91F216DE8F353</p>" wide //weight: 1
+        $x_1_2 = {46 37 39 41 37 31 41 44 38 42 42 32 45 33 45 37 45 44 46 43 33 38 39 37 30 46 44 43 30 35 45 39 32 32 45 34 32 39 42 35 44 46 43 33 32 35 43 37 44 30 45 39 31 46 32 31 36 44 45 38 46 33 35 33 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableidF79A71AD8BB2E3E7EDFC38970FDC05E922E429B5DFC325C7D0E91F216DE8F353id" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_AbuseCommBack_KE_2147947226_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.KE"
+        threat_id = "2147947226"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>A1A6D2ECC8DB18DA0D5F04C5ED01A565B5A46E4012FAE627ACCB5D709BB89477</p>" wide //weight: 1
+        $x_1_2 = {41 31 41 36 44 32 45 43 43 38 44 42 31 38 44 41 30 44 35 46 30 34 43 35 45 44 30 31 41 35 36 35 42 35 41 34 36 45 34 30 31 32 46 41 45 36 32 37 41 43 43 42 35 44 37 30 39 42 42 38 39 34 37 37 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableidA1A6D2ECC8DB18DA0D5F04C5ED01A565B5A46E4012FAE627ACCB5D709BB89477id" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_AbuseCommBack_KF_2147947230_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.KF"
+        threat_id = "2147947230"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>3DF86B12634F4308F81C86251AF940D8F6492A074C8C6F2EFA0D134F024A6E54</p>" wide //weight: 1
+        $x_1_2 = {33 44 46 38 36 42 31 32 36 33 34 46 34 33 30 38 46 38 31 43 38 36 32 35 31 41 46 39 34 30 44 38 46 36 34 39 32 41 30 37 34 43 38 43 36 46 32 45 46 41 30 44 31 33 34 46 30 32 34 41 36 45 35 34 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableid3DF86B12634F4308F81C86251AF940D8F6492A074C8C6F2EFA0D134F024A6E54id" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
