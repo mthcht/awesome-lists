@@ -5845,3 +5845,27 @@ rule Trojan_Win32_Guloader_SFF_2147946578_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GOY_2147947192_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GOY!MTB"
+        threat_id = "2147947192"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "passible noncondescendingness congaernes" ascii //weight: 1
+        $x_1_2 = "aftershaft oraculate.exe" ascii //weight: 1
+        $x_1_3 = "fortolkningsregelens" ascii //weight: 1
+        $x_1_4 = "Silikone.trk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
