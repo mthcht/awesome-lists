@@ -692,3 +692,29 @@ rule Trojan_Win64_Meterpreter_GAD_2147939647_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_AHB_2147947241_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.AHB!MTB"
+        threat_id = "2147947241"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 85 4c 10 00 00 48 98 0f b6 84 05 f0 07 00 00 32 85 4b 10 00 00 89 c2 8b 85 4c 10 00 00 48 98 88 54 05 b0 83 85 4c 10 00 00 01 8b 85 4c 10 00 00 3d 39 08 00 00 76}  //weight: 2, accuracy: High
+        $x_2_2 = {48 8d 95 e0 07 00 00 48 8b 85 48 10 00 00 48 01 d0 0f b6 00 32 85 37 10 00 00 48 8d 4d a0 48 8b 95 48 10 00 00 48 01 ca 88 02 48 83 85 48 10 00 00 01 48 81 bd 48 10 00 00 39 08 00 00 76}  //weight: 2, accuracy: High
+        $x_3_3 = {b9 07 01 00 00 48 89 c7 48 89 d6 f3 48 a5 48 89 f2 48 89 f8 0f b7 0a 66 89 08 c6 85 ?? 10 00 00 42}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

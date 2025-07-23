@@ -43,3 +43,29 @@ rule Trojan_Win64_ReflectiveLoader_RDA_2147914871_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReflectiveLoader_OFA_2147947239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReflectiveLoader.OFA"
+        threat_id = "2147947239"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReflectiveLoader"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5b bc 4a 6a}  //weight: 1, accuracy: High
+        $x_1_2 = {5d 68 fa 3c}  //weight: 1, accuracy: High
+        $x_1_3 = {8e 4e 0e ec}  //weight: 1, accuracy: High
+        $x_1_4 = {aa fc 0d 7c}  //weight: 1, accuracy: High
+        $x_1_5 = {54 ca af 91}  //weight: 1, accuracy: High
+        $x_1_6 = {b8 0a 4c 53}  //weight: 1, accuracy: High
+        $x_10_7 = "ReflectiveLoader" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
