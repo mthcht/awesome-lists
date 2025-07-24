@@ -8115,7 +8115,8 @@ rule Trojan_Win32_ClickFix_BBS_2147945698_0
         $x_1_7 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 63 00 6c 00 72 00 76 00 65 00 72 00 69 00 66 00 79 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_8 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 63 00 6c 00 79 00 64 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_9 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 63 00 6c 00 6f 00 75 00 64 00 7a 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_10 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_10 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 72 00 66 00 79 00 63 00 6c 00 6f 00 75 00 64 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_11 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -9062,30 +9063,6 @@ rule Trojan_Win32_ClickFix_DGD_2147946893_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_DDX_2147947099_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.DDX!MTB"
-        threat_id = "2147947099"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "Start-BitsTransfer -Source http" wide //weight: 1
-        $x_1_2 = "; Start-Process $env:TEMP" wide //weight: 1
-        $x_1_3 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
-        $x_1_4 = "-Destionation /$env:TEMP" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_ClickFix_EEB_2147947100_0
 {
     meta:
@@ -9546,14 +9523,42 @@ rule Trojan_Win32_ClickFix_FFS_2147947232_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "5"
+        threshold = "131"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "[powershell]::Create()" wide //weight: 1
-        $x_1_2 = ".AddScript($" wide //weight: 1
-        $x_1_3 = ".DownloadString($" wide //weight: 1
-        $x_1_4 = ".Invoke" wide //weight: 1
-        $x_1_5 = "net.webclient" wide //weight: 1
+        $x_100_1 = "[powershell]::Create()" wide //weight: 100
+        $x_10_2 = ".DownloadString($" wide //weight: 10
+        $x_10_3 = ".Invoke" wide //weight: 10
+        $x_10_4 = "net.webclient" wide //weight: 10
+        $x_1_5 = ".AddScript($" wide //weight: 1
+        $x_1_6 = ".AddArgument($" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_AAAAG_2147947350_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AAAAG!MTB"
+        threat_id = "2147947350"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "&& curl" wide //weight: 1
+        $x_1_2 = ".log &&" wide //weight: 1
+        $x_1_3 = "&& ftp" wide //weight: 1
+        $x_1_4 = "http" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
