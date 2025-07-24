@@ -20,3 +20,32 @@ rule Trojan_Win64_BrowserStealer_RDA_2147842954_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BrowserStealer_GVA_2147947384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BrowserStealer.GVA!MTB"
+        threat_id = "2147947384"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BrowserStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {48 d3 ea 41 8b c8 48 d3 e0 40 0f b6 cf 48 8b 7c 24 40 0a d0 41 0f b6 c2 d2 e0 41 0f b6 c9 41 d2 ea 41 0a c2 32 d0 0f b6 c2}  //weight: 3, accuracy: High
+        $x_1_2 = "chrome" wide //weight: 1
+        $x_1_3 = "firefox" wide //weight: 1
+        $x_1_4 = "opera" wide //weight: 1
+        $x_1_5 = "brave" wide //weight: 1
+        $x_3_6 = "taskkill /IM " wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
