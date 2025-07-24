@@ -2643,3 +2643,26 @@ rule Ransom_Win32_Filecoder_PAHK_2147946769_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_MSD_2147947396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.MSD!MTB"
+        threat_id = "2147947396"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {32 04 37 32 44 24 ?? 8b 4c 24 10 88 04 31 8b 03 89 44 24 10 8a 04 30 46 88 44 24 0f 8b 44 24 14 8b 38 8b 40 04 2b c7 3b f0 72}  //weight: 5, accuracy: Low
+        $x_1_2 = ".encrypted" ascii //weight: 1
+        $x_1_3 = ".locked" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

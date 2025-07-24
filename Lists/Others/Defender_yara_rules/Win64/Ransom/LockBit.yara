@@ -230,3 +230,27 @@ rule Ransom_Win64_LockBit_MKC_2147947169_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_TRX_2147947397_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.TRX!MTB"
+        threat_id = "2147947397"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "How to decrypt my data.txt" ascii //weight: 1
+        $x_1_2 = "Your decrypt ID:" ascii //weight: 1
+        $x_1_3 = "@proton.me" ascii //weight: 1
+        $x_2_4 = "ai\\ak47\\writenull\\x64\\Release\\writenull.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

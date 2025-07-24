@@ -3232,6 +3232,31 @@ rule Trojan_Win32_GuLoader_RBG_2147935278_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBG_2147935278_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBG!MTB"
+        threat_id = "2147935278"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Knight-Ridder Inc." ascii //weight: 1
+        $x_1_2 = "Viad Corp" ascii //weight: 1
+        $x_1_3 = "Medtronic Inc." ascii //weight: 1
+        $x_1_4 = "Comfort Systems USA Inc." ascii //weight: 1
+        $x_1_5 = "unreworded demimondn.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBH_2147935324_0
 {
     meta:
