@@ -3485,3 +3485,24 @@ rule Trojan_MSIL_NjRat_AGZA_2147945947_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_ARAB_2147947461_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.ARAB!MTB"
+        threat_id = "2147947461"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {07 06 02 06 91 11 05 61 11 04 08 91 61 b4 9c 08 03 6f ?? 00 00 0a 17 da 33 04 16 0c 2b 04 08 17 d6 0c 06 17 d6 0a 06 11 06 31 d5}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
