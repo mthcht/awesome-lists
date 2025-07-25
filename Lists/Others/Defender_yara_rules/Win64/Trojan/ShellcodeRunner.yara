@@ -1240,3 +1240,24 @@ rule Trojan_Win64_ShellcodeRunner_BOF_2147947428_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_PSG_2147947445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.PSG!MTB"
+        threat_id = "2147947445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {72 b7 48 8b 85 d8 07 00 00 48 89 85 c8 07 00 00 48 8b 85 c8 07 00 00 ff d0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
