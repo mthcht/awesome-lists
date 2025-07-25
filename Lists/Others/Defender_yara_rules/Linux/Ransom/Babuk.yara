@@ -400,3 +400,28 @@ rule Ransom_Linux_Babuk_Q_2147935545_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Babuk_T_2147947410_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Babuk.T!MTB"
+        threat_id = "2147947410"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Babuk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ensureAllVMsShutdown" ascii //weight: 1
+        $x_1_2 = "encrypt_file" ascii //weight: 1
+        $x_1_3 = ".q7gDPyOV7" ascii //weight: 1
+        $x_1_4 = "ransom_note" ascii //weight: 1
+        $x_1_5 = "esxcli vm process kill --type=force --world-id=" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
