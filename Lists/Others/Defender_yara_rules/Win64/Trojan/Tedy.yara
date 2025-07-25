@@ -1000,6 +1000,36 @@ rule Trojan_Win64_Tedy_DKZ_2147920721_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_C_2147922679_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.C!MTB"
+        threat_id = "2147922679"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ollydbg.exe" ascii //weight: 2
+        $x_2_2 = "x64dbg.exe" ascii //weight: 2
+        $x_2_3 = "x32dbg.exe" ascii //weight: 2
+        $x_2_4 = "Process Hacker 2" ascii //weight: 2
+        $x_2_5 = "Wireshark" ascii //weight: 2
+        $x_3_6 = "@FACK YOU Donkey." ascii //weight: 3
+        $x_3_7 = "netsh advfirewall firewall delete rule name" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 4 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Tedy_RZ_2147922688_0
 {
     meta:
