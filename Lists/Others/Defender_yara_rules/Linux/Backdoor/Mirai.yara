@@ -9160,3 +9160,26 @@ rule Backdoor_Linux_Mirai_LE_2147946128_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_LG_2147947519_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LG!MTB"
+        threat_id = "2147947519"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Server: DOSarrest" ascii //weight: 1
+        $x_1_2 = "tmp/.instance_lock" ascii //weight: 1
+        $x_1_3 = "ftpget -v -u anonymous" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

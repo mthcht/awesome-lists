@@ -9564,3 +9564,83 @@ rule Trojan_Win32_ClickFix_AAAAG_2147947350_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DGR_2147947528_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DGR!MTB"
+        threat_id = "2147947528"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 100, accuracy: Low
+        $x_10_2 = "Start-BitsTransfer -Source http" wide //weight: 10
+        $x_10_3 = "-Destination $env:TEMP\\" wide //weight: 10
+        $x_10_4 = "; Start-Process $env:TEMP" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DGX_2147947529_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DGX!MTB"
+        threat_id = "2147947529"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 100, accuracy: Low
+        $x_10_2 = "dl=1; iex $" wide //weight: 10
+        $x_10_3 = "dl=1; invoke-expression $" wide //weight: 10
+        $x_1_4 = "= iwr" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DGY_2147947531_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DGY!MTB"
+        threat_id = "2147947531"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = ".php';$" wide //weight: 10
+        $x_10_3 = "='iw';$" wide //weight: 10
+        $x_1_4 = "Invoke-Expression $" wide //weight: 1
+        $x_1_5 = "iex $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
