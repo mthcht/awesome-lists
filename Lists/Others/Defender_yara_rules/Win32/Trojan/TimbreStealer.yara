@@ -63,3 +63,24 @@ rule Trojan_Win32_TimbreStealer_BAB_2147944115_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_TimbreStealer_GTD_2147947512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/TimbreStealer.GTD!MTB"
+        threat_id = "2147947512"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "TimbreStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 f8 8d 5b ?? 8b 44 24 ?? 8a 4c 3c ?? 0f b6 d1 03 c2 0f b6 c0 89 44 24 ?? 0f b6 44 04 18 88 44 3c ?? 8b 44 24 ?? 88 4c 04 ?? 0f b6 44 3c ?? 03 c2 0f b6 c0 0f b6 44 04 ?? 32 44 2b ?? 88 43 ?? 83 ee}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

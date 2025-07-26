@@ -5893,3 +5893,28 @@ rule Trojan_Win32_Guloader_GOZ_2147947329_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GPA_2147947509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPA!MTB"
+        threat_id = "2147947509"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "spillenes ceramal" ascii //weight: 1
+        $x_1_2 = "aarstiders utnkelig" ascii //weight: 1
+        $x_1_3 = "vmmelser" ascii //weight: 1
+        $x_1_4 = "inlooking.exe" ascii //weight: 1
+        $x_1_5 = "rekreationshjemmenes.Cho" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

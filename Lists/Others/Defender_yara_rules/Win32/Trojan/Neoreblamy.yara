@@ -5571,6 +5571,28 @@ rule Trojan_Win32_Neoreblamy_NIG_2147947037_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {07 8b 45 dc 40 89 45 dc 83 7d dc 01 7d 10 8b 45 dc}  //weight: 1, accuracy: High
+        $x_2_2 = {eb 07 8b 45 e8 48 89 45 e8 83 7d e8 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Neoreblamy_NIG_2147947037_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NIG!MTB"
+        threat_id = "2147947037"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {eb 07 8b 45 ec 40 89 45 ec 83 7d ec 02 7d 10 8b 45 ec}  //weight: 1, accuracy: High

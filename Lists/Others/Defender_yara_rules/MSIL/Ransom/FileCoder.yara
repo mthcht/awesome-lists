@@ -1671,3 +1671,29 @@ rule Ransom_MSIL_FileCoder_BAC_2147944151_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_BAD_2147947508_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.BAD!MTB"
+        threat_id = "2147947508"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/LIST OF ENCRYPTED FILES" ascii //weight: 1
+        $x_1_2 = " FILES WERE ENCRYPTED SUCCESSFULLY" ascii //weight: 1
+        $x_1_3 = "/PAYMENT INSTRUCTIONS" ascii //weight: 1
+        $x_1_4 = " hours will result in the ransom amount increasing to" ascii //weight: 1
+        $x_1_5 = "/HOW TO DECRYPT" ascii //weight: 1
+        $x_1_6 = "/AllLocked.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

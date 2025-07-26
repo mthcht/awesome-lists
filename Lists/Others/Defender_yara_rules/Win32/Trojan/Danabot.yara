@@ -1075,3 +1075,24 @@ rule Trojan_Win32_Danabot_WWG_2147941996_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Danabot_MQD_2147947500_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Danabot.MQD!MTB"
+        threat_id = "2147947500"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Danabot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 c7 03 f0 8b 84 24 f4 0a 00 00 8a 04 01 88 84 24 33 0b 00 00 8b c2 2b c1 03 05 ?? ?? ?? ?? 3b 84 24 10 0b 00 00 76 ?? 8b 84 24 d0 0a 00 00 03 05 ?? ?? ?? ?? 89 84 24 d0 0a 00 00 8b 84 24 14 0b 00 00 30 84 24 33 0b 00 00 3b c2 7e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -257,3 +257,25 @@ rule Trojan_MSIL_WebShell_GVB_2147945398_0
         )
 }
 
+rule Trojan_MSIL_WebShell_AUAB_2147947492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AUAB!MTB"
+        threat_id = "2147947492"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {01 25 16 72 97 03 00 70 d0 ?? 00 00 01 16 73 ?? 00 00 0a a2 25 17 72 9f 03 00 70 d0 ?? 00 00 01 17 73 ?? 00 00 0a a2 25 18 72 c5 03 00 70 d0 ?? 00 00 01 18 73 ?? 00 00 0a a2 25 19 72 d7 03 00 70 d0 ?? 00 00 01 19 73 ?? 00 00 0a a2 02}  //weight: 4, accuracy: Low
+        $x_2_2 = {06 02 72 69 03 00 70 28 ?? 00 00 0a 7e ?? 00 00 04 16 40 ?? 00 00 00 17 8d ?? 00 00 01 0a 06 16 72 69 03 00 70 a2 02 06 28 ?? 00 00 0a 80 ?? 00 00 04 17 80 ?? 00 00 04 02 28 ?? 00 00 0a 20 80 c3 c9 01 28 ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

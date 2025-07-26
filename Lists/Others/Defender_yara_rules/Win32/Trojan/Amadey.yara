@@ -2291,6 +2291,28 @@ rule Trojan_Win32_Amadey_AMD_2147893178_4
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6a 04 8d 47 34 50 8b 44 24 24 8b 80 a4 00 00 00 83 c0 08 50 ff 74 24 30 ff 15 ?? ?? ?? ?? 8b 4c 24 18 8b 47 28 03 44 24 14 51}  //weight: 1, accuracy: Low
+        $x_2_2 = {8b ca c1 f9 06 83 e2 3f 6b d2 38 8b 0c 8d e0 5c 46 00 88 44 11 29 8b 0b 8b c1 c1 f8 06 83 e1 3f 6b d1 38 8b 0c 85 e0 5c 46 00 8b 45 14 c1 e8 10 32 44 11 2d 24 01 30 44 11 2d}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AMD_2147893178_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AMD!MTB"
+        threat_id = "2147893178"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:
