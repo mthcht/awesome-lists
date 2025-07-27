@@ -39,3 +39,24 @@ rule TrojanSpy_Win64_RustyStealer_C_2147946999_0
         (all of ($x*))
 }
 
+rule TrojanSpy_Win64_RustyStealer_D_2147947555_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:Win64/RustyStealer.D"
+        threat_id = "2147947555"
+        type = "TrojanSpy"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "server_listkeepalive_timeis_killerpersistence_installedenable_keyloggerkeylogger_pathstruct ConfigDataencrypted_datastruct Config" ascii //weight: 1
+        $x_1_2 = "slktikpipkpstruct Config" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
