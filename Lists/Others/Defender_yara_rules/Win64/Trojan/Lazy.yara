@@ -3154,3 +3154,26 @@ rule Trojan_Win64_Lazy_KKC_2147947320_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_KAB_2147947588_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KAB!MTB"
+        threat_id = "2147947588"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {49 8b 42 08 41 ff c1 48 d3 e8 41 03 c8 41 32 04 12 88 44 14 38 48 ff c2 83 f9 40 72}  //weight: 10, accuracy: High
+        $x_8_2 = {4e 8d 0c 01 48 2b d1 49 ff c9 42 8a 04 0a 41 88 01 49 83 e8 01 75}  //weight: 8, accuracy: High
+        $x_7_3 = {43 0f be 0c 02 49 ff c0 83 c1 20 48 63 d1 48 0f af d0 49 33 d1 48 33 c2 4d 3b c1 7c}  //weight: 7, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
