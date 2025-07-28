@@ -4907,6 +4907,7 @@ rule Trojan_Win32_ClickFix_ZZI_2147942984_0
         $x_1_4 = ".replace('$'," wide //weight: 1
         $x_1_5 = ".replace('*'," wide //weight: 1
         $n_100_6 = "AVEVA" wide //weight: -100
+        $n_100_7 = "uninstallXAMUpdateService.bat" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -5019,8 +5020,10 @@ rule Trojan_Win32_ClickFix_DAD_2147943081_0
         $x_100_17 = ".was" wide //weight: 100
         $x_100_18 = ".today" wide //weight: 100
         $x_100_19 = ".cyou" wide //weight: 100
+        $n_200_20 = "--property=app.muleApi.port:8081" wide //weight: -200
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 1 of ($x_10_*))) or
             ((2 of ($x_100_*))) or

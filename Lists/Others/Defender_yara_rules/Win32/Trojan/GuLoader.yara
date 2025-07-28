@@ -4470,3 +4470,31 @@ rule Trojan_Win32_GuLoader_SUB_2147947316_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SUD_2147947674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUD!MTB"
+        threat_id = "2147947674"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Saddeltags183" ascii //weight: 1
+        $x_1_2 = "\\Soveposer\\brysthule.txt" ascii //weight: 1
+        $x_1_3 = "\\Grusgrave191\\afgiftsordningernes.zip" ascii //weight: 1
+        $x_1_4 = "Pyramidella.enj" ascii //weight: 1
+        $x_1_5 = "Sentinelling.occ" ascii //weight: 1
+        $x_1_6 = "betingede.pea" ascii //weight: 1
+        $x_1_7 = "\\Turbojetternes129\\saneringsplaner.zip" ascii //weight: 1
+        $x_1_8 = "\\bemused\\halicot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

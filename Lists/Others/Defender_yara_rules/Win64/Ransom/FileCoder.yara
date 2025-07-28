@@ -976,3 +976,27 @@ rule Ransom_Win64_FileCoder_TMX_2147945110_0
         )
 }
 
+rule Ransom_Win64_FileCoder_GTD_2147947669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.GTD!MTB"
+        threat_id = "2147947669"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "We have encrypted your data and exfiltrated sensitive documents" ascii //weight: 1
+        $x_1_2 = "Screenshot of other customers who have paid and received decryption" ascii //weight: 1
+        $x_1_3 = "To recover your files and prevent public disclosure of documents a payment in form of crypto currency is required" ascii //weight: 1
+        $x_1_4 = "Vssadmindeleteshadows/all/quiet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

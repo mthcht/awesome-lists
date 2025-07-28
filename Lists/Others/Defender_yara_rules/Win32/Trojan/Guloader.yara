@@ -5918,3 +5918,82 @@ rule Trojan_Win32_Guloader_GPA_2147947509_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LWG_2147947672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LWG!MTB"
+        threat_id = "2147947672"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Coeltera.enh" ascii //weight: 1
+        $x_1_2 = "femtenaarsfdselsdages.txt" ascii //weight: 1
+        $x_1_3 = "gooseskin.tra" ascii //weight: 1
+        $x_1_4 = "Brsmatador113.den" ascii //weight: 1
+        $x_1_5 = "freilev bndergaardene.exe" ascii //weight: 1
+        $x_1_6 = "makaroniers posere" ascii //weight: 1
+        $x_1_7 = "nonalienation baldor semicylindric" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_LWH_2147947673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LWH!MTB"
+        threat_id = "2147947673"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "forskergruppes.var" ascii //weight: 1
+        $x_1_2 = "ledeteksters.par" ascii //weight: 1
+        $x_1_3 = "spores.sav" ascii //weight: 1
+        $x_1_4 = "Unarguable.oce" ascii //weight: 1
+        $x_1_5 = "arteriole.for" ascii //weight: 1
+        $x_1_6 = "skabsdrenes filos" ascii //weight: 1
+        $x_1_7 = "hildebrands.exe" ascii //weight: 1
+        $x_1_8 = "seniliteten" ascii //weight: 1
+        $x_1_9 = "sibe phyllopodium ultrastrict" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GPB_2147947684_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPB!MTB"
+        threat_id = "2147947684"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "huleforskernes preessentially" ascii //weight: 1
+        $x_1_2 = "ligkistemagasinet gipsdeponeringspladsers" ascii //weight: 1
+        $x_1_3 = "hurlwind" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

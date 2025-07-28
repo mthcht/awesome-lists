@@ -439,3 +439,26 @@ rule Trojan_Win32_Jaik_KK_2147947318_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_ISR_2147947670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.ISR!MTB"
+        threat_id = "2147947670"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Cndom6.sys" ascii //weight: 1
+        $x_1_2 = "XiaoH.sys" ascii //weight: 1
+        $x_1_3 = "Add-MpPreference -ExclusionPath 'C:\\\\Users\\\\Public\\\\Documents" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
