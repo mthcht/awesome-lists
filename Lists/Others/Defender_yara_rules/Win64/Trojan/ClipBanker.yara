@@ -1079,3 +1079,62 @@ rule Trojan_Win64_ClipBanker_SX_2147943594_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_GVA_2147947613_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.GVA!MTB"
+        threat_id = "2147947613"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "29"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 20
+        $x_3_2 = "fmt_bitcoin" ascii //weight: 3
+        $x_3_3 = "fmt_ethereum" ascii //weight: 3
+        $x_3_4 = "fmt_tron" ascii //weight: 3
+        $x_3_5 = "fmt_monero" ascii //weight: 3
+        $x_3_6 = "fmt_ripple" ascii //weight: 3
+        $x_3_7 = "fmt_cardano" ascii //weight: 3
+        $x_3_8 = "fmt_litecoin" ascii //weight: 3
+        $x_3_9 = "fmt_dogecoin" ascii //weight: 3
+        $x_3_10 = "fmt_solana" ascii //weight: 3
+        $x_3_11 = "fmt_cosmos" ascii //weight: 3
+        $x_3_12 = "fmt_terra" ascii //weight: 3
+        $x_3_13 = "fmt_polkadot" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((10 of ($x_3_*))) or
+            ((1 of ($x_20_*) and 3 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_ClipBanker_GVC_2147947614_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.GVC!MTB"
+        threat_id = "2147947614"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 c9 ff 15 89 39 02 00 85 c0 0f 84 25 03 00 00 b9 01 00 00 00 ff 15 7e 39 02 00 48 8b d8 48 85 c0 0f 84 07 03 00 00 48 8b c8 ff 15 21 36 02 00 48 85 c0 0f 84 f5 02 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

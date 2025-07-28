@@ -3155,3 +3155,25 @@ rule Trojan_MSIL_Stealer_STT_2147946308_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_AXAB_2147947622_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.AXAB!MTB"
+        threat_id = "2147947622"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {02 06 11 04 6f ?? 00 00 0a 13 05 23 00 00 00 00 00 00 f0 3f 11 04 6c 23 18 2d 44 54 fb 21 09 40 5a 18 02 6f ?? 00 00 0a 5a 6c 5b 28 ?? 00 00 0a 5b 13 06 23 0a d7 a3 70 3d 0a b7 3f 11 06 23 00 00 00 00 00 00 fc 3f 28 ?? 00 00 0a 5a 05 7b ?? 02 00 04 23 71 3d 0a d7 a3 70 e5 bf 28 ?? 00 00 0a 5a 13 07 23 00 00 00 00 00 00 04 c0 12 05 28 ?? 00 00 0a 6c}  //weight: 4, accuracy: Low
+        $x_2_2 = {23 00 00 00 00 00 e0 6f 40 5b 23 bb bd d7 d9 df 7c db 3d 58 28 ?? 00 00 0a 5a 0e 04 7b ?? 02 00 04 58 13 08 23 00 00 00 00 00 00 04 c0 12 05 28 ?? 00 00 0a 6c 23 00 00 00 00 00 e0 6f 40 5b 23 bb bd d7 d9 df 7c db 3d 58 28 ?? 00 00 0a 5a 0e 04 7b ?? 02 00 04 58 13 09 23 00 00 00 00 00 00 04 c0 12 05 28 ?? 00 00 0a 6c 23 00 00 00 00 00 e0 6f 40 5b 23 bb bd d7 d9 df 7c db 3d 58 28 ?? 00 00 0a 5a 0e 04 7b ?? 02 00 04 58}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -15890,3 +15890,30 @@ rule Trojan_MSIL_FormBook_BAG_2147946313_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVL_2147947611_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVL!MTB"
+        threat_id = "2147947611"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1f a2 09 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 99 00 00 00 2c 00 00 00 2c 02 00 00 50 01 00 00 da 00 00 00 01 00 00 00 2d 01 00 00 08 00 00 00 6a 01 00 00 30 00 00 00 12 00 00 00 6d 00 00 00 c0 00 00 00 2d 00 00 00 01 00 00 00 0a 00 00 00 12 00 00 00 05 00 00 00 0b 00 00 00 10}  //weight: 1, accuracy: High
+        $x_1_2 = {57 1f a2 29 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 9c 00 00 00 2d 00 00 00 2d 02 00 00 50 01 00 00 da 00 00 00 01 00 00 00 2d 01 00 00 08 00 00 00 6b 01 00 00 30 00 00 00 12 00 00 00 6d 00 00 00 c0 00 00 00 2d 00 00 00 01 00 00 00 01 00 00 00 0a 00 00 00 12 00 00 00 05 00 00 00 0b 00 00 00 0e}  //weight: 1, accuracy: High
+        $x_5_3 = "bdca53e8-25ac-4c33-b99d-e71c82d4ee72" ascii //weight: 5
+        $x_5_4 = "QLDTDD_FPT.Properties.Resources" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
