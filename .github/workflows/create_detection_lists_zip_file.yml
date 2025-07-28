@@ -61,7 +61,8 @@ jobs:
             "Lists/suspicious_mutex_names_list.csv"
             "Lists/suspicious_named_pipe_list.csv"
             "Lists/suspicious_ports_list.csv"
-            "Lists/suspicious_signers_list.csv"
+            "Lists/CERTS/suspicious_signers_list.csv"
+            "Lists/CERTS/certcentral_signers_list.csv"
             "Lists/suspicious_usb_ids_list.csv"
             "Lists/suspicious_windows_firewall_rules_list.csv"
             "Lists/suspicious_windows_services_names_list.csv"
@@ -70,7 +71,7 @@ jobs:
           )
 
           for file in "${LOCAL_FILES[@]}"; do
-            cp "$file" detection_lists/
+            cp "$file" detection_lists/ 2>/dev/null || echo "Missing: $file"
           done
 
       - name: Download Remote Files
