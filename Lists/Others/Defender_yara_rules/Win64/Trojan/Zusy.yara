@@ -1940,6 +1940,28 @@ rule Trojan_Win64_Zusy_MR_2147945445_1
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {c6 84 24 ad 01 00 00 d3 c6 84 24 ae 01 00 00 67 c6 84 24 af 01 00 00 5b c7 84 24 b0 01 00 00 cf be 3a 46}  //weight: 10, accuracy: High
+        $x_5_2 = {41 8b cb 41 8b c3 48 c1 e9 10 25 ff 00 04 00 83 e1 06 89 ?? ?? 72 05 00 48 81 c9 29 00 00 01 48 f7 d1 ?? ?? 0d 80 4f 05 00 48 ?? ?? 79 4f 05 00 3c 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_MR_2147945445_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MR!MTB"
+        threat_id = "2147945445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
         strings_accuracy = "High"
     strings:
         $x_5_1 = {48 8b 15 ac 1e 0d 00 8b c2 83 e0 3f 48 8b da 48 33 1d 85 49 0d 00 8b c8 48 d3 cb b9 40 00 00 00 2b c8 48 d3 cf 48 33 fa 48 89 3d 6c 49 0d 00 33 c9}  //weight: 5, accuracy: High
@@ -2011,6 +2033,28 @@ rule Trojan_Win64_Zusy_KK_2147946085_0
         $x_6_1 = {f3 43 0f 6f 04 08 0f 57 c2 f3 43 0f 7f 04 08 41 8d 42 f0 f3 42 0f 6f 04 08 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 08 41 8b c2 f3 42 0f 6f 04 08 0f 57 c2 f3 42 0f 7f 04 08 41 8d 42 10 f3 42 0f 6f 04 08 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 08 41 83 c0 40 41 83 c2 40 45 3b c3}  //weight: 6, accuracy: High
         $x_10_2 = {41 8d 4a 01 45 8b ca 44 0f b6 04 19 42 0f b6 0c 13 41 80 e8 41 fe c9 49 d1 e9 c0 e1 04 41 83 c2 02 44 0a c1 45 88 04 01 8b 0f 44 3b d1 72 d1}  //weight: 10, accuracy: High
         $x_4_3 = "TuoniAgent.dll" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SXC_2147947640_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXC!MTB"
+        threat_id = "2147947640"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {41 b9 00 00 00 00 49 89 d0 48 89 c2 b9 00 00 00 00 48 8b 05 29 8c 01 00 ff d0 b9 f4 01 00 00 48 8b 05 db 89 01 00 ff d0 48 8d 85 90 01 00 00 48 89 c1 48 8b 05 28 89 01 00 ff d0}  //weight: 3, accuracy: Low
+        $x_2_2 = {48 8d 85 c0 01 00 00 41 b8 00 00 00 00 48 89 c1 48 8b 05 46 8e 01 00 ff d0 48 8d 45 b0 ba 06 00 00 00 48 89 c1 48 8b 05 f1 8e 01 00 ff d0}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -43,3 +43,35 @@ rule SupportScam_Win32_Screcwon_MA_2147944259_0
         )
 }
 
+rule SupportScam_Win32_Screcwon_MD_2147947634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "SupportScam:Win32/Screcwon.MD!MTB"
+        threat_id = "2147947634"
+        type = "SupportScam"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Screcwon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Release\\ClickOnceRunner.pdb" ascii //weight: 20
+        $x_20_2 = "Release\\DotNetRunner.pdb" ascii //weight: 20
+        $x_30_3 = ".filesdonwloads.com" ascii //weight: 30
+        $x_30_4 = "relay.magaretcap.com" ascii //weight: 30
+        $x_30_5 = "relay.shipperzone.online" ascii //weight: 30
+        $x_30_6 = "fmt2as.ddns.net" ascii //weight: 30
+        $x_30_7 = "app.ratoscreensell.com" ascii //weight: 30
+        $x_30_8 = "relay.ale3rt.in" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -656,3 +656,25 @@ rule Trojan_Win64_Convagent_ARAX_2147945733_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_MX_2147947636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.MX!MTB"
+        threat_id = "2147947636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 89 78 10 48 c7 40 18 0f 00 00 00 40 88 38 48 8d 54 24 40 66 48 0f 7e c1 66 0f 6f c1 66 0f 73 d8 08 66 48 0f 7e c0 48 83 f8 0f 48 0f 47 d1 66 49 0f 7e c8 48 8d 8d 50 01}  //weight: 1, accuracy: High
+        $x_1_2 = "discord.com/api/webhooks" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
