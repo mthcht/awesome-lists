@@ -3269,6 +3269,29 @@ rule Trojan_Win32_GuLoader_RBH_2147935324_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "platilla triethylstibine spiseblers" ascii //weight: 1
+        $x_1_2 = "satanism fairm" ascii //weight: 1
+        $x_1_3 = "yarmelke gaunt.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBH_2147935324_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBH!MTB"
+        threat_id = "2147935324"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
@@ -3303,6 +3326,31 @@ rule Trojan_Win32_GuLoader_RBI_2147935332_0
         $x_1_3 = "Siebel Systems Inc" ascii //weight: 1
         $x_1_4 = "Landstar System Inc." ascii //weight: 1
         $x_1_5 = "fiendliness horrorful.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBI_2147935332_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBI!MTB"
+        threat_id = "2147935332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\repetrpr\\tabloidavis\\portsmouth" ascii //weight: 1
+        $x_1_2 = "-\\betagelsers\\stifinderens.jpg" ascii //weight: 1
+        $x_1_3 = "%blgede%\\hummeres\\unsad" ascii //weight: 1
+        $x_1_4 = "7\\fylke\\scaphocerite.txt" ascii //weight: 1
+        $x_1_5 = "fum espavel.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
