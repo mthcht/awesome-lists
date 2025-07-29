@@ -1786,3 +1786,26 @@ rule Trojan_MSIL_Androm_MCF_2147947467_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_STT_2147947766_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.STT!MTB"
+        threat_id = "2147947766"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "4s/6hOAAvE2xNeyyxM4ODA==" wide //weight: 2
+        $x_1_2 = "Lipaqii.Properties.Resources" wide //weight: 1
+        $x_1_3 = "Dhjekhla" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

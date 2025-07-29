@@ -196,3 +196,27 @@ rule Ransom_Win64_LockFile_DB_2147925385_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_MKV_2147947763_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.MKV!MTB"
+        threat_id = "2147947763"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8b 0b 33 d2 49 8b c0 48 f7 73 10 0f b6 0c 0a 48 8d 45 e7 48 83 7d ?? 0f 48 0f 47 45 e7 42 30 0c 00 49 ff c0 4c 3b 45 f7 72}  //weight: 5, accuracy: Low
+        $x_1_2 = "YOUR SYSTEM IS LOCKED!" ascii //weight: 1
+        $x_1_3 = "vssadmin delete shadows /all /quiet" ascii //weight: 1
+        $x_1_4 = "DECRYPT_OR_LOSE_EVERYTHING" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
