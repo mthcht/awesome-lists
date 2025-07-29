@@ -189,3 +189,26 @@ rule Trojan_Win32_DllHijack_GTD_2147947525_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DllHijack_C_2147947709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllHijack.C!MTB"
+        threat_id = "2147947709"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8a c1 32 c3 34 36 8a d8 41 88 1e 3b 8d}  //weight: 3, accuracy: High
+        $x_2_2 = "RUNASADMIN" ascii //weight: 2
+        $x_2_3 = "/uac" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

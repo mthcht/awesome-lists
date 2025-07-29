@@ -15917,3 +15917,26 @@ rule Trojan_MSIL_FormBook_RVL_2147947611_0
         )
 }
 
+rule Trojan_MSIL_FormBook_RVM_2147947750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVM!MTB"
+        threat_id = "2147947750"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 7f b6 1d 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 e5 00 00 00 33 00 00 00 c4 00 00 00 07 02 00 00 e1 01 00 00 04 00 00 00 f9 01 00 00 34 00 00 00 b8 01 00 00 01 00 00 00 04 00 00 00 35 00 00 00 09 00 00 00 23 00 00 00 1b 00 00 00 84 00 00 00 32 01 00 00 01 00 00 00 1d 00 00 00 01 00 00 00 01 00 00 00 08 00 00 00 04 00 00 00 09 00 00 00 04 00 00 00 0e}  //weight: 1, accuracy: High
+        $x_1_2 = "B6F3D8A2-4C7E-4A9B-9F2D-5E8A1C6B4F7D" ascii //weight: 1
+        $x_1_3 = "GroupBoxDemo.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

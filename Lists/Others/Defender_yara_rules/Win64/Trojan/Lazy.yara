@@ -3200,3 +3200,25 @@ rule Trojan_Win64_Lazy_AHI_2147947691_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_GVD_2147947741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GVD!MTB"
+        threat_id = "2147947741"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 03 d1 48 8b ca 0f b6 09 33 c8 8b c1 48 ?? 8c 24 [0-5] 48 8b 94 24 ?? ?? ?? ?? 48 03 d1 48 8b ca 88 01}  //weight: 2, accuracy: Low
+        $x_1_2 = {48 03 d1 48 8b ca 0f b6 09 03 c8 8b c1 48 ?? 8c 24 [0-5] 48 8b 94 24 ?? ?? ?? ?? 48 03 d1 48 8b ca 88 01 e9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

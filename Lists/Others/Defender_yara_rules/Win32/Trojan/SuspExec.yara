@@ -205,3 +205,31 @@ rule Trojan_Win32_SuspExec_HF_2147945901_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SuspExec_HI_2147947712_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.HI!MTB"
+        threat_id = "2147947712"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "51"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ping localhost -n 1 &" wide //weight: 1
+        $x_1_2 = "ping 127.0.0.1 -n 1 &" wide //weight: 1
+        $x_50_3 = {26 00 20 00 73 00 74 00 61 00 72 00 74 00 20 00 43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 [0-32] 5c 00 41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 4c 00 6f 00 63 00 61 00 6c 00 5c 00 [0-48] 2e 00 65 00 78 00 65 00}  //weight: 50, accuracy: Low
+        $n_300_4 = {41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 4c 00 6f 00 63 00 61 00 6c 00 5c 00 [0-48] 5c 00}  //weight: -300, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((1 of ($x_50_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

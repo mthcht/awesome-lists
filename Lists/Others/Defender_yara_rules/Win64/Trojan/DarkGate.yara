@@ -42,3 +42,24 @@ rule Trojan_Win64_DarkGate_MZY_2147919514_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DarkGate_GVD_2147947742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DarkGate.GVD!MTB"
+        threat_id = "2147947742"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DarkGate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 63 d0 0f b6 0c 32 41 88 0c 31 44 88 14 32 41 0f b6 14 31 49 03 d2 0f b6 ca 0f b6 0c 31 41 30 0b 49 ff c3 48 83 eb 01 75 a3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
