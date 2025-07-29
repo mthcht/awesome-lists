@@ -225,3 +225,29 @@ rule TrojanSpy_AndroidOS_Asacub_G_2147839370_0
         )
 }
 
+rule TrojanSpy_AndroidOS_Asacub_H_2147947800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/Asacub.H!MTB"
+        threat_id = "2147947800"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "Asacub"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {21 84 35 40 35 00 d8 02 02 01 d5 22 ff 00 54 74 13 00 48 04 04 02 b0 41 d5 11 ff 00 54 74 13 00 48 04 04 01 54 75 13 00 54 76 13 00 48 06 06 02 4f 06 05 01 54 75 13 00 4f 04 05 02 54 74 13 00 48 04 04 02 54 75 13 00 48 05 05 01 b0 54 d5 44 ff 00 54 75 13 00 48 04 05 04 48 05 08 00 b7 54 8d 44 4f 04 03 00 d8 00 00 01}  //weight: 2, accuracy: High
+        $x_1_2 = {54 72 13 00 48 02 02 00 b0 21 48 02 03 00 b0 21 d5 11 ff 00 54 72 13 00 48 02 02 01 54 74 13 00 54 75 13 00 48 05 05 00 4f 05 04 01 54 74 13 00 4f 02 04 00 d8 00 00 01}  //weight: 1, accuracy: High
+        $x_1_3 = "bannerincbest.com" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -5997,3 +5997,29 @@ rule Trojan_Win32_Guloader_GPB_2147947684_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LWQ_2147947795_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LWQ!MTB"
+        threat_id = "2147947795"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "brtsejlads.fic" ascii //weight: 1
+        $x_1_2 = "metempsychosize.cot" ascii //weight: 1
+        $x_1_3 = "eksaminators autoritativere minona" ascii //weight: 1
+        $x_1_4 = "minisurveys.exe" ascii //weight: 1
+        $x_1_5 = "kbstadboers tilmaaling honorr" ascii //weight: 1
+        $x_1_6 = "kontradiktioners mercuriality catechists" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

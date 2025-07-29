@@ -71,3 +71,29 @@ rule TrojanSpy_AndroidOS_Zanubis_C_2147923680_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_Zanubis_D_2147947801_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/Zanubis.D!MTB"
+        threat_id = "2147947801"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "Zanubis"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "notargetremove" ascii //weight: 1
+        $x_1_2 = "desBloqueoUpdate" ascii //weight: 1
+        $x_1_3 = "bloqueoAllUpdate" ascii //weight: 1
+        $x_1_4 = "settings.verifyappssettingsactivity" ascii //weight: 1
+        $x_1_5 = "alertarBloqueo" ascii //weight: 1
+        $x_1_6 = "poiitygunswewniofntweiousdnhkwq" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

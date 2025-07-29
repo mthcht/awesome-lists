@@ -138,3 +138,27 @@ rule Backdoor_Linux_SAgnt_L_2147919802_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_SAgnt_F_2147947805_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/SAgnt.F!MTB"
+        threat_id = "2147947805"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/home/user/ossl_backdoor/backdoor.c" ascii //weight: 1
+        $x_1_2 = "/home/user/ossl_backdoor/openssl/digestcommon.c" ascii //weight: 1
+        $x_1_3 = "provider=not_a_backdoor" ascii //weight: 1
+        $x_1_4 = {41 56 49 89 f6 41 55 49 89 d5 41 54 49 89 cc 55 48 89 fd bf 10 00 00 00 53 e8 de fb ff ff 48 89 c3 48 85 c0 74 3d 4c 89 f6 48 89 ef e8 fb fb ff ff 48 89 43 08 48 85 c0 74 22 48 8d 05 cb 25 00 00 49 89 1c 24 48 89 2b 49 89 45 00 b8 01 00 00 00 5b 5d 41 5c 41 5d 41 5e}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

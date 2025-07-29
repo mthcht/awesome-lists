@@ -56,3 +56,30 @@ rule HackTool_Linux_Mirai_B_2147946604_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_Mirai_C_2147947808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/Mirai.C!MTB"
+        threat_id = "2147947808"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.(*Bot).Handle" ascii //weight: 1
+        $x_1_2 = "main.(*Database).CanLaunchAttack" ascii //weight: 1
+        $x_1_3 = "*main.AttackSend" ascii //weight: 1
+        $x_1_4 = "main.(*Bot).QueueBuf" ascii //weight: 1
+        $x_1_5 = "main.(*Database).CheckApiCode" ascii //weight: 1
+        $x_1_6 = "main.(*ClientList).Distribution" ascii //weight: 1
+        $x_1_7 = "/mirai/cnc/attack.go" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

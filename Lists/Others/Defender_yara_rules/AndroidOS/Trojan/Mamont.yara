@@ -420,3 +420,55 @@ rule Trojan_AndroidOS_Mamont_L_2147943306_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Mamont_O_2147947802_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Mamont.O!MTB"
+        threat_id = "2147947802"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Mamont"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "doChangeDefaultSmsLegacy" ascii //weight: 1
+        $x_1_2 = "initializeTelegramCredentials" ascii //weight: 1
+        $x_1_3 = "onAllDocsSent" ascii //weight: 1
+        $x_1_4 = "fetchTelegramCommands" ascii //weight: 1
+        $x_1_5 = "handleGetAllSms" ascii //weight: 1
+        $x_1_6 = "sendSmsPushMessage" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_AndroidOS_Mamont_P_2147947807_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Mamont.P!MTB"
+        threat_id = "2147947807"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Mamont"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Lput1cmd/put1root" ascii //weight: 1
+        $x_1_2 = "Lputisnare/put1strike" ascii //weight: 1
+        $x_1_3 = "put1xploit" ascii //weight: 1
+        $x_1_4 = "Lputiware/put1drive" ascii //weight: 1
+        $x_1_5 = "Lputi0per/put1root" ascii //weight: 1
+        $x_1_6 = "Lput1drive/put1daemon" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

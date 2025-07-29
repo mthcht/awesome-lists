@@ -1000,3 +1000,26 @@ rule Ransom_Win64_FileCoder_GTD_2147947669_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_GXD_2147947793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.GXD!MTB"
+        threat_id = "2147947793"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ALL YOUR IMPORTANT FILES ARE STOLEN AND ENCRYPTED" ascii //weight: 1
+        $x_1_2 = "/c SCHTASKS.exe /Delete /TN \"Windows Update ALPHV\" /F" ascii //weight: 1
+        $x_1_3 = "Contact us immediately to prevent data leakage and recover your files" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1021,3 +1021,30 @@ rule TrojanSpy_AndroidOS_SAgnt_BE_2147946727_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_SAgnt_BD_2147947799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SAgnt.BD!MTB"
+        threat_id = "2147947799"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Lcn/realshell/CoreService" ascii //weight: 1
+        $x_1_2 = "GHOSTSHELL_SEND_SMS" ascii //weight: 1
+        $x_1_3 = "hookPublishService" ascii //weight: 1
+        $x_1_4 = "cn.realshell.ChannelData" ascii //weight: 1
+        $x_1_5 = "REALSHELL_PLUGINS" ascii //weight: 1
+        $x_1_6 = "Lcom/ys/service/WorkStartReceiver" ascii //weight: 1
+        $x_1_7 = "MESSAGE_DOWNLOAD_PLUGINS" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

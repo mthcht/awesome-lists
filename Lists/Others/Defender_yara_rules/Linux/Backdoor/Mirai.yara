@@ -9183,3 +9183,50 @@ rule Backdoor_Linux_Mirai_LG_2147947519_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_LA_2147947806_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LA!MTB"
+        threat_id = "2147947806"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "AttackAddHost" ascii //weight: 1
+        $x_1_2 = "KillerScanPids" ascii //weight: 1
+        $x_1_3 = "AttackTcpHandshake" ascii //weight: 1
+        $x_1_4 = "AttackTcpAck" ascii //weight: 1
+        $x_1_5 = "AttackGreEthGbps" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Linux_Mirai_LF_2147947812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LF!MTB"
+        threat_id = "2147947812"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 44 24 04 8b 14 24 89 10 c7 40 04 00 00 00 00 8b 54 24 40 8b 43 04 89 02 c7 42 08 02 00 00 00 c7 42 0c 04 00 00 00 8b 44 24 04 eb 2c 8b 54 24 0c 8b 44 24 08 89 02 c7 42 04 00 00 00 00 8b 54 24 40 8b 43 04 89 02 c7 42 08 0a 00 00 00 c7 42 0c 10 00 00 00 8b 44 24 0c}  //weight: 1, accuracy: High
+        $x_1_2 = {0f b6 03 0f b6 53 01 c1 e0 08 09 d0 89 45 04 0f b6 43 02 0f b6 53 03 c1 e0 08 09 d0 89 45 08 0f b6 53 04 0f b6 46 01 c1 e2 18 c1 e0 10 0f b6 4e 02 c1 e1 08 09 c2 0f b6 46 03 09 c2 09 d1 89 4d 0c 0f b6 53 08 0f b6 43 09 c1 e2 08 83 c3 0a 09 c2 89 5d 14 89 55 10 8b 44 24 14 83 c4 10 83 c0 0a 89 45 18 39 54 24 08}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
