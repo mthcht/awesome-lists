@@ -1282,3 +1282,31 @@ rule Trojan_Win64_ShellcodeRunner_PCP_2147947501_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_AHC_2147947688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AHC!MTB"
+        threat_id = "2147947688"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {b9 04 01 00 00 48 89 c7 48 89 d6 f3 48 a5 c6 85 ?? 07 00 00 42 48 c7 85 ?? 07 00 00 20 08 00 00 48 8b 85 ?? 07 00 00 41 b9 40 00 00 00 41 b8 00 30 00 00}  //weight: 20, accuracy: Low
+        $x_20_2 = {b9 04 01 00 00 48 89 c7 48 89 d6 f3 48 a5 48 b8 01 02 03 04 05 06 07 08 48 ba 09 0a 0b 0c 0d 0e 0f 10}  //weight: 20, accuracy: High
+        $x_30_3 = {48 01 d0 0f b6 00 48 8b 8d ?? 07 00 00 48 8b 95 ?? 07 00 00 48 01 ca 32 85 ?? 07 00 00 88 02}  //weight: 30, accuracy: Low
+        $x_30_4 = {8b 85 7c 08 00 00 48 98 0f b6 44 05 30 32 85 57 08 00 00 89 c2 8b 85 7c 08 00 00 48 98 88 54 05 30}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

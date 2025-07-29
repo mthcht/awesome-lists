@@ -3177,3 +3177,26 @@ rule Trojan_Win64_Lazy_KAB_2147947588_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHI_2147947691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHI!MTB"
+        threat_id = "2147947691"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4c 89 74 24 50 48 89 44 24 40 48 c7 44 24 58 00 00 00 00 48 c7 44 24 48 01 00 00 00 c7 44 24 38 28 00 00 00 c7 44 24 30 96 00 00 00 c7 44 24 28 fa 00 00 00 c7 44 24 20 dc 00 00 00}  //weight: 5, accuracy: High
+        $x_3_2 = {4d 8d 48 1f 49 83 e1 e0 4d 8b d9 49 c1 eb 05 47 8b 9c 9a b0 5f 06 00 4d 03 da 41}  //weight: 3, accuracy: High
+        $x_2_3 = "Cheating Engine" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
