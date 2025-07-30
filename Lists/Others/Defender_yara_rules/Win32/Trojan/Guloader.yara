@@ -6023,3 +6023,74 @@ rule Trojan_Win32_Guloader_LWQ_2147947795_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GPC_2147947815_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPC!MTB"
+        threat_id = "2147947815"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "leary" ascii //weight: 1
+        $x_1_2 = "finpudsendes" ascii //weight: 1
+        $x_1_3 = "lagerpladsbehovenes umedgrlig" ascii //weight: 1
+        $x_1_4 = "ameba plumps hinandens" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GPD_2147947817_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPD!MTB"
+        threat_id = "2147947817"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pinnule obligationsrenternes" ascii //weight: 1
+        $x_1_2 = "pimpled visualise dokumenthaandtering" ascii //weight: 1
+        $x_1_3 = "slote.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GPE_2147947834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPE!MTB"
+        threat_id = "2147947834"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "unionerne" ascii //weight: 1
+        $x_1_2 = "overgaaet cytostroma.exe" ascii //weight: 1
+        $x_1_3 = "gsrmerRichsmer" ascii //weight: 1
+        $x_1_4 = "ds|mersmdr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

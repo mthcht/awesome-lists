@@ -7690,18 +7690,20 @@ rule Trojan_Win32_ClickFix_EEA_2147945362_0
         $x_1_2 = "iex" wide //weight: 1
         $x_1_3 = "iwr" wide //weight: 1
         $x_1_4 = "invoke-webrequest" wide //weight: 1
-        $x_1_5 = "danIEl-polDINdEv.Info" wide //weight: 1
-        $x_100_6 = "5thed.christmas" wide //weight: 100
-        $x_100_7 = "ui3.fit" wide //weight: 100
-        $x_100_8 = "zeda1s.boutique" wide //weight: 100
-        $x_100_9 = "px3.click/theme.iso" wide //weight: 100
-        $x_100_10 = "walkin.college" wide //weight: 100
-        $x_100_11 = "t0urist.cv" wide //weight: 100
-        $x_100_12 = "otmuqi.com" wide //weight: 100
-        $x_100_13 = "rizukimayamui-portfolio.info" wide //weight: 100
-        $x_100_14 = "danili-myhomework.info" wide //weight: 100
-        $x_100_15 = "-humancheck.info" wide //weight: 100
-        $x_100_16 = "mylybnews.com" wide //weight: 100
+        $x_100_5 = "danIEl-polDINdEv.Info" wide //weight: 100
+        $x_100_6 = "danili-myhomework.info" wide //weight: 100
+        $x_100_7 = "5thed.christmas" wide //weight: 100
+        $x_100_8 = "bstkmonitorscap.com" wide //weight: 100
+        $x_100_9 = "ui3.fit" wide //weight: 100
+        $x_100_10 = "zeda1s.boutique" wide //weight: 100
+        $x_100_11 = "px3.click/theme.iso" wide //weight: 100
+        $x_100_12 = "walkin.college" wide //weight: 100
+        $x_100_13 = "t0urist.cv" wide //weight: 100
+        $x_100_14 = "otmuqi.com" wide //weight: 100
+        $x_100_15 = "rizukimayamui-portfolio.info" wide //weight: 100
+        $x_100_16 = "-humancheck.info" wide //weight: 100
+        $x_100_17 = "mylybnews.com" wide //weight: 100
+        $x_100_18 = "ip.meviks.no" wide //weight: 100
     condition:
         (filesize < 20MB) and
         (
@@ -7804,6 +7806,7 @@ rule Trojan_Win32_ClickFix_DEY_2147945366_0
         $x_10_3 = "/package" wide //weight: 10
         $x_10_4 = "/passive" wide //weight: 10
         $x_1_5 = ".msi" wide //weight: 1
+        $x_1_6 = ".txt" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -8121,7 +8124,8 @@ rule Trojan_Win32_ClickFix_BBS_2147945698_0
         $x_1_9 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 63 00 6c 00 6f 00 75 00 64 00 7a 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_10 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 72 00 66 00 79 00 63 00 6c 00 6f 00 75 00 64 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_11 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 71 00 6c 00 6f 00 75 00 64 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_12 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_12 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 63 00 6c 00 6f 00 75 00 64 00 69 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_13 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
