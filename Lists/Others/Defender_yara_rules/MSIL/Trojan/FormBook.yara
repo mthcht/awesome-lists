@@ -15929,14 +15929,18 @@ rule Trojan_MSIL_FormBook_RVM_2147947750_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
+        threshold = "11"
+        strings_accuracy = "Low"
     strings:
         $x_1_1 = {57 7f b6 1d 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 e5 00 00 00 33 00 00 00 c4 00 00 00 07 02 00 00 e1 01 00 00 04 00 00 00 f9 01 00 00 34 00 00 00 b8 01 00 00 01 00 00 00 04 00 00 00 35 00 00 00 09 00 00 00 23 00 00 00 1b 00 00 00 84 00 00 00 32 01 00 00 01 00 00 00 1d 00 00 00 01 00 00 00 01 00 00 00 08 00 00 00 04 00 00 00 09 00 00 00 04 00 00 00 0e}  //weight: 1, accuracy: High
-        $x_1_2 = "B6F3D8A2-4C7E-4A9B-9F2D-5E8A1C6B4F7D" ascii //weight: 1
-        $x_1_3 = "GroupBoxDemo.Properties.Resources" ascii //weight: 1
+        $x_1_2 = {57 ff b6 3d 09 1e 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 03 01 00 00 ?? 00 00 00 ?? 00 00 00 ?? 02 00 00 e1 01 00 00 04 00 00 00 10 02 00 00 34 00 00 00 a4 02 00 00 01 00 00 00 04 00 00 00 05 00 00 00 ?? 00 00 00 09 00 00 00 23 00 00 00 1b 00 00 00 84 00 00 00 32 01 00 00 01 00 00 00 ?? 00 00 00 01 00 00 00 05 00 00 00 01 00 00 00 08}  //weight: 1, accuracy: Low
+        $x_5_3 = "B6F3D8A2-4C7E-4A9B-9F2D-5E8A1C6B4F7D" ascii //weight: 5
+        $x_5_4 = "GroupBoxDemo.Properties.Resources" ascii //weight: 5
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

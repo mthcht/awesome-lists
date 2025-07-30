@@ -2060,3 +2060,24 @@ rule Trojan_Win64_Zusy_SXC_2147947640_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_AUK_2147947895_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AUK!MTB"
+        threat_id = "2147947895"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4b 41 59 28 b5 2f fd 00 88 c4 cc 01 1a d4 5d 72}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

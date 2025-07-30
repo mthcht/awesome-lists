@@ -6094,3 +6094,30 @@ rule Trojan_Win32_Guloader_GPE_2147947834_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LWR_2147947896_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LWR!MTB"
+        threat_id = "2147947896"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "isotrimorphic.tam" ascii //weight: 1
+        $x_1_2 = "oarlock.fod" ascii //weight: 1
+        $x_1_3 = "digtsamlinger.ove" ascii //weight: 1
+        $x_1_4 = "rotteflde.fla" ascii //weight: 1
+        $x_1_5 = "monarchic jomfrutaler towerwort" ascii //weight: 1
+        $x_1_6 = "cocainised blessedest" ascii //weight: 1
+        $x_1_7 = "charlataneriers" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

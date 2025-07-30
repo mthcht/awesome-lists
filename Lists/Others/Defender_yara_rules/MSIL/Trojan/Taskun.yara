@@ -5979,3 +5979,26 @@ rule Trojan_MSIL_Taskun_APT_2147947739_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_AFBB_2147947868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.AFBB!MTB"
+        threat_id = "2147947868"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 11 11 10 61 20 ff 00 00 00 5f 13 14 09 ?? ?? 00 00 01 11 11 11 10 11 12 20 ff 00 00 00 5f 11 13 20 ff 00 00 00 5f 11 14}  //weight: 5, accuracy: Low
+        $x_2_2 = {11 10 1f 13 5a 11 11 1f 17 5a 58 11 04 ?? ?? 00 00 01 20 00 01 00 00 20}  //weight: 2, accuracy: Low
+        $x_2_3 = {11 11 1f 11 5a 11 10 1f 1f 5a 58 11 04 ?? ?? 00 00 01 20 00 01 00 00 20}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

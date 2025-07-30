@@ -24,12 +24,16 @@ rule Trojan_Win32_SuspClickFix_A_2147941552_0
         $x_1_10 = ".myqcloud.com/" wide //weight: 1
         $x_1_11 = {5c 00 4d 00 75 00 73 00 69 00 63 00 5c 00 [0-48] 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
         $x_1_12 = {5c 00 41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 4c 00 6f 00 63 00 61 00 6c 00 5c 00 [0-48] 2e 00 70 00 64 00 66 00}  //weight: 1, accuracy: Low
+        $x_4_13 = {20 00 2d 00 4c 00 20 00 25 00 ?? ?? ?? ?? 25 00 ?? ?? ?? ?? 25 00 ?? ?? ?? ?? 25 00 ?? ?? ?? ?? 25 00 ?? ?? ?? ?? 25 00}  //weight: 4, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
             ((1 of ($x_3_*) and 7 of ($x_1_*))) or
             ((2 of ($x_3_*) and 4 of ($x_1_*))) or
             ((3 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 1 of ($x_3_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 2 of ($x_3_*))) or
             (all of ($x*))
         )
 }
@@ -209,6 +213,48 @@ rule Trojan_Win32_SuspClickFix_I_2147947479_0
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_J_2147947870_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.J"
+        threat_id = "2147947870"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {5c 00 63 00 73 00 63 00 72 00 69 00 70 00 74 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {5c 00 4c 00 6f 00 63 00 61 00 6c 00 5c 00 54 00 65 00 6d 00 70 00 5c 00 [0-16] 2e 00 76 00 62 00 73 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_K_2147947871_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.K"
+        threat_id = "2147947871"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {5c 00 6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {5c 00 4c 00 6f 00 63 00 61 00 6c 00 5c 00 54 00 65 00 6d 00 70 00 5c 00 [0-16] 2e 00 68 00 74 00 61 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
         (all of ($x*))
 }
 
