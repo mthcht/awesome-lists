@@ -42,4 +42,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git add Lists/Ranges_IP_Address_Company_List/bgp.he.net/*_IP_Ranges.csv
           git commit -m "Update daily IP ranges" --allow-empty
+          git pull
           git push
