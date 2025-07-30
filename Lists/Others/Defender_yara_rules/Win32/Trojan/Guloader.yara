@@ -6121,3 +6121,28 @@ rule Trojan_Win32_Guloader_LWR_2147947896_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LWS_2147947901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LWS!MTB"
+        threat_id = "2147947901"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "affrdigelsers.top" ascii //weight: 1
+        $x_1_2 = "quinovic.paa" ascii //weight: 1
+        $x_1_3 = "saltlages.dag" ascii //weight: 1
+        $x_1_4 = "Validating230.til" ascii //weight: 1
+        $x_1_5 = "aktiveringernes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

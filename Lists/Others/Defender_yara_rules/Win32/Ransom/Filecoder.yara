@@ -2690,3 +2690,29 @@ rule Ransom_Win32_Filecoder_EOTY_2147947798_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_NHT_2147947912_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.NHT!MTB"
+        threat_id = "2147947912"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Hello, World!" ascii //weight: 1
+        $x_1_2 = "ransom.txt" ascii //weight: 1
+        $x_1_3 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_4 = "To decrypt your files, send $1000 to" ascii //weight: 1
+        $x_1_5 = "ransom.jpg" ascii //weight: 1
+        $x_1_6 = "taskkill /im explorer.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

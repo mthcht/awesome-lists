@@ -707,3 +707,28 @@ rule Trojan_MSIL_Amadey_AYA_2147925547_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_MCF_2147947907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.MCF!MTB"
+        threat_id = "2147947907"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "a2ec-2695fdf0888e" ascii //weight: 1
+        $x_1_2 = {6b 6f 69 00 44 6f 77 6e 6c 6f}  //weight: 1, accuracy: High
+        $x_1_3 = {57 94 02 28 49 03 00 00 00 fa 25 33 00 16 00 00 01}  //weight: 1, accuracy: High
+        $x_1_4 = "DownloaderApp.am2.bin" ascii //weight: 1
+        $x_1_5 = "LzmaDecoder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

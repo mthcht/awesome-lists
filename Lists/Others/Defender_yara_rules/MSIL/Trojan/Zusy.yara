@@ -3586,3 +3586,23 @@ rule Trojan_MSIL_Zusy_HD_2147947638_0
         )
 }
 
+rule Trojan_MSIL_Zusy_SN_2147947929_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SN"
+        threat_id = "2147947929"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 01 11 05 16 11 06 6f 0b 00 00 0a 38 00 00 00 00 11 04 11 05 16 11 05 8e 69 6f 0c 00 00 0a 25 13 06 16 3d d8 ff ff ff 38 0a 00 00 00 38 df ff ff ff 38 c9 ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

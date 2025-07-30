@@ -878,3 +878,24 @@ rule Trojan_Win32_Midie_A_2147945991_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Midie_KHT_2147947911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.KHT!MTB"
+        threat_id = "2147947911"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 c0 89 0d ?? ?? ?? ?? 8b 4d 0c 8a 44 38 08 32 04 0a 88 01 eb ?? 8b 4d 0c 8b 75 a4 8b 7d 84 41 83 ad 78 ff ff ff 01 89 4d 0c 0f 85}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
