@@ -620,3 +620,24 @@ rule Trojan_Win32_Upatre_MR_2147945547_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Upatre_PGU_2147947941_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.PGU!MTB"
+        threat_id = "2147947941"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {45 40 40 68 ?? ?? ?? ?? ff 00 6a 40 40 40 00 89 ?? ?? ?? ?? ff 40 40 30 68 6a 15}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
