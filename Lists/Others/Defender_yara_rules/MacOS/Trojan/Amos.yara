@@ -261,38 +261,6 @@ rule Trojan_MacOS_Amos_H_2147907308_0
         (all of ($x*))
 }
 
-rule Trojan_MacOS_Amos_J_2147908959_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MacOS/Amos.J!MTB"
-        threat_id = "2147908959"
-        type = "Trojan"
-        platform = "MacOS: "
-        family = "Amos"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "11"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = {c0 00 00 f0 00 20 0c 91 7c f9 ff 97 e1 03 00 aa f5 83 00 91 e0 83 00 91 cc 3b 00 94 e8 df 40 39 09 1d 00 13 3f 01 00 71 ea 27 42 a9 28 b1 88 9a 40 b1 95 9a 1f 15 00 f1 01 01 00 54 08 00 40 b9 08 01 14 4a 09 10 40 39 4a 0a 80 52 29 01 0a 4a 08 01 09 2a e8 00 00 34}  //weight: 5, accuracy: High
-        $x_5_2 = {93 0d 00 b4 b4 48 8a 52 54 ea a9 72 c0 00 00 f0 00 38 0d 91 98 f9 ff 97 e1 03 00 aa f5 03 01 91 e0 03 01 91 e8 3b 00 94 e8 5f 41 39 09 1d 00 13 3f 01 00 71 ea 27 44 a9 28 b1 88 9a 40 b1 95 9a 1f 15 00 f1 01 01 00 54 08 00 40 b9 08 01 14 4a 09 10 40 39 4a 0a 80 52 29 01 0a 4a 08 01 09 2a e8 00 00 34}  //weight: 5, accuracy: High
-        $x_2_3 = {74 34 0f 57 c0 48 8b 51 f8 49 89 57 f8 0f 10 49 e8 41 0f 11 4f e8 49 83 c7 e8 0f 11 41 e8 48 c7 41 f8 00 00 00 00 48 8d 51 e8 48 89 d1 48 39 c2 75 d3 4c 89 7d e0 48 8d 7d b8}  //weight: 2, accuracy: High
-        $x_3_4 = "system_profiler SPHardwareDataType" ascii //weight: 3
-        $x_3_5 = "system_profiler spdisplaysdatatype" ascii //weight: 3
-        $x_3_6 = "sw_vers" ascii //weight: 3
-    condition:
-        (filesize < 20MB) and
-        (
-            ((3 of ($x_3_*) and 1 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 2 of ($x_3_*))) or
-            ((2 of ($x_5_*) and 1 of ($x_2_*))) or
-            ((2 of ($x_5_*) and 1 of ($x_3_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_MacOS_Amos_I_2147910254_0
 {
     meta:
