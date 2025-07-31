@@ -15965,3 +15965,26 @@ rule Trojan_MSIL_FormBook_BAF_2147947930_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVN_2147947993_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVN!MTB"
+        threat_id = "2147947993"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 09 09 0d 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 80 00 00 00 15 00 00 00 d8 00 00 00 ab 00 00 00 9f 00 00 00 10 01 00 00 06 00 00 00 21 00 00 00 44 00 00 00 03 00 00 00 07 00 00 00 08 00 00 00 14 00 00 00 01 00 00 00 06 00 00 00 0a 00 00 00 03 00 00 00 04}  //weight: 1, accuracy: High
+        $x_1_2 = "E7D2A9C4-6B8F-4E3A-9C1D-7F4B2A8E5C6D" ascii //weight: 1
+        $x_1_3 = "BookFlowLibrary.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

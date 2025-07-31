@@ -61,3 +61,47 @@ rule Trojan_Win32_SchExec_HD_2147941744_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SchExec_HI_2147947996_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SchExec.HI!MTB"
+        threat_id = "2147947996"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SchExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {2e 00 61 00 75 00 33 00 20 00 2f 00 73 00 63 00 20 00 6d 00 69 00 6e 00 75 00 74 00 65 00 20 00 2f 00 6d 00 6f 00 20 00 [0-4] 20 00 2f 00 66 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SchExec_HJ_2147947997_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SchExec.HJ!MTB"
+        threat_id = "2147947997"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SchExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/create" wide //weight: 1
+        $x_5_2 = " svchost " wide //weight: 5
+        $x_10_3 = "/tr c:\\programdata" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
