@@ -9630,3 +9630,32 @@ rule Trojan_Win32_ClickFix_DGY_2147947531_0
         )
 }
 
+rule Trojan_Win32_ClickFix_DHJ_2147947979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DHJ!MTB"
+        threat_id = "2147947979"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "131"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "wscript.shell" wide //weight: 10
+        $x_10_3 = "new-object -com" wide //weight: 10
+        $x_10_4 = ".SendKeys(" wide //weight: 10
+        $x_1_5 = "for (" wide //weight: 1
+        $x_1_6 = "while(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
