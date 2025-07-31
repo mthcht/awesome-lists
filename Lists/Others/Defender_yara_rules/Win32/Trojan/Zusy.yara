@@ -7409,3 +7409,26 @@ rule Trojan_Win32_Zusy_GAO_2147947961_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_LMH_2147947986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LMH!MTB"
+        threat_id = "2147947986"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 c2 89 d0 c1 f8 1f c1 e8 18 01 c2 0f b6 d2 29 c2 89 d0 88 45 a3 8d 85 7c fd ff ff 8d 55 a3 89 14 24 c7 85 e8 fb ff ff 04 00 00 00 89 c1}  //weight: 20, accuracy: High
+        $x_10_2 = {8d 85 64 fd ff ff c7 44 24 ?? ?? ?? ?? ?? 8d 55 a4 89 54 24 04 89 04 24 c7 85 e8 fb ff ff 06 00 00 00}  //weight: 10, accuracy: Low
+        $x_5_3 = {89 c2 89 d0 c1 f8 1f c1 e8 18 01 c2 0f b6 d2 29 c2 89 d0 88 85 e0 fb ff ff 8b 55 dc 8d 85 7c fd ff ff 89 14 24 89 c1}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
