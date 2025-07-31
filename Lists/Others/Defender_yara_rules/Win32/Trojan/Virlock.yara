@@ -80,6 +80,28 @@ rule Trojan_Win32_Virlock_NV_2147897385_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 06 32 c2 88 07 42 46 47 49 83 f9 00 0f 85 ed ff ff ff e9 2a 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = {89 07 8b f8 8b df b9 ?? 03 00 00 ba ?? 00 00 00 e9 be ff ff ff}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_NV_2147897385_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.NV!MTB"
+        threat_id = "2147897385"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:

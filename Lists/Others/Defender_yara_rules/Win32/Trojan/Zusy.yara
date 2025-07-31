@@ -7387,3 +7387,25 @@ rule Trojan_Win32_Zusy_MCF_2147947908_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_GAO_2147947961_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.GAO!MTB"
+        threat_id = "2147947961"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {8b 45 f8 03 45 0c 8b 55 f8 03 55 08 8a 12 32 55 ff 88 10 ff 45 f8 fe 45 ff}  //weight: 8, accuracy: High
+        $x_2_2 = "DEADBABE" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2299,6 +2299,28 @@ rule Trojan_MSIL_DCRat_ND_2147928803_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 25 00 00 0a 28 ?? 00 00 06 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 07 28 ?? 00 00 0a 00 07}  //weight: 2, accuracy: Low
+        $x_3_2 = {72 8d 00 00 70 28 ?? 00 00 0a 00 20 ?? 0d 00 00 28 ?? 00 00 0a 00 28}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DCRat_ND_2147928803_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.ND!MTB"
+        threat_id = "2147928803"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
         $x_2_1 = "TessaLetMeDie601Violet.jnfvqq" ascii //weight: 2

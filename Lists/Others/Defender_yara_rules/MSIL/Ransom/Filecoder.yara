@@ -3503,6 +3503,31 @@ rule Ransom_MSIL_Filecoder_NITE_2147925863_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_NITE_2147925863_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.NITE!MTB"
+        threat_id = "2147925863"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {73 16 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 17 6f 1c 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_2_2 = {73 16 00 00 0a 25 72 ?? 01 00 70 6f ?? 00 00 0a 25 72 ?? 01 00 70 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 16}  //weight: 2, accuracy: Low
+        $x_2_3 = {73 16 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 02 72 ?? 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 73 16 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 02 72 ?? 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 03 02 6f ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_1_4 = "delete shadows /all /quiet" wide //weight: 1
+        $x_1_5 = "DisableWindowsRecoveryEnvironment" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_MSIL_Filecoder_NITD_2147925865_0
 {
     meta:

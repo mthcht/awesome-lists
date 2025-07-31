@@ -3295,3 +3295,30 @@ rule Trojan_Win32_CoinMiner_ETL_2147944192_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CoinMiner_PAHM_2147947972_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinMiner.PAHM!MTB"
+        threat_id = "2147947972"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {70 6f 77 65 72 73 68 65 6c 6c 20 2d 43 6f 6d 6d 61 6e 64 20 41 64 64 2d 4d 70 50 72 65 66 65 72 65 6e 63 65 20 2d 45 78 63 6c 75 73 69 6f 6e 50 72 6f 63 65 73 73 20 27 43 3a 5c [0-16] 5c 63 6f 6e 66 69 67 2e 6a 73 6f 6e 27}  //weight: 2, accuracy: Low
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_2_3 = {4d 00 70 00 50 00 72 00 65 00 66 00 65 00 72 00 65 00 6e 00 63 00 65 00 20 00 2d 00 45 00 78 00 63 00 6c 00 75 00 73 00 69 00 6f 00 6e 00 50 00 72 00 6f 00 63 00 65 00 73 00 73 00 20 00 27 00 43 00 3a 00 5c 00 [0-16] 5c 00 57 00 69 00 6e 00 52 00 69 00 6e 00 67 00 30 00 78 00 36 00 34 00 2e 00 73 00 79 00 73 00 27 00}  //weight: 2, accuracy: Low
+        $x_1_4 = "powershell -Command Add-MpPreference -ExclusionPath '" wide //weight: 1
+        $x_1_5 = "Downloading file from:" wide //weight: 1
+        $x_1_6 = "runas" wide //weight: 1
+        $x_2_7 = "xmrig" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

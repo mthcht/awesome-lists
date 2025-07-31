@@ -733,6 +733,33 @@ rule Trojan_Win32_Fragtor_NF_2147899073_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Leveraging DKOM to achieve LPE" ascii //weight: 2
+        $x_2_2 = "Calling Write64 wrapper to overwrite current EPROCESS->Token" ascii //weight: 2
+        $x_1_3 = "Device\\Mup\\;Csc\\.\\." wide //weight: 1
+        $x_1_4 = "Current EPROCESS address" ascii //weight: 1
+        $x_1_5 = "Current THREAD address" ascii //weight: 1
+        $x_1_6 = "System EPROCESS address" ascii //weight: 1
+        $x_1_7 = "cmd.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_NF_2147899073_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.NF!MTB"
+        threat_id = "2147899073"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
