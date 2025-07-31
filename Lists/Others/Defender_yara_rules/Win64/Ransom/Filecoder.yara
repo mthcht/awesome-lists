@@ -1203,3 +1203,31 @@ rule Ransom_Win64_Filecoder_FFD_2147947526_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_GGN_2147948038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.GGN!MTB"
+        threat_id = "2147948038"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Global\\RansomLord_2025" ascii //weight: 1
+        $x_1_2 = "vssadmin delete shadows /all /quiet" ascii //weight: 1
+        $x_1_3 = "SEND PROOF TO darkweb_dead" ascii //weight: 1
+        $x_1_4 = "YOUR SYSTEM IS ANNIHILATED" ascii //weight: 1
+        $x_1_5 = "sc stop WinDefend" ascii //weight: 1
+        $x_1_6 = "PAY_UP.txt" ascii //weight: 1
+        $x_1_7 = "DisableAntiSpyware /t REG_DWORD /d 1 /f" ascii //weight: 1
+        $x_1_8 = ".encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

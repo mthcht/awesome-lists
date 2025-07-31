@@ -19,3 +19,24 @@ rule Trojan_MSIL_Kryplod_GVA_2147935565_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Kryplod_SS_2147948059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Kryplod.SS!MTB"
+        threat_id = "2147948059"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Kryplod"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {1d 2c 04 2b 07 2b 0c 1c 2c f6 de 0d 28 10 00 00 06 2b f2 0a 2b f1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

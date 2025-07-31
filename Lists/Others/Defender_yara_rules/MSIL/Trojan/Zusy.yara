@@ -2814,6 +2814,28 @@ rule Trojan_MSIL_Zusy_SL_2147931780_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 07 06 11 04 11 06 11 07 6f b4 00 00 0a 00 11 06 17 d6 13 06 11 06 11 05 31 bf}  //weight: 2, accuracy: High
+        $x_2_2 = "Fakilaharios.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_SL_2147931780_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SL!MTB"
+        threat_id = "2147931780"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

@@ -221,3 +221,46 @@ rule Trojan_Win32_Virlock_ARAX_2147945734_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Virlock_LMX_2147948035_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.LMX!MTB"
+        threat_id = "2147948035"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 06 90 32 c2 88 07 42 46 90 47 90 49 90}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_SL_2147948061_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.SL!MTB"
+        threat_id = "2147948061"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 90 32 c2 88 07 90 e9 c5 ff ff ff}  //weight: 2, accuracy: High
+        $x_2_2 = {42 46 47 90 49}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

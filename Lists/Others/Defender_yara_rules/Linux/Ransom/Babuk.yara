@@ -425,3 +425,27 @@ rule Ransom_Linux_Babuk_T_2147947410_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Babuk_S_2147948034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Babuk.S!MTB"
+        threat_id = "2147948034"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Babuk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_r_e_a_d_m_e.txt" ascii //weight: 1
+        $x_1_2 = ".clpmwe" ascii //weight: 1
+        $x_1_3 = "xycqmwti@onionmail.org" ascii //weight: 1
+        $x_1_4 = ".log,.vmdk,.vmem,.vswp,.vmsn,.vmsd,.vmx,.gz" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

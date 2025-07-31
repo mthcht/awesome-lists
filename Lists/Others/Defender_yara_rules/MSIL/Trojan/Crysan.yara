@@ -2664,3 +2664,28 @@ rule Trojan_MSIL_Crysan_AYC_2147947925_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_AIBB_2147948014_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.AIBB!MTB"
+        threat_id = "2147948014"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_2 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_3 = "CreateRemoteThread" ascii //weight: 1
+        $x_10_4 = "QzpcUHJvZ3JhbURhdGFcTWljcm9zb2Z0XEVkZ2VVcGRhdGUuZGxs" wide //weight: 10
+        $x_5_5 = "c2lob3N0" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

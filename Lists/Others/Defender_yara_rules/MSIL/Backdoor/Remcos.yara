@@ -1957,3 +1957,25 @@ rule Backdoor_MSIL_Remcos_SUK_2147946849_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Remcos_SSK_2147948060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.SSK!MTB"
+        threat_id = "2147948060"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 0a 11 0b 58 11 0c 58 6c 17 06 19 5a 28 5d 00 00 0a 6c 5b 26 06 1f 2a 5a 20 e8 03 00 00 5d 26 11 17 17 58 13 17}  //weight: 2, accuracy: High
+        $x_2_2 = "StormCast.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

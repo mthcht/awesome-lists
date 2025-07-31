@@ -297,6 +297,28 @@ rule Trojan_Win32_VirLock_SK_2147908941_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 90 32 c2 90 e9 00 00 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = {88 07 42 46 90 47 49}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VirLock_SK_2147908941_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VirLock.SK!MTB"
+        threat_id = "2147908941"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VirLock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:

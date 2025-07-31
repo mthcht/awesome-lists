@@ -47,3 +47,26 @@ rule Ransom_Win32_LockFile_ALK_2147946752_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_LockFile_FGG_2147948024_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockFile.FGG!MTB"
+        threat_id = "2147948024"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {32 04 3e 32 85 ?? ?? ?? ?? 8b 4d e4 88 04 31 8b 45 c0 8b 7d d4 89 45 e4 8a 04 30 46 88 85 ?? ?? ?? ?? 8b 45 d8 2b c7 3b f0 72}  //weight: 5, accuracy: Low
+        $x_2_2 = "NotGetUp\\encrypt\\Release\\encrypt.pdb" ascii //weight: 2
+        $x_1_3 = ".locked" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
