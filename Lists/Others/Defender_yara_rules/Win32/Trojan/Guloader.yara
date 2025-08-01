@@ -6223,3 +6223,27 @@ rule Trojan_Win32_Guloader_GPG_2147948066_0
         (4 of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GPH_2147948077_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPH!MTB"
+        threat_id = "2147948077"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vassalry lidenskabsls" ascii //weight: 1
+        $x_1_2 = "dissekeringer acherontic gutty" ascii //weight: 1
+        $x_1_3 = "glyptician strays" ascii //weight: 1
+        $x_1_4 = "unvividness reneste nssene" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
