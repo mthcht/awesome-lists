@@ -6247,3 +6247,27 @@ rule Trojan_Win32_Guloader_GPH_2147948077_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SLHI_2147948106_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SLHI!MTB"
+        threat_id = "2147948106"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Spredningsmeteorologiske6" ascii //weight: 2
+        $x_2_2 = "Kodningsteorien" ascii //weight: 2
+        $x_2_3 = "Partikularismen5" ascii //weight: 2
+        $x_2_4 = "Tryllekunstneren3" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

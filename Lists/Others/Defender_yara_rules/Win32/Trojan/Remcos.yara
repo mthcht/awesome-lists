@@ -2890,3 +2890,24 @@ rule Trojan_Win32_Remcos_GVC_2147946059_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Remcos_ARMS_2147948105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.ARMS!MTB"
+        threat_id = "2147948105"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {83 c4 18 8d 45 f0 50 8d 45 a8 50 57 57 68 00 00 00 08 57 57 57 68 58 89 46 00 68 dc 89 46 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

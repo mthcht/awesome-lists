@@ -66,3 +66,24 @@ rule Trojan_Win64_Zariza_ARAZ_2147929329_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zariza_ARAX_2147948121_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zariza.ARAX!MTB"
+        threat_id = "2147948121"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zariza"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {43 8d 0c 38 49 8b d6 80 e1 07 c0 e1 03 48 d3 ea 41 0f b6 c8 41 30 50 ff 41 2a c9 80 e1 07 49 8b d6 c0 e1 03 48 d3 ea 41 30 10 49 83 c0 02 4b 8d 04 07 48 83 f8 2a 72 c8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

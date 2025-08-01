@@ -530,3 +530,24 @@ rule Trojan_Win32_RedlineStealer_Z_2147938091_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RedlineStealer_GTD_2147948120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RedlineStealer.GTD!MTB"
+        threat_id = "2147948120"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {83 c4 10 8d 85 ?? ?? ?? ff 50 8d 85 ?? ?? ?? ff 50 8d 85 ?? ?? ?? ff 50 ff 15 ?? ?? ?? ?? 6a 00 68 00 00 00 80 6a 00 6a 00 ff b4 b5 ?? ?? ?? ?? 57 ff 15 ?? ?? ?? ?? 8b f0 85 f6 0f 84 ?? ?? ?? ?? 6a 00 68 80 00 00 00 6a 02 6a 00 6a 00 68 00 00 00 40 8d 85 ?? ?? ?? ?? 50 ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
