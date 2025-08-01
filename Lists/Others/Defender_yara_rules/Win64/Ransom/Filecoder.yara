@@ -1231,3 +1231,30 @@ rule Ransom_Win64_Filecoder_GGN_2147948038_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_MKQ_2147948149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MKQ!MTB"
+        threat_id = "2147948149"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Disable Firewall" ascii //weight: 1
+        $x_1_2 = "Encrypt all files" ascii //weight: 1
+        $x_1_3 = "!!! WARNING: RANSOMWARE DETECTED !!!" ascii //weight: 1
+        $x_1_4 = "VIRUS DETECTED! PAY TO REMOVE!" ascii //weight: 1
+        $x_1_5 = "ransom_note.txt" ascii //weight: 1
+        $x_1_6 = ".encrypted" ascii //weight: 1
+        $x_1_7 = "Your PC is FUCKED" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
