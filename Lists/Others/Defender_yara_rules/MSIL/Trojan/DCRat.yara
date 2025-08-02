@@ -2568,3 +2568,25 @@ rule Trojan_MSIL_DCRat_SLDG_2147948107_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DCRat_LM_2147948206_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.LM!MTB"
+        threat_id = "2147948206"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {02 28 3f 00 00 0a 6f 40 00 00 0a 0a 14 0b 06 6f 41 00 00 0a 8e 69 16 31 10 17 8d 0b 00 00 01 25 16 16 8d 15 00 00 01 a2 0b 06 14 07 74 0a 00 00 1b 6f 42 00 00 0a 26}  //weight: 20, accuracy: High
+        $x_10_2 = {73 38 00 00 0a 0b 00 07 02 6f 39 00 00 0a 0c 08 28 3a 00 00 0a 73 3b 00 00 0a 0a de 20 08 2c 06 08 6f 3c 00 00 0a dc 28 1e 00 00 0a 20 d0 07 00 00 28 3d 00 00 0a 28 3e 00 00 0a de c9 06 2a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

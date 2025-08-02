@@ -3628,3 +3628,25 @@ rule Trojan_MSIL_Zusy_SN_2147947929_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_LMJ_2147948207_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.LMJ!MTB"
+        threat_id = "2147948207"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {07 16 1f 10 28 10 00 00 0a 02 8e 69 18 62 8d 19 00 00 01 0d 16 13 04 16 13 08 2b 5b 02 11 08 95 06 11 08 1f 0f 5f 95 61 13 09 06 11 08 1f 0f 5f 06 11 08 1f 0f 5f 95 11 09 61 20 19 28 db 3d 58 9e 09 11 04 11 09 d2 9c 09 11 04 17 58 11 09 1e 64 d2 9c 09 11 04 18 58 11 09 1f 10 64 d2 9c 09 11 04 19 58 11 09 1f 18 64 d2 9c 11 04 1a 58}  //weight: 10, accuracy: High
+        $x_20_2 = {16 1f 10 28 10 00 00 0a 09 28 04 00 00 06 13 05 09 16 09 8e 69 28 10 00 00 0a 11 05 19 28 11 00 00 0a 13 06 08 20 b7 5c 8a 00 6a 5e 26 16 13 0a 2b 2b 11 05 11 0a 8f 19 00 00 01 25 47 08 d2 61 d2 52 11 0a 20 ff 00 00 00 5f 2d 0b 08 08 5a 20 b7 5c 8a 00 6a 5e 0c 11 0a 17 58 13 0a 11 0a 11 05 8e 69 32 cd 11 06 2a}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
