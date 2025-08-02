@@ -8121,7 +8121,7 @@ rule Trojan_MSIL_Formbook_RA_2147941420_0
     strings:
         $x_1_1 = "MechMatrix Pro.dll" ascii //weight: 1
         $x_1_2 = "notepad.rtf" ascii //weight: 1
-        $x_1_3 = "VtCWmcesEpHrvweaNP" ascii //weight: 1
+        $x_1_3 = "Blah blah blah" ascii //weight: 1
         $x_1_4 = "Phantom Dimension Software" ascii //weight: 1
     condition:
         (filesize < 20MB) and

@@ -1543,3 +1543,25 @@ rule Trojan_Win64_Rozena_PA_2147945686_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_GVA_2147948171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.GVA!MTB"
+        threat_id = "2147948171"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "://110.41.170.231:8000/beacon.bin.enc" ascii //weight: 2
+        $x_1_2 = "schtasksshutdown" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
