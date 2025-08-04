@@ -1665,3 +1665,25 @@ rule Trojan_Win64_LummaStealer_PGG_2147947943_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_GAPO_2147948284_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GAPO!MTB"
+        threat_id = "2147948284"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {61 a8 63 c8 37 1f 1d 05 6f c0 fc d8 ed a5 4e ee cd f0 2f f7 11 99 da 13 53 d9 24 f9 f9 b8 9e 1e fd e0 f0 19 83 9d 13 cf 4d b3 c6 0a fc 8a 92 53 c4 0a 76 fa 40 59 4a db 82 e6 7d 1e 72 4f 7c 61}  //weight: 8, accuracy: High
+        $x_1_2 = ".eye" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

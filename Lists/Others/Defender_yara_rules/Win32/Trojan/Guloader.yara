@@ -6296,3 +6296,56 @@ rule Trojan_Win32_Guloader_LXC_2147948151_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LXF_2147948285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LXF!MTB"
+        threat_id = "2147948285"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "skuespilkunsts.the" ascii //weight: 1
+        $x_1_2 = "damebladslserens.jpg" ascii //weight: 1
+        $x_1_3 = "Trolleybus193.txt" ascii //weight: 1
+        $x_1_4 = "Mariehners.ple" ascii //weight: 1
+        $x_1_5 = "Katias.txt" ascii //weight: 1
+        $x_1_6 = "Hesteprer127.jpg" ascii //weight: 1
+        $x_1_7 = "bladfdder.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_LXH_2147948295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LXH!MTB"
+        threat_id = "2147948295"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "crowding limelike" ascii //weight: 1
+        $x_1_2 = "fosterhinde profaned.exe" ascii //weight: 1
+        $x_1_3 = "badestedet" ascii //weight: 1
+        $x_1_4 = "kolling tronage" ascii //weight: 1
+        $x_1_5 = "prescriptivism.ten" ascii //weight: 1
+        $x_1_6 = "bellmaking.dir" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
