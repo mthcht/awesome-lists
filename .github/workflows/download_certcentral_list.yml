@@ -34,7 +34,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git pull --rebase
+          git pull
           git add Lists/CERTS/certcentral_signers_list.csv
           git commit -m "Update CertCentral Suspicious Signers List" --allow-empty
           git push
