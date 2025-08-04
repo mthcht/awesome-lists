@@ -138,3 +138,24 @@ rule Ransom_Win32_Chaos_BMX_2147948037_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Chaos_MKV_2147948310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.MKV!MTB"
+        threat_id = "2147948310"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {41 8b c3 30 10 83 c2 0d 80 e2 ff 40 49 75 f4}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
