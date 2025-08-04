@@ -55,3 +55,29 @@ rule HackTool_MacOS_Fscan_B_2147922953_0
         )
 }
 
+rule HackTool_MacOS_Fscan_C_2147948262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Fscan.C!MTB"
+        threat_id = "2147948262"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Fscan"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "PwdCrackScan" ascii //weight: 1
+        $x_1_2 = "ScanWithProbesForCrack" ascii //weight: 1
+        $x_1_3 = "TargetWebScanForFingerAndPoc" ascii //weight: 1
+        $x_1_4 = "GetHostCrackIps" ascii //weight: 1
+        $x_1_5 = "InsertPwdCrackDB" ascii //weight: 1
+        $x_1_6 = "GetPwdCrackTabData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

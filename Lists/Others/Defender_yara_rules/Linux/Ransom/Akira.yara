@@ -96,3 +96,50 @@ rule Ransom_Linux_Akira_AB_2147931430_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Akira_D_2147948260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Akira.D!MTB"
+        threat_id = "2147948260"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "akira_readme.txt" ascii //weight: 1
+        $x_1_2 = ".akira" ascii //weight: 1
+        $x_1_3 = "--share_file" ascii //weight: 1
+        $x_1_4 = ".arika" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule Ransom_Linux_Akira_E_2147948261_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Akira.E!MTB"
+        threat_id = "2147948261"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "akiranew_Root path" ascii //weight: 1
+        $x_1_2 = "/include/scratchakiranewwalking" ascii //weight: 1
+        $x_1_3 = "akiranew/src/lock.rs#>- File  crypting... File lock started:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

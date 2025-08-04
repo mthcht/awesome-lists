@@ -190,3 +190,26 @@ rule Trojan_Win64_Filecoder_NIA_2147947157_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_AFD_2147948247_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.AFD!MTB"
+        threat_id = "2147948247"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {80 33 aa 48 39 c2 74 14 0f 1f 40 00 80 32 aa 80 72 01 aa 48 83 c2 02 48 39 c2}  //weight: 3, accuracy: High
+        $x_2_2 = "program files\\vmware\\vmware tools\\vmtoolsd.exe" ascii //weight: 2
+        $x_1_3 = "program files\\oracle\\virtualbox guest additions\\vboxservice.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
