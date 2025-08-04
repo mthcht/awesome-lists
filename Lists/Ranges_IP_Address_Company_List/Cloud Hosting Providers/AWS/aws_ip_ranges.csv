@@ -1652,6 +1652,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 3.4.8.0/24,GLOBAL,AMAZON,GLOBAL
 3.4.12.25/32,ap-southeast-1,AMAZON,ap-southeast-1
 3.4.13.16/28,ap-southeast-2,AMAZON,ap-southeast-2
+5.60.96.0/19,eu-central-1,AMAZON,eu-central-1
 15.217.0.0/16,eu-south-2,AMAZON,eu-south-2
 15.230.39.140/31,us-east-2,AMAZON,us-east-2
 15.251.0.2/32,us-west-1,AMAZON,us-west-1
@@ -6261,6 +6262,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 99.78.238.253/32,ap-southeast-3,EC2,ap-southeast-3
 162.250.236.0/24,us-east-1,EC2,us-east-1
 3.4.8.0/24,GLOBAL,EC2,GLOBAL
+5.60.96.0/19,eu-central-1,EC2,eu-central-1
 15.217.0.0/16,eu-south-2,EC2,eu-south-2
 18.96.1.0/24,us-east-1,EC2,us-east-1
 18.98.96.0/19,ap-southeast-3,EC2,ap-southeast-3
@@ -8847,6 +8849,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 18.99.75.128/25,ap-northeast-1,AURORA_DSQL,ap-northeast-1
 18.98.132.128/25,ap-northeast-2,AURORA_DSQL,ap-northeast-2
 18.96.17.0/25,ap-northeast-3,AURORA_DSQL,ap-northeast-3
+18.96.39.128/25,eu-central-1,AURORA_DSQL,eu-central-1
 18.97.198.128/25,eu-west-1,AURORA_DSQL,eu-west-1
 18.98.164.0/25,eu-west-2,AURORA_DSQL,eu-west-2
 18.98.66.128/25,eu-west-3,AURORA_DSQL,eu-west-3
