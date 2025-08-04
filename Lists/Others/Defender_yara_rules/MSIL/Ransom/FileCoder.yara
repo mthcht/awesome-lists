@@ -366,6 +366,51 @@ rule Ransom_MSIL_FileCoder_AG_2147808867_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_SP_2147840015_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.SP!MTB"
+        threat_id = "2147840015"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0a 08 17 58 0c 08 1f 0a 32 f0 10 00 07 06 6f}  //weight: 3, accuracy: Low
+        $x_1_2 = "white_ransomeware" ascii //weight: 1
+        $x_1_3 = "white.jcrypt.txt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_FileCoder_SP_2147840015_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.SP!MTB"
+        threat_id = "2147840015"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 07 9a 0c 08 28 05 00 00 06 2c 0d 08 28 06 00 00 06 1f 64 28 17 00 00 0a 07 17 58 0b 07 06 8e 69 32 dd}  //weight: 2, accuracy: High
+        $x_2_2 = "dx_ransomware\\obj\\Release\\dx_ransomware.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_MSIL_FileCoder_SG_2147840541_0
 {
     meta:

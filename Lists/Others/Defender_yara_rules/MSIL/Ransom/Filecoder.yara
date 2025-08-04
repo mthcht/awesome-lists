@@ -2440,29 +2440,6 @@ rule Ransom_MSIL_Filecoder_AVA_2147839139_0
         (all of ($x*))
 }
 
-rule Ransom_MSIL_Filecoder_SP_2147840015_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:MSIL/Filecoder.SP!MTB"
-        threat_id = "2147840015"
-        type = "Ransom"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Filecoder"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_3_1 = {0a 08 17 58 0c 08 1f 0a 32 f0 10 00 07 06 6f}  //weight: 3, accuracy: Low
-        $x_1_2 = "white_ransomeware" ascii //weight: 1
-        $x_1_3 = "white.jcrypt.txt" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Ransom_MSIL_Filecoder_GER_2147841809_0
 {
     meta:
