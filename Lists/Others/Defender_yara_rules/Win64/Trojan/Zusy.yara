@@ -2081,3 +2081,98 @@ rule Trojan_Win64_Zusy_AUK_2147947895_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_AHG_2147948330_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHG!MTB"
+        threat_id = "2147948330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0f b6 b4 18 ea 01 00 00 40 c0 ee 04 40 0f b6 f6 48 8d 3d b9 66 05 00 0f b6 34 37 48 81 fa 0b 02 00 00 0f 83}  //weight: 3, accuracy: High
+        $x_2_2 = {48 89 c1 48 b8 89 ?? ?? ?? ?? ?? ?? ?? 48 89 d6 48 f7 ea 48 01 f2 48 c1 fa 03 48 c1 fe 3f 48 29 f2 48 ff c2 48 89 c8 48 89 d1}  //weight: 2, accuracy: Low
+        $x_2_3 = {48 89 c6 48 b8 89 ?? ?? ?? ?? ?? ?? ?? 49 89 d0 48 f7 ef 4c 8d 0c 3a 49 c1 f9 03 48 c1 ff 3f 49 29 f9 49 8d 79 01 48 89 f0 4c 89 c2 48 89 fe}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Zusy_AHI_2147948335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHI!MTB"
+        threat_id = "2147948335"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {66 89 84 24 a6 01 00 00 c6 84 24 a8 01 00 00 88 c6 84 24 a9 01 00 00 95 c6 84 24 aa 01 00 00 7d c6 84 24 ab 01 00 00 86 c6 84 24 ac 01 00 00 7d c6 84 24 ad 01 00 00 d3 c6 84 24 ae 01 00 00 67 c6 84 24 af 01 00 00 5b}  //weight: 10, accuracy: High
+        $x_5_2 = {c6 84 24 28 01 00 00 85 c6 84 24 29 01 00 00 60 c6 84 24 2a 01 00 00 e4 c6 84 24 2b 01 00 00 b2 c6 84 24 2c 01 00 00 03 c6 84 24 2d 01 00 00 a9 c6 84 24 2e 01 00 00 7a c6 84 24 2f 01 00 00 8b c7 84 24 30 01 00 00 1e 86 96 f3}  //weight: 5, accuracy: High
+        $x_3_3 = "[+] Decrypted AES Key (hex)" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SXG_2147948336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXG!MTB"
+        threat_id = "2147948336"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 63 47 3c 48 8b 4c 24 58 48 03 c3 4c 89 64 24 20 44 8b 84 38 ?? ?? ?? ?? 8b 94 38 ?? ?? ?? ?? 4c 03 c7 44 8b 8c 38 ?? ?? ?? ?? 49 03 d6 41 ff d7 0f b7 45 06 ff c6 48 83 c3 28 3b f0 7c}  //weight: 5, accuracy: Low
+        $x_3_2 = {48 89 5c 24 20 41 ff d7 8b 45 28 48 8d 54 24 ?? 48 8b 4c 24 ?? 49 03 c6 48 89 84 24 ?? ?? ?? ?? 41 ff d5 48 8b 4c 24 ?? ff 54 24}  //weight: 3, accuracy: Low
+        $x_2_3 = {f3 0f 7f 45 af 66 44 89 6d 9f 48 8d 55 e7 4c 8b 55 e7 4c 8b 5d ff 49 83 fb 10 49 0f 43 d2 48 c7 c3 ff ff ff ff 4c 8b 4d f7 4d 85 c9 74 2f}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KAB_2147948348_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KAB!MTB"
+        threat_id = "2147948348"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {0f b6 c1 41 33 c0 69 c8 93 01 00 01 8b c1 c1 e8 0d 33 c1 69 c8 95 e9 d1 5b 44 8b c1 41 c1 e8 0f 44 33 c1 45 84 c9 75}  //weight: 10, accuracy: High
+        $x_8_2 = {b8 4f ec c4 4e 41 f7 e8 c1 fa 04 8b c2 c1 e8 1f 03 d0 0f b7 c2 6b c8 34 41 0f b7 c0 66 2b c1 66 83 c0 38 66 41 31 01 41 ff c0 4d 8d 49 02 41 81 f8}  //weight: 8, accuracy: High
+        $x_7_3 = {66 2b c1 66 83 c0 38 66 41 31 01 41 ff c0 4d 8d 49 02 41 81 f8}  //weight: 7, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

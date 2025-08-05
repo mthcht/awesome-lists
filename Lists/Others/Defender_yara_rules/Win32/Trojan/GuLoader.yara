@@ -3564,6 +3564,30 @@ rule Trojan_Win32_GuLoader_RBN_2147935960_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Allied Waste Industries, Inc." ascii //weight: 1
+        $x_1_2 = "Metaldyne Corporation" ascii //weight: 1
+        $x_1_3 = "Southwest Airlines Co" ascii //weight: 1
+        $x_1_4 = "formblingen statuses.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBN_2147935960_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBN!MTB"
+        threat_id = "2147935960"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -3577,7 +3601,7 @@ rule Trojan_Win32_GuLoader_RBN_2147935960_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_RBN_2147935960_1
+rule Trojan_Win32_GuLoader_RBN_2147935960_2
 {
     meta:
         author = "defender2yara"
@@ -4620,6 +4644,36 @@ rule Trojan_Win32_GuLoader_SUE_2147947753_0
         $x_1_6 = "prepend.kon" ascii //weight: 1
         $x_1_7 = "\\equiomnipotent\\vangers.txt" ascii //weight: 1
         $x_1_8 = "ridiculise\\tossehovedernes\\" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUF_2147948324_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUF!MTB"
+        threat_id = "2147948324"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Balloteret.gif" ascii //weight: 1
+        $x_1_2 = "\\acquent.ini" ascii //weight: 1
+        $x_1_3 = "\\strandbredders.htm" ascii //weight: 1
+        $x_1_4 = "\\Visioner\\postically.zip" ascii //weight: 1
+        $x_1_5 = "\\pretrernes\\museums.jpg" ascii //weight: 1
+        $x_1_6 = "ethylenically\\temblors.txt" ascii //weight: 1
+        $x_1_7 = "\\Mea175.exe" ascii //weight: 1
+        $x_1_8 = "\\dialogbokse\\nedslagtede.txt" ascii //weight: 1
+        $x_1_9 = "\\uarbejdsdygtiges\\godsterminalernes.ini" ascii //weight: 1
+        $x_1_10 = "Phenomenalize46.ini" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -15988,3 +15988,26 @@ rule Trojan_MSIL_FormBook_RVN_2147947993_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVO_2147948322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVO!MTB"
+        threat_id = "2147948322"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d b6 09 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 a4 00 00 00 1d 00 00 00 8d 00 00 00 01 01 00 00 d0 00 00 00 8c 01 00 00 05 00 00 00 b7 00 00 00 40 00 00 00 01 00 00 00 01 00 00 00 0b 00 00 00 2e 00 00 00 52 00 00 00 26 00 00 00 01 00 00 00 06 00 00 00 04 00 00 00 05 00 00 00 02 00 00 00 1c}  //weight: 1, accuracy: High
+        $x_1_2 = "0a4968f4-6fa2-43b2-927f-4b3aca05eb31" ascii //weight: 1
+        $x_1_3 = "AlarmPlus.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1023,3 +1023,25 @@ rule Ransom_Win64_FileCoder_GXD_2147947793_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_KK_2147948345_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.KK!MTB"
+        threat_id = "2147948345"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {43 33 1c 87 45 89 e0 41 c1 ec 08 45 0f b6 e4 47 0f b6 24 23 4c 8d 3d ?? ?? ?? ?? 43 33 1c a7 45 0f b6 c0 47 0f b6 04 18 4c 8d 25 f5 38 1b 00 43 33 1c 84 eb}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 81 ec 98 00 00 00 48 89 ac 24 90 00 00 00 48 8d ac 24 90 00 00 00 48 89 84 24 a0 00 00 00 49 c7 c5 00 00 00 00 4c 89 ac 24 88 00 00 00 c6 44 24 3f 00 48 89 d9 48 8d 3d cf da 02 00 be 0b 00 00 00 48 89 c3 31 c0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2869,3 +2869,25 @@ rule Trojan_Win32_Vundo_CA_334045_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vundo_AHB_464693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vundo.AHB!MTB"
+        threat_id = "464693"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vundo"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {c1 e1 08 0f b6 d4 0f b6 85 32 fb ff ff 03 ca 0f b6 95 33 fb ff ff c1 e1 08 03 c8 c1 e1 08 03 ca 89 4e fe 83 c4 0c 83 c6 08 83 ef 01 0f 85}  //weight: 10, accuracy: High
+        $x_5_2 = {03 d3 c1 fa 03 8b c2 c1 e8 1f 03 c2 8b c8 c1 e1 04 2b c8 8b d3 2b d1 0f be 8c 15 34 ff ff ff 8d b4 15 34 ff ff ff b8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
