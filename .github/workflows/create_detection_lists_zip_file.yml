@@ -70,6 +70,7 @@ jobs:
             "Lists/suspicious_windows_services_names_list.csv"
             "Lists/suspicious_windows_tasks_list.csv"
             "Lists/Browser Extensions/browser_extensions_list.csv"
+            "Lists/DYNDNS/dyndns_list.csv"
           )
 
           for file in "${LOCAL_FILES[@]}"; do
