@@ -2576,3 +2576,49 @@ rule Trojan_MSIL_XWorm_ADBB_2147947728_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AXC_2147948424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AXC!MTB"
+        threat_id = "2147948424"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {13 05 1d 28 09 00 00 0a 13 06 11 06 72 12 a6 01 70 28 0a 00 00 0a 13 07 11 07 11 05 28 0b 00 00 0a 00 11 07 28 0c 00 00 0a 26 00 de 12}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_ATW_2147948426_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ATW!MTB"
+        threat_id = "2147948426"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8e b7 6f 6e 00 00 0a 7e 10 00 00 04 15 17 6f 76 00 00 0a 26 7e 10 00 00 04 06 6f 6a 00 00 0a 16 06 6f 6f 00 00 0a b7 16 14 fe 06 26 00 00 06 73 37 00 00 0a 14 6f 77 00 00 0a}  //weight: 2, accuracy: High
+        $x_2_2 = {02 7b 31 00 00 04 02 7b 32 00 00 04 28 af 00 00 0a 6f 36 00 00 0a 1b 8d 2d 00 00 01 13 04 11 04 16 72 bd 07 00 70 a2 11 04 17 02 7b 31 00 00 04 a2 11 04 18 72 ed 07 00 70 a2 11 04 19 7e 29 00 00 04 73 28 00 00 0a 7e 29 00 00 04 8e b7 6f 2e 00 00 0a 9a a2 11 04 1a 72 9e 08 00 70 a2 11 04 28 7f 00 00 0a 0b 28 d2 00 00 0a 07 6f d3 00 00 0a 0a 08 06 16 06 8e b7 16 6f d4 00 00 0a 26 20 c4 09 00 00 28 1f 00 00 0a 08 6f 7d 00 00 0a de 0e}  //weight: 2, accuracy: High
+        $x_2_3 = {9a 28 42 00 00 0a 28 88 00 00 0a 0b 73 89 00 00 0a 0c 08 06 18 9a 07 6f 8a 00 00 0a 07 28 8b 00 00 0a 26}  //weight: 2, accuracy: High
+        $x_2_4 = "-ExecutionPolicy Bypass -File " wide //weight: 2
+        $x_2_5 = "OfflineKeylogger Not Enabled" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

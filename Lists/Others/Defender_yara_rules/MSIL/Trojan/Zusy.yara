@@ -3650,3 +3650,25 @@ rule Trojan_MSIL_Zusy_LMJ_2147948207_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SO_2147948416_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SO"
+        threat_id = "2147948416"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 0b 11 08 11 08 11 08 5a d2 9c 11 08 17 58 13 08 11 08 11 0b 8e 69 fe 04 13 12 11 12 2d e1}  //weight: 2, accuracy: High
+        $x_2_2 = "AlarmPlus.Properties.Resources.resources" ascii //weight: 2
+        $x_2_3 = "$0a4968f4-6fa2-43b2-927f-4b3aca05eb31" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

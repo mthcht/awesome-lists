@@ -542,3 +542,27 @@ rule TrojanDownloader_MSIL_Small_CCJC_2147923754_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Small_AKM_2147948421_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Small.AKM!MTB"
+        threat_id = "2147948421"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Sandbox environment detected: Program ran in a sandbox or tria.ge environment." wide //weight: 2
+        $x_2_2 = "Get-MpPreference | Select -ExpandProperty DisableRealtimeMonitoring" wide //weight: 2
+        $x_2_3 = "http://utfs.io//f//laf3eb2MC2j7bL87nwICr3omfT0IUSjV9MpslDcbPz8G6FqY" wide //weight: 2
+        $x_2_4 = "$7a515810-b0af-4b6d-b529-4e10c8339a5e" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

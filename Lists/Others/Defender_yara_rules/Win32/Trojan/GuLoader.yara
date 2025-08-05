@@ -4679,3 +4679,33 @@ rule Trojan_Win32_GuLoader_SUF_2147948324_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SUG_2147948415_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUG!MTB"
+        threat_id = "2147948415"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\parodi\\nonexceptionally.lnk" ascii //weight: 1
+        $x_1_2 = "\\Venskabsbyernes234\\breaths.jpg" ascii //weight: 1
+        $x_1_3 = "Godet65.gyt" ascii //weight: 1
+        $x_1_4 = "gengldelsers.unf" ascii //weight: 1
+        $x_1_5 = "overforsikre.med" ascii //weight: 1
+        $x_1_6 = "summeriest.app" ascii //weight: 1
+        $x_1_7 = "\\surcharges.ini" ascii //weight: 1
+        $x_1_8 = "\\Snailery\\Administrant.ini" ascii //weight: 1
+        $x_1_9 = "\\knledene.ini" ascii //weight: 1
+        $x_1_10 = "\\abolitionised\\antiendowment.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

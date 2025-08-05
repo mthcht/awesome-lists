@@ -232,3 +232,24 @@ rule Trojan_MSIL_SpyAgent_CA_2147927332_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyAgent_CAZ_2147948420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyAgent.CAZ!MTB"
+        threat_id = "2147948420"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {72 2f 02 00 70 02 7b 0e 00 00 04 28 ?? ?? ?? 0a 0a 00 00 73 6d 00 00 0a 0b 00 73 6e 00 00 0a 0c 03 28 ?? ?? ?? 0a 0d 09 73 70 00 00 0a 13 04 11 04 6f ?? ?? ?? 0a 72 83 02 00 70 28 ?? ?? ?? 0a 6f ?? ?? ?? 0a 00 08 11 04 72 97 02 00 70 72 3f 00 00 70 6f ?? ?? ?? 0a 00 07 06 72 a3 02 00 70 02 7b 0f 00 00 04 28 ?? ?? ?? 0a 08 6f ?? ?? ?? 0a 6f ?? ?? ?? 0a}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

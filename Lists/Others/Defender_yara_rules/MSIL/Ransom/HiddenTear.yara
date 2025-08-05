@@ -1052,3 +1052,55 @@ rule Ransom_MSIL_HiddenTear_AHT_2147946601_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_ASD_2147948427_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.ASD!MTB"
+        threat_id = "2147948427"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "EncryptFile" ascii //weight: 2
+        $x_2_2 = "TestRansom" ascii //weight: 2
+        $x_2_3 = "YOUR FILES HAVE BEEN ENCRYPTED BY NANOCRYPT RANSOMWARE" wide //weight: 2
+        $x_2_4 = "C:\\Users\\15138\\source\\repos\\TestRansom\\TestRansom\\obj\\Debug\\TestRansom.pdb" ascii //weight: 2
+        $x_2_5 = "$68bdd258-5590-4f81-abe2-8cd1227d76cb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_HiddenTear_JLK_2147948439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.JLK!MTB"
+        threat_id = "2147948439"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ADMIN PRIVILEGES OBTAINED" wide //weight: 1
+        $x_1_2 = "KEYLOGGER ACTIVE" wide //weight: 1
+        $x_1_3 = "RANSOMWARE INSTALLED" wide //weight: 1
+        $x_1_4 = "BACKDOOR ESTABLISHED" wide //weight: 1
+        $x_1_5 = "YOUR FILES HAVE BEEN ENCRYPTED!" wide //weight: 1
+        $x_2_6 = "add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v Error" wide //weight: 2
+        $x_2_7 = "vssadmin delete shadows /all /quiet" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

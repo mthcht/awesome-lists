@@ -86,3 +86,45 @@ rule Trojan_MSIL_XMRig_GRR_2147946171_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XMRig_IJ_2147948422_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XMRig.IJ!MTB"
+        threat_id = "2147948422"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {6f 0e 00 00 0a 0b 06 6f 13 00 00 0a 07 28 14 00 00 0a 0c 08 6f 15 00 00 0a 7e 02 00 00 04 25 3a 17 00 00 00 26 7e 01 00 00 04 fe 06 06 00 00 06 73 16 00 00 0a 25 80 02 00 00 04 28 01 00 00 2b}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XMRig_IJIA_2147948423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XMRig.IJIA!MTB"
+        threat_id = "2147948423"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {06 6f 0e 00 00 0a 0b 06 6f 13 00 00 0a 07 28 14 00 00 0a 0c 08 6f 15 00 00 0a 7e 02 00 00 04 25 3a 17 00 00 00 26 7e 01 00 00 04 fe 06 06 00 00 06 73 16 00 00 0a 25 80 02 00 00 04 28 01 00 00 2b 0d}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

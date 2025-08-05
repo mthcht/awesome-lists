@@ -371,3 +371,25 @@ rule Trojan_MSIL_Filecoder_EBIO_2147946272_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Filecoder_JKU_2147948433_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Filecoder.JKU!MTB"
+        threat_id = "2147948433"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {09 08 16 08 8e 69 6f 38 00 00 0a 09 07 07 6f 39 00 00 0a 08 6f 3a 00 00 0a 17 73 3b 00 00 0a 13 04 03 19 73 37 00 00 0a 13 05 11 05 11 04 6f 3c 00 00 0a de 0c}  //weight: 2, accuracy: High
+        $x_2_2 = {06 72 67 04 00 70 6f 30 00 00 0a 28 31 00 00 0a 0b de 0a 06 2c 06 06 6f 2a 00 00 0a dc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

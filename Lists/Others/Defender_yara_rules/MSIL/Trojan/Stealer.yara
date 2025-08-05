@@ -3177,3 +3177,29 @@ rule Trojan_MSIL_Stealer_AXAB_2147947622_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_EA_2147948419_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.EA!MTB"
+        threat_id = "2147948419"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "GetWindowsProductKeyFromRegistry" ascii //weight: 2
+        $x_2_2 = "DecodeProductKeyWin8AndUp" ascii //weight: 2
+        $x_2_3 = "GetAllNetworkInterfaces" ascii //weight: 2
+        $x_2_4 = "GetTokensFromDiscordApp" ascii //weight: 2
+        $x_2_5 = "%USERPROFILE%\\AppData\\Local\\Google\\Chrome\\User Data" wide //weight: 2
+        $x_2_6 = "$F2C565B6-E4F5-40B1-8C40-FB70CF5A2E6A" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
