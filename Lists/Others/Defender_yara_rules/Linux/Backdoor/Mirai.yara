@@ -9230,3 +9230,51 @@ rule Backdoor_Linux_Mirai_LF_2147947812_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_LH_2147948380_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LH!MTB"
+        threat_id = "2147948380"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ddos_tcp_flood" ascii //weight: 1
+        $x_1_2 = "conn.magicpacketlease.org" ascii //weight: 1
+        $x_1_3 = "ddos_udp_bypass_flood" ascii //weight: 1
+        $x_1_4 = "hartbeat_send_shutdown" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Linux_Mirai_LK_2147948381_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LK!MTB"
+        threat_id = "2147948381"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "killer_wipe_strings" ascii //weight: 1
+        $x_1_2 = "attack_gre.c" ascii //weight: 1
+        $x_1_3 = "newbot_v1" ascii //weight: 1
+        $x_1_4 = "attack_reap_dead" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
