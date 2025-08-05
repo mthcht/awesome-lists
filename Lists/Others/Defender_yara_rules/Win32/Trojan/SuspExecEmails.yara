@@ -1,12 +1,12 @@
-rule Trojan_Win32_SuspExecUtils_MK_2147948229_0
+rule Trojan_Win32_SuspExecEmails_MK_2147948364_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/SuspExecUtils.MK"
-        threat_id = "2147948229"
+        detection_name = "Trojan:Win32/SuspExecEmails.MK"
+        threat_id = "2147948364"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "SuspExecUtils"
+        family = "SuspExecEmails"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "3"
@@ -14,7 +14,7 @@ rule Trojan_Win32_SuspExecUtils_MK_2147948229_0
     strings:
         $x_1_1 = "echo sb_" ascii //weight: 1
         $x_1_2 = " >NUL" ascii //weight: 1
-        $x_1_3 = "& exit" ascii //weight: 1
+        $x_1_3 = "*.pst & exit" ascii //weight: 1
         $n_1_4 = "a4896cf8-a4fa-40e9-90e0-3b2ddc3e3ce1" wide //weight: -1
     condition:
         (filesize < 20MB) and
@@ -22,15 +22,15 @@ rule Trojan_Win32_SuspExecUtils_MK_2147948229_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_SuspExecUtils_MK_2147948229_1
+rule Trojan_Win32_SuspExecEmails_MK_2147948364_1
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/SuspExecUtils.MK"
-        threat_id = "2147948229"
+        detection_name = "Trojan:Win32/SuspExecEmails.MK"
+        threat_id = "2147948364"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "SuspExecUtils"
+        family = "SuspExecEmails"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "3"
@@ -38,7 +38,7 @@ rule Trojan_Win32_SuspExecUtils_MK_2147948229_1
     strings:
         $x_1_1 = "echo sb_" ascii //weight: 1
         $x_1_2 = " >NUL" ascii //weight: 1
-        $x_1_3 = "& exit" ascii //weight: 1
+        $x_1_3 = "*.pst & exit" ascii //weight: 1
         $n_1_4 = "c4896cf8-a4fa-40e9-90e0-3b2ddc3e3ce2" wide //weight: -1
     condition:
         (filesize < 20MB) and
