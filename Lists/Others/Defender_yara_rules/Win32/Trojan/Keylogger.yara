@@ -681,3 +681,31 @@ rule Trojan_Win32_Keylogger_PGL_2147939520_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Keylogger_PAHO_2147948650_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Keylogger.PAHO!MTB"
+        threat_id = "2147948650"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SELECT * FROM Win32_Processor" wide //weight: 1
+        $x_1_2 = "send_keylog" wide //weight: 1
+        $x_1_3 = "clear_keylog" wide //weight: 1
+        $x_2_4 = "winmgmts:{impersonationLevel=impersonate}" wide //weight: 2
+        $x_1_5 = "send_Screen" wide //weight: 1
+        $x_1_6 = "start_online_keylogger" wide //weight: 1
+        $x_1_7 = "start_main_keylogger" wide //weight: 1
+        $x_2_8 = "Offline Keylogger started" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
