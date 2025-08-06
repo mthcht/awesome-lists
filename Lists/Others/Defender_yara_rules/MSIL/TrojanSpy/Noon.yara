@@ -902,3 +902,27 @@ rule TrojanSpy_MSIL_Noon_STK_2147948122_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Noon_SUK_2147948634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SUK!MTB"
+        threat_id = "2147948634"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$60e78174-0558-4fee-91d1-7d3e4111c39b" ascii //weight: 1
+        $x_1_2 = "GameFood.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "Desenvolvido por Diogo Souza" ascii //weight: 1
+        $x_1_4 = "JogoGourmet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

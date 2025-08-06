@@ -2740,3 +2740,28 @@ rule Ransom_Win32_Filecoder_ETOY_2147947960_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_EYTO_2147948632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.EYTO!MTB"
+        threat_id = "2147948632"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ransom.txt" ascii //weight: 1
+        $x_1_2 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_3 = "shutdown /s" ascii //weight: 1
+        $x_1_4 = "%m/%d/%y" ascii //weight: 1
+        $x_1_5 = "random_device" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

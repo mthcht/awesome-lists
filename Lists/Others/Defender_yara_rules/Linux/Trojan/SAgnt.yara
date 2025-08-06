@@ -569,3 +569,47 @@ rule Trojan_Linux_SAgnt_AD_2147946393_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_SAgnt_AA_2147948605_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SAgnt.AA!MTB"
+        threat_id = "2147948605"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f0 30 00 24 c0 d0 00 03 ba 71 a7 fb ff 48 c0 b0 00 03 d4 0c b9 04 00 82 e3 20 b0 10 00 16 b9 04 00 a3 b9 04 00 94 e3 80 f0 a0 00 24 c0 e5 00 03 54 91 b9 04 00 12 e3 20 b0 04 00 16 50 10 b0 10 c0 e5 00 03 54 87 b9 04 00 12 e3 20 b0 08 00 16 50 10 b0 04 c0 e5 00 03 54 7d b9 04 00 12 e3 20 b0 0c 00 16 50 10 b0 08 c0 e5 00 03 54 73 b9}  //weight: 1, accuracy: High
+        $x_1_2 = {04 00 12 e3 20 b0 14 00 16 50 10 b0 0c c0 e5 00 03 54 69 50 20 b0 14 12 22 a7 74 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_SAgnt_AB_2147948606_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SAgnt.AB!MTB"
+        threat_id = "2147948606"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {ff 7f 02 3c ff ff 42 34 2b 10 a2 00 11 00 40 14 25 90 a0 00 7c 80 99 8f 09 f8 20 03 00 00 00 00 0c 00 03 24}  //weight: 1, accuracy: High
+        $x_1_2 = {00 00 65 80 05 00 a4 54 01 00 60 a0 05 00 40 10 ff ff 42 24 fa ff 00 10 21 18 02 02}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
