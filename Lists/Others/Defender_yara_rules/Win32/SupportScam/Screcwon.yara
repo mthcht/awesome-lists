@@ -68,6 +68,7 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_8 = "relay.ale3rt.in" ascii //weight: 30
         $x_30_9 = "microsoffeedd4ackapiz.enterprisesolutions.su" ascii //weight: 30
         $x_30_10 = ".putinswin.es" ascii //weight: 30
+        $x_30_11 = "dual.saltuta.com" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (
