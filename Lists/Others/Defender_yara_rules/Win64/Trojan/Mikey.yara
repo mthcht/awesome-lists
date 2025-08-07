@@ -770,3 +770,26 @@ rule Trojan_Win64_Mikey_LMF_2147948447_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_LMG_2147948756_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.LMG!MTB"
+        threat_id = "2147948756"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "33"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {66 89 84 24 a6 01 00 00 c6 84 24 a8 01 00 00 88 c6 84 24 a9 01 00 00 95 c6 84 24 aa 01 00 00 7d c6 84 24 ab 01 00 00 86 c6 84 24 ac 01 00 00 7d c6 84 24 ad 01 00 00 d3 c6 84 24 ae 01 00 00 67 c6 84 24 af 01 00 00 5b}  //weight: 20, accuracy: High
+        $x_10_2 = {66 89 84 24 a6 00 00 00 c6 84 24 a8 00 00 00 91 c6 84 24 a9 00 00 00 40 c6 84 24 aa 00 00 00 28 c6 84 24 ab 00 00 00 97 c6 84 24 ac 00 00 00 c7 c6 84 24 ad 00 00 00 c6 c6 84 24 ae 00 00 00 97 c6 84 24 af 00 00 00 67}  //weight: 10, accuracy: High
+        $x_3_3 = "[+] Decrypted AES Key (hex)" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

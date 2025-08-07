@@ -132,3 +132,27 @@ rule Trojan_Win64_RustyStealer_SMW_2147941644_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_IDK_2147948755_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.IDK!MTB"
+        threat_id = "2147948755"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Set-MpPreference -DisableRealtimeMonitoring" ascii //weight: 1
+        $x_1_2 = "DontStopIfGoingOnBatteries" ascii //weight: 1
+        $x_1_3 = "Telegram notification sent successfully" ascii //weight: 1
+        $x_1_4 = "Payload execution failed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
