@@ -987,3 +987,25 @@ rule Trojan_AndroidOS_Banker_AE_2147946391_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Banker_AF_2147948733_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker.AF!MTB"
+        threat_id = "2147948733"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {14 00 7a e0 ff ff 14 01 de de ff ff 90 00 00 01 94 00 00 01 3d 00 1a 00 14 00 9a 3e 00 00 14 01 22 1d 00 00 91 01 00 01 90 01 00 01 94 00 01 01 2a 00 07 00 00 00 91 01 00 01 94 00 01 01 94 00 01 01 2a 00 f7 ff ff ff 14 05 eb d0 69 2f 14 04 00 00 00 00 39 04 06 00 14 06 0c 95 69 2f 28 0b 22 02 24 00 1b 07 dc 02 00 00 71 10 c9 00 07 00 0c 07 28 ee b7 65 38 04 0a 00 1b 07 3b 02 00 00 71 10 c9 00 07 00 0c 07 28 f6}  //weight: 1, accuracy: High
+        $x_1_2 = {14 01 3c 25 08 00 71 20 af 00 11 00 0a 01 14 02 c8 05 0c 00 71 10 33 00 02 00 0a 02 01 13 35 12 2c 00 62 03 2d 00 35 21 07 00 6e 20 11 00 23 00 d8 03 02 01 1b 02 0d 04 00 00 71 10 c9 00 02 00 0c 02 1b 03 b8 03 00 00 71 10 c9 00 03 00 0c 03 22 03 d8 00 12 02 01 23 12 12 39 02 0e 00 22 02 8d 00 28 e9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

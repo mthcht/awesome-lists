@@ -4709,3 +4709,33 @@ rule Trojan_Win32_GuLoader_SUG_2147948415_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SUJ_2147948731_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUJ!MTB"
+        threat_id = "2147948731"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\lumberman.ini" ascii //weight: 1
+        $x_1_2 = "patchworky\\Unbeveled" ascii //weight: 1
+        $x_1_3 = "chingma\\Uninstall\\prerevised\\Kadaver67" ascii //weight: 1
+        $x_1_4 = "\\art\\Pharynges.lnk" ascii //weight: 1
+        $x_1_5 = "\\plotting\\glosserede.dll" ascii //weight: 1
+        $x_1_6 = "givingly\\Husstv\\centrifugalsprederen" ascii //weight: 1
+        $x_1_7 = "Beehive\\flleshuses\\Photopic" ascii //weight: 1
+        $x_1_8 = "\\inappetence\\biplanerne\\Kamuflerendes.gif" ascii //weight: 1
+        $x_1_9 = "\\Nedslaaedes174\\statsgarantiens.ini" ascii //weight: 1
+        $x_1_10 = "\\usselheden\\tagpappens.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

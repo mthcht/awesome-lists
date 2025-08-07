@@ -421,3 +421,25 @@ rule Trojan_MSIL_Webshell_GVA_2147946063_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Webshell_SPZB_2147948742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Webshell.SPZB!MTB"
+        threat_id = "2147948742"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Webshell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 06 07 13 09 1f 0b 8d 01 00 00 01 13 0a 11 0a 16 11 09 a2 11 0a 17 72 f6 04 00 70 a2 11 0a 18 11 06}  //weight: 2, accuracy: High
+        $x_1_2 = "osvmhdfl.dll" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

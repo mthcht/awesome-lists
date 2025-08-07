@@ -50,3 +50,33 @@ rule HackTool_AndroidOS_WifiCrack_C_2147808782_0
         (all of ($x*))
 }
 
+rule HackTool_AndroidOS_WifiCrack_D_2147948732_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:AndroidOS/WifiCrack.D!MTB"
+        threat_id = "2147948732"
+        type = "HackTool"
+        platform = "AndroidOS: Android operating system"
+        family = "WifiCrack"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "wibrplus/MonitorActivity" ascii //weight: 2
+        $x_2_2 = "wibrplus/WifiScanActivity" ascii //weight: 2
+        $x_1_3 = "WIBR:wifilock" ascii //weight: 1
+        $x_1_4 = "Lcz/auradesign/wibrplus/BruteforceGenerator" ascii //weight: 1
+        $x_1_5 = "bruteforceGenerator" ascii //weight: 1
+        $x_1_6 = "UPDATE bruteforce SET lastPassword=" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
