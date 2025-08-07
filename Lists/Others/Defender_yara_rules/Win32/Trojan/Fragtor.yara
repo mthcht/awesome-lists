@@ -244,6 +244,29 @@ rule Trojan_Win32_Fragtor_KAB_2147852099_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_KAB_2147852099_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.KAB!MTB"
+        threat_id = "2147852099"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {83 f1 55 8d 52 01 66 89 0e 8d b5 ?? ?? ff ff 0f b7 04 56 8d 34 56 8b c8 66 85 c0 75}  //weight: 20, accuracy: Low
+        $x_8_2 = "C:\\Users\\HP\\source\\repos\\Project RO\\Release\\Project RO.pdb" ascii //weight: 8
+        $x_7_3 = ".ragnarok" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_SPK_2147852351_0
 {
     meta:

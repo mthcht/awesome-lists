@@ -9998,3 +9998,80 @@ rule Trojan_Win32_ClickFix_DHW_2147948558_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DHS_2147948669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DHS!MTB"
+        threat_id = "2147948669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = {2d 00 6f 00 75 00 74 00 46 00 69 00 6c 00 65 00 20 00 [0-80] 74 00 65 00 6d 00 70 00 [0-2] 5c 00 62 00 61 00 74 00 2e 00 62 00 61 00 74 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {2d 00 6f 00 75 00 74 00 46 00 69 00 6c 00 65 00 20 00 [0-80] 74 00 65 00 6d 00 70 00 [0-2] 5c 00 63 00 6d 00 64 00 2e 00 63 00 6d 00 64 00}  //weight: 10, accuracy: Low
+        $x_1_4 = {73 00 74 00 61 00 72 00 74 00 [0-80] 74 00 65 00 6d 00 70 00 [0-2] 5c 00 62 00 61 00 74 00 2e 00 62 00 61 00 74 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {73 00 74 00 61 00 72 00 74 00 [0-80] 74 00 65 00 6d 00 70 00 [0-2] 5c 00 63 00 6d 00 64 00 2e 00 63 00 6d 00 64 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DHT_2147948670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DHT!MTB"
+        threat_id = "2147948670"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "-Method Post" wide //weight: 10
+        $x_10_3 = ").Content" wide //weight: 10
+        $x_1_4 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DHU_2147948671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DHU!MTB"
+        threat_id = "2147948671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "161"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_50_2 = "$a+$b+$c" wide //weight: 50
+        $x_10_3 = ".Invoke($" wide //weight: 10
+        $x_1_4 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
