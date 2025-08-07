@@ -5820,3 +5820,24 @@ rule Trojan_MSIL_DarkTortilla_AUBB_2147948599_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_MCA_2147948710_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.MCA!MTB"
+        threat_id = "2147948710"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0c 06 72 b8 12 00 70 7d 76 00 00 04 16 06 7b 76 00 00 04 6f ?? 00 00 0a 6c 23 00 00 00 00 00 00 00 40 5b 28 ec 00 00 0a b7 28 ?? 01 00 0a 06 fe 06 16 01 00 06 73 33 01 00 0a 28 ?? 00 00 2b 28 ?? 00 00 2b 0d 08 09 20 e8 03 00 00 73 34 01 00 0a 13 04 00 73 35 01 00 0a 13 05 11 05 11 04 1f 20 6f ?? 01 00 0a 6f ?? 01 00 0a 00 11 05 11 04 1f 10 6f ?? 01 00 0a 6f ?? 01 00 0a 00 11 05 11 05 6f ?? 01 00 0a 11 05 6f ?? 01 00 0a 6f 3b 01 00 0a 13 06 00 73 3c 01 00 0a 13 07 00 11 07 11 06 17 73 3d 01 00 0a 13 09 11 09 02 16 02 8e 69 6f ?? 01 00 0a 00 11 09 6f ?? 01 00 0a 00 de 0e 00 11 09 2c 08 11 09 6f ?? 00 00 0a 00 dc 11 07 13 08 11 08 0b de 1c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

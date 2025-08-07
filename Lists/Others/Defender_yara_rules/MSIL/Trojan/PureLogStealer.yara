@@ -3473,3 +3473,24 @@ rule Trojan_MSIL_PureLogStealer_AYAB_2147947623_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_SPFT_2147948720_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.SPFT!MTB"
+        threat_id = "2147948720"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {63 d1 13 15 11 1a 11 09 91 13 27 11 1a 11 09 11 23 11 27 61 19 11 1c 58 61 11 2c 61 d2 9c}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

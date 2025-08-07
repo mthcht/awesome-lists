@@ -1080,30 +1080,6 @@ rule Trojan_MSIL_Downloader_RPX_2147810516_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Downloader_SRX_2147810531_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Downloader.SRX!MTB"
-        threat_id = "2147810531"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Downloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "FromBase64String" ascii //weight: 1
-        $x_2_2 = "pr0t3_decrypt" ascii //weight: 2
-        $x_1_3 = "get_Chars" ascii //weight: 1
-        $x_1_4 = "StrReverse" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Downloader_DEGA_2147810533_0
 {
     meta:
