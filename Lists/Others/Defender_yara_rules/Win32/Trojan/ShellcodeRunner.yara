@@ -373,3 +373,26 @@ rule Trojan_Win32_ShellcodeRunner_MMA_2147948386_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_NS_2147948818_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.NS!MTB"
+        threat_id = "2147948818"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {33 d2 8a d4 89 15 40 ad 40 00 8b c8 81 e1 ff 00 00 00 89 0d 3c ad 40 00 c1 e1 08 03 ca 89 0d 38 ad 40 00 c1 e8 10 a3 34 ad 40 00 6a 01 e8 98 16 00 00 59 85 c0 75 08}  //weight: 3, accuracy: High
+        $x_1_2 = {a3 18 ad 40 00 e8 d8 0e 00 00 e8 1a 0e 00 00 e8 25 0b 00 00 89 75 d0 8d 45 a4 50}  //weight: 1, accuracy: High
+        $x_1_3 = "Videos\\login.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
