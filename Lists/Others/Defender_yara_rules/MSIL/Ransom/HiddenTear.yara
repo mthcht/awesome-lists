@@ -1104,3 +1104,27 @@ rule Ransom_MSIL_HiddenTear_JLK_2147948439_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_GVA_2147948843_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.GVA!MTB"
+        threat_id = "2147948843"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {1f 14 16 03 19 28 02 00 00 06 26 2a}  //weight: 2, accuracy: High
+        $x_1_2 = "\\Read Me.txt" wide //weight: 1
+        $x_1_3 = "/message.txt" wide //weight: 1
+        $x_1_4 = "post.php" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

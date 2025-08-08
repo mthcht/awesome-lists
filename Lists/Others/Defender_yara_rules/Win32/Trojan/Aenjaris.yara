@@ -32,3 +32,25 @@ rule Trojan_Win32_Aenjaris_ROC_2147744628_0
         (8 of ($x*))
 }
 
+rule Trojan_Win32_Aenjaris_GVA_2147948841_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Aenjaris.GVA!MTB"
+        threat_id = "2147948841"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Aenjaris"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a b0 00 10 40 00 c0 ce df 80 f6 ab 80 ee a4 88 b0 00 10 40 00 40 81 f8 9b 31 02 00 75 e2 61 68 1d f2 40 00}  //weight: 2, accuracy: High
+        $x_1_2 = {0a fc 84 04 fb df f4 a6 87 13}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

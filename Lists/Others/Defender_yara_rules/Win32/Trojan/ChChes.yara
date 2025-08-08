@@ -103,3 +103,25 @@ rule Trojan_Win32_ChChes_G_2147730365_1
         )
 }
 
+rule Trojan_Win32_ChChes_GVA_2147948844_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ChChes.GVA!MTB"
+        threat_id = "2147948844"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ChChes"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b f0 8b 44 24 08 83 c4 04 33 c9 85 f6 7e 11 8a 14 01 80 ea 24 80 f2 25 88 14 01 41 3b ce 7c ef}  //weight: 2, accuracy: High
+        $x_2_2 = {8a 14 31 80 ea 24 80 f2 25 88 14 31 41 3b c8 7c ef}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

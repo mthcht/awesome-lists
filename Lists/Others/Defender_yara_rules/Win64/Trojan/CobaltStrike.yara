@@ -17444,3 +17444,46 @@ rule Trojan_Win64_CobaltStrike_CLM_2147948768_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_GVC_2147948842_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GVC!MTB"
+        threat_id = "2147948842"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b f8 8d 4a 04 ff 15 ?? ?? ?? ?? 48 8b c8 48 8d 54 24 68 48 8b d8 ff 15 ?? ?? ?? ?? 85 c0 [0-10] 48 8b cb 39 7c 24 74 ?? ?? 48 8d 54 24 68 ff 15 ?? ?? ?? ?? 85 c0 75 e8}  //weight: 2, accuracy: Low
+        $x_1_2 = "Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_GVF_2147948846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GVF!MTB"
+        threat_id = "2147948846"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 03 c8 0f b6 01 41 88 04 32 44 88 01 41 0f b6 04 32 4c 03 c0 41 0f b6 c0 0f b6 8c 04 10 03 00 00 41 30 09 49 ff c1 49 83 ee 01 75 90}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
