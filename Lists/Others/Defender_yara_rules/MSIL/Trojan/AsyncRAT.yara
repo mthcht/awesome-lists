@@ -6354,3 +6354,24 @@ rule Trojan_MSIL_AsyncRAT_JKI_2147948435_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_SLPI_2147948865_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.SLPI!MTB"
+        threat_id = "2147948865"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {25 26 0a 20 55 f6 01 00 28 ?? 00 00 06 25 26 0b 02 06 28 31 00 00 0a 25 26 07 28 6f 00 00 06 25 26 0c 28 ?? 00 00 0a 25 26 08 6f ?? 00 00 0a 25 26 14 20 58 f6 01 00 28 ?? 00 00 06 25 26}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

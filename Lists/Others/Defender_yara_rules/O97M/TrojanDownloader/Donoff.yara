@@ -9394,6 +9394,7 @@ rule TrojanDownloader_O97M_Donoff_ET_2147720551_1
         $x_1_5 = "= CreateObject(\"WScript.Shell\")" ascii //weight: 1
         $x_1_6 = "Sub AutoOpen()" ascii //weight: 1
         $n_100_7 = "http://bkainline2/fileadmin" ascii //weight: -100
+        $n_10_8 = "\\\\cifsadmindocs\\ohim\\OHIM_Docs\\C CTM\\C09 Guides_ Manuals_Tools\\C0920 Stan_Canc_" ascii //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

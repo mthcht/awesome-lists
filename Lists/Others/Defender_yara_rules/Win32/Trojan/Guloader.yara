@@ -4508,6 +4508,30 @@ rule Trojan_Win32_Guloader_SLA_2147923394_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "kernemedlemmerne.kaf" ascii //weight: 2
+        $x_2_2 = "\\modemliniernes\\entryman.txt\"" ascii //weight: 2
+        $x_2_3 = "5\\hemihypoesthesia.ini" ascii //weight: 2
+        $x_2_4 = "floatation\\kollektiviserings" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_SLA_2147923394_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SLA!MTB"
+        threat_id = "2147923394"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -6437,6 +6461,29 @@ rule Trojan_Win32_Guloader_GPL_2147948781_0
         $x_1_2 = "kbstadboers tilmaaling honorr" ascii //weight: 1
         $x_1_3 = "minisurveys.exe" ascii //weight: 1
         $x_1_4 = "eksaminators autoritativere minona" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_SLN_2147948864_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SLN!MTB"
+        threat_id = "2147948864"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "fellation floksilkernes gisfmle" wide //weight: 2
+        $x_2_2 = "sleeved rotiferal stinkberry" wide //weight: 2
+        $x_2_3 = "wholesalely kautionistens.exe" wide //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

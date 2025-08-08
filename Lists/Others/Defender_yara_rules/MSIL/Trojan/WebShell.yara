@@ -345,3 +345,24 @@ rule Trojan_MSIL_WebShell_AQBB_2147948385_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_MKV_2147948847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.MKV!MTB"
+        threat_id = "2147948847"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {d0 16 00 00 01 28 ?? 00 00 0a 28 ?? 00 00 0a 72 67 01 00 70 6f ?? 00 00 0a 0a 06 14 28 ?? 00 00 0a 0d 09 2c 0d 00 72 a3 01 00 70 13 04 38 38 01 00 00 06 72 0f 02 00 70 6f ?? 00 00 0a 0b 07 14 28 ?? 00 00 0a 13 05 11 05 2c 0d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
