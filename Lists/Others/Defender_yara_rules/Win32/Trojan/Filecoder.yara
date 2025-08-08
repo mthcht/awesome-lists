@@ -479,3 +479,28 @@ rule Trojan_Win32_Filecoder_AHB_2147948764_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Filecoder_SXA_2147948786_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.SXA!MTB"
+        threat_id = "2147948786"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {c7 44 24 08 00 00 00 00 c7 44 24 04 ?? ?? ?? ?? 89 04 24 a1 ?? ?? ?? ?? ff d0 83 ec 1c 89 45 f0 83 7d f0 ?? 74 3d c7 44 24 10 ?? ?? ?? ?? 8d 45 e0 89 44 24 0c 8b 45 ec 89 44 24 08 8b 45 e8 89 44 24 04 8b 45 f0 89 04 24 a1 ?? ?? ?? ?? ff d0 83 ec}  //weight: 6, accuracy: Low
+        $x_1_2 = "ransomware" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "Your files have been encrypted." ascii //weight: 1
+        $x_1_5 = "To decrypt your files, send" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
