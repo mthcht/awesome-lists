@@ -20,3 +20,49 @@ rule Trojan_Win64_ValleyRAT_PAHM_2147947493_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_TBK_2147948769_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.TBK!MTB"
+        threat_id = "2147948769"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "yehbe253" ascii //weight: 1
+        $x_1_2 = "\\Telegram.lnk" ascii //weight: 1
+        $x_1_3 = "C:\\Users\\Public\\Desktop\\QQ.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRAT_ABK_2147948770_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.ABK!MTB"
+        threat_id = "2147948770"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f 10 04 02 66 0f ef c1 0f 11 04 02 0f ?? 44 02 10 66 0f ef c1 0f 11 44 02 ?? 83 c0 ?? 3b c6 72}  //weight: 2, accuracy: Low
+        $x_2_2 = {80 34 10 58 40 3b c1 72}  //weight: 2, accuracy: High
+        $x_2_3 = "xyz/" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -563,3 +563,25 @@ rule Trojan_MSIL_RedlineStealer_ENWL_2147945217_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RedlineStealer_GTB_2147948778_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedlineStealer.GTB!MTB"
+        threat_id = "2147948778"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {13 06 11 06 72 ?? 00 00 70 6f ?? 00 00 0a 13 07 11 07 72 ?? 00 00 70 1f 38 6f ?? 00 00 0a 13 08 11 08 2d 02 2b 18 11 08 14 17 8d ?? 00 00 01 25 16 16 8d ?? 00 00 01 a2 28}  //weight: 10, accuracy: Low
+        $x_2_2 = "DLL resource tidak ditemukan!" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6906,33 +6906,6 @@ rule Trojan_Win32_ClickFix_BBBM_2147944703_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_CCN_2147944704_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.CCN!MTB"
-        threat_id = "2147944704"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "21"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "msiexec" wide //weight: 10
-        $x_10_2 = ".msi" wide //weight: 10
-        $x_1_3 = "/q" wide //weight: 1
-        $x_1_4 = "/package" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((2 of ($x_10_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_ClickFix_CCO_2147944705_0
 {
     meta:

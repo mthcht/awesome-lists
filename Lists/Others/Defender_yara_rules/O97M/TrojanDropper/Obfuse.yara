@@ -1942,3 +1942,28 @@ rule TrojanDropper_O97M_Obfuse_SLB_2147945237_0
         (all of ($x*))
 }
 
+rule TrojanDropper_O97M_Obfuse_SI_2147948761_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:O97M/Obfuse.SI!MTB"
+        threat_id = "2147948761"
+        type = "TrojanDropper"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Obfuse"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {7a 69 70 55 72 6c 20 3d 20 22 68 74 74 70 73 3a 2f 2f [0-31] 2e 73 70 61 63 65 2f 53 6f 66 74 73 43 6f 6d 70 61 6e 79 2f 64 2f [0-3] 2f [0-31] 22}  //weight: 1, accuracy: Low
+        $x_1_2 = {55 6e 7a 69 70 57 69 74 68 57 69 6e 52 41 52 20 7a 69 70 50 61 74 68 2c 20 74 61 72 67 65 74 46 6f 6c 64 65 72 2c 20 22 [0-31] 32 30 32 35}  //weight: 1, accuracy: Low
+        $x_1_3 = "savePath = Environ(\"TEMP\") & \"\\\" & CreateRandomName() & \".pptx" ascii //weight: 1
+        $x_1_4 = {70 70 74 55 72 6c 20 3d 20 22 68 74 74 70 73 3a 2f 2f 74 72 6d 6d 2e 73 70 61 63 65 2f 53 6f 66 74 73 43 6f 6d 70 61 6e 79 2f 64 2f [0-3] 2f [0-79] 22}  //weight: 1, accuracy: Low
+        $x_1_5 = "DownloadFileWithProgress = fso.FileExists(savePath)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

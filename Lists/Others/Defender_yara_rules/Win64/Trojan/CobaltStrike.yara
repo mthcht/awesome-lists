@@ -17381,3 +17381,66 @@ rule Trojan_Win64_CobaltStrike_TNN_2147948668_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_GCMD_2147948766_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GCMD!MTB"
+        threat_id = "2147948766"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 63 c1 0f b6 4c 84 ?? 41 30 08 49 ff c0 49 83 eb 01 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_PLM_2147948767_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.PLM!MTB"
+        threat_id = "2147948767"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 08 48 8b 55 ?? 8b 45 ?? 48 01 d0 44 89 ca 31 ca 88 10 83 45 fc 01 8b 45 ?? 39 45 ?? 72}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_CLM_2147948768_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.CLM!MTB"
+        threat_id = "2147948768"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {45 0f b6 04 10 45 31 c1 44 88 0c 3e 48 8d 57 ?? 48 89 f0 48 39 d3 7e ?? 4c 8b 05 ?? ?? ?? ?? 44 0f b6 0c 10}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

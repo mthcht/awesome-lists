@@ -456,3 +456,26 @@ rule Trojan_Win32_Filecoder_RSD_2147905060_0
         )
 }
 
+rule Trojan_Win32_Filecoder_AHB_2147948764_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.AHB!MTB"
+        threat_id = "2147948764"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8d 55 e0 89 54 24 14 8b 55 f0 89 54 24 10 c7 44 24 0c 00 00 00 00 c7 44 24 08 01 00 00 00 c7 44 24 04 00 00 00 00 89 04 24 a1 ?? ?? ?? ?? ff d0 83 ec 1c}  //weight: 10, accuracy: Low
+        $x_5_2 = "Contact me at [email address]" ascii //weight: 5
+        $x_3_3 = "Pay me $1000 within 72 hours or your files will be deleted forever" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
