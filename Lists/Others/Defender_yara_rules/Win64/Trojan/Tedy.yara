@@ -2005,3 +2005,25 @@ rule Trojan_Win64_Tedy_ZXU_2147946135_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AHE_2147948854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHE!MTB"
+        threat_id = "2147948854"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {41 f7 e1 45 0f b6 c0 41 8b c1 c1 ea 03 8d 0c 52 c1 e1 02 2b c1 48 63 c8 0f be 14 39 41 03 d3 44 03 c2 41 81 e0}  //weight: 10, accuracy: High
+        $x_5_2 = {48 63 d8 44 0f b6 54 1c 30 41 02 fa 40 0f b6 cf 0f b6 44 0c 30 88 44 1c 30 44 88 54 0c 30 44 0f b6 44 1c 30 4d 03 c2 41 0f b6 c0 44 0f b6 44 04 30 45 30 04 33 49 ff c3 49 81 fb}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -42,3 +42,25 @@ rule Trojan_Win32_ProcessHijack_GTM_2147939658_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ProcessHijack_AHB_2147948855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ProcessHijack.AHB!MTB"
+        threat_id = "2147948855"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ProcessHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {58 83 c0 10 ba d4 17 4b 1d 31 10 83 c0 04 e2 f9}  //weight: 10, accuracy: High
+        $x_5_2 = {0a d8 2e 9f 5f 08 28 2c 3e 4b a8 ad 0e 77}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

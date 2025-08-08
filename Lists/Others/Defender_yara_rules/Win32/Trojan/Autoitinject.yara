@@ -1011,3 +1011,34 @@ rule Trojan_Win32_Autoitinject_SDS_2147945220_0
         )
 }
 
+rule Trojan_Win32_Autoitinject_SPDS_2147948852_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Autoitinject.SPDS!MTB"
+        threat_id = "2147948852"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Autoitinject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 00 20 00 46 00 49 00 4c 00 45 00 52 00 45 00 41 00 44 00 20 00 28 00 20 00 40 00 54 00 45 00 4d 00 50 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 [0-20] 22 00 20 00 29 00 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {28 20 46 49 4c 45 52 45 41 44 20 28 20 40 54 45 4d 50 44 49 52 20 26 20 22 5c [0-20] 22 20 29 20 29}  //weight: 2, accuracy: Low
+        $x_2_3 = "FILEINSTALL ( \"Keily\" , @TEMPDIR & \"\\Keily\" , 1 )" ascii //weight: 2
+        $x_2_4 = {26 00 3d 00 20 00 43 00 48 00 52 00 20 00 28 00 20 00 42 00 49 00 54 00 58 00 4f 00 52 00 20 00 28 00 20 00 24 00 [0-20] 20 00 2c 00 20 00 24 00 [0-20] 20 00 29 00 20 00 29 00}  //weight: 2, accuracy: Low
+        $x_2_5 = {26 3d 20 43 48 52 20 28 20 42 49 54 58 4f 52 20 28 20 24 [0-20] 20 2c 20 24 [0-20] 20 29 20 29}  //weight: 2, accuracy: Low
+        $x_1_6 = {44 00 4c 00 4c 00 53 00 54 00 52 00 55 00 43 00 54 00 47 00 45 00 54 00 44 00 41 00 54 00 41 00 20 00 28 00 20 00 24 00 [0-20] 20 00 2c 00 20 00 22 00 72 00 67 00 62 00 52 00 65 00 73 00 75 00 6c 00 74 00 22 00 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_7 = {44 4c 4c 53 54 52 55 43 54 47 45 54 44 41 54 41 20 28 20 24 [0-20] 20 2c 20 22 72 67 62 52 65 73 75 6c 74 22 20 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((4 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
