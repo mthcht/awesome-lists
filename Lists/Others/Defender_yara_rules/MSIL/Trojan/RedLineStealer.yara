@@ -1667,34 +1667,6 @@ rule Trojan_MSIL_RedLineStealer_RPC_2147812380_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RedLineStealer_MQA_2147812731_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RedLineStealer.MQA!MTB"
-        threat_id = "2147812731"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RedLineStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {11 08 13 05 14 13 08 11 05 8e 69 1e 5b 13 0c 11 05 73 ?? 00 00 0a 73 ?? 00 00 06 13 0d 16 13 16 38 23 00 00 00 11 0d 6f ?? ?? ?? 06 13 17 11 0d 6f ?? ?? ?? 06 13 18 11 04 11 17 11 18 6f ?? ?? ?? 0a 11 16 17 58 13 16 11 16 11 0c 3f d4 ff ff ff 11 0d 6f ?? ?? ?? 06 11 04 80 ?? 00 00 04 dd}  //weight: 1, accuracy: Low
-        $x_1_2 = "FromBase64String" ascii //weight: 1
-        $x_1_3 = "CreateDecryptor" ascii //weight: 1
-        $x_1_4 = "GetBytes" ascii //weight: 1
-        $x_1_5 = "TransformBlock" ascii //weight: 1
-        $x_1_6 = "Replace" ascii //weight: 1
-        $x_1_7 = "MemoryStream" ascii //weight: 1
-        $x_1_8 = "base64EncodedData" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_RedLineStealer_RPP_2147812790_0
 {
     meta:

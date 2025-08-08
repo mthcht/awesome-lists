@@ -10017,8 +10017,10 @@ rule Trojan_Win32_ClickFix_DHS_2147948669_0
         $x_100_1 = "powershell" wide //weight: 100
         $x_10_2 = {2d 00 6f 00 75 00 74 00 46 00 69 00 6c 00 65 00 20 00 [0-80] 74 00 65 00 6d 00 70 00 [0-6] 62 00 61 00 74 00 2e 00 62 00 61 00 74 00}  //weight: 10, accuracy: Low
         $x_10_3 = {2d 00 6f 00 75 00 74 00 46 00 69 00 6c 00 65 00 20 00 [0-80] 74 00 65 00 6d 00 70 00 [0-6] 63 00 6d 00 64 00 2e 00 63 00 6d 00 64 00}  //weight: 10, accuracy: Low
-        $x_1_4 = {73 00 74 00 61 00 72 00 74 00 [0-80] 74 00 65 00 6d 00 70 00 [0-6] 62 00 61 00 74 00 2e 00 62 00 61 00 74 00}  //weight: 1, accuracy: Low
-        $x_1_5 = {73 00 74 00 61 00 72 00 74 00 [0-80] 74 00 65 00 6d 00 70 00 [0-6] 63 00 6d 00 64 00 2e 00 63 00 6d 00 64 00}  //weight: 1, accuracy: Low
+        $x_10_4 = {2d 00 6f 00 75 00 74 00 46 00 69 00 6c 00 65 00 20 00 [0-80] 74 00 65 00 6d 00 70 00 [0-6] 62 00 79 00 62 00 79 00 2e 00 62 00 61 00 74 00}  //weight: 10, accuracy: Low
+        $x_1_5 = {73 00 74 00 61 00 72 00 74 00 [0-80] 74 00 65 00 6d 00 70 00 [0-6] 62 00 61 00 74 00 2e 00 62 00 61 00 74 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {73 00 74 00 61 00 72 00 74 00 [0-80] 74 00 65 00 6d 00 70 00 [0-6] 63 00 6d 00 64 00 2e 00 63 00 6d 00 64 00}  //weight: 1, accuracy: Low
+        $x_1_7 = {73 00 74 00 61 00 72 00 74 00 [0-80] 74 00 65 00 6d 00 70 00 [0-6] 62 00 79 00 62 00 79 00 2e 00 62 00 61 00 74 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
@@ -10074,5 +10076,85 @@ rule Trojan_Win32_ClickFix_DHU_2147948671_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DHV_2147948799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DHV!MTB"
+        threat_id = "2147948799"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "[io.path]::GetDirectoryName($" wide //weight: 10
+        $x_1_3 = "=$env:APPDATA+" wide //weight: 1
+        $x_1_4 = "=$env:TEMP+" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DHY_2147948800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DHY!MTB"
+        threat_id = "2147948800"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "112"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "powershell" wide //weight: 100
+        $x_10_2 = "iex([IO.StreamReader]::new([Net.WebRequest]::Create(" wide //weight: 10
+        $x_1_3 = ".GetResponse()" wide //weight: 1
+        $x_1_4 = ".ReadToEnd();$" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DIA_2147948801_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DIA!MTB"
+        threat_id = "2147948801"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "131"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 [0-80] 24 00}  //weight: 100, accuracy: Low
+        $x_10_2 = "='Down';$" wide //weight: 10
+        $x_10_3 = "New-Object ($" wide //weight: 10
+        $x_10_4 = ").Invoke($" wide //weight: 10
+        $x_1_5 = "|iex" wide //weight: 1
+        $x_1_6 = "| iex" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

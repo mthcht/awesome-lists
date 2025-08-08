@@ -2765,3 +2765,26 @@ rule Ransom_Win32_Filecoder_EYTO_2147948632_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_YBG_2147948798_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.YBG!MTB"
+        threat_id = "2147948798"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "files have been encrypted" ascii //weight: 1
+        $x_1_2 = "ransom_note.txt" ascii //weight: 1
+        $x_5_3 = {59 6f 75 72 c7 85 ?? ?? ?? ?? 20 53 65 63 c7 85 ?? ?? ?? ?? 72 65 74 20 c7 85 ?? ?? ?? ?? 4b 65 79 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
