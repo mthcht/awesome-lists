@@ -147,3 +147,30 @@ rule Trojan_Win32_PowExcEnv_PB_2147948646_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PowExcEnv_RXH_2147948914_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PowExcEnv.RXH!MTB"
+        threat_id = "2147948914"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PowExcEnv"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {61 00 64 00 64 00 2d 00 6d 00 70 00 70 00 72 00 65 00 66 00 65 00 72 00 65 00 6e 00 63 00 65 00 20 00 2d 00 65 00 78 00 63 00 6c 00 75 00 73 00 69 00 6f 00 6e 00 70 00 61 00 74 00 68 00 [0-255] 61 00 64 00 64 00 2d 00 6d 00 70 00 70 00 72 00 65 00 66 00 65 00 72 00 65 00 6e 00 63 00 65 00 20 00 2d 00 65 00 78 00 63 00 6c 00 75 00 73 00 69 00 6f 00 6e 00 70 00 72 00 6f 00 63 00 65 00 73 00 73 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {61 00 64 00 64 00 2d 00 6d 00 70 00 70 00 72 00 65 00 66 00 65 00 72 00 65 00 6e 00 63 00 65 00 20 00 2d 00 65 00 78 00 63 00 6c 00 75 00 73 00 69 00 6f 00 6e 00 70 00 72 00 6f 00 63 00 65 00 73 00 73 00 [0-255] 61 00 64 00 64 00 2d 00 6d 00 70 00 70 00 72 00 65 00 66 00 65 00 72 00 65 00 6e 00 63 00 65 00 20 00 2d 00 65 00 78 00 63 00 6c 00 75 00 73 00 69 00 6f 00 6e 00 70 00 61 00 74 00 68 00}  //weight: 5, accuracy: Low
+        $x_1_3 = "\\appdata\\" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
