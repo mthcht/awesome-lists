@@ -21,12 +21,12 @@ rule Trojan_PowerShell_ClickFix_RR_2147948312_0
         (all of ($x*))
 }
 
-rule Trojan_PowerShell_ClickFix_RRC_2147948891_0
+rule Trojan_PowerShell_ClickFix_RRC_2147948896_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:PowerShell/ClickFix.RRC!MTB"
-        threat_id = "2147948891"
+        threat_id = "2147948896"
         type = "Trojan"
         platform = "PowerShell: "
         family = "ClickFix"
@@ -44,12 +44,12 @@ rule Trojan_PowerShell_ClickFix_RRC_2147948891_0
         (all of ($x*))
 }
 
-rule Trojan_PowerShell_ClickFix_RRD_2147948892_0
+rule Trojan_PowerShell_ClickFix_RRD_2147948897_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:PowerShell/ClickFix.RRD!MTB"
-        threat_id = "2147948892"
+        threat_id = "2147948897"
         type = "Trojan"
         platform = "PowerShell: "
         family = "ClickFix"

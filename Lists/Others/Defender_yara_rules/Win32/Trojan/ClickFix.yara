@@ -10158,3 +10158,60 @@ rule Trojan_Win32_ClickFix_DIA_2147948801_0
         )
 }
 
+rule Trojan_Win32_ClickFix_DHX_2147948902_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DHX!MTB"
+        threat_id = "2147948902"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 [0-80] 24 00}  //weight: 100, accuracy: Low
+        $x_10_2 = "+(Get-Random)+" wide //weight: 10
+        $x_10_3 = {2b 00 20 00 28 00 47 00 65 00 74 00 2d 00 52 00 61 00 6e 00 64 00 6f 00 6d 00 [0-80] 29 00 20 00 2b 00}  //weight: 10, accuracy: Low
+        $x_1_4 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DID_2147948903_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DID!MTB"
+        threat_id = "2147948903"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "131"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 100, accuracy: Low
+        $x_10_2 = "Start-BitsTransfer -Source" wide //weight: 10
+        $x_10_3 = "-Destination $" wide //weight: 10
+        $x_10_4 = "mshta" wide //weight: 10
+        $x_1_5 = "=$env:APPDATA+" wide //weight: 1
+        $x_1_6 = "=$env:TEMP+" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
