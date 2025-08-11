@@ -2303,3 +2303,25 @@ rule Trojan_Win32_Injector_PAQD_2147939603_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_LMA_2147949012_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.LMA!MTB"
+        threat_id = "2147949012"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 fc 6b c0 33 8b 55 ?? d1 fa 09 c2 8b 45 ?? 31 d0 89 45 ?? 8b 45 ?? 83 e0 0f 83 f8 0a 0f 94 c0 84 c0}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 45 fc 83 e0 01 85 c0 75 ?? 8b 45 f8 33 45 fc 89 45 f8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6489,3 +6489,53 @@ rule Trojan_Win32_Guloader_SLN_2147948864_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GPM_2147949004_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPM!MTB"
+        threat_id = "2147949004"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Skovgangsmndene.frk" ascii //weight: 1
+        $x_1_2 = "phaseless.pat" ascii //weight: 1
+        $x_1_3 = "tlleliges.kri" ascii //weight: 1
+        $x_1_4 = "Politivedtgters" ascii //weight: 1
+        $x_1_5 = "Reklamebureauernes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GPN_2147949011_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPN!MTB"
+        threat_id = "2147949011"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "forureningssags fruefrakker" ascii //weight: 1
+        $x_1_2 = "hisset" ascii //weight: 1
+        $x_1_3 = "erhold emulable.exe" ascii //weight: 1
+        $x_1_4 = "isflager" ascii //weight: 1
+        $x_1_5 = "aptychus olympic hurtigtrrende" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

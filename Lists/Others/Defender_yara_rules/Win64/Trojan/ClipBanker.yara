@@ -1138,3 +1138,25 @@ rule Trojan_Win64_ClipBanker_GVC_2147947614_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_NITF_2147949029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NITF!MTB"
+        threat_id = "2147949029"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4c 0f 44 fd ff 15 49 1e 00 00 48 8b 5f 30 48 8d 15 8e 22 00 00 48 8b c8 ff 15 55 1e 00 00 48 8b d3 48 c7 c1 ff ff ff ff ff d0 8b 57 50 41 b9 40 00 00 00 41 b8 00 30 00 00 49 8b cc ff 15 09 1e 00 00 48 8b f0 48 85 c0 75 28 4d 85 ff 0f 84 8d 00 00 00 8b 57 50 33 c9 41 b9 40 00 00 00 41 b8 00 30 00 00 ff 15 e1 1d 00 00 48 8b f0 48 85 c0 74 6e 44 8b 47 54 49 8b d6 48 8b ce 48 89 77 30 e8 b9 14 00 00 66 3b 6f 06 73 2a 48 8d 9f 1c 01 00 00 90 8b 13 8b 4b f8 49 03 d6 44 8b 43 fc 48 03 ce e8 97 14 00 00 0f b7 47 06 48 8d 5b 28 ff c5 3b e8 7c de}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8d 40 04 0f b6 48 0c 32 08 88 48 10 0f b6 48 0d 32 48 01 88 48 11 0f b6 48 0e 32 48 02 88 48 12 0f b6 48 0f 32 48 03 88 48 13 48 83 ea 01 75 cf}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
