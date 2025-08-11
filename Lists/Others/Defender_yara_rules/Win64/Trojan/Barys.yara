@@ -453,3 +453,25 @@ rule Trojan_Win64_Barys_ARA_2147948754_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_DDS_2147948976_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.DDS!MTB"
+        threat_id = "2147948976"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 45 64 48 8b 4d 48 0f b6 04 01 83 f0 5e 8b 4d 64 ?? 8b 55 48 88 04 0a eb}  //weight: 5, accuracy: Low
+        $x_4_2 = {8b 45 64 ff c0 89 45 64}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
