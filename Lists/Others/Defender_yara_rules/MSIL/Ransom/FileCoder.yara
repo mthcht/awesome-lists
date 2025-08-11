@@ -1842,3 +1842,28 @@ rule Ransom_MSIL_FileCoder_MJ_2147947633_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_AYU_2147948986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AYU!MTB"
+        threat_id = "2147948986"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "All files encrypted and originals deleted." wide //weight: 2
+        $x_1_2 = "VibeShitShow.My.Resources" ascii //weight: 1
+        $x_1_3 = "EncryptAllCommonFiles" ascii //weight: 1
+        $x_1_4 = "EncryptAndDeleteFile" ascii //weight: 1
+        $x_1_5 = "\\VibeShitShow\\obj\\Debug\\VibeShitShow.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

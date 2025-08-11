@@ -6375,3 +6375,28 @@ rule Trojan_MSIL_AsyncRAT_SLPI_2147948865_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_AYB_2147948985_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.AYB!MTB"
+        threat_id = "2147948985"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "6.top4top.net" wide //weight: 2
+        $x_1_2 = "StealerLib.CaptureBrowsers" wide //weight: 1
+        $x_1_3 = "RecoverCredential" wide //weight: 1
+        $x_1_4 = "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_5 = "Restart-Computer -Force" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
