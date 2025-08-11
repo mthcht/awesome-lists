@@ -50,3 +50,30 @@ rule Trojan_Win32_SusChmod777_MK_2147948692_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_SusChmod777_AM_2147948933_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SusChmod777.AM"
+        threat_id = "2147948933"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SusChmod777"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "echo sb_" ascii //weight: 1
+        $x_1_2 = " >NUL" ascii //weight: 1
+        $x_1_3 = "& exit" ascii //weight: 1
+        $x_1_4 = "icacls" ascii //weight: 1
+        $x_1_5 = "sbd.bin" ascii //weight: 1
+        $x_1_6 = "/grant Everyone:F" ascii //weight: 1
+        $n_1_7 = "pa06e39e-7876-4ba3-beee-42bd80ff362l" wide //weight: -1
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

@@ -48,3 +48,29 @@ rule Trojan_Win32_SusRegCredsHKLM_MK_2147948693_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_SusRegCredsHKLM_AM_2147948934_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SusRegCredsHKLM.AM"
+        threat_id = "2147948934"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SusRegCredsHKLM"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "echo sb_" ascii //weight: 1
+        $x_1_2 = " >NUL" ascii //weight: 1
+        $x_1_3 = "& exit" ascii //weight: 1
+        $x_1_4 = "reg.exe query HKLM /f password" ascii //weight: 1
+        $x_1_5 = "/t REG_SZ /s " ascii //weight: 1
+        $n_1_6 = "da06e39e-7876-4ba3-beee-42bd80ff362g" wide //weight: -1
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
