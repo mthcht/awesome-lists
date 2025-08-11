@@ -732,3 +732,28 @@ rule Trojan_MSIL_Amadey_MCF_2147947907_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_PGAD_2147948941_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.PGAD!MTB"
+        threat_id = "2147948941"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "$d4aca85c-7124-473d-a2ec-2695fdf0888e" ascii //weight: 1
+        $x_1_2 = {6b 6f 69 00 44 6f 77 6e 6c 6f 61 64 65 72 41 70 70 2e 65 78 65}  //weight: 1, accuracy: High
+        $x_1_3 = {44 6f 77 6e 6c 6f 61 64 65 72 41 70 70 2e [0-8] 2e 72 65 73}  //weight: 1, accuracy: Low
+        $x_1_4 = "LzmaDecoder" ascii //weight: 1
+        $x_1_5 = "BitTreeDecoder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

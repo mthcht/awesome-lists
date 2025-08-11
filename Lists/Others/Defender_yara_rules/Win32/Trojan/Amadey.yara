@@ -4042,3 +4042,24 @@ rule Trojan_Win32_Amadey_NJL_2147945776_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_SUPC_2147948947_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.SUPC!MTB"
+        threat_id = "2147948947"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 04 16 40 32 c5 88 02 48 ff c2 49 ff c8 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
