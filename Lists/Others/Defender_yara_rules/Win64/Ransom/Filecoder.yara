@@ -1282,3 +1282,28 @@ rule Ransom_Win64_Filecoder_MKQ_2147948149_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_EMYO_2147949073_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.EMYO!MTB"
+        threat_id = "2147949073"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ransom" ascii //weight: 1
+        $x_1_2 = "YourEncryptionKeyHere" ascii //weight: 1
+        $x_1_3 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_4 = "decrypt your files" ascii //weight: 1
+        $x_1_5 = "random_device" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -335,3 +335,25 @@ rule Trojan_Win32_Virlock_NC_2147949049_0
         )
 }
 
+rule Trojan_Win32_Virlock_NE_2147949075_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.NE!MTB"
+        threat_id = "2147949075"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 06 32 c2 88 07 [0-14] 83 f9 00 0f}  //weight: 2, accuracy: Low
+        $x_1_2 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

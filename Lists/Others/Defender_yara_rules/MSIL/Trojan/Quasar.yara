@@ -904,6 +904,30 @@ rule Trojan_MSIL_Quasar_NQ_2147845771_4
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_NQ_2147845771_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.NQ!MTB"
+        threat_id = "2147845771"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {73 03 01 00 0a 13 11 11 11 6f ?? 01 00 0a 13 12 08 28 ?? 00 00 0a 2d 10 08 11 12 28 ?? 01 00 0a 16 13 1d dd 72 03 00 00 11 0b 2c 6f 11 05 1f 09 8d 33 00 00 01 13 22 11 22 16 72 de 03 00 70 a2 11 22 17 28 ?? 00 00 0a 6f ?? 00 00 0a a2 11 22 18 72 f2 03 00 70 a2 11 22 19 11 12 a2 11 22 1a 72 f6 03 00 70 a2 11 22}  //weight: 3, accuracy: Low
+        $x_1_2 = "Remove-Item -Path $exePath -Force" ascii //weight: 1
+        $x_1_3 = "Start-Sleep -Seconds 10" ascii //weight: 1
+        $x_1_4 = "currentDir\\Fivem" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Quasar_ABSF_2147845963_0
 {
     meta:

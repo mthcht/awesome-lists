@@ -21743,3 +21743,24 @@ rule Trojan_Win32_Emotet_AHB_2147945648_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Emotet_BAA_2147949081_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Emotet.BAA!MTB"
+        threat_id = "2147949081"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Emotet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 f7 8d 3c 08 33 f7 2b d6 05 ?? ?? ?? ?? 83 6d fc 01 75 ?? 8b 45 08 5f 89 10 89 48 04}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

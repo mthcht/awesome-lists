@@ -1260,3 +1260,24 @@ rule Trojan_Win32_PonyStealer_DAF_2147946312_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PonyStealer_DAG_2147949083_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.DAG!MTB"
+        threat_id = "2147949083"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 9c 24 1c 01 00 00 50 8b 44 24 04 58 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 50 8b 44 24 04 58 83 c0 04 81 fa ?? ?? ?? ?? 39 58}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

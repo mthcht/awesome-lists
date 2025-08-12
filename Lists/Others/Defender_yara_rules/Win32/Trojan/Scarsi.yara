@@ -87,3 +87,24 @@ rule Trojan_Win32_Scarsi_ARA_2147835013_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Scarsi_GTB_2147949091_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Scarsi.GTB!MTB"
+        threat_id = "2147949091"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Scarsi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6b c8 00 c6 81 ?? ?? ?? ?? 6b ba 01 00 00 00 c1 e2 00 c6 82 ?? ?? ?? ?? 65 b8 01 00 00 00 d1 e0 c6 80 ?? ?? ?? ?? 72 b9 01 00 00 00 6b d1 03 c6 82 ?? ?? ?? ?? 6e b8 01 00 00 00 c1 e0 02 c6 80 ?? ?? ?? ?? 65 b9 01 00 00 00 6b d1 05 c6 82 ?? ?? ?? ?? 6c b8 01 00 00 00 6b c8 06 c6 81 ?? ?? ?? ?? 33 ba 01 00 00 00 6b c2 07 c6 80}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

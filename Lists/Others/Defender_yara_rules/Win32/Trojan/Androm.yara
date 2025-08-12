@@ -1053,3 +1053,46 @@ rule Trojan_Win32_Androm_AD_2147944983_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Androm_BAA_2147949078_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.BAA!MTB"
+        threat_id = "2147949078"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 04 0e 8d 49 01 88 41 ff 42 8b 45 10 3b d0 72}  //weight: 2, accuracy: High
+        $x_2_2 = {8b c1 c1 e8 10 30 04 1a 42 3b 55 10 7c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Androm_BAB_2147949082_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.BAB!MTB"
+        threat_id = "2147949082"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {83 c4 08 8a 00 34 f7 50 8b c6 33 d2 52 50 8b c1 99 03 04 24 13 54 24 04 71 ?? ?? ?? ?? ?? ?? 83 c4 08 5a 88 10}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
