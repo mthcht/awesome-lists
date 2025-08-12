@@ -3375,3 +3375,25 @@ rule Trojan_MSIL_Lazy_JLK_2147948438_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_PGPH_2147949051_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.PGPH!MTB"
+        threat_id = "2147949051"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 04 12 04 72 ?? 00 00 70 28 ?? 00 00 0a 72 ?? 00 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a 0c}  //weight: 5, accuracy: Low
+        $x_5_2 = "https://discord.horse/js/bw_bundle.js" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

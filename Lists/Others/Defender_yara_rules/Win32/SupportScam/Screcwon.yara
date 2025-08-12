@@ -71,6 +71,7 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_11 = "dual.saltuta.com" ascii //weight: 30
         $x_30_12 = "brovanti.de" ascii //weight: 30
         $x_30_13 = ".ratoscbom.com" ascii //weight: 30
+        $x_30_14 = "pulseriseglobal.com" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (

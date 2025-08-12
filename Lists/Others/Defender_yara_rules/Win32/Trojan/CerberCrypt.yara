@@ -273,6 +273,27 @@ rule Trojan_Win32_CerberCrypt_CMX_2147947880_0
         threshold = "1"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = {8a 06 32 c2 88 07 90 46 90 47}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_CerberCrypt_CMX_2147947880_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CerberCrypt.CMX!MTB"
+        threat_id = "2147947880"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CerberCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = {8a 06 90 32 c2 90 88 07 90}  //weight: 1, accuracy: High
         $x_1_2 = {46 90 47 90 49 90 83 f9 00 90}  //weight: 1, accuracy: High
     condition:
@@ -300,5 +321,32 @@ rule Trojan_Win32_CerberCrypt_MX_2147947894_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_Win32_CerberCrypt_RMX_2147949047_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CerberCrypt.RMX!MTB"
+        threat_id = "2147949047"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CerberCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 06 32 c2 88 07 42 46 90 47}  //weight: 5, accuracy: High
+        $x_5_2 = {8a 06 90 32 c2 88 07 90 42 46 47}  //weight: 5, accuracy: High
+        $x_1_3 = {6a 40 68 00 10 00 00 68}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
 }
 

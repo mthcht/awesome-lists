@@ -7453,3 +7453,27 @@ rule Trojan_Win32_Zusy_PWR_2147948282_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_NC_2147949048_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.NC!MTB"
+        threat_id = "2147949048"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {e9 32 ff ff ff 89 06 89 46 0c 89 46 10 83 c6 14 8b 95 22 04 00 00 e9 ?? ?? ff ff b8 10 c9 05 00 50 03 85 22 04 00 00 59 0b c9 89 85 a8 03 00 00}  //weight: 3, accuracy: Low
+        $x_2_2 = {eb f1 be 00 00 06 00 8b 95 22 04 00 00 03 f2 8b 46 0c 85 c0 0f 84 ?? ?? ?? ?? 03 c2 8b d8 50 ff 95 4d 0f 00 00}  //weight: 2, accuracy: Low
+        $x_1_3 = "WinExec" ascii //weight: 1
+        $x_1_4 = "GetAcceptExSockaddrs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
