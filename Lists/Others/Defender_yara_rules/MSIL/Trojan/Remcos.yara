@@ -13696,3 +13696,26 @@ rule Trojan_MSIL_Remcos_ZZQ_2147948948_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_RVG_2147949117_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.RVG!MTB"
+        threat_id = "2147949117"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d b6 29 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 98 00 00 00 15 00 00 00 7a 00 00 00 f9 00 00 00 af 00 00 00 37 01 00 00 09 00 00 00 9e 00 00 00 40 00 00 00 01 00 00 00 01 00 00 00 04 00 00 00 28 00 00 00 4c 00 00 00 13 00 00 00 01 00 00 00 01 00 00 00 06 00 00 00 01 00 00 00 0a 00 00 00 18}  //weight: 1, accuracy: High
+        $x_1_2 = "8c5c1234-5678-9abc-def0-123456789abc" ascii //weight: 1
+        $x_1_3 = "SmartNote.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

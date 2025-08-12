@@ -4114,3 +4114,29 @@ rule Trojan_MSIL_ClipBanker_AYBB_2147948741_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_NIA_2147949131_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.NIA!MTB"
+        threat_id = "2147949131"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "5331bd34-4027-4657-b2bf-b1a696b1b1b7" ascii //weight: 2
+        $x_1_2 = "(xrb_|nano_)[13456789abcdefghijkmnopqrstuwxyz]" ascii //weight: 1
+        $x_1_3 = "(NA|NB|NC|ND)[a-zA-z0-9]{38}" ascii //weight: 1
+        $x_1_4 = "(terra1)[0-9a-z]{38}" ascii //weight: 1
+        $x_1_5 = "(cosmos1)[0-9a-z]{38}" ascii //weight: 1
+        $x_1_6 = "(bitcoincash:)?(q|p)[a-z0-9]" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

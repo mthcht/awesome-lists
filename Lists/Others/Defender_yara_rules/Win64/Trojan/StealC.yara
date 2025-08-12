@@ -256,3 +256,26 @@ rule Trojan_Win64_StealC_VST_2147948370_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_AHB_2147949112_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.AHB!MTB"
+        threat_id = "2147949112"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 4c 24 48 48 8b 51 ?? 48 89 10 48 8b 51 ?? 48 89 50 08 48 8b 54 24 28 48 89 50 ?? 48 8b 54 24 58 48 89 50}  //weight: 10, accuracy: Low
+        $x_5_2 = {48 c7 84 24 08 01 00 00 6f 00 00 00 48 c7 84 24 10 01 00 00 61 00 00 00 48 c7 84 24 18 01 00 00 64 00 00 00 48 c7 84 24 20 01 00 00 44 00 00 00 48 c7 84 24 28 01 00 00 6c 00 00 00 48 c7 84 24 30 01 00 00 6c}  //weight: 5, accuracy: High
+        $x_3_3 = "main.writeShellcodeToTarget" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

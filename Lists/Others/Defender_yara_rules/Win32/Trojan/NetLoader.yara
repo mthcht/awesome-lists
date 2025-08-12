@@ -238,3 +238,25 @@ rule Trojan_Win32_NetLoader_RPZ_2147904052_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_NetLoader_YBG_2147949122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/NetLoader.YBG!MTB"
+        threat_id = "2147949122"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "NetLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {56 57 bf 4e e6 40 bb be 00 00 ff ff 3b cf}  //weight: 1, accuracy: High
+        $x_5_2 = {80 b4 05 fc f7 ff ff 49 40 3b c7 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
