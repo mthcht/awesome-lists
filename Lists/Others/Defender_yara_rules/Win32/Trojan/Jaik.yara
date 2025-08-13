@@ -22,6 +22,27 @@ rule Trojan_Win32_Jaik_GIC_2147845971_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_MKV_2147847905_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.MKV!MTB"
+        threat_id = "2147847905"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 45 bc 89 45 bc 8b 4d f0 8b 55 d0 8b 04 8a 33 05 ?? ?? ?? ?? 8b 4d f0 8b 55 d0 89 04 8a c7 45 c4 ac 39 00 00 8b 4d c4 83 c1 01 8b 45 c4 99 f7 f9 0f af 45 c4 89 45 c4 8b 55 f0 83 c2 01 89 55 f0 e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Jaik_GPC_2147891513_0
 {
     meta:

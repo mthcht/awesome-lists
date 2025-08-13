@@ -366,3 +366,24 @@ rule Trojan_MSIL_WebShell_MKV_2147948847_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_AOCB_2147949203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AOCB!MTB"
+        threat_id = "2147949203"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0b 07 72 ?? 00 00 70 1f 28 6f ?? 00 00 0a 0c 08 14 16 8d ?? 00 00 01 6f ?? 00 00 0a 74 ?? 00 00 01 0d 02 28 ?? 00 00 0a 1f 09 8d ?? 00 00 01 13 04 11 04 16 09 6f ?? 00 00 0a a2 11 04 17 72 ?? ?? 00 70 a2 11 04 18 09 6f ?? 00 00 0a 8c ?? 00 00 01 a2 11 04 19 72 ?? ?? 00 70 a2 11 04 1a 09 6f ?? 00 00 0a a2 11 04 1b 72 ?? ?? 00 70 a2 11 04 1c 09 6f ?? 00 00 0a a2 11 04 1d 72 ?? ?? 00 70 a2 11 04 1e 09 6f ?? 00 00 0a 8c ?? 00 00 01 a2 11 04 28 ?? 00 00 0a 6f ?? 00 00 0a 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

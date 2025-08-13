@@ -119,3 +119,28 @@ rule Trojan_MacOS_AtomicSteal_AA_2147948045_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_AtomicSteal_Y_2147949202_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AtomicSteal.Y"
+        threat_id = "2147949202"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AtomicSteal"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "_memcpy" ascii //weight: 1
+        $x_1_2 = {48 8d 1c 01 48 ff c3 49 c7 c6 00 00 00 80 49 8b 04 cc 4c 21 f0 89 da 49 8b 3c d4 89 fe 81 e6 fe ff ff 7f 48 09 c6 4c 8d 81 9c 00 00 00 4c 89 c0 48 c1 e8 03 49 f7 [0-1] d1 ea 69 c2 38 01 00 00 41 29 c0 48 d1 ee 31 c0 40 f6 c7 01 48 [0-1] 00 00 a6 ed ff 7f d6 71 49 0f 45 [0-1] 4b 33 04 c4 48 31 f0 [0-2] 55 55 55 55 05 00 00 00 49 89 04 cc 48 89 c1 48 c1 e9 1d [0-1] 21 [0-1] 48 31 c1 48 89 c8 48 c1 e0 11 48 21 [0-1] 48 31 c8 89 c1 81 e1 77 bf ff 07 48 c1 e1 25 48 31 c1 48 89 ce}  //weight: 1, accuracy: Low
+        $x_1_3 = {48 31 d1 48 89 cf 48 c1 e7 11 49 b8 00 00 00 00 00 78 06 00 4c 21 c7 49 89 c8 49 c1 e0 25}  //weight: 1, accuracy: High
+        $x_1_4 = {49 31 f8 49 31 d0 49 c1 e8 2b 44 31 c1 32 0c 30 80 c1 05 88 0c 30 48 ff c6}  //weight: 1, accuracy: High
+        $x_1_5 = {48 d1 ea 48 69 c2 38 01 00 00 48 f7 d8 48 8d 3c 06 48 ff c7 49 c7 c1 00 00 00 80 4d 23 0c f4 89 f8 4d 8b 14 c4 45 89 d0 41 81 e0 fe ff ff 7f 4c 8d 9e 9c 00 00 00 4c 89 d8 48 c1 e8 03 49 f7 [0-1] 4d 09 c8 d1 ea 69 c2 38 01 00 00 41 29 c3 49 d1 e8 31 c0 41 f6 c2 01 [0-1] 0f 45 [0-1] 4b 33 04 dc 4c 31 c0 49 89 04 f4 48 89 c2 48 c1 ea 1d}  //weight: 1, accuracy: Low
+        $x_1_6 = "_system" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

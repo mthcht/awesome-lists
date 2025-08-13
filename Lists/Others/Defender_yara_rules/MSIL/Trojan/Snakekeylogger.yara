@@ -687,3 +687,24 @@ rule Trojan_MSIL_Snakekeylogger_PGAT_2147946179_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Snakekeylogger_SPYT_2147949204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Snakekeylogger.SPYT!MTB"
+        threat_id = "2147949204"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Snakekeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {06 09 11 07 58 0e 06 1d 6a 5f 69 58 61 0a 02 09 11 07 6f ?? 00 00 0a 13 08 04 03 6f ?? 00 00 0a 59 13 09 11 09 13 0b 11 0b 13 0a 11 0a}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
