@@ -16,8 +16,10 @@ rule Trojan_Win32_MpTamperSrvStop_A_2147829956_0
         $x_1_2 = "wdnissvc" wide //weight: 1
         $x_1_3 = "windefend" wide //weight: 1
         $x_10_4 = "-dcsvc" wide //weight: 10
+        $n_50_5 = "msedgewebview2.exe" wide //weight: -50
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))

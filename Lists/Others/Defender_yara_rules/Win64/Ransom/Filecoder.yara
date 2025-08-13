@@ -1307,3 +1307,27 @@ rule Ransom_Win64_Filecoder_EMYO_2147949073_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_SX_2147949162_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.SX!MTB"
+        threat_id = "2147949162"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 b8 00 00 00 00 ba 00 00 00 00 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 48 8b 45 ?? 48 c7 44 24 20 00 00 00 00 4d 89 c1 41 89 c8 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 85 c0}  //weight: 5, accuracy: Low
+        $x_3_2 = {48 8d 55 c0 48 8b 85 ?? ?? 00 00 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 85 c0 0f 95 c0 84 c0}  //weight: 3, accuracy: Low
+        $x_1_3 = "Your files have been encrypted." ascii //weight: 1
+        $x_1_4 = "ransom.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

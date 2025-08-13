@@ -146,6 +146,33 @@ rule Trojan_Win64_ShellcodeRunner_KAD_2147901627_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_KAD_2147901627_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.KAD!MTB"
+        threat_id = "2147901627"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 01 d0 44 0f b6 00 0f b6 0d ?? ?? 00 00 8b 55 ?? 48 8b 45 ?? 48 01 d0 44 89 c2 31 ca 88 10 83 45}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 98 48 8d 15 ?? ?? 00 00 88 0c 10 8b 45 ?? 48 98 48 8d 15 ?? ?? 00 00 0f b6 04 10 83 f0 ?? 89 c1 8b 45}  //weight: 10, accuracy: Low
+        $x_5_3 = "First 16 bytes of decrypted shellcode:" ascii //weight: 5
+        $x_5_4 = "Shellcode executed" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_ShellcodeRunner_GPC_2147903401_0
 {
     meta:

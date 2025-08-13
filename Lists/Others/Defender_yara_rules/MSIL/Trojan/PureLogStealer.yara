@@ -3494,3 +3494,26 @@ rule Trojan_MSIL_PureLogStealer_SPFT_2147948720_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_PAHN_2147949160_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.PAHN!MTB"
+        threat_id = "2147949160"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 06 02 16 02 8e 69 6f ?? 00 00 0a 13 09 20 00 00 00 00 7e}  //weight: 2, accuracy: Low
+        $x_1_2 = "RunPassiveProgram" ascii //weight: 1
+        $x_1_3 = "DownloadData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

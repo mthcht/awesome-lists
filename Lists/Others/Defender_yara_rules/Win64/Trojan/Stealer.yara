@@ -409,3 +409,27 @@ rule Trojan_Win64_Stealer_NL_2147945529_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SX_2147949161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SX!MTB"
+        threat_id = "2147949161"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 85 00 13 00 00 85 c0 74 3f 44 8b c0 c6 84 05 a0 02 00 00 00 48 8d 95 a0 02 00 00 48 8d 8d f0 00 00 00 e8 ?? ?? ?? ?? 4c 8d 8d 00 13 00 00 41 b8 ff 0f 00 00 48 8d 95 a0 02 00 00 48 8b cb ff 15 ?? ?? ?? ?? 85 c0 75}  //weight: 2, accuracy: Low
+        $x_1_2 = "\\steam\\Token.txt" ascii //weight: 1
+        $x_1_3 = "\\Pc_info.txt" ascii //weight: 1
+        $x_1_4 = "\\\\.\\pipe\\ChromeDecryptIPC_" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
