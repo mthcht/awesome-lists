@@ -42,3 +42,25 @@ rule Trojan_MSIL_BPLogger_ALBB_2147948134_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BPLogger_ZDP_2147949196_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BPLogger.ZDP!MTB"
+        threat_id = "2147949196"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BPLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {26 02 11 04 11 0a 6f ?? 00 00 0a 13 0b 04 03 6f ?? 00 00 0a 59 13 0c 11 0c 13 0e 11 0e 13 0d}  //weight: 6, accuracy: Low
+        $x_4_2 = {2b 2c 03 12 0b 28 ?? 00 00 0a 6f ?? 00 00 0a 00 03 12 0b 28 ?? 00 00 0a 6f ?? 00 00 0a 00 03 12 0b 28 ?? 00 00 0a 6f ?? 00 00 0a 00 2b 00}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
