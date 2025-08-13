@@ -78,6 +78,28 @@ rule Trojan_Win64_LummaStealer_NL_2147897386_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {45 0f 57 ff 4c 8b 35 48 31 9a 00 65 4d 8b 36 4d 8b 36 48 8b 04 24 48 8b 5c 24 50 48 01 d8}  //weight: 2, accuracy: High
+        $x_1_2 = {49 8b 4e 30 c6 81 e5 00 00 00 01 48 8b 0d 3d 69 90 00 48 83 39 00 0f 85 16 02 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_NL_2147897386_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.NL!MTB"
+        threat_id = "2147897386"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -88,7 +110,7 @@ rule Trojan_Win64_LummaStealer_NL_2147897386_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_LummaStealer_NL_2147897386_1
+rule Trojan_Win64_LummaStealer_NL_2147897386_2
 {
     meta:
         author = "defender2yara"
