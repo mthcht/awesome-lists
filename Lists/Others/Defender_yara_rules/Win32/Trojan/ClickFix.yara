@@ -10330,3 +10330,32 @@ rule Trojan_Win32_ClickFix_DIR_2147949177_0
         )
 }
 
+rule Trojan_Win32_ClickFix_DIU_2147949257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DIU!MTB"
+        threat_id = "2147949257"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "131"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 [0-80] 24 00}  //weight: 100, accuracy: Low
+        $x_10_2 = "='ownloadSt';$" wide //weight: 10
+        $x_10_3 = "New-Object ($" wide //weight: 10
+        $x_10_4 = ").Invoke($" wide //weight: 10
+        $x_1_5 = "|iex" wide //weight: 1
+        $x_1_6 = "| iex" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

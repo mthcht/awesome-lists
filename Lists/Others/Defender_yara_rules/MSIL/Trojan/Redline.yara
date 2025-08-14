@@ -5329,3 +5329,24 @@ rule Trojan_MSIL_Redline_AYVA_2147942924_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Redline_GX_2147949256_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Redline.GX!MTB"
+        threat_id = "2147949256"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {11 0a 11 08 28 02 00 00 0a ?? ?? ?? ?? ?? 28 02 00 00 0a 6f 03 00 00 0a 13 0b 20 00 00 00 00 7e 08 01 00 04 7b 27 01 00 04 3a 0f 00 00 00 26}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

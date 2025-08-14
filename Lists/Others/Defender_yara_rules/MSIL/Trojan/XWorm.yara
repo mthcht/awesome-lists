@@ -2689,3 +2689,29 @@ rule Trojan_MSIL_XWorm_BAH_2147949080_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_GAP_2147949245_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.GAP!MTB"
+        threat_id = "2147949245"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "XWormClient" ascii //weight: 3
+        $x_1_2 = "AddClipboardFormatListener" ascii //weight: 1
+        $x_1_3 = "GetKeyboardLayout" ascii //weight: 1
+        $x_1_4 = "get_StartupPath" ascii //weight: 1
+        $x_1_5 = "CreateEncryptor" ascii //weight: 1
+        $x_1_6 = "SetThreadExecutionState" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

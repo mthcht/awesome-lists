@@ -793,3 +793,27 @@ rule Trojan_Win64_Mikey_LMG_2147948756_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_SXB_2147949265_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.SXB!MTB"
+        threat_id = "2147949265"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 c7 83 90 00 00 00 00 00 00 00 48 c7 83 98 00 00 00 08 00 00 00 48 c7 83 a0 00 00 00 00 00 00 00 c6 83 03 01 00 00 01 c6 83 01 01 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = "src\\modules\\browser\\injection\\injector.rs" ascii //weight: 1
+        $x_1_3 = "src\\modules\\browser\\crypto\\decrypt.rs" ascii //weight: 1
+        $x_1_4 = "--wallet-download" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

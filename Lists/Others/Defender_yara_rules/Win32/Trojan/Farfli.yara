@@ -5597,3 +5597,27 @@ rule Trojan_Win32_Farfli_EAG_2147939210_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_KK_2147949264_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.KK!MTB"
+        threat_id = "2147949264"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {89 7e 44 89 7e 48 89 7e 54 89 7e 58 89 7e 5c 89 7e 60 c7 46 64 03 00 00 00}  //weight: 20, accuracy: High
+        $x_15_2 = {6a 00 68 18 01 00 00 8d 85 e8 fc ff ff 50 53 56 ff}  //weight: 15, accuracy: High
+        $x_10_3 = "C:\\Users\\Public\\Documents\\QeiySBcapV.dat" ascii //weight: 10
+        $x_5_4 = "C:\\Users\\Public\\Documents\\WindowsData\\kail.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

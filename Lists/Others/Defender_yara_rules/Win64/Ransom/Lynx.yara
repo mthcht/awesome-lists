@@ -50,3 +50,25 @@ rule Ransom_Win64_Lynx_YAF_2147944779_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Lynx_D_2147949242_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Lynx.D"
+        threat_id = "2147949242"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lynx"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[*] Encrypting file: %s" wide //weight: 1
+        $x_1_2 = "[*] Loading hidden drives..." wide //weight: 1
+        $x_1_3 = "[*] Killing processes..." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3616,6 +3616,27 @@ rule Trojan_Win32_Amadey_RPA_2147929973_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Amadey_RPA_2147929973_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.RPA!MTB"
+        threat_id = "2147929973"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {2e 00 65 00 78 00 65 00 20 00 78 00 20 00 2d 00 61 00 6f 00 61 00 20 00 2d 00 62 00 73 00 6f 00 30 00 20 00 2d 00 62 00 73 00 70 00 31 00 20 00 63 00 3a 00 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 00 7a 00 69 00 70 00 20 00 2d 00 70 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 20 00 2d 00 6f 00 63 00 3a 00 5c 00 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Amadey_NIT_2147931114_0
 {
     meta:
@@ -3969,6 +3990,27 @@ rule Trojan_Win32_Amadey_RPB_2147943510_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_RPB_2147943510_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.RPB!MTB"
+        threat_id = "2147943510"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00 20 00 2f 00 63 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 74 00 6e 00 20 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 20 00 2f 00 74 00 72 00 20 00 63 00 3a 00 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 00 65 00 78 00 65 00 20 00 2f 00 73 00 63 00 20 00 6d 00 69 00 6e 00 75 00 74 00 65 00 20 00 2f 00 6d 00 6f 00 20 00 31 00 30 00 20 00 2f 00 66 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Amadey_MR_2147943630_0
 {
     meta:
@@ -4058,6 +4100,30 @@ rule Trojan_Win32_Amadey_SUPC_2147948947_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {8a 04 16 40 32 c5 88 02 48 ff c2 49 ff c8 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_RPC_2147949248_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.RPC!MTB"
+        threat_id = "2147949248"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "103"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Get-ScheduledTask -TaskName" wide //weight: 1
+        $x_1_2 = "$task.Settings.DisallowStartIfOnBatteries = $false;$task.Settings.StopIfGoingOnBatteries = $false;" wide //weight: 1
+        $x_100_3 = "$task.Settings.WakeToRun = $false;$task.Settings.RunOnlyIfIdle = $false;$task.Settings.ExecutionTimeLimit = 'PT0S';" wide //weight: 100
+        $x_1_4 = "$task.Settings.MultipleInstances = 'IgnoreNew';Set-ScheduledTask -InputObject $task;" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -3177,6 +3177,30 @@ rule Trojan_Win64_Lazy_KAB_2147947588_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_KAB_2147947588_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KAB!MTB"
+        threat_id = "2147947588"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {c7 45 fc 00 00 00 00 8b 45 f8 48 98 48 8d 15 ?? ?? 00 00 0f b6 14 10 8b 45 f8 48 98 0f b6 44 05 d0 38 c2 74}  //weight: 10, accuracy: Low
+        $x_8_2 = {8b 45 2c 48 8d 15 ?? ?? 00 00 44 0f b6 04 10 0f b6 0d ?? ?? 00 00 8b 55 2c 48 8b 45 20 48 01 d0 44 89 c2 31 ca 88 10 83 45 2c 01 eb}  //weight: 8, accuracy: Low
+        $x_7_3 = "VirtualAlloc failed for shellcode" ascii //weight: 7
+        $x_5_4 = "Shellcode executed successfully." ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_AHI_2147947691_0
 {
     meta:
