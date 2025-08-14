@@ -9300,3 +9300,27 @@ rule Backdoor_Linux_Mirai_LB_2147948609_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_LI_2147949272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LI!MTB"
+        threat_id = "2147949272"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "camelboat.n-e.kr" ascii //weight: 1
+        $x_1_2 = "udpbypass" ascii //weight: 1
+        $x_1_3 = "r00ts3c-owned-you" ascii //weight: 1
+        $x_1_4 = "ttp://unjiproxy.p-e.kr:6969/bins/x86 -O /tmp/.unji" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

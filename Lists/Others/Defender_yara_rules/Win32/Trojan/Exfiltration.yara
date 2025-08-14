@@ -1,0 +1,23 @@
+rule Trojan_Win32_Exfiltration_Infostealer_2147949292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Exfiltration.Infostealer.AV.A"
+        threat_id = "2147949292"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Exfiltration"
+        severity = "Critical"
+        info = "AV: an internal category used to refer to some threats"
+        info = "A: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "infostealer.exe" wide //weight: 1
+        $x_1_2 = "files_to_steal.tx" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
