@@ -52,6 +52,28 @@ rule Trojan_MSIL_DarkComet_AMT_2147832042_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 08 91 02 08 17 58 91 1e 62 60 02 08 18 58 91 1f 10 62 60 02 08 19 58 91 1f 18 62 60 13 04 08 1a 58 0c 09 11 08 fe 02 13 11}  //weight: 2, accuracy: High
+        $x_1_2 = {0a 00 03 1a 5d 16 fe 01 16 fe 01 0c 08 2d 07 00 06 d3 4a 0b de 23 06 d3 47 1f 18 62 06 d3 17 d3 58 47 1f 10 62 60 06 d3 18 d3 58}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DarkComet_AMT_2147832042_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkComet.AMT!MTB"
+        threat_id = "2147832042"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:

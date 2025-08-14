@@ -2788,3 +2788,50 @@ rule Ransom_Win32_Filecoder_YBG_2147948798_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_CA_2147949295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.CA!MTB"
+        threat_id = "2147949295"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "TouchMeNot_.txt" ascii //weight: 3
+        $x_3_2 = ".encrypted" ascii //weight: 3
+        $x_3_3 = "Encrypted file" ascii //weight: 3
+        $x_2_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+        $x_2_5 = {45 6e 63 72 79 70 74 65 64 20 66 69 6c 65 [0-63] 77 69 74 68 20 6b 65 79}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Filecoder_CB_2147949296_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.CB!MTB"
+        threat_id = "2147949296"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {01 d0 0f b6 08 8b 45 ?? 99 c1 ea ?? 01 d0 83 e0 ?? 29 d0 0f b6 54 05 ?? 8b 5d ?? 8b 45 ?? 01 d8 31 ca 88 10 83 45}  //weight: 3, accuracy: Low
+        $x_2_2 = {89 45 ec 8d 45 b4 89 44 24 04 8b 45 ec 89 04 24 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
