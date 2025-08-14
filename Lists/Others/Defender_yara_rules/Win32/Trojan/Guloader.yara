@@ -6587,3 +6587,50 @@ rule Trojan_Win32_Guloader_GPP_2147949207_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GPR_2147949339_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPR!MTB"
+        threat_id = "2147949339"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "meningsmaalingen liqueurs.exe" ascii //weight: 1
+        $x_1_2 = "stilehfterne koketteredes" ascii //weight: 1
+        $x_1_3 = "pompom" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GPQ_2147949340_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPQ!MTB"
+        threat_id = "2147949340"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "suber bortlednings contentness" ascii //weight: 1
+        $x_1_2 = "drillhole udhngets.exe" ascii //weight: 1
+        $x_1_3 = "ardri" ascii //weight: 1
+        $x_1_4 = "heteroclitous.afs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

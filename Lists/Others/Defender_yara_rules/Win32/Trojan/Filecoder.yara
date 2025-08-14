@@ -504,3 +504,26 @@ rule Trojan_Win32_Filecoder_SXA_2147948786_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Filecoder_SXB_2147949361_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.SXB!MTB"
+        threat_id = "2147949361"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0f b6 10 8b 45 ec 0f b6 00 31 c2 8b 45 ec 88 10 83 45 f4 ?? 8d 45 e8 89 c1}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 45 f4 3b 45 0c 7d ?? 8d 85 60 ec ff ff 8d 95 68 ec ff ff 89 14 24 89 c1}  //weight: 2, accuracy: Low
+        $x_1_3 = "log.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

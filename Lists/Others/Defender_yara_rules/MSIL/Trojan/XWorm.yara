@@ -2715,3 +2715,24 @@ rule Trojan_MSIL_XWorm_GAP_2147949245_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_SLGF_2147949347_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.SLGF!MTB"
+        threat_id = "2147949347"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {16 8d 04 00 00 01 28 03 00 00 0a 26 de 14 26 7e 01 00 00 04 28 02 00 00 06 0a 06 28 04 00 00 06 de 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
