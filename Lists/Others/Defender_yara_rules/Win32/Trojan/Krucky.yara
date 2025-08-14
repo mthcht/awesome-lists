@@ -68,3 +68,26 @@ rule Trojan_Win32_Krucky_AHB_2147948332_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Krucky_AHD_2147949367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Krucky.AHD!MTB"
+        threat_id = "2147949367"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Krucky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 06 0f b6 50 ?? 0f b6 00 8a 4d ?? fe c6 8b 04 85 ?? ?? ?? ?? d3 ea 19 c9 31 c8 29 c8 3b 55 14 74}  //weight: 10, accuracy: Low
+        $x_5_2 = {42 66 af f7 d1 01 d1 66 89 47 fe 88 0e 46 89 d1 5f 43 80 ff 02 75}  //weight: 5, accuracy: High
+        $x_3_3 = "SyslamwindwsaSyslemeiltgSyslamwind" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
