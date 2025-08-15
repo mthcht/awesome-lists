@@ -201,6 +201,36 @@ rule Trojan_Win64_LummaStealer_NLK_2147904080_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_CB_2147916862_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.CB!MTB"
+        threat_id = "2147916862"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "main.RedirectToPayload" ascii //weight: 2
+        $x_1_2 = "main.LoadPEModule" ascii //weight: 1
+        $x_1_3 = "main.GetNTHdrs" ascii //weight: 1
+        $x_1_4 = "main.AllocPEBuffer" ascii //weight: 1
+        $x_1_5 = "main.PERawToVirtual" ascii //weight: 1
+        $x_1_6 = "main.CreateSuspendedProcess" ascii //weight: 1
+        $x_1_7 = "main._LoadPEModule" ascii //weight: 1
+        $x_1_8 = "main.Resume_Thread" ascii //weight: 1
+        $x_1_9 = "main.Write_ProcessMemory" ascii //weight: 1
+        $x_1_10 = "main.Get_ThreadContext" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_LummaStealer_AMW_2147919022_0
 {
     meta:
