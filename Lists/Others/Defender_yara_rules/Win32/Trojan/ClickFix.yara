@@ -10361,3 +10361,59 @@ rule Trojan_Win32_ClickFix_DIU_2147949257_0
         )
 }
 
+rule Trojan_Win32_ClickFix_DFH_2147949389_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DFH!MTB"
+        threat_id = "2147949389"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "%USERPROFILE% & curl" wide //weight: 100
+        $x_100_2 = "%userprofile% && curl" wide //weight: 100
+        $x_100_3 = "%PROGRAMDATA% & curl" wide //weight: 100
+        $x_10_4 = ".bat >nul 2>nul &" wide //weight: 10
+        $x_10_5 = ".cmd >nul 2>nul &" wide //weight: 10
+        $x_1_6 = "cmd /c cd" wide //weight: 1
+        $x_1_7 = "cmd /i /c cd" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DIW_2147949390_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DIW!MTB"
+        threat_id = "2147949390"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "116"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 [0-80] 24 00}  //weight: 100, accuracy: Low
+        $x_10_2 = "Net.WebClient).DownloadFile($" wide //weight: 10
+        $x_5_3 = "$env:USERPROFILE\\Music\\" wide //weight: 5
+        $x_1_4 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
