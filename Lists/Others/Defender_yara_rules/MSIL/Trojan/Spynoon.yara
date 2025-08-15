@@ -2301,7 +2301,7 @@ rule Trojan_MSIL_Spynoon_AQCB_2147949300_0
         threshold = "7"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = {03 2d 0b 72 ?? 00 00 70 73 ?? 00 00 0a 7a 73 ?? 00 00 0a 0a 06 02 7b ?? 00 00 04 02 7b ?? 00 00 04 6f ?? 00 00 0a 0b 73 ?? 00 00 0a 0c 08 07 17 73 ?? 00 00 0a 0d 03 09 6f ?? 00 00 0a 09 6f ?? 00 00 0a de 0a}  //weight: 5, accuracy: Low
+        $x_5_1 = {03 2d 0b 72 ?? ?? 00 70 73 ?? 00 00 0a 7a 73 ?? 00 00 0a 0a 06 02 7b ?? 00 00 04 02 7b ?? 00 00 04 6f ?? 00 00 0a 0b 73 ?? 00 00 0a 0c 08 07 17 73 ?? 00 00 0a 0d 03 09 6f ?? 00 00 0a 09 6f ?? 00 00 0a de 0a}  //weight: 5, accuracy: Low
         $x_1_2 = "FromBase64String" ascii //weight: 1
         $x_1_3 = "CreateDecryptor" ascii //weight: 1
     condition:
