@@ -72,3 +72,30 @@ rule Trojan_Win32_AmsiBypazz_GGB_2147948556_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AmsiBypazz_B_2147949405_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AmsiBypazz.B!MTB"
+        threat_id = "2147949405"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AmsiBypazz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[char][int] $_)" wide //weight: 1
+        $x_1_2 = "[string]::join('" wide //weight: 1
+        $x_1_3 = ".write($" wide //weight: 1
+        $x_1_4 = ".getbytes($" wide //weight: 1
+        $x_1_5 = "|foreachobject{$_" wide //weight: 1
+        $x_1_6 = ".path +" wide //weight: 1
+        $x_1_7 = ".getstream()" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
