@@ -73,6 +73,8 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_13 = ".ratoscbom.com" ascii //weight: 30
         $x_30_14 = "pulseriseglobal.com" ascii //weight: 30
         $x_30_15 = ".myedelta.de" ascii //weight: 30
+        $x_30_16 = "kingcardano.io" ascii //weight: 30
+        $x_30_17 = ".viewyourstatementonline.com" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (

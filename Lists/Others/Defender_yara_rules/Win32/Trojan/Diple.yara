@@ -64,3 +64,25 @@ rule Trojan_Win32_Diple_GZT_2147925062_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Diple_KK_2147949427_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Diple.KK!MTB"
+        threat_id = "2147949427"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Diple"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {58 83 c0 10 bb 31 9d 24 1f 31 18 83 c0 04 e2 f9}  //weight: 20, accuracy: High
+        $x_10_2 = {11 7f 18 a6 9e b4 14 32 65 e8 2b 70 9e b2 10 32 6b d4 93 8f 73 cd}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
