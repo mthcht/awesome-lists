@@ -13,7 +13,7 @@ rule Trojan_Win32_Persistence_LocalAccount_2147949451_0
         info = "AV: an internal category used to refer to some threats"
         info = "A: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "net" wide //weight: 1
@@ -23,7 +23,7 @@ rule Trojan_Win32_Persistence_LocalAccount_2147949451_0
         $x_1_5 = "/add" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (1 of ($x*))
+        (all of ($x*))
 }
 
 rule Trojan_Win32_Persistence_LocalAccount_2147949452_0
@@ -41,7 +41,7 @@ rule Trojan_Win32_Persistence_LocalAccount_2147949452_0
         info = "AV: an internal category used to refer to some threats"
         info = "B: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "net" wide //weight: 1
@@ -51,6 +51,6 @@ rule Trojan_Win32_Persistence_LocalAccount_2147949452_0
         $x_1_5 = "/add" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (1 of ($x*))
+        (all of ($x*))
 }
 
