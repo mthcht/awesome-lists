@@ -10603,3 +10603,24 @@ rule Trojan_Win32_ClickFix_GGQ_2147949406_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_SAAA_2147949454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SAAA"
+        threat_id = "2147949454"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-255] 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00 2f 00 [0-4] 2e 00 6a 00 70 00 67 00}  //weight: 11, accuracy: Low
+        $x_11_2 = {50 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-255] c2 00 a7 00}  //weight: 11, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
