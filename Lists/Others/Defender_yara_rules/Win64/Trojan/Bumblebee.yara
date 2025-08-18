@@ -2205,6 +2205,28 @@ rule Trojan_Win64_Bumblebee_GTB_2147948840_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {03 c8 8b c1 89 84 24 ?? ?? ?? ?? 0f be 44 24 ?? 83 f0 7d 88 44 24 ?? 0f b6 44 24}  //weight: 10, accuracy: Low
+        $x_1_2 = "deadlily Aselline" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Bumblebee_GTB_2147948840_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bumblebee.GTB!MTB"
+        threat_id = "2147948840"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bumblebee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
         strings_accuracy = "High"
     strings:
         $x_10_1 = "I_I^I]I\\I[IZIYIXH_H^H]H[HZHYHXHPHQHRHSHUHVHWIPIQIRISITIUIVIW" ascii //weight: 10
