@@ -2049,3 +2049,29 @@ rule Trojan_Win64_Tedy_SX_2147949163_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GXB_2147949517_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GXB!MTB"
+        threat_id = "2147949517"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {66 89 4c 24 28 80 f1 ?? 80 74 24 29 ?? 34 ?? c6 44 24 20 69 88 44 24 2a 48 8d 44 24 20 88 4c 24 28 0f 1f 44 00 00 49 ff c0 42 80 3c 00 00}  //weight: 10, accuracy: Low
+        $x_5_2 = {37 80 74 24 ?? 38 80 74 24 ?? 39 80 74 24 ?? 3a 80 74 24 ?? 3b 80 74 24 ?? 3c 80 74 24}  //weight: 5, accuracy: Low
+        $x_5_3 = {34 80 74 24 ?? 35 80 74 24 ?? 36 80 74 24 ?? 37 80 74 24 ?? 38}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

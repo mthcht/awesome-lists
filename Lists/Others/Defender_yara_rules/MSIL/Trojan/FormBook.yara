@@ -12645,6 +12645,28 @@ rule Trojan_MSIL_FormBook_ABF_2147900366_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {16 0c 00 07 0e 04 6f ?? 00 00 0a 61 19 5f 17 fe 01 13 0a 11 0a 2c 09 00 08 07 1f 1f 5f 58 0c 00 00 de 08 00 08 1f 0a 61 0c}  //weight: 1, accuracy: Low
+        $x_2_2 = {07 17 62 11 0b 19 58 61 0b 02 09 11 0b 6f ?? 00 00 0a 13 0c 04 03 6f ?? 00 00 0a 59 13 0d 11 0d 13 0f 11 0f}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_ABF_2147900366_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.ABF!MTB"
+        threat_id = "2147900366"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
@@ -12655,7 +12677,7 @@ rule Trojan_MSIL_FormBook_ABF_2147900366_3
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_ABF_2147900366_4
+rule Trojan_MSIL_FormBook_ABF_2147900366_5
 {
     meta:
         author = "defender2yara"
@@ -12677,7 +12699,7 @@ rule Trojan_MSIL_FormBook_ABF_2147900366_4
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_ABF_2147900366_5
+rule Trojan_MSIL_FormBook_ABF_2147900366_6
 {
     meta:
         author = "defender2yara"
@@ -12699,7 +12721,7 @@ rule Trojan_MSIL_FormBook_ABF_2147900366_5
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_ABF_2147900366_6
+rule Trojan_MSIL_FormBook_ABF_2147900366_7
 {
     meta:
         author = "defender2yara"
@@ -12722,7 +12744,7 @@ rule Trojan_MSIL_FormBook_ABF_2147900366_6
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_ABF_2147900366_7
+rule Trojan_MSIL_FormBook_ABF_2147900366_8
 {
     meta:
         author = "defender2yara"

@@ -1803,3 +1803,28 @@ rule Trojan_Win64_LummaStealer_C_2147948875_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_PAHB_2147949538_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PAHB!MTB"
+        threat_id = "2147949538"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {55 48 89 e5 48 81 ec c0 02 00 00 48 8d 15 dc cd 08 00 48 89 94 24 10 02 00 00 48 8d 15 5d 5c 17 00 48 89 94 24 18 02 00 00 48 c7 84 24 68 02 00 00 00 00 00 00 48 8d 15 52 08 00 00 48 89 94 24 50 02 00 00 48 c7 84 24 60 02 00 00 01 00 00 00 48 c7 84 24 68 02 00 00 01 00 00 00 48 8d 94 24 10 02 00 00 48 89 94 24 58 02 00 00 48 8b 05 4b ed 3a 00 31 db}  //weight: 2, accuracy: High
+        $x_1_2 = "-sendAll_ip" ascii //weight: 1
+        $x_1_3 = "-shutdown" ascii //weight: 1
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_2_5 = "Realtek_HD_Audio_Universal_Service_Driver.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

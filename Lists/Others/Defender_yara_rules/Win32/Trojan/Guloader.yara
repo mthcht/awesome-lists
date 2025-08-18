@@ -6634,3 +6634,30 @@ rule Trojan_Win32_Guloader_GPQ_2147949340_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LYX_2147949540_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LYX!MTB"
+        threat_id = "2147949540"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "hypochondriacs.exe" ascii //weight: 1
+        $x_1_2 = "vejrsatellitters.imp" ascii //weight: 1
+        $x_1_3 = "datakommunikations.ini" ascii //weight: 1
+        $x_1_4 = "lserforkundskabs.ini" ascii //weight: 1
+        $x_1_5 = "udnaevnte.jpg" ascii //weight: 1
+        $x_1_6 = "snderrivende.txt" ascii //weight: 1
+        $x_1_7 = "prioritetsrkkeflgerne.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

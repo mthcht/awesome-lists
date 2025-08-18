@@ -1015,3 +1015,27 @@ rule Trojan_Win32_KillMBR_ENII_2147942195_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillMBR_PAFV_2147949535_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillMBR.PAFV!MTB"
+        threat_id = "2147949535"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "MbrOverwriter" ascii //weight: 2
+        $x_1_2 = "IsAdministrator" ascii //weight: 1
+        $x_1_3 = "This application needs to be run as an administrator." wide //weight: 1
+        $x_2_4 = "\\\\.\\PhysicalDrive0" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

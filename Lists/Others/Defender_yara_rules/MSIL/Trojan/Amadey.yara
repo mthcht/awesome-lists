@@ -757,3 +757,28 @@ rule Trojan_MSIL_Amadey_PGAD_2147948941_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_PGAS_2147949543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.PGAS!MTB"
+        threat_id = "2147949543"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 06 08 20 b7 5c 8a 00 6a 5e 26 16 13 0a 2b 2b 11 05 11 0a 8f 18 00 00 01 25 47 08 d2 61 d2 52 11 0a 20 ff 00 00 00 5f 2d 0b 08 08 5a 20 b7 5c 8a 00 6a 5e 0c 11 0a 17 58 13 0a 11 0a 11 05 8e 69 32 cd}  //weight: 1, accuracy: High
+        $x_1_2 = {6b 6f 69 00 44 6f 77 6e 6c 6f 61 64 65 72 41 70 70 2e 65 78 65}  //weight: 1, accuracy: High
+        $x_1_3 = "$d4aca85c-7124-473d-a2ec-2695fdf0888e" ascii //weight: 1
+        $x_1_4 = {4d 61 74 68 00 4d 61 78 00 57 72 69 74 65 00 00 [0-4] 07 6b 00 6f 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {2e 72 65 73 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e ?? ?? ?? ?? ?? ?? ?? ?? 2e 6d 62 72 00 e2 80 ?? e2 80 ?? e2 80 ?? e2 80}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
