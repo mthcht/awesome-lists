@@ -4524,3 +4524,25 @@ rule Trojan_Win32_OffLoader_ATCB_2147949414_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_SPEP_2147949492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPEP!MTB"
+        threat_id = "2147949492"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "mineicicle.info/hmo.php" wide //weight: 4
+        $x_1_2 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
