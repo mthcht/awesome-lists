@@ -3246,3 +3246,26 @@ rule Trojan_Win64_Lazy_GVD_2147947741_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_NIA_2147949563_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.NIA!MTB"
+        threat_id = "2147949563"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "DllExport" ascii //weight: 2
+        $x_2_2 = {48 c1 ca 21 0f b7 c1 66 41 33 42 10 66 41 89 43 10 48 8d 04 09 48 c1 c8 20 48 03 d0 48 c1 ca 1f 66 41 33 52 12 33 c0}  //weight: 2, accuracy: High
+        $x_1_3 = {4c 03 c2 49 8b c8 49 c1 e0 21 48 c1 e9 1f 49 0b c8 0f b7 c1 66 41 33 02 66 41 89 03 48 8d 04 09 48 c1 c8 20 49 0f af d1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1180,6 +1180,27 @@ rule Trojan_Win32_Razy_ARA_2147897709_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {88 11 8a 00 8b 4d 10 03 c2 25 ff 00 00 00 03 cf 8a 84 05 fc fe ff ff 30 01 47 3b 7d 14 7c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_ARA_2147897709_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.ARA!MTB"
+        threat_id = "2147897709"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:

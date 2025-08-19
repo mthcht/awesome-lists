@@ -154,3 +154,24 @@ rule Trojan_Win64_Doina_SPDG_2147935586_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_ARA_2147949562_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.ARA!MTB"
+        threat_id = "2147949562"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 09 33 c8 8b c1 48 8b 4c 24 38 48 8b 94 24 60 01 00 00 48 03 d1 48 8b ca 88 01 e9 1a ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
