@@ -15,7 +15,7 @@ rule Trojan_Win32_Evasion_SearchHijack_2147949579_0
         threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "appdata\\local\\temp\\sb" wide //weight: 1
+        $x_1_1 = "\\temp\\sb-" wide //weight: 1
         $x_1_2 = "igfxtray.exe" wide //weight: 1
     condition:
         (filesize < 20MB) and
