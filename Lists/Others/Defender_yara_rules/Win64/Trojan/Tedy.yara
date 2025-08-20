@@ -2075,3 +2075,24 @@ rule Trojan_Win64_Tedy_GXB_2147949517_0
         )
 }
 
+rule Trojan_Win64_Tedy_GXT_2147949645_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GXT!MTB"
+        threat_id = "2147949645"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {80 74 24 21 33 80 74 24 22 34 80 74 24 23 35 80 74 24 24 36 80 74 24 25 37 80 74 24 26 38 80 74 24 27 39 66 89 4c 24 28 80 f1 3a 80 74 24 29 3b 34 3c c6 44 24 20 36 88 44 24 2a 48 8d 44 24 20 88 4c 24 28 0f 1f 44 00 00 49 ff c0 42 80 3c 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

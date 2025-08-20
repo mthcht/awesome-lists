@@ -1811,3 +1811,26 @@ rule Trojan_Win32_Convagent_BAD_2147944384_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_AGC_2147949644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.AGC!MTB"
+        threat_id = "2147949644"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 45 e4 8d 55 e8 33 f6 52 89 75 e8 8b 08 56 50 ff 51 24 85 c0 79 0f 6a 10 68 00 3f 41 00 68 f4 3f 41 00 56}  //weight: 1, accuracy: High
+        $x_2_2 = {85 c0 78 58 8b 45 ec 8d 55 d4 52 89 75 d4 68 ?? ?? ?? ?? 8b 08 50 ff 11 85 c0 78 37 53 8d 4d c8}  //weight: 2, accuracy: Low
+        $x_3_3 = {8d 75 94 8d 7d 84 a5 8d 4d c4 68 54 40 41 00 a5 a5 a5 e8 ?? ?? ?? ?? c6 45 fc 0b 8b 10 85 d2}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

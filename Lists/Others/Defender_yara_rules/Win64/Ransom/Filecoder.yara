@@ -1331,3 +1331,30 @@ rule Ransom_Win64_Filecoder_SX_2147949162_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAHN_2147949646_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHN!MTB"
+        threat_id = "2147949646"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Shutdown is blocked by background task" wide //weight: 1
+        $x_2_2 = "Encrypted:" wide //weight: 2
+        $x_2_3 = "DisableTaskMgr" wide //weight: 2
+        $x_1_4 = "Unauthorized access detected" ascii //weight: 1
+        $x_1_5 = "System compromised." ascii //weight: 1
+        $x_1_6 = "SilentShutdownBlocker" ascii //weight: 1
+        $x_1_7 = "icacls" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
