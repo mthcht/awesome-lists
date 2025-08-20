@@ -10757,3 +10757,26 @@ rule Trojan_Win32_ClickFix_DIY_2147949465_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_PE_2147949622_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PE!MTB"
+        threat_id = "2147949622"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 02 00 08 00 2f 00 70 00 61 00 63 00 6b 00 61 00 67 00 65 00}  //weight: 3, accuracy: Low
+        $x_1_2 = {68 00 74 00 74 00 70 00 73 00 3a 00 90 00 02 00 20 00 2e 00 64 00 65 00 77 00 79 00 6e 00 74 00 65 00 72 00 73 00 70 00 72 00 6f 00 6d 00 6f 00 73 00 2e 00 63 00 6f 00 6d 00 2f 00 90 00 02 00 30 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: High
+        $x_1_3 = {2f 00 70 00 72 00 6f 00 6d 00 70 00 74 00 72 00 65 00 73 00 74 00 61 00 72 00 74 00 90 00 02 00 30 00 2f 00 70 00 61 00 73 00 73 00 69 00 76 00 65 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

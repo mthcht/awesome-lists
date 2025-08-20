@@ -1828,3 +1828,30 @@ rule Trojan_Win64_LummaStealer_PAHB_2147949538_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_PLS_2147949621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PLS!MTB"
+        threat_id = "2147949621"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "-NoProfile -ExecutionPolicy Bypass -Command \"" ascii //weight: 2
+        $x_2_2 = "Add-MpPreference -ExclusionPath" ascii //weight: 2
+        $x_1_3 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 31 00 34 00 31 00 2e 00 39 00 38 00 2e 00 36 00 2e 00 31 00 33 00 30 00 3a 00 35 00 35 00 35 00 34 00 2f 00 [0-31] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {68 74 00 74 00 70 3a 2f 2f 31 34 31 2e 39 38 2e 36 2e 31 33 30 3a 35 35 35 34 2f [0-31] 2e 65 78 65}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

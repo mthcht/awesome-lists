@@ -1173,3 +1173,27 @@ rule Trojan_Win64_BlackWidow_KKV_2147949329_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_KZV_2147949618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.KZV!MTB"
+        threat_id = "2147949618"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {66 0f fd da 49 f7 f0 66 0f f9 d0 66 0f 6f cb 66 0f 38 1d c1}  //weight: 2, accuracy: High
+        $x_3_2 = {66 0f 6f cd 66 0f 6d c1 45 8a 14 11 66 0f fd cb 66 0f 6a ca}  //weight: 3, accuracy: High
+        $x_4_3 = {66 0f 6a ca 66 0f 69 d0 44 30 14 0f 66 0f 6d cc}  //weight: 4, accuracy: High
+        $x_5_4 = {66 0f fd c2 48 ff c1 66 0f 6c ca}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
