@@ -457,88 +457,6 @@ rule Trojan_MSIL_Downloader_RPK_2147805658_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Downloader_JIKLU_2147805868_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Downloader.JIKLU!MTB"
-        threat_id = "2147805868"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Downloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "18"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "$d24dd28e-cc8c-4b7c-8a1e-23d149c54cf3" ascii //weight: 10
-        $x_1_2 = "GetWindows" ascii //weight: 1
-        $x_1_3 = "IsASCIILetter" ascii //weight: 1
-        $x_1_4 = "GetBitCount" ascii //weight: 1
-        $x_1_5 = "IsValidByIri" ascii //weight: 1
-        $x_1_6 = "WriteUnicodeString" ascii //weight: 1
-        $x_1_7 = "ReadBytes" ascii //weight: 1
-        $x_1_8 = "WriteBytes" ascii //weight: 1
-        $x_1_9 = "SetWeak" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_Downloader_IHU_2147805869_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Downloader.IHU!MTB"
-        threat_id = "2147805869"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Downloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "14"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "$b1447654-6f85-47b1-8f57-fead0e9a4c52" ascii //weight: 10
-        $x_1_2 = "Entry" ascii //weight: 1
-        $x_1_3 = "Execute" ascii //weight: 1
-        $x_1_4 = "FetchFiles" ascii //weight: 1
-        $x_1_5 = "MethodInfo" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_Downloader_INKT_2147806227_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Downloader.INKT!MTB"
-        threat_id = "2147806227"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Downloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "17"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "$1ca84c35-cc8d-4323-a2fd-7a7a38571fff" ascii //weight: 10
-        $x_1_2 = "ReadInterceptor" ascii //weight: 1
-        $x_1_3 = "CreateMapper" ascii //weight: 1
-        $x_1_4 = "PrepareMapper" ascii //weight: 1
-        $x_1_5 = "get_Czsnqdcx" ascii //weight: 1
-        $x_1_6 = "DestroyMapper" ascii //weight: 1
-        $x_1_7 = "DisableMapper" ascii //weight: 1
-        $x_1_8 = "RunMapper" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Downloader_CAH_2147806309_0
 {
     meta:
@@ -562,34 +480,6 @@ rule Trojan_MSIL_Downloader_CAH_2147806309_0
         $x_1_6 = "DebuggerNonUserCodeAttribute" ascii //weight: 1
         $x_1_7 = "FromBase64String" ascii //weight: 1
         $x_1_8 = "DownloadData" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_Downloader_SILA_2147807214_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Downloader.SILA!MTB"
-        threat_id = "2147807214"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Downloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "17"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "$cd180ef7-cfed-410c-a29c-c51c13668410" ascii //weight: 10
-        $x_1_2 = "GetAsyncKeyState" ascii //weight: 1
-        $x_1_3 = "IsKeyDown" ascii //weight: 1
-        $x_1_4 = "keybd_event" ascii //weight: 1
-        $x_1_5 = "KeyPress" ascii //weight: 1
-        $x_1_6 = "FetchFiles" ascii //weight: 1
-        $x_1_7 = "Intrnet" ascii //weight: 1
-        $x_1_8 = "MethodInfo" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

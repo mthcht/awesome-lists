@@ -6046,3 +6046,67 @@ rule Trojan_MSIL_Taskun_ARCB_2147949344_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_AFDB_2147949708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.AFDB!MTB"
+        threat_id = "2147949708"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 19 62 0e 04 11 07 28 ?? 00 00 06 11 07 1f 11 5a 58 61 0a 07 06 11 07 1b 5d 1f 1f 5f 63 05 11 07 19 5d 1f 1f 5f 62 61 61 0b}  //weight: 5, accuracy: Low
+        $x_2_2 = {07 11 06 1f 1f 5a 06 1d 5f 58 61 0b}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Taskun_EBIU_2147949725_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.EBIU!MTB"
+        threat_id = "2147949725"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {26 17 13 05 2b be 16 0a 18 13 05 2b b7 04 03 61 1f 4d 59 06 61 45 01 00 00 00 06 00 00 00 1f 0b 13 05 2b a0 1b 2b f9 14 0b 11 06 1f 15 93 ?? ?? ?? ?? ?? 59 13 05 2b 8c 02}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Taskun_EBIZ_2147949727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.EBIZ!MTB"
+        threat_id = "2147949727"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {5b 13 2b 11 2a 11 2b 5a 05 ?? ?? ?? ?? ?? ?? ?? ?? ?? 5a 5a 13 2c 0e 05 2c 08 11 06 8e 16 fe 03 2b 01 16 13 3d 11 3d 2c 34 00 11 0d 11 1d 58 11 06 8e 69 5d 13 3e 11 06 11 3e 91 12 1e ?? ?? ?? ?? ?? 61 d2 13 3f 11 3f 6c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

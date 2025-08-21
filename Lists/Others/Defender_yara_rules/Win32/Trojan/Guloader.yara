@@ -6730,3 +6730,32 @@ rule Trojan_Win32_Guloader_GPU_2147949663_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LZD_2147949709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LZD!MTB"
+        threat_id = "2147949709"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "befarede" ascii //weight: 1
+        $x_1_2 = "observationstaarnet\\afskyeligeres\\fangehuls" ascii //weight: 1
+        $x_1_3 = "Equicontinuous34\\matchbox\\organisationsmetodes" ascii //weight: 1
+        $x_1_4 = "Overstrength89\\crivetz\\ressort" ascii //weight: 1
+        $x_1_5 = "\\dishpans\\unbaling.lnk" ascii //weight: 1
+        $x_1_6 = "matriculate.rec" ascii //weight: 1
+        $x_1_7 = "\\enkeltordet.gif" ascii //weight: 1
+        $x_1_8 = "eftermaddens" ascii //weight: 1
+        $x_1_9 = "\\sojabnnerne\\Udspringenes15.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

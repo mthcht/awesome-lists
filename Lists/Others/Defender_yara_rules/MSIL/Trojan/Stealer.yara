@@ -3226,3 +3226,26 @@ rule Trojan_MSIL_Stealer_ADCB_2147948849_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_ADDB_2147949700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.ADDB!MTB"
+        threat_id = "2147949700"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {07 06 11 07 1b 5d 1f 1f 5f 63 05 11 07 19 5d 1f 1f 5f 62 61 61 0b 00 11 07 17 58 13 07}  //weight: 5, accuracy: High
+        $x_2_2 = {07 11 06 1f 1f 5a 06 1d 5f 58 61 0b 16 13 0a}  //weight: 2, accuracy: High
+        $x_2_3 = {06 11 0a 11 06 58 07 19 5f 58 61 0a 02 11 06 11 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

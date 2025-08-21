@@ -3586,27 +3586,6 @@ rule Trojan_MSIL_Remcos_OUEA_2147817273_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Remcos_ELEA_2147817724_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Remcos.ELEA!MTB"
-        threat_id = "2147817724"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Remcos"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {2b f6 02 72 33 06 00 70 6f ?? ?? ?? 0a 02 72 3f 06 00 70 6f ?? ?? ?? 0a 02 72 75 06 00 70 6f ?? ?? ?? 0a}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Remcos_SDRA_2147817942_0
 {
     meta:

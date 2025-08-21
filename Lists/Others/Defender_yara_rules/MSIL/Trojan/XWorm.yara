@@ -2736,3 +2736,24 @@ rule Trojan_MSIL_XWorm_SLGF_2147949347_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ENUW_2147949717_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ENUW!MTB"
+        threat_id = "2147949717"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 fe 09 00 00 7b de 01 00 04 fe 0c 02 00 fe 0c 02 00 d2 9c 00 fe 0c 02 00 20 01 00 00 00 58 fe 0e 02 00 fe 0c 02 00 20 00 01 00 00 fe 04 fe 0e 03 00 fe 0c 03 00 3a c5 ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
