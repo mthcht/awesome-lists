@@ -2278,3 +2278,49 @@ rule Trojan_Win32_AgentTesla_MR_2147946479_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AgentTesla_YBG_2147949669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AgentTesla.YBG!MTB"
+        threat_id = "2147949669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "VMware" ascii //weight: 1
+        $x_1_2 = "VirtualBox" ascii //weight: 1
+        $x_1_3 = "schtasks /create /f /sc onlogon /tn" ascii //weight: 1
+        $x_1_4 = "BraveSoftware" ascii //weight: 1
+        $x_1_5 = "Opera Software" ascii //weight: 1
+        $x_1_6 = "Vivaldi\\User Data" ascii //weight: 1
+        $x_1_7 = "Yandex" ascii //weight: 1
+        $x_1_8 = "encrypted_key" ascii //weight: 1
+        $x_1_9 = "%s\\Default\\Web Data" ascii //weight: 1
+        $x_1_10 = "%s\\Default\\History" ascii //weight: 1
+        $x_1_11 = "SELECT host_key, name, encrypted_value FROM cookies" ascii //weight: 1
+        $x_1_12 = "SELECT name, value FROM autofill" ascii //weight: 1
+        $x_10_13 = "SELECT name_on_card, expiration_month, expiration_year, card_number_encrypted FROM credit_cards" ascii //weight: 10
+        $x_1_14 = "[Empire] Recent file" ascii //weight: 1
+        $x_1_15 = "Exodus\\exodus.wallet" ascii //weight: 1
+        $x_1_16 = "Electrum\\wallets" ascii //weight: 1
+        $x_1_17 = "Atomic\\Local Storage\\leveldb" ascii //weight: 1
+        $x_1_18 = "Coinomi\\wallets" ascii //weight: 1
+        $x_1_19 = "Jaxx\\Local Storage\\leveldb" ascii //weight: 1
+        $x_1_20 = "Litecoin\\wallets" ascii //weight: 1
+        $x_1_21 = "Bitcoin\\wallets" ascii //weight: 1
+        $x_1_22 = "Dash\\wallets" ascii //weight: 1
+        $x_1_23 = "Zcash\\wallets" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 13 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

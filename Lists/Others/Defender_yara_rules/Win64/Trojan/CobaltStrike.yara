@@ -5289,6 +5289,27 @@ rule Trojan_Win64_CobaltStrike_CB_2147837406_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0f 57 c2 0f 57 ca f3 0f 7f 40 ?? f3 0f 6f 44 10 ?? f3 0f 7f 48 ?? 0f 57 c2 f3 0f 6f 4c 08 ?? f3 0f 7f 40 ?? 0f 57 ca f3 0f 7f 48 ?? 49 83 e9 01 75}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_CB_2147837406_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.CB!MTB"
+        threat_id = "2147837406"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
@@ -5298,7 +5319,7 @@ rule Trojan_Win64_CobaltStrike_CB_2147837406_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_CobaltStrike_CB_2147837406_2
+rule Trojan_Win64_CobaltStrike_CB_2147837406_3
 {
     meta:
         author = "defender2yara"
@@ -17547,6 +17568,31 @@ rule Trojan_Win64_CobaltStrike_PAFZ_2147949537_0
         strings_accuracy = "Low"
     strings:
         $x_4_1 = {8b 44 24 30 3b 84 24 0c 02 00 00 7d ?? 8b 44 24 30 99 f7 7c 24 64 48 63 c2 0f be 84 04 66 02 00 00 48 8b 8c 24 00 02 00 00 48 63 54 24 30 44 0f b6 04 11 41 31 c0 44 88 04 11 8b 44 24 30 83 c0 01 89 44 24 30 eb}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_PCW_2147949659_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.PCW!MTB"
+        threat_id = "2147949659"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Could get Payload from resource" ascii //weight: 1
+        $x_1_2 = "Could not get Beacon from (local) resource" ascii //weight: 1
+        $x_1_3 = "BEACON_RESOURCE" ascii //weight: 1
+        $x_1_4 = "Ran CobaltStrike" ascii //weight: 1
+        $x_1_5 = "ReverseShell_%s_%s.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

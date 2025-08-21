@@ -289,3 +289,38 @@ rule Trojan_Win32_Mikey_LMA_2147945892_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_AHF_2147949653_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.AHF!MTB"
+        threat_id = "2147949653"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "115"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = {4c 89 75 c0 48 c7 45 c8 0e 00 00 00 48 c7 45 d0 0a 00 00 00 4c 89 65 d8 48 c7 45 e0 0a 00 00 00 48 89 7d e8 48 89 5d f0}  //weight: 50, accuracy: High
+        $x_30_2 = "src\\modules\\browser\\crypto\\decrypt.rs" ascii //weight: 30
+        $x_30_3 = "src\\modules\\browser\\chromium\\crypto\\decrypt.rs" ascii //weight: 30
+        $x_20_4 = "src\\modules\\browser\\injection\\injector.rs" ascii //weight: 20
+        $x_20_5 = "src\\modules\\browser\\chromium\\injection\\injector.rs" ascii //weight: 20
+        $x_10_6 = "Failed to spawn download process for " ascii //weight: 10
+        $x_5_7 = "Browser executable not found at registry path" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_30_*) and 2 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_30_*) and 1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_30_*) and 2 of ($x_20_*))) or
+            ((1 of ($x_50_*) and 2 of ($x_30_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_50_*) and 2 of ($x_30_*) and 1 of ($x_10_*))) or
+            ((1 of ($x_50_*) and 2 of ($x_30_*) and 1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

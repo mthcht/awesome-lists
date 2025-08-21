@@ -2166,3 +2166,29 @@ rule Trojan_Win32_Tofsee_BAM_2147943153_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_PNB_2147949672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.PNB!MTB"
+        threat_id = "2147949672"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {81 c2 00 00 10 00 c6 02 6b c6 42 01 65 c6 42 02 72 c6 42 03 6e c6 42 04 65 c6 42 05 6c c6 42 06 33 52 8d 05}  //weight: 4, accuracy: High
+        $x_2_2 = "qmkkrtqgiepvs" ascii //weight: 2
+        $x_2_3 = "hritePro_____e_ory" ascii //weight: 2
+        $x_2_4 = "qvrqrqslsksquhs" ascii //weight: 2
+        $x_2_5 = {51 29 d2 81 ca 88 06 00 00 52 29 ff 81 cf 88 06 00 00 57 29 c9 81 c9 00 00 04 00 51 ff 15}  //weight: 2, accuracy: High
+        $x_1_6 = {74 25 29 c0 48 23 03 f8 83 d3 04 f7 d0 83 e8 d8 01 d0 f8 83 d8 01 29 d2 29 c2 f7 da 50 8f 06 8d 76 04 8d 49 04 eb d3 5e 8d 15}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

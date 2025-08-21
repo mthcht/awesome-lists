@@ -398,3 +398,29 @@ rule Trojan_Win32_AsyncRAT_DB_2147936521_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AsyncRAT_PTB_2147949671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRAT.PTB!MTB"
+        threat_id = "2147949671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {80 f1 4d 88 0a 42 8a 02 8a c8 84 c0 75}  //weight: 3, accuracy: High
+        $x_3_2 = {66 31 14 41 40 3b 44 24 08 72}  //weight: 3, accuracy: High
+        $x_2_3 = "[+] Payload decrypted successfully (%u bytes)" wide //weight: 2
+        $x_2_4 = "[!] ExecutePayload called more than once!" wide //weight: 2
+        $x_1_5 = "[!] Decrypted payload is empty, cannot execute." wide //weight: 1
+        $x_1_6 = "[*] Resolving BCrypt functions by hash" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

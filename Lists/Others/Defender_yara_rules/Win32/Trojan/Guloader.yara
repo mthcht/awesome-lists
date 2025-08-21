@@ -6661,3 +6661,72 @@ rule Trojan_Win32_Guloader_LYX_2147949540_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GPS_2147949661_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPS!MTB"
+        threat_id = "2147949661"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "electroretinograph sovevrelset gallinae" ascii //weight: 1
+        $x_1_2 = "emolliate inkluderingens" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GPT_2147949662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPT!MTB"
+        threat_id = "2147949662"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "depeche forviser incinerated" ascii //weight: 1
+        $x_1_2 = "unbung mineralisation ferrymen" ascii //weight: 1
+        $x_1_3 = "pilferer.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GPU_2147949663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPU!MTB"
+        threat_id = "2147949663"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "despoti" ascii //weight: 1
+        $x_1_2 = "forelggelsers nasturtium" ascii //weight: 1
+        $x_1_3 = "spankily.exe" ascii //weight: 1
+        $x_1_4 = "foregangsmnd revelers" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

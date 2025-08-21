@@ -1181,3 +1181,28 @@ rule Trojan_MSIL_MassLogger_ADAB_2147946986_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MassLogger_PPM_2147949673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.PPM!MTB"
+        threat_id = "2147949673"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "resources/8377292.webp" wide //weight: 5
+        $x_2_2 = {1f 18 fe 02 13 04 11 04 2c 28 07 06 fe 06 c1 00 00 06 73 d8 00 00 0a 6f ?? 00 00 0a 00 07 06 fe 06 c2 00 00 06 73 d8 00 00 0a 6f ?? 00 00 0a 00}  //weight: 2, accuracy: Low
+        $x_2_3 = {00 02 72 e1 15 00 70 28 49 01 00 06 7d 69 00 00 04 2a}  //weight: 2, accuracy: High
+        $x_1_4 = {12 06 28 db 00 00 0a 13 07 11 07 6f dc 00 00 0a 00 00 12 06 28 dd 00 00 0a 13 08 11 08 2d e1}  //weight: 1, accuracy: High
+        $x_1_5 = "StrReverse" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
