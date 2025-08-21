@@ -2247,3 +2247,29 @@ rule Trojan_Win32_ICLoader_DA_2147942631_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_GXT_2147949691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.GXT!MTB"
+        threat_id = "2147949691"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {32 c2 8b 4c 24 08 a2 ?? ?? ?? ?? a0 ?? ?? ?? ?? 0c 10 56 c0 e8 03 25 ff 00 00 00 51}  //weight: 10, accuracy: Low
+        $x_5_2 = {0f af d1 0b c2 a3 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? a1 ?? ?? ?? ?? 85 c0 0f 85}  //weight: 5, accuracy: Low
+        $x_5_3 = {0f af d1 0b c2 a3 ?? ?? ?? ?? a1 ?? ?? ?? ?? 85 c0 0f 85}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
