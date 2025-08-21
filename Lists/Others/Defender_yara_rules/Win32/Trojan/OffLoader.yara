@@ -4517,11 +4517,17 @@ rule Trojan_Win32_OffLoader_ATCB_2147949414_0
     strings:
         $x_4_1 = "://matchcabbage.info/lju.php?" ascii //weight: 4
         $x_4_2 = "://wirevegetable.info/ljus.php?" ascii //weight: 4
-        $x_1_3 = "/silent" ascii //weight: 1
-        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+        $x_4_3 = "://roadtrousers.info/rnu.php?" ascii //weight: 4
+        $x_4_4 = "://shirtapparatus.xyz/rnus.php?" ascii //weight: 4
+        $x_1_5 = "/silent" ascii //weight: 1
+        $x_1_6 = "Do you want to reboot now?" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_4_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_4_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_OffLoader_SPEP_2147949492_0

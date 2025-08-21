@@ -5180,3 +5180,25 @@ rule Trojan_Win32_CobaltStrike_UWW_2147946263_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CobaltStrike_SUPC_2147949689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CobaltStrike.SUPC!MTB"
+        threat_id = "2147949689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 45 f8 40 89 45 f8 83 7d f8 08 7d 24 8b 45 fc 83 e0 01 89 45 f4 8b 45 fc d1 e8 89 45 fc 83 7d f4 00 74 0b 8b 45 fc 35 ?? ?? ?? ?? 89 45 fc eb}  //weight: 2, accuracy: Low
+        $x_1_2 = "154.36.161.89/cak168.bin" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

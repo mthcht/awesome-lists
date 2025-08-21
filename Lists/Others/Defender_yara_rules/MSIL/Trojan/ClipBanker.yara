@@ -4257,3 +4257,26 @@ rule Trojan_MSIL_ClipBanker_AADB_2147949635_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_SPZC_2147949690_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.SPZC!MTB"
+        threat_id = "2147949690"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "kto prochital tot shluha" ascii //weight: 2
+        $x_1_2 = "ILoveYourMother" ascii //weight: 1
+        $x_1_3 = "H4sIAAAAAAAEACvLLU8sSi0pSqzUS61IBQAfPEEfDgAAAA==" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
