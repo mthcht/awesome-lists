@@ -9373,34 +9373,6 @@ rule TrojanDownloader_O97M_Donoff_ET_2147720551_0
         (all of ($x*))
 }
 
-rule TrojanDownloader_O97M_Donoff_ET_2147720551_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/Donoff.ET"
-        threat_id = "2147720551"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "Donoff"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "= CreateObject(\"vbscript.regexp\")" ascii //weight: 1
-        $x_1_2 = ".Global = " ascii //weight: 1
-        $x_1_3 = ".Pattern = " ascii //weight: 1
-        $x_1_4 = {2e 52 65 70 6c 61 63 65 28 [0-15] 2c 20 22 22 29}  //weight: 1, accuracy: Low
-        $x_1_5 = "= CreateObject(\"WScript.Shell\")" ascii //weight: 1
-        $x_1_6 = "Sub AutoOpen()" ascii //weight: 1
-        $n_100_7 = "http://bkainline2/fileadmin" ascii //weight: -100
-        $n_10_8 = "\\\\cifsadmindocs\\ohim\\OHIM_Docs\\C CTM\\C09 Guides_ Manuals_Tools\\C0920 Stan_Canc_" ascii //weight: -10
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule TrojanDownloader_O97M_Donoff_PC_2147720761_0
 {
     meta:
