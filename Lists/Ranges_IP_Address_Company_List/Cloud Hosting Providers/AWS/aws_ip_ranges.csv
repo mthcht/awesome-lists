@@ -721,6 +721,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.18.0/24,us-east-1,AMAZON,us-east-1
 15.230.149.11/32,ap-southeast-2,AMAZON,ap-southeast-2
 18.231.0.0/16,sa-east-1,AMAZON,sa-east-1
+23.228.197.0/24,GLOBAL,AMAZON,GLOBAL
 52.93.127.201/32,us-east-1,AMAZON,us-east-1
 52.94.152.182/32,ap-southeast-2,AMAZON,ap-southeast-2
 54.252.0.0/16,ap-southeast-2,AMAZON,ap-southeast-2
@@ -3181,6 +3182,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.0.14/32,sa-east-1,AMAZON,sa-east-1
 15.230.39.76/31,us-east-2,AMAZON,us-east-2
 15.230.71.192/26,us-east-2,AMAZON,us-east-2
+23.228.196.0/24,GLOBAL,AMAZON,GLOBAL
 35.55.41.0/24,eu-north-1,AMAZON,eu-north-1
 52.66.0.0/16,ap-south-1,AMAZON,ap-south-1
 52.93.53.6/32,us-west-1,AMAZON,us-west-1
@@ -4306,6 +4308,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 104.255.56.12/32,us-east-1,AMAZON,us-east-1
 150.222.234.106/31,us-west-1,AMAZON,us-west-1
 176.32.120.0/22,us-east-1,AMAZON,us-east-1
+3.2.98.0/24,ap-southeast-3,AMAZON,ap-southeast-3
 3.4.12.50/32,sa-east-1,AMAZON,sa-east-1
 15.177.85.0/24,ap-east-1,AMAZON,ap-east-1
 15.181.246.0/24,us-east-1,AMAZON,us-east-1-mci-1
@@ -6048,6 +6051,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 64.252.111.0/24,ap-northeast-1,EC2,ap-northeast-1
 3.2.71.0/24,eu-north-1,EC2,eu-north-1
 18.231.0.0/16,sa-east-1,EC2,sa-east-1
+23.228.197.0/24,GLOBAL,EC2,GLOBAL
 54.252.0.0/16,ap-southeast-2,EC2,ap-southeast-2
 64.252.125.0/24,us-east-1,EC2,us-east-1
 1.178.10.0/24,eu-central-1,EC2,eu-central-1
@@ -6853,6 +6857,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 99.77.55.52/32,eu-south-2,EC2,eu-south-2
 15.177.78.0/24,eu-west-2,EC2,eu-west-2
 15.193.0.0/24,ap-south-1,EC2,ap-south-1
+23.228.196.0/24,GLOBAL,EC2,GLOBAL
 35.55.41.0/24,eu-north-1,EC2,eu-north-1
 52.66.0.0/16,ap-south-1,EC2,ap-south-1
 204.236.192.0/18,us-east-1,EC2,us-east-1
@@ -7194,6 +7199,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 52.94.250.0/28,eu-central-2,EC2,eu-central-2
 64.252.71.0/24,us-west-2,EC2,us-west-2
 64.252.114.0/24,eu-west-1,EC2,eu-west-1
+3.2.98.0/24,ap-southeast-3,EC2,ap-southeast-3
 15.177.85.0/24,ap-east-1,EC2,ap-east-1
 15.181.246.0/24,us-east-1,EC2,us-east-1-mci-1
 35.96.20.0/23,eu-central-1,EC2,eu-central-1
