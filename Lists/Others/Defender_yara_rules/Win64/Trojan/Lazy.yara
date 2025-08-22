@@ -3269,3 +3269,31 @@ rule Trojan_Win64_Lazy_NIA_2147949563_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHG_2147949816_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHG!MTB"
+        threat_id = "2147949816"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {48 c7 85 c0 3f 00 00 00 00 00 00 48 c7 85 c8 3f 00 00 00 00 00 00 48 c7 85 d0 3f 00 00 00 00 00 00 48 c7 85 d8 3f 00 00 00 00 00 00 48 8d 85 a0 3f 00 00 ba 40}  //weight: 10, accuracy: High
+        $x_10_2 = {48 c7 85 c0 1f 00 00 00 00 00 00 48 c7 85 c8 1f 00 00 00 00 00 00 48 c7 85 d0 1f 00 00 00 00 00 00 48 c7 85 d8 1f 00 00 00 00 00 00 48 8d 85 a0 1f 00 00 ba 40}  //weight: 10, accuracy: High
+        $x_3_3 = "@AmelieDataleak" ascii //weight: 3
+        $x_2_4 = "AAHLkI4cdw2BdNdKDchnijtsIE537wvRhLI" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
