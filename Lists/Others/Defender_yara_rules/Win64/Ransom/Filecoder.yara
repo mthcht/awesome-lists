@@ -1358,3 +1358,27 @@ rule Ransom_Win64_Filecoder_PAHN_2147949646_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PID_2147949780_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PID!MTB"
+        threat_id = "2147949780"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {44 89 d0 99 f7 fe 48 63 d2 41 0f b6 04 14 42 30 04 13 49 83 c2 01 4c 39 d7 75}  //weight: 6, accuracy: High
+        $x_2_2 = "files have been encrypted" ascii //weight: 2
+        $x_2_3 = "HACKED BY THEFOLLOWERS" ascii //weight: 2
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

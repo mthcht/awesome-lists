@@ -7956,3 +7956,24 @@ rule Trojan_MSIL_Heracles_PPN_2147949670_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_PCW_2147949784_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.PCW!MTB"
+        threat_id = "2147949784"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {a2 08 74 07 00 00 1b 17 7e 0e 00 00 04 a2 08 74 07 00 00 1b 18 1f 17 20 ef 77 38 35 17 28 fd 00 00 06 a2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
