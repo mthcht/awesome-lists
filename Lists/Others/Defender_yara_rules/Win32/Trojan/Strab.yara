@@ -1503,3 +1503,25 @@ rule Trojan_Win32_Strab_EALC_2147934424_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Strab_GXT_2147949867_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Strab.GXT!MTB"
+        threat_id = "2147949867"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Strab"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {83 e1 1e 0f b6 89 ?? ?? ?? ?? 32 88 ?? ?? ?? ?? 88 4c 06 ff 3d ?? ?? ?? ?? ?? ?? 89 c1 83 e1 ?? 0f b6 89 ?? ?? ?? ?? 32 88 ?? ?? ?? ?? 88 0c 06 83 c0 02}  //weight: 10, accuracy: Low
+        $x_10_2 = {89 d6 83 e6 1f 0f b6 1c 30 30 1c 11 8d 72 01 83 e6 1f 0f b6 1c 30 30 5c 11 01 83 c2 02 39 54 24 1c 75}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

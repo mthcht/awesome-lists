@@ -3042,3 +3042,27 @@ rule Trojan_MSIL_LummaStealer_NS_2147948405_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LummaStealer_GTB_2147949853_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.GTB!MTB"
+        threat_id = "2147949853"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {13 06 08 20 b7 5c 8a 00 6a 5e 26 16 13 0a 2b 2b 11 05 11 0a 8f 18 00 00 01 25 47 08 d2 61 d2 52 11 0a 20 ff 00 00 00 5f 2d 0b 08 08 5a 20 b7 5c 8a 00 6a 5e 0c 11 0a 17 58 13 0a 11 0a 11 05 8e 69 32 cd}  //weight: 10, accuracy: High
+        $x_1_2 = "DownloaderApp.exe" ascii //weight: 1
+        $x_1_3 = "ToBase64String" ascii //weight: 1
+        $x_1_4 = "aca85c-7124-473d-a2ec-2695fdf0888e" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

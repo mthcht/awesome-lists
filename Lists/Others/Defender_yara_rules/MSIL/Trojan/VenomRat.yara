@@ -63,3 +63,46 @@ rule Trojan_MSIL_VenomRat_PMZ_2147945607_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VenomRat_SK_2147949838_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VenomRat.SK!MTB"
+        threat_id = "2147949838"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VenomRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {d2 13 04 03 09 03 8e 69 5d 91 13 05 08 09 20 00 01 00 00 11 04 58 11 05 59 20 00 01 00 00 5d d1 9d 09 17 58 0d 09 07}  //weight: 2, accuracy: High
+        $x_2_2 = "amamam.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VenomRat_SL_2147949854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VenomRat.SL!MTB"
+        threat_id = "2147949854"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VenomRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 09 8f 06 00 00 01 25 71 06 00 00 01 20 aa 00 00 00 61 d2 81 06 00 00 01 09 17 58 0d 09 06 8e 69 fe 04 13 0b 11 0b 2d d7}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3553,3 +3553,31 @@ rule Trojan_MSIL_Injuke_APSA_2147940528_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_AHDB_2147949833_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.AHDB!MTB"
+        threat_id = "2147949833"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 2d 0b 72 ?? ?? 00 70 73 ?? 00 00 0a 7a 73 ?? 00 00 0a 0a 02 7b ?? 00 00 04 0b 16 0c 07 12 02 28 ?? 00 00 0a 73 ?? 00 00 0a 0d 09 02 7b ?? 00 00 04 02 7b ?? 00 00 04 6f ?? 00 00 0a 13 04 06 11 04 17 73 ?? 00 00 0a 13 05 03 11 05 6f ?? 00 00 0a 11 05 6f ?? 00 00 0a 06 16 6a 6f ?? 00 00 0a de 2c}  //weight: 5, accuracy: Low
+        $x_5_2 = {0a 13 07 73 ?? 00 00 0a 13 08 11 08 11 07 11 05 11 06 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 09 11 09 06 16 06 8e 69 6f ?? 00 00 0a 11 08 6f ?? 00 00 0a 13 0a de 3f}  //weight: 5, accuracy: Low
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -1587,3 +1587,24 @@ rule Trojan_Win64_Rozena_KK_2147949263_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_ARB_2147949831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.ARB!MTB"
+        threat_id = "2147949831"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 01 d0 0f b6 10 0f b6 05 ?? ?? ?? ?? 31 c2 48 8d 0d ?? ?? ?? ?? 48 8b 45 f8 48 01 c8 88 10}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

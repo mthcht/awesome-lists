@@ -782,3 +782,25 @@ rule Trojan_MSIL_Amadey_PGAS_2147949543_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_MR_2147949839_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.MR!MTB"
+        threat_id = "2147949839"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 0b 11 0c 91 13 0d 11 08 20 1f 3f 5e 00 5a 11 0d 58 13 08 11 0c 17 58 13 0c 11 0c 11 0b 8e 69 32 de}  //weight: 10, accuracy: High
+        $x_5_2 = "$d4aca85c-7124-473d-a2ec-2695fdf0888e" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

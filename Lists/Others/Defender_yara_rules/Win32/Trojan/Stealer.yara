@@ -1433,3 +1433,31 @@ rule Trojan_Win32_Stealer_LMB_2147944506_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_NKC_2147949868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.NKC!MTB"
+        threat_id = "2147949868"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Do you want to run a malware" ascii //weight: 1
+        $x_2_2 = "F_k.Q_Y.O S.z_t_u_n.7D z Xj.h.x k<_X_j fJ O.L B?.x.P.f_d)C_jE.s7" ascii //weight: 2
+        $x_1_3 = "H k2.lF_i7o.u_d H.c.m u.S.R_C.k_t Q.hM.ie" ascii //weight: 1
+        $x_1_4 = "8.1.A.8.p B_M_W.7x Da_l_S.z.4n K.8.N K,b_P.V.vha_V c3 Km k4_u3N.K x.4.O_j.o o9 E_n.y Y.s_e.Xw" ascii //weight: 1
+        $x_1_5 = "OIv_a.O_P:m.H_I3u.R(s CT_yM q K_iOM Q rh.B Jv.n D F3 l+ j.L_H" ascii //weight: 1
+        $x_1_6 = "Y U.r_i cVh.VZ_B Y p_h.3n.w Rg.e_H" ascii //weight: 1
+        $x_1_7 = "z u_T_j o_R| LKp b- Z_dE t V_mx.ac: I.8c+.aM.K.8b A2_y l@ P M.9!o.n" ascii //weight: 1
+        $x_1_8 = "D p C\\.r.Js.D6.G Wv.2u.R.T+.BR_cM H.W.T&X.G.R uvz.ux_y F_q D" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3492,6 +3492,31 @@ rule Ransom_MSIL_Filecoder_NITE_2147925863_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {06 07 9a 0c 73 12 00 00 06 0d 09 08 28 ?? 00 00 0a 6f ?? 00 00 0a 7d 0b 00 00 04 02 7b 02 00 00 04 09 fe 06 13 00 00 06 73 1b 00 00 0a 28 ?? 00 00 2b 2c 42 08 72 ?? 00 00 70 6f ?? 00 00 0a 2d 35 08 28 ?? 00 00 0a 13 04 02 11 04 72 ?? 00 00 70 28 ?? 00 00 06 13 05 08 11 05 28 ?? 00 00 0a 08 08 72 ?? 00 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a de 03 26 de 00 07 17 58 0b 07 06 8e 69 32 80}  //weight: 2, accuracy: Low
+        $x_2_2 = {04 6f 22 00 00 0a 0a 03 8e 69 8d ?? 00 00 01 0b 16 0c 2b 13 07 08 03 08 91 06 08 06 8e 69 5d 91 61 d2 9c 08 17 58 0c 08 03 8e 69 32 e7 07 2a}  //weight: 2, accuracy: Low
+        $x_1_3 = "EncryptTargetFolders" ascii //weight: 1
+        $x_1_4 = "XorEncryptDecrypt" ascii //weight: 1
+        $x_1_5 = "KeegansRansomware" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_NITE_2147925863_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.NITE!MTB"
+        threat_id = "2147925863"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "Low"
     strings:

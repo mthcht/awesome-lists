@@ -72,3 +72,29 @@ rule Ransom_Win64_KaWaLocker_C_2147947953_0
         (3 of ($x*))
 }
 
+rule Ransom_Win64_KaWaLocker_MKV_2147949836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/KaWaLocker.MKV!MTB"
+        threat_id = "2147949836"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KaWaLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Desktop\\demo_src_2.1.7\\x64\\Release\\enc.pdb" ascii //weight: 5
+        $x_4_2 = "!!Restore-My-file-Kavva.txt" ascii //weight: 4
+        $x_1_3 = "vssadmin.exe dele" ascii //weight: 1
+        $x_1_4 = "te shadows /all /quiet" ascii //weight: 1
+        $x_1_5 = "self_delete" ascii //weight: 1
+        $x_1_6 = "anonymous" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
