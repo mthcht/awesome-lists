@@ -3267,6 +3267,8 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_62 = "view31.b-cdn.net/" wide //weight: 1
         $x_1_63 = "mistyexycapt.com/" wide //weight: 1
         $x_1_64 = "youcheckineco.com/" wide //weight: 1
+        $x_1_65 = "http://194.0x0F.0xD8.0x67/" wide //weight: 1
+        $x_1_66 = {6c 00 61 00 6e 00 64 00 65 00 72 00 73 00 61 00 72 00 65 00 6e 00 61 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-255] 2f 00 66 00 69 00 6c 00 65 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -3411,8 +3413,10 @@ rule Trojan_Win32_ClickFix_SEZ_2147940391_0
         $x_10_72 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 78 00 79 00 7a 00 2f 00}  //weight: 10, accuracy: Low
         $x_10_73 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 79 00 6f 00 6b 00 6f 00 68 00 61 00 6d 00 61 00 2f 00}  //weight: 10, accuracy: Low
         $x_10_74 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 71 00 75 00 65 00 73 00 74 00 2f 00}  //weight: 10, accuracy: Low
-        $n_500_75 = ".ps1" wide //weight: -500
-        $n_500_76 = ".hta" wide //weight: -500
+        $x_10_75 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 70 00 64 00 66 00}  //weight: 10, accuracy: Low
+        $x_10_76 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 6f 00 64 00 64 00}  //weight: 10, accuracy: Low
+        $n_500_77 = ".ps1" wide //weight: -500
+        $n_500_78 = ".hta" wide //weight: -500
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -10928,5 +10932,32 @@ rule Trojan_Win32_ClickFix_DJC_2147949794_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SFBA_2147949808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SFBA"
+        threat_id = "2147949808"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "103"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_100_2 = {5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-255] 2e 00 6d 00 73 00 69 00}  //weight: 100, accuracy: Low
+        $x_1_3 = "/promptrestart" wide //weight: 1
+        $x_1_4 = {2f 00 70 00 61 00 63 00 6b 00 61 00 67 00 65 00 [0-48] 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
+        $x_1_5 = "/passive" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
