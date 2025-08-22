@@ -6759,3 +6759,26 @@ rule Trojan_Win32_Guloader_LZD_2147949709_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GPV_2147949802_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPV!MTB"
+        threat_id = "2147949802"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "semiextinct stimen assertorily" ascii //weight: 1
+        $x_1_2 = "udtales hairup.exe" ascii //weight: 1
+        $x_1_3 = "viskestykkes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
