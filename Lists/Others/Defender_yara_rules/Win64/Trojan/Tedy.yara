@@ -1015,17 +1015,25 @@ rule Trojan_Win64_Tedy_C_2147922679_0
         threshold = "14"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "ollydbg.exe" ascii //weight: 2
-        $x_2_2 = "x64dbg.exe" ascii //weight: 2
-        $x_2_3 = "x32dbg.exe" ascii //weight: 2
-        $x_2_4 = "Process Hacker 2" ascii //weight: 2
-        $x_2_5 = "Wireshark" ascii //weight: 2
-        $x_3_6 = "@FACK YOU Donkey." ascii //weight: 3
-        $x_3_7 = "netsh advfirewall firewall delete rule name" ascii //weight: 3
+        $x_2_1 = "ollydbg" ascii //weight: 2
+        $x_2_2 = "x64dbg" ascii //weight: 2
+        $x_2_3 = "x32dbg" ascii //weight: 2
+        $x_2_4 = "dnSpy" ascii //weight: 2
+        $x_2_5 = "Process Hacker 2" ascii //weight: 2
+        $x_2_6 = "Wireshark" ascii //weight: 2
+        $x_3_7 = "IDA Pro" ascii //weight: 3
+        $x_3_8 = "@FACK YOU Donkey." ascii //weight: 3
+        $x_3_9 = "Injected Successfully !" ascii //weight: 3
+        $x_3_10 = "Emulator Not Found!" ascii //weight: 3
+        $x_3_11 = "netsh advfirewall firewall delete rule name" ascii //weight: 3
     condition:
         (filesize < 20MB) and
         (
+            ((1 of ($x_3_*) and 6 of ($x_2_*))) or
             ((2 of ($x_3_*) and 4 of ($x_2_*))) or
+            ((3 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((4 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((5 of ($x_3_*))) or
             (all of ($x*))
         )
 }
