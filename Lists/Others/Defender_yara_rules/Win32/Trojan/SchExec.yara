@@ -126,3 +126,47 @@ rule Trojan_Win32_SchExec_HK_2147948697_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SchExec_HL_2147949887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SchExec.HL!MTB"
+        threat_id = "2147949887"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SchExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "56"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "reg.exe add " wide //weight: 1
+        $x_5_2 = "CurrentVersion\\Run /v" wide //weight: 5
+        $x_50_3 = {2f 00 64 00 20 00 63 00 3a 00 5c 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 5c 00 [0-32] 2e 00 6c 00 6e 00 6b 00 20 00 2f 00 66 00}  //weight: 50, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SchExec_HM_2147949888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SchExec.HM!MTB"
+        threat_id = "2147949888"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SchExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {24 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 70 00 61 00 74 00 68 00 20 00 3d 00 20 00 27 00 63 00 3a 00 5c 00 75 00 73 00 65 00 72 00 73 00 5c 00 70 00 75 00 62 00 6c 00 69 00 63 00 5c 00 6d 00 75 00 73 00 69 00 63 00 5c 00 [0-72] 2e 00 65 00 78 00 65 00 27 00 3b 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

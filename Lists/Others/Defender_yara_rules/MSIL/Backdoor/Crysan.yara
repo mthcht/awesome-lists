@@ -1954,3 +1954,34 @@ rule Backdoor_MSIL_Crysan_SO_2147946850_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Crysan_AZCB_2147949881_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Crysan.AZCB!MTB"
+        threat_id = "2147949881"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 0a 06 20 00 01 00 00 6f ?? 00 00 0a 06 17 6f ?? 00 00 0a 06 18 6f ?? 00 00 0a 06 03 6f ?? 00 00 0a 06 04 6f ?? 00 00 0a 73 ?? 00 00 0a 0b 07 06 6f ?? 00 00 0a 17 73 ?? 00 00 0a 0c 08 02 16 02 8e 69 6f ?? 00 00 0a 08 6f ?? 00 00 0a 07 6f ?? 00 00 0a 0d de 1e}  //weight: 10, accuracy: Low
+        $x_2_2 = {06 07 02 07 91 03 07 03 8e 69 5d 91 61 d2 9c 07 17 58 0b 07 02 8e 69 32 e7}  //weight: 2, accuracy: High
+        $x_10_3 = {0a 13 06 11 06 11 05 6f ?? 00 00 0a 16 73 ?? 00 00 0a 13 07 73 ?? 00 00 0a 13 08 00 11 07 11 08 6f ?? 00 00 0a 00 11 08 6f ?? 00 00 0a 13 04 00 de 14}  //weight: 10, accuracy: Low
+        $x_2_4 = {16 0d 2b 1d 06 09 8f ?? 00 00 01 25 71 ?? 00 00 01 20 aa 00 00 00 61 d2 81 ?? 00 00 01 09 17 58 0d 09 06 8e 69 fe 04 13 0b 11 0b 2d d7}  //weight: 2, accuracy: Low
+        $x_1_5 = "FromBase64String" ascii //weight: 1
+        $x_1_6 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 2 of ($x_2_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

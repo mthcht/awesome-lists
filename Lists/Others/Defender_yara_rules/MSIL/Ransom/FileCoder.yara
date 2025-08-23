@@ -1867,3 +1867,53 @@ rule Ransom_MSIL_FileCoder_AYU_2147948986_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_AYS_2147949877_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AYS!MTB"
+        threat_id = "2147949877"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "VencRT Ransomware" ascii //weight: 2
+        $x_1_2 = "VencRT.pdb" ascii //weight: 1
+        $x_1_3 = "files are all encrypted with a military grade of encryption" ascii //weight: 1
+        $x_1_4 = "No one can decrypt your files, except us." ascii //weight: 1
+        $x_1_5 = "HOW_TO_DECRYPT_YOUR_FILES" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_FileCoder_AYT_2147949880_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AYT!MTB"
+        threat_id = "2147949880"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "All of your sensitive files have been encrypted with GoodLock." wide //weight: 2
+        $x_1_2 = "GoodLock.Properties.Resources" wide //weight: 1
+        $x_1_3 = "GoodLock.pdb" ascii //weight: 1
+        $x_1_4 = "DecryptAllEncryptedFiles" ascii //weight: 1
+        $x_1_5 = "IsSandboxProcessRunning" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

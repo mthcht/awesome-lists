@@ -4614,3 +4614,28 @@ rule Trojan_MSIL_Bladabindi_ASAB_2147947473_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_AYD_2147949878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.AYD!MTB"
+        threat_id = "2147949878"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "OfflineKeylogger Not Enabled" wide //weight: 2
+        $x_1_2 = "ExecutionPolicy Bypass Add-MpPreference -ExclusionProcess" wide //weight: 1
+        $x_1_3 = "Select * from AntivirusProduct" wide //weight: 1
+        $x_1_4 = "ExecutionPolicy Bypass -File" wide //weight: 1
+        $x_1_5 = "/create /f /RL HIGHEST /sc minute /mo 1 /tn" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
