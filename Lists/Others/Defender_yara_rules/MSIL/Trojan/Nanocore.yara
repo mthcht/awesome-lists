@@ -3173,3 +3173,27 @@ rule Trojan_MSIL_Nanocore_ATRA_2147939796_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Nanocore_PP_2147949923_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.PP!MTB"
+        threat_id = "2147949923"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 08 8d 0d 00 00 01 13 0a 7e ?? ?? ?? 04 02 1a 58 11 0a 16 11 08 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 11 0a 16 11 0a 8e 69 6f ?? ?? ?? 0a 13 0b 7e ?? ?? ?? 04 11 0b 6f ?? ?? ?? 0a 7e ?? ?? ?? 04 02 6f ?? ?? ?? 0a 7e ?? ?? ?? 04 6f ?? ?? ?? 0a 17 59 28 ?? ?? ?? 0a 16 7e ?? ?? ?? 04 02 1a 28 ?? ?? ?? 0a 11 0b 13 09 dd}  //weight: 2, accuracy: Low
+        $x_1_2 = "gljNUSsHFDwliDattkBofEezfcXtD" ascii //weight: 1
+        $x_1_3 = "CreateEncryptor" ascii //weight: 1
+        $x_1_4 = "DownloadData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

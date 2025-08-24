@@ -1096,3 +1096,25 @@ rule Trojan_Win32_Downloader_SAA_2147831415_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Downloader_PM_2147949924_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Downloader.PM!MTB"
+        threat_id = "2147949924"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Downloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "HTTP Downloader" ascii //weight: 1
+        $x_4_2 = "https://r2.e-z.host/9d4ffc2a-3978-4eb7-9db9-c4b96c191682/uy8sqfy0.exe" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

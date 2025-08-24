@@ -1,3 +1,24 @@
+rule Trojan_MSIL_Spynoon_SS_2147774009_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.SS!MTB"
+        threat_id = "2147774009"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0d 2b 43 00 09 6c 23 [0-7] 40 5a 0e 05 6c 5b 28 ?? ?? ?? 0a 02 5a 13 04 06 7b ?? ?? ?? 04 09 11 04 23 ?? ?? ?? ?? ?? ?? ?? 40 5a 28 ?? ?? ?? 0a 23 ?? ?? ?? ?? ?? ?? ?? 40 5d d2 9c 00 09 17 58 0d 09 0e 05 fe 04 13 05 11 05}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Spynoon_MFP_2147782172_0
 {
     meta:
