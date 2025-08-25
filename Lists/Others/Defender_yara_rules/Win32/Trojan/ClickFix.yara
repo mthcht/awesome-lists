@@ -10963,3 +10963,57 @@ rule Trojan_Win32_ClickFix_SFBA_2147949808_0
         )
 }
 
+rule Trojan_Win32_ClickFix_R_2147949942_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.R!MTB"
+        threat_id = "2147949942"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "-split" wide //weight: 1
+        $x_1_3 = "getstring" wide //weight: 1
+        $x_1_4 = "(..)'|?{$_})|%{[Convert]::ToByte($_,16)}))" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_R_2147949942_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.R!MTB"
+        threat_id = "2147949942"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "101"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_100_2 = "'68747470733a2f2f7a65646131732e626f7574697175652f" wide //weight: 100
+        $x_100_3 = "'68747470733a2f2f7078332e636c69636b2f5468656d652e696e69" wide //weight: 100
+        $x_100_4 = "'687474703a2f2f31307830372e696e6b2f" wide //weight: 100
+        $x_100_5 = "'687474703a2f2f34352e3232312e36342e3232342f31322e647c696578" wide //weight: 100
+        $x_100_6 = "262867616c2077672a29202d7573656220687474703a2f2f34352e3232312e36342e3232342f" wide //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+

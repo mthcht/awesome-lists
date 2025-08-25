@@ -4552,3 +4552,26 @@ rule Trojan_Win32_OffLoader_SPEP_2147949492_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_SASP_2147949936_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SASP!MTB"
+        threat_id = "2147949936"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "maidjellyfish.info/tru.php" ascii //weight: 4
+        $x_4_2 = "thingsidea.info/trus.php" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
