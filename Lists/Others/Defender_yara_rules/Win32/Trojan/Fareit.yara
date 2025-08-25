@@ -3982,6 +3982,27 @@ rule Trojan_Win32_Fareit_BA_2147824394_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {83 c4 08 32 1d ?? ?? ?? ?? 88 18 ff 07 81 3f 58 6c 00 00 75}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fareit_BA_2147824394_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fareit.BA!MTB"
+        threat_id = "2147824394"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fareit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
@@ -4341,6 +4362,48 @@ rule Trojan_Win32_Fareit_AFA_2147905635_0
     strings:
         $x_1_1 = {6a 00 e8 f8 1e fc ff e8 1b 1e fc ff 2b c3 3d e8 03 00 00}  //weight: 1, accuracy: High
         $x_1_2 = {b9 5e 34 2f 1c 33 d2 8b c3 e8 ?? ?? ?? ?? 89 45 fc e8 ?? ?? ?? ?? 68 00 80 00 00 6a 00 53}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fareit_BB_2147949975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fareit.BB!MTB"
+        threat_id = "2147949975"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fareit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {83 c4 08 32 1d ?? ?? ?? ?? 88 18 89 ff 90 89 c9 89 c9 ff 07 81 3f 96 6f 00 00 75}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fareit_BC_2147949977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fareit.BC!MTB"
+        threat_id = "2147949977"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fareit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {33 d2 8a 55 ef 33 94 85 e0 fb ff ff 88 16 ?? ?? ?? ?? 46 ff 4d e0 0f 85}  //weight: 4, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

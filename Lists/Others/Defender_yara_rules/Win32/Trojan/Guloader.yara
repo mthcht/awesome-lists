@@ -6782,3 +6782,64 @@ rule Trojan_Win32_Guloader_GPV_2147949802_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LZO_2147949950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LZO!MTB"
+        threat_id = "2147949950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\dyarchical.exe" ascii //weight: 1
+        $x_1_2 = "\\anodes\\bocce.gif" ascii //weight: 1
+        $x_1_3 = "\\caddishly\\gyrild.jpg" ascii //weight: 1
+        $x_1_4 = "\\brodersnnen.jpg" ascii //weight: 1
+        $x_1_5 = "tinstones.jpg" ascii //weight: 1
+        $x_1_6 = "eager.cac" ascii //weight: 1
+        $x_1_7 = "destillationsapparaters.afb" ascii //weight: 1
+        $x_1_8 = "defibrillationers.txt" ascii //weight: 1
+        $x_1_9 = "brakemaker.tri" ascii //weight: 1
+        $x_1_10 = "\\Chawia\\ugestempledes.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_LZP_2147949951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LZP!MTB"
+        threat_id = "2147949951"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "aurochs tepal" ascii //weight: 1
+        $x_1_2 = "chokrapporternes quirting" ascii //weight: 1
+        $x_1_3 = "arrowing gennemsnitsfiltreringernes.exe" ascii //weight: 1
+        $x_1_4 = "tilkbene.txt" ascii //weight: 1
+        $x_1_5 = "stillede.txt" ascii //weight: 1
+        $x_1_6 = "screek.sak" ascii //weight: 1
+        $x_1_7 = "autoprogressive.ini" ascii //weight: 1
+        $x_1_8 = "Superphlogisticate.ini" ascii //weight: 1
+        $x_1_9 = "Sendebudet8.jpg" ascii //weight: 1
+        $x_1_10 = "Metempirics180.jpg" ascii //weight: 1
+        $x_1_11 = "Autocollimation.rad" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

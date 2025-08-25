@@ -2192,3 +2192,24 @@ rule Trojan_Win32_Tofsee_PNB_2147949672_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tofsee_BAN_2147949974_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tofsee.BAN!MTB"
+        threat_id = "2147949974"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tofsee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {4b 29 d3 31 d2 09 da 89 1f f8 83 d7 04 8d 49 fc}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

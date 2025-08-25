@@ -21764,3 +21764,24 @@ rule Trojan_Win32_Emotet_BAA_2147949081_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Emotet_BAB_2147949976_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Emotet.BAB!MTB"
+        threat_id = "2147949976"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Emotet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {c1 ea 05 03 51 04 8b c8 c1 e1 04 03 0b 33 d1 8d 0c 07 33 d1 8d bf ?? ?? ?? ?? 2b f2 83 6d 0c 01}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
