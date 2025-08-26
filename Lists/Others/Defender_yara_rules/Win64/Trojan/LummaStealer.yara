@@ -1855,3 +1855,52 @@ rule Trojan_Win64_LummaStealer_PLS_2147949621_0
         )
 }
 
+rule Trojan_Win64_LummaStealer_GAPA_2147950170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GAPA!MTB"
+        threat_id = "2147950170"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {78 69 e5 29 d3 e7 65 b1 e1 39 31 d3 fd a5 d0 79 e2 0e 7a 63 2c 9c f6 e5 80 7a f7 ac da ec ce a1 c0 88 5d 8d ff 9f 4d a4 b3 9f 03}  //weight: 8, accuracy: High
+        $x_8_2 = {5d de d6 2e 79 1a 63 40 55 a9 98 c5 fb 75 d2 aa 8b 60 7d 0a 7c 11 7d 7b 16 d5 20 45 7e 6e d8 54 36 b0 e8 a4 cc 5c 88 24 0b bb 5f 1e 3f 17 fb ae 25 6a 49 3d e1 56 88 5f be 61 49 58}  //weight: 8, accuracy: High
+        $x_1_3 = ".oep" ascii //weight: 1
+        $x_1_4 = ".ilt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_8_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_8_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_LummaStealer_GAPC_2147950282_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GAPC!MTB"
+        threat_id = "2147950282"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {09 c8 51 1b 9d 90 5f 9f 66 ae 45 57 c8 9c 68 a0 d1 d0 1c f5 df 7d b2 4d 82 fe f5 15 5c e8 0c 31 0d 4c 76 a4 6b 8e 6f 45 75 36 63}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

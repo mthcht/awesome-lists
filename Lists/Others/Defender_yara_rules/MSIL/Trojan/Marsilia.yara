@@ -1555,3 +1555,30 @@ rule Trojan_MSIL_Marsilia_ERYG_2147949720_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Marsilia_GTB_2147950281_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.GTB!MTB"
+        threat_id = "2147950281"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 0b 16 0c 2b 1a 07 08 93 0d 06 09 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 08 17 d6 0c 08 07 8e 69 32 e0 06 6f 30}  //weight: 10, accuracy: Low
+        $x_10_2 = {0a 16 0b 02 6f ?? 00 00 0a 0c 16 0d 2b 36 08 09 93 13 04 07 20 ?? ?? ?? ?? 2f 19 06 11 04 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 07 17 d6 0b 2b 0c 06 72 ?? 00 00 70 28 ?? 00 00 0a 0a 09 17 d6 0d 09 08 8e 69 32 c4}  //weight: 10, accuracy: Low
+        $x_1_3 = "WindowsApp1.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

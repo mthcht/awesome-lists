@@ -171,3 +171,65 @@ rule Trojan_Linux_MsfShellBin_H_2147891368_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_MsfShellBin_I_2147950210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/MsfShellBin.I"
+        threat_id = "2147950210"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "MsfShellBin"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 b8 2f 62 69 6e 2f 73 68 00 99 50 54 5f}  //weight: 1, accuracy: High
+        $x_1_2 = {5e 6a 3b 58 0f 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_MsfShellBin_J_2147950211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/MsfShellBin.J"
+        threat_id = "2147950211"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "MsfShellBin"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {56 50 6a 29 58 99 6a 02 5f 6a 01 5e 0f 05 48 85 c0 78 [0-14] 51 48 89 e6 54 5e 6a 31 58 6a 10 5a 0f 05 6a 32 58 6a 01 5e 0f 05 6a 2b 58 99 52 52 54 5e 6a 1c 48 8d 14 24 0f 05}  //weight: 1, accuracy: Low
+        $x_1_2 = {5e 48 31 c0 48 ff c0 0f 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_MsfShellBin_K_2147950212_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/MsfShellBin.K"
+        threat_id = "2147950212"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "MsfShellBin"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6a 29 58 99 6a 01 5e 6a 02 5f 0f 05 97 b0 32 0f 05 96 b0 2b 0f 05 [0-2] ff ce 6a 21 58 0f 05 75 f7 52 48 bf 2f 2f 62 69 6e 2f 73 68 57 54 5f b0 3b 0f 05}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -9324,3 +9324,47 @@ rule Backdoor_Linux_Mirai_LI_2147949272_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_LC_2147950256_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LC!MTB"
+        threat_id = "2147950256"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {01 18 a0 e1 ff 18 01 e2 00 1c 81 e1 ff 30 03 e2 02 24 a0 e1 03 10 81 e1 ff 2c 02 e2 01 20 82 e1 ff 3c 02 e2 ff 08 02 e2 03 34 a0 e1 20 04 a0 e1 22 0c 80 e1 02 3c 83 e1 00 00 83 e1 0e f0 a0 e1}  //weight: 1, accuracy: High
+        $x_1_2 = {93 10 8d e2 01 20 a0 e3 05 00 a0 e1 ad ff ff eb 01 00 50 e3 04 00 a0 e3 8a ff ff 1b 93 30 dd e5 04 44 83 e1 7c 30 9f e5 03 00 54 e1 f3 ff ff 1a 0d 10 a0 e1 80 20 a0 e3 05 00 a0 e1 a1 ff ff eb 00 20 50 e2 0d 40 a0 e1 0d 10 a0 e1 07 00 a0 e1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Linux_Mirai_LD_2147950258_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LD!MTB"
+        threat_id = "2147950258"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {00 30 a0 e3 20 10 a0 e3 00 30 8d e5 03 00 00 ea 43 3f 8d e2 01 21 83 e0 00 30 e0 e3 08 31 02 e5 01 10 51 e2 f9 ff ff 5a 00 30 a0 e3 03 20 a0 e1 0d 10 a0 e1 06 00 a0 e3 84 30 8d e5 f3 01 00 eb da ff ff ea 02 00 53 e3}  //weight: 1, accuracy: High
+        $x_1_2 = {20 10 a0 13 02 00 00 1a 5c 00 00 ea 00 30 a0 e3 88 30 02 e5 01 10 51 e2 65 3f 8d e2 01 21 83 e0 f9 ff ff 5a 43 6f 8d e2 00 50 a0 e3 06 00 a0 e1 11 10 a0 e3 8c c1 8d e5 90 51 8d e5 79 fd ff eb 05 00 50 e1 4f 00 00 ba}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

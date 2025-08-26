@@ -6843,3 +6843,32 @@ rule Trojan_Win32_Guloader_LZP_2147949951_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_LZV_2147950218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.LZV!MTB"
+        threat_id = "2147950218"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "unconcertable.txt" ascii //weight: 1
+        $x_1_2 = "typografs.ang" ascii //weight: 1
+        $x_1_3 = "traadrullerne.ini" ascii //weight: 1
+        $x_1_4 = "paleolithical.jpg" ascii //weight: 1
+        $x_1_5 = "gemutlich.eks" ascii //weight: 1
+        $x_1_6 = "hopon.ini" ascii //weight: 1
+        $x_1_7 = "finvaskende.flu" ascii //weight: 1
+        $x_1_8 = "eivin.jpg" ascii //weight: 1
+        $x_1_9 = "dyophysite.sar" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

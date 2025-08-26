@@ -7568,3 +7568,26 @@ rule Trojan_Win32_Zusy_HF_2147949751_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_PZY_2147950171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.PZY!MTB"
+        threat_id = "2147950171"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MySuperSecretKeyForAES256IsGood!" ascii //weight: 1
+        $x_2_2 = "+iJuBfovHhKMKXZfVv7Tv8WYJ62/Nvgh3jDNr3UCSUZFE5lLlmSt4pL5+ZbUjcZ6TfUgnUQP92yh9qYAwk/LQQ==" ascii //weight: 2
+        $x_2_3 = "Sm5hkMLdudICcfA1YqA64VA8562yICe5jP8QtdFtqyA=" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

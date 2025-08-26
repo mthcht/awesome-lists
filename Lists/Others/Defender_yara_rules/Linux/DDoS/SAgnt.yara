@@ -120,3 +120,28 @@ rule DDoS_Linux_SAgnt_D_2147949273_0
         (all of ($x*))
 }
 
+rule DDoS_Linux_SAgnt_E_2147950169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "DDoS:Linux/SAgnt.E!MTB"
+        threat_id = "2147950169"
+        type = "DDoS"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "FIN-FLOOD" ascii //weight: 1
+        $x_1_2 = "grpc-flood" ascii //weight: 1
+        $x_1_3 = "udp-bypass" ascii //weight: 1
+        $x_1_4 = {63 75 72 6c 20 2d 66 73 53 4c 20 68 74 74 70 3a [0-21] 2f 63 61 74 2e 73 68}  //weight: 1, accuracy: Low
+        $x_1_5 = "main.botnet.world/x86_64" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

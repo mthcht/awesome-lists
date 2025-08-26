@@ -3319,3 +3319,25 @@ rule Trojan_Win64_Lazy_AHG_2147949816_0
         )
 }
 
+rule Trojan_Win64_Lazy_LMK_2147950173_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LMK!MTB"
+        threat_id = "2147950173"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a 4f fe 44 8a 47 ff 8a c1 44 8a 1f 8a d1 c0 e8 07 02 d2 0f b6 c0 6b c0 1b 40 8a 77 01 88 4c 24 70 40 02 f6 41 8a c8 44 88 44 24 78 02 c9 44 88 5c 24 68 32 d0 89 44 24 0c 8a c2}  //weight: 20, accuracy: High
+        $x_10_2 = {32 42 01 32 44 24 78 32 44 24 68 88 42 fe 8a c1 40 32 c6 40 32 ce 41 32 c7 41 32 cf 32 04 24 32 44 24 02 32 44 24 01 32 44 24 78 32 44 24 68 32 0c 24 02 c0 32 4c 24 02 41 32 c1 32 4c 24 01 41 32 c2 40 32 c7 40 32 c5}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -577,3 +577,25 @@ rule Trojan_AndroidOS_FakeApp_BY_2147926434_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_FakeApp_AA_2147950255_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/FakeApp.AA!MTB"
+        threat_id = "2147950255"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "FakeApp"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {71 10 4e 0e 08 00 6e 20 d4 07 41 00 0c 05 1a 03 4e 8b 6e 20 d1 07 31 00 0c 06 07 23 07 94 78 06 da 09 03 00 28 2a 72 20 d9 09 92 00 28 26 1a 03 54 8b 6e 20 c2 07 31 00 0c 03 71 10 4e 0e 03 00 6e 20 d4 07 41 00}  //weight: 1, accuracy: High
+        $x_1_2 = {12 01 1a 02 3c 92 6e 30 cb 07 20 01 0a 01 59 41 3f 01 1a 01 3a 92 71 20 30 3c 10 00 0c 01 38 01 2a 00 22 02 d7 01 54 43 3d 01 70 30 f3 09 12 03 5b 42 3e 01 22 01 67 01 54 42 3a 01 70 20 5a 08 21 00 5b 41 38 01 54 42 3a 01 6e 20 5e 09 12 00 54 41 3e 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

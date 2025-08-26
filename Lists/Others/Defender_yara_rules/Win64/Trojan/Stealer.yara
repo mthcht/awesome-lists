@@ -433,3 +433,52 @@ rule Trojan_Win64_Stealer_SX_2147949161_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SXA_2147950174_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SXA!MTB"
+        threat_id = "2147950174"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 63 40 3c 48 8b 4c 24 30 48 03 c8 48 8b c1 48 89 44 24 50 b8 ?? ?? ?? ?? 48 6b c0 ?? 48 8b 4c 24 50}  //weight: 5, accuracy: Low
+        $x_2_2 = "VoidRAT" ascii //weight: 2
+        $x_2_3 = "WinHTTP Uploader/1.0" ascii //weight: 2
+        $x_1_4 = "american" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Stealer_SXB_2147950176_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SXB!MTB"
+        threat_id = "2147950176"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8d 44 24 48 49 83 fe ?? 49 0f 47 c3 42 0f b7 0c 40 8d 41 d0 66 83 f8 ?? 76 17 8d 41 bf 66 83 f8 ?? 76 0e 66 83 e9 ?? 66 83 f9 ?? 0f 87 ?? ?? ?? ?? 49 ff c0 4c 3b c2 72 c6}  //weight: 5, accuracy: Low
+        $x_2_2 = "USDT hijack" ascii //weight: 2
+        $x_1_3 = "GetClipboardData" ascii //weight: 1
+        $x_1_4 = "GetKeyState" ascii //weight: 1
+        $x_1_5 = "ShellExecute" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
