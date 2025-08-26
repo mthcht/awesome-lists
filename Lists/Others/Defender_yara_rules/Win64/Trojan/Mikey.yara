@@ -817,3 +817,28 @@ rule Trojan_Win64_Mikey_SXB_2147949265_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_PCW_2147950022_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.PCW!MTB"
+        threat_id = "2147950022"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "netsh advfirewall firewall add rule name" ascii //weight: 1
+        $x_1_2 = "schannel: failed to decrypt data, need more data" ascii //weight: 1
+        $x_1_3 = "EMOTE / AVATAR HACK ( ON . OFF )" ascii //weight: 1
+        $x_1_4 = "MAHON FREE VRS.pdb" ascii //weight: 1
+        $x_1_5 = "CAMERA HACK" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

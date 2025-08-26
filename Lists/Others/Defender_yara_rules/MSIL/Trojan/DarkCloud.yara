@@ -1070,3 +1070,26 @@ rule Trojan_MSIL_DarkCloud_AVBB_2147948695_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_APDB_2147950309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.APDB!MTB"
+        threat_id = "2147950309"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {38 cf 00 00 00 2d 0b 72 ?? ?? 00 70 38 ?? 00 00 00 7a 38 ?? 00 00 00 38 ?? 00 00 00 06 03 7b ?? 00 00 04 03 7b ?? 00 00 04 6f ?? 00 00 0a 0b 1c 2c 0a 17 2c 07 2b 62 38 ?? 00 00 00 38 ?? 00 00 00 38 ?? 00 00 00 17 38 ?? 00 00 00 0d 02 09 6f ?? 00 00 0a 1d 2c 06 09 6f ?? 00 00 0a de 0a}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

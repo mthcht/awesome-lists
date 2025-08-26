@@ -53,6 +53,28 @@ rule Trojan_Win64_FileCoder_NF_2147893871_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 0a 83 e1 0f 4a 0f be 84 ?? d8 ca 04 00 42 8a 8c ?? e8 ca 04 00 48 2b d0 8b 42 fc d3 e8}  //weight: 2, accuracy: Low
+        $x_1_2 = {8d 43 ff 48 8d 04 80 4c 8d 0c 87 4d 03 cb e9 58 ff ff ff e8 ab cb fe ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_FileCoder_NF_2147893871_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.NF!MTB"
+        threat_id = "2147893871"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -68,7 +90,7 @@ rule Trojan_Win64_FileCoder_NF_2147893871_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_FileCoder_NF_2147893871_3
+rule Trojan_Win64_FileCoder_NF_2147893871_4
 {
     meta:
         author = "defender2yara"

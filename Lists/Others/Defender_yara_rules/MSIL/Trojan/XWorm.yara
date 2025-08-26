@@ -2757,3 +2757,26 @@ rule Trojan_MSIL_XWorm_ENUW_2147949717_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ANDB_2147950307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ANDB!MTB"
+        threat_id = "2147950307"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 2c 38 06 6f ?? 00 00 0a 0b 07 15 33 02 de 49 03 18 18 73 ?? 00 00 0a 0c 2b 0b 08 11 04 07 61 d2 6f ?? 00 00 0a 06 6f ?? 00 00 0a 25 13 04 15 33 e9}  //weight: 5, accuracy: Low
+        $x_2_2 = {1f 0b 11 2a 58 11 27 1d 58 61 d2 13 21 11 1c 16 91 11 1c 18 91 1e 62 60 11 21 19 62 58 13 1f 16 13 09}  //weight: 2, accuracy: High
+        $x_2_3 = {11 18 d2 13 2c 11 18 1e 63 d1 13 18 11 17 11 09 91 13 22 11 17 11 09 11 22 11 27 61 19 11 21 58 61 11 2c 61 d2 9c 11 22 13 21 11 09 17 58 13 09}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
