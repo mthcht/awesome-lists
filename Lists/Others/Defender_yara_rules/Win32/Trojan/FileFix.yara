@@ -240,3 +240,167 @@ rule Trojan_Win32_FileFix_EA_2147949392_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FileFix_GGY_2147950077_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.GGY!MTB"
+        threat_id = "2147950077"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-16] 2d 00 63 00 [0-32] 70 00 69 00 6e 00 67 00 [0-60] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-16] 20 00 23 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FileFix_GGZ_2147950078_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.GGZ!MTB"
+        threat_id = "2147950078"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[char]($_-bxor$" wide //weight: 1
+        $x_1_2 = "join($" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FileFix_HHA_2147950079_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.HHA!MTB"
+        threat_id = "2147950079"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "iex(irm $" wide //weight: 1
+        $x_1_2 = ";iex $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FileFix_HHB_2147950080_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.HHB!MTB"
+        threat_id = "2147950080"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "::WriteAllBytes;$" wide //weight: 1
+        $x_1_2 = "::ReadAllBytes;$" wide //weight: 1
+        $x_1_3 = "[System.Convert];$" wide //weight: 1
+        $x_1_4 = ".GetBytes;$" wide //weight: 1
+        $x_1_5 = ":FromBase64String;$" wide //weight: 1
+        $x_1_6 = "GetString;$" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FileFix_HHC_2147950081_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.HHC!MTB"
+        threat_id = "2147950081"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {2e 00 61 00 73 00 70 00 78 00 [0-60] 20 00 23 00}  //weight: 1, accuracy: Low
+        $x_1_2 = "Start-Process http" wide //weight: 1
+        $x_1_3 = "powershell" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FileFix_HHC_2147950081_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.HHC!MTB"
+        threat_id = "2147950081"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".Substring($($_" wide //weight: 1
+        $x_1_2 = "-join" wide //weight: 1
+        $x_1_3 = "ForEach-Object" wide //weight: 1
+        $x_1_4 = "[char]([int]" wide //weight: 1
+        $x_1_5 = "get-content" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FileFix_HHC_2147950081_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.HHC!MTB"
+        threat_id = "2147950081"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".GetString($convert::FromBase64String" wide //weight: 1
+        $x_1_2 = ";&(bitsadmin.exe /transfer " wide //weight: 1
+        $x_1_3 = "join($env:TEMP" wide //weight: 1
+        $x_1_4 = ".GetString($" wide //weight: 1
+        $x_1_5 = ".GetBytes($" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
