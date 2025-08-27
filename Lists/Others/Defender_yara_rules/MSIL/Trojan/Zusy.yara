@@ -3764,3 +3764,25 @@ rule Trojan_MSIL_Zusy_GTB_2147950335_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_PGAM_2147950390_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.PGAM!MTB"
+        threat_id = "2147950390"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {58 13 1f 11 1f 1f 10 64 d1 13 18 11 18 d2 13 2c 11 18 1e 63 d1 13 18 11 17 11 09 91 13 22 11 17 11 09 11 22 11 27 61 ?? ?? ?? 58 61 11 2c 61 d2 9c 11 22 13 21 ?? ?? ?? 58 13 09 11 09 11 2a 32 a4}  //weight: 5, accuracy: Low
+        $x_5_2 = "DownloaderApp.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
