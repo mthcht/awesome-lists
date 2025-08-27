@@ -404,3 +404,27 @@ rule Trojan_Win32_FileFix_HHC_2147950081_2
         (all of ($x*))
 }
 
+rule Trojan_Win32_FileFix_HHG_2147950448_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.HHG!MTB"
+        threat_id = "2147950448"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "[Environment]::GetFolderPath" wide //weight: 1
+        $x_1_2 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "|Get-Random -Count" wide //weight: 1
+        $x_1_4 = "{[char]$_" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
