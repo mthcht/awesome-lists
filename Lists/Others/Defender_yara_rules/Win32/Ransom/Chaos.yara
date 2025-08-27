@@ -159,3 +159,29 @@ rule Ransom_Win32_Chaos_MKV_2147948310_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Chaos_BA_2147950549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.BA!MTB"
+        threat_id = "2147950549"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "your hard disk has been permanently locked, but you can recover it" ascii //weight: 1
+        $x_1_2 = "Readme.txt" ascii //weight: 1
+        $x_1_3 = "Encrypted file" ascii //weight: 1
+        $x_1_4 = "All your files are stolen and encrypted" ascii //weight: 1
+        $x_1_5 = "Find Readme.txt and follow the" ascii //weight: 1
+        $x_1_6 = "You can get bitcoin very easy on this site: https:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
