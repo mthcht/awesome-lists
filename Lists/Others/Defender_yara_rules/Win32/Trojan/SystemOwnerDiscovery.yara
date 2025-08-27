@@ -95,3 +95,24 @@ rule Trojan_Win32_SystemOwnerDiscovery_C_2147769715_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_SystemOwnerDiscovery_SB_2147950478_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SystemOwnerDiscovery.SB"
+        threat_id = "2147950478"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SystemOwnerDiscovery"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "whoami > " wide //weight: 1
+        $x_1_2 = "whoami.exe > " wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

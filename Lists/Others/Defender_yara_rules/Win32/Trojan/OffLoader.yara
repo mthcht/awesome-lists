@@ -4519,8 +4519,10 @@ rule Trojan_Win32_OffLoader_ATCB_2147949414_0
         $x_4_2 = "://wirevegetable.info/ljus.php?" ascii //weight: 4
         $x_4_3 = "://roadtrousers.info/rnu.php?" ascii //weight: 4
         $x_4_4 = "://shirtapparatus.xyz/rnus.php?" ascii //weight: 4
-        $x_1_5 = "/silent" ascii //weight: 1
-        $x_1_6 = "Do you want to reboot now?" ascii //weight: 1
+        $x_4_5 = "://insurancemorning.info/bet.php?" ascii //weight: 4
+        $x_4_6 = "://belieffield.info/bets.php?" ascii //weight: 4
+        $x_1_7 = "/silent" ascii //weight: 1
+        $x_1_8 = "Do you want to reboot now?" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (
