@@ -179,6 +179,28 @@ rule Trojan_Win64_LummaStealer_NS_2147902328_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_NS_2147902328_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.NS!MTB"
+        threat_id = "2147902328"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 1d b1 33 43 00 48 8d 05 82 b5 23 00 48 8d 0d 3d cd 19 00 bf 04 00 00 00 48 8d 35 01 57 1a 00 41 b8 19 00 00 00 45 31 c9}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8b 3a 48 8b 72 08 31 c0 48 8d 1d cb d1 19 00 b9 04 00 00 00 e8 a3 a3 d1 ff 48 89 9c 24 28 02 00 00 48 89 84 24 20 02 00 00 48 8d 05 1f dc 19 00 bb 07 00 00 00 48 8d 8c 24 10 02 00 00 bf 02 00 00 00 48 89 fe e8 12 66 dd ff e8 6d 77 dd ff 48 8b ac 24 60 05 00 00 48 81 c4 68 05 00 00 c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_LummaStealer_NLK_2147904080_0
 {
     meta:
@@ -1847,9 +1869,12 @@ rule Trojan_Win64_LummaStealer_PLS_2147949621_0
         $x_2_2 = "Add-MpPreference -ExclusionPath" ascii //weight: 2
         $x_1_3 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 31 00 34 00 31 00 2e 00 39 00 38 00 2e 00 36 00 2e 00 31 00 33 00 30 00 3a 00 35 00 35 00 35 00 34 00 2f 00 [0-31] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
         $x_1_4 = {68 74 00 74 00 70 3a 2f 2f 31 34 31 2e 39 38 2e 36 2e 31 33 30 3a 35 35 35 34 2f [0-31] 2e 65 78 65}  //weight: 1, accuracy: Low
+        $x_1_5 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 38 00 34 00 2e 00 32 00 31 00 2e 00 31 00 38 00 39 00 2e 00 32 00 32 00 3a 00 35 00 35 00 35 00 34 00 2f 00 [0-31] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {68 74 00 74 00 70 3a 2f 2f 38 34 2e 32 31 2e 31 38 39 2e 32 32 3a 35 35 35 34 2f [0-31] 2e 65 78 65}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
             ((2 of ($x_2_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
