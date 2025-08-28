@@ -32,6 +32,28 @@ rule Trojan_MSIL_Vipkeylogger_AVK_2147945330_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 08 91 58 11 09 20 ff 00 00 00 5f 58 20 ff 00 00 00 5f 0b 11 1c 20 ?? 01 00 00 91 1f 7f 59 13 1a}  //weight: 2, accuracy: Low
+        $x_1_2 = {11 0d 11 0e 58 0e 04 58 20 ff 00 00 00 5f 91 13 0f 11 1c 1f 21 91 1f 09 5b 13 1a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Vipkeylogger_AVK_2147945330_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Vipkeylogger.AVK!MTB"
+        threat_id = "2147945330"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Vipkeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:

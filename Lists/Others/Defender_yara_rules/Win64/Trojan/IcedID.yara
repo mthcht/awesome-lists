@@ -11963,3 +11963,24 @@ rule Trojan_Win64_IcedID_HD_2147919392_0
         )
 }
 
+rule Trojan_Win64_IcedID_ZXT_2147950671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/IcedID.ZXT!MTB"
+        threat_id = "2147950671"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "IcedID"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {99 f7 fb 48 8b 44 24 ?? 42 8a 04 18 29 ca 01 ea 44 01 ca 01 fa 29 ca 01 fa 44 29 ca 44 29 c2 29 ca 01 ea 44 01 ca 01 fa 29 ca 01 d7 48 8d 15 ?? ?? ?? ?? 44 29 cf 44 29 c7 48 63 ff 32 04 3a 43 88 04 2c e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4379,3 +4379,24 @@ rule Trojan_Win64_CryptInject_AHD_2147946816_0
         )
 }
 
+rule Trojan_Win64_CryptInject_VOT_2147950670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.VOT!MTB"
+        threat_id = "2147950670"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 c1 66 89 84 24 48 0b 00 00 48 8b 84 24 ?? 73 00 00 48 8b 8c 24 ?? 73 00 00 48 23 c8 48 8b c1 48 8b 8c 24 ?? 73 00 00 48 89 01 48 8b 84 24 ?? 73 00 00 48 8b 8c 24 ?? 73 00 00 48 8b 00 48 03 c1 48 8b 8c 24 ?? 73 00 00 48 89 01 0f b6 44 24 50 0f b6 4c 24 52 2b c1 88 05 d7 1f 15 00 8b 84 24 f4 3e 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
