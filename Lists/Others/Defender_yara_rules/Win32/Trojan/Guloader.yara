@@ -6950,3 +6950,32 @@ rule Trojan_Win32_Guloader_GPX_2147950578_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_UAE_2147950625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.UAE!MTB"
+        threat_id = "2147950625"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "lnindtgt.exe" ascii //weight: 1
+        $x_1_2 = "kvabsoen traadrenseren" ascii //weight: 1
+        $x_1_3 = "initialiserede" ascii //weight: 1
+        $x_1_4 = "colossal anneloid" ascii //weight: 1
+        $x_1_5 = "chortler cicadellidae smilitr" ascii //weight: 1
+        $x_1_6 = "befolkningsstudier.sil" ascii //weight: 1
+        $x_1_7 = "simulatively.jge" ascii //weight: 1
+        $x_1_8 = "makara.kde" ascii //weight: 1
+        $x_1_9 = "vandpytters.pem" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

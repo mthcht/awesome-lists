@@ -408,3 +408,24 @@ rule Trojan_MSIL_WebShell_MZB_2147950310_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_AXDB_2147950638_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AXDB!MTB"
+        threat_id = "2147950638"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 07 06 28 ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 72 ?? 00 00 70 72 ?? 00 00 70 6f ?? 00 00 0a 0c 02 6f ?? 00 00 0a 6f ?? 00 00 0a 07 6f ?? 00 00 0a 28 ?? 00 00 0a 0d 73 ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 09 16 09 8e 69 6f ?? 00 00 0a 0d 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 00 00 70 6f ?? 00 00 0a 2d 60}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
