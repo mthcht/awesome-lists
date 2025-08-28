@@ -6899,3 +6899,54 @@ rule Trojan_Win32_Guloader_LZX_2147950469_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GPW_2147950552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPW!MTB"
+        threat_id = "2147950552"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "obstruktionstalernes mcf" ascii //weight: 1
+        $x_1_2 = "rehabilitee unisex regensprovster" ascii //weight: 1
+        $x_1_3 = "zing tryksagsproducenter slidserne" ascii //weight: 1
+        $x_1_4 = "mordbrnder pladsbillet dielectrical" ascii //weight: 1
+        $x_1_5 = "sildebensmnstres" ascii //weight: 1
+        $x_1_6 = "douce wheerikins.exe" ascii //weight: 1
+        $x_1_7 = "frekvensgangen" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GPX_2147950578_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GPX!MTB"
+        threat_id = "2147950578"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "udringningers brugsrigtigere stningsstrengen" ascii //weight: 1
+        $x_1_2 = "genfortolkes solskrmen arawa" ascii //weight: 1
+        $x_1_3 = "fumiferous.htm" ascii //weight: 1
+        $x_1_4 = "palisanderets.zip" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
