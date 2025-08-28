@@ -444,6 +444,28 @@ rule Virus_Win32_Expiro_EM_2147852532_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_5_1 = {55 8b ec 83 3d 84 d0 44 00 01 75 05 e8 68 8c 0d 00}  //weight: 5, accuracy: High
+        $x_5_2 = {8b f0 85 f6 75 0d 6a 12 e8 41 7e 0c 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Virus_Win32_Expiro_EM_2147852532_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win32/Expiro.EM!MTB"
+        threat_id = "2147852532"
+        type = "Virus"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Expiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = {50 51 52 53 55 56 57 e8 00 00 00 00}  //weight: 2, accuracy: High
         $x_3_2 = {81 c6 00 04 00 00 81 c0 00 04 00 00 81 fe 00 c0 08 00 0f 85}  //weight: 3, accuracy: High
         $x_3_3 = {81 c6 00 04 00 00 81 c1 00 04 00 00 81 fe 00 c0 08 00 0f 85}  //weight: 3, accuracy: High
