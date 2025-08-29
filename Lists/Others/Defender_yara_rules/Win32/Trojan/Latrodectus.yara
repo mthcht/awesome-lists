@@ -66,3 +66,26 @@ rule Trojan_Win32_Latrodectus_YAD_2147948674_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Latrodectus_YAE_2147950701_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Latrodectus.YAE!MTB"
+        threat_id = "2147950701"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Latrodectus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {b8 68 00 00 00 66 89 85 ?? ?? ?? ?? b9 74 00 00 00 66 89 8d ?? ?? ?? ?? ba 74 00 00 00 66 89 95 ?? ?? ?? ?? b8 70 00 00 00 66 89 85 ?? ?? ?? ?? b9 3a 00}  //weight: 10, accuracy: Low
+        $x_5_2 = {b9 6b 00 00 00 ?? ?? ?? ?? ba 65 00 00 00 ?? ?? ?? ?? b8 72 00 00 00 ?? ?? ?? ?? b9 6e 00 00 00 ?? ?? ?? ?? ba 65 00 00 00 ?? ?? ?? ?? b8 6c}  //weight: 5, accuracy: Low
+        $x_5_3 = {68 c5 93 48 37 6a 01 e8 [0-18] 68 02 0d 58 c6 6a 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -556,6 +556,30 @@ rule Ransom_Win64_Filecoder_MX_2147928076_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".encrypted" ascii //weight: 1
+        $x_1_2 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_3 = "to restore them" ascii //weight: 1
+        $x_1_4 = "message will be deleted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_MX_2147928076_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MX!MTB"
+        threat_id = "2147928076"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "6"
         strings_accuracy = "High"
     strings:
@@ -1133,6 +1157,30 @@ rule Ransom_Win64_Filecoder_YBD_2147946847_0
 }
 
 rule Ransom_Win64_Filecoder_YBE_2147946848_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBE!MTB"
+        threat_id = "2147946848"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".LockedA" ascii //weight: 1
+        $x_1_2 = "Information.HTA" wide //weight: 1
+        $x_1_3 = "DontDeleteThisFolder\\Enc.key" ascii //weight: 1
+        $x_1_4 = "System Volume Information" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_YBE_2147946848_1
 {
     meta:
         author = "defender2yara"

@@ -192,3 +192,24 @@ rule Ransom_Win32_Magniber_RPY_2147850588_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Magniber_YBH_2147950703_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Magniber.YBH!MTB"
+        threat_id = "2147950703"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Magniber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 8e a2 01 00 00 8a 9e 47 78 00 00 32 cb 88 0f 48 ff c6 eb 32}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

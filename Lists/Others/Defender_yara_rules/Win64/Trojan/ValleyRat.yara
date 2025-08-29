@@ -132,3 +132,27 @@ rule Trojan_Win64_ValleyRat_PSG_2147947413_0
         )
 }
 
+rule Trojan_Win64_ValleyRat_TRK_2147950690_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.TRK!MTB"
+        threat_id = "2147950690"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.runService" ascii //weight: 1
+        $x_1_2 = "main.decryptShellcode" ascii //weight: 1
+        $x_1_3 = "main.installSelf" ascii //weight: 1
+        $x_1_4 = "main.loadAndExecute" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

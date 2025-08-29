@@ -6939,6 +6939,27 @@ rule Trojan_Win32_LummaStealer_RPP_2147946351_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_RPP_2147946351_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.RPP!MTB"
+        threat_id = "2147946351"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 20 00 2f 00 63 00 20 00 69 00 63 00 61 00 63 00 6c 00 73 00 [0-112] 2e 00 65 00 78 00 65 00 20 00 2f 00 69 00 6e 00 68 00 65 00 72 00 69 00 74 00 61 00 6e 00 63 00 65 00 3a 00 72 00 20 00 2f 00 67 00 72 00 61 00 6e 00 74 00 20 00 73 00 79 00 73 00 74 00 65 00 6d 00 3a 00 66 00 20 00 2f 00 67 00 72 00 61 00 6e 00 74 00 20 00 65 00 76 00 65 00 72 00 79 00 6f 00 6e 00 65 00 3a 00 72 00 78 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_JSM_2147946434_0
 {
     meta:
@@ -7082,6 +7103,49 @@ rule Trojan_Win32_LummaStealer_NR_2147949141_0
     strings:
         $x_2_1 = {fe c9 8a 4d 02 81 c5 02 00 00 00 d2 ea}  //weight: 2, accuracy: High
         $x_1_2 = {32 d8 8d 44 04 0c 89 10 8d 64 24 0c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_RPQ_2147950708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.RPQ!MTB"
+        threat_id = "2147950708"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 20 00 2f 00 63 00 20 00 69 00 63 00 61 00 63 00 6c 00 73 00 [0-112] 2e 00 65 00 78 00 65 00 20 00 2f 00 72 00 65 00 6d 00 6f 00 76 00 65 00 3a 00 64 00 20 00 65 00 76 00 65 00 72 00 79 00 6f 00 6e 00 65 00 20 00 61 00 64 00 6d 00 69 00 6e 00 69 00 73 00 74 00 72 00 61 00 74 00 6f 00 72 00 73 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_RPR_2147950709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.RPR!MTB"
+        threat_id = "2147950709"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "-executionpolicy bypass -command new-service -name downloaderservice -binarypathname" wide //weight: 10
+        $x_1_2 = "-startuptype automatic" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
