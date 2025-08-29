@@ -3271,3 +3271,27 @@ rule Trojan_MSIL_Stealer_AODB_2147950308_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_AAEB_2147950764_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.AAEB!MTB"
+        threat_id = "2147950764"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {09 11 0b 20 83 00 00 00 5a 61 13 0c 16 13 0d}  //weight: 4, accuracy: High
+        $x_3_2 = {11 0c 16 5f 13 11 11 11 19 5d 13 12 17 11 11 58 19 5d 13 13}  //weight: 3, accuracy: High
+        $x_2_3 = {08 94 11 08 61 0e 05 1f 0f 5f 58 9e}  //weight: 2, accuracy: High
+        $x_2_4 = {8e 69 5d 94 61 58 13 0c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

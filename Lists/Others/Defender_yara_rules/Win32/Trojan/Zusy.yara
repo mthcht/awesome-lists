@@ -7613,3 +7613,27 @@ rule Trojan_Win32_Zusy_MRC_2147950550_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_GXT_2147950763_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.GXT!MTB"
+        threat_id = "2147950763"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {83 fe 0f 8d 45 d4 0f 47 c1 0f b6 0c 10 8b 45 bc 89 14 88 42 8b 4d d4 83 fa 40 7c}  //weight: 5, accuracy: High
+        $x_5_2 = "iDTHNqCQGIVt0KFQUh9NyrHXKGQ7j/aa" ascii //weight: 5
+        $x_1_3 = "api.telegram.org/bot" ascii //weight: 1
+        $x_1_4 = "MySuperSecretKeyForAES256IsGood!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

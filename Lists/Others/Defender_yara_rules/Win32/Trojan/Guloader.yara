@@ -6979,3 +6979,33 @@ rule Trojan_Win32_Guloader_UAE_2147950625_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_UAF_2147950729_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.UAF!MTB"
+        threat_id = "2147950729"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "yapok.txt" ascii //weight: 1
+        $x_1_2 = "nucleolinus.ini" ascii //weight: 1
+        $x_1_3 = "markedsfoerer.des" ascii //weight: 1
+        $x_1_4 = "frokostformats.txt" ascii //weight: 1
+        $x_1_5 = "envejskommunikations.txt" ascii //weight: 1
+        $x_1_6 = "avledygtiges.jpg" ascii //weight: 1
+        $x_1_7 = "lackwit bombardo eneboernaturs" ascii //weight: 1
+        $x_1_8 = "tsjappet rumskibs.exe" ascii //weight: 1
+        $x_1_9 = "rnkespillene inn" ascii //weight: 1
+        $x_1_10 = "afspaltningernes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
