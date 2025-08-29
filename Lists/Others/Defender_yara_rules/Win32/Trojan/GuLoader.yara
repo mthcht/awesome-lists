@@ -3841,6 +3841,31 @@ rule Trojan_Win32_GuLoader_RBS_2147937378_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "Creephole\\Fodpleje\\cheminova" ascii //weight: 1
+        $x_1_2 = "blindet\\Admiralers175" ascii //weight: 1
+        $x_1_3 = "\\Magteslsest\\outgate.txt" ascii //weight: 1
+        $x_1_4 = "%%\\nonforfeiture\\unslacking.ini" ascii //weight: 1
+        $x_1_5 = "%elevskolerne%\\unlocalizables\\yvette" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBS_2147937378_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBS!MTB"
+        threat_id = "2147937378"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "-\\groteskes\\Pletten113\\fldeskummen" ascii //weight: 1
         $x_1_2 = "%shufflingly%\\reporterede\\Nonnatives" ascii //weight: 1
         $x_1_3 = "\\mayorships\\Epidemiologiens.ini" ascii //weight: 1

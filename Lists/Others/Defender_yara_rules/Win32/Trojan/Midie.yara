@@ -899,3 +899,26 @@ rule Trojan_Win32_Midie_KHT_2147947911_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Midie_KAB_2147950797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.KAB!MTB"
+        threat_id = "2147950797"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {3e 8d 0c b5 00 00 00 00 8b 0c 08 33 4d fc 3e 8d 14 b5 00 00 00 00 89 0c 10 83 c6 ?? 3b 75 0c 75}  //weight: 20, accuracy: Low
+        $x_8_2 = "7yz-11.dll" ascii //weight: 8
+        $x_7_3 = "C:\\aow_dr.cmd" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
