@@ -452,6 +452,34 @@ rule Ransom_Win64_Filecoder_ARA_2147917869_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_ARA_2147917869_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.ARA!MTB"
+        threat_id = "2147917869"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\\\.\\PhysicalDrive" ascii //weight: 10
+        $x_2_2 = "shellexecute=DEAD97.exe" ascii //weight: 2
+        $x_2_3 = "vssadmin delete shadows /all /quiet" ascii //weight: 2
+        $x_2_4 = "YOUR COMPUTER HAS BEEN FUCKED BY THE MEMZ TROJAN" ascii //weight: 2
+        $x_2_5 = "YOU CANNOT ESCAPE" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Ransom_Win64_Filecoder_GV_2147920833_0
 {
     meta:
