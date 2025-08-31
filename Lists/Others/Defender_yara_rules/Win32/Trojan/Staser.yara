@@ -902,3 +902,28 @@ rule Trojan_Win32_Staser_DP_2147850017_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Staser_LM_2147950905_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Staser.LM!MTB"
+        threat_id = "2147950905"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Staser"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {83 c4 04 58 8b 5d c8 89 03 8b 5d ec e8 ?? ?? ?? ?? b8 02 00 00 00 3b c1 7c ?? 68 55 03 00 00 68 ce 1f 01 04 68 01 00 00 00 e8}  //weight: 10, accuracy: Low
+        $x_5_2 = "xcomw.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
