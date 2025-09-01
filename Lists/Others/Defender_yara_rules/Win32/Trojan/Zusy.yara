@@ -3708,6 +3708,29 @@ rule Trojan_Win32_Zusy_ARA_2147896826_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {53 56 57 6a 40 bf 50 c6 04 00 68 00 30 00 00 33 db 57 53 ff 15 10 10 40 00}  //weight: 2, accuracy: High
+        $x_2_2 = {53 53 56 56 53 53 ff 15 14 10 40 00}  //weight: 2, accuracy: High
+        $x_2_3 = {6a ff 50 ff 15 18 10 40 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_ARA_2147896826_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.ARA!MTB"
+        threat_id = "2147896826"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
