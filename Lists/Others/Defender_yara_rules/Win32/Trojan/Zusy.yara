@@ -7660,3 +7660,24 @@ rule Trojan_Win32_Zusy_GXT_2147950763_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_BAD_2147951025_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAD!MTB"
+        threat_id = "2147951025"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {33 c1 88 85 ?? ?? ?? ?? 0f b7 95 ?? ?? ?? ?? 0f b6 85 ?? ?? ?? ?? 03 95 ?? ?? ?? ?? 8d 4c 10 2b 88 8d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3197,3 +3197,24 @@ rule Trojan_MSIL_Nanocore_PP_2147949923_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Nanocore_MZV_2147951077_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.MZV!MTB"
+        threat_id = "2147951077"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {16 08 8e b7 17 59 13 0e 13 0d 2b 15 08 11 0d 08 11 0d 91 02 11 0d 03 5d 91 61 9c 11 0d 17 58 13 0d 11 0d 11 0e 31 e5}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

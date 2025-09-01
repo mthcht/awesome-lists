@@ -4409,3 +4409,24 @@ rule Trojan_Win32_Fareit_BC_2147949977_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fareit_BE_2147951028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fareit.BE!MTB"
+        threat_id = "2147951028"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fareit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {8a 08 8b c7 33 d2 52 50 8b c3 99 03 04 24 13 54 24 04 83 c4 08 88 08}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

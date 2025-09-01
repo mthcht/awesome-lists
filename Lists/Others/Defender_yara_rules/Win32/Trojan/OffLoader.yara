@@ -4601,3 +4601,28 @@ rule Trojan_Win32_OffLoader_ACEB_2147950984_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ZVR_2147951060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZVR!MTB"
+        threat_id = "2147951060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://birthdayreward.xyz/xcxs.php?pe=" ascii //weight: 4
+        $x_1_2 = "/silent" ascii //weight: 1
+        $x_1_3 = "/weaksecurity" ascii //weight: 1
+        $x_1_4 = "/nocookies" ascii //weight: 1
+        $x_1_5 = "/resume" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

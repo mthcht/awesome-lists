@@ -2769,3 +2769,24 @@ rule Trojan_MSIL_Jalapeno_SLDV_2147949856_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_BAC_2147951024_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.BAC!MTB"
+        threat_id = "2147951024"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 07 02 7b 02 00 00 04 11 04 91 58 03 11 04 06 5d 91 58 20 00 01 00 00 5d 0b 02 11 04 07 ?? ?? ?? ?? ?? 00 00 11 04 17 58 13 04 11 04 20 00 01 00 00 fe 04 13 05 11 05 2d c6}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2612,3 +2612,24 @@ rule Trojan_MSIL_DCRat_GTD_2147948321_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DCRat_MZV_2147951076_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.MZV!MTB"
+        threat_id = "2147951076"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0a 38 bc 00 00 00 00 28 b4 08 00 0a 13 09 11 09 28 ?? 08 00 0a 72 27 07 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 00 11 09 28 ?? 08 00 0a 72 69 07 00 70 6f ?? 00 00 0a 6f ?? 08 00 0a 00 11 09 11 09 6f ?? 08 00 0a 11 09 6f ?? 08 00 0a 6f ?? 08 00 0a 13 0a 02 03 9a 28 ?? 00 00 0a 13 0b 11 0b 73 aa 08 00 0a 13 0c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6460,7 +6460,7 @@ rule Trojan_MSIL_AsyncRAT_SLNH_2147950817_0
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {7e 1c 00 00 04 a2 25 28 ?? 01 00 06 28 32 00 00 0a 28 25 00 00 06 28 ?? 10 00 06 28 33 00 00 0a 28 34 00 00 0a a2 25 28 ?? 01 00 06 7e 16 00 00 04 a2 25}  //weight: 2, accuracy: Low
+        $x_2_1 = {7e 1c 00 00 04 a2 25 28 ?? 01 00 06 28 32 00 00 0a 28 25 00 00 06 28 [0-2] 00 06 28 33 00 00 0a 28 34 00 00 0a a2 25 28 ?? 01 00 06 7e 16 00 00 04 a2 25}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

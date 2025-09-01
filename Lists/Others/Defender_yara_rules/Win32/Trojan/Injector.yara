@@ -2325,3 +2325,25 @@ rule Trojan_Win32_Injector_LMA_2147949012_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_KAB_2147951030_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.KAB!MTB"
+        threat_id = "2147951030"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {03 7d b8 81 ef ?? ?? ?? ?? 2b f8 31 3e 83 c3 04 83 c6 04 3b 5d e0 72}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b d6 03 55 c8 03 c2 8b 55 e8 03 d7 8b 4d d4}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
