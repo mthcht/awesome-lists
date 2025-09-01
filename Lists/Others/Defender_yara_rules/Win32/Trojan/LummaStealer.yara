@@ -7151,3 +7151,45 @@ rule Trojan_Win32_LummaStealer_RPR_2147950709_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_GAPF_2147950953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.GAPF!MTB"
+        threat_id = "2147950953"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {0f b6 4d ef 33 4d e0 8b 55 e4 88 0a 8b 45 f0 33 d2 b9 05 00 00 00 f7 f1 85 d2}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_GAPI_2147950954_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.GAPI!MTB"
+        threat_id = "2147950954"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {31 c1 81 f1 ?? ?? ?? ?? 89 4c 24 04 8b 44 24 04 04 ?? 8b 4c 24 0c 8b 14 24 88 04 11}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
