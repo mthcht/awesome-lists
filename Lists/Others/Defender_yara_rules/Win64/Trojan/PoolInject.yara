@@ -132,3 +132,26 @@ rule Trojan_Win64_PoolInject_SXA_2147950803_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PoolInject_SXB_2147951008_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PoolInject.SXB!MTB"
+        threat_id = "2147951008"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PoolInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 8b c5 49 f7 e3 48 d1 ea 0f b6 c2 02 c0 02 d0}  //weight: 3, accuracy: High
+        $x_2_2 = {73 23 48 8b 04 24 48 63 4c 24 4c 8b 54 8c 5c 48 63 4c 24 4c 89 54 88 04 8b 44 24 4c 83 c0 ?? 89 44 24 4c eb d2}  //weight: 2, accuracy: Low
+        $x_1_3 = "/c timeout 2 & del /f /q \"%s" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
