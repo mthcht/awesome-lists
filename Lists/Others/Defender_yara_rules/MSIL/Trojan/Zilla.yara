@@ -1822,3 +1822,27 @@ rule Trojan_MSIL_Zilla_SLEZ_2147950623_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_NITB_2147950975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.NITB!MTB"
+        threat_id = "2147950975"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 23 00 00 0a 02 6f ?? 00 00 0a 0a 06 6f ?? 00 00 0a 0b 06 07 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 17 8d 01 00 00 01 0d 07 6f ?? 00 00 0a 8e 69 2d 02 14 0d 07 08 09 6f ?? 00 00 0a 26 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "requestedPrivileges" ascii //weight: 1
+        $x_1_3 = "requestedExecutionLevel" ascii //weight: 1
+        $x_1_4 = "GetPathRoot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

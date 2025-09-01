@@ -598,3 +598,28 @@ rule Trojan_Linux_Mirai_AA_2147908960_0
         )
 }
 
+rule Trojan_Linux_Mirai_LX_2147950973_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.LX!MTB"
+        threat_id = "2147950973"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Kill bypass attempt" ascii //weight: 2
+        $x_1_2 = "Kill blacklist" ascii //weight: 1
+        $x_1_3 = "Missing fds" ascii //weight: 1
+        $x_1_4 = "Kill new" ascii //weight: 1
+        $x_1_5 = "Deleted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

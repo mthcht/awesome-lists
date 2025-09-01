@@ -4577,3 +4577,27 @@ rule Trojan_Win32_OffLoader_SASP_2147949936_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ACEB_2147950984_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ACEB!MTB"
+        threat_id = "2147950984"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://inkseed.info/naj.php?" ascii //weight: 4
+        $x_4_2 = "://developmentgovernment.xyz/najs.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

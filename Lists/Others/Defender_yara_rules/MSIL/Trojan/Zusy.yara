@@ -3786,3 +3786,47 @@ rule Trojan_MSIL_Zusy_PGAM_2147950390_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_NIT_2147950976_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.NIT!MTB"
+        threat_id = "2147950976"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {28 03 00 00 06 3a 1e 00 00 00 28 ?? 00 00 06 3a 14 00 00 00 28 ?? 00 00 06 3a 0a 00 00 00 28 ?? 00 00 06 39 06 00 00 00 16 28 ?? 01 00 0a 2a}  //weight: 3, accuracy: Low
+        $x_2_2 = {1c 8d 3b 03 00 01 25 16 72 ab 00 00 70 a2 25 17 72 b9 00 00 70 a2 25 18 72 cf 00 00 70 a2 25 19 72 df 00 00 70 a2 25 1a 72 e7 00 00 70 a2 25 1b 72 f1 00 00 70 a2 0a 06 0b 16 0c 38 29 00 00 00 07 08 a3 3b 03 00 01 0d 72 f9 00 00 70 09 28 ?? 02 00 0a 28 ?? 02 00 0a 39 08 00 00 00 17 13 04 dd 17 00 00 00 08 17 58 0c 08 07 8e 69 32 d1}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_NITF_2147950978_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.NITF!MTB"
+        threat_id = "2147950978"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {06 16 1f 10 28 ?? 00 00 0a 09 28 ?? 00 00 06 13 05 09 16 09 8e 69 28 ?? 00 00 0a 11 05 19 28 ?? 00 00 0a 13 06 08 20 b7 5c 8a 00 6a 5e 26 16 13 0a 2b 2b 11 05 11 0a 8f 18 00 00 01 25 47 08 d2 61 d2 52 11 0a 20 ff 00 00 00 5f 2d 0b 08 08 5a 20 b7 5c 8a 00 6a 5e 0c 11 0a 17 58 13 0a 11 0a 11 05 8e 69 32 cd}  //weight: 2, accuracy: Low
+        $x_1_2 = {28 20 00 00 0a 03 6f ?? 00 00 0a 73 22 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 0a 14 0b 06 8e 69 1a 58 7e 01 00 00 04 8e 69 30 36 16 0d 2b 19 06 09 8f 18 00 00 01 25 47 7e 01 00 00 04 09 1a 58 91 5a d2 52 09 17 58 0d 09 06 8e 69 32 e1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

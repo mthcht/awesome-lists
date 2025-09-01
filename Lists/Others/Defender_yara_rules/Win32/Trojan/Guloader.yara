@@ -7058,3 +7058,28 @@ rule Trojan_Win32_Guloader_GPZ_2147950956_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_UAI_2147950985_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.UAI!MTB"
+        threat_id = "2147950985"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "tornbladens" ascii //weight: 1
+        $x_1_2 = "aarhundredskifte naucrar" ascii //weight: 1
+        $x_1_3 = "dubberne zosteraceae.exe" ascii //weight: 1
+        $x_1_4 = "diskoskaster" ascii //weight: 1
+        $x_1_5 = "plankonomiens lousinesses" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

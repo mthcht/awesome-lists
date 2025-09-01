@@ -2801,3 +2801,25 @@ rule Trojan_MSIL_XWorm_ZWP_2147950611_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_NITF_2147950977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.NITF!MTB"
+        threat_id = "2147950977"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {02 70 0b 06 28 ?? 00 00 0a 0c 28 ?? 00 00 0a 07 28 ?? 00 00 0a 6f ?? 00 00 0a 0d 08 09 28 ?? 00 00 06 13 04 11 04 28 ?? 00 00 06 13 05 28 ?? 00 00 0a 28 ?? 00 00 0a 13 0b 12 0b fe 16 11 00 00 01 6f ?? 00 00 0a 28 ?? 00 00 0a 13 06 11 06}  //weight: 2, accuracy: Low
+        $x_1_2 = {04 2b 42 08 6f ?? 00 00 0a 13 05 08 11 05 6f ?? 00 00 0a 13 06 28 ?? 00 00 0a 11 06 6f ?? 00 00 0a 13 07 08 6f ?? 00 00 0a 13 08 08 11 08 6f ?? 00 00 0a 13 09 06 11 07 11 09 6f ?? 00 00 0a 11 04 17 58 13 04 11 04 09 32 b9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
