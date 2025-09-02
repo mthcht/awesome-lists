@@ -4430,3 +4430,24 @@ rule Trojan_Win32_Fareit_BE_2147951028_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fareit_EOKI_2147951135_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fareit.EOKI!MTB"
+        threat_id = "2147951135"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fareit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 d2 8a 55 f3 33 94 85 e0 fb ff ff 88 16 90 89 d2 90 46 ff 4d e0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

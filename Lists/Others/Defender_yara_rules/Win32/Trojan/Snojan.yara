@@ -44,3 +44,24 @@ rule Trojan_Win32_Snojan_ASFQ_2147905956_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Snojan_ERTG_2147951134_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Snojan.ERTG!MTB"
+        threat_id = "2147951134"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Snojan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {5a 88 02 ff 07 4b ?? ?? 33 c0 5a 59 59 64 89 10}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

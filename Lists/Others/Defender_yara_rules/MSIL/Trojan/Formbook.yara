@@ -8510,3 +8510,108 @@ rule Trojan_MSIL_Formbook_EKUJ_2147949723_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_EAOG_2147951133_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EAOG!MTB"
+        threat_id = "2147951133"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 07 1d 63 61 0a 11 21 20 81 7e 5b be 5a 20 e3 38 4d 58 61 38 66 fe ff ff 11 0d 18 fe 02 13 1a 11 1a 2d 08 20 a9 9e 7d 2f 25 2b 06 20 bb 24 81 41 25 26 38 47 fe ff ff 19 13 0d 11 21}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_EAOG_2147951133_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EAOG!MTB"
+        threat_id = "2147951133"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0c 2b 41 03 08 ?? ?? ?? ?? ?? 0d 04 07 04 ?? ?? ?? ?? ?? 5d ?? ?? ?? ?? ?? 13 04 09 11 04 59 20 00 01 00 00 58 20 00 01 00 00 5d d1 13 05 06 12 05 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0a 0a 07 17 58 0b 08 17 58 0c 08 03 ?? ?? ?? ?? ?? 32 b6}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_EOCK_2147951136_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EOCK!MTB"
+        threat_id = "2147951136"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 11 05 09 5b 13 0d 11 05 11 0d 09 5a 59 13 0e 06 11 0d 11 0e 58 0e 04 58 20 ff 00 00 00 5f 91 13 0f 02 11 0d 11 0e ?? ?? ?? ?? ?? 13 10 04 03}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_EAQM_2147951137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EAQM!MTB"
+        threat_id = "2147951137"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 05 09 5b 13 0a 11 05 11 0a 09 5a 59 13 0b 06 11 0a 11 0b 58 0e 04 58 20 ff 00 00 00 5f 91 13 0c 02 11 0a 11 0b ?? ?? ?? ?? ?? 13 0d 04 03 ?? ?? ?? ?? ?? 59 13 0e 11 0e 13 0f 11 0f 19}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_EAOH_2147951138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EAOH!MTB"
+        threat_id = "2147951138"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 11 0c 11 0d 17 58 1d 5a 07 11 0b 11 0d 58 07 8e 69 5d 94 61 58 13 0c 02 11 0b 11 0d ?? ?? ?? ?? ?? 13 0e 04 03 ?? ?? ?? ?? ?? 59 13 0f 11 0f 13 10}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

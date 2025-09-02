@@ -842,3 +842,27 @@ rule Trojan_Win64_Mikey_PCW_2147950022_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_AR_2147951148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AR!MTB"
+        threat_id = "2147951148"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 94 24 80 01 00 00 48 8d 4c 24 5c e8 ?? ?? ?? ?? ?? ?? ?? ?? 44 8b 44 24 38 33 d2 b9 01 00 00 00 ff 15 ?? ?? ?? ?? 48 89 44 24 28 48 83 7c 24 28 00 74 ?? 33 d2 48 8b 4c 24 28}  //weight: 10, accuracy: Low
+        $x_8_2 = {c7 84 24 ec 00 00 00 88 13 00 00 48 8d 84 24 88 00 00 00 48 8b f8 33 c0 b9 ?? ?? ?? ?? f3 aa c7 84 24 88 00 00 ?? ?? ?? ?? 00 c7 84 24 a0 00 00 00 03 00 00 00 48 8d 84 24 d8 00 00 00}  //weight: 8, accuracy: Low
+        $x_7_3 = "wms temp.exe" ascii //weight: 7
+        $x_15_4 = "C:\\miner_log.txt" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

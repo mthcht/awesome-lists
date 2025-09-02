@@ -157,3 +157,26 @@ rule Trojan_Win64_ReverseShell_SX_2147946572_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_AR_2147951147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.AR!MTB"
+        threat_id = "2147951147"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 45 50 48 89 45 48 48 8b 45 48 48 89 45 40 48 8d 05 ?? ?? ?? ?? 48 8d 55 d0 48 89 54 24 48 48 8d 55 f0 48 89 54 24 40 48 c7 44 24 38 00 00 00 00}  //weight: 10, accuracy: Low
+        $x_5_2 = {48 8d ac 24 80 00 00 00 e8 ?? ?? ?? ?? 48 8d 05 ?? ?? ?? ?? 48 89 85 ?? 02 00 00 c7 85 ?? 02 00 00 5c 11 00 00}  //weight: 5, accuracy: Low
+        $x_1_3 = "cmd.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
