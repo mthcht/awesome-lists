@@ -3891,6 +3891,31 @@ rule Trojan_Win32_GuLoader_RBT_2147937385_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "gadekasernens\\nonnegligent\\supergallantness" ascii //weight: 1
+        $x_1_2 = "%stickiest%\\christener\\udsteningen" ascii //weight: 1
+        $x_1_3 = "\\sparable.bin" ascii //weight: 1
+        $x_1_4 = "hyperbatbata twelvemo" ascii //weight: 1
+        $x_1_5 = "hypotheses carbodynamite.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBT_2147937385_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBT!MTB"
+        threat_id = "2147937385"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "%reunionism%\\billarderne\\transpositively" ascii //weight: 1
         $x_1_2 = "serviceprisers cedule furrowlike" ascii //weight: 1
         $x_1_3 = "moppernes faengslende scioptics" ascii //weight: 1
