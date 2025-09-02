@@ -1950,3 +1950,25 @@ rule Trojan_Win64_LummaStealer_GAPJ_2147950959_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_AHC_2147951082_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.AHC!MTB"
+        threat_id = "2147951082"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 f7 e9 48 01 ca 48 d1 fa 48 89 cb 48 c1 f9 3f 48 29 ca 48 85 d2 0f 8e ?? ?? ?? ?? 48 8b 44 24 68 48 89 d1 48 89 c6}  //weight: 10, accuracy: Low
+        $x_20_2 = {48 8b 44 24 70 48 89 c2 48 89 d7 48 99 48 f7 f9 48 83 f8 01 75}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

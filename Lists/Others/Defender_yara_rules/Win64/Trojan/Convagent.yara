@@ -725,3 +725,26 @@ rule Trojan_Win64_Convagent_AHB_2147949262_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_AHC_2147951083_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.AHC!MTB"
+        threat_id = "2147951083"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 c7 84 24 70 01 00 00 2e 00 00 00 48 c7 84 24 78 01 00 00 64 00 00 00 48 c7 84 24 80 01 00 00 6c 00 00 00 48 c7 84 24 88 01 00 00 6c 00 00 00 48 8d 05}  //weight: 20, accuracy: High
+        $x_10_2 = {48 c7 84 24 18 03 00 00 63 00 00 00 48 c7 84 24 20 03 00 00 65 00 00 00 48 c7 84 24 28 03 00 00 73 00 00 00 48 c7 84 24 30 03 00 00 41 00 00 00 48 8d 05}  //weight: 10, accuracy: High
+        $x_5_3 = "main.getObfuscatedShellcode" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
