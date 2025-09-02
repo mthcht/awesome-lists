@@ -396,3 +396,47 @@ rule Trojan_Win32_ShellcodeRunner_NS_2147948818_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_PAHP_2147951165_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.PAHP!MTB"
+        threat_id = "2147951165"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {6a 18 59 33 ff 33 c0 ac 3c 61 7c 02 2c 20 c1 cf 0d 03 f8 e2 f0 81 ff 5b bc 4a 6a 8b 5a 10 8b 12 75}  //weight: 3, accuracy: High
+        $x_2_2 = {8b 0a 69 c0 95 e9 d1 5b 69 c9 95 e9 d1 5b 8b d9 c1 eb 18 33 d9 69 db 95 e9 d1 5b 33 c3 83 ee 04 83 c2 04 4f 75}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ShellcodeRunner_PAHQ_2147951166_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.PAHQ!MTB"
+        threat_id = "2147951166"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {c6 04 0f 00 8a 19 2a d8 fe cb 40 88 1c 0a 41 3b 45 fc 76 ec}  //weight: 3, accuracy: High
+        $x_2_2 = {8a 06 88 04 31 46 84 c0 75 f6}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

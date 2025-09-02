@@ -1,12 +1,12 @@
-rule Trojan_Win64_SelfDeleter_A_2147928114_0
+rule Trojan_Win64_SleepyFileDeleter_A_2147951180_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/SelfDeleter.A"
-        threat_id = "2147928114"
+        detection_name = "Trojan:Win64/SleepyFileDeleter.A"
+        threat_id = "2147951180"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "SelfDeleter"
+        family = "SleepyFileDeleter"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -20,15 +20,15 @@ rule Trojan_Win64_SelfDeleter_A_2147928114_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_SelfDeleter_B_2147928115_0
+rule Trojan_Win64_SleepyFileDeleter_B_2147951181_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/SelfDeleter.B"
-        threat_id = "2147928115"
+        detection_name = "Trojan:Win64/SleepyFileDeleter.B"
+        threat_id = "2147951181"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "SelfDeleter"
+        family = "SleepyFileDeleter"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"

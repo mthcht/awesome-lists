@@ -1,12 +1,12 @@
-rule TrojanSpy_Win64_RustyStealer_B_2147946254_0
+rule Backdoor_Win64_IvoryFunnel_B_2147951182_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanSpy:Win64/RustyStealer.B"
-        threat_id = "2147946254"
-        type = "TrojanSpy"
+        detection_name = "Backdoor:Win64/IvoryFunnel.B"
+        threat_id = "2147951182"
+        type = "Backdoor"
         platform = "Win64: Windows 64-bit platform"
-        family = "RustyStealer"
+        family = "IvoryFunnel"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
@@ -19,15 +19,15 @@ rule TrojanSpy_Win64_RustyStealer_B_2147946254_0
         (all of ($x*))
 }
 
-rule TrojanSpy_Win64_RustyStealer_C_2147946999_0
+rule Backdoor_Win64_IvoryFunnel_C_2147951183_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanSpy:Win64/RustyStealer.C"
-        threat_id = "2147946999"
-        type = "TrojanSpy"
+        detection_name = "Backdoor:Win64/IvoryFunnel.C"
+        threat_id = "2147951183"
+        type = "Backdoor"
         platform = "Win64: Windows 64-bit platform"
-        family = "RustyStealer"
+        family = "IvoryFunnel"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -39,15 +39,15 @@ rule TrojanSpy_Win64_RustyStealer_C_2147946999_0
         (all of ($x*))
 }
 
-rule TrojanSpy_Win64_RustyStealer_D_2147947555_0
+rule Backdoor_Win64_IvoryFunnel_D_2147951184_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanSpy:Win64/RustyStealer.D"
-        threat_id = "2147947555"
-        type = "TrojanSpy"
+        detection_name = "Backdoor:Win64/IvoryFunnel.D"
+        threat_id = "2147951184"
+        type = "Backdoor"
         platform = "Win64: Windows 64-bit platform"
-        family = "RustyStealer"
+        family = "IvoryFunnel"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"

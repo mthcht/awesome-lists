@@ -105,3 +105,26 @@ rule Trojan_MSIL_Krypt_PGK_2147937928_4
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Krypt_PSS_2147951169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Krypt.PSS!MTB"
+        threat_id = "2147951169"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Krypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {11 10 6f c0 00 00 0a 13 11 08 28 ?? ?? ?? 0a 2d 10 08 11 11 28 ?? ?? ?? 0a 16 13 1e dd ?? ?? ?? 00 11 0a 2c 74 11 18 7b ?? ?? ?? 04 1f 09 8d ?? ?? ?? 01 13 23 11 23 16 72 c0 03 00 70 a2 11 23 17}  //weight: 7, accuracy: Low
+        $x_2_2 = {44 6f 6e 27 74 20 6c 6f 6f 6b 20 61 74 20 74 68 69 73 2e 2e 2e 0d 0a 24 49 6d 61 67 65 20 3d 20 22 41 41 41 42 41 41 45 41 67 49 41 41 41 41 45 41 49 41 41 6f 43 41 45 41 46 67 41 41 41 43 67 41 41 41 43 41 41 41 41 41 41 41 45 41 41 41 45 41 49 41 41 41 41 41 41 41 41 41 41 42 41 49 63 64 41 41 43 48 48 51 41 41 41 41 41 41 41 41 41 41 41 41 44 2f 2f}  //weight: 2, accuracy: High
+        $x_1_3 = "Set-Content $batFile \"schtasks /run /TN $taskName" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

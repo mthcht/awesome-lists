@@ -3419,3 +3419,25 @@ rule Trojan_MSIL_Lazy_PGPH_2147949051_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_PPR_2147951170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.PPR!MTB"
+        threat_id = "2147951170"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2b 12 02 28 ?? 00 00 06 11 0b 16 11 0a 16 6f ?? 00 00 0a 26 11 09 11 0b 16 11 0b 8e 69 6f ?? 00 00 0a 25 13 0a 16 30 da}  //weight: 10, accuracy: Low
+        $x_5_2 = "offkeylogger.dll.compressed" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
