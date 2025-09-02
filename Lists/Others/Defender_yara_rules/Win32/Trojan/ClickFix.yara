@@ -11333,3 +11333,75 @@ rule Trojan_Win32_ClickFix_HHM_2147950723_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_HJ_2147951101_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HJ!MTB"
+        threat_id = "2147951101"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {73 00 74 00 72 00 69 00 6e 00 67 00 28 00 [0-4] 68 00 74 00 74 00 70 00 [0-2] 3a 00 2f 00 2f 00 23 26 26 07 61 2d 7a 30 2d 39 2e 2f 00 23 26 26 06 61 2d 7a 30 2d 39 2e 00 ?? ?? ?? ?? ?? ?? 00 29 00}  //weight: 10, accuracy: Low
+        $x_1_2 = {2e 00 6d 00 70 00 33 00 [0-2] 29 00 3b 00 69 00 6e 00 76 00 6f 00 6b 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {2e 00 6d 00 70 00 34 00 [0-2] 29 00 3b 00 69 00 6e 00 76 00 6f 00 6b 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {2e 00 65 00 78 00 65 00 [0-2] 29 00 3b 00 69 00 6e 00 76 00 6f 00 6b 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {2e 00 6d 00 34 00 61 00 [0-2] 29 00 3b 00 69 00 6e 00 76 00 6f 00 6b 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_6 = "-join '')|iex" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_HK_2147951102_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HK!MTB"
+        threat_id = "2147951102"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {20 00 69 00 65 00 78 00 [0-2] 28 00 28 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 72 00 65 00 73 00 74 00 6d 00 65 00 74 00 68 00 6f 00 64 00 20 00 2d 00 75 00 72 00 69 00 20 00 68 00 74 00 74 00 70 00 [0-70] 20 00 2d 00 6d 00 65 00 74 00 68 00 6f 00 64 00 20 00 67 00 65 00 74 00 29 00 2e 00 6e 00 6f 00 74 00 65 00 2e 00 62 00 6f 00 64 00 79 00 29 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HL_2147951103_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HL!MTB"
+        threat_id = "2147951103"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-8] 20 00 2e 00 24 00 28 00 5b 00 63 00 68 00 61 00 72 00 5d 00 28 00 [0-12] 2d 00 [0-12] 29 00 2b 00 27 00 65 00 78 00 27 00 29 00 20 00 28 00 67 00 65 00 74 00 2d 00 63 00 6f 00 6e 00 74 00 65 00 6e 00 74 00 20 00 27 00 63 00 3a 00 5c 00}  //weight: 10, accuracy: Low
+        $x_1_2 = ".log' -raw)" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
