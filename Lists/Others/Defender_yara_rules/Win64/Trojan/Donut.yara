@@ -258,3 +258,24 @@ rule Trojan_Win64_Donut_PGD_2147947317_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Donut_PDN_2147951283_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Donut.PDN!MTB"
+        threat_id = "2147951283"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 32 04 17 48 c1 e9 ?? d0 c8 41 89 ca 44 31 c0 41 83 c0 ?? 41 c1 e2 ?? 41 88 04 17 41 29 ca 89 d1 44 29 d1 48 63 c9 32 84 0c ?? ?? ?? ?? 41 88 04 17 48 83 c2 ?? 48 81 fa ?? ?? ?? ?? 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

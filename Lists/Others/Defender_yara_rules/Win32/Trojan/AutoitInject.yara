@@ -5595,3 +5595,30 @@ rule Trojan_Win32_AutoitInject_ARDB_2147950531_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_AJEB_2147951282_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.AJEB!MTB"
+        threat_id = "2147951282"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {44 00 49 00 4d 00 20 00 24 00 [0-50] 3d 00 20 00 5b 00 20 00 22 00 43 00 76 00 62 00 46 00 6f 00 56 00 2e 00 65 00 78 00 65 00 22 00 20 00 2c 00 20 00 22 00}  //weight: 4, accuracy: Low
+        $x_4_2 = {44 49 4d 20 24 [0-50] 3d 20 5b 20 22 43 76 62 46 6f 56 2e 65 78 65 22 20 2c 20 22}  //weight: 4, accuracy: Low
+        $x_1_3 = "SHELLEXECUTE ( @WORKINGDIR &" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
