@@ -2213,3 +2213,28 @@ rule Trojan_Win64_Tedy_NY_2147951209_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CB_2147951250_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CB!MTB"
+        threat_id = "2147951250"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "NoxVMHandle.exe" ascii //weight: 1
+        $x_2_2 = "Emulator Not Found !" ascii //weight: 2
+        $x_2_3 = "DLL already exists. Attempting to inject." ascii //weight: 2
+        $x_2_4 = "Injection failed." ascii //weight: 2
+        $x_2_5 = "Injected Successfully." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
