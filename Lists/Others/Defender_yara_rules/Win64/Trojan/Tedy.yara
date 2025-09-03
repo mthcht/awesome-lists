@@ -2189,3 +2189,27 @@ rule Trojan_Win64_Tedy_TRK_2147950830_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_NY_2147951209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.NY!MTB"
+        threat_id = "2147951209"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {49 8b d6 48 03 db 48 89 06 4c 8b c3 48 89 6e ?? 48 8b c8 48 8b f8 e8 4b a6 02 00 33 c0 66 89 04 3b 48 8b 7c 24 20}  //weight: 2, accuracy: Low
+        $x_1_2 = {48 03 db 4c 8b c3 48 c7 41 18 07 00 00 00 e8 9d a6 02 00 33 c0 66 89 04 33 48 83 c4 ?? 41 5e 5e 5d 5b}  //weight: 1, accuracy: Low
+        $x_1_3 = "DLL injected" ascii //weight: 1
+        $x_1_4 = "chrome_decrypt.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -719,3 +719,24 @@ rule Trojan_Win32_Tedy_PTC_2147947039_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_BJO_2147951199_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.BJO!MTB"
+        threat_id = "2147951199"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 d2 0f 1f 40 00 83 7d cc 0f 8d 4d ?? 8a 44 15 9c 0f 47 4d b8 34 3a 88 04 11 42 83 fa 13 72 e6}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
