@@ -3830,3 +3830,56 @@ rule Trojan_MSIL_Zusy_NITF_2147950978_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_C_2147951262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.C!MTB"
+        threat_id = "2147951262"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {d2 28 46 00 00 0a 26 11 ?? 28 61 00 00 0a 28 65 00 00 0a 13 [0-2] 11 30 [0-2] fe 01 03 5f 2c 40 11 ?? 28 66 00 00 0a 13 ?? 7e 1f 00 00 04 02 11 ?? 6f 67 00 00 0a 7e 1f 00 00 04 6f 68 00 00 0a 1f 1b 33 1c}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_CA_2147951275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.CA!MTB"
+        threat_id = "2147951275"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {01 72 0d 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 26 20 ?? 00 00 00 7e ?? 00 00 04 7b ?? 00 00 04}  //weight: 3, accuracy: Low
+        $x_3_2 = {01 72 0d 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 26 20 ?? 00 00 00 38}  //weight: 3, accuracy: Low
+        $x_1_3 = "base64Key" wide //weight: 1
+        $x_1_4 = "base64Iv" wide //weight: 1
+        $x_1_5 = "encrypted" wide //weight: 1
+        $x_1_6 = "decryptor" wide //weight: 1
+        $x_1_7 = "loader" wide //weight: 1
+        $x_1_8 = "invoker" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 6 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

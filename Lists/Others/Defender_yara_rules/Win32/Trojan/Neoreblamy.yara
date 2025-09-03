@@ -5849,28 +5849,6 @@ rule Trojan_Win32_Neoreblamy_NIS_2147948721_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Neoreblamy_NIT_2147948743_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Neoreblamy.NIT!MTB"
-        threat_id = "2147948743"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Neoreblamy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {79 06 83 c9 01 89 4d 0c 03 d2 4f f6 45 0e 10}  //weight: 1, accuracy: High
-        $x_2_2 = {74 0d 8b 4f 04 03 ce 33 0c 30 e8 ba f2 ff ff 8b 47 08 8b 4f 0c 03 ce 33 0c 30 e8 aa f2 ff ff 8b 45 08 f6 40 04 66}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Neoreblamy_NIU_2147948863_0
 {
     meta:

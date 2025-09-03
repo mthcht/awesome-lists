@@ -2238,3 +2238,26 @@ rule Trojan_Win64_Tedy_CB_2147951250_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_KAB_2147951276_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KAB!MTB"
+        threat_id = "2147951276"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b c8 c1 e9 ?? 33 c8 44 8b d1 41 c1 e2 ?? 44 33 d1 41 69 c2 ?? ?? ?? ?? 44 03 c0 41 3b fe 0f 8c}  //weight: 20, accuracy: Low
+        $x_10_2 = {41 8d 04 28 41 81 c4 ?? ?? ?? ?? 44 33 f8 ff c5 83 fd 02 0f 8c}  //weight: 10, accuracy: Low
+        $x_5_3 = "C:\\Users\\pollo\\source\\repos\\Loader\\x64\\Release\\Loader.pdb" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

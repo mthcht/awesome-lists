@@ -7154,3 +7154,54 @@ rule Trojan_Win32_Guloader_GQC_2147951240_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_UAQ_2147951266_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.UAQ!MTB"
+        threat_id = "2147951266"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Betalingsbetingelsernes.hon" ascii //weight: 1
+        $x_1_2 = "Tyrolerens.sit" ascii //weight: 1
+        $x_1_3 = "aftjeninger.par" ascii //weight: 1
+        $x_1_4 = "amphimacer.rad" ascii //weight: 1
+        $x_1_5 = "skraastillingers\\kontrasternes" ascii //weight: 1
+        $x_1_6 = "rotundify\\markedsdagenes\\srgmunter" ascii //weight: 1
+        $x_1_7 = "\\mitre\\favrpriser\\tarsoplasia" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GQD_2147951267_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GQD!MTB"
+        threat_id = "2147951267"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rygklapperne sybarittens anonymes" ascii //weight: 1
+        $x_1_2 = "programnavnenes" ascii //weight: 1
+        $x_1_3 = "unquietude coloproctitis.exe" ascii //weight: 1
+        $x_1_4 = "portables stningsstykket gringle" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
