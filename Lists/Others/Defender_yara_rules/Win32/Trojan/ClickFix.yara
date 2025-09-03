@@ -5540,7 +5540,7 @@ rule Trojan_Win32_ClickFix_ZQC_2147943702_0
         $x_100_1 = "powershell" wide //weight: 100
         $x_5_2 = "ActiveXObject" wide //weight: 5
         $x_5_3 = ".Insert(" wide //weight: 5
-        $x_5_4 = "vbscript:Execute(" ascii //weight: 5
+        $x_5_4 = "vbscript:Execute(" wide //weight: 5
         $x_5_5 = "::FromBase64String" wide //weight: 5
     condition:
         (filesize < 20MB) and
@@ -7728,28 +7728,29 @@ rule Trojan_Win32_ClickFix_EEA_2147945362_0
         $x_100_11 = "aifs-bd.com" wide //weight: 100
         $x_100_12 = "akapanda.com" wide //weight: 100
         $x_100_13 = "wieejc.com" wide //weight: 100
-        $x_100_14 = "bstkmonitorscap.com" wide //weight: 100
-        $x_100_15 = "ui3.fit" wide //weight: 100
-        $x_100_16 = "zeda1s.boutique" wide //weight: 100
-        $x_100_17 = "px3.click/theme.iso" wide //weight: 100
-        $x_100_18 = "walkin.college" wide //weight: 100
-        $x_100_19 = "t0urist.cv" wide //weight: 100
-        $x_100_20 = "otmuqi.com" wide //weight: 100
-        $x_100_21 = "rizukimayamui-portfolio.info" wide //weight: 100
-        $x_100_22 = "-humancheck.info" wide //weight: 100
-        $x_100_23 = "mylybnews.com" wide //weight: 100
-        $x_100_24 = "ip.meviks.no" wide //weight: 100
-        $x_100_25 = "jakobz.lol" wide //weight: 100
-        $x_100_26 = "termodelta.hr" wide //weight: 100
-        $x_100_27 = "boiksal.com" wide //weight: 100
-        $x_100_28 = "qahodey5.ru" wide //weight: 100
-        $x_100_29 = "finalstepgo.com" wide //weight: 100
-        $x_100_30 = "indurall.com" wide //weight: 100
-        $x_100_31 = "ritavoi.com" wide //weight: 100
-        $x_100_32 = "ui3.fit/" wide //weight: 100
-        $x_100_33 = "jekitech.cloud" wide //weight: 100
-        $x_100_34 = "royevita.com" wide //weight: 100
-        $x_100_35 = "3rd.eadomerchants.com" wide //weight: 100
+        $x_100_14 = "wellesleyrug.com" wide //weight: 100
+        $x_100_15 = "bstkmonitorscap.com" wide //weight: 100
+        $x_100_16 = "ui3.fit" wide //weight: 100
+        $x_100_17 = "zeda1s.boutique" wide //weight: 100
+        $x_100_18 = "px3.click/theme.iso" wide //weight: 100
+        $x_100_19 = "walkin.college" wide //weight: 100
+        $x_100_20 = "t0urist.cv" wide //weight: 100
+        $x_100_21 = "otmuqi.com" wide //weight: 100
+        $x_100_22 = "rizukimayamui-portfolio.info" wide //weight: 100
+        $x_100_23 = "-humancheck.info" wide //weight: 100
+        $x_100_24 = "mylybnews.com" wide //weight: 100
+        $x_100_25 = "ip.meviks.no" wide //weight: 100
+        $x_100_26 = "jakobz.lol" wide //weight: 100
+        $x_100_27 = "termodelta.hr" wide //weight: 100
+        $x_100_28 = "boiksal.com" wide //weight: 100
+        $x_100_29 = "qahodey5.ru" wide //weight: 100
+        $x_100_30 = "finalstepgo.com" wide //weight: 100
+        $x_100_31 = "indurall.com" wide //weight: 100
+        $x_100_32 = "ritavoi.com" wide //weight: 100
+        $x_100_33 = "ui3.fit/" wide //weight: 100
+        $x_100_34 = "jekitech.cloud" wide //weight: 100
+        $x_100_35 = "royevita.com" wide //weight: 100
+        $x_100_36 = "3rd.eadomerchants.com" wide //weight: 100
     condition:
         (filesize < 20MB) and
         (
@@ -8178,15 +8179,16 @@ rule Trojan_Win32_ClickFix_BBS_2147945698_0
         $x_1_17 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 63 00 6c 00 6f 00 75 00 64 00 69 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_18 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 75 00 6e 00 69 00 65 00 6e 00 64 00 6f 00 70 00 75 00 6e 00 74 00 6f 00 73 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_19 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 63 00 6c 00 6f 00 75 00 64 00 69 00 66 00 79 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_20 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 77 00 77 00 6a 00 73 00 6e 00 6f 00 64 00 65 00 2e 00 6e 00 65 00 74 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_21 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 69 00 66 00 74 00 79 00 77 00 6f 00 72 00 6c 00 64 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_22 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 6f 00 63 00 66 00 72 00 65 00 65 00 73 00 74 00 75 00 66 00 66 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
-        $x_1_23 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 6c 00 65 00 61 00 76 00 65 00 61 00 6e 00 6e 00 65 00 61 00 6c 00 6f 00 61 00 6e 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_24 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 65 00 6e 00 63 00 6f 00 72 00 65 00 6f 00 70 00 65 00 6e 00 69 00 6e 00 67 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_25 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 6f 00 6e 00 64 00 65 00 72 00 6c 00 69 00 66 00 65 00 72 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_26 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 74 00 64 00 63 00 65 00 67 00 79 00 70 00 74 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_27 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 73 00 70 00 69 00 64 00 65 00 72 00 2d 00 77 00 61 00 6d 00 70 00 2e 00 63 00 6f 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_28 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_20 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 6f 00 6f 00 64 00 2d 00 73 00 69 00 6d 00 70 00 6c 00 65 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_21 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 77 00 77 00 6a 00 73 00 6e 00 6f 00 64 00 65 00 2e 00 6e 00 65 00 74 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_22 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 69 00 66 00 74 00 79 00 77 00 6f 00 72 00 6c 00 64 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_23 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 6f 00 63 00 66 00 72 00 65 00 65 00 73 00 74 00 75 00 66 00 66 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_24 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 6c 00 65 00 61 00 76 00 65 00 61 00 6e 00 6e 00 65 00 61 00 6c 00 6f 00 61 00 6e 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_25 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 65 00 6e 00 63 00 6f 00 72 00 65 00 6f 00 70 00 65 00 6e 00 69 00 6e 00 67 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_26 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 6f 00 6e 00 64 00 65 00 72 00 6c 00 69 00 66 00 65 00 72 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_27 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 74 00 64 00 63 00 65 00 67 00 79 00 70 00 74 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_28 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 73 00 70 00 69 00 64 00 65 00 72 00 2d 00 77 00 61 00 6d 00 70 00 2e 00 63 00 6f 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_29 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -11252,6 +11254,33 @@ rule Trojan_Win32_ClickFix_HHH_2147950085_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+        $x_10_2 = "[System.IO.Path]::Combine($" wide //weight: 10
+        $x_1_3 = ";powershell" wide //weight: 1
+        $x_1_4 = ".DownloadFile(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_HHH_2147950085_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HHH!MTB"
+        threat_id = "2147950085"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
@@ -11335,6 +11364,53 @@ rule Trojan_Win32_ClickFix_HHM_2147950723_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_HHP_2147950732_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HHP!MTB"
+        threat_id = "2147950732"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-32] 73 00 74 00 61 00 72 00 74 00 [0-255] 2d 00 72 00 65 00 70 00 6c 00 61 00 63 00 65 00 27 00 [0-32] 27 00 2c 00 20 00 27 00 27 00 29 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HHP_2147950732_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HHP!MTB"
+        threat_id = "2147950732"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[Reflection.Assembly]::Load([Convert]::FromBase64String($" wide //weight: 1
+        $x_1_2 = ".Invoke($" wide //weight: 1
+        $x_1_3 = ".GetMethod(" wide //weight: 1
+        $x_1_4 = "[object[]]@($" wide //weight: 1
+        $x_1_5 = "Net.WebClient" wide //weight: 1
+        $x_1_6 = "}.DownloadString" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ClickFix_HJ_2147951101_0
 {
     meta:
@@ -11405,5 +11481,55 @@ rule Trojan_Win32_ClickFix_HL_2147951103_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_AAB_2147951232_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AAB!MTB"
+        threat_id = "2147951232"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6d 00 73 00 68 00 74 00 61 00 [0-16] 68 00 74 00 74 00 70 00 [0-80] 6d 00 73 00 68 00 74 00 61 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
+        $n_100_2 = "msedgewebview2.exe" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_GGX_2147951233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GGX!MTB"
+        threat_id = "2147951233"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "| powershell" wide //weight: 1
+        $x_10_2 = {69 00 72 00 6d 00 20 00 2d 00 75 00 73 00 65 00 62 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 72 00 65 00 73 00 74 00 6d 00 65 00 74 00 68 00 6f 00 64 00 20 00 2d 00 75 00 73 00 65 00 62 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 

@@ -7193,3 +7193,25 @@ rule Trojan_Win32_LummaStealer_GAPI_2147950954_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_D_2147951231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.D!MTB"
+        threat_id = "2147951231"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4d 4f 02 2c 4c c5 6d ca 29 4e f9 ea 16 8e 1d 22 4e 06 fb 41 94 8a de fa}  //weight: 1, accuracy: High
+        $x_1_2 = {28 00 4f 00 84 00 b2 00 12 00 31 00 e8 00 8c 00 13 00 65 00 fb 00 c9 00 54 00 d6 00 5b 00 5f 00 35 00 14 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

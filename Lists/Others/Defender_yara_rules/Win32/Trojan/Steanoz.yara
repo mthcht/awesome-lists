@@ -16,9 +16,10 @@ rule Trojan_Win32_Steanoz_Z_2147949789_0
         $x_1_1 = ".invoke($" wide //weight: 1
         $x_1_2 = ".getmethod" wide //weight: 1
         $x_1_3 = ".gettype(" wide //weight: 1
-        $x_1_4 = "system.reflection.assembly]::load([Convert]::FromBase64String" wide //weight: 1
+        $x_1_4 = "system.reflection.assembly]::load" wide //weight: 1
+        $x_1_5 = "Convert]::FromBase64String" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (4 of ($x*))
 }
 

@@ -473,3 +473,52 @@ rule Trojan_Win32_FileFix_HHI_2147950721_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FileFix_HHI_2147950721_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.HHI!MTB"
+        threat_id = "2147950721"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Start-Bitstransfer" wide //weight: 1
+        $x_1_2 = "  # " wide //weight: 1
+        $x_1_3 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FileFix_HHF_2147951234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileFix.HHF!MTB"
+        threat_id = "2147951234"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[System.Net.Sockets.TcpListener]" wide //weight: 1
+        $x_1_2 = ".Start(" wide //weight: 1
+        $x_1_3 = ".AcceptTcpClient();" wide //weight: 1
+        $x_1_4 = ".GetStream()" wide //weight: 1
+        $x_1_5 = ".Read($" wide //weight: 1
+        $x_1_6 = "New-Object Byte[]" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
