@@ -1457,6 +1457,34 @@ rule Trojan_MSIL_Injector_EAPQ_2147936729_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_AHB_2147947693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.AHB!MTB"
+        threat_id = "2147947693"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {11 07 11 08 11 05 11 08 91 11 06 11 08 11 06 8e 69 5d 91 61 d2 9c 11 08 17 58 13 08 11 08 11 05 8e 69 3f d9 ff ff ff}  //weight: 30, accuracy: High
+        $x_30_2 = {08 09 06 09 91 07 09 07 8e 69 5d 91 61 d2 9c 09 17 58 0d 09 06 8e 69 3f e4 ff ff ff}  //weight: 30, accuracy: High
+        $x_10_3 = {28 05 00 00 0a 13 06 11 05 8e 69 8d 06 00 00 01 13 07 16 13 08}  //weight: 10, accuracy: High
+        $x_10_4 = {28 01 00 00 0a 0b 06 8e 69 8d 01 00 00 01 0c 16 0d 38 13 00 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_MSIL_Injector_AKQ_2147948431_0
 {
     meta:

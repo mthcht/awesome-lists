@@ -483,3 +483,26 @@ rule Trojan_Win32_FileCoder_ARAE_2147933417_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FileCoder_ZZ_2147951322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileCoder.ZZ!MTB"
+        threat_id = "2147951322"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4d 01 e4 c7 00 03 00 00 00 48 c7 40 08 00 00 00 00 44 89 78 10 48 89 c1 48 83 c1 14 4c 89 f2 4d 89 e0 e8 83 46 05 00 48 8b 4d 10 ba 16 00 00 00 4d 89 e8 4c 8b 7d a8 45 89 f9}  //weight: 1, accuracy: High
+        $x_1_2 = {66 83 fb 2e 0f 85 a1 00 00 00 66 45 85 ff 74 10 44 89 f8 83 f0 2e 66 44 09 f0 0f 85 8b 00 00 00 4c 8d 75 a8 41 b8 50 02 00 00 4c 89 f1 48 89 d3 31 d2 e8 77 5b 05 00 48 8b 5b 08 0f 1f 00 48 89 d9 4c 89 f2}  //weight: 1, accuracy: High
+        $x_1_3 = {f0 48 ff 07 7e 7f 48 8d 42 1c 48 83 c2 4e 0f 10 00 0f 10 48 10 0f 10 50 1c 0f 11 56 2c 0f 11 4e 20 0f 11 46 10 48 8d 4e 42 41 b8 1e 02 00 00 e8 bf 5a 05 00 48 89 7e 08 66 89 5e 3c 66 44 89 7e 3e 66 44 89 76 40 48 c7 06}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
