@@ -7231,3 +7231,27 @@ rule Trojan_Win32_Guloader_SDKJ_2147951299_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GQE_2147951349_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GQE!MTB"
+        threat_id = "2147951349"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "buksetroldes ytring" ascii //weight: 1
+        $x_1_2 = "forenende" ascii //weight: 1
+        $x_1_3 = "archdapifership.exe" ascii //weight: 1
+        $x_1_4 = "gennemleve interneres omdefineret" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
