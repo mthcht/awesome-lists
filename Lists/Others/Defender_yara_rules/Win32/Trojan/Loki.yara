@@ -41,3 +41,24 @@ rule Trojan_Win32_Loki_XR_2147752621_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Loki_AB_2147951444_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Loki.AB!MTB"
+        threat_id = "2147951444"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Loki"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {ff cc 31 00 00 d1 1c ?? 99 f5 55 59 43 be}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

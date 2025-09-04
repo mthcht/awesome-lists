@@ -308,3 +308,24 @@ rule Trojan_Win64_AsyncRAT_GTB_2147949819_0
         )
 }
 
+rule Trojan_Win64_AsyncRAT_AB_2147951430_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRAT.AB!MTB"
+        threat_id = "2147951430"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {c6 44 24 75 63 c7 44 24 76 3a 5c 77 69 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 4c 24 7a 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 8c 24 82 00 00 00 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 8c 24 8a 00 00 00 31 c0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4628,3 +4628,27 @@ rule Trojan_Win32_OffLoader_ZVR_2147951060_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ANEB_2147951366_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ANEB!MTB"
+        threat_id = "2147951366"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://screwengine.info/mir.php?" ascii //weight: 4
+        $x_4_2 = "://increaserock.xyz/mirs.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

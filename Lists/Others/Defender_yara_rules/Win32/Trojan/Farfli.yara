@@ -656,6 +656,27 @@ rule Trojan_Win32_Farfli_AB_2147796537_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {55 8b ec 6a ff 68 2a 2c 0a 00 68 38 ?? 0d 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 58 64 a3 00 00 00 00 58 58 58 58 8b e8 b8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Farfli_AB_2147796537_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.AB!MTB"
+        threat_id = "2147796537"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:

@@ -8247,6 +8247,27 @@ rule Trojan_Win32_Dridex_AB_2147797680_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dridex_AB_2147797680_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dridex.AB!MTB"
+        threat_id = "2147797680"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 8d b4 e6 ff ff 8b 45 0c 0f b6 00 83 f8 31 ?? ?? 83 f8 35 ?? ?? 33 8d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Dridex_ADS_2147797953_0
 {
     meta:

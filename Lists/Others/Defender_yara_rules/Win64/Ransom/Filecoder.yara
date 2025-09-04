@@ -1487,3 +1487,25 @@ rule Ransom_Win64_Filecoder_NITE_2147951316_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAHR_2147951367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHR!MTB"
+        threat_id = "2147951367"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 57 38 41 b9 04 00 00 00 48 8b 4f 18 41 b8 00 30 00 00 ff}  //weight: 2, accuracy: High
+        $x_3_2 = {41 0f b7 01 4d 8d 49 02 83 f8 61 8d 48 e0 0f 42 c8 45 6b db 21 44 03 d9 49 83 ea 01 75}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

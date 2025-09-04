@@ -718,3 +718,26 @@ rule Trojan_Win64_Meterpreter_AHB_2147947241_0
         )
 }
 
+rule Trojan_Win64_Meterpreter_KAB_2147951398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.KAB!MTB"
+        threat_id = "2147951398"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 c2 89 d0 48 69 c0 ?? ?? ?? ?? 48 c1 e8 ?? c1 e8 ?? 6b c0 ?? 29 c2 89 d0 05}  //weight: 20, accuracy: Low
+        $x_10_2 = {6b c0 33 8b 55 f8 d1 fa 09 c2 8b 45 f8 31 d0 89 45 f8 8b 45 f8 83 e0 0f 83 f8 0a 0f 94 c0 84 c0 74 0b}  //weight: 10, accuracy: High
+        $x_5_3 = ".jxk3z" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

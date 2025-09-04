@@ -2261,3 +2261,60 @@ rule Trojan_Win64_Tedy_KAB_2147951276_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CD_2147951368_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CD!MTB"
+        threat_id = "2147951368"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "x64dbg" ascii //weight: 2
+        $x_2_2 = "dnSpy" ascii //weight: 2
+        $x_2_3 = "Ida Pro" ascii //weight: 2
+        $x_2_4 = "OllyDbg" ascii //weight: 2
+        $x_2_5 = "ProcessHacker" ascii //weight: 2
+        $x_2_6 = "Wireshark" ascii //weight: 2
+        $x_2_7 = "vboxservice" ascii //weight: 2
+        $x_2_8 = "vboxtray" ascii //weight: 2
+        $x_2_9 = "PayloadLength >" ascii //weight: 2
+        $x_3_10 = "Emulator Not Found!" ascii //weight: 3
+        $x_3_11 = "credentials.txt" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((9 of ($x_2_*))) or
+            ((1 of ($x_3_*) and 8 of ($x_2_*))) or
+            ((2 of ($x_3_*) and 6 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Tedy_AL_2147951441_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AL!MTB"
+        threat_id = "2147951441"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4d 8b f1 49 8b d8 4c 8b e2 48 8b f9 45 33 ed 48 8b 49 10 48 be fe ff ff ff ff ff ff 7f 48 8b c6 48 2b c1 48 83 f8 16}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

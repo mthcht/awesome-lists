@@ -7679,3 +7679,66 @@ rule Trojan_Win32_Zusy_GXY_2147951329_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Zusy_GAPJ_2147951369_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.GAPJ!MTB"
+        threat_id = "2147951369"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "iDTHNqCQGIVt0KFQUh9NyrHXKGQ7j/aaE/SNKAszEoyZwX6Vb7GJggL5/KBLM14rSMqsGxRA+ucLjSsANNLFeQ==" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AU_2147951418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AU!MTB"
+        threat_id = "2147951418"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f 10 04 01 0f 28 ca 0f 57 c2 0f 11 04 01 0f 10 84 05 40 f5 ff ff 0f 57 c2 0f 11 84 05 40 f5 ff ff 0f 10 04 02 0f 57 c8 0f 11 0c 02 0f 10 04 06 0f 57 c2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AW_2147951442_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AW!MTB"
+        threat_id = "2147951442"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f 9c c1 83 f8 09 88 d5 0f 9f c4 30 d1 30 e2 08 e5 88 d0 20 e2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

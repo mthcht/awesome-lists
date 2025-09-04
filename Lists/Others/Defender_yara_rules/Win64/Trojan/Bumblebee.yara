@@ -1255,6 +1255,27 @@ rule Trojan_Win64_Bumblebee_AB_2147888990_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {49 8b 80 88 00 00 00 49 8b f8 49 8b 88 18 02 00 00 48 0f af c0 48 69 c0 ?? ?? 00 00 49 89 80 88 00 00 00 49 8b 80 b0 01 00 00 48 05 ?? ?? 00 00 48 09 81 98 01 00 00 49 8b c8 49 8b}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Bumblebee_AB_2147888990_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bumblebee.AB!MTB"
+        threat_id = "2147888990"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bumblebee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:

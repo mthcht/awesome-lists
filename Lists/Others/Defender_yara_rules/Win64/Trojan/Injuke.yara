@@ -109,3 +109,25 @@ rule Trojan_Win64_Injuke_AHB_2147950172_0
         )
 }
 
+rule Trojan_Win64_Injuke_MK_2147951461_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injuke.MK!MTB"
+        threat_id = "2147951461"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 fc 48 98 48 8d 15 ?? ?? ?? ?? 88 0c 10 8b 45 fc 48 98 48 8d 15 ?? ?? ?? ?? 0f b6 04 10 83 f0 a5}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 55 1c 48 8b 45 10 48 01 d0 44 0f b6 00 0f b6 0d ?? ?? ?? ?? 8b 55 1c 48 8b 45 10 48 01 d0 44 89 c2 31 ca 88 10}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

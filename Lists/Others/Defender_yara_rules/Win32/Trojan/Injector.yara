@@ -2347,3 +2347,26 @@ rule Trojan_Win32_Injector_KAB_2147951030_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_KAC_2147951399_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.KAC!MTB"
+        threat_id = "2147951399"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {83 5e 46 14 f6 6a 6e f6 5f 12 a4 44 82 99 cf 58 39 9e e0 67 3a 4f ad 33 99 66 cf 11 b7 0c}  //weight: 10, accuracy: High
+        $x_5_2 = "Earthworms1" ascii //weight: 5
+        $x_3_3 = "Hearingless" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

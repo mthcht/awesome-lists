@@ -2976,3 +2976,24 @@ rule Trojan_Win32_Remcos_NJ_2147948817_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_AF_2147951438_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.AF!MTB"
+        threat_id = "2147951438"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {82 9b 6f 0b 9f 43 5e 08 67 34 35 3e 01 ?? 33 36 89 29 92 58 ae 15 21 c7 ac 74 87 b5}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -45,3 +45,24 @@ rule Ransom_Win32_Mamona_DA_2147941222_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Mamona_AB_2147951431_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Mamona.AB!MTB"
+        threat_id = "2147951431"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mamona"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a bd 6d 10 00 00 0f 94 45 ec 80 3d c4 6e 43 00 00 88 45 d2 8a 85 6f 10 00 00 88 45 d1 8a 85 71 10 00 00 88 45 c0 8a 85 73 10 00 00 88 45 b0 88 5d a0 74 22 68}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

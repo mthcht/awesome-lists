@@ -238,3 +238,25 @@ rule Trojan_MSIL_Diztakun_EOCS_2147951130_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Diztakun_MR_2147951458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Diztakun.MR!MTB"
+        threat_id = "2147951458"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Diztakun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0a 06 72 af 00 00 70 6f b9 00 00 0a 0b 07 16 2f 0c}  //weight: 5, accuracy: High
+        $x_10_2 = {11 10 16 11 10 8e 69 6f cd 00 00 0a 7e 44 00 00 04 0b 07}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

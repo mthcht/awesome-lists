@@ -309,3 +309,24 @@ rule Trojan_Win32_Tiny_PPG_2147949922_0
         )
 }
 
+rule Trojan_Win32_Tiny_AB_2147951434_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tiny.AB!MTB"
+        threat_id = "2147951434"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {81 ec 1c 02 00 00 a1 e0 85 03 10 33 c4 89 84 24 18 02 00 00 8b 84 24 20 02 00 00 8b 40 14 b9 00 01 00 00 56 89 4c 24 0c 89 4c 24 10 85 c0 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

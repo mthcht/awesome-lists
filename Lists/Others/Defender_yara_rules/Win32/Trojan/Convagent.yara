@@ -1834,3 +1834,25 @@ rule Trojan_Win32_Convagent_AGC_2147949644_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_KK_2147951395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.KK!MTB"
+        threat_id = "2147951395"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 85 c0 0f 84 ?? ?? 00 00 0f 10 05 ?? ?? 03 00 0f 11 40 1a 0f 10 05 ?? ?? 03 00 0f 11 40 10 0f 10 05 ?? ?? 03 00 48 89 85 ?? 05 00 00 0f 11 00 48 8d 4d}  //weight: 10, accuracy: Low
+        $x_5_2 = "Freelancer_Contract_Viewer.pdb" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

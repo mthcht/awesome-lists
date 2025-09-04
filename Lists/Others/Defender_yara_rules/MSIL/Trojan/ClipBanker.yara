@@ -4391,3 +4391,33 @@ rule Trojan_MSIL_ClipBanker_NKC_2147951167_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_PCF_2147951373_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.PCF!MTB"
+        threat_id = "2147951373"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "I5tJBBBBBBBFBBu3:YG2EmIRVoBM9weWDN0NN{bLE9hwLoIP{9uMUT8KMxJB98wvjzFBBBB" ascii //weight: 5
+        $x_5_2 = "I5tJBBBBBBBFBNwOUD8LM96QL2FpTt4OM1mWTNltMtiKsGSJUFltLFluBhD816bXJBBBBB" ascii //weight: 5
+        $x_5_3 = "H4sIAAAAAAAEACvKz8vMszJxsrQwMHFxNTdKcrRMSnIzNXE2NDFLTLQwTzU2tLRwNjY0NjBPNDMGABX5YPEuAA" ascii //weight: 5
+        $x_5_4 = "H4sIAAAAAAAEAHMud/X3Ckz3dM90C/B3Ck1yrUiv8DAoNnSv8PRIDKlwDzVMCQ2MiEoEAJJZGpYoAA" ascii //weight: 5
+        $x_1_5 = "UserOOBEBroker.exe" ascii //weight: 1
+        $x_1_6 = "ILoveYourMother" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -149,3 +149,24 @@ rule Trojan_Win32_Mint_AF_2147944993_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mint_AI_2147951432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.AI!MTB"
+        threat_id = "2147951432"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {66 89 45 c0 b9 7f 40 00 00 66 89 4d c2 c6 45 c4 8a c6 45 c5 f5 c6 45 c6 0d c6 45 c7 f3 c6 45 c8 5a c6 45 c9 00 c6 45 ca 5c c6 45 cb c8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
