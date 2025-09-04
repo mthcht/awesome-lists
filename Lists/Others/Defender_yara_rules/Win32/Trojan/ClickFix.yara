@@ -7725,32 +7725,38 @@ rule Trojan_Win32_ClickFix_EEA_2147945362_0
         $x_100_8 = "danIEl-polDINdEv.Info" wide //weight: 100
         $x_100_9 = "danili-myhomework.info" wide //weight: 100
         $x_100_10 = "5thed.christmas" wide //weight: 100
-        $x_100_11 = "aifs-bd.com" wide //weight: 100
-        $x_100_12 = "akapanda.com" wide //weight: 100
-        $x_100_13 = "wieejc.com" wide //weight: 100
-        $x_100_14 = "wellesleyrug.com" wide //weight: 100
-        $x_100_15 = "bstkmonitorscap.com" wide //weight: 100
-        $x_100_16 = "ui3.fit" wide //weight: 100
-        $x_100_17 = "zeda1s.boutique" wide //weight: 100
-        $x_100_18 = "px3.click/theme.iso" wide //weight: 100
-        $x_100_19 = "walkin.college" wide //weight: 100
-        $x_100_20 = "t0urist.cv" wide //weight: 100
-        $x_100_21 = "otmuqi.com" wide //weight: 100
-        $x_100_22 = "rizukimayamui-portfolio.info" wide //weight: 100
-        $x_100_23 = "-humancheck.info" wide //weight: 100
-        $x_100_24 = "mylybnews.com" wide //weight: 100
-        $x_100_25 = "ip.meviks.no" wide //weight: 100
-        $x_100_26 = "jakobz.lol" wide //weight: 100
-        $x_100_27 = "termodelta.hr" wide //weight: 100
-        $x_100_28 = "boiksal.com" wide //weight: 100
-        $x_100_29 = "qahodey5.ru" wide //weight: 100
-        $x_100_30 = "finalstepgo.com" wide //weight: 100
-        $x_100_31 = "indurall.com" wide //weight: 100
-        $x_100_32 = "ritavoi.com" wide //weight: 100
-        $x_100_33 = "ui3.fit/" wide //weight: 100
-        $x_100_34 = "jekitech.cloud" wide //weight: 100
-        $x_100_35 = "royevita.com" wide //weight: 100
-        $x_100_36 = "3rd.eadomerchants.com" wide //weight: 100
+        $x_100_11 = "trackthemgood.com" wide //weight: 100
+        $x_100_12 = "trx1111.b-cdn.net" wide //weight: 100
+        $x_100_13 = "puppy.walmart.com" wide //weight: 100
+        $x_100_14 = "aifs-bd.com" wide //weight: 100
+        $x_100_15 = "vrfnbk.com" wide //weight: 100
+        $x_100_16 = "akapanda.com" wide //weight: 100
+        $x_100_17 = "wieejc.com" wide //weight: 100
+        $x_100_18 = "wellesleyrug.com" wide //weight: 100
+        $x_100_19 = "nopaste.net" wide //weight: 100
+        $x_100_20 = "bstkmonitorscap.com" wide //weight: 100
+        $x_100_21 = "ui3.fit" wide //weight: 100
+        $x_100_22 = "zeda1s.boutique" wide //weight: 100
+        $x_100_23 = "px3.click/theme.iso" wide //weight: 100
+        $x_100_24 = "walkin.college" wide //weight: 100
+        $x_100_25 = "t0urist.cv" wide //weight: 100
+        $x_100_26 = "otmuqi.com" wide //weight: 100
+        $x_100_27 = "rizukimayamui-portfolio.info" wide //weight: 100
+        $x_100_28 = "-humancheck.info" wide //weight: 100
+        $x_100_29 = "mylybnews.com" wide //weight: 100
+        $x_100_30 = "ip.meviks.no" wide //weight: 100
+        $x_100_31 = "finalsteptogo.com" wide //weight: 100
+        $x_100_32 = "jakobz.lol" wide //weight: 100
+        $x_100_33 = "termodelta.hr" wide //weight: 100
+        $x_100_34 = "boiksal.com" wide //weight: 100
+        $x_100_35 = "qahodey5.ru" wide //weight: 100
+        $x_100_36 = "finalstepgo.com" wide //weight: 100
+        $x_100_37 = "indurall.com" wide //weight: 100
+        $x_100_38 = "ritavoi.com" wide //weight: 100
+        $x_100_39 = "ui3.fit/" wide //weight: 100
+        $x_100_40 = "jekitech.cloud" wide //weight: 100
+        $x_100_41 = "royevita.com" wide //weight: 100
+        $x_100_42 = "3rd.eadomerchants.com" wide //weight: 100
     condition:
         (filesize < 20MB) and
         (
@@ -8174,21 +8180,22 @@ rule Trojan_Win32_ClickFix_BBS_2147945698_0
         $x_1_12 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 72 00 66 00 79 00 63 00 6c 00 6f 00 75 00 64 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_13 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 64 00 65 00 77 00 79 00 6e 00 74 00 65 00 72 00 73 00 70 00 72 00 6f 00 6d 00 6f 00 73 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_14 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 6c 00 61 00 6e 00 64 00 65 00 72 00 73 00 61 00 72 00 65 00 6e 00 61 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_15 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 68 00 75 00 6d 00 62 00 6c 00 65 00 2d 00 70 00 68 00 6f 00 74 00 6f 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_16 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 71 00 6c 00 6f 00 75 00 64 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_17 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 63 00 6c 00 6f 00 75 00 64 00 69 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_18 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 75 00 6e 00 69 00 65 00 6e 00 64 00 6f 00 70 00 75 00 6e 00 74 00 6f 00 73 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_19 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 63 00 6c 00 6f 00 75 00 64 00 69 00 66 00 79 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_20 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 6f 00 6f 00 64 00 2d 00 73 00 69 00 6d 00 70 00 6c 00 65 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_21 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 77 00 77 00 6a 00 73 00 6e 00 6f 00 64 00 65 00 2e 00 6e 00 65 00 74 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_22 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 69 00 66 00 74 00 79 00 77 00 6f 00 72 00 6c 00 64 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_23 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 6f 00 63 00 66 00 72 00 65 00 65 00 73 00 74 00 75 00 66 00 66 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
-        $x_1_24 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 6c 00 65 00 61 00 76 00 65 00 61 00 6e 00 6e 00 65 00 61 00 6c 00 6f 00 61 00 6e 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_25 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 65 00 6e 00 63 00 6f 00 72 00 65 00 6f 00 70 00 65 00 6e 00 69 00 6e 00 67 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_26 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 6f 00 6e 00 64 00 65 00 72 00 6c 00 69 00 66 00 65 00 72 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_27 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 74 00 64 00 63 00 65 00 67 00 79 00 70 00 74 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_28 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 73 00 70 00 69 00 64 00 65 00 72 00 2d 00 77 00 61 00 6d 00 70 00 2e 00 63 00 6f 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_29 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_15 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 78 00 2d 00 76 00 61 00 70 00 65 00 2e 00 63 00 61 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_16 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 68 00 75 00 6d 00 62 00 6c 00 65 00 2d 00 70 00 68 00 6f 00 74 00 6f 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_17 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 71 00 6c 00 6f 00 75 00 64 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_18 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 63 00 6c 00 6f 00 75 00 64 00 69 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_19 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 75 00 6e 00 69 00 65 00 6e 00 64 00 6f 00 70 00 75 00 6e 00 74 00 6f 00 73 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_20 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 76 00 65 00 72 00 69 00 63 00 6c 00 6f 00 75 00 64 00 69 00 66 00 79 00 78 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_21 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 6f 00 6f 00 64 00 2d 00 73 00 69 00 6d 00 70 00 6c 00 65 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_22 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 77 00 77 00 6a 00 73 00 6e 00 6f 00 64 00 65 00 2e 00 6e 00 65 00 74 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_23 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 69 00 66 00 74 00 79 00 77 00 6f 00 72 00 6c 00 64 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_24 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 6f 00 63 00 66 00 72 00 65 00 65 00 73 00 74 00 75 00 66 00 66 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_25 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 6c 00 65 00 61 00 76 00 65 00 61 00 6e 00 6e 00 65 00 61 00 6c 00 6f 00 61 00 6e 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_26 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 2e 00 65 00 6e 00 63 00 6f 00 72 00 65 00 6f 00 70 00 65 00 6e 00 69 00 6e 00 67 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_27 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 77 00 6f 00 6e 00 64 00 65 00 72 00 6c 00 69 00 66 00 65 00 72 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_28 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 74 00 64 00 63 00 65 00 67 00 79 00 70 00 74 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_29 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 [0-80] 73 00 70 00 69 00 64 00 65 00 72 00 2d 00 77 00 61 00 6d 00 70 00 2e 00 63 00 6f 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_30 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-32] 2f 00 71 00 6e 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-60] 2e 00 73 00 68 00 69 00 65 00 6c 00 64 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -11531,5 +11538,117 @@ rule Trojan_Win32_ClickFix_GGX_2147951233_0
             ((2 of ($x_10_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_ClickFix_FFA_2147951335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.FFA!MTB"
+        threat_id = "2147951335"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "iwr " wide //weight: 1
+        $x_1_2 = {68 00 74 00 74 00 70 00 [0-10] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-60] 2d 00 6d 00 65 00 74 00 68 00 6f 00 64 00 20 00 70 00 6f 00 73 00 74 00 20 00 2d 00 62 00 6f 00 64 00 79 00 20 00 40 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HIJ_2147951336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HIJ!MTB"
+        threat_id = "2147951336"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "| cmd && exit" wide //weight: 1
+        $x_1_2 = {63 00 75 00 72 00 6c 00 20 00 2d 00 73 00 20 00 68 00 74 00 74 00 70 00 [0-2] 3a 00 2f 00 2f 00 [0-255] 3a 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "/min cmd /k" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HHQ_2147951337_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HHQ!MTB"
+        threat_id = "2147951337"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "=powershell -win mini -e" wide //weight: 1
+        $x_1_2 = ");powershell -w h -ep bypass -f $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HHR_2147951338_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HHR!MTB"
+        threat_id = "2147951338"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6d 00 73 00 68 00 74 00 61 00 [0-5] 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-32] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {6d 00 73 00 68 00 74 00 61 00 [0-5] 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-32] 67 00 72 00 75 00 70 00 6f 00 68 00 65 00 67 00 2e 00 70 00 72 00 6f 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {6d 00 73 00 68 00 74 00 61 00 [0-5] 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-32] 76 00 65 00 72 00 72 00 69 00 66 00 66 00 79 00 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HHS_2147951339_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HHS!MTB"
+        threat_id = "2147951339"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GetString([System.Runtime.Remoting.Metadata" wide //weight: 1
+        $x_1_2 = ".Value)|powershell" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
