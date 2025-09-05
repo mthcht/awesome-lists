@@ -1904,27 +1904,6 @@ rule Trojan_MSIL_Lazy_PTEP_2147900034_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Lazy_PTFP_2147900703_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Lazy.PTFP!MTB"
-        threat_id = "2147900703"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Lazy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {73 37 00 00 0a 25 80 4b 00 00 04 28 ?? 00 00 2b 28 ?? 00 00 2b 10 01}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Lazy_AMBA_2147900725_0
 {
     meta:
