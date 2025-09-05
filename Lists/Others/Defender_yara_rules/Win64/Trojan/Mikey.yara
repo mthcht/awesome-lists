@@ -910,3 +910,31 @@ rule Trojan_Win64_Mikey_AC_2147951443_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_NKD_2147951509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.NKD!MTB"
+        threat_id = "2147951509"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "http://178.16.53.7/bcl.pfx" ascii //weight: 2
+        $x_2_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" ascii //weight: 1
+        $x_1_4 = "dsofjsdopifjsdoipfjxx" ascii //weight: 1
+        $x_1_5 = "ReflectiveLoader" ascii //weight: 1
+        $x_1_6 = "InternetOpenUrlW" ascii //weight: 1
+        $x_1_7 = "InternetReadFile" ascii //weight: 1
+        $x_1_8 = "WriteProcessMemory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
