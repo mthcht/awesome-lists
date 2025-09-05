@@ -832,3 +832,24 @@ rule Trojan_MSIL_PureLogs_BAF_2147951026_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogs_EAOB_2147951575_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogs.EAOB!MTB"
+        threat_id = "2147951575"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogs"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 0c 2b 1e 11 0c ?? ?? ?? ?? ?? 13 24 11 0a 11 24 11 14 59 61 13 0a 11 14 19 11 0a 58 1e 63 59 13 14 11 0c ?? ?? ?? ?? ?? 2d d9}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

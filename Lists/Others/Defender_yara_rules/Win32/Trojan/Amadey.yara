@@ -4171,3 +4171,28 @@ rule Trojan_Win32_Amadey_MJO_2147950812_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_2147951561_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.MTH!MTB"
+        threat_id = "2147951561"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTH: an internal category used to refer to some threats"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "2z1690.exe" ascii //weight: 1
+        $x_1_2 = "1d55e9.exe" ascii //weight: 1
+        $x_1_3 = "hater/nircmd.exe" ascii //weight: 1
+        $x_1_4 = "InstallHinfSection %s 128" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

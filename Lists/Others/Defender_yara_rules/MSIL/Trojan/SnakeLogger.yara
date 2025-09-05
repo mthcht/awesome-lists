@@ -1409,3 +1409,45 @@ rule Trojan_MSIL_SnakeLogger_EGTV_2147949730_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeLogger_ELAK_2147951570_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeLogger.ELAK!MTB"
+        threat_id = "2147951570"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 08 02 8e 69 17 da 17 d6 ?? ?? ?? ?? ?? 13 09 11 08 11 09 16 11 09 8e 69 ?? ?? ?? ?? ?? 13 0a 11 0a 17 da 17 d6 ?? ?? ?? ?? ?? 13 0b 11 09 11 0b 11 0a ?? ?? ?? ?? ?? 00 11 0b 0a de 51}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SnakeLogger_ELDK_2147951571_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeLogger.ELDK!MTB"
+        threat_id = "2147951571"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b 36 0e 04 11 06 ?? ?? ?? ?? ?? 05 69 61 13 07 09 11 07 ?? ?? ?? ?? ?? 0e 05 2c 16 11 07 19 5d 2d 10 08 11 07 6c ?? ?? ?? ?? ?? ?? ?? ?? ?? 5a 58 0c 11 06 17 58 13 06 11 06 0e 04 ?? ?? ?? ?? ?? 32 bf}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

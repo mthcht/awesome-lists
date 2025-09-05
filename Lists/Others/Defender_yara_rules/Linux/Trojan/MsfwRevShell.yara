@@ -141,3 +141,27 @@ rule Trojan_Linux_MsfwRevShell_NF_2147947883_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_MsfwRevShell_NG_2147951553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/MsfwRevShell.NG!!MsfwRevShell.gen!NG"
+        threat_id = "2147951553"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "MsfwRevShell"
+        severity = "Critical"
+        info = "MsfwRevShell: an internal category used to refer to some threats"
+        info = "gen: malware that is detected using a generic signature"
+        info = "NG: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ARHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 b8 2f 62 69 6e 2f 73 68 00 99 50 54 5f}  //weight: 1, accuracy: High
+        $x_1_2 = {5e 6a 3b 58 0f 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

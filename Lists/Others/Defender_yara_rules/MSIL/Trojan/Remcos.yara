@@ -13762,3 +13762,27 @@ rule Trojan_MSIL_Remcos_MCF_2147950847_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_MCG_2147951586_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.MCG!MTB"
+        threat_id = "2147951586"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {08 17 58 07 8e 69 5d 0c 11 20 20 [0-16] 61}  //weight: 2, accuracy: Low
+        $x_1_2 = "CSVViewer.Forms.MainForm.resource" ascii //weight: 1
+        $x_1_3 = {57 9d a2 29 09 0b 00 00 00 fa 25 33 00 16 00 00 01}  //weight: 1, accuracy: High
+        $x_1_4 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

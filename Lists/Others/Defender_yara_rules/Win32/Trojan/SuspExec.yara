@@ -233,3 +233,27 @@ rule Trojan_Win32_SuspExec_HI_2147947712_0
         )
 }
 
+rule Trojan_Win32_SuspExec_HJ_2147951578_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.HJ!MTB"
+        threat_id = "2147951578"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "trimend('=')" wide //weight: 20
+        $x_10_2 = {2d 00 73 00 68 00 72 00 20 00 24 00 [0-8] 29 00 20 00 2d 00 62 00 61 00 6e 00 64 00 20 00}  //weight: 10, accuracy: Low
+        $x_1_3 = ") -bor $" wide //weight: 1
+        $x_1_4 = "::gettemppath()" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
