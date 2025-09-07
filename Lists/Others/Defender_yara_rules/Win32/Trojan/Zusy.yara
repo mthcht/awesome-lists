@@ -7742,3 +7742,28 @@ rule Trojan_Win32_Zusy_AW_2147951442_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_SXI_2147951683_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.SXI!MTB"
+        threat_id = "2147951683"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {83 e9 39 88 88 ?? ?? ?? ?? 40 3b c2 7c eb}  //weight: 3, accuracy: Low
+        $x_2_2 = {8d 49 00 56 ff 15 ?? ?? ?? ?? 6a 00 6a 00 8d 8d a8 fe ff ff 51 56 8b f8 ff 15 ?? ?? ?? ?? 8d 47 fe 83 f8 03}  //weight: 2, accuracy: Low
+        $x_1_3 = "E:\\VS2010\\VC\\include\\" ascii //weight: 1
+        $x_1_4 = "-> Hard disk" ascii //weight: 1
+        $x_1_5 = "-> CD/DVD" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
