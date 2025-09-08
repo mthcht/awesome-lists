@@ -4652,3 +4652,25 @@ rule Trojan_Win32_OffLoader_ANEB_2147951366_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_SPRP_2147951714_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPRP!MTB"
+        threat_id = "2147951714"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "roadrecord.xyz/arus.php" wide //weight: 4
+        $x_1_2 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
