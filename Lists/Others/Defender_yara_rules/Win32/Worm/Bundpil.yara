@@ -82,3 +82,24 @@ rule Worm_Win32_Bundpil_AXIA_2147930967_0
         (all of ($x*))
 }
 
+rule Worm_Win32_Bundpil_GXT_2147951756_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Bundpil.GXT!MTB"
+        threat_id = "2147951756"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bundpil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {46 0f b6 96 ?? ?? ?? ?? 8b b5 ?? ?? ?? ?? 32 14 3e 8d 70 01 81 e6 ff ?? ?? ?? 88 17}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

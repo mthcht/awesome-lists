@@ -2014,3 +2014,25 @@ rule Trojan_Win64_LummaStealer_PST_2147951708_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_GVO_2147951757_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GVO!MTB!MTB"
+        threat_id = "2147951757"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {3b 4e 08 73 5e 44 8b c1 42 0f b6 44 06 10 8b d1 0f b6 54 13 10 2b d0 44 0f b6 c2 3b 4f 08 73 43 8b d1 41 33 c0 88 44 17 10 ff c1 3b e9 7f d1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

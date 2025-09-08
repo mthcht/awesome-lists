@@ -2242,3 +2242,25 @@ rule Trojan_Win64_Zusy_AE_2147951446_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_KAE_2147951761_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KAE!MTB"
+        threat_id = "2147951761"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {06 09 02 09 91 03 09 91 61 d2 9c 09 17 58 0d 09 02 8e 69 fe 04 13 04 11 04 2d e5}  //weight: 10, accuracy: High
+        $x_20_2 = "kan\\Desktop\\den444\\den444\\obj\\Debug\\den444.pdb" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
