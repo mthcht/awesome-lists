@@ -2835,3 +2835,27 @@ rule Ransom_Win32_Filecoder_CB_2147949296_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_MAV_2147951787_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.MAV!MTB"
+        threat_id = "2147951787"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Your files have been encrypted" ascii //weight: 4
+        $x_3_2 = "File encrypted successfully" ascii //weight: 3
+        $x_2_3 = "To decrypt your files, send" ascii //weight: 2
+        $x_1_4 = "ransom.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

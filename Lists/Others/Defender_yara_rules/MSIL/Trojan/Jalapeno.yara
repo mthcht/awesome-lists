@@ -3002,3 +3002,26 @@ rule Trojan_MSIL_Jalapeno_EAOC_2147951573_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_AHB_2147951792_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.AHB!MTB"
+        threat_id = "2147951792"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = {25 17 6f 23 00 00 0a 25 16 6f 22 00 00 0a 28 25 00 00 0a 25 2d 03 26 2b 05 28 35 00 00 0a}  //weight: 50, accuracy: High
+        $x_30_2 = "hater/cecho.exe" ascii //weight: 30
+        $x_20_3 = "hater/land.zip" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
