@@ -3322,3 +3322,45 @@ rule Trojan_Win32_CoinMiner_PAHM_2147947972_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CoinMiner_Z_2147951833_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinMiner.Z!MTB"
+        threat_id = "2147951833"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {3f 2c d3 51 f2 3f c2 13 1c 58 e3 61 d3 08 2d 8c 4d 70 9b 41 6f 35 1b f1 2a 16 4d 92 ae e7 d2 e3 14 33 f2 c2 d6 79 60 f0 30 38 d2 e1 f2 db 3c 74 f1 e0 38 dd cb 1c f9 ca 07 83 0f 18 e9 96 cf cd 16 1f 75 dd 01 b6 4f ca df 14 43 e2 4c 0c 8a f1 41 7e 65 88 1e 11 dd 74 c0 83 2e fc 4c 7b 99 68 bf 9a e2 24 1a b7 70 df 8b 75 80 03 3c d4 48 53 cb 22 5c 18 34 e8 83 da b3 c3 1e 22 26 b0 f2 44 23 b6 89 c1 cc 92 e7 fb ec 21 8b c6 79 e8 e3 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_CoinMiner_ZA_2147951834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinMiner.ZA!MTB"
+        threat_id = "2147951834"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0a 57 21 60 88 93 9b 54 bc a2 09 49 ba 9d 91 87 e2 14 0e 9c 9d bb 69 9d 4c 20 17 21 d7 20 70 13 d6 2d 69 95 78 41 4a 85 a7 ad ab 76 0b 57 ac ed a1 f2 61 5a c2 53 02 58 6a 09 17 85 c4 b5 d7 dd a4 17 83 34 ed 45 80 b4 96 30 18 eb a6 94 53 70 84 75 b3 a1 a0 f4 14 fd 77 d7 ea 40 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

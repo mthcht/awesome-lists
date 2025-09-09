@@ -527,3 +527,24 @@ rule Trojan_Win32_Filecoder_SXB_2147949361_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Filecoder_ZZA_2147951836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.ZZA!MTB"
+        threat_id = "2147951836"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b9 ff ff ff ff ba 01 00 00 00 e8 39 2e 06 00 83 7d f4 01 75 eb 8b 4d f8 8b 55 fc 49 89 c8 49 c1 e0 20 49 83 c8 02 31 c0 85 c9 0f 95 c0 49 0f 45 d0 48 83 c4 60 5d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

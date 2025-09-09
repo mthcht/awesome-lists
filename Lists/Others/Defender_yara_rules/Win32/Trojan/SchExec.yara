@@ -192,3 +192,53 @@ rule Trojan_Win32_SchExec_HN_2147951100_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SchExec_HP_2147951838_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SchExec.HP!MTB"
+        threat_id = "2147951838"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SchExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "/tn services64 /tr c:\\users\\" wide //weight: 10
+        $x_1_2 = "\\appdata\\local\\temp\\services64.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SchExec_HQ_2147951839_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SchExec.HQ!MTB"
+        threat_id = "2147951839"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SchExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "\\currentversion\\run /v" wide //weight: 20
+        $x_10_2 = {5c 00 64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 73 00 5c 00 23 24 24 08 61 2d 7a 30 2d 39 5f 20 2e 00 65 00 78 00 65 00}  //weight: 10, accuracy: Low
+        $x_1_3 = "/d %userprofile%\\documents\\" wide //weight: 1
+        $x_1_4 = {2f 00 64 00 20 00 63 00 3a 00 5c 00 75 00 73 00 65 00 72 00 73 00 5c 00 [0-36] 5c 00 64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 73 00 5c 00}  //weight: 1, accuracy: Low
+        $x_1_5 = " add " wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
