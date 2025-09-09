@@ -2264,3 +2264,30 @@ rule Trojan_Win64_Zusy_KAE_2147951761_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_PGZC_2147951847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGZC!MTB"
+        threat_id = "2147951847"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 74 74 70 3a 2f 2f 31 39 35 2e 36 36 2e 32 37 2e 37 37 3a 35 35 35 34 2f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5f 62 6f 75 6e 64 5f 62 75 69 6c 64 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 74 70 3a 2f 2f 39 31 2e 31 30 38 2e 32 34 31 2e 38 30 3a 35 35 35 34 2f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5f 62 6f 75 6e 64 5f 62 75 69 6c 64 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "tjgajdjrg.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

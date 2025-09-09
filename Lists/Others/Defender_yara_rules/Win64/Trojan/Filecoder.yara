@@ -256,3 +256,25 @@ rule Trojan_Win64_Filecoder_SXC_2147949753_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_SXD_2147951864_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.SXD!MTB"
+        threat_id = "2147951864"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {49 ff cc 4c 89 64 24 ?? 4c 8b 6c 24 ?? 4c 89 e0 48 c1 e0 05 49 8b 7c 05 00 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 39 cf 0f 84}  //weight: 3, accuracy: Low
+        $x_2_2 = {4c 89 e9 48 c1 e1 ?? 4c 89 24 08 48 89 5c 08 08 48 8d 94 24 ?? ?? ?? ?? f3 0f 6f 02 f3 0f 7f 44 08 10 49 ff c5 4c 89 6c 24}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

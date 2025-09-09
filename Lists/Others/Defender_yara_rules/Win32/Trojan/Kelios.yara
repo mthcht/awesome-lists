@@ -150,3 +150,26 @@ rule Trojan_Win32_Kelios_GTR_2147936002_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Kelios_MCG_2147951845_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Kelios.MCG!MTB"
+        threat_id = "2147951845"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Kelios"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2e 74 76 6d 70 30 00 00 4a b9 58 00 00 e0 4e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 74 76 6d 70 31 00 00 90 00 00 00 00 a0 a7 00 00 10 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 74 76 6d 70 32 00 00 10 03 d2 00 00 b0 a7}  //weight: 1, accuracy: High
+        $x_1_2 = {ce 6c ff ff ff b8 9a 1a 9f 11 59 58 e9 5d 2b c7 00 b8 38 3f bc 28 8d 14 45 97 4d 96 ae 8b 8c 06}  //weight: 1, accuracy: High
+        $x_1_3 = {2e 72 65 6c 6f 63 00 00 a0 06 00 00 00 e0 79 01 00 10 00 00 00 50 d2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

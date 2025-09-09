@@ -748,3 +748,24 @@ rule Trojan_Win64_Convagent_AHC_2147951083_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_GVC_2147951846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.GVC!MTB"
+        threat_id = "2147951846"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {42 8d 04 29 3b 43 08 73 28 8b d0 4c 8b 03 41 3b c7 73 1e 41 0f b6 04 16 44 8b d1 46 0f b6 54 16 10 41 33 c2 41 88 04 10 ff c1 41 3b cc 7c d1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4421,3 +4421,26 @@ rule Trojan_MSIL_ClipBanker_PCF_2147951373_0
         )
 }
 
+rule Trojan_MSIL_ClipBanker_PGAX_2147951848_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.PGAX!MTB"
+        threat_id = "2147951848"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ILoveYourMother" ascii //weight: 2
+        $x_1_2 = "kto prochital tot shluha" ascii //weight: 1
+        $x_2_3 = "UserOOBEBroker.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
