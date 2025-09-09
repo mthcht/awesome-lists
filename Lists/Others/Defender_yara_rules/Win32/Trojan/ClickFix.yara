@@ -8260,6 +8260,7 @@ rule Trojan_Win32_ClickFix_EEG_2147945699_1
         $x_1_2 = "W*\\*32\\c??l.e" wide //weight: 1
         $x_1_3 = "Cloudflare Verification" wide //weight: 1
         $n_5_4 = "NationalSignatureVerificationSystem01.msi" wide //weight: -5
+        $n_5_5 = "ABB Ability Verification for measurement devices v" wide //weight: -5
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -11948,6 +11949,30 @@ rule Trojan_Win32_ClickFix_IIB_2147951812_0
     strings:
         $x_10_1 = "|powershell" wide //weight: 10
         $x_1_2 = "[Uri]::UnescapeDataString(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IIC_2147951815_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIC!MTB"
+        threat_id = "2147951815"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "| cmd" wide //weight: 1
+        $x_1_2 = {63 00 6d 00 64 00 [0-8] 20 00 2f 00 63 00 20 00 66 00 69 00 6e 00 67 00 65 00 72 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "--headless" wide //weight: 1
+        $x_1_4 = "conhost.exe" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
