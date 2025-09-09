@@ -9436,3 +9436,73 @@ rule Backdoor_Linux_Mirai_LV_2147950400_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_LP_2147951878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LP!MTB"
+        threat_id = "2147951878"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ddos_udp_pkt_flood" ascii //weight: 1
+        $x_1_2 = "ddos_udp_simple_flood" ascii //weight: 1
+        $x_1_3 = "ddos_udp_bypass_flood" ascii //weight: 1
+        $x_1_4 = "ddos_ack_flood" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Linux_Mirai_LQ_2147951879_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LQ!MTB"
+        threat_id = "2147951879"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 00 51 e3 01 10 41 e2 0f 00 00 da 01 e0 d4 e4 00 c0 d5 e7 41 30 4e e2 41 20 4c e2 19 00 53 e3 60 e0 8e 93 19 00 52 e3 60 c0 8c 93 0c 00 5e e1 01 00 80 e2 00 00 a0 13 f0 ff ff 1a 06 00 50 e1 ee ff ff 1a 04 00 67 e0 f0 80 bd e8}  //weight: 2, accuracy: High
+        $x_2_2 = {00 30 d0 e5 00 00 53 e3 03 c0 a0 01 04 00 00 0a 00 c0 a0 e3 01 c0 8c e2 00 30 dc e7 00 00 53 e3 fb ff ff 1a 00 30 d1 e5 00 00 53 e3 03 20 a0 01 04 00 00 0a 00 20 a0 e3 01 20 82 e2 01 30 d2 e7 00 00 53 e3 fb ff ff 1a 0c 00 52 e1 02 c0 a0 01 07 00 00 0a 00 00 a0 e3 0e f0 a0 e1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Linux_Mirai_LR_2147951880_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.LR!MTB"
+        threat_id = "2147951880"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/bin/busybox chmod +x upnp; ./upnp; ./.ffdfd selfrep.echo" ascii //weight: 1
+        $x_1_2 = "ftpget.sh ftpget.sh && sh ftpget.sh;curl http://" ascii //weight: 1
+        $x_1_3 = "/wget.sh -O- | sh;/bin/busybox tftp -g" ascii //weight: 1
+        $x_1_4 = "-r tftp.sh -l- | sh;/bin/busybox ftpget" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

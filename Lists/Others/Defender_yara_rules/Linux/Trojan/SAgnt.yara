@@ -613,3 +613,77 @@ rule Trojan_Linux_SAgnt_AB_2147948606_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_SAgnt_AE_2147951881_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SAgnt.AE!MTB"
+        threat_id = "2147951881"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.InfoToSend" ascii //weight: 1
+        $x_1_2 = "main.SendInfoToServerResponse" ascii //weight: 1
+        $x_1_3 = "USDT_GetAddressBalanceResponse" ascii //weight: 1
+        $x_1_4 = "type:.eq.main.USDT_GetAddressBalanceResponseToken" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule Trojan_Linux_SAgnt_AG_2147951886_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SAgnt.AG!MTB"
+        threat_id = "2147951886"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.livingoftheland" ascii //weight: 1
+        $x_1_2 = "main.autocoloring" ascii //weight: 1
+        $x_1_3 = "main.SelfServiceOut" ascii //weight: 1
+        $x_1_4 = "main.HiddenHome" ascii //weight: 1
+        $x_1_5 = "main.deckeys" ascii //weight: 1
+        $x_1_6 = "main.makeExecutable" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_SAgnt_AH_2147951887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SAgnt.AH!MTB"
+        threat_id = "2147951887"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.HomeChecker" ascii //weight: 1
+        $x_1_2 = "main.findWritableDir" ascii //weight: 1
+        $x_1_3 = "main.RealCheck" ascii //weight: 1
+        $x_1_4 = "main.HiddenHome" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

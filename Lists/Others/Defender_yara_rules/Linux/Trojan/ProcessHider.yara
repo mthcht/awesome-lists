@@ -165,3 +165,29 @@ rule Trojan_Linux_ProcessHider_SR21_2147950262_0
         )
 }
 
+rule Trojan_Linux_ProcessHider_E_2147951882_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/ProcessHider.E!MTB"
+        threat_id = "2147951882"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "ProcessHider"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.checkMinerInHiddenLocations" ascii //weight: 1
+        $x_1_2 = "main.addToLdPreload" ascii //weight: 1
+        $x_1_3 = "main.checkAndLaunchMiner" ascii //weight: 1
+        $x_1_4 = "main.prepareAndLaunchMiner" ascii //weight: 1
+        $x_1_5 = "main.prepareTools" ascii //weight: 1
+        $x_1_6 = "main.launchMinerWithRandomName" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

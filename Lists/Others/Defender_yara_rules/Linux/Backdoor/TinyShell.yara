@@ -20,3 +20,28 @@ rule Backdoor_Linux_TinyShell_A_2147945641_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_TinyShell_C_2147951888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/TinyShell.C!MTB"
+        threat_id = "2147951888"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "TinyShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "tshd_get_file" ascii //weight: 1
+        $x_1_2 = "pel_client_init" ascii //weight: 1
+        $x_1_3 = "pel_send_all" ascii //weight: 1
+        $x_1_4 = "tshd_put_file" ascii //weight: 1
+        $x_1_5 = "pel_recv_all" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
