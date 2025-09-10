@@ -351,3 +351,24 @@ rule Trojan_Win64_DllHijack_KK_2147951029_0
         )
 }
 
+rule Trojan_Win64_DllHijack_GVB_2147951939_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.GVB!MTB"
+        threat_id = "2147951939"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 89 c2 83 c2 01 0f b6 ca 0f b6 44 0c 20 48 89 ca 44 8d 04 38 45 0f b6 c0 46 0f b6 4c 04 20 4c 89 c7 44 88 4c 0c 20 42 88 44 04 20 02 44 0c 20 0f b6 c0 0f b6 44 04 20 42 32 04 16 4d 39 da 42 88 04 13 49 8d 42 01 75 b7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
