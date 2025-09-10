@@ -28,8 +28,15 @@ jobs:
           cd Lists/PROXY/Icloud_proxy_from_apple
           python3 fetch_range_ip.py
 
+      - name: Copy CSV to Apple ranges folder
+        run: |
+          cp Lists/PROXY/Icloud_proxy_from_apple/icloud_relay_ranges.csv \
+             Lists/Ranges_IP_Address_Company_List/Apple/
+
       - name: List updated files
-        run: ls -lah Lists/PROXY/Icloud_proxy_from_apple
+        run: |
+          ls -lah Lists/PROXY/Icloud_proxy_from_apple
+          ls -lah Lists/Ranges_IP_Address_Company_List/Apple
 
       - name: Commit and Push results
         run: |
@@ -37,5 +44,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git pull --rebase
           git add Lists/PROXY/Icloud_proxy_from_apple/*
+          git add Lists/Ranges_IP_Address_Company_List/Apple/*
           git commit -m "Update iCloud Relay IP ranges" --allow-empty
           git push
