@@ -2036,3 +2036,24 @@ rule Trojan_Win64_LummaStealer_GVO_2147951757_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_GAPK_2147951932_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GAPK!MTB"
+        threat_id = "2147951932"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {d0 1b 61 c4 8a 38 b3 12 d5 24 d5 40 eb a8 2a 88 cc 0d f0 01 9e 5d}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
