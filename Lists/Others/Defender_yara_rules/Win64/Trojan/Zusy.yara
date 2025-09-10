@@ -2291,3 +2291,25 @@ rule Trojan_Win64_Zusy_PGZC_2147951847_0
         )
 }
 
+rule Trojan_Win64_Zusy_PGK_2147951956_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGK!MTB"
+        threat_id = "2147951956"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "tjgajdjrg.exe" ascii //weight: 5
+        $x_10_2 = {68 74 74 70 [0-1] 3a 2f 2f [0-48] 2f [0-32] 5f [0-32] 2e 65 78 65}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

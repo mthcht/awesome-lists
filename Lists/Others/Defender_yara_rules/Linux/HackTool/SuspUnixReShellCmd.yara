@@ -302,36 +302,73 @@ rule HackTool_Linux_SuspUnixReShellCmd_M_2147766187_0
         (all of ($x*))
 }
 
-rule HackTool_Linux_SuspUnixReShellCmd_O_2147766754_0
+rule HackTool_Linux_SuspUnixReShellCmd_N_2147766188_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "HackTool:Linux/SuspUnixReShellCmd.O"
-        threat_id = "2147766754"
+        detection_name = "HackTool:Linux/SuspUnixReShellCmd.N"
+        threat_id = "2147766188"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspUnixReShellCmd"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "15"
-        strings_accuracy = "Low"
+        threshold = "13"
+        strings_accuracy = "High"
     strings:
-        $x_10_1 = {2f 00 62 00 69 00 6e 00 2f 00 [0-4] 73 00 68 00}  //weight: 10, accuracy: Low
-        $x_1_2 = "sh -c" wide //weight: 1
-        $x_1_3 = "mkfifo" wide //weight: 1
-        $x_1_4 = "mknod" wide //weight: 1
-        $x_1_5 = "nc" wide //weight: 1
-        $x_1_6 = "telnet" wide //weight: 1
-        $x_1_7 = "2>&1" wide //weight: 1
-        $x_1_8 = "0<" wide //weight: 1
-        $n_50_9 = "127.0.0.1" wide //weight: -50
-        $n_50_10 = "localhost" wide //weight: -50
-        $n_50_11 = "0.0.0.0" wide //weight: -50
+        $x_5_1 = "socat" wide //weight: 5
+        $x_5_2 = "exec:" wide //weight: 5
+        $x_2_3 = "bash" wide //weight: 2
+        $x_2_4 = ":sh" wide //weight: 2
+        $x_2_5 = "/sh" wide //weight: 2
+        $x_2_6 = "zsh" wide //weight: 2
+        $x_2_7 = "csh" wide //weight: 2
+        $x_2_8 = "dash" wide //weight: 2
+        $x_2_9 = "ksh93" wide //weight: 2
+        $x_2_10 = "ksh" wide //weight: 2
+        $x_2_11 = "tcsh" wide //weight: 2
+        $x_1_12 = "tcp-connect:" wide //weight: 1
+        $x_1_13 = "tcp4-connect:" wide //weight: 1
+        $x_1_14 = "tcp6-connect:" wide //weight: 1
+        $x_1_15 = "tcp-listen:" wide //weight: 1
+        $x_1_16 = "tcp4-listen:" wide //weight: 1
+        $x_1_17 = "tcp6-listen:" wide //weight: 1
+        $x_1_18 = "tcp4:" wide //weight: 1
+        $x_1_19 = "tcp6:" wide //weight: 1
+        $x_1_20 = "udp-connect:" wide //weight: 1
+        $x_1_21 = "udp4-connect:" wide //weight: 1
+        $x_1_22 = "udp6-connect:" wide //weight: 1
+        $x_1_23 = "udp-listen:" wide //weight: 1
+        $x_1_24 = "udp4-listen:" wide //weight: 1
+        $x_1_25 = "udp6-listen:" wide //weight: 1
+        $x_1_26 = "udp4:" wide //weight: 1
+        $x_1_27 = "udp6:" wide //weight: 1
+        $x_1_28 = "openssl:" wide //weight: 1
+        $x_1_29 = "fd:" wide //weight: 1
+        $x_1_30 = "unix:" wide //weight: 1
+        $n_80_31 = "127.0.0.1" wide //weight: -80
+        $n_80_32 = "localhost" wide //weight: -80
+        $n_80_33 = "0.0.0.0" wide //weight: -80
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
         (
-            ((1 of ($x_10_*) and 5 of ($x_1_*))) or
+            ((13 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 11 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 9 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 7 of ($x_1_*))) or
+            ((4 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((5 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((6 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((7 of ($x_2_*))) or
+            ((1 of ($x_5_*) and 8 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 3 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 4 of ($x_2_*))) or
+            ((2 of ($x_5_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 2 of ($x_2_*))) or
             (all of ($x*))
         )
 }

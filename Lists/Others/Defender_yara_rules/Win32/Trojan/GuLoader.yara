@@ -4948,3 +4948,33 @@ rule Trojan_Win32_GuLoader_SUM_2147951733_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SUN_2147951949_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUN!MTB"
+        threat_id = "2147951949"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\bagflikninger\\mozarab.ini" ascii //weight: 1
+        $x_1_2 = "Amalgamernes.txt" ascii //weight: 1
+        $x_1_3 = "Endothermous.txt" ascii //weight: 1
+        $x_1_4 = "Resultatfelternes.ini" ascii //weight: 1
+        $x_1_5 = "Udenrigsredaktrerne.txt" ascii //weight: 1
+        $x_1_6 = "femtoneskalaer.nat" ascii //weight: 1
+        $x_1_7 = "gargol.jpg" ascii //weight: 1
+        $x_1_8 = "incapacitation.man" ascii //weight: 1
+        $x_1_9 = "tekrusenes.pro" ascii //weight: 1
+        $x_1_10 = "venire.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

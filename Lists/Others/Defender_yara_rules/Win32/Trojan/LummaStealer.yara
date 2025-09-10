@@ -7023,6 +7023,32 @@ rule Trojan_Win32_LummaStealer_FAK_2147947715_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_FAK_2147947715_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.FAK!MTB"
+        threat_id = "2147947715"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "33"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Themida" ascii //weight: 1
+        $x_1_2 = "%userappdata%\\RestartApp.exe" ascii //weight: 1
+        $x_1_3 = "\\\\.\\Oreans.vxd" ascii //weight: 1
+        $x_10_4 = {50 45 00 00 4c 01 06 00 3f 0a b7 68 00 00 00 00 00 00 00 00 e0 00 02 01 0b 01 0e 00 00 f0 04 00 00 9a 00 00 00 00 00 00 00 ?? ?? 00 00 10 00 00 00 00 00 00 00 00 40 00 00 10 00 00 00 02 00 00 06 00 00 00 00 00 00 00 06 00 00 00 00 00 00 00 00 ?? ?? 00 00 04}  //weight: 10, accuracy: Low
+        $x_10_5 = {20 20 20 00 20 20 20 20 00 e0 05 00 00 10 00 00 00 e0 05 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0 2e 72 73 72 63}  //weight: 10, accuracy: High
+        $x_10_6 = {c0 02 00 00 00 f0 05 00 00 02 00 00 00 f0 05 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 69 64 61 74 61}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_LMX_2147947891_0
 {
     meta:
