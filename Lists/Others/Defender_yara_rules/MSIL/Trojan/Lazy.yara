@@ -2670,6 +2670,28 @@ rule Trojan_MSIL_Lazy_AMAJ_2147914949_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_NB_2147915105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.NB!MTB"
+        threat_id = "2147915105"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 00 07 1f 10 8d ?? 00 00 01 0c 08 16 1d 9c 08 17 1c 9c 08 18 1b 9c 08 19 1a 9c 08}  //weight: 2, accuracy: Low
+        $x_1_2 = "Skup.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_SJPL_2147915124_0
 {
     meta:

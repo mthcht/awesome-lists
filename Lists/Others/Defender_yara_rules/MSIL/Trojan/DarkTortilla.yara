@@ -6079,3 +6079,25 @@ rule Trojan_MSIL_DarkTortilla_AREB_2147951581_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_FPZ_2147951970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.FPZ!MTB"
+        threat_id = "2147951970"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {11 06 14 17 8d 03 00 00 01 25 16 07 a2 6f ?? 01 00 0a 14 72 ce 3c 00 70 17 8d 03 00 00 01 25 16 1f 18 8c a7 00 00 01 a2 14 14 14 28 ?? 01 00 0a 14 72 e0 3c 00 70 16}  //weight: 4, accuracy: Low
+        $x_5_2 = {04 17 5d 2c 03 03 2b 04 03 1f 60 61 b4 0a 2b 00 06 2a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
