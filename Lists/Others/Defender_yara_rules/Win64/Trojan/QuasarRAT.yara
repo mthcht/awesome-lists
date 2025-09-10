@@ -138,3 +138,24 @@ rule Trojan_Win64_QuasarRAT_GZF_2147945773_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_QuasarRAT_GVA_2147951901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.GVA!MTB"
+        threat_id = "2147951901"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 f8 8b 7c 24 34 0f b6 14 17 31 d0 89 fa 8b 7c 24 3c 88 04 37 46 89 f8 39 ee 7d 1a 0f b6 3c 33 85 c9 0f 84 38 01 00 00 89 f0 99 f7 f9 39 d1 77 cf}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
