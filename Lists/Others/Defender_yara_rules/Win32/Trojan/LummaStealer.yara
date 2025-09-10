@@ -7262,3 +7262,84 @@ rule Trojan_Win32_LummaStealer_ZZZ_2147951835_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_RPS_2147951927_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.RPS!MTB"
+        threat_id = "2147951927"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "SophosHealth nsWscSvc ekrn bdservicehost AvastUI AVGUI" wide //weight: 10
+        $x_1_2 = "=AutoIt3.exe" wide //weight: 1
+        $x_1_3 = "=.a3x" wide //weight: 1
+        $x_12_4 = {66 00 69 00 6e 00 64 00 73 00 74 00 72 00 [0-48] 73 00 6f 00 70 00 68 00 6f 00 73 00 68 00 65 00 61 00 6c 00 74 00 68 00 20 00 6e 00 73 00 77 00 73 00 63 00 73 00 76 00 63 00 20 00 65 00 6b 00 72 00 6e 00 20 00 62 00 64 00 73 00 65 00 72 00 76 00 69 00 63 00 65 00 68 00 6f 00 73 00 74 00 20 00 61 00 76 00 61 00 73 00 74 00 75 00 69 00 20 00 61 00 76 00 67 00 75 00 69 00}  //weight: 12, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_12_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_LummaStealer_RPT_2147951928_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.RPT!MTB"
+        threat_id = "2147951928"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /k move Ac.adts Ac.adts.cmd & Ac.adts.cmd & exit" wide //weight: 1
+        $x_1_2 = "cmd.exe /k move Accomplish.dot Accomplish.dot.cmd & Accomplish.dot.cmd & exit" wide //weight: 1
+        $x_1_3 = "cmd.exe /k move Adopted.aac Adopted.aac.cmd & Adopted.aac.cmd & exit" wide //weight: 1
+        $x_1_4 = "cmd.exe /k move Apartment.docx Apartment.docx.cmd & Apartment.docx.cmd & exit" wide //weight: 1
+        $x_1_5 = "cmd.exe /k move Arnold.jpg Arnold.jpg.cmd & Arnold.jpg.cmd & exit" wide //weight: 1
+        $x_1_6 = "cmd.exe /k move Articles.dot Articles.dot.cmd & Articles.dot.cmd & exit" wide //weight: 1
+        $x_1_7 = "cmd.exe /k move Backgrounds.vstx Backgrounds.vstx.cmd & Backgrounds.vstx.cmd & exit" wide //weight: 1
+        $x_1_8 = "cmd.exe /k move Broad.wbk Broad.wbk.cmd & Broad.wbk.cmd & exit" wide //weight: 1
+        $x_1_9 = "cmd.exe /k move Chile.htm Chile.htm.cmd & Chile.htm.cmd & exit" wide //weight: 1
+        $x_1_10 = "cmd.exe /k move Clicking.tiff Clicking.tiff.cmd & Clicking.tiff.cmd & exit" wide //weight: 1
+        $x_1_11 = "cmd.exe /k move Coordinator.txt Coordinator.txt.cmd & Coordinator.txt.cmd & exit" wide //weight: 1
+        $x_1_12 = "cmd.exe /k move Determination.vsdm Determination.vsdm.cmd & Determination.vsdm.cmd & exit" wide //weight: 1
+        $x_1_13 = "cmd.exe /k move Feature.aspx Feature.aspx.cmd & Feature.aspx.cmd & exit" wide //weight: 1
+        $x_1_14 = "cmd.exe /k move Gone.aif Gone.aif.cmd & Gone.aif.cmd & exit" wide //weight: 1
+        $x_1_15 = "cmd.exe /k move Gp.vsdx Gp.vsdx.cmd & Gp.vsdx.cmd & exit" wide //weight: 1
+        $x_1_16 = "cmd.exe /k move Granny.wp5 Granny.wp5.cmd & Granny.wp5.cmd & exit" wide //weight: 1
+        $x_1_17 = "cmd.exe /k move Intensity.wmd Intensity.wmd.cmd & Intensity.wmd.cmd & exit" wide //weight: 1
+        $x_1_18 = "cmd.exe /k move Lingerie.rtf Lingerie.rtf.cmd & Lingerie.rtf.cmd & exit" wide //weight: 1
+        $x_1_19 = "cmd.exe /k move Magic.rtf Magic.rtf.cmd & Magic.rtf.cmd & exit" wide //weight: 1
+        $x_1_20 = "cmd.exe /k move Modem.mdb Modem.mdb.cmd & Modem.mdb.cmd & exit" wide //weight: 1
+        $x_1_21 = "cmd.exe /k move Name.htm Name.htm.cmd & Name.htm.cmd & exit" wide //weight: 1
+        $x_1_22 = "cmd.exe /k move Nos.jpg Nos.jpg.cmd & Nos.jpg.cmd & exit" wide //weight: 1
+        $x_1_23 = "cmd.exe /k move Quizzes.aiff Quizzes.aiff.cmd & Quizzes.aiff.cmd & exit" wide //weight: 1
+        $x_1_24 = "cmd.exe /k move Recordings.jpg Recordings.jpg.cmd & Recordings.jpg.cmd & exit" wide //weight: 1
+        $x_1_25 = "cmd.exe /k move Replace.ppam Replace.ppam.cmd & Replace.ppam.cmd & exit" wide //weight: 1
+        $x_1_26 = "cmd.exe /k move Risks.pps Risks.pps.cmd & Risks.pps.cmd & exit" wide //weight: 1
+        $x_1_27 = "cmd.exe /k move Robinson.mpg Robinson.mpg.cmd & Robinson.mpg.cmd & exit" wide //weight: 1
+        $x_1_28 = "cmd.exe /k move Runs.aspx Runs.aspx.cmd & Runs.aspx.cmd & exit" wide //weight: 1
+        $x_1_29 = "cmd.exe /k move Shoe.adt Shoe.adt.cmd & Shoe.adt.cmd & exit" wide //weight: 1
+        $x_1_30 = "cmd.exe /k move Space.vss Space.vss.cmd & Space.vss.cmd & exit" wide //weight: 1
+        $x_1_31 = "cmd.exe /k move Transfers.wmd Transfers.wmd.cmd & Transfers.wmd.cmd & exit" wide //weight: 1
+        $x_1_32 = "cmd.exe /k move Upgrade.xls Upgrade.xls.cmd & Upgrade.xls.cmd & exit" wide //weight: 1
+        $x_1_33 = "cmd.exe /k move Ware.xlsm Ware.xlsm.cmd & Ware.xlsm.cmd & exit" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
