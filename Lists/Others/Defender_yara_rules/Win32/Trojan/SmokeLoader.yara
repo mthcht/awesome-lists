@@ -8696,3 +8696,24 @@ rule Trojan_Win32_SmokeLoader_RGB_2147941796_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SmokeLoader_EA_2147951918_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SmokeLoader.EA!MTB"
+        threat_id = "2147951918"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SmokeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {2f 00 63 00 20 00 63 00 65 00 72 00 74 00 75 00 74 00 69 00 6c 00 2e 00 65 00 78 00 65 00 20 00 2d 00 64 00 65 00 63 00 6f 00 64 00 65 00 20 00 90 00 02 00 10 00 2e 00 70 00 64 00 66 00 20 00 90 00 02 00 10 00 2e 00 62 00 61 00 74 00 20 00 26 00 20 00 90 00 02 00 10 00 2e 00 62 00 61 00 74 00 90 00 00 00}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

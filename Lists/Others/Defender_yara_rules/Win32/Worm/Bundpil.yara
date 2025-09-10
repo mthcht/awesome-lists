@@ -103,3 +103,25 @@ rule Worm_Win32_Bundpil_GXT_2147951756_0
         (all of ($x*))
 }
 
+rule Worm_Win32_Bundpil_GXU_2147951915_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Bundpil.GXU!MTB"
+        threat_id = "2147951915"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bundpil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {47 0f b6 9f ?? ?? ?? ?? 8b bd ?? ?? ?? ?? 32 1c 37 40 25 ff 00 00 80 88 1e}  //weight: 10, accuracy: Low
+        $x_10_2 = {03 d0 81 e2 ?? ?? ?? ?? ?? ?? 4a 81 ca ?? ?? ?? ?? 42 0f b6 92 ?? ?? ?? ?? 8b 85 ?? ?? ?? ?? 32 54 38 03 83 c7 ?? 88 51 ?? 83 c1 ?? 81 ff ?? ?? ?? ?? 0f 8c}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

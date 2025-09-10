@@ -7456,3 +7456,54 @@ rule Trojan_Win32_Guloader_GQI_2147951863_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_GQK_2147951907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GQK!MTB"
+        threat_id = "2147951907"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "morphinizes\\Fealties" ascii //weight: 1
+        $x_1_2 = "phonetically\\informatorisk.bin" ascii //weight: 1
+        $x_1_3 = "devitalize.coo" ascii //weight: 1
+        $x_1_4 = "krab.pos" ascii //weight: 1
+        $x_1_5 = "tulcan.reb" ascii //weight: 1
+        $x_1_6 = "udlaanssales.ban" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_GQJ_2147951916_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.GQJ!MTB"
+        threat_id = "2147951916"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "gennemfart unsell rollers" ascii //weight: 1
+        $x_1_2 = "fiskedrabs lgebesgets immoveably" ascii //weight: 1
+        $x_1_3 = "unsay.exe" ascii //weight: 1
+        $x_1_4 = "beswinge picofarad" ascii //weight: 1
+        $x_1_5 = "alphabets torsdagsmder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
