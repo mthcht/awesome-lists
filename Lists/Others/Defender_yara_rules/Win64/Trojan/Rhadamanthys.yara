@@ -298,3 +298,24 @@ rule Trojan_Win64_Rhadamanthys_PKV_2147943243_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rhadamanthys_GVC_2147952054_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.GVC!MTB"
+        threat_id = "2147952054"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 08 43 8d 14 26 3b d0 0f 83 83 05 00 00 44 0f b6 44 15 10 41 8b d4 45 0f b6 54 17 10 45 33 c2 41 8b d4 45 88 44 15 10 41 ff c4 44 3b e7 7c d2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

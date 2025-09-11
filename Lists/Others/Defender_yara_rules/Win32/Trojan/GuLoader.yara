@@ -4978,3 +4978,28 @@ rule Trojan_Win32_GuLoader_SUN_2147951949_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBU_2147952029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBU!MTB"
+        threat_id = "2147952029"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "amariterkursus\\decaesarize\\Eksekverbar" ascii //weight: 1
+        $x_1_2 = "Electropotential\\Brombrrenes82\\Proteles" ascii //weight: 1
+        $x_1_3 = ".\\Enakteres101.ini" ascii //weight: 1
+        $x_1_4 = "#\\dommervagts\\hypogonadism.jpg" ascii //weight: 1
+        $x_1_5 = "%unlavished%\\vindue" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

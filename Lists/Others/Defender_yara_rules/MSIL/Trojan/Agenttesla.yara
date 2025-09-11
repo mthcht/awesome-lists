@@ -1,3 +1,25 @@
+rule Trojan_MSIL_Agenttesla_PAL_2147787188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PAL!MTB"
+        threat_id = "2147787188"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 0c 11 1e 1f 11 5a 58 13 1f 00 02 11 1d 11 1e 6f ?? 00 00 0a 13 20 04 03 6f ?? 00 00 0a 59 13 21 11 21 13 22 11 22 19 fe 02 13 28 11 28 2c 03}  //weight: 5, accuracy: Low
+        $x_5_2 = {11 0c 16 5f 13 23 11 23 19 5d 13 24 17 11 23 58 19 5d 13 25 18 11 23 58 19 5d 13 26 19}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Agenttesla_XNHU_2147805871_0
 {
     meta:
