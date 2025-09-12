@@ -2318,3 +2318,25 @@ rule Trojan_Win32_ICLoader_GSY_2147951988_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_GZF_2147952172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.GZF!MTB"
+        threat_id = "2147952172"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {31 cf c1 ca 00 00 ee 01 fb c1 ce ?? 01 e9 8b 7c 24 ?? 31 ee}  //weight: 5, accuracy: Low
+        $x_5_2 = {31 f9 c1 ca 05 00 00 89 74 24 1c}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

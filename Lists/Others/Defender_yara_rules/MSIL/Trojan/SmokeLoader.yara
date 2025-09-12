@@ -398,3 +398,28 @@ rule Trojan_MSIL_SmokeLoader_ZVT_2147943885_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SmokeLoader_EM_2147952171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SmokeLoader.EM!MTB"
+        threat_id = "2147952171"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SmokeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 16 11 17 11 18 61 58 13 16 11 18 17 58 13 18 11 18 18 32 eb}  //weight: 1, accuracy: High
+        $x_1_2 = "CreateFileMapping" ascii //weight: 1
+        $x_1_3 = "MapViewOfFile" ascii //weight: 1
+        $x_1_4 = "VirtualProtect" ascii //weight: 1
+        $x_1_5 = "WriteProcessMemory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

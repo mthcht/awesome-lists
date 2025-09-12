@@ -2974,3 +2974,24 @@ rule Trojan_MSIL_XWorm_GAPB_2147951972_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_FPZ_2147952174_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.FPZ!MTB"
+        threat_id = "2147952174"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 17 17 6f ?? 00 00 0a 28 ?? 00 00 0a 1c 62 02 18 17 6f ?? 00 00 0a 28 ?? 00 00 0a 19 62 60 02 19 17 6f ?? 00 00 0a 28 ?? 00 00 0a 60 d2 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

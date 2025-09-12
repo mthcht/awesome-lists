@@ -36,3 +36,27 @@ rule Ransom_Win32_CryptoLocker_MAK_2147796541_0
         )
 }
 
+rule Ransom_Win32_CryptoLocker_MZZ_2147952175_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/CryptoLocker.MZZ!MTB"
+        threat_id = "2147952175"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptoLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = ":Darknet" ascii //weight: 4
+        $x_3_2 = "Some files on your computer have been encrypted and saved by me." ascii //weight: 3
+        $x_2_3 = "How do I recover my important files?" ascii //weight: 2
+        $x_1_4 = "d0glun" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
