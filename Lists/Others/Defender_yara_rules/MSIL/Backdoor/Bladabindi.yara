@@ -4257,6 +4257,33 @@ rule Backdoor_MSIL_Bladabindi_ABJA_2147931099_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Bladabindi_AMTB_2147945336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi!AMTB"
+        threat_id = "2147945336"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "key_logger_Load" ascii //weight: 1
+        $x_1_2 = "SpyNote_Activated" ascii //weight: 1
+        $x_1_3 = "PayloadToolStripMenuItem_Click" ascii //weight: 1
+        $x_1_4 = "LogsSpyNote" ascii //weight: 1
+        $n_100_5 = "Uninst.exe" ascii //weight: -100
+        $n_100_6 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_7 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
 rule Backdoor_MSIL_Bladabindi_SV_2147947655_0
 {
     meta:

@@ -3269,12 +3269,14 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_64 = "youcheckineco.com/" wide //weight: 1
         $x_1_65 = "http://194.0x0F.0xD8.0x67/" wide //weight: 1
         $x_1_66 = "http://146.0x46.0x64.0x73/" wide //weight: 1
-        $x_1_67 = "http://178.0x11.58.49/" wide //weight: 1
-        $x_1_68 = "https://vrfnbk.com" wide //weight: 1
-        $x_1_69 = "https://x-vape.ca" wide //weight: 1
-        $x_1_70 = "https://adapadske.org/" wide //weight: 1
-        $x_1_71 = "https://www.opinf.com/" wide //weight: 1
-        $x_1_72 = {6c 00 61 00 6e 00 64 00 65 00 72 00 73 00 61 00 72 00 65 00 6e 00 61 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-255] 2f 00 66 00 69 00 6c 00 65 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_67 = "http://178.17.58.0x31/" wide //weight: 1
+        $x_1_68 = "http://178.0x11.58.49/" wide //weight: 1
+        $x_1_69 = "https://vrfnbk.com" wide //weight: 1
+        $x_1_70 = "https://x-vape.ca" wide //weight: 1
+        $x_1_71 = "https://adapadske.org/" wide //weight: 1
+        $x_1_72 = "https://www.opinf.com/" wide //weight: 1
+        $x_1_73 = "https://criptiko.com/" wide //weight: 1
+        $x_1_74 = {6c 00 61 00 6e 00 64 00 65 00 72 00 73 00 61 00 72 00 65 00 6e 00 61 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-255] 2f 00 66 00 69 00 6c 00 65 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -3422,11 +3424,12 @@ rule Trojan_Win32_ClickFix_SEZ_2147940391_0
         $x_10_75 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 70 00 64 00 66 00}  //weight: 10, accuracy: Low
         $x_10_76 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 6f 00 64 00 64 00}  //weight: 10, accuracy: Low
         $x_10_77 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 77 00 6d 00 61 00}  //weight: 10, accuracy: Low
-        $x_10_78 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 30 00 78 00 [0-16] 2e 00 63 00}  //weight: 10, accuracy: Low
-        $x_10_79 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 [0-16] 2e 00 63 00 68 00 65 00 63 00 6b 00 3f 00 74 00 3d 00}  //weight: 10, accuracy: Low
-        $x_10_80 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 [0-16] 2e 00 67 00 6f 00 6f 00 67 00 6c 00 65 00 3f 00 74 00 3d 00}  //weight: 10, accuracy: Low
-        $n_500_81 = ".ps1" wide //weight: -500
-        $n_500_82 = ".hta" wide //weight: -500
+        $x_10_78 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 6d 00 6b 00 76 00}  //weight: 10, accuracy: Low
+        $x_10_79 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 30 00 78 00 [0-16] 2e 00 63 00}  //weight: 10, accuracy: Low
+        $x_10_80 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 [0-16] 2e 00 63 00 68 00 65 00 63 00 6b 00 3f 00 74 00 3d 00}  //weight: 10, accuracy: Low
+        $x_10_81 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 [0-16] 2e 00 67 00 6f 00 6f 00 67 00 6c 00 65 00 3f 00 74 00 3d 00}  //weight: 10, accuracy: Low
+        $n_500_82 = ".ps1" wide //weight: -500
+        $n_500_83 = ".hta" wide //weight: -500
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -8412,9 +8415,13 @@ rule Trojan_Win32_ClickFix_EEI_2147945790_0
         $x_100_1 = "powershell" wide //weight: 100
         $x_10_2 = "[guid]::NewGuid()" wide //weight: 10
         $x_10_3 = "$env:TEMP" wide //weight: 10
+        $x_10_4 = "start-process powershell -argumentlist '-w h'" wide //weight: 10
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_EEK_2147945791_0
@@ -11970,7 +11977,7 @@ rule Trojan_Win32_ClickFix_IIC_2147951815_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = "| cmd" wide //weight: 1
-        $x_1_2 = {63 00 6d 00 64 00 [0-8] 20 00 2f 00 63 00 20 00 66 00 69 00 6e 00 67 00 65 00 72 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {63 00 6d 00 64 00 [0-8] 20 00 2f 00 63 00 [0-48] 66 00 69 00 6e 00 67 00 65 00 72 00 [0-8] 20 00}  //weight: 1, accuracy: Low
         $x_1_3 = "--headless" wide //weight: 1
         $x_1_4 = "conhost.exe" wide //weight: 1
     condition:
