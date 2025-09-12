@@ -61,3 +61,25 @@ rule Trojan_Win64_GhostRat_AGO_2147942563_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_GhostRat_HB_2147952088_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GhostRat.HB!MTB"
+        threat_id = "2147952088"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GhostRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "IpDates_info" wide //weight: 6
+        $x_10_2 = "%s-%04d%02d%02d-%02d%02d%02d.dmp" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

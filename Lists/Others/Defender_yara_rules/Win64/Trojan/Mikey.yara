@@ -938,3 +938,29 @@ rule Trojan_Win64_Mikey_NKD_2147951509_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_LMH_2147952089_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.LMH!MTB"
+        threat_id = "2147952089"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {4c 89 d2 33 c9 48 f7 da 48 c1 fa 04 48 c1 ea 3b 49 2b d2 48 c1 ea 05 48 f7 da 41 33 00 ff c1 44 0f b6 d0}  //weight: 20, accuracy: High
+        $x_5_2 = {44 8b 0a 4c 8b 52 bc 44 8b 42 dc 8b 4a ec 41 8d 51 01 41 83 c1 03 41 89 95 94 00 00 00 41 d3 e0 47 0f b6 1c 0a 45 33 c3 49 8d 4d 68 4c 8b 09 44 23 41 14 44 89 41 08 44 8b 51 e4 49 23 d2 47 0f b7 1c 41 4c 8b 41 f8 66 45 89 1c 50}  //weight: 5, accuracy: High
+        $x_20_3 = {48 8b 57 50 8a 87 94 00 00 00 30 04 0a 48 ff c1 48 3b 4f 58}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

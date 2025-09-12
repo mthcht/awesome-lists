@@ -3317,3 +3317,25 @@ rule Trojan_MSIL_Stealer_FZV_2147951187_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_AWEB_2147952083_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.AWEB!MTB"
+        threat_id = "2147952083"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {02 03 61 04 61 8c ?? 00 00 01 2a}  //weight: 4, accuracy: Low
+        $x_2_2 = {01 13 06 11 06 16 09 8c ?? 00 00 01 a2 11 06 14 28 ?? 00 00 0a 28 ?? 00 00 0a 02 17 8d ?? 00 00 01 13 07 11 07 16 02 14 72 ?? ?? 00 70 16 8d ?? 00 00 01 14 14 14}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

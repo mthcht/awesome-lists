@@ -278,3 +278,24 @@ rule Trojan_Win64_Redcap_AB_2147945993_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Redcap_GZF_2147952062_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.GZF!MTB"
+        threat_id = "2147952062"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 4c 24 ?? 48 8b 54 24 ?? 48 03 d1 48 8b ca 0f b6 09 33 c8 8b c1 48 8b 4c 24 ?? 48 8b 54 24 ?? 48 03 d1 48 8b ca 88 01 0f b6 05 ?? ?? ?? ?? 48 8b 4c 24 ?? 48 8b 54 24 40 48 03 d1 48 8b ca 0f b6 09 03 c8 8b c1 48 8b 4c 24 ?? 48 8b 54 24 ?? 48 03 d1 48 8b ca 88 01}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

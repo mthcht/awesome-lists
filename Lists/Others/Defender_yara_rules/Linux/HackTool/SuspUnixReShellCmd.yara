@@ -333,22 +333,24 @@ rule HackTool_Linux_SuspUnixReShellCmd_N_2147766188_0
         $x_1_15 = "tcp-listen:" wide //weight: 1
         $x_1_16 = "tcp4-listen:" wide //weight: 1
         $x_1_17 = "tcp6-listen:" wide //weight: 1
-        $x_1_18 = "tcp4:" wide //weight: 1
-        $x_1_19 = "tcp6:" wide //weight: 1
-        $x_1_20 = "udp-connect:" wide //weight: 1
-        $x_1_21 = "udp4-connect:" wide //weight: 1
-        $x_1_22 = "udp6-connect:" wide //weight: 1
-        $x_1_23 = "udp-listen:" wide //weight: 1
-        $x_1_24 = "udp4-listen:" wide //weight: 1
-        $x_1_25 = "udp6-listen:" wide //weight: 1
-        $x_1_26 = "udp4:" wide //weight: 1
-        $x_1_27 = "udp6:" wide //weight: 1
-        $x_1_28 = "openssl:" wide //weight: 1
-        $x_1_29 = "fd:" wide //weight: 1
-        $x_1_30 = "unix:" wide //weight: 1
-        $n_80_31 = "127.0.0.1" wide //weight: -80
-        $n_80_32 = "localhost" wide //weight: -80
-        $n_80_33 = "0.0.0.0" wide //weight: -80
+        $x_1_18 = "tcp:" wide //weight: 1
+        $x_1_19 = "tcp4:" wide //weight: 1
+        $x_1_20 = "tcp6:" wide //weight: 1
+        $x_1_21 = "udp-connect:" wide //weight: 1
+        $x_1_22 = "udp4-connect:" wide //weight: 1
+        $x_1_23 = "udp6-connect:" wide //weight: 1
+        $x_1_24 = "udp-listen:" wide //weight: 1
+        $x_1_25 = "udp4-listen:" wide //weight: 1
+        $x_1_26 = "udp6-listen:" wide //weight: 1
+        $x_1_27 = "udp:" wide //weight: 1
+        $x_1_28 = "udp4:" wide //weight: 1
+        $x_1_29 = "udp6:" wide //weight: 1
+        $x_1_30 = "openssl:" wide //weight: 1
+        $x_1_31 = "fd:" wide //weight: 1
+        $x_1_32 = "unix:" wide //weight: 1
+        $n_80_33 = "127.0.0.1" wide //weight: -80
+        $n_80_34 = "localhost" wide //weight: -80
+        $n_80_35 = "0.0.0.0" wide //weight: -80
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
