@@ -76,6 +76,30 @@ rule Trojan_Win32_GuLoader_RG_2147775679_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_KB_2147781662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.KB!MTB"
+        threat_id = "2147781662"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "legatbestyrelserne autogyros" ascii //weight: 1
+        $x_1_2 = "krasse befris desize" ascii //weight: 1
+        $x_1_3 = "jowed" ascii //weight: 1
+        $x_1_4 = "entohyal spaulder.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_BY_2147786317_0
 {
     meta:

@@ -234,3 +234,26 @@ rule Trojan_Win32_Matanbuchus_GTD_2147947198_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Matanbuchus_GXD_2147952148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Matanbuchus.GXD!MTB"
+        threat_id = "2147952148"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Matanbuchus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "nicewk.com" wide //weight: 5
+        $x_1_2 = "C:\\\\kernel32" ascii //weight: 1
+        $x_1_3 = "curl_easy_cleanup" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -119,6 +119,37 @@ rule Trojan_Win64_FileCoder_NF_2147893871_4
         (all of ($x*))
 }
 
+rule Trojan_Win64_FileCoder_NF_2147893871_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.NF!MTB"
+        threat_id = "2147893871"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Ransom.jpg" wide //weight: 1
+        $x_2_2 = "vssadmin delete shadows /all /quiet" wide //weight: 2
+        $x_1_3 = "keylog.txt" wide //weight: 1
+        $x_1_4 = "DisableTaskMgr" wide //weight: 1
+        $x_1_5 = "Set-MpPreference -DisableRealtimeMonitoring $true" wide //weight: 1
+        $x_1_6 = "net stop WinDefend" wide //weight: 1
+        $x_2_7 = "DECRYPT_OR_LOSE_EVERYTHING.txt" wide //weight: 2
+        $x_1_8 = "YOUR SYSTEM IS LOCKED" wide //weight: 1
+        $x_2_9 = "RansomWindow" wide //weight: 2
+        $x_1_10 = "wmic shadowcopy call create" wide //weight: 1
+        $x_1_11 = "sc config wuauserv start=disabled" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_FileCoder_ARAZ_2147933262_0
 {
     meta:

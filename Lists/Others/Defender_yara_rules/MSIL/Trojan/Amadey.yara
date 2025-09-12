@@ -827,3 +827,45 @@ rule Trojan_MSIL_Amadey_CC_2147952110_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_SPYT_2147952138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.SPYT!MTB"
+        threat_id = "2147952138"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {63 d1 13 17 11 15 11 09 91 13 2a 11 15 11 09 11 24 11 2a 61 11 1c 19 58 61 11 2f 61 d2 9c}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Amadey_SLBE_2147952158_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.SLBE!MTB"
+        threat_id = "2147952158"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 2d 0b 73 ?? 00 00 06 28 ?? 00 00 0a 2a 20 ?? ?? ?? ?? ?? ?? 00 00 06 0c 20 ?? ?? ?? ?? ?? ?? 00 00 06 0d 20 ?? ?? ?? ?? ?? ?? 00 00 06 13 04 1f 24 28 19 00 00 0a 25 08 28 ?? 00 00 0a 0a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

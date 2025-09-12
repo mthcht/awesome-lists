@@ -71,3 +71,25 @@ rule Trojan_Win32_Donut_YAB_2147945877_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Donut_GZN_2147952146_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Donut.GZN!MTB"
+        threat_id = "2147952146"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2b c6 d1 f8 03 c2 03 c7 6a 04 8d 74 18 01 68 00 10 00 00 8d 0c 36 51 6a 00 ff 15 ?? ?? ?? ?? 8b f8 85 f6}  //weight: 5, accuracy: Low
+        $x_5_2 = {6a 00 6a 00 68 ?? ?? ?? ?? 8b f0 56 6a 00 ff 15 ?? ?? ?? ?? 68 00 80 00 00 6a 00 56 ff 15}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
