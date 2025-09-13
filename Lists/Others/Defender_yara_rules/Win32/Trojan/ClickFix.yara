@@ -11985,3 +11985,50 @@ rule Trojan_Win32_ClickFix_IIC_2147951815_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_PF_2147952185_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PF!MTB"
+        threat_id = "2147952185"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_3_2 = "-w h -ep b -c \"iex (iwr" wide //weight: 3
+        $x_1_3 = "-useb).Content" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_PG_2147952186_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PG!MTB"
+        threat_id = "2147952186"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 2, accuracy: Low
+        $x_1_2 = "; mkdir" wide //weight: 1
+        $x_1_3 = "Split-Path $" wide //weight: 1
+        $x_1_4 = "-UseBasicPar -o $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

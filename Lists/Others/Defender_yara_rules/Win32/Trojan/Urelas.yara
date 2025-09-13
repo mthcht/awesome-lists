@@ -401,24 +401,3 @@ rule Trojan_Win32_Urelas_HNS_2147905964_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Urelas_AB_2147951449_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Urelas.AB!MTB"
-        threat_id = "2147951449"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Urelas"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8b e8 c6 06 e9 8b 43 0c 89 46 01 6a 04 68 00 10 00 00 ff 73 08 51 ?? ?? ?? 8b d0 8b 73 18}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

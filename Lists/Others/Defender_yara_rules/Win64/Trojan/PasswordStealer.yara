@@ -44,3 +44,24 @@ rule Trojan_Win64_PasswordStealer_BL_2147827423_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PasswordStealer_ARA_2147929880_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PasswordStealer.ARA!MTB"
+        threat_id = "2147929880"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PasswordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b c2 25 07 00 00 80 7d 07 ff c8 83 c8 f8 ff c0 48 98 48 8d 0d ?? ?? ?? ?? 0f be 0c 08 0f be 45 cf 03 c8 81 e1 7f 00 00 80 7d 07 ff c9 83 c9 80 ff c1 30 4c 15 d0 48 ff c2 48 83 fa 1c 72 c1}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
