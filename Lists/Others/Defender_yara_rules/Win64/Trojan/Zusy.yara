@@ -1882,6 +1882,31 @@ rule Trojan_Win64_Zusy_NIT_2147943748_0
         )
 }
 
+rule Trojan_Win64_Zusy_NIT_2147943748_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.NIT!MTB"
+        threat_id = "2147943748"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 44 24 30 48 8b 4c 24 30 48 ff c9 48 89 4c 24 30 48 85 c0 74 2b 48 8b 44 24 20 48 8b 4c 24 28 0f b6 09 88 08 48 8b 44 24 20 48 ff c0 48 89 44 24 20 48 8b 44 24 28 48 ff c0 48 89 44 24 28 eb be}  //weight: 2, accuracy: High
+        $x_2_2 = {48 8b 04 24 0f be 00 48 8b 0c 24 48 ff c1 48 89 0c 24 85 c0 74 0c 48 8b 44 24 20 48 89 44 24 20 eb de}  //weight: 2, accuracy: High
+        $x_2_3 = {4c 8b dc 48 81 ec 88 02 00 00 48 8b 05 b7 d9 00 00 48 89 84 24 70 02 00 00 49 89 5b 10 49 89 73 18 48 8d 4c 24 50 33 d2 41 b8 04 01 00 00 49 89 7b 20 e8 c9 46 00 00 48 8d 8c 24 60 01 00 00 33 d2 41 b8 04 01 00 00 e8 b4 46 00 00 48 8d 4c 24 50 ba 04 01 00 00 ff 15 4c d8 ff ff 33 c0 48 8d 7c 24 50 48 c7 c1 ff ff ff ff 48 8d 1d 2f e3 00 00 f2 ae 48 8b 05 26 de ff ff 33 f6 48 89 47 ff 8b 05 22 de ff ff 48 8b ce 89 47 07 0f b7 05 19 de ff ff 66 89 47 0b 0f b6 05 10 de ff ff 88 47 0d}  //weight: 2, accuracy: High
+        $x_1_4 = "FindFirstFile(inf)" ascii //weight: 1
+        $x_1_5 = "Remove: %s success!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_NS_2147944940_0
 {
     meta:

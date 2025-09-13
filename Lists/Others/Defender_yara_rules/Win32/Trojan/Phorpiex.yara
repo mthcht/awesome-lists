@@ -838,3 +838,27 @@ rule Trojan_Win32_Phorpiex_PAQD_2147940561_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Phorpiex_NIT_2147952200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Phorpiex.NIT!MTB"
+        threat_id = "2147952200"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 4c 24 10 6a 04 8d 44 24 18 50 6a 04 6a 00 68 4c de 40 00 51 ff d6 8b 44 24 10 6a 04 8d 54 24 18 52 6a 04 6a 00 68 60 de 40 00 50 ff d6 8b 54 24 10 6a 04 8d 4c 24 18 51 6a 04 6a 00 68 78 de 40 00 52 ff d6 8b 4c 24 10 6a 04 8d 44 24 18 50 6a 04 6a 00 68 8c de 40 00 51 ff d6 8b 44 24 10 6a 04 8d 54 24 18 52 6a 04 6a 00 68 a0 de 40 00 50 ff d6 8b 54 24 10 6a 04 8d 4c 24 18 51 6a 04 6a 00 68 b8 de 40 00 52 ff d6 8b 4c 24 10 6a 04 8d 44 24 18 50 6a 04 6a 00 68 c8 de 40 00 51 ff d6 8b 54 24 10 52 ff d3 8d 44 24 10}  //weight: 2, accuracy: High
+        $x_2_2 = {51 ff 15 1c d1 40 00 89 44 24 14 83 f8 ff 0f 84 05 02 00 00 8b 1d a8 d0 40 00 8d 94 24 d8 0c 00 00 c7 44 24 30 10 db 40 00 c7 44 24 34 1c db 40 00 c7 44 24 38 28 db 40 00 c7 44 24 3c 34 db 40 00 c7 44 24 40 4c db 40 00 c7 44 24 44 58 db 40 00 c7 44 24 48 64 db 40 00 c7 44 24 4c 70 db 40 00 c7 44 24 50 7c db 40 00 c7 44 24 54 88 db 40 00 c7 44 24 58 94 db 40 00 c7 44 24 5c a0 db 40 00 c7 44 24 18 bc 03 41 00 89 54 24 1c c7 44 24 20 ac db 40 00 c7 44 24 24 c0 db 40 00 c7 44 24 28 dc db 40 00 c7 44 24 2c f4 db 40 00 eb 06 8d 9b 00 00 00 00 8b 3d 38 d1 40 00 68 a8 da 40 00 8d 84 24 90 00 00 00}  //weight: 2, accuracy: High
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_4 = "bitcoincash" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

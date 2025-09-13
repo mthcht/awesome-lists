@@ -3339,3 +3339,26 @@ rule Trojan_MSIL_Stealer_AWEB_2147952083_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_NITE_2147952201_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.NITE!MTB"
+        threat_id = "2147952201"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {25 72 9d 00 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 13 09 38 86 00 00 00 11 09 16 6f ?? 00 00 0a 13 0a 11 09 17 6f ?? 00 00 0a 13 0b 11 09 18 6f ?? 00 00 0a 74 01 00 00 1b 11 06 28 13 00 00 06 13 0c 06 72 2f 00 00 70 09 28 03 00 00 06 72 19 01 00 70 28 15 00 00 0a 6f ?? 00 00 0a 26 06 72 1d 01 00 70 11 0a 28 20 00 00 0a 6f ?? 00 00 0a 26 06 72 29 01 00 70 11 0b 28 20 00 00 0a 6f ?? 00 00 0a 26 06 72 37 01 00 70 11 0c}  //weight: 2, accuracy: Low
+        $x_2_2 = {0d 09 12 00 28 ?? 00 00 0a 7e 5a 00 00 0a 12 00 28 ?? 00 00 0a 6f 5c 00 00 0a de 0a 09 2c 06 09 6f 23 00 00 0a dc 28 ?? 00 00 0a 72 6e 0c 00 70 28 ?? 00 00 0a 8c 1f 00 00 01 28 ?? 00 00 0a 28 ?? 00 00 0a 0c 07 08 28 ?? 00 00 0a 6f 5f 00 00 0a 72 b4 0c 00 70 08 28 ?? 00 00 0a 13 04 de 21}  //weight: 2, accuracy: Low
+        $x_1_3 = {02 28 29 00 00 0a 28 ?? 00 00 0a 72 8d 01 00 70 6f ?? 00 00 0a 72 9f 01 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 0a 25 8e 69 1b 59 8d 3d 00 00 01 0a 1b 06 16 06 8e 69 28 ?? 00 00 0a 06 28 ?? 00 00 06 0b de 05}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
