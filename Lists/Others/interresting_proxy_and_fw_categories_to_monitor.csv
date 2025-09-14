@@ -1,82 +1,82 @@
-category,metadata_type,metadata_category,metadata_severity,metadata_comment,metadata_vendor_product
-*child*porn*,detection,crime,critical,crime - investigate with caution,
-*escort services*,hunting,compliance,info,,
-*malicious downloads*,detection,malicious,medium,,mcafee    
-*malicious sites*,detection,malicious,medium,,mcafee
-*phishing*,detection,malicious,medium,,mcafee
-*teenage*porn*,detection,crime,critical,crime - investigate with caution,
-advanced malware command and control,detection,c2,critical,,forcepoint proxy
-advanced malware payloads,detection,malicious,critical,,forcepoint proxy
-adware/spyware sites,hunting,malicious,low,for correlation/hunting,zscaler
-bot networks,detection,malicious,critical,,forcepoint proxy
-botnet protection,detection,malicious,high,,zscaler
-Botnet Callback,detection,malicious,high,,zscaler
-child abuse,detection,crime,critical,crime - investigate with caution,netskope
-child pornography,detection,crime,critical,crime - investigate with caution,bluecoat
-child sexual abuse,detection,crime,critical,crime - investigate with caution,fortigate
-compromised sites,detection,malicious,high,,bluecoat
-compromised websites,detection,malicious,medium,,forcepoint proxy
-crypto mining,detection,cryptomining,high,,fortigate
-cryptomining,detection,cryptomining,high,,cisco wsa
-doh services,hunting,defense evasion,medium,https://github.com/mthcht/awesome-lists/blob/main/lists/dns_over_https_servers_list.csv,zscaler
-dynamic dns host,hunting,defense evasion,low,,zscaler
-hacking,detection,offensive tools,critical,,bluecoat - cisco wsa - fortigate
-illegal activities,hunting,crime,low,,cisco wsa
-illegal or unethical,hunting,crime,low,,netskope - fortigate
-keyloggers,detection,keylogger,critical,,forcepoint proxy
-malicious content,detection,malicious,medium,false positives risk,zscaler
-malicious outbound data/botnets,detection,malicious,high,,bluecoat
-malicious sources/malnets,detection,malicious,high,,bluecoat
-malicious websites,detection,malicious,medium,high false postive rate / triage necessary,netskope - fortigate
-newly registered domain,hunting,phishing,low,correlate with post/put request or bytes sent,netskope
-newly registered websites,hunting,phishing,low,correlate with post/put request or bytes sent,forcepoint proxy
-newly registered and observed domains,hunting,phishing,low,correlate with post/put request or bytes sent,zscaler
-p2p,hunting,compliance,high,,netskope
-p2p/file sharing,hunting,compliance,low,,mcafee
-peer file transfer,hunting,compliance,high,,cisco wsa
-peer to peer (p2p),hunting,compliance,high,,zscaler
-peer-to-peer (p2p),hunting,compliance,high,,netskope
-peer-to-peer file sharing,hunting,compliance,high,,netskope
-phishing and other frauds,detection,phishing,medium,,forcepoint proxy
-phishing,detection,phishing,medium,subject to false positives,netskope - bluecoat - paloalto - zscaler - fortigate - mcafee
-pornography,hunting,compliance,info,,netskope
-potential hacking/computer crime,detection,malicious,medium,,mcafee
-remote access tools,hunting,rmm,low,for correlation,zscaler
-remote access,hunting,rmm,low,for correlation,netskope
-remote.access,hunting,rmm,low,for correlation,netskope
-spyware/adware/keyloggers,detection,keylogger,high,,mcafee
-suspect,detection,suspicious,low,,bluecoat
-url shorteners,hunting,defense evasion,low,for correlation,cisco wsa
-url shortening,hunting,defense evasion,low,for correlation,netskope
-backdoor,detection,malicious,critical,,paloalto
-botnet,detection,malicious,critical,,
-browser-hijack,detection,malicious,high,,
-code-execution,hunting,malicious,medium,,paloalto
-command-and-control,detection,c2,critical,,paloalto
-cryptominer,detection,cryptomining,high,,paloalto
-data-theft,detection,data exfiltration,high,,paloalto
-dns-c2,detection,c2,critical,,
-dns-c2,detection,c2,critical,,paloalto
-dns-malware,detection,malicious,critical,,
-dns-new-domain,hunting,phishing,low,for correlation/hunting,paloalto
-dns-phishing,detection,phishing,high,,paloalto
-dns-wildfire,hunting,machine learning,medium,,paloalto
-downloader,hunting,collection,low,,paloalto
-exploit-kit,detection,malicious,medium,,paloalto
-fraud,hunting,fraud,high,,paloalto
-hacktool,detection,hacktool,critical,,paloalto
-high-risk,detection,risk,medium,false positives warning,paloalto
-info-leak,detection,data exfiltration,high,need to filter on high and critical severity,paloalto
-inline-cloud-c2,detection,c2,critical,example observed: tunnel established to a new domain on azurewebsite.net,netskope - paloalto
-keylogger,detection,keylogger,critical,,paloalto
-malsite,detection,malicious,medium,false positives risk,netskope
-malware,detection,malicious,medium,high false positives,paloalto - netskope
-newly-registered-domain,hunting,phishing,low,correlate with post/put request or bytes sent,paloalto
-p2p-communication,hunting,compliance,high,,
-peer-to-peer,hunting,compliance,high,,paloalto
-phishing-kit,detection,phishing,critical,,
-post-exploitation,detection,malicious,critical,,
-remote-access,hunting,rmm,low,for correlation,paloalto
-spyware,hunting,malicious,low,high false positives rate,netskope
-sql-injection,hunting,malicious,medium,,paloalto
-webshell,detection,c2,critical,,paloalto
+category,signature,metadata_type,metadata_category,metadata_severity,metadata_comment,metadata_vendor_product
+*child*porn*,,detection,crime,critical,crime - investigate with caution,
+*escort services*,,hunting,compliance,info,,
+*malicious downloads*,,detection,malicious,medium,,mcafee    
+*malicious sites*,,detection,malicious,medium,,mcafee
+*phishing*,,detection,malicious,medium,,mcafee
+*teenage*porn*,,detection,crime,critical,crime - investigate with caution,
+advanced malware command and control,,detection,c2,critical,,forcepoint proxy
+advanced malware payloads,,detection,malicious,critical,,forcepoint proxy
+adware/spyware sites,,hunting,malicious,low,for correlation/hunting,zscaler
+bot networks,,detection,malicious,critical,,forcepoint proxy
+botnet protection,,detection,malicious,high,,zscaler
+Botnet Callback,,detection,malicious,high,,zscaler
+child abuse,,detection,crime,critical,crime - investigate with caution,netskope
+child pornography,,detection,crime,critical,crime - investigate with caution,bluecoat
+child sexual abuse,,detection,crime,critical,crime - investigate with caution,fortigate
+compromised sites,,detection,malicious,high,,bluecoat
+compromised websites,,detection,malicious,medium,,forcepoint proxy
+crypto mining,,detection,cryptomining,high,,fortigate
+cryptomining,,detection,cryptomining,high,,cisco wsa
+doh services,,hunting,defense evasion,medium,https://github.com/mthcht/awesome-lists/blob/main/lists/dns_over_https_servers_list.csv,zscaler
+dynamic dns host,,hunting,defense evasion,low,,zscaler
+hacking,,detection,offensive tools,critical,,bluecoat - cisco wsa - fortigate
+illegal activities,,hunting,crime,low,,cisco wsa
+illegal or unethical,,hunting,crime,low,,netskope - fortigate
+keyloggers,,detection,keylogger,critical,,forcepoint proxy
+malicious content,,detection,malicious,medium,false positives risk,zscaler
+malicious outbound data/botnets,,detection,malicious,high,,bluecoat
+malicious sources/malnets,,detection,malicious,high,,bluecoat
+malicious websites,,detection,malicious,medium,high false postive rate / triage necessary,netskope - fortigate
+newly registered domain,,hunting,phishing,low,correlate with post/put request or bytes sent,netskope
+newly registered websites,,hunting,phishing,low,correlate with post/put request or bytes sent,forcepoint proxy
+newly registered and observed domains,,hunting,phishing,low,correlate with post/put request or bytes sent,zscaler
+p2p,,hunting,compliance,high,,netskope
+p2p/file sharing,,hunting,compliance,low,,mcafee
+peer file transfer,,hunting,compliance,high,,cisco wsa
+peer to peer (p2p),,hunting,compliance,high,,zscaler
+peer-to-peer (p2p),,hunting,compliance,high,,netskope
+peer-to-peer file sharing,,hunting,compliance,high,,netskope
+phishing and other frauds,,detection,phishing,medium,,forcepoint proxy
+phishing,,detection,phishing,medium,subject to false positives,netskope - bluecoat - paloalto - zscaler - fortigate - mcafee
+pornography,,hunting,compliance,info,,netskope
+potential hacking/computer crime,,detection,malicious,medium,,mcafee
+remote access tools,,hunting,rmm,low,for correlation,zscaler
+remote access,,hunting,rmm,low,for correlation,netskope
+remote.access,,hunting,rmm,low,for correlation,netskope
+spyware/adware/keyloggers,,detection,keylogger,high,,mcafee
+suspect,,detection,suspicious,low,,bluecoat
+url shorteners,,hunting,defense evasion,low,for correlation,cisco wsa
+url shortening,,hunting,defense evasion,low,for correlation,netskope
+backdoor,,detection,malicious,critical,,paloalto
+botnet,,detection,malicious,critical,,
+browser-hijack,,detection,malicious,high,,
+code-execution,,hunting,malicious,medium,,paloalto
+command-and-control,,detection,c2,critical,,paloalto
+cryptominer,,detection,cryptomining,high,,paloalto
+data-theft,,detection,data exfiltration,high,,paloalto
+dns-c2,,detection,c2,critical,,
+dns-c2,,detection,c2,critical,,paloalto
+dns-malware,,detection,malicious,critical,,
+dns-new-domain,,hunting,phishing,low,for correlation/hunting,paloalto
+dns-phishing,,detection,phishing,high,,paloalto
+dns-wildfire,,hunting,machine learning,medium,,paloalto
+downloader,,hunting,collection,low,,paloalto
+exploit-kit,,detection,malicious,medium,,paloalto
+fraud,,hunting,fraud,high,,paloalto
+hacktool,,detection,hacktool,critical,,paloalto
+high-risk,,detection,risk,medium,false positives warning,paloalto
+info-leak,,detection,data exfiltration,high,need to filter on high and critical severity,paloalto
+inline-cloud-c2,,detection,c2,critical,example observed: tunnel established to a new domain on azurewebsite.net,netskope - paloalto
+keylogger,,detection,keylogger,critical,,paloalto
+malsite,,detection,malicious,medium,false positives risk,netskope
+malware,,detection,malicious,medium,high false positives,paloalto - netskope
+newly-registered-domain,,hunting,phishing,low,correlate with post/put request or bytes sent,paloalto
+p2p-communication,,hunting,compliance,high,,
+peer-to-peer,,hunting,compliance,high,,paloalto
+phishing-kit,,detection,phishing,critical,,
+post-exploitation,,detection,malicious,critical,,
+remote-access,,hunting,rmm,low,for correlation,paloalto
+spyware,,hunting,malicious,low,high false positives rate,netskope
+sql-injection,,hunting,malicious,medium,,paloalto
+webshell,,detection,c2,critical,,paloalto
