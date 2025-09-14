@@ -80,3 +80,37 @@ remote-access,,hunting,rmm,low,for correlation,paloalto
 spyware,,hunting,malicious,low,high false positives rate,netskope
 sql-injection,,hunting,malicious,medium,,paloalto
 webshell,,detection,c2,critical,,paloalto
+Spyware Callback,,detection,malicious,medium,,zscaler
+Botnet Callback,,detection,c2,high,,zscaler
+Computer Hacking,,detection,malicious,medium,,zscaler
+Peer-to-Peer Site,,hunting,compliance,low,,zscaler
+Domain Generation Algorithm Domains,,hunting,compliance,medium,,zscaler
+,*CookieStealer*,detection,malicious,medium,,zscaler
+,*OpenCandy*,detection,malicious,medium,,zscaler
+,*Chisel*,detection,malicious,high,,zscaler
+,malicious behavior,detection,malicious,medium,,zscaler
+,*Hacktool*,detection,malicious,high,,zscaler
+,suspicious,detection,malicious,medium,,zscaler
+,*rmmtool*,hunting,malicious,low,,zscaler
+,*toolbar*,hunting,malicious,low,,zscaler
+,*FakeAlert*,detection,malicious,low,,zscaler
+,*trojan*,detection,malicious,medium,,zscaler
+,*HTML.Exploit*,detection,malicious,medium,,zscaler
+,*HTML.Hacked.Site*,detection,malicious,low,,zscaler
+,*Compromised*,detection,malicious,low,,zscaler
+,*HTML.Malurl*,detection,malicious,medium,,zscaler
+,*Phish*,detection,malicious,low,,zscaler
+,*SocGholish*,detection,malicious,medium,,zscaler
+,*Magecart*,detection,malicious,medium,,zscaler
+,*Exploit.CVE*,detection,malicious,low,,zscaler
+,*Exploit.Malvertising*,detection,malicious,low,,zscaler
+,*Exploit.XSS*,detection,malicious,low,,zscaler
+,*Stealer*,detection,malicious,high,,zscaler
+,*Backdoor*,detection,malicious,medium,,zscaler
+,*Ghostrat*,detection,malicious,medium,,zscaler
+,*Malicious.Extension*,detection,malicious,high,,zscaler
+,*Ransom*,detection,malicious,high,,zscaler
+,*Rootkit*,detection,malicious,high,,zscaler
+,*Win32.Virus*,detection,malicious,medium,,zscaler
+,*Dataexfil*,detection,malicious,medium,,zscaler
+,*Newly Registered and Observed Domains*,detection,malicious,low,,zscaler
