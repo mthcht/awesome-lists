@@ -1509,3 +1509,27 @@ rule Ransom_Win64_Filecoder_PAHR_2147951367_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAHT_2147952264_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHT!MTB"
+        threat_id = "2147952264"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Key broken!" wide //weight: 1
+        $x_2_2 = ".babyk" wide //weight: 2
+        $x_2_3 = "How To Restore Your Files.txt" wide //weight: 2
+        $x_1_4 = "Your files decrypted, bye!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

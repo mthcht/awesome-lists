@@ -678,6 +678,28 @@ rule Trojan_Win64_Convagent_MX_2147947636_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_MX_2147947636_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.MX!MTB"
+        threat_id = "2147947636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {78 1e 45 33 c0 48 8d 95 c0 03 00 00 48 8d 4d a0 ff 15 3d 23 00 00 48 8d 4d a0 ff 15 1b 23 00 00 0f 57 c0}  //weight: 1, accuracy: High
+        $x_1_2 = "C:\\Users\\1337\\Source\\Repos\\spread\\x64\\Release\\loader.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Convagent_GVB_2147949246_0
 {
     meta:

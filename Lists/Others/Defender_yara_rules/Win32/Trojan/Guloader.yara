@@ -7584,3 +7584,73 @@ rule Trojan_Win32_Guloader_K_2147951990_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KC_2147952278_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KC!MTB"
+        threat_id = "2147952278"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "mobilisnwr bingoers" ascii //weight: 1
+        $x_1_2 = "naalene forbehandlede.exe" ascii //weight: 1
+        $x_1_3 = "gawks datatransporter" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_KD_2147952279_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KD!MTB"
+        threat_id = "2147952279"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "floppiest bloktryk tankeklart" ascii //weight: 1
+        $x_1_2 = "frizzlers copublishers.exe" ascii //weight: 1
+        $x_1_3 = "prnumeration" ascii //weight: 1
+        $x_1_4 = "Spisevgringer.sti" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_KE_2147952280_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KE!MTB"
+        threat_id = "2147952280"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "transorbital radioers generically" ascii //weight: 1
+        $x_1_2 = "ibrugtage pilsnernes mycosterol" ascii //weight: 1
+        $x_1_3 = "musikpdagogerne.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
