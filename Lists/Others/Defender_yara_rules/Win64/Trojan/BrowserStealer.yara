@@ -49,3 +49,34 @@ rule Trojan_Win64_BrowserStealer_GVA_2147947384_0
         )
 }
 
+rule Trojan_Win64_BrowserStealer_KZ_2147952236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BrowserStealer.KZ!MTB"
+        threat_id = "2147952236"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BrowserStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Reflective DLL Process Injection" ascii //weight: 1
+        $x_1_2 = "Cookies" ascii //weight: 1
+        $x_1_3 = "Passwords" ascii //weight: 1
+        $x_1_4 = "Payment Methods" ascii //weight: 1
+        $x_1_5 = "attempting to remove temp files" ascii //weight: 1
+        $x_1_6 = "chrome_decrypt.log" ascii //weight: 1
+        $x_2_7 = "chrome_inject.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((6 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 4 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

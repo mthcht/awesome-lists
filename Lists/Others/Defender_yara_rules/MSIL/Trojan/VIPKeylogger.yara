@@ -303,3 +303,26 @@ rule Trojan_MSIL_VIPKeylogger_RVA_2147951324_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VIPKeylogger_RVB_2147952235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.RVB!MTB"
+        threat_id = "2147952235"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 0b 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 7f 00 00 00 0c 00 00 00 62 00 00 00 73 00 00 00 55 00 00 00 d9 00 00 00 05 00 00 00 48 00 00 00 29 00 00 00 03 00 00 00 12 00 00 00 20 00 00 00 01 00 00 00 06 00 00 00 01 00 00 00 08 00 00 00 06 00 00 00 01 00 00 00 03}  //weight: 1, accuracy: High
+        $x_1_2 = "ecacec1c-da19-4421-9867-15e216f473fd" ascii //weight: 1
+        $x_1_3 = "BaselineTool.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

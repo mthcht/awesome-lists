@@ -1160,3 +1160,30 @@ rule Trojan_Win64_ClipBanker_NITF_2147949029_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_NKA_2147952238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NKA!MTB"
+        threat_id = "2147952238"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "b(1|3|bc1)[a-zA-HJ-NP-Z0-9]{25,42}\\b" ascii //weight: 2
+        $x_1_2 = "b0x[a-fA-F0-9]{40}\\b" ascii //weight: 1
+        $x_1_3 = "b(L|M)[a-zA-HJ-NP-Z0-9]{26,34}\\b" ascii //weight: 1
+        $x_1_4 = "DT6aiXkYdYGt7LcrJDkG4pbiJwDGcAb1Wy" ascii //weight: 1
+        $x_1_5 = "1DgwPCJ2Tct51MRieFLg1mn2xMXEPacx9x" ascii //weight: 1
+        $x_1_6 = "LXmzfNpNpKqiavz3MfcPowFk3ivCfqEgSk" ascii //weight: 1
+        $x_1_7 = "SetClipboardData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

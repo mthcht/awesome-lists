@@ -1116,3 +1116,24 @@ rule Trojan_MSIL_DarkCloud_AZDB_2147950747_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_ZYO_2147952239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.ZYO!MTB"
+        threat_id = "2147952239"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 06 11 13 1f 3b 5a 61 08 11 ?? 11 ?? 58 1f 18 5d 94 58 13 14 00 02 11 ?? 11 ?? 6f ?? 00 00 0a 13 15 04 03 6f ?? 00 00 0a 59 13 16}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
