@@ -302,6 +302,40 @@ rule HackTool_Linux_SuspUnixReShellCmd_M_2147766187_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_SuspUnixReShellCmd_O_2147766754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/SuspUnixReShellCmd.O"
+        threat_id = "2147766754"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "SuspUnixReShellCmd"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2f 00 62 00 69 00 6e 00 2f 00 [0-4] 73 00 68 00}  //weight: 10, accuracy: Low
+        $x_1_2 = "sh -c" wide //weight: 1
+        $x_1_3 = "mkfifo " wide //weight: 1
+        $x_1_4 = "mknod " wide //weight: 1
+        $x_1_5 = "nc " wide //weight: 1
+        $x_1_6 = "telnet " wide //weight: 1
+        $x_1_7 = "2>&1" wide //weight: 1
+        $x_1_8 = "0<" wide //weight: 1
+        $n_50_9 = "127.0.0.1" wide //weight: -50
+        $n_50_10 = "localhost" wide //weight: -50
+        $n_50_11 = "0.0.0.0" wide //weight: -50
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((1 of ($x_10_*) and 4 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule HackTool_Linux_SuspUnixReShellCmd_A_2147767057_0
 {
     meta:
