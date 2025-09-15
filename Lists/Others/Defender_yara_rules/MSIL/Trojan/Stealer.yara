@@ -3362,3 +3362,25 @@ rule Trojan_MSIL_Stealer_NITE_2147952201_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_AHB_2147952256_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.AHB!MTB"
+        threat_id = "2147952256"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {00 16 0b 00 06 08 02 08 91 03 07 93 28 a9 01 00 0a 61 d2 9c 07 17 58 0b 00 08 17 58 0c}  //weight: 20, accuracy: High
+        $x_30_2 = {13 06 11 06 14 fe 03 13 07 11 07 2c 06 00 11 06 0c de 32 00 11 04 17 58 13 04 11 04 09 8e 69 32 d0}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

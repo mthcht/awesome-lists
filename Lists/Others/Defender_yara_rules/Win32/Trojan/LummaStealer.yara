@@ -7390,3 +7390,26 @@ rule Trojan_Win32_LummaStealer_PST_2147952126_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_AHD_2147952255_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.AHD!MTB"
+        threat_id = "2147952255"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0b 01 0e 00 00 f0 04 00 00 94 00 00 00 ?? ?? ?? ?? ?? ?? 00 00 10 00}  //weight: 20, accuracy: Low
+        $x_30_2 = {2e 69 64 61 74 61 20 20 00 10 00 00 00 f0 05 00 00 02 00 00 00 e2 05}  //weight: 30, accuracy: High
+        $x_50_3 = {20 20 20 00 20 20 20 20 00 d0 05 00 00 10 00 00 00 d0 05 00 00 10}  //weight: 50, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2421,3 +2421,24 @@ rule Trojan_MSIL_DarkComet_AFKT_2147950619_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkComet_BAA_2147952251_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkComet.BAA!MTB"
+        threat_id = "2147952251"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {07 11 04 08 5d ?? ?? ?? ?? ?? d2 13 05 11 05 11 04 1f 17 58 08 58 1f 1f 5f 63 20 ff 00 00 00 5f ?? ?? ?? ?? ?? 13 06 06 11 04 8f 1e 00 00 01 25 71 1e 00 00 01 11 06 61 d2 81 1e 00 00 01 11 04 17 58 13 04 11 04 09 32 b7}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
