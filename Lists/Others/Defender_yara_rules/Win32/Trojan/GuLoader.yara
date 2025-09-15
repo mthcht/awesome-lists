@@ -4740,6 +4740,61 @@ rule Trojan_Win32_GuLoader_RAZ_2147945774_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_NS_2147947244_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Sagndannelses.jay" ascii //weight: 1
+        $x_1_2 = "Centripetalkraftens151.mul" ascii //weight: 1
+        $x_1_3 = "Pulverizes.Kom57" ascii //weight: 1
+        $x_1_4 = "Chunari.Car" ascii //weight: 1
+        $x_1_5 = "chiropraxis.kil" ascii //weight: 1
+        $x_1_6 = "Itsy.kat" ascii //weight: 1
+        $x_1_7 = "\\Lasten162\\Pulverizes.Kom57" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "trakkasseriet.ins" ascii //weight: 1
+        $x_1_2 = "malachite.rek" ascii //weight: 1
+        $x_1_3 = "datagram.sge" ascii //weight: 1
+        $x_1_4 = "bonbonens" ascii //weight: 1
+        $x_1_5 = "tropsfreres\\hjemfre\\tidsindstillende" ascii //weight: 1
+        $x_1_6 = "branddaskers" ascii //weight: 1
+        $x_1_7 = "\\Stoppekurve\\germanisere.lnk" ascii //weight: 1
+        $x_1_8 = "Materialesamling109\\menighedens" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_SUB_2147947316_0
 {
     meta:
