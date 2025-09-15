@@ -16185,3 +16185,26 @@ rule Trojan_MSIL_FormBook_AFMB_2147948392_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVP_2147952231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVP!MTB"
+        threat_id = "2147952231"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 09 09 09 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 7d 00 00 00 17 00 00 00 b5 00 00 00 a3 00 00 00 7b 00 00 00 f7 00 00 00 04 00 00 00 84 00 00 00 2c 00 00 00 04 00 00 00 22 00 00 00 3e 00 00 00 08 00 00 00 01 00 00 00 08 00 00 00 07 00 00 00 01}  //weight: 1, accuracy: High
+        $x_1_2 = "B2D5F8A1-4C7E-4A9B-8F3D-6A1C9E4B7F2D" ascii //weight: 1
+        $x_1_3 = "Used_cars.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

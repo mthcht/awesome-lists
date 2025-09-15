@@ -81,6 +81,10 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_21 = "dev.southsideblackancestry.com" ascii //weight: 30
         $x_30_22 = "server.ygoogley.in" ascii //weight: 30
         $x_30_23 = "camp.organzoperate.com" ascii //weight: 30
+        $x_30_24 = "mail.securedocumentfiledownload.com" ascii //weight: 30
+        $x_30_25 = "doc-sas.marqulsmitchel.com" ascii //weight: 30
+        $x_30_26 = "jntl.shop" ascii //weight: 30
+        $x_30_27 = "solandalucia-carcosmetics.com" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (

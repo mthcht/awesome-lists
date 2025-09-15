@@ -4746,3 +4746,26 @@ rule Trojan_Win32_OffLoader_ACFB_2147952173_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_PGOF_2147952221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOF!MTB"
+        threat_id = "2147952221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "roofcakes.info/mark.php" ascii //weight: 2
+        $x_2_2 = "vestsheet.xyz/marks.php" ascii //weight: 2
+        $x_1_3 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

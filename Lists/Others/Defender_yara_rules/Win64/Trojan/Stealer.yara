@@ -525,3 +525,50 @@ rule Trojan_Win64_Stealer_MK_2147952112_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_ZVB_2147952228_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.ZVB!MTB"
+        threat_id = "2147952228"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "44"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Global\\OmegaStealer_v2_Mutex" wide //weight: 5
+        $x_2_2 = "discordcanary/Local Storage/leveldb" ascii //weight: 2
+        $x_2_3 = "Opera Software/Opera Stable/Local Storage/leveldb" ascii //weight: 2
+        $x_2_4 = "Google/Chrome/User Data/Default/Local Storage/leveldb" ascii //weight: 2
+        $x_2_5 = "Yandex/YandexBrowser/User Data" ascii //weight: 2
+        $x_2_6 = "Vivaldi/User Data" ascii //weight: 2
+        $x_2_7 = "Microsoft/Edge/User Data" ascii //weight: 2
+        $x_2_8 = "Telegram Desktop/tdata" ascii //weight: 2
+        $x_2_9 = "VBoxMouse.sys" ascii //weight: 2
+        $x_2_10 = "VBoxGuest.sys" ascii //weight: 2
+        $x_2_11 = "vmhgfs.sys" ascii //weight: 2
+        $x_2_12 = "vmmouse.sys" ascii //weight: 2
+        $x_2_13 = "vmci.sys" ascii //weight: 2
+        $x_2_14 = "vmsrvc.sys" ascii //weight: 2
+        $x_1_15 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 1
+        $x_1_16 = "SELECT host_key, name, encrypted_value FROM cookies" ascii //weight: 1
+        $x_1_17 = "SOFTWARE\\WOW6432Node\\Valve\\Steam" ascii //weight: 1
+        $x_1_18 = "Cookies.txt" ascii //weight: 1
+        $x_1_19 = "--- RUNNING PROCESSES ---" ascii //weight: 1
+        $x_1_20 = "system_summary.txt" ascii //weight: 1
+        $x_1_21 = "http://api.ipify.org" ascii //weight: 1
+        $x_1_22 = "wmic product get name,version" ascii //weight: 1
+        $x_1_23 = "Discord_Tokens.txt" ascii //weight: 1
+        $x_1_24 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_25 = "screenshot.png" ascii //weight: 1
+        $x_1_26 = "Passwords.txt" ascii //weight: 1
+        $x_1_27 = "--- WIFI PASSWORDS ---" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

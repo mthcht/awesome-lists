@@ -11980,9 +11980,10 @@ rule Trojan_Win32_ClickFix_IIC_2147951815_0
         $x_1_2 = {63 00 6d 00 64 00 [0-8] 20 00 2f 00 63 00 [0-48] 66 00 69 00 6e 00 67 00 65 00 72 00 [0-8] 20 00}  //weight: 1, accuracy: Low
         $x_1_3 = "--headless" wide //weight: 1
         $x_1_4 = "conhost.exe" wide //weight: 1
+        $x_1_5 = {66 00 69 00 6e 00 67 00 65 00 72 00 [0-8] 20 00 72 00 6f 00 6f 00 74 00 40 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (4 of ($x*))
 }
 
 rule Trojan_Win32_ClickFix_PF_2147952185_0
