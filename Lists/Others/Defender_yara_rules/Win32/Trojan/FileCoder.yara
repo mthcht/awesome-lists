@@ -506,3 +506,24 @@ rule Trojan_Win32_FileCoder_ZZ_2147951322_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FileCoder_ZK_2147952305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileCoder.ZK!MTB"
+        threat_id = "2147952305"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7d 54 86 fe 29 95 4f 84 58 8e 52 12 bd cf b3 e9 ca 2d f0 ae 10 91 cd 9d 5d d2 02 26 7f fd 13 ae 1c 54 9f 2b f7 8c 30 b7 6e d0 4e}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

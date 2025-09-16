@@ -922,3 +922,25 @@ rule Trojan_Win32_Midie_KAB_2147950797_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Midie_SX_2147952309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.SX!MTB"
+        threat_id = "2147952309"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 4d fc 8b 45 fc 03 c9 33 ce 46 03 c1 89 45 fc e8 ?? ?? ?? ?? 99 f7 ff 81 c2 ?? ?? ?? ?? 3b f2 7c de}  //weight: 3, accuracy: Low
+        $x_2_2 = {0f 11 45 80 ff d6 0f 10 45 a0 8d 45 b0 50 0f 11 85 70 ff ff ff ff d6 0f 10 45 b0 8d 85 50 ff ff ff 50}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
