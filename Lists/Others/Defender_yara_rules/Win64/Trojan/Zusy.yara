@@ -2338,3 +2338,25 @@ rule Trojan_Win64_Zusy_PGK_2147951956_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SXJ_2147952288_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXJ!MTB"
+        threat_id = "2147952288"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {88 45 7c 48 8d 45 70 f3 0f 7f 85 80 00 00 00 48 89 45 10 f2 0f 10 05 ?? ?? ?? ?? 66 44 89 65 7e f2 0f 11 45 70 44 88 65 7d}  //weight: 3, accuracy: Low
+        $x_2_2 = {48 8b 4d 28 48 83 f9 ?? 4c 89 64 24 ?? 4c 8d 45 10 4c 0f 47 45 ?? 48 8d 95 ?? ?? ?? ?? 48 83 bd c8 ?? ?? ?? ?? 48 0f 47 95}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

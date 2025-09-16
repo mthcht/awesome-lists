@@ -220,3 +220,35 @@ rule Ransom_Win64_LockFile_MKV_2147947763_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_NIT_2147952287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.NIT!MTB"
+        threat_id = "2147952287"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "22"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4c 8d 25 7f ?? 00 00 4c 89 a4 24 b0 03 00 00 48 8d 05 88 ?? 00 00 48 89 84 24 b8 03 00 00 48 89 bc 24 c0 03 00 00 33 d2 b9 02 00 00 00 ff 15 cb ?? 00 00 4c 8b f0 c7 84 24 70 01 00 00 ?? ?? 00 00 33 d2 41 b8 34 02 00 00 48 8d 8c 24 74 01 00 00 e8 60 8c 00 00 48 8d 94 24 70 01 00 00 49 8b ce ff 15 1f ?? 00 00 85 c0}  //weight: 2, accuracy: Low
+        $x_2_2 = "vssadmin delete shadows /all /quiet" ascii //weight: 2
+        $x_2_3 = "bcdedit /set {default} recoveryenabled No" ascii //weight: 2
+        $x_2_4 = "net stop WinDefend" ascii //weight: 2
+        $x_2_5 = "netsh advfirewall set allprofiles state off" ascii //weight: 2
+        $x_5_6 = "All files on drives" ascii //weight: 5
+        $x_5_7 = "are ENCRYPTED" ascii //weight: 5
+        $x_2_8 = "Bitcoin" ascii //weight: 2
+        $x_2_9 = "decrypt your files" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 6 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
