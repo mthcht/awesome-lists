@@ -145,6 +145,27 @@ rule Trojan_MSIL_RevengeRat_ART_2147841221_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RevengeRat_ART_2147841221_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ART!MTB"
+        threat_id = "2147841221"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {08 07 fe 01 13 07 11 07 2c 02 17 0c 03 08 17 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 09 02 11 05 17 28 ?? 00 00 0a 28 ?? 00 00 0a 06 07 d8 da 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 0d 08 17 d6 0c}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_RevengeRat_ATR_2147841222_0
 {
     meta:
@@ -508,6 +529,27 @@ rule Trojan_MSIL_RevengeRat_AREV_2147900446_0
 }
 
 rule Trojan_MSIL_RevengeRat_ARA_2147901237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RevengeRat.ARA!MTB"
+        threat_id = "2147901237"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RevengeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {17 0a 03 06 17 28 ?? 00 00 0a 28 ?? 00 00 0a 13 05 07 02 08 17 28 ?? 00 00 0a 28 ?? 00 00 0a 11 05 09 d8 da 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 0b 06 17}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RevengeRat_ARA_2147901237_1
 {
     meta:
         author = "defender2yara"

@@ -6145,3 +6145,25 @@ rule Trojan_MSIL_DarkTortilla_ZVO_2147952135_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_KRI_2147952341_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.KRI!MTB"
+        threat_id = "2147952341"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {07 14 72 dc d4 00 70 17 8d 03 00 00 01 25 16 28 ?? 02 00 06 28 ?? 00 00 2b 28 ?? 00 00 2b 7e 19 00 00 04 2c 07 7e 19 00 00 04 2b 16 7e 18 00 00 04 fe 06 93 00 00 06 73 c1 00 00 0a 25 80 19 00 00 04 28 ?? 00 00 2b 28 ?? 00 00 2b}  //weight: 4, accuracy: Low
+        $x_5_2 = {04 18 5d 2c 03 03 2b 07 03 20 c1 00 00 00 61 b4 0a 2b 00 06 2a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

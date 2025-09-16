@@ -261,3 +261,27 @@ rule Trojan_Win64_Amadey_ADZM_2147948058_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_ADM_2147952325_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.ADM!MTB"
+        threat_id = "2147952325"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "xabanak.ru/build.exe" wide //weight: 5
+        $x_3_2 = "TEMP\\au.txt" wide //weight: 3
+        $x_2_3 = "File Download" wide //weight: 2
+        $x_1_4 = "runas" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

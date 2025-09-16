@@ -2027,6 +2027,27 @@ rule Trojan_Win64_LummaStealer_PST_2147951708_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {1b 34 c2 fe eb 37 30 58 ab 64 ec 1d a1 fa 0b e2 01 74 85 25 35 f7 26 3e e5 02 d5 66 56 2a aa 97 8e 12 fb 81 ed 85 1f 9a e2 94 1b a8 a9 94 8b 69 47 65 00 7e 7b 1e 41 4f da db 8a 0d d6 01 84 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_PST_2147951708_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PST!MTB"
+        threat_id = "2147951708"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {de 1b 12 93 c1 44 e2 b9 6f 5f 63 3e 8c 41 cf ba d9 e5 4f ef 34 a4 ea 87 30 d4 81 42 60 62 fa 60 e7 c5 d1 01 b0 00 16 b5 cb 18 ?? ?? ?? ?? 5b b5 2e ca 48 a5 7d 19 db be 59 52 75 7c 62 3d 6b 5f f0 78 8f 20 3d b5 24 4e 28 4c 40 26 e7 7d 25 04 e8 3c 53 64 4d b1 13 0f 76 e9 3d 05 f0 02 ba 1e 2a f1 fe 3a}  //weight: 5, accuracy: Low
@@ -2138,6 +2159,27 @@ rule Trojan_Win64_LummaStealer_SXA_2147952151_0
         $x_10_1 = {89 44 24 48 95 88 44 24 27 95 88 5c 24 26 88 54 24 25 88 4c 24 24 83 f8}  //weight: 10, accuracy: High
         $x_3_2 = {89 d7 f7 e9 c1 fa ?? 69 d2 ?? ?? ?? ?? 89 c8 29 d1 81 c1 ?? ?? ?? ?? 39 cb 0f 8d}  //weight: 3, accuracy: Low
         $x_2_3 = {89 c8 c1 e9 1f 01 c1 83 e1 fe 29 c8 40}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_GAPR_2147952313_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GAPR!MTB"
+        threat_id = "2147952313"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {39 bd 32 6c fe de 17 33 d0 ff 61 4b 8b 41 5f 12 05 14 c4 11}  //weight: 8, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

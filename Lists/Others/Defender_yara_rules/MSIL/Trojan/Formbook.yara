@@ -8679,3 +8679,24 @@ rule Trojan_MSIL_Formbook_ZTO_2147952053_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_ZZO_2147952329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.ZZO!MTB"
+        threat_id = "2147952329"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 07 11 17 1f 1f 5a 11 18 1d 5a 58 61 13 19 02 11 17 11 18 6f ?? 00 00 0a 13 1a 04 03 6f ?? 00 00 0a 59 13 1b 11 1b 13 1c}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

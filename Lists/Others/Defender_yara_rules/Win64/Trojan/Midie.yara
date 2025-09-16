@@ -524,3 +524,56 @@ rule Trojan_Win64_Midie_AHG_2147952065_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_SXA_2147952332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXA!MTB"
+        threat_id = "2147952332"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {66 39 11 75 0f 48 63 41 3c 41 0f b7 d0 66 44 39 04 08 74 09 48 81 e9}  //weight: 7, accuracy: High
+        $x_5_2 = {45 33 d2 8b da 41 c1 e9 ?? 41 8b d2 41 8b c1 c1 e0 ?? 4c 63 d8 4c 03 d9 41 f7 d9}  //weight: 5, accuracy: Low
+        $x_1_3 = "svchost_inj.cpp" ascii //weight: 1
+        $x_1_4 = "InjectSVCHost" ascii //weight: 1
+        $x_1_5 = "injlib\\remote_thread.cpp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Midie_SXB_2147952333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXB!MTB"
+        threat_id = "2147952333"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {f7 f9 8b 55 bc 2b d0 89 55 bc 8b 4d bc 83 c1 ?? 8b 45 d8 99 f7 f9}  //weight: 10, accuracy: Low
+        $x_5_2 = {8b 55 d8 2b d1 0f af 55 d8 89 55 d8 8d 45 d8 89 45 d4 8b 4d d8 83 c1 ?? 8b 45 e4}  //weight: 5, accuracy: Low
+        $x_10_3 = {8b 45 e4 2b 45 08 8b 4d f8 2b c8 89 4d f8 8b 4d f4 83 c1 ?? 8b 45 08 99 f7 f9 03 45 f4 89 45 f4}  //weight: 10, accuracy: Low
+        $x_5_4 = {8b 4d f8 83 c1 ?? 8b 45 f8 99 f7 f9 89 45 0c eb bc}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

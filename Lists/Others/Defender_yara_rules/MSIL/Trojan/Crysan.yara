@@ -1963,6 +1963,27 @@ rule Trojan_MSIL_Crysan_ACY_2147904344_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {18 11 23 58 19 5d 13 26 19 8d ?? 00 00 01 13 27 11 27 16 12 20 28 ?? 00 00 0a 9c 11 27 17 12 20 28 ?? 00 00 0a 9c 11 27 18 12 20 28 ?? 00 00 0a 9c 11 22 16 fe 02}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Crysan_ACY_2147904344_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.ACY!MTB"
+        threat_id = "2147904344"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:

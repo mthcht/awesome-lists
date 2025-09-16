@@ -19,3 +19,24 @@ rule Trojan_MSIL_SpectreLoader_AJDB_2147949941_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpectreLoader_ALSE_2147952320_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpectreLoader.ALSE!MTB"
+        threat_id = "2147952320"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpectreLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 14 11 05 11 11 11 14 16 11 14 8e 69 28 ?? 00 00 0a 11 0e 11 07 11 13 6a 58 11 14 11 14 8e 69 16 6a 28 ?? 00 00 06 26 11 0f 17 58 68}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
