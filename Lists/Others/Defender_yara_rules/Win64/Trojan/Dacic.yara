@@ -600,3 +600,24 @@ rule Trojan_Win64_Dacic_C_2147945427_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_GXU_2147952345_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.GXU!MTB"
+        threat_id = "2147952345"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {45 8a 08 41 0f be c9 66 41 89 ca 89 84 24 ?? ?? ?? ?? 44 8a 4c 24 ?? 41 80 e1 ?? 44 88 8c 24 ?? ?? ?? ?? 66 44 89 54 54 ?? 48 8b 94 24 ?? ?? ?? ?? 48 83 c2 ?? 48 89 94 24 ?? ?? ?? ?? 66 44 8b 54 24 ?? 66 41 81 f2 ?? ?? 66 44 89 94 24 ?? ?? ?? ?? 48 83 fa}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

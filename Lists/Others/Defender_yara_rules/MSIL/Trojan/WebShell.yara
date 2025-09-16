@@ -562,3 +562,24 @@ rule Trojan_MSIL_WebShell_KRI_2147952184_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_BBI_2147952346_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.BBI!MTB"
+        threat_id = "2147952346"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 07 07 6f ?? 00 00 0a 07 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 03 73 12 00 00 0a 0d 09 08 16 73 0d 00 00 0a 13 04 11 04 73 13 00 00 0a 13 05 11 05 6f ?? 00 00 0a 13 06 28 15 00 00 0a 11 06 6f ?? 00 00 0a 0a de 0c 11 05 2c 07 11 05 6f ?? 00 00 0a dc de 0c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
