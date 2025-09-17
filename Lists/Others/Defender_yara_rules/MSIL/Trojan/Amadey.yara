@@ -911,3 +911,26 @@ rule Trojan_MSIL_Amadey_KRI_2147952342_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_MK_2147952428_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.MK!MTB"
+        threat_id = "2147952428"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {73 19 00 00 0a 25 72 d1 00 00 70 6f 1a 00 00 0a 25 72 e1 00 00 70 11 04 72 fd 00 00 70 28 1b 00 00 0a 6f 1c 00 00 0a 25 16 6f 1d}  //weight: 10, accuracy: High
+        $x_10_2 = {28 29 00 00 0a 0d 72 b3 01 00 70 09 72 fd 00 00 70 28 1b 00 00 0a 13 04 72 d1 00 00 70 11 04 73 2a 00 00 0a 25 17 6f 2b 00 00 0a 25 17}  //weight: 10, accuracy: High
+        $x_10_3 = {8e 69 1f 30 59 6f 43 00 00 0a 11 06 6f 44 00 00 0a 03 11 05 6f 45 00 00 0a 28 46 00 00 0a de 0c}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

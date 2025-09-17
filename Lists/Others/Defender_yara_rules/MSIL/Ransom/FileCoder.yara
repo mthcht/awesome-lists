@@ -482,6 +482,56 @@ rule Ransom_MSIL_FileCoder_CF_2147851031_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_AYV_2147852625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AYV!MTB"
+        threat_id = "2147852625"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0d 16 13 04 2b 17 09 11 04 9a 13 05 00 02 11 05 28 04 00 00 06 00 00 11 04 17 58 13 04 11 04 09 8e 69 32 e2}  //weight: 2, accuracy: High
+        $x_1_2 = "\\Users\\hello\\OneDrive\\Bureau\\Ransomware\\Ransomware\\obj\\Debug\\Ransomware.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_FileCoder_AYV_2147852625_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AYV!MTB"
+        threat_id = "2147852625"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "XRET Ransomware" ascii //weight: 2
+        $x_1_2 = "We have encrypted and stolen all your files" ascii //weight: 1
+        $x_1_3 = "If you pay, we will provide you the decryption software and destroy the stolen data" ascii //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_5 = "SELECT * FROM Win32_OperatingSystem" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Ransom_MSIL_FileCoder_AZ_2147896925_0
 {
     meta:

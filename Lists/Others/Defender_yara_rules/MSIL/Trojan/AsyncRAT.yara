@@ -6487,3 +6487,25 @@ rule Trojan_MSIL_AsyncRAT_BV_2147951420_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_ZCN_2147952424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.ZCN!MTB"
+        threat_id = "2147952424"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {02 11 11 11 13 6f ?? 00 00 0a 13 14 04 03 6f ?? 00 00 0a 59 13 15 11 15 19 31 03 19 13 15 11 15 16 2f 03}  //weight: 6, accuracy: Low
+        $x_4_2 = {58 19 5d 13 19 19 8d ?? 00 00 01 13 1a 11 1a 16 12 14 28 ?? 00 00 0a 9c 11 1a 17 12 14 28 ?? 00 00 0a 9c 11 1a 18 12 14}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

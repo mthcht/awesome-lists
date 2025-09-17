@@ -41,3 +41,26 @@ rule Trojan_MSIL_ResolverRAT_AOXA_2147944541_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ResolverRAT_AEFB_2147952423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ResolverRAT.AEFB!MTB"
+        threat_id = "2147952423"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ResolverRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0c 04 28 ?? 00 00 0a 0d 05 28 ?? 00 00 0a 13 04 08 09 11 04 6f ?? 00 00 0a 13 05 03 73 ?? 00 00 0a 13 06 11 06 11 05 16 73 ?? 00 00 0a 13 07 73 ?? 00 00 0a 13 08 11 07 11 08 6f ?? 00 00 0a 38}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
