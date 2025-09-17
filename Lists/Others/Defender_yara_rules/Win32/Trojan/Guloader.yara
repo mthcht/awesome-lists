@@ -7654,3 +7654,28 @@ rule Trojan_Win32_Guloader_KE_2147952280_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KF_2147952374_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KF!MTB"
+        threat_id = "2147952374"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "eventyrlyst\\bystats" ascii //weight: 1
+        $x_1_2 = "Anestri.rib" ascii //weight: 1
+        $x_1_3 = "diallages.rne" ascii //weight: 1
+        $x_1_4 = "fustinella.imp" ascii //weight: 1
+        $x_1_5 = "perigone.udt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

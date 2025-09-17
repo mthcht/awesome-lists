@@ -1459,3 +1459,28 @@ rule Ransom_Win32_FileCoder_BAD_2147949228_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCoder_GXU_2147952364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder.GXU!MTB"
+        threat_id = "2147952364"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Congratulations, I've hacked your computer" ascii //weight: 1
+        $x_1_2 = "have been encrypted using a military grade" ascii //weight: 1
+        $x_1_3 = "ransom@" ascii //weight: 1
+        $x_1_4 = ".onion" ascii //weight: 1
+        $x_1_5 = "no way to recover your files without the decryption key" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

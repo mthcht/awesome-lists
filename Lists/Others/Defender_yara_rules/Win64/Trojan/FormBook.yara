@@ -62,3 +62,24 @@ rule Trojan_Win64_FormBook_BSA_2147941901_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_FormBook_GVA_2147952371_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FormBook.GVA!MTB"
+        threat_id = "2147952371"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c1 4d 8d 54 00 10 4c 8b 8d ?? ?? ?? ?? 8b c1 99 41 f7 79 08 41 3b 51 08 73 16 8b c2 41 0f b6 44 01 10 41 30 02 ff c1 41 39 4c 24 08 7f d1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

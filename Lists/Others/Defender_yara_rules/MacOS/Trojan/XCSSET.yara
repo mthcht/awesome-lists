@@ -97,29 +97,6 @@ rule Trojan_MacOS_XCSSET_AZ_2147933834_0
         )
 }
 
-rule Trojan_MacOS_XCSSET_ST_2147935106_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MacOS/XCSSET.ST"
-        threat_id = "2147935106"
-        type = "Trojan"
-        platform = "MacOS: "
-        family = "XCSSET"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "curl -fskL -d " wide //weight: 1
-        $x_1_2 = "os=$(uname -s)&p=" wide //weight: 1
-        $x_1_3 = {68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_4 = "| sh >/dev/null 2>&1 &" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MacOS_XCSSET_SC_2147935107_0
 {
     meta:

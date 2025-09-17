@@ -1533,3 +1533,120 @@ rule Ransom_Win64_Filecoder_PAHT_2147952264_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_AFU_2147952376_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.AFU!MTB"
+        threat_id = "2147952376"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 b8 0b 00 00 ?? ?? ?? ?? ?? ?? bf 01 00 00 00 31 f6 48 8b 55 ?? 48 89 d0 48 f7 d8}  //weight: 1, accuracy: Low
+        $x_2_2 = "USERPROFILEREADME.txt" ascii //weight: 2
+        $x_3_3 = "Your files are encrypted and cannot be decrypted" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_EAZF_2147952384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.EAZF!MTB"
+        threat_id = "2147952384"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_2 = "decrypt them" ascii //weight: 1
+        $x_1_3 = "config.txt" ascii //weight: 1
+        $x_1_4 = "key=your_secret_key" ascii //weight: 1
+        $x_1_5 = "If we don't receive payment within 7 days, the key will be deleted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PAHU_2147952393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHU!MTB"
+        threat_id = "2147952393"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bcdedit /set {default} recoveryenabled No" ascii //weight: 1
+        $x_2_2 = "DisableAntiSpyware" ascii //weight: 2
+        $x_2_3 = "-DisableRealtimeMonitoring" ascii //weight: 2
+        $x_2_4 = "FILES ENCRYPTED" wide //weight: 2
+        $x_2_5 = "Pay the ransom" ascii //weight: 2
+        $x_1_6 = "sc stop WinDefend" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_SLCP_2147952394_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.SLCP!MTB"
+        threat_id = "2147952394"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 85 10 05 00 00 48 8d 50 08 48 8b 8d 30 05 00 00 48 8d 85 d0 02 00 00 48 89 54 24 20 49 89 c9 4c 8d 05 cb a8 34 00 ba 00 02 00 00 48 89 c1 e8 1c fb ff ff 48 8d 85 d0 00 00 00 48 89 c2 48 8d 05 b7 a8 34 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_SLEP_2147952395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.SLEP!MTB"
+        threat_id = "2147952395"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {e9 da 02 00 00 48 8d 85 90 12 00 00 4c 8d 05 9a 98 46 00 48 8b 95 f0 14 00 00 48 89 c1 e8 0c 0e 43 00 48 8d 95 90 12 00 00 48 8d 85 c0 10 00 00 41 b8 04 00 00 00 48 89 c1}  //weight: 2, accuracy: High
+        $x_1_2 = "ransom.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
