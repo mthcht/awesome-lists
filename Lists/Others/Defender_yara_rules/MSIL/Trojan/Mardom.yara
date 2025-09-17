@@ -936,3 +936,26 @@ rule Trojan_MSIL_Mardom_AC_2147951419_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_AHFB_2147952446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.AHFB!MTB"
+        threat_id = "2147952446"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 06 28 ?? 00 00 0a 13 05 07 28 ?? 00 00 0a 13 06 11 04 11 05 11 06 6f ?? 00 00 0a 13 07 03 73 ?? 00 00 0a 13 08 11 08 11 07 16 73 ?? 00 00 0a 13 09 73 ?? 00 00 0a 13 0a 11 09 11 0a 6f ?? 00 00 0a 11 0a 6f ?? 00 00 0a 0c 1f 64 0d dd}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

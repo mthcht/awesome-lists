@@ -5134,3 +5134,31 @@ rule Trojan_Win32_GuLoader_RCA_2147952308_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SUP_2147952445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUP!MTB"
+        threat_id = "2147952445"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Megapterine109.ini" ascii //weight: 1
+        $x_1_2 = "\\produktivitet\\Galvanopsychic" ascii //weight: 1
+        $x_1_3 = "\\dowl.txt" ascii //weight: 1
+        $x_1_4 = "Opacite.Hom" ascii //weight: 1
+        $x_1_5 = "Ddt17.hom" ascii //weight: 1
+        $x_1_6 = "arbejdsfunktion.ich" ascii //weight: 1
+        $x_1_7 = "kaskades.gle" ascii //weight: 1
+        $x_1_8 = "rewrite.whi" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

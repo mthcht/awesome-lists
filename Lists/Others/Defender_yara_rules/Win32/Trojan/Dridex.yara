@@ -9649,3 +9649,26 @@ rule Trojan_Win32_Dridex_UHD_2147934520_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dridex_ADR_2147952454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dridex.ADR!MTB"
+        threat_id = "2147952454"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {83 c4 08 89 45 f0 6a 0a 68 e8 03 00 00 ff 75 08 ff 15 ?? ?? ?? ?? 85 c0 74 34 89 45 e8 50 ff 75 08}  //weight: 3, accuracy: Low
+        $x_2_2 = {68 49 73 75 7a 54 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 ff 75 ?? 6a 00 8d 93}  //weight: 2, accuracy: Low
+        $x_1_3 = "han_th09_chc17chm_edhu_achisuz" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
