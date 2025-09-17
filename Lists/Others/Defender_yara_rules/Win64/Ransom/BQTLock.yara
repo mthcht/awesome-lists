@@ -29,3 +29,32 @@ rule Ransom_Win64_BQTLock_BA_2147952373_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_BQTLock_PA_2147952432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/BQTLock.PA!MTB"
+        threat_id = "2147952432"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BQTLock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "C:\\Windows\\Temp\\bqt_log.txt" ascii //weight: 6
+        $x_1_2 = "BQTLock Report" ascii //weight: 1
+        $x_1_3 = "files have been encrypted" ascii //weight: 1
+        $x_1_4 = "vssadmin.exe delete shadows /all /quiet" ascii //weight: 1
+        $x_1_5 = "bcdedit.exe /set {default} bootstatuspolicy ignoreallfailures" ascii //weight: 1
+        $x_1_6 = "Attempting to destroy shadow copies and recovery options." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_6_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
