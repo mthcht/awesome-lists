@@ -16272,3 +16272,26 @@ rule Trojan_MSIL_FormBook_AOKB_2147952317_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVR_2147952412_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVR!MTB"
+        threat_id = "2147952412"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 09 09 0b 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 87 00 00 00 0d 00 00 00 78 00 00 00 d2 01 00 00 75 00 00 00 eb 00 00 00 04 00 00 00 56 00 00 00 1a 00 00 00 03 00 00 00 0f 00 00 00 18 00 00 00 08 00 00 00 01 00 00 00 08 00 00 00 07 00 00 00 01 00 00 00 03}  //weight: 1, accuracy: High
+        $x_1_2 = "12345678-1234-5678-9012-123456789012" ascii //weight: 1
+        $x_1_3 = "LotterySimulation.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

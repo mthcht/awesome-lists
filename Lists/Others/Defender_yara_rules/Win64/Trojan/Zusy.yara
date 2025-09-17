@@ -2360,3 +2360,27 @@ rule Trojan_Win64_Zusy_SXJ_2147952288_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SXK_2147952415_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXK!MTB"
+        threat_id = "2147952415"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {4c 8d 45 f0 48 83 f9 ?? 4c 0f 47 45 f0 48 83 7f 18 ?? 76 03 48 8b 3f 4c 89 64 24 ?? 45 33 c9 48 8b d7 33 c9 e8}  //weight: 6, accuracy: Low
+        $x_4_2 = {4c 89 bc 24 10 15 00 00 4c 8d 65 80 4c 0f 47 65 80 4d 8d 7d 4c 0f 57 c0 0f 57 c9 0f 11 44 24 60}  //weight: 4, accuracy: High
+        $x_1_3 = "nbgtpasrg.exe" ascii //weight: 1
+        $x_1_4 = "crypted_build.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
