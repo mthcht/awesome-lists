@@ -1484,3 +1484,32 @@ rule Ransom_Win32_FileCoder_GXU_2147952364_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCoder_GXV_2147952440_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder.GXV!MTB"
+        threat_id = "2147952440"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {01 d0 0f b6 c0 29 d0 89 c2 8b 45 e0 0f b6 00 31 c2 8b 45 e0 88 10}  //weight: 10, accuracy: High
+        $x_10_2 = {01 d0 0f b6 18 8b 45 ?? 83 e0 ?? 0f b6 8c 05 ?? ?? ?? ?? 8b 55 ?? 8b 45 ?? 01 d0 31 cb 89 da 88 10 83 45 e0}  //weight: 10, accuracy: Low
+        $x_10_3 = {0f b6 00 89 c1 8d 95 ?? ?? ?? ?? 8b 45 ?? 01 d0 0f b6 00 31 c1 8d 95 ?? ?? ?? ?? 8b 45 e4 01 d0 88 08 83 45 e4}  //weight: 10, accuracy: Low
+        $x_10_4 = {89 d1 89 ca 8b 45 ?? 89 14 24 89 c1 e8 ?? ?? ?? ?? 83 ec ?? 0f b6 00 88 45 ?? 8d 45 ?? 8b 55 ?? 89 14 24 89 c1 e8 ?? ?? ?? ?? 83 ec ?? 0f b6 10 0f b6 4d ?? 31 ca 88 10 83 45}  //weight: 10, accuracy: Low
+        $x_1_5 = "Your files have been encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
