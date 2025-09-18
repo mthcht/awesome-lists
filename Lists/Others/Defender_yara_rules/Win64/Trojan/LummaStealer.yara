@@ -2185,3 +2185,25 @@ rule Trojan_Win64_LummaStealer_GAPR_2147952313_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_AR_2147952486_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.AR!MTB"
+        threat_id = "2147952486"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {80 f1 01 89 c3 30 cb 20 c3 20 c1 08 d1 89 d8 30 c8 a8 01 ba ?? ?? ?? ?? 41 0f 45 d1 f6 c1 01 89 d0 41 0f 45 c1 f6 c3 01 0f 44 c2}  //weight: 10, accuracy: Low
+        $x_8_2 = {89 ca 80 f2 01 30 c1 34 01 89 d3 20 c3 30 d0 08 d8 89 c2 30 ca a8 01 b8 ?? ?? ?? ?? 41 0f 45 c2 f6 c1 01 41 0f 44 c2}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

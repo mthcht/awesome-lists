@@ -61,3 +61,25 @@ rule Trojan_Win32_Shellcode_EART_2147934426_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Shellcode_AR_2147952488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Shellcode.AR!MTB"
+        threat_id = "2147952488"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Shellcode"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8d 50 01 89 94 24 ?? ?? ?? ?? 0f b6 00 0f be c0 34 ff 89 c2 8b 84 24 ?? ?? ?? ?? 89 44 24 04 89 14 24}  //weight: 30, accuracy: Low
+        $x_20_2 = {8d 50 07 85 c0 0f 48 c2 c1 f8 03 0f b6 44 04 14 0f be d0 8b 84 24 ?? ?? ?? ?? 83 e0 07 89 c1 d3 fa 89 d0}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
