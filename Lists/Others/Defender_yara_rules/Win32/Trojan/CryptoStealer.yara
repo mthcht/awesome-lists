@@ -20,3 +20,29 @@ rule Trojan_Win32_CryptoStealer_CCJX_2147941666_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CryptoStealer_Z_2147952471_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CryptoStealer.Z!MTB"
+        threat_id = "2147952471"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "const_0x" ascii //weight: 1
+        $x_1_2 = "function(_0x" ascii //weight: 1
+        $x_1_3 = "parseint(_0x" ascii //weight: 1
+        $x_1_4 = "wallet" wide //weight: 1
+        $x_1_5 = "bitcoin" wide //weight: 1
+        $x_1_6 = "ethereum" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
