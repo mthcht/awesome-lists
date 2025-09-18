@@ -116,3 +116,29 @@ rule Trojan_MSIL_BadJoke_SK_2147944112_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BadJoke_GXV_2147952519_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BadJoke.GXV!MTB"
+        threat_id = "2147952519"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {69 2e 69 62 62 2e 63 6f 2f [0-64] 2f 6c 6f 63 6b 73 63 72 65 65 6e 2e 6a 70 67}  //weight: 1, accuracy: Low
+        $x_1_2 = {69 2e 69 62 62 2e 63 6f 2f [0-64] 2f 77 61 6c 6c 70 61 70 65 72 2e 6a 70 67}  //weight: 1, accuracy: Low
+        $x_1_3 = "ConvertTo-SecureString \"mommylilyownsme\"" ascii //weight: 1
+        $x_1_4 = "RotatingLockScreenOverlayEnabled" ascii //weight: 1
+        $x_1_5 = "LilyLock" ascii //weight: 1
+        $x_1_6 = "Lock screen image" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

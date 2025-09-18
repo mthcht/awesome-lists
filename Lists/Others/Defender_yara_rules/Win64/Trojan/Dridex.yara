@@ -2949,3 +2949,25 @@ rule Trojan_Win64_Dridex_DRX_2147951976_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dridex_LM_2147952523_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.LM!MTB"
+        threat_id = "2147952523"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {83 fe 0f 73 ?? 41 0f b6 45 ?? 8b ce 49 83 c5 02 d3 e0 8d 4e 08 44 03 e0 41 0f b6 45 ?? d3 e0 44 03 e0 83 c6 10 41 8b c4 48 23 c2}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b ca b8 01 00 00 00 c1 ed 10 d3 e0 ff c8 41 23 c4 03 c5 41 8b 2c 81 8b c5 40 0f b6 d5 c1 e8 08 0f b6 c8 41 d3 ec 2b f1 40 84 ed}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
