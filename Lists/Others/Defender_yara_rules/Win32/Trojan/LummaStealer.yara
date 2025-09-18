@@ -7429,8 +7429,9 @@ rule Trojan_Win32_LummaStealer_PGI_2147952400_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {b7 12 c6 3b e3 1c 65 fb 5a d2 70 97 9e 59 87 ee c1 5b bb ac 16 5a e4 07 3d 15 eb fe de 4e 55 f3 09 12 56 e1 96 ?? 59 23 1a fd 46 ?? ?? c6 a4 92 a2 04 58 d8 a4 00 a2 ee 2a d3 95 28 2f f1 f9 8b d1 ef 1f}  //weight: 5, accuracy: Low
+        $x_5_2 = {f2 2b b8 7d 00 b7 fb cf 3a 8b e7 79 05 0a cb eb 20 6a 69 4c b6 b1 4e 3c a0 b4 b3 98 93 fb 84 fe 7d e5 62 13 9a 14 54 f5 23 ce a6 c1 9c 1f a2 c1 5a a1 96 70 ea 39 66 d8 f8 f0 e5 f7 ed e3 0b 83 41 c1 0b}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 

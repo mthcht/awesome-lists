@@ -3894,3 +3894,28 @@ rule Ransom_MSIL_Filecoder_EDK_2147945216_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_PAE_2147952509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.PAE!MTB"
+        threat_id = "2147952509"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "All of your files have been encrypted" wide //weight: 3
+        $x_2_2 = ".caelus" wide //weight: 2
+        $x_1_3 = "RECOVER_FILES.txt" wide //weight: 1
+        $x_1_4 = "Please send 14 bitcoin to the following bitcoin address" wide //weight: 1
+        $x_1_5 = "RansomwarePOC" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

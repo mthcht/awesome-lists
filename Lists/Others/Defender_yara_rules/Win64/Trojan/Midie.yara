@@ -577,3 +577,45 @@ rule Trojan_Win64_Midie_SXB_2147952333_0
         )
 }
 
+rule Trojan_Win64_Midie_GVC_2147952501_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.GVC!MTB"
+        threat_id = "2147952501"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 8d 14 29 41 3b d6 73 22 42 8d 14 29 48 8d 54 13 10 83 f9 40 73 14 44 8b c1 47 0f b6 44 04 10 44 30 02 ff c1 3b c8 7c d7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Midie_GVD_2147952502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.GVD!MTB"
+        threat_id = "2147952502"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 0c 06 3b 4b 08 73 45 44 8b c1 4c 8b 13 3b cd 73 3b 46 0f b6 0c 07 42 8d 0c 28 c1 e1 03 45 8b de 41 d3 eb 41 0f b6 cb 41 33 c9 43 88 0c 02 ff c0 3b c2 7c cb}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

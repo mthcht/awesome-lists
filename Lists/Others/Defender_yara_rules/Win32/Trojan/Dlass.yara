@@ -146,3 +146,25 @@ rule Trojan_Win32_Dlass_GXU_2147952363_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dlass_GXV_2147952499_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dlass.GXV!MTB"
+        threat_id = "2147952499"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dlass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 d4 5e 6f 00 e5 cc 6b 00 00}  //weight: 10, accuracy: High
+        $x_10_2 = {6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 1d ?? ?? ?? ?? a3 ?? ?? ?? ?? 0a 00 85 c0 c0 46 1e 36 6c 00 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
