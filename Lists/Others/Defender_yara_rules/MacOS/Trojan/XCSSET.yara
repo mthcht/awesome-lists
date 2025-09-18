@@ -97,6 +97,33 @@ rule Trojan_MacOS_XCSSET_AZ_2147933834_0
         )
 }
 
+rule Trojan_MacOS_XCSSET_ST_2147935106_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.ST"
+        threat_id = "2147935106"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "curl -fskL -d " wide //weight: 1
+        $x_10_2 = {6f 00 73 00 3d 00 [0-32] 26 00 70 00 3d 00 78 00 63 00 6f 00 64 00 65 00 26 00 75 00 3d 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {6f 00 73 00 3d 00 [0-32] 26 00 70 00 3d 00 64 00 65 00 66 00 61 00 75 00 6c 00 74 00}  //weight: 10, accuracy: Low
+        $x_1_4 = {68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_MacOS_XCSSET_SC_2147935107_0
 {
     meta:
@@ -414,6 +441,29 @@ rule Trojan_MacOS_XCSSET_SB_2147935618_0
     strings:
         $x_1_1 = {63 00 75 00 72 00 6c 00 20 00 2d 00 6f 00 20 00 2f 00 74 00 6d 00 70 00 2f 00 [0-32] 20 00 2d 00 66 00 73 00 6b 00 4c 00 20 00 2d 00 64 00 20 00 70 00 3d 00 64 00 65 00 66 00 61 00 75 00 6c 00 74 00 26 00 75 00 3d 00 [0-32] 26 00 61 00 3d 00}  //weight: 1, accuracy: Low
         $x_1_2 = {20 00 68 00 74 00 74 00 70 00 [0-32] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_BA_2147952334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.BA"
+        threat_id = "2147952334"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "do shell script" wide //weight: 1
+        $x_2_2 = {63 00 75 00 72 00 6c 00 20 00 2d 00 66 00 73 00 6b 00 4c 00 20 00 2d 00 6f 00 20 00 2f 00 74 00 6d 00 70 00 2f 00 [0-64] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 2f 00 [0-64] 26 00 26 00 20 00 6f 00 73 00 61 00 73 00 63 00 72 00 69 00 70 00 74 00 20 00 2f 00 74 00 6d 00 70 00}  //weight: 2, accuracy: Low
+        $x_1_3 = "rm -f /tmp/" wide //weight: 1
+        $x_1_4 = "end try" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
