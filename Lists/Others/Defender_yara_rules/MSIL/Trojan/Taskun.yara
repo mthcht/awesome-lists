@@ -6217,3 +6217,88 @@ rule Trojan_MSIL_Taskun_ZGN_2147952500_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_EFBU_2147952596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.EFBU!MTB"
+        threat_id = "2147952596"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 11 0c 11 0d 17 58 1d 5a 07 11 0b 11 0d 58 07 8e 69 5d 94 61 58 13 0c}  //weight: 2, accuracy: High
+        $x_2_2 = {08 17 58 07 8e 69 5d 0c 09 07 08 94 11 07 1b 5d 1f 1f 5f 62 61 0d}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Taskun_EAOI_2147952598_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.EAOI!MTB"
+        threat_id = "2147952598"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 07 1f 1d 5a 58 06 11 07 06 8e 69 5d 99 ?? ?? ?? ?? ?? ?? ?? 8f 40 5a 69 61 13 08 07 08 07 08 94 11 08 61 0e 05 1f 0f 5f 58 9e 11 20}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Taskun_EAII_2147952602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.EAII!MTB"
+        threat_id = "2147952602"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 11 0b 17 58 1f 25 5a 11 0e 17 58 1f 65 5a 61 07 61 13 0f 11 0f 11 0d ?? ?? ?? ?? ?? ?? ?? ?? ?? 5a 69 61 13 0f 02 11 0b 11 0e ?? ?? ?? ?? ?? 13 10 04 03 ?? ?? ?? ?? ?? 59 13 11 11 11 13 12 11 12 19}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Taskun_EAOJ_2147952603_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.EAOJ!MTB"
+        threat_id = "2147952603"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 11 0c 11 1e 1f 11 5a 58 13 1f 00 02 11 1d 11 1e ?? ?? ?? ?? ?? 13 20 04 03 ?? ?? ?? ?? ?? 59 13 21 11 21 13 22 11 22 19 fe 02 13 28 11 28 2c 03 19 13 22 11 22 16 fe 04 13 29 11 29 2c 03 16 13 22 11 0c 16 5f 13 23}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1867,3 +1867,25 @@ rule Trojan_MSIL_Zilla_AFFB_2147952441_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_AKFB_2147952571_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AKFB!MTB"
+        threat_id = "2147952571"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 09 11 09 72 ?? ?? 00 70 08 28 ?? 00 00 06 11 09 72 ?? ?? 00 70 09 28 ?? 00 00 06 11 09 72 ?? ?? 00 70 17 16 8d ?? 00 00 01 28 ?? 00 00 0a 74 ?? 00 00 01 13 0a 11 0a 11 04 16 11 04 8e 69 6f ?? 00 00 0a 13 04 11 04}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8700,3 +8700,66 @@ rule Trojan_MSIL_Formbook_ZZO_2147952329_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_EHLI_2147952597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EHLI!MTB"
+        threat_id = "2147952597"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 11 04 17 62 11 13 61 11 04 1b 63 61 13 04 02 11 12 11 13 ?? ?? ?? ?? ?? 13 14 04 03 ?? ?? ?? ?? ?? 59 13 15 11 15 13 16 1a ?? ?? ?? ?? ?? 25 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 13 17 11 16 16 32 0a 11 16 19 fe 02 16 fe 01 2b 01 16}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_EAOI_2147952601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EAOI!MTB"
+        threat_id = "2147952601"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 07 17 58 1f 25 5a 11 0a 17 58 1f 65 5a 61 07 61 13 0b 11 0b 11 09 ?? ?? ?? ?? ?? ?? ?? ?? ?? 5a 69 61 13 0b 02 11 07 11 0a ?? ?? ?? ?? ?? 13 0c 04 03 ?? ?? ?? ?? ?? 59 13 0d 11 0d 13 0e 11 0e 19}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_EAOK_2147952604_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EAOK!MTB"
+        threat_id = "2147952604"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 11 10 1f 1f 5a 11 18 1d 5a 58 08 58 07 09 58 61 13 19 00 02 11 10 11 18 ?? ?? ?? ?? ?? 13 1a 04 03 ?? ?? ?? ?? ?? 59 13 1b 11 1b 13 1c 11 1c 19 fe 02 13 22 11 22 2c 03}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

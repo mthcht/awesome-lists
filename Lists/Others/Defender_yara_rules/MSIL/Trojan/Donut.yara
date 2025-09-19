@@ -212,3 +212,25 @@ rule Trojan_MSIL_Donut_SLG_2147941585_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Donut_ADN_2147952588_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Donut.ADN!MTB"
+        threat_id = "2147952588"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {16 0a 02 8e 16 fe 03 0d 09 2c 0d 00 02 16 9a 12 00 28 ?? 00 00 0a 26 00 06 19 fe 02 13 04 11 04 2c 11}  //weight: 5, accuracy: Low
+        $x_3_2 = "heckerscool" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

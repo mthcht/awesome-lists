@@ -959,3 +959,32 @@ rule Trojan_MSIL_Mardom_AHFB_2147952446_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_MCH_2147952575_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.MCH!MTB"
+        threat_id = "2147952575"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "EventLogAnalyzer.Properties.Resources.resource" ascii //weight: 10
+        $x_10_2 = "RestoreCreator.Properties.Resources.resources" ascii //weight: 10
+        $x_10_3 = "HastaneProjeENSONhali.Properties.Resources.resource" ascii //weight: 10
+        $x_10_4 = "2760f04d-2e5d-49c8-a7d2-c2fbbd262ab1" ascii //weight: 10
+        $x_1_5 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -1650,3 +1650,27 @@ rule Ransom_Win64_Filecoder_SLEP_2147952395_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_EABA_2147952577_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.EABA!MTB"
+        threat_id = "2147952577"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_2 = "decrypt them" ascii //weight: 1
+        $x_1_3 = "send $100 to [attacker's email address]." ascii //weight: 1
+        $x_1_4 = "d.encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
