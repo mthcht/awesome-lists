@@ -89,3 +89,25 @@ rule Trojan_Win32_Spy_Casbaneiro_2147946058_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Spy_NF_2147952539_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Spy.NF!MTB"
+        threat_id = "2147952539"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Spy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 55 b0 8b 14 95 88 20 43 00 03 d1 8a 0c 03 03 d3 43 88 4c 32 2e 8b 4d bc 3b df 7c e3}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 45 b4 8a 0a 88 4c 07 2e 8b 45 b0 8b 04 85 88 20 43 00 80 4c 38 2d 04 8b 45 b8 40 89 46 04 eb 08}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

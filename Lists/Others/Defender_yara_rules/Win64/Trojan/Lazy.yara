@@ -3577,3 +3577,25 @@ rule Trojan_Win64_Lazy_PGLI_2147952503_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MKA_2147952543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKA!MTB"
+        threat_id = "2147952543"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {46 38 57 90 d3 c9 26 ac 93 24 24 0a 46 64 af}  //weight: 15, accuracy: High
+        $x_10_2 = {31 f2 0c f1 b7 39 39 58 3c b0 06 18 ba 19 31 a2 b9 a7 2a 6d 7d 97 2c b2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
