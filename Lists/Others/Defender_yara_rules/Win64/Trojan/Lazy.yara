@@ -3232,6 +3232,28 @@ rule Trojan_Win64_Lazy_AHI_2147947691_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {44 89 cb 30 c3 44 08 c8 41 80 f1 ?? 80 f2 ?? 44 20 ca 08 ca 34 ?? 08 d8 89 c1 30 d1 a8}  //weight: 30, accuracy: Low
+        $x_20_2 = {08 d0 89 ca 80 f2 ?? 20 c2 34 ?? 20 c8 08 d0 44 30 c8 89 c1 80 f1 ?? 41 20 c9 44 30 c9}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AHI_2147947691_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHI!MTB"
+        threat_id = "2147947691"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
         strings_accuracy = "Low"
     strings:
@@ -3242,7 +3264,7 @@ rule Trojan_Win64_Lazy_AHI_2147947691_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_AHI_2147947691_1
+rule Trojan_Win64_Lazy_AHI_2147947691_2
 {
     meta:
         author = "defender2yara"
