@@ -7878,3 +7878,26 @@ rule Trojan_Win32_Zusy_LMM_2147952485_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_MKA_2147952644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.MKA!MTB"
+        threat_id = "2147952644"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8b 44 24 44 35 2a 5f 4b 78 8b 4c 24 40 89 44 24 18 89 c8}  //weight: 10, accuracy: High
+        $x_10_2 = {89 4c 24 34 88 c1 89 fe 0f a5 de 88 c1 d3 e3 b9 53 98 d5 78}  //weight: 10, accuracy: High
+        $x_10_3 = {83 c2 20 66 89 d3 0f b7 d7 83 ea 1a 66 0f 42 f3 0f b7 fe}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
