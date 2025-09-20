@@ -69,3 +69,26 @@ rule Trojan_Win64_Mimikatz_AMCV_2147928847_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mimikatz_AHB_2147952646_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mimikatz.AHB!MTB"
+        threat_id = "2147952646"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mimikatz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {4c 89 6c 24 68 c6 44 24 3f 00 c6 44 24 3e 00 48 c7 44 24 50 00 00 00 00 c7 04 24 00 00 00 00 48 8d 54 24 50 48 89 54 24 08}  //weight: 20, accuracy: High
+        $x_30_2 = {0f b6 34 10 4c 8d 42 01 4c 8d 8a ?? ?? ?? ?? 49 0f af f1 48 01 f1 4c 89 c2 48 39 d3 7f}  //weight: 30, accuracy: Low
+        $x_10_3 = "spread.Cryptohijack" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

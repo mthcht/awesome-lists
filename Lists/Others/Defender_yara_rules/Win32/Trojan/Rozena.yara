@@ -967,3 +967,25 @@ rule Trojan_Win32_Rozena_SPDP_2147952442_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rozena_AHC_2147952647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rozena.AHC!MTB"
+        threat_id = "2147952647"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 4c 24 20 89 4c 24 04 8b 4c 24 30 89 4c 24 08 c7 44 24 0c ?? ?? ?? ?? 8b 54 24 38 89 54 24 10}  //weight: 30, accuracy: Low
+        $x_20_2 = {0f b6 2c 11 8b 35 ?? ?? ?? ?? 0f b6 34 31 31 f5 31 c5 95 88 04 0a 95 41}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
