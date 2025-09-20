@@ -8763,3 +8763,24 @@ rule Trojan_MSIL_Formbook_EAOK_2147952604_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_EATU_2147952626_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EATU!MTB"
+        threat_id = "2147952626"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 0e 04 11 07 ?? ?? ?? ?? ?? 05 69 61 13 08 11 04 11 08 ?? ?? ?? ?? ?? 00 0e 05 2c 09 11 08 19 5d 16 fe 01 2b 01 16 13 09 11 09 2c 12 00 08 11 08 6c ?? ?? ?? ?? ?? ?? ?? ?? ?? 5a 58 0c 00 00 11 07 17 58 13 07 11 07 0e 04 ?? ?? ?? ?? ?? fe 04 13 0a 11 0a 2d a9}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

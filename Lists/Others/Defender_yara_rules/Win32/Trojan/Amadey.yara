@@ -4249,3 +4249,25 @@ rule Trojan_Win32_Amadey_PGAM_2147952564_0
         )
 }
 
+rule Trojan_Win32_Amadey_EFWA_2147952627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.EFWA!MTB"
+        threat_id = "2147952627"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c1 e8 05 03 45 e8 33 c8 8b 55 f8 2b d1 89 55 f8}  //weight: 2, accuracy: High
+        $x_2_2 = {03 45 f8 8b 4d e4 03 4d f8 8a 11 88 10 83 7d f8 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

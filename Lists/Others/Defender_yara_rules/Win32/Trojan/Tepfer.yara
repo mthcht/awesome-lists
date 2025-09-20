@@ -574,3 +574,25 @@ rule Trojan_Win32_Tepfer_BAI_2147952254_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tepfer_EDSM_2147952625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.EDSM!MTB"
+        threat_id = "2147952625"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 44 10 ff 8b 15 ?? ?? ?? ?? 33 c2 f7 d0}  //weight: 2, accuracy: Low
+        $x_2_2 = {5a 88 02 ff 07 4b ?? ?? 5f 5e 5b}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

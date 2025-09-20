@@ -7752,3 +7752,28 @@ rule Trojan_Win32_Guloader_KI_2147952528_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KPP_2147952619_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KPP!MTB"
+        threat_id = "2147952619"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Megapterine109.ini" ascii //weight: 1
+        $x_1_2 = "\\forbundsformand\\Pgnttrp.gif" ascii //weight: 1
+        $x_1_3 = "\\produktivitet\\Galvanopsychic" ascii //weight: 1
+        $x_1_4 = "\\dowl.txt" ascii //weight: 1
+        $x_1_5 = "bioteknikkers" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
