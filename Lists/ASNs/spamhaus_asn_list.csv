@@ -11,7 +11,7 @@ as_number,rir,domain,cc,asname
 14956,arin,cloudzy.com,US,ROUTERHOSTING
 17447,apnic,net4india.com,IN,NET4-IN
 17994,apnic,appserv.co.nz,NZ,ASL-AS-AP
-23865,apnic,netinnovation.net,US,NETINNOVATIONLLC-AS-AP
+23865,apnic,netinnovation.net,JP,NETINNOVATIONLLC-AS-AP
 24426,apnic,myce.net.cn,CN,CNNIC-SINO-I
 24544,apnic,cloudie.hk,HK,Overcasts-AS-AP
 24567,apnic,qtcloud.co.jp,JP,QTINC-AS-AP
@@ -25,7 +25,7 @@ as_number,rir,domain,cc,asname
 32558,arin,us53.com,HK,BNSL-10-32558
 33993,ripencc,stark-industries.solutions,MD,UFO-AS
 34888,ripencc,simplecarrier.net,US,swissnetwork01
-34985,apnic,netinnovation.net,US,NETINNOVATIONLLC-AS-AP
+34985,apnic,netinnovation.net,JP,NETINNOVATIONLLC-AS-AP
 35346,ripencc,eurotelecom.info,MD,EUROTELECOM
 35478,ripencc,bunea.eu,RO,DATACENTER
 35624,ripencc,fineproxy.org,RU,SILVERSTAR-AS
@@ -42,7 +42,6 @@ as_number,rir,domain,cc,asname
 40963,ripencc,bignet.ua,UA,PRAID-AS
 41155,ripencc,orbittelekom.com,TR,orbitdc
 41171,ripencc,eurotelecom.info,MD,NETWORKS_RENT
-41947,ripencc,fly-group.ru,RU,WEBALTA-AS
 42192,ripencc,idodns.com,JP,India
 42397,ripencc,bunea.eu,RO,BUNEA-HIGH-VOLUME-NETWORK
 42419,ripencc,tavriatrans.com.ua,UA,TAVRIA-TRANSSERVIS-AS
@@ -60,6 +59,7 @@ as_number,rir,domain,cc,asname
 44317,ripencc,mercurytelecom.net,US,MERCURYTELECOM
 44386,ripencc,ozon.ru,RU,OZON-AS
 44477,ripencc,stark-industries.solutions,MD,THE-HOSTING
+44559,ripencc,ithostline.com,IN,ITHOSTLINE
 44589,ripencc,eurotelecom.info,MD,Hosting
 44774,ripencc,stark-industries.solutions,MD,STARK
 44801,ripencc,bignet.ua,UA,R-TEL-AS
@@ -76,7 +76,6 @@ as_number,rir,domain,cc,asname
 48693,ripencc,ntup.net,RU,NTSERVICE-AS
 48974,ripencc,eurotelecom.info,MD,COLOCATION
 49006,ripencc,eurotelecom.info,MD,Systems
-49042,ripencc,skb-enterprise.com,NL,PHANES-CLOUD
 49217,ripencc,hostype.com,TR,HOSTYPE
 49418,ripencc,chosting.solutions,UA,AS-NETSHIELD
 49443,ripencc,eurotelecom.info,MD,SISTEME
@@ -111,7 +110,7 @@ as_number,rir,domain,cc,asname
 61879,lacnic,aleducacional.com.br,BR,América_Latina_Educacional_Adm._e_Serviços_LTDA
 62281,ripencc,eurotelecom.info,MD,VIDEOMAG-AS
 62380,ripencc,bunea.eu,RO,BUNEA-HIGH-PEER-NETWORK
-62864,arin,netinnovation.net,US,NILAS
+62864,arin,netinnovation.net,JP,NILAS
 63881,apnic,medianetdigital.co,ID,MDI-AS-ID
 131750,apnic,sufia.tv,ID,SUFIANET-AS-ID
 132574,arin,alphainfolab.com,IN,AI-1720-132574
@@ -161,7 +160,6 @@ as_number,rir,domain,cc,asname
 142430,apnic,digivps.com,IN,DIGIVPS-AS-AP
 142519,apnic,smtpmailers.com,IN,SMTPM-AS-IN
 146887,apnic,noobtech.in,IN,MAINT-IN-IRINN
-147186,apnic,vcclhosting.com,IN,VCCLCLOUDPVTLTD-AS-AP
 147211,apnic,onlinepragathi.com,IN,PRAGATHI-AS-IN
 147287,apnic,dataparadise.net,IN,DATAPARA1-AS-IN
 147291,apnic,khalidgroup.co,PK,KHALIDGROUP-AS-AP
@@ -170,13 +168,15 @@ as_number,rir,domain,cc,asname
 149197,apnic,girdharicomp.in,IN,GIRDHARI-AS-IN
 149208,apnic,telerakesh.in,IN,RAKESSEN-AS-IN
 149242,apnic,ananyacomp.in,IN,ANANYAA-AS-IN
-149286,apnic,netinnovation.net,US,NETINNOVATIONLLC-AS-AP
+149286,apnic,netinnovation.net,JP,NETINNOVATIONLLC-AS-AP
 149434,apnic,mygefo.in,IN,GEFO-AP-AS
 150030,apnic,algoz.co.in,IN,ALGO-AS-IN
 150036,apnic,heebshealthcare.co.in,IN,HEEBS-AS-IN
 150082,apnic,isofttechnology.net,IN,GARGASSO-AS-IN
 150091,apnic,vedimantra.co.in,IN,VEDIMA-AS-IN
 150100,apnic,arkcomtele.com,IN,ARKCOM-AS-IN
+150101,apnic,ithostline.com,IN,YASHITS-AS-IN
+150102,apnic,ithostline.com,IN,ITSERVICE-AS-IN
 150604,apnic,globalsol.co.in,IN,GLOBALSOL-AS-IN
 150813,apnic,thoimmo.com,VN,MINHTHOIPC-VN
 150860,apnic,jetcloud.vn,VN,JETCLOUD-VN
@@ -296,6 +296,7 @@ as_number,rir,domain,cc,asname
 209605,ripencc,serveroffer.lt,LT,hostbaltic
 209737,ripencc,meric.net.tr,TR,AS209737
 209800,ripencc,virtualine.org,GB,metaspinner-asn
+209847,ripencc,stark-industries.solutions,MD,THE
 209868,ripencc,eurotelecom.info,MD,HOSTING
 209883,ripencc,eurotelecom.info,MD,CHISINAU
 209889,ripencc,eurotelecom.info,MD,Chisinau
@@ -324,6 +325,7 @@ as_number,rir,domain,cc,asname
 211659,ripencc,stimllc.ru,RU,STIMUL-AS
 211673,ripencc,mynymbox.io,KN,Mynymbox
 211720,ripencc,xor.sc,SC,DATASHIELD_CH
+211736,ripencc,pwnhost.com,UA,FDN3
 211762,ripencc,fineproxy.org,RU,REGION40
 211849,ripencc,62yun.com,RU,KAKHAROV-AS
 211922,ripencc,ipconnect.services,SC,IPDISTR
@@ -358,6 +360,7 @@ as_number,rir,domain,cc,asname
 213921,ripencc,davidascottmotorsltd,GB,DA-MOTORS-AS
 213945,ripencc,meric.net.tr,TR,AS213945
 213992,ripencc,whitelabel.sh,IL,PRIMOX-AS
+213999,ripencc,stark-industries.solutions,MD,THE-CLIENTS
 214018,ripencc,intintell.co.uk,GB,IIC-AS
 214059,ripencc,acehost.online,KW,AcehostOnline
 214196,ripencc,privatenetwork.ltd,RU,Vladylsav-Naumets
@@ -371,7 +374,6 @@ as_number,rir,domain,cc,asname
 214746,ripencc,infiniroute.io,US,DNNET-NL
 214799,ripencc,infiniroute.io,US,ATLASHOST-AS
 214820,ripencc,infiniroute.io,US,SUMMITARC-AS
-214860,ripencc,wensliai.com,HK,STELLAR-GLOW-SERVICES
 214927,ripencc,psb.hosting,RU,PSB-AS
 214940,ripencc,virtualine.org,GB,KPRONET
 214943,ripencc,virtualine.org,GB,RAILNET
