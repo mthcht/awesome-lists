@@ -732,6 +732,27 @@ rule Trojan_MSIL_Amadey_MCF_2147947907_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_BAA_2147948273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.BAA!MTB"
+        threat_id = "2147948273"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 04 09 6f 3d 00 00 0a 11 04 08 6f 3e 00 00 0a 11 04 17 6f 3f 00 00 0a 73 40 00 00 0a 13 05 11 05 11 04 6f 41 00 00 0a 17 73 42 00 00 0a 13 06 11 06 07 1f 30 07 8e 69 1f 30 59 6f 43 00 00 0a 11 06 6f 44 00 00 0a 03 11 05 6f 45 00 00 0a 28 46 00 00 0a de 0c 11 06 2c 07 11 06 6f 24 00 00 0a dc de 0c 11 05 2c 07 11 05 6f 24 00 00 0a dc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Amadey_PGAD_2147948941_0
 {
     meta:
@@ -929,6 +950,30 @@ rule Trojan_MSIL_Amadey_MK_2147952428_0
         $x_10_1 = {73 19 00 00 0a 25 72 d1 00 00 70 6f 1a 00 00 0a 25 72 e1 00 00 70 11 04 72 fd 00 00 70 28 1b 00 00 0a 6f 1c 00 00 0a 25 16 6f 1d}  //weight: 10, accuracy: High
         $x_10_2 = {28 29 00 00 0a 0d 72 b3 01 00 70 09 72 fd 00 00 70 28 1b 00 00 0a 13 04 72 d1 00 00 70 11 04 73 2a 00 00 0a 25 17 6f 2b 00 00 0a 25 17}  //weight: 10, accuracy: High
         $x_10_3 = {8e 69 1f 30 59 6f 43 00 00 0a 11 06 6f 44 00 00 0a 03 11 05 6f 45 00 00 0a 28 46 00 00 0a de 0c}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Amadey_MCJ_2147952685_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.MCJ!MTB"
+        threat_id = "2147952685"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 06 07 1f 30 07 8e 69 1f 30 59}  //weight: 2, accuracy: High
+        $x_1_2 = {63 00 20 00 73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00 20 00 2f 00 63 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 74 00 6e 00 20 00 22 00 00 11 22 00 20 00 2f 00 78 00 6d}  //weight: 1, accuracy: High
+        $x_1_3 = "a2ec-2695fdf0888e" ascii //weight: 1
+        $x_1_4 = {44 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 65 00 72 00 41 00 70 00 70 00 2e 00 65 00 78 00 65}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

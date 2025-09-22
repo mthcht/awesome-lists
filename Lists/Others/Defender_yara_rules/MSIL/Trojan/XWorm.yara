@@ -2995,3 +2995,24 @@ rule Trojan_MSIL_XWorm_FPZ_2147952174_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BAK_2147952679_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAK!MTB"
+        threat_id = "2147952679"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {09 11 07 02 11 07 91 08 11 07 08 8e 69 5d 91 61 d2 9c 11 07 17 58 13 07 11 07 02 8e 69 32 e1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

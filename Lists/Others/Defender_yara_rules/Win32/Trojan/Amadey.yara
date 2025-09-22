@@ -4271,3 +4271,24 @@ rule Trojan_Win32_Amadey_EFWA_2147952627_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_BAC_2147952676_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.BAC!MTB"
+        threat_id = "2147952676"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b c8 0f af d1 33 95 ?? ?? ?? ?? 8b 45 c0 8b 8d ?? ?? ?? ?? 03 14 81 a1 ?? ?? ?? ?? 03 85 ?? ?? ?? ?? 88 10}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

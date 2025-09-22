@@ -7112,6 +7112,33 @@ rule Trojan_Win32_LummaStealer_PGTP_2147947945_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_FAL_2147948268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.FAL!MTB"
+        threat_id = "2147948268"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {50 45 00 00 4c 01 08 00 d8 1a aa 68 00 00 00 00 00 00 00 00 e0 00 02 01 0b 01 0e 2b 00 b2 04 00 00 ?? 07 00 00 00 00 00 ?? ?? ?? 00 00 10 00 00 00 d0 04 00 00 00 40 00 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {6a b1 04 00 00 10 00 00 00 88 02 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 20 20 20 20 20 20 20 20 58 1c 01 00 00 d0 04 00 00 78 00 00 00 8c 02 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 10, accuracy: High
+        $x_1_3 = "checkprotection" ascii //weight: 1
+        $x_1_4 = "XWLSoftwareVersion" ascii //weight: 1
+        $x_1_5 = "showcode" ascii //weight: 1
+        $x_1_6 = "SOFTWARE\\WinLicense" ascii //weight: 1
+        $x_1_7 = "XprotExit" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_NR_2147949141_0
 {
     meta:
@@ -7472,6 +7499,27 @@ rule Trojan_Win32_LummaStealer_GPAS_2147952659_0
         strings_accuracy = "Low"
     strings:
         $x_8_1 = {99 f7 f9 fe c2 33 c0 88 55 ?? 0f 1f 40 00 0f 1f 84 00 00 00 00 00 02 d0 32 ?? ?? ?? ?? 00 88 94 05}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_FAM_2147952681_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.FAM!MTB"
+        threat_id = "2147952681"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {50 45 00 00 64 86 0c 00 10 21 d8 66 00 00 00 00 00 00 00 00 f0 00 22 00 0b 02 0e 10 00 34 0b 00 00 96 07 00 00 00 00 00 e8 2d 81 00 00 10 00 00}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
