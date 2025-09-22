@@ -753,3 +753,25 @@ rule Trojan_O97M_Donoff_RDO_2147825109_0
         (all of ($x*))
 }
 
+rule Trojan_O97M_Donoff_RR_2147952668_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/Donoff.RR!MTB"
+        threat_id = "2147952668"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Donoff"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {76 62 61 2e 65 6e 76 69 72 6f 6e 28 22 61 6c 22 26 22 6c 75 73 65 22 26 22 72 73 70 72 22 26 22 6f 66 69 6c 65 22 29 26 22 2f 63 73 22 26 22 63 75 69 2e 64 22 26 22 6c 6c 22 [0-10] 3d 76 62 61 2e 65 6e 76 69 72 6f 6e 28 22 75 73 65 22 26 22 72 70 72 22 26 22 6f 66 69 6c 65 22 29 26 22 2f 70 69 63 22 26 22 74 75 72 65 73 2f 6b 22 26 22 6f 22 26 22 61 22 26 22 6c 22 26 22 61 2e 70 22 26 22 6e 67 22}  //weight: 1, accuracy: Low
+        $x_1_2 = "vba.environ(\"wi\"&\"nd\"&\"ir\")&\"/sy\"&\"stem3\"&\"2/r\"&\"undl\"&\"l32.e\"&\"xe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

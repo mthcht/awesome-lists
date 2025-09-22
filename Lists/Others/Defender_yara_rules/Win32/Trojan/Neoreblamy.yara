@@ -6355,3 +6355,25 @@ rule Trojan_Win32_Neoreblamy_NKV_2147952565_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_NKW_2147952671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NKW!MTB"
+        threat_id = "2147952671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6a 04 58 6b c0 00 8b 4d 84 89 8c 05 ?? ff ff ff 8b}  //weight: 1, accuracy: Low
+        $x_2_2 = {eb 07 8b 45 d4 40 89 45 d4 83 7d d4 04 7d 10 8b 45 d4}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

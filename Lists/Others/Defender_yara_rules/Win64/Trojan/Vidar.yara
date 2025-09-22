@@ -190,3 +190,33 @@ rule Trojan_Win64_Vidar_ARA_2147952226_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_ZPB_2147952660_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ZPB!MTB"
+        threat_id = "2147952660"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = "https://t.me/l07tp" ascii //weight: 4
+        $x_4_2 = "https://steamcommunity.com/profiles/76561199869630181" ascii //weight: 4
+        $x_2_3 = {68 04 01 00 00 8d bd ?? ?? ?? ?? 57 6a 00 ff 15 ?? ?? ?? ?? 85 c0 74 07 57 ff 15 ?? ?? ?? ?? 83 bd ?? ?? ?? ?? 10 8d 85 ?? ?? ?? ?? 72 06 8b 85 ?? ?? ?? ?? 50 6a 00 68 03 00 1f 00 ff 15 ?? ?? ?? ?? 85 c0 74 08 50 ff d3 4e 75 b4}  //weight: 2, accuracy: Low
+        $x_2_4 = "\\\\Monero\\\\wallet" ascii //weight: 2
+        $x_2_5 = "\\\\Discord\\\\token" ascii //weight: 2
+        $x_1_6 = "[Hardware]" ascii //weight: 1
+        $x_1_7 = "Soft: FileZilla" ascii //weight: 1
+        $x_1_8 = "Soft: WinSCP" ascii //weight: 1
+        $x_1_9 = "Password:" ascii //weight: 1
+        $x_1_10 = "MachineID:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

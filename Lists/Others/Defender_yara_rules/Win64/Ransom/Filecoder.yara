@@ -888,6 +888,31 @@ rule Ransom_Win64_Filecoder_PAQ_2147939019_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAQ_2147939019_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAQ!MTB"
+        threat_id = "2147939019"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "gGlobal\\{E7F2A1D0-B9C4-4E8F-95A3-6B0D82C1E4F9}_VortexCry_Mutex" wide //weight: 3
+        $x_3_2 = "vcry\\x64\\Release\\vcry.pdb" ascii //weight: 3
+        $x_2_3 = "\\\\.\\pipe\\VortexCry_Pipe" wide //weight: 2
+        $x_2_4 = {0f b6 04 31 34 fe 88 01 48 8d 49 01 48 83 eb 01 75}  //weight: 2, accuracy: High
+        $x_1_5 = {f3 0f 6f 44 01 f0 0f 57 c2 f3 0f 7f 40 f0 f3 0f 6f 0c 01 0f 57 ca f3 0f 7f 08 f3 0f 6f 44 01 10 0f 57 c2 f3 0f 7f 40 10 f3 0f 6f 4c 01 20 0f 57 ca f3 0f 7f 48 20 48 83 c2 40 48 8d 40 40 49 3b d1 72}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win64_Filecoder_CCJX_2147939639_0
 {
     meta:

@@ -988,3 +988,25 @@ rule Trojan_MSIL_Mardom_MCH_2147952575_0
         )
 }
 
+rule Trojan_MSIL_Mardom_PCH_2147952663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.PCH!MTB"
+        threat_id = "2147952663"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 0a 20 64 39 00 00 28 ?? 01 00 06 28 ?? 00 00 0a 6f ?? 00 00 0a 0c 73 04 00 00 0a 0d 14 13 04 2b 44 00 28 ?? 00 00 06 13 04 11 04 73 05 00 00 0a 13 05 11 05 08 16 73 06 00 00 0a 13 06 11 06 09 6f ?? 00 00 0a 09 13 07 de 2d}  //weight: 4, accuracy: Low
+        $x_2_2 = {28 04 00 00 06 0a 28 08 00 00 06 06 6f 09 00 00 0a 6f 0a 00 00 0a 0b 06 39 06 00 00 00 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
