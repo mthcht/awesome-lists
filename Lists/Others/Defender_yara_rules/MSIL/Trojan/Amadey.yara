@@ -979,3 +979,26 @@ rule Trojan_MSIL_Amadey_MCJ_2147952685_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_LM_2147952705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.LM!MTB"
+        threat_id = "2147952705"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {28 12 00 00 0a 72 01 00 00 70 28 13 00 00 0a 0a 28 12 00 00 0a 72 27 00 00 70 28 13 00 00 0a 0b 72 43 00 00 70 06 28 08 00 00 06 06 1c 28 14 00 00 0a 72 75 00 00 70 07 28 08 00 00 06 07 1c 28 14 00 00 0a de 03 26 de 00 28 04 00 00 06 2d 76 06 28 15 00 00 0a 2c 27 73 16 00 00 0a 25 06 6f 17 00 00 0a 25 16 6f 18 00 00 0a 25 17 6f 19 00 00 0a 25 17 6f 1a 00 00 0a 28 1b 00 00 0a 26 28 05 00 00 06 de 06 26}  //weight: 10, accuracy: High
+        $x_5_2 = {28 38 00 00 0a 28 13 00 00 0a 0a 72 73 02 00 70 28 21 00 00 0a 8c 15 00 00 01 02 28 39 00 00 0a 0b 06 07 28 3a 00 00 0a 28 3b 00 00 0a 72 a2 0d 00 70 1b 8d 2e 00 00 01 25 16 72 b2 0d 00 70 a2 25 17 03 a2 25 18 72 e6 0d 00 70 a2 25 19 06 a2 25 1a 72 f8 0d 00 70 a2 28 34 00 00 0a 73 3c 00 00 0a 25 17 6f 19 00 00 0a 25 16 6f 18 00 00 0a 28 1b 00 00 0a}  //weight: 5, accuracy: High
+        $x_20_3 = {06 2d 05 dd ca 00 00 00 06 6f 3f 00 00 0a d4 8d 31 00 00 01 0b 06 07 16 07 8e 69 6f 40 00 00 0a 26 1f 10 8d 31 00 00 01 0c 1f 20 8d 31 00 00 01 0d 07 16 08 16 1f 10 28 41 00 00 0a 07 1f 10 09 16 1f 20}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

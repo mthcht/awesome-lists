@@ -214,6 +214,27 @@ rule Ransom_MSIL_FileCoder_AB_2147766650_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 0a 1f 0b 64 11 0a 1f 15 62 60 13 0d 11 1a 20 27 62 a9 d1 5a 20 8e f4 da a2 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_FileCoder_AB_2147766650_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AB!MTB"
+        threat_id = "2147766650"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -226,7 +247,7 @@ rule Ransom_MSIL_FileCoder_AB_2147766650_0
         (all of ($x*))
 }
 
-rule Ransom_MSIL_FileCoder_AB_2147766650_1
+rule Ransom_MSIL_FileCoder_AB_2147766650_2
 {
     meta:
         author = "defender2yara"

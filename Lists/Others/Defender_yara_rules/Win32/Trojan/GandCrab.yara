@@ -293,3 +293,24 @@ rule Trojan_Win32_GandCrab_GD_2147753905_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GandCrab_AB_2147952694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GandCrab.AB!MTB"
+        threat_id = "2147952694"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GandCrab"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 00 01 00 00 6a 00 66 c7 45 dc 74 00 f3 0f 7f 45 b4 c7 45 c4 6d 2e 62 69 66 c7 45 c8 74 00 c7 45 ec 67 64 63 62 c7 45 f0 2e 62 69 74 c6 45 f4 00 89 45 e8 ?? ?? ?? ?? ?? ?? 8b d8 89 5d fc 85 db ?? ?? ?? ?? ?? ?? 33 c9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

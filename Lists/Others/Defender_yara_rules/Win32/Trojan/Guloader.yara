@@ -7777,3 +7777,27 @@ rule Trojan_Win32_Guloader_KPP_2147952619_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KJ_2147952704_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KJ!MTB"
+        threat_id = "2147952704"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "brawnily bifoil afskederne" ascii //weight: 1
+        $x_1_2 = "enharmonic skriveunderlag offer" ascii //weight: 1
+        $x_1_3 = "Oxidizables.Hoo" ascii //weight: 1
+        $x_1_4 = "Bijectively.cov" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

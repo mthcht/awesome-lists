@@ -5268,3 +5268,31 @@ rule Trojan_Win32_GuLoader_RCB_2147952650_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SUR_2147952691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUR!MTB"
+        threat_id = "2147952691"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\mineralizables\\niggerfish\\Erhvervslederne" ascii //weight: 1
+        $x_1_2 = "\\Synaloepha.jpg" ascii //weight: 1
+        $x_1_3 = "\\halma.ini" ascii //weight: 1
+        $x_1_4 = "\\bippene\\spydspidsens.ini" ascii //weight: 1
+        $x_1_5 = "sikkerhedskopierings.jpg" ascii //weight: 1
+        $x_1_6 = "\\hstmaskine\\artificialness.ini" ascii //weight: 1
+        $x_1_7 = "molekylrt\\skospndets\\troposfrens" ascii //weight: 1
+        $x_1_8 = "\\Frerskab\\stningsstrukturens.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

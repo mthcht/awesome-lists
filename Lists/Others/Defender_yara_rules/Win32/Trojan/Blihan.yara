@@ -23,3 +23,25 @@ rule Trojan_Win32_Blihan_MA_2147840854_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Blihan_AB_2147952700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Blihan.AB!MTB"
+        threat_id = "2147952700"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Blihan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 94 24 1c 02 00 00 83 c9 ff 8b fa 33 c0 f2 ae f7 d1 49 51 52 8b 54 24 0c 6a 01 8d}  //weight: 1, accuracy: High
+        $x_1_2 = {81 ec 14 02 00 00 8d ?? ?? ?? c7 44 24 00 00 00 00 00 50 68 3f 00 0f 00 6a 00 68 a4 61 40 00 68 01 00 00 80 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

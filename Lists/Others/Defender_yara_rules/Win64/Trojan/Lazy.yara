@@ -851,6 +851,27 @@ rule Trojan_Win64_Lazy_AV_2147905831_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 21 cb 48 09 fb 48 21 c8 4c 21 ca 48 09 c2 48 31 da 48 09 f1 48 f7 d1 48 09 d1 48 b8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AV_2147905831_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AV!MTB"
+        threat_id = "2147905831"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
@@ -2562,6 +2583,27 @@ rule Trojan_Win64_Lazy_GVB_2147938151_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {48 03 c8 48 8b c1 0f b6 00 83 f0 36 48 8b 8c 24 ?? ?? ?? ?? 48 8b 94 24 ?? ?? ?? ?? 48 03 d1 48 8b ca 88 01 48 8b 84 24 ?? ?? ?? ?? 48 8b 8c 24 ?? ?? ?? ?? 48 03 c8 48 8b c1 0f b6 00 83 c0 12 48 8b 8c 24 ?? ?? ?? ?? 48 8b 94 24 ?? ?? ?? ?? 48 03 d1 48 8b ca 88 01 48 8b 84 24 ?? ?? ?? ?? 48 ff c0 48 89 84 24 ?? ?? ?? ?? 48 81 bc 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AO_2147938373_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AO!MTB"
+        threat_id = "2147938373"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 c3 20 cb 89 c2 30 ca 08 da 80 f2 01 44 30 c8 f6 d0 44 20 c8 44 30 c1 f6 d1 44 20 c1 89 c3 80 f3 01}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

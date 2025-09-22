@@ -23,3 +23,24 @@ rule Trojan_Win32_ButeRat_MA_2147823661_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ButeRat_AB_2147952696_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ButeRat.AB!MTB"
+        threat_id = "2147952696"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ButeRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 71 ff 8a 11 66 33 54 45 84 66 c1 c2 08 66 89 14 47 40 3b c6 ?? ?? 66 83 24 77 00 8b c6}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

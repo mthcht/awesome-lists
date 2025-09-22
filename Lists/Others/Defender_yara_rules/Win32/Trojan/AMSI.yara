@@ -19,8 +19,11 @@ rule Trojan_Win32_AMSI_HardwareBreakPoint_2147944491_0
         $x_1_4 = {53 65 74 54 68 72 65 61 64 43 6f 6e 74 65 78 74 00}  //weight: 1, accuracy: High
         $x_1_5 = {47 65 74 54 68 72 65 61 64 43 6f 6e 74 65 78 74 00}  //weight: 1, accuracy: High
         $x_1_6 = {41 4d 53 49 5f 52 45 53 55 4c 54 5f 43 4c 45 41 4e 00}  //weight: 1, accuracy: High
+        $n_1_7 = "Windows.Win32.winmd" ascii //weight: -1
+        $n_1_8 = "IMetaDataWinMDImport" ascii //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
