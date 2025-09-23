@@ -8807,3 +8807,25 @@ rule Trojan_MSIL_Formbook_EOKM_2147952713_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_EBAI_2147952821_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EBAI!MTB"
+        threat_id = "2147952821"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 0a 11 11 1f 49 5a 61 13 12 02 11 10 11 11 ?? ?? ?? ?? ?? 13 13 04 03 ?? ?? ?? ?? ?? 59 13 14 11 14 13 15 11 15 19 31 03 19 13 15 11 15 16 2f 03 16 13 15 11 0a 16 5f 13 16 11 16}  //weight: 2, accuracy: Low
+        $x_2_2 = {58 19 5d 13 19 19 8d 4f 00 00 01 13 1a 11 1a 16 12 13 ?? ?? ?? ?? ?? 9c 11 1a 17 12 13 ?? ?? ?? ?? ?? 9c 11 1a 18 12 13 ?? ?? ?? ?? ?? 9c 11 15 16 31 0f 11 17 13 1b 03 11 1a 11 1b 91}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

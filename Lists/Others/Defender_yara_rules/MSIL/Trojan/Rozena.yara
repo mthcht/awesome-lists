@@ -2726,3 +2726,24 @@ rule Trojan_MSIL_Rozena_SLDA_2147951300_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_GPAT_2147952822_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GPAT!MTB"
+        threat_id = "2147952822"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {56 69 72 74 75 61 6c 41 6c 6c 6f 63 00 56 69 72 74 75 61 6c 50 72 6f 74 65 63 74 00 43 72 65 61 74 65 54 68 72 65 61 64 00 57 61 69 74 46 6f 72 53 69 6e 67 6c 65 4f 62 6a 65 63 74 00 2e 63 74 6f 72}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
