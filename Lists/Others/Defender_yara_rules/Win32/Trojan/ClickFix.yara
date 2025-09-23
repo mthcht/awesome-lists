@@ -7740,57 +7740,71 @@ rule Trojan_Win32_ClickFix_EEA_2147945362_0
         $x_100_10 = "5thed.christmas" wide //weight: 100
         $x_100_11 = "trackthemgood.com" wide //weight: 100
         $x_100_12 = "bioskbd.com" wide //weight: 100
-        $x_100_13 = "10.68.231.67" wide //weight: 100
-        $x_100_14 = "trx1111.b-cdn.net" wide //weight: 100
-        $x_100_15 = "oricmj.com" wide //weight: 100
-        $x_100_16 = "bkoifd.com" wide //weight: 100
-        $x_100_17 = "lapiz-ag.com" wide //weight: 100
-        $x_100_18 = " bw0.cc" wide //weight: 100
-        $x_100_19 = "serviceverifcaptcho.co" wide //weight: 100
-        $x_100_20 = "80.71.229.25" wide //weight: 100
-        $x_100_21 = "101.132.127.22" wide //weight: 100
-        $x_100_22 = "jakoby.lol" wide //weight: 100
-        $x_100_23 = "https://powershell.wwctf.com" wide //weight: 100
-        $x_100_24 = "91.92.240.251" wide //weight: 100
-        $x_100_25 = "fenoxia.com" wide //weight: 100
-        $x_100_26 = "videority.ai" wide //weight: 100
-        $x_100_27 = "sanmartinsac.com" wide //weight: 100
-        $x_100_28 = "bksvfd.com" wide //weight: 100
-        $x_100_29 = "core.nemzieo.org" wide //weight: 100
-        $x_100_30 = "bkngssercise.com" wide //weight: 100
-        $x_100_31 = "caspqisoals.com" wide //weight: 100
-        $x_100_32 = "77.83.207.225" wide //weight: 100
-        $x_100_33 = "puppy.walmart.com" wide //weight: 100
-        $x_100_34 = "aifs-bd.com" wide //weight: 100
-        $x_100_35 = "vrfnbk.com" wide //weight: 100
-        $x_100_36 = "akapanda.com" wide //weight: 100
-        $x_100_37 = "wieejc.com" wide //weight: 100
-        $x_100_38 = "wellesleyrug.com" wide //weight: 100
-        $x_100_39 = "nopaste.net" wide //weight: 100
-        $x_100_40 = "bstkmonitorscap.com" wide //weight: 100
-        $x_100_41 = "ui3.fit" wide //weight: 100
-        $x_100_42 = "zeda1s.boutique" wide //weight: 100
-        $x_100_43 = "px3.click/theme.iso" wide //weight: 100
-        $x_100_44 = "walkin.college" wide //weight: 100
-        $x_100_45 = "t0urist.cv" wide //weight: 100
-        $x_100_46 = "otmuqi.com" wide //weight: 100
-        $x_100_47 = "rizukimayamui-portfolio.info" wide //weight: 100
-        $x_100_48 = "-humancheck.info" wide //weight: 100
-        $x_100_49 = "dorgoo.sn" wide //weight: 100
-        $x_100_50 = "mylybnews.com" wide //weight: 100
-        $x_100_51 = "ip.meviks.no" wide //weight: 100
-        $x_100_52 = "finalsteptogo.com" wide //weight: 100
-        $x_100_53 = "jakobz.lol" wide //weight: 100
-        $x_100_54 = "termodelta.hr" wide //weight: 100
-        $x_100_55 = "boiksal.com" wide //weight: 100
-        $x_100_56 = "qahodey5.ru" wide //weight: 100
-        $x_100_57 = "finalstepgo.com" wide //weight: 100
-        $x_100_58 = "indurall.com" wide //weight: 100
-        $x_100_59 = "ritavoi.com" wide //weight: 100
-        $x_100_60 = "ui3.fit/" wide //weight: 100
-        $x_100_61 = "jekitech.cloud" wide //weight: 100
-        $x_100_62 = "royevita.com" wide //weight: 100
-        $x_100_63 = "3rd.eadomerchants.com" wide //weight: 100
+        $x_100_13 = "eiscoaqscm.com" wide //weight: 100
+        $x_100_14 = "10.68.231.67" wide //weight: 100
+        $x_100_15 = "trx1111.b-cdn.net" wide //weight: 100
+        $x_100_16 = "bkknf.com" wide //weight: 100
+        $x_100_17 = "ordiservicebb.com" wide //weight: 100
+        $x_100_18 = "oricmj.com" wide //weight: 100
+        $x_100_19 = "bkoifd.com" wide //weight: 100
+        $x_100_20 = "macrosip.ru" wide //weight: 100
+        $x_100_21 = "vbnsdd.com" wide //weight: 100
+        $x_100_22 = "https://fast.com" wide //weight: 100
+        $x_100_23 = "c2.caladan.scip-red.ch" wide //weight: 100
+        $x_100_24 = "erowjs.com" wide //weight: 100
+        $x_100_25 = "patreon.com" wide //weight: 100
+        $x_100_26 = "mstrvn.dev" wide //weight: 100
+        $x_100_27 = "wizolayer.com" wide //weight: 100
+        $x_100_28 = "mediatrucks.com" wide //weight: 100
+        $x_100_29 = "oprixluma.cloud" wide //weight: 100
+        $x_100_30 = "lapiz-ag.com" wide //weight: 100
+        $x_100_31 = "comsquery.com" wide //weight: 100
+        $x_100_32 = " bw0.cc" wide //weight: 100
+        $x_100_33 = "serviceverifcaptcho.co" wide //weight: 100
+        $x_100_34 = "80.71.229.25" wide //weight: 100
+        $x_100_35 = "insufflated.site" wide //weight: 100
+        $x_100_36 = "jakoby.lol" wide //weight: 100
+        $x_100_37 = "https://powershell.wwctf.com" wide //weight: 100
+        $x_100_38 = "91.92.240.251" wide //weight: 100
+        $x_100_39 = "fenoxia.com" wide //weight: 100
+        $x_100_40 = "videority.ai" wide //weight: 100
+        $x_100_41 = "sanmartinsac.com" wide //weight: 100
+        $x_100_42 = "bksvfd.com" wide //weight: 100
+        $x_100_43 = "core.nemzieo.org" wide //weight: 100
+        $x_100_44 = "bkngssercise.com" wide //weight: 100
+        $x_100_45 = "caspqisoals.com" wide //weight: 100
+        $x_100_46 = "77.83.207.225" wide //weight: 100
+        $x_100_47 = "puppy.walmart.com" wide //weight: 100
+        $x_100_48 = "aifs-bd.com" wide //weight: 100
+        $x_100_49 = "vrfnbk.com" wide //weight: 100
+        $x_100_50 = "akapanda.com" wide //weight: 100
+        $x_100_51 = "wieejc.com" wide //weight: 100
+        $x_100_52 = "wellesleyrug.com" wide //weight: 100
+        $x_100_53 = "nopaste.net" wide //weight: 100
+        $x_100_54 = "bstkmonitorscap.com" wide //weight: 100
+        $x_100_55 = "ui3.fit" wide //weight: 100
+        $x_100_56 = "zeda1s.boutique" wide //weight: 100
+        $x_100_57 = "px3.click/theme.iso" wide //weight: 100
+        $x_100_58 = "walkin.college" wide //weight: 100
+        $x_100_59 = "t0urist.cv" wide //weight: 100
+        $x_100_60 = "otmuqi.com" wide //weight: 100
+        $x_100_61 = "rizukimayamui-portfolio.info" wide //weight: 100
+        $x_100_62 = "-humancheck.info" wide //weight: 100
+        $x_100_63 = "dorgoo.sn" wide //weight: 100
+        $x_100_64 = "mylybnews.com" wide //weight: 100
+        $x_100_65 = "ip.meviks.no" wide //weight: 100
+        $x_100_66 = "finalsteptogo.com" wide //weight: 100
+        $x_100_67 = "jakobz.lol" wide //weight: 100
+        $x_100_68 = "termodelta.hr" wide //weight: 100
+        $x_100_69 = "boiksal.com" wide //weight: 100
+        $x_100_70 = "qahodey5.ru" wide //weight: 100
+        $x_100_71 = "finalstepgo.com" wide //weight: 100
+        $x_100_72 = "indurall.com" wide //weight: 100
+        $x_100_73 = "ritavoi.com" wide //weight: 100
+        $x_100_74 = "ui3.fit/" wide //weight: 100
+        $x_100_75 = "jekitech.cloud" wide //weight: 100
+        $x_100_76 = "royevita.com" wide //weight: 100
+        $x_100_77 = "3rd.eadomerchants.com" wide //weight: 100
     condition:
         (filesize < 20MB) and
         (
@@ -12070,6 +12084,188 @@ rule Trojan_Win32_ClickFix_IIL_2147952401_0
         $x_1_3 = "--headless" wide //weight: 1
         $x_1_4 = "conhost.exe" wide //weight: 1
         $x_1_5 = {66 00 69 00 6e 00 67 00 65 00 72 00 [0-80] 40 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IID_2147952738_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IID!MTB"
+        threat_id = "2147952738"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[System.Net.WebRequest]::CreattreamReader($" wide //weight: 1
+        $x_1_2 = "ReadToEnd" wide //weight: 1
+        $x_1_3 = ".Spowershell" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IIE_2147952739_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIE!MTB"
+        threat_id = "2147952739"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-Body (@{username=$env:USERNAME;computername=$env:COMPUTERNAME" wide //weight: 1
+        $x_1_2 = "hidden" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IIF_2147952740_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIF!MTB"
+        threat_id = "2147952740"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {65 00 78 00 65 00 63 00 20 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 3d 00 22 00 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 6d 00 6b 00 64 00 69 00 72 00 20 00 [0-60] 3b 00 20 00 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 2d 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 20 00 69 00 77 00 72 00 20 00 2d 00 75 00 72 00 69 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IIM_2147952741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIM!MTB"
+        threat_id = "2147952741"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "New-Object IO.StreamReader([Net.WebRequest]::Create(" wide //weight: 1
+        $x_1_2 = "iex" wide //weight: 1
+        $x_1_3 = ".ReadToEnd" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IIN_2147952742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIN!MTB"
+        threat_id = "2147952742"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Net.Http.HttpClient]::new().GetStringAsync" wide //weight: 1
+        $x_1_2 = "hidden" wide //weight: 1
+        $x_1_3 = "http" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IIN_2147952742_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIN!MTB"
+        threat_id = "2147952742"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[object[]]@($" wide //weight: 1
+        $x_1_2 = ".Invoke($" wide //weight: 1
+        $x_1_3 = "[Reflection.Assembly]::Load" wide //weight: 1
+        $x_1_4 = ".GetMethod(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IIO_2147952743_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIO!MTB"
+        threat_id = "2147952743"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "POST);iex $" wide //weight: 1
+        $x_1_2 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+        $x_1_3 = ".content" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IIO_2147952743_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIO!MTB"
+        threat_id = "2147952743"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ForEach-Object{[char]$_" wide //weight: 1
+        $x_1_2 = ".GetString" wide //weight: 1
+        $x_1_3 = "hidden" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
