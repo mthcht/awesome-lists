@@ -63,3 +63,29 @@ rule Trojan_Win64_OyesterLoader_CB_2147949142_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_OyesterLoader_CC_2147949169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/OyesterLoader.CC!MTB"
+        threat_id = "2147949169"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "OyesterLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {45 33 c0 41 8b d5 48 8d 81 ?? ?? ?? ?? ff d0}  //weight: 3, accuracy: Low
+        $x_2_2 = {b8 4d 5a 00 00 66 39 07}  //weight: 2, accuracy: High
+        $x_1_3 = "KERNEL32.DLL" ascii //weight: 1
+        $x_1_4 = "LoadLibraryA" ascii //weight: 1
+        $x_1_5 = "GetProcAddress" ascii //weight: 1
+        $x_1_6 = "VirtualProtect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

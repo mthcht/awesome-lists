@@ -34,6 +34,36 @@ rule HackTool_Win32_Meterpreter_A_2147726023_1
         severity = "High"
         info = "dll: Dynamic Link Library component of a malware"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8e 4e 0e ec [0-37] aa fc 0d 7c}  //weight: 2, accuracy: Low
+        $x_2_2 = {5d 68 fa 3c [0-4] 8b}  //weight: 2, accuracy: Low
+        $x_2_3 = {5b bc 4a 6a 0f 85}  //weight: 2, accuracy: High
+        $x_2_4 = {45 08 50 8d ?? ?? 50 ?? ?? ?? 6a ff 50 e8 ?? ?? ?? ?? 83 c4 18}  //weight: 2, accuracy: Low
+        $x_1_5 = "SamIFree_SAMPR_USER_INFO_BUFFER" ascii //weight: 1
+        $x_1_6 = "SamIFree_SAMPR_ENUMERATION_BUFFER" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((4 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule HackTool_Win32_Meterpreter_A_2147726023_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Meterpreter.A!dll"
+        threat_id = "2147726023"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Meterpreter"
+        severity = "High"
+        info = "dll: Dynamic Link Library component of a malware"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
@@ -49,7 +79,7 @@ rule HackTool_Win32_Meterpreter_A_2147726023_1
         (all of ($x*))
 }
 
-rule HackTool_Win32_Meterpreter_A_2147726023_2
+rule HackTool_Win32_Meterpreter_A_2147726023_3
 {
     meta:
         author = "defender2yara"
@@ -75,7 +105,7 @@ rule HackTool_Win32_Meterpreter_A_2147726023_2
         (all of ($x*))
 }
 
-rule HackTool_Win32_Meterpreter_A_2147726023_3
+rule HackTool_Win32_Meterpreter_A_2147726023_4
 {
     meta:
         author = "defender2yara"
@@ -102,7 +132,7 @@ rule HackTool_Win32_Meterpreter_A_2147726023_3
         (6 of ($x*))
 }
 
-rule HackTool_Win32_Meterpreter_A_2147726023_4
+rule HackTool_Win32_Meterpreter_A_2147726023_5
 {
     meta:
         author = "defender2yara"
@@ -129,7 +159,7 @@ rule HackTool_Win32_Meterpreter_A_2147726023_4
         (all of ($x*))
 }
 
-rule HackTool_Win32_Meterpreter_A_2147726023_5
+rule HackTool_Win32_Meterpreter_A_2147726023_6
 {
     meta:
         author = "defender2yara"
@@ -156,7 +186,7 @@ rule HackTool_Win32_Meterpreter_A_2147726023_5
         (all of ($x*))
 }
 
-rule HackTool_Win32_Meterpreter_A_2147726023_6
+rule HackTool_Win32_Meterpreter_A_2147726023_7
 {
     meta:
         author = "defender2yara"

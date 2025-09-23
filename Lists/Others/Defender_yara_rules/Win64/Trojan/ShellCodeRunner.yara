@@ -461,3 +461,24 @@ rule Trojan_Win64_ShellCodeRunner_AR_2147951146_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeRunner_GPAA_2147952857_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeRunner.GPAA!MTB"
+        threat_id = "2147952857"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {62 27 68 87 03 49 3b 87 03 49 3b 87 03 49 3b 54 71 4a 3a 82 03 49 3b 54 71 4c 3a 11 03 49 3b 54 71 4d 3a 8d 03 49 3b 26 74 4d 3a 89 03 49 3b 26 74 4a 3a 8e 03 49 3b 26 74 4c 3a b7 03 49 3b 54 71 48 3a 84 03 49 3b 87}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

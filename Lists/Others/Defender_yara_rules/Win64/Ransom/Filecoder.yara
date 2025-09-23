@@ -1294,6 +1294,30 @@ rule Ransom_Win64_Filecoder_C_2147947184_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {49 0f 43 c7 45 0f b6 0e 44 32 08 48 8b 4f}  //weight: 5, accuracy: High
+        $x_5_2 = "shellcode" wide //weight: 5
+        $x_5_3 = "Trend Micro" wide //weight: 5
+        $x_5_4 = "veeam." wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_C_2147947184_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.C!MTB"
+        threat_id = "2147947184"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "13"
         strings_accuracy = "High"
     strings:

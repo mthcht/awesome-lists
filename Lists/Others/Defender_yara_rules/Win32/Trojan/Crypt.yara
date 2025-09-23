@@ -85,3 +85,25 @@ rule Trojan_Win32_Crypt_NC_2147952540_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Crypt_SXB_2147952860_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Crypt.SXB!MTB"
+        threat_id = "2147952860"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 45 b0 99 f7 f9 8b 55 ac 2b d0 89 55 ac c7 45 a4 ?? ?? ?? ?? 8b 4d a4 83 c1 ?? 8b 45 ac 99}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 4d 84 03 01 03 45 98 89 45 98 c7 45 b4 ?? ?? ?? ?? 8b 55 b4 0f af 55 b4 0f af 55 9c 89 55 9c c7 45 9c ?? ?? ?? ?? 81 7d 9c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
