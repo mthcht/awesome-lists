@@ -4832,6 +4832,33 @@ rule Trojan_Win32_GuLoader_NS_2147947244_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "extraterrestrially.hea" ascii //weight: 1
+        $x_1_2 = "skinnecyklerne.wit" ascii //weight: 1
+        $x_1_3 = "holes\\dosmersedlers\\Prefocusses" ascii //weight: 1
+        $x_1_4 = "Dunlop.rek" ascii //weight: 1
+        $x_1_5 = "Hippen11\\Forfgtelse\\" ascii //weight: 1
+        $x_1_6 = "Bittesmaa208\\begrett\\misregulating" ascii //weight: 1
+        $x_1_7 = "%%\\enaluron\\Schedule.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
@@ -4848,7 +4875,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_4
+rule Trojan_Win32_GuLoader_NS_2147947244_5
 {
     meta:
         author = "defender2yara"
