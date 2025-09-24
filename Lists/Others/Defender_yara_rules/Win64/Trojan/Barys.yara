@@ -519,3 +519,25 @@ rule Trojan_Win64_Barys_GXY_2147951312_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_LM_2147952919_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.LM!MTB"
+        threat_id = "2147952919"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 75 14 8b c3 2b f3 8a 14 06 30 10 41 40 3b 0f 72 ?? 8b 75 fc 8b 07 89 45 0c}  //weight: 20, accuracy: Low
+        $x_10_2 = {c7 45 10 00 00 00 00 c7 45 fc d0 00 00 00 8d 73 54 56 6a 00 68 9f 00 00 00 e8 ?? ?? ?? ?? 8d 78 ff 83 c4 0c 81 f7 00 00 00 80 80 7d 13 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -559,3 +559,24 @@ rule Trojan_Win32_Kovter_LK_2147846770_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Kovter_AKVT_2147952920_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Kovter.AKVT!MTB"
+        threat_id = "2147952920"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Kovter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 d2 52 50 8b c6 c1 e0 02 99 03 04 24 13 54 24 04 83 c4 08 03 04 24 13 54 24 04 83 c4 08 8b 08 03 4d fc 81 39 4c 6f 61 64 75 56 8d 41 04}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -7738,73 +7738,86 @@ rule Trojan_Win32_ClickFix_EEA_2147945362_0
         $x_100_8 = "danIEl-polDINdEv.Info" wide //weight: 100
         $x_100_9 = "danili-myhomework.info" wide //weight: 100
         $x_100_10 = "5thed.christmas" wide //weight: 100
-        $x_100_11 = "trackthemgood.com" wide //weight: 100
-        $x_100_12 = "bioskbd.com" wide //weight: 100
-        $x_100_13 = "eiscoaqscm.com" wide //weight: 100
-        $x_100_14 = "10.68.231.67" wide //weight: 100
-        $x_100_15 = "trx1111.b-cdn.net" wide //weight: 100
-        $x_100_16 = "bkknf.com" wide //weight: 100
-        $x_100_17 = "ordiservicebb.com" wide //weight: 100
-        $x_100_18 = "oricmj.com" wide //weight: 100
-        $x_100_19 = "bkoifd.com" wide //weight: 100
-        $x_100_20 = "macrosip.ru" wide //weight: 100
-        $x_100_21 = "vbnsdd.com" wide //weight: 100
-        $x_100_22 = "https://fast.com" wide //weight: 100
-        $x_100_23 = "c2.caladan.scip-red.ch" wide //weight: 100
-        $x_100_24 = "erowjs.com" wide //weight: 100
-        $x_100_25 = "patreon.com" wide //weight: 100
-        $x_100_26 = "mstrvn.dev" wide //weight: 100
-        $x_100_27 = "wizolayer.com" wide //weight: 100
-        $x_100_28 = "mediatrucks.com" wide //weight: 100
-        $x_100_29 = "oprixluma.cloud" wide //weight: 100
-        $x_100_30 = "lapiz-ag.com" wide //weight: 100
-        $x_100_31 = "comsquery.com" wide //weight: 100
-        $x_100_32 = " bw0.cc" wide //weight: 100
-        $x_100_33 = "serviceverifcaptcho.co" wide //weight: 100
-        $x_100_34 = "80.71.229.25" wide //weight: 100
-        $x_100_35 = "insufflated.site" wide //weight: 100
-        $x_100_36 = "jakoby.lol" wide //weight: 100
-        $x_100_37 = "https://powershell.wwctf.com" wide //weight: 100
-        $x_100_38 = "91.92.240.251" wide //weight: 100
-        $x_100_39 = "fenoxia.com" wide //weight: 100
-        $x_100_40 = "videority.ai" wide //weight: 100
-        $x_100_41 = "sanmartinsac.com" wide //weight: 100
-        $x_100_42 = "bksvfd.com" wide //weight: 100
-        $x_100_43 = "core.nemzieo.org" wide //weight: 100
-        $x_100_44 = "bkngssercise.com" wide //weight: 100
-        $x_100_45 = "caspqisoals.com" wide //weight: 100
-        $x_100_46 = "77.83.207.225" wide //weight: 100
-        $x_100_47 = "puppy.walmart.com" wide //weight: 100
-        $x_100_48 = "aifs-bd.com" wide //weight: 100
-        $x_100_49 = "vrfnbk.com" wide //weight: 100
-        $x_100_50 = "akapanda.com" wide //weight: 100
-        $x_100_51 = "wieejc.com" wide //weight: 100
-        $x_100_52 = "wellesleyrug.com" wide //weight: 100
-        $x_100_53 = "nopaste.net" wide //weight: 100
-        $x_100_54 = "bstkmonitorscap.com" wide //weight: 100
-        $x_100_55 = "ui3.fit" wide //weight: 100
-        $x_100_56 = "zeda1s.boutique" wide //weight: 100
-        $x_100_57 = "px3.click/theme.iso" wide //weight: 100
-        $x_100_58 = "walkin.college" wide //weight: 100
-        $x_100_59 = "t0urist.cv" wide //weight: 100
-        $x_100_60 = "otmuqi.com" wide //weight: 100
-        $x_100_61 = "rizukimayamui-portfolio.info" wide //weight: 100
-        $x_100_62 = "-humancheck.info" wide //weight: 100
-        $x_100_63 = "dorgoo.sn" wide //weight: 100
-        $x_100_64 = "mylybnews.com" wide //weight: 100
-        $x_100_65 = "ip.meviks.no" wide //weight: 100
-        $x_100_66 = "finalsteptogo.com" wide //weight: 100
-        $x_100_67 = "jakobz.lol" wide //weight: 100
-        $x_100_68 = "termodelta.hr" wide //weight: 100
-        $x_100_69 = "boiksal.com" wide //weight: 100
-        $x_100_70 = "qahodey5.ru" wide //weight: 100
-        $x_100_71 = "finalstepgo.com" wide //weight: 100
-        $x_100_72 = "indurall.com" wide //weight: 100
-        $x_100_73 = "ritavoi.com" wide //weight: 100
-        $x_100_74 = "ui3.fit/" wide //weight: 100
-        $x_100_75 = "jekitech.cloud" wide //weight: 100
-        $x_100_76 = "royevita.com" wide //weight: 100
-        $x_100_77 = "3rd.eadomerchants.com" wide //weight: 100
+        $x_100_11 = "kilaf.com" wide //weight: 100
+        $x_100_12 = ".joethehacker.com" wide //weight: 100
+        $x_100_13 = "fbnmdj.com" wide //weight: 100
+        $x_100_14 = "contmasqueis.com" wide //weight: 100
+        $x_100_15 = "txgsf41.b-cdn.net" wide //weight: 100
+        $x_100_16 = "sksoiw.com" wide //weight: 100
+        $x_100_17 = "drubia.cloud" wide //weight: 100
+        $x_100_18 = "www.spyue.cn" wide //weight: 100
+        $x_100_19 = "trackthemgood.com" wide //weight: 100
+        $x_100_20 = "bioskbd.com" wide //weight: 100
+        $x_100_21 = "bagsmart-cdn.app" wide //weight: 100
+        $x_100_22 = "wenezula.shop" wide //weight: 100
+        $x_100_23 = "eiscoaqscm.com" wide //weight: 100
+        $x_100_24 = "10.68.231.67" wide //weight: 100
+        $x_100_25 = "trx1111.b-cdn.net" wide //weight: 100
+        $x_100_26 = "bkknf.com" wide //weight: 100
+        $x_100_27 = "4kkaxgfdw7l1yvv4t9v.com" wide //weight: 100
+        $x_100_28 = "ordiservicebb.com" wide //weight: 100
+        $x_100_29 = "uicksegmbas.com" wide //weight: 100
+        $x_100_30 = "oricmj.com" wide //weight: 100
+        $x_100_31 = "bkoifd.com" wide //weight: 100
+        $x_100_32 = "macrosip.ru" wide //weight: 100
+        $x_100_33 = "vbnsdd.com" wide //weight: 100
+        $x_100_34 = "https://fast.com" wide //weight: 100
+        $x_100_35 = "c2.caladan.scip-red.ch" wide //weight: 100
+        $x_100_36 = "erowjs.com" wide //weight: 100
+        $x_100_37 = "patreon.com" wide //weight: 100
+        $x_100_38 = "mstrvn.dev" wide //weight: 100
+        $x_100_39 = "wizolayer.com" wide //weight: 100
+        $x_100_40 = "mediatrucks.com" wide //weight: 100
+        $x_100_41 = "oprixluma.cloud" wide //weight: 100
+        $x_100_42 = "lapiz-ag.com" wide //weight: 100
+        $x_100_43 = "comsquery.com" wide //weight: 100
+        $x_100_44 = " bw0.cc" wide //weight: 100
+        $x_100_45 = "serviceverifcaptcho.co" wide //weight: 100
+        $x_100_46 = "80.71.229.25" wide //weight: 100
+        $x_100_47 = "insufflated.site" wide //weight: 100
+        $x_100_48 = "jakoby.lol" wide //weight: 100
+        $x_100_49 = "https://powershell.wwctf.com" wide //weight: 100
+        $x_100_50 = "91.92.240.251" wide //weight: 100
+        $x_100_51 = "fenoxia.com" wide //weight: 100
+        $x_100_52 = "videority.ai" wide //weight: 100
+        $x_100_53 = "sanmartinsac.com" wide //weight: 100
+        $x_100_54 = "bksvfd.com" wide //weight: 100
+        $x_100_55 = "core.nemzieo.org" wide //weight: 100
+        $x_100_56 = "bkngssercise.com" wide //weight: 100
+        $x_100_57 = "caspqisoals.com" wide //weight: 100
+        $x_100_58 = "77.83.207.225" wide //weight: 100
+        $x_100_59 = "puppy.walmart.com" wide //weight: 100
+        $x_100_60 = "aifs-bd.com" wide //weight: 100
+        $x_100_61 = "vrfnbk.com" wide //weight: 100
+        $x_100_62 = "akapanda.com" wide //weight: 100
+        $x_100_63 = "wieejc.com" wide //weight: 100
+        $x_100_64 = "wellesleyrug.com" wide //weight: 100
+        $x_100_65 = "nopaste.net" wide //weight: 100
+        $x_100_66 = "bstkmonitorscap.com" wide //weight: 100
+        $x_100_67 = "ui3.fit" wide //weight: 100
+        $x_100_68 = "zeda1s.boutique" wide //weight: 100
+        $x_100_69 = "px3.click/theme.iso" wide //weight: 100
+        $x_100_70 = "walkin.college" wide //weight: 100
+        $x_100_71 = "t0urist.cv" wide //weight: 100
+        $x_100_72 = "otmuqi.com" wide //weight: 100
+        $x_100_73 = "rizukimayamui-portfolio.info" wide //weight: 100
+        $x_100_74 = "-humancheck.info" wide //weight: 100
+        $x_100_75 = "dorgoo.sn" wide //weight: 100
+        $x_100_76 = "mylybnews.com" wide //weight: 100
+        $x_100_77 = "ip.meviks.no" wide //weight: 100
+        $x_100_78 = "finalsteptogo.com" wide //weight: 100
+        $x_100_79 = "jakobz.lol" wide //weight: 100
+        $x_100_80 = "termodelta.hr" wide //weight: 100
+        $x_100_81 = "boiksal.com" wide //weight: 100
+        $x_100_82 = "qahodey5.ru" wide //weight: 100
+        $x_100_83 = "finalstepgo.com" wide //weight: 100
+        $x_100_84 = "indurall.com" wide //weight: 100
+        $x_100_85 = "ritavoi.com" wide //weight: 100
+        $x_100_86 = "ui3.fit/" wide //weight: 100
+        $x_100_87 = "jekitech.cloud" wide //weight: 100
+        $x_100_88 = "royevita.com" wide //weight: 100
+        $x_100_89 = "annoyingfiler.com" wide //weight: 100
+        $x_100_90 = "3rd.eadomerchants.com" wide //weight: 100
     condition:
         (filesize < 20MB) and
         (
@@ -12010,7 +12023,7 @@ rule Trojan_Win32_ClickFix_IIC_2147951815_0
         $x_1_1 = "| cmd" wide //weight: 1
         $x_1_2 = {63 00 6d 00 64 00 [0-8] 20 00 2f 00 63 00 [0-48] 66 00 69 00 6e 00 67 00 65 00 72 00 [0-8] 20 00}  //weight: 1, accuracy: Low
         $x_1_3 = "--headless" wide //weight: 1
-        $x_1_4 = "conhost.exe" wide //weight: 1
+        $x_1_4 = "conhost" wide //weight: 1
         $x_1_5 = {66 00 69 00 6e 00 67 00 65 00 72 00 [0-8] 20 00 72 00 6f 00 6f 00 74 00 40 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
@@ -12082,7 +12095,7 @@ rule Trojan_Win32_ClickFix_IIL_2147952401_0
         $x_1_1 = "| cmd" wide //weight: 1
         $x_1_2 = {63 00 6d 00 64 00 [0-80] 20 00 2f 00 63 00 20 00}  //weight: 1, accuracy: Low
         $x_1_3 = "--headless" wide //weight: 1
-        $x_1_4 = "conhost.exe" wide //weight: 1
+        $x_1_4 = "conhost" wide //weight: 1
         $x_1_5 = {66 00 69 00 6e 00 67 00 65 00 72 00 [0-80] 40 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
@@ -12296,5 +12309,29 @@ rule Trojan_Win32_ClickFix_IIO_2147952743_2
             ((2 of ($x_10_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_ClickFix_IIO_2147952743_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IIO!MTB"
+        threat_id = "2147952743"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+        $x_1_2 = ".GetByteArrayAsync" wide //weight: 1
+        $x_1_3 = ".GetString($" wide //weight: 1
+        $x_1_4 = "HttpClient;$" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

@@ -7174,3 +7174,49 @@ rule Trojan_Win64_AbuseCommMain_KZ_2147951213_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_AbuseCommMain_LA_2147952911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommMain.LA"
+        threat_id = "2147952911"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "tox:F8E24C7F5B12CD69C44C73F438F65E9BF560ADF35EBBDF92CF9A9B84079F8F04" wide //weight: 1
+        $x_1_2 = {46 38 45 32 34 43 37 46 35 42 31 32 43 44 36 39 43 34 34 43 37 33 46 34 33 38 46 36 35 45 39 42 46 35 36 30 41 44 46 33 35 45 42 42 44 46 39 32 43 46 39 41 39 42 38 34 30 37 39 46 38 46 30 34 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 4c 00 00 00 00 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {46 38 45 32 34 43 37 46 35 42 31 32 43 44 36 39 43 34 34 43 37 33 46 34 33 38 46 36 35 45 39 42 46 35 36 30 41 44 46 33 35 45 42 42 44 46 39 32 43 46 39 41 39 42 38 34 30 37 39 46 38 46 30 34 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 4c 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "\\tox\\F8E24C7F5B12CD69C44C73F438F65E9BF560ADF35EBBDF92CF9A9B84079F8F04.hstr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_AbuseCommMain_LB_2147952915_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommMain.LB"
+        threat_id = "2147952915"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "tox:8F514E8FDA683D7C5957CE9560EB5941B4840DB0C3CEDEFB57FD8E2D8CF5884B" wide //weight: 1
+        $x_1_2 = {38 46 35 31 34 45 38 46 44 41 36 38 33 44 37 43 35 39 35 37 43 45 39 35 36 30 45 42 35 39 34 31 42 34 38 34 30 44 42 30 43 33 43 45 44 45 46 42 35 37 46 44 38 45 32 44 38 43 46 35 38 38 34 42 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 4c 00 00 00 00 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {38 46 35 31 34 45 38 46 44 41 36 38 33 44 37 43 35 39 35 37 43 45 39 35 36 30 45 42 35 39 34 31 42 34 38 34 30 44 42 30 43 33 43 45 44 45 46 42 35 37 46 44 38 45 32 44 38 43 46 35 38 38 34 42 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 4c 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "\\tox\\8F514E8FDA683D7C5957CE9560EB5941B4840DB0C3CEDEFB57FD8E2D8CF5884B.hstr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
