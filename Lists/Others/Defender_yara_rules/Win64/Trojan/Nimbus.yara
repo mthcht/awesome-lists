@@ -19,3 +19,32 @@ rule Trojan_Win64_Nimbus_GVA_2147952969_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Nimbus_GVB_2147953148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Nimbus.GVB!MTB"
+        threat_id = "2147953148"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nimbus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://MediAsylum.azurewebsites.net" ascii //weight: 3
+        $x_3_2 = "://TheraShelter.azurewebsites.net" ascii //weight: 3
+        $x_3_3 = "://ClinicHaven.azurewebsites.net" ascii //weight: 3
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_5 = "/healthsvc/add_run/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

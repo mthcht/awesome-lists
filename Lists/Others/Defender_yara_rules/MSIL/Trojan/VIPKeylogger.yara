@@ -347,3 +347,26 @@ rule Trojan_MSIL_VIPKeylogger_ZHN_2147952522_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VIPKeylogger_RVC_2147953141_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.RVC!MTB"
+        threat_id = "2147953141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 09 09 09 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 53 00 00 00 0d 00 00 00 63 00 00 00 57 00 00 00 5e 00 00 00 77 00 00 00 04 00 00 00 24 00 00 00 10 00 00 00 03 00 00 00 0d 00 00 00 16 00 00 00 03 00 00 00 01 00 00 00 07 00 00 00 09 00 00 00 01}  //weight: 1, accuracy: High
+        $x_1_2 = "DesktopProject.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "get_Teacher" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

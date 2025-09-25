@@ -3095,6 +3095,28 @@ rule Trojan_Win64_CobaltStrike_CF_2147819307_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {41 8b 0c ae 48 01 f9 41 0f b7 44 6d ?? 41 8b 34 84 e8 ?? ?? ?? ?? 48 01 fe 39 44 24 ?? 48 0f 44 de 48 ff c5 eb}  //weight: 2, accuracy: Low
+        $x_2_2 = {0f be 11 85 d2 74 ?? 31 d0 69 d0 ?? ?? ?? ?? 89 d0 c1 e8 ?? 31 d0 48 ff c1 eb}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_CF_2147819307_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.CF!MTB"
+        threat_id = "2147819307"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
@@ -17659,6 +17681,27 @@ rule Trojan_Win64_CobaltStrike_PCW_2147949659_0
         $x_1_3 = "BEACON_RESOURCE" ascii //weight: 1
         $x_1_4 = "Ran CobaltStrike" ascii //weight: 1
         $x_1_5 = "ReverseShell_%s_%s.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_UGA_2147953143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.UGA!MTB"
+        threat_id = "2147953143"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 d2 44 29 ca 41 89 d2 48 63 d2 44 0f b6 0c 14 46 88 0c 1c 88 0c 14 42 02 0c 1c 0f b6 c9 0f b6 14 0c 42 32 14 06 42 88 14 03 49 83 c0 ?? 4c 39 c7 75 a3}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

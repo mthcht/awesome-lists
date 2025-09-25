@@ -4807,6 +4807,34 @@ rule Trojan_Win32_GuLoader_NS_2147947244_2
         threshold = "8"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "Carnify.jpg" ascii //weight: 1
+        $x_1_2 = "Dumpingpriss227.ret" ascii //weight: 1
+        $x_1_3 = "chadors.fis" ascii //weight: 1
+        $x_1_4 = "ordknappeste.dom" ascii //weight: 1
+        $x_1_5 = "recipiomotor.ini" ascii //weight: 1
+        $x_1_6 = "lyseslukker" ascii //weight: 1
+        $x_1_7 = "Tamponadernes61" ascii //weight: 1
+        $x_1_8 = "\\Dims49\\kreplan.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "ondskabsfulderes.ini" ascii //weight: 1
         $x_1_2 = "overbooked.jpg" ascii //weight: 1
         $x_1_3 = "laget.txt" ascii //weight: 1
@@ -4820,7 +4848,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_3
+rule Trojan_Win32_GuLoader_NS_2147947244_4
 {
     meta:
         author = "defender2yara"
@@ -4847,7 +4875,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_4
+rule Trojan_Win32_GuLoader_NS_2147947244_5
 {
     meta:
         author = "defender2yara"
@@ -4874,7 +4902,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_4
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_5
+rule Trojan_Win32_GuLoader_NS_2147947244_6
 {
     meta:
         author = "defender2yara"
@@ -4902,7 +4930,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_5
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_6
+rule Trojan_Win32_GuLoader_NS_2147947244_7
 {
     meta:
         author = "defender2yara"
@@ -5401,6 +5429,30 @@ rule Trojan_Win32_GuLoader_SUS_2147953026_0
         $x_1_8 = "\\kaladana\\stablendes.bin" ascii //weight: 1
         $x_1_9 = "Navigabel.jpg" ascii //weight: 1
         $x_1_10 = "bariatrics.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCD_2147953140_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCD!MTB"
+        threat_id = "2147953140"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pljning subcuratorship sammensmeltningens" ascii //weight: 1
+        $x_1_2 = "skamferes kanalseparation cotangens" ascii //weight: 1
+        $x_1_3 = "slimness devourment xiphiplastron" ascii //weight: 1
+        $x_1_4 = "saloons.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

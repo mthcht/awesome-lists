@@ -4913,3 +4913,24 @@ rule Trojan_Win32_OffLoader_AWFB_2147953076_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_GAQ_2147953144_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.GAQ!MTB"
+        threat_id = "2147953144"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? 1d 00 ?? ?? 0e 00 00 64 36 00 ?? ?? ?? ?? be 9b 0e 00 00 3e 0d 00 ?? ?? ?? ?? 00 00 01 00 0d}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
