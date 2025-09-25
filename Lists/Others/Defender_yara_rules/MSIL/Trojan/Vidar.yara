@@ -2312,6 +2312,31 @@ rule Trojan_MSIL_Vidar_AVI_2147927385_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Vidar_AVI_2147927385_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Vidar.AVI!MTB"
+        threat_id = "2147927385"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Create persistent scheduled task" ascii //weight: 1
+        $x_2_2 = "New-ScheduledTaskAction -Execute $tempPath -ErrorAction SilentlyContinue" ascii //weight: 2
+        $x_3_3 = "New-ScheduledTaskTrigger -AtLogOn -ErrorAction SilentlyContinue" ascii //weight: 3
+        $x_4_4 = "New-ScheduledTaskSettingsSet -Hidden -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ErrorAction SilentlyContinue" ascii //weight: 4
+        $x_5_5 = "New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType S4U -RunLevel Highest -ErrorAction SilentlyContinue" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Vidar_SWA_2147932323_0
 {
     meta:

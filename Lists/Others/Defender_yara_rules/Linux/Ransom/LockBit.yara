@@ -155,3 +155,28 @@ rule Ransom_Linux_LockBit_I_2147918606_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_LockBit_G_2147953086_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/LockBit.G!MTB"
+        threat_id = "2147953086"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "should_bypass_dir" ascii //weight: 1
+        $x_1_2 = "should_bypass_file" ascii //weight: 1
+        $x_1_3 = "clear_bypass_caches" ascii //weight: 1
+        $x_1_4 = {44 0f b6 66 0d 48 83 c6 10 41 c1 e5 10 41 c1 e7 18 41 c1 e4 08 45 09 ec 44 8b 6c 24 ec 45 09 f4 4d 89 c6 45 09 fc 4c 8b 7c 24 f0 4c 01 e1 49 89 fc 4c 0f af e3 4d 0f af f1 4d 01 e6 49 89 d4 44 0f af e8 4c 0f af f9 4c 0f af e5 4d 01 ee 4d 89 c5 4d 01 fe 49 89 ff}  //weight: 1, accuracy: High
+        $x_1_5 = {4c 33 57 20 48 01 c5 49 31 d8 48 03 5f 68 49 31 e9 49 c1 c0 20 49 c1 c1 30 48 33 6f 10 4d 01 c4 4d 01 cf 4c 33 4f 28 4c 31 e6 48 33 6c 24 d8 4c 31 f8 48 c1 c6 28 4c 33 3f 48 01 f3 4c 33 7c 24 d0 49 31 d8 48 33 5f 18 4c 31 c9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

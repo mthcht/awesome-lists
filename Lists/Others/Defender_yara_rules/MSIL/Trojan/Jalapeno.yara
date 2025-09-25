@@ -3067,3 +3067,25 @@ rule Trojan_MSIL_Jalapeno_ZDN_2147952425_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_GVB_2147953009_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.GVB!MTB"
+        threat_id = "2147953009"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "://fuckyou.com/?hecker" wide //weight: 2
+        $x_1_2 = "Created mutated copy" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -457,3 +457,46 @@ rule Ransom_Win64_Magniber_GA_2147932059_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Magniber_YBI_2147953002_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Magniber.YBI!MTB"
+        threat_id = "2147953002"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Magniber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a ae ae 06 00 00 32 e8 80 f5 ?? 88 2f 8a c5 48 ff c6}  //weight: 1, accuracy: Low
+        $x_1_2 = {8a a6 62 ba 01 00 32 e0 80 f4 ?? 88 27 8a c4 48 ff c6 e9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Ransom_Win64_Magniber_YBJ_2147953003_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Magniber.YBJ!MTB"
+        threat_id = "2147953003"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Magniber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 7d f0 48 89 5d f8 49 c7 c6 ?? ?? ?? ?? 49 81 f6 ?? ?? ?? ?? 41 56 49 c7 c6 ?? ?? ?? ?? 49 81 f6 ?? ?? ?? ?? 41 56 e9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

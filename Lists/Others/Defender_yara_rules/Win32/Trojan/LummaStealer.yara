@@ -7546,3 +7546,24 @@ rule Trojan_Win32_LummaStealer_GPAT_2147952809_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_MDH_2147953079_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.MDH!MTB"
+        threat_id = "2147953079"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 05 00 00 00 e9 71 fe ff ff 8b 0d 00 51 46 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

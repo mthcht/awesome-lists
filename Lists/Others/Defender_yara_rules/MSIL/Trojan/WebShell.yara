@@ -625,3 +625,27 @@ rule Trojan_MSIL_WebShell_AMFB_2147952616_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_HAE_2147953028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.HAE!MTB"
+        threat_id = "2147953028"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "37"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {56 69 72 74 75 61 6c 41 6c 6c 6f 63 00 6b 65 72 6e 65 6c 33 32 00 6c 70 41 64 64 72 65 73 73 00 64 77 53 69 7a 65 00 66 6c 41 6c 6c 6f 63 61 74 69 6f 6e 54 79 70 65 00 66 6c 50 72 6f 74 65 63 74}  //weight: 5, accuracy: High
+        $x_10_2 = {64 77 53 74 61 63 6b 53 69 7a 65 00 6c 70 53 74 61 72 74 41 64 64 72 65 73 73 00 6c 70 50 61 72 61 6d 65 74 65 72 00 64 77 43 72 65 61 74 69 6f 6e 46 6c 61 67 73 00 6c 70 54 68 72 65 61 64 49 64 00 57 61 69 74 46 6f 72 53 69 6e 67 6c 65 4f 62 6a 65 63 74}  //weight: 10, accuracy: High
+        $x_2_3 = {00 46 72 6f 6d 42 61 73 65 36 34 53 74 72 69 6e 67 00}  //weight: 2, accuracy: High
+        $x_20_4 = {6d 73 63 6f 72 6c 69 62 00 [0-32] 00 41 00 41 00 41 00 41 00 41 00 41 00 41 00 41 00 41}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

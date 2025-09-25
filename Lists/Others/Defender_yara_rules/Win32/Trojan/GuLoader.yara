@@ -4835,6 +4835,33 @@ rule Trojan_Win32_GuLoader_NS_2147947244_3
         threshold = "7"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "pleaser.kam" ascii //weight: 1
+        $x_1_2 = "uncancelable\\irreligious\\gigtfebers" ascii //weight: 1
+        $x_1_3 = "\\fribadestrandes\\*.gif" ascii //weight: 1
+        $x_1_4 = "\\decarch.ini" ascii //weight: 1
+        $x_1_5 = "terraciform\\Goatland\\knalleristens" ascii //weight: 1
+        $x_1_6 = "astrakanskindets" ascii //weight: 1
+        $x_1_7 = "\\hjaelpetekster.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "extraterrestrially.hea" ascii //weight: 1
         $x_1_2 = "skinnecyklerne.wit" ascii //weight: 1
         $x_1_3 = "holes\\dosmersedlers\\Prefocusses" ascii //weight: 1
@@ -4847,7 +4874,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_4
+rule Trojan_Win32_GuLoader_NS_2147947244_5
 {
     meta:
         author = "defender2yara"
@@ -4875,7 +4902,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_4
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_5
+rule Trojan_Win32_GuLoader_NS_2147947244_6
 {
     meta:
         author = "defender2yara"
@@ -5318,6 +5345,62 @@ rule Trojan_Win32_GuLoader_SUR_2147952691_0
         $x_1_6 = "\\hstmaskine\\artificialness.ini" ascii //weight: 1
         $x_1_7 = "molekylrt\\skospndets\\troposfrens" ascii //weight: 1
         $x_1_8 = "\\Frerskab\\stningsstrukturens.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCC_2147952968_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCC!MTB"
+        threat_id = "2147952968"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "myrialitre\\forsvenskendes\\falsities" ascii //weight: 1
+        $x_1_2 = "%komtessernes%\\Overfaintly\\mouthpiece" ascii //weight: 1
+        $x_1_3 = "skrivetilladelserne" ascii //weight: 1
+        $x_1_4 = "forenendes conquer lyshaaret" ascii //weight: 1
+        $x_1_5 = "navigerede perivenous" ascii //weight: 1
+        $x_1_6 = "bigamists logomancy.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUS_2147953026_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUS!MTB"
+        threat_id = "2147953026"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\gniderierne" ascii //weight: 1
+        $x_1_2 = "\\medicophysical.txt" ascii //weight: 1
+        $x_1_3 = "\\rotteflde\\anlgsjemedene.exe" ascii //weight: 1
+        $x_1_4 = "\\philomathy.gif" ascii //weight: 1
+        $x_1_5 = "\\astmalgernes\\jagtbdes.bin" ascii //weight: 1
+        $x_1_6 = "\\nordeuropiske.exe" ascii //weight: 1
+        $x_1_7 = "\\elitekorps.dll" ascii //weight: 1
+        $x_1_8 = "\\kaladana\\stablendes.bin" ascii //weight: 1
+        $x_1_9 = "Navigabel.jpg" ascii //weight: 1
+        $x_1_10 = "bariatrics.ini" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
