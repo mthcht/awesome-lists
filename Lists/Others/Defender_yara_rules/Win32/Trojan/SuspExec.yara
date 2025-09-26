@@ -257,3 +257,35 @@ rule Trojan_Win32_SuspExec_HJ_2147951578_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SuspExec_HL_2147953214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.HL!MTB"
+        threat_id = "2147953214"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "121"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "findstr " wide //weight: 1
+        $x_10_2 = "sophoshealth" wide //weight: 10
+        $x_10_3 = "avastui" wide //weight: 10
+        $x_10_4 = "avgui" wide //weight: 10
+        $x_10_5 = "ekrn" wide //weight: 10
+        $x_10_6 = "bdservicehost" wide //weight: 10
+        $x_50_7 = {61 00 75 00 74 00 6f 00 69 00 74 00 33 00 2e 00 65 00 78 00 65 00 [0-6] 26 00 [0-6] 73 00 65 00 74 00 20 00}  //weight: 50, accuracy: Low
+        $x_50_8 = {3d 00 2e 00 61 00 33 00 78 00 [0-6] 26 00 [0-6] 73 00 65 00 74 00 20 00}  //weight: 50, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_50_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_50_*) and 3 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

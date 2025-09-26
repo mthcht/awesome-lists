@@ -2250,3 +2250,49 @@ rule Trojan_Win64_LummaStealer_GRR_2147953077_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_RRY_2147953251_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.RRY!MTB"
+        threat_id = "2147953251"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {56 50 53 e8 01 00 00 00 cc 58 48 89 c3 48 ff c0 48 2d 00 10 22 00 48 2d 24 2f 0c 10 48 05 1b 2f 0c 10 80 3b cc 75 19 c6 03 00 bb 00 10 00 00 68}  //weight: 5, accuracy: High
+        $x_5_2 = {41 c1 ee 02 41 81 c6 e1 b3 12 65 41 56 41 56 41 be f6 38 ef 78 44 31 74 24 08 41 5e 58 48 83 ec 08 48 89 0c 24 41 b9 ab 84 b3 33 48 c7 04 24 10}  //weight: 5, accuracy: High
+        $x_5_3 = {20 2a ad 42 5e b3 65 8e 5d 20 3e 21 18 81 d0 02 9e 09 fb 0e b3 2c 62 11 d9 d5 a7 59 5a 80 f0 b5 61 46 94 1a 00 12 6b 85 9b d2 89 69 65 f4 29 18}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_RRX_2147953252_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.RRX!MTB"
+        threat_id = "2147953252"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {50 e7 3f 41 81 ee f7 92 f7 57 41 f7 d6 41 81 e6 a4 d8 b6 7b 41 ff ce 41 f7 d6 41 81 ee 26 7c a4 bc 44 01 f3 41 31 c6 89 d8}  //weight: 5, accuracy: High
+        $x_5_2 = {81 c2 10 18 75 3b 81 c6 3d 9d 31 9a 89 f0 52 ba e0 8e e5 45 29 d6 5a 81 ee 2e 25 76 6a 01 d6 81 c6 2e 25 76 6a 81 c6 e0 8e e5 45}  //weight: 5, accuracy: High
+        $x_5_3 = {81 c2 96 ec 66 39 81 ea 00 00 ff 4f 31 d2 be 80 94 67 3d 81 f6 be 69 89 3a 29 f2 01 c6 31 d6 29 da 81 c2 3e fd ee 07}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

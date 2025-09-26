@@ -7849,3 +7849,26 @@ rule Trojan_Win32_Guloader_KL_2147953030_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KM_2147953255_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KM!MTB"
+        threat_id = "2147953255"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "betnkeligeres nameable.exe" ascii //weight: 1
+        $x_1_2 = "saddelmagerarbejder isolering kollektivisten" ascii //weight: 1
+        $x_1_3 = "udmalingsprocenter nonculture" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

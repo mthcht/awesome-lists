@@ -157,3 +157,26 @@ rule Trojan_Win32_CoinStealer_GTF_2147836297_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CoinStealer_PAGO_2147953250_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinStealer.PAGO!MTB"
+        threat_id = "2147953250"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 0c 03 32 4d ff 8b 3e 88 0c 07 40 4a 75 f0}  //weight: 2, accuracy: High
+        $x_1_2 = "XRP=" ascii //weight: 1
+        $x_1_3 = "DOT=" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

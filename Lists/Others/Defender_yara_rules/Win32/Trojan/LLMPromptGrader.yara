@@ -21,8 +21,11 @@ rule Trojan_Win32_LLMPromptGrader_A_2147951917_0
         $x_4_7 = "--yolo" wide //weight: 4
         $x_4_8 = "--trust-all-tools" wide //weight: 4
         $x_4_9 = "--codex-run-as-apply-patch" wide //weight: 4
+        $n_4_10 = "reg add" ascii //weight: -4
+        $n_4_11 = "reg.exe add" ascii //weight: -4
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 

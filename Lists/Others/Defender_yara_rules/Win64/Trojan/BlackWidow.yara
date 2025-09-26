@@ -1244,3 +1244,26 @@ rule Trojan_Win64_BlackWidow_RVT_2147951298_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_AHB_2147953210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.AHB!MTB"
+        threat_id = "2147953210"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {66 0f 6f c8 66 0f fd da 66 0f fd cb 66 0f 6f c3 66 0f 6f c1 66 0f fd cc 66 0f 38 1d c1}  //weight: 20, accuracy: High
+        $x_30_2 = {48 ff c1 66 0f 6f cd 66 0f 38 30 c1 66 0f 6f cb 66 0f 6f d1 66 0f fd cf}  //weight: 30, accuracy: High
+        $x_10_3 = "4RSVf3ay7(oPdR2u" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

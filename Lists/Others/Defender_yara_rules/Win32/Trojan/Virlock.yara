@@ -357,3 +357,30 @@ rule Trojan_Win32_Virlock_NE_2147949075_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Virlock_PAGD_2147953249_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.PAGD!MTB"
+        threat_id = "2147953249"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8a 06 32 c2 88 07 42 46 [0-2] e9}  //weight: 3, accuracy: Low
+        $x_5_2 = {6a 40 68 00 30 00 00 68 00 ?? ?? ?? 6a 00 e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? c3}  //weight: 5, accuracy: Low
+        $x_5_3 = {6a 40 68 00 10 00 00 68 00 ?? ?? ?? 6a 00 e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? c3}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_3_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
