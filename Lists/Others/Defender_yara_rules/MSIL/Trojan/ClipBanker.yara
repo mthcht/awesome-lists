@@ -4444,3 +4444,51 @@ rule Trojan_MSIL_ClipBanker_PGAX_2147951848_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_CZI_2147953333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.CZI!MTB"
+        threat_id = "2147953333"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 7e 09 00 00 04 28 25 00 00 0a 0c 28 20 00 00 0a 6f 21 00 00 0a 6f 22 00 00 0a 08 17 28 29 00 00 0a 07 08 28 19 00 00 06 28 2a 00 00 0a 08 08 28 2b 00 00 0a 18 60 28 2c 00 00 0a 07 07 28 2b 00 00 0a 18 60 28 2c 00 00 0a 06}  //weight: 2, accuracy: High
+        $x_2_2 = {11 05 28 26 00 00 0a 2d 08 11 05 28 27 00 00 0a 26 11 05 07 28 25 00 00 0a 13 06 11 05 08 28 25 00 00 0a 13 07 11 06 28 28 00 00 0a 2d 09 06 11 06 17 28 29 00 00 0a 11 07 28 28 00 00 0a 2d 0d 11 07 06 28 0b 00 00 06 28 2a 00 00 0a 11 06 11 06 28 2b 00 00 0a 18 60 28 2c 00 00 0a 11 07 11 07 28 2b 00 00 0a 18 60 28 2c 00 00 0a de 03}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ClipBanker_TWK_2147953338_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.TWK!MTB"
+        threat_id = "2147953338"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {08 28 02 00 00 06 00 08 28 1c 00 00 0a 26 73 1d 00 00 0a 25 72 01 00 00 70 6f 1e 00 00 0a 00 25 72 11 00 00 70 28 14 00 00 0a 6f 15 00 00 0a 6f 16 00 00 0a 72 4d 00 00 70 28 1f 00 00 0a 6f 20 00 00 0a 00 25 17 6f 21 00 00 0a 00 25 17 6f 22 00 00 0a 00 25 16 6f 23 00 00 0a 00 13 04 11 04 28 24 00 00 0a 26}  //weight: 3, accuracy: High
+        $x_2_2 = {25 72 1b 03 00 70 6f 20 00 00 0a 00 25 17 6f 21 00 00 0a 00 25 17 6f 22 00 00 0a 00 25 16 6f 23 00 00 0a 00 6f 5f 00 00 0a 00 0b 07 6f 60 00 00 0a 26 20 58 1b 00 00 28 34 00 00 0a 00 28 61 00 00 0a 00 28 0b 00 00 06 00 28 62 00 00 0a 00 00 de 1b}  //weight: 2, accuracy: High
+        $x_2_3 = {00 72 1d 02 00 70 28 27 00 00 0a 00 00 2b 1b 00 02 08 28 55 00 00 0a 00 72 85 02 00 70 02 28 26 00 00 0a 28 27 00 00 0a 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

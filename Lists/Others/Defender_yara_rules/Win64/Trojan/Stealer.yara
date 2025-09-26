@@ -469,6 +469,28 @@ rule Trojan_Win64_Stealer_SXB_2147950176_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 ff c8 48 85 c0 7c ?? 4c 8b 84 24 ?? ?? ?? ?? 4c 39 c0 0f 83 ?? ?? ?? ?? 48 ff c3 4c 8b 84 24 ?? ?? ?? ?? 45 0f b6 04 00 48 39 d9 73}  //weight: 3, accuracy: Low
+        $x_2_2 = {4c 89 d3 48 89 f9 bf ?? ?? ?? ?? 48 8d 35 ?? ?? ?? ?? ?? ?? ?? ?? ?? 48 8b 94 24 ?? ?? ?? ?? 49 89 da 49 89 c1 48 89 cf}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Stealer_SXB_2147950176_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SXB!MTB"
+        threat_id = "2147950176"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "Low"
     strings:

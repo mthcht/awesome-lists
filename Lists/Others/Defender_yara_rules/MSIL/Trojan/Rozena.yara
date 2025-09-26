@@ -2768,3 +2768,24 @@ rule Trojan_MSIL_Rozena_GPAQ_2147953145_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_CZI_2147953332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.CZI!MTB"
+        threat_id = "2147953332"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 04 00 00 0a 72 01 00 00 70 28 05 00 00 0a 13 0b 12 0b 72 0b 00 00 70 28 06 00 00 0a 72 0f 00 00 70 28 07 00 00 0a 28 08 00 00 0a 13 08 11 08 11 06 28 09 00 00 0a 00 73 0a 00 00 0a 13 09 11 09 6f 0b 00 00 0a 11 08 6f 0c 00 00 0a 00 11 09 6f 0d 00 00 0a 26 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

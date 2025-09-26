@@ -101,3 +101,25 @@ rule Trojan_MSIL_PSWStealer_AWA_2147919064_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PSWStealer_CZI_2147953331_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PSWStealer.CZI!MTB"
+        threat_id = "2147953331"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PSWStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {6f 79 00 00 0a 6f 13 00 00 0a 25 72 46 0d 00 70 28 11 00 00 0a 0b 72 68 0d 00 70 28 11 00 00 0a 28 60 00 00 0a 6f 61 00 00 0a 6f 62 00 00 0a 07 17 28 18 00 00 0a 07 1c 28 7a 00 00 0a 07 28 11 00 00 06 06 6f 44 00 00 0a 2d af}  //weight: 2, accuracy: High
+        $x_2_2 = {72 02 0d 00 70 02 72 08 0d 00 70 28 15 00 00 0a 0a 03 06 17 28 18 00 00 0a de 03}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

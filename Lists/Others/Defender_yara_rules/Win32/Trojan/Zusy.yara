@@ -7923,3 +7923,27 @@ rule Trojan_Win32_Zusy_SXL_2147953212_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_HAB_2147953328_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.HAB!MTB"
+        threat_id = "2147953328"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "/auto.AutoModeChromeGather" ascii //weight: 1
+        $x_1_2 = "%s.tar.gz" ascii //weight: 1
+        $x_1_3 = "bits-project/bits/util" ascii //weight: 1
+        $x_10_4 = {67 61 74 68 65 72 2e 74 48 89 ?? 48 ?? 72 2e 74 61 72 2e 67 7a 48}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

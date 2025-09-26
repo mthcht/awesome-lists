@@ -5458,3 +5458,55 @@ rule Trojan_Win32_GuLoader_RCD_2147953140_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCE_2147953317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCE!MTB"
+        threat_id = "2147953317"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Somniloquy158\\Dromedarerne39\\skidesurt" ascii //weight: 1
+        $x_1_2 = "%Tegnomraadet%\\overtalelsesevne\\uncourtesy" ascii //weight: 1
+        $x_1_3 = "unperiodically unseasonable omregningen" ascii //weight: 1
+        $x_1_4 = "stvsugning pantalets ethnobotanist" ascii //weight: 1
+        $x_1_5 = "afladningen fertiliserer" ascii //weight: 1
+        $x_1_6 = "caliber.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCF_2147953318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCF!MTB"
+        threat_id = "2147953318"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Fringing\\hovedkortene" ascii //weight: 1
+        $x_1_2 = "%asian%\\aularian" ascii //weight: 1
+        $x_1_3 = "pentylidene agnfiskene" ascii //weight: 1
+        $x_1_4 = "blepharoadenitis alloplast anaptychus" ascii //weight: 1
+        $x_1_5 = "tilmeldte dbefonterne relish" ascii //weight: 1
+        $x_1_6 = "efterbrndere antifoniers.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

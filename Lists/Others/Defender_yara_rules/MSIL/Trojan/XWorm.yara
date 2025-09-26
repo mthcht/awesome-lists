@@ -3016,3 +3016,46 @@ rule Trojan_MSIL_XWorm_BAK_2147952679_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_TWZ_2147953329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.TWZ!MTB"
+        threat_id = "2147953329"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {12 0c 28 14 00 00 0a 13 07 11 06 12 07 28 15 00 00 0a 28 11 00 00 0a 13 08 11 08 12 07 28 16 00 00 0a 28 17 00 00 0a 11 08 28 18 00 00 0a 6f 19 00 00 0a 72 10 d1 02 70 28 1a 00 00 0a 2c 48 73 1b 00 00 0a 13 09 11 09 11 08 6f 1c 00 00 0a 11 09 17 6f 1d 00 00 0a 11 09 17 6f 1e 00 00 0a 11 09 17 6f 1f 00 00 0a 11 09 72 1a d1 02 70 6f 20 00 00 0a 11 09 28 21 00 00 0a 13 0a 11 0a 2c 07 11 0a 6f 22 00 00 0a 12 0c 28 23 00 00 0a 3a 6d ff ff ff}  //weight: 2, accuracy: High
+        $x_2_2 = {0a 72 b6 d0 02 70 0b 06 28 0b 00 00 0a 0c 28 0c 00 00 0a 07 28 0b 00 00 0a 6f 0d 00 00 0a 0d 08 09 28 03 00 00 06 13 04 11 04 28 04 00 00 06 13 05 28 0e 00 00 0a 28 0f 00 00 0a 13 0b 12 0b fe 16 11 00 00 01 6f 10 00 00 0a 28 11 00 00 0a 13 06 11 06 28 12 00 00 0a 26 11 05 6f 13 00 00 0a 13 0c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_TWK_2147953336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.TWK!MTB"
+        threat_id = "2147953336"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {28 1c 00 00 0a 72 0d 00 00 70 28 1d 00 00 0a 0a 06 28 1e 00 00 0a 2d 18 06 02 28 0b 00 00 06 28 06 00 00 06 28 1f 00 00 0a 06 28 20 00 00 0a 26 28 1c 00 00 0a 72 2d 00 00 70 28 1d 00 00 0a 0b 07 02 28 0c 00 00 06 28 06 00 00 06 28 1f 00 00 0a 07 28 20 00 00 0a 26 02 28 21 00 00 0a 2a}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

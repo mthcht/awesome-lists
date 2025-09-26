@@ -461,3 +461,25 @@ rule Trojan_Win32_ShellcodeRunner_AE_2147951429_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_AHE_2147953341_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.AHE!MTB"
+        threat_id = "2147953341"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 45 e0 ff d0 89 45 d8 8d 85 c0 fe ff ff 89 04 24 8b 45 dc ff d0 83 ec ?? 85 c0 74}  //weight: 30, accuracy: Low
+        $x_20_2 = {8b 45 f4 8b 40 ?? 89 45 d4 8b 45 d4 83 c0 ?? 89 45 ec 8b 45 d4 83 c0 ?? 89 45 e8 83 7d f0}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

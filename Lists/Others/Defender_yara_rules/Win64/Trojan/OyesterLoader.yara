@@ -113,3 +113,28 @@ rule Trojan_Win64_OyesterLoader_Z_2147953278_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_OyesterLoader_CD_2147953327_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/OyesterLoader.CD!MTB"
+        threat_id = "2147953327"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "OyesterLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b c8 ff 15 ?? ?? ?? ?? 48 8b 05 ?? ?? ?? ?? 48 05 ?? ?? ?? ?? ff d0 45 33 c9 45 33 c0 33 d2 33 c9}  //weight: 2, accuracy: Low
+        $x_1_2 = {4b 00 45 00 52 00 4e 00 45 00 4c 00 33 00 32 00 2e 00 44 00 4c 00 4c}  //weight: 1, accuracy: High
+        $x_1_3 = "LoadLibraryA" ascii //weight: 1
+        $x_1_4 = "GetProcAddress" ascii //weight: 1
+        $x_1_5 = "VirtualProtect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
