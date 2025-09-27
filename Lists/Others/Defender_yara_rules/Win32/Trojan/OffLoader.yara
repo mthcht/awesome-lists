@@ -4934,3 +4934,28 @@ rule Trojan_Win32_OffLoader_GAQ_2147953144_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_KES_2147953391_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.KES!MTB"
+        threat_id = "2147953391"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://suitmemory.info/qort.php?" ascii //weight: 4
+        $x_4_2 = "://additionhydrant.xyz/qorts.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+        $x_1_5 = "Reboot now" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1513,3 +1513,27 @@ rule Ransom_Win32_FileCoder_GXV_2147952440_0
         )
 }
 
+rule Ransom_Win32_FileCoder_MKF_2147953390_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder.MKF!MTB"
+        threat_id = "2147953390"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Users\\Legion\\Desktop\\lastbutnotleast\\Release\\lst.pdb" ascii //weight: 4
+        $x_3_2 = "File deleted successfully." ascii //weight: 3
+        $x_2_3 = "C:\\DecryptionKey\\Decode.txt" ascii //weight: 2
+        $x_1_4 = "C:\\DecryptionKey\\PKey.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
