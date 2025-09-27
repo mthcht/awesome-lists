@@ -20,3 +20,25 @@ rule TrojanDownloader_Win64_XWorm_SX_2147953288_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_XWorm_PSW_2147953410_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/XWorm.PSW!MTB"
+        threat_id = "2147953410"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Hidden -NoProfile -ExecutionPolicy Bypass -Command \"iex (iwr" ascii //weight: 1
+        $x_1_2 = "https://github.com/robertoaguilarfields-blip/my-proyecto/raw/refs/heads/main/bypass.ps1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
