@@ -1010,3 +1010,27 @@ rule Trojan_Win64_Mikey_MCJ_2147952910_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_BAA_2147953574_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.BAA!MTB"
+        threat_id = "2147953574"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {50 45 00 00 64 86 0d 00 bf 9a 77 68 2a a0 24 86 00 00 00 00 f0 00 22 00 0b 02 0e 2c 00 e0 0f 00 00 90 06 00 00 00 00 00 58}  //weight: 10, accuracy: High
+        $x_10_2 = {84 de 0f 00 00 10 00 00 00 a4 08 00 00 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60}  //weight: 10, accuracy: High
+        $x_10_3 = {0c 32 05 00 00 f0 0f 00 00 86 02 00 00 aa 08 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 10, accuracy: High
+        $x_10_4 = {ec a4 00 00 00 30 15 00 00 0a 00 00 00 30 0b 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

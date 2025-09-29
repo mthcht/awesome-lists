@@ -7504,27 +7504,6 @@ rule Trojan_Win32_LummaStealer_GPAS_2147952659_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_FAM_2147952681_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/LummaStealer.FAM!MTB"
-        threat_id = "2147952681"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "LummaStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = {50 45 00 00 64 86 0c 00 10 21 d8 66 00 00 00 00 00 00 00 00 f0 00 22 00 0b 02 0e 10 00 34 0b 00 00 96 07 00 00 00 00 00 e8 2d 81 00 00 10 00 00}  //weight: 10, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_LummaStealer_GPAT_2147952809_0
 {
     meta:
