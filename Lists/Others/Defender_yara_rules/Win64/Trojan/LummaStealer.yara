@@ -2296,3 +2296,24 @@ rule Trojan_Win64_LummaStealer_RRX_2147953252_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_GAPU_2147953543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GAPU!MTB"
+        threat_id = "2147953543"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {a7 01 e9 4e 5d ef 01 cc 50 3c cc 1e b8 f8 cb bd 46 8f d2 52 49 af d9 ac e7 cb d4 82 a3 47 a6 89 31 6e 99 8a}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
