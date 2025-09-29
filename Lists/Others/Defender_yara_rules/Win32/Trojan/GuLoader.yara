@@ -5510,3 +5510,28 @@ rule Trojan_Win32_GuLoader_RCF_2147953318_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCG_2147953518_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCG!MTB"
+        threat_id = "2147953518"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "elevcentreredes\\ramified" ascii //weight: 1
+        $x_1_2 = "%onagers%\\opholdsstuers\\ddslejernes" ascii //weight: 1
+        $x_1_3 = "\\kemikalies\\jamnia.lnk" ascii //weight: 1
+        $x_1_4 = "\\tjrnekrattet\\deheathenize.ini" ascii //weight: 1
+        $x_1_5 = "Nonplatitudinously.ene" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
