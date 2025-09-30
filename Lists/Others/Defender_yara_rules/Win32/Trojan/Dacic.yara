@@ -235,3 +235,24 @@ rule Trojan_Win32_Dacic_AB_2147945971_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dacic_AC_2147953616_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dacic.AC!MTB"
+        threat_id = "2147953616"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {88 04 0f 88 14 0e 0f b6 81 01 01 00 00 0f b6 91 00 01 00 00 0f b6 04 08 02 04 0a 8b 55 f8 0f b6 c0 0f b6 04 08 32 44 1a ff ff 4d fc 88 43 ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

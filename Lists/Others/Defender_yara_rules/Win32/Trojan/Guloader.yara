@@ -7872,3 +7872,50 @@ rule Trojan_Win32_Guloader_KM_2147953255_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KO_2147953578_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KO!MTB"
+        threat_id = "2147953578"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "damndest rowena" ascii //weight: 1
+        $x_1_2 = "cheviot lapidose" ascii //weight: 1
+        $x_1_3 = "rytterske.ini" ascii //weight: 1
+        $x_1_4 = "solodanserindens.hrd" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_KN_2147953584_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KN!MTB"
+        threat_id = "2147953584"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "demodulatorens" ascii //weight: 1
+        $x_1_2 = "fngslingsfristen embitterments resflelsers" ascii //weight: 1
+        $x_1_3 = "hemmelighedsfuld unidenticulate ethylthioethane" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
