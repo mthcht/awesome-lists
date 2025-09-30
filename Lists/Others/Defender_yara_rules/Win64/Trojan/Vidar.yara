@@ -220,3 +220,25 @@ rule Trojan_Win64_Vidar_ZPB_2147952660_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_LMO_2147953645_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.LMO!MTB"
+        threat_id = "2147953645"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {5f a9 90 8c 99 9a 86 01 41 e9 f1 ab a3 5e}  //weight: 10, accuracy: High
+        $x_5_2 = {0c 0f 57 c0 14 53 7e 08 37 89 0b}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

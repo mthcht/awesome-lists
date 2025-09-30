@@ -2451,3 +2451,25 @@ rule Trojan_Win64_Zusy_AG_2147952702_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_LMO_2147953644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LMO!MTB"
+        threat_id = "2147953644"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b c3 83 e0 1f 42 0f b6 14 30 32 14 1f 0f be cb 44 6b c1 bb 41 32 d0 80 f2 ?? 48 8b ce e8}  //weight: 20, accuracy: Low
+        $x_10_2 = "Release\\sessionuserhost" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
