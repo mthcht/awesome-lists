@@ -2859,3 +2859,31 @@ rule Ransom_Win32_Filecoder_MAV_2147951787_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_NPA_2147953652_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.NPA!MTB"
+        threat_id = "2147953652"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SELECT * FROM Win32_ShadowCopy" ascii //weight: 2
+        $x_1_2 = "/c SCHTASKS.exe /Delete /TN \"Windows Update BETA\" /F" ascii //weight: 1
+        $x_1_3 = "/c SCHTASKS.exe /Create /RU \"NT AUTHORITY\\SYSTEM\" /sc onstart /TN \"Windows Update BETA" ascii //weight: 1
+        $x_1_4 = "Global\\BlackFLMutex" ascii //weight: 1
+        $x_1_5 = "Global\\FSWiper" ascii //weight: 1
+        $x_1_6 = "BlackField_ReadMe.txt" ascii //weight: 1
+        $x_1_7 = "Encryption Completed" ascii //weight: 1
+        $x_1_8 = "We are the BlackFL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

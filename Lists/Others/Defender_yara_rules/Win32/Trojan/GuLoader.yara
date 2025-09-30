@@ -5621,3 +5621,29 @@ rule Trojan_Win32_GuLoader_SUW_2147953627_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCH_2147953648_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCH!MTB"
+        threat_id = "2147953648"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-\\anderledestnkende\\convival" ascii //weight: 1
+        $x_1_2 = "honeyhearted\\Earthslide78\\susser" ascii //weight: 1
+        $x_1_3 = "88\\Larrup\\Accursedly.zip" ascii //weight: 1
+        $x_1_4 = "DST Systems, Inc." ascii //weight: 1
+        $x_1_5 = "E.W. Scripps Company" ascii //weight: 1
+        $x_1_6 = "rouleauers.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
