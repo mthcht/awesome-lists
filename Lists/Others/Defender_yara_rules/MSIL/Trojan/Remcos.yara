@@ -13894,3 +13894,26 @@ rule Trojan_MSIL_Remcos_ZVN_2147953705_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_RVI_2147953743_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.RVI!MTB"
+        threat_id = "2147953743"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 09 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 5d 00 00 00 0d 00 00 00 46 00 00 00 3a 00 00 00 2d 00 00 00 97 00 00 00 03 00 00 00 21 00 00 00 10 00 00 00 03 00 00 00 07 00 00 00 0a 00 00 00 05 00 00 00 01 00 00 00 05 00 00 00 05 00 00 00 03 00 00 00 05}  //weight: 1, accuracy: High
+        $x_1_2 = "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ascii //weight: 1
+        $x_1_3 = "HostPinger.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

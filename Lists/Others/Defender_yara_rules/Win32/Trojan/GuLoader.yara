@@ -5675,3 +5675,28 @@ rule Trojan_Win32_GuLoader_RCH_2147953648_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCI_2147953742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCI!MTB"
+        threat_id = "2147953742"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "gradiometer\\juloid\\sodalithite" ascii //weight: 1
+        $x_1_2 = "%harvendes%\\lykkeflelsen" ascii //weight: 1
+        $x_1_3 = "Anadarko Petroleum Corporation" ascii //weight: 1
+        $x_1_4 = "Bristol-Myers Squibb Company" ascii //weight: 1
+        $x_1_5 = "urpremieres.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
