@@ -109,3 +109,30 @@ rule Trojan_Win64_Radthief_ARDT_2147952921_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Radthief_NKB_2147953785_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Radthief.NKB!MTB"
+        threat_id = "2147953785"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Radthief"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "K.X]_D a.9.X_C.J.z.f_Y_c_N5\\.C s.r_w.8 A x.cF" ascii //weight: 2
+        $x_1_2 = "u_u7 gE_MH m%?_M.x.e.PY1.O.w$.O.o Q_Jc.4_Y G.J M.R N.B.D k.E.TG.5d_r.Q d.g05.FP_d" ascii //weight: 1
+        $x_1_3 = "m.E_G.u_b.FQ.hxD.2C f_g.R.de qR_A.u.D.t.K-.Qg$_OJd.S_G" ascii //weight: 1
+        $x_1_4 = "4_Po[ex.E_Z_h S.I O.oh.w.Of.j_E J gQ W_u.h.a.G.8_M.D.W_QO_p" ascii //weight: 1
+        $x_1_5 = "_hJ.iV x.vjq(-.r lE_o.u lPTz l T.9d.h" ascii //weight: 1
+        $x_1_6 = "u_o!_Yj_V.U j G,v_H.O\\.e_w|_VS" ascii //weight: 1
+        $x_1_7 = "y_IE B C h.k& q.6.i6 p1.v.F_o_S.y_Z R.r.I A_r.Ds_n.fn.k.u.n.q_v_b_L" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
