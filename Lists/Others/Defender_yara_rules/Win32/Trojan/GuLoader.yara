@@ -4986,6 +4986,35 @@ rule Trojan_Win32_GuLoader_NS_2147947244_8
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_NS_2147947244_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "uforstandighederne.txt" ascii //weight: 1
+        $x_1_2 = "supplemental.dag" ascii //weight: 1
+        $x_1_3 = "mangelvarer.slu" ascii //weight: 1
+        $x_1_4 = "Raspier.ini" ascii //weight: 1
+        $x_1_5 = "strejftogs.blo" ascii //weight: 1
+        $x_1_6 = "\\Nonfavored\\Kolonibestyreres" ascii //weight: 1
+        $x_1_7 = "\\eurokommunismes\\vejfringerne" ascii //weight: 1
+        $x_1_8 = "eftertndings\\civilsamfund\\billardkernes" ascii //weight: 1
+        $x_1_9 = "Squelching154" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_SUB_2147947316_0
 {
     meta:

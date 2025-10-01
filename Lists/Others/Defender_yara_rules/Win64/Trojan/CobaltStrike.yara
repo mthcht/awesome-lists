@@ -17771,3 +17771,30 @@ rule Trojan_Win64_CobaltStrike_SSG_2147953699_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_NKC_2147953774_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.NKC!MTB"
+        threat_id = "2147953774"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "decrypt successful!" ascii //weight: 2
+        $x_1_2 = "aLdbcGgcd@hdf;iff9igf5jgg/khg)khg" ascii //weight: 1
+        $x_1_3 = "bWebdRgceNhdfHjehAjfh<lhi9lij6mij/njk(njk" ascii //weight: 1
+        $x_1_4 = "fbdXhdeSiegOjfhGlhiAmij<mik9okl5okl.plm'qll!rnn" ascii //weight: 1
+        $x_1_5 = "alfccahdfZjfhUkgjOmijHnklBqmm>qmn:rno6soo.sop'tpp!wsr" ascii //weight: 1
+        $x_1_6 = "ebaxgcdnjfhckgi[lhjUmikPokmIplnBqmo>snp;toq7tpq" ascii //weight: 1
+        $x_1_7 = "njlVokmQrnoHsoqCtpq?uqr;vqr5vrs-wrs&xtu!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
