@@ -84,3 +84,26 @@ rule Trojan_Win32_Radthief_AR_2147952016_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Radthief_SXB_2147953718_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Radthief.SXB!MTB"
+        threat_id = "2147953718"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Radthief"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {08 cd 88 d6 88 d3 80 f5 ?? 20 c6 08 fd 20 f3 30 d6 08 de 30 ee 88 cd}  //weight: 3, accuracy: Low
+        $x_2_2 = {0f 9f c4 83 f9 ?? 88 d5 0f 9c c1 0f 9c 85 ?? ?? ?? ?? 20 e5 20 c1}  //weight: 2, accuracy: Low
+        $x_1_3 = "No mapped drive Z: found" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

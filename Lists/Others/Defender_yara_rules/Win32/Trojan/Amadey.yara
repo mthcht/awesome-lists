@@ -4217,38 +4217,6 @@ rule Trojan_Win32_Amadey_BAB_2147952253_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Amadey_PGAM_2147952564_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Amadey.PGAM!MTB"
-        threat_id = "2147952564"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Amadey"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {26 1f 10 8d ?? 00 00 01 0c 1f 20 8d ?? 00 00 01 0d 07 16 08 16 1f 10 28 ?? 00 00 0a 07 1f 10 09 16 1f 20 28 ?? 00 00 0a 28 ?? 00 00 0a 13 04 11 04 09 6f ?? 00 00 0a 11 04 08 6f ?? 00 00 0a 11 04 17 6f ?? 00 00 0a 73 ?? 00 00 0a 13 05}  //weight: 5, accuracy: Low
-        $x_1_2 = {62 00 69 00 6e 00 50 00 61 00 74 00 68 00 3d 00 20 00 22 00 [0-3] 22 00 20 00 73 00 74 00 61 00 72 00 74 00 3d 00 20 00 61 00 75 00 74 00 6f 00 20 00 44 00 69 00 73 00 70 00 6c 00 61 00 79 00 4e 00 61 00 6d 00 65 00 3d 00 20 00 22 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 20 00 44 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 20 00 53 00 65 00 72 00 76 00 69 00 63 00 65 00 22 00}  //weight: 1, accuracy: Low
-        $x_1_3 = {62 69 6e 50 61 74 68 3d 20 22 [0-3] 22 20 73 74 61 72 74 3d 20 61 75 74 6f 20 44 69 73 70 6c 61 79 4e 61 6d 65 3d 20 22 57 69 6e 64 6f 77 73 20 44 6f 77 6e 6c 6f 61 64 20 53 65 72 76 69 63 65 22}  //weight: 1, accuracy: Low
-        $x_1_4 = {2f 00 63 00 20 00 73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00 20 00 2f 00 63 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 74 00 6e 00 20 00 22 00 [0-3] 22 00}  //weight: 1, accuracy: Low
-        $x_1_5 = {2f 63 20 73 63 68 74 61 73 6b 73 20 2f 63 72 65 61 74 65 20 2f 74 6e 20 22 [0-3] 22}  //weight: 1, accuracy: Low
-        $x_1_6 = {57 00 61 00 69 00 74 00 46 00 6f 00 72 00 44 00 65 00 66 00 65 00 6e 00 64 00 65 00 72 00 53 00 74 00 6f 00 70 00 70 00 65 00 64 00 [0-2] 49 00 73 00 44 00 65 00 66 00 65 00 6e 00 64 00 65 00 72 00 53 00 74 00 6f 00 70 00 70 00 65 00 64 00}  //weight: 1, accuracy: Low
-        $x_1_7 = {57 61 69 74 46 6f 72 44 65 66 65 6e 64 65 72 53 74 6f 70 70 65 64 [0-2] 49 73 44 65 66 65 6e 64 65 72 53 74 6f 70 70 65 64}  //weight: 1, accuracy: Low
-        $x_1_8 = "<Hidden>true</Hidden>" ascii //weight: 1
-        $x_1_9 = "DownloaderApp.exe" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_5_*) and 5 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_Amadey_EFWA_2147952627_0
 {
     meta:

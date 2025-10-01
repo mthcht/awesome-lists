@@ -763,3 +763,25 @@ rule Trojan_Win32_Tedy_LML_2147951317_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_PGTL_2147953659_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.PGTL!MTB"
+        threat_id = "2147953659"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 55 0c c0 e8 02 32 c8 8b 45 e0 40 88 0e 89 45 e0 3d ?? ?? ?? ?? 7c}  //weight: 5, accuracy: Low
+        $x_5_2 = {8b 4d e4 8a 14 32 03 c8 83 e1 ?? 32 14 39 8b 4d e0 32 d3 88 10 40 83 6d c8 01 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

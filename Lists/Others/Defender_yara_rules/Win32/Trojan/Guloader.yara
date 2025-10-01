@@ -7919,3 +7919,26 @@ rule Trojan_Win32_Guloader_KN_2147953584_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KP_2147953709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KP!MTB"
+        threat_id = "2147953709"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "marmoreally" ascii //weight: 1
+        $x_1_2 = "skattedepartementerne dumbfounding.exe" ascii //weight: 1
+        $x_1_3 = "caccabis tetranitroaniline preopening" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

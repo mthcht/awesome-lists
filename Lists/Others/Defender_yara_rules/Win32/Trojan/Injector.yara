@@ -2370,3 +2370,26 @@ rule Trojan_Win32_Injector_KAC_2147951399_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_SX_2147953719_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.SX!MTB"
+        threat_id = "2147953719"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 55 84 83 c2 ?? 89 55 84 83 7d 84 01 7d ?? c7 45 a0 ?? ?? ?? ?? 8b 45 a0 0b 45 a0 0f af 45 a0 0f af 45 a0 89 45 a0 eb}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 08 2b ca 8b 55 bc 2b d1 89 55 bc 8b 45 c4 83 e0 ?? 0f af 45 bc 0f af 45 bc 89 45 bc}  //weight: 2, accuracy: Low
+        $x_1_3 = "SCardDisconnect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

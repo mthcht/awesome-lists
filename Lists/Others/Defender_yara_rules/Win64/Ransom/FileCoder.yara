@@ -1095,3 +1095,26 @@ rule Ransom_Win64_FileCoder_BA_2147952372_1
         (3 of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_KAB_2147953713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.KAB!MTB"
+        threat_id = "2147953713"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {48 89 44 24 60 48 89 5c 24 58 44 0f 11 bc 24 98 00 00 00 44 0f 11 bc 24 a8 00 00 00 48 c7 84 24 a0 00 00 00 08 00 00 00 48 8d 0d}  //weight: 10, accuracy: High
+        $x_8_2 = "Critical data has been exfiltrated." ascii //weight: 8
+        $x_5_3 = "Files have been encrypted." ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
