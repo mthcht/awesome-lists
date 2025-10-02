@@ -208,3 +208,48 @@ rule Trojan_Win64_XWorm_GXF_2147946470_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_GAPE_2147953814_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.GAPE!MTB"
+        threat_id = "2147953814"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "7.tcp.eu.ngrok.io" ascii //weight: 8
+        $x_1_2 = "Socket creation" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_XWorm_GAPF_2147953815_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.GAPF!MTB"
+        threat_id = "2147953815"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "Ejecutando shellcode" ascii //weight: 8
+        $x_1_2 = "payload.enc" ascii //weight: 1
+        $x_1_3 = "Shellcode ejecutado" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

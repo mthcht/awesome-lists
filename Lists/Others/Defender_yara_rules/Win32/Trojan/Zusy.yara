@@ -7947,3 +7947,24 @@ rule Trojan_Win32_Zusy_HAB_2147953328_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_PGZS_2147953817_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.PGZS!MTB"
+        threat_id = "2147953817"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {6e a9 84 b0 fa 01 20 bd fd 97 04 93 5b 7a cb a5 70 dd 8e 2b 83 fa cf 83 eb a5 50 13 32 d2 57 2e 05 8d 8a d8 39 9f f5 ec 90 95 bb 77 7b 24 4b 44 7f cd f0 f7 6d 75 35 d3 a3 99 de be 78 41 26 6d b3 0d df cb f2 0f de c8 34 f1 58 46 14 d5 91 6c}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

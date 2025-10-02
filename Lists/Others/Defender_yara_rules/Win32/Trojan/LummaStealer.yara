@@ -7569,3 +7569,24 @@ rule Trojan_Win32_LummaStealer_AHE_2147953209_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_GAPV_2147953813_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.GAPV!MTB"
+        threat_id = "2147953813"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {0f af ca 01 f1 29 c8 89 c1 81 e1 ?? 00 00 00 81 f1 ?? 00 00 00 83 e0 ?? 29 c8 8b 4c 24 ?? 8b 14 24 88 04 11 8b 04 24 83 c0 01 89 04 24}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

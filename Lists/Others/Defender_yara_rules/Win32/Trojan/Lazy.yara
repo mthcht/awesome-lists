@@ -2289,3 +2289,27 @@ rule Trojan_Win32_Lazy_MKB_2147953529_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_CM_2147953811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.CM!MTB"
+        threat_id = "2147953811"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_new.exe" ascii //weight: 1
+        $x_1_2 = "MLogin.exe" ascii //weight: 1
+        $x_1_3 = "http://110.42.4.105" ascii //weight: 1
+        $x_1_4 = "Unable to install hook" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
