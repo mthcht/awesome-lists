@@ -5729,3 +5729,29 @@ rule Trojan_Win32_GuLoader_RCI_2147953742_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCJ_2147953845_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCJ!MTB"
+        threat_id = "2147953845"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\protesen\\kendingssignaler" ascii //weight: 1
+        $x_1_2 = "\\scientolism\\oplsningernes.bin" ascii //weight: 1
+        $x_1_3 = "%Ordvekslingens%\\inadvertant\\billardkuglerne" ascii //weight: 1
+        $x_1_4 = "Fremtidsforskeren35.ini" ascii //weight: 1
+        $x_1_5 = "Quanta Services Inc." ascii //weight: 1
+        $x_1_6 = "pachyglossous.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
