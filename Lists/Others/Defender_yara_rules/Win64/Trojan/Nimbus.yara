@@ -72,3 +72,24 @@ rule Trojan_Win64_Nimbus_GVC_2147953340_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Nimbus_GVH_2147953873_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Nimbus.GVH!MTB"
+        threat_id = "2147953873"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nimbus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "VirgoMarketingSolutions.com" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
