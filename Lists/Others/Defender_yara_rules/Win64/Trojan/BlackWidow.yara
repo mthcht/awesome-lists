@@ -1267,3 +1267,25 @@ rule Trojan_Win64_BlackWidow_AHB_2147953210_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BlackWidow_GTV_2147953862_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlackWidow.GTV!MTB"
+        threat_id = "2147953862"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackWidow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {66 0f f9 d8 66 0f 6f c1 66 0f 6a ca 66 0f 6c d3}  //weight: 5, accuracy: High
+        $x_5_2 = {66 0f f9 d0 66 0f 6f c1 66 0f fd da 66 0f f9 cb 66 0f 6c d1 66 0f f9 fd 66 0f 6c e3}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
