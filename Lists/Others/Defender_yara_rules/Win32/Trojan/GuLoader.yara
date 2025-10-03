@@ -4777,6 +4777,31 @@ rule Trojan_Win32_GuLoader_NS_2147947244_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "jerboa stabstamburs" ascii //weight: 1
+        $x_1_2 = "subfebrile" ascii //weight: 1
+        $x_1_3 = "genkendendes vellignendes" ascii //weight: 1
+        $x_1_4 = "ekskluderet emendations.exe" ascii //weight: 1
+        $x_1_5 = "fibrochondrosteal arbejdsmnd february" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
@@ -4792,7 +4817,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_2
+rule Trojan_Win32_GuLoader_NS_2147947244_3
 {
     meta:
         author = "defender2yara"
@@ -4820,7 +4845,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_3
+rule Trojan_Win32_GuLoader_NS_2147947244_4
 {
     meta:
         author = "defender2yara"
@@ -4848,7 +4873,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_4
+rule Trojan_Win32_GuLoader_NS_2147947244_5
 {
     meta:
         author = "defender2yara"
@@ -4875,7 +4900,35 @@ rule Trojan_Win32_GuLoader_NS_2147947244_4
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_5
+rule Trojan_Win32_GuLoader_NS_2147947244_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pulverisering.txt" ascii //weight: 1
+        $x_1_2 = "quipo.tig" ascii //weight: 1
+        $x_1_3 = "\\Medarbejders196.jpg" ascii //weight: 1
+        $x_1_4 = "\\kloaknets.jpg" ascii //weight: 1
+        $x_1_5 = "embedseksamens taygeta isazoxy" ascii //weight: 1
+        $x_1_6 = "erotic annizettes.exe" ascii //weight: 1
+        $x_1_7 = "horisontallinie" ascii //weight: 1
+        $x_1_8 = "velstandssamfundet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_7
 {
     meta:
         author = "defender2yara"
@@ -4902,7 +4955,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_5
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_6
+rule Trojan_Win32_GuLoader_NS_2147947244_8
 {
     meta:
         author = "defender2yara"
@@ -4930,7 +4983,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_6
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_7
+rule Trojan_Win32_GuLoader_NS_2147947244_9
 {
     meta:
         author = "defender2yara"
@@ -4958,7 +5011,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_7
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_8
+rule Trojan_Win32_GuLoader_NS_2147947244_10
 {
     meta:
         author = "defender2yara"
@@ -4986,7 +5039,7 @@ rule Trojan_Win32_GuLoader_NS_2147947244_8
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_NS_2147947244_9
+rule Trojan_Win32_GuLoader_NS_2147947244_11
 {
     meta:
         author = "defender2yara"

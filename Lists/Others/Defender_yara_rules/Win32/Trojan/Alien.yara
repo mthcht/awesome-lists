@@ -89,3 +89,28 @@ rule Trojan_Win32_Alien_AMMF_2147906407_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Alien_AHB_2147953937_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Alien.AHB!MTB"
+        threat_id = "2147953937"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Alien"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Create persistent scheduled task" ascii //weight: 10
+        $x_10_2 = "Get GitHub URL from Pastebin" ascii //weight: 10
+        $x_10_3 = "Execute as background process" ascii //weight: 10
+        $x_20_4 = "function Download-FileWithRetries" ascii //weight: 20
+        $x_50_5 = "$githubUrl = (Invoke-WebRequest -Uri $pastebinUrl -UseBasicParsing -ErrorAction Stop).Content.Trim()" ascii //weight: 50
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

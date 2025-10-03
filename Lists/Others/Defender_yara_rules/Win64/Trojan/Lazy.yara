@@ -3729,3 +3729,26 @@ rule Trojan_Win64_Lazy_MKB_2147953775_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHJ_2147953938_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHJ!MTB"
+        threat_id = "2147953938"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8b 44 24 50 48 8b 8c 24 a0 05 00 00 33 d2 0f b6 3c 11 40 88 3c 10 48 ff c2 40 84 ff 75}  //weight: 20, accuracy: High
+        $x_5_2 = "run shellcode" ascii //weight: 5
+        $x_5_3 = "begin load shellcode" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
