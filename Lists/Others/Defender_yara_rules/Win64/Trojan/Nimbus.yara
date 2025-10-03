@@ -93,3 +93,24 @@ rule Trojan_Win64_Nimbus_GVH_2147953873_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Nimbus_GVJ_2147953885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Nimbus.GVJ!MTB"
+        threat_id = "2147953885"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nimbus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 c1 69 c9 ?? ?? ?? ?? 42 32 44 05 fb 42 88 44 05 9b 4d 8d 40 01 b8 03 00 00 00 f7 e1 8b c1 2b c2 d1 e8 03 c2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

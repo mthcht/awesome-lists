@@ -340,3 +340,27 @@ rule Trojan_Win32_Barys_AHB_2147947690_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Barys_SX_2147953886_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Barys.SX!MTB"
+        threat_id = "2147953886"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 8e 40 02 00 00 8b c7 6b c0 ?? 03 c1 85 58 0c 74 ?? 8b 16 50 8b 42 4c 8b ce ff d0}  //weight: 3, accuracy: Low
+        $x_2_2 = {74 14 8a 10 80 f2 ?? 80 c2 ?? 88 10 83 e9 ?? 83 c0 ?? 85 c9 75 ec}  //weight: 2, accuracy: Low
+        $x_1_3 = "\\\\.\\PhysicalDrive" ascii //weight: 1
+        $x_1_4 = "MSOLEActivation" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
