@@ -5755,3 +5755,26 @@ rule Trojan_Win32_GuLoader_RCJ_2147953845_0
         (5 of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCK_2147953924_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCK!MTB"
+        threat_id = "2147953924"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "coupbcerne" ascii //weight: 1
+        $x_1_2 = "sygeplejeskolens staphyloplastic kaffebords" ascii //weight: 1
+        $x_1_3 = "registreringsafgiftens xylidine.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

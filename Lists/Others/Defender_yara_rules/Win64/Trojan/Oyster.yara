@@ -73,3 +73,154 @@ rule Trojan_Win64_Oyster_YAD_2147953809_0
         )
 }
 
+rule Trojan_Win64_Oyster_Z_2147953906_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.Z!MTB"
+        threat_id = "2147953906"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 b8 44 89 f8 41 ff c7 44 88}  //weight: 1, accuracy: High
+        $x_1_2 = {48 b8 0f b6 07 41 c1 e2 08 ff}  //weight: 1, accuracy: High
+        $x_1_3 = {49 bf 0f b6 07 41 c1 e2 08 41}  //weight: 1, accuracy: High
+        $x_1_4 = {48 b8 89 d0 66 c1 e8 05 8d 74}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_ZA_2147953907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.ZA!MTB"
+        threat_id = "2147953907"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 8d 4c 24 48 c7 44 24 28 40 00 00 00 45 33 c0 48 c7 44 24 40}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_ZB_2147953908_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.ZB!MTB"
+        threat_id = "2147953908"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 53 50 48 85 d2 74 30 66 83 7b 48 00 76 29 41 b8 40 00 00 00 48 8d 4c 24 40}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_ZC_2147953909_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.ZC!MTB"
+        threat_id = "2147953909"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {66 89 44 5c 42 0f b6 01 84 c0 74 15 66 89 44 5c 44 48 83 c1 03 48 83 c3 03 48 83 fb 3f}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_ZD_2147953912_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.ZD!MTB"
+        threat_id = "2147953912"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 44 24 50 45 33 c9 89 44 24 48 45 33 c0 89 44 24 40 33 d2 89 44 24 38 33 c9 89 44 24 30 48 89 44 24 28 89 44 24 20}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_ZF_2147953913_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.ZF!MTB"
+        threat_id = "2147953913"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 b8 41 39 ff 73 13 48 8b 5c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_ZE_2147953914_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.ZE!MTB"
+        threat_id = "2147953914"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 b8 48 8d 34 68 77 1a}  //weight: 1, accuracy: High
+        $x_1_2 = "DllRegisterServer" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
