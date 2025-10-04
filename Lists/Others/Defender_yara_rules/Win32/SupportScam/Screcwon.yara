@@ -85,6 +85,9 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_25 = "doc-sas.marqulsmitchel.com" ascii //weight: 30
         $x_30_26 = "jntl.shop" ascii //weight: 30
         $x_30_27 = "solandalucia-carcosmetics.com" ascii //weight: 30
+        $x_30_28 = "dynomar.gandizon.com" ascii //weight: 30
+        $x_30_29 = "bw36back93.site" ascii //weight: 30
+        $x_30_30 = "fw396back6.site" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (

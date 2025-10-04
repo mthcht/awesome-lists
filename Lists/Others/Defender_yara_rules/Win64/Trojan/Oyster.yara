@@ -224,3 +224,164 @@ rule Trojan_Win64_Oyster_ZE_2147953914_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Oyster_CC_2147953996_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.CC!MTB"
+        threat_id = "2147953996"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {45 33 c0 41 8b d5 48 8d 81 ?? ?? ?? ?? ff d0}  //weight: 3, accuracy: Low
+        $x_2_2 = {b8 4d 5a 00 00 66 39 07}  //weight: 2, accuracy: High
+        $x_1_3 = "KERNEL32.DLL" ascii //weight: 1
+        $x_1_4 = "LoadLibraryA" ascii //weight: 1
+        $x_1_5 = "GetProcAddress" ascii //weight: 1
+        $x_1_6 = "VirtualProtect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_GZZ_2147954000_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.GZZ!MTB"
+        threat_id = "2147954000"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 83 ec 28 ba ?? ?? ?? ?? 31 c9 41 b8 00 30 00 00 41 b9 40 00 00 00 ff 15}  //weight: 5, accuracy: Low
+        $x_5_2 = {41 ff d6 48 89 c7 48 89 f1 ba 02 00 00 00 41 ff d7}  //weight: 5, accuracy: High
+        $x_5_3 = {41 ff d7 48 89 c7 48 89 f1 ba 02 00 00 00 ff 15}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_YAB_2147954001_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.YAB!MTB"
+        threat_id = "2147954001"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 2b c8 48 03 cb 8a 44 0c 20 43 32 04 13 41 88 02 4d 03 d4}  //weight: 1, accuracy: High
+        $x_1_2 = {49 63 c9 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 45 03 cc 48 f7 e1 48 c1 ea}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_OSH_2147954005_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.OSH!MTB"
+        threat_id = "2147954005"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {65 48 8b 04 25 60 00 00 00 48 8b 48 18 48 8b 59 10 48 8b d3 48 8b 4a 60 45 8b ce 48 8b c1 66 44 39 31}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_C_2147954006_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.C!MTB"
+        threat_id = "2147954006"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {56 48 83 ec 20 48 8b 35 ?? ?? ?? ?? 48 8b 0e 48 8d ?? ?? ?? ?? 00 ba 01 00 00 00 45 31 c0 ff d0 b8 ?? ?? ?? ?? 48 03 06 48 83 c4 20 5e 48 ff e0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_CB_2147954007_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.CB!MTB"
+        threat_id = "2147954007"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {48 03 01 ff d0 31 c0}  //weight: 3, accuracy: High
+        $x_2_2 = {4b 45 52 4e 45 4c 33 32 2e 44 4c 4c 00 4c 6f 61 64 4c 69 62 72 61 72 79 41 00 45 78 69 74 50 72 6f 63 65 73 73 00 47 65 74 50 72 6f 63 41 64 64 72 65 73 73}  //weight: 2, accuracy: High
+        $x_1_3 = {47 65 74 50 72 6f 63 41 64 64 72 65 73 73 00 00 00 00 4c 6f 61 64 4c 69 62 72 61 72 79 41 00 00 00 00 56 69 72 74 75 61 6c 41 6c 6c 6f 63}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_CD_2147954008_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.CD!MTB"
+        threat_id = "2147954008"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b c8 ff 15 ?? ?? ?? ?? 48 8b 05 ?? ?? ?? ?? 48 05 ?? ?? ?? ?? ff d0 45 33 c9 45 33 c0 33 d2 33 c9}  //weight: 2, accuracy: Low
+        $x_1_2 = {4b 00 45 00 52 00 4e 00 45 00 4c 00 33 00 32 00 2e 00 44 00 4c 00 4c}  //weight: 1, accuracy: High
+        $x_1_3 = "LoadLibraryA" ascii //weight: 1
+        $x_1_4 = "GetProcAddress" ascii //weight: 1
+        $x_1_5 = "VirtualProtect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

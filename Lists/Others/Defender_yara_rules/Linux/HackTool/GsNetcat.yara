@@ -23,3 +23,28 @@ rule HackTool_Linux_GsNetcat_A_2147918089_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_GsNetcat_SR3_2147953958_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/GsNetcat.SR3"
+        threat_id = "2147953958"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "GsNetcat"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "reverse shell" ascii //weight: 2
+        $x_2_2 = "backdoor " ascii //weight: 2
+        $x_2_3 = "backshell" ascii //weight: 2
+        $x_2_4 = "/bin/sh" ascii //weight: 2
+        $x_2_5 = "/bin/bash" ascii //weight: 2
+        $x_2_6 = "gs-netcat -" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

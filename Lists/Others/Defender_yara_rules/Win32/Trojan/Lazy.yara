@@ -2313,3 +2313,24 @@ rule Trojan_Win32_Lazy_CM_2147953811_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_PGLY_2147953986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.PGLY!MTB"
+        threat_id = "2147953986"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {88 e9 80 e5 ?? f6 d1 89 ca 80 e2 ?? 08 d5 89 c2 24 ?? 80 f2 ?? 08 d1 80 e2 ?? 08 d0 f6 d1 30 e8 08 c1 88 4c 3d 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

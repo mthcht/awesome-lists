@@ -275,3 +275,26 @@ rule Ransom_Win64_LockBit_MZZ_2147952259_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_NIT_2147953977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.NIT!MTB"
+        threat_id = "2147953977"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 2a 7c 00 00 85 c0 0f 84 9d 00 00 00 48 8d 45 b0 48 83 c0 2c 48 8d 15 ae 99 00 00 48 89 c1 e8 93 7b 00 00 48 85 c0 75 38 48 8d 45 b0 48 83 c0 2c 48 8d 15 99 99 00 00 48 89 c1 e8 77 7b 00 00 48 85 c0 75 1c 48 8d 45 b0 48 83 c0 2c 48 8d 15 82 99 00 00 48 89 c1}  //weight: 1, accuracy: High
+        $x_2_2 = {e8 fc 78 00 00 48 89 85 10 01 00 00 48 83 bd 10 01 00 00 ff 0f 84 1c 01 00 00 c7 45 d0 30 01 00 00 48 8d 05 d1 99 00 00 48 89 45 a0 48 8d 05 ce 99 00 00 48 89 45 a8 48 8d 05 cd 99 00 00 48 89 45 b0 48 8d 05 c6 99 00 00 48 89 45 b8 48 8d 05 c3 99 00 00 48 89 45 c0 48 8d 05 bf 99 00 00 48 89 45 c8 c7 85 0c 01 00 00 06 00 00 00 48 8d 55 d0 48 8b 85 10 01 00 00 48 89 c1 e8 09 78 00 00}  //weight: 2, accuracy: High
+        $x_2_3 = {ba 01 00 00 00 48 8d 05 27 99 00 00 48 89 c1 e8 5b f9 ff ff 48 8d 05 48 99 00 00 48 89 c1 e8 c0 76 00 00 ba 01 00 00 00 48 8d 05 8c 99 00 00 48 89 c1 e8 38 f9 ff ff 48 8d 05 a5 99 00 00 48 89 c1 e8 9d 76 00 00 48 8d 05 c6 99 00 00 48 89 c1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

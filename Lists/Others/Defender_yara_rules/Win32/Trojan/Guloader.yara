@@ -7942,3 +7942,28 @@ rule Trojan_Win32_Guloader_KP_2147953709_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KQ_2147953978_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KQ!MTB"
+        threat_id = "2147953978"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Aldehydase\\unencouraging.ini" ascii //weight: 1
+        $x_1_2 = "terminsrenters\\tetrahydric\\teaktrernes" ascii //weight: 1
+        $x_1_3 = "sukkerskaalens.zip" ascii //weight: 1
+        $x_1_4 = "dansktop\\opsparingskontiene.bin" ascii //weight: 1
+        $x_1_5 = "caledonian\\byggeskik.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

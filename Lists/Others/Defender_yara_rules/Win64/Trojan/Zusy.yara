@@ -2473,3 +2473,31 @@ rule Trojan_Win64_Zusy_LMO_2147953644_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_PGZI_2147953959_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGZI!MTB"
+        threat_id = "2147953959"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 31 00 37 00 36 00 2e 00 34 00 36 00 2e 00 31 00 35 00 32 00 2e 00 36 00 32 00 3a 00 35 00 38 00 35 00 38 00 2f 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5f 00 63 00 72 00 79 00 70 00 74 00 65 00 64 00 5f 00 62 00 75 00 69 00 6c 00 64 00 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 74 70 3a 2f 2f 31 37 36 2e 34 36 2e 31 35 32 2e 36 32 3a 35 38 35 38 2f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5f 63 72 79 70 74 65 64 5f 62 75 69 6c 64 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "http://176.46.152.62:5858/dadaasads_new.ps1" ascii //weight: 2
+        $x_1_4 = "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
