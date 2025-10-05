@@ -385,3 +385,71 @@ rule Trojan_Win64_Oyster_CD_2147954008_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Oyster_ZH_2147954042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.ZH!MTB"
+        threat_id = "2147954042"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 44 24 58 48 8b 4c 24 28 0f b7 04 48 85 c0 74 6c 45 33 c0 33 d2 33 c9}  //weight: 1, accuracy: High
+        $x_1_2 = "DllRegisterServer" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_BB_2147954043_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.BB!MTB"
+        threat_id = "2147954043"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 6c 24 50 45 33 c9 89 6c 24 48 45 33 c0 89 6c 24 40 33 d2 89 6c 24 38 33 c9 89 6c 24 30 48 89 6c 24 28 89 6c 24 20}  //weight: 1, accuracy: High
+        $x_1_2 = "DllRegisterServer" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Oyster_BC_2147954044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.BC!MTB"
+        threat_id = "2147954044"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {fd 88 fb d4 7f 5b 90 51 07 06 ce bc ff 3b 41 c5 ac c1 ed 40 cc 0c af db 56 a5 17 35 6e fe 8b a3 0d a2 c4 cb 69 8a 02 f8 ef 3b e4 47 5e da 89 71 d2 48 6e f4 14 a1 49 c8 16 b4 73 c9 e8 b2 87 73 54 5c ec 78 f4 2e 8e b5 31 ee e0 24 3c 81 8f c3 53 2c 81 34 e8 57 1b 4d c2 97 46 19 e2 7c 61 57 c7 b6 9f 89 ca e7 5b 0e fd 63 06 89 0c 2d 9e e6 62 42 81 c6 34 92 8c fa 7c 8a ae e4 8f ff 2f 8a bb f4 64 8c 68 da 36 bd 07 8b e7 6f 84 36 75 34 90 4d ab 6e 94 ce f7 1f 60 da 02 08 6f e8 15 b9 9b a0 57 12 ab ed 98 4d 44 63 5c 12 62 08 6c c4 13 b7 15 83 c6}  //weight: 1, accuracy: High
+        $x_1_2 = {bd a0 08 90 87 5b 9e 1e ad 55 9d b6 e4 4f 3a ed a7 2f fd 17 ce fe a4 4b 48 8b 33 c2 98 91 ab 67 06 1c c3 2c 24 e4 81 93 af 73 20 2c 52 2d 22 22 dc 68 3a 28 3f e8 8c 96 43 87 5f a1 59 bf ed 10}  //weight: 1, accuracy: High
+        $x_1_3 = {88 fb d4 7f 5b 90 51 07 06 ce bc ff 3b 41 c5 ac c1 ed 40 cc 0c af db 56 a5 17 35 6e fe 8b a3 0d a2 c4 cb 69 8a 02 f8 ef 3b e4 47 5e}  //weight: 1, accuracy: High
+        $x_1_4 = {3b 41 c5 ac c1 ed 40 cc 0c af db 56 a5 17 35 6e fe 8b a3 0d a2 c4 cb 69 8a 02 f8 ef 3b e4 47 5e}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
