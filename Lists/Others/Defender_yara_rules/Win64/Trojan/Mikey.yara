@@ -1055,3 +1055,26 @@ rule Trojan_Win64_Mikey_MEG_2147953614_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_AHG_2147954273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AHG!MTB"
+        threat_id = "2147954273"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {20 20 20 00 20 20 20 20 00 00 07 00 00 10 00 00 00 cc 02 00 00 10}  //weight: 10, accuracy: High
+        $x_20_2 = {c0 2e 69 64 61 74 61 20 20 00 10 00 00 00 20 07 00 00 02 00 00 00 de 02}  //weight: 20, accuracy: High
+        $x_30_3 = {2e 70 64 61 74 61 00 49 00 30 00 00 00 ?? 62 00 00 22 00 00 00 ?? 23}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

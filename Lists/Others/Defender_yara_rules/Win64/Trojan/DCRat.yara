@@ -280,3 +280,24 @@ rule Trojan_Win64_DCRat_ETL_2147944790_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DCRat_GVC_2147954272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.GVC!MTB"
+        threat_id = "2147954272"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b0 06 bd c2 ef d9 fe 50 21 51 fa 29 c9 4c 85 15 00 19 1b 04 3d d9 48 c7 7d 30 64 e8 47 7a 6c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

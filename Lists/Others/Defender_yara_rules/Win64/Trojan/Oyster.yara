@@ -453,3 +453,24 @@ rule Trojan_Win64_Oyster_BC_2147954044_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Oyster_CF_2147954270_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.CF!MTB"
+        threat_id = "2147954270"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {31 19 31 41 ?? 48 83 c1 08 48 39 d1 72}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
