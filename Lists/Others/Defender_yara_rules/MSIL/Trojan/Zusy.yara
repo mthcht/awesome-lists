@@ -3949,3 +3949,25 @@ rule Trojan_MSIL_Zusy_MKA_2147952542_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_AR_2147954230_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AR!MTB"
+        threat_id = "2147954230"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {06 09 02 09 91 03 09 91 61 d2 9c 09 17 58 0d 09 02 8e 69 fe 04 13 04 11 04 2d e5}  //weight: 25, accuracy: High
+        $x_5_2 = "den444.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

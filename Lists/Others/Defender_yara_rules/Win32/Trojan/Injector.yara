@@ -2393,3 +2393,34 @@ rule Trojan_Win32_Injector_SX_2147953719_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_ARR_2147954233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.ARR!MTB"
+        threat_id = "2147954233"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {8b 4d f4 83 c1 01 8b 55 fc 8b 02 99 f7 f9 0f af 45 f4 89 45 f4 c7 85 48}  //weight: 30, accuracy: High
+        $x_20_2 = {8b 45 fc 0b 45 f8 8b 4d f8 23 4d f8 0f af c1 0f af 45 f8 89 45 f8 eb}  //weight: 20, accuracy: High
+        $x_30_3 = {8b 85 3c ff ff ff 8b 0c 90 33 0d c4 a1 43 00 8b 95 60 ff ff ff 8b 85 3c ff ff ff}  //weight: 30, accuracy: High
+        $x_20_4 = {8b 4d fc 83 c1 01 8b 45 fc 99 f7 f9 0f af 45 fc 89 45 fc 8d 55 fc}  //weight: 20, accuracy: High
+        $x_30_5 = {8d 45 dc 89 45 b4 8b 4d b4 8b 55 ac 0f af 11 0f af 55 a8 89 55 a8 c7 45 e4}  //weight: 30, accuracy: High
+        $x_20_6 = {8b 4d 08 83 c1 01 8b 45 fc 99 f7 f9 0f af 45 10 89 45 10}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_20_*))) or
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

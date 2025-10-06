@@ -785,3 +785,26 @@ rule Trojan_Win32_Tedy_PGTL_2147953659_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_ARR_2147954236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARR!MTB"
+        threat_id = "2147954236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {f2 0f 10 44 24 30 b8 ?? ?? ?? ?? f2 0f 10 0d ?? ?? ?? ?? 66 0f 1f 44 ?? ?? f2 0f 59 c2 f2 0f 58 c1 83 e8}  //weight: 30, accuracy: Low
+        $x_20_2 = {f2 0f 59 f0 f2 0f 59 f0 f2 0f 59 f0 83 e8 03 75 ef}  //weight: 20, accuracy: High
+        $x_10_3 = {66 0f 6f c1 66 0f fc c1 66 0f fc c1 66 0f 6f c8 66 0f fc c8 66 0f fc c9 66 0f fc c9 66 0f fc c1}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
