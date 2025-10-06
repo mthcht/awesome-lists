@@ -83,3 +83,24 @@ rule Trojan_Win32_Korplug_AHT_2147946724_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Korplug_GZF_2147954224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Korplug.GZF!MTB"
+        threat_id = "2147954224"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Korplug"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 0f b6 c9 8a 5c 0c ?? 00 da 0f b6 f2 8a 7c 34 ?? 88 7c 0c ?? 88 5c 34 ?? 02 5c 0c ?? 0f b6 f3 8a 5c 34 ?? 8b 74 24 ?? 32 1c 06 8b 74 24 ?? 88 1c 06 40}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

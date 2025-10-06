@@ -93,3 +93,25 @@ rule Trojan_Win64_Kimsuky_ARA_2147919884_0
         )
 }
 
+rule Trojan_Win64_Kimsuky_SEC_2147954221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Kimsuky.SEC!MTB"
+        threat_id = "2147954221"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Kimsuky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "termsadisd.dll" ascii //weight: 2
+        $x_1_2 = {66 0f 6f 25 ?? ?? ?? ?? 4c 8d 4c 24 40 66 0f 6f 2d ?? ?? ?? ?? 33 f6 44 8b d6 44 8d 46 10}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
