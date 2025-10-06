@@ -128,3 +128,26 @@ rule Trojan_Win64_Injector_AHJ_2147951991_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_PGIN_2147954056_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.PGIN!MTB"
+        threat_id = "2147954056"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {50 61 79 6c 6f 61 64 20 63 6f 70 69 65 64 20 74 6f 20 6c 6f 63 61 6c 20 6d 61 70 70 69 6e 67 3a 20 30 78 25 70 0a}  //weight: 2, accuracy: High
+        $x_2_2 = {53 65 63 74 69 6f 6e 20 6d 61 70 70 65 64 20 69 6e 74 6f 20 72 65 6d 6f 74 65 20 70 72 6f 63 65 73 73 20 61 74 3a 20 30 78 25 70 0a}  //weight: 2, accuracy: High
+        $x_1_3 = "Injection completed successfully!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

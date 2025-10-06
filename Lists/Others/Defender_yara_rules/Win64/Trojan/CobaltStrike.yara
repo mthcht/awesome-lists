@@ -17798,3 +17798,24 @@ rule Trojan_Win64_CobaltStrike_NKC_2147953774_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_NWU_2147954063_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.NWU!MTB"
+        threat_id = "2147954063"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 c1 48 8b 45 ?? ba ?? ?? ?? ?? 48 f7 75 ?? 48 8b 45 ?? 48 01 d0 0f b6 00 31 c1 48 8b 55 ?? 48 8b 45 ?? 48 01 d0 89 ca 88 10 48 83 45 ?? ?? 48 8b 45 ?? 48 3b 45 ?? 72}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
