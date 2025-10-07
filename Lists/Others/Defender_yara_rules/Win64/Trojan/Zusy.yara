@@ -2501,3 +2501,31 @@ rule Trojan_Win64_Zusy_PGZI_2147953959_0
         )
 }
 
+rule Trojan_Win64_Zusy_MKB_2147954292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MKB!MTB"
+        threat_id = "2147954292"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {31 e9 0f 94 c1 0f 95 c2 83 f8 0a 0f 9c c3 83 f8 09 0f 9f c0 20 c1 08 d0 20 d3 08 cb 89 da 30 c2}  //weight: 15, accuracy: High
+        $x_15_2 = {89 c1 30 d1 41 b3 01 20 c2 08 ca 44 30 d9 89 c8 30 d0 08 d1 44 30 d9 08 c1}  //weight: 15, accuracy: High
+        $x_10_3 = {0f 94 c0 0f 95 c1 44 20 c0 41 08 c8 41 20 c9 41 08 c1 44 89 c8 44 30 c0 45 84 c9}  //weight: 10, accuracy: High
+        $x_10_4 = {89 c3 41 b1 01 44 30 cb 89 da 20 c2 89 d9 20 d1 30 da 08 ca 89 d1}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+

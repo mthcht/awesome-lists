@@ -472,3 +472,24 @@ rule Trojan_MSIL_Razy_PPD_2147925390_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Razy_ZGM_2147954321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.ZGM!MTB"
+        threat_id = "2147954321"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {16 0a 2b 0e 03 06 03 06 91 1f 1e 61 d2 9c 06 17 58 0a 06 03 8e 69 32 ec 03 2a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
