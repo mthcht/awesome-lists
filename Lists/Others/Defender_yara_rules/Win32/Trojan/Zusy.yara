@@ -7967,3 +7967,47 @@ rule Trojan_Win32_Zusy_AR_2147954231_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_AMB_2147954338_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AMB!MTB"
+        threat_id = "2147954338"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f be c8 6b c9 0d 02 ca 32 88 ?? ?? ?? ?? 88 4c 05 a0 40 83 f8 59}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AMB_2147954338_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AMB!MTB"
+        threat_id = "2147954338"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {83 c4 04 89 85 f4 ?? ff ff 8b 85 f0 ?? ff ff 83 c0 2a 8b 8d 10 ?? ff ff 03 4d 94 33 c1 88 85}  //weight: 3, accuracy: Low
+        $x_1_2 = "Obak.dll ofyh" ascii //weight: 1
+        $x_1_3 = "Uduzyd ysav ewyc ikolyz" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
