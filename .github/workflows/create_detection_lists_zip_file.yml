@@ -74,6 +74,8 @@ jobs:
             "Lists/suspicious_windows_tasks_list.csv"
             "Lists/Browser Extensions/browser_extensions_list.csv"
             "Lists/DYNDNS/dyndns_list.csv"
+            "Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted/GeoLite2-City-CSV-latest/GeoLite2-City-Locations-en.csv"
+            "Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted/GeoLite2-Country-CSV-latest/GeoLite2-Country-Locations-en.csv"
           )
 
           for file in "${LOCAL_FILES[@]}"; do
