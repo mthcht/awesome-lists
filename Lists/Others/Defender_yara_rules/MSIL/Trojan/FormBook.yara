@@ -231,6 +231,29 @@ rule Trojan_MSIL_FormBook_SK_2147755589_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "KeypadFormSampler" ascii //weight: 1
+        $x_1_2 = "DependencyPropertyWeaver.Properties" ascii //weight: 1
+        $x_1_3 = "$E4B7A3F9-6C2D-4A8E-9F5B-1D8A4C7E2B6F" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_SK_2147755589_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.SK!MTB"
+        threat_id = "2147755589"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
