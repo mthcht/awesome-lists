@@ -177,3 +177,62 @@ rule Trojan_Win32_Oyster_WQF_2147954004_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Oyster_D_2147954295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Oyster.D!MTB"
+        threat_id = "2147954295"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rundll32.exe" ascii //weight: 1
+        $x_1_2 = "LoadLibraryA" ascii //weight: 1
+        $x_1_3 = "GetProcAddress" ascii //weight: 1
+        $x_1_4 = "InternetOpenW" ascii //weight: 1
+        $x_1_5 = "DllRegisterServer" ascii //weight: 1
+        $x_1_6 = "schtasks.exe /Create" wide //weight: 1
+        $x_1_7 = "ShellExecute" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Oyster_Z_2147954298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Oyster.Z!MTB"
+        threat_id = "2147954298"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "InternetOpenW" ascii //weight: 1
+        $x_1_2 = "InternetReadFile" ascii //weight: 1
+        $x_1_3 = "HttpSendRequestA" ascii //weight: 1
+        $x_1_4 = "malloc" ascii //weight: 1
+        $x_1_5 = "WriteFile" ascii //weight: 1
+        $x_1_6 = "Del /f /q \"%s" ascii //weight: 1
+        $x_1_7 = "cmd.exe /C ping " ascii //weight: 1
+        $x_1_8 = "Mutex already exists, another instance is running." ascii //weight: 1
+        $x_1_9 = "%APPDATA%" ascii //weight: 1
+        $x_1_10 = "schtasks" ascii //weight: 1
+        $x_1_11 = "TimeSleep: %d" ascii //weight: 1
+        $x_1_12 = "WordPressAgent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
