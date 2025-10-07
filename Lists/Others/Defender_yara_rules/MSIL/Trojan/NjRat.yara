@@ -3613,3 +3613,26 @@ rule Trojan_MSIL_NjRat_SLCN_2147951563_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_AEHB_2147954324_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.AEHB!MTB"
+        threat_id = "2147954324"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 73 ?? 00 00 0a 0d 09 11 04 2b 27 00 09 18 2b 18 00 09 18 2b 03 00 2b 07 6f ?? 00 00 0a 2b f6 02 28 ?? 00 00 0a 0a 2b 07 6f ?? 00 00 0a 2b e1 00 2b 07 6f ?? 00 00 0a 2b d2 09 6f ?? 00 00 0a 13 07 11 07 06 16 06 8e b7 6f ?? 00 00 0a 0c de 10}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
