@@ -3992,3 +3992,49 @@ rule Trojan_MSIL_Zusy_AR_2147954230_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_AJ_2147954444_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AJ!MTB"
+        threat_id = "2147954444"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {01 13 06 11 04 11 06 16 7e 14 00 00 04 1c 94 fe 1c 0d 00 00 01 59 7e 14 00 00 04 1d 94 59 6f}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_AN_2147954449_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AN!MTB"
+        threat_id = "2147954449"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {01 13 1f 11 1f 16 12 18 28 ?? 00 00 0a 9c 11 1f 17 12 18 28 ?? 00 00 0a 9c 11 1f 18 12 18 28}  //weight: 1, accuracy: Low
+        $x_1_2 = "DebuggableAttribute" ascii //weight: 1
+        $x_1_3 = "DebuggingModes" ascii //weight: 1
+        $x_1_4 = "DebuggerNonUserCodeAttribute" ascii //weight: 1
+        $x_1_5 = "Exercicio05.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -594,3 +594,25 @@ rule Trojan_Win32_Graftor_LMC_2147947987_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Graftor_LMC_2147947987_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.LMC!MTB"
+        threat_id = "2147947987"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 95 3b ff ff ff 33 55 8c 89 55 dc 8b 85 dc fe ff ff 83 e8 45 83 c8 02 88 45 d7 0f b6 8d f3 fe ff ff 2b 8d 14 ff ff ff 81 f1 98 00 00 00 33 0d ?? ?? ?? ?? 88 8d f3 fe ff ff 0f b7 95 d0 fe ff ff 8b 45 b4}  //weight: 10, accuracy: Low
+        $x_20_2 = {8b 4d e8 83 e9 4f 83 f1 15 66 89 8d c8 fe ff ff 8b 95 10 ff ff ff 2b 95 94 fe ff ff 83 e2 5b 89 95 50 ff ff ff 8b 85 a4 fe ff ff 83 c0 01 89 85 08 ff ff ff 8b 4d 8c 83 e1 21 8b 95 d8 fe ff ff 83 ea 18 33 ca 83 f1 35}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

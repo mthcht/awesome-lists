@@ -3016,3 +3016,25 @@ rule Trojan_Win64_Dridex_KAB_2147953715_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dridex_KAC_2147954464_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.KAC!MTB"
+        threat_id = "2147954464"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b 44 24 08 89 4c 24 04 48 89 c1 48 d3 e8 48 89 44 24 38 8b 54 24 04 83 e2 ?? c7 44 24 28 ?? 00 00 00 83 fa 00}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 44 24 20 8b 4c 24 44 81 c1 ?? ?? ?? ?? 21 c8 c7 44 24 28 ?? 00 00 00 83 f8 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

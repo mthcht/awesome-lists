@@ -31,6 +31,27 @@ rule Trojan_Win32_Zusy_AC_2147797612_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 45 08 8b 4d fc 8b 75 08 8b 4c 8e 20 89 8c 10 00 10 00 00 8b 55 fc 8b 45 08 8b 8d 28 ff ff ff 33 4c ?? 20 ba 04 00 00 00 c1 e2 03 8b 45 0c 89 0c 10 b9 04 00 00 00 6b d1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_AC_2147797612_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AC!MTB"
+        threat_id = "2147797612"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
@@ -41,7 +62,7 @@ rule Trojan_Win32_Zusy_AC_2147797612_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_AC_2147797612_1
+rule Trojan_Win32_Zusy_AC_2147797612_2
 {
     meta:
         author = "defender2yara"
@@ -8006,6 +8027,30 @@ rule Trojan_Win32_Zusy_AMB_2147954338_1
         $x_3_1 = {83 c4 04 89 85 f4 ?? ff ff 8b 85 f0 ?? ff ff 83 c0 2a 8b 8d 10 ?? ff ff 03 4d 94 33 c1 88 85}  //weight: 3, accuracy: Low
         $x_1_2 = "Obak.dll ofyh" ascii //weight: 1
         $x_1_3 = "Uduzyd ysav ewyc ikolyz" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_KAI_2147954468_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KAI!MTB"
+        threat_id = "2147954468"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {ac 0f b6 c0 aa 3b c3 75}  //weight: 8, accuracy: High
+        $x_7_2 = {40 89 10 b2 6e 86 d6 88 70 04 b2 65 86 d6 88 70 08}  //weight: 7, accuracy: High
+        $x_5_3 = {ac 88 07 47 84 c0 75}  //weight: 5, accuracy: High
+        $x_3_4 = "takemyoldfood" ascii //weight: 3
     condition:
         (filesize < 20MB) and
         (all of ($x*))

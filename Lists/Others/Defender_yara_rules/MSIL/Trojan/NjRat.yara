@@ -3657,3 +3657,24 @@ rule Trojan_MSIL_NjRat_SLBA_2147954381_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_SLCB_2147954517_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.SLCB!MTB"
+        threat_id = "2147954517"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 1e 00 00 0a 20 70 11 01 00 28 1f 00 00 0a 72 01 00 00 70 28 20 00 00 0a 0a 28 14 00 00 06 0b 06 07 28 15 00 00 06 0c 08 28 13 00 00 06 de 0c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -82,3 +82,24 @@ rule Trojan_Win32_Obsidium_AC_2147944998_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Obsidium_AD_2147954440_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Obsidium.AD!MTB"
+        threat_id = "2147954440"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Obsidium"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {34 91 ab 19 61 a9 d4 a6 7b 62 09 b2 b1 32 2c 61 26 41 fb 56 9e 1c b2 33 1d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

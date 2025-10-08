@@ -5885,3 +5885,55 @@ rule Trojan_Win32_GuLoader_RCL_2147953948_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCM_2147954478_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCM!MTB"
+        threat_id = "2147954478"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "malihinis prydelser pleurocentral" ascii //weight: 1
+        $x_1_2 = "konstruktionsmaaden" ascii //weight: 1
+        $x_1_3 = "sejrs" ascii //weight: 1
+        $x_1_4 = "arealberegningerne knleddet.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUX_2147954479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUX!MTB"
+        threat_id = "2147954479"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\cerianthoid\\veneral" ascii //weight: 1
+        $x_1_2 = "\\Ordrig\\Overindustrialized.exe" ascii //weight: 1
+        $x_1_3 = "Dagvagterne70.met" ascii //weight: 1
+        $x_1_4 = "Nazarenes177.ita" ascii //weight: 1
+        $x_1_5 = "Radikalerne.txt" ascii //weight: 1
+        $x_1_6 = "Rubijervine207.jpg" ascii //weight: 1
+        $x_1_7 = "beguilingly.txt" ascii //weight: 1
+        $x_1_8 = "\\Specialordbog\\Hensover" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -156,3 +156,36 @@ rule Trojan_MSIL_Darkcloud_AAJA_2147931092_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Darkcloud_PGDC_2147954490_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Darkcloud.PGDC!MTB"
+        threat_id = "2147954490"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Darkcloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 65 00 6e 00 65 00 72 00 67 00 79 00 74 00 75 00 6c 00 63 00 65 00 61 00 2e 00 72 00 6f 00 2f 00 [0-10] 2e 00 64 00 61 00 74 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 74 00 74 00 70 73 3a 2f 2f 65 6e 65 72 67 79 74 75 6c 63 65 61 2e 72 6f 2f [0-10] 2e 64 61 74}  //weight: 5, accuracy: Low
+        $x_5_3 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 65 00 6e 00 65 00 72 00 67 00 79 00 74 00 75 00 6c 00 63 00 65 00 61 00 2e 00 72 00 6f 00 2f 00 [0-10] 2e 00 6d 00 70 00 34 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {68 74 00 74 00 70 73 3a 2f 2f 65 6e 65 72 67 79 74 75 6c 63 65 61 2e 72 6f 2f [0-10] 2e 6d 70 34}  //weight: 5, accuracy: Low
+        $x_1_5 = "DebuggerHiddenAttribute" ascii //weight: 1
+        $x_1_6 = "DebuggableAttribute" ascii //weight: 1
+        $x_1_7 = "ComVisibleAttribute" ascii //weight: 1
+        $x_1_8 = "DownloadData" ascii //weight: 1
+        $x_1_9 = "Reverse" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 5 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

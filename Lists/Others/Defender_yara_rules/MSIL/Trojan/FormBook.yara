@@ -16490,3 +16490,28 @@ rule Trojan_MSIL_FormBook_MCJ_2147954210_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_AI_2147954451_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.AI!MTB"
+        threat_id = "2147954451"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {01 13 1d 11 1d 16 12 16 28 ?? 00 00 0a 9c 11 1d 17 12 16 28 ?? 00 00 0a 9c 11 1d 18 12 16 28}  //weight: 1, accuracy: Low
+        $x_1_2 = "DebuggerNonUserCodeAttribute" ascii //weight: 1
+        $x_1_3 = "DebuggableAttribute" ascii //weight: 1
+        $x_1_4 = "DebuggingModes" ascii //weight: 1
+        $x_1_5 = "DesktopProject.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

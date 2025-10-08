@@ -21827,3 +21827,26 @@ rule Trojan_Win32_Emotet_AEM_2147953343_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Emotet_KK_2147954466_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Emotet.KK!MTB"
+        threat_id = "2147954466"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Emotet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 44 24 0c 8b 4c 24 24 81 c1 f9 cd 03 ba 8a 54 24 2f 80 f2 10 8b 74 24 20 8a 34 06 c7 44 24 34}  //weight: 20, accuracy: High
+        $x_10_2 = {89 44 24 30 89 54 24 34 8b 44 24 08 01 c8 8a 4c 24 07 8a 6c 24 06 38 e9 89 44 24 0c}  //weight: 10, accuracy: High
+        $x_5_3 = "ekekekKKQQwe.pdb" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

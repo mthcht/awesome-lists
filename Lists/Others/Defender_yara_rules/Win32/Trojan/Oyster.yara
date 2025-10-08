@@ -236,3 +236,25 @@ rule Trojan_Win32_Oyster_Z_2147954298_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Oyster_CG_2147954480_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Oyster.CG!MTB"
+        threat_id = "2147954480"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {e8 00 00 00 00 89 ef 5d 60 80 ?? ?? 90 75 06 61 89 fd}  //weight: 5, accuracy: Low
+        $x_5_2 = {c2 04 00 01 6d ?? 8d 4d ?? 8d 95 ?? ?? ?? ?? 9a ?? ?? ?? ?? ?? ?? 48 c7 c0 ?? ?? ?? ?? 48 01 c3 48 c7 c3 ?? ?? ?? ?? 48 c1 e0 ?? 48}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

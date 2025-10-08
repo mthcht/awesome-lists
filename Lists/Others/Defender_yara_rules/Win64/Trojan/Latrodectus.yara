@@ -1157,3 +1157,39 @@ rule Trojan_Win64_Latrodectus_NKA_2147954271_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Latrodectus_B_2147954512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Latrodectus.B"
+        threat_id = "2147954512"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Latrodectus"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "304"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {69 00 0d 66 19 00}  //weight: 100, accuracy: High
+        $x_100_2 = {c7 04 24 c5 9d 1c 81}  //weight: 100, accuracy: High
+        $x_100_3 = {69 04 24 93 01 00 01}  //weight: 100, accuracy: High
+        $x_10_4 = {4d 5a 45 52 e8 00 00 00 00 59 48 83 e9 09 48 8b c1 48 05 ?? ?? ?? ?? ff d0 c3}  //weight: 10, accuracy: Low
+        $x_10_5 = {4d 5a 45 52 e8 00 00 00 00 5b 48 83 eb 09 53 48 81 c3 ?? ?? ?? ?? ff d0 c3}  //weight: 10, accuracy: Low
+        $x_10_6 = {4d 5a 45 52 e8 00 00 00 00 58 83 e8 09 50 05 ?? ?? ?? ?? ff d0 c3}  //weight: 10, accuracy: Low
+        $x_1_7 = {b0 06 6a 90}  //weight: 1, accuracy: High
+        $x_1_8 = {87 b8 c9 d4}  //weight: 1, accuracy: High
+        $x_1_9 = {f6 b1 00 ff}  //weight: 1, accuracy: High
+        $x_1_10 = {66 0f 38 1d e0 66 0f 6f c3 66 0f 6d c1 66 0f 6f}  //weight: 1, accuracy: High
+        $x_1_11 = {8b 04 24 ff c0 89 04 24 8b 44 24 ?? 39 04 24 73}  //weight: 1, accuracy: Low
+        $x_1_12 = {8b 0c 24 48 8b 54 24 ?? 0f b6 0c 0a 33 4c 24 ?? 81 e1 ?? ?? ?? ?? 8b c9 48 8d 15 ?? ?? ?? ?? 33 04 8a 89 44 24 ?? eb}  //weight: 1, accuracy: Low
+        $x_1_13 = {48 03 c8 48 8b c1 8b 4c 24 20 48 8d 04 88 48 89 44 24 38 48 8b 44 24 38 8b 00 48 8b 4c 24 70 48 03 c8 48 8b c1 48 89 44 24 28 48 8b 4c 24 28}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_100_*) and 4 of ($x_1_*))) or
+            ((3 of ($x_100_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
