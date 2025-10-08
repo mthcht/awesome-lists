@@ -1099,3 +1099,31 @@ rule Trojan_Win64_Mikey_AD_2147954450_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_AHI_2147954616_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AHI!MTB"
+        threat_id = "2147954616"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {78 48 8b 47 ?? 48 89 45 ?? 48 8b 5f ?? 48 89 5d 88 4c 89 27 4c 89 67 08 4c 89 67 10 eb}  //weight: 30, accuracy: Low
+        $x_30_2 = {80 48 8b 47 ?? 48 89 45 ?? 48 8b 5f ?? 48 89 5d 90 4c 89 3f 4c 89 7f 08 4c 89 7f 10 eb}  //weight: 30, accuracy: Low
+        $x_20_3 = "discriminator\"\\s*:\\s*\"([" ascii //weight: 20
+        $x_10_4 = "[\\w-]{24,26}\\.[\\w-]{6}\\.[\\w-]{27,110}" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+
