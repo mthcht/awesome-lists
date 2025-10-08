@@ -18,8 +18,10 @@ rule Trojan_Win32_ValakReg_A_2147954081_0
         $x_1_4 = " -Value " ascii //weight: 1
         $x_1_5 = ".cab" ascii //weight: 1
         $x_1_6 = "-Force" ascii //weight: 1
+        $n_1_7 = "9453e881-26a8-4973-ba2e-76269e901d0p" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

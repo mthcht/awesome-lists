@@ -17,8 +17,10 @@ rule Trojan_Win32_DarkCrystal_A_2147954074_0
         $x_1_3 = "-Minimum " ascii //weight: 1
         $x_1_4 = "-Maximum" ascii //weight: 1
         $x_1_5 = "Start-Sleep" ascii //weight: 1
+        $n_1_6 = "9453e881-26a8-4973-ba2e-76269e901d0k" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -40,8 +42,10 @@ rule Trojan_Win32_DarkCrystal_A_2147954074_1
         $x_1_2 = "New-Object " ascii //weight: 1
         $x_1_3 = "System.Threading.Mutex($" ascii //weight: 1
         $x_1_4 = "Dispose()" ascii //weight: 1
+        $n_1_5 = "9453e881-26a8-4973-ba2e-76269e901d0h" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -64,8 +68,10 @@ rule Trojan_Win32_DarkCrystal_B_2147954077_0
         $x_1_3 = "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Wininit" ascii //weight: 1
         $x_1_4 = " -Value " ascii //weight: 1
         $x_1_5 = "Sysdll32.lnk" ascii //weight: 1
+        $n_1_6 = "9453e881-26a8-4973-ba2e-76269e901d0l" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -88,8 +94,10 @@ rule Trojan_Win32_DarkCrystal_C_2147954078_0
         $x_1_3 = "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\scrss" ascii //weight: 1
         $x_1_4 = " -Value " ascii //weight: 1
         $x_1_5 = "AppData\\Roaming\\dotNET.lnk" ascii //weight: 1
+        $n_1_6 = "9453e881-26a8-4973-ba2e-76269e901d0m" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

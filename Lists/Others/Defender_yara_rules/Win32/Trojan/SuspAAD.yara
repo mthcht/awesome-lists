@@ -16,8 +16,10 @@ rule Trojan_Win32_SuspAAD_A_2147954135_0
         $x_1_2 = "nltest.exe /domain_trusts /all_trusts" ascii //weight: 1
         $x_1_3 = "net.exe localgroup administrators" ascii //weight: 1
         $x_1_4 = "whoami /groups" ascii //weight: 1
+        $n_1_5 = "69802c98-2ce2-4a17-98u0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
@@ -38,8 +40,10 @@ rule Trojan_Win32_SuspAAD_B_2147954136_0
         $x_1_1 = "powershell.exe -c" ascii //weight: 1
         $x_1_2 = "Get-WMIObject Win32_NTDomain" ascii //weight: 1
         $x_1_3 = "findstr DomainController" ascii //weight: 1
+        $n_1_4 = "69802c98-2ce2-4a17-98v0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -59,8 +63,10 @@ rule Trojan_Win32_SuspAAD_C_2147954137_0
     strings:
         $x_1_1 = "ipconfig.exe /all" ascii //weight: 1
         $x_1_2 = "net.exe user" ascii //weight: 1
+        $n_1_3 = "69802c98-2ce2-4a17-98w0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
@@ -81,8 +87,10 @@ rule Trojan_Win32_SuspAAD_D_2147954138_0
         $x_1_1 = "cmd.exe /c" ascii //weight: 1
         $x_1_2 = "AppData\\Local\\Temp" ascii //weight: 1
         $x_1_3 = "qbotDiscovery.bat" ascii //weight: 1
+        $n_1_4 = "69802c98-2ce2-4a17-98x0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -110,8 +118,10 @@ rule Trojan_Win32_SuspAAD_E_2147954139_0
         $x_1_8 = "netsh.exe advfirewall firewall show rule name=all" ascii //weight: 1
         $x_1_9 = "tasklist.exe /svc" ascii //weight: 1
         $x_1_10 = "powershell.exe -enc" ascii //weight: 1
+        $n_1_11 = "69802c98-2ce2-4a17-98y0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 

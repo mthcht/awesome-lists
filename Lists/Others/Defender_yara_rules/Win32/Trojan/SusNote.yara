@@ -15,8 +15,10 @@ rule Trojan_Win32_SusNote_MK_2147954084_0
         $x_1_1 = "notepad.exe " ascii //weight: 1
         $x_1_2 = "AppData\\Local\\Temp" ascii //weight: 1
         $x_1_3 = "HOW_TO_DECRYPT.txt" ascii //weight: 1
+        $n_1_4 = "9453e881-26a8-4973-ba2e-76269e901d0s" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

@@ -20,8 +20,10 @@ rule Trojan_Win32_SusAutoStart_A_2147954140_0
         $x_1_6 = "MountLocker." ascii //weight: 1
         $x_1_7 = "Darkside." ascii //weight: 1
         $x_1_8 = "Sodinokibi." ascii //weight: 1
+        $n_1_9 = "69802c98-2ce2-4a17-98z0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (3 of ($x*))
 }
 

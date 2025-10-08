@@ -15,8 +15,10 @@ rule Trojan_Win32_SusSparrow_MK_2147954093_0
         $x_1_1 = "cmd.exe /c " ascii //weight: 1
         $x_1_2 = "AppData\\Local\\Temp" ascii //weight: 1
         $x_1_3 = "update.bat" ascii //weight: 1
+        $n_1_4 = "a453e881-26a8-4973-bc2e-76269e901d0a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -39,8 +41,10 @@ rule Trojan_Win32_SusSparrow_A_2147954094_0
         $x_1_3 = "AppData\\Local\\Temp" ascii //weight: 1
         $x_1_4 = "screensaver.reg" ascii //weight: 1
         $x_1_5 = "/y" wide //weight: 1
+        $n_1_6 = "a453e881-26a8-4973-bd2e-76269e901d0a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -64,8 +68,10 @@ rule Trojan_Win32_SusSparrow_B_2147954095_0
         $x_1_4 = "ScreenSaveActive" ascii //weight: 1
         $x_1_5 = "/v" wide //weight: 1
         $x_1_6 = "/f" wide //weight: 1
+        $n_1_7 = "a453e881-26a8-4973-be2e-76269e901d0a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -89,8 +95,10 @@ rule Trojan_Win32_SusSparrow_C_2147954096_0
         $x_1_4 = "/ST" wide //weight: 1
         $x_1_5 = "/tr" wide //weight: 1
         $x_1_6 = "/F" wide //weight: 1
+        $n_1_7 = "a453e881-26a8-4973-bf2e-76269e901d0a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

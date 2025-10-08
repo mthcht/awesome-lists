@@ -14,8 +14,10 @@ rule Trojan_Win32_SusNetworkConfig_A_2147954088_0
     strings:
         $x_1_1 = "curl.exe " ascii //weight: 1
         $x_1_2 = ".com" wide //weight: 1
+        $n_1_3 = "9453e881-26a8-4973-ba2e-76269e901d0w" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

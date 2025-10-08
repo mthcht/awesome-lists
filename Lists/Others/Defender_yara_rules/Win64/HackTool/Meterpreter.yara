@@ -35,34 +35,6 @@ rule HackTool_Win64_Meterpreter_A_2147726024_1
         severity = "High"
         info = "dll: Dynamic Link Library component of a malware"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "12"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {5d 68 fa 3c [0-4] 8b}  //weight: 5, accuracy: Low
-        $x_5_2 = {5b bc 4a 6a 0f 85}  //weight: 5, accuracy: High
-        $x_1_3 = {48 81 c4 f0 00 00 00 41 5e 5f 5e 5b 5d c3}  //weight: 1, accuracy: High
-        $x_1_4 = {48 81 c4 d8 07 00 00 41 5f 41 5e 41 5d 41 5c 5f 5e 5b 5d c3}  //weight: 1, accuracy: High
-        $x_1_5 = {49 8b ce ff ?? ?? ?? ?? ?? 48 8b d3 48 8b ce 41 ff d6 85 c0 48 0f 4f de 48 03 f5 48 3b f7 76 e0}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (
-            ((2 of ($x_5_*) and 2 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule HackTool_Win64_Meterpreter_A_2147726024_2
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Win64/Meterpreter.A!dll"
-        threat_id = "2147726024"
-        type = "HackTool"
-        platform = "Win64: Windows 64-bit platform"
-        family = "Meterpreter"
-        severity = "High"
-        info = "dll: Dynamic Link Library component of a malware"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -78,7 +50,7 @@ rule HackTool_Win64_Meterpreter_A_2147726024_2
         (6 of ($x*))
 }
 
-rule HackTool_Win64_Meterpreter_A_2147726024_3
+rule HackTool_Win64_Meterpreter_A_2147726024_2
 {
     meta:
         author = "defender2yara"
@@ -105,7 +77,7 @@ rule HackTool_Win64_Meterpreter_A_2147726024_3
         (6 of ($x*))
 }
 
-rule HackTool_Win64_Meterpreter_A_2147726024_4
+rule HackTool_Win64_Meterpreter_A_2147726024_3
 {
     meta:
         author = "defender2yara"
@@ -131,7 +103,7 @@ rule HackTool_Win64_Meterpreter_A_2147726024_4
         (all of ($x*))
 }
 
-rule HackTool_Win64_Meterpreter_A_2147726024_5
+rule HackTool_Win64_Meterpreter_A_2147726024_4
 {
     meta:
         author = "defender2yara"

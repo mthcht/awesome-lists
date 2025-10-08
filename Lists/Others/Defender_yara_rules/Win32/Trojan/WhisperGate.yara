@@ -203,8 +203,10 @@ rule Trojan_Win32_WhisperGate_MK_2147954067_0
         $x_1_4 = "forfiles /p " ascii //weight: 1
         $x_1_5 = " /s /M *%G /C " ascii //weight: 1
         $x_1_6 = "cmd /c echo @PATH" ascii //weight: 1
+        $n_1_7 = "9453e881-26a8-4973-ba2e-76269e901d0a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

@@ -17,8 +17,10 @@ rule Trojan_Win32_Machete_A_2147954069_0
         $x_1_3 = " /TN " ascii //weight: 1
         $x_1_4 = "\\AppData\\Roaming\\Chrome\\Google" ascii //weight: 1
         $x_1_5 = " /TR " ascii //weight: 1
+        $n_1_6 = "9b53e881-26a8-4973-ba2e-76269e901d0a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -41,8 +43,10 @@ rule Trojan_Win32_Machete_B_2147954070_0
         $x_1_3 = " && " wide //weight: 1
         $x_1_4 = "\\AppData\\Roaming\\Chrome\\Google" ascii //weight: 1
         $x_1_5 = "> geoip.txt" ascii //weight: 1
+        $n_1_6 = "9453e881-26a8-4973-ba2e-76269e901d0c" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

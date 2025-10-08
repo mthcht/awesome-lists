@@ -15,8 +15,10 @@ rule Trojan_Win32_SusDiscovery_A_2147954166_0
         $x_1_1 = "wmic.exe" ascii //weight: 1
         $x_1_2 = "csproduct" ascii //weight: 1
         $x_1_3 = "get UUID" ascii //weight: 1
+        $n_1_4 = "if9044b2-c2ab-4b43-91d5-bb5aeddc4d76" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -37,8 +39,10 @@ rule Trojan_Win32_SusDiscovery_B_2147954167_0
         $x_1_1 = "ntfsinfo64.exe" ascii //weight: 1
         $x_1_2 = "-accepteula" ascii //weight: 1
         $x_1_3 = "AppData\\Local\\Temp" ascii //weight: 1
+        $n_1_4 = "jf9044b2-c2ab-4b43-91d5-bb5aeddc4d76" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -62,8 +66,10 @@ rule Trojan_Win32_SusDiscovery_C_2147954168_0
         $x_1_4 = "programdata\\enc.exe" ascii //weight: 1
         $x_1_5 = "/F" wide //weight: 1
         $x_1_6 = "/mo " wide //weight: 1
+        $n_1_7 = "kf9044b2-c2ab-4b43-91d5-bb5aeddc4d76" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -88,8 +94,10 @@ rule Trojan_Win32_SusDiscovery_C_2147954168_1
         $x_1_5 = "programdata\\network.dll" wide //weight: 1
         $x_1_6 = "/F" wide //weight: 1
         $x_1_7 = "/mo " wide //weight: 1
+        $n_1_8 = "lf9044b2-c2ab-4b43-91d5-bb5aeddc4d76" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -111,8 +119,10 @@ rule Trojan_Win32_SusDiscovery_D_2147954169_0
         $x_1_2 = "/SC MINUTE /MO" ascii //weight: 1
         $x_1_3 = "svchost.exe" ascii //weight: 1
         $x_1_4 = "/TN StorSyncSvc" ascii //weight: 1
+        $n_1_5 = "4b79ffab-a220-4ed5-a63d-1f1a9045113c" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -135,8 +145,10 @@ rule Trojan_Win32_SusDiscovery_E_2147954170_0
         $x_1_3 = "binPath=" ascii //weight: 1
         $x_1_4 = "Windows Firewall Policy Event Manager" ascii //weight: 1
         $x_1_5 = "svchost.exe" ascii //weight: 1
+        $n_1_6 = "4b79ffab-a220-4ed5-a63d-1f1a9045113a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -159,8 +171,10 @@ rule Trojan_Win32_SusDiscovery_F_2147954171_0
         $x_1_3 = "binPath=" ascii //weight: 1
         $x_1_4 = "Remote Access Connection Manager" ascii //weight: 1
         $x_1_5 = "svchost.exe -k RasConMan" ascii //weight: 1
+        $n_1_6 = "4b79ffab-a220-4ed5-a63d-1f1a9045113b" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -183,8 +197,10 @@ rule Trojan_Win32_SusDiscovery_G_2147954172_0
         $x_1_3 = "Wininet.xml" ascii //weight: 1
         $x_1_4 = "/tn" wide //weight: 1
         $x_1_5 = "Microsoft\\Windows\\Maintenance\\Wininet" ascii //weight: 1
+        $n_1_6 = "4b79ffab-a220-4ed5-a63d-1f1a9045113d" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -206,8 +222,10 @@ rule Trojan_Win32_SusDiscovery_H_2147954173_0
         $x_1_2 = "/Run" wide //weight: 1
         $x_1_3 = "/tn" wide //weight: 1
         $x_1_4 = "Microsoft\\Windows\\Maintenance\\Wininet" ascii //weight: 1
+        $n_1_5 = "4b79ffab-a220-4ed5-a63d-1f1a9045113e" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

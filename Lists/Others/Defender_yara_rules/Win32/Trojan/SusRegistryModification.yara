@@ -18,8 +18,10 @@ rule Trojan_Win32_SusRegistryModification_A_2147954188_0
         $x_1_4 = "dummy.exe" ascii //weight: 1
         $x_1_5 = "AppData\\Local\\Temp" ascii //weight: 1
         $x_1_6 = " /f" wide //weight: 1
+        $n_1_7 = "4b79ffab-a220-4ed5-a63d-1f1a9045113t" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -42,8 +44,10 @@ rule Trojan_Win32_SusRegistryModification_B_2147954189_0
         $x_1_3 = "/v \"StorSyncSvc\"" ascii //weight: 1
         $x_1_4 = "/d \"StorSyncSvc\" /f" ascii //weight: 1
         $x_1_5 = "/t REG_MULTI_SZ" ascii //weight: 1
+        $n_1_6 = "4b79ffab-a220-4ed5-a63d-1f1a9045113u" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -67,8 +71,10 @@ rule Trojan_Win32_SusRegistryModification_C_2147954190_0
         $x_1_4 = "storesyncsvc.dll" ascii //weight: 1
         $x_1_5 = "/t REG_EXPAND_SZ" ascii //weight: 1
         $x_1_6 = " /f" wide //weight: 1
+        $n_1_7 = "991aa58d-891c-45d6-8cc0-53edd3af792c" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -93,8 +99,10 @@ rule Trojan_Win32_SusRegistryModification_D_2147954191_0
         $x_1_5 = " /d" wide //weight: 1
         $x_1_6 = " /f" wide //weight: 1
         $x_1_7 = "dummy.exe" ascii //weight: 1
+        $n_1_8 = "991aa58d-891c-45d6-8cc0-53edd3af792a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -117,8 +125,10 @@ rule Trojan_Win32_SusRegistryModification_F_2147954192_0
         $x_1_3 = "/v \"MPSEvtMan\"" ascii //weight: 1
         $x_1_4 = "/t REG_MULTI_SZ /d" ascii //weight: 1
         $x_1_5 = " /f" wide //weight: 1
+        $n_1_6 = "991aa58d-891c-45d6-8cc0-53edd3af792b" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -141,8 +151,10 @@ rule Trojan_Win32_SusRegistryModification_G_2147954193_0
         $x_1_3 = "/v \"ServiceDll\"" ascii //weight: 1
         $x_1_4 = "/t REG_EXPAND_SZ /d" ascii //weight: 1
         $x_1_5 = "MPSEvtMan.dll" ascii //weight: 1
+        $n_1_6 = "991aa58d-891c-45d6-8cc0-53edd3af792d" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -165,8 +177,10 @@ rule Trojan_Win32_SusRegistryModification_H_2147954194_0
         $x_1_3 = "/v \"ServiceMain\"" ascii //weight: 1
         $x_1_4 = "/t REG_SZ /d" ascii //weight: 1
         $x_1_5 = " /f" wide //weight: 1
+        $n_1_6 = "991aa58d-891c-45d6-8cc0-53edd3af792e" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

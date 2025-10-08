@@ -14,8 +14,10 @@ rule Trojan_Win32_WebShellsMicro_A_2147954076_0
     strings:
         $x_1_1 = "pouya.asp" ascii //weight: 1
         $x_1_2 = "AppData\\Local\\Temp" ascii //weight: 1
+        $n_1_3 = "9453e881-26a8-4973-ba2e-76269e901d0j" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

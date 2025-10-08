@@ -15,8 +15,10 @@ rule Trojan_Win32_SusTasklist_MK_2147954092_0
         $x_1_1 = "tasklist" ascii //weight: 1
         $x_1_2 = "-v" wide //weight: 1
         $x_1_3 = "/v" wide //weight: 1
+        $n_1_4 = "a453e881-26a8-4973-bb2e-76269e901d0a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (2 of ($x*))
 }
 

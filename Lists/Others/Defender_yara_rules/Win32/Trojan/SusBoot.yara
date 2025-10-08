@@ -14,8 +14,10 @@ rule Trojan_Win32_SusBoot_A_2147954097_0
     strings:
         $x_1_1 = "bcdedit.exe" ascii //weight: 1
         $x_1_2 = "-v" wide //weight: 1
+        $n_1_3 = "a453e881-26a8-4973-bg2e-76269e901d0a" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

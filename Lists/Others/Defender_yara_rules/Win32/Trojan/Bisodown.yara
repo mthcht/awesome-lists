@@ -18,8 +18,10 @@ rule Trojan_Win32_Bisodown_A_2147954072_0
         $x_1_4 = "PHIME2010ASYNC" ascii //weight: 1
         $x_1_5 = " /f" wide //weight: 1
         $x_1_6 = "Prefetch" ascii //weight: 1
+        $n_1_7 = "9453e881-26a8-4973-ba2e-76269e901d0f" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

@@ -16,8 +16,10 @@ rule Trojan_Win32_Mountlocker_A_2147954073_0
         $x_1_2 = " > " wide //weight: 1
         $x_1_3 = "AppData\\Local\\Temp" ascii //weight: 1
         $x_1_4 = "readme.txt" ascii //weight: 1
+        $n_1_5 = "9453e881-26a8-4973-ba2e-76269e901d0g" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

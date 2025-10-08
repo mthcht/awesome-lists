@@ -17,8 +17,10 @@ rule Trojan_Win32_SusWMI_A_2147954141_0
         $x_1_3 = "((Get-WmiObject -class Win32_ComputerSystem).Domain)" ascii //weight: 1
         $x_1_4 = "gwmi win32_group -Filter" ascii //weight: 1
         $x_1_5 = "Domain=" ascii //weight: 1
+        $n_1_6 = "69802c98-2ca2-4a17-98w0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (3 of ($x*))
 }
 
@@ -40,8 +42,10 @@ rule Trojan_Win32_SusWMI_B_2147954142_0
         $x_1_2 = "[Security.Principal.WindowsIdentity]::GetCurrent()" ascii //weight: 1
         $x_1_3 = "(New-Object Security.Principal.WindowsPrincipal" ascii //weight: 1
         $x_1_4 = "IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)" ascii //weight: 1
+        $n_1_5 = "69802c98-2cb2-4a17-98w0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -68,8 +72,10 @@ rule Trojan_Win32_SusWMI_C_2147954143_0
         $x_1_7 = "AppData\\Local\\Temp\\startup_vrun.bat" ascii //weight: 1
         $x_1_8 = "powershell.exe -c" ascii //weight: 1
         $x_1_9 = "Start-Process -WindowStyle hidden -FilePath" ascii //weight: 1
+        $n_1_10 = "69802c98-2cc2-4a17-98w0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (2 of ($x*))
 }
 
@@ -93,8 +99,10 @@ rule Trojan_Win32_SusWMI_D_2147954144_0
         $x_1_4 = "cmd.exe /c" ascii //weight: 1
         $x_1_5 = "timeout" ascii //weight: 1
         $x_1_6 = "/T" wide //weight: 1
+        $n_1_7 = "69802c98-2ce2-4a17-98w0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (3 of ($x*))
 }
 
@@ -134,8 +142,10 @@ rule Trojan_Win32_SusWMI_D_2147954144_1
         $x_1_20 = "FreeVirtualMemory" ascii //weight: 1
         $x_1_21 = "Win32_Battery" ascii //weight: 1
         $x_1_22 = "BatteryStatus" ascii //weight: 1
+        $n_1_23 = "69802c98-2cd2-4a17-98w0-3a9220ad0157" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (3 of ($x*))
 }
 

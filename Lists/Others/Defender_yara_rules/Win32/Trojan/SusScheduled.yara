@@ -20,8 +20,10 @@ rule Trojan_Win32_SusScheduled_A_2147954089_0
         $x_1_6 = "New-ScheduledTaskSettingsSet;" ascii //weight: 1
         $x_1_7 = "-RunLevel Highest" ascii //weight: 1
         $x_1_8 = "-Force" ascii //weight: 1
+        $n_1_9 = "9453e881-26a8-4973-ba2e-76269e901d0x" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

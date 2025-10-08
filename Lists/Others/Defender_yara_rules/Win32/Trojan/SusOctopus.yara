@@ -16,8 +16,10 @@ rule Trojan_Win32_SusOctopus_A_2147954159_0
         $x_1_2 = "Unblock-File" ascii //weight: 1
         $x_1_3 = "AppData\\Local\\Temp" ascii //weight: 1
         $x_1_4 = "octopusInfoGather.ps1" ascii //weight: 1
+        $n_1_5 = "ef9044b2-c2ab-4b43-91d5-bb5aeddc4d76" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

@@ -41,8 +41,10 @@ rule Trojan_Win32_CoronaVirus_A_2147954079_0
         $x_1_4 = "BootExecute" ascii //weight: 1
         $x_1_5 = " /t REG_MULTI_SZ /F /D " ascii //weight: 1
         $x_1_6 = " /V " wide //weight: 1
+        $n_1_7 = "9453e881-26a8-4973-ba2e-76269e901d0n" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -71,8 +73,10 @@ rule Trojan_Win32_CoronaVirus_B_2147954080_0
         $x_1_9 = "do forfiles /p " ascii //weight: 1
         $x_1_10 = " /s /M *%G /C " ascii //weight: 1
         $x_1_11 = "cmd /c echo @PATH" ascii //weight: 1
+        $n_1_12 = "9453e881-26a8-4973-ba2e-76269e901d0o" wide //weight: -1
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
