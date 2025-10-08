@@ -7967,3 +7967,28 @@ rule Trojan_Win32_Guloader_KQ_2147953978_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KR_2147954566_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KR!MTB"
+        threat_id = "2147954566"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Taknemmelighedens121.rrl" ascii //weight: 1
+        $x_1_2 = "semivisible.bin" ascii //weight: 1
+        $x_1_3 = "kolonialhandlerne\\heaume.htm" ascii //weight: 1
+        $x_1_4 = "opalizes\\sagtmodiges.bin" ascii //weight: 1
+        $x_1_5 = "Udhulnings.zip" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -594,3 +594,31 @@ rule Trojan_Win64_Stealer_ZVB_2147952228_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NPE_2147954586_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NPE!MTB"
+        threat_id = "2147954586"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "t.me/BluelineStealer" ascii //weight: 2
+        $x_1_2 = "cryptomonnaie" ascii //weight: 1
+        $x_1_3 = "jbdaocneiiinmjbjlgal" ascii //weight: 1
+        $x_1_4 = "hnfanknocfeofbddgcij" ascii //weight: 1
+        $x_1_5 = "hpglfhgfnhbgpjdenjgm" ascii //weight: 1
+        $x_1_6 = "armazenamento_de_chaves" ascii //weight: 1
+        $x_1_7 = "electrum" ascii //weight: 1
+        $x_1_8 = "%LOCALAPPDATA%\\Comodo\\Dragon\\User Data" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

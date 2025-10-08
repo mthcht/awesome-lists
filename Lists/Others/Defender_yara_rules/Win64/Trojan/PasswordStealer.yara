@@ -65,27 +65,3 @@ rule Trojan_Win64_PasswordStealer_ARA_2147929880_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_PasswordStealer_ARAX_2147954059_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/PasswordStealer.ARAX!MTB"
-        threat_id = "2147954059"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "PasswordStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "9"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "://github.com/fkubitc/windows-update/raw/refs/heads/main/" wide //weight: 3
-        $x_2_2 = "DisableAntiSpyware" wide //weight: 2
-        $x_2_3 = "gpupdate /force" wide //weight: 2
-        $x_2_4 = "\\Windows\\CurrentVersion\\Run" wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
