@@ -1015,3 +1015,28 @@ rule Trojan_MSIL_Barys_SLFH_2147949346_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_SLWQ_2147954523_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SLWQ!MTB"
+        threat_id = "2147954523"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Stop-Process -Name 'SecurityHealthSystray' -Force -ErrorAction SilentlyContinue" wide //weight: 2
+        $x_2_2 = "Add-MpPreference -ExclusionProcess 'svchost.exe'" wide //weight: 2
+        $x_2_3 = "Add-MpPreference -ExclusionProcess '$77kit.exe'" wide //weight: 2
+        $x_2_4 = "-NoProfile -ExecutionPolicy Bypass -File \"" wide //weight: 2
+        $x_2_5 = "Add-MpPreference -ExclusionPath ($env:USERPROFILE + '\\AppData\\Local\\Temp')" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

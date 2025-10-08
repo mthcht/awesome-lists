@@ -5072,10 +5072,16 @@ rule Trojan_Win32_OffLoader_ABHB_2147954307_0
     strings:
         $x_4_1 = "://traymitten.info/nulo.php?" ascii //weight: 4
         $x_4_2 = "://positionpail.xyz/nulos.php?" ascii //weight: 4
-        $x_1_3 = "/silent" ascii //weight: 1
-        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+        $x_4_3 = "://wireswim.info/tuyo.php?" ascii //weight: 4
+        $x_4_4 = "://plantswaves.xyz/tuyos.php?" ascii //weight: 4
+        $x_1_5 = "/silent" ascii //weight: 1
+        $x_1_6 = "Do you want to reboot now?" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_4_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_4_*))) or
+            (all of ($x*))
+        )
 }
 
