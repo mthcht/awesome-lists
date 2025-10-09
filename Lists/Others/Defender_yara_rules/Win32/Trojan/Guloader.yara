@@ -4992,6 +4992,29 @@ rule Trojan_Win32_Guloader_ASB_2147926960_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_KT_2147927421_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.KT!MTB"
+        threat_id = "2147927421"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "stitrer" ascii //weight: 1
+        $x_1_2 = "kuglestds sieging" ascii //weight: 1
+        $x_1_3 = "keglerejsernes studierejses.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_SPBD_2147927545_0
 {
     meta:

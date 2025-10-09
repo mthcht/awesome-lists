@@ -301,3 +301,49 @@ rule Trojan_Win64_DCRat_GVC_2147954272_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DCRat_YAE_2147954700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.YAE!MTB"
+        threat_id = "2147954700"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {43 0f be 0c 01 49 ff c0 03 ca 69 d1 ?? ?? ?? ?? 8b ca c1 e9 06 33 d1 4c 3b c0 75 e4 8d 04 d2 8b c8 c1 e9 0b 33 c8}  //weight: 1, accuracy: Low
+        $x_1_2 = "OnlyNoConsole\\svc.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DCRat_YAF_2147954701_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.YAF!MTB"
+        threat_id = "2147954701"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "https://tmpfiles.org/" ascii //weight: 2
+        $x_1_2 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_3 = "powershell -Command \"Invoke-WebRequest -Uri" ascii //weight: 1
+        $x_1_4 = {53 74 61 72 74 2d 50 72 6f 63 65 73 73 20 27 43 3a 5c [0-48] 2e 65 78 65}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
