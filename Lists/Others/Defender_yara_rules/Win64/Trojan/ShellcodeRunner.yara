@@ -1769,3 +1769,34 @@ rule Trojan_Win64_ShellcodeRunner_NPD_2147954695_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_HB_2147954728_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.HB!MTB"
+        threat_id = "2147954728"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {48 b8 4c 6f 61 64 4c 69 62 72 48}  //weight: 30, accuracy: High
+        $x_10_2 = {48 b8 49 6e 74 65 72 6e 65}  //weight: 10, accuracy: High
+        $x_20_3 = {00 64 64 72 65 48 8b cf}  //weight: 20, accuracy: High
+        $x_40_4 = {00 00 48 b8 74 65 72 53 65 72 76 65}  //weight: 40, accuracy: High
+        $x_60_5 = {2e 64 6c 6c 00 44 6c 6c 52 65 67 69 73 74 65 72 53 65 72 76 65 72}  //weight: 60, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_40_*) and 1 of ($x_30_*) and 1 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((1 of ($x_60_*) and 1 of ($x_30_*) and 1 of ($x_10_*))) or
+            ((1 of ($x_60_*) and 1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((1 of ($x_60_*) and 1 of ($x_40_*))) or
+            (all of ($x*))
+        )
+}
+

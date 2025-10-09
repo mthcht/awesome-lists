@@ -17819,3 +17819,27 @@ rule Trojan_Win64_CobaltStrike_NWU_2147954063_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_NWU_2147954063_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.NWU!MTB"
+        threat_id = "2147954063"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Tchoupi\\x64\\Release\\Tchoupi.pdb" ascii //weight: 1
+        $x_1_2 = "Add ExclusionPath" ascii //weight: 1
+        $x_1_3 = "\\Microsoft\\Windows\\Defender" ascii //weight: 1
+        $x_1_4 = "WinExec" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
