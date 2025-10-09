@@ -3919,3 +3919,31 @@ rule Ransom_MSIL_Filecoder_PAE_2147952509_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_JKX_2147954663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.JKX!MTB"
+        threat_id = "2147954663"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "CreateRansomNote" ascii //weight: 2
+        $x_2_2 = "EncryptFiles" ascii //weight: 2
+        $x_1_3 = "GetLogicalDrives" ascii //weight: 1
+        $x_1_4 = "GetDirectories" ascii //weight: 1
+        $x_2_5 = "Your files have been encrypted by <ProjectName>." wide //weight: 2
+        $x_2_6 = "ransom_note.txt" wide //weight: 2
+        $x_2_7 = "/TR shutdown.exe /s /f /t 0 /c" wide //weight: 2
+        $x_2_8 = "SecureStorage will shutdown in 24 hours" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

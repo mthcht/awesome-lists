@@ -256,3 +256,25 @@ rule Trojan_MSIL_Donut_TWK_2147953337_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Donut_TWX_2147954662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Donut.TWX!MTB"
+        threat_id = "2147954662"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 75 00 00 06 73 44 00 00 0a 72 39 00 00 70 28 45 00 00 0a 28 04 00 00 06 72 ce 00 00 70 6f 08 00 00 2b 80 47 00 00 04 7e 47 00 00 04 6f 94 00 00 06 26 16 28 3e 00 00 0a 2a}  //weight: 2, accuracy: High
+        $x_2_2 = {73 36 00 00 0a 25 28 37 00 00 0a 6f 38 00 00 0a 6f 39 00 00 0a 6f 3a 00 00 0a 25 17 6f 3b 00 00 0a 25 72 2d 00 00 70 6f 3c 00 00 0a 28 3d 00 00 0a 26 16 28 3e 00 00 0a de 0a 26 1f 0a 28 3f 00 00 0a de 00 28 76 00 00 06 2c b4}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
