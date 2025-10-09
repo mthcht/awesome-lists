@@ -77,30 +77,6 @@ rule TrojanDownloader_W97M_Donoff_2147689998_3
         family = "Donoff"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {68 74 74 70 3a 2f 2f [0-64] 3a [0-5] 2f [0-16] 2e 65 78 65}  //weight: 1, accuracy: Low
-        $x_1_2 = "URLDownloadToFile" ascii //weight: 1
-        $x_1_3 = "Auto_Open" ascii //weight: 1
-        $x_1_4 = "Environ" ascii //weight: 1
-        $x_1_5 = "Shell" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_W97M_Donoff_2147689998_4
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:W97M/Donoff"
-        threat_id = "2147689998"
-        type = "TrojanDownloader"
-        platform = "W97M: Word 97, 2000, XP, 2003, 2007, and 2010 macros"
-        family = "Donoff"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -114,7 +90,7 @@ rule TrojanDownloader_W97M_Donoff_2147689998_4
         (4 of ($x*))
 }
 
-rule TrojanDownloader_W97M_Donoff_2147689998_5
+rule TrojanDownloader_W97M_Donoff_2147689998_4
 {
     meta:
         author = "defender2yara"
@@ -135,7 +111,7 @@ rule TrojanDownloader_W97M_Donoff_2147689998_5
         (all of ($x*))
 }
 
-rule TrojanDownloader_W97M_Donoff_2147689998_6
+rule TrojanDownloader_W97M_Donoff_2147689998_5
 {
     meta:
         author = "defender2yara"
@@ -160,7 +136,7 @@ rule TrojanDownloader_W97M_Donoff_2147689998_6
         (all of ($x*))
 }
 
-rule TrojanDownloader_W97M_Donoff_2147689998_7
+rule TrojanDownloader_W97M_Donoff_2147689998_6
 {
     meta:
         author = "defender2yara"
@@ -179,6 +155,32 @@ rule TrojanDownloader_W97M_Donoff_2147689998_7
         $x_1_3 = "Open \"GET\", GetStringFromArray(computer), False" ascii //weight: 1
     condition:
         (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_W97M_Donoff_2147689998_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:W97M/Donoff"
+        threat_id = "2147689998"
+        type = "TrojanDownloader"
+        platform = "W97M: Word 97, 2000, XP, 2003, 2007, and 2010 macros"
+        family = "Donoff"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 74 74 70 3a 2f 2f [0-64] 3a [0-5] 2f [0-16] 2e 65 78 65}  //weight: 1, accuracy: Low
+        $x_1_2 = "URLDownloadToFile" ascii //weight: 1
+        $x_1_3 = "Auto_Open" ascii //weight: 1
+        $x_1_4 = "Environ" ascii //weight: 1
+        $x_1_5 = "Shell" ascii //weight: 1
+        $n_100_6 = "http://www.nissay.co.jp/kojin/shohin" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

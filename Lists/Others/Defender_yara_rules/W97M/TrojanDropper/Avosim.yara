@@ -17,8 +17,10 @@ rule TrojanDropper_W97M_Avosim_A_2147717729_0
         $x_1_3 = "\"schtasks /create /F /sc minute /mo" ascii //weight: 1
         $x_1_4 = "= CreateObject(\"WScript.Shell\")" ascii //weight: 1
         $x_1_5 = "\"powershell " ascii //weight: 1
+        $n_100_6 = "http://www.nissay.co.jp/kojin/shohin" ascii //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
