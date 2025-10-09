@@ -307,3 +307,24 @@ rule Trojan_Win64_Amadey_AMD_2147954412_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_PGAS_2147954633_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.PGAS!MTB"
+        threat_id = "2147954633"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8f e8 1f a8 68 7d bf f9 bb 6b e9 6a 3b ee c1 7a 63 c1 9f ef c7 03 ea f2 43 89 69 4a e0 7e 5e 0a 5f 7f e8 75 35 ea 52 13 f4 67 2f 28 04 99 06 c6 c9 5e 6d bc 18 a5}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

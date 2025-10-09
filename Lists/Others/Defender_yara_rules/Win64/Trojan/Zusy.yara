@@ -2572,3 +2572,25 @@ rule Trojan_Win64_Zusy_KAG_2147954465_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_PGLY_2147954628_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGLY!MTB"
+        threat_id = "2147954628"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 20 d3 08 d3 89 ca 44 30 c2 08 d0 44 20 ca 44 20 d1 08 d1 30 d9 44 30 c0 08 c8 88 04 3e 48 8d 35 ?? ?? ?? ?? 44 8b 7d}  //weight: 5, accuracy: Low
+        $x_5_2 = {8f e8 f7 a8 6a 7d bf f9 bb 6b e9 6a c4 11 c1 7a db c1 9f ef c7 03 ea f2 43 89 69 4a e0 7e 5e 0a 5f 7f e8 75 35 ea 52 13 f4 67 2f 28 04 99 06 c6 c9 5e 6d bc}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
