@@ -1310,3 +1310,24 @@ rule Trojan_MSIL_NjRAT_ZUT_2147943791_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRAT_SPEQ_2147954668_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRAT.SPEQ!MTB"
+        threat_id = "2147954668"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0b 06 07 28 ?? 00 00 0a 0c 08 72 ?? ?? ?? 70 72 ?? ?? ?? 70 6f ?? 00 00 0a 28 ?? 00 00 0a 0d 14 13 04 11 04 13 05 09 28 ?? 00 00 0a 6f ?? 00 00 0a 11 04 14 6f ?? 00 00 0a 13 06 2a}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

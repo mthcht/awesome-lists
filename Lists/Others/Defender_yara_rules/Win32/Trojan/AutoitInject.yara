@@ -5683,3 +5683,36 @@ rule Trojan_Win32_AutoitInject_SPB_2147954648_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_ANHB_2147954667_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.ANHB!MTB"
+        threat_id = "2147954667"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {45 00 58 00 45 00 43 00 55 00 54 00 45 00 20 00 28 00 20 00 22 00 41 00 73 00 22 00 20 00 26 00 20 00 22 00 63 00 28 00 53 00 22 00 20 00 26 00 20 00 22 00 74 00 72 00 69 00 6e 00 67 00 4d 00 69 00 64 00 28 00 24 00 [0-50] 2c 00 20 00 24 00 [0-50] 2c 00 20 00 31 00 29 00 29 00 22 00 20 00 29 00}  //weight: 4, accuracy: Low
+        $x_4_2 = {45 58 45 43 55 54 45 20 28 20 22 41 73 22 20 26 20 22 63 28 53 22 20 26 20 22 74 72 69 6e 67 4d 69 64 28 24 [0-50] 2c 20 24 [0-50] 2c 20 31 29 29 22 20 29}  //weight: 4, accuracy: Low
+        $x_4_3 = {45 00 58 00 45 00 43 00 55 00 54 00 45 00 20 00 28 00 20 00 22 00 42 00 69 00 74 00 22 00 20 00 26 00 20 00 22 00 58 00 4f 00 52 00 28 00 24 00 [0-50] 2c 00 20 00 24 00 [0-50] 29 00 22 00 20 00 29 00}  //weight: 4, accuracy: Low
+        $x_4_4 = {45 58 45 43 55 54 45 20 28 20 22 42 69 74 22 20 26 20 22 58 4f 52 28 24 [0-50] 2c 20 24 [0-50] 29 22 20 29}  //weight: 4, accuracy: Low
+        $x_4_5 = {26 00 3d 00 20 00 45 00 58 00 45 00 43 00 55 00 54 00 45 00 20 00 28 00 20 00 22 00 43 00 22 00 20 00 26 00 20 00 22 00 68 00 72 00 28 00 24 00 [0-50] 29 00 22 00 20 00 29 00}  //weight: 4, accuracy: Low
+        $x_4_6 = {26 3d 20 45 58 45 43 55 54 45 20 28 20 22 43 22 20 26 20 22 68 72 28 24 [0-50] 29 22 20 29}  //weight: 4, accuracy: Low
+        $x_4_7 = {46 00 49 00 4c 00 45 00 49 00 4e 00 53 00 54 00 41 00 4c 00 4c 00 20 00 28 00 20 00 22 00 [0-50] 22 00 20 00 2c 00 20 00 40 00 54 00 45 00 4d 00 50 00 44 00 49 00 52 00 20 00 26 00 20 00 22 00 5c 00 [0-50] 22 00 20 00 2c 00 20 00 31 00 20 00 29 00}  //weight: 4, accuracy: Low
+        $x_4_8 = {46 49 4c 45 49 4e 53 54 41 4c 4c 20 28 20 22 [0-50] 22 20 2c 20 40 54 45 4d 50 44 49 52 20 26 20 22 5c [0-50] 22 20 2c 20 31 20 29}  //weight: 4, accuracy: Low
+        $x_2_9 = "EXECUTE ( \"Dl\" & \"lCa\" & \"ll(" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((5 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+

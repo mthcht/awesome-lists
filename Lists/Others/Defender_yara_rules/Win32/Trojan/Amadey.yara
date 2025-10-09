@@ -4308,3 +4308,28 @@ rule Trojan_Win32_Amadey_PPA_2147954622_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_BAD_2147954671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.BAD!MTB"
+        threat_id = "2147954671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {00 80 2e 00 00 20 00 00 00 80 2e 00 00 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0}  //weight: 10, accuracy: High
+        $x_10_2 = {05 00 00 00 a0 2e 00 00 06 00 00 00 a0 2e 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e}  //weight: 10, accuracy: High
+        $x_10_3 = {69 64 61 74 61 20 20 00 20 00 00 00 c0 2e 00 00 02 00 00 00 a6 2e 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+        $x_1_4 = "XprotExit" ascii //weight: 1
+        $x_1_5 = "\\\\.\\Oreans.vxd" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

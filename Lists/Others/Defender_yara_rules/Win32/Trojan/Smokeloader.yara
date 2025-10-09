@@ -3789,6 +3789,28 @@ rule Trojan_Win32_Smokeloader_GZF_2147902379_1
         threshold = "10"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {89 0c 24 b9 00 00 00 00 81 c1 ?? ?? ?? ?? 01 f1 81 e9 ?? ?? ?? ?? 31 01 59 51}  //weight: 5, accuracy: Low
+        $x_5_2 = {c1 e1 03 49 81 f1 ?? ?? ?? ?? 31 cb 31 e1 83 ea 01 52 ff 0c 24 5a c1 ea 05 c1 ea 08}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Smokeloader_GZF_2147902379_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Smokeloader.GZF!MTB"
+        threat_id = "2147902379"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Smokeloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {8d 04 3b 89 45 ?? 8b 45 ?? c1 e8 ?? 89 45 ?? 8b 45 ?? 01 45 ?? 8b 45 ?? 33 d2 c7 05 ?? ?? ?? ?? ee 3d ea f4 89 45 ?? 89 55 ?? 8b 45 ?? 01 45 ?? 8b 45 ?? 31 45 ?? 8b 45 ?? 33 45}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and

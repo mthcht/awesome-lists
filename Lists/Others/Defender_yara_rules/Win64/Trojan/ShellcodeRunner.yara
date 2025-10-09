@@ -1746,3 +1746,26 @@ rule Trojan_Win64_ShellcodeRunner_NPC_2147954632_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_NPD_2147954695_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.NPD!MTB"
+        threat_id = "2147954695"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 b8 ff c9 89 4c 24 1c 0f b6}  //weight: 2, accuracy: High
+        $x_1_2 = {48 b8 29 c8 c1 f8 05 8d 04 02}  //weight: 1, accuracy: High
+        $x_1_3 = {48 b8 4f 01 d3 e0 48 8b 4c 24}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

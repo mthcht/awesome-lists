@@ -298,3 +298,28 @@ rule Trojan_Win32_XWorm_BAF_2147948271_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_BAB_2147954670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.BAB!MTB"
+        threat_id = "2147954670"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {00 00 01 00 00 20 00 00 00 a2 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60}  //weight: 10, accuracy: High
+        $x_10_2 = {0e 05 00 00 00 20 01 00 00 04 00 00 00 a6 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 10, accuracy: High
+        $x_10_3 = {0c 00 00 00 00 40 01 00 00 02 00 00 00 aa 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 42}  //weight: 10, accuracy: High
+        $x_1_4 = "checkprotection" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\WinLicense" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8056,3 +8056,24 @@ rule Trojan_Win32_Zusy_KAI_2147954468_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_SDP_2147954669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.SDP!MTB"
+        threat_id = "2147954669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {f4 b6 44 00 5e 00 05 ?? ?? ?? ?? 31 00 00 8d}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
