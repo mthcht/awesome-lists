@@ -133,3 +133,23 @@ rule Trojan_Win32_SpyAgent_R_2147899226_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SpyAgent_AMTB_2147954752_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SpyAgent!AMTB"
+        threat_id = "2147954752"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SpyAgent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "http.Open(\"POST\", \"http://zx.pe/bp.php\", false)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

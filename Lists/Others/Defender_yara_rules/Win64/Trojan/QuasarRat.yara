@@ -52,3 +52,24 @@ rule Trojan_Win64_QuasarRat_NEAE_2147842135_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_QuasarRat_QL_2147954751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRat.QL!MTB"
+        threat_id = "2147954751"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 4c 24 40 48 89 48 08 48 c7 40 10 00 30 00 00 48 c7 40 18 40 00 00 00 48 89 c3 b9 04 00 00 00 48 89 cf 48 8b 44 24 78}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

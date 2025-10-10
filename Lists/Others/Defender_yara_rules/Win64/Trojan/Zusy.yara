@@ -2488,15 +2488,17 @@ rule Trojan_Win64_Zusy_PGZI_2147953959_0
         threshold = "6"
         strings_accuracy = "Low"
     strings:
-        $x_3_1 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 31 00 37 00 36 00 2e 00 34 00 36 00 2e 00 31 00 35 00 32 00 2e 00 36 00 32 00 3a 00 35 00 38 00 35 00 38 00 2f 00 [0-42] 5f 00 62 00 75 00 69 00 6c 00 64 00 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
-        $x_3_2 = {68 74 74 70 3a 2f 2f 31 37 36 2e 34 36 2e 31 35 32 2e 36 32 3a 35 38 35 38 2f [0-42] 5f 62 75 69 6c 64 2e 65 78 65}  //weight: 3, accuracy: Low
-        $x_2_3 = "http://176.46.152.62:5858/dadaasads_new.ps1" ascii //weight: 2
-        $x_1_4 = "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File" ascii //weight: 1
+        $x_5_1 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 31 00 37 00 36 00 2e 00 34 00 36 00 2e 00 31 00 35 00 32 00 2e 00 36 00 32 00 3a 00 35 00 38 00 35 00 38 00 2f 00 [0-47] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 74 74 70 3a 2f 2f 31 37 36 2e 34 36 2e 31 35 32 2e 36 32 3a 35 38 35 38 2f [0-47] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_5_3 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 39 00 31 00 2e 00 31 00 30 00 38 00 2e 00 32 00 34 00 31 00 2e 00 38 00 30 00 3a 00 35 00 35 00 35 00 34 00 2f 00 [0-47] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {68 74 74 70 3a 2f 2f 39 31 2e 31 30 38 2e 32 34 31 2e 38 30 3a 35 35 35 34 2f [0-47] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_1_5 = "nbgtpasrg.exe" ascii //weight: 1
+        $x_1_6 = "tjgajdjrg.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (
-            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((2 of ($x_3_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
             (all of ($x*))
         )
 }

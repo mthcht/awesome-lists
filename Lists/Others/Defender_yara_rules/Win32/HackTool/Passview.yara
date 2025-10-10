@@ -48,3 +48,31 @@ rule HackTool_Win32_Passview_A_2147694232_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_Passview_AMTB_2147938643_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Passview!AMTB"
+        threat_id = "2147938643"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Passview"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "usb_ftppasswd_x" ascii //weight: 1
+        $x_1_2 = "ppp%d_password" ascii //weight: 1
+        $x_1_3 = "w11g_wepkey0" ascii //weight: 1
+        $x_1_4 = "RouterPassView.exe" ascii //weight: 1
+        $x_1_5 = "super_passwd" ascii //weight: 1
+        $n_100_6 = "Uninst.exe" ascii //weight: -100
+        $n_100_7 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_8 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
