@@ -41,3 +41,24 @@ rule Trojan_Win32_RadThief_MXZ_2147953081_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RadThief_HTV_2147954805_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RadThief.HTV!MTB"
+        threat_id = "2147954805"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RadThief"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {30 04 31 46 8b 45 ?? 89 75 e0 8b 08 8b 40 04 2b c1 89 4d e4 3b f0 0f 82}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

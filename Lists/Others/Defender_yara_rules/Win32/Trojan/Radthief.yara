@@ -84,6 +84,29 @@ rule Trojan_Win32_Radthief_AR_2147952016_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Radthief_AR_2147952016_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Radthief.AR!MTB"
+        threat_id = "2147952016"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Radthief"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {31 f2 88 54 04 ?? 48 ff c0 48 83 f8 ?? ?? ?? 48 89 c2 48 83 e2 f0 48 89 c6 48 29 d6}  //weight: 20, accuracy: Low
+        $x_15_2 = {44 31 cf 42 88 bc 04 ?? ?? ?? ?? 49 8d 48 01 48 83 f9 ?? 7d 18 48 89 cf 48 83 e1}  //weight: 15, accuracy: Low
+        $x_5_3 = {48 39 c8 7e 19 48 89 c6 48 29 ce 48 8d 7e ff 44 0f b6 04 0a 48 39 f8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Radthief_SXB_2147953718_0
 {
     meta:

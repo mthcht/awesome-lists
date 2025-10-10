@@ -296,27 +296,6 @@ rule Trojan_Win32_Malgent_AYA_2147920017_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_AMTB_2147929796_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Malgent!AMTB"
-        threat_id = "2147929796"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Malgent"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {45 33 c0 49 8b d4 41 8b ce e8 42 4e ff ff 48 8b 5c 24 40 8b c7 48 8b 7c 24 58 48 8b 6c 24 48 48 8b 74 24 50 48 83 c4 20}  //weight: 2, accuracy: High
-        $x_2_2 = {b8 16 00 00 00 8b f8 45 33 c0 49 8b d4 41 8b ce e8 42 4e ff ff 48 8b 5c 24 40 8b c7 48 8b 7c 24 58 48 8b 6c 24 48 48 8b 74 24 50 48 83 c4 20 41 5f 41 5e 41 5c}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
 rule Trojan_Win32_Malgent_PR_2147931153_0
 {
     meta:

@@ -500,3 +500,26 @@ rule Ransom_Win64_Magniber_YBJ_2147953003_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Magniber_ARR_2147953941_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Magniber.ARR!MTB"
+        threat_id = "2147953941"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Magniber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {33 18 18 5f 9b 55 d3 c4 31 f0 3a 57 4c}  //weight: 20, accuracy: High
+        $x_15_2 = {8a 1e f6 fc b4 ?? 5e c9 86 4c 78 04 f6 f5 fc 03 7f a0}  //weight: 15, accuracy: Low
+        $x_5_3 = {ea f6 ec ac 2d ?? ?? ?? ?? c0 6d 46 07 1c ?? 13 0f 11 f9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
