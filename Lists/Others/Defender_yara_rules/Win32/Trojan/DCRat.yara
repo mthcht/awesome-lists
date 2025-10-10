@@ -374,3 +374,25 @@ rule Trojan_Win32_DCRat_GXD_2147948270_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DCRat_GVE_2147954839_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.GVE!MTB"
+        threat_id = "2147954839"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {df 01 3f 67 41 fb 74 2d 30 04 e6 ad fe a3 f9 74 1c 80 ed ad 07 f8 7f be b0 f6 c5 47 1e 97 76 8a}  //weight: 2, accuracy: High
+        $x_1_2 = "Hatto12" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
