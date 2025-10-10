@@ -5983,3 +5983,24 @@ rule Trojan_Win32_Qbot_BAA_2147941280_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Qbot_GVA_2147954823_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Qbot.GVA!MTB"
+        threat_id = "2147954823"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Qbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 12 03 15 a8 be 48 00 03 c2 8b 15 b8 be 48 00 89 02 6a 00 e8 ?? ?? ?? ?? 8b 15 c8 be 48 00 03 15 f8 be 48 00 03 15 a8 be 48 00 03 c2 8b 15 b8 be 48 00 31 02 83 05 a8 be 48 00 04 6a 00 e8 ?? ?? ?? ?? 83 c0 04 01 05 b8 be 48 00 a1 a8 be 48 00 3b 05 bc be 48 00 72 9a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
