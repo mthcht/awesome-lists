@@ -874,3 +874,25 @@ rule Trojan_MSIL_PureLogs_AD_2147954437_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogs_SE_2147954775_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogs.SE!MTB"
+        threat_id = "2147954775"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogs"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 7b 26 00 00 04 06 07 03 6f 4d 00 00 0a 0c 08 2c 0f 07 08 58 0b 03 08 59 fe 0b 01 00 03 16 30 df}  //weight: 2, accuracy: High
+        $x_2_2 = "acr-GETWELL-xqthufye.b0s_" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

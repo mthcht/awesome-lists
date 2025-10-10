@@ -7920,6 +7920,29 @@ rule Trojan_Win32_Zusy_SXL_2147953212_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_SXL_2147953212_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.SXL!MTB"
+        threat_id = "2147953212"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {03 55 d4 0f af 55 dc 89 55 dc c7 45 c4 ?? ?? ?? ?? 8b 45 c4 0f af 45 d4 8b 4d dc 2b c8 89 4d dc eb}  //weight: 6, accuracy: Low
+        $x_3_2 = {8b 45 e0 83 c0 03 89 45 e0 8b 4d a8 03 4d e4 8b 55 e0 8a 82 ?? ?? ?? ?? 88 01 eb}  //weight: 3, accuracy: Low
+        $x_1_3 = "MsiPreviewBillboardW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_HAB_2147953328_0
 {
     meta:

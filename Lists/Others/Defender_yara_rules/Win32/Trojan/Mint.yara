@@ -233,3 +233,25 @@ rule Trojan_Win32_Mint_AH_2147954448_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mint_SXA_2147954776_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.SXA!MTB"
+        threat_id = "2147954776"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {33 4d c4 88 8d 67 ff ff ff 8b 15 ?? ?? ?? ?? 33 55 80 89 95 14 ff ff ff 0f b6 45 a3 83 c0 ?? 8b 8d 20 ff ff ff 83 c1 ?? 33 c1 88 45 ef}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 8d 68 ff ff ff 03 4d cc 03 8d 68 ff ff ff 33 8d 7c ff ff ff 66 89 8d 6c ff ff ff 0f b6 95 73 ff ff ff 8b 45 cc 2b c2 0f b7 4d d4 8d 54 08 fb 88 55 b7 8b 45 b8 83 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
