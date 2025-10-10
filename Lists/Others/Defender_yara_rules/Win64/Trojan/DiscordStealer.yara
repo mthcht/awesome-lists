@@ -24,3 +24,28 @@ rule Trojan_Win64_DiscordStealer_AHB_2147946419_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_ARA_2147954784_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.ARA!MTB"
+        threat_id = "2147954784"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Successfully sent PC information to Discord" ascii //weight: 2
+        $x_2_2 = "Computer Name" ascii //weight: 2
+        $x_2_3 = "Username" ascii //weight: 2
+        $x_2_4 = "OS Version" ascii //weight: 2
+        $x_2_5 = "CPU Info" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
