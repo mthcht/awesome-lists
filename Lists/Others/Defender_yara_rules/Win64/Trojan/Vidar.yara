@@ -264,3 +264,47 @@ rule Trojan_Win64_Vidar_AHB_2147954705_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_YAF_2147954857_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.YAF!MTB"
+        threat_id = "2147954857"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "222"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "https://telegram.me/" ascii //weight: 10
+        $x_10_2 = "https://steamcommunity.com" ascii //weight: 10
+        $x_10_3 = "*.address.txt" ascii //weight: 10
+        $x_10_4 = "passwords.txt" ascii //weight: 10
+        $x_10_5 = "Screenshot" ascii //weight: 10
+        $x_10_6 = "*.keys" ascii //weight: 10
+        $x_10_7 = "Wallets" ascii //weight: 10
+        $x_10_8 = "chromium_plugins" ascii //weight: 10
+        $x_10_9 = "key received successfully" ascii //weight: 10
+        $x_10_10 = "Payload loaded" ascii //weight: 10
+        $x_10_11 = "telegram_files" ascii //weight: 10
+        $x_10_12 = "discord_files" ascii //weight: 10
+        $x_10_13 = "\\Network\\Cookies" ascii //weight: 10
+        $x_10_14 = "Crypto Reader" ascii //weight: 10
+        $x_10_15 = "File Grabber" ascii //weight: 10
+        $x_10_16 = "screenshot.jpg" ascii //weight: 10
+        $x_10_17 = "formhistory.db" ascii //weight: 10
+        $x_10_18 = "_cookies.db" ascii //weight: 10
+        $x_10_19 = "passwords.db" ascii //weight: 10
+        $x_10_20 = "webdata.db" ascii //weight: 10
+        $x_10_21 = "Login Data" ascii //weight: 10
+        $x_10_22 = "powershell -WindowStyle Hidden -Command" ascii //weight: 10
+        $x_1_23 = {b8 26 2e de e4 ba 8f ea 3b be}  //weight: 1, accuracy: High
+        $x_1_24 = {3d d2 34 20 5e 7f ?? 3d 27 db 49 39}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

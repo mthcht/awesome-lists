@@ -58,3 +58,29 @@ rule Ransom_Win64_BQTLock_PA_2147952432_0
         )
 }
 
+rule Ransom_Win64_BQTLock_MG_2147954859_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/BQTLock.MG!MTB"
+        threat_id = "2147954859"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BQTLock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "INTERNAL\\REMOTE.EXE" ascii //weight: 1
+        $x_1_2 = "Temp\\bqt_screenshot" ascii //weight: 1
+        $x_1_3 = "A new system has been infected!" ascii //weight: 1
+        $x_1_4 = "BQTLock Bot" ascii //weight: 1
+        $x_1_5 = "Encryption Complete! Files" ascii //weight: 1
+        $x_1_6 = "Entering persistent C2 mode" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

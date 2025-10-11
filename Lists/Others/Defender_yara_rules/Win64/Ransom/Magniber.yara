@@ -495,9 +495,10 @@ rule Ransom_Win64_Magniber_YBJ_2147953003_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {48 89 7d f0 48 89 5d f8 49 c7 c6 ?? ?? ?? ?? 49 81 f6 ?? ?? ?? ?? 41 56 49 c7 c6 ?? ?? ?? ?? 49 81 f6 ?? ?? ?? ?? 41 56 e9}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 ff c1 e9 05 00 48 ff c1 48 81 f9 ?? ?? ?? ?? 8a a6 ?? ?? ?? ?? 32 e0 80 f4 a0 88 27 88 27 e9}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 
 rule Ransom_Win64_Magniber_ARR_2147953941_0
