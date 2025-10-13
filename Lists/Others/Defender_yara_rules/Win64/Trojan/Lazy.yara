@@ -3936,3 +3936,48 @@ rule Trojan_Win64_Lazy_KAG_2147954720_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MK_2147954929_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MK!MTB"
+        threat_id = "2147954929"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8b 44 24 38 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 01 c8 48 89 44 24 40 c7 44 24 30 be 18}  //weight: 5, accuracy: Low
+        $x_10_2 = {48 8b 45 d0 48 8b 0d 20 0c 02 00 48 89 08 48 8b 0d 1e 0c 02 00 48 89 48 08 66 8b 0d 1b 0c 02 00 66 89 48 10 8a 0d 13 0c 02 00 88 48 12}  //weight: 10, accuracy: High
+        $x_20_3 = "D:\\WinCoreBase.pdb" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_MKS_2147954930_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKS!MTB"
+        threat_id = "2147954930"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {48 69 d2 43 08 21 84 48 c1 ea 20 01 c2 c1 fa 05 89 c1 c1 f9 1f 29 ca 6b ca 3e 29 c8 89 c2 48 63 d2 48 8b 45 f0 48 01 d0 8b 55 fc 48 63 ca 48 8b 55 10 48 01 ca 0f b6}  //weight: 15, accuracy: High
+        $x_10_2 = "@AmelieDataleaks" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -219,3 +219,24 @@ rule Trojan_Win64_Doina_AMB_2147954339_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_ARAX_2147954939_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.ARAX!MTB"
+        threat_id = "2147954939"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 45 fc 48 98 48 8d 15 ?? ?? ?? ?? 0f b6 04 10 83 f0 23 89 c1 8b 45 fc 48 98 48 8d 15 ?? ?? ?? ?? 88 0c 10 83 45 fc 01 8b 45 fc 83 f8 0c 76 d0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

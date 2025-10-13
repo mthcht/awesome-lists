@@ -347,3 +347,27 @@ rule Trojan_Win64_DCRat_YAF_2147954701_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DCRat_MK_2147954935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.MK!MTB"
+        threat_id = "2147954935"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {f2 48 0f 2a d1 66 0f 6e c8 f3 0f e6 c9 f3 0f e6 c0 f2 0f 58 c0 f2 0f 5c c8 f2 0f 59 ca f2 0f 11 4d b7}  //weight: 20, accuracy: High
+        $x_15_2 = "Curre360leakfixer.exe" ascii //weight: 15
+        $x_3_3 = "%s\\ok_%ld.stml" ascii //weight: 3
+        $x_2_4 = "%s\\ok_%ld.txt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

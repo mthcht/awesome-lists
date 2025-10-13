@@ -1127,3 +1127,25 @@ rule Trojan_Win64_Mikey_AHI_2147954616_0
         )
 }
 
+rule Trojan_Win64_Mikey_MK_2147954931_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.MK!MTB"
+        threat_id = "2147954931"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {41 0f b7 45 16 c1 e8 0d 83 e0 01 4c 89 66 28 89 46 20 48 8b 84 24 c0 00 00 00 48 89 46 38 48 8b 84 24 c8 00 00 00 48 89 46 40 48 8b 84 24 d0 00 00 00 48 89 46 48 4c 89 7e 30 48 89 6e 58}  //weight: 15, accuracy: High
+        $x_10_2 = {0f 57 c8 66 0f 7f 8d a0 00 00 00 48 89 45 50 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 8b 4d 50 48 89 4d 30 48 89 45 50 48 8b 4d}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

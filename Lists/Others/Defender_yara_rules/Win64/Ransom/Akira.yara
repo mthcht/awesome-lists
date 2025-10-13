@@ -277,3 +277,24 @@ rule Ransom_Win64_Akira_YAB_2147945775_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Akira_ARAX_2147954750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Akira.ARAX!MTB"
+        threat_id = "2147954750"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 83 ec 78 48 89 d7 48 89 4c 24 38 48 8d 42 30 48 89 44 24 60 4c 8b 7a 10 48 8b 6a 28 48 8b 72 18 0f b6 5a 38 8a 42 40 88 44 24 2f 48 8b 0a 48 8b 42 08 48 89 44 24 40 4c 8b 72 20 8a 42 41 88 44 24 2e f6 44 24 2e 01}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

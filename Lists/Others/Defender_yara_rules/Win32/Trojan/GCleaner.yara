@@ -1149,3 +1149,24 @@ rule Trojan_Win32_GCleaner_SPZR_2147949696_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_KGG_2147954940_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.KGG!MTB"
+        threat_id = "2147954940"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2b f8 03 f7 6a 00 ?? ?? ?? ?? ff 2b f0 8b 45 e0 31 30 83 c3 04 83 45 e0 04 3b 5d dc 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
