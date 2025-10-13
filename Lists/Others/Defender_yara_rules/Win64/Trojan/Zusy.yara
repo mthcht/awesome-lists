@@ -2596,3 +2596,25 @@ rule Trojan_Win64_Zusy_PGLY_2147954628_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Zusy_LMR_2147954914_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LMR!MTB"
+        threat_id = "2147954914"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 dc 89 d7 8b 55 e0 0f b6 34 3e 09 f2 21 d1 09 c8 88 c2 8b 45 e8 8b 4d e4 88 14 08 8b 45 e4 83 c0 01 89 45 e4}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b6 04 08 89 45 cc 8b 4d 0c 8b 45 e4 31 d2 f7 ?? ?? 8b 45 cc 0f b6 0c 11 31 c8 89 45 d0 8b 45 ec 8b 4d e4 0f b6 0c 08 8b 45 0c 89 45 d4 8b 45 e4}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
