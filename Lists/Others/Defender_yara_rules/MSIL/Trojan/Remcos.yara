@@ -577,6 +577,29 @@ rule Trojan_MSIL_Remcos_PD_2147777540_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = "Fedaliruant.Resturnigi.png" ascii //weight: 7
+        $x_2_2 = {16 8d 03 00 00 01 14 14 14 28 ?? 01 00 0a 74 15 00 00 1b 13 05 73 7f 01 00 0a 13 07 11 05 8e 69 17 da 13 09 16 13 06 2b 15 11 07 11 06 11 05 11 06 9a 6f ?? 01 00 0a 00 11 06 17 d6 13 06 11 06 11 09 31 e5}  //weight: 2, accuracy: Low
+        $x_2_3 = {01 00 0a 13 0a 2b 2d 12 0a 28 ?? 01 00 0a 13 0b 12 0b 28 ?? 01 00 0a 07 6f ?? 01 00 0a 13 0c 11 0c 2c 0f 09 12 0b 28 ?? 01 00 0a 6f ?? 01 00 0a 00 00 00 00 12 0a 28 ?? 01 00 0a 13 0d 11 0d 2d c6}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Remcos_PD_2147777540_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.PD!MTB"
+        threat_id = "2147777540"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
         strings_accuracy = "High"
     strings:

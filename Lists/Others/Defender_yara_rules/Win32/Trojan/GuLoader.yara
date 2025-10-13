@@ -6068,3 +6068,57 @@ rule Trojan_Win32_GuLoader_RCO_2147954837_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCP_2147954948_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCP!MTB"
+        threat_id = "2147954948"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "#\\Clientless12\\afgnavedes" ascii //weight: 1
+        $x_1_2 = "5\\Sunblock41\\scabish.ini" ascii //weight: 1
+        $x_1_3 = "hvidtekalkens inkwood fiddlewood" ascii //weight: 1
+        $x_1_4 = "strigae chromatospheric" ascii //weight: 1
+        $x_1_5 = "muskatens" ascii //weight: 1
+        $x_1_6 = "advarslerne.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUY_2147954949_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUY!MTB"
+        threat_id = "2147954949"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\hotcha\\Emptiness.bin" ascii //weight: 1
+        $x_1_2 = "\\Ultimates67\\overyoung.txt" ascii //weight: 1
+        $x_1_3 = "\\Monteredes" ascii //weight: 1
+        $x_1_4 = "\\copolymerises\\frostbitten.gif" ascii //weight: 1
+        $x_1_5 = "\\deaminize.jpg" ascii //weight: 1
+        $x_1_6 = "\\tvrsummerne.htm" ascii //weight: 1
+        $x_1_7 = "Exsiccating.bry" ascii //weight: 1
+        $x_1_8 = "Offentlighedsfaserne.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

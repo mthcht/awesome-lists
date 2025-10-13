@@ -384,3 +384,25 @@ rule Trojan_Win32_Virlock_PAGD_2147953249_0
         )
 }
 
+rule Trojan_Win32_Virlock_PAGP_2147954950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.PAGP!MTB"
+        threat_id = "2147954950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8a 06 32 c2 90 88 07 e9 00 00 00 00 42 46 90 47 49 83 f9 00 0f 85 e6}  //weight: 3, accuracy: High
+        $x_2_2 = {6a 40 68 00 10 00 00 68 00 98 00 00 6a 00 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
