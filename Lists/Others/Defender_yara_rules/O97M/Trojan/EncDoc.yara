@@ -137,6 +137,27 @@ rule Trojan_O97M_EncDoc_R_2147775869_0
         (all of ($x*))
 }
 
+rule Trojan_O97M_EncDoc_RR_2147778405_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/EncDoc.RR!MTB"
+        threat_id = "2147778405"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {28 22 61 70 70 64 61 74 61 22 29 [0-15] 3d 00 26 22 5c 6d 69 63 72 6f 73 6f 66 74 5c 77 69 6e 64 6f 77 73 5c 73 74 61 72 74 6d 65 6e 75 5c 70 72 6f 67 72 61 6d 73 5c 73 74 61 72 74 75 70 5c 6b 65 66 65 2e 62 61 74 22 [0-5] 3d 22 71 67 76 6a 61 67 38 67 62 32 7a 6d 64 71 70 7a 78 6d 6e 6f 78 6e 72 65 79 76 35 7a 78 6d 74 65 63 79 61 76 79 33 6a 6c 79}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_O97M_EncDoc_RK_2147795394_0
 {
     meta:
