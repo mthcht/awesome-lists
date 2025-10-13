@@ -46,3 +46,27 @@ rule Ransom_Win64_WhiteLock_PA_2147953884_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_WhiteLock_PB_2147954977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/WhiteLock.PB!MTB"
+        threat_id = "2147954977"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "WhiteLock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Encrypting:" wide //weight: 2
+        $x_1_2 = "DumpStack.log.tmp" wide //weight: 1
+        $x_1_3 = "File encrypted and saved to" ascii //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
