@@ -21895,3 +21895,45 @@ rule Trojan_Win32_Emotet_LMR_2147954915_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Emotet_BAD_2147955018_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Emotet.BAD!MTB"
+        threat_id = "2147955018"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Emotet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {30 04 31 41 3b ca 7c ?? 5e 8b e5 5d c3 69 05 ?? ?? ?? ?? fd 43 03 00 05 c3 9e 26 00 a3 ?? ?? ?? ?? c1 e8 10 25}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Emotet_BAE_2147955019_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Emotet.BAE!MTB"
+        threat_id = "2147955019"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Emotet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c1 e9 05 03 4d e8 33 c1 8b 4d f8 2b c8 89 4d f8 8b 45 f8 c1 e0 04 03 45 e4 8b 4d f8 03 4d f4 33 c1 8b 4d f8 c1 e9 05 03 4d e0 33 c1 8b 4d fc 2b c8 89 4d fc 8b 45 f4 2b 45 dc 89 45 f4 eb}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
