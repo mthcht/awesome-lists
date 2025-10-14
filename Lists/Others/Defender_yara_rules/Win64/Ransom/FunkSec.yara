@@ -45,3 +45,27 @@ rule Ransom_Win64_FunkSec_GNM_2147930150_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FunkSec_MKV_2147955034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FunkSec.MKV!MTB"
+        threat_id = "2147955034"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FunkSec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "You have been controlled. Your systems are not secure" ascii //weight: 2
+        $x_2_2 = "Hello idiots , we are Ghost Alg" ascii //weight: 2
+        $x_3_3 = "darkfunk.pdb" ascii //weight: 3
+        $x_1_4 = "Do NOT attempt to trace funksec's activities." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

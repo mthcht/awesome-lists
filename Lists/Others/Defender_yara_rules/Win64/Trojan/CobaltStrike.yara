@@ -1536,7 +1536,7 @@ rule Trojan_Win64_CobaltStrike_PD_2147812875_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
+        threshold = "8"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = "%02d/%02d/%02d %02d:%02d:%02d" ascii //weight: 1
@@ -1552,9 +1552,10 @@ rule Trojan_Win64_CobaltStrike_PD_2147812875_0
         $x_1_11 = "rijndael" ascii //weight: 1
         $x_1_12 = {2e 2f 2e 2f 2e 2c [0-4] 2e 2c 2e 2f}  //weight: 1, accuracy: Low
         $x_1_13 = {69 68 69 68 69 6b [0-4] 69 6b 69 68}  //weight: 1, accuracy: Low
+        $x_1_14 = {70 6f 73 74 00 63 64 6e 2e 25 78 25 78 2e 25 73}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
-        (7 of ($x*))
+        (8 of ($x*))
 }
 
 rule Trojan_Win64_CobaltStrike_AB_2147813010_0
