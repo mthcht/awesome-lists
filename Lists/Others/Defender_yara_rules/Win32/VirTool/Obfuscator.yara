@@ -20373,3 +20373,23 @@ rule VirTool_Win32_Obfuscator_AYA_2147782880_0
         (all of ($x*))
 }
 
+rule VirTool_Win32_Obfuscator_LBF_2147954990_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/Obfuscator.LBF"
+        threat_id = "2147954990"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Obfuscator"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f 43 f7 31 ?? 8d ?? ?? ?? 00 00 0f af d6 01 ?? 89}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1844,3 +1844,27 @@ rule Trojan_Win64_ShellcodeRunner_BB_2147954827_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_YAH_2147954989_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.YAH!MTB"
+        threat_id = "2147954989"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 bb 76 6a 40 83 46 aa bb 5c 48 b9 73 eb aa 92 e7 77 a1 64}  //weight: 1, accuracy: High
+        $x_1_2 = "MPI_Init" ascii //weight: 1
+        $x_1_3 = "MPI_Wtick" ascii //weight: 1
+        $x_1_4 = "msmpi.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

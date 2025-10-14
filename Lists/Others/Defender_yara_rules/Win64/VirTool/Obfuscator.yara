@@ -151,3 +151,23 @@ rule VirTool_Win64_Obfuscator_G_2147696580_0
         (all of ($x*))
 }
 
+rule VirTool_Win64_Obfuscator_LBF_2147954991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Obfuscator.LBF"
+        threat_id = "2147954991"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Obfuscator"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {45 0f 43 d9 44 ?? ?? 45 8d ?? ?? ?? 00 00 45 0f af cb 41 ?? ?? 44 ?? ?? 81}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
