@@ -3186,3 +3186,24 @@ rule Trojan_MSIL_XWorm_AVHB_2147955014_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_SPQR_2147955210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.SPQR!MTB"
+        threat_id = "2147955210"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {04 1b 5d 2c 03 03 2b 07 03 20 ?? 00 00 00 61 b4 0a 2b 00 06 2a}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

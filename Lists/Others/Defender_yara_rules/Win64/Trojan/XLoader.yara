@@ -19,3 +19,24 @@ rule Trojan_Win64_XLoader_GVA_2147954704_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XLoader_ACIB_2147955205_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XLoader.ACIB!MTB"
+        threat_id = "2147955205"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b d1 48 8d 44 10 10 0f b6 00 48 8b 4d c0 30 01 8b 45 d4 ff c0 89 45 d4 8b 45 d4 3b 45 f4 0f 9c c0 0f b6 c0 89 45 d0 83 7d d0 00 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

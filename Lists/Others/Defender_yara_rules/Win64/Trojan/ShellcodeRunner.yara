@@ -1891,30 +1891,3 @@ rule Trojan_Win64_ShellcodeRunner_HL_2147955025_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ShellcodeRunner_HN_2147955026_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/ShellcodeRunner.HN!MTB"
-        threat_id = "2147955026"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "ShellcodeRunner"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "60"
-        strings_accuracy = "High"
-    strings:
-        $x_13_1 = {4b 45 52 4e 45 4c 33 32 2e 44 4c 4c 00 00 00 00 4b 00 45 00 52 00 4e 00 45 00 4c 00 33 00 32 00 2e 00 44 00 4c 00 4c 00}  //weight: 13, accuracy: High
-        $x_4_2 = {01 47 65 74 44 43 00}  //weight: 4, accuracy: High
-        $x_12_3 = {00 2e 74 65 78 74 24}  //weight: 12, accuracy: High
-        $x_14_4 = {00 2e 69 64 61 74 61 24}  //weight: 14, accuracy: High
-        $x_17_5 = {00 2e 72 64 61 74 61 24}  //weight: 17, accuracy: High
-        $n_200_6 = "VirtualAlloc" ascii //weight: -200
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
