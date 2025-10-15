@@ -504,3 +504,26 @@ rule Trojan_Win32_ShellcodeRunner_AD_2147954443_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_HP_2147955146_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.HP!MTB"
+        threat_id = "2147955146"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f 05 48 8b 4d c4 48 8d 64 cc 28 5f 48 89 45 ?? e8 00 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {83 e8 08 33 c9 [0-48] ba 04 00 00 00 6b c2 00 8b 4c 05 c4 33 d2 89 4d}  //weight: 1, accuracy: Low
+        $x_1_3 = {1c 33 c0 50 52 8d 4d e8 33 d2 52 51 8d 45 e0 33 c9 51 50 8b 45 0c 99 52 50 68 35 41 65 d2 8b 55}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
