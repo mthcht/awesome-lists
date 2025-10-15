@@ -28,8 +28,10 @@ rule Backdoor_Win32_Cozer_A_2147697669_0
         $x_1_13 = "Process (pid:{1}) {0} has been started" ascii //weight: 1
         $x_2_14 = "href\\s*=\\s*(?:[\"'](?<1>[^\"']*)[\"']|(?<1>\\S+))" ascii //weight: 2
         $x_2_15 = "^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$" ascii //weight: 2
+        $n_1000_16 = "Node Agent (head@5acad41)" wide //weight: -1000
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((6 of ($x_1_*))) or
             ((1 of ($x_2_*) and 4 of ($x_1_*))) or

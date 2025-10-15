@@ -329,3 +329,24 @@ rule Trojan_Win64_AsyncRAT_AB_2147951430_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AsyncRAT_PGAR_2147955111_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRAT.PGAR!MTB"
+        threat_id = "2147955111"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {49 8b c1 49 f7 e0 48 c1 ea 02 48 8d 04 52 48 03 c0 49 8b c8 48 2b c8 42 0f b6 [0-6] 42 30 04 07 49 ff c0 4c 3b ?? 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
