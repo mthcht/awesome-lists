@@ -240,3 +240,29 @@ rule Trojan_Win64_Doina_ARAX_2147954939_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_AHB_2147955159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.AHB!MTB"
+        threat_id = "2147955159"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 4c 24 2c 8d 04 95 00 00 00 00 31 d0 83 c2 ?? 01 c8 89 44 24 2c 81 fa}  //weight: 30, accuracy: Low
+        $x_30_2 = {31 c8 83 c1 ?? 44 01 c0 89 44 24 2c 8b 44 24 2c 44 8b 44 24 2c c1 f8 ?? 01 d0 83 c2 ?? 44 31 c0 89 44 24 2c}  //weight: 30, accuracy: Low
+        $x_50_3 = "JABmACAAPQAgACIAJABlAG4AdgA6AHQAZQBtAHAAXAB1AHAAZABhAHQAZQAuAGUAeABlACIAOwA" ascii //weight: 50
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_50_*) and 1 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+
