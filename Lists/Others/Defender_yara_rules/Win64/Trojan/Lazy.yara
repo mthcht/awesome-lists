@@ -3981,3 +3981,28 @@ rule Trojan_Win64_Lazy_MKS_2147954930_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_UK_2147955072_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.UK!MTB"
+        threat_id = "2147955072"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Transformingly hideaway" ascii //weight: 1
+        $x_1_2 = "Eurypharynx handwriting corsesque tailory questionwise" ascii //weight: 1
+        $x_1_3 = "Nerita coeloma" ascii //weight: 1
+        $x_1_4 = "Regioned scansory" ascii //weight: 1
+        $x_1_5 = "Stammels trovatore amphineurous" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

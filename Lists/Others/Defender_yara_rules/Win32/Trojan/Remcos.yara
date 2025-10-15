@@ -3019,3 +3019,27 @@ rule Trojan_Win32_Remcos_GXT_2147951871_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_SX_2147955084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.SX!MTB"
+        threat_id = "2147955084"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {99 f7 f9 8b 4d 0c 33 c0 8a 04 0a 8b 0f 03 c6 03 c1}  //weight: 10, accuracy: High
+        $x_8_2 = {8b ce 8d 73 01 8b d1 6a ?? c1 e9 ?? f3 a5 8b ca 83 e1 ?? f3 a4}  //weight: 8, accuracy: Low
+        $x_5_3 = {00 ff d6 4f 75 db}  //weight: 5, accuracy: High
+        $x_2_4 = "SetProcessDEPPolicy" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

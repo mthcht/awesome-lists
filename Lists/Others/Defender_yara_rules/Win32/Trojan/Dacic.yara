@@ -256,3 +256,29 @@ rule Trojan_Win32_Dacic_AC_2147953616_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dacic_SX_2147955086_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dacic.SX!MTB"
+        threat_id = "2147955086"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a 08 40 84 c9 75 f9 2b c2 c6 84 04 be ?? ?? ?? ?? 8d 84 24 ?? ?? ?? ?? 8d 48 ?? eb 03}  //weight: 10, accuracy: Low
+        $x_2_2 = "C:\\ping_pong\\win_client\\Release\\win_client.pdb" ascii //weight: 2
+        $x_1_3 = "cmd.exe /C ping -w 50 -n 1 1.1.1.1 > Nul & Del" ascii //weight: 1
+        $x_1_4 = "echo_and_return: connect() is OK." ascii //weight: 1
+        $x_1_5 = "get_port_from_controller: connect() is OK." ascii //weight: 1
+        $x_1_6 = "ShellExecute" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
