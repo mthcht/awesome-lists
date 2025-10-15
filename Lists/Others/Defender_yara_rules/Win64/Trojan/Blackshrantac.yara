@@ -19,3 +19,26 @@ rule Trojan_Win64_Blackshrantac_Z_2147954864_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Blackshrantac_SB_2147955195_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Blackshrantac.SB!MTB"
+        threat_id = "2147955195"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Blackshrantac"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BLACK-SHRANTAC" wide //weight: 1
+        $x_1_2 = "Your files have been extracted from your network and encrypted" wide //weight: 1
+        $x_1_3 = "we are solely motivated by financial compensation" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

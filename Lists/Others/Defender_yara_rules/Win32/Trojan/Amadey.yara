@@ -4333,3 +4333,26 @@ rule Trojan_Win32_Amadey_BAD_2147954671_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_GXV_2147955168_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.GXV!MTB"
+        threat_id = "2147955168"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {83 c4 0c 8b 55 14 2b 55 f4 03 55 f8 89 55 f8 8b 45 10 89 45 f0 8b 4d 14 89 4d f4 8b 55 f8 8a 45 ff 88 02 8b 4d f8 83 c1 01 89 4d f8}  //weight: 10, accuracy: High
+        $x_1_2 = "formhistory.sqlite" ascii //weight: 1
+        $x_1_3 = "config\\loginusers.vdf" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
