@@ -2369,6 +2369,29 @@ rule Trojan_Win32_OffLoader_SPWQ_2147915935_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_SPWQ_2147915935_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPWQ!MTB"
+        threat_id = "2147915935"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "boxgrandfather.info/poli.php" ascii //weight: 4
+        $x_4_2 = "chickenslevel.xyz/polis.php" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_OffLoader_SPKM_2147916324_0
 {
     meta:

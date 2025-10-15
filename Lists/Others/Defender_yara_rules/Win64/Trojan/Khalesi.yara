@@ -269,3 +269,26 @@ rule Trojan_Win64_Khalesi_ARAZ_2147929778_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Khalesi_PGKH_2147955107_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Khalesi.PGKH!MTB"
+        threat_id = "2147955107"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Khalesi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://files.catbox.moe/k6m4s4.bat" ascii //weight: 2
+        $x_2_2 = "https://files.catbox.moe/l3whjb.wav" ascii //weight: 2
+        $x_2_3 = "https://files.catbox.moe/lg2jiw.bat" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
