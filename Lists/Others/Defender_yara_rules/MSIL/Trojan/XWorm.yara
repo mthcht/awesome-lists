@@ -3207,3 +3207,28 @@ rule Trojan_MSIL_XWorm_SPQR_2147955210_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AEIB_2147955280_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AEIB!MTB"
+        threat_id = "2147955280"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0a 0a 06 17 6f ?? 00 00 0a 06 18 6f ?? 00 00 0a 06 03 04 6f ?? 00 00 0a 0b 07 02 16 02 8e 69 6f ?? 00 00 0a 0c de 0a}  //weight: 6, accuracy: Low
+        $x_2_2 = {02 8e 69 16 30 08 16 8d ?? 00 00 01 2b 18 02 16 9a 17 8d ?? 00 00 01 13}  //weight: 2, accuracy: Low
+        $x_2_3 = {0a 0b 06 16 73 ?? 00 00 0a 0c 08 07 6f ?? 00 00 0a de 0a 08 2c 06 08 6f ?? 00 00 0a dc 07 6f ?? 00 00 0a 0d de 14}  //weight: 2, accuracy: Low
+        $x_1_4 = "FromBase64String" ascii //weight: 1
+        $x_1_5 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
