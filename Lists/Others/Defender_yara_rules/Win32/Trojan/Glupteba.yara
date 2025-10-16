@@ -995,6 +995,33 @@ rule Trojan_Win32_Glupteba_MX_2147754226_2
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Glupteba_A_2147756875_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.A!MTB"
+        threat_id = "2147756875"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MiniDumpWriteDump" ascii //weight: 1
+        $x_1_2 = "Discord" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = ".IsElevated" ascii //weight: 1
+        $x_1_5 = "net/http.persistConnWriter.Write" ascii //weight: 1
+        $x_1_6 = "maxPayloadSizeForWrite" ascii //weight: 1
+        $x_1_7 = "GeoIP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Glupteba_DSA_2147759454_0
 {
     meta:

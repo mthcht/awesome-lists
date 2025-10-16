@@ -88,3 +88,24 @@ rule Trojan_Win32_TeslaCrypt_ARA_2147944005_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_TeslaCrypt_AB_2147955224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/TeslaCrypt.AB!MTB"
+        threat_id = "2147955224"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "TeslaCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 44 24 04 8b 4c 24 10 66 8b 14 41 66 89 d6 66 83 ?? ?? 66 89 d7 66 83 c7 ?? 66 83 fe ?? 66 0f 42 d7 8b 5c 24 30 66 39 14 43}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

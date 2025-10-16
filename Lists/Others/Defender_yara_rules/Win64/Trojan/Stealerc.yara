@@ -46,6 +46,27 @@ rule Trojan_Win64_Stealerc_GPA_2147916632_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealerc_GPB_2147917502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealerc.GPB!MTB"
+        threat_id = "2147917502"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealerc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0f 57 c9 66 0f 7f 8c 24 ?? 01 00 00 66 0f 7f 84 24 ?? 01 00 00 66 0f 7f 8c 24 ?? 01 00 00 48 8d 15 bf dc 6b 00 49 8b cf}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Stealerc_NV_2147931488_0
 {
     meta:

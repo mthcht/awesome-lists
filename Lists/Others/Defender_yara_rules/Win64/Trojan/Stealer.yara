@@ -622,3 +622,28 @@ rule Trojan_Win64_Stealer_NPE_2147954586_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SXD_2147955239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SXD!MTB"
+        threat_id = "2147955239"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {2b c2 66 89 45 ?? 69 c1 ?? ?? ?? ?? ?? ?? ?? ?? ?? 2b c8 48 8b c3 66 89 4d ?? 69 c9 ?? ?? ?? ?? 2b ca 88 4c 05 ?? 48 ff c0 48 83 f8}  //weight: 3, accuracy: Low
+        $x_2_2 = {0f b6 0c 13 8b c1 83 e1 ?? 48 c1 e8 ?? 8a 44 04 48 88 44 55 ?? 8a 44 0c 48 88 44 55 91 48 ff c2 48 83 fa}  //weight: 2, accuracy: Low
+        $x_1_3 = "Google\\Chrome\\User Data\\Local State" ascii //weight: 1
+        $x_1_4 = "BraveSoftware\\Brave-Browser\\User Data\\Local State" ascii //weight: 1
+        $x_1_5 = "Microsoft\\Edge\\User Data\\Local State" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -118,3 +118,28 @@ rule Trojan_Win64_Sdum_RV_2147911598_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Sdum_CF_2147955236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Sdum.CF!MTB"
+        threat_id = "2147955236"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Sdum"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "APEX_TMH_LOADER.pdb" ascii //weight: 2
+        $x_2_2 = ".managedcode" ascii //weight: 2
+        $x_2_3 = "hydrated" ascii //weight: 2
+        $x_2_4 = "PEX_TMH_LOADER.exe" ascii //weight: 2
+        $x_2_5 = "DOTNET_" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
