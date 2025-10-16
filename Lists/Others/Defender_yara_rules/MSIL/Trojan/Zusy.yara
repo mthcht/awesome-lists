@@ -4059,3 +4059,24 @@ rule Trojan_MSIL_Zusy_SPCB_2147954899_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SLDC_2147955298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SLDC!MTB"
+        threat_id = "2147955298"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {72 01 00 00 70 0b 06 73 04 00 00 0a 6f 05 00 00 0a 06 72 8e 00 00 70 07 6f 06 00 00 0a 06 73 04 00 00 0a 6f 05 00 00 0a 73 07 00 00 0a 0c 08 07 6f 08 00 00 0a 08 17 6f 09 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
