@@ -1028,6 +1028,27 @@ rule Trojan_Win64_Tedy_DKZ_2147920721_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_KAE_2147921482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KAE!MTB"
+        threat_id = "2147921482"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {44 8d 50 bf 44 8d 48 20 41 80 fa 1a 45 8d 50 bf 41 0f 42 c1 45 8d 48 20 66 41 83 fa 1a 45 0f 42 c1 44 38 c0}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_C_2147922679_0
 {
     meta:

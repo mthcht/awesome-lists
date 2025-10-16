@@ -6178,3 +6178,27 @@ rule Trojan_Win32_GuLoader_SVA_2147955222_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCS_2147955312_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCS!MTB"
+        threat_id = "2147955312"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "fortinnedes maps konkretiserende" ascii //weight: 1
+        $x_1_2 = "kbmandsregning" ascii //weight: 1
+        $x_1_3 = "philotheistic" ascii //weight: 1
+        $x_1_4 = "spinkede.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
