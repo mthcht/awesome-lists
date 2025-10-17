@@ -17865,3 +17865,25 @@ rule Trojan_Win64_CobaltStrike_NWU_2147954063_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_GVP_2147955344_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GVP!MTB"
+        threat_id = "2147955344"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {3a 2f 2f 33 38 2e 31 39 30 2e 32 32 34 2e 36 33 3a 38 38 2f [0-16] 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_1_2 = "InternetOpenUrlA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
