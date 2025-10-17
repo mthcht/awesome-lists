@@ -4356,3 +4356,25 @@ rule Trojan_Win32_Amadey_GXV_2147955168_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_AMI_2147955392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AMI!MTB"
+        threat_id = "2147955392"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 14 f6 44 00 56 a3 bc 44 46 00 ff 15 ?? ?? ?? ?? 68 2c f6 44 00 56 a3 c0 44 46 00 ff 15 ?? ?? ?? ?? 68 48 f6 44 00 56 a3 c4 44 46 00 ff 15 ?? ?? ?? ?? 68 60 f6 44 00 56 a3 c8 44 46 00 ff 15 ?? ?? ?? ?? 68 7c f6 44 00 56 a3 cc 44 46 00}  //weight: 1, accuracy: Low
+        $x_2_2 = {56 a3 5c 44 46 00 ff 15 ?? ?? ?? ?? 68 dc f3 44 00 56 a3 60 44 46 00 ff 15 ?? ?? ?? ?? 68 f0 f3 44 00 56 a3 64 44 46 00 ff 15 ?? ?? ?? ?? 68 04 f4 44 00 56 a3 68 44 46 00 ff 15 ?? ?? ?? ?? 68 1c f4 44 00 56 a3 6c 44 46 00 ff 15 ?? ?? ?? ?? 68 30 f4 44 00 56}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
