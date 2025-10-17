@@ -6202,3 +6202,57 @@ rule Trojan_Win32_GuLoader_RCS_2147955312_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCT_2147955423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCT!MTB"
+        threat_id = "2147955423"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\hyperaesthete\\Eskimologisk\\centricae" ascii //weight: 1
+        $x_1_2 = "%ledgeman%\\tilbagerapporteringer" ascii //weight: 1
+        $x_1_3 = "\\Acerbate\\Storpolitiskes" ascii //weight: 1
+        $x_1_4 = "overconscientiousness shivoos" ascii //weight: 1
+        $x_1_5 = "slounger sar" ascii //weight: 1
+        $x_1_6 = "elektronikfirmaet.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVB_2147955424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVB!MTB"
+        threat_id = "2147955424"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\yogis\\apoteksassistenterne" ascii //weight: 1
+        $x_1_2 = "\\paaklagede\\budgetrodet.ini" ascii //weight: 1
+        $x_1_3 = "\\usknne.zip" ascii //weight: 1
+        $x_1_4 = "Gigantisk.txt" ascii //weight: 1
+        $x_1_5 = "Longwinded.qua" ascii //weight: 1
+        $x_1_6 = "interimskvitteringens.mak" ascii //weight: 1
+        $x_1_7 = "ridebanespringning.jpg" ascii //weight: 1
+        $x_1_8 = "\\geografiske.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

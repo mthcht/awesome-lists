@@ -496,3 +496,28 @@ rule Trojan_Win64_Oyster_AC_2147954509_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Oyster_CH_2147955425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.CH!MTB"
+        threat_id = "2147955425"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 83 ec 28 48 8b 0d ?? ?? ?? ?? 45 33 c0 ba 01 00 00 00 48 8d 81 ?? ?? ?? ?? ff d0 48 8b 05 ?? ?? ?? ?? 48 05 ?? ?? ?? ?? 48 83 c4 28 48 ff e0}  //weight: 2, accuracy: Low
+        $x_1_2 = "KERNEL32.DLL" ascii //weight: 1
+        $x_1_3 = "LoadLibraryA" ascii //weight: 1
+        $x_1_4 = "GetProcAddress" ascii //weight: 1
+        $x_1_5 = "VirtualProtect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
