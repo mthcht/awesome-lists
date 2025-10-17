@@ -1913,28 +1913,6 @@ rule Trojan_Win32_Injector_RPV_2147807730_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Injector_RPZ_2147807732_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Injector.RPZ!MTB"
-        threat_id = "2147807732"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Injector"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {53 31 db 69 93 08 00 44 00 05 84 08 08 42 89 93 08 00 44 00 f7 e2 89 d0 5b c3}  //weight: 1, accuracy: High
-        $x_1_2 = {88 04 32 46 e9}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Injector_RPG_2147807855_0
 {
     meta:

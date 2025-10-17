@@ -2463,6 +2463,28 @@ rule Trojan_MSIL_Lazy_ARA_2147910295_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_ARA_2147910295_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ARA!MTB"
+        threat_id = "2147910295"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 08 11 0a 8f 17 00 00 01 25 71 17 00 00 01 08 d2 61 d2 81 17 00 00 01 11 0a 20 ff 00 00 00 5f 2d 0b 08 08 5a 20 b7 5c 8a 00 6a 5e 0c 11 0a 17 58 13 0a 11 0a 11 08 8e 69 32 c5}  //weight: 2, accuracy: High
+        $x_2_2 = "SystemMonitorClient.SysMonFrom.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_SPZC_2147910849_0
 {
     meta:

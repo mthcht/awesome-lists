@@ -3049,6 +3049,32 @@ rule Trojan_Win32_Guloader_RR_2147833669_1
         family = "Guloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Gigantisk.txt" wide //weight: 1
+        $x_1_2 = "\\Subradicness135" wide //weight: 1
+        $x_1_3 = "mollyhawk\\Uninstall\\barbere\\Orientationally" wide //weight: 1
+        $x_1_4 = "\\Lemmes67\\Reimporterne.jpg" wide //weight: 1
+        $x_1_5 = "\\udhuggendes\\Udbrendes.exe" wide //weight: 1
+        $x_1_6 = "C:\\TEMP\\yogis\\apoteksassistenterne\\Fantasia.mal" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RR_2147833669_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RR!MTB"
+        threat_id = "2147833669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"

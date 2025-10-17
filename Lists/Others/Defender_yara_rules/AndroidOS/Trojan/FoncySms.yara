@@ -15,9 +15,8 @@ rule Trojan_AndroidOS_FoncySms_A_2147652261_0
         $x_1_1 = "not registred application" ascii //weight: 1
         $x_5_2 = "MagicSMSActivity.java" ascii //weight: 5
         $x_5_3 = "GEHEN SP" ascii //weight: 5
-        $x_5_4 = "ACCESS SP" ascii //weight: 5
-        $x_1_5 = "WUUT" ascii //weight: 1
-        $x_1_6 = "STAR" ascii //weight: 1
+        $x_1_4 = "WUUT" ascii //weight: 1
+        $x_1_5 = "STAR" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (
