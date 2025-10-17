@@ -134,3 +134,26 @@ rule Trojan_MSIL_PureLogsStealer_AYA_2147925542_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogsStealer_ZZM_2147955365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogsStealer.ZZM!MTB"
+        threat_id = "2147955365"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogsStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {06 20 7b 11 00 00 28 ?? 00 00 06 28 ?? 00 00 0a 6f ?? 00 00 0a 00 06 20 48 11 00 00 28 ?? 00 00 06 28 ?? 00 00 0a 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 0b 73 ?? 00 00 0a 0c 08 07 17 73 ?? 00 00 0a 0d 09 02 16 02 8e 69 6f ?? 00 00 0a 2b 29 11 06 1f 0f 61 13 06 11 06 1f 0e 58 45 06 00 00 00 0b 00 00 00 12 00 00 00 23 00 00 00 2d 00 00 00 34 00 00 00 42 00 00 00 1f 19 28 ?? 00 00 06 13 06 2b cc 00 1f f9 13 06 2b c5 09 6f ?? 00 00 0a 1f 1d 28 ?? 00 00 06 13 06 2b b4}  //weight: 10, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
