@@ -1136,6 +1136,29 @@ rule Trojan_MSIL_Mardom_BAA_2147955017_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_SLEI_2147955138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.SLEI!MTB"
+        threat_id = "2147955138"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {7e 26 06 00 04 72 b7 01 00 70 6f 8d 01 00 0a 73 6b 09 00 06 25 6f 6c 09 00 06 16 6a 6f 08 01 00 0a 25 25 6f 6c 09 00 06 6f 05 01 00 0a 69 6f 6d 09 00 06 13 04}  //weight: 2, accuracy: High
+        $x_2_2 = "FromBase64String" ascii //weight: 2
+        $x_2_3 = "CreateDecryptor" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Mardom_SLDT_2147955369_0
 {
     meta:
