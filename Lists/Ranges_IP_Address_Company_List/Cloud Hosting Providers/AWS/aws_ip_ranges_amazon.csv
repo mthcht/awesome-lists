@@ -354,7 +354,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.122.1/32,me-south-1,AMAZON,me-south-1
 18.191.0.0/16,us-east-2,AMAZON,us-east-2
 35.50.229.0/24,ap-northeast-3,AMAZON,ap-northeast-3
-35.96.48.0/24,eu-central-1,AMAZON,eu-central-1
 52.93.53.2/32,us-west-1,AMAZON,us-west-1
 52.144.210.0/26,eu-west-1,AMAZON,eu-west-1
 98.131.0.0/16,ap-south-2,AMAZON,ap-south-2
@@ -2190,7 +2189,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.177.88.0/24,sa-east-1,AMAZON,sa-east-1
 15.184.0.0/16,me-south-1,AMAZON,me-south-1
 15.220.56.0/21,ap-northeast-1,AMAZON,ap-northeast-1-tpe-1
-35.96.50.0/24,eu-central-1,AMAZON,eu-central-1
 52.93.53.0/32,us-west-1,AMAZON,us-west-1
 52.93.71.42/32,eu-west-1,AMAZON,eu-west-1
 52.93.83.0/24,ap-southeast-1,AMAZON,ap-southeast-1
@@ -2361,7 +2359,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 18.98.128.0/19,ap-northeast-2,AMAZON,ap-northeast-2
 35.30.0.0/15,mx-central-1,AMAZON,mx-central-1
 35.55.9.0/24,ap-southeast-1,AMAZON,ap-southeast-1
-35.96.49.0/24,eu-central-1,AMAZON,eu-central-1
 52.93.84.162/32,us-east-1,AMAZON,us-east-1
 52.93.86.164/32,us-east-1,AMAZON,us-east-1
 52.93.86.198/32,us-east-1,AMAZON,us-east-1
@@ -3099,7 +3096,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 3.2.86.0/24,us-west-1,AMAZON,us-west-1
 15.181.192.0/19,us-east-1,AMAZON,us-east-1-dfw-1
 16.152.0.0/16,us-gov-east-1,AMAZON,us-gov-east-1
-35.96.51.0/24,eu-central-1,AMAZON,eu-central-1
 51.0.136.0/23,eusc-de-east-1,AMAZON,eusc-de-east-1
 52.93.55.166/31,us-west-1,AMAZON,us-west-1
 52.93.88.193/32,us-east-1,AMAZON,us-east-1
@@ -3807,6 +3803,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 16.12.18.0/23,eu-west-3,AMAZON,eu-west-3
 18.253.0.0/16,us-gov-east-1,AMAZON,us-gov-east-1
 35.96.10.0/24,us-west-2,AMAZON,us-west-2
+35.96.48.0/22,eu-central-1,AMAZON,eu-central-1
 52.46.192.0/20,eu-north-1,AMAZON,eu-north-1
 52.82.187.0/24,cn-northwest-1,AMAZON,cn-northwest-1
 52.93.126.76/32,eu-west-1,AMAZON,eu-west-1
