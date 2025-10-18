@@ -372,3 +372,24 @@ rule Trojan_Win64_Amadey_GXF_2147955415_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_PGAP_2147955445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.PGAP!MTB"
+        threat_id = "2147955445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {41 8b c1 4d 8d 5b 01 4d 0f 47 c7 4d 8d 52 01 33 d2 41 ff c1 41 f7 f6 42 0f b6 04 02 41 32 42 ff 41 88 43 ff 41 81 f9}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

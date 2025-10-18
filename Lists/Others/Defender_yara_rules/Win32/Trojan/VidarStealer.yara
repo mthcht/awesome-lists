@@ -163,3 +163,113 @@ rule Trojan_Win32_VidarStealer_B_2147905457_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_VidarStealer_Z_2147955452_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {63 6d 64 20 2f 63 20 73 74 61 72 74 [0-16] 72 75 6e 64 6c 6c 33 32 2e 65 78 65}  //weight: 1, accuracy: Low
+        $x_1_2 = {70 6f 77 65 72 73 68 65 6c 6c [0-60] 73 74 61 72 74 2d 70 72 6f 63 65 73 73}  //weight: 1, accuracy: Low
+        $x_1_3 = "/c ping localhost -n" ascii //weight: 1
+        $x_1_4 = "encrypted_key" ascii //weight: 1
+        $x_1_5 = "Browser Stealer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_Z_2147955452_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Loading payload: type=%s" ascii //weight: 1
+        $x_1_2 = "Injection mode selected: %s" ascii //weight: 1
+        $x_1_3 = "Telegram Desktop" ascii //weight: 1
+        $x_1_4 = "logins.json" ascii //weight: 1
+        $x_1_5 = "Payload Loader" ascii //weight: 1
+        $x_1_6 = "Crypto Reader" ascii //weight: 1
+        $x_1_7 = "Monero" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_Z_2147955452_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "telegram_files" ascii //weight: 1
+        $x_1_2 = "steam_files" ascii //weight: 1
+        $x_1_3 = "discord_files" ascii //weight: 1
+        $x_1_4 = "\\Network\\Cookies" ascii //weight: 1
+        $x_1_5 = "_key.txt" ascii //weight: 1
+        $x_1_6 = "*.address.txt" ascii //weight: 1
+        $x_1_7 = "passwords.txt" ascii //weight: 1
+        $x_1_8 = "Screenshot" ascii //weight: 1
+        $x_1_9 = "Wallets" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_Z_2147955452_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "formhistory." ascii //weight: 1
+        $x_1_2 = "cookies.sqlite" ascii //weight: 1
+        $x_1_3 = "places.sqlite" ascii //weight: 1
+        $x_1_4 = "\\IndexedDB\\chrome-extension" ascii //weight: 1
+        $x_1_5 = "Login Data" ascii //weight: 1
+        $x_1_6 = "All injection attempts FAILED for attempt %d" ascii //weight: 1
+        $x_1_7 = "passwords.db" ascii //weight: 1
+        $x_1_8 = "webdata.db" ascii //weight: 1
+        $x_1_9 = "Shellcode" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
