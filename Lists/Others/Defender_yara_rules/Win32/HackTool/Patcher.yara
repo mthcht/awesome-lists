@@ -102,23 +102,3 @@ rule HackTool_Win32_Patcher_2147744922_2
         (all of ($x*))
 }
 
-rule HackTool_Win32_Patcher_AMTB_2147934306_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Win32/Patcher!AMTB"
-        threat_id = "2147934306"
-        type = "HackTool"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Patcher"
-        severity = "High"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Patch created by Tola's Patching Engine" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
