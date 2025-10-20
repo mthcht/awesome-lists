@@ -1506,3 +1506,24 @@ rule Trojan_Win32_Stealer_MK_2147952541_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_MKN_2147955524_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.MKN!MTB"
+        threat_id = "2147955524"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {83 c4 04 8b 7d 98 33 f6 2b c7 74 ?? 66 0f 1f 44 00 00 e8 f8 ?? 02 00 30 04 37 46 8b 45 9c 8b 7d 98 2b c7 3b f0 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

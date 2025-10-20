@@ -43,3 +43,26 @@ rule TrojanDownloader_Win64_CoinMiner_ARA_2147952566_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_CoinMiner_PZM_2147955527_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/CoinMiner.PZM!MTB"
+        threat_id = "2147955527"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {48 8d 85 c0 00 00 00 48 8d 0d ?? ?? 00 00 48 89 c2 e8 ?? ?? ?? ?? 48 8d 45 b0 48 8d 0d ?? ?? 00 00 48 89 c2 e8 ?? ?? ?? ?? 48 8d 95 c0 00 00 00 48 8d 05 ?? ?? 00 00 c7 44 24 28 01 00 00 00 48 c7 44 24 ?? 00 00 00 00 41 b9 00 00 00 00 49 89 d0 48 89 c2 b9 00 00 00 00 48 8b 05 ?? ?? 00 00 ff d0}  //weight: 4, accuracy: Low
+        $x_1_2 = "loader_miner/start.exe" ascii //weight: 1
+        $x_1_3 = "loader_miner/updateChrome.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
