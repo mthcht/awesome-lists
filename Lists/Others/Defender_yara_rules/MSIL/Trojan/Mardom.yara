@@ -1109,6 +1109,27 @@ rule Trojan_MSIL_Mardom_PGMD_2147954843_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {06 08 1a 5a 18 58 58 47 0d 20 ff 00 00 00 09 59 1f 72 61 d2 13 04 02 7b ?? 00 00 04 07 08 58 11 04 9c 08 17 58 0c 08 02 7b ?? 00 00 04 32 d1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_PGMD_2147954843_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.PGMD!MTB"
+        threat_id = "2147954843"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
         $x_5_1 = {73 13 00 00 06 72 01 00 00 70 72 33 00 00 70 72 4d 00 00 70 72 99 00 00 70 6f ?? 00 00 06 20 00 00 00 00 7e ?? 00 00 04 7b ?? 00 00 04 ?? ?? 00 00 00 26 20 00 00 00 00 38 04 00 00 00 fe ?? ?? 00 45 01 00 00 00 05 00 00 00 38 00 00 00 00 dd}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and

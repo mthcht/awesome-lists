@@ -23,6 +23,29 @@ rule Trojan_Win32_SuspAAD_A_2147954135_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_SuspAAD_A_2147954135_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspAAD.A"
+        threat_id = "2147954135"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspAAD"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "AppData\\Local\\Temp" ascii //weight: 1
+        $x_1_2 = "SharpAwareness.exe" ascii //weight: 1
+        $x_1_3 = "SharpADUserIP.exe" ascii //weight: 1
+        $x_1_4 = "SharpWnfDump.exe -d -r" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
 rule Trojan_Win32_SuspAAD_B_2147954136_0
 {
     meta:
@@ -44,6 +67,27 @@ rule Trojan_Win32_SuspAAD_B_2147954136_0
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspAAD_B_2147954136_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspAAD.B"
+        threat_id = "2147954136"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspAAD"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "nltest " ascii //weight: 1
+        $x_1_2 = "/domain_trusts" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
         (all of ($x*))
 }
 
@@ -70,6 +114,28 @@ rule Trojan_Win32_SuspAAD_C_2147954137_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_SuspAAD_C_2147954137_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspAAD.C"
+        threat_id = "2147954137"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspAAD"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "whoami.exe" ascii //weight: 1
+        $x_1_2 = "/all" ascii //weight: 1
+        $x_1_3 = "/groups" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
 rule Trojan_Win32_SuspAAD_D_2147954138_0
 {
     meta:
@@ -91,6 +157,27 @@ rule Trojan_Win32_SuspAAD_D_2147954138_0
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspAAD_D_2147954138_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspAAD.D"
+        threat_id = "2147954138"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspAAD"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Reconerator.exe" ascii //weight: 1
+        $x_1_2 = "AppData\\Local\\Temp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
         (all of ($x*))
 }
 

@@ -191,3 +191,26 @@ rule VirTool_Win32_Bruterat_B_2147954592_0
         (all of ($x*))
 }
 
+rule VirTool_Win32_Bruterat_B_2147954592_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/Bruterat.B!svc"
+        threat_id = "2147954592"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bruterat"
+        severity = "Critical"
+        info = "svc: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {80 79 ff cc 74 58 45 85 c0 75 04 48 83 e9 20 44 8a 41 03 44 8a 09 41 80 f8 e9 74 06 41 80 f9 e9 75 07 ff c2 45 31 c0 eb d7}  //weight: 1, accuracy: High
+        $x_1_2 = {31 c0 41 80 f9 4c 75 2f 80 79 01 8b 75 29 80 79 02 d1 75 21 41 80 f8 b8 75 1b 80 79 06 00 75 17 0f b6 41 05 c1 e0 08 41 89 c0 0f b6 41 04 44 09 c0 01 d0 eb 02 31 c0 c3}  //weight: 1, accuracy: High
+        $x_1_3 = {ba 08 00 00 00 48 83 c9 ff 45 31 e4 48 b8 53 65 44 65 62 75 67 50 48 89 44 24 3b 4c 8d 44 24 28 48 b8 72 69 76 69 6c 65 67 65 c6 44 24 4b 00 48 89 44 24 43 e8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
