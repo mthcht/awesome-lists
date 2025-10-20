@@ -1302,3 +1302,26 @@ rule Trojan_Win32_PonyStealer_AB_2147951440_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PonyStealer_MK_2147955502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.MK!MTB"
+        threat_id = "2147955502"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {67 38 00 00 00 00 00 ff cc 31 00 31 a4 4d 97 89 80 8b 5d 49 b0 f7 00 c3}  //weight: 15, accuracy: High
+        $x_10_2 = {4b b1 b7 3a 4f ad 33 99 66 cf 11 b7 0c 00 aa 00 60 d3 93}  //weight: 10, accuracy: High
+        $x_5_3 = "sheth.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
