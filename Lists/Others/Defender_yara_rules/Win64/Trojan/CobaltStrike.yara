@@ -17865,6 +17865,28 @@ rule Trojan_Win64_CobaltStrike_NWU_2147954063_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_GVN_2147955213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GVN!MTB"
+        threat_id = "2147955213"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 e5 48 83 ec 20 b9 e8 03 00 00 48 8b 05 b2 9c 06 00 ff d0}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8b 05 ec 9b 06 00 ff d0 48 89 45 f8 b9 fa 00 00 00 48 8b 05 22 9c 06 00 ff d0 b9 fa 00 00 00 48 8b 05 14 9c 06 00 ff d0 eb 07}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CobaltStrike_GVP_2147955344_0
 {
     meta:
@@ -17882,6 +17904,28 @@ rule Trojan_Win64_CobaltStrike_GVP_2147955344_0
     strings:
         $x_3_1 = {3a 2f 2f 33 38 2e 31 39 30 2e 32 32 34 2e 36 33 3a 38 38 2f [0-16] 2e 65 78 65}  //weight: 3, accuracy: Low
         $x_1_2 = "InternetOpenUrlA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_GVO_2147955713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GVO!MTB"
+        threat_id = "2147955713"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 f6 66 41 89 34 1e 0f 57 c0 0f 11 45 ff f3 0f 7f 75 0f c6 45 ff 00 48 8d 5d df 4c 8b 4d df 4c 8b 5d f7 49 83 fb 07 49 0f 47 d9 48 8d 4d df 49 0f 47 c9 48 8b 45 ef 48 8d 3c 41 48 3b df 74 25}  //weight: 2, accuracy: High
+        $x_1_2 = {6b c9 21 41 03 c8 44 0f be 02 48 8d 52 01 45 85 c0 75 ed}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
