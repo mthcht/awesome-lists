@@ -6745,6 +6745,32 @@ rule Trojan_Win32_Zusy_BAE_2147942206_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_BAE_2147942206_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAE!MTB"
+        threat_id = "2147942206"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "33"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {aa c8 0f 00 00 10 00 00 00 40 07 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60}  //weight: 10, accuracy: High
+        $x_10_2 = {c0 9f 95 00 00 e0 0f 00 00 20 4b 00 00 50 07 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 10, accuracy: High
+        $x_10_3 = {aa 1b 07 00 00 80 a5 00 00 a0 00 00 00 70 52 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+        $x_1_4 = "showcode" ascii //weight: 1
+        $x_1_5 = "checkprotection" ascii //weight: 1
+        $x_1_6 = "SOFTWARE\\WinLicense" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_MBWM_2147942276_0
 {
     meta:
@@ -7694,6 +7720,32 @@ rule Trojan_Win32_Zusy_BAD_2147951025_0
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {33 c1 88 85 ?? ?? ?? ?? 0f b7 95 ?? ?? ?? ?? 0f b6 85 ?? ?? ?? ?? 03 95 ?? ?? ?? ?? 8d 4c 10 2b 88 8d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_BAD_2147951025_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAD!MTB"
+        threat_id = "2147951025"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "33"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {c6 4c 10 00 00 10 00 00 00 90 08 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60}  //weight: 10, accuracy: High
+        $x_10_2 = {84 5d 8d 00 00 60 10 00 00 e0 7a 00 00 a0 08 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 10, accuracy: High
+        $x_10_3 = {8a 79 07 00 00 c0 9d 00 00 70 00 00 00 80 83 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+        $x_1_4 = "showcode" ascii //weight: 1
+        $x_1_5 = "checkprotection" ascii //weight: 1
+        $x_1_6 = "SOFTWARE\\WinLicense" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
