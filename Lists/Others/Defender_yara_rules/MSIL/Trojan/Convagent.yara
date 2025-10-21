@@ -438,3 +438,25 @@ rule Trojan_MSIL_Convagent_AB_2147945022_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_ALIB_2147955685_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.ALIB!MTB"
+        threat_id = "2147955685"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 06 02 7d ?? 00 00 04 06 03 7d ?? 00 00 04 06 7b ?? 00 00 04 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 02 7b ?? 00 00 04 7b ?? 00 00 04 02 7b ?? 00 00 04 04 6f ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 2b 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {01 25 16 0f 01 28 ?? 00 00 0a 9c 25 17 0f 01 28 ?? 00 00 0a 9c 25 18 0f 01 28 ?? 00 00 0a 9c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
