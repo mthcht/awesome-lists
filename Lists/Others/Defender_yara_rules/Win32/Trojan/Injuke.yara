@@ -1172,3 +1172,25 @@ rule Trojan_Win32_Injuke_GZP_2147943305_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injuke_AHC_2147955763_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injuke.AHC!MTB"
+        threat_id = "2147955763"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {88 13 01 f6 43 09 ce 81 c7 ?? ?? ?? ?? 01 f1 89 f1 09 f1 39 c7 7e}  //weight: 20, accuracy: Low
+        $x_30_2 = {8b 3c 24 83 c4 ?? 81 c3 ?? ?? ?? ?? 57 09 d8 43 01 d8 5a 48 81 c0 ?? ?? ?? ?? 4b 41}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

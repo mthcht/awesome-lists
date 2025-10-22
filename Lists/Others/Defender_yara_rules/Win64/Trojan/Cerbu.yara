@@ -154,3 +154,27 @@ rule Trojan_Win64_Cerbu_MKA_2147955285_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AHC_2147955764_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHC!MTB"
+        threat_id = "2147955764"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "STEALER STARTED" ascii //weight: 5
+        $x_10_2 = "Hostile environment detected - exiting silently" ascii //weight: 10
+        $x_20_3 = "All extraction tasks finished successfully" ascii //weight: 20
+        $x_30_4 = "Credit Cards (all profiles):" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
