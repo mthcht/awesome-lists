@@ -186,3 +186,25 @@ rule Trojan_Win64_KillAV_BSB_2147928762_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_ARAX_2147955721_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.ARAX!MTB"
+        threat_id = "2147955721"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "\\NSecSoftBYOVD.pdb" ascii //weight: 3
+        $x_2_2 = "Unload Driver Failed, You may need to unload driver manually" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

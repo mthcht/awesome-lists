@@ -4049,3 +4049,29 @@ rule Trojan_Win64_Lazy_AHK_2147955160_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_GVJ_2147955723_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GVJ!MTB"
+        threat_id = "2147955723"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b 8d 70 01 00 00 4c 8b cf c6 44 24 38 00 4c 8b c0 4c 89 7c 24 30 49 8b d5 44 89 7c 24 28 48 8b d8 48 89 74 24 20}  //weight: 2, accuracy: High
+        $x_1_2 = "mklink /D" wide //weight: 1
+        $x_1_3 = "kill.txt" wide //weight: 1
+        $x_1_4 = "ShadowCop4yProvider" ascii //weight: 1
+        $x_1_5 = {72 65 67 73 76 72 33 32 2e 65 78 65 20 2f 53 20 22 43 3a 5c 50 72 6f 67 72 61 6d 44 61 74 61 5c 52 6f 6e 69 6e 67 5c [0-16] 2e 64 6c 6c}  //weight: 1, accuracy: Low
+        $x_1_6 = "runas" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

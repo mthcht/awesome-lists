@@ -494,38 +494,6 @@ rule TrojanDownloader_Win32_Renos_2147799811_10
         family = "Renos"
         severity = "9"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "26"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {78 3a 5c 44 65 76 5f 43 50 50 5c 57 6f 72 6b 5c 56 53 5f 4b 6e 7a 53 74 72 5f 41 64 77 61 72 65 5c 52 65 6c 65 61 73 65 5c 56 53 5f 57 6f 72 6b ?? 2e 70 64 62}  //weight: 10, accuracy: Low
-        $x_10_2 = {8b 45 14 85 c0 0f 8c 4b 01 00 00 83 f8 01 0f 84 42 01 00 00 83 f8 24 0f 8f 39 01 00 00 85 c0 75 2a 80 fb 30 74 09 c7 45 14 0a 00 00 00 eb 34}  //weight: 10, accuracy: High
-        $x_5_3 = "safe-strip-download.com" ascii //weight: 5
-        $x_1_4 = {72 65 67 65 64 69 74 20 2d 73 20 72 65 67 ?? 2e 72 65 67 20}  //weight: 1, accuracy: Low
-        $x_1_5 = {52 45 47 20 49 4d 50 4f 52 54 20 72 65 67 ?? 2e 72 65 67 20}  //weight: 1, accuracy: Low
-        $x_1_6 = {65 72 61 73 65 20 72 65 67 ?? 2e 72 65 67 20}  //weight: 1, accuracy: Low
-        $x_1_7 = {65 72 61 73 65 20 72 65 67 78 ?? 2e 62 61 74 20}  //weight: 1, accuracy: Low
-        $x_1_8 = "WARNING: Your computer is infected" ascii //weight: 1
-        $x_1_9 = "Windows has detected spyware infection!" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((2 of ($x_10_*) and 6 of ($x_1_*))) or
-            ((2 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule TrojanDownloader_Win32_Renos_2147799811_11
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win32/Renos"
-        threat_id = "2147799811"
-        type = "TrojanDownloader"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Renos"
-        severity = "9"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "Low"
     strings:
