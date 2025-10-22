@@ -8197,3 +8197,48 @@ rule Trojan_Win32_Zusy_MKB_2147954934_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_KAK_2147955791_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KAK!MTB"
+        threat_id = "2147955791"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c6 45 be 6c c6 45 bf 6f c6 45 c0 63 c6 45 c1 61 c6 45 c2 6c c6 45 c3 65 c6 45 c4 40 c6 45 c5 73 c6 45 c6 74 c6 45 c7 64}  //weight: 20, accuracy: High
+        $x_10_2 = "C:\\Cndom6.sys" ascii //weight: 10
+        $x_5_3 = "C:\\XiaoH.sys" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_KAL_2147955792_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KAL!MTB"
+        threat_id = "2147955792"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {2b f0 8b 45 e0 31 30 83 c3 04 83 45 e0 04 3b 5d dc}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 45 e0 01 18 8b 7d d4 03 7d a8 03 fb 03 fe c7 45 bc}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
