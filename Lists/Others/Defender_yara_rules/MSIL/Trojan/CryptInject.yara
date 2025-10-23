@@ -3510,3 +3510,29 @@ rule Trojan_MSIL_CryptInject_CC_2147954727_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CryptInject_MCJ_2147955825_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CryptInject.MCJ!MTB"
+        threat_id = "2147955825"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {05 69 00 76 00 00 1f 65 00 6e 00 63 00 72 00 79 00 70 00 74 00 65 00 64 00 42 00 61 00 73 00 65 00 36 00 34}  //weight: 2, accuracy: High
+        $x_2_2 = "2760f04d-2e5d-49c8-a7d2-c2fbbd262ab1" ascii //weight: 2
+        $x_1_3 = "GetMethod" ascii //weight: 1
+        $x_1_4 = "Build" ascii //weight: 1
+        $x_1_5 = {53 00 74 00 75 00 62 00 2e 00 65 00 78 00 65}  //weight: 1, accuracy: High
+        $x_1_6 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
