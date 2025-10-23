@@ -273,3 +273,33 @@ rule Trojan_Win32_VidarStealer_Z_2147955452_3
         (all of ($x*))
 }
 
+rule Trojan_Win32_VidarStealer_RH_2147955803_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.RH!MTB"
+        threat_id = "2147955803"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "steamcommunity" ascii //weight: 1
+        $x_1_2 = "UserName" wide //weight: 1
+        $x_1_3 = "PortNumber" wide //weight: 1
+        $x_1_4 = "encrypted_key" ascii //weight: 1
+        $x_1_5 = "powershell" ascii //weight: 1
+        $x_1_6 = "passwords.db" ascii //weight: 1
+        $x_1_7 = "cookies.db" ascii //weight: 1
+        $x_1_8 = "key4.db" ascii //weight: 1
+        $x_1_9 = "REFLECTIVE_DLL" ascii //weight: 1
+        $x_1_10 = "Injection mode selected" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
