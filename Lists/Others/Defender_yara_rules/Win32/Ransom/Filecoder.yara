@@ -1817,27 +1817,6 @@ rule Ransom_Win32_Filecoder_AF_2147816437_0
         (all of ($x*))
 }
 
-rule Ransom_Win32_Filecoder_WTY_2147817052_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win32/Filecoder.WTY!MTB"
-        threat_id = "2147817052"
-        type = "Ransom"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Filecoder"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {c7 45 fc 17 00 00 00 8b 55 08 83 c2 38 89 95 1c ff ff ff c7 85 14 ff ff ff 08 40 00 00 6a 08 8d 85 14 ff ff ff 50 8d 8d 64 ff ff ff 51}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Ransom_Win32_Filecoder_PAC_2147819911_0
 {
     meta:
