@@ -247,3 +247,25 @@ rule Trojan_Win32_ModiLoader_BAA_2147935613_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ModiLoader_ALM_2147955829_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ModiLoader.ALM!MTB"
+        threat_id = "2147955829"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ModiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b d8 68 6c 2e 44 00 53 e8 ?? ?? ?? ?? a3 44 f5 56 00 83 3d 7c f5 46 00 00 0f 85 ee 00 00 00 68 7c 2e 44 00 e8 ?? ?? ?? ?? a3 7c f5 46 00 83 3d 7c f5 46 00 00 0f 84 d2 00 00 00 68 88 2e 44 00 a1 7c f5 46 00 50 e8 ?? ?? ?? ?? a3 48 f5 56 00 68 98 2e 44 00}  //weight: 2, accuracy: Low
+        $x_1_2 = {68 dc 2e 44 00 a1 7c f5 46 00 50 e8 ?? ?? ?? ?? a3 58 f5 56 00 68 f0 2e 44 00 a1 7c f5 46 00 50 e8 ?? ?? ?? ?? a3 5c f5 56 00 68 08 2f 44 00 a1 7c f5 46 00 50}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

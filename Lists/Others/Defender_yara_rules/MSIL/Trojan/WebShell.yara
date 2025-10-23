@@ -649,3 +649,24 @@ rule Trojan_MSIL_WebShell_HAE_2147953028_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_AUIB_2147955835_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AUIB!MTB"
+        threat_id = "2147955835"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 07 08 28 ?? 00 00 0a 0d 72 ?? ?? 00 70 13 04 72 ?? ?? 00 70 13 05 11 04 11 05 28 ?? 00 00 0a 13 06 72 ?? ?? 00 70 13 07 72 ?? ?? 00 70 13 08 11 07 11 08 28 ?? 00 00 0a 13 09 11 07 11 05 28 ?? 00 00 0a 13 0a 73 ?? 00 00 0a 28 ?? 00 00 0a 09 6f ?? 00 00 0a 28 ?? 00 00 0a 09 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 16 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 13 0b 02}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
