@@ -17931,3 +17931,25 @@ rule Trojan_Win64_CobaltStrike_GVO_2147955713_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_RR_2147955865_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.RR!MTB"
+        threat_id = "2147955865"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {c6 84 24 80 00 00 00 7c c6 84 24 81 00 00 00 72 c6 84 24 82 00 00 00 65 c6 84 24 83 00 00 00 79 c6 84 24 84 00 00 00 72 c6 84 24 85 00 00 00 7b c6 84 24 86 00 00 00 24 c6 84 24 87 00 00 00 25 c6 84 24 88 00 00 00 39 c6 84 24 89 00 00 00 73 c6 84 24 8a 00 00 00 7b c6 84 24 8b 00 00 00 7b c6 84 24 8c 00 00 00 17}  //weight: 1, accuracy: High
+        $x_1_2 = "DllSafeCheck64" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
