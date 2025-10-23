@@ -6552,3 +6552,25 @@ rule Trojan_MSIL_AsyncRAT_PGAS_2147955335_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_GTF_2147955817_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.GTF!MTB"
+        threat_id = "2147955817"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2b 0d 00 20 ?? 03 00 00 28 ?? 00 00 0a 00 00 17 0d 2b ef}  //weight: 5, accuracy: Low
+        $x_5_2 = {06 26 00 28 ?? 00 00 06 26 28 ?? 00 00 06 16 fe 01 0b 07 2c 07 16 28 13 00 00 0a 00 00 de 05 0c 00 00 de 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
