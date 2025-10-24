@@ -45,3 +45,30 @@ rule HackTool_Win32_KeyGen_A_2147832750_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_KeyGen_AMTB_2147931343_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/KeyGen!AMTB"
+        threat_id = "2147931343"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KeyGen"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Keygenned by" ascii //weight: 2
+        $x_2_2 = "FFFKEYGEN" ascii //weight: 2
+        $x_1_3 = "FiGHTiNG FOR FUN PRESENTS" ascii //weight: 1
+        $x_1_4 = "SeVeN / FFF" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -12581,3 +12581,72 @@ rule Trojan_Win32_ClickFix_JJF_2147955730_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_JJB_2147955904_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JJB!MTB"
+        threat_id = "2147955904"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ping" wide //weight: 1
+        $x_1_2 = ">$null;iex(" wide //weight: 1
+        $x_1_3 = "Net.WebClient" wide //weight: 1
+        $x_1_4 = "DownloadString" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_JJC_2147955905_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JJC!MTB"
+        threat_id = "2147955905"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "(.(gal *)[" wide //weight: 1
+        $x_1_2 = {2e 00 6e 00 61 00 6d 00 65 00 29 00 [0-60] 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_JJD_2147955907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JJD!MTB"
+        threat_id = "2147955907"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = ").Content|powershell" wide //weight: 1
+        $x_1_2 = ";echo(" wide //weight: 1
+        $x_1_3 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
