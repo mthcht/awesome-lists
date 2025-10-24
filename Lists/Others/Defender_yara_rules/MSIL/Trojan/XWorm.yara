@@ -3299,3 +3299,24 @@ rule Trojan_MSIL_XWorm_AKIB_2147955670_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BAL_2147955941_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAL!MTB"
+        threat_id = "2147955941"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {73 20 00 00 0a 0a 06 72 eb 00 00 70 6f 21 00 00 0a 06 72 09 01 00 70 02 72 a4 01 00 70 28 22 00 00 0a 6f 23 00 00 0a 06 17 6f 24 00 00 0a 06 28 25 00 00 0a 6f 26 00 00 0a 28 05 00 00 0a 6f 27 00 00 0a 72 aa 01 00 70 28 28 00 00 0a 2a 18 8d 0e 00 00 01 13 05 11 05 16 72 b4 01 00 70 a2 11 05 17 72 10 02 00 70 a2 11 05 13 06 16 13 07 2b 5e}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

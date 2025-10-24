@@ -6757,6 +6757,31 @@ rule Trojan_Win32_Zusy_BAE_2147942206_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {c0 0c 00 00 10 00 00 00 f0 04 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0}  //weight: 10, accuracy: High
+        $x_10_2 = {10 00 00 00 d0 0c 00 00 00 00 00 00 00 05 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+        $x_10_3 = {10 00 00 00 e0 0c 00 00 02 00 00 00 00 05 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+        $x_1_4 = "%userappdata%\\RestartApp.exe" ascii //weight: 1
+        $x_1_5 = "Themida" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_BAE_2147942206_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAE!MTB"
+        threat_id = "2147942206"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "33"
         strings_accuracy = "High"
     strings:

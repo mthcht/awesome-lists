@@ -493,3 +493,27 @@ rule Trojan_MSIL_Razy_ZGM_2147954321_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Razy_BAA_2147955940_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.BAA!MTB"
+        threat_id = "2147955940"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 08 8f 08 00 00 01 25 71 08 00 00 01 20 aa 00 00 00 61 d2 81 08 00 00 01 08 17 58 0c 08 06 8e 69 32 dd}  //weight: 2, accuracy: High
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "GetTempFileName" ascii //weight: 1
+        $x_1_4 = "WriteAllBytes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

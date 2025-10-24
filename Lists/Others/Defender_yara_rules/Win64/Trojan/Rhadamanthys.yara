@@ -383,3 +383,26 @@ rule Trojan_Win64_Rhadamanthys_ARS_2147954941_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rhadamanthys_AMB_2147955947_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.AMB!MTB"
+        threat_id = "2147955947"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f ba f2 1f 33 d0 8b c2 24 01 f6 d8 1b c9 d1 ea 81 e1 ?? ?? ?? ?? 42 33 8c 84 ?? ?? ?? ?? 33 ca 42 89 4c 84 34 49 ff c0}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 31 00 37 00 36 00 2e 00 34 00 36 00 2e 00 31 00 35 00 32 00 2e 00 36 00 32 00 3a 00 35 00 38 00 35 00 38 00 2f 00 [0-10] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_3 = {68 74 74 70 3a 2f 2f 31 37 36 2e 34 36 2e 31 35 32 2e 36 32 3a 35 38 35 38 2f [0-10] 2e 65 78 65}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

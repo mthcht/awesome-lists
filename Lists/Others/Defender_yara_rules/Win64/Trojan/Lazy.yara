@@ -3027,6 +3027,27 @@ rule Trojan_Win64_Lazy_AS_2147945006_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_APT_2147945042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.APT!MTB"
+        threat_id = "2147945042"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {20 da 41 b0 53 44 20 c0 08 d0 89 ca 40 30 fa 20 da 44 20 c1 08 d1 30 c1 48 8b 44 24 ?? 48 8b 54 24 50 88 0c 10 41 bf ff ff ff ff 44 8b b4 24 84 00 00 00 b8 01 00 00 00 41 01 c6 b8 17 86 00 45 e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_GZP_2147945542_0
 {
     meta:
@@ -4114,6 +4135,27 @@ rule Trojan_Win64_Lazy_LMG_2147955804_0
         $x_20_1 = {41 8b 0a b8 05 15 00 00 49 03 cb 0f b6 11 85 d2 74 ?? 6b c0 21 48 8d 49 01 03 c2 0f b6 11 85 d2}  //weight: 20, accuracy: Low
         $x_10_2 = {84 08 88 00 00 00 4c 03 c1 41 8b 78 1c 45 8b 50 20 48 03 f9 41 8b 70 24 4c 03 d1 45 8b 40 18 48 03 f1 45 85 c0}  //weight: 10, accuracy: High
         $x_5_3 = {c6 44 24 31 1b c6 44 24 32 66 c6 44 24 33 a8 c6 44 24 34 28 c6 44 24 35 17 c6 44 24 36 2d c6 44 24 37 4f c6 44 24 38 d1 c6 44 24 39 ac c6 44 24 3a fa c6 44 24 3b 82 c6 44 24 3c 70 c6 44 24 3d 96 c6 44 24 3e 0c}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AMB_2147955949_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AMB!MTB"
+        threat_id = "2147955949"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 54 24 58 8b 4c 24 58 03 d2 33 d0 ff c0 03 ca 89 4c 24 58 3d}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
