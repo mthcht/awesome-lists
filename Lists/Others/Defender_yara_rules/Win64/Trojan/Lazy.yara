@@ -4091,6 +4091,27 @@ rule Trojan_Win64_Lazy_AHK_2147955160_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_PGLZ_2147955330_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.PGLZ!MTB"
+        threat_id = "2147955330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {32 c2 32 01 32 84 24 ?? ?? ?? ?? 41 32 02 32 07 41 88 04 2f 48 8b c1 81 fb ?? ?? ?? ?? 0f 8c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_GVJ_2147955723_0
 {
     meta:
