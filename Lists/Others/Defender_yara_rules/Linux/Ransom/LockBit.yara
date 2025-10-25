@@ -180,3 +180,28 @@ rule Ransom_Linux_LockBit_G_2147953086_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_LockBit_H_2147956018_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/LockBit.H!MTB"
+        threat_id = "2147956018"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "LockBit 5.0" ascii //weight: 1
+        $x_1_2 = "/ReadMeForDecrypt.txt" ascii //weight: 1
+        $x_1_3 = ".LOCKER" ascii //weight: 1
+        $x_1_4 = "encrypt_extension" ascii //weight: 1
+        $x_1_5 = {74 74 70 3a 2f 2f 6c 6f 63 6b 62 69 74 [0-80] 2e 6f 6e 69 6f 6e}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
