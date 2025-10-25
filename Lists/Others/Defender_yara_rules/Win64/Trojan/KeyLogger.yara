@@ -90,3 +90,31 @@ rule Trojan_Win64_KeyLogger_NK_2147927972_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_KeyLogger_A_2147956023_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.A!AMTB"
+        threat_id = "2147956023"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GetTickCount64" ascii //weight: 1
+        $x_1_2 = "CALCULATION_FORMULA_DLL.dll" ascii //weight: 1
+        $x_2_3 = "Project\\KEYBOARD_MONITOR_DLL" ascii //weight: 2
+        $x_1_4 = "You are not authorized to use this module" ascii //weight: 1
+        $x_1_5 = "ituegqr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
