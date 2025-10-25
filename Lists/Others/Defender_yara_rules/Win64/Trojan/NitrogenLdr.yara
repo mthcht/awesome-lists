@@ -20,3 +20,24 @@ rule Trojan_Win64_NitrogenLdr_GA_2147932554_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NitrogenLdr_PCO_2147945167_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NitrogenLdr.PCO!MTB"
+        threat_id = "2147945167"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NitrogenLdr"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f 94 c0 31 d2 0f b6 c0 ?? ?? ?? ?? ?? ?? ?? 8a 04 0f 88 04 0b}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
