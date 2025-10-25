@@ -816,3 +816,25 @@ rule Trojan_Win32_Upatre_SXB_2147953853_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Upatre_LMA_2147955982_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.LMA!MTB"
+        threat_id = "2147955982"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f af c7 99 8d 71 10 f7 fe 0f b7 95 b4 84 fe ff 03 15 ?? ?? ?? ?? 0f af d1 03 c2 0f af 85 b0 84 fe ff 89 85 b0 84 fe ff}  //weight: 10, accuracy: Low
+        $x_20_2 = {8b 85 b0 84 fe ff d1 e8 0f af 05 ?? ?? ?? ?? 0f b7 d7 0f af d1 03 c2 0f af 85 b0 84 fe ff 89 85 b0 84 fe ff}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

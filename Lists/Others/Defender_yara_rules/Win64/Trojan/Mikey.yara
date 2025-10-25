@@ -1214,3 +1214,25 @@ rule Trojan_Win64_Mikey_MKA_2147955807_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_LMI_2147955978_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.LMI!MTB"
+        threat_id = "2147955978"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {4e 0f be 8c 19 68 16 03 00 42 0f b6 8c 19 78 16 03 00 49 2b d1 8b 42 fc d3 e8 48 89 57 08 89 47 18 0f b6 0a 49 8b d2 83 e1 0f 4e 0f be 84 19 68 16 03 00 42 0f b6 8c 19 78 16 03 00 49 2b d0 49 2b d1 8b 42 fc d3 e8 89 47 1c 48 89 57 08 0f b6 0a ba 00 00 00 00 83 e1 0f}  //weight: 10, accuracy: High
+        $x_10_2 = {42 0f b6 8c 21 78 06 01 00 49 2b d1 8b 42 fc 48 89 53 08 d3 e8 89 43 18 0f b6 0a 49 8b d3 83 e1 0f 4e 0f be 84 21 68 06 01 00 42 0f b6 8c 21 78 06 01 00 49 2b d0 49 2b d1 8b 42 fc d3 e8 48 89 53 08 89 43 1c 0f b6 0a 83 e1 0f 4a 0f be 84 21 68 06 01 00 42 0f b6 8c 21 78 06 01 00 4c 2b d8 4d 2b d8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

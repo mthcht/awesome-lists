@@ -2662,3 +2662,25 @@ rule Trojan_Win64_Zusy_KAM_2147955794_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_LMP_2147955979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LMP!MTB"
+        threat_id = "2147955979"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {6a b7 58 d3 f8 30 44 0d 1c 41 83 f9 03}  //weight: 5, accuracy: High
+        $x_10_2 = {8a 02 34 4d 88 01 8a 42 01 34 26 88 41 01 8a 42 02 34 13 88 41 02 8a 42 03 34 09 88 41 03 8a 42 04 34 04 88 41 04 8a 42 05 34 02 88 41 05 8a 42 06 34 01 88 41 06 8b c1}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
