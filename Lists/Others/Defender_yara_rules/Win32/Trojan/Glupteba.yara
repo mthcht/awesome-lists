@@ -9515,3 +9515,26 @@ rule Trojan_Win32_Glupteba_ETNW_2147943990_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Glupteba_ARR_2147956039_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.ARR!MTB"
+        threat_id = "2147956039"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 3c 1e 85 d2 74 ?? 89 f0 89 d3 99 f7 fb 39 d3 77}  //weight: 10, accuracy: Low
+        $x_7_2 = {8b 4c 24 44 29 d1 29 d5 87 dd f7 db 87 dd c1 fd ?? 21 ea 01 da}  //weight: 7, accuracy: Low
+        $x_3_3 = {89 f8 0f b6 3c 0a 31 f8 8b bc 24 ?? ?? ?? ?? 88 04 37 46}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
