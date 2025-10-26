@@ -3341,3 +3341,72 @@ rule Trojan_MSIL_XWorm_AYIB_2147955958_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_MCJ_2147956045_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.MCJ!MTB"
+        threat_id = "2147956045"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {70 72 6f 74 65 63 74 65 64 5f 6d 6f 64 69 66 69 65 64 5f 73 74 75 62 5f [0-60] 2e 70 73 31}  //weight: 2, accuracy: Low
+        $x_1_2 = {1f 50 00 53 00 52 00 75 00 6e 00 73 00 70 00 61 00 63 00 65 00 2d 00 48 00 6f 00 73 00 74 00 01 05 75 00 69 00 00 0b 2d 00 77 00 61 00 69 00 74 00 01 11 2d 00 65 00 78 00 74 00 72 00 61 00 63 00 74}  //weight: 1, accuracy: High
+        $x_1_3 = {43 72 65 64 65 6e 74 69 61 6c 5f 46 6f 72 6d 00 4d 6f 64 75 6c 65 4e 61 6d 65 53 70 61 63 65 00 43 52 45 44 55 49 5f 49 4e}  //weight: 1, accuracy: High
+        $x_1_4 = {57 3f a2 1d 09 0b 00 00 00 fa 25 33 00 16 00 00 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_MCK_2147956046_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.MCK!MTB"
+        threat_id = "2147956046"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4d 00 61 00 73 00 6f 00 6e 00 43 00 6c 00 69 00 65 00 6e 00 74 00 2e 00 65 00 78 00 65}  //weight: 1, accuracy: High
+        $x_1_2 = "e6f26942-ec0e-4767-8d42-f90067369570" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_MCL_2147956047_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.MCL!MTB"
+        threat_id = "2147956047"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "475b07bb-1cc0-4963-b86f-63a28d4bcf67" ascii //weight: 1
+        $x_1_2 = "opdmmimcoe.exe" ascii //weight: 1
+        $x_1_3 = "7zS.sfx" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
