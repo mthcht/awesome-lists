@@ -41,3 +41,26 @@ rule Trojan_MSIL_Stealerium_SPP_2147944907_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealerium_SI_2147956135_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealerium.SI!MTB"
+        threat_id = "2147956135"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealerium"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {02 11 0b 11 0c 6f 2d 00 00 0a 13 23 12 23 28 2e 00 00 0a 13 1d 19 8d 3a 00 00 01 25 16 1f 10 9e 25 17 1e 9e 13 1e 03 07 6f 2c 00 00 0a 59 13 1f 16 13 24 2b 27}  //weight: 1, accuracy: High
+        $x_1_2 = {11 08 17 11 1b 17 5f 58 17 11 1b 17 58 17 5f 58 73 23 00 00 0a 6f 24 00 00 0a 00 11 1b 17 58 13 1b 11 1b 11 09 fe 04 13 1c 11 1c 2d d3}  //weight: 1, accuracy: High
+        $x_1_3 = "NimGame.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

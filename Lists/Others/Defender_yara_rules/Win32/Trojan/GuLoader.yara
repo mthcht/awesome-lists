@@ -6309,3 +6309,31 @@ rule Trojan_Win32_GuLoader_SVC_2147955957_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SVD_2147956130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVD!MTB"
+        threat_id = "2147956130"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\tidsbestemmer.ini" ascii //weight: 1
+        $x_1_2 = "\\Iconvert\\photocrayon\\Stercorite" ascii //weight: 1
+        $x_1_3 = "\\Auditors244\\Irradiancy.jpg" ascii //weight: 1
+        $x_1_4 = "\\tilsynekomstens\\guachipilin" ascii //weight: 1
+        $x_1_5 = "\\unfinancial\\Brevvekslede.htm" ascii //weight: 1
+        $x_1_6 = "\\kovarer\\signeres.ini" ascii //weight: 1
+        $x_1_7 = "\\wifelet\\Sygeplejeassistents.zip" ascii //weight: 1
+        $x_1_8 = "\\renskrifter.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
