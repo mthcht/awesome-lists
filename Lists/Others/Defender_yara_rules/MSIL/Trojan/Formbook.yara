@@ -9045,3 +9045,25 @@ rule Trojan_MSIL_Formbook_EHLD_2147955669_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_EHLM_2147956085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EHLM!MTB"
+        threat_id = "2147956085"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {03 2f 6e 02 11 0b 11 0c ?? ?? ?? ?? ?? 13 18 12 18 ?? ?? ?? ?? ?? 13 15 19 ?? ?? ?? ?? ?? 25 16 1f 10 9e 25 17 1e 9e 13 16 03 07 ?? ?? ?? ?? ?? 59 13 17 16 13 19 2b 24}  //weight: 2, accuracy: Low
+        $x_2_2 = {07 11 15 11 16 11 19 94 1f 1f 5f 63 ?? ?? ?? ?? ?? 5f d2 ?? ?? ?? ?? ?? 11 19 17 58 13 19 11 17 17 59 13 17 11 19 19 2f 05 11 17 16 30 d2}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

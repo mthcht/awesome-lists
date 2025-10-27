@@ -8339,3 +8339,56 @@ rule Trojan_Win32_Zusy_ARR_2147956041_1
         )
 }
 
+rule Trojan_Win32_Zusy_HAE_2147956063_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.HAE!MTB"
+        threat_id = "2147956063"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "S3.exe" ascii //weight: 10
+        $x_10_2 = "mLQ9%Et+=$" ascii //weight: 10
+        $x_15_3 = "WixSharp.dll" ascii //weight: 15
+        $x_15_4 = "[+8]sn*Q" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Zusy_HAF_2147956064_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.HAF!MTB"
+        threat_id = "2147956064"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {c4 31 fa 31 20 32 2b 32 38 32 58 32 7e 32 8c 32 9d 32 b2 32 d2 32 dd 32 ee 32 09 33 14 33 36 33}  //weight: 5, accuracy: High
+        $x_5_2 = {00 50 00 72 00 6f 00 64 00 75 00 63 00 74 00 4e 00 61 00 6d 00 65 00 00 00 00 00 57 00 69 00 58 00 20 00 54 00 6f 00 6f 00 6c 00 73 00 65 00}  //weight: 5, accuracy: High
+        $x_3_3 = {7c 00 7d 00 7e 00 7f 00 80 00 81 00 82 00 83 00 53 66 78 43 41 2e 64 6c 6c 00 00 00 00 00 00 00}  //weight: 3, accuracy: High
+        $x_7_4 = "S3.exe" ascii //weight: 7
+        $x_10_5 = "WixSharp.dll" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

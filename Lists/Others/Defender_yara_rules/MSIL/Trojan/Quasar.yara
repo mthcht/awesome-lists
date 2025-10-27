@@ -1895,3 +1895,24 @@ rule Trojan_MSIL_Quasar_ATBB_2147948598_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_MCL_2147956066_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.MCL!MTB"
+        threat_id = "2147956066"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 05 11 06 08 11 06 91 11 04 11 06 11 04 8e 69 5d 91 61 d2 9c 11 06 17 58 13 06 11 06 11 05 8e 69 32}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -44,3 +44,25 @@ rule Trojan_Win64_r77RootKit_C_2147850684_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_r77RootKit_MK_2147956087_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/r77RootKit.MK!MTB"
+        threat_id = "2147956087"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "r77RootKit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_25_1 = {8b 46 3c 0f b7 c9 8b 44 30 78 2b 4c 30 10 8b 44 30 1c 8d 04 88 8b 04 30 03 c6}  //weight: 25, accuracy: High
+        $x_10_2 = {0f b7 c9 6b d1 ?? 0f b7 c6 48 3b c8 8b 4d f8 89 55 d8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
