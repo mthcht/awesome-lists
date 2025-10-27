@@ -5303,3 +5303,27 @@ rule Trojan_Win32_OffLoader_ZFL_2147955915_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_LDM_2147956058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.LDM!MTB"
+        threat_id = "2147956058"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://receiptclass.info/grym.php?" ascii //weight: 4
+        $x_4_2 = "://borderexperience.xyz/gryms.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
