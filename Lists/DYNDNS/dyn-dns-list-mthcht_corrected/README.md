@@ -2,7 +2,7 @@
 
 > **Notice:** In response to the recent surge in interest and traffic to this repository, significant efforts have been made to rejuvenate and automate its maintenance. The automation process now ensures that the `links.csv` and `links.txt` files are updated on a daily basis. This is achieved through a GitHub Actions workflow that systematically scrapes dynamic DNS provider websites for the latest domain information, ensuring the repository remains a reliable and up-to-date resource for the community.
 
-**Domains Last Update: 26/10/2025, 21:10**
+**Domains Last Update: 27/10/2025, 21:10**
 
 # Dynamic DNS domain list (2025) - 32756 domains
 
@@ -59,9 +59,9 @@ For subsequent runs, the script only adds new domains to the list. This ensures 
 
 
 ### DNS Providers included:
-- [afraid.org](https://afraid.org/) (33211 domains)
+- [afraid.org](https://afraid.org/) (33215 domains)
 - [dyn.com](https://dyn.com/) (293 domains)
-- [changeip.com](https://changeip.com/) (157 domains)
+- [changeip.com](https://changeip.com/) (158 domains)
 - [noip.com](https://noip.com/) (83 domains) 
 - [now-dns.com](https://now-dns.com/) (32 domains)
 - [dynu.com](https://dynu.com/) (21 domains)
