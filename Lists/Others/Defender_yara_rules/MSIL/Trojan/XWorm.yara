@@ -3410,3 +3410,68 @@ rule Trojan_MSIL_XWorm_MCL_2147956047_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_MCN_2147956105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.MCN!MTB"
+        threat_id = "2147956105"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 04 11 06 02 11 06 91 11 05 61 d2 9c 11 06 17 58 13 06 11 06 02 8e 69 32 e6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_MCO_2147956106_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.MCO!MTB"
+        threat_id = "2147956106"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {1f 42 61 d1 6f ?? 00 00 0a 26 00 07 17 58 0b 07 02 6f ?? 00 00 0a fe 04 0d 09}  //weight: 1, accuracy: Low
+        $x_1_2 = "662xmmstwlswvlpvvlvvmrlzl6" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_MCP_2147956107_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.MCP!MTB"
+        threat_id = "2147956107"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0a 03 07 03 6f ?? 00 00 0a 5d 6f ?? 00 00 0a 61 d1 6f ?? 00 00 0a 26 07 17 58 0b 07 02 6f ?? 00 00 0a 32 d5}  //weight: 1, accuracy: Low
+        $x_1_2 = "crypted.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

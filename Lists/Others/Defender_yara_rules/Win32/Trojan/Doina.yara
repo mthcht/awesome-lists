@@ -797,3 +797,26 @@ rule Trojan_Win32_Doina_PGD_2147939517_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_AHC_2147956119_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.AHC!MTB"
+        threat_id = "2147956119"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {89 b4 24 28 02 00 00 89 9c 24 24 02 00 00 66 89 94 24 14 02 00 00 c6 84 24 40 02 00 00 ?? 83 bc 24 40 01 00 00}  //weight: 30, accuracy: Low
+        $x_20_2 = "taskkill /IM conhoz.exe /F" ascii //weight: 20
+        $x_10_3 = "Global\\TestDown2019Mutex" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

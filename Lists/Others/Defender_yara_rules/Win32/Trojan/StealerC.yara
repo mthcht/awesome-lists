@@ -293,3 +293,26 @@ rule Trojan_Win32_StealerC_BSA_2147927533_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealerC_ARR_2147956121_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealerC.ARR!MTB"
+        threat_id = "2147956121"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealerC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {2e 64 61 74 61 00 00 00 ac df 03 00 00 a0 08}  //weight: 10, accuracy: High
+        $x_3_2 = {74 61 00 00 7e 8f 01 00 00 10 07}  //weight: 3, accuracy: High
+        $x_2_3 = {64 86 09 00 ab ea c9 68 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
