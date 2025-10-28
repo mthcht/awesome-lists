@@ -148,3 +148,57 @@ rule Trojan_MacOS_SuspAmosExec_F_2147953660_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_SuspAmosExec_H_2147956165_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SuspAmosExec.H"
+        threat_id = "2147956165"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SuspAmosExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "osascript -e" wide //weight: 3
+        $x_3_2 = "mkdir" wide //weight: 3
+        $x_3_3 = {74 00 65 00 6c 00 6c 00 [0-32] 20 00 61 00 70 00 70 00 6c 00 69 00 63 00 61 00 74 00 69 00 6f 00 6e 00 [0-6] 54 00 65 00 72 00 6d 00 69 00 6e 00 61 00 6c 00}  //weight: 3, accuracy: Low
+        $x_3_4 = {64 00 6f 00 20 00 73 00 68 00 65 00 6c 00 6c 00 20 00 73 00 63 00 72 00 69 00 70 00 74 00 [0-6] 63 00 61 00 74 00 20 00}  //weight: 3, accuracy: Low
+        $x_1_5 = "reverse of every character" wide //weight: 1
+        $x_1_6 = {6f 00 70 00 65 00 6e 00 20 00 66 00 6f 00 72 00 20 00 61 00 63 00 63 00 65 00 73 00 73 00 [0-96] 77 00 72 00 69 00 74 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_7 = {64 00 6f 00 20 00 73 00 68 00 65 00 6c 00 6c 00 20 00 73 00 63 00 72 00 69 00 70 00 74 00 [0-6] 66 00 69 00 6c 00 65 00 20 00}  //weight: 1, accuracy: Low
+        $x_1_8 = "DS_Store" wide //weight: 1
+        $x_1_9 = "market-history-cache.json" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_SuspAmosExec_I_2147956166_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SuspAmosExec.I"
+        threat_id = "2147956166"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SuspAmosExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "osascript -e" wide //weight: 3
+        $x_3_2 = {64 00 6f 00 20 00 73 00 68 00 65 00 6c 00 6c 00 20 00 73 00 63 00 72 00 69 00 70 00 74 00 [0-6] 65 00 63 00 68 00 6f 00 20 00}  //weight: 3, accuracy: Low
+        $x_3_3 = "/api/v1/bot/joinsystem/" wide //weight: 3
+        $x_3_4 = {64 00 6f 00 20 00 73 00 68 00 65 00 6c 00 6c 00 20 00 73 00 63 00 72 00 69 00 70 00 74 00 [0-6] 70 00 67 00 72 00 65 00 70 00 20 00}  //weight: 3, accuracy: Low
+        $x_1_5 = "| xargs" wide //weight: 1
+        $x_1_6 = {6f 00 70 00 65 00 6e 00 20 00 66 00 6f 00 72 00 20 00 61 00 63 00 63 00 65 00 73 00 73 00 [0-96] 77 00 72 00 69 00 74 00 65 00 20 00 70 00 65 00 72 00 6d 00 69 00 73 00 73 00 69 00 6f 00 6e 00}  //weight: 1, accuracy: Low
+        $x_1_7 = {64 00 6f 00 20 00 73 00 68 00 65 00 6c 00 6c 00 20 00 73 00 63 00 72 00 69 00 70 00 74 00 [0-6] 63 00 75 00 72 00 6c 00 20 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

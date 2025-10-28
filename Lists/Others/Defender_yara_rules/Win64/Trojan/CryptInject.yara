@@ -4443,3 +4443,29 @@ rule Trojan_Win64_CryptInject_CA_2147952064_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_RH_2147956153_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.RH!MTB"
+        threat_id = "2147956153"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "oneglobalvisa.com" wide //weight: 1
+        $x_1_2 = "chrome.exe" wide //weight: 1
+        $x_1_3 = "api/hospital/data/" wide //weight: 1
+        $x_1_4 = "\\Network\\Cookies" wide //weight: 1
+        $x_1_5 = "\\appdata\\local" wide //weight: 1
+        $x_1_6 = "chrome_elf.dll" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
