@@ -1103,3 +1103,25 @@ rule Trojan_MSIL_Barys_SM_2147955418_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_AR_2147956204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.AR!MTB"
+        threat_id = "2147956204"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0b 16 0c 2b ?? 06 08 8f 08 ?? ?? 01 25 71 08}  //weight: 5, accuracy: Low
+        $x_25_2 = "C:\\Windows\\Media\\mppr.exe" ascii //weight: 25
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

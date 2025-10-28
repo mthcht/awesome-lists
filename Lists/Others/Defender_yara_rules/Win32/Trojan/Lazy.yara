@@ -2378,3 +2378,26 @@ rule Trojan_Win32_Lazy_MKC_2147956189_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AHM_2147956202_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AHM!MTB"
+        threat_id = "2147956202"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b f4 89 75 f0 89 3e 89 7e ?? 89 7e ?? 8b 45 e0 2b 45 dc 74}  //weight: 30, accuracy: Low
+        $x_20_2 = "MianVjsdhan" ascii //weight: 20
+        $x_10_3 = "NYIRNWRG" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
