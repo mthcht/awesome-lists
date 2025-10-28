@@ -3364,3 +3364,25 @@ rule Trojan_Win32_CoinMiner_ZA_2147951834_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CoinMiner_KAB_2147956147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinMiner.KAB!MTB"
+        threat_id = "2147956147"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {b9 32 00 00 00 f7 f9 52 ff d3 8b 85 a0 fd ff ff 40 89 85 a0 fd ff ff 83 f8 05}  //weight: 20, accuracy: High
+        $x_10_2 = "C:\\Users\\kali\\Documents\\GitHub\\Revived-Raum\\RevivedRaum\\Release\\Raum_core.pdb" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

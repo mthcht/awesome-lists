@@ -2092,6 +2092,28 @@ rule Trojan_Win32_Lazy_AG_2147945017_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_KK_2147945650_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.KK!MTB"
+        threat_id = "2147945650"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a 08 32 ca 02 ca 88 08 40 4e}  //weight: 20, accuracy: High
+        $x_10_2 = "Dkcsk.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Lazy_AD_2147945966_0
 {
     meta:
