@@ -2402,3 +2402,25 @@ rule Trojan_Win32_Injector_ARR_2147954233_0
         )
 }
 
+rule Trojan_Win32_Injector_MK_2147956188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.MK!MTB"
+        threat_id = "2147956188"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {c6 85 d8 f5 ff ff 36 c6 85 d9 f5 ff ff 36 c6 85 da f5 ff ff 36 88 95 db f5 ff ff}  //weight: 15, accuracy: High
+        $x_10_2 = {c6 85 f2 f5 ff ff 33 c6 85 f3 f5 ff ff 35 c6 85 f4 f5 ff ff 6d c6 85 f5 f5 ff ff 57 c6 85 f6 f5 ff ff 68}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
