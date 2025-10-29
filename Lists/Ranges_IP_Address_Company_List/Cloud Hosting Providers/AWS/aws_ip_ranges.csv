@@ -1933,6 +1933,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 69.107.9.136/29,us-west-1,AMAZON,us-west-1
 150.222.234.140/31,us-west-1,AMAZON,us-west-1
 155.146.208.0/20,us-east-1,AMAZON,us-east-1-wl1-clt-wlz-1
+15.177.107.0/24,sa-west-1,AMAZON,sa-west-1
 15.230.15.152/31,eu-central-1,AMAZON,eu-central-1
 15.230.179.8/29,us-east-2,AMAZON,us-east-2
 16.12.112.0/21,us-west-2,AMAZON,us-west-2
@@ -6621,6 +6622,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 63.246.112.0/24,eu-north-1,EC2,eu-north-1
 63.246.119.0/24,us-east-1,EC2,us-east-1
 155.146.208.0/20,us-east-1,EC2,us-east-1-wl1-clt-wlz-1
+15.177.107.0/24,sa-west-1,EC2,sa-west-1
 35.96.6.0/24,us-west-2,EC2,us-west-2
 35.96.35.0/24,eu-west-3,EC2,eu-west-3
 50.19.0.0/16,us-east-1,EC2,us-east-1
@@ -7910,6 +7912,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.177.79.0/24,ap-northeast-1,ROUTE53_HEALTHCHECKS_PUBLISHING,ap-northeast-1
 15.177.66.0/23,us-east-2,ROUTE53_HEALTHCHECKS_PUBLISHING,us-east-2
 15.177.104.0/24,ap-east-2,ROUTE53_HEALTHCHECKS_PUBLISHING,ap-east-2
+15.177.107.0/24,sa-west-1,ROUTE53_HEALTHCHECKS_PUBLISHING,sa-west-1
 15.177.73.0/24,ap-south-1,ROUTE53_HEALTHCHECKS_PUBLISHING,ap-south-1
 15.177.103.0/24,ap-southeast-7,ROUTE53_HEALTHCHECKS_PUBLISHING,ap-southeast-7
 15.177.88.0/24,sa-east-1,ROUTE53_HEALTHCHECKS_PUBLISHING,sa-east-1
