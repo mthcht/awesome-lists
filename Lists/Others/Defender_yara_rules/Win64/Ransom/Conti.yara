@@ -133,3 +133,28 @@ rule Ransom_Win64_Conti_QZ_2147937596_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Conti_DC_2147956263_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Conti.DC!MTB"
+        threat_id = "2147956263"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "encrypted by CONTI ransomware" ascii //weight: 5
+        $x_5_2 = "If you try to use any additional recovery software - the files might be damaged or lost" ascii //weight: 5
+        $x_5_3 = "To make sure that we REALLY CAN recover data - we offer you to decrypt samples" ascii //weight: 5
+        $x_5_4 = "YOU SHOULD BE AWARE!" ascii //weight: 5
+        $x_5_5 = "We've downloaded your data and are ready to publish it on out news website if you do not respond" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

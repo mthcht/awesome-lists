@@ -71,3 +71,26 @@ rule Ransom_Win32_DragonForce_C_2147954287_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_DragonForce_SC_2147956234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/DragonForce.SC!MTB"
+        threat_id = "2147956234"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DragonForce"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Public\\log.log" wide //weight: 1
+        $x_1_2 = "Public\\wallpaper_white.png" wide //weight: 1
+        $x_1_3 = ".dragonforce_encrypted" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

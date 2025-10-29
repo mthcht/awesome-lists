@@ -3806,3 +3806,26 @@ rule Trojan_MSIL_PureLogStealer_ADIB_2147955277_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_AYD_2147956224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.AYD!MTB"
+        threat_id = "2147956224"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {00 11 07 11 2b 20 8b 00 00 00 5a 11 07 1b 63 61 61 13 07 16 13 2c 38 e5 00 00 00 00 11 07 11 2c 1f 53 5a 61 13 2d 00 02 11 2b 11 2c 6f 2e 00 00 0a 13 2e 04 03 6f 2f 00 00 0a 59 13 2f 11 2f 13 30 11 30 19 fe 02 13 36 11 36 2c 03 19 13 30 11 30 16 fe 04 13 37}  //weight: 6, accuracy: High
+        $x_3_2 = {8d 41 00 00 01 13 35 11 35 16 12 2e 28 30 00 00 0a 9c 11 35 17 12 2e 28 31 00 00 0a 9c 11 35 18 12 2e 28 32 00 00 0a 9c 11 30 16 fe 02 13 38 11 38 2c 12 00 11 32 13 39 03 11 35 11 39 91 6f 33 00 00 0a 00}  //weight: 3, accuracy: High
+        $x_1_3 = "WordLength.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

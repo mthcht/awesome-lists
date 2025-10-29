@@ -551,3 +551,24 @@ rule Virus_Win64_Expiro_HNW_2147940877_0
         )
 }
 
+rule Virus_Win64_Expiro_HNX_2147954334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win64/Expiro.HNX!MTB"
+        threat_id = "2147954334"
+        type = "Virus"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Expiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e0 42 10 64 76 0c 28 ed 8e b5 62 00 dc 13 2b 95 fe 29 76 b3 db dd f7 ff d9 db fe 2e 42 8d 30 49 ff 7b f9 fd 5e 67 f3 a3 7e df a6 d1 5e d1 5c f2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

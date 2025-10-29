@@ -2641,6 +2641,30 @@ rule Trojan_MSIL_Crysan_AYA_2147947749_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_AYA_2147947749_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.AYA!MTB"
+        threat_id = "2147947749"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {00 02 08 91 08 20 ff 00 00 00 5f 61 06 08 06 8e 69 5d 91 58 0d 07 08 09 20 ff 00 00 00 5f d2 9c 00 08 17 58 0c 08 02 8e 69 fe 04 13 07 11 07 2d cf}  //weight: 7, accuracy: High
+        $x_1_2 = "Obfuscated payload stored in registry" wide //weight: 1
+        $x_1_3 = "CreateSequentialPersistence" ascii //weight: 1
+        $x_1_4 = "IsWindowsDefenderEnabled" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Crysan_AYS_2147947910_0
 {
     meta:

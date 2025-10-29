@@ -6019,9 +6019,10 @@ rule Trojan_Win32_Qbot_CH_2147956164_0
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {0f b6 08 8b 55 ?? 03 95 ?? ff ff ff 0f b6 02 33 c8 8b 55 ?? 88 0a 8b 45}  //weight: 2, accuracy: Low
+        $x_2_1 = {0f b6 08 8b 55 ?? 03 95 ?? ff ff ff 0f b6 02 33 c8 8b 55 ?? 88 0a 8b}  //weight: 2, accuracy: Low
+        $x_2_2 = {0f b6 02 8b 4d e0 03 8d ?? ff ff ff 0f b6 11 33 c2 8b 4d e8 88 01 8b}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 

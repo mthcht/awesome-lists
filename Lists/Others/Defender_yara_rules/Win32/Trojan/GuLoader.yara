@@ -6362,3 +6362,28 @@ rule Trojan_Win32_GuLoader_RCV_2147956141_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCW_2147956214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCW!MTB"
+        threat_id = "2147956214"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "merkantiliseringerne\\iras\\alfedans" ascii //weight: 1
+        $x_1_2 = "proterandrously\\Muldede\\" ascii //weight: 1
+        $x_1_3 = "\\breddeminutternes.ini" ascii //weight: 1
+        $x_1_4 = "%choriocapillaris%\\listeriosis" ascii //weight: 1
+        $x_1_5 = "Abortgrupper164\\Traenet.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

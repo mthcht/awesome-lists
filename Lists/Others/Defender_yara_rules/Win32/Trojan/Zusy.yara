@@ -8472,3 +8472,27 @@ rule Trojan_Win32_Zusy_ATR_2147956124_0
         )
 }
 
+rule Trojan_Win32_Zusy_HAQ_2147956217_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.HAQ!MTB"
+        threat_id = "2147956217"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "QzpcV2luZG93c1xzeXN0ZW0zMlxjbWQuZXhl" ascii //weight: 20
+        $x_1_2 = ".src = atob(" ascii //weight: 1
+        $x_5_3 = "<form action=" ascii //weight: 5
+        $x_4_4 = "type='text' name='password'" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -126,3 +126,24 @@ rule Trojan_Win64_ShellcodeLoader_SYJ_2147953784_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeLoader_TRK_2147956235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeLoader.TRK!MTB"
+        threat_id = "2147956235"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {43 0f b6 4c 1a ?? 4c 8b 83 ?? ?? ?? ?? b8 ?? ?? ?? ?? 49 ff c2 f7 e9 03 d1 c1 fa ?? 8b c2 c1 e8 ?? 03 d0 b8 ?? ?? ?? ?? 69 d2 ?? ?? ?? ?? 2b ca f7 ef 80 c1 ?? 43 30 0c 08 c1 fa ?? 8b cf}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
