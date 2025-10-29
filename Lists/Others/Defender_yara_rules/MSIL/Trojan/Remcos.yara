@@ -14047,3 +14047,26 @@ rule Trojan_MSIL_Remcos_ZRM_2147955952_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_GBF_2147956314_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.GBF!MTB"
+        threat_id = "2147956314"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0b 07 1f 20 8d ?? 00 00 01 25 d0 ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 07 1f 10 8d ?? 00 00 01 25 d0 ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 06 07 6f ?? 00 00 0a 17 73 ?? 00 00 0a 25 02 16 02 8e 69 6f ?? 00 00 0a 6f ?? 00 00 0a 06 28 ?? 34 00 06 28 ?? 34 00 06 2a}  //weight: 10, accuracy: Low
+        $x_1_2 = "DelegateWriteProcessMemory" ascii //weight: 1
+        $x_1_3 = "DelegateResumeThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3475,3 +3475,27 @@ rule Trojan_MSIL_XWorm_MCP_2147956107_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AGJB_2147956315_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AGJB!MTB"
+        threat_id = "2147956315"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {11 05 11 11 11 11 11 11 11 06 5a 1f 0f 5f 58 20 ff 00 00 00 5f d2 9c}  //weight: 5, accuracy: High
+        $x_2_2 = {06 11 13 11 16 1e 5a 1f 1f 5f 63 20 ff 00 00 00 5f d2}  //weight: 2, accuracy: High
+        $x_2_3 = "Canada_Simulator" ascii //weight: 2
+        $x_2_4 = "Star_generator.Properties.Resources" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
