@@ -621,3 +621,26 @@ rule Trojan_Win64_Dacic_GXU_2147952345_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_AHB_2147956311_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.AHB!MTB"
+        threat_id = "2147956311"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 33 d1 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 8b c2 48 c1 e0 ?? 48 33 c2 48 33 c1 48 89 43 ?? 0f 31 48 c1 e2 ?? 48 8d 4d 10 48 0b c2 48 33 c1}  //weight: 30, accuracy: Low
+        $x_20_2 = "WARNING: Analysis environment detected" ascii //weight: 20
+        $x_10_3 = "Obfuscation may be compromised" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

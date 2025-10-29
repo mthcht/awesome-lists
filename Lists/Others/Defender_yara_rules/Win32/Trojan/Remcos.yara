@@ -2890,6 +2890,37 @@ rule Trojan_Win32_Remcos_GVC_2147946059_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Remcos_AMTB_2147947468_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos!AMTB"
+        threat_id = "2147947468"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "kernsxcel32" ascii //weight: 1
+        $x_1_2 = "kexcsrnel32" ascii //weight: 1
+        $x_1_3 = "kerxcnsel32" ascii //weight: 1
+        $x_1_4 = "kersnxcel32" ascii //weight: 1
+        $x_1_5 = "ksxcernel32" ascii //weight: 1
+        $x_1_6 = "kerDxcnel32" ascii //weight: 1
+        $x_1_7 = "kernxcDel32" ascii //weight: 1
+        $x_1_8 = "kexcrDnel32" ascii //weight: 1
+        $x_1_9 = "kerneDlxc32" ascii //weight: 1
+        $x_1_10 = "keDrxcnel32" ascii //weight: 1
+        $x_1_11 = "shxceDll32.dll" ascii //weight: 1
+        $x_1_12 = "keDxcrnel32" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Remcos_ARMS_2147948105_0
 {
     meta:

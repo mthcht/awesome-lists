@@ -886,6 +886,30 @@ rule Trojan_MSIL_Heracles_AHC_2147842157_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {03 20 00 01 00 00 5d 20 00 01 00 00 58 20 00 01 00 00 5d 10 01 02 03 58 20 00 01 00 00 5d d2}  //weight: 30, accuracy: High
+        $x_20_2 = "set_RatPid" ascii //weight: 20
+        $x_10_3 = "DoRemoveWinREPersistence" ascii //weight: 10
+        $x_5_4 = "WriteObfuscatedLogFile" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AHC_2147842157_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AHC!MTB"
+        threat_id = "2147842157"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
@@ -8406,6 +8430,29 @@ rule Trojan_MSIL_Heracles_AYC_2147956223_0
         $x_1_2 = "ExpectPayload" ascii //weight: 1
         $x_1_3 = "CreateDecryptor" ascii //weight: 1
         $x_1_4 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AEJB_2147956299_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AEJB!MTB"
+        threat_id = "2147956299"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {08 11 06 8f ?? 00 00 01 25 71 ?? 00 00 01 11 04 11 06 91 61 d2 81 ?? 00 00 01 11 06 17 58 13 06 11 06 11 04 8e 69 32 d8}  //weight: 5, accuracy: Low
+        $x_2_2 = {06 13 07 11 07 8e 69 1a 5d 13 08 11 07 8e 69 1a 5b 13 09 11 07 8e 69 8d ?? 00 00 01 13 0a 08 8e 69 1a 5b}  //weight: 2, accuracy: Low
+        $x_2_3 = {11 1a 16 31 0c 11 12 1e 62 13 12 11 13 1e 58 13 13 11 0a 11 0f 11 1a 58 11 19 11 12 5f 11 13 1f 1f 5f 64 d2 9c 11 1a 17 58 13 1a}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

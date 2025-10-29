@@ -959,3 +959,45 @@ rule Trojan_MSIL_PureLogs_SJ_2147956226_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogs_SKA_2147956307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogs.SKA!MTB"
+        threat_id = "2147956307"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogs"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {16 0c 2b ea 02 7b 1e 00 00 04 18 5a 8d 1a 00 00 01 0a 17 0c 2b d8 02 7b 1d 00 00 04 16 06 16 02 7b 1e 00 00 04 28 86 00 00 0a 18 0c 2b c0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_PureLogs_SKB_2147956310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogs.SKB!MTB"
+        threat_id = "2147956310"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogs"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 28 0b 00 00 0a 0a 38 1b 00 00 00 00 00 02 28 0a 00 00 06 7d 04 00 00 04 dd 26 00 00 00 26 00 00 dd 00 00 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -64,3 +64,25 @@ rule Trojan_Win64_NukeSped_DA_2147930009_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NukeSped_GXF_2147956305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NukeSped.GXF!MTB"
+        threat_id = "2147956305"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NukeSped"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {5a 4e 33 36 33 4e 64 64 00 6e 74 64 6c 6c}  //weight: 5, accuracy: High
+        $x_5_2 = {45 36 50 20 43 4d 5c 31 73 46 45 6f 42 44 54 57 33 4b 6f 31 45 00 00 00 00 74 78 34}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
