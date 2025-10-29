@@ -253,3 +253,24 @@ rule Trojan_Win64_XWorm_GAPF_2147953815_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_BAA_2147956285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.BAA!MTB"
+        threat_id = "2147956285"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {44 0f 11 7c 24 60 48 89 c2 48 c1 f8 3f 48 89 c1 48 b8 65 21 0b 59 c8 42 16 b2 48 89 d3 48 f7 ea 48 01 da 48 c1 fa 04 48 29 ca 48 6b d2 17 48 89 d8 48 29 d3 48 83 fb 02 0f 8f 5e 01}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

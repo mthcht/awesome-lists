@@ -1225,3 +1225,24 @@ rule Trojan_Win32_Androm_BAE_2147955938_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Androm_BAD_2147956284_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.BAD!MTB"
+        threat_id = "2147956284"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {33 d2 8a 54 1d ff 33 d7 f7 d2 88 54 18 ff 43 4e 75 ?? 59 5a 5d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
