@@ -37,6 +37,28 @@ rule Trojan_Win64_DisguisedXMRigMiner_MX_2147942375_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {74 14 4c 8b d1 49 c1 ea 0c 4d 03 d3 41 80 3a 00 75 04 41 c6 02 ff}  //weight: 1, accuracy: High
+        $x_5_2 = "MicrosoftEdgeUpdater.dll" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DisguisedXMRigMiner_MX_2147942375_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DisguisedXMRigMiner.MX!MTB"
+        threat_id = "2147942375"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DisguisedXMRigMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "2"
         strings_accuracy = "High"
     strings:

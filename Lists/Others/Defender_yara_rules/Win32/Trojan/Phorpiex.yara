@@ -862,3 +862,24 @@ rule Trojan_Win32_Phorpiex_NIT_2147952200_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Phorpiex_MX_2147956417_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Phorpiex.MX!MTB"
+        threat_id = "2147956417"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 8d 10 fc ff ff 51 8b 95 0c fc ff ff 52 ff 15 c8 20 40 00 89 45 fc}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
