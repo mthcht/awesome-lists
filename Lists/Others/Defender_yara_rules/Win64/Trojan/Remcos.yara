@@ -113,3 +113,27 @@ rule Trojan_Win64_Remcos_GVB_2147935572_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remcos_NQA_2147956409_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.NQA!MTB"
+        threat_id = "2147956409"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4f 33 4c d8 10 4c 89 09 4c 8b 0a 49 c1 c1 03 4c 33 09}  //weight: 1, accuracy: High
+        $x_2_2 = "*!*%*)*-*1*5*9*=*A*E*I*M*Q*U*Y*]*a*e*i*m*q*u*y*" ascii //weight: 2
+        $x_1_3 = "OpenRemoteBaseKey" ascii //weight: 1
+        $x_1_4 = "DependencyInjection" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

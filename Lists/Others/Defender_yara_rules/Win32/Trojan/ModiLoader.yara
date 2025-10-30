@@ -82,6 +82,28 @@ rule Trojan_Win32_ModiLoader_AMR_2147889365_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ModiLoader_AMU_2147889654_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ModiLoader.AMU!MTB"
+        threat_id = "2147889654"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ModiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {50 6a 00 68 ff 0f 1f 00 e8 ?? ?? ?? ?? 8d 54 24 04 52 6a 04 68 ?? ?? ?? ?? 8d 54 24 0c 52 50 e8 ?? ?? ?? ?? 8b c3 59 5a 5f 5e 5b}  //weight: 1, accuracy: Low
+        $x_2_2 = {6a 00 6a 00 6a 00 6a 00 68 3c b0 45 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 68 4c b0 45 00 8d 45 fc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ModiLoader_AM_2147894743_0
 {
     meta:

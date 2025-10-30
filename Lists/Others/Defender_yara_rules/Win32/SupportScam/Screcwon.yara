@@ -91,6 +91,8 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_31 = "relay.adobpdf.com" ascii //weight: 30
         $x_30_32 = "sent.costariga.de" ascii //weight: 30
         $x_30_33 = "pilwerui.rchelp.top" ascii //weight: 30
+        $x_30_34 = "rwbhelp.top" ascii //weight: 30
+        $x_30_35 = "zvhelp.top" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (
