@@ -86,3 +86,26 @@ rule Trojan_Win64_Radtheif_AHE_2147956037_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Radtheif_AHF_2147956389_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Radtheif.AHF!MTB"
+        threat_id = "2147956389"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Radtheif"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {08 99 f6 42 d4 95 b7 ?? 87 17 a5 93 44 33 5b 0c 7f fb}  //weight: 30, accuracy: Low
+        $x_20_2 = {f2 52 29 45 ?? a5 95 f6 37 a6 b8}  //weight: 20, accuracy: Low
+        $x_10_3 = {51 65 ee 0a 3a 5d 93 6c 53 2d}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

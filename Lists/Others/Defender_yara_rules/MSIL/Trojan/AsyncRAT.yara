@@ -6574,3 +6574,45 @@ rule Trojan_MSIL_AsyncRAT_GTF_2147955817_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_BGG_2147956383_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.BGG!MTB"
+        threat_id = "2147956383"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {09 08 17 73 10 00 00 0a 13 04 11 04 02 16 02 8e 69 ?? ?? ?? ?? ?? de 0c 11 04 2c 07 11 04 ?? ?? ?? ?? ?? dc 09 ?? ?? ?? ?? ?? 13 05 de 1e}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_BGH_2147956384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.BGH!MTB"
+        threat_id = "2147956384"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {17 73 11 00 00 0a 0c 08 02 16 02 8e 69 ?? ?? ?? ?? ?? 08 6f 13 00 00 0a de 0a 08 2c 06 08 ?? ?? ?? ?? ?? dc 07 ?? ?? ?? ?? ?? 0d de 14 07 2c 06 07}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
