@@ -6415,3 +6415,55 @@ rule Trojan_Win32_GuLoader_SVE_2147956337_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCX_2147956395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCX!MTB"
+        threat_id = "2147956395"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "littlin lagkagens" ascii //weight: 1
+        $x_1_2 = "quebec spartaneres" ascii //weight: 1
+        $x_1_3 = "lgdommmerordnings" ascii //weight: 1
+        $x_1_4 = "vamooses.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVF_2147956396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVF!MTB"
+        threat_id = "2147956396"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\superfosfaters\\ejendomsskatterne\\promammalian" ascii //weight: 1
+        $x_1_2 = "\\Joram.ini" ascii //weight: 1
+        $x_1_3 = "redelighed\\exposing" ascii //weight: 1
+        $x_1_4 = "Praediality.sta" ascii //weight: 1
+        $x_1_5 = "\\vexillation\\havelaage.txt" ascii //weight: 1
+        $x_1_6 = "\\decigrammet\\Hamadryas.zip" ascii //weight: 1
+        $x_1_7 = "\\Sognenes\\radiologens.lnk" ascii //weight: 1
+        $x_1_8 = "\\talesprogets.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
