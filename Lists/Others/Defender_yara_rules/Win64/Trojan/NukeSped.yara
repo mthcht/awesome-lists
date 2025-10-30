@@ -129,3 +129,26 @@ rule Trojan_Win64_NukeSped_CH_2147956320_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NukeSped_GVA_2147956339_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NukeSped.GVA!MTB"
+        threat_id = "2147956339"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NukeSped"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {49 3b df 77 28 48 8d 43 0f 48 3b c5 72 1f 48 8b c3 ba 10 00 00 00 0f 1f 44 00 00 0f b6 0c 07 30 08 48 8d 40 01 48 83 ea 01}  //weight: 2, accuracy: High
+        $x_1_2 = {5c 6d 69 63 72 6f 73 6f 66 74 20 73 68 61 72 65 64 5c 69 6e 6b [0-16] 2e 64 61 74}  //weight: 1, accuracy: Low
+        $x_1_3 = "\\dinput.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

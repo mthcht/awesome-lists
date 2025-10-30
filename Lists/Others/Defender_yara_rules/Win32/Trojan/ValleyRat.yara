@@ -214,3 +214,31 @@ rule Trojan_Win32_ValleyRat_YAH_2147956007_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRat_NVA_2147956332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.NVA!MTB"
+        threat_id = "2147956332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "TCGamerUpdateMain" ascii //weight: 2
+        $x_1_2 = "\\jincheng.bat" ascii //weight: 1
+        $x_1_3 = "\\backup.dll" ascii //weight: 1
+        $x_1_4 = "\\jincheng.pid" ascii //weight: 1
+        $x_1_5 = "BackupDLLPath" ascii //weight: 1
+        $x_1_6 = "BackupProcessPath" ascii //weight: 1
+        $x_1_7 = "goto CheckProcess" ascii //weight: 1
+        $x_1_8 = "Update.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8361,34 +8361,6 @@ rule Trojan_Win32_Zusy_ARR_2147956041_1
         )
 }
 
-rule Trojan_Win32_Zusy_HAE_2147956063_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Zusy.HAE!MTB"
-        threat_id = "2147956063"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Zusy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "25"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "S3.exe" ascii //weight: 10
-        $x_10_2 = "mLQ9%Et+=$" ascii //weight: 10
-        $x_15_3 = "WixSharp.dll" ascii //weight: 15
-        $x_15_4 = "[+8]sn*Q" ascii //weight: 15
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_15_*) and 1 of ($x_10_*))) or
-            ((2 of ($x_15_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_Zusy_HAF_2147956064_0
 {
     meta:

@@ -714,3 +714,33 @@ rule Trojan_MSIL_QuasarRAT_DB_2147939453_0
         )
 }
 
+rule Trojan_MSIL_QuasarRAT_RH_2147956343_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRAT.RH!MTB"
+        threat_id = "2147956343"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "-ExecutionPolicy Bypass -File" wide //weight: 2
+        $x_1_2 = "Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_3 = "Antivirus" wide //weight: 1
+        $x_1_4 = "From Win32_ComputerSystem" wide //weight: 1
+        $x_1_5 = "taskkill /IM firefox.exe /F" wide //weight: 1
+        $x_1_6 = "no-sandbox" wide //weight: 1
+        $x_1_7 = "VBoxGuest" wide //weight: 1
+        $x_1_8 = "immunity debugger" wide //weight: 1
+        $x_1_9 = "Client.exe" wide //weight: 1
+        $x_1_10 = "Code injection detected" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

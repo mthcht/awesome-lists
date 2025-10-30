@@ -3384,3 +3384,31 @@ rule Trojan_MSIL_Stealer_AHB_2147952256_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_HAB_2147956329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.HAB!MTB"
+        threat_id = "2147956329"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Google\\Chrome\\User Data\\Default\\Login Data" ascii //weight: 10
+        $x_10_2 = "Chromium\\User Data\\Default\\Login Data" ascii //weight: 10
+        $x_10_3 = "Microsoft\\Edge\\User Data\\Default\\Login Data" ascii //weight: 10
+        $x_5_4 = "Software\\Microsoft\\Windows Messaging Subsystem\\Profiles\\" ascii //weight: 5
+        $x_5_5 = "\\Outlook\\Profiles\\Outlook\\" ascii //weight: 5
+        $x_5_6 = "Classes\\Foxmail" ascii //weight: 5
+        $x_15_7 = "FileZilla\\recentservers.xml" ascii //weight: 15
+        $x_10_8 = "PK11SDR_Decrypt" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
