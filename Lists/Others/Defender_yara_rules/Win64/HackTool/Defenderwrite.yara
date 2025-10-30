@@ -9,11 +9,11 @@ rule HackTool_Win64_Defenderwrite_A_2147956012_0
         family = "Defenderwrite"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "23"
+        threshold = "5"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = "DefenderWrite: The tool used to drop files into the Antivirus folder." ascii //weight: 10
-        $x_10_2 = "Usage: DefenderWrite.exe <TargetExePath> <FullDLLPath> <FileToWrite>" ascii //weight: 10
+        $x_2_1 = "DefenderWrite: The tool used to drop files into the Antivirus folder." ascii //weight: 2
+        $x_2_2 = "Usage: DefenderWrite.exe <TargetExePath> <FullDLLPath> <FileToWrite>" ascii //weight: 2
         $x_1_3 = "WriteProcessMemory for arguments failed" ascii //weight: 1
         $x_1_4 = "RunMe run successfully" ascii //weight: 1
         $x_1_5 = "Injection failed" ascii //weight: 1
@@ -23,9 +23,9 @@ rule HackTool_Win64_Defenderwrite_A_2147956012_0
     condition:
         (filesize < 20MB) and
         (
-            ((2 of ($x_10_*) and 3 of ($x_1_*))) or
-            ((2 of ($x_10_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((2 of ($x_10_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_2_*))) or
             (all of ($x*))
         )
 }
