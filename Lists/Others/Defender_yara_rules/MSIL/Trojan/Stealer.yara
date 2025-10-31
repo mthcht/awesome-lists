@@ -3412,3 +3412,25 @@ rule Trojan_MSIL_Stealer_HAB_2147956329_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_AYG_2147956524_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.AYG!MTB"
+        threat_id = "2147956524"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {16 06 7b 49 00 00 04 6f 78 00 00 0a 28 79 00 00 0a 06 fe 06 81 00 00 06 73 7a 00 00 0a 28 01 00 00 2b 06 fe 06 82 00 00 06 73 7c 00 00 0a 28 02 00 00 2b 06 7b 47 00 00 04 7e 50 00 00 04 25 2d 17 26 7e 4e 00 00 04 fe 06 8b 00 00 06 73 7e 00 00 0a 25 80 50 00 00 04 28 03 00 00 2b 0b 2b 00 07 2a}  //weight: 5, accuracy: High
+        $x_2_2 = "ModularCalculator.Properties.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

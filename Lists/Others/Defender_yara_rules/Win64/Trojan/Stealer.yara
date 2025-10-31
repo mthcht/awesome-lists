@@ -668,3 +668,24 @@ rule Trojan_Win64_Stealer_MPZ_2147955849_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_PWT_2147956511_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.PWT!MTB"
+        threat_id = "2147956511"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {ff c3 0f b6 c3 8b d8 48 8d 4d ?? 48 03 c8 0f b6 11 8d 04 32 0f b6 f0 0f b6 44 35 ?? 88 01 88 54 35 ?? 0f b6 01 03 c2 0f b6 c0 0f b6 4c 05 ?? 30 0f 48 8d 7f 01 49 83 e8 01 75 c5}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
