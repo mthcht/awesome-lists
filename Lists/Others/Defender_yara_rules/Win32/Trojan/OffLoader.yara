@@ -5351,3 +5351,27 @@ rule Trojan_Win32_OffLoader_ACJB_2147956276_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_BAB_2147956463_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAB!MTB"
+        threat_id = "2147956463"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://dressthroat.info/bnjo.php?" ascii //weight: 4
+        $x_4_2 = "://pleasurejelly.xyz/bnjos.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
