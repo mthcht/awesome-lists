@@ -3523,3 +3523,24 @@ rule Trojan_MSIL_XWorm_AIJB_2147956375_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ALJB_2147956481_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ALJB!MTB"
+        threat_id = "2147956481"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 07 02 07 91 03 07 03 6f ?? 00 00 0a 5d 17 6f ?? 00 00 0a 28 ?? 00 00 0a 61 28 ?? 00 00 0a 9c 00 07 17 58 0b 07 02 8e 69 fe 04 0d 09 2d d0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
