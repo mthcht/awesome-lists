@@ -7731,6 +7731,29 @@ rule Trojan_Win32_LummaStealer_ARR_2147954235_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {01 ca 83 f0 ?? 21 c8 01 c0 29 c2 89 54 24}  //weight: 5, accuracy: Low
+        $x_3_2 = {89 c1 01 d1 21 d0 01 c0 89 ca 31 c2 f7 d0 21 c1}  //weight: 3, accuracy: High
+        $x_2_3 = {89 d6 f7 de 8d b4 30 ?? ?? ?? ?? 29 d0 8d 84 01 ?? ?? ?? ?? 21 ce 01 f6 29 f0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_ARR_2147954235_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.ARR!MTB"
+        threat_id = "2147954235"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "25"
         strings_accuracy = "Low"
     strings:

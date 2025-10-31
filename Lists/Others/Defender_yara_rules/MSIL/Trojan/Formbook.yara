@@ -9110,3 +9110,24 @@ rule Trojan_MSIL_Formbook_ZML_2147956362_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_ZPL_2147956466_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.ZPL!MTB"
+        threat_id = "2147956466"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 7b 64 00 00 04 7b ?? 00 00 04 02 7b ?? 00 00 04 03 6f ?? 00 00 0a 0a 12 00 28 ?? 00 00 0a 02 7b ?? 00 00 04 7b ?? 00 00 04 02 7b ?? 00 00 04 7b 5f 00 00 04 6f ?? 00 00 0a 59 73 ?? 00 00 0a 2a}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

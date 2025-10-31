@@ -1260,3 +1260,49 @@ rule Trojan_Win64_Mikey_BAB_2147956086_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_BAC_2147956469_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.BAC!MTB"
+        threat_id = "2147956469"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {2c aa 54 00 00 10 00 00 00 6c 23 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60}  //weight: 10, accuracy: High
+        $x_10_2 = {ee aa 10 00 00 c0 54 00 00 14 06 00 00 70 23 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 10, accuracy: High
+        $x_10_3 = {a4 49 01 00 00 70 65 00 00 3a 00 00 00 84 29 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+        $x_10_4 = {80 00 00 00 00 c0 66 00 00 02 00 00 00 be 29 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_ATR_2147956471_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.ATR!MTB"
+        threat_id = "2147956471"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {e0 00 02 01 0b 01 0e 25 00 76 02 00}  //weight: 6, accuracy: High
+        $x_4_2 = {60 08 00 00 10 00 00 00 94 05 00 00 10 00}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
