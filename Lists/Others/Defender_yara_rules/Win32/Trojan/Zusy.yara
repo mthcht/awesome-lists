@@ -8386,6 +8386,35 @@ rule Trojan_Win32_Zusy_HAF_2147956064_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_HAK_2147956065_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.HAK!MTB"
+        threat_id = "2147956065"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "nkbihfbeogaeaoehlefnkodbefgpgknn" ascii //weight: 10
+        $x_10_2 = "aholpfdialjgjfhomihkjbmgjidlcdno" ascii //weight: 10
+        $x_10_3 = "bgpipimickeadkjlklgcifiifhnalhdjhe" ascii //weight: 10
+        $x_10_4 = "dlcobpjiigpikoobohmaebhmhfoodbb" ascii //weight: 10
+        $x_1_5 = "AppData\\Local\\Google\\Chrome\\" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_Zusy_ATR_2147956124_0
 {
     meta:

@@ -1,19 +1,19 @@
-rule Trojan_Linux_Gorm_HAB_2147956370_0
+rule Trojan_MacOS_GlassWorm_HAB_2147956443_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Linux/Gorm.HAB!MTB"
-        threat_id = "2147956370"
+        detection_name = "Trojan:MacOS/GlassWorm.HAB!MTB"
+        threat_id = "2147956443"
         type = "Trojan"
-        platform = "Linux: Linux platform"
-        family = "Gorm"
+        platform = "MacOS: "
+        family = "GlassWorm"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
         threshold = "32"
         strings_accuracy = "High"
     strings:
-        $x_30_1 = ".rsgenerate_secret_key_hvnc::decode" ascii //weight: 30
+        $x_30_1 = "/lib.rsdecodegenerate_secret_key_hvnc::decode/" ascii //weight: 30
         $x_1_2 = "napi_run_scriptnapi_create_async" ascii //weight: 1
         $x_1_3 = "/entry.rs/rustc/" ascii //weight: 1
     condition:
