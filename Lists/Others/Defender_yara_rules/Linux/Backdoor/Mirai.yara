@@ -9506,3 +9506,53 @@ rule Backdoor_Linux_Mirai_LR_2147951880_0
         (3 of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_A_2147956508_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.A!AMTB"
+        threat_id = "2147956508"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "106.248.251.189" ascii //weight: 1
+        $x_1_2 = "/tmp/.bot_lock" ascii //weight: 1
+        $x_1_3 = "cd /root wget http://%s/cat.sh" ascii //weight: 1
+        $x_1_4 = "0mPassword" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Linux_Mirai_B_2147956509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.B!AMTB"
+        threat_id = "2147956509"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "xmhdipc" ascii //weight: 1
+        $x_1_2 = "/tmp/.bot_lock" ascii //weight: 1
+        $x_1_3 = "cd /root wget http://%s/cat.sh" ascii //weight: 1
+        $x_1_4 = "wget http://%s/run.sh; curl -O http://%s/run.sh; chmod 777 run.sh" ascii //weight: 1
+        $x_1_5 = "7ujMko0admin" ascii //weight: 1
+        $x_1_6 = "udpplain" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
