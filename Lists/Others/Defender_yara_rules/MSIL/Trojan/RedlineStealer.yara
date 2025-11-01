@@ -585,3 +585,26 @@ rule Trojan_MSIL_RedlineStealer_GTB_2147948778_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RedlineStealer_PI_2147956540_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedlineStealer.PI!MTB"
+        threat_id = "2147956540"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 72 8f 00 00 70 7d 01 00 00 04 02 7b 01 00 00 04 28 ?? 00 00 0a 3a e8 00 00 00 73 20 00 00 06 28 ?? 00 00 0a 72 ad 00 00 70 28 ?? 00 00 0a 0a 72 bf 00 00 70 0b 72 d5 00 00 70 02 7b 01 00 00 04 6f ?? 00 00 0a 72 e5 00 00 70 28 ?? 00 00 0a 0c 72 07 01 00 70 0d 72 d5 00 00 70 02 7b 01 00 00 04 6f ?? 00 00 0a 72 19 01 00 70 28 ?? 00 00 0a 13 04 72 37 01 00 70 13 05 72 d5 00 00 70 02 7b 01 00 00 04 6f ?? 00 00 0a 72 57 01 00 70}  //weight: 5, accuracy: Low
+        $x_2_2 = "b0369ec1-8cf8-485d-8fb1-62835b575d88" ascii //weight: 2
+        $x_2_3 = "GGWSUpdate.Properties.Resources" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
