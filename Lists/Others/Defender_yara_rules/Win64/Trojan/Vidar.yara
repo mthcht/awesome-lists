@@ -513,3 +513,24 @@ rule Trojan_Win64_Vidar_YNE_2147956500_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_YNF_2147956530_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.YNF!MTB"
+        threat_id = "2147956530"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_11_1 = {42 8a 04 38 4c 8b 7d d0 41 32 07 4c 8b 7d e0}  //weight: 11, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

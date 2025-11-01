@@ -222,3 +222,26 @@ rule Trojan_Win64_ValleyRat_AVYR_2147953089_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_GVC_2147956531_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.GVC!MTB"
+        threat_id = "2147956531"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 14 02 48 8b 44 24 60 88 54 04 53 48 ff c0 48 83 f8 05 7d 1d 48 89 44 24 60 b8 3e 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = "main.ChaCha20Decrypt" ascii //weight: 1
+        $x_1_3 = "ChaCha20Encrypted.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
