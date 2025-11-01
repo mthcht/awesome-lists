@@ -1246,3 +1246,31 @@ rule Trojan_MSIL_DarkCloud_AMJB_2147956510_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_DC_2147956546_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.DC!MTB"
+        threat_id = "2147956546"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "=DARKCLOUD=" ascii //weight: 10
+        $x_10_2 = "\\eM Client\\main.dat" ascii //weight: 10
+        $x_1_3 = "Card Number: " ascii //weight: 1
+        $x_1_4 = "Card Type" ascii //weight: 1
+        $x_1_5 = "Login Data" ascii //weight: 1
+        $x_1_6 = "User Data" ascii //weight: 1
+        $x_1_7 = "logins.json" ascii //weight: 1
+        $x_1_8 = "api.telegram.org/bot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
