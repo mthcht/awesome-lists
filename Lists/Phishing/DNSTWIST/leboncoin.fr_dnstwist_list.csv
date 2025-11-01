@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,leboncoin.fr,108.156.224.116,,mx0.mail.ovh.net,ns-1125.awsdns-12.org
+*original,leboncoin.fr,18.165.83.19,,mx0.mail.ovh.net,ns-1125.awsdns-12.org
 addition,leboncoin0.fr,,,,
 addition,leboncoin1.fr,,,,
 addition,leboncoin2.fr,,,,
@@ -53,6 +53,7 @@ bitsquatting,leboncgin.fr,,,,
 bitsquatting,lebonckin.fr,,,,
 bitsquatting,leboncmin.fr,,,,
 bitsquatting,leboncnin.fr,,,,
+bitsquatting,lebonsoin.fr,84.32.84.32,,,ns1.dns-parking.com
 bitsquatting,leboncoan.fr,,,,ns1.leboncoin.net
 bitsquatting,leboncohn.fr,,,,
 bitsquatting,leboncoif.fr,,,,
@@ -63,7 +64,6 @@ bitsquatting,leboncokn.fr,,,,
 bitsquatting,leboncomn.fr,,,,
 bitsquatting,leboncoyn.fr,,,,
 bitsquatting,lebongoin.fr,,,,
-bitsquatting,lebonsoin.fr,84.32.84.32,,,ns1.dns-parking.com
 bitsquatting,lebonkoin.fr,,,,ns1.leboncoin.net
 bitsquatting,leboocoin.fr,,,,
 bitsquatting,leconcoin.fr,,,,
@@ -747,13 +747,13 @@ insertion,lzeboncoin.fr,,,,
 insertion,mleboncoin.fr,,,,
 insertion,oleboncoin.fr,,,,
 insertion,pleboncoin.fr,,,,
-omission,lboncoin.fr,104.247.81.99,!ServFail,mail.h-email.net,ns1.parkingcrew.net
-omission,eboncoin.fr,192.155.84.236,2600:3c01::f03c:95ff:fe00:29ca,,lunlun.ns.giantpanda.com
 omission,lebncoin.fr,,,,
 omission,lebonoin.fr,104.21.56.12,2606:4700:3035::ac43:afad,,jo.ns.cloudflare.com
+omission,lboncoin.fr,104.247.81.99,!ServFail,mail.h-email.net,ns1.parkingcrew.net
 omission,lebocoin.fr,199.59.243.228,,,ns1.bodis.com
+omission,eboncoin.fr,66.175.209.179,2600:3c03::f03c:95ff:fe91:5d52,,lunlun.ns.giantpanda.com
 omission,leboncin.fr,66.175.209.179,2600:3c03::f03c:95ff:fe91:5d52,,lunlun.ns.giantpanda.com
-omission,leboncoi.fr,66.175.209.179,2600:3c01::f03c:95ff:fe00:29ca,,lunlun.ns.giantpanda.com
+omission,leboncoi.fr,66.175.209.179,2600:3c03::f03c:95ff:fe91:5d52,,lunlun.ns.giantpanda.com
 omission,leboncon.fr,,,,bonnie.ns.cloudflare.com
 omission,leoncoin.fr,,,,
 plural,leboncosin.fr,,,,
@@ -779,11 +779,11 @@ replacement,lebonciin.fr,,,,
 replacement,lebonclin.fr,,,,
 replacement,lebonco8n.fr,,,,
 replacement,lebonco9n.fr,,,,
+replacement,leboncpin.fr,104.247.81.99,!ServFail,mail.h-email.net,ns1.parkingcrew.net
 replacement,leboncoib.fr,,,,ns1.parkingcrew.net
 replacement,leboncoih.fr,,,,
 replacement,leboncojn.fr,,,,
-replacement,leboncpin.fr,104.247.81.99,!ServFail,mail.h-email.net,ns1.parkingcrew.net
-replacement,leboncoun.fr,192.155.84.236,2600:3c01::f03c:95ff:fe00:29ca,,lunlun.ns.giantpanda.com
+replacement,leboncoun.fr,66.175.209.179,2600:3c03::f03c:95ff:fe91:5d52,,lunlun.ns.giantpanda.com
 replacement,lebonvoin.fr,84.16.66.164,2001:1600:0:aaaa::2:14,,ns11.infomaniak.ch
 replacement,leboncoon.fr,,,,ns1.parkingcrew.net
 replacement,lebondoin.fr,,,,
@@ -803,9 +803,9 @@ replacement,peboncoin.fr,,,,
 subdomain,le.boncoin.fr,,,,
 subdomain,leb.oncoin.fr,,,,
 subdomain,lebo.ncoin.fr,!ServFail,!ServFail,,!ServFail
-subdomain,l.eboncoin.fr,192.155.84.236,2600:3c01::f03c:95ff:fe00:29ca,,lunlun.ns.giantpanda.com
 subdomain,lebon.coin.fr,212.129.27.193,,,
-subdomain,lebonc.oin.fr,,!ServFail,,ns1.nameshift.com
+subdomain,l.eboncoin.fr,66.175.209.179,2600:3c03::f03c:95ff:fe91:5d52,,lunlun.ns.giantpanda.com
+subdomain,lebonc.oin.fr,,,,ns1.nameshift.com
 subdomain,lebonco.in.fr,,,,
 transposition,lbeoncoin.fr,,,,
 transposition,lebnocoin.fr,,,,
@@ -815,9 +815,9 @@ transposition,leboncion.fr,,,,
 transposition,lebonconi.fr,,,,
 transposition,lebonocin.fr,,,,
 transposition,leobncoin.fr,,,,
-various,leboncoinfr.fr,142.132.181.81,2a01:4f8:1c17:fa73::1,mx186.m2bp.com,ns1.dovendi.nl
 various,leboncoin-fr.com,213.186.33.5,,mx1.mail.ovh.net,dns100.ovh.net
 various,leboncoinfr.com,,,,
+various,leboncoinfr.fr,142.132.181.81,2a01:4f8:1c17:fa73::1,mx186.m2bp.com,ns1.dovendi.nl
 vowel-swap,lebancoin.fr,,,,
 vowel-swap,lebencoin.fr,,,,
 vowel-swap,leboncain.fr,,,,
