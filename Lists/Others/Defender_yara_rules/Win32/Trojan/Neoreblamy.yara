@@ -2296,6 +2296,27 @@ rule Trojan_Win32_Neoreblamy_GPK_2147926229_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {eb 07 8b 45 ?? 40 89 45 00 83 7d 00 ?? 7f 28 6b 45 00 ?? 8d 84 05 ?? ?? ?? ?? 8b 4d 00 8b 55 00 42 42 6b d2 18 8d 94 15 ?? ?? ?? ?? 8b 75 00 8b 04 88 89 04 b2 eb cb 8b 45}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Neoreblamy_GPK_2147926229_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.GPK!MTB"
+        threat_id = "2147926229"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

@@ -43,3 +43,26 @@ rule Trojan_Win64_Runner_MB_2147911089_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Runner_MK_2147956577_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Runner.MK!MTB"
+        threat_id = "2147956577"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Runner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {41 b8 68 00 00 00 33 d2 48 8d 8d b0 39 00 00 ?? ?? ?? ?? ?? 90 41 b8 18 00 00 00 33 d2 48 8d 8d 38 3a}  //weight: 15, accuracy: Low
+        $x_10_2 = {48 8b 85 68 39 00 00 48 ff c0 4c 8d 85 50 19 00 00 48 8b d0 48 8b 8d 88 39}  //weight: 10, accuracy: High
+        $x_5_3 = "ping -n 11 127.0.0.1" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
