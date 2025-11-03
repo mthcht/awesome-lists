@@ -549,3 +549,25 @@ rule Ransom_Linux_Filecoder_AE_2147951874_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Filecoder_AF_2147956608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Filecoder.AF!MTB"
+        threat_id = "2147956608"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 89 e5 41 57 41 56 53 50 41 89 fe 48 8d 1d 4f c9 ff ff 48 8d 35 ec c2 ff ff 48 89 df 44 89 f2 31 c0 e8 30 28 00 00 4c 8d 3d a9 f4 00 00 48 8d 15 22 c0 ff ff be 00 04 00 00 4c 89 ff 44 89 f1 31 c0 e8 f0 a9 00 00 48 8d 35 5b c4 ff ff 4c 8d 35 19 c3 ff ff 48 89 df 4c 89 f2 31 c0 e8 f5 27 00 00 48 8d 3d d2 c4 ff ff 4c 89 fe 31 c0 e8 d4 29 00 00 4c 89 ff e8 cc a9 00 00 41 89 c7 48 8d 35 97 c7 ff ff 48 89 df 4c 89 f2 89 c1 31 c0}  //weight: 1, accuracy: High
+        $x_1_2 = {49 8b 7d 00 be 2f 00 00 00 e8 e5 9a 00 00 48 83 c0 01 48 8d 3d 52 b4 ff ff 48 89 45 c8 48 89 c6 31 c0 e8 ac 19 00 00 48 8d 3d 28 ba ff ff 31 c0 e8 9e 19 00 00 41 83 fc 02 7c 30 44 89 e3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

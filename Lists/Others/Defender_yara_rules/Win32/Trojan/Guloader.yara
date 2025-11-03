@@ -3088,6 +3088,39 @@ rule Trojan_Win32_Guloader_RR_2147833669_2
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_RR_2147833669_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RR!MTB"
+        threat_id = "2147833669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\polyandrious.dll" ascii //weight: 1
+        $x_1_2 = "ledelsesmssiges\\quinary\\ponchoers" ascii //weight: 1
+        $x_1_3 = "cykelhandlernes" ascii //weight: 1
+        $x_1_4 = "\\pantheist\\femogtyveaarsjubilums.ini" ascii //weight: 1
+        $x_1_5 = "7\\aabenbarelsen\\samlelinserne.gif" ascii //weight: 1
+        $x_1_6 = "Sanktionen\\dramaturgers" ascii //weight: 1
+        $x_1_7 = "c:\\Kargoens\\northland\\meningskorrekturernes.ini" ascii //weight: 1
+        $x_1_8 = "Femogtyvere" ascii //weight: 1
+        $x_1_9 = "\\overblikkene.txt" ascii //weight: 1
+        $x_1_10 = "Tylskjolerne.Scl" ascii //weight: 1
+        $x_1_11 = "\\Remonstrant230\\krigsfrelsernes.exe" ascii //weight: 1
+        $x_1_12 = "enevrelse\\Uninstall\\totalsystemernes\\immatrikulationers" ascii //weight: 1
+        $x_1_13 = "spillekortenes\\unhumorousness\\systemudviklingen" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_AJ_2147836731_0
 {
     meta:

@@ -148,3 +148,25 @@ rule Trojan_Win64_Havoc_PAHA_2147944109_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havoc_PL_2147956597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.PL!MTB"
+        threat_id = "2147956597"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {0f b6 4c 04 60 80 f1 5a 88 4c 05 c0 48 ff c0 48 83 f8 0d 72 eb}  //weight: 4, accuracy: High
+        $x_2_2 = {c7 44 24 60 63 6b 74 68 c7 44 24 64 6e 6f 74 68 c7 44 24 68 6f 6f 74 6e c6 44 24 6c 69 c7 44 24 30 09 35 3c 2e c7 44 24 34 2d 3b 28 3f c7 44 24 38 06 17 33 39 c7 44 24 3c 28 35 29 35 c7 44 24 40 3c 2e 06 0d c7 44 24 44 33 34 3e 35 c7 44 24 48 2d 29 06 19 c7 44 24 4c 2f 28 28 3f c7 44 24 50 34 2e 0c 3f c7 44 24 54 28 29 33 35 c7 44 24 58 34 06 08 2f c6 44 24 5c 34 41 8b c7}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
