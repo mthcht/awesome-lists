@@ -681,3 +681,24 @@ rule Trojan_MSIL_Agenttesla_PGBA_2147951190_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_PALA_2147956567_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PALA!MTB"
+        threat_id = "2147956567"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {00 00 1b 03 04 6f ?? 00 00 0a 0b [0-15] 13 06 38 ?? ff ff ff 06 17 58 0a 20 ?? ?? 00 00 0d [0-5] 13 04 20 ?? ?? 00 00 09 18 5b 11 04 59 32 [0-15] 00 00 59 13 06 38 ?? ff ff ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

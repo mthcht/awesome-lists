@@ -4807,6 +4807,30 @@ rule Trojan_Win32_OffLoader_PGOF_2147952221_1
         threshold = "6"
         strings_accuracy = "High"
     strings:
+        $x_2_1 = "http://framestove.info/ajto.php?" ascii //weight: 2
+        $x_2_2 = "http://joinfall.xyz/ajtos.php?" ascii //weight: 2
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_PGOF_2147952221_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOF!MTB"
+        threat_id = "2147952221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = "http://armytreatment.info/ytri.php?" ascii //weight: 2
         $x_2_2 = "http://armroute.xyz/ytris.php?" ascii //weight: 2
         $x_1_3 = "Do you want to reboot now?" ascii //weight: 1
@@ -4816,7 +4840,7 @@ rule Trojan_Win32_OffLoader_PGOF_2147952221_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_PGOF_2147952221_2
+rule Trojan_Win32_OffLoader_PGOF_2147952221_3
 {
     meta:
         author = "defender2yara"
