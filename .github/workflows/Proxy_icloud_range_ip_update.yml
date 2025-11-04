@@ -42,7 +42,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git pull --rebase
+          git pull
           git add Lists/PROXY/Icloud_proxy_from_apple/*
           git add Lists/Ranges_IP_Address_Company_List/Apple/*
           git commit -m "Update iCloud Relay IP ranges" --allow-empty
