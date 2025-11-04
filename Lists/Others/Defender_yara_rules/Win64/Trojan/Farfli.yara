@@ -275,3 +275,48 @@ rule Trojan_Win64_Farfli_KK_2147956148_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_NF_2147956639_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.NF!MTB"
+        threat_id = "2147956639"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 8b c1 41 ff c9 85 c0 74 10 42 0f b6 04 02 49 ff c0 41 88 40 ff 84 c0 75 e6 48 8b c1 41 c6 00}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8b d8 33 c0 48 8b fb f2 ae 48 f7 d1 48 ff c9 48 83 f9 01 76 6f}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Farfli_AHB_2147956641_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.AHB!MTB"
+        threat_id = "2147956641"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {44 8b d8 44 2b 5c 24 5c b8 ?? ?? ?? ?? 41 f7 e3 c1 ea ?? b8 ?? ?? ?? ?? f7 e2 c1 ea ?? 48 8d 8f}  //weight: 30, accuracy: Low
+        $x_20_2 = "C:\\ProgramData\\KeyFile.txt" ascii //weight: 20
+        $x_10_3 = "cmd.exe /c rmdir /s /q \"%userprofile%\\AppData\\Roaming\\SogouExplorer\\Webkit\\Default\\Cache" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

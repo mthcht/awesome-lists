@@ -16625,3 +16625,26 @@ rule Trojan_MSIL_FormBook_AKI_2147955372_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_SI_2147956636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.SI!MTB"
+        threat_id = "2147956636"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 0a 02 6f 1d 00 00 0a 3c 0a 01 00 00 11 0b 02 6f 1e 00 00 0a 32 0b 11 0a 17 58 13 0a 16 13 0b 2b de 07 6f 32 00 00 0a 06 3c e9 00 00 00 02 11 0a 11 0b 6f}  //weight: 1, accuracy: High
+        $x_1_2 = "PS_Timer.Properties.Resources.resources" ascii //weight: 1
+        $x_1_3 = "$445fd492-3746-4da4-a4b5-0689cbf44f9b" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

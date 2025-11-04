@@ -6492,3 +6492,29 @@ rule Trojan_Win32_GuLoader_RCY_2147956446_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RCZ_2147956620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCZ!MTB"
+        threat_id = "2147956620"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\micelles\\kuglerums" ascii //weight: 1
+        $x_1_2 = "ledelsesmssiges\\quinary\\ponchoers" ascii //weight: 1
+        $x_1_3 = "99\\kassebeholdningernes.ini" ascii //weight: 1
+        $x_1_4 = "%consumerism%\\gaussfilterfunktionernes" ascii //weight: 1
+        $x_1_5 = "6\\Remonstrant230\\krigsfrelsernes.exe" ascii //weight: 1
+        $x_1_6 = "88\\Chemisetternes.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

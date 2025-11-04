@@ -289,3 +289,32 @@ rule Trojan_Win32_SuspExec_HL_2147953214_0
         )
 }
 
+rule Trojan_Win32_SuspExec_HM_2147956644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.HM!MTB"
+        threat_id = "2147956644"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "findstr" wide //weight: 10
+        $x_1_2 = "sophoshealth" wide //weight: 1
+        $x_1_3 = "avastui" wide //weight: 1
+        $x_1_4 = "avgui" wide //weight: 1
+        $x_1_5 = "ekrn" wide //weight: 1
+        $x_1_6 = "bdservicehost" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -6648,3 +6648,25 @@ rule Trojan_Win32_Ursnif_BAB_2147934834_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Ursnif_NU_2147956621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Ursnif.NU!MTB"
+        threat_id = "2147956621"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Ursnif"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b d6 2b d1 2b c5 83 c2 ?? 3b d7 8b e8 89 2d ?? ?? ?? 00 75 0c 8b c7 69 c0 ?? ?? 00 00 2b c6 8b f0}  //weight: 2, accuracy: Low
+        $x_1_2 = {33 c9 85 f6 0f 94 c1 85 c9 74 2b b8 ?? ?? ?? ?? f7 e6 c1 ea 05 3b fa 74 07}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

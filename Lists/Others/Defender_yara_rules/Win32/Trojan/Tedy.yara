@@ -818,6 +818,29 @@ rule Trojan_Win32_Tedy_ARR_2147954236_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "$069e7dba-3b68-45b4-a873-42487370cb2e" ascii //weight: 10
+        $x_15_2 = "Steal1.exe" ascii //weight: 15
+        $x_5_3 = "Steal.Properties.Resources" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_ARR_2147954236_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARR!MTB"
+        threat_id = "2147954236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "60"
         strings_accuracy = "Low"
     strings:
