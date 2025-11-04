@@ -623,3 +623,26 @@ rule Trojan_Linux_Mirai_LX_2147950973_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_HAB_2147956705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAB!MTB"
+        threat_id = "2147956705"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "71"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[udpbypass_flood] started: ('%d')" ascii //weight: 30
+        $x_1_2 = "[syn_flood] started: ('%d')" ascii //weight: 1
+        $x_40_3 = "151.242.30.16" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
