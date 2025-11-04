@@ -32,6 +32,27 @@ rule Trojan_Win64_XWorm_DA_2147922667_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8b c2 83 e0 1f 0f b6 44 18 ?? 30 04 16 48 ff c2 49 3b d0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_XWorm_DA_2147922667_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.DA!MTB"
+        threat_id = "2147922667"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "13"
         strings_accuracy = "High"
     strings:

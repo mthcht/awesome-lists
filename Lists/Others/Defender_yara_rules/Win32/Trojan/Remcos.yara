@@ -3095,3 +3095,24 @@ rule Trojan_Win32_Remcos_AAD_2147955162_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_AAD_2147955162_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.AAD!MTB"
+        threat_id = "2147955162"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b fa 8b 54 24 10 89 01 8b c1 8b cb 83 c0 ?? d3 ef 23 7c 24 ?? 42 8b 0e 89 44 24 1c 89 54 24 10 3b d1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
