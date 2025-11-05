@@ -482,6 +482,30 @@ rule TrojanDownloader_Win32_Renos_2147799811_10
         family = "Renos"
         severity = "9"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {47 45 54 20 2f [0-8] 2e 70 68 70 3f 26 61 64 76 69 64 3d}  //weight: 10, accuracy: Low
+        $x_10_2 = "Windows update loader" ascii //weight: 10
+        $x_10_3 = {4e 6f 43 68 61 6e 67 69 6e 67 57 61 6c 6c 70 61 70 65 72 [0-16] 53 4f 46 54 57 41 52 45 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 50 6f 6c 69 63 69 65 73 5c 41 63 74 69 76 65 44 65 73 6b 74 6f 70}  //weight: 10, accuracy: Low
+        $x_10_4 = {46 6f 72 63 65 41 63 74 69 76 65 44 65 73 6b 74 6f 70 4f 6e [0-16] 53 4f 46 54 57 41 52 45 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 50 6f 6c 69 63 69 65 73 5c 45 78 70 6c 6f 72 65 72}  //weight: 10, accuracy: Low
+        $x_1_5 = "69.50.1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win32_Renos_2147799811_11
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Renos"
+        threat_id = "2147799811"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Renos"
+        severity = "9"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "106"
         strings_accuracy = "High"
     strings:
@@ -503,7 +527,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_10
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_11
+rule TrojanDownloader_Win32_Renos_2147799811_12
 {
     meta:
         author = "defender2yara"
@@ -535,7 +559,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_11
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_12
+rule TrojanDownloader_Win32_Renos_2147799811_13
 {
     meta:
         author = "defender2yara"
@@ -546,23 +570,57 @@ rule TrojanDownloader_Win32_Renos_2147799811_12
         family = "Renos"
         severity = "9"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
+        threshold = "215"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = " is infected" ascii //weight: 1
-        $x_1_2 = {55 8b ec 81 c4 18 fe ff ff [0-3] e8 ?? ?? ?? ?? 83 f8 00 0f 85 ?? 00 00 00}  //weight: 1, accuracy: Low
-        $x_1_3 = {30 fe ff ff 00 8d 85 18 fe ff ff 50 6a 01 e8 ?? ?? ?? ?? [0-4] 0b c0 75 00}  //weight: 1, accuracy: Low
-        $x_1_4 = {6a 06 6a 00 6a 00 6a 00 6a 00 6a ff ff 75 08 e8}  //weight: 1, accuracy: High
-        $x_1_5 = {75 1e 6a 64 ff 35 ?? ?? ?? ?? e8 ?? ?? ?? ?? a3 ?? ?? ?? ?? c7 05 ?? ?? ?? ?? 01 00 00 00 eb 1c 6a 66 ff 35 ?? ?? ?? ?? e8 ?? ?? ?? ?? a3 ?? ?? ?? ?? c7 05 ?? ?? ?? ?? 00 00 00 00 68 ?? ?? ?? ?? 6a 01 e8 ?? ?? ?? ?? c9 c2 10 00}  //weight: 1, accuracy: Low
-        $x_1_6 = {68 e0 93 04 00 68 ?? ?? ?? ?? ff 75 08 e8 ?? ?? ?? ?? e9 ?? 00 00 00 81 7d 14 03 02 00 00 74 ?? 81 7d 14 04 02 00 00 74 ?? 81 7d 14 01 02 00 00 74 ?? 81 7d 14 05 04 00 00}  //weight: 1, accuracy: Low
-        $x_1_7 = {55 8b ec 81 c4 00 fe ff ff 51 56 57 68 ff 00 00 00 8d ?? 01 ff ff ff ?? e8 ?? ?? ?? ?? 8d 85 02 fe ff ff 50 6a 00 68 ?? ?? ?? ?? 8d 85 01 ff ff ff 50 e8 ?? ?? ?? ?? 8d 85 02 fe ff ff 50 e8 ?? ?? ?? ?? 8d 85 02 fe ff ff 50 ff 15 ?? ?? ?? ?? 83 c4 04 b9 03 00 00 00 2b c1 8d bd 02 fe ff ff}  //weight: 1, accuracy: Low
-        $x_1_8 = {8d 85 02 fe ff ff 50 ff 75 08 e8 ?? ?? ?? ?? 83 f8 01 75 30}  //weight: 1, accuracy: Low
+        $x_100_1 = "download.php?&advid=" ascii //weight: 100
+        $x_50_2 = "C:\\Windows\\xpupdate.exe" ascii //weight: 50
+        $x_10_3 = "ForceActiveDesktopOn" ascii //weight: 10
+        $x_10_4 = "SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\General" ascii //weight: 10
+        $x_10_5 = "WallpaperFileTime" ascii //weight: 10
+        $x_10_6 = "Windows update loader" ascii //weight: 10
+        $x_10_7 = "SOFTWARE\\Install" ascii //weight: 10
+        $x_5_8 = "ProxyServer" ascii //weight: 5
+        $x_5_9 = "ProxyEnable" ascii //weight: 5
+        $x_5_10 = "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings" ascii //weight: 5
     condition:
         (filesize < 20MB) and
-        (5 of ($x*))
+        (all of ($x*))
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_13
+rule TrojanDownloader_Win32_Renos_2147799811_14
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Renos"
+        threat_id = "2147799811"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Renos"
+        severity = "9"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {78 3a 5c 44 65 76 5f 43 50 50 5c 57 6f 72 6b 5c 56 53 5f 4b 6e 7a 53 74 72 5f 41 64 77 61 72 65 5c 52 65 6c 65 61 73 65 5c 56 53 5f 57 6f 72 6b ?? 2e 70 64 62}  //weight: 10, accuracy: Low
+        $x_10_2 = {8b 45 14 85 c0 0f 8c 4b 01 00 00 83 f8 01 0f 84 42 01 00 00 83 f8 24 0f 8f 39 01 00 00 85 c0 75 2a 80 fb 30 74 09 c7 45 14 0a 00 00 00 eb 34}  //weight: 10, accuracy: High
+        $x_5_3 = "safe-strip-download.com" ascii //weight: 5
+        $x_1_4 = {72 65 67 65 64 69 74 20 2d 73 20 72 65 67 ?? 2e 72 65 67 20}  //weight: 1, accuracy: Low
+        $x_1_5 = {52 45 47 20 49 4d 50 4f 52 54 20 72 65 67 ?? 2e 72 65 67 20}  //weight: 1, accuracy: Low
+        $x_1_6 = {65 72 61 73 65 20 72 65 67 ?? 2e 72 65 67 20}  //weight: 1, accuracy: Low
+        $x_1_7 = {65 72 61 73 65 20 72 65 67 78 ?? 2e 62 61 74 20}  //weight: 1, accuracy: Low
+        $x_1_8 = "WARNING: Your computer is infected" ascii //weight: 1
+        $x_1_9 = "Windows has detected spyware infection!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_10_*) and 6 of ($x_1_*))) or
+            ((2 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule TrojanDownloader_Win32_Renos_2147799811_15
 {
     meta:
         author = "defender2yara"
@@ -597,7 +655,7 @@ rule TrojanDownloader_Win32_Renos_2147799811_13
         )
 }
 
-rule TrojanDownloader_Win32_Renos_2147799811_14
+rule TrojanDownloader_Win32_Renos_2147799811_16
 {
     meta:
         author = "defender2yara"
@@ -620,64 +678,6 @@ rule TrojanDownloader_Win32_Renos_2147799811_14
     condition:
         (filesize < 20MB) and
         (all of ($x*))
-}
-
-rule TrojanDownloader_Win32_Renos_2147799811_15
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:Win32/Renos"
-        threat_id = "2147799811"
-        type = "TrojanDownloader"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Renos"
-        severity = "9"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "12"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "SpywareLocked" ascii //weight: 1
-        $x_2_2 = "spylocked.com/?aff=" ascii //weight: 2
-        $x_3_3 = "keratomir2.biz/get.php?partner=" ascii //weight: 3
-        $x_3_4 = "keratomir.biz/get.php?partner=" ascii //weight: 3
-        $x_1_5 = "pornmag.com/install/" ascii //weight: 1
-        $x_2_6 = "Your system is infected" ascii //weight: 2
-        $x_1_7 = "Are you fucking crazy man?" ascii //weight: 1
-        $x_1_8 = "All porn links what are worth your visit." ascii //weight: 1
-        $x_5_9 = {68 74 74 70 3a 2f 2f 6b 65 72 61 74 6f 6d 69 72 [0-2] 2e 62 69 7a 2f 67 65 74 2e 70 68 70 3f 70 61 72 74 6e 65 72 3d [0-4] 53 70 79 77 61 72 65 4c 6f 63 6b 65 64}  //weight: 5, accuracy: Low
-        $x_5_10 = {68 74 74 70 3a 2f 2f 6b 65 72 61 74 6f 6d 69 72 [0-2] 2e 62 69 7a 2f 67 65 74 2e 70 68 70 3f 70 61 72 74 6e 65 72 3d [0-4] 53 70 79 6c 6f 63 6b 65 64}  //weight: 5, accuracy: Low
-        $x_5_11 = {68 74 74 70 3a 2f 2f 6b 65 72 61 74 6f 6d 69 72 [0-2] 2e 62 69 7a 2f 67 65 74 2e 70 68 70 3f 70 61 72 74 6e 65 72 3d [0-4] 6b 48 41 74 77 5b 53 5d}  //weight: 5, accuracy: Low
-        $x_5_12 = {50 4c 4c 48 02 17 17 53 5d 4a 59 4c 57 55 51 4a}  //weight: 5, accuracy: High
-        $x_5_13 = {81 7d 14 03 02 00 00 74 20 81 7d 14 04 02 00 00 74 17 81 7d 14 01 02 00 00 74 0e 81 7d 14 05 04 00 00 74 05 e9 8e 00 00 00 e8 [0-5] 83 f8 01 75 07 e8 [0-5] eb 2d 80 3d}  //weight: 5, accuracy: Low
-        $x_5_14 = {81 7d 14 03 02 00 00 74 1d 81 7d 14 04 02 00 00 74 14 81 7d 14 01 02 00 00 74 0b 81 7d 14 05 04 00 00 74 02 eb 6b e8 [0-5] 83 f8 01 75 07 e8}  //weight: 5, accuracy: Low
-        $x_4_15 = {8b ec 83 c4 f8 6a 01 6a 00 ff 75 08 8d 05 [0-4] 50 8d 05 [0-4] 50 6a 00 ff 15 [0-4] b8 01 00 00 00 c9}  //weight: 4, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (
-            ((2 of ($x_3_*) and 1 of ($x_2_*) and 4 of ($x_1_*))) or
-            ((2 of ($x_3_*) and 2 of ($x_2_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 2 of ($x_2_*) and 4 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 3 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 2 of ($x_3_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_4_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 2 of ($x_2_*) and 3 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_3_*) and 4 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 2 of ($x_3_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_4_*) and 3 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_2_*))) or
-            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
-            ((2 of ($x_5_*) and 2 of ($x_1_*))) or
-            ((2 of ($x_5_*) and 1 of ($x_2_*))) or
-            ((2 of ($x_5_*) and 1 of ($x_3_*))) or
-            ((2 of ($x_5_*) and 1 of ($x_4_*))) or
-            ((3 of ($x_5_*))) or
-            (all of ($x*))
-        )
 }
 
 rule TrojanDownloader_Win32_Renos_LT_2147799814_0

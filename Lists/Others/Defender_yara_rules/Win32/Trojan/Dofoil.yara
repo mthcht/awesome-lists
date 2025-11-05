@@ -248,3 +248,24 @@ rule Trojan_Win32_Dofoil_ASN_2147893164_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dofoil_MMZ_2147956779_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dofoil.MMZ!MTB"
+        threat_id = "2147956779"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dofoil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {99 f7 7d dc 8b 45 10 8b 00 2b 50 14 8b 41 0c 0f b6 04 10 89 45 e8 8b 45 0c 8b 00 8b 4d 0c 8b 09 8b 55 e4 2b 51 14 8b 40 0c 0f b6 ?? 10 33 4d e8 e8}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
