@@ -1118,3 +1118,26 @@ rule Ransom_Win64_FileCoder_KAB_2147953713_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_B_2147956780_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.B!AMTB"
+        threat_id = "2147956780"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Wrong password! Files remain encrypted." ascii //weight: 1
+        $x_1_2 = "Password correct! Decrypting files" ascii //weight: 1
+        $x_1_3 = "encV.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
