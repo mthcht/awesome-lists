@@ -173,3 +173,26 @@ rule Trojan_Win64_Injector_NA_2147954600_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXA_2147956727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXA!MTB"
+        threat_id = "2147956727"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {ff c0 48 98 48 c7 44 24 ?? ?? ?? ?? ?? 4c 8b c8 4c 8d 45 50 48 8b 95 d8 01 00 00 48 8b 8d b8 01 00 00 ff 15}  //weight: 15, accuracy: Low
+        $x_10_2 = {48 6b c0 01 48 8b 8d 18 04 00 00 48 8b 04 01 48 89 45 08 b8 ?? ?? ?? ?? 48 6b c0 ?? 48 8b 8d 18 04 00 00 48 8b 04 01}  //weight: 10, accuracy: Low
+        $x_1_3 = "DLL Inject" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

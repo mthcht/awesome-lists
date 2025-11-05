@@ -19,27 +19,6 @@ rule Trojan_Win64_MuddyWater_DA_2147956534_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_MuddyWater_DB_2147956535_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/MuddyWater.DB!MTB"
-        threat_id = "2147956535"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "MuddyWater"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = {0f b6 04 01 48 8b 0c 24 48 8b 54 24 20 48 03 d1 48 8b ca 0f b6 09 33 c8 8b c1 48 8b 0c 24 48 8b 54 24 20 48 03 d1 48 8b ca 88 01}  //weight: 10, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_MuddyWater_DC_2147956536_0
 {
     meta:

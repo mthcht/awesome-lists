@@ -10,6 +10,28 @@ rule Backdoor_Win32_Androm_MK_2147776153_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {e9 00 00 00 5c 14 40 00 5c 14 40 00 18 14 40 00 78}  //weight: 15, accuracy: High
+        $x_10_2 = {94 26 85 00 24 15 40 00 7c 1e 40 00 a0 1e 40}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Win32_Androm_MK_2147776153_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Androm.MK!MTB"
+        threat_id = "2147776153"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

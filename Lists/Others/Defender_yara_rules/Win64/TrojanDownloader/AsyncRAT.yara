@@ -117,3 +117,25 @@ rule TrojanDownloader_Win64_AsyncRAT_E_2147919849_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_AsyncRAT_PAGU_2147956753_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/AsyncRAT.PAGU!MTB"
+        threat_id = "2147956753"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {07 08 07 08 93 0d 09 20 ff 00 00 00 5f 06 25 17 58 0a 61 1e 62 09 1e 63 06 25 17 58 0a 61 d2 60 d1 9d 18}  //weight: 2, accuracy: High
+        $x_1_2 = "ClassLibrary3" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

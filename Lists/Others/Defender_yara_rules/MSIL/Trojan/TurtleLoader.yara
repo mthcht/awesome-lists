@@ -43,3 +43,25 @@ rule Trojan_MSIL_TurtleLoader_CNQ_2147904366_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_TurtleLoader_AW_2147956725_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/TurtleLoader.AW!MTB"
+        threat_id = "2147956725"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "TurtleLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 05 00 00 0a 13 04 20 ff 0f 1f 00 16 11 04 6f 06 00 00 0a 28 08 00 00 06 13 05 11 05 7e 07 00 00 0a 09 8e 69 20 00 30 00 00 1f 40 28 04 00 00 06 13 06 16 13 07 38 18 00 00 00 09 11 07 07 11 07 91 08 11 07 08 8e 69 5d 91 61 d2 9c 11 07 17 58 13 07}  //weight: 2, accuracy: High
+        $x_2_2 = {11 05 11 06 09 09 8e 69 12 08 28 05 00 00 06 26 11 05 7e 07 00 00 0a 16 11 06 7e 07 00 00 0a 16 12 09 28 06 00 00 06 26 11 05 28 07 00 00 06 26 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

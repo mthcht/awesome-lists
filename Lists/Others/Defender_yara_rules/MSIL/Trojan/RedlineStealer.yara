@@ -608,3 +608,25 @@ rule Trojan_MSIL_RedlineStealer_PI_2147956540_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RedlineStealer_PAGU_2147956754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedlineStealer.PAGU!MTB"
+        threat_id = "2147956754"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {07 11 06 02 17 9a 11 06 94 9e 11 06 17 58 13 06 11 06 02 17 9a 8e 69 32 e7}  //weight: 5, accuracy: High
+        $x_2_2 = "Hidden=" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

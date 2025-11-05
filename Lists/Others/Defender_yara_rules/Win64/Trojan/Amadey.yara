@@ -415,3 +415,24 @@ rule Trojan_Win64_Amadey_NR_2147956162_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_GSS_2147956722_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.GSS!MTB"
+        threat_id = "2147956722"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 89 f2 48 03 15 ?? ?? ?? ?? 89 d8 c1 f8 1f c1 e8 1b 01 c3 83 e3 1f 29 c3 48 63 db 0f b6 04 1f 30 02 48 83 c6 01 48 81 fe 4b 4e 07 00 74}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

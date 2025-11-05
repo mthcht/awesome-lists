@@ -107,3 +107,26 @@ rule Trojan_Win64_Androm_AMX_2147925514_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Androm_SX_2147956758_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Androm.SX!MTB"
+        threat_id = "2147956758"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {f3 43 0f 6f 04 28 48 63 c1 83 c2 ?? 83 c1 ?? 48 8d 7f ?? 66 0f ef c6 f3 43 0f 7f 04 28 f3 42 0f 6f 04 28 4c 63 c2 66 0f ef c6 f3 42 0f 7f 04 28}  //weight: 10, accuracy: Low
+        $x_5_2 = {45 33 c0 33 c9 49 f7 e4 48 d1 ea 48 8d 04 52 41 8d 51 ?? 4c 2b e0 48 8d 44 24 ?? 41 8b fc 48 89 44 24 ?? 48 c1 e7 ?? 48 03 fb}  //weight: 5, accuracy: Low
+        $x_1_3 = "\\WerFault.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

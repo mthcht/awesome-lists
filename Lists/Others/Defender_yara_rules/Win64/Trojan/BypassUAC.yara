@@ -55,3 +55,28 @@ rule Trojan_Win64_BypassUAC_NE_2147920713_1
         )
 }
 
+rule Trojan_Win64_BypassUAC_SX_2147956728_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.SX!MTB"
+        threat_id = "2147956728"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "botkiller" ascii //weight: 1
+        $x_1_2 = "del /f /s /q" ascii //weight: 1
+        $x_1_3 = "shutdown /r /f" ascii //weight: 1
+        $x_1_4 = "vssadmin delete shadows" ascii //weight: 1
+        $x_1_5 = "schtasks /create /tn \"Microsoft\\Windows\\UpdateOrchestrator\\SecurityUpdate\" /tr \"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
