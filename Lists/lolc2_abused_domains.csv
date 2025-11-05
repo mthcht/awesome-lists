@@ -1,0 +1,19 @@
+url_root_domain,dest,dest_nt_domain,metadata_type,metadata_priority,metadata_comment
+windows.net,*.blob.core.windows.net,*.blob.core.windows.net,domain_fronting,high,Azure Storage (object store) - https://lolc2.github.io/
+azurewebsites.net,*.azurewebsites.net,*.azurewebsites.net,domain_fronting,high,Azure App Service (webapps) - https://lolc2.github.io/
+msappproxy.net,*.msappproxy.net,*.msappproxy.net,domain_fronting,high,Azure App Proxy / Microsoft Entra app relay - https://lolc2.github.io/
+onmicrosoft.com,*.onmicrosoft.com,*.onmicrosoft.com,domain_fronting,high,Microsoft tenant identity & auth namespace - https://lolc2.github.io/
+azurefd.net,*.azurefd.net,*.azurefd.net,domain_fronting,high,Azure Front Door fronted apps
+appspot.com,*.appspot.com,*.appspot.com,domain_fronting,high,GCP page
+amazonaws.com,*.s3.amazonaws.com,*.s3.amazonaws.com,delivery,low,Storage serving arbitrary payloads
+oraclecloud.com,*.objectstorage.*.oraclecloud.com,*.objectstorage.*.oraclecloud.com,delivery,low,Oracle Cloud storage
+workers.dev,*.workers.dev,*.workers.dev,domain_fronting,high,Cloudflare Workers (serverless edge) - https://lolc2.github.io/
+pages.dev,*.pages.dev,*.pages.dev,domain_fronting,high,Cloudflare Pages (static sites) -  https://lolc2.github.io/
+fastly.net,*.global.prod.fastly.net,*.global.prod.fastly.net,domain_fronting,medium,CDN apps
+cfargotunnel.com,*.cfargotunnel.com,*.cfargotunnel.com,domain_fronting,high,Cloudflare Tunnel -  https://lolc2.github.io/
+cloudflarestorage.com,*.*.r2.cloudflarestorage.com,*.*.r2.cloudflarestorage.com,delivery,low,Cloudflare R2 object storage
+amazonaws.com,*.s3-website-*.*.amazonaws.com,*.s3-website-*.*.amazonaws.com,domain_fronting,high,S3 static website endpoints
+on.aws,*.lambda-url.*.on.aws,*.lambda-url.*.on.aws,domain_fronting,high,Serverless Computing AWS Lambda  - https://lolc2.github.io/
+googleapis.com,*.storage.googleapis.com,*.storage.googleapis.com,delivery,low,Google Cloud Storage buckets
+trycloudflare.com,*.trycloudflare.com,*.trycloudflare.com,domain_fronting,high,Cloudflare Quick Tunnels
+azueredge.net,*.azueredge.net,*.azueredge.net,domain_fronting,medium,Azure Edge (not working since 2025)
