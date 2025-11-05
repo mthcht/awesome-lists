@@ -4690,6 +4690,32 @@ rule Trojan_Win32_GuLoader_RAX_2147944869_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SAF_2147945145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SAF!MTB"
+        threat_id = "2147945145"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "kommpressorernes.uni" ascii //weight: 2
+        $x_1_2 = "viderebringelsers.yan" ascii //weight: 1
+        $x_1_3 = "unwarrantableness.ant" ascii //weight: 1
+        $x_1_4 = "pararosaniline.haw" ascii //weight: 1
+        $x_1_5 = "precisionism.for" ascii //weight: 1
+        $x_1_6 = "vkkelsesprdikanter.ech" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RAY_2147945331_0
 {
     meta:
@@ -6615,6 +6641,29 @@ rule Trojan_Win32_GuLoader_SVH_2147956767_0
         $x_1_2 = "stuehusets.exe" ascii //weight: 1
         $x_1_3 = "faresignalers" ascii //weight: 1
         $x_1_4 = "proborrowing moskiqen" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDB_2147956878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDB!MTB"
+        threat_id = "2147956878"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "johannas affedtningernes lingams" ascii //weight: 1
+        $x_1_2 = "argumentation compliable" ascii //weight: 1
+        $x_1_3 = "uforsigtigheders lufberry.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

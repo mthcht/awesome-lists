@@ -4682,3 +4682,24 @@ rule Trojan_MSIL_Bladabindi_GVA_2147951900_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_SLKS_2147956822_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.SLKS!MTB"
+        threat_id = "2147956822"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 43 01 00 06 28 c2 04 00 06 13 04 11 04 28 6a 00 00 0a 13 05 28 44 01 00 06 28 68 00 00 0a 28 45 01 00 06 28 69 00 00 0a 11 05 28 6b 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

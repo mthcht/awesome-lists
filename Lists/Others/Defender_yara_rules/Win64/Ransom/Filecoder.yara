@@ -1767,3 +1767,34 @@ rule Ransom_Win64_Filecoder_EABA_2147952577_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_AP_2147956866_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.AP!AMTB"
+        threat_id = "2147956866"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "vssadmindeleteshadows//all//quiet" ascii //weight: 3
+        $x_3_2 = "Tus archivos han sido cifrados" ascii //weight: 3
+        $x_2_3 = "hola soy el TOX ransom" ascii //weight: 2
+        $x_1_4 = "Ransom completo. Para recuperar, ejecuta" ascii //weight: 1
+        $x_1_5 = "ransom.pdb" ascii //weight: 1
+        $x_1_6 = "leeme.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

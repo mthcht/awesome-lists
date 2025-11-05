@@ -291,6 +291,28 @@ rule Trojan_Win32_CerberCrypt_CMX_2147947880_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 90 46 47 49 90 83 f9 00}  //weight: 1, accuracy: High
+        $x_1_2 = {8a 06 32 c2 90 88 07 90}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_CerberCrypt_CMX_2147947880_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CerberCrypt.CMX!MTB"
+        threat_id = "2147947880"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CerberCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "1"
         strings_accuracy = "High"
     strings:

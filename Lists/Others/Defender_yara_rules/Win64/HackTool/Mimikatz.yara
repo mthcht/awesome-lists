@@ -338,3 +338,26 @@ rule HackTool_Win64_Mimikatz_H_2147937868_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_Mimikatz_MX_2147956811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Mimikatz.MX!MTB"
+        threat_id = "2147956811"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mimikatz"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "mimikatz for Windows" wide //weight: 1
+        $x_1_2 = "kiwi flavor" wide //weight: 1
+        $x_1_3 = "Build with love for POC only" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

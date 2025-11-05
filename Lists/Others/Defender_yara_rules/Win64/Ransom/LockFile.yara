@@ -274,3 +274,27 @@ rule Ransom_Win64_LockFile_NIT_2147952287_1
         )
 }
 
+rule Ransom_Win64_LockFile_ARA_2147956833_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.ARA!MTB"
+        threat_id = "2147956833"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "vssadmin delete shadows /all /quiet" ascii //weight: 2
+        $x_1_2 = "encrypted" ascii //weight: 1
+        $x_1_3 = "ransomware" ascii //weight: 1
+        $x_1_4 = "Bitcoin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

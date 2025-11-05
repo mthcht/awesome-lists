@@ -182,3 +182,33 @@ rule Trojan_Win64_RustyStealer_GXL_2147956082_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_PB_2147956812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.PB!MTB"
+        threat_id = "2147956812"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "rust_stealer_xss.pdb" ascii //weight: 5
+        $x_2_2 = "Chromium7StarAmigoBrave-BrowserBraveSoftwareCentBrowserChedotChrome SxSGoogleBrowserCocCocDragonComodo" ascii //weight: 2
+        $x_2_3 = "Epic Privacy BrowserChromeKometaOrbitumSputnikTorchUranuCozMediaVivaldiAtomMail.RuOpera" ascii //weight: 2
+        $x_2_4 = "SoftwareOpera StableOpera GX StableMappleStudioChromePlusIridiumsleipnir5settingsCatalinaGroupCitrioCoowooliebaoQip Surf360Browser" ascii //weight: 2
+        $x_2_5 = "encryptedUsernamencryptedPasswore" ascii //weight: 2
+        $x_2_6 = "src\\chromium\\decryption_core.rs" ascii //weight: 2
+        $x_2_7 = "LOCALAPPDATAsrc\\chromium\\dumper.rs" ascii //weight: 2
+        $x_1_8 = "APPDATAsrc\\firefox\\firefox.rs" ascii //weight: 1
+        $x_1_9 = "src\\messengers\\skype.rs" ascii //weight: 1
+        $x_1_10 = "src\\messengers\\telegram.rs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

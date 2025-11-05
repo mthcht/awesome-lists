@@ -89,3 +89,31 @@ rule TrojanDownloader_MSIL_Lazy_NIT_2147952199_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Lazy_NQA_2147956856_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Lazy.NQA!MTB"
+        threat_id = "2147956856"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "DecodeBase64ToUrl" ascii //weight: 2
+        $x_1_2 = "f4c6da9e-5be6-451b-857f-60f170b0aba7" ascii //weight: 1
+        $x_1_3 = "ParseConfigFile" ascii //weight: 1
+        $x_1_4 = "GetFileNameFromUrl" ascii //weight: 1
+        $x_1_5 = "DecompressFile" ascii //weight: 1
+        $x_1_6 = "FromBase64String" ascii //weight: 1
+        $x_1_7 = "base64Url" ascii //weight: 1
+        $x_1_8 = "DownAp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

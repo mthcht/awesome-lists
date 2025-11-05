@@ -16637,6 +16637,28 @@ rule Trojan_MSIL_FormBook_SI_2147956636_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {00 11 13 02 6f 85 00 00 0a fe 04 16 fe 01 13 2a 11 2a 2c 05 38 fd 00 00 00 11 14 02 6f 86 00 00 0a fe 04 16 fe 01 13 2b 11 2b 2c 0f 00 11 13 17 58 13 13 16 13 14 38 d6 00 00 00 06 6f a9 00 00 0a 03 fe 04 16 fe 01 13 2c 11 2c 2c 05 38 c4 00 00 00 02 11 13 11 14 6f aa 00 00 0a}  //weight: 1, accuracy: High
+        $x_1_2 = "JuegoMemoriaColores.Properties" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_SI_2147956636_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.SI!MTB"
+        threat_id = "2147956636"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:

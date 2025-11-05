@@ -818,6 +818,31 @@ rule Trojan_Win32_Tedy_ARR_2147954236_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {b0 b3 03 f5 04 00 00 70 f5 b2 03 cc b7 00}  //weight: 10, accuracy: High
+        $x_5_2 = {3c 2d 3e 02 00 80 75 01 00 2e 3e 02 00 0a}  //weight: 5, accuracy: High
+        $x_3_3 = {b0 b3 03 00 06 00 00 00 38 3e 02}  //weight: 3, accuracy: High
+        $x_2_4 = {e6 f3 02 00 00 60 10 00}  //weight: 2, accuracy: High
+        $x_20_5 = "Stealer.exe" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_ARR_2147954236_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARR!MTB"
+        threat_id = "2147954236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:
@@ -829,7 +854,7 @@ rule Trojan_Win32_Tedy_ARR_2147954236_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_ARR_2147954236_1
+rule Trojan_Win32_Tedy_ARR_2147954236_2
 {
     meta:
         author = "defender2yara"

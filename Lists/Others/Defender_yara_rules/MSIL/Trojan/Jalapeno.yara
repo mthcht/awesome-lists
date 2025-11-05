@@ -3237,3 +3237,33 @@ rule Trojan_MSIL_Jalapeno_ALB_2147956218_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_NKA_2147956855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.NKA!MTB"
+        threat_id = "2147956855"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "encryptedText" ascii //weight: 2
+        $x_1_2 = "SELECT * FROM Win32_ComputerSystemProduct" ascii //weight: 1
+        $x_1_3 = "9478c812-7c17-46b6-be8b-d04009701f53" ascii //weight: 1
+        $x_1_4 = "SELECT * FROM Win32_NetworkAdapter WHERE NetConnectionStatus = 2" ascii //weight: 1
+        $x_1_5 = "FromBase64String" ascii //weight: 1
+        $x_1_6 = {43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 47 00 75 00 69 00 6c 00 68 00 65 00 72 00 6d 00 65 00 5c 00 44 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 73 00 5c 00 56 00 69 00 73 00 75 00 61 00 6c 00 20 00 53 00 74 00 75 00 64 00 69 00 6f 00 20 00 32 00 30 00 31 00 32 00 5c 00 50 00 72 00 6f 00 6a 00 65 00 63 00 74 00 73 00 5c 00 4c 00 61 00 75 00 6e 00 63 00 68 00 65 00 72 00 5c 00 6f 00 62 00 6a 00 5c 00 52 00 65 00 6c 00 65 00 61 00 73 00 65 00 5c 00 [0-47] 2e 00 70 00 64 00 62 00}  //weight: 1, accuracy: Low
+        $x_1_7 = {43 3a 5c 55 73 65 72 73 5c 47 75 69 6c 68 65 72 6d 65 5c 44 6f 63 75 6d 65 6e 74 73 5c 56 69 73 75 61 6c 20 53 74 75 64 69 6f 20 32 30 31 32 5c 50 72 6f 6a 65 63 74 73 5c 4c 61 75 6e 63 68 65 72 5c 6f 62 6a 5c 52 65 6c 65 61 73 65 5c [0-47] 2e 70 64 62}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 5 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

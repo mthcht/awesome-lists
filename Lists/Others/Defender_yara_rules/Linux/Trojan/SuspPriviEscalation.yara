@@ -21,3 +21,27 @@ rule Trojan_Linux_SuspPriviEscalation_B6_2147952714_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_SuspPriviEscalation_B8_2147956840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/SuspPriviEscalation.B8"
+        threat_id = "2147956840"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "SuspPriviEscalation"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "sed -i \"1e exec " wide //weight: 2
+        $x_2_2 = "sed -n \"1e exec " wide //weight: 2
+        $n_4_3 = "buildscript.gradle" wide //weight: -4
+        $n_4_4 = "build.gradle" wide //weight: -4
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
