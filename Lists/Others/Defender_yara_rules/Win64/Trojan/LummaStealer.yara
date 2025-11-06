@@ -2381,3 +2381,28 @@ rule Trojan_Win64_LummaStealer_ETL_2147955988_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_GJA_2147956964_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GJA!MTB"
+        threat_id = "2147956964"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Microsoft\\Edge\\User Data\\Default\\Login Data" ascii //weight: 1
+        $x_1_2 = "C:\\Windows\\Temp\\passwords" ascii //weight: 1
+        $x_1_3 = "shutdown /r /t" ascii //weight: 1
+        $x_1_4 = "\\Google\\Chrome\\User Data\\Default\\Login Data" ascii //weight: 1
+        $x_1_5 = "C:\\Public\\decoy.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

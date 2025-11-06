@@ -237,27 +237,6 @@ rule Trojan_MSIL_Convagent_PTCF_2147896999_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Convagent_PTDQ_2147898471_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Convagent.PTDQ!MTB"
-        threat_id = "2147898471"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Convagent"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {02 7b 03 00 00 04 6f 17 00 00 0a 06 6f 18 00 00 0a 6f 19 00 00 0a 17}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Convagent_KAB_2147910962_0
 {
     meta:
