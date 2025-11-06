@@ -555,3 +555,25 @@ rule Trojan_Win64_Vidar_GMT_2147956637_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GRX_2147956980_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GRX!MTB"
+        threat_id = "2147956980"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {81 c3 25 3a d5 74 41 ff cb 41 81 eb 35 3e 63 67 45 29 de 41 81 eb a7 f8 f2 77 41 01 d3 41 81 c3 a7 f8 f2 77 41 56 81 34 24 13 d3 7d 47 58 35 13}  //weight: 5, accuracy: High
+        $x_4_2 = {60 81 f9 0b 41 29 de 41 81 c6 60 81 f9 0b 41 b8 30 d8 de 3f 41 81 e8 2a 54 df e3 45 89 c5 41 c1 e5 05 41 c1 ed 08 41 f7 dd 41 81 ed 93 45 20 f0}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

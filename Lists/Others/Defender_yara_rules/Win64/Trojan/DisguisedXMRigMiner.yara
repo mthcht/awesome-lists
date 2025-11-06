@@ -37,11 +37,10 @@ rule Trojan_Win64_DisguisedXMRigMiner_MX_2147942375_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "6"
+        threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {74 14 4c 8b d1 49 c1 ea 0c 4d 03 d3 41 80 3a 00 75 04 41 c6 02 ff}  //weight: 1, accuracy: High
-        $x_5_2 = "MicrosoftEdgeUpdater.dll" wide //weight: 5
+        $x_1_1 = {85 c0 74 1f 0f bf 44 24 40 0f bf 4c 24 50 89 05 0e bf 21 00 0f bf 44 24 4c 2b c8 ff c1 89 0d f3 be 21 00 48 8b 4c 24 58 48 33 cc}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -59,11 +58,11 @@ rule Trojan_Win64_DisguisedXMRigMiner_MX_2147942375_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "2"
+        threshold = "6"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {85 c0 74 1f 0f bf 44 24 40 0f bf 4c 24 50 89 05 0e bf 21 00 0f bf 44 24 4c 2b c8 ff c1 89 0d f3 be 21 00 48 8b 4c 24 58 48 33 cc}  //weight: 1, accuracy: High
-        $x_1_2 = "Golang-Updater" wide //weight: 1
+        $x_1_1 = {74 14 4c 8b d1 49 c1 ea 0c 4d 03 d3 41 80 3a 00 75 04 41 c6 02 ff}  //weight: 1, accuracy: High
+        $x_5_2 = "MicrosoftEdgeUpdater.dll" wide //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))
