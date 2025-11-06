@@ -572,6 +572,40 @@ rule Trojan_MSIL_NanoCore_DA_2147897039_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "NanoCore Client" ascii //weight: 20
+        $x_1_2 = "KeyboardLogging" ascii //weight: 1
+        $x_1_3 = ".ClientPluginHost" ascii //weight: 1
+        $x_1_4 = "ClientInvokeDelegate" ascii //weight: 1
+        $x_1_5 = "PipeCreated" ascii //weight: 1
+        $x_1_6 = "get_ClientSettings" ascii //weight: 1
+        $x_1_7 = "get_Connected" ascii //weight: 1
+        $x_1_8 = "My.Computer" ascii //weight: 1
+        $x_1_9 = "System.Runtime.InteropServices" ascii //weight: 1
+        $x_1_10 = "MONEY MEN-$$$$" ascii //weight: 1
+        $x_1_11 = "BypassUserAccountControl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 5 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_NanoCore_DA_2147897039_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore.DA!MTB"
+        threat_id = "2147897039"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
