@@ -8432,6 +8432,36 @@ rule Trojan_MSIL_Heracles_KK_2147956149_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_KK_2147956149_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.KK!MTB"
+        threat_id = "2147956149"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Stop-Process -Name 'SecurityHealthSystray' -Force -ErrorAction SilentlyContinue" ascii //weight: 1
+        $x_1_2 = "Add-MpPreference -ExclusionProcess 'svchost.exe'" ascii //weight: 1
+        $x_1_3 = "Add-MpPreference -ExclusionPath '%TEMP%'" ascii //weight: 1
+        $x_1_4 = "Add-MpPreference -ExclusionProcess '%TEMP%\\svchost.exe'" ascii //weight: 1
+        $x_1_5 = "Add-MpPreference -ExclusionProcess ($env:TEMP + '\\svchost.exe')" ascii //weight: 1
+        $x_1_6 = "Add-MpPreference -ExclusionProcess ($env:APPDATA + '\\Microsoft\\Windows\\svchost.exe')" ascii //weight: 1
+        $x_1_7 = "Add-MpPreference -ExclusionPath ($env:USERPROFILE + '\\AppData\\Local\\Temp')" ascii //weight: 1
+        $x_1_8 = "Add-MpPreference -ExclusionPath $env:APPDATA" ascii //weight: 1
+        $x_1_9 = "Add-MpPreference -ExclusionPath ($env:APPDATA + '\\Microsoft\\Windows')" ascii //weight: 1
+        $x_1_10 = "Add-MpPreference -ExclusionPath ($env:USERPROFILE + '\\AppData\\Roaming\\Microsoft\\Windows')" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_AYC_2147956223_0
 {
     meta:

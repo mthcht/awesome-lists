@@ -6697,3 +6697,28 @@ rule Trojan_Win32_GuLoader_SVI_2147956957_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDC_2147957057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDC!MTB"
+        threat_id = "2147957057"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "recontracting\\Saxonical243\\loch" ascii //weight: 1
+        $x_1_2 = "%formodede%\\inacquaintance" ascii //weight: 1
+        $x_1_3 = "6\\adinidan\\funned.ini" ascii //weight: 1
+        $x_1_4 = "mbaya skrupsentimentale" ascii //weight: 1
+        $x_1_5 = "skipping klaringens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
