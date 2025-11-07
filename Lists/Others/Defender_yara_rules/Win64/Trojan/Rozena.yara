@@ -1672,3 +1672,24 @@ rule Trojan_Win64_Rozena_SPZP_2147953392_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_PGRN_2147957038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.PGRN!MTB"
+        threat_id = "2147957038"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "powershell -w hidden -nop -e YwBtAGQALgBlAHgAZQAgAC8AYwAgACcAcABvAHcAZQByAHMAaABlAGwAbAAgAC0AdwA" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
