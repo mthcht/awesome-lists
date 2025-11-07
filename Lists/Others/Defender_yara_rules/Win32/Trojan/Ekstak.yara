@@ -5003,29 +5003,6 @@ rule Trojan_Win32_Ekstak_ASFC_2147902898_0
         (1 of ($x*))
 }
 
-rule Trojan_Win32_Ekstak_ASFC_2147902898_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Ekstak.ASFC!MTB"
-        threat_id = "2147902898"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Ekstak"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {8b ec 83 ec 08 56 68 ?? ?? 65 00 e8 5f}  //weight: 5, accuracy: Low
-        $n_10_2 = {57 00 61 00 6b 00 3f 00 58 00 62 00 6c 00 40 00 59 00 63 00 6d 00 41 00 5a 00 64 00 6e 00 42 00 5b 00 65 00 6f 00 43 00 5c 00 66 00 70 00 44 00 5d 00 67 00 71}  //weight: -10, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Ekstak_GPI_2147902934_0
 {
     meta:

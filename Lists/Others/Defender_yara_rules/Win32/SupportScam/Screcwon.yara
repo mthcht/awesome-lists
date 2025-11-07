@@ -15,7 +15,7 @@ rule SupportScam_Win32_Screcwon_MA_2147944259_0
     strings:
         $x_20_1 = "C:\\Users\\jmorgan\\Source\\cwcontrol\\Misc\\Bootstrapper\\Release\\ClickOnceRunner.pdb" ascii //weight: 20
         $x_20_2 = "C:\\Users\\jmorgan\\Source\\cwcontrol\\Custom\\DotNetRunner\\Release\\DotNetRunner.pdb" ascii //weight: 20
-        $x_1_3 = ".top/" ascii //weight: 1
+        $x_1_3 = ".top&p=8880" ascii //weight: 1
         $x_1_4 = ".innocreed.com" ascii //weight: 1
         $x_1_5 = ".controlhub.es" ascii //weight: 1
         $x_1_6 = ".ratoscreenco.com" ascii //weight: 1

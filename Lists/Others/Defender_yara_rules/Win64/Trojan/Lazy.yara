@@ -3825,6 +3825,30 @@ rule Trojan_Win64_Lazy_AHJ_2147953938_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHJ_2147953938_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHJ!MTB"
+        threat_id = "2147953938"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "Low"
+    strings:
+        $x_40_1 = {42 0f be 14 07 49 ff c0 69 cb ?? ?? ?? ?? 2b d1 81 e2 ?? ?? ?? ?? 03 da 4c 3b c0 72}  //weight: 40, accuracy: Low
+        $x_30_2 = "c \"for /f \"tokens=2 delims=: \" %i in ('sc queryex Schedule" ascii //weight: 30
+        $x_20_3 = "ProgramData\\dragonwell\\Java\\javapath" ascii //weight: 20
+        $x_10_4 = "findstr PID') do taskkill /PID %i /F" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_ARR_2147954234_0
 {
     meta:
