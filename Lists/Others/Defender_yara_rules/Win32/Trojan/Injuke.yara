@@ -1194,3 +1194,26 @@ rule Trojan_Win32_Injuke_AHC_2147955763_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injuke_C_2147957028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injuke.C!MTB"
+        threat_id = "2147957028"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-bxor" wide //weight: 1
+        $x_1_2 = ".replace" wide //weight: 1
+        $x_1_3 = "base64" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
