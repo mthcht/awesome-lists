@@ -23,7 +23,7 @@ jobs:
           pip install requests beautifulsoup4 pandas
 
       - name: Run the script
-        run: python Lists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py -list microsoft,webex,DigitalOcean,Zscaler,Proofpoint,Teamviewer,AS211805,AS206728,AS216309,AS56971,AS206728,AS36352,Netskope -format csv
+        run: python Lists/Ranges_IP_Address_Company_List/bgp.he.net/get_ip_range.py -list microsoft,webex,DigitalOcean,Zscaler,Akamai,Proofpoint,Teamviewer,AS211805,AS206728,AS216309,AS56971,AS206728,AS36352,Netskope -format csv
 
       - name: List files in the root directory
         run: ls -la
