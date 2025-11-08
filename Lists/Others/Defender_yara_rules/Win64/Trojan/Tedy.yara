@@ -2768,3 +2768,24 @@ rule Trojan_Win64_Tedy_BAB_2147956902_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_BLZ_2147957093_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BLZ!MTB"
+        threat_id = "2147957093"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 03 c8 48 8b c1 0f be 00 83 f0 34 48 8b 0c 24 48 8b 54 24 ?? 48 03 d1 48 8b ca 88 01 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
