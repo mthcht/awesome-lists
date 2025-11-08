@@ -1237,12 +1237,14 @@ rule Trojan_Win64_Latrodectus_CH_2147957075_0
     strings:
         $x_5_1 = {48 31 d2 66}  //weight: 5, accuracy: High
         $x_5_2 = {49 f7 f1 66}  //weight: 5, accuracy: High
-        $x_5_3 = {45 8a 14 10 66}  //weight: 5, accuracy: High
-        $x_5_4 = {44 30 14 0f 66}  //weight: 5, accuracy: High
-        $x_5_5 = {48 ff c1 66}  //weight: 5, accuracy: High
-        $x_5_6 = {48 89 c8 66}  //weight: 5, accuracy: High
+        $x_5_3 = {49 f7 f0 66}  //weight: 5, accuracy: High
+        $x_5_4 = {45 8a 14 10 66}  //weight: 5, accuracy: High
+        $x_5_5 = {45 8a 14 11 66}  //weight: 5, accuracy: High
+        $x_5_6 = {44 30 14 0f 66}  //weight: 5, accuracy: High
+        $x_5_7 = {48 ff c1 66}  //weight: 5, accuracy: High
+        $x_5_8 = {48 89 c8 66}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (6 of ($x*))
 }
 
