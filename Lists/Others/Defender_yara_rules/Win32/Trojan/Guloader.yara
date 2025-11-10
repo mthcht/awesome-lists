@@ -8105,3 +8105,28 @@ rule Trojan_Win32_Guloader_NSU_2147954618_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SPWY_2147957151_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SPWY!MTB"
+        threat_id = "2147957151"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "subversionary\\Uninstall\\interpellated" ascii //weight: 2
+        $x_1_2 = "vkstlag\\slidbaandenes.htm" ascii //weight: 1
+        $x_1_3 = "Nonsulfurous111\\totrinslsningens" ascii //weight: 1
+        $x_1_4 = "indpiskede.ini" ascii //weight: 1
+        $x_1_5 = "unmagnanimous" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

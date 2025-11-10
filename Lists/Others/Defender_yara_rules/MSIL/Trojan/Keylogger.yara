@@ -985,6 +985,32 @@ rule Trojan_MSIL_Keylogger_AYA_2147930960_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "ChaosWorm" ascii //weight: 10
+        $x_1_2 = "Keylogger" ascii //weight: 1
+        $x_1_3 = "InfectSystem" ascii //weight: 1
+        $x_1_4 = "RunPayload" ascii //weight: 1
+        $x_1_5 = "SpreadViaUSB" ascii //weight: 1
+        $x_1_6 = "InfectNewExes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Keylogger_AYA_2147930960_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.AYA!MTB"
+        threat_id = "2147930960"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -996,7 +1022,7 @@ rule Trojan_MSIL_Keylogger_AYA_2147930960_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Keylogger_AYA_2147930960_1
+rule Trojan_MSIL_Keylogger_AYA_2147930960_2
 {
     meta:
         author = "defender2yara"

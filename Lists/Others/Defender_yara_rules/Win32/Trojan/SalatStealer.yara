@@ -177,3 +177,34 @@ rule Trojan_Win32_SalatStealer_KK_2147957116_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_SMX_2147957148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.SMX!MTB"
+        threat_id = "2147957148"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "33"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Go build" ascii //weight: 20
+        $x_10_2 = "ArmoryExodusGuardaBitappCoin98FewchaFinnieIconexKaikasOxygenPontemSaturnSolletWombatXMR" ascii //weight: 10
+        $x_10_3 = "ChromeChedotKometaFenrirCoowonLiebaoDragonCocCocYandex" ascii //weight: 10
+        $x_1_4 = "GetClipboard" ascii //weight: 1
+        $x_1_5 = "GetKeyboardState" ascii //weight: 1
+        $x_1_6 = "taskkill" ascii //weight: 1
+        $x_1_7 = "Browsers\\Cookies" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_20_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

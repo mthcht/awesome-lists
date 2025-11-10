@@ -2253,3 +2253,26 @@ rule Trojan_MSIL_Tedy_AB_2147945009_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_ARR_2147957141_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARR!MTB"
+        threat_id = "2147957141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "$21a85034-d725-41d8-9ab9-19507fa1e20c" ascii //weight: 8
+        $x_10_2 = "ComputerScanner.exe" ascii //weight: 10
+        $x_2_3 = "<streamStream>5__6" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

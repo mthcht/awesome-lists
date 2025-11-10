@@ -6722,3 +6722,50 @@ rule Trojan_Win32_GuLoader_RDC_2147957057_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDD_2147957138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDD!MTB"
+        threat_id = "2147957138"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "frittens eumolpus" ascii //weight: 1
+        $x_1_2 = "riposteret" ascii //weight: 1
+        $x_1_3 = "oplsningsmiddel historicising.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVJ_2147957147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVJ!MTB"
+        threat_id = "2147957147"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "endopolyploidy" ascii //weight: 1
+        $x_1_2 = "inorganity grotesque oatcakes" ascii //weight: 1
+        $x_1_3 = "pretired" ascii //weight: 1
+        $x_1_4 = "talmudization.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

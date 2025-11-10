@@ -7858,3 +7858,24 @@ rule Trojan_Win32_LummaStealer_GPK_2147956821_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_SPRC_2147957149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.SPRC!MTB"
+        threat_id = "2147957149"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 20 20 20 20 20 20 20 00 50 36 00 00 70 8d 00 00 4a 36 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0 20 20 20 20 20 20 20 20 00 10 00 00 00 c0 c3 00 00 02 00 00 00 4e 36 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 69 64 61 74 61 00 00 00 10 00 00 00 d0 c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
