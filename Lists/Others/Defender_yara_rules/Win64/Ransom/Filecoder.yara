@@ -1798,3 +1798,32 @@ rule Ransom_Win64_Filecoder_AP_2147956866_0
         )
 }
 
+rule Ransom_Win64_Filecoder_SXE_2147957101_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.SXE!MTB"
+        threat_id = "2147957101"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2b cf 83 e1 ?? ?? ?? ?? ?? ?? 2b c1 44 8b e8 4c 8b e3 4c 2b e7 49}  //weight: 10, accuracy: Low
+        $x_10_2 = {2b cf 83 e1 ?? ?? ?? ?? ?? ?? 2b c1 44 8b e8 8b f0 48 2b f7}  //weight: 10, accuracy: Low
+        $x_1_3 = "ransom.txt" ascii //weight: 1
+        $x_1_4 = "key.bin" ascii //weight: 1
+        $x_1_5 = "Your files have been encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
