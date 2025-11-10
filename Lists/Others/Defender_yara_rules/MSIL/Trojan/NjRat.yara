@@ -3628,6 +3628,27 @@ rule Trojan_MSIL_NjRat_BAB_2147951957_0
         threshold = "2"
         strings_accuracy = "Low"
     strings:
+        $x_2_1 = {0d 08 07 1a 07 8e b7 1a da ?? ?? ?? ?? ?? 00 09 17 da 17 d6 8d 3c 00 00 01 13 04 08 16 6a ?? ?? ?? ?? ?? 00 00 08 16 73 74 00 00 0a 13 05 00 11 05 11 04 16 11 04 8e b7 ?? ?? ?? ?? ?? 26 00 de 18 11 05 14 fe 01 16 fe 01 13 06 11 06 2c 08 11 05 ?? ?? ?? ?? ?? 00 00 dc 28 76 00 00 0a 11 04 16 11 04 8e b7 ?? ?? ?? ?? ?? 0a de 19}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NjRat_BAB_2147951957_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.BAB!MTB"
+        threat_id = "2147951957"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
         $x_2_1 = {0c 00 08 07 ?? ?? ?? ?? ?? 16 73 1c 00 00 0a 0d 00 14 13 04 02 8e 69 17 58 8d 32 00 00 01 13 04 16 13 05 09 11 04 16 02 8e 69 ?? ?? ?? ?? ?? 13 05 11 05 17 58 8d 32 00 00 01 0a 11 04 06 11 05 28 1e 00 00 0a 00 09 ?? ?? ?? ?? ?? 00 00 de 0b 09 2c 07 09 ?? ?? ?? ?? ?? 00 dc 08 ?? ?? ?? ?? ?? 00 00 de 0b 08 2c 07 08 ?? ?? ?? ?? ?? 00 dc 00 de 0b}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
