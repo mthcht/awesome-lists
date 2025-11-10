@@ -1141,3 +1141,27 @@ rule Ransom_Win64_FileCoder_B_2147956780_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_A_2147957164_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.A!AMTB"
+        threat_id = "2147957164"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_2 = "start /b cmd.exe /c start https://example.com/ransomware.exe" ascii //weight: 1
+        $x_1_3 = "To decrypt them, send $100 to example@example.com" ascii //weight: 1
+        $x_1_4 = "C:\\Desktop\\ransomnote.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

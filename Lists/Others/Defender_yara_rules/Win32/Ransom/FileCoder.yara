@@ -1537,3 +1537,26 @@ rule Ransom_Win32_FileCoder_MKF_2147953390_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCoder_AMTB_2147957163_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder!AMTB"
+        threat_id = "2147957163"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Enter confirmation of payment" ascii //weight: 1
+        $x_1_2 = "Payment not received" ascii //weight: 1
+        $x_1_3 = "To open PC, please send $100" ascii //weight: 1
+        $x_1_4 = "PC is now processed!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
