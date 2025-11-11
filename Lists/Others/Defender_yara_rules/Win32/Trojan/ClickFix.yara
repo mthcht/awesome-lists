@@ -1527,9 +1527,12 @@ rule Trojan_Win32_ClickFix_AF_2147937004_0
         $x_1_12 = "irm" wide //weight: 1
         $x_1_13 = "invoke-restmethod" wide //weight: 1
         $n_100_14 = "chocolatey" wide //weight: -100
-        $n_100_15 = "zoom" wide //weight: -100
-        $n_100_16 = "intune-resources" wide //weight: -100
-        $n_100_17 = "start-menu" wide //weight: -100
+        $n_100_15 = "\\PSFiles\\" wide //weight: -100
+        $n_100_16 = "ServiceRequest" wide //weight: -100
+        $n_100_17 = "ServiceDeskVer" wide //weight: -100
+        $n_100_18 = "zoom" wide //weight: -100
+        $n_100_19 = "intune-resources" wide //weight: -100
+        $n_100_20 = "start-menu" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -3919,15 +3922,16 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         $x_400_16 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 63 00 6d 00 64 00}  //weight: 400, accuracy: Low
         $x_400_17 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00}  //weight: 400, accuracy: Low
         $x_400_18 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 [0-32] 2d 00 2d 00 68 00 65 00 61 00 64 00 6c 00 65 00 73 00 73 00 [0-32] 77 00 6d 00 69 00 63 00}  //weight: 400, accuracy: Low
-        $n_600_19 = ".ps1" wide //weight: -600
-        $n_600_20 = ".hta" wide //weight: -600
-        $n_600_21 = "explorer http:" wide //weight: -600
-        $n_600_22 = "\\application\\chrome.exe" wide //weight: -600
-        $n_600_23 = ".nbsdev.co.uk" wide //weight: -600
-        $n_600_24 = "([scriptblock]::Create([Microsoft.Win32.Registry]::GetValue" wide //weight: -600
-        $n_600_25 = "PSAppDeployToolkit" wide //weight: -600
-        $n_600_26 = "pwceur.sharepoint.com" wide //weight: -600
-        $n_600_27 = "pwcinternal.com" wide //weight: -600
+        $n_600_19 = "BitLocker" wide //weight: -600
+        $n_600_20 = ".ps1" wide //weight: -600
+        $n_600_21 = ".hta" wide //weight: -600
+        $n_600_22 = "explorer http:" wide //weight: -600
+        $n_600_23 = "\\application\\chrome.exe" wide //weight: -600
+        $n_600_24 = ".nbsdev.co.uk" wide //weight: -600
+        $n_600_25 = "([scriptblock]::Create([Microsoft.Win32.Registry]::GetValue" wide //weight: -600
+        $n_600_26 = "PSAppDeployToolkit" wide //weight: -600
+        $n_600_27 = "pwceur.sharepoint.com" wide //weight: -600
+        $n_600_28 = "pwcinternal.com" wide //weight: -600
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -11369,29 +11373,6 @@ rule Trojan_Win32_ClickFix_HHD_2147950083_0
         $x_1_5 = {6d 00 73 00 68 00 74 00 61 00 [0-5] 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-6] 2e 00 30 00 78 00 [0-6] 2e 00 30 00 78 00 [0-6] 2e 00 30 00 78 00 [0-6] 2f 00}  //weight: 1, accuracy: Low
         $x_1_6 = {6d 00 73 00 68 00 74 00 61 00 [0-5] 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-6] 2e 00 30 00 78 00 [0-6] 2e 00 30 00 78 00 [0-6] 2e 00 [0-6] 2f 00}  //weight: 1, accuracy: Low
         $x_1_7 = {6d 00 73 00 68 00 74 00 61 00 [0-5] 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-6] 2e 00 30 00 78 00 [0-6] 2e 00 [0-6] 2e 00 30 00 78 00 [0-6] 2f 00}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_ClickFix_HHF_2147950084_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.HHF!MTB"
-        threat_id = "2147950084"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "iex ([System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String" wide //weight: 1
-        $x_1_2 = "invoke-expression ([System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String" wide //weight: 1
-        $x_1_3 = "ScriptBlock([scriptblock]::Create([System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String(" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
