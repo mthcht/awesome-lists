@@ -1,28 +1,3 @@
-rule Trojan_Win32_Persistence_Registry_2147950363_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Persistence.Registry.TimeProvider.AV.B"
-        threat_id = "2147950363"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Persistence"
-        severity = "Critical"
-        info = "TimeProvider: an internal category used to refer to some threats"
-        info = "AV: an internal category used to refer to some threats"
-        info = "B: an internal category used to refer to some threats"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = " import" wide //weight: 1
-        $x_1_2 = "\\sb_" wide //weight: 1
-        $x_1_3 = "sbreg.reg" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Persistence_LocalAccount_2147950573_0
 {
     meta:

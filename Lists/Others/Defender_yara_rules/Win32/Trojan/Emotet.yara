@@ -21862,6 +21862,27 @@ rule Trojan_Win32_Emotet_LM_2147954706_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8d 64 24 00 69 c9 fd 43 03 00 81 c1 c3 9e 26 00 8b d1 c1 ea 10 30 14 30 40 3b c7}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Emotet_LM_2147954706_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Emotet.LM!MTB"
+        threat_id = "2147954706"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Emotet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
         strings_accuracy = "Low"
     strings:

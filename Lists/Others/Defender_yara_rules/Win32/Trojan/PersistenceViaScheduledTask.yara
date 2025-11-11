@@ -79,23 +79,3 @@ rule Trojan_Win32_PersistenceViaScheduledTask_AF_2147956999_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_PersistenceViaScheduledTask_AG_2147957000_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/PersistenceViaScheduledTask.AG"
-        threat_id = "2147957000"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "PersistenceViaScheduledTask"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "schtasks.exe /create /tn" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

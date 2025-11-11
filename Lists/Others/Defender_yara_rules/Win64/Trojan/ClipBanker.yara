@@ -1273,3 +1273,27 @@ rule Trojan_Win64_ClipBanker_PGCB_2147956352_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_MK_2147957211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.MK!MTB"
+        threat_id = "2147957211"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f 57 c9 66 0f 7f 8d ?? ?? ?? 00 4c 89 bd ?? ?? ?? 00 66 0f 7f 85 ?? ?? ?? 00 4c 8d 0d ?? 28 02 00 4c 8d 05}  //weight: 20, accuracy: Low
+        $x_15_2 = "firefox.exe" ascii //weight: 15
+        $x_10_3 = "browser.dll" ascii //weight: 10
+        $x_5_4 = "--disable-http2 --use-spdy=off --disable-quic" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

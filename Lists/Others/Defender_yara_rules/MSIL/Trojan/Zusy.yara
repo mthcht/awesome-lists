@@ -4144,3 +4144,47 @@ rule Trojan_MSIL_Zusy_SLBC_2147957070_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_LMN_2147957213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.LMN!MTB"
+        threat_id = "2147957213"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {20 0b f1 fc 0c 0c 08 20 9d 4a e6 5e 61 0d 1f 1b 73 57 00 00 0a 80 1f 00 00 04 18 0b 07 16 73 58 00 00 0a 13 05 07 18 59 0b 11 05 07 6f 59 00 00 0a 13 04 07 13 06 11 04 2d 15 73 5a 00 00 0a 13 05 17 13 06 11 05}  //weight: 20, accuracy: High
+        $x_10_2 = {11 06 06 20 7b ff 08 bb 61 07 58 5f 16 fe 03 13 2c 11 06 20 7d 00 cb db 06 58 07 61 5f 16 fe 03 13 34 11 06 20 85 00 f7 84 06 61 07 59 5f 16 fe 03 13 30 11 06 20 ca 18 07 17 06 58 07 58 5f 13 06 11 10 7e 18 00 00 04 11 06 6f 38 00 00 06 13 15 13 1d 11 1d 17 91 13 24 11 15 8e 69 13 29 1f 0b 11 29 58 1d 11 24 58 61}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_LMK_2147957214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.LMK!MTB"
+        threat_id = "2147957214"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {9a 12 00 28 0f 00 00 0a 26 00 06 19 fe 02 13 04 11 04 2c 11 00 72 01 00 00 70 28 10 00 00 0a 00 38 d5 00 00 00 72 3d 00 00 70 06 8c 14 00 00 01 28 11 00 00 0a 28 10 00 00 0a 00 28 12 00 00 0a 6f 13 00 00 0a 6f 14 00 00 0a 0b 72 a7 00 00 70 28 15 00 00 0a 13 05 12 05 72 b3 00 00 70 28 16 00 00 0a 16 1c 6f 17 00 00 0a 72 b7 00 00 70 28 18 00 00 0a 0c 07 08 28 19 00 00 0a 00 08 1c 18 73 1a 00 00 0a 13 06 11 06 73 1b 00 00 0a 13 07 00 11 07 72 c1 00 00 70 28 15 00}  //weight: 20, accuracy: High
+        $x_10_2 = {00 0a 13 05 12 05 fe 16 11 00 00 01 6f 1c 00 00 0a 28 1d 00 00 0a 6f 1e 00 00 0a 00 00 de 0d 11 07 2c 08 11 07 6f 1f 00 00 0a 00 dc de 0d 11 06 2c 08 11 06 6f 1f 00 00 0a 00 dc 72 e9 00 00 70 08 28 1d 00 00 0a 28 10 00 00 0a 00 08 06 17 58 13 08 12 08 28 20 00 00 0a 28 21 00 00 0a 26 2a 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
