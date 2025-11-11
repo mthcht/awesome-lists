@@ -1023,3 +1023,26 @@ rule Trojan_MSIL_PureLogs_PQ_2147957066_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogs_PX_2147957227_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogs.PX!MTB"
+        threat_id = "2147957227"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogs"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 00 0a 13 03 38 00 00 00 00 00 02 73 0c 00 00 0a 13 04 38 00 00 00 00 00 11 04 11 03 16 73 1b 00 00 0a 13 05 38 00 00 00 00 00 73 0d 00 00 0a 13 06 38 00 00 00 00 00 11 05 11 06 6f ?? 00 00 0a 38 00 00 00 00 11 06 6f ?? 00 00 0a 13 07 38 00 00 00 00 dd 55 ff ff ff}  //weight: 4, accuracy: Low
+        $x_2_2 = {73 0d 00 00 0a 13 01 38 00 00 00 00 00 1a 8d 0f 00 00 01 13 02 38 96 00 00 00 00 20 00 10 00 00 8d 0f 00 00 01 13 05 38 00 00 00 00 38 16 00 00 00 38 00 00 00 00 11 01 11 05 16 11 06 6f 0e 00 00 0a 38 00 00 00 00 11 04 11 05 16 11 05 8e 69 6f 0f 00 00 0a 25 13 06 16 3d d8 ff ff ff 38 00 00 00 00}  //weight: 2, accuracy: High
+        $x_2_3 = "$ee04a75c-995a-46fe-9e8b-1d3eb25b0dd2" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

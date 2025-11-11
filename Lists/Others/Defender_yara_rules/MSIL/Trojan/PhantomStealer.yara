@@ -40,3 +40,38 @@ rule Trojan_MSIL_PhantomStealer_APN_2147955823_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PhantomStealer_GPA_2147957226_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PhantomStealer.GPA!MTB"
+        threat_id = "2147957226"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PhantomStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "QBXtX" ascii //weight: 1
+        $x_1_2 = "startupreg" ascii //weight: 1
+        $x_1_3 = "caminhovbs" ascii //weight: 1
+        $x_1_4 = "namevbs" ascii //weight: 1
+        $x_1_5 = "netframework" ascii //weight: 1
+        $x_1_6 = "nativo" ascii //weight: 1
+        $x_1_7 = "nomenativo" ascii //weight: 1
+        $x_1_8 = "persitencia" ascii //weight: 1
+        $x_1_9 = "caminho" ascii //weight: 1
+        $x_1_10 = "nomedoarquivo" ascii //weight: 1
+        $x_1_11 = "minutos" ascii //weight: 1
+        $x_1_12 = "taskname" ascii //weight: 1
+        $x_1_13 = "vmName" ascii //weight: 1
+        $x_1_14 = "url_uac" ascii //weight: 1
+        $x_1_15 = "comanduac" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -20,6 +20,29 @@ rule Trojan_MSIL_SnakeKeyLogger_AB_2147828454_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeyLogger_AB_2147828454_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeyLogger.AB!MTB"
+        threat_id = "2147828454"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {16 13 09 00 08 11 09 58 07 61 13 0a 11 0a 17 5f 16 fe 01 13 0d 11 0d 2c 07 00 07 11 0a 61 0b 00 02 08 11 09 6f 92 00 00 0a 13 0b 04 03 6f 93 00 00 0a 59 13 0c 11 0c 16 fe 01 13 0e 11 0e 2c 06 00 38 9a 00 00 00 11 0c 17 fe 01 13 0f 11 0f 2c 12 00 03 12 0b 28 94 00 00 0a 6f 95 00 00 0a 00 00 2b 57 11 0c 18 fe 01 13 10}  //weight: 6, accuracy: High
+        $x_4_2 = {28 94 00 00 0a 6f 95 00 00 0a 00 03 12 0b 28 96 00 00 0a 6f 95 00 00 0a 00 03 12 0b 28 97 00 00 0a 6f 95 00 00 0a 00 00 11 09 17 58 13 09 00 11 09 02 6f 98 00 00 0a 2f 0b 03 6f 93 00 00 0a 04 fe 04}  //weight: 4, accuracy: High
+        $x_2_3 = "$0410c96f-b218-4757-ab74-2cd804186662" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_SnakeKeyLogger_PD_2147832583_0
 {
     meta:

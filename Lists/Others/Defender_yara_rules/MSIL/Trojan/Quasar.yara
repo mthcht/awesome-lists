@@ -1960,3 +1960,25 @@ rule Trojan_MSIL_Quasar_AJKB_2147957154_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_ZIK_2147957229_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.ZIK!MTB"
+        threat_id = "2147957229"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 11 11 09 8e 69 8d ?? 00 00 01 13 12 16 0b 2b 17 11 12 07 11 09 07 91 11 11 07 11 11 8e 69 5d 91 61 d2 9c 07 17 58 0b}  //weight: 5, accuracy: Low
+        $x_5_2 = {07 94 1d 5d 16 fe 01 16 fe 01 13 15 11 15 2d 0e 06 07 06 07 94 20 ff 00 00 00 61 1c 58 9e 00 07 17}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
