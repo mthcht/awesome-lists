@@ -6519,6 +6519,31 @@ rule Trojan_Win32_Zenpak_V_2147901906_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zenpak_RV_2147902008_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zenpak.RV!MTB"
+        threat_id = "2147902008"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zenpak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "o:\\dir_for_builds\\bldObjDir_68fb9aee_58e5966f_61c407105\\loader.cpp.bc.obj.pdb" ascii //weight: 1
+        $x_1_2 = "deep.JGMfaceNy0dayg" ascii //weight: 1
+        $x_1_3 = "6you.llsI" ascii //weight: 1
+        $x_1_4 = "59SJMUZc.dLL" ascii //weight: 1
+        $x_1_5 = "ftwwiio44.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zenpak_ASW_2147902209_0
 {
     meta:
@@ -10643,6 +10668,27 @@ rule Trojan_Win32_Zenpak_GVB_2147951189_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {4b 8d 0c 0b 41 30 41 02 48 8b c7 48 f7 e1 48 c1 ea 02 48 8d 04 92 4c 2b c0 41 0f b6 44 28 05 41 30 41 03 49 83 c1 06 4b 8d 04 0a 48 3d 00 18 00 00 0f 82 28}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zenpak_SI_2147957231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zenpak.SI!MTB"
+        threat_id = "2147957231"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zenpak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 75 e8 8b 5d d0 8a 1c 1e 8b 75 e0 32 1c 0e 8b 4d e4 8b 75 d0 88 1c 31 8b 4d f0}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -329,6 +329,33 @@ rule Trojan_Win32_Virlock_VMX_2147948477_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Virlock_VMX_2147948477_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.VMX!MTB"
+        threat_id = "2147948477"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 06 32 c2 88 07 42}  //weight: 5, accuracy: High
+        $x_5_2 = {6a 40 68 00 10}  //weight: 5, accuracy: High
+        $x_10_3 = {46 47 90 49 90 83 f9 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*))) or
+            ((1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_Virlock_NC_2147949049_0
 {
     meta:

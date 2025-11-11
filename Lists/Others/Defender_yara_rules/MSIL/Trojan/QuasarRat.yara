@@ -731,3 +731,29 @@ rule Trojan_MSIL_QuasarRat_SLKO_2147955525_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRat_TO_2147957243_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.TO!MTB"
+        threat_id = "2147957243"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {68 74 74 70 3a 2f 2f 31 38 35 2e 32 33 33 2e 31 36 34 2e 31 32 33 2f [0-25] 2e 65 78 65}  //weight: 7, accuracy: Low
+        $x_1_2 = {24 65 78 63 6c 75 73 69 6f 6e 50 61 74 68 20 3d 20 22 24 65 6e 76 3a 41 50 50 44 41 54 41 5c [0-30] 22}  //weight: 1, accuracy: Low
+        $x_1_3 = "Add-MpPreference -ExclusionPath $exclusionPath" ascii //weight: 1
+        $x_1_4 = "$outputFile = [System.IO.Path]::Combine($env:APPDATA" ascii //weight: 1
+        $x_1_5 = "Start-Sleep -Milliseconds 100" ascii //weight: 1
+        $x_1_6 = "Invoke-WebRequest -Uri $using:url -OutFile $using:outputFile" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

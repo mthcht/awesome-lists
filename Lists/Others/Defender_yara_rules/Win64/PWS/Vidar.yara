@@ -29,3 +29,30 @@ rule PWS_Win64_Vidar_STA_2147956267_0
         )
 }
 
+rule PWS_Win64_Vidar_CH_2147957248_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "PWS:Win64/Vidar.CH!MTB"
+        threat_id = "2147957248"
+        type = "PWS"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://telegram.me/" ascii //weight: 2
+        $x_2_2 = "Browser List" ascii //weight: 2
+        $x_2_3 = "Chromium Plugins" ascii //weight: 2
+        $x_2_4 = "Firefox Plugins" ascii //weight: 2
+        $x_2_5 = "Wallet Rules" ascii //weight: 2
+        $x_2_6 = "File Grabber Rules" ascii //weight: 2
+        $x_2_7 = "Loader Tasks" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

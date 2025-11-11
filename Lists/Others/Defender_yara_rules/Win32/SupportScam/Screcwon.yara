@@ -93,6 +93,8 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_33 = "pilwerui.rchelp.top" ascii //weight: 30
         $x_30_34 = "rwbhelp.top" ascii //weight: 30
         $x_30_35 = "zvhelp.top" ascii //weight: 30
+        $x_30_36 = "kcclive.top" ascii //weight: 30
+        $x_30_37 = "mango.quatrocliche.com" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (

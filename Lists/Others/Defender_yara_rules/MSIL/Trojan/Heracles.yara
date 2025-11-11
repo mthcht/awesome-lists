@@ -8594,3 +8594,24 @@ rule Trojan_MSIL_Heracles_GVN_2147957041_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_PGHC_2147957235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.PGHC!MTB"
+        threat_id = "2147957235"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 09 11 23 28 ?? 00 00 0a 11 20 28 ?? 00 00 0a 13 24 11 24 8e 69 8d ?? 00 00 01 13 25 16 13 3b 2b 1c 11 25 11 3b 11 24 11 3b 91 11 22 11 3b 11 22 8e 69 5d 91 61 d2 9c 11 3b 17 58 13 3b 11 3b 11 24 8e 69 32 dc}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
