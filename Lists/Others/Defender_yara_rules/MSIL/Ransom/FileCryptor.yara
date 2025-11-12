@@ -825,3 +825,28 @@ rule Ransom_MSIL_FileCryptor_PS_2147817058_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCryptor_AYA_2147957309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.AYA!MTB"
+        threat_id = "2147957309"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "VELOX RANSOMWARE" wide //weight: 5
+        $x_2_2 = "YOUR COMPUTER HAS BEEN LOCKED BY VELOX" wide //weight: 2
+        $x_1_3 = "Your files have been decrypted." wide //weight: 1
+        $x_1_4 = "veloxv.Properties.Resources" wide //weight: 1
+        $x_1_5 = "EncryptFolder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
