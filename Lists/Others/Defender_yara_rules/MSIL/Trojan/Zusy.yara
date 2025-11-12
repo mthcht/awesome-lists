@@ -4188,3 +4188,27 @@ rule Trojan_MSIL_Zusy_LMK_2147957214_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_GPK_2147957310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.GPK!MTB"
+        threat_id = "2147957310"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "execMemory = VirtualAlloc(IntPtr.Zero, bufferLength, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE)" ascii //weight: 5
+        $x_1_2 = "Marshal.Copy(execMemory, memoryBytes, 0, (int)bufferLength)" ascii //weight: 1
+        $x_1_3 = "fiber1 = CreateFiber(0, Fiber1Function, IntPtr.Zero);" ascii //weight: 1
+        $x_1_4 = "DeleteFiber(fiber1)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

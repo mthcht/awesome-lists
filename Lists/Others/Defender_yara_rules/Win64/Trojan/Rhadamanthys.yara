@@ -427,3 +427,24 @@ rule Trojan_Win64_Rhadamanthys_ARM_2147957084_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rhadamanthys_PGRM_2147957318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.PGRM!MTB"
+        threat_id = "2147957318"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 89 44 24 48 f2 0f 10 84 24 ?? ?? ?? ?? f2 0f 58 05 ?? ?? ?? ?? f2 0f 59 05 ?? ?? ?? ?? f2 0f 2c c0 0f b6 c0 48 8b 4c 24 48 0f b6 09 33 c8 8b c1 48 8b 4c 24 48 88 01 e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
