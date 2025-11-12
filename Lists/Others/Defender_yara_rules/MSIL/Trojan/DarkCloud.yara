@@ -1295,3 +1295,25 @@ rule Trojan_MSIL_DarkCloud_ZCK_2147957037_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_AOKB_2147957256_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.AOKB!MTB"
+        threat_id = "2147957256"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {04 1e 5d 2c 03 03 2b 07 03 20 a4 00 00 00 61 b4 0a 2b 00 06 2a}  //weight: 5, accuracy: High
+        $x_4_2 = {2b a2 14 14 14 28 ?? 00 00 0a 14 72 ?? ?? 00 70 17 8d ?? 00 00 01 25 16 1f 18 8c ?? 00 00 01 a2 14 14 14 28 ?? 00 00 0a 14 72 ?? ?? 00 70 16 8d ?? 00 00 01 14 14 14}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

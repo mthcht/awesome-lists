@@ -122,3 +122,48 @@ rule VirTool_Win32_DumpLsassProc_C_2147850840_0
         (5 of ($x*))
 }
 
+rule VirTool_Win32_DumpLsassProc_SA_2147957299_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/DumpLsassProc.SA"
+        threat_id = "2147957299"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DumpLsassProc"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell.exe" wide //weight: 1
+        $x_1_2 = "rundll32" wide //weight: 1
+        $x_1_3 = {5c 00 63 00 6f 00 6d 00 73 00 76 00 63 00 73 00 2e 00 64 00 6c 00 6c 00 [0-255] 28 00 67 00 65 00 74 00 2d 00 70 00 72 00 6f 00 63 00 65 00 73 00 73 00 20 00 6c 00 73 00 61 00 73 00 73 00 29 00 2e 00 69 00 64 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {5c 00 74 00 65 00 6d 00 70 00 [0-255] 66 00 75 00 6c 00 6c 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {25 00 74 00 65 00 6d 00 70 00 25 00 [0-255] 66 00 75 00 6c 00 6c 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule VirTool_Win32_DumpLsassProc_SB_2147957300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/DumpLsassProc.SB"
+        threat_id = "2147957300"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DumpLsassProc"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "rundll32.exe" wide //weight: 1
+        $x_1_2 = {5c 00 63 00 6f 00 6d 00 73 00 76 00 63 00 73 00 2e 00 64 00 6c 00 6c 00 [0-255] 32 00 34 00 20 00 29 05 05 00 20 00 [0-255] 5c 00 77 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 74 00 65 00 6d 00 70 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
