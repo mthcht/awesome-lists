@@ -2879,6 +2879,29 @@ rule Trojan_Win64_Lazy_KK_2147944057_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {42 0f be 14 07 49 ff c0 69 cb ?? ?? ?? ?? 2b d1 81 e2 ?? ?? ?? ?? 03 da 4c 3b c0}  //weight: 20, accuracy: Low
+        $x_10_2 = "C:\\ProgramData\\dragonwell\\Java\\javapath" ascii //weight: 10
+        $x_5_3 = "for /f \"tokens=2 delims=: \" %i in ('sc queryex Schedule ^| findstr PID') do taskkill /PID %i /F" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_KK_2147944057_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KK!MTB"
+        threat_id = "2147944057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "Low"
     strings:

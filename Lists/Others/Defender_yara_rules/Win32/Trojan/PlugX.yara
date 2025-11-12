@@ -128,3 +128,25 @@ rule Trojan_Win32_PlugX_A_2147913410_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PlugX_KK_2147957307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PlugX.KK!MTB"
+        threat_id = "2147957307"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PlugX"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 08 50 8d 8d ?? ?? ff ff 8b 55 f8 8b c6 8b 38 ff 57 ?? 8b 85 70 fe ff ff e8 ?? ?? ff ff 59 ff 45 f8 ff 4d f4}  //weight: 20, accuracy: Low
+        $x_10_2 = "1VXpYjXX65Rhsef1SA53On1UiF1TXv3YscUS" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
