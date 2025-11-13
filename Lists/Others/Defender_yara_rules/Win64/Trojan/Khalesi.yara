@@ -292,3 +292,27 @@ rule Trojan_Win64_Khalesi_PGKH_2147955107_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Khalesi_AMTB_2147955742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Khalesi!AMTB"
+        threat_id = "2147955742"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Khalesi"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ANTI_DISASSM" ascii //weight: 1
+        $x_1_2 = "CODE_INJECTIONS" ascii //weight: 1
+        $x_1_3 = "TIMING_ATTACKS" ascii //weight: 1
+        $x_1_4 = "al-khaser.pdb" ascii //weight: 1
+        $x_1_5 = "Injected library: %S" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -551,3 +551,26 @@ rule Trojan_Win32_RedlineStealer_GTD_2147948120_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RedlineStealer_RI_2147957450_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RedlineStealer.RI!MTB"
+        threat_id = "2147957450"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {39 f2 74 0e 88 d9 32 0c 17 88 4c 10 fe 42 eb f0}  //weight: 4, accuracy: High
+        $x_2_2 = {56 53 83 ec 20 c7 04 24 ?? ?? ?? ?? e8 ?? ?? ?? ?? 85 c0 56 74 ?? c7 44 24 04 ?? ?? ?? ?? 89 ?? 24 e8 ?? ?? ?? ?? 85 c0 53 53 89 c3 74 ?? 8d ?? ?? c7 44 24 08 40 00 00 00 c7 44 24 04 01 00 00 00 89 ?? 24 89 ?? 24 0c e8 ?? ?? ?? ?? c6 03 c3 8b ?? ?? 83 ec 10 89 ?? 24 0c c7 44 24 04 01 00 00 00 89 ?? 24 89 44 24 08 e8 ?? ?? ?? ?? 83 ec 10}  //weight: 2, accuracy: Low
+        $x_1_3 = {c7 44 24 1c 00 00 00 00 c7 44 24 18 00 00 00 00 c7 44 24 14 00 00 00 00 c7 44 24 10 00 00 00 00 89 44 24 24 8d 85 ?? ?? ?? ?? c7 44 24 0c 00 00 00 00 c7 44 24 08 00 00 00 00 c7 44 24 04 00 00 00 00 89 44 24 20 89 1c 24 c7 85 ?? ?? ?? ?? 44 00 00 00 c7 85 ?? ?? ?? ?? 01 00 00 00 e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
