@@ -3969,3 +3969,31 @@ rule Ransom_MSIL_Filecoder_A_2147956865_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_J_2147957402_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.J!AMTB"
+        threat_id = "2147957402"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {20 00 10 00 00 8d 13 00 00 01 13 06 2b 0c 11 05 11 06 16 11 07 6f ?? ?? ?? 0a 09 11 06 16 11 06 8e 69 6f ?? ?? ?? 0a 25 13 07 16 30 e1}  //weight: 5, accuracy: Low
+        $x_1_2 = ".meowed" ascii //weight: 1
+        $x_1_3 = ".mouzd" ascii //weight: 1
+        $x_1_4 = ".locked" ascii //weight: 1
+        $x_1_5 = ".harmstreet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

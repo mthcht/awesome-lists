@@ -4513,3 +4513,34 @@ rule Trojan_MSIL_ClipBanker_SLOO_2147953857_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_Q_2147957403_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.Q!AMTB"
+        threat_id = "2147957403"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 12 04 28 ?? ?? ?? 0a 0d 08 12 03 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 2c 2a 12 03 28 ?? ?? ?? 0a 72 ?? ?? ?? 70 28 ?? ?? ?? 0a 2c 17 08 7e 01 00 00 04 28 ?? ?? ?? 0a 2c 0a 7e 01 00 00 04 28 ?? ?? ?? 06 12 04 28 ?? ?? ?? 0a 2d b6}  //weight: 5, accuracy: Low
+        $x_1_2 = "BTC_ADDRESS" ascii //weight: 1
+        $x_1_3 = "IsRunningFromAppData" ascii //weight: 1
+        $x_1_4 = "SelfCopyAndRestart" ascii //weight: 1
+        $x_1_5 = "AddToStartup" ascii //weight: 1
+        $x_1_6 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_7 = "Ethereum" ascii //weight: 1
+        $x_1_8 = "Bitcoin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
