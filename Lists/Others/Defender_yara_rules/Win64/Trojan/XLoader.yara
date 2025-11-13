@@ -62,3 +62,24 @@ rule Trojan_Win64_XLoader_MKV_2147955509_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XLoader_AKQ_2147957467_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XLoader.AKQ!MTB"
+        threat_id = "2147957467"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {44 8b d2 47 0f b6 54 17 10 45 30 10 ff c2 3b d1 7c e0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

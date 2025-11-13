@@ -244,3 +244,25 @@ rule Trojan_Win64_Radthief_AKR_2147957323_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Radthief_SXC_2147957468_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Radthief.SXC!MTB"
+        threat_id = "2147957468"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Radthief"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 19 48 c1 e3 ?? 8b 71 04 48 09 de 8b 59 20 48 c1 e3 ?? 8b 79 24 48 09 df 48 31 f7}  //weight: 10, accuracy: Low
+        $x_5_2 = {48 c7 84 24 a8 01 00 00 0a ?? ?? ?? 48 c7 84 24 b0 01 00 00 14 ?? ?? ?? 48 c7 84 24 b8 01 00 00 1e ?? ?? ?? 48 c7 84 24 c0 01 00 00 28 ?? ?? ?? 48 c7 84 24 c8 01 00 00 32}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

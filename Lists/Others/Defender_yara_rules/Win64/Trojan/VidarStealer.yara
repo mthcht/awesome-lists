@@ -85,3 +85,24 @@ rule Trojan_Win64_VidarStealer_AMB_2147957083_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_VidarStealer_AD_2147957457_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VidarStealer.AD!MTB"
+        threat_id = "2147957457"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {4c 89 54 24 08 48 c1 c8 13 49 33 c8 48 89 44 24 18 33 c0 48 89 1c 24 48 89 4c 24 10 8d 0c c5 ?? ?? ?? ?? 4d 8b c1 49 d3 e8 ff c0 44 32 04 32 44 88 44 14 20 48 ff c2 48 83 fa}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

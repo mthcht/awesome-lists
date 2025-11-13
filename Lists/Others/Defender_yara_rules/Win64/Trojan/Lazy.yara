@@ -4392,3 +4392,24 @@ rule Trojan_Win64_Lazy_SXF_2147957359_0
         )
 }
 
+rule Trojan_Win64_Lazy_ADA_2147957458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ADA!MTB"
+        threat_id = "2147957458"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {20 d3 20 c1 08 d9 89 d3 20 c3 30 c2 08 da 89 d0 30 c8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

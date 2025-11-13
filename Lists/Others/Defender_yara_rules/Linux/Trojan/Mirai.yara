@@ -635,6 +635,28 @@ rule Trojan_Linux_Mirai_HAB_2147956705_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[udpbypass_flood] started: ('%d')" ascii //weight: 30
+        $x_1_2 = "[syn_flood] started: ('%d')" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_HAB_2147956705_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAB!MTB"
+        threat_id = "2147956705"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
         threshold = "71"
         strings_accuracy = "High"
     strings:

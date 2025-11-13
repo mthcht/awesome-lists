@@ -196,3 +196,27 @@ rule Trojan_Win64_Injector_SXA_2147956727_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXB_2147957469_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXB!MTB"
+        threat_id = "2147957469"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 44 24 38 0f b7 40 14 48 8b 4c 24 38 48 8d 44 01 18 48 63 4c 24 30 48 6b c9 ?? 48 03 c1 48 89 44 24 48}  //weight: 10, accuracy: Low
+        $x_1_2 = "Injected sucessfully" ascii //weight: 1
+        $x_1_3 = "AgentService.exe" ascii //weight: 1
+        $x_1_4 = "Hook detect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
