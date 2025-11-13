@@ -4362,3 +4362,33 @@ rule Trojan_Win64_Lazy_TBK_2147957039_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SXF_2147957359_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXF!MTB"
+        threat_id = "2147957359"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "62"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {0f 57 c8 f3 0f 7f 4c 01 ?? 48 8b 85 ?? ?? ?? ?? 66 0f 6f ce f3 0f 6f 44 01 ?? 0f 57 c8 f3 0f 7f 4c 01 ?? 48 83 c1 ?? 48 3b ca 72 91}  //weight: 50, accuracy: Low
+        $x_50_2 = {0f 57 c6 f3 0f 7f 44 01 ?? 48 8b 85 ?? ?? ?? ?? f3 0f 6f 44 01 ?? 0f 57 c6 f3 0f 7f 44 01 ?? 48 83 c1 ?? 48 3b ca 72 a1}  //weight: 50, accuracy: Low
+        $x_5_3 = "Shellcode" ascii //weight: 5
+        $x_5_4 = "Assest Succesfly Loading" ascii //weight: 5
+        $x_1_5 = "NtWriteVirtualMemory" ascii //weight: 1
+        $x_1_6 = "NtResumeThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_50_*) and 2 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+

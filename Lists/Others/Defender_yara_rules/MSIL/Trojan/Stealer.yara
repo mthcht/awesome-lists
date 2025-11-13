@@ -3434,3 +3434,26 @@ rule Trojan_MSIL_Stealer_AYG_2147956524_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_GVE_2147957354_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.GVE!MTB"
+        threat_id = "2147957354"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {34 b5 30 20 fd 7d 55 63 59 20 e5 f3 79 f2 61 7e 2c 01 00 04 7b 57 01 00 04 61 7e 7c 01 00 04 28 51 04 00 06 a2 25 1f 1b 20 a1 20 db 6d 20 59 b1}  //weight: 3, accuracy: High
+        $x_3_2 = {04 61 7e 70 01 00 04 28 51 04 00 06 a2 25 18 20 93 cc 49 87 20 51 c3 b3 b0 58 20 5f 54 2f 55 61 7e 4a 01 00 04 7b 5c 01 00 04 61 7e 70 01 00 04}  //weight: 3, accuracy: High
+        $x_3_3 = {16 fc 5f 8a f9 d7 bd 59 5a 01 77 65 e6 db b1 21 49 e1 d0 b3 98 40 27 f4 e4 b8 2e dd 94 9b 7b 83 df 5d 39 46 63 43 6e 8a c0 5c 05 c4 fb f0 19 8f}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

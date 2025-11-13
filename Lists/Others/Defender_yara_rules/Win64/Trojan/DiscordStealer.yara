@@ -49,3 +49,25 @@ rule Trojan_Win64_DiscordStealer_ARA_2147954784_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_ARR_2147957360_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.ARR!MTB"
+        threat_id = "2147957360"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {31 d2 44 8b 44 24 ?? f7 f1 44 01 c2 89 54 24}  //weight: 2, accuracy: Low
+        $x_8_2 = {89 c2 41 32 01 49 83 c1 ?? 0f b6 c0 c1 ea ?? 33 14 81 89 d0 4d 39 d1}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
