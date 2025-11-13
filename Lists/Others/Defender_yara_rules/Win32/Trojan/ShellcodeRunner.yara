@@ -570,3 +570,29 @@ rule Trojan_Win32_ShellcodeRunner_LRK_2147956864_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_GVE_2147957420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.GVE!MTB"
+        threat_id = "2147957420"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Start-Process notepad.exe" ascii //weight: 2
+        $x_1_2 = "Stop-Process -Name calculator" ascii //weight: 1
+        $x_1_3 = "New-Item -Path C:\\temp -ItemType Directory -Force" ascii //weight: 1
+        $x_1_4 = "Remove-Item -Path C:\\temp\\*.tmp -Force" ascii //weight: 1
+        $x_1_5 = "Copy-Item -Path C:\\file1.txt -Destination C:\\file2.txt" ascii //weight: 1
+        $x_1_6 = "Invoke-WebRequest -Uri http://example.com -OutFile test.html" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

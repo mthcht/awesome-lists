@@ -9240,3 +9240,48 @@ rule Trojan_MSIL_Formbook_EHLE_2147957332_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Formbook_EHLV_2147957422_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EHLV!MTB"
+        threat_id = "2147957422"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {18 13 04 2b 92 1f 09 2b f8 12 02 ?? ?? ?? ?? ?? ?? 08 0b 19 13 04 ?? ?? ?? ?? ?? 02 8c 03 00 00 1b 03 04 ?? ?? ?? ?? ?? 0b 19 13 04 ?? ?? ?? ?? ?? 06 17 58 0a 05 25 5a 05 58 18 5d 2c 08 1e 13 04}  //weight: 2, accuracy: Low
+        $x_2_2 = {11 10 17 58 13 10 11 20 1f 17 91 ?? ?? ?? ?? ?? 59 13 1e ?? ?? ?? ?? ?? 11 10 11 0f ?? ?? ?? ?? ?? 8e 69 32 09 1f 10 13 1e ?? ?? ?? ?? ?? 11 20 1f 36 91 1e 5b 2b f0 11 08}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Formbook_EHLG_2147957423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Formbook.EHLG!MTB"
+        threat_id = "2147957423"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {59 13 05 2b ad 05 0e 04 61 1f 76 59 06 61 ?? ?? ?? ?? ?? ?? ?? ?? ?? 1f 0b 13 05 2b 95 11 06 ?? ?? ?? ?? ?? 94 ?? ?? ?? ?? ?? 59 2b ec 12 02 ?? ?? ?? ?? ?? ?? 08 0b 1a 13 05 ?? ?? ?? ?? ?? 02 ?? ?? ?? ?? ?? 03 04 ?? ?? ?? ?? ?? 0b 1a 13 05}  //weight: 2, accuracy: Low
+        $x_2_2 = {06 17 58 0a 0e 04 25 5a 0d 0e 04 09 58 0d 1f 09 13 05 ?? ?? ?? ?? ?? 09 18 5d 2d 08 18 13 05}  //weight: 2, accuracy: Low
+        $x_2_3 = {94 5a 1f 15 5f 9e 5d 16 6a fe 01 13 18 1f 1f 13 1e ?? ?? ?? ?? ?? 11 18 2c 09 1f 0b 13 1e ?? ?? ?? ?? ?? 1a 2b f6 11 09}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
