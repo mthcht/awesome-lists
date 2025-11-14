@@ -1893,3 +1893,25 @@ rule Trojan_MSIL_Androm_SLQA_2147957234_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_PGAD_2147957483_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.PGAD!MTB"
+        threat_id = "2147957483"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {28 12 00 00 06 7e 04 00 00 04 7e 05 00 00 04 28 08 00 00 06 28 02 00 00 0a 6f 03 00 00 0a 13}  //weight: 5, accuracy: High
+        $x_5_2 = {00 70 d0 06 00 00 02 28 18 00 00 0a 6f 19 00 00 0a 73 1a 00 00 0a 80 07 00 00 04 [0-63] 1a 7e 08 00 00 04 2a 00 1e 02 80 08 00 00 04 2a 6a 28 0f 00 00 06 72 ?? 00 00 70 7e 08 00 00 04 6f 1b 00 00 0a 74 01 00 00 1b 2a 00 26 7e 09 00 00 04 14 fe 01 2a 00 00 1a 7e 09 00 00 04 2a 00 1e 02 28 17 00 00 0a 2a 1a 28 17 00 00 06 2a 00 13 30 04}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
