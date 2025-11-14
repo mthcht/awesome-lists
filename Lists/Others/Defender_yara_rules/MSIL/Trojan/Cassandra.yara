@@ -45,3 +45,26 @@ rule Trojan_MSIL_Cassandra_GZF_2147954333_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_EXP_2147957514_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.EXP!MTB"
+        threat_id = "2147957514"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DriverFix Pro.dll" ascii //weight: 1
+        $x_1_2 = "System driver repair utility" ascii //weight: 1
+        $x_1_3 = "2.3.1.789" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

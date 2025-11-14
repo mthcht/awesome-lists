@@ -227,3 +227,29 @@ rule Trojan_Win32_Zapchast_GZZ_2147905377_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zapchast_MK_2147957516_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zapchast.MK!MTB"
+        threat_id = "2147957516"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zapchast"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "cmd.exe /C powershell -ExecutionPolicy Bypass -File" ascii //weight: 20
+        $x_15_2 = "cmd.exe /C powershell -Command \"Set-ExecutionPolicy Unrestricted -Scope CurrentUser\"" ascii //weight: 15
+        $x_10_3 = "Register-ScheduledTask -Xml $xmlContent -TaskName $taskName" ascii //weight: 10
+        $x_5_4 = "Application Data\\updated.ps1" ascii //weight: 5
+        $x_3_5 = "Application Data\\PolicyManagement.xml" ascii //weight: 3
+        $x_2_6 = "CiAgPC9TZXR0aW5ncz4KICA8QWN0aW9ucyBDb250ZXh0PSJBbGxVc2VycyI+CiAgICA8RXhlYz4KICAgICAgPENvbW1hbmQ+5paH5Lu257ud5a+56Lev5b6EPC9Db21tYW5kPgogICAgPC9FeGVjPgogIDwvQWN0aW9ucz4KPC9UYXNrPg==" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
