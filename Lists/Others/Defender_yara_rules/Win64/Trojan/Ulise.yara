@@ -275,3 +275,28 @@ rule Trojan_Win64_Ulise_ARAX_2147956093_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Ulise_LM_2147957473_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.LM!MTB"
+        threat_id = "2147957473"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {40 00 00 40 6c 6c 76 6d 6d 73 76 63 00 e0 06 00 00 50 06 00 00 e0 06 00 00 cc 05 00}  //weight: 20, accuracy: High
+        $x_10_2 = {c8 a3 30 00 8c 00 00 00 00 10 31 00 08 6d 01 00 00 e0 05 00 ec 34 00 00}  //weight: 10, accuracy: High
+        $x_5_3 = {2e 66 70 74 61 62 6c 65 00 10 00 00 00 20 06}  //weight: 5, accuracy: High
+        $x_2_4 = {90 74 20 00 30 00 00 00 a4 f9 30 00 40 01}  //weight: 2, accuracy: High
+        $x_3_5 = {64 86 0c 00 5c b2 f0 68 00 00 00 00 00 00 00 00 f0 00 22 00}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

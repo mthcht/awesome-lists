@@ -40,6 +40,32 @@ rule Trojan_Win64_VidarStealer_ABA_2147955945_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_VidarStealer_RH_2147956212_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VidarStealer.RH!MTB"
+        threat_id = "2147956212"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "//telegram.me/k0ddr" ascii //weight: 2
+        $x_1_2 = "Chromium Plugins" ascii //weight: 1
+        $x_1_3 = "File Grabber Rules" ascii //weight: 1
+        $x_1_4 = "Wallet Rules" ascii //weight: 1
+        $x_1_5 = "Browser List" ascii //weight: 1
+        $x_1_6 = "Firefox Plugins" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_VidarStealer_ARAX_2147956832_0
 {
     meta:

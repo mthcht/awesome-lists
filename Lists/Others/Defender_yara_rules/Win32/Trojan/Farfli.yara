@@ -5686,3 +5686,25 @@ rule Trojan_Win32_Farfli_KAB_2147953716_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_LM_2147957472_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.LM!MTB"
+        threat_id = "2147957472"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 18 0f b6 04 06 8b 57 08 8d 3c 11 99 bb c5 07 00 00 f7 fb b8 ?? ?? ?? ?? 46 80 c2 36 30 17 f7 e1 c1 ea 03}  //weight: 20, accuracy: Low
+        $x_10_2 = {03 d2 8b c1 2b c2 75 ?? 33 f6 8b 5d 10 8b 7d 08 41 3b cb}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

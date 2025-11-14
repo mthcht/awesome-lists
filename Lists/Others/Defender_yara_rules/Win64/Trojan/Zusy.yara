@@ -2223,6 +2223,28 @@ rule Trojan_Win64_Zusy_KAB_2147948348_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_LM_2147948580_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LM!MTB"
+        threat_id = "2147948580"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {80 30 a1 48 89 c0 48 83 c0 01 48 39 c8 75 ?? 4d 87 db 4d 8d 6d 00 f3 41 0f 6f 09 b8 f0 f0 f0 f0 4d 8d 41 10}  //weight: 10, accuracy: Low
+        $x_20_2 = {0f b6 02 d0 c8 48 89 c0 88 02 4d 8d 12 4d 89 d2 4d 8d 12 48 83 c2 01 48 39 ca 75 e4 49 8b 41 2a 49 89 41 0a 41 0f b7 41 32 66 41 89 41 12 48 89 ff 4d 89 c9}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_KAD_2147950798_0
 {
     meta:

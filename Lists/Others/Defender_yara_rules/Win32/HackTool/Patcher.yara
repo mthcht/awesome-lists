@@ -128,3 +128,28 @@ rule HackTool_Win32_Patcher_AMTB_2147934306_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_Patcher_AMTB_2147934306_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher!AMTB"
+        threat_id = "2147934306"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Patch created by Tola's Patching Engine" wide //weight: 1
+        $n_100_2 = "Uninst.exe" ascii //weight: -100
+        $n_100_3 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_4 = "Uninstal.exe" ascii //weight: -100
+        $n_100_5 = "MultiExtractor.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
