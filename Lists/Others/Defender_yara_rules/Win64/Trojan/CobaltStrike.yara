@@ -5230,6 +5230,33 @@ rule Trojan_Win64_CobaltStrike_RK_2147836744_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_RK_2147836744_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.RK!MTB"
+        threat_id = "2147836744"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Attempting Thread Hijacking into" ascii //weight: 1
+        $x_1_2 = "Attempting APC Injection into" ascii //weight: 1
+        $x_1_3 = "shellcode injection into" ascii //weight: 1
+        $x_1_4 = "Attempting Hollowing with IAT" ascii //weight: 1
+        $x_1_5 = "Attempting Process Doppelg" ascii //weight: 1
+        $x_1_6 = "PPID Spoofing" ascii //weight: 1
+        $x_1_7 = "Shellcode payload detected" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
 rule Trojan_Win64_CobaltStrike_GYZ_2147836745_0
 {
     meta:
