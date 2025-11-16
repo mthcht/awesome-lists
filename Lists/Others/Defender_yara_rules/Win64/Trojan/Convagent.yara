@@ -879,3 +879,57 @@ rule Trojan_Win64_Convagent_MKA_2147957518_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_SX_2147957568_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.SX!MTB"
+        threat_id = "2147957568"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {c6 84 24 c8 01 00 00 53 c6 84 24 c9 01 00 00 68 c6 84 24 ca 01 00 00 65 c6 84 24 cb 01 00 00 6c c6 84 24 cc 01 00 00 6c c6 84 24 cd 01 00 00 45 c6 84 24 ce 01 00 00 78 c6 84 24 cf 01 00 00 65 c6 84 24 d0 01 00 00 63 c6 84 24 d1 01 00 00 75 c6 84 24 d2 01 00 00 74 c6 84 24 d3 01 00 00 65 c6 84 24 d4 01 00 00 45 c6 84 24 d5 01 00 00 78 c6 84 24 d6 01 00 00 41}  //weight: 20, accuracy: High
+        $x_10_2 = {48 03 c8 48 8b c1 48 89 44 24 60 48 8b 94 24 88 00 00 00 48 8b 4c 24 60 ff 15 ?? ?? ?? ?? 85 c0 75 37 8b 44 24 58 48 8b 4c 24 48}  //weight: 10, accuracy: Low
+        $x_1_3 = "ActionQueue.DLL.MUI" ascii //weight: 1
+        $x_1_4 = "cdprt.dll.mui" ascii //weight: 1
+        $x_1_5 = "localsec.dll.mui" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Convagent_KK_2147957569_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.KK!MTB"
+        threat_id = "2147957569"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f be 14 08 66 89 54 45 d0 48 83 c0 01 48 83 f8 05}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b7 07 35 49 8b 00 00 0f b6 4f 02 81 f1 c8 00 00 00 66 09 c1}  //weight: 10, accuracy: High
+        $x_5_3 = "Memory changed to PAGE_EXECUTE_READ" ascii //weight: 5
+        $x_3_4 = "Searching for syscall" ascii //weight: 3
+        $x_2_5 = "Failed to find 'mov rcx, r8' pattern" ascii //weight: 2
+        $x_1_6 = "Resolved BaseThreadInitXFGThunk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
