@@ -2262,6 +2262,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.220.16.0/20,us-west-2,AMAZON,us-west-2-las-1
 15.230.15.50/31,eu-central-1,AMAZON,eu-central-1
 16.192.0.0/16,eu-north-1,AMAZON,eu-north-1
+23.228.227.0/24,GLOBAL,AMAZON,GLOBAL
 23.228.232.0/22,us-east-1,AMAZON,us-east-1
 40.174.0.0/15,me-central-1,AMAZON,me-central-1
 52.93.127.115/32,ap-southeast-1,AMAZON,ap-southeast-1
@@ -2793,6 +2794,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.15.46/31,eu-central-1,AMAZON,eu-central-1
 16.12.21.0/24,eu-south-1,AMAZON,eu-south-1
 18.136.0.0/16,ap-southeast-1,AMAZON,ap-southeast-1
+23.228.237.0/24,GLOBAL,AMAZON,GLOBAL
 35.71.124.0/24,ap-southeast-5,AMAZON,ap-southeast-5
 50.112.0.0/16,us-west-2,AMAZON,us-west-2
 52.93.91.113/32,us-east-1,AMAZON,us-east-1
@@ -4372,6 +4374,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.56.0/24,us-east-1,AMAZON,us-east-1
 15.230.75.128/26,ap-northeast-3,AMAZON,ap-northeast-3
 15.230.169.3/32,us-east-1,AMAZON,us-east-1
+23.228.226.0/24,GLOBAL,AMAZON,GLOBAL
 35.50.178.0/24,sa-east-1,AMAZON,sa-east-1
 35.54.62.0/24,us-west-2,AMAZON,us-west-2
 35.71.121.0/24,eu-central-2,AMAZON,eu-central-2
@@ -7720,6 +7723,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 205.251.254.0/24,GLOBAL,CLOUDFRONT,GLOBAL
 3.166.0.0/15,GLOBAL,CLOUDFRONT,GLOBAL
 54.230.224.0/19,GLOBAL,CLOUDFRONT,GLOBAL
+23.228.227.0/24,GLOBAL,CLOUDFRONT,GLOBAL
 71.152.0.0/17,GLOBAL,CLOUDFRONT,GLOBAL
 216.137.32.0/19,GLOBAL,CLOUDFRONT,GLOBAL
 204.246.172.0/24,GLOBAL,CLOUDFRONT,GLOBAL
@@ -7733,6 +7737,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 54.240.128.0/18,GLOBAL,CLOUDFRONT,GLOBAL
 205.251.250.0/23,GLOBAL,CLOUDFRONT,GLOBAL
 180.163.57.0/25,GLOBAL,CLOUDFRONT,GLOBAL
+23.228.237.0/24,GLOBAL,CLOUDFRONT,GLOBAL
 52.46.0.0/18,GLOBAL,CLOUDFRONT,GLOBAL
 3.174.0.0/15,GLOBAL,CLOUDFRONT,GLOBAL
 52.82.128.0/19,GLOBAL,CLOUDFRONT,GLOBAL
@@ -7766,6 +7771,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 13.35.0.0/16,GLOBAL,CLOUDFRONT,GLOBAL
 204.246.174.0/23,GLOBAL,CLOUDFRONT,GLOBAL
 3.164.128.0/17,GLOBAL,CLOUDFRONT,GLOBAL
+23.228.226.0/24,GLOBAL,CLOUDFRONT,GLOBAL
 3.172.0.0/18,GLOBAL,CLOUDFRONT,GLOBAL
 36.103.232.0/25,GLOBAL,CLOUDFRONT,GLOBAL
 119.147.182.128/26,GLOBAL,CLOUDFRONT,GLOBAL
