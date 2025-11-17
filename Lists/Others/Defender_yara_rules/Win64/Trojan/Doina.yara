@@ -266,3 +266,32 @@ rule Trojan_Win64_Doina_AHB_2147955159_0
         )
 }
 
+rule Trojan_Win64_Doina_SX_2147957612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.SX!MTB"
+        threat_id = "2147957612"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "cmd.exe /C ping 127.0.0.1 -n 2 > nul & del \"%s\"" ascii //weight: 2
+        $x_2_2 = "SELECT * FROM AntiVirusProduct" ascii //weight: 2
+        $x_1_3 = "\\Google\\Chrome\\User Data\\Default\\History" ascii //weight: 1
+        $x_1_4 = "History.txt" ascii //weight: 1
+        $x_1_5 = "Downloads.txt" ascii //weight: 1
+        $x_1_6 = "SELECT tab_url FROM downloads" ascii //weight: 1
+        $x_1_7 = "\\Telegram Desktop\\Telegram.exe" ascii //weight: 1
+        $x_1_8 = "data.php" ascii //weight: 1
+        $x_1_9 = "Info.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
