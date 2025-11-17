@@ -504,3 +504,24 @@ rule Trojan_Win32_Jaik_ISR_2147947670_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_BAA_2147957548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.BAA!MTB"
+        threat_id = "2147957548"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 04 0f f6 d0 c0 c8 04 34 58 88 04 0f 41 3b ca 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

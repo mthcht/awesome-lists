@@ -41,3 +41,28 @@ rule Trojan_Win64_ShellCodeLoader_KJ_2147956959_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeLoader_NQA_2147957581_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeLoader.NQA!MTB"
+        threat_id = "2147957581"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "S7jwIIhtHcubgx1yrXpUFfH9jBHaa" ascii //weight: 2
+        $x_2_2 = "z4h1ygL9pxEoJmGd46Kta2T624nLnIM" ascii //weight: 2
+        $x_2_3 = "03Xr0gFAOAldC9hoJz7V0yx9B" ascii //weight: 2
+        $x_2_4 = "FkaFFLS3SRTD6g0ZYyXOFMHbKwhPdGOL.dll" ascii //weight: 2
+        $x_2_5 = "RepositoryUrlBpnEFTpGDxsfKKrPFYPCqvZGsxSkwyskIg" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

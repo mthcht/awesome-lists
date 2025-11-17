@@ -3019,6 +3019,29 @@ rule Trojan_Win32_Fragtor_SMN_2147956671_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_BAC_2147957282_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.BAC!MTB"
+        threat_id = "2147957282"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f be 10 33 da 8b 45 fc 50 8b 4d 08 e8 ?? ?? ?? ?? 88 18 eb}  //weight: 2, accuracy: Low
+        $x_1_2 = "cmd /c timeout /t 5 > nul && del" ascii //weight: 1
+        $x_1_3 = "ShellExecuteA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_AHC_2147957306_0
 {
     meta:
@@ -3081,6 +3104,27 @@ rule Trojan_Win32_Fragtor_SXA_2147957566_0
         $x_30_1 = {50 ff d3 85 c0 74 f3 6a ?? 8d 85 ?? ?? ?? ?? 50 8d 85 ?? ?? ?? ?? 50 ff d7 85 c0 75 09 68 ?? ?? ?? ?? ff d6 eb d4}  //weight: 30, accuracy: Low
         $x_15_2 = {50 ff d7 68 e8 03 00 00 ff d6 8d 85 ?? ?? ?? ?? 50 ff d3 85 c0 75 e3}  //weight: 15, accuracy: Low
         $x_5_3 = {2b f9 d1 ff 8b c7 8b cf 99 83 e2 ?? 03 c2 c1 f8 ?? 2b c8 83 c1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AB_2147957586_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AB!MTB"
+        threat_id = "2147957586"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {83 c7 0c 83 c3 f4 84 c9 75 73 85 db 0f 84 85 00 00 00 8b 47 04 8b 77 08 8d 4d e0 ba ?? ?? ?? ?? 89 45 f0 68 ?? ?? ?? ?? 6a 19 e8 ?? ?? ?? ?? 83 c4 08 8b 45 e4 3b 75 e8 75 26 56 89 c6 50 ff 75 f0 e8 ?? ?? ?? ?? 83 c4 0c 85 c0 0f 94 c1 8b 45 e0 85 c0 75 16 eb a9}  //weight: 6, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -84,3 +84,34 @@ rule Trojan_Win64_AgentTesla_GVL_2147952581_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentTesla_DI_2147957582_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentTesla.DI!MTB"
+        threat_id = "2147957582"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "8197543738:AAGRcN3RWZO_nMCKUJ37nPJD7CxbQrz7GMo" ascii //weight: 4
+        $x_4_2 = "stealer-main\\stealer-main\\build\\output\\build.pdb" ascii //weight: 4
+        $x_3_3 = "7884746925" ascii //weight: 3
+        $x_2_4 = "<b>NEW VICTIM CONNECTED</b>" ascii //weight: 2
+        $x_1_5 = "<b>USER INFO</b>" ascii //weight: 1
+        $x_1_6 = "Computer: <code>" ascii //weight: 1
+        $x_1_7 = "Public IP: <code>" ascii //weight: 1
+        $x_1_8 = "<b>NETWORK INFO</b>" ascii //weight: 1
+        $x_1_9 = "chat_id=" ascii //weight: 1
+        $x_1_10 = "screenshot.png" ascii //weight: 1
+        $x_1_11 = "api.telegram.org" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

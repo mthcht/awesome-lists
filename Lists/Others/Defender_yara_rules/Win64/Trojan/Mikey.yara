@@ -1516,3 +1516,29 @@ rule Trojan_Win64_Mikey_SX_2147957567_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_ARAX_2147957580_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.ARAX!MTB"
+        threat_id = "2147957580"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "VBoxGuest.sys" ascii //weight: 2
+        $x_2_2 = "vmhgfs.sys" ascii //weight: 2
+        $x_2_3 = "\\msiexec.exe" ascii //weight: 2
+        $x_2_4 = "WDAGUtilityAccount" ascii //weight: 2
+        $x_2_5 = "ImageDownloader" ascii //weight: 2
+        $x_2_6 = "powershell.exe -EncodedCommand cwB0AGEAcgB0" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

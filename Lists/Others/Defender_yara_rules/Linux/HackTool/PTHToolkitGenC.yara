@@ -85,32 +85,3 @@ rule HackTool_Linux_PTHToolkitGenC_GG_2147766363_0
         )
 }
 
-rule HackTool_Linux_PTHToolkitGenC_HH_2147766364_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Linux/PTHToolkitGenC.HH"
-        threat_id = "2147766364"
-        type = "HackTool"
-        platform = "Linux: Linux platform"
-        family = "PTHToolkitGenC"
-        severity = "High"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "21"
-        strings_accuracy = "High"
-    strings:
-        $x_20_1 = "mssql " wide //weight: 20
-        $x_1_2 = "-u " wide //weight: 1
-        $x_1_3 = "-id " wide //weight: 1
-        $x_1_4 = "-x " wide //weight: 1
-        $x_1_5 = "-k" wide //weight: 1
-        $x_1_6 = "--kerberos" wide //weight: 1
-        $x_1_7 = "-local-auth" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_20_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
