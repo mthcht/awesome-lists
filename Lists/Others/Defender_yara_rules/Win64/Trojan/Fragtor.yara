@@ -62,3 +62,27 @@ rule Trojan_Win64_Fragtor_GVB_2147949111_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Fragtor_GVF_2147957687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Fragtor.GVF!MTB"
+        threat_id = "2147957687"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup" wide //weight: 2
+        $x_1_2 = "Downloaded to Startup: %s" wide //weight: 1
+        $x_1_3 = "Self copy failed (admin?)" wide //weight: 1
+        $x_1_4 = "www.modedapk.net" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -202,3 +202,49 @@ rule Trojan_Win64_ReverseShell_KK_2147956474_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_SXA_2147957712_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.SXA!MTB"
+        threat_id = "2147957712"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 01 d0 0f b6 00 83 f0 ?? 89 c1 8b 45 ?? 48 63 d0 48 8b 45 ?? 48 01 d0 89 ca 88 10}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 ba 4f 75 76 65 72 74 75 72 48 b9 65 20 64 65 20 6c 61 20 48 89 10 48 89 48 ?? 48 ba 70 61 67 65 20 77 65 62 48 b9 20 65 66 66 65 63 74 75 48 89 50 ?? 48 89 48 ?? 48 bf 63 74 75 c3 a9 65 2e 00}  //weight: 10, accuracy: Low
+        $x_1_3 = "shutdown /s /t 1" ascii //weight: 1
+        $x_1_4 = "Trojan" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ReverseShell_SXB_2147957713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.SXB!MTB"
+        threat_id = "2147957713"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {48 63 d0 48 8b 45 ?? 48 01 c2 0f b6 45 ?? 88 02 48 8b 45 ?? 48 89 c1 e8 ?? ?? ?? ?? 88 45 ?? 80 7d ?? ?? 74 0b 8b 45 ?? 48 98 48 3b 45}  //weight: 6, accuracy: Low
+        $x_4_2 = {48 98 0f b6 84 05 40 11 00 00 3c ?? 75 13 8b 85 48 21 00 00 83 e8 ?? 48 98 c6 84 05}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

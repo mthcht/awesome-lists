@@ -2836,3 +2836,24 @@ rule Trojan_Win64_Tedy_AHJ_2147957501_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_OKQ_2147957694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.OKQ!MTB"
+        threat_id = "2147957694"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 f8 48 8d 52 01 0f b6 4c 3c 30 8d 04 31 0f b6 f0 0f b6 44 34 ?? 88 44 3c 30 88 4c 34 30 0f b6 44 3c 30 03 c1 0f b6 c0 0f b6 4c 04 30 30 4a ff 49 83 e8 01 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

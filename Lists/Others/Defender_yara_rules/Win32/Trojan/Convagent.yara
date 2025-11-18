@@ -1900,3 +1900,31 @@ rule Trojan_Win32_Convagent_ARR_2147956042_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_ARR_2147956042_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "z0LjQuSDQsiDQvdCw0YjQtdC5INGB0" ascii //weight: 15
+        $x_15_2 = "$codeB64 = \"JFNlc3Npb25JZCA9ICInIiI" ascii //weight: 15
+        $x_15_3 = "LSDQv9C+0LTQtdGAINCf0L7Qu9GM0LfQvtCyLiIK\")" ascii //weight: 15
+        $x_5_4 = "bobrik.exe" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_5_*))) or
+            ((2 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+

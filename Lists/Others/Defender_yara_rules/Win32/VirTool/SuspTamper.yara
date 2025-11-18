@@ -37,6 +37,34 @@ rule VirTool_Win32_SuspTamper_A_2147957415_1
         family = "SuspTamper"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {5c 00 4e 00 53 00 75 00 64 00 6f 00 [0-4] 2e 00 65 00 78 00 65 00 00}  //weight: 10, accuracy: Low
+        $x_10_2 = " -U:" wide //weight: 10
+        $x_5_3 = "Get-AppxPackage" wide //weight: 5
+        $x_5_4 = "Remove-AppxPackage" wide //weight: 5
+        $x_1_5 = "SecHealth" wide //weight: 1
+        $x_1_6 = "Apprep.ChxApp" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_10_*) and 2 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule VirTool_Win32_SuspTamper_A_2147957415_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/SuspTamper.A"
+        threat_id = "2147957415"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspTamper"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "23"
         strings_accuracy = "Low"
     strings:
@@ -55,7 +83,7 @@ rule VirTool_Win32_SuspTamper_A_2147957415_1
         )
 }
 
-rule VirTool_Win32_SuspTamper_A_2147957415_2
+rule VirTool_Win32_SuspTamper_A_2147957415_3
 {
     meta:
         author = "defender2yara"

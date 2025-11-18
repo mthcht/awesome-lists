@@ -65,3 +65,27 @@ rule Trojan_MSIL_TurtleLoader_AW_2147956725_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_TurtleLoader_RK_2147957693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/TurtleLoader.RK!MTB"
+        threat_id = "2147957693"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "TurtleLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "App_Web_dbqtysvy.dll" ascii //weight: 1
+        $x_1_2 = "MeterpreterShell" ascii //weight: 1
+        $x_1_3 = "Shellcode executed" wide //weight: 1
+        $x_1_4 = "get_Response Write" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

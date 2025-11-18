@@ -324,3 +324,24 @@ rule Trojan_Win32_Mikey_AHF_2147949653_0
         )
 }
 
+rule Trojan_Win32_Mikey_OPQ_2147957695_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.OPQ!MTB"
+        threat_id = "2147957695"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {45 31 ff 45 89 fc 41 83 e4 03 46 8a 64 24 28 47 30 24 3b 4d 8d 67 01 4d 89 e7 4c 39 e1 75 e4}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
