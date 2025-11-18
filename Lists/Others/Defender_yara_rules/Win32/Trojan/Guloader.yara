@@ -5481,34 +5481,6 @@ rule Trojan_Win32_Guloader_ASI_2147933232_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_SVM_2147933263_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Guloader.SVM!MTB"
-        threat_id = "2147933263"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Guloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "15"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "quadriciliate.txt" ascii //weight: 2
-        $x_2_2 = "budgereegah.jpg" ascii //weight: 2
-        $x_2_3 = "avisskriverier.jpg" ascii //weight: 2
-        $x_2_4 = "Tekstmasses227.ini" ascii //weight: 2
-        $x_2_5 = "Retroposed.jpg" ascii //weight: 2
-        $x_2_6 = "Delbetalingers.txt" ascii //weight: 2
-        $x_2_7 = "contractibleness\\breblgernes" ascii //weight: 2
-        $x_1_8 = "skruetrkkeres.mus" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Guloader_AQ_2147933693_0
 {
     meta:

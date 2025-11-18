@@ -474,3 +474,25 @@ rule Trojan_Win32_Khalesi_PGK_2147946038_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Khalesi_B_2147957631_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Khalesi.B!AMTB"
+        threat_id = "2147957631"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Khalesi"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://cutit.org" ascii //weight: 2
+        $x_2_2 = "http://cli.re" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

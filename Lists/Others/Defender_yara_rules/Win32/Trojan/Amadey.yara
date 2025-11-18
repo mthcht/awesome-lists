@@ -4468,3 +4468,26 @@ rule Trojan_Win32_Amadey_Z_2147957089_0
         (6 of ($x*))
 }
 
+rule Trojan_Win32_Amadey_PAMA_2147957626_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.PAMA!MTB"
+        threat_id = "2147957626"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e 00 00 00 00 00 00 63 00 6d 00 64 00 20 00 2f 00 63 00 20 00 6d 00 6f 00 76 00 65 00 20 00 [0-32] 2e 00 62 00 61 00 74 00 20 00 26 00 26 00 20 00 [0-16] 2e 00 62 00 61 00 74 00 [0-26] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e 00 00 00 00 00 00 63 6d 64 20 2f 63 20 6d 6f 76 65 20 [0-32] 2e 62 61 74 20 26 26 20 [0-16] 2e 62 61 74 [0-26] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_5_3 = {2e 74 65 78 74 00 00 00 9c 66 00 00 00 10 00 00 00 68 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 64 61 74 61 00 00 00 a0 1a 00 00 00 80 00 00 00 02 00 00 00 6c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

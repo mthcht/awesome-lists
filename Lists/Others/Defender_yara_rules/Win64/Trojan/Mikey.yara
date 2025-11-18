@@ -1542,3 +1542,26 @@ rule Trojan_Win64_Mikey_ARAX_2147957580_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_ARR_2147957636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.ARR!MTB"
+        threat_id = "2147957636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {40 8a cf 0f b6 c1 48 8d 0c c0 0f b6 43 ?? 48 03 c8 83 e1}  //weight: 2, accuracy: Low
+        $x_8_2 = "%s\\event_fetcher.exe" wide //weight: 8
+        $x_10_3 = "del /f /q \"%s\\*.exe\"" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

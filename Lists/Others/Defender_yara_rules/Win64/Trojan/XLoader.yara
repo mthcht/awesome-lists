@@ -83,3 +83,25 @@ rule Trojan_Win64_XLoader_AKQ_2147957467_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XLoader_GVC_2147957625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XLoader.GVC!MTB"
+        threat_id = "2147957625"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b f0 8b cb 0f b6 44 0d 10 40 0f b6 d6 2b c2 05 00 01 00 00 0f b6 c0 88 44 0d 10 ff c3 3b fb 7f d8}  //weight: 2, accuracy: High
+        $x_1_2 = {0f b7 c1 8b c8 c1 f9 02 33 c8 8b d0 c1 fa 03 33 ca 8b d0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
