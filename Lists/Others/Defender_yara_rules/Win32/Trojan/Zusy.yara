@@ -6940,6 +6940,29 @@ rule Trojan_Win32_Zusy_KK_2147944060_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a c3 f6 eb 32 45 13 8a cb c0 e1 02 32 ca 02 c1 00 44 1d f8 43 83 fb 08}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 55 fc 30 0c 02 40 3b 45 0c}  //weight: 10, accuracy: High
+        $x_5_3 = "pclDragov.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_KK_2147944060_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KK!MTB"
+        threat_id = "2147944060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:
