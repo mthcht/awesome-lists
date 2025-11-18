@@ -1,3 +1,25 @@
+rule VirTool_Win64_ZomBytes_C_2147949850_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/ZomBytes.C"
+        threat_id = "2147949850"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ZomBytes"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5b 2a 5d 20 4d 65 6d 6f 72 79 20 61 6c 6c 6f 63 61 74 65 64 20 77 69 74 68 20 73 75 63 63 65 73 73 20 21 20 41 64 64 72 65 73 73 20 3a 20 25 70 0a 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = "[!] Can't allocate memory ! STATUS : 0x%ll" ascii //weight: 1
+        $x_1_3 = "draugr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule VirTool_Win64_ZomBytes_B_2147949859_0
 {
     meta:

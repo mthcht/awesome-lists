@@ -295,3 +295,27 @@ rule Trojan_Win64_Doina_SX_2147957612_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_AHD_2147957673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.AHD!MTB"
+        threat_id = "2147957673"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {4c 2b c1 66 90 0f b7 02 48 8d 52 ?? 66 41 89 44 10 fe 66 85 c0 75 ?? 48 8d 8c 24 80 04 00 00 48 83 e9}  //weight: 30, accuracy: Low
+        $x_50_2 = "RXS_RAHUgtL4wFDMHMxxc" ascii //weight: 50
+        $x_40_3 = "Brave_Phantom" ascii //weight: 40
+        $x_10_4 = "\\Comodo\\Dragon\\User Data\\Local State" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

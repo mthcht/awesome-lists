@@ -189,3 +189,24 @@ rule Trojan_MSIL_Darkcloud_PGDC_2147954490_0
         )
 }
 
+rule Trojan_MSIL_Darkcloud_ZSK_2147957680_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Darkcloud.ZSK!MTB"
+        threat_id = "2147957680"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Darkcloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 07 08 6f ?? 00 00 0a 13 0a 03 06 6f ?? 00 00 0a 59 13 0b 11 0b 16 fe 02 16 fe 01 13 0f 11 0f 2c 05}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
