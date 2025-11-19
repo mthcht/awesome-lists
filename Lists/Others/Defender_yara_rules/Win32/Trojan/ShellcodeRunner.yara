@@ -596,3 +596,27 @@ rule Trojan_Win32_ShellcodeRunner_GVE_2147957420_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_CG_2147957785_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.CG!MTB"
+        threat_id = "2147957785"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {6a 00 6a 20 6a 03 6a 00 6a 03 68 00 00 00 c0 50 ff 15}  //weight: 5, accuracy: High
+        $x_5_2 = {51 56 50 57 ff 15}  //weight: 5, accuracy: High
+        $x_5_3 = {6a 04 68 00 10 00 00 56 6a 00 ff 15}  //weight: 5, accuracy: High
+        $x_5_4 = {68 00 01 00 00 8d ?? 24 [0-4] 50 68 ?? ?? ?? ?? 68 ?? ?? ?? ?? 68 ?? ?? ?? ?? ff 15}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

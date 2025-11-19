@@ -1985,3 +1985,25 @@ rule Backdoor_MSIL_Crysan_AZCB_2147949881_0
         )
 }
 
+rule Backdoor_MSIL_Crysan_AILB_2147957792_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Crysan.AILB!MTB"
+        threat_id = "2147957792"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 07 20 00 01 00 00 6f ?? 00 00 0a 07 06 6f ?? 00 00 0a 07 18 6f ?? 00 00 0a 20 f4 01 00 00 28 ?? 00 00 0a 07 6f ?? 00 00 0a 7e ?? 00 00 04 16 7e ?? 00 00 04 8e 69 6f ?? 00 00 0a 0c 08 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
