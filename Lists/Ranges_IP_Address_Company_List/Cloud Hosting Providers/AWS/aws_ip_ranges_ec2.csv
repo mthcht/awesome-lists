@@ -262,7 +262,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.193.128.0/22,us-east-1,EC2,us-east-1
 35.50.132.0/24,us-west-2,EC2,us-west-2
 35.54.44.0/23,eu-west-1,EC2,eu-west-1
-122.200.61.0/24,ap-southeast-2,EC2,ap-southeast-2
 15.228.0.0/15,sa-east-1,EC2,sa-east-1
 51.44.0.0/16,eu-west-3,EC2,eu-west-3
 157.241.0.0/16,me-south-1,EC2,me-south-1
@@ -318,6 +317,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 35.50.208.0/24,me-south-1,EC2,me-south-1
 54.219.0.0/16,us-west-1,EC2,us-west-1
 3.32.0.0/16,us-gov-west-1,EC2,us-gov-west-1
+13.193.0.0/16,ap-northeast-1,EC2,ap-northeast-1
 35.182.0.0/15,ca-central-1,EC2,ca-central-1
 63.180.0.0/14,eu-central-1,EC2,eu-central-1
 70.232.124.0/22,eu-west-1,EC2,eu-west-1
@@ -1099,6 +1099,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 3.5.144.0/23,ap-northeast-2,EC2,ap-northeast-2
 15.193.172.0/22,sa-east-1,EC2,sa-east-1
 16.24.0.0/16,me-south-1,EC2,me-south-1
+16.58.0.0/16,us-east-2,EC2,us-east-2
 52.94.248.112/28,eu-central-1,EC2,eu-central-1
 155.146.144.0/20,us-west-2,EC2,us-west-2-wl1-den-wlz-1
 168.185.4.0/24,us-west-1,EC2,us-west-1
