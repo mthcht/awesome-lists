@@ -196,29 +196,6 @@ rule Trojan_Win64_Doina_MCG_2147951785_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Doina_AMB_2147954339_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/Doina.AMB!MTB"
-        threat_id = "2147954339"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "Doina"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_3_1 = {44 0f b6 02 48 8d 0d ?? ?? ?? ?? 4c 8b ca 48 ff c2 0f b6 01 48 8d 49 01 41 3a c0}  //weight: 3, accuracy: Low
-        $x_1_2 = "fuck_wacatac" ascii //weight: 1
-        $x_1_3 = "telegram.me/" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_Doina_ARAX_2147954939_0
 {
     meta:

@@ -883,3 +883,26 @@ rule Trojan_Win32_Phorpiex_MX_2147956417_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Phorpiex_SX_2147957801_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Phorpiex.SX!MTB"
+        threat_id = "2147957801"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {f7 f9 6b d2 0f 52 ff 15 ?? ?? ?? ?? e8 ?? ?? ?? ?? 99 8b cf f7 f9 03 d6}  //weight: 20, accuracy: Low
+        $x_10_2 = {53 8d 45 e8 50 ff 75 f8 8d 85 dc fc ff ff 50 ff 75 f0 ff 15 ?? ?? ?? ?? 8d 45 f8 50 68}  //weight: 10, accuracy: Low
+        $x_1_3 = "xmr.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

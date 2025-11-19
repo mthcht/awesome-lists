@@ -1279,6 +1279,28 @@ rule Trojan_Win32_Androm_KK_2147956385_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {6a 19 99 59 f7 f9 80 c2 61 88 54 35 c0 46 83 fe 07}  //weight: 10, accuracy: High
+        $x_5_2 = "hytr7fisgfhtro39" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Androm_KK_2147956385_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.KK!MTB"
+        threat_id = "2147956385"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "16"
         strings_accuracy = "High"
     strings:

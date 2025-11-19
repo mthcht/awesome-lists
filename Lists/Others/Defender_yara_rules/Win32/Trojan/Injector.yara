@@ -2424,3 +2424,24 @@ rule Trojan_Win32_Injector_MK_2147956188_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_KK_2147957799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.KK!MTB"
+        threat_id = "2147957799"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {be 72 31 e3 ee 09 f6 e8 ?? ?? ?? ?? bf 1b c8 85 31 31 11 bf 45 b7 b6 28 01 f7 21 ff 81 c1 02 00 00 00 81 ef e8 53 06 59 4e 21 ff 39 c1}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
