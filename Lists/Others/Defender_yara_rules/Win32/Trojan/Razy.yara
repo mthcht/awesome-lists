@@ -1657,3 +1657,26 @@ rule Trojan_Win32_Razy_KK_2147957060_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Razy_ARR_2147957750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.ARR!MTB"
+        threat_id = "2147957750"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {49 41 49 31 c9 49 c1 e9}  //weight: 2, accuracy: High
+        $x_10_2 = {8b c3 0f b6 0c 3b 99 f7 7d 10 8b 45 0c 0f b6 04 02}  //weight: 10, accuracy: High
+        $x_8_3 = {43 4b 4b c1 eb ?? 43 4b 4b c1 eb ?? 31 db 43 83 c3}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
