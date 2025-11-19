@@ -424,3 +424,86 @@ rule Trojan_Win32_AsyncRAT_PTB_2147949671_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AsyncRAT_SA_2147957739_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRAT.SA"
+        threat_id = "2147957739"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "get_ActivatePong" ascii //weight: 1
+        $x_1_2 = "get_SslClient" ascii //weight: 1
+        $x_1_3 = "get_TcpClient" ascii //weight: 1
+        $x_1_4 = "get_SendSync" ascii //weight: 1
+        $x_1_5 = "get_IsConnected" ascii //weight: 1
+        $x_1_6 = "set_UseShellExecute" ascii //weight: 1
+        $x_1_7 = "Pastebin" ascii //weight: 1
+        $x_1_8 = "Select * from AntivirusProduct" ascii //weight: 1
+        $x_1_9 = "Stub.exe" ascii //weight: 1
+        $x_1_10 = "timeout 3 > NUL" ascii //weight: 1
+        $x_1_11 = "/c schtasks /create /f /sc onlogon /rl highest /tn " ascii //weight: 1
+        $x_1_12 = "\\nuR\\noisreVtnerruC\\swodniW\\tfosorciM\\erawtfoS" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (8 of ($x*))
+}
+
+rule Trojan_Win32_AsyncRAT_SB_2147957741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRAT.SB"
+        threat_id = "2147957741"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "151"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = {bf eb 1e 56 fb cd 97 3b b2 19 02 24 30 a5 78 43 00 3d 56 44 d2 1e 62 b9 d4 f1 80 e7 e6 c3 39 41}  //weight: 100, accuracy: High
+        $x_50_2 = {00 00 00 0d 53 00 48 00 41 00 32 00 35 00 36 00 00}  //weight: 50, accuracy: High
+        $x_50_3 = {09 50 00 6f 00 6e 00 67 00 00}  //weight: 50, accuracy: High
+        $x_1_4 = "pastebin" ascii //weight: 1
+        $x_1_5 = "pong" ascii //weight: 1
+        $x_1_6 = "Stub.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_50_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_AsyncRAT_SB_2147957741_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRAT.SB"
+        threat_id = "2147957741"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "AsyncClient" ascii //weight: 1
+        $x_1_2 = "masterKey can not be null or empty" ascii //weight: 1
+        $x_1_3 = "schtasks /create /f /sc onlogon /rl highest" ascii //weight: 1
+        $x_1_4 = {bf eb 1e 56 fb cd 97 3b b2 19}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
