@@ -8000,3 +8000,26 @@ rule Trojan_MSIL_SnakeKeylogger_ABD_2147957755_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_SVN_2147957761_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.SVN!MTB"
+        threat_id = "2147957761"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {00 04 2c 0b 04 6f ?? ?? ?? ?? 18 fe 02 2b 01 16 0b 07 2c 15 03 04 6f ?? ?? ?? ?? 6c 23 18 2d 44 54 fb 21 09 40 5a 58 10 01 72 ad 04 00 70 73 24 00 00 0a 6f ?? ?? ?? ?? 72 b9 04 00 70 6f ?? ?? ?? ?? 0a 16 28 ?? ?? ?? ?? 00 03 69 1d 5d 06 6f ?? ?? ?? ?? 19 5a 58 0c 2b 00 08 2a}  //weight: 1, accuracy: Low
+        $x_1_2 = {00 16 0b 2b 32 00 02 04 05 28 ?? ?? ?? ?? 0c 08 2c 02 2b 48 02 03 06 07 04 05 0e 04 0e 05 28 ?? ?? ?? ?? 00 02 04 05 28 0f 00 00 06 0d 09 2c 02 2b 2a 00 07 17 58 0b 07 02 03 28 ?? ?? ?? ?? fe 04 13 04 11 04 2d be 00 06 17 58 0a 06 02 03 28 ?? ?? ?? ?? fe 04 13 05 11 05 2d a4}  //weight: 1, accuracy: Low
+        $x_1_3 = {00 02 03 04 05 28 ?? ?? ?? ?? 0a 02 12 00 28 ?? ?? ?? ?? 0e 04 0e 05 0e 06 0e 07 28 ?? ?? ?? ?? 00 02 12 00 28 ?? ?? ?? ?? 0e 04 0e 05 0e 06 0e 07 28 ?? ?? ?? ?? 00 02 12 00 28 ?? ?? ?? ?? 0e 04 0e 05 0e 06 0e 07 28 12 00 00 06 00 2a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
