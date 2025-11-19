@@ -2707,6 +2707,7 @@ rule Trojan_Win32_ClickFix_ZE_2147939086_1
         $x_10_3 = {20 00 05 27 20 00}  //weight: 10, accuracy: High
         $n_100_4 = "msedgewebview2.exe" wide //weight: -100
         $n_100_5 = "attrib.exe" wide //weight: -100
+        $n_100_6 = "\\Edge\\Application\\msedge.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

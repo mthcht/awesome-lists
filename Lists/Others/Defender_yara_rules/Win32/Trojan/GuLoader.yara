@@ -6927,3 +6927,28 @@ rule Trojan_Win32_GuLoader_RDF_2147957634_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDG_2147957727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDG!MTB"
+        threat_id = "2147957727"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "terapiassistenten" ascii //weight: 1
+        $x_1_2 = "skvisningernes gruppediskussionens exorcistic" ascii //weight: 1
+        $x_1_3 = "solanders kontorassistenten zedoaries" ascii //weight: 1
+        $x_1_4 = "bortkastningerne" ascii //weight: 1
+        $x_1_5 = "resgstens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

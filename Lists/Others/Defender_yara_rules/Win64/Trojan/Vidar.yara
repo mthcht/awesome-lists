@@ -598,3 +598,24 @@ rule Trojan_Win64_Vidar_SUPC_2147956994_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_SPPX_2147957721_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.SPPX!MTB"
+        threat_id = "2147957721"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 20 20 20 20 20 20 20 10 00 00 00 00 b0 01 00 00 02 00 00 00 da 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 20 20 20 20 20 20 20 20 20 2c 00 00 00 c0 01 00 00 18 00 00 00 dc 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 62 73 73 00 00 00 00 e0 a3 00 00 00 f0 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
