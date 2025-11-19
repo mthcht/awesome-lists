@@ -43,3 +43,28 @@ rule Trojan_Win32_GlassWorm_B_2147956903_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GlassWorm_DA_2147957746_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GlassWorm.DA!MTB"
+        threat_id = "2147957746"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GlassWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "api.mainnet-beta.solana.com" ascii //weight: 10
+        $x_10_2 = "28PKnu7RzizxBzFPoLp69HLXp9bJL3JFtT2s5QzHsEA2" ascii //weight: 10
+        $x_1_3 = "eval(atob(" ascii //weight: 1
+        $x_1_4 = ".replace(" ascii //weight: 1
+        $x_1_5 = "header.get(atob(" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
