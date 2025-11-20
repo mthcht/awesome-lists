@@ -1191,3 +1191,24 @@ rule Trojan_Win32_GCleaner_PGGL_2147957584_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_PGGE_2147957850_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.PGGE!MTB"
+        threat_id = "2147957850"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 f6 01 1f b8 8a a5 08 00 03 45 c4 03 c3 03 c6 89 45 b0 c7 45 a0 16 19 00 00 6a 00 e8 ?? ?? ?? ?? 8b 55 b0 03 55 a0 81 ea 16 19 00 00 2b d0 03 d6 52 6a 00 e8 ?? ?? ?? ?? 5a 2b d0 03 d6 52 6a 00 e8 ?? ?? ?? ?? 5a 2b d0 03 f2 6a 00 e8 ?? ?? ?? ?? 2b f0 31 37 83 c3 04 83 c7 04 3b 5d c8 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -68,3 +68,26 @@ rule Ransom_Win64_Encoder_MX_2147956810_1
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_AP_2147957855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.AP!AMTB"
+        threat_id = "2147957855"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your system has been encrypted by WORDLEWARE." ascii //weight: 1
+        $x_1_2 = "WORDLEWARE will begin decrypting your precious data!" ascii //weight: 1
+        $x_1_3 = "You don't need to pay me to get your files back." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
