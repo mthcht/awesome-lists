@@ -2030,3 +2030,25 @@ rule Backdoor_MSIL_Crysan_AMLB_2147957867_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Crysan_AOLB_2147957881_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Crysan.AOLB!MTB"
+        threat_id = "2147957881"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {09 08 09 8e 69 08 8e 69 28 ?? 00 00 0a 28 ?? 00 00 0a 06 07 6f ?? 00 00 0a 06 08 6f ?? 00 00 0a 06 6f ?? 00 00 0a 13 04 11 04 02 16 02 8e 69 6f ?? 00 00 0a 13 05 11 05 8e 69 04 59 8d ?? 00 00 01 13 06 11 05 04 11 06 16 11 06 8e 69 28 ?? 00 00 0a 11 06 13 07 dd 0d}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

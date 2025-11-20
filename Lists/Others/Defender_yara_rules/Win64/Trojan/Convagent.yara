@@ -955,3 +955,30 @@ rule Trojan_Win64_Convagent_ARR_2147957637_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_SXA_2147957889_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.SXA!MTB"
+        threat_id = "2147957889"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "^-([^: ]+)[ :]?([^:]*)$" ascii //weight: 3
+        $x_3_2 = "payload" ascii //weight: 3
+        $x_2_3 = "$decodedFile.hex" ascii //weight: 2
+        $x_2_4 = "(\"cmd.exe\", \"powershell.exe\", \"reg.exe\", \"schtasks.exe\", \"sc.exe\")" ascii //weight: 2
+        $x_1_5 = "Extensions = @(\".scr\", \".pif\", \".com\", \".bat\", \".cmd\", \".vbs\", \".vbe\", \".js\", \".jse\", \".wsf\", \".wsh\", \".ps1\", \".dll\")" ascii //weight: 1
+        $x_1_6 = "$process.Kill()" ascii //weight: 1
+        $x_1_7 = "Copy-Item $systemPath $tempPath -ErrorAction SilentlyContinue" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

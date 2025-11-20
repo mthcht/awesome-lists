@@ -1339,6 +1339,7 @@ rule Trojan_Win32_ClickFix_DX_2147936522_0
         $n_1000_42 = "msedgewebview2.exe" wide //weight: -1000
         $n_1000_43 = "if false == false echo" wide //weight: -1000
         $n_1000_44 = "Cinterion_Snapdragon_X20_LTE" wide //weight: -1000
+        $n_1000_45 = "Edge\\Application\\136.0.3240.50\\Installer\\setup.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

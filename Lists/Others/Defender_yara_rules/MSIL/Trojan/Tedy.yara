@@ -2268,6 +2268,28 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_0
         threshold = "20"
         strings_accuracy = "High"
     strings:
+        $x_15_1 = {5d 58 61 d2 9c 08 17 58 0c 08 06 8e 69 fe 04 0d 09 2d dd}  //weight: 15, accuracy: High
+        $x_5_2 = "KjQrOCwsCAQOD0oAHgI=" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_ARR_2147957141_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARR!MTB"
+        threat_id = "2147957141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
         $x_8_1 = "$21a85034-d725-41d8-9ab9-19507fa1e20c" ascii //weight: 8
         $x_10_2 = "ComputerScanner.exe" ascii //weight: 10
         $x_2_3 = "<streamStream>5__6" ascii //weight: 2
