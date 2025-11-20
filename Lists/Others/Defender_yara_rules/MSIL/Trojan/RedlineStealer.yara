@@ -651,3 +651,25 @@ rule Trojan_MSIL_RedlineStealer_ZEK_2147957119_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RedlineStealer_ZYK_2147957869_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedlineStealer.ZYK!MTB"
+        threat_id = "2147957869"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 05 0e 04 6f ?? 00 00 0a 0a 04 03 6f ?? 00 00 0a 59 0b 07 16 fe 02 16 fe 01 0c 08 2c 02 2b 68 03 06}  //weight: 5, accuracy: Low
+        $x_5_2 = {02 03 04 05 07 0e 04 0e 05 28 ?? 00 00 06 00 03 6f ?? 00 00 0a 04 fe 04 16 fe 01 0d 09 2c 02 2b 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
