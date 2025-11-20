@@ -820,3 +820,27 @@ rule Trojan_Win32_Doina_AHC_2147956119_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_MK_2147957825_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.MK!MTB"
+        threat_id = "2147957825"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f 43 8d 80 f5 ff ff 90 8a 01 8d 49 01 88 02 8d 52 01 84 c0}  //weight: 20, accuracy: High
+        $x_15_2 = "cmd /c ping 127.0.0.1 -n 3 > nul & del \"%s\"" ascii //weight: 15
+        $x_10_3 = "IV\\Project\\UpdateBin" ascii //weight: 10
+        $x_5_4 = "/C powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath \"%s\"" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
