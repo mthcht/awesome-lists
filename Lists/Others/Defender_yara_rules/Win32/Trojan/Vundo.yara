@@ -2913,3 +2913,25 @@ rule Trojan_Win32_Vundo_GVA_472150_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vundo_AHC_474172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vundo.AHC!MTB"
+        threat_id = "474172"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vundo"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8a 10 80 f2 ?? 66 0f b6 d2 0f b7 d2 88 10 41 8b c1 80 39 ?? 75}  //weight: 30, accuracy: Low
+        $x_20_2 = {32 14 2f 8b 4c 24 14 8d 34 85 ?? ?? ?? ?? 33 f0 03 f6 22 d9 33 f0 32 d3 32 d0}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

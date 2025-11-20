@@ -174,3 +174,25 @@ rule Trojan_Win64_NukeSped_GVB_2147956995_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NukeSped_AKLB_2147957810_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NukeSped.AKLB!MTB"
+        threat_id = "2147957810"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NukeSped"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8b d9 48 83 7b 40 40 72 ?? 48 8b cb e8 ?? ?? ?? ?? 48 89 6b 40 48 8b 43 40 48 ff c7 0f b6 0c 18 30 4f ff 48 ff 43 40 48 ff ce 75}  //weight: 5, accuracy: Low
+        $x_5_2 = {49 2b fe 49 8b de 49 2b f6 66 0f 1f 44 00 00 48 8d 8d 30 02 00 00 e8 ?? ?? ?? ?? 8b 85 34 22 00 00 33 04 1e 89 03 48 8d 5b 04 48 8d 04 1f 48 3d 10 4b 02 00 76}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

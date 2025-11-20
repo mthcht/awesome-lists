@@ -2429,3 +2429,30 @@ rule Trojan_Win64_LummaStealer_HEO_2147957793_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_ARR_2147957815_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.ARR!MTB"
+        threat_id = "2147957815"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {f3 41 0f 6f 02 49 83 c2 ?? 66 0f fc c1 41 0f 11 42 f0 49 39 c2 75}  //weight: 50, accuracy: Low
+        $x_20_2 = {f3 0f 6f 0a 48 83 c2 ?? 66 0f 6f c1 66 0f 71 f0}  //weight: 20, accuracy: Low
+        $x_30_3 = {41 f6 20 49 83 c0 ?? 41 88 40 ff 49 39 c8 75}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((1 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+
