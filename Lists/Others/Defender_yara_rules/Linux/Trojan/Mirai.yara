@@ -668,3 +668,27 @@ rule Trojan_Linux_Mirai_HAB_2147956705_1
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_AMTB_2147957847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai!AMTB"
+        threat_id = "2147957847"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "fuser -k -n tcp %d 2>/dev/null" ascii //weight: 1
+        $x_1_2 = "NFnhiFSDfdsfFSD" ascii //weight: 1
+        $x_1_3 = "[locker] fcntl F_GETFL" ascii //weight: 1
+        $x_1_4 = "[locker] fcntl F_SETFL" ascii //weight: 1
+        $x_1_5 = "npxXoudifFeEgGaACScs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

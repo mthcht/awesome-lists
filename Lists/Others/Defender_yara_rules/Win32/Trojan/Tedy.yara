@@ -921,3 +921,27 @@ rule Trojan_Win32_Tedy_MK_2147957102_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_AA_2147957846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.AA!AMTB"
+        threat_id = "2147957846"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "nightlight.exe" ascii //weight: 1
+        $x_1_2 = "nightlight.pdb" ascii //weight: 1
+        $x_1_3 = "Sent screenshot failure message to webhook" ascii //weight: 1
+        $x_1_4 = "Extracting Discord token" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
