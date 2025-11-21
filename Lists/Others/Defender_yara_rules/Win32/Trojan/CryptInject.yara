@@ -6861,3 +6861,24 @@ rule Trojan_Win32_CryptInject_AHB_2147946294_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CryptInject_GA_2147957976_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CryptInject.GA!MTB"
+        threat_id = "2147957976"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 8c 0d ?? ?? ?? ?? 41 30 48 fd 41 8d 49 02 f7 e1 41 83 c1 05 c1 ea 03 6b c2 0f 2b c8 41 8d 41 fe 0f b6 8c 0d ?? ?? ?? ?? 41 30 48 fe 3d 77 01 00 00 0f 82}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
