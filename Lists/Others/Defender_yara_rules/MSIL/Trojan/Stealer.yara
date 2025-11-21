@@ -3479,3 +3479,25 @@ rule Trojan_MSIL_Stealer_MK_2147957517_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_Q_2147957962_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.Q!AMTB"
+        threat_id = "2147957962"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "strongdwn.com" ascii //weight: 3
+        $x_2_2 = {43 00 72 00 79 00 73 00 74 00 61 00 6c 00 [0-2] 50 00 44 00 46 00 2e 00 65 00 78 00 65 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

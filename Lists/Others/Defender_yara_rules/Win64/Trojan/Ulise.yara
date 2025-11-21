@@ -300,3 +300,26 @@ rule Trojan_Win64_Ulise_LM_2147957473_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_AHB_2147957980_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.AHB!MTB"
+        threat_id = "2147957980"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {c6 85 8a 00 00 00 48 c6 85 8b 00 00 00 83 c6 85 8c 00 00 00 c4 c6 85 8d 00 00 00 28 c6 85 8e 00 00 00 c3}  //weight: 30, accuracy: High
+        $x_20_2 = "Decrypting DLL with XOR key" ascii //weight: 20
+        $x_10_3 = "[KeyGet] Reflective injection successful" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
