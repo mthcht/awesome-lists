@@ -282,3 +282,26 @@ rule Trojan_MSIL_Shelm_SK_2147915520_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Shelm_ASB_2147958019_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Shelm.ASB!MTB"
+        threat_id = "2147958019"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Shelm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {00 07 11 19 07 11 19 91 20 fa 00 00 00 61 d2 9c 00 11 19 17 58 13 19 11 19 07 8e 69 fe 04 13 1a 11 1a 2d dc}  //weight: 3, accuracy: High
+        $x_1_2 = "Sections Shellcode Process Injector" ascii //weight: 1
+        $x_1_3 = "CreateRemoteThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

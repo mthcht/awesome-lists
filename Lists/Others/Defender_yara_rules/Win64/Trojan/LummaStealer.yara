@@ -2456,3 +2456,25 @@ rule Trojan_Win64_LummaStealer_ARR_2147957815_0
         )
 }
 
+rule Trojan_Win64_LummaStealer_HBO_2147958024_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.HBO!MTB"
+        threat_id = "2147958024"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 8b c0 24 ?? f6 d8 1b c9 81 e1 ?? ?? ?? ?? 42 33 8c 9b ?? ?? ?? ?? 4c 8b da 41 d1 e8 41 33 c8 89 0c 93 48 81 fa ?? ?? ?? ?? 0f 82}  //weight: 1, accuracy: Low
+        $x_1_2 = "//196.251.107.94:5553" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

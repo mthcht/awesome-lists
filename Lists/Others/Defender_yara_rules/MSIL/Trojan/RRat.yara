@@ -22,3 +22,26 @@ rule Trojan_MSIL_RRat_PGRR_2147957696_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RRat_ARR_2147958025_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RRat.ARR!MTB"
+        threat_id = "2147958025"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "m_d31c734eae4c48c0bdb21037a75a82ff" ascii //weight: 5
+        $x_3_2 = "<Module>{9ea83670-81f5-42b9-90c2-749f22f5e496}" ascii //weight: 3
+        $x_2_3 = "Customer.Descriptor" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

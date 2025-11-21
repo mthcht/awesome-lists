@@ -767,3 +767,25 @@ rule Trojan_MSIL_Dcstl_APLB_2147957886_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dcstl_AQLB_2147958015_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dcstl.AQLB!MTB"
+        threat_id = "2147958015"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dcstl"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0a 00 06 03 6f ?? 00 00 0a 00 06 04 6f ?? 00 00 0a 00 06 17 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 0b 02 73 ?? 00 00 0a 0c 08 07 16 73 ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 00 09 11 04 6f ?? 00 00 0a 00 11 04 6f ?? 00 00 0a 13 05 de 39 11 04 2c 08 11 04 6f ?? 00 00 0a 00 dc}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

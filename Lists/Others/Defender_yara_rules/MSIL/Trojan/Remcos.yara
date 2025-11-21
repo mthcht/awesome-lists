@@ -14158,3 +14158,46 @@ rule Trojan_MSIL_Remcos_SPBC_2147957873_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_GKV_2147958016_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.GKV!MTB"
+        threat_id = "2147958016"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {04 1e 5d 2c 03 03 2b 07 03 20 cf 00 00 00 61 b4 0a 2b 00 06 2a}  //weight: 5, accuracy: High
+        $x_4_2 = {2c 07 7e 02 01 00 04 2b 16 7e 01 01 00 04 fe 06 3a 02 00 06 73 02 02 00 0a 25 80 02 01 00 04 28 2c 00 00 2b 28 2d 00 00 2b 0b 00 7e 03 01 00 04 2c 07 7e 03 01 00 04 2b 16}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Remcos_AB_2147958018_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.AB!MTB"
+        threat_id = "2147958018"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {3a 5a 01 00 00 11 07 02 6f ?? 00 00 0a 3c 4d 01 00 00 11 08 02 6f ?? 00 00 0a 3c 11 01 00 00 06 6f ?? 00 00 0a 03 3c 34 01 00 00 02 11 07 11 08 6f ?? 00 00 0a 13 09 03 06 6f ?? 00 00 0a 59 13 0a 11 0a 11 04 61 16 2f 0a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
