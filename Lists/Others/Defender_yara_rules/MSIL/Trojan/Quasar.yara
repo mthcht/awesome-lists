@@ -2003,3 +2003,24 @@ rule Trojan_MSIL_Quasar_ALKB_2147957232_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_MKV_2147957903_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.MKV!MTB"
+        threat_id = "2147957903"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0c 1f 18 8d 2e 00 00 01 25 d0 5d 00 00 04 28 ?? 00 00 0a 0d 08 28 ?? 00 00 0a 13 04 73 38 00 00 0a 13 06 00 11 06 09 6f ?? 00 00 0a 00 11 06 18 6f ?? 00 00 0a 00 11 06 18 6f ?? 00 00 0a 00 11 06 6f ?? 00 00 0a 13 07 11 07 11 04 16 11 04 8e 69 6f ?? 00 00 0a 13 05 00 de 14}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
