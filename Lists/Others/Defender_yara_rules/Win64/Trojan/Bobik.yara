@@ -19,3 +19,26 @@ rule Trojan_Win64_Bobik_CZP_2147840683_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Bobik_SX_2147958010_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bobik.SX!MTB"
+        threat_id = "2147958010"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {83 c0 1f 99 f7 f9 0f af c5 8d 1c ?? ?? ?? ?? ?? 44 8d 73 ?? 4c 89 f1}  //weight: 15, accuracy: Low
+        $x_10_2 = {48 8d 44 24 60 48 89 c6 f3 a5 48 89 44 24 28 49 8d 45 36 4c 89 e1 89 54 24 30 4c 89 fa 4c 89 ee 48 89 44 24 20 ff 15}  //weight: 10, accuracy: High
+        $x_1_3 = "/bot%s/sendPhoto" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

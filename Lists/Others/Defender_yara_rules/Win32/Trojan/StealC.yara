@@ -4251,3 +4251,32 @@ rule Trojan_Win32_StealC_GVD_2147945134_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealC_ABM_2147957986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.ABM!MTB"
+        threat_id = "2147957986"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 74 74 70 3a 00 2f 00 2f 00 31 00 37 00 38 00 2e 00 31 00 36 00 2e 00 35 00 33 00 2e 00 37 00 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 74 74 70 3a 2f 2f 31 37 38 2e 31 36 2e 35 33 2e 37 2f [0-15] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_1_3 = "\\b(1|3|bc1)[a-zA-HJ-NP-Z0-9]{25,42}\\b" ascii //weight: 1
+        $x_1_4 = ".jpg.exe" ascii //weight: 1
+        $x_1_5 = ".pdf.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
