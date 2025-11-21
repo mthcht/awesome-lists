@@ -656,3 +656,27 @@ rule Ransom_Win32_Conti_MKZ_2147951590_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Conti_GTV_2147958032_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Conti.GTV!MTB"
+        threat_id = "2147958032"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "To decrypt your files, send 0.1 BTC to:" ascii //weight: 1
+        $x_1_2 = "=== CONTI RANSOMWARE ===" ascii //weight: 1
+        $x_1_3 = "!!! YOUR FILES ARE ENCRYPTED !!!" ascii //weight: 1
+        $x_1_4 = "=== DO NOT DELETE THIS FILE ===" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
