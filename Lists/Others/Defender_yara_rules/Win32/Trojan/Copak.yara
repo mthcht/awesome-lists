@@ -3344,3 +3344,45 @@ rule Trojan_Win32_Copak_PGCP_2147957050_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Copak_SPIP_2147958041_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Copak.SPIP!MTB"
+        threat_id = "2147958041"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Copak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {81 c2 12 97 e5 c7 31 38 81 c1 df ff ba ad 81 c2 ed c7 ed c7 81 c0 02 00 00 00 81 ea cb 0b 38 3c 81 c1 01 00 00 00 81 e9 10 f3 a5 21 39 f0 7c}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Copak_SPIW_2147958042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Copak.SPIW!MTB"
+        threat_id = "2147958042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Copak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {43 31 17 81 c3 01 00 00 00 81 c7 02 00 00 00 81 c3 01 00 00 00 39 f7 7c}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -19,3 +19,24 @@ rule Trojan_Win32_Kelihos_AKI_2147958028_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Kelihos_AKS_2147958045_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Kelihos.AKS!MTB"
+        threat_id = "2147958045"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Kelihos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 b0 33 40 00 57 ff d6 68 bc 33 40 00 57 a3 ?? ?? ?? ?? ff d6 68 cc 33 40 00 57 a3 ?? ?? ?? ?? ff d6 68 d8 33 40 00 57 a3 ?? ?? ?? ?? ff d6 68 e0 33 40 00 57}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

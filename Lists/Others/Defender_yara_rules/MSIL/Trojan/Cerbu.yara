@@ -437,3 +437,27 @@ rule Trojan_MSIL_Cerbu_ZTN_2147953207_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cerbu_ARR_2147958044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cerbu.ARR!MTB"
+        threat_id = "2147958044"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "Write-Host \"send to 18o8eKr8Sn3EBpGjNmXV4XdpEM5Hc1Fzte\"" ascii //weight: 20
+        $x_10_2 = "$gifpath = $pwd.Path+'\\svchost.exe'" ascii //weight: 10
+        $x_19_3 = "test1.exe" ascii //weight: 19
+        $x_1_4 = {11 14 02 11 15 9a 6f ?? ?? ?? ?? 13 16 11 16}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

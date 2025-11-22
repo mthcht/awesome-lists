@@ -7757,30 +7757,6 @@ rule Trojan_Win32_Guloader_KG_2147952453_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_KH_2147952462_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Guloader.KH!MTB"
-        threat_id = "2147952462"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Guloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "udvalgsbehandler.skj" ascii //weight: 1
-        $x_1_2 = "byorkester.hyp" ascii //weight: 1
-        $x_1_3 = "classically.kal" ascii //weight: 1
-        $x_1_4 = "rundskaaren.dll" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Guloader_KI_2147952528_0
 {
     meta:
@@ -7850,30 +7826,6 @@ rule Trojan_Win32_Guloader_KJ_2147952704_0
         $x_1_2 = "enharmonic skriveunderlag offer" ascii //weight: 1
         $x_1_3 = "unyachtsmanlike\\calef.bin" ascii //weight: 1
         $x_1_4 = "svinefarmen.ini" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Guloader_KK_2147952859_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Guloader.KK!MTB"
-        threat_id = "2147952859"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Guloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "uptower bronteon" ascii //weight: 1
-        $x_1_2 = "shaughn paraffinises.exe" ascii //weight: 1
-        $x_1_3 = "nonsupportably" ascii //weight: 1
-        $x_1_4 = "lnsommeres paucity eurosejren" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

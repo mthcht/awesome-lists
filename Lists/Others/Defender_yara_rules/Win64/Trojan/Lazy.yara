@@ -3905,6 +3905,31 @@ rule Trojan_Win64_Lazy_ARR_2147954234_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {e0 13 00 00 ?? ?? bd 01 40 01}  //weight: 12, accuracy: Low
+        $x_8_2 = {23 00 0b 02 0e 2c 00 b4 10 00}  //weight: 8, accuracy: High
+        $x_5_3 = {06 5a 1e 01 00 d0 10 00}  //weight: 5, accuracy: High
+        $x_3_4 = {3c 9b 00 00 00 30 2f 01 00 00}  //weight: 3, accuracy: High
+        $x_2_5 = {78 bd 00 00 00 d0 2f 01 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_ARR_2147954234_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ARR!MTB"
+        threat_id = "2147954234"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "60"
         strings_accuracy = "Low"
     strings:
