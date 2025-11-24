@@ -3267,3 +3267,25 @@ rule Trojan_MSIL_Jalapeno_NKA_2147956855_0
         )
 }
 
+rule Trojan_MSIL_Jalapeno_LMA_2147958064_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.LMA!MTB"
+        threat_id = "2147958064"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {72 b4 00 00 70 28 08 00 00 0a 26 de 03 26 de 00 2a}  //weight: 10, accuracy: High
+        $x_20_2 = {72 01 00 00 70 72 b0 00 00 70 02 7b 02 00 00 04 28 06 00 00 0a 28 07 00 00 0a 26 de 03 26 de 00 2a}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

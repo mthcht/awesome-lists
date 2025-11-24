@@ -45,3 +45,25 @@ rule Trojan_MSIL_RRat_ARR_2147958025_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RRat_LMK_2147958065_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RRat.LMK!MTB"
+        threat_id = "2147958065"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {45 07 00 00 00 8b 00 00 00 7b 00 00 00 24 00 00 00 b5 00 00 00 05 00 00 00 c4 00 00 00 d7 00 00 00 38 86 00 00 00 38 cd 00 00 00 20 06 00 00 00 7e 37 02 00 04 39 c6 ff ff ff 26 20 05 00 00 00 38 bb ff ff ff 03 14 20 fb ee 4f 23 65 20 ad 18 b0 dc 61 28 4b 04 00 06 17 8d 08 00 00 01 13 01 11 01 16 1f 6b}  //weight: 10, accuracy: High
+        $x_20_2 = {11 00 17 9a 20 66 d9 2f 02 20 f0 3c e6 ce 61 20 ae ef c9 cc 61 28 4b 04 00 06 16 7e 5a 02 00 04 28 ea 08 00 06 16 fe 01 11 00 18 9a 7e 7c 00 00 04 7e 4e 02 00 04 28 be 08 00 06}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
