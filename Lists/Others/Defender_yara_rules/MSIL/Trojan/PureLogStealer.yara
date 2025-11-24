@@ -3873,3 +3873,28 @@ rule Trojan_MSIL_PureLogStealer_ZJK_2147957249_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_ASLB_2147958128_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.ASLB!MTB"
+        threat_id = "2147958128"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {08 09 11 04 6f ?? 00 00 0a 13 09 16 7e ?? 00 00 04 7b ?? 00 00 04 2d d5 26 16 2b d1 07 28 ?? 00 00 0a 13 04 17 7e ?? 00 00 04 7b ?? 00 00 04 2c bc 26 17 2b b8}  //weight: 4, accuracy: Low
+        $x_2_2 = {26 16 2b b0 00 11 08 28 ?? 00 00 0a 0d 18 7e ?? 00 00 04 7b ?? 00 00 04 2c 06 26 16 2b 02 06 4a}  //weight: 2, accuracy: Low
+        $x_2_3 = {11 0a 11 09 16 73 ?? 00 00 0a 13 05 16 7e ?? 00 00 04 7b ?? 00 00 04 2d 08 26 16 2b 04 06 1a 58 4a}  //weight: 2, accuracy: Low
+        $x_1_4 = "FromBase64String" ascii //weight: 1
+        $x_1_5 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

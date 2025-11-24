@@ -316,3 +316,28 @@ rule Trojan_Win64_Khalesi_AMTB_2147955742_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Khalesi_MK_2147958140_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Khalesi.MK!MTB"
+        threat_id = "2147958140"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Khalesi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {c7 84 24 40 01 00 00 49 50 43 41 c7 84 24 44 01 00 00 53 53 44 54 c7 84 24 50 01 00 00 46 41 43 50 c7 84 24 48 01 00 00 54 44 53 44}  //weight: 15, accuracy: High
+        $x_10_2 = "cmd.exe /C ping 127.0.0.1 -n 3 >nul & del /F /Q" ascii //weight: 10
+        $x_5_3 = "download/V3/teamredminer.exe" ascii //weight: 5
+        $x_3_4 = "procexp.exe" ascii //weight: 3
+        $x_2_5 = "JoeBox" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

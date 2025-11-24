@@ -1297,3 +1297,29 @@ rule Trojan_Win64_ClipBanker_MK_2147957211_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_SXA_2147958138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.SXA!MTB"
+        threat_id = "2147958138"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {4c 89 2b 48 8d 15 ?? ?? ?? ?? 48 8d 8d c0 ?? ?? ?? ?? ?? ?? ?? ?? 48 8b d8 0f 57 c0 0f 11 45 98 4c 89 6d a8 4c 89 6d b0 41 b8 03}  //weight: 20, accuracy: Low
+        $x_1_2 = "?:[13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[a-zA-HJ-NP-Z0-9]{39,59}" ascii //weight: 1
+        $x_1_3 = "0x[a-fA-F0-9]{40}" ascii //weight: 1
+        $x_1_4 = "\\Music" ascii //weight: 1
+        $x_1_5 = "\\Videos" ascii //weight: 1
+        $x_1_6 = "inetpub" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
