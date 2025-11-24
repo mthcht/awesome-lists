@@ -7081,3 +7081,31 @@ rule Trojan_Win32_GuLoader_SVO_2147958000_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SVQ_2147958118_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVQ!MTB"
+        threat_id = "2147958118"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Unbetterable98\\smrgaasen" ascii //weight: 1
+        $x_1_2 = "\\Internalization65\\Unchatteled.jpg" ascii //weight: 1
+        $x_1_3 = "\\Acrostolion47\\Semipanic179.lnk" ascii //weight: 1
+        $x_1_4 = "Bajonetfatninger.don" ascii //weight: 1
+        $x_1_5 = "Haandtaskens.bev" ascii //weight: 1
+        $x_1_6 = "Intrafistular.sel" ascii //weight: 1
+        $x_1_7 = "Patruljefrernes.ini" ascii //weight: 1
+        $x_1_8 = "heteroseksualitets.sma" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

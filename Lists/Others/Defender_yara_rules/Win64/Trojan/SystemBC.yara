@@ -127,3 +127,24 @@ rule Trojan_Win64_SystemBC_SD_2147940856_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SystemBC_ASM_2147958119_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SystemBC.ASM!MTB"
+        threat_id = "2147958119"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SystemBC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 07 32 04 31 aa 48 ff 4d 28 48 ff c1 48 3b 4d 18 75 03 48 33 c9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
