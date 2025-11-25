@@ -7135,3 +7135,28 @@ rule Trojan_Win32_GuLoader_RDI_2147958136_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDJ_2147958158_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDJ!MTB"
+        threat_id = "2147958158"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\tommelfingerneglenes\\Punktafgifternes" ascii //weight: 1
+        $x_1_2 = "\\Regalist129\\sues" ascii //weight: 1
+        $x_1_3 = "\\winnowill\\Falkonerernes.ini" ascii //weight: 1
+        $x_1_4 = "%Belurende%\\indebaarnes" ascii //weight: 1
+        $x_1_5 = "studiested adamitical" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
