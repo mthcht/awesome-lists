@@ -208,3 +208,27 @@ rule Trojan_Win64_KillAV_ARAX_2147955721_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_SE_2147958205_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.SE!MTB"
+        threat_id = "2147958205"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Resource extracted to C:\\ProgramData\\NSecKrnl.sys" ascii //weight: 1
+        $x_1_2 = "WatchDogKiller-main\\x64\\Release\\NSecSoftBYOVDdll.pdb" ascii //weight: 1
+        $x_1_3 = "RunProcessTermination" ascii //weight: 1
+        $x_1_4 = "Drivers\\NSecKrnl\\NSecKrnl\\bin\\NSecKrnl64.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
