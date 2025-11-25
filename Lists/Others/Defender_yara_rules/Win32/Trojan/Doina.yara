@@ -844,3 +844,34 @@ rule Trojan_Win32_Doina_MK_2147957825_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_MKA_2147958221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.MKA!MTB"
+        threat_id = "2147958221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "58"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "This file is a piece of malware" ascii //weight: 20
+        $x_15_2 = "your computer will be infected." ascii //weight: 15
+        $x_10_3 = "Hi %s, I'm a bot that's part of the UoP MALFOR Coursework." ascii //weight: 10
+        $x_8_4 = "Shutdown password entered - botnet shutting down" ascii //weight: 8
+        $x_5_5 = "Bot shutdown by user %s." ascii //weight: 5
+        $x_3_6 = "Malware already running!" ascii //weight: 3
+        $x_2_7 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -70,3 +70,26 @@ rule Ransom_Win32_LockFile_FGG_2147948024_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_LockFile_AP_2147958235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockFile.AP!AMTB"
+        threat_id = "2147958235"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Files are encrypted and injected into image" ascii //weight: 1
+        $x_1_2 = "A ransom note with the victim ID is placed in each targeted directory" ascii //weight: 1
+        $x_1_3 = "Before encryption started the single ransomnote is created in the root directory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

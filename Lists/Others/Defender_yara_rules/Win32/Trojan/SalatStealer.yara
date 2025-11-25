@@ -229,3 +229,25 @@ rule Trojan_Win32_SalatStealer_ASAL_2147957524_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_NQ_2147958236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.NQ!MTB"
+        threat_id = "2147958236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0c eb c1 5d f0 87 37 a1 ?? ?? ?? ?? 1f 4f 4b e5 b4 96}  //weight: 2, accuracy: Low
+        $x_1_2 = {b3 46 4d 4a 3e 87 39 0f 9c 57 da 7e f7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

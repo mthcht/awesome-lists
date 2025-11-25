@@ -1227,7 +1227,7 @@ rule Trojan_Win32_GCleaner_KXP_2147958159_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = {33 c0 01 1e ba 8a a5 08 00 8b 7d c4 03 fa 03 fb 03 f8 c7 45 a4 16 19 00 00 6a 00 e8 ?? ?? ?? ?? 03 7d a4 81 ef 16 19 00 00 2b f8 31 3e 83 c3 04 83 c6 04 3b 5d c8 72}  //weight: 5, accuracy: Low
+        $x_5_1 = {03 fb 03 f8 c7 45 a4 16 19 00 00 6a 00 e8 ?? ?? ?? ?? 03 7d a4 81 ef 16 19 00 00 2b f8 31 3e 83 c3 04 83 c6 04 3b 5d c8 72}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
