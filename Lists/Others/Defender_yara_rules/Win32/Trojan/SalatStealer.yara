@@ -80,13 +80,19 @@ rule Trojan_Win32_SalatStealer_NS_2147954535_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_2_1 = {8b 07 09 c0 74 3c 8b 5f 04 8d 84 30 00 70 b8 00 01 f3 50 83 c7 08 ff 96 28 70 b8 00}  //weight: 2, accuracy: High
         $x_1_2 = {ff 96 2c 70 b8 00 83 c7 04 8d 5e fc 31 c0 8a 07 47 09 c0}  //weight: 1, accuracy: High
+        $x_1_3 = {8a 07 47 08 c0 74 dc 89 f9 57 48 f2 ae 55 ff 96 30 ?? c3 00 09 c0 74 07 89 03 83 c3 04 eb e1}  //weight: 1, accuracy: Low
+        $x_1_4 = {8a 07 47 08 c0 74 dc 89 f9 57 48 f2 ae 55 ff 96 30 ?? b8 00 09 c0 74 07 89 03 83 c3 04 eb e1}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((3 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_SalatStealer_NB_2147954601_0
