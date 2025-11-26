@@ -4329,3 +4329,24 @@ rule Backdoor_MSIL_Bladabindi_SX_2147956837_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Bladabindi_AZLB_2147958309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi.AZLB!MTB"
+        threat_id = "2147958309"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 08 06 08 91 07 08 07 8e 69 5d 91 61 d2 9c 08 17 58 0c 08 06 8e 69 32 e7 7e ?? 00 00 04 7e ?? 00 00 04 7e ?? 00 00 04 06 28 ?? 00 00 06 28 ?? 00 00 06 16 9a 17 8d ?? 00 00 01 0d 09 16 7e ?? 00 00 04 d0 ?? 00 00 02 28 ?? 00 00 06 a2 09 28 ?? 00 00 06 26 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

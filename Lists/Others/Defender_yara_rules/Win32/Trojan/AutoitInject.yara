@@ -5751,3 +5751,33 @@ rule Trojan_Win32_AutoitInject_AZIB_2147956196_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_BAG_2147958303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.BAG!MTB"
+        threat_id = "2147958303"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "LOCAL $FOLDERPATH = @MYDOCUMENTSDIR & \"\\MyAdobeConfig" ascii //weight: 1
+        $x_1_2 = "LOCAL $OUTPUTEXEPATH = $FOLDERPATH & \"\\AdobeReader_82648.pif" ascii //weight: 1
+        $x_1_3 = {4c 00 4f 00 43 00 41 00 4c 00 20 00 24 00 55 00 52 00 4c 00 20 00 3d 00 20 00 22 00 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-47] 2f 00 [0-47] 2f 00 [0-47] 2e 00 68 00 74 00 6d 00 6c 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {4c 4f 43 41 4c 20 24 55 52 4c 20 3d 20 22 68 74 74 70 73 3a 2f 2f [0-47] 2f [0-47] 2f [0-47] 2e 68 74 6d 6c}  //weight: 1, accuracy: Low
+        $x_1_5 = "LOCAL $TXTFILE = $FOLDERPATH & \"\\LovePdfConverted" ascii //weight: 1
+        $x_1_6 = "$OHTTP.Open ( \"GET\" , $URL , FALSE )" ascii //weight: 1
+        $x_1_7 = {20 00 53 00 4c 00 45 00 45 00 50 00 20 00 28 00 20 00 [0-15] 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {20 53 4c 45 45 50 20 28 20 [0-15] 20 29}  //weight: 1, accuracy: Low
+        $x_1_9 = "LOCAL $BATFILE = @TEMPDIR & \"\\run.bat" ascii //weight: 1
+        $x_1_10 = "LOCAL $H = FILEOPEN ( $BATFILE , 2 )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (8 of ($x*))
+}
+
