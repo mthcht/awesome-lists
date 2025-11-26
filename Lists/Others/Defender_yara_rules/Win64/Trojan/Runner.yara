@@ -66,3 +66,26 @@ rule Trojan_Win64_Runner_MK_2147956577_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Runner_AHB_2147958257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Runner.AHB!MTB"
+        threat_id = "2147958257"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Runner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "RANDOM_COMMENT_" ascii //weight: 20
+        $x_40_2 = "start /b KMSELDI..exe >nul 2>&1 & ping -n 11 127.0.0.1 >nul 2>&1 & unrar x -o+ -pdialog \"dialog.rar" ascii //weight: 40
+        $x_10_3 = {66 89 01 48 8d 85 ?? ?? ?? ?? 48 8b f8 33 c0 b9 ?? ?? ?? ?? f3 aa 4c 8d 4d}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

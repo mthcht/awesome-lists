@@ -365,3 +365,26 @@ rule Trojan_Win64_StealC_SG_2147957049_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_AHC_2147958256_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.AHC!MTB"
+        threat_id = "2147958256"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 89 44 24 38 48 8d 4c 24 20 48 8d 84 24 90 00 00 00 c7 44 24 24 ?? 00 00 00 48 89 44 24 40 ff 15}  //weight: 5, accuracy: Low
+        $x_30_2 = "/c bitsadmin /transfer job_%x /download /priority normal" ascii //weight: 30
+        $x_20_3 = "-urlcache -split -f \"%s\" \"%s" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

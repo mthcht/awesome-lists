@@ -343,3 +343,27 @@ rule Trojan_Win64_Redcap_AHB_2147957814_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Redcap_AHC_2147958259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.AHC!MTB"
+        threat_id = "2147958259"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 29 d1 48 ff c9 48 89 4c 24 50 48 89 ce 48 f7 d9 48 c1 f9 ?? 48 8b bc 24 80 00 00 00 48 21 cf 48 8b 8c 24 98 01 00 00 48 01 cf}  //weight: 10, accuracy: Low
+        $x_20_2 = "c2-agent/internal/evasion.PatchAMSI" ascii //weight: 20
+        $x_30_3 = "c2-agent/internal/obfuscator.init" ascii //weight: 30
+        $x_40_4 = "c2-agent/internal/crypto.GetCleanAgentID" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -7160,3 +7160,56 @@ rule Trojan_Win32_GuLoader_RDJ_2147958158_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDK_2147958246_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDK!MTB"
+        threat_id = "2147958246"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "dorsicommissure khaldian" ascii //weight: 1
+        $x_1_2 = "kaleege warmest" ascii //weight: 1
+        $x_1_3 = "praktikabel forskningsarbejdernes crowtoe" ascii //weight: 1
+        $x_1_4 = "bemercy goatsbane fedtstoffernes" ascii //weight: 1
+        $x_1_5 = "parameterfremstillingens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVR_2147958247_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVR!MTB"
+        threat_id = "2147958247"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Bolivianerens57.bin" ascii //weight: 1
+        $x_1_2 = "\\lommetrklders.htm" ascii //weight: 1
+        $x_1_3 = "\\ultraselect.ini" ascii //weight: 1
+        $x_1_4 = "\\advance\\Insolvente74.jpg" ascii //weight: 1
+        $x_1_5 = "\\reperplex.jpg" ascii //weight: 1
+        $x_1_6 = "\\sideless\\formuefllesskabernes.txt" ascii //weight: 1
+        $x_1_7 = "\\censusses.txt" ascii //weight: 1
+        $x_1_8 = "\\saraband\\Udtalelsen223.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

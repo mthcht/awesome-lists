@@ -63,3 +63,27 @@ rule Trojan_Win64_Tasker_KK_2147944058_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tasker_ARR_2147958260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tasker.ARR!MTB"
+        threat_id = "2147958260"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tasker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "schtasks /create /tn \"WindowsSystemService\" /tr \"\\\"%s\\\"\" /sc onlogon /rl highest /f" ascii //weight: 6
+        $x_4_2 = "cmd /c timeout 3 > nul" ascii //weight: 4
+        $x_8_3 = "%s\\monitor_log.txt" ascii //weight: 8
+        $x_2_4 = {8b 0b 4c 89 f2 49 89 e8 83 c7 01 49 01 ee 41 0f af cf 41 0f af cc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
