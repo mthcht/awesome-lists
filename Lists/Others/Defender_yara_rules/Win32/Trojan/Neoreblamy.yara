@@ -7195,3 +7195,25 @@ rule Trojan_Win32_Neoreblamy_NQS_2147958212_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_NQT_2147958270_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NQT!MTB"
+        threat_id = "2147958270"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 65 e0 00 eb 07 8b 45 e0 40 89 45 e0}  //weight: 1, accuracy: High
+        $x_2_2 = {5a 6b d2 07 8d 94 15 ?? ?? ff ff 89 04 0a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

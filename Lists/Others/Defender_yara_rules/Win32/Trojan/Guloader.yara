@@ -3028,6 +3028,31 @@ rule Trojan_Win32_Guloader_RR_2147833669_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "interlucation trimethylglycine.exe" wide //weight: 1
+        $x_1_2 = "annuals udnytteligt garantihensttelserne" wide //weight: 1
+        $x_1_3 = "amatrorkesters outrank" wide //weight: 1
+        $x_1_4 = "pjuskes" wide //weight: 1
+        $x_1_5 = "tiptoppish" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RR_2147833669_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RR!MTB"
+        threat_id = "2147833669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "fakturadatoen unbigged manichaeanize" wide //weight: 1
         $x_1_2 = "aftruknes unfeather resulterendes" wide //weight: 1
         $x_1_3 = "bltekretjerne parsimony.exe" wide //weight: 1
@@ -3038,7 +3063,7 @@ rule Trojan_Win32_Guloader_RR_2147833669_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_RR_2147833669_1
+rule Trojan_Win32_Guloader_RR_2147833669_2
 {
     meta:
         author = "defender2yara"
@@ -3064,7 +3089,7 @@ rule Trojan_Win32_Guloader_RR_2147833669_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_RR_2147833669_2
+rule Trojan_Win32_Guloader_RR_2147833669_3
 {
     meta:
         author = "defender2yara"
@@ -3088,7 +3113,7 @@ rule Trojan_Win32_Guloader_RR_2147833669_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_RR_2147833669_3
+rule Trojan_Win32_Guloader_RR_2147833669_4
 {
     meta:
         author = "defender2yara"

@@ -107,3 +107,26 @@ rule Trojan_Win32_Neoreklami_MBWD_2147927705_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreklami_AMTB_2147958280_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreklami!AMTB"
+        threat_id = "2147958280"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreklami"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Affirm Roast Boobs" ascii //weight: 2
+        $x_2_2 = "krwliya fqzkalljm exn" ascii //weight: 2
+        $x_2_3 = "ski_numb.exe" ascii //weight: 2
+        $x_1_4 = "D:\\work\\MMP\\mmp_server_stuff\\stuff\\distrib_server\\distrib\\scripts\\sfx\\ExeRestorer\\Release\\ExeRestorer.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

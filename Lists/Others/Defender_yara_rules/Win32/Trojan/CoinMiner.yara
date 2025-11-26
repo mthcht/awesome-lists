@@ -3231,6 +3231,31 @@ rule Trojan_Win32_CoinMiner_GNT_2147932222_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CoinMiner_AMTB_2147935509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinMiner!AMTB"
+        threat_id = "2147935509"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "coin\": \"XMR\"" ascii //weight: 2
+        $x_2_2 = "8cpu.u" ascii //weight: 2
+        $x_2_3 = "rig-id\": \"vps-001" ascii //weight: 2
+        $x_2_4 = "\"huge-pages\": true" ascii //weight: 2
+        $x_2_5 = "\"donate-over-proxy\": 1" ascii //weight: 2
+        $x_2_6 = "\"nicehash\": true" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_CoinMiner_PBD_2147939605_0
 {
     meta:

@@ -2087,3 +2087,32 @@ rule Trojan_Win64_ShellcodeRunner_AHG_2147958258_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_MKA_2147958293_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.MKA!MTB"
+        threat_id = "2147958293"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 b8 6b 65 72 6e 65 6c 33 32 48 89 45 d3 48 b8 6c 33 32 2e 64 6c 6c 00 48 89 45 d8 48 b8 4b 45 52 4e 45 4c 33 32}  //weight: 20, accuracy: High
+        $x_15_2 = {48 89 45 cb c7 45 c0 4e 54 44 4c 66 c7 45 c4 4c 00 c7 45 ba 6e 74 64 6c 66 c7 45 be 6c 00 48 b8 47 65 74 50 72 6f 63 41}  //weight: 15, accuracy: High
+        $x_10_3 = "PAGE_EXECUTE_READWRITE" ascii //weight: 10
+        $x_5_4 = "[-] No custom DLL specified. Falling back to amsi.dll." ascii //weight: 5
+        $x_3_5 = "[+] Default memory protection in target DLL is: %s" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+

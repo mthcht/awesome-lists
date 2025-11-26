@@ -41,3 +41,24 @@ rule Trojan_Win64_Xworm_AXW_2147952319_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Xworm_PGXO_2147958281_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Xworm.PGXO!MTB"
+        threat_id = "2147958281"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 89 c2 44 89 c1 83 e2 ?? 83 e1 ?? 8b 14 97 c1 e1 ?? d3 ea 42 30 14 00 48 8b 06 49 83 c0 ?? 48 8b 56 ?? 48 29 c2 44 39 c2 7f}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

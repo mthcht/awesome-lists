@@ -692,3 +692,26 @@ rule Trojan_Linux_Mirai_AMTB_2147957847_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_AMTB_2147957847_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai!AMTB"
+        threat_id = "2147957847"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "wget http://%s/router.lblink-rep.sh" ascii //weight: 2
+        $x_2_2 = "wget http://%s/dvr.lilin-rep.sh" ascii //weight: 2
+        $x_3_3 = "boymoder.ddns.net" ascii //weight: 3
+        $x_3_4 = "$(wget${IFS}http://%s/dvr.tvt-rep.sh" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -255,3 +255,27 @@ rule Trojan_Win32_Mint_SXA_2147954776_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mint_MK_2147958295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.MK!MTB"
+        threat_id = "2147958295"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {8b 4d 08 81 e9 80 96 98 00 8b 55 0c 83 da 00 89 4d 08 89 55 0c 8b 45 fc 83 c0 01 89 45 fc}  //weight: 15, accuracy: High
+        $x_10_2 = {c6 45 d8 8a c6 45 d9 53 c6 45 da 85 c6 45 db 66 c6 45 dc 41 c6 45 dd 76 c6 45 de 36}  //weight: 10, accuracy: High
+        $x_3_3 = "-NoProfile -ExecutionPolicy Bypass -Command \"IEX (New-Object Net.WebClient).DownloadString" ascii //weight: 3
+        $x_2_4 = "-NoProfile -ExecutionPolicy Bypass -File" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

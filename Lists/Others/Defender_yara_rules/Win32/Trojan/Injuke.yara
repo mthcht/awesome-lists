@@ -1217,3 +1217,24 @@ rule Trojan_Win32_Injuke_C_2147957028_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injuke_KK_2147957304_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injuke.KK!MTB"
+        threat_id = "2147957304"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {01 f9 4f 31 18 89 cf 4f 81 c0 ?? 00 00 00 4f 89 c9 39 d0}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

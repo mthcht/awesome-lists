@@ -7213,3 +7213,28 @@ rule Trojan_Win32_GuLoader_SVR_2147958247_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDL_2147958291_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDL!MTB"
+        threat_id = "2147958291"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "underkommandoer" ascii //weight: 1
+        $x_1_2 = "courser elef" ascii //weight: 1
+        $x_1_3 = "steril squeg dumpiest" ascii //weight: 1
+        $x_1_4 = "festivities" ascii //weight: 1
+        $x_1_5 = "troligeres skovmandshilsenen.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
