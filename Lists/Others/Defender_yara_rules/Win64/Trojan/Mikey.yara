@@ -1471,6 +1471,30 @@ rule Trojan_Win64_Mikey_BAG_2147957257_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_BAG_2147957257_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.BAG!MTB"
+        threat_id = "2147957257"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2e 69 64 61 74 61 00 00 00 20 00 00 00 20 08 00 00 02 00 00 00 d6 07}  //weight: 10, accuracy: High
+        $x_10_2 = {2e 72 73 72 63 00 00 00 00 20 00 00 00 40 08 00 00 ?? 00 00 00 d8 07}  //weight: 10, accuracy: Low
+        $x_10_3 = {2e 74 68 65 6d 69 64 61 00 c0 76 00 00 60 08 00 00 00 00 00 00 ?? 07}  //weight: 10, accuracy: Low
+        $x_10_4 = {2e 62 6f 6f 74 00 00 00 00 ?? ?? 00 00 20 7f 00 00 ?? ?? 00 00 ?? 07}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Mikey_NP_2147957462_0
 {
     meta:

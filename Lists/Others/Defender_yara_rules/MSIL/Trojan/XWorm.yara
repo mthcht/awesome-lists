@@ -3652,3 +3652,28 @@ rule Trojan_MSIL_XWorm_ATLB_2147958153_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BAM_2147958405_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAM!MTB"
+        threat_id = "2147958405"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "$3fe8fa79-5dce-4503-ab23-464ea24babff" ascii //weight: 10
+        $x_10_2 = "MuRLz6qCBGcpP0ryYoOXE1keWvKUt9gT9o8ORniMq6rF2fxrU6JYp" ascii //weight: 10
+        $x_1_3 = "Software\\" ascii //weight: 1
+        $x_10_4 = "7ShZGtYDNBN8Gu9TGWnLt8Gk2Jpngim3AcxQZcZA003DwmWeS1RgdDqa" ascii //weight: 10
+        $x_10_5 = "vCBBXbBy5zUI3HzfBnhdMA2BBG3FUsjknuFwcIdfQ80ynRzInwb6OPbk" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

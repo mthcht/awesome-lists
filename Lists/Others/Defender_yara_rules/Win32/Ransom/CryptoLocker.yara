@@ -60,3 +60,24 @@ rule Ransom_Win32_CryptoLocker_MZZ_2147952175_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_CryptoLocker_KQP_2147958408_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/CryptoLocker.KQP!MTB"
+        threat_id = "2147958408"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptoLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b c7 0f 43 75 20 83 bd 24 ff ff ff 08 0f 43 8d 10 ff ff ff 33 d2 f7 b5 20 ff ff ff 66 8b 04 51 8d 8d e0 fe ff ff 66 33 04 7e 0f b7 c0 50 6a 01 e8 ?? ?? ?? ?? 47 3b 7d 30 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
