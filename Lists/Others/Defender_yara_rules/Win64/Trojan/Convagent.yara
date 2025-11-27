@@ -955,6 +955,54 @@ rule Trojan_Win64_Convagent_ARR_2147957637_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_ARR_2147957637_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.ARR!MTB"
+        threat_id = "2147957637"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = "$gDwPLbFmVXwalYfhjhCm@KMTrdxTPV@F@Cxb@@cSkY@gIZKaITdD@A@Y@" ascii //weight: 6
+        $x_4_2 = "x/Ulx/9nx/9n*" ascii //weight: 4
+        $x_8_3 = "$EwILqBRMgMZYVFstauuE@PPtKQY@QLL@@buMONpnxJQs@X@" ascii //weight: 8
+        $x_2_4 = {48 63 d0 8b 14 91 48 63 c8 83 f2 ?? 89 c1 81 c1}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Convagent_ARR_2147957637_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.ARR!MTB"
+        threat_id = "2147957637"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_13_1 = {44 33 f8 41 8b c1 c1 e8 ?? 44 33 f8 41 8d 04 12}  //weight: 13, accuracy: Low
+        $x_10_2 = {8b c7 c1 c8 ?? 44 03 e1 45 03 63 c8 33 d0 45 03 63 ec 8b c7 c1 e8}  //weight: 10, accuracy: Low
+        $x_5_3 = "ClientPackets.PasswordPacketpassword" ascii //weight: 5
+        $x_2_4 = "C:\\Users\\decel\\vcpkg\\buildtrees\\abseil\\src\\20250127.1-a0a219bf72.clean\\absl\\synchronization\\mutex.cc" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Convagent_SXA_2147957889_0
 {
     meta:
