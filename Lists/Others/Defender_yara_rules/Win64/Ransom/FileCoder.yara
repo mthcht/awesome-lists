@@ -1165,3 +1165,56 @@ rule Ransom_Win64_FileCoder_A_2147957164_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_AR_2147958353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.AR!AMTB"
+        threat_id = "2147958353"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted!" ascii //weight: 1
+        $x_1_2 = "key.bin" ascii //weight: 1
+        $x_1_3 = "ransom.txt" ascii //weight: 1
+        $x_1_4 = "Encryption process completed." ascii //weight: 1
+        $x_1_5 = "Ransomware started." ascii //weight: 1
+        $x_1_6 = "Ransom note created." ascii //weight: 1
+        $x_1_7 = "Ransomware finished." ascii //weight: 1
+        $x_1_8 = "??0_Lockit@std@@QEAA@H@Z" ascii //weight: 1
+        $x_1_9 = "??1_Lockit@std@@QEAA@XZ" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_FileCoder_GP_2147958370_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.GP!AMTB"
+        threat_id = "2147958370"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Pay me $1000 within 72 hours or your files will be deleted forever." ascii //weight: 1
+        $x_1_2 = "Contact me at [email address]." ascii //weight: 1
+        $x_1_3 = "C:\\\\Program Files\\WebMoney\\" ascii //weight: 1
+        $x_1_4 = "Send us 100000 bitcoin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

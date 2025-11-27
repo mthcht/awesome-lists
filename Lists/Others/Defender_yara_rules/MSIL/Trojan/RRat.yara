@@ -67,3 +67,27 @@ rule Trojan_MSIL_RRat_LMK_2147958065_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RRat_AMTB_2147958344_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RRat!AMTB"
+        threat_id = "2147958344"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RRat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "38163989.exe" ascii //weight: 2
+        $x_2_2 = "605557084825.My.Resources" ascii //weight: 2
+        $x_2_3 = "u9ec052bdaf784bba9d85a77ff5528a3a" ascii //weight: 2
+        $x_2_4 = "kLjw4iIsCLsZtxc4lksN0j" ascii //weight: 2
+        $x_2_5 = "DisableAuthentication" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

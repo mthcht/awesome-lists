@@ -7354,6 +7354,31 @@ rule Trojan_MSIL_Heracles_SLH_2147941422_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_AMTB_2147941454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles!AMTB"
+        threat_id = "2147941454"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DanhSachLoaiXe.txt" ascii //weight: 1
+        $x_1_2 = "DanhSachXe.txt" ascii //weight: 1
+        $x_1_3 = "DanhSachChuyenDi.txt" ascii //weight: 1
+        $x_1_4 = "BaoCao.txt" ascii //weight: 1
+        $x_1_5 = "THDA_Group1_D13HT01" ascii //weight: 1
+        $x_1_6 = "THDA_Group1_D13HT01.Properties" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_SLL_2147941722_0
 {
     meta:
@@ -8800,6 +8825,29 @@ rule Trojan_MSIL_Heracles_TVN_2147958287_0
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {00 08 09 18 5d 58 0c 07 09 06 09 91 03 09 20 ?? 00 00 00 5d 58 61 d2 9c 00 09 17 58 0d 09 06 8e 69 fe 04 13 04 11 04 2d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_SK_2147958366_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SK!AMTB"
+        threat_id = "2147958366"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$E6C4A8F2-9D5B-4A7E-B3F9-1C6A8D4E2B7F" ascii //weight: 2
+        $x_2_2 = "$$method0x6000331-1" ascii //weight: 2
+        $x_1_3 = "Bonk Station.dll" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

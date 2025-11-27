@@ -178,3 +178,28 @@ rule Trojan_Win64_Cerbu_AHC_2147955764_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AYA_2147958369_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AYA!MTB"
+        threat_id = "2147958369"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "pastepload.com" ascii //weight: 5
+        $x_2_2 = "Loader.pdb" ascii //weight: 2
+        $x_1_3 = "cmd.exe /C icacls \"%SystemRoot%\\System32\\reagentc.exe\" /deny Everyone:RX" ascii //weight: 1
+        $x_1_4 = "powershell -Command \"Add-MpPreference -ExclusionProcess 'powershell.exe'" ascii //weight: 1
+        $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

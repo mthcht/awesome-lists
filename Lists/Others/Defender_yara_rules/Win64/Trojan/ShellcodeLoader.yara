@@ -147,3 +147,26 @@ rule Trojan_Win64_ShellcodeLoader_TRK_2147956235_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeLoader_AHB_2147958343_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeLoader.AHB!MTB"
+        threat_id = "2147958343"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {06 00 48 8b 85 ?? ?? ?? 00 0f b7 08 81 f1 ?? ?? 00 00 0f b6 40 02 35 ?? 00 00 00 66 09 c8}  //weight: 30, accuracy: Low
+        $x_20_2 = "[-] Failed to find 'mov rcx, r8' pattern" ascii //weight: 20
+        $x_10_3 = "[+] Searching for syscall" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

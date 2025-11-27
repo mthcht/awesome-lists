@@ -1560,3 +1560,29 @@ rule Ransom_Win32_FileCoder_AMTB_2147957163_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCoder_AMTB_2147957163_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder!AMTB"
+        threat_id = "2147957163"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Send us 100000 bitcoin to the following address:" ascii //weight: 3
+        $x_2_2 = "Pay me $1000 within 72 hours or your files will be deleted forever." ascii //weight: 2
+        $x_1_3 = "Contact me at [email address]." ascii //weight: 1
+        $x_1_4 = "ransom_note.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

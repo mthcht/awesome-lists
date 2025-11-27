@@ -561,3 +561,26 @@ rule Trojan_MSIL_Razy_LM_2147956250_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Razy_AYA_2147958368_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.AYA!MTB"
+        threat_id = "2147958368"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "rdm.91yunma.cn/api/upgrade/qcoin" wide //weight: 5
+        $x_2_2 = "huafei.91yunma.cn" wide //weight: 2
+        $x_1_3 = "function Encrypt(password, salt, vcode)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

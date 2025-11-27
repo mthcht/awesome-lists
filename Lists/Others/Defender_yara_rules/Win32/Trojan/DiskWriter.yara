@@ -175,3 +175,27 @@ rule Trojan_Win32_DiskWriter_ADB_2147952318_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DiskWriter_AP_2147958371_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DiskWriter.AP!AMTB"
+        threat_id = "2147958371"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DiskWriter"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "You are about to run Hydrazine." ascii //weight: 1
+        $x_1_2 = "A malicious program that can destroy your machine by overwriting and wiping its drives, potentially causing boot issues." ascii //weight: 1
+        $x_1_3 = "layeredtest.pdb" ascii //weight: 1
+        $x_1_4 = "Hydrazine.exe - FINAL WARNING" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

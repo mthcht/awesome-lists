@@ -2753,3 +2753,25 @@ rule Trojan_MacOS_Amos_EV_2147956184_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Amos_AMTB_2147958365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos!AMTB"
+        threat_id = "2147958365"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "__ZN4mlcg4prngEj" ascii //weight: 1
+        $x_1_2 = "N4mlcg4prngEj" ascii //weight: 1
+        $x_1_3 = "@__ZN4mlcg4prngEj" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1249,3 +1249,36 @@ rule Trojan_MSIL_MassLogger_MDH_2147952232_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MassLogger_AR_2147956797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.AR!AMTB"
+        threat_id = "2147956797"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "C:\\Users\\admin\\source\\repos\\wahdani\\wahdani\\obj\\Debug\\wahdani.pdb" ascii //weight: 10
+        $x_10_2 = "C:\\Users\\admin\\source\\repos\\WindowsApp25\\WindowsApp25\\obj\\Debug\\WindowsApp25.pdb" ascii //weight: 10
+        $x_1_3 = ".My.Resources" ascii //weight: 1
+        $x_1_4 = ".Form1.resources" ascii //weight: 1
+        $x_1_5 = "nomCle" ascii //weight: 1
+        $x_1_6 = "Form1_Load" ascii //weight: 1
+        $x_1_7 = "Invoke" ascii //weight: 1
+        $x_1_8 = "Software\\{0}" wide //weight: 1
+        $x_1_9 = "Property can only be set to Nothing" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 7 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

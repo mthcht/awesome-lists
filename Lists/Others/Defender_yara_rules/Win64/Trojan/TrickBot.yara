@@ -109,3 +109,25 @@ rule Trojan_Win64_TrickBot_RDA_2147933844_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_TrickBot_ARAX_2147958361_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/TrickBot.ARAX!MTB"
+        threat_id = "2147958361"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "TrickBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 0f b6 03 48 ff c1 41 ff ca 88 44 0c 47 ff c3 49 ff c3 48 83 f9 04 0f 85 95 00 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = {32 c2 88 44 24 41 0f b7 01 66 89 46 fd 0f b6 41 02 33 c9 88 46 ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

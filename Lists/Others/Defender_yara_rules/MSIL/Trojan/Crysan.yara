@@ -2818,3 +2818,25 @@ rule Trojan_MSIL_Crysan_ANS_2147955675_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_AYB_2147958367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.AYB!MTB"
+        threat_id = "2147958367"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {ec bf fc 02 fa 91 2f 87 2a e5 c8 49 7f 8a b7 3d de 7f 97 75 bf 6d 7c 0b cc bc e1 3a fd f8 ef 6f b8 40 ae 9d 3a 9e e2 75 c6 33 d8 fe fa bb d6 fd 5b 60 ea f7 27 8c eb f7 c2 4f ba 60 e7 d7 09 3b de b2 e5 53 2f a5 f9 c5 9c 51 fd 9e 4f e4 fe ae}  //weight: 5, accuracy: High
+        $x_3_2 = "ynqekxomipxues.Resources" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

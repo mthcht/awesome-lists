@@ -365,3 +365,31 @@ rule Trojan_Win32_XWorm_MCN_2147956049_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_AMTB_2147958364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm!AMTB"
+        threat_id = "2147958364"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MXe77Hjr3fLHXxIK416L2RQyHLJKFpD5GynmFOQr1Zas4U1kWsCYAgSuRWbILZyDllySaE" ascii //weight: 1
+        $x_1_2 = "a2iKC8dQHAx3OBpcTPTuHc9sYQF4LYmMu1mVKn07Xugl8BE49rkJb7XW6PQSv6w06dfUhE" ascii //weight: 1
+        $x_1_3 = "5mlbGFlsC7Vi5yWZ4dQdrZA0MflHP9i18nXRUWby7AQrZODPrctymlle" ascii //weight: 1
+        $x_1_4 = "EXECUTION_STATE" ascii //weight: 1
+        $x_1_5 = "get_UserName" ascii //weight: 1
+        $x_1_6 = "get_MachineName" ascii //weight: 1
+        $x_1_7 = "h9dvA9Crk3ELw0vrVJ6FFrnv5QdkVxjY1My65xfOmY9duFxGH7KTgDyBWgBx2fOAq0dcp0" ascii //weight: 1
+        $x_1_8 = "ElojuyhUAoZ1mqb60ODxThEPDYqVzASyaqOx8ZbWCJJEHb6gBZBphwt8t1gZ5oZyI3KeA1" ascii //weight: 1
+        $x_1_9 = "mxoWMt7UEafchl6G2m5cRsj8zqbm9OXWHwT3AC5u17ndTDiPWMUtK2W1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
