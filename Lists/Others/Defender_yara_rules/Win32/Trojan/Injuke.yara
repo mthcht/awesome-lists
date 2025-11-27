@@ -1238,3 +1238,26 @@ rule Trojan_Win32_Injuke_KK_2147957304_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injuke_PGIN_2147958414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injuke.PGIN!MTB"
+        threat_id = "2147958414"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {c1 f3 30 d0 af f3 1c 1c 87 40 3f 1e 43 47 bc c2 1a ff 7c 17 99 08 72 35 35 f2 b3 17 23 70 25 25 13 30 03 00 07 00 00 00 01 00 00 11 02 28 0c 00 00 0a 2a 00 13 30 04}  //weight: 5, accuracy: High
+        $x_5_2 = {52 65 73 6f 6c 76 65 00 52 65 6d 6f 76 65 00 [0-11] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_5_3 = "DebuggerHiddenAttribute" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

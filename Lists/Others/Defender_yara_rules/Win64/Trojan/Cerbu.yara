@@ -203,3 +203,28 @@ rule Trojan_Win64_Cerbu_AYA_2147958369_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_SX_2147958429_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.SX!MTB"
+        threat_id = "2147958429"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "37"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {80 e1 1f 8b c2 80 c1 41 ff c2 88 8c 05 ?? ?? ?? ?? 81 fa ff 01 00 00 73}  //weight: 20, accuracy: Low
+        $x_10_2 = {6b db 1f 8d 52 ?? 0f be c1 0f b6 8c 15 e8 ?? ?? ?? ?? d8 84 c9 75 e9}  //weight: 10, accuracy: Low
+        $x_5_3 = "schtasks /Create /SC ONLOGON /TN \"%s\" /TR \"%s\" /F /RL HIGHEST" ascii //weight: 5
+        $x_1_4 = "chrome" ascii //weight: 1
+        $x_1_5 = "VMware" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
