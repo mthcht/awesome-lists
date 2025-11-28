@@ -545,3 +545,24 @@ rule Trojan_Win64_Amadey_Y_2147957969_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_ABA_2147958447_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.ABA!MTB"
+        threat_id = "2147958447"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 03 c8 0f b6 01 41 88 04 19 44 88 11 41 0f b6 0c 19 49 03 ca 0f b6 c1 0f b6 4c 04 ?? 42 32 0c 07 41 88 08 49 ff c0 49 83 eb 01 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

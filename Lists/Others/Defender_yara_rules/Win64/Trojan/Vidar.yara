@@ -662,3 +662,30 @@ rule Trojan_Win64_Vidar_AHC_2147958441_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GTD_2147958451_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GTD!MTB"
+        threat_id = "2147958451"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "File Grabber Rules" ascii //weight: 1
+        $x_1_2 = "Wallet Rules" ascii //weight: 1
+        $x_1_3 = "Chromium Plugins" ascii //weight: 1
+        $x_1_4 = "Loader Tasks" ascii //weight: 1
+        $x_1_5 = "CreateRemoteThread" ascii //weight: 1
+        $x_2_6 = {43 3a 5c 50 72 6f 67 72 61 6d 44 61 74 61 5c 00 a0 82 97 84 81 81 8c c2 d8 c3 dd}  //weight: 2, accuracy: High
+        $x_2_7 = {44 48 46 4a 48 48 50 4b 4c 51 5c 0b 46 4a 48 25}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
