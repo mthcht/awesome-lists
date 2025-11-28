@@ -640,3 +640,25 @@ rule Trojan_Win64_Vidar_LPQ_2147957868_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_AHC_2147958441_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AHC!MTB"
+        threat_id = "2147958441"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {f2 0f 59 c1 f2 0f 10 94 c4 ?? ?? 00 00 f2 0f 10 ?? ?? ?? ?? ?? f2 0f 59 d3 f2 0f 58 d0 f2 0f 11 94 c4 ?? ?? 00 00 48 ff c0}  //weight: 30, accuracy: Low
+        $x_20_2 = {f2 0f 10 84 c4 ?? ?? 00 00 48 89 c1 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 f7 e9 48 01 ca 48 d1 fa 48 8d 14 52 48 89 c8 48 29 d0}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -64,3 +64,26 @@ rule TrojanDownloader_MSIL_Barys_ARA_2147893339_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Barys_MK_2147958445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Barys.MK!MTB"
+        threat_id = "2147958445"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {26 06 28 0a 00 00 06 0b 07 16 fe 02 16 fe 01 0d 09 2d 36 00 20 ff 0f 1f 00 16 06 28 07 00 00 06}  //weight: 15, accuracy: High
+        $x_10_2 = {02 8e 69 17 fe 01 0d 09 2d 02 2b 75 02 16 9a 28 04 00 00 0a 0a 2b 65}  //weight: 10, accuracy: High
+        $x_5_3 = {16 fe 01 0d 09 2d 15 00 08 20 00 01 00 00 28 08 00 00 06 26 08 28 06 00 00 06 26}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
