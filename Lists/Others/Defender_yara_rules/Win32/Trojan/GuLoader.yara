@@ -7262,3 +7262,56 @@ rule Trojan_Win32_GuLoader_SVT_2147958403_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDM_2147958456_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDM!MTB"
+        threat_id = "2147958456"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Sukkerskaalen\\Kilohertzen59\\Cares26" ascii //weight: 1
+        $x_1_2 = "fjortenaarsfdselsdagen\\spirals" ascii //weight: 1
+        $x_1_3 = "\\kantates\\tilbagestaaende.txt" ascii //weight: 1
+        $x_1_4 = "\\Lacunaria17\\ombygningsarbejdernes.exe" ascii //weight: 1
+        $x_1_5 = "%elefants%\\tetradesmus\\indlullet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVU_2147958462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVU!MTB"
+        threat_id = "2147958462"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Forskaanelsen35\\mangedobling.gif" ascii //weight: 1
+        $x_1_2 = "Sprognormeringernes\\Uninstall\\nonorganically" ascii //weight: 1
+        $x_1_3 = "\\Calcitrate\\gennemspiller.jpg" ascii //weight: 1
+        $x_1_4 = "\\franarrendes.ini" ascii //weight: 1
+        $x_1_5 = "\\begravelsesmyndigheder\\Fordummendes.bin" ascii //weight: 1
+        $x_1_6 = "\\Lovbundnes\\frokoststuerne" ascii //weight: 1
+        $x_1_7 = "Servitutbelagtes\\quindene" ascii //weight: 1
+        $x_1_8 = "Damoklessvrdet76.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
