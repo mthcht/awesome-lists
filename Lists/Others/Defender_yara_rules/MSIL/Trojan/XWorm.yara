@@ -3677,3 +3677,30 @@ rule Trojan_MSIL_XWorm_BAM_2147958405_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AAMB_2147958467_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AAMB!MTB"
+        threat_id = "2147958467"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0b 07 09 6f ?? 00 00 0a 07 17 6f ?? 00 00 0a 07 18 6f ?? 00 00 0a 1f 10 8d ?? 00 00 01 0c 02 16 08 16 1f 10 28 ?? 00 00 0a 07 08 6f ?? 00 00 0a 73 ?? 00 00 0a 13 06 02 1f 10 02 8e b7 1f 10 da 73 ?? 00 00 0a 07 6f ?? 00 00 0a 16 73 ?? 00 00 0a 13 07 11 07 11 06 6f ?? 00 00 0a de 0c 11 07 2c 07 11 07 6f ?? 00 00 0a dc 11 06 6f ?? 00 00 0a 0a de 36 de 0c}  //weight: 5, accuracy: Low
+        $x_5_2 = {0a 13 05 11 05 08 6f ?? 00 00 0a 11 05 07 6f ?? 00 00 0a 11 05 17 6f ?? 00 00 0a 11 05 18 6f ?? 00 00 0a 73 ?? 00 00 0a 13 06 02 1f 30 02 8e b7 1f 30 da 73 ?? 00 00 0a 11 05 6f ?? 00 00 0a 16 73 ?? 00 00 0a 13 07 11 07 11 06 6f ?? 00 00 0a de 0c 11 07 2c 07 11 07 6f ?? 00 00 0a dc 11 06 6f ?? 00 00 0a 0a de 1c de 0c}  //weight: 5, accuracy: Low
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

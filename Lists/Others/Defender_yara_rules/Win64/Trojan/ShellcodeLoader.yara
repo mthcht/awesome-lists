@@ -170,3 +170,26 @@ rule Trojan_Win64_ShellcodeLoader_AHB_2147958343_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeLoader_IUY_2147958473_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeLoader.IUY!MTB"
+        threat_id = "2147958473"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "62.60.226.248:5553/may.bin" ascii //weight: 1
+        $x_1_2 = "vivolt\\x64\\Release\\vivolt.pdb" ascii //weight: 1
+        $x_1_3 = "\\OneDrive" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -385,3 +385,24 @@ rule Trojan_Win32_Simda_ADM_2147958239_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Simda_PASD_2147958474_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Simda.PASD!MTB"
+        threat_id = "2147958474"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Simda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4a c0 cc 01 b9 9a 0c 00 00 8b d1 03 15 cc 91 40 00 81 ea d5 07 00 00 2b d1 8b ca 29 0d 90 91 40 00 d1 c9 49 2b 0d 0e 92 40 00 41 01 0d 02 92 40 00 8b d7 d1 c2 2b 15 17 90 40 00 01 15 cb 91 40 00 2b d0 42 03 15 18 91 40 00 81 ea 0e 06 00 00 29 15 29 91 40 00 4a 89 15 56 90 40 00 aa}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

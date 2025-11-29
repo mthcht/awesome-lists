@@ -889,6 +889,32 @@ rule Trojan_Win64_Mikey_SXC_2147951251_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_KK_2147951387_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.KK!MTB"
+        threat_id = "2147951387"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "VBoxGuest.sys" ascii //weight: 1
+        $x_2_2 = "vmhgfs.sys" ascii //weight: 2
+        $x_3_3 = "WDAGUtilityAccount" ascii //weight: 3
+        $x_4_4 = "ImageDownloader" ascii //weight: 4
+        $x_5_5 = {73 74 61 72 74 20 43 3a 5c 55 73 65 72 73 5c [0-16] 5c 44 6f 63 75 6d 65 6e 74 73 5c [0-16] 2e 6a 70 67}  //weight: 5, accuracy: Low
+        $x_6_6 = {70 6f 77 65 72 73 68 65 6c 6c 2e 65 78 65 20 2d 45 6e 63 6f 64 65 64 43 6f 6d 6d 61 6e 64 20 [0-21] 30}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Mikey_AC_2147951443_0
 {
     meta:

@@ -5226,3 +5226,26 @@ rule Trojan_Win32_CobaltStrike_BAA_2147957593_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CobaltStrike_RR_2147958466_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CobaltStrike.RR!MTB"
+        threat_id = "2147958466"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "101.42.175.89" ascii //weight: 1
+        $x_1_2 = "vwxyz123456789011111111" ascii //weight: 1
+        $x_1_3 = "hllochualAhVirtT" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

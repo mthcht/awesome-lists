@@ -127,3 +127,26 @@ rule Trojan_Win64_XLoader_RR_2147957783_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XLoader_LMA_2147958468_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XLoader.LMA!MTB"
+        threat_id = "2147958468"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {42 0f b6 44 26 10 4d 63 d4 49 bb 15 7c 4a 7f b9 79 37 9e 4d 0f af d3 49 03 c2 48 89 45 80 48 8d 4d c0 48 8d 55 b8 4c 8d 45 b0}  //weight: 5, accuracy: High
+        $x_10_2 = {48 8b 45 80 48 8b c8 48 33 4d c0 48 89 4d c0 48 8b c8 48 03 4d a8 48 89 4d a8 4c 8b 45 98 4c 89 85 78 ff ff ff 48 8b c8 ba 11 00 00 00}  //weight: 10, accuracy: High
+        $x_20_3 = {88 4c 0e 10 ff c1 81 f9 00 01 00 00 7c ?? 48 8b 7d c0 48 33 7d a0 4c 8b 75 b8 4c 33 75 98 4c 8b 7d b0 4c 33 7d 90 4c 8b 65 a8 4c 33 65 88}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

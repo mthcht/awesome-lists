@@ -298,3 +298,28 @@ rule Ransom_Win64_LockFile_ARA_2147956833_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_NP_2147958500_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.NP!AMTB"
+        threat_id = "2147958500"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rson.pdb" ascii //weight: 1
+        $x_1_2 = "TIME EXPIRED! Your files will be permanently deleted!" ascii //weight: 1
+        $x_1_3 = "Payment Status - NOT PAID" ascii //weight: 1
+        $x_1_4 = "It may cause permanent file corruption!" ascii //weight: 1
+        $x_1_5 = "WannaCryReplica" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

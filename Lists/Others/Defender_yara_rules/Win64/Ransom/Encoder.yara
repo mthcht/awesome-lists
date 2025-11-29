@@ -91,3 +91,28 @@ rule Ransom_Win64_Encoder_AP_2147957855_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_GP_2147958501_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.GP!AMTB"
+        threat_id = "2147958501"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\IMPORTANT_README.txt" ascii //weight: 1
+        $x_1_2 = "\\READ_FIRST.txt" ascii //weight: 1
+        $x_1_3 = "recover@protonmail.com" ascii //weight: 1
+        $x_1_4 = "C:\\Windows\\Temp\\cleanup.bat" ascii //weight: 1
+        $x_1_5 = " 0.1 BTC " ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
