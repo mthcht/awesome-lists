@@ -284,3 +284,24 @@ rule Trojan_Win64_DonutLoader_AND_2147957891_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_GTD_2147958504_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.GTD!MTB"
+        threat_id = "2147958504"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {44 0f af c9 41 f6 c1 01 41 0f 94 c1 43 83 3c 20 0a 0f 9c c1 44 08 c9 41 89 c8 41 80 f0 01 45 0f b6 c0 49 c1 e0 05 49 8b 54 10 70 4c 01 f2 66 66 66 2e 0f 1f 84 00 00 00 00 00 31 f6 ff e2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1660,3 +1660,26 @@ rule Trojan_Win64_Mikey_PGMI_2147958416_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_AHK_2147958507_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AHK!MTB"
+        threat_id = "2147958507"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {b6 c0 8b 4c 24 04 33 c8 8b c1 48 63 0c 24 48 8b 54 24 30 66 89 04 4a eb b4 48 83 c4 28 c3 48 89}  //weight: 30, accuracy: High
+        $x_20_2 = {44 bc c0 f0 2c 94 88 a8 d4 2c 10 20 3c 84 58 58 64 9c 60 50 4c 74 28 08 f4 0c b0 80 5c 64 f8 b8}  //weight: 20, accuracy: High
+        $x_10_3 = {04 fc 80 30 ec d4 48 e8 94 6c d0 60 fc c4 18 98 24 dc 20 90 0c b4 e8 48 b4 4c 70 c0 1c a4 b8 f8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

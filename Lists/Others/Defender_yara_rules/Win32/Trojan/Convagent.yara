@@ -1956,6 +1956,29 @@ rule Trojan_Win32_Convagent_ARR_2147956042_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {8b c1 8a 9c 0d ?? ?? ?? ?? 99 f7 ff 8b 45 08 0f b6 04 02}  //weight: 15, accuracy: Low
+        $x_10_2 = "GenericLogImpl" ascii //weight: 10
+        $x_5_3 = "[Orange64] DeleteFilePath:%wZ" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_ARR_2147956042_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "High"
     strings:

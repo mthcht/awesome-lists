@@ -818,6 +818,29 @@ rule Trojan_Win32_Tedy_ARR_2147954236_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {8b 4d fc 46 8a 04 3a 32 04 0b 88 03 8b 5d ec}  //weight: 15, accuracy: High
+        $x_10_2 = {8b 45 f4 8b 4d f8 89 1e 5b 89 46 ?? 8b c6 5f 89 4e}  //weight: 10, accuracy: Low
+        $x_5_3 = "QQPCRt.exe" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_ARR_2147954236_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARR!MTB"
+        threat_id = "2147954236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "40"
         strings_accuracy = "High"
     strings:
@@ -831,7 +854,7 @@ rule Trojan_Win32_Tedy_ARR_2147954236_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_ARR_2147954236_1
+rule Trojan_Win32_Tedy_ARR_2147954236_2
 {
     meta:
         author = "defender2yara"
@@ -854,7 +877,7 @@ rule Trojan_Win32_Tedy_ARR_2147954236_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_ARR_2147954236_2
+rule Trojan_Win32_Tedy_ARR_2147954236_3
 {
     meta:
         author = "defender2yara"
