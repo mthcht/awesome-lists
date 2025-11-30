@@ -3289,3 +3289,29 @@ rule Trojan_MSIL_Jalapeno_LMA_2147958064_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_AMTB_2147958515_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno!AMTB"
+        threat_id = "2147958515"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {72 01 00 00 70 80 01 00 00 04 72 5f 00 00 70 80 02 00 00 04 2a}  //weight: 2, accuracy: High
+        $x_2_2 = {28 05 00 00 0a 0a 16 0b 2b 23 06 07 9a 0c 08 6f 06 00 00 0a 02 1b 6f 07 00 00 0a 2c 0c 08 6f 08 00 00 0a 6f 09 00 00 0a 2a 07 17 58 0b 07 06 8e 69 32 d7 14 2a}  //weight: 2, accuracy: High
+        $x_2_3 = {12 00 28 0a 00 00 0a 7d 0d 00 00 04 12 00 15 7d 0c 00 00 04 12 00 7c 0d 00 00 04 12 00 28 02 00 00 2b 12 00 7c 0d 00 00 04 28 0c 00 00 0a 2a}  //weight: 2, accuracy: High
+        $x_2_4 = "AdminId" ascii //weight: 2
+        $x_2_5 = "BotToken" ascii //weight: 2
+        $x_2_6 = "userIp" ascii //weight: 2
+        $x_2_7 = "peredoz.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
