@@ -1056,3 +1056,28 @@ rule Trojan_MSIL_Amadey_AAT_2147955281_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_JX_2147958538_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.JX!MTB"
+        threat_id = "2147958538"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Phantom53 Stealth Installer" ascii //weight: 1
+        $x_1_2 = "Cleanup traces" ascii //weight: 1
+        $x_1_3 = "Full silent mode - no console, no output, no traces" ascii //weight: 1
+        $x_1_4 = "Remove-Item -Path $vbsPath -Force -ErrorAction SilentlyContinue" ascii //weight: 1
+        $x_1_5 = "Clear-History -ErrorAction SilentlyContinue" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

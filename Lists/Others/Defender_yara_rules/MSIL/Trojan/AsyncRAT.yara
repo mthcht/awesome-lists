@@ -6658,3 +6658,34 @@ rule Trojan_MSIL_AsyncRAT_BGF_2147957342_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_JX_2147958537_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.JX!MTB"
+        threat_id = "2147958537"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "==gIkVmdpV2YlJlI" wide //weight: 3
+        $x_2_2 = "EncryptXor" ascii //weight: 2
+        $x_2_3 = "GetAsyncKeyState" ascii //weight: 2
+        $x_2_4 = "GetKeyState" ascii //weight: 2
+        $x_2_5 = "RegistryKeyPermissionCheck" ascii //weight: 2
+        $x_2_6 = "PreventSleep" ascii //weight: 2
+        $x_1_7 = "KeepAlivePacket" ascii //weight: 1
+        $x_1_8 = "xxx.1v1v1v.com" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 5 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

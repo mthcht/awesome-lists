@@ -711,3 +711,24 @@ rule Trojan_Win64_Vidar_GTD_2147958451_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_XTP_2147958535_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.XTP!MTB"
+        threat_id = "2147958535"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 f8 48 8d 52 01 0f b6 4c 3c 50 41 8d 04 08 44 0f b6 c0 42 0f b6 44 04 50 88 44 3c 50 42 88 4c 04 50 0f b6 44 3c ?? 03 c1 0f b6 c0 0f b6 4c 04 50 30 4a ff 49 83 e9 01 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
