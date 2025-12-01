@@ -1323,3 +1323,28 @@ rule Trojan_Win64_ClipBanker_SXA_2147958138_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_AHE_2147958597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.AHE!MTB"
+        threat_id = "2147958597"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[DEBUG] Shellcode written to remote process" ascii //weight: 10
+        $x_20_2 = "Master key decrypted via Reflective DLL Injection" ascii //weight: 20
+        $x_30_3 = "[ChromeB] Detected ABE encryption, using Reflective DLL Injection..." ascii //weight: 30
+        $x_40_4 = "[ChromeB] Wallet extraction completed. Found" ascii //weight: 40
+        $x_50_5 = "[ChromeB] Keylogger thread stopped" ascii //weight: 50
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

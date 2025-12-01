@@ -2102,3 +2102,24 @@ rule Trojan_MSIL_Zilla_ASJB_2147956718_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_AKMB_2147958596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AKMB!MTB"
+        threat_id = "2147958596"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 06 11 09 18 5b 07 72 ?? 00 00 70 18 8d ?? 00 00 01 25 16 7e ?? 00 00 04 2d 25 1f 10 d0 ?? 00 00 01 28 ?? 00 00 0a d0 ?? 00 00 02 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 80 ?? 00 00 04 7e ?? 00 00 04 7b ?? 00 00 0a 7e ?? 00 00 04 06 16 9a 6f ?? 00 00 0a a2 25 17 7e ?? 00 00 04 2d 25 1f 10 d0 ?? 00 00 01 28 ?? 00 00 0a d0 ?? 00 00 02 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 80 ?? 00 00 04 7e ?? 00 00 04 7b ?? 00 00 0a 7e ?? 00 00 04 06 17 9a 6f ?? 00 00 0a a2 6f ?? 00 00 0a 16 8c ?? 00 00 01 18 8d ?? 00 00 01 25 16 02 11 09 08 6f ?? 00 00 0a a2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

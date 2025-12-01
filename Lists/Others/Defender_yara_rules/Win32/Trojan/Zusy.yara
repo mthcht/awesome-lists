@@ -6973,6 +6973,29 @@ rule Trojan_Win32_Zusy_KK_2147944060_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_KK_2147944060_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KK!MTB"
+        threat_id = "2147944060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 85 b0 fe ff ff 00 00 00 00 8d 85 f0 fe ff ff 89 44 24 0c 8d 85 b0 fe ff ff 89 44 24 08 8b 45 10 c7 85 f0 fe ff ff 00 00 00 00 89 44 24 04 8b 45 0c 89 04 24}  //weight: 20, accuracy: High
+        $x_10_2 = {c7 41 78 00 00 00 00 83 c1 08 c7 41 74 00 00 00 00 39 ce}  //weight: 10, accuracy: High
+        $x_5_3 = {e8 5d 10 00 00 b9 35 00 00 00 31 d2 f7 f1 8a 44 15 b2 88 04 33 46 eb e3}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_BAC_2147944114_0
 {
     meta:
