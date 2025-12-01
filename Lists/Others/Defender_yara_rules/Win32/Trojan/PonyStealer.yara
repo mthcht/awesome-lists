@@ -1347,3 +1347,25 @@ rule Trojan_Win32_PonyStealer_AHC_2147958508_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PonyStealer_AHD_2147958552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.AHD!MTB"
+        threat_id = "2147958552"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {fe 0a 0b 00 14 00 36 06 00 54 ff ?? ff 24 ff 04 e8 fe}  //weight: 50, accuracy: Low
+        $x_100_2 = {ff 1b 4c 00 ?? 4d 00 fb 30 1c 73 07 27 24 ?? 27 44 ff 27}  //weight: 100, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

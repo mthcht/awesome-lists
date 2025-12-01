@@ -2116,3 +2116,24 @@ rule Trojan_Win64_ShellcodeRunner_MKA_2147958293_0
         )
 }
 
+rule Trojan_Win64_ShellcodeRunner_XEP_2147958549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.XEP!MTB"
+        threat_id = "2147958549"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 5c 34 40 48 8b 54 24 38 0f b6 db 8a 44 1c 40 43 32 44 34 ?? 42 88 44 32 08 49 ff c6 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

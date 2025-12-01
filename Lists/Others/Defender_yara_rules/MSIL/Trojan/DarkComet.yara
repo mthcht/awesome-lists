@@ -2528,3 +2528,26 @@ rule Trojan_MSIL_DarkComet_AET_2147956954_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkComet_MCP_2147958547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkComet.MCP!MTB"
+        threat_id = "2147958547"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2b 02 26 16 20 10 f6 01 00}  //weight: 1, accuracy: High
+        $x_1_2 = "8d73e3eb.Resources.resources" ascii //weight: 1
+        $x_1_3 = {41 00 4d 00 44 00 20 00 50 00 72 00 6f 00 63 00 65 00 73 00 73 00 6f 00 72 00 2e 00 65 00 78 00 65}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
