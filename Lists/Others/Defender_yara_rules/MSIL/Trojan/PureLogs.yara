@@ -1046,3 +1046,26 @@ rule Trojan_MSIL_PureLogs_PX_2147957227_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogs_ZBT_2147958574_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogs.ZBT!MTB"
+        threat_id = "2147958574"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogs"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 70 00 6f 00 6f 00 6c 00 66 00 72 00 65 00 73 00 68 00 73 00 74 00 65 00 70 00 2e 00 63 00 6f 00 6d 00 2f 00 65 00 6e 00 63 00 68 00 61 00 6e 00 74 00 72 00 65 00 73 00 73 00 2f 00 [0-26] 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 00 74 00 70 3a 2f 2f 70 6f 6f 6c 66 72 65 73 68 73 74 65 70 2e 63 6f 6d 2f 65 6e 63 68 61 6e 74 72 65 73 73 2f [0-26] 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_3_3 = "InvokeMember" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

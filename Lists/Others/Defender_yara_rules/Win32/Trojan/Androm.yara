@@ -1329,9 +1329,9 @@ rule Trojan_Win32_Androm_BAF_2147957594_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
-        strings_accuracy = "Low"
+        strings_accuracy = "High"
     strings:
-        $x_2_1 = {03 7d a4 81 ef 16 19 00 00 2b f8 6a 00 e8 ?? ?? ?? ?? 03 f8 31 3e 83 c3 04 83 c6 04 3b 5d c8 72}  //weight: 2, accuracy: Low
+        $x_2_1 = {03 45 cc 2b c2 83 c0 04 89 45 ec ff 75 fc b9 21 00 00 00 ff 75 f8 b9 21 00 00 00 ff 75 f0 b9 21 00 00 00 ff 75 f4 b9 21}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -1350,9 +1350,9 @@ rule Trojan_Win32_Androm_BAF_2147957594_1
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
-        $x_2_1 = {03 45 cc 2b c2 83 c0 04 89 45 ec ff 75 fc b9 21 00 00 00 ff 75 f8 b9 21 00 00 00 ff 75 f0 b9 21 00 00 00 ff 75 f4 b9 21}  //weight: 2, accuracy: High
+        $x_2_1 = {03 fa 03 fb 03 f8 c7 45 ?? 16 19 00 00 6a 00 e8 ?? ?? ?? ?? 03 7d ?? 81 ef 16 19 00 00 2b f8 6a 00 e8 [0-31] 03 f8 31 3e 83 c3 04 83 c6 04 3b 5d ?? 72}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
