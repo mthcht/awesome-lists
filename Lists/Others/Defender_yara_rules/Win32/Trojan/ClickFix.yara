@@ -12679,3 +12679,47 @@ rule Trojan_Win32_ClickFix_HN_2147958268_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_HY_2147958635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HY!MTB"
+        threat_id = "2147958635"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 2d 00 6e 00 6f 00 70 00 20 00 2d 00 65 00 6e 00 63 00 20 00 [0-21] 71 00 62 00 79 00 61 00 68 00 71 00 61 00 6c 00 71 00 62 00 74 00 61 00 67 00 77 00 61 00 7a 00 71 00 62 00 6c 00 61 00 68 00 61 00 61 00 69 00 61 00 61 00 78 00 61 00 61 00 6f 00 61 00 71 00 77 00 62 00 73 00 61 00 67 00 75 00 61 00 79 00 71 00 62 00 79 00 61 00 63 00 30 00 61 00 73 00 61 00 62 00 76 00 61 00 68 00 6d 00 61 00 64 00 61 00 61 00 6b 00 61 00 66 00 63 00 61 00 63 00 67 00 62 00 70 00 61 00 68 00 71 00 61 00 7a 00 71 00 61 00 74 00 61 00 65 00 67 00 61 00 62 00 77 00 62 00 7a 00 61 00 68 00}  //weight: 10, accuracy: Low
+        $x_5_2 = "qaiaaiafaacgbvagmazqbzahmaaqbuagcaiabcageacgbjagwayqb5ahmaiabbahuadaboaguabgb0agkaywbhahqaaqb" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HZ_2147958636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HZ!MTB"
+        threat_id = "2147958636"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {28 00 24 00 63 00 6f 00 6e 00 74 00 65 00 6e 00 74 00 20 00 2d 00 6d 00 61 00 74 00 63 00 68 00 20 00 27 00 28 00 3f 00 73 00 29 00 2f 00 2f 00 73 00 74 00 61 00 72 00 74 00 30 00 28 00 2e 00 2a 00 3f 00 29 00 2f 00 2f 00 73 00 74 00 6f 00 70 00 30 00 27 00 29 00 20 00 7b 00 24 00 [0-4] 20 00 3d 00 20 00 24 00 6d 00 61 00 74 00 63 00 68 00 65 00 73 00 5b 00 31 00 5d 00 7d 00 7d 00 3b 00}  //weight: 10, accuracy: Low
+        $x_5_2 = "iex ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
