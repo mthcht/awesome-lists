@@ -232,3 +232,24 @@ rule Trojan_Win64_KillAV_SE_2147958205_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_CR_2147958656_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.CR!MTB"
+        threat_id = "2147958656"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 3a 06 01 00 48 63 c8 49 8b c6 48 f7 e1 48 c1 ea 04 48 6b c2 34 48 2b c8 0f b6 84 29 78 51 04 00 88 84 2b d0 ec 04 00 48 ff c3 48 3b df}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

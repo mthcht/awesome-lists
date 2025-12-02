@@ -276,3 +276,48 @@ rule Trojan_Win32_SalatStealer_ASSE_2147958394_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_NE_2147958658_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.NE!MTB"
+        threat_id = "2147958658"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 07 09 c0 74 3c 8b 5f 04 8d 84 30 00 b0 c3 00 01 f3 50 83 c7 08 ff 96 28 b0 c3 00 95 8a 07 47 08 c0 74 dc}  //weight: 1, accuracy: High
+        $x_1_2 = "Go build ID" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SalatStealer_NRR_2147958664_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.NRR!MTB"
+        threat_id = "2147958664"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {80 eb e8 01 f0 89 07 83 c7 05 88 d8 e2 d9 8d be 00 ?? c1 00 8b 07 09 c0}  //weight: 3, accuracy: Low
+        $x_3_2 = {8a 07 47 08 c0 74 dc 89 f9 57 48 f2 ae 55 ff 96 30 ?? c3 00 09 c0 74 07 89 03 83 c3 04 eb e1}  //weight: 3, accuracy: Low
+        $x_2_3 = "Go build ID" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

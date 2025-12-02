@@ -228,3 +228,33 @@ rule Trojan_Win64_Cerbu_SX_2147958429_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AHD_2147958666_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHD!MTB"
+        threat_id = "2147958666"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {44 0f b7 7e ?? 0f b7 09 49 83 c7 ?? 4c 03 fe 8b 76 ?? 4c 03 f9 4a 8d 04 3e}  //weight: 20, accuracy: Low
+        $x_30_2 = "Installing update 1 of 1..." ascii //weight: 30
+        $x_10_3 = "%s_%04X.exe" ascii //weight: 10
+        $x_40_4 = "schtasks /Create /SC ONLOGON /TN \"%s\" /TR \"%s\" /F /RL HIGHEST" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((1 of ($x_40_*) and 1 of ($x_10_*))) or
+            ((1 of ($x_40_*) and 1 of ($x_20_*))) or
+            ((1 of ($x_40_*) and 1 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

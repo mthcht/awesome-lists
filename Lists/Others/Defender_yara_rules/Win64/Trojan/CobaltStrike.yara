@@ -4310,6 +4310,30 @@ rule Trojan_Win64_CobaltStrike_SB_2147833417_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_SB_2147833417_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.SB!MTB"
+        threat_id = "2147833417"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b c1 c7 44 24 40 3a 51 7c ab 83 e0 0f c7 44 24 44 0e 15 70 0f c7 44 24 48 22 19 a4 b3 c7 44 24 4c 76 5d 18 97 0f 28 44 24 40 66 0f 7f 44 24 60 0f b6 44 04 60 32 84 11 b8 99 01 00 88 44 0c 50 48 ff c1 48 83 f9 0c 72 b6}  //weight: 1, accuracy: High
+        $x_1_2 = "DllCanUnloadNow" ascii //weight: 1
+        $x_1_3 = "DllGetClassObject" ascii //weight: 1
+        $x_1_4 = "runWorker" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CobaltStrike_WA_2147833419_0
 {
     meta:
@@ -5961,6 +5985,27 @@ rule Trojan_Win64_CobaltStrike_AA_2147839904_0
 }
 
 rule Trojan_Win64_CobaltStrike_SH_2147840252_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.SH!MTB"
+        threat_id = "2147840252"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 63 44 24 20 48 8d 0d d0 11 00 00 0f be 04 01 89 44 24 24 8b 44 24 20 99 83 e0 01 33 c2 2b c2 48 98 48 8b 4c 24 38 0f be 04 01 8b 4c 24 24 33 c8 8b c1 48 63 4c 24 20 48 8b 54 24 30 88 04 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_SH_2147840252_1
 {
     meta:
         author = "defender2yara"
@@ -18062,6 +18107,48 @@ rule Trojan_Win64_CobaltStrike_WH_2147958378_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {48 8b 55 10 48 8b 45 f8 48 01 d0 0f b6 10 48 8b 4d 10 48 8b 45 f8 48 01 c8 83 f2 ?? 88 10 48 83 45 f8 01}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_SRA_2147958653_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.SRA!MTB"
+        threat_id = "2147958653"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 54 d5 00 4c 01 f2 4f 8d 04 40 49 83 c0 06 48 83 f1 03 45 31 d2 45 31 db 48 be 93 2d 59 57 18 77 87 0e 49 39 f1 41 0f 93 c2 4e 8d 14 95 04 00 00 00 41 0f 95 c3 4e 8d 1c 9d 07 00 00 00 31 f6 4d 39 f9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_EF_2147958673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.EF!MTB"
+        threat_id = "2147958673"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 55 10 48 8b 45 f8 48 01 d0 44 0f b6 00 48 8b 45 f8 83 e0 03 0f b6 4c 05 f4 48 8b 55 10 48 8b 45 f8 48 01 d0 44 89 c2 31 ca 88 10 48 83 45 f8 01 48 8b 45 f8 48 3b 45 18 72 c4}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

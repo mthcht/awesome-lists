@@ -496,3 +496,26 @@ rule Trojan_Win32_Khalesi_B_2147957631_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Khalesi_SX_2147958667_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Khalesi.SX!MTB"
+        threat_id = "2147958667"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Khalesi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {e0 b2 91 00 6c 02 00 00 00 00 ba 00 4e ef 02 00 60 4c b8 00 c0 cf}  //weight: 2, accuracy: High
+        $x_4_2 = {48 83 ec 28 48 8d 0d a5 e8 2b 00 48 8b 05 9e e8 2b 00 4c 8b 40 08 48 89 ca e8 52 90 00 00 48 8b}  //weight: 4, accuracy: High
+        $x_4_3 = {9e f7 6d 7b 37 b6 a5 9f 73 8a 6b 0b 93 09 dd 36 a2 6b 21 3d 2c db a5 b5 04 67 8e fb 64 d5 57 ff}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

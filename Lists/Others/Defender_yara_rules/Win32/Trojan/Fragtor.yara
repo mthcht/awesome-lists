@@ -3172,3 +3172,26 @@ rule Trojan_Win32_Fragtor_MCP_2147958548_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_ARR_2147958669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.ARR!MTB"
+        threat_id = "2147958669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "LoadmyDll" ascii //weight: 6
+        $x_4_2 = "strat run" ascii //weight: 4
+        $x_10_3 = "IOJCMain" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
