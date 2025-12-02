@@ -85,3 +85,25 @@ rule Trojan_Win32_Fugrafa_SX_2147954518_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fugrafa_MK_2147958629_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fugrafa.MK!MTB"
+        threat_id = "2147958629"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fugrafa"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {89 85 70 f7 ff ff 33 d2 c6 04 01 ?? 90 0f b7 ?? ?? ?? ?? ?? 8d 52 ?? 66 89 8c 15 7e f9 ff ff 66 85 c9}  //weight: 15, accuracy: Low
+        $x_10_2 = {8b 7d b0 03 f9 89 7d d8 8b 17 8b f2 8b 5f cc 8b ca c1 c9 11 c1 ea 0a c1 ce 13 33 f1 8b cb c1 c9 07 33 f2 8b d3 c1 ca 12 33 d1 8b cb c1 e9 03}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

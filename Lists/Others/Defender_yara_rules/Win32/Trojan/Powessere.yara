@@ -767,3 +767,30 @@ rule Trojan_Win32_Powessere_X_2147831330_0
         )
 }
 
+rule Trojan_Win32_Powessere_T_2147958624_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Powessere.T"
+        threat_id = "2147958624"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Powessere"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {5c 00 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = ").GetValue(" wide //weight: 2
+        $x_2_3 = ")).EntryPoint.Invoke(" wide //weight: 2
+        $x_1_4 = ".OpenSubKey(" wide //weight: 1
+        $x_1_5 = "get-item -Path" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
