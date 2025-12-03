@@ -4504,3 +4504,27 @@ rule Trojan_Win64_Lazy_LM_2147957709_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_B_2147958717_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.B!AMTB"
+        threat_id = "2147958717"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {73 6f 75 72 63 65 5f 73 74 65 61 6c 65 72 [0-80] 54 65 6c 65 67 72 61 6d 53 74 65 61 6c 65 72 2e 70 64 62}  //weight: 2, accuracy: Low
+        $x_2_2 = "Telegram Uploader" ascii //weight: 2
+        $x_1_3 = "/sendDocument" ascii //weight: 1
+        $x_1_4 = "key_datas" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
