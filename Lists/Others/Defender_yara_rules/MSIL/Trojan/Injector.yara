@@ -1457,6 +1457,32 @@ rule Trojan_MSIL_Injector_EAPQ_2147936729_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_AMTB_2147946203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector!AMTB"
+        threat_id = "2147946203"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "BLACKHAWK.dll" ascii //weight: 2
+        $x_2_2 = "BLACKHAWK.pdb" ascii //weight: 2
+        $x_2_3 = "BLACKHAWK.Properties" ascii //weight: 2
+        $n_100_4 = "Uninst.exe" ascii //weight: -100
+        $n_100_5 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_6 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Injector_AHB_2147947693_0
 {
     meta:

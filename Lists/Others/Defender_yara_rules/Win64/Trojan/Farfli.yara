@@ -275,6 +275,28 @@ rule Trojan_Win64_Farfli_KK_2147956148_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_KK_2147956148_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.KK!MTB"
+        threat_id = "2147956148"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {2e 64 6c 6c c6 45 ?? 00 c7 45 ?? 69 6c 65 54 c7 45 ?? 69 6d 65 00 c7 45 ?? 69 6c 65 54 c7 45 ?? 69 6d 65 00 c7 45 ?? 54 69 6d 65}  //weight: 20, accuracy: Low
+        $x_10_2 = {80 30 46 48 8d 40 01 ff c1 81 f9 08 02 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Farfli_NF_2147956639_0
 {
     meta:
@@ -342,5 +364,35 @@ rule Trojan_Win64_Farfli_MK_2147956839_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win64_Farfli_SXC_2147958710_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.SXC!MTB"
+        threat_id = "2147958710"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 ff c0 80 3c 01 00 75 f7 49 03 c0 48 8d 8d ?? ?? ?? ?? 33 d2 c6 84 05 ?? ?? ?? ?? ?? ff 15 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8b c8 33 d2 ff 15}  //weight: 20, accuracy: Low
+        $x_20_2 = {48 0f 47 55 00 45 33 c0 ff 15 ?? ?? ?? ?? 33 d2 48 8d 0d ?? ?? ?? ?? ff 15 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8b c8 33 d2 ff 15}  //weight: 20, accuracy: Low
+        $x_10_3 = {03 c1 83 c1 02 89 44 24 ?? 8b 44 24 ?? 2b c2 ff c2 89 44 24 ?? 81 f9 c8 00 00 00 7c df}  //weight: 10, accuracy: Low
+        $x_10_4 = {48 0f 42 d9 48 8b cf 48 ff c3 48 03 df 48 8b d3 e8 ?? ?? ?? ?? 48 8b 54 24 ?? 48 8b c8 48 2b cf 49 c7 c0 ff ff ff ff 48 3b c3}  //weight: 10, accuracy: Low
+        $x_2_5 = "update.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_20_*) and 2 of ($x_10_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
 }
 

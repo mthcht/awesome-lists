@@ -106,3 +106,29 @@ rule Trojan_Win32_Badur_EDE_2147943994_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Badur_KK_2147958709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Badur.KK!MTB"
+        threat_id = "2147958709"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Badur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6d 61 69 6e 2e 28 2a [0-15] 29 2e 53 65 74 44 79 6e 61 6d 69 63 43 72 65 64 65 6e 74 69 61 6c 73}  //weight: 10, accuracy: Low
+        $x_15_2 = {6d 61 69 6e 2e 28 2a [0-15] 29 2e 53 65 74 53 63 6b 73 35 53 72 76}  //weight: 15, accuracy: Low
+        $x_20_3 = {6d 61 69 6e 2e 28 2a [0-15] 29 2e 42 34 63 6b 43 78 6e 6e 65 63 74}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+

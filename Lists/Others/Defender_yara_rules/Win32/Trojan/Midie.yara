@@ -1008,3 +1008,32 @@ rule Trojan_Win32_Midie_LMC_2147957474_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Midie_KK_2147958708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.KK!MTB"
+        threat_id = "2147958708"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "fm_installing_bot_1984" ascii //weight: 1
+        $x_2_2 = "fm_working_bot_1984" ascii //weight: 2
+        $x_3_3 = "Bot path:" ascii //weight: 3
+        $x_4_4 = "down_and_run" ascii //weight: 4
+        $x_5_5 = "Remote path:" ascii //weight: 5
+        $x_6_6 = "OK download Bot!" ascii //weight: 6
+        $x_7_7 = "OK ShellExecute Bot!" ascii //weight: 7
+        $x_8_8 = "FALSE ShellExecute Bot!" ascii //weight: 8
+        $x_9_9 = "FAIL download Bot! sleep" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
