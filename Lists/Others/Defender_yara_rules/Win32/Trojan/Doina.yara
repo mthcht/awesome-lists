@@ -745,6 +745,27 @@ rule Trojan_Win32_Doina_MX_2147933716_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 85 f8 fe ff ff 68 04 01 00 00 50 e8 32 bd 00 00 68 ff 03 00 00 8d 85 f9 fa ff ff c6 85 f8 fa ff ff 00 6a 00 50}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Doina_MX_2147933716_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.MX!MTB"
+        threat_id = "2147933716"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "2"
         strings_accuracy = "High"
     strings:

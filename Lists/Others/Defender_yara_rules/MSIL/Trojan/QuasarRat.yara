@@ -757,3 +757,32 @@ rule Trojan_MSIL_QuasarRat_TO_2147957243_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRat_LI_2147958705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.LI!MTB"
+        threat_id = "2147958705"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Uninstalling... good bye :-(" wide //weight: 2
+        $x_2_2 = {00 70 00 69 00 6e 00 67 00 20 00 2d 00 6e 00 20 00 31 00 30 00 20 00 6c 00 6f 00 63 00 61 00 6c 00 68 00 6f 00 73 00 74 00 20 00 3e 00 20 00 6e 00 75 00 6c 00 0d 00 0a 00 64 00 65 00 6c 00 20 00 2f 00 61 00 20 00 2f 00 71 00 20 00 2f 00 66 00 20 00}  //weight: 2, accuracy: High
+        $x_2_3 = "Client_ProcessedByFody" ascii //weight: 2
+        $x_2_4 = "GetKeyloggerLogsDirectoryResponse" ascii //weight: 2
+        $x_2_5 = "SELECT * FROM AntivirusProduct" wide //weight: 2
+        $x_2_6 = "SELECT * FROM Win32_OperatingSystem WHERE Primary='true'" wide //weight: 2
+        $x_2_7 = "SELECT * FROM FirewallProduct" wide //weight: 2
+        $x_1_8 = "set_SystemInfos" ascii //weight: 1
+        $x_1_9 = "set_RemotePath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

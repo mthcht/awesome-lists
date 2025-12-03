@@ -68,6 +68,32 @@ rule Ransom_Win64_Encoder_MX_2147956810_1
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_MX_2147956810_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.MX!MTB"
+        threat_id = "2147956810"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Go build ID" ascii //weight: 1
+        $x_1_2 = "main.encryptFile" ascii //weight: 1
+        $x_1_3 = "main.encryptDirectory" ascii //weight: 1
+        $x_1_4 = "main.createRansomNote" ascii //weight: 1
+        $x_1_5 = "To decrypt" ascii //weight: 1
+        $x_1_6 = "Your files have been encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win64_Encoder_AP_2147957855_0
 {
     meta:
