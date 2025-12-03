@@ -8579,3 +8579,27 @@ rule Trojan_Win32_Zusy_JT_2147957530_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_LMV_2147958747_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LMV!MTB"
+        threat_id = "2147958747"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "38"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b d0 83 e2 0f 8a 92 cc 41 40 00 88 13 4b c1 e8 04}  //weight: 20, accuracy: High
+        $x_10_2 = "I remember each time I run" ascii //weight: 10
+        $x_5_3 = "JClick here to view all runtimes (extract the runtime data to runtimes.txt)" ascii //weight: 5
+        $x_3_4 = "ZJust look at the caption for first and last runtime and at end of exe for all runtimes :-)" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

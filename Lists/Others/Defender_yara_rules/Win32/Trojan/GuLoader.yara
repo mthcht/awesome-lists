@@ -7363,3 +7363,56 @@ rule Trojan_Win32_GuLoader_RDO_2147958655_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDP_2147958740_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDP!MTB"
+        threat_id = "2147958740"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\gurgulation\\buffooneries\\converterne" ascii //weight: 1
+        $x_1_2 = "heightens\\engangsskat\\" ascii //weight: 1
+        $x_1_3 = "\\coappear\\Hagboat.bin" ascii //weight: 1
+        $x_1_4 = "\\ared\\Lemmernes.ini" ascii //weight: 1
+        $x_1_5 = "\\Wilderland\\hemiataxy.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVW_2147958741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVW!MTB"
+        threat_id = "2147958741"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Overinsistent\\debatartikler" ascii //weight: 1
+        $x_1_2 = "\\rustkamrenes.ini" ascii //weight: 1
+        $x_1_3 = "\\skrivearbejdet\\forbandet.ini" ascii //weight: 1
+        $x_1_4 = "\\Nocten\\eclectic.zip" ascii //weight: 1
+        $x_1_5 = "\\behandlingsmetoden\\Bankfunktionrers231.dll" ascii //weight: 1
+        $x_1_6 = "\\Lsladelser\\Cystotrachelotomy.bin" ascii //weight: 1
+        $x_1_7 = "\\tndere\\plasters.ini" ascii //weight: 1
+        $x_1_8 = "\\gwinter.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

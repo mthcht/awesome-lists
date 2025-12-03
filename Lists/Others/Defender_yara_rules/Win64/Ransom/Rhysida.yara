@@ -73,3 +73,28 @@ rule Ransom_Win64_Rhysida_C_2147852717_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Rhysida_NRA_2147958760_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Rhysida.NRA!MTB"
+        threat_id = "2147958760"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhysida"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Rhysida-0.3" ascii //weight: 2
+        $x_1_2 = "GetProcessMemoryInfo" ascii //weight: 1
+        $x_1_3 = "EnumProcesses" ascii //weight: 1
+        $x_1_4 = "AES Encrypt" ascii //weight: 1
+        $x_2_5 = {48 0f bd c2 48 83 f0 3f 85 c0 89 c3}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

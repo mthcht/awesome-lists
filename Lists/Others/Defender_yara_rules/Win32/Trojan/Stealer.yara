@@ -1549,3 +1549,25 @@ rule Trojan_Win32_Stealer_ARR_2147956868_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_LMF_2147958749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.LMF!MTB"
+        threat_id = "2147958749"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {03 c5 81 c0 93 00 00 00 b9 c2 05 00 00 ba f2 7f 7d fd 30 10 40 49}  //weight: 20, accuracy: High
+        $x_10_2 = {0d 87 fa 1a 80 f2 f2 f2 79 4f fa f2 f2 f2 c1 3b 73 00 df 77}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
