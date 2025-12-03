@@ -712,3 +712,26 @@ rule Ransom_Win32_Locky_ZID_2147943832_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Locky_VZV_2147958724_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Locky.VZV!MTB"
+        threat_id = "2147958724"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Locky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b d0 c1 c2 0d 2a ca 32 cb 88 0c 07 8a c8 80 e1 1f 0f b6 d3 d3 c2 8b 4d ?? d1 c9 03 d1 8b c8 c1 c9 17 81 c1 68 2f 70 53 33 d1 40 89 55 ec 3b 46 10 72}  //weight: 5, accuracy: Low
+        $x_1_2 = "_Locky_recover_instructions.txt" ascii //weight: 1
+        $x_1_3 = ".locky" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
