@@ -476,3 +476,29 @@ rule Trojan_Win32_Virlock_ARAC_2147956834_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Virlock_ARAC_2147956834_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.ARAC!MTB"
+        threat_id = "2147956834"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 90 32 c2 e9}  //weight: 2, accuracy: High
+        $x_2_2 = {8a 06 32 c2 e9}  //weight: 2, accuracy: High
+        $x_3_3 = {88 07 90 42 46 90 47 49 83 f9 00 90 e9}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

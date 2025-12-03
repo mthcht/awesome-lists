@@ -396,3 +396,26 @@ rule Trojan_Win64_Farfli_SXC_2147958710_0
         )
 }
 
+rule Trojan_Win64_Farfli_AHC_2147958728_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.AHC!MTB"
+        threat_id = "2147958728"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "90"
+        strings_accuracy = "Low"
+    strings:
+        $x_40_1 = {42 88 44 31 ?? 42 88 84 31 ?? ?? ?? ?? 48 8d 49 ?? 0f b6 04 11 84 c0 75}  //weight: 40, accuracy: Low
+        $x_30_2 = "Service Worker\\CacheStorage\\https_extension_%s_0" ascii //weight: 30
+        $x_20_3 = "Scanning wallet dir: %s" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
