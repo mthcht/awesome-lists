@@ -7988,3 +7988,25 @@ rule Trojan_Win32_LummaStealer_AHF_2147958665_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_PAGX_2147958686_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.PAGX!MTB"
+        threat_id = "2147958686"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {66 8b 04 77 66 83 e8 ?? 66 83 f0 ?? 66 89 04 77 46 57 e8 ?? ?? ?? ?? 59 3b f0 72}  //weight: 2, accuracy: Low
+        $x_1_2 = "Screenshoter" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
