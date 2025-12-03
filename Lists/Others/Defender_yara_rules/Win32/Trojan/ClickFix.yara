@@ -12694,7 +12694,7 @@ rule Trojan_Win32_ClickFix_HY_2147958635_0
         threshold = "15"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 2d 00 6e 00 6f 00 70 00 20 00 2d 00 65 00 6e 00 63 00 20 00 [0-21] 71 00 62 00 79 00 61 00 68 00 71 00 61 00 6c 00 71 00 62 00 74 00 61 00 67 00 77 00 61 00 7a 00 71 00 62 00 6c 00 61 00 68 00 61 00 61 00 69 00 61 00 61 00 78 00 61 00 61 00 6f 00 61 00 71 00 77 00 62 00 73 00 61 00 67 00 75 00 61 00 79 00 71 00 62 00 79 00 61 00 63 00 30 00 61 00 73 00 61 00 62 00 76 00 61 00 68 00 6d 00 61 00 64 00 61 00 61 00 6b 00 61 00 66 00 63 00 61 00 63 00 67 00 62 00 70 00 61 00 68 00 71 00 61 00 7a 00 71 00 61 00 74 00 61 00 65 00 67 00 61 00 62 00 77 00 62 00 7a 00 61 00 68 00}  //weight: 10, accuracy: Low
+        $x_10_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 2d 00 6e 00 6f 00 70 00 20 00 2d 00 65 00 6e 00 63 00 20 00 [0-22] 71 00 62 00 79 00 61 00 68 00 71 00 61 00 6c 00 71 00 62 00 74 00 61 00 67 00 77 00 61 00 7a 00 71 00 62 00 6c 00 61 00 68 00 61 00 61 00 69 00 61 00 61 00 78 00 61 00 61 00 6f 00 61 00 71 00 77 00 62 00 73 00 61 00 67 00 75 00 61 00 79 00 71 00 62 00 79 00 61 00 63 00 30 00 61 00 73 00 61 00 62 00 76 00 61 00 68 00 6d 00 61 00 64 00 61 00 61 00 6b 00 61 00 66 00 63 00 61 00 63 00 67 00 62 00 70 00 61 00 68 00 71 00 61 00 7a 00 71 00 61 00 74 00 61 00 65 00 67 00 61 00 62 00 77 00 62 00 7a 00 61 00 68 00}  //weight: 10, accuracy: Low
         $x_5_2 = "qaiaaiafaacgbvagmazqbzahmaaqbuagcaiabcageacgbjagwayqb5ahmaiabbahuadaboaguabgb0agkaywbhahqaaqb" wide //weight: 5
     condition:
         (filesize < 20MB) and
@@ -12721,5 +12721,35 @@ rule Trojan_Win32_ClickFix_HZ_2147958636_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HM_2147958697_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HM!MTB"
+        threat_id = "2147958697"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {28 00 73 00 70 00 6c 00 69 00 74 00 2d 00 70 00 61 00 74 00 68 00 20 00 24 00 [0-6] 29 00 20 00 2d 00 65 00 61 00 20 00 30 00 3b 00}  //weight: 20, accuracy: Low
+        $x_10_2 = {69 00 77 00 72 00 20 00 24 00 [0-6] 20 00 2d 00 6f 00 75 00 74 00 66 00 69 00 6c 00 65 00 20 00 24 00 [0-6] 3b 00}  //weight: 10, accuracy: Low
+        $x_10_3 = "bypass -f $" wide //weight: 10
+        $x_1_4 = ".wav" wide //weight: 1
+        $x_1_5 = ".mp4" wide //weight: 1
+        $x_1_6 = ".mp3" wide //weight: 1
+        $x_1_7 = ".odd" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
