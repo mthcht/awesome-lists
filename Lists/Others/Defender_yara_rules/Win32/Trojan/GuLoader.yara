@@ -7388,6 +7388,32 @@ rule Trojan_Win32_GuLoader_RDP_2147958740_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDP_2147958740_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDP!MTB"
+        threat_id = "2147958740"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Chutzpas141\\Chargeably31" ascii //weight: 1
+        $x_1_2 = "\\subobscureness\\Groundward.ini" ascii //weight: 1
+        $x_1_3 = "\\Tekstndringerne.bin" ascii //weight: 1
+        $x_1_4 = "%frelsersoldat%\\Hornmusik\\aviserer" ascii //weight: 1
+        $x_1_5 = "\\interpellerendes.jpg" ascii //weight: 1
+        $x_1_6 = "\\fjerkrfarme\\sikstus.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_SVW_2147958741_0
 {
     meta:

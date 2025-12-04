@@ -808,3 +808,26 @@ rule Trojan_Win64_Rhadamanthys_NRF_2147958827_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rhadamanthys_NRE_2147958835_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.NRE!MTB"
+        threat_id = "2147958835"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ChainingModeCBC" ascii //weight: 1
+        $x_1_2 = "BCryptDecrypt" ascii //weight: 1
+        $x_3_3 = {66 0f 71 f0 ?? 66 0f 71 d1 ?? 66 0f db c2 66 0f db cb 66 0f eb c1}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
