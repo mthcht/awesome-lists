@@ -2478,3 +2478,48 @@ rule Trojan_Win64_LummaStealer_HBO_2147958024_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_GVR_2147958807_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.GVR!MTB"
+        threat_id = "2147958807"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "59"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "cmd /c move Pastor.mid Pastor.mid.bat &" ascii //weight: 50
+        $x_50_2 = "cmd /c move Howard.xls Howard.xls.bat" ascii //weight: 50
+        $x_50_3 = "cmd /c move Largest.tiff Largest.tiff.bat" ascii //weight: 50
+        $x_50_4 = "cmd /c move Stylish.vstm Stylish.vstm.bat" ascii //weight: 50
+        $x_50_5 = "cmd /c move Pts.csv Pts.csv.bat" ascii //weight: 50
+        $x_50_6 = "cmd /c move Calvin.potm Calvin.potm.bat" ascii //weight: 50
+        $x_50_7 = "cmd /c move Virtually.bin Virtually.bin.bat" ascii //weight: 50
+        $x_50_8 = "cmd /c move Palestine.xlm Palestine.xlm.bat" ascii //weight: 50
+        $x_3_9 = "Pastor.mid.bat" ascii //weight: 3
+        $x_3_10 = "Howard.xls.bat" ascii //weight: 3
+        $x_3_11 = "Largest.tiff.bat" ascii //weight: 3
+        $x_3_12 = "Stylish.vstm.bat" ascii //weight: 3
+        $x_3_13 = "Pts.csv.bat" ascii //weight: 3
+        $x_3_14 = "Calvin.potm.bat" ascii //weight: 3
+        $x_3_15 = "Virtually.bin.bat" ascii //weight: 3
+        $x_3_16 = "Palestine.xlm.bat" ascii //weight: 3
+        $x_2_17 = "rundll32.exe %sadvpack.dll,DelNodeRunDLL32 \"%s" ascii //weight: 2
+        $x_2_18 = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce" ascii //weight: 2
+        $x_2_19 = "System\\CurrentControlSet\\Control\\Session Manager\\FileRenameOperations" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_50_*) and 1 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((1 of ($x_50_*) and 2 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_50_*) and 3 of ($x_3_*))) or
+            ((2 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+
