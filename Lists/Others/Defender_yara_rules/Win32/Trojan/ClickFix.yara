@@ -12673,10 +12673,14 @@ rule Trojan_Win32_ClickFix_HN_2147958268_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = "c^u^r^l -s h^t^t^p" wide //weight: 10
-        $x_15_2 = "| cmd && exit" wide //weight: 15
+        $x_10_2 = "c^u^r^l -s ^h^t^t^p^" wide //weight: 10
+        $x_15_3 = "| cmd && exit" wide //weight: 15
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_15_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_HY_2147958635_0
@@ -12751,5 +12755,55 @@ rule Trojan_Win32_ClickFix_HM_2147958697_0
             ((1 of ($x_20_*) and 2 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_ClickFix_HR_2147958796_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HR!MTB"
+        threat_id = "2147958796"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = " msiexec /" wide //weight: 1
+        $x_1_2 = "\\msiexec.exe /" wide //weight: 1
+        $x_10_3 = "http" wide //weight: 10
+        $n_50_4 = ".msi" wide //weight: -50
+        $n_50_5 = ".msp" wide //weight: -50
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_HX_2147958797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HX!MTB"
+        threat_id = "2147958797"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 77 00 65 00 62 00 72 00 65 00 71 00 75 00 65 00 73 00 74 00 20 00 23 26 26 06 61 2d 7a 30 2d 39 2e 00 23 08 08 06 61 2d 7a 30 2d 39 20 00 2d 00 6f 00 75 00 74 00 66 00 69 00 6c 00 65 00 20 00 27 00 [0-2] 3a 00 5c 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 5c 00 [0-32] 2e 00 68 00 74 00 61 00 27 00 3b 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
