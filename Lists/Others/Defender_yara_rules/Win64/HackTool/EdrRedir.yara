@@ -23,3 +23,28 @@ rule HackTool_Win64_EdrRedir_A_2147956916_0
         (3 of ($x*))
 }
 
+rule HackTool_Win64_EdrRedir_B_2147958790_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/EdrRedir.B"
+        threat_id = "2147958790"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "EdrRedir"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "bindfltapi.dll" wide //weight: 1
+        $x_1_2 = "OS NOT SUPPORT" wide //weight: 1
+        $x_1_3 = "Bind Link" wide //weight: 1
+        $x_1_4 = "BfSetupFilter" ascii //weight: 1
+        $x_1_5 = "BfRemoveMapping" ascii //weight: 1
+        $x_1_6 = {d3 00 43 72 65 61 74 65 44 69 72 65 63 74 6f 72 79 57 [0-32] 46 69 6e 64 46 69 72 73 74 46 69 6c 65 57}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
