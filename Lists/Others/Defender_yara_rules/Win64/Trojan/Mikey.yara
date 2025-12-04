@@ -1683,3 +1683,31 @@ rule Trojan_Win64_Mikey_AHK_2147958507_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_AML_2147958828_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AML!MTB"
+        threat_id = "2147958828"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 74 74 70 3a 00 2f 00 2f 00 31 00 39 00 36 00 2e 00 32 00 35 00 31 00 2e 00 31 00 30 00 37 00 2e 00 39 00 34 00 3a 00 35 00 35 00 35 00 33 00 2f 00 [0-47] 5f 00 62 00 75 00 69 00 6c 00 64 00 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 74 70 3a 2f 2f 31 39 36 2e 32 35 31 2e 31 30 37 2e 39 34 3a 35 35 35 33 2f [0-47] 5f 62 75 69 6c 64 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_1_3 = "powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -Command" ascii //weight: 1
+        $x_1_4 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

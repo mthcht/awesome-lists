@@ -202,3 +202,28 @@ rule Trojan_Win32_DarkCloud_ACBB_2147947727_0
         )
 }
 
+rule Trojan_Win32_DarkCloud_AMTB_2147958526_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkCloud!AMTB"
+        threat_id = "2147958526"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkCloud"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\User Data\\Default\\Login Data" ascii //weight: 2
+        $x_2_2 = "Name on Card:" ascii //weight: 2
+        $x_2_3 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 2
+        $x_2_4 = "SELECT name_on_card, expiration_month, expiration_year, card_number_encrypted FROM credit_cards" ascii //weight: 2
+        $x_2_5 = "SELECT hostname, encryptedUsername, encryptedPassword  FROM moz_logins" ascii //weight: 2
+        $x_2_6 = "===============DARKCLOUD===============" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
