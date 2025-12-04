@@ -4549,3 +4549,24 @@ rule Trojan_Win64_Lazy_LMN_2147958748_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_PGLB_2147958766_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.PGLB!MTB"
+        threat_id = "2147958766"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b d0 41 0f b6 c9 ff c0 42 32 0c 12 88 0c 13 44 8b 05 ?? ?? ?? ?? 41 3b c0 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

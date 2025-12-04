@@ -2934,3 +2934,26 @@ rule Trojan_Win64_Zusy_AHE_2147957813_0
         )
 }
 
+rule Trojan_Win64_Zusy_PBK_2147958772_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PBK!MTB"
+        threat_id = "2147958772"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {ac 30 d0 48 c1 c2 ?? aa e2}  //weight: 2, accuracy: Low
+        $x_2_2 = {ac d0 c8 2c ?? 34 ?? aa e2}  //weight: 2, accuracy: Low
+        $x_2_3 = {4c 89 c2 ac c0 c8 ?? 30 d0 aa 48 c1 ca ?? e2}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

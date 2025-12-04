@@ -2857,3 +2857,25 @@ rule Trojan_Win64_Tedy_OKQ_2147957694_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_FBK_2147958733_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.FBK!MTB"
+        threat_id = "2147958733"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b d0 c1 ea ?? 33 d0 69 d2 ?? ?? ?? ?? 03 d1 89 54 8b ?? 8b c2 48 ff c1 48 81 f9}  //weight: 2, accuracy: Low
+        $x_2_2 = "VMware" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -20,3 +20,25 @@ rule TrojanDownloader_Win64_Tiny_CCIR_2147936324_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Tiny_FBK_2147958755_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Tiny.FBK!MTB"
+        threat_id = "2147958755"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "/worspear1971/osn/releases/download/kkjkj/SystemCorrect.cmd" wide //weight: 2
+        $x_2_2 = "/worspear1971/osn/releases/download/kkjkj/explorer.exe" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

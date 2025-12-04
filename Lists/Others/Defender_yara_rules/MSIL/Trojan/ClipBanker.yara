@@ -4544,3 +4544,32 @@ rule Trojan_MSIL_ClipBanker_Q_2147957403_0
         )
 }
 
+rule Trojan_MSIL_ClipBanker_TVN_2147958773_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.TVN!MTB"
+        threat_id = "2147958773"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "(ltc1|[LM])[a-zA-HJ-NP-Z0-9]{26,40}" wide //weight: 2
+        $x_2_2 = "(bnb)([a-z0-9]{39})" wide //weight: 2
+        $x_2_3 = "(bc1|[13])[a-zA-HJ-NP-Z0-9]{26,62}" wide //weight: 2
+        $x_2_4 = "((bitcoincash|bchreg):)?(q|p)[a-z0-9]{41}" wide //weight: 2
+        $x_2_5 = "D{1}[5-9A-HJ-NP-U]{1}[1-9A-HJ-NP-Za-km-z]{32}" wide //weight: 2
+        $x_7_6 = {06 25 16 7d ?? 00 00 04 25 fe ?? ?? 00 00 06 73 ?? 00 00 0a 73 ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 6f ?? 00 00 0a 6f ?? 00 00 0a 7b ?? 00 00 04 2a}  //weight: 7, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_7_*) and 3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

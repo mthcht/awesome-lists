@@ -684,3 +684,24 @@ rule Trojan_Win32_ShellcodeRunner_XTP_2147958486_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_PBK_2147958771_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.PBK!MTB"
+        threat_id = "2147958771"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {89 f8 31 c9 0f a2 31 c6 39 f0 75 03 8d 78 01 31 de 31 ce 31 d6 83 ef 01 75}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
