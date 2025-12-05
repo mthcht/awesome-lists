@@ -104,3 +104,25 @@ rule Trojan_Win64_Shelma_DAS_2147901049_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Shelma_PGSH_2147958887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Shelma.PGSH!MTB"
+        threat_id = "2147958887"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Shelma"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {f3 41 0f 6f 04 07 48 8d 49 ?? 83 c2 ?? 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 0c 07 f3 0f 6f 41 ?? 66 0f 6f ca 0f 57 c2 f3 41 0f 7f 44 07 ?? f3 41 0f 6f 44 07 ?? 0f 57 c8 f3 41 0f 7f 4c 07 ?? f3 41 0f 6f 44 07 ?? 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 4c 07 ?? 48 83 c0 ?? 48 3d ?? ?? ?? ?? 7c}  //weight: 5, accuracy: Low
+        $x_5_2 = {f3 0f 6f 40 ?? 48 8d 40 ?? 66 0f 6f ca 0f 57 c8 f3 0f 7f 48 ?? 66 0f 6f ca f3 0f 6f 40 ?? 0f 57 c2 f3 0f 7f 40 ?? f3 0f 6f 40 ?? 0f 57 c8 f3 0f 7f 48 ?? 66 0f 6f ca f3 0f 6f 40 ?? 0f 57 c8 f3 0f 7f 48 ?? 48 83 ea 01 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
