@@ -172,3 +172,29 @@ rule Ransom_MSIL_WannaCrypt_PE_2147807392_0
         )
 }
 
+rule Ransom_MSIL_WannaCrypt_BA_2147958846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/WannaCrypt.BA!MTB"
+        threat_id = "2147958846"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WannaCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Playground/ransomware" ascii //weight: 1
+        $x_1_2 = "Desktop\\t.wncry" ascii //weight: 1
+        $x_1_3 = "dialog wannacry.txt" ascii //weight: 1
+        $x_1_4 = "Ooops, your files have been encrypted!" ascii //weight: 1
+        $x_1_5 = "Your files will be lost on" ascii //weight: 1
+        $x_1_6 = "How to buy bitcoin?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
