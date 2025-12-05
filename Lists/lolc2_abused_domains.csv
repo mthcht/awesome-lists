@@ -17,3 +17,4 @@ on.aws,*.lambda-url.*.on.aws,*.lambda-url.*.on.aws,domain_fronting,high,Serverle
 googleapis.com,*.storage.googleapis.com,*.storage.googleapis.com,delivery,low,Google Cloud Storage buckets
 trycloudflare.com,*.trycloudflare.com,*.trycloudflare.com,domain_fronting,high,Cloudflare Quick Tunnels
 azueredge.net,*.azueredge.net,*.azueredge.net,domain_fronting,medium,Azure Edge (not working since 2025)
+trafficmanager.net,*.trafficmanager.net,*.trafficmanager.net,domain_fronting,high,Azure Traffic Manager
