@@ -2137,3 +2137,30 @@ rule Trojan_Win64_ShellcodeRunner_XEP_2147958549_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_AMS_2147958903_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AMS!MTB"
+        threat_id = "2147958903"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "46.149.71.230" ascii //weight: 4
+        $x_1_2 = "%sdocument_%04d%02d%02d_%02d%02d%02d.pdf" ascii //weight: 1
+        $x_1_3 = "OpenProcess" ascii //weight: 1
+        $x_1_4 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_5 = "VirtualProtect" ascii //weight: 1
+        $x_1_6 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_7 = "CreateRemoteThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

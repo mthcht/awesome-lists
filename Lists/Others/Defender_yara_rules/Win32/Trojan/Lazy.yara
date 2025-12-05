@@ -2136,6 +2136,29 @@ rule Trojan_Win32_Lazy_KK_2147945650_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_KK_2147945650_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.KK!MTB"
+        threat_id = "2147945650"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {6a 00 57 6a 00 6a 00 6a 00 68 00 00 00 80 6a 00 68 00 00 00 80 68 00 00 cf 00 68 a0 74 ?? 00 68 d8 73 ?? 00 6a 00 ff}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 4d bc 8b 14 8d 28 71 ?? 00 03 55 b4 8a 0c 03 03 d3 43 88 4c 32 2e 3b df}  //weight: 10, accuracy: Low
+        $x_5_3 = "FakeChrome\\Release\\Chrome.pdb" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Lazy_AD_2147945966_0
 {
     meta:
