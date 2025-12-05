@@ -242,3 +242,27 @@ rule Trojan_Win64_DriverLoader_NR_2147945553_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DriverLoader_SX_2147958878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DriverLoader.SX!MTB"
+        threat_id = "2147958878"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DriverLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8d 44 24 40 48 89 44 24 30 4c 8d 44 24 48 89 7c 24 28 41 b9 04 00 00 00 ba 48 20 00 80 48 89 7c 24 20 48 8b cb ff 15}  //weight: 20, accuracy: High
+        $x_10_2 = {48 89 7c 24 60 48 89 7c 24 58 48 89 7c 24 50 48 89 7c 24 48 48 89 7c 24 40 48 89 44 24 38 c7 44 24 30 01 ?? ?? ?? c7 44 24 28 01 ?? ?? ?? c7 44 24 20 01 ?? ?? ?? 41 b9 3f 00 0f 00}  //weight: 10, accuracy: Low
+        $x_1_3 = "\\\\.\\ZemanaAntiMalware" ascii //weight: 1
+        $x_1_4 = "llama.sys" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
