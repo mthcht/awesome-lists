@@ -3125,6 +3125,34 @@ rule Trojan_Win32_Guloader_RR_2147833669_4
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "posterize\\Automatcafe209" ascii //weight: 1
+        $x_1_2 = "huguenotism\\pipages\\muliggoer" ascii //weight: 1
+        $x_1_3 = "\\napoleonshattes.gif" ascii //weight: 1
+        $x_1_4 = "rundingers\\solifluctional\\Tautologizer" ascii //weight: 1
+        $x_1_5 = "Kunstudstillings.Tri" ascii //weight: 1
+        $x_1_6 = "Mellemrumstangenternes.chr" ascii //weight: 1
+        $x_1_7 = "\\Remaines\\Egale\\Specialvske\\Friable" ascii //weight: 1
+        $x_1_8 = "\\Remaines\\Kunstudstillings.Tri" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RR_2147833669_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RR!MTB"
+        threat_id = "2147833669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "13"
         strings_accuracy = "High"
     strings:

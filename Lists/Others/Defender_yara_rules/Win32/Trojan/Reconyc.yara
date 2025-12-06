@@ -210,3 +210,25 @@ rule Trojan_Win32_Reconyc_GVB_2147946570_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Reconyc_NC_2147958935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Reconyc.NC!MTB"
+        threat_id = "2147958935"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Reconyc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {85 d2 75 0c c7 45 fc 1b 00 00 00 e9 b9 03 00 00 8b 45 08 50 e8 e2 c3 ff ff 83 c4 04 8b 4d 08 0f b6 91 d3 02 00 00 85 d2 74 14}  //weight: 2, accuracy: High
+        $x_1_2 = {0f 84 a5 00 00 00 8b 4d f0 c6 41 40 01 8b 55 f0 52 8b 45 f8 50}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

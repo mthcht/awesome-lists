@@ -2806,6 +2806,29 @@ rule Trojan_Win64_Tedy_ARR_2147957105_0
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {4c 0f af f2 49 31 de c4 c3 fb f0 c5 ?? 48 0f af c2 4c 01 f7}  //weight: 10, accuracy: Low
+        $x_2_2 = {41 8b 44 24 ?? 89 df 48 01 f7 83 c3}  //weight: 2, accuracy: Low
+        $x_8_3 = {41 0f b7 4d 14 48 8d 04 0f 8b 54 0f ?? 39 da 77}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_ARR_2147957105_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ARR!MTB"
+        threat_id = "2147957105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_2_1 = {01 d0 0f be 51 ?? 01 d0 41 31 c0 4c 39 c9}  //weight: 2, accuracy: Low
         $x_8_2 = "N5zhang12encyptionAlgILy64EEE" ascii //weight: 8
         $x_10_3 = "N5zhang13desEncryptionE" ascii //weight: 10
@@ -2874,6 +2897,32 @@ rule Trojan_Win64_Tedy_FBK_2147958733_0
     strings:
         $x_2_1 = {8b d0 c1 ea ?? 33 d0 69 d2 ?? ?? ?? ?? 03 d1 89 54 8b ?? 8b c2 48 ff c1 48 81 f9}  //weight: 2, accuracy: Low
         $x_2_2 = "VMware" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AC_2147958924_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AC!AMTB"
+        threat_id = "2147958924"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /c start %TARGETOSDRIVE%\\Recovery\\OEM\\" ascii //weight: 1
+        $x_1_2 = "DisableRealtimeMonitoring" ascii //weight: 1
+        $x_1_3 = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\RecoveryEnvironment" ascii //weight: 1
+        $x_1_4 = "DELETEME" ascii //weight: 1
+        $x_1_5 = "%TARGETOSDRIVE%\\windows\\system32\\config\\SOFTWARE" ascii //weight: 1
+        $x_1_6 = "SerialCheckor.pdb" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
