@@ -748,3 +748,28 @@ rule Trojan_MSIL_NanoCore_ZUJ_2147958707_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NanoCore_AMTB_2147958955_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore!AMTB"
+        threat_id = "2147958955"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "$79964F48-CA28-4A88-9650-1564117059D3" ascii //weight: 3
+        $x_1_2 = "ConsoleApplication3.MonoCecil" ascii //weight: 1
+        $x_1_3 = "ConsoleApplication3.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
