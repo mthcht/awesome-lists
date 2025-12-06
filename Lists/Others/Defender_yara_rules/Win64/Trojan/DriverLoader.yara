@@ -266,3 +266,24 @@ rule Trojan_Win64_DriverLoader_SX_2147958878_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DriverLoader_CR_2147958945_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DriverLoader.CR!MTB"
+        threat_id = "2147958945"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DriverLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {65 48 8b 04 25 60 00 00 00 48 8b 48 18 48 8b 79 20 45 85 e4 75 09}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
