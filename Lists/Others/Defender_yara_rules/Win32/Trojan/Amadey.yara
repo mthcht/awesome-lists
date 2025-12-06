@@ -4533,3 +4533,27 @@ rule Trojan_Win32_Amadey_Y_2147957967_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_AMTB_2147958527_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey!AMTB"
+        threat_id = "2147958527"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "d5e48e78-2951-4117-b806-e4f8e626f28c" ascii //weight: 2
+        $x_2_2 = "65.109.1.228" ascii //weight: 2
+        $x_2_3 = "\\AppData\\Local\\Temp\\Web Data" ascii //weight: 2
+        $x_2_4 = "\\AppData\\Local\\Temp\\Login Data" ascii //weight: 2
+        $x_2_5 = "\\AppData\\Local\\Temp\\Cookies" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

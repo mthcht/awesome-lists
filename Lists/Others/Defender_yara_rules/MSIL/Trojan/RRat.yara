@@ -78,6 +78,28 @@ rule Trojan_MSIL_RRat_AMTB_2147958344_0
         family = "RRat"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "10566d86-640f-4322-8873-bc4fbae63d99" ascii //weight: 2
+        $x_2_2 = "kLjw4iIsCLsZtxc4lksN0j" ascii //weight: 2
+        $x_2_3 = "3e4f9a35-89df-4a65-9ab7-0eefa03309b6" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RRat_AMTB_2147958344_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RRat!AMTB"
+        threat_id = "2147958344"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RRat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
