@@ -2164,3 +2164,30 @@ rule Trojan_Win64_ShellcodeRunner_AMS_2147958903_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_MKB_2147958982_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.MKB!MTB"
+        threat_id = "2147958982"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = "[+] APIs resolved by hash successfully." ascii //weight: 25
+        $x_20_2 = "[-] No custom DLL specified. Falling back to amsi.dll." ascii //weight: 20
+        $x_15_3 = "[+] .text section found: %s" ascii //weight: 15
+        $x_10_4 = "Writing byte 0x%02X to address %p" ascii //weight: 10
+        $x_5_5 = "PAGE_EXECUTE_READWRITE" ascii //weight: 5
+        $x_3_6 = "[+] APC write completed" ascii //weight: 3
+        $x_2_7 = "[-] Failed to create remote thread: %lu" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2488,3 +2488,53 @@ rule Trojan_Win32_Lazy_MB_2147957460_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_MKD_2147958983_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.MKD!MTB"
+        threat_id = "2147958983"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "VFPower_32.dll" ascii //weight: 15
+        $x_10_2 = "VFPower_32" ascii //weight: 10
+        $x_5_3 = "YourSharedSecretKey" ascii //weight: 5
+        $x_3_4 = "KEY_BOARD_DATA" ascii //weight: 3
+        $x_2_5 = "KEY_BOARD_DATA_MD5" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Lazy_MKF_2147958984_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.MKF!MTB"
+        threat_id = "2147958984"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {56 00 6c 00 61 00 64 00 69 00 6d 00 69 00 72 00 b5 00 f9 00 24 00 73 00 64 00 73 00 34 00 31 00 32 00 31 00 32 00 31 00 00 00 00 00 90 90 00 00}  //weight: 15, accuracy: High
+        $x_10_2 = "spideggghj$+9999%%" ascii //weight: 10
+        $x_5_3 = "\\windowsupdate\\mservice.exe" ascii //weight: 5
+        $x_3_4 = "//b //nologo" ascii //weight: 3
+        $x_2_5 = "{CONTROLDOWN}l{CONTROLUP}" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
