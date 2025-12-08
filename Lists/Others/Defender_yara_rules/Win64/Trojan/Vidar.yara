@@ -778,3 +778,24 @@ rule Trojan_Win64_Vidar_AHD_2147958814_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_ASVD_2147958995_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ASVD!MTB"
+        threat_id = "2147958995"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {44 0f b7 40 24 48 8b 85 10 07 00 00 48 8b 50 18 48 8b 0d 48 a1 12 00 48 83 ec 40 45 31 ff 4c 89 7c 24 38 4c 89 7c 24 20 c7 44 24 30 00 00 00 00 c7 44 24 28 03 00 00 00 45 31 c9}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

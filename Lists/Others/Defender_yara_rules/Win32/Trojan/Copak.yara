@@ -3472,3 +3472,24 @@ rule Trojan_Win32_Copak_BAC_2147958550_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Copak_BAE_2147958992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Copak.BAE!MTB"
+        threat_id = "2147958992"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Copak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {09 cf 09 cf 29 cf 31 13 81 ef ?? ?? ?? ?? 81 c1 ?? ?? ?? ?? 83 ec 04 c7 04 24 ?? ?? ?? ?? 8b 0c 24 83 c4 04 81 c3 02 00 00 00 41 39 f3 7c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
