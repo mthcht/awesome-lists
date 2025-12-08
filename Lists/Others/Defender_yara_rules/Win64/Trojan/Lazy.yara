@@ -4570,3 +4570,32 @@ rule Trojan_Win64_Lazy_PGLB_2147958766_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SXG_2147959005_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXG!MTB"
+        threat_id = "2147959005"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "payload.exe" ascii //weight: 2
+        $x_2_2 = "-ExclusionExtension 'exe','dll','bin' -Force -EA SilentlyContinue" ascii //weight: 2
+        $x_2_3 = "defender_exclusion_hklm_attempted" ascii //weight: 2
+        $x_2_4 = "defender_exclusion_base64_success" ascii //weight: 2
+        $x_1_5 = "chromefirefoxedgemsedge" ascii //weight: 1
+        $x_1_6 = "elevation_shellexecute_successdecoded_payload path= bytes=" ascii //weight: 1
+        $x_1_7 = "defender_exclusion_skipped reason=sandbox_detected" ascii //weight: 1
+        $x_1_8 = "-NoProfile-NonInteractive-WindowStyleHidden-ExecutionPolicyBypass-CommandCOM PowerShell failed$n='root/Microsoft/Windows/Defender" ascii //weight: 1
+        $x_1_9 = "\\Userscrates\\app\\src\\obfuscation.rs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

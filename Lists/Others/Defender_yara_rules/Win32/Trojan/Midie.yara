@@ -1037,3 +1037,26 @@ rule Trojan_Win32_Midie_KK_2147958708_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Midie_SXC_2147959004_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.SXC!MTB"
+        threat_id = "2147959004"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {c7 85 78 ff ff ff 2e 64 6c 6c 0f 28 05 ?? ?? ?? ?? c6 85 7c ff ff ff 00 0f 11 45 a0 c7 45 b0 69 74 79 50 c7 45 b4 6c 61 79 65 c7 45 b8 72 2e 64 6c 66 c7 45 bc 6c 00}  //weight: 15, accuracy: Low
+        $x_10_2 = {83 c4 0c c7 85 c8 fe ff ff 00 04 00 00 8d 85 c4 fe ff ff c7 85 d0 fe ff ff ?? ?? ?? ?? c7 85 d4 fe ff ff ?? ?? ?? ?? c7 85 e0 fe ff ff ?? ?? ?? ?? 50 ff 15}  //weight: 10, accuracy: Low
+        $x_1_3 = "taskkill /f /im hh.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

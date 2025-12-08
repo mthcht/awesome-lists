@@ -40,3 +40,24 @@ rule Trojan_Win64_Asyncrat_PGAS_2147958623_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Asyncrat_KK_2147959013_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Asyncrat.KK!MTB"
+        threat_id = "2147959013"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Asyncrat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 03 ca 0f b6 c1 0f b6 4c 05 10 42 30 4c 1b 04 41 fe c1 4c 8d 45 10 41 0f b6 c1 48 8d 4d 10 4c 03 c0 41 0f b6 10 44 02 d2 41 0f b6 c2 48 03 c8 0f b6 01 41 88 00 88 11 41 0f b6 08 48 03 ca 0f b6 c1 0f b6 4c 05 10 42 30 4c 1b 05 49 83 c3 06 49 81 fb}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

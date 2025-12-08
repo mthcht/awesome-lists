@@ -152,6 +152,27 @@ rule TrojanSpy_MSIL_Quasar_SQ_2147947653_0
         threshold = "2"
         strings_accuracy = "High"
     strings:
+        $x_2_1 = {20 c4 09 00 00 28 09 00 00 0a 14 0a 17 72 25 02 00 70 12 01 73 0a 00 00 0a 0a 07 2d 05 28 0b 00 00 0a de 0a 07 2c 06 06 6f 0c 00 00 0a dc}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_MSIL_Quasar_SQ_2147947653_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Quasar.SQ!MTB"
+        threat_id = "2147947653"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = {02 09 11 08 8f 75 00 00 01 25 47 11 04 11 08 58 1f 11 5a 20 00 01 00 00 5d d2 61 d2 52 11 04 1f 1f 5a 09 11 08 91 58 20 00 01 00 00 5d 13 04 11 08 17 58 13 08 11 08 09 8e 69 32 c5}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and

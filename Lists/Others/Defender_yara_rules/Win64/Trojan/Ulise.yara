@@ -345,3 +345,25 @@ rule Trojan_Win64_Ulise_AHC_2147958925_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_AHC_2147958925_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.AHC!MTB"
+        threat_id = "2147958925"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {31 d0 42 88 04 01 fe cc 41 8a c0 69 c2 ?? ?? ?? ?? 49 ff c0 2b d2 41 f7 f1 49 83 f8}  //weight: 30, accuracy: Low
+        $x_20_2 = {42 8a 44 04 24 31 d0 42 88 04 01 69 c2 ?? ?? ?? ?? e9 ?? ?? ?? ?? 49 ff c0 f8 31 d2 f9 41 f7 f1 41 85 d1 49 81 fb ?? ?? ?? ?? e9}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

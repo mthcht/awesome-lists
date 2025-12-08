@@ -296,3 +296,27 @@ rule Trojan_Win64_Doina_AHD_2147957673_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_SXA_2147959003_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.SXA!MTB"
+        threat_id = "2147959003"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {4c 8b 06 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 49 01 c0 4c 89 c0 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 31 c8 49 f7 e0 48 31 c2 48 c1 ea ?? 48 8d 4a 04 4c 89 06 31 d2 e8 ?? ?? ?? ?? 48 8b 85 b0 07 00 00 89 c1 83 e1}  //weight: 20, accuracy: Low
+        $x_10_2 = {81 f1 43 4d 00 00 0f b6 40 02 83 f0 44 66 09 c8 0f 85 ?? ?? ?? ?? 49 8d 4d 01 48 39 d9 0f 83 ?? ?? ?? ?? 48 c1 e1 04 48 8d 04 0e 48 8b 3c 0e 4c 8b 64 0e 08 48 8d 14 0e 48 83 c2 10 49 c1 e0 04 49 83 c0 e0}  //weight: 10, accuracy: Low
+        $x_1_3 = "cmd.exe\\\\.\\NULPATH" ascii //weight: 1
+        $x_1_4 = "SetSuspendStateshutdown /r /t 0shutdown /s /t" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

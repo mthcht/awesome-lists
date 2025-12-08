@@ -119,6 +119,28 @@ rule Trojan_Win64_Androm_SX_2147956758_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0f b7 04 41 89 44 24 ?? 8b 04 24 99 b9 6d 00 00 00 f7 f9 8b c2 05 ?? ?? ?? ?? 8b 4c 24 ?? 33 c8 8b c1 48 63 0c 24}  //weight: 6, accuracy: Low
+        $x_4_2 = {8b 44 24 34 ff c0 89 44 24 34 83 7c 24 34 ?? 7d 23 8b 44 24 24 c1 e0 ?? 8b 4c 24 24 c1 e9 ?? 0b c1 89 44 24 24 8b 44 24 24 35 ?? ?? ?? ?? 89 44 24 24 eb cc}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Androm_SX_2147956758_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Androm.SX!MTB"
+        threat_id = "2147956758"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "16"
         strings_accuracy = "Low"
     strings:

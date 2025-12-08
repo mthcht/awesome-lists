@@ -20,3 +20,28 @@ rule Trojan_Win64_DiskWriter_SP_2147837091_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiskWriter_AHB_2147959012_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiskWriter.AHB!MTB"
+        threat_id = "2147959012"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiskWriter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "Horrible choise!" ascii //weight: 50
+        $x_40_2 = "You are about to run Hydrazine" ascii //weight: 40
+        $x_30_3 = "The destruction is unrecoverable!" ascii //weight: 30
+        $x_20_4 = "I am not responsible" ascii //weight: 20
+        $x_10_5 = "be aware for all cost of this malware" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

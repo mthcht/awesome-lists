@@ -799,3 +799,29 @@ rule Trojan_Win64_Vidar_ASVD_2147958995_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_AVA_2147959014_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AVA!MTB"
+        threat_id = "2147959014"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "bky7-KdahWdaal" ascii //weight: 5
+        $x_4_2 = "WEmbTRDCXEH" ascii //weight: 4
+        $x_3_3 = "6276!SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" ascii //weight: 3
+        $x_2_4 = "WgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggTdubbitohs" ascii //weight: 2
+        $x_1_5 = "QRccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccWallet Rules" ascii //weight: 1
+        $x_6_6 = "bONE_B_RxNY]BHN" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

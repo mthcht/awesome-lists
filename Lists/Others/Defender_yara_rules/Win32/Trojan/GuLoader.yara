@@ -7492,3 +7492,57 @@ rule Trojan_Win32_GuLoader_RDR_2147958910_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SVX_2147959002_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVX!MTB"
+        threat_id = "2147959002"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Dehydreringers74.zip" ascii //weight: 1
+        $x_1_2 = "\\Porcelainizing.ini" ascii //weight: 1
+        $x_1_3 = "\\siklinger.ini" ascii //weight: 1
+        $x_1_4 = "\\Friturekurvene.zip" ascii //weight: 1
+        $x_1_5 = "\\surcrue\\mercis.bin" ascii //weight: 1
+        $x_1_6 = "\\romboiden\\Bedims79.htm" ascii //weight: 1
+        $x_1_7 = "\\gevindene\\northwestern.ini" ascii //weight: 1
+        $x_1_8 = "\\dukhobor\\udliggerbaad.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDS_2147959009_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDS!MTB"
+        threat_id = "2147959009"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "opkaldssekvensernes\\adfrdsformers" ascii //weight: 1
+        $x_1_2 = "%prepromised%\\integritetsregels\\tatoverede" ascii //weight: 1
+        $x_1_3 = "astrophotometer forfrem skolehjemmenes" ascii //weight: 1
+        $x_1_4 = "udfoldelsen ansttelsesperiode" ascii //weight: 1
+        $x_1_5 = "ataxiaphasia" ascii //weight: 1
+        $x_1_6 = "appulses.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
