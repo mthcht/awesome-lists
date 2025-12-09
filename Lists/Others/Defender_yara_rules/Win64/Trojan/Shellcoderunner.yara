@@ -41,3 +41,24 @@ rule Trojan_Win64_Shellcoderunner_PGR_2147945224_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Shellcoderunner_AMTB_2147959043_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Shellcoderunner!AMTB"
+        threat_id = "2147959043"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Shellcoderunner"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "/fontawesome_tld.woff" ascii //weight: 2
+        $x_2_2 = "%sdocument_%04d%02d%02d_%02d%02d%02d.pdf" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

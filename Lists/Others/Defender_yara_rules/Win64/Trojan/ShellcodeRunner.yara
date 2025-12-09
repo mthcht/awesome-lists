@@ -2191,3 +2191,36 @@ rule Trojan_Win64_ShellcodeRunner_MKB_2147958982_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_NRD_2147959029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.NRD!MTB"
+        threat_id = "2147959029"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bcryptprimitives.dll" ascii //weight: 1
+        $x_1_2 = "cipher.NewCBCDecrypter: IV" ascii //weight: 1
+        $x_2_3 = "main.getShellcodeFragment" ascii //weight: 2
+        $x_1_4 = "main.getAllShellcodeFragments" ascii //weight: 1
+        $x_1_5 = "main.getObfuscatedShellcode" ascii //weight: 1
+        $x_1_6 = "main.decodeHexString" ascii //weight: 1
+        $x_1_7 = "main.deobfuscateShellcode" ascii //weight: 1
+        $x_1_8 = "main.GetNtProtectVirtualMemory" ascii //weight: 1
+        $x_1_9 = "main.executeShellcode" ascii //weight: 1
+        $x_1_10 = "main.GetNtAllocateVirtualMemory" ascii //weight: 1
+        $x_1_11 = "main.decryptString" ascii //weight: 1
+        $x_1_12 = "encryptBlockGeneric" ascii //weight: 1
+        $x_1_13 = "XORKeyStream" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
