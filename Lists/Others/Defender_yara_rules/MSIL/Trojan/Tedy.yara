@@ -2298,3 +2298,25 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_LME_2147959064_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.LME!MTB"
+        threat_id = "2147959064"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {14 0a 72 01 00 00 70 28 03 00 00 0a 0a 06 72 ba 00 00 70 6f 04 00 00 0a 0b 07 72 06 01 00 70 20 38 01 00 00}  //weight: 10, accuracy: High
+        $x_20_2 = "C:\\Windows\\Microsoft.Net\\assembly\\GAC_MSIL\\ABCpdf\\v4.0_9.1.1.7__a7a0b3f5184f2169\\ABCpdf.dll" wide //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

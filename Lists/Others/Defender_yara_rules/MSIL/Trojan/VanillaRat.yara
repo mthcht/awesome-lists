@@ -47,3 +47,25 @@ rule Trojan_MSIL_VanillaRat_ANJB_2147956596_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VanillaRat_LM_2147959068_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VanillaRat.LM!MTB"
+        threat_id = "2147959068"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VanillaRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {00 28 42 00 00 0a 7e 1c 00 00 04 17 28 4e 00 00 0a 00 7e 1c 00 00 04 28 4f 00 00 0a 26 16 28 49 00 00 0a 00 00 2b 5e 00 7e 24 00 00 04 72 e4 03 00 70 28 1e 00 00 0a 13 04 11 04 2c 47 00 7e 50 00 00 0a 72 ee 03 00 70 17 6f 51 00 00 0a 13 05}  //weight: 20, accuracy: High
+        $x_10_2 = {26 00 00 de 00 00 00 11 05 72 4a 04 00 70 28 42 00 00 0a 6f 53 00 00 0a 00 00 de 05}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

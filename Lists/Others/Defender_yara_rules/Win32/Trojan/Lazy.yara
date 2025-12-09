@@ -2538,3 +2538,25 @@ rule Trojan_Win32_Lazy_MKF_2147958984_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_LMJ_2147959067_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.LMJ!MTB"
+        threat_id = "2147959067"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 7d b4 8d 45 b0 89 45 ac 8d 45 a8 89 45 a0 c7 45 c0 75 18 bc a3 c7 45 c4 3e 06 83 0d 33 c0 66 89 45 c8 b8 01 00 00 00 66 89 45 b8 8d 45 c0 89 45 bc 8d 45 b8 89 45 9c}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 4c 24 30 8b c2 d1 ff 2b c1 89 4c 24 18 3b f8 77 ?? 8d 04 39 83 fa 07 89 44 24 30 8d 74 24 20 0f 47 74 24 20}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

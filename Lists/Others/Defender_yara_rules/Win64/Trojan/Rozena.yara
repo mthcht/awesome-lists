@@ -1779,3 +1779,52 @@ rule Trojan_Win64_Rozena_MK_2147958981_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_SX_2147959069_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SX!MTB"
+        threat_id = "2147959069"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f 4f d1 43 8d 0c 01 0f af c1 0f be d2 69 d2 ?? ?? ?? ?? 48 63 ca 48 69 c9}  //weight: 20, accuracy: Low
+        $x_20_2 = {0f 4f d0 45 8d 04 09 48 83 c1 ?? 41 0f af c0 0f be d2 69 d2 ?? ?? ?? ?? 4c 63 c2 c1 fa 1f 4d 69 c0}  //weight: 20, accuracy: Low
+        $x_10_3 = {45 8d 50 fc 41 8d 40 e0 41 80 f8 ?? 41 0f 4d c2 66 98 66 42 89 44 4a fe 49 8d 41 01 44 0f b6 44 01 ff 45 84 c0 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Rozena_SXA_2147959070_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SXA!MTB"
+        threat_id = "2147959070"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 01 f6 48 01 de 42 0f b7 04 36 48 8d 04 83 42 8b 04 28 48 01 d8 eb 04}  //weight: 20, accuracy: High
+        $x_10_2 = {44 8a 04 01 45 84 c0 74 1d 45 8d 48 e0 41 80 f8 59 7e 04 45 8d 48 fc 66 45 0f be c9 66 44 89 0c 42 48 ff c0 eb da}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
