@@ -7546,3 +7546,31 @@ rule Trojan_Win32_GuLoader_RDS_2147959009_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SVY_2147959084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVY!MTB"
+        threat_id = "2147959084"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\risikobegrebs" ascii //weight: 1
+        $x_1_2 = "\\therapy.txt" ascii //weight: 1
+        $x_1_3 = "\\joltless.txt" ascii //weight: 1
+        $x_1_4 = "\\Bliders147\\foresight.ini" ascii //weight: 1
+        $x_1_5 = "\\beldringe.ini" ascii //weight: 1
+        $x_1_6 = "\\kloakeringsomraaders\\Cloze201.ini" ascii //weight: 1
+        $x_1_7 = "\\Phosphonuclease.exe" ascii //weight: 1
+        $x_1_8 = "kronprinserne.pro" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

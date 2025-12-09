@@ -479,3 +479,25 @@ rule Trojan_Win64_DllHijack_GDX_2147958563_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_AB_2147959073_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.AB!MTB"
+        threat_id = "2147959073"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 44 24 20 48 8b 4c 24 60 0f be 04 01 89 44 24 28 33 d2 8b 44 24 20 b9 08 00 00 00 f7 f1 8b c2 8b c0 8b 4c 24 28 33 4c 84 30 8b c1 8b 4c 24 20 48 8b 54 24 68 88 04 0a eb b2}  //weight: 1, accuracy: High
+        $x_1_2 = "genericloader.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
