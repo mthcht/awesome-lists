@@ -3195,6 +3195,30 @@ rule Trojan_Win32_Fragtor_ARR_2147958669_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_ARR_2147958669_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.ARR!MTB"
+        threat_id = "2147958669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {0f 10 23 0f 10 6b ?? 0f 57 e0 0f 57 e9 0f 11 20 0f 11 68}  //weight: 8, accuracy: Low
+        $x_6_2 = {f7 e1 8d 8e ?? ?? ?? ?? 89 d0 89 fa d1 e8 66 83 7e}  //weight: 6, accuracy: Low
+        $x_4_3 = {f7 e1 8b 46 ?? 89 d7 89 c1 f7 66}  //weight: 4, accuracy: Low
+        $x_2_4 = "FromUtf8ErrorbytesNulMutexError~\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_LME_2147958751_0
 {
     meta:

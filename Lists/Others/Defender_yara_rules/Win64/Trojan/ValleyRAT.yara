@@ -151,3 +151,25 @@ rule Trojan_Win64_ValleyRAT_AMV_2147959006_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_GDZ_2147959085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.GDZ!MTB"
+        threat_id = "2147959085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {ba 04 01 00 00 48 8d 4c 24 20 ff 15 ?? ?? ?? ?? 48 8d 15 fc 22 00 00 48 8d 4c 24 20 ff 15 ?? ?? ?? ?? 48 8d 4c 24 20 ff 15 ?? ?? ?? ?? 48 89 05 47 46 00 00 48 85 c0 0f 84 ?? ?? ?? ?? 48 8d 15 e7 22 00 00 48 8b c8 ff 15 ?? ?? ?? ?? 48 8b 0d 27 46 00 00 48 8d 15 e0 22 00 00 48 89 05 f9 45 00 00 ff 15}  //weight: 10, accuracy: Low
+        $x_1_2 = "\\_\\_\\document.bat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
