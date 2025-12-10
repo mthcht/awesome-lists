@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,sncf-connect.com,75.2.83.188,,,dns1.p01.nsone.net
+*original,sncf-connect.com,75.2.83.188,,,blue.foundationdns.com
 addition,sncf-connect0.com,,,,
 addition,sncf-connect1.com,,,,
 addition,sncf-connect2.com,,,,
@@ -6653,7 +6653,7 @@ omission,sncf-connct.com,,,,
 omission,sncf-connec.com,,,,
 omission,sncf-connet.com,,,,
 omission,sncf-onnect.com,,,,
-omission,sncfconnect.com,75.2.83.188,,,dns1.p03.nsone.net
+omission,sncfconnect.com,75.2.83.188,,,blue.foundationdns.com
 omission,snf-connect.com,,,,
 plural,sncf-consnect.com,,,,
 plural,sncf-cosnnect.com,,,,
@@ -6713,7 +6713,7 @@ subdomain,s.ncf-connect.com,,,,
 subdomain,sn.cf-connect.com,,,,
 subdomain,sncf-co.nnect.com,121.254.178.253,,,
 subdomain,snc.f-connect.com,13.223.25.84,2600:1f18:4ae:c605:dd5d:b838:5816:d7fb,,nsg1.namebrightdns.com
-subdomain,sncf-c.onnect.com,78.41.204.29,,,
+subdomain,sncf-c.onnect.com,209.126.123.12,,,
 subdomain,sncf-con.nect.com,,,,
 subdomain,sncf-conn.ect.com,,,,
 subdomain,sncf-conne.ct.com,,,,
