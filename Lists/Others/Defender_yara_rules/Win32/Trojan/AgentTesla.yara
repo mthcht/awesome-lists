@@ -845,6 +845,36 @@ rule Trojan_Win32_AgentTesla_RTH_2147783054_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AgentTesla_RR_2147786533_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AgentTesla.RR!MTB"
+        threat_id = "2147786533"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "JohnDoe\\Application Data\\Dilemmic22\\forvissendes\\Reovi" ascii //weight: 1
+        $x_1_2 = "%standardbetingelses%\\afhrings\\Exuberate" ascii //weight: 1
+        $x_1_3 = "Differentiabilitetsmngders\\cinnamomum\\" ascii //weight: 1
+        $x_1_4 = "Hoatzin\\driftsraads" ascii //weight: 1
+        $x_1_5 = "Sendetidernes189.mor" ascii //weight: 1
+        $x_1_6 = "Solbatteriers.age" ascii //weight: 1
+        $x_1_7 = "Topartisystemernes.txt" ascii //weight: 1
+        $x_1_8 = "asphyxiated.gri" ascii //weight: 1
+        $x_1_9 = "bobsled.txt" ascii //weight: 1
+        $x_1_10 = "overenskomstmssiges.run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_AgentTesla_HGA_2147795085_0
 {
     meta:

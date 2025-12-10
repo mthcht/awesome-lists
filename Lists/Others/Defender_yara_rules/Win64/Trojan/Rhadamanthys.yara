@@ -865,11 +865,13 @@ rule Trojan_Win64_Rhadamanthys_NRG_2147959134_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "7"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = {66 0f 6e ca 66 0f 70 c9 00 f3 41 0f 6f 02 49 83 c2 10 66 0f ef c1 41 0f 11 42}  //weight: 2, accuracy: High
-        $x_3_2 = {48 0f af d1 48 c1 ea 24 8d 14 92 c1 e2 02 29 d0 83 f8 13}  //weight: 3, accuracy: High
+        $x_1_1 = "ChainingModeCBC" ascii //weight: 1
+        $x_1_2 = "BCryptDecrypt" ascii //weight: 1
+        $x_2_3 = {66 0f 6e ca 66 0f 70 c9 00 f3 41 0f 6f 02 49 83 c2 10 66 0f ef c1 41 0f 11 42}  //weight: 2, accuracy: High
+        $x_3_4 = {48 0f af d1 48 c1 ea 24 8d 14 92 c1 e2 02 29 d0 83 f8 13}  //weight: 3, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
