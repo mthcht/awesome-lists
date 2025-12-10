@@ -20,3 +20,37 @@ rule Trojan_Win64_ShellLoader_MPB_2147952661_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellLoader_GVB_2147959121_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellLoader.GVB!MTB"
+        threat_id = "2147959121"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "main.SResume_Thread" ascii //weight: 2
+        $x_1_2 = "main.SWrite_ProcessMemory" ascii //weight: 1
+        $x_1_3 = "main.SVirtual_Alloc" ascii //weight: 1
+        $x_1_4 = "main.GetRemotePeb" ascii //weight: 1
+        $x_1_5 = "main.SatelliteOrbitCalculator" ascii //weight: 1
+        $x_1_6 = "main.Is64Bit" ascii //weight: 1
+        $x_1_7 = "main.Virtual_Alloc" ascii //weight: 1
+        $x_1_8 = "main.Virtual_AllocEx" ascii //weight: 1
+        $x_1_9 = "main.GetImageBase" ascii //weight: 1
+        $x_1_10 = "main.AllocPEBuffer" ascii //weight: 1
+        $x_1_11 = "main.Decode" ascii //weight: 1
+        $x_1_12 = "main.Write_ProcessMemory" ascii //weight: 1
+        $x_1_13 = "main.RedirectToPayload" ascii //weight: 1
+        $x_1_14 = "main.GetRemotePebAddr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

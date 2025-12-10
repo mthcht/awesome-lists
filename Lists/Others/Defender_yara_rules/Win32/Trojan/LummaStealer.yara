@@ -7611,6 +7611,27 @@ rule Trojan_Win32_LummaStealer_GPAS_2147952659_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_FAM_2147952681_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.FAM!MTB"
+        threat_id = "2147952681"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 04 24 8b 4c 24 14 0f b6 0c 01 35 ?? ?? ?? ?? 89 44 24 04 8b 44 24 04 01 c8 8b 54 24 04 21 ca 8b 74 24 04 21 ce 01 f2 29 d0 89 44 24 08 8b 44 24 08 ?? ?? 8b 4c 24 14 8b 14 24 88 04 11 8b 04 24 83 e8 ?? 89 04 24 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_GPAT_2147952809_0
 {
     meta:
@@ -8026,6 +8047,27 @@ rule Trojan_Win32_LummaStealer_PAGX_2147958686_0
     strings:
         $x_2_1 = {66 8b 04 77 66 83 e8 ?? 66 83 f0 ?? 66 89 04 77 46 57 e8 ?? ?? ?? ?? 59 3b f0 72}  //weight: 2, accuracy: Low
         $x_1_2 = "Screenshoter" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_FAN_2147959130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.FAN!MTB"
+        threat_id = "2147959130"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 0c 01 8b 44 24 2c c0 e1 05 8a 04 03 8b 5c 24 5c c0 e8 02 32 c8 8b c6 83 e0 7f 32 0c 28 8b 44 24 30 32 0c 03 32 8f ?? ?? ?? ?? 8b 7c 24 3c 30 0a 8b 5c 24 38}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -64,3 +64,27 @@ rule Trojan_MSIL_Stealerium_SI_2147956135_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealerium_AYA_2147959119_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealerium.AYA!MTB"
+        threat_id = "2147959119"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealerium"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {06 6f 23 00 00 0a 0b 02 73 24 00 00 0a 0c 08 07 16 73 25 00 00 0a 0d 73 26 00 00 0a 13 04 00 09 11 04 6f 27 00 00 0a 00 11 04 6f 28 00 00 0a 13 05 de 40 11 04 2c 08 11 04 6f 1d 00 00 0a 00 dc}  //weight: 5, accuracy: High
+        $x_3_2 = "$64f6977a-ea10-4757-9bd6-6366a72939f1" ascii //weight: 3
+        $x_2_3 = "stub\\obj\\Debug\\stub.pdb" ascii //weight: 2
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
