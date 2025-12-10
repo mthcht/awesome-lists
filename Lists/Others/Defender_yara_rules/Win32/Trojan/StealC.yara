@@ -4323,3 +4323,30 @@ rule Trojan_Win32_StealC_VZY_2147958821_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealC_MS_2147959156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.MS!AMTB"
+        threat_id = "2147959156"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 36 00 32 00 2e 00 36 00 30 00 2e 00 32 00 32 00 36 00 2e 00 32 00 34 00 38 00 3a 00 [0-4] 2f 00 [0-75] 5f 00 [0-4] 62 00 75 00 69 00 6c 00 64 00 2e 00 62 00 69 00 6e 00}  //weight: 4, accuracy: Low
+        $x_4_2 = {68 74 74 70 3a 2f 2f 36 32 2e 36 30 2e 32 32 36 2e 32 34 38 3a [0-4] 2f [0-75] 5f [0-4] 62 75 69 6c 64 2e 62 69 6e}  //weight: 4, accuracy: Low
+        $x_3_3 = "URLDownloadToCacheFile" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
