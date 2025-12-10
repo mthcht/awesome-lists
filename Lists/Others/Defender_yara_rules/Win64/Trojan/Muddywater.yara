@@ -65,3 +65,27 @@ rule Trojan_Win64_Muddywater_GVC_2147959163_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Muddywater_GVD_2147959190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Muddywater.GVD!MTB"
+        threat_id = "2147959190"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Muddywater"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4d 8d 49 01 f7 eb 8b cb ff c3 d1 fa 8b c2 c1 e8 1f 03 d0 8d 04 92 2b c8 48 63 c1 42 0f b6 4c 0c 4f 42 2a 0c 10 43 88 4c 01 ff 83 fb 3b 72 cc}  //weight: 2, accuracy: High
+        $x_1_2 = "\\logins.json" ascii //weight: 1
+        $x_1_3 = "encrypted_key" ascii //weight: 1
+        $x_1_4 = "\\Default\\Login Data" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

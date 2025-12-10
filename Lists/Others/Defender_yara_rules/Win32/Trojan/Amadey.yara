@@ -4581,3 +4581,26 @@ rule Trojan_Win32_Amadey_AMTB_2147958527_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_NMP_2147959184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.NMP!MTB"
+        threat_id = "2147959184"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2b c8 8d 04 0a 33 d2 f7 f3 8b 5d ec 8b cb 83 7b 14 10 72 02 8b 0b 8a 04 32 8b 75 f4 88 04 31 46 89 75 f4 3b 75 f0}  //weight: 1, accuracy: High
+        $x_1_2 = {8b 45 e8 8a d4 c0 ea 04 8a c8 c0 e1 02 80 e2 03 02 d1 8a c4 88 55 e4 8a 55 ea 8a ca c0 e0 04 c0 e9 02 80 e1 0f c0 e2 06}  //weight: 1, accuracy: High
+        $x_2_3 = {d1 ea 2b c2 3b c8 76 07 bb ff ff ff 7f eb 08 8d 04 0a 3b d8 0f 42 d8 33 c9 8b c3 83 c0 01 0f 92 c1 f7 d9 0b c8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

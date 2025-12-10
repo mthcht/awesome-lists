@@ -7626,3 +7626,30 @@ rule Trojan_Win32_GuLoader_SH_2147959159_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDU_2147959182_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDU!MTB"
+        threat_id = "2147959182"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Promaximum150\\malihini\\Boligselskabet" ascii //weight: 1
+        $x_1_2 = "modellnfr\\Reorganiserende166" ascii //weight: 1
+        $x_1_3 = "%Lensmanden%\\geomorfologi" ascii //weight: 1
+        $x_1_4 = "\\Undstningsaktion\\sapromic.jpg" ascii //weight: 1
+        $x_1_5 = "\\skyttefisks.gif" ascii //weight: 1
+        $x_1_6 = "\\alstrups\\overflsom.ini" ascii //weight: 1
+        $x_1_7 = "\\phoneticohieroglyphic.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4431,6 +4431,32 @@ rule Trojan_Win64_Lazy_TBK_2147957039_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_NQA_2147957330_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.NQA!MTB"
+        threat_id = "2147957330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "start /min cmd.exe /c powershell -WindowStyle Hidden -Command \"& { iwr -Uri 'https://vcc-libraryguide.help/Stb/Retev.php" ascii //weight: 2
+        $x_1_2 = {53 00 74 00 61 00 72 00 74 00 2d 00 50 00 72 00 6f 00 63 00 65 00 73 00 73 00 20 00 2d 00 46 00 69 00 6c 00 65 00 50 00 61 00 74 00 68 00 20 00 24 00 65 00 6e 00 76 00 3a 00 54 00 45 00 4d 00 50 00 5c 00 [0-47] 2e 00 65 00 78 00 65 00 20 00 2d 00 57 00 69 00 6e 00 64 00 6f 00 77 00 53 00 74 00 79 00 6c 00 65 00 20 00 48 00 69 00 64 00 64 00 65 00 6e 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {53 74 61 72 74 2d 50 72 6f 63 65 73 73 20 2d 46 69 6c 65 50 61 74 68 20 24 65 6e 76 3a 54 45 4d 50 5c [0-47] 2e 65 78 65 20 2d 57 69 6e 64 6f 77 53 74 79 6c 65 20 48 69 64 64 65 6e}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Lazy_SXF_2147957359_0
 {
     meta:
