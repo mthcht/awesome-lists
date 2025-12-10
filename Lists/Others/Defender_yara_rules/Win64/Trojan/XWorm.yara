@@ -295,3 +295,30 @@ rule Trojan_Win64_XWorm_BAA_2147956285_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_SXA_2147959145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.SXA!MTB"
+        threat_id = "2147959145"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "svcchost" ascii //weight: 2
+        $x_2_2 = "powershell.exe -NoProfile -WindowStyle Hidden -Command \"Invoke-WebRequest -Uri" ascii //weight: 2
+        $x_1_3 = "findstr /R \"[0-9]\\.[0-9]\\.[0-9]" ascii //weight: 1
+        $x_1_4 = "Disabling Google Chrome Protection" ascii //weight: 1
+        $x_1_5 = "Windows Defender is disabled" ascii //weight: 1
+        $x_1_6 = "Deleting C:\\Symbols" ascii //weight: 1
+        $x_1_7 = "- SmartScreen is disabled" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

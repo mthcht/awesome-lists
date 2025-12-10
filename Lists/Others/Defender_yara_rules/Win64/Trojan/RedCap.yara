@@ -63,3 +63,25 @@ rule Trojan_Win64_RedCap_MK_2147956187_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RedCap_LMA_2147959143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RedCap.LMA!MTB"
+        threat_id = "2147959143"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RedCap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f 86 d9 00 00 00 55 48 89 e5 48 83 ec 40 66 44 0f d6 7c 24 38 c6 44 24 17 00 44 0f 11 7c 24 28 31 db 89 c1 b8 01 00 00 00}  //weight: 20, accuracy: High
+        $x_10_2 = {49 3b 66 10 0f 86 d9 00 00 00 55 48 89 e5 48 83 ec 40 66 44 0f d6 7c 24 38 c6 44 24 17 00 44 0f 11 7c 24 28 31 db 89 c1 b8 01 00 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

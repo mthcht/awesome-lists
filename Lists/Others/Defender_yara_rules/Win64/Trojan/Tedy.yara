@@ -2928,3 +2928,25 @@ rule Trojan_Win64_Tedy_AC_2147958924_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SXA_2147959146_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXA!MTB"
+        threat_id = "2147959146"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b c8 f3 0f 7f 85 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8b 0d ?? ?? ?? ?? 41 b9 02 00 00 00 41 b0 ff 33 d2 ff 15}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 89 45 00 48 8b 45 00 48 89 45 ?? 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 45 00 48 8b 45 00 48 89 45 ?? 4c 89 65 00 48 8b 45 00 48 89 45 ?? 48 8d 45 ?? c5 fe 6f 45 ?? c5 fd ef 4d ?? c5 fd 7f 4d}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
