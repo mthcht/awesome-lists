@@ -330,3 +330,24 @@ rule Trojan_Win32_Tiny_AB_2147951434_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tiny_A_2147959259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tiny.A!AMTB"
+        threat_id = "2147959259"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tiny"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "http://185.215.113.66/" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

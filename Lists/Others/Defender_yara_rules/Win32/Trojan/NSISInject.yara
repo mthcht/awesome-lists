@@ -6827,3 +6827,30 @@ rule Trojan_Win32_NSISInject_SVM_2147933796_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_NSISInject_SH_2147959244_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/NSISInject.SH!MTB"
+        threat_id = "2147959244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "NSISInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "starbowlines turnkey sygemeldings" ascii //weight: 1
+        $x_1_2 = "halvkusiner" ascii //weight: 1
+        $x_1_3 = "lysstyrken femalise" ascii //weight: 1
+        $x_1_4 = "RegDeleteKeyW" ascii //weight: 1
+        $x_1_5 = "RegOpenKeyExW" ascii //weight: 1
+        $x_1_6 = "SetClipboardData" ascii //weight: 1
+        $x_1_7 = "LoadBitmapW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
