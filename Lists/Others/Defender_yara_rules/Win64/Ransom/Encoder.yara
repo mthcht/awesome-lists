@@ -142,3 +142,29 @@ rule Ransom_Win64_Encoder_GP_2147958501_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_A_2147959270_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.A!AMTB"
+        threat_id = "2147959270"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Blackout Temporary Service" ascii //weight: 1
+        $x_1_2 = "Blackout.File\\DefaultIcon" ascii //weight: 1
+        $x_1_3 = "BlackoutMutex" ascii //weight: 1
+        $x_1_4 = "C:\\Windows\\lock.png" ascii //weight: 1
+        $x_1_5 = "BlackoutEncryptor" ascii //weight: 1
+        $x_1_6 = "reg delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v \"Shell\" /f" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3725,3 +3725,24 @@ rule Trojan_MSIL_XWorm_AQMB_2147958770_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_FPP_2147959265_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.FPP!MTB"
+        threat_id = "2147959265"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {fe 01 13 05 11 05 2c 12 07 11 04 06 11 04 91 20 c5 00 00 00 61 b4 9c 00 2b 0a 00 07 11 04 06 11 04 91 9c}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

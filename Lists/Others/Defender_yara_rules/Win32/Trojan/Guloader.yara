@@ -1043,6 +1043,33 @@ rule Trojan_Win32_Guloader_RW_2147777557_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_PAA_2147796499_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.PAA!MTB"
+        threat_id = "2147796499"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "aarhushotellerne.kab" ascii //weight: 1
+        $x_1_2 = "bommedes.ped" ascii //weight: 1
+        $x_1_3 = "indhentedes.lsl" ascii //weight: 1
+        $x_1_4 = "saelgerne.for" ascii //weight: 1
+        $x_1_5 = "viljestrkt.bes" ascii //weight: 1
+        $x_1_6 = "handlingsplaner\\programskrivningers.lnk" ascii //weight: 1
+        $x_1_7 = "Turistpropagandaerne\\betalingsreglerne.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_RPI_2147796656_0
 {
     meta:

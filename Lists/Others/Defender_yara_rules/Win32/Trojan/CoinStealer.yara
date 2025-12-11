@@ -180,3 +180,26 @@ rule Trojan_Win32_CoinStealer_PAGO_2147953250_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CoinStealer_AMTB_2147959262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinStealer!AMTB"
+        threat_id = "2147959262"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {68 74 74 70 90 02 01 3a 2f 2f 61 70 69 2e 74 65 6c 65 67 72 61 6d 2e 6f 72 67 2f 62 6f 74 38 33 33 33 34 36 39 30 36 34 3a 41 41 48 48 34 61 48 33 78 4c 6b 6f 4b 76 56 52 7a 43 78 77 68 41 38 2d 72 78 35 51 34 51 4d 64 4e 52 45 2f 73 65 6e 64 4d 65 73 73 61 67 65}  //weight: 1, accuracy: High
+        $x_1_2 = "ledger live" ascii //weight: 1
+        $x_1_3 = "buttoniLostMy" ascii //weight: 1
+        $x_1_4 = "LedgerAppMutex" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

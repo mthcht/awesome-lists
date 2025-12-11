@@ -193,3 +193,25 @@ rule Trojan_Win64_ShellcodeLoader_IUY_2147958473_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeLoader_AHC_2147959272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeLoader.AHC!MTB"
+        threat_id = "2147959272"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {44 89 eb 83 e3 ?? c1 eb ?? 44 89 ed 83 e5 ?? c1 ed ?? 45 89 ee 41 83 e6 ?? 41 c1 ee ?? 45 89 ec 41}  //weight: 30, accuracy: Low
+        $x_20_2 = {f3 43 0f 6f 04 02 f3 42 ?? ?? ?? ?? ?? ?? ?? ?? 66 0f ef c8 48 83 c0 ?? f3 43 0f 7f 0c 01 49 83 c0 ?? 48 39 c1 75}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

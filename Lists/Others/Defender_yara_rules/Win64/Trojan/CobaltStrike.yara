@@ -2373,6 +2373,64 @@ rule Trojan_Win64_CobaltStrike_CPI_2147815519_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_PAA_2147815543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.PAA!MTB"
+        threat_id = "2147815543"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 83 ec 20 48 8b 1d [0-6] 31 ff 65 48 8b 04 25 30 00 00 00 48 8b 2d cd d0 00 00 48 8b 70 08 eb 17}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_PAA_2147815543_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.PAA!MTB"
+        threat_id = "2147815543"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "okuwwgefqeg.dll" ascii //weight: 1
+        $x_1_2 = "DllMainDll" ascii //weight: 1
+        $x_1_3 = "RegisterServer" ascii //weight: 1
+        $x_1_4 = "awowacciiuwajyn" ascii //weight: 1
+        $x_1_5 = "brjvnyyakawu" ascii //weight: 1
+        $x_1_6 = "cvmgghrspqaecj" ascii //weight: 1
+        $x_1_7 = "dstilxaph" ascii //weight: 1
+        $x_1_8 = "ieordxmvyp" ascii //weight: 1
+        $x_1_9 = "kkkuiehtzdzuea" ascii //weight: 1
+        $x_1_10 = "mzpydjjenaxzqhmmd" ascii //weight: 1
+        $x_1_11 = "njtgkcdkfggzjsramntfufspnpfovlit" ascii //weight: 1
+        $x_1_12 = "otfmvfutkcx" ascii //weight: 1
+        $x_1_13 = "povmdajaysjbnn" ascii //weight: 1
+        $x_1_14 = "qadpxwucgjuy" ascii //weight: 1
+        $x_1_15 = "rezuiucg" ascii //weight: 1
+        $x_1_16 = "wafklhepa" ascii //weight: 1
+        $x_1_17 = "wzbjjmqvrdtvbnl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CobaltStrike_BS_2147815828_0
 {
     meta:
@@ -18170,6 +18228,28 @@ rule Trojan_Win64_CobaltStrike_NW_2147958944_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {8b 15 3a 1c 00 00 89 d2 41 89 c0 48 8d 05 2e 1a 00 00 48 89 c1 e8 66 fe ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_GDZ_2147959260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GDZ!MTB"
+        threat_id = "2147959260"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 c9 48 63 f8 48 8b d7 41 b8 00 30 00 00 48 03 d2 44 8d 49 ?? ff 15}  //weight: 5, accuracy: Low
+        $x_5_2 = {8b 45 a7 33 c8 89 4d a7 b9 ?? ?? ?? ?? 8b 45 a7 89 75 a7}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
