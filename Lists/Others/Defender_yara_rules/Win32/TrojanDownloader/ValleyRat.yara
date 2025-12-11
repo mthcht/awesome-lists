@@ -142,3 +142,26 @@ rule TrojanDownloader_Win32_ValleyRat_CF_2147949369_2
         )
 }
 
+rule TrojanDownloader_Win32_ValleyRat_FG_2147959290_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/ValleyRat.FG!MTB"
+        threat_id = "2147959290"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\Windows\\WindowsFormsApp2.exe" ascii //weight: 1
+        $x_1_2 = "C:\\DispHelper\\hr.exe" ascii //weight: 1
+        $x_1_3 = "aHR0cDovLzEzNC4xMjIuMTYzLjIzMjo4ODg4L2Rvd24vbkJOWkxGQnlETW5O" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

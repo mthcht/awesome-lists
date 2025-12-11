@@ -2224,3 +2224,32 @@ rule Trojan_Win64_ShellcodeRunner_NRD_2147959029_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_NRE_2147959284_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.NRE!MTB"
+        threat_id = "2147959284"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bcryptprimitives.dll" ascii //weight: 1
+        $x_1_2 = "powrprof.dll" ascii //weight: 1
+        $x_1_3 = "Binject/debug" ascii //weight: 1
+        $x_1_4 = "Go2bypass/output" ascii //weight: 1
+        $x_1_5 = "neBp9wDYVY4Uu1gGlrL+IL4JeZslz+hGEAjBXGAPWak=" ascii //weight: 1
+        $x_2_6 = "h1:cIAK2NNf2yafdgpFRNJrgZMwvy61BEVpGoHc2n4/yWs=" ascii //weight: 2
+        $x_1_7 = "h1:xHms4gcpe1YE7A3yIllJXP16CMAGuqwO2lX1mTyyRRc=" ascii //weight: 1
+        $x_1_8 = "cryptBlocksDecGeneric" ascii //weight: 1
+        $x_1_9 = "CodeToShellDncrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2747,6 +2747,27 @@ rule Trojan_MSIL_Rozena_GPAT_2147952822_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_GPAT_2147952822_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GPAT!MTB"
+        threat_id = "2147952822"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {2e 64 6c 6c 00 57 69 6e 33 32 00 6d 73 63 6f 72 6c 69 62 00 53 79 73 74 65 6d 00 4f 62 6a 65 63 74 00 4f 70 65 6e 50 72 6f 63 65 73 73 00 56 69 72 74 75 61 6c 41 6c 6c 6f 63 45 78 00 57 72 69 74 65 50 72 6f 63 65 73 73 4d 65 6d 6f 72 79 00 43 72 65 61 74 65 52 65 6d 6f 74 65 54 68 72 65 61 64 00 2e 63 74 6f 72}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Rozena_GPAQ_2147953145_0
 {
     meta:
@@ -2826,6 +2847,27 @@ rule Trojan_MSIL_Rozena_BAA_2147956382_0
         strings_accuracy = "High"
     strings:
         $x_2_1 = {7e 0b 00 00 04 11 10 91 13 11 11 11 1f 6c 61 d2 13 11 11 11 1f 56 59 d2 13 11 11 11 66 d2 13 11 11 11 1f 59 59 d2 13 11 11 11 1f 5e 61 d2 13 11 11 0a 11 10 11 11 9c 11 10 17 58 13 10 11 10 7e 0b 00 00 04 8e 69 32 b8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_GPAR_2147959280_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GPAR!MTB"
+        threat_id = "2147959280"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {02 07 02 8e 69 5d 02 07 02 8e 69 5d 91 06 07 06 8e 69 5d 91 61 28 ?? 00 00 0a 02 07 17 58 02 8e 69 5d}  //weight: 8, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

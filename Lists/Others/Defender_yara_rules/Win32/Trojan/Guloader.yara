@@ -3127,6 +3127,55 @@ rule Trojan_Win32_Guloader_RR_2147833669_3
         family = "Guloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "choloscopy\\hydromys" wide //weight: 1
+        $x_1_2 = "\\afstak\\Forespeaker198.gif" wide //weight: 1
+        $x_1_3 = "\\eftermrkne\\Comest.ini" wide //weight: 1
+        $x_1_4 = "\\Conceptualises\\hymettic.ini" wide //weight: 1
+        $x_1_5 = "tresaarsfdselsdag\\nepotisms" wide //weight: 1
+        $x_1_6 = "lsefrdighed\\Uninstall\\objectizing\\Snohalerne" wide //weight: 1
+        $x_1_7 = "udskriftsprograms" wide //weight: 1
+        $x_1_8 = "forbrugeradresser\\vitaliteters" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RR_2147833669_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RR!MTB"
+        threat_id = "2147833669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {30 30 30 ff 2f 2f 2f fe 30 30 30 ff 1d 49 76 ff 1a 4c 7d fe 2f 30 31 ff 2f 2f 2f fe 30 30 30 ff 2f 2f 2f fe 30 30 30 ee 2d 32 37 5c 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RR_2147833669_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RR!MTB"
+        threat_id = "2147833669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
@@ -3140,7 +3189,7 @@ rule Trojan_Win32_Guloader_RR_2147833669_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_RR_2147833669_4
+rule Trojan_Win32_Guloader_RR_2147833669_6
 {
     meta:
         author = "defender2yara"
@@ -3168,7 +3217,7 @@ rule Trojan_Win32_Guloader_RR_2147833669_4
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_RR_2147833669_5
+rule Trojan_Win32_Guloader_RR_2147833669_7
 {
     meta:
         author = "defender2yara"
