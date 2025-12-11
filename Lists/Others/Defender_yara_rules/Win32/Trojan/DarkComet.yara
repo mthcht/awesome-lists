@@ -444,3 +444,36 @@ rule Trojan_Win32_DarkComet_ADT_2147948706_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkComet_AMT_2147959236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkComet.AMT!MTB"
+        threat_id = "2147959236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WARNING - MALWARE" ascii //weight: 1
+        $x_1_2 = "This is considered Malware" ascii //weight: 1
+        $x_1_3 = "If you run it, it can maybe break your PC" ascii //weight: 1
+        $x_1_4 = "Are you sure you want to continue" ascii //weight: 1
+        $x_1_5 = "FINAL WARNING - YOU CANT GO BACK" ascii //weight: 1
+        $x_2_6 = "This Will Flash GDI, Play loud sounds and launch Payloads" ascii //weight: 2
+        $x_1_7 = "Not For Epileptic" ascii //weight: 1
+        $x_1_8 = "DONT RUN IF YOU DONT KNOW WHAT YOU'RE DOING" ascii //weight: 1
+        $x_1_9 = "Press YES only if you know what you're doing, and is in a virtual Machine" ascii //weight: 1
+        $x_1_10 = "mousemovah.exe" ascii //weight: 1
+        $x_3_11 = "taskkill /f /im \"Decrypted File.exe\"" ascii //weight: 3
+        $x_4_12 = "taskkill /f /im \"Blue Wave.exe\"" ascii //weight: 4
+        $x_2_13 = "C++ Ransom.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
