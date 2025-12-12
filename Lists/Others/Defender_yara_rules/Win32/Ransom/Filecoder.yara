@@ -606,6 +606,29 @@ rule Ransom_Win32_Filecoder_DD_2147763509_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your documents folder is about to be encrypted" ascii //weight: 1
+        $x_1_2 = "Your files remain encrypted" ascii //weight: 1
+        $x_1_3 = "Enter decryption key to restore your files" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Filecoder_DD_2147763509_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.DD!MTB"
+        threat_id = "2147763509"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = "Your files are encrypted" ascii //weight: 1
@@ -618,7 +641,7 @@ rule Ransom_Win32_Filecoder_DD_2147763509_0
         (3 of ($x*))
 }
 
-rule Ransom_Win32_Filecoder_DD_2147763509_1
+rule Ransom_Win32_Filecoder_DD_2147763509_2
 {
     meta:
         author = "defender2yara"
@@ -644,7 +667,7 @@ rule Ransom_Win32_Filecoder_DD_2147763509_1
         (3 of ($x*))
 }
 
-rule Ransom_Win32_Filecoder_DD_2147763509_2
+rule Ransom_Win32_Filecoder_DD_2147763509_3
 {
     meta:
         author = "defender2yara"
