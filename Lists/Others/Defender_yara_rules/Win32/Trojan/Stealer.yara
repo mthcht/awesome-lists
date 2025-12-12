@@ -1506,6 +1506,33 @@ rule Trojan_Win32_Stealer_MK_2147952541_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_MK_2147952541_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.MK!MTB"
+        threat_id = "2147952541"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "localstate.key" ascii //weight: 10
+        $x_10_2 = "o/41/tokens.txt" ascii //weight: 10
+        $x_10_3 = "-NoProfile -ExecutionPolicy Bypass -Command \"IEX (New-Object Net.WebClient).DownloadString('" ascii //weight: 10
+        $x_10_4 = "g/screen/screen.bmp" ascii //weight: 10
+        $x_5_5 = "\\Login Data" ascii //weight: 5
+        $x_5_6 = "\\Web Data" ascii //weight: 5
+        $x_5_7 = "\\Cookies" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Stealer_MKN_2147955524_0
 {
     meta:

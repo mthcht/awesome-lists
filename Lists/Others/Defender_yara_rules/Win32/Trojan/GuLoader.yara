@@ -7653,3 +7653,31 @@ rule Trojan_Win32_GuLoader_RDU_2147959182_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SVZ_2147959321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVZ!MTB"
+        threat_id = "2147959321"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Undegrebet.gif" ascii //weight: 1
+        $x_1_2 = "\\scrublike.bin" ascii //weight: 1
+        $x_1_3 = "Cerecloths.kom" ascii //weight: 1
+        $x_1_4 = "Diamantmine.tip" ascii //weight: 1
+        $x_1_5 = "ordensmagters.cha" ascii //weight: 1
+        $x_1_6 = "virkekrfternes.sal" ascii //weight: 1
+        $x_1_7 = "\\Nonsynthetic.zip" ascii //weight: 1
+        $x_1_8 = "\\pietoso\\Krapina230.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

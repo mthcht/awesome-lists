@@ -1790,6 +1790,28 @@ rule Trojan_Win32_ICLoader_ASLA_2147933717_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_MBQ_2147934042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.MBQ!MTB"
+        threat_id = "2147934042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {55 8b ec 6a ff 68 ?? ?? 60 00 68 ?? ?? 60 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 83 ec 58 53 56 57 89 65 e8 ff 15 ?? ?? 60 00 33 d2 8a d4 89 15 ?? ?? ?? 00 8b c8 81 e1}  //weight: 2, accuracy: Low
+        $x_1_2 = {33 f6 56 e8 16 0b 00 00 59 85 c0 75 08 6a 1c e8 b0 00 00 00 59 89 75 fc}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ICLoader_MBR_2147934043_0
 {
     meta:

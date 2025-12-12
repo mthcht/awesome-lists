@@ -2978,3 +2978,25 @@ rule Trojan_Win64_Zusy_SLWF_2147958800_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SXM_2147959318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXM!MTB"
+        threat_id = "2147959318"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {48 8d 44 24 30 4c 89 64 24 50 4c 8b cf 4c 89 6c 24 58 0f 57 44 24 50 66 0f 7f 44 24 30 44 89}  //weight: 10, accuracy: High
+        $x_5_2 = {c7 44 24 60 02 00 00 00 4c 89 7c 24 58 48 8b 4d 38 48 89 4c 24 50 4c 89 7c 24 48 4c 89 7c 24 40 89 54 24 38 44 89 4c 24 30 44 89 54 24 28 44 89 5c 24 20}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
