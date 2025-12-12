@@ -321,3 +321,25 @@ rule Trojan_Win64_Donut_DRZ_2147952086_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Donut_GDZ_2147959367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Donut.GDZ!MTB"
+        threat_id = "2147959367"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {bb 03 00 00 00 48 8b 35 ?? ?? ?? ?? b9 00 00 00 00 ff d6 4d 89 e4 4d 89 ed 83 eb}  //weight: 5, accuracy: Low
+        $x_5_2 = {41 b9 40 00 00 00 41 b8 00 30 00 00 ba 00 02 00 00 b9 00 00 00 00 ff 15 ?? ?? ?? ?? 48 89 c6}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

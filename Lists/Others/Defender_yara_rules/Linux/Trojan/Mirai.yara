@@ -715,3 +715,29 @@ rule Trojan_Linux_Mirai_AMTB_2147957847_1
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_SK_2147959375_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.SK!AMTB"
+        threat_id = "2147959375"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ecfafeab6ee7d642" ascii //weight: 1
+        $x_1_2 = "%s/%s/%s.sh" ascii //weight: 1
+        $x_1_3 = "*** %s ***: terminated" ascii //weight: 1
+        $x_1_4 = "lock_file" ascii //weight: 1
+        $x_1_5 = "/proc/cpuinfo" ascii //weight: 1
+        $x_1_6 = "delete[]" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
