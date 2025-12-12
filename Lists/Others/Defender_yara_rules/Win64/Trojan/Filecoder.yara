@@ -278,3 +278,26 @@ rule Trojan_Win64_Filecoder_SXD_2147951864_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_AHC_2147959355_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.AHC!MTB"
+        threat_id = "2147959355"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "90"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "[+] Decrypted =>" ascii //weight: 20
+        $x_30_2 = "ransom_note_exec.exe" ascii //weight: 30
+        $x_40_3 = {41 32 54 05 ?? 89 d1 f6 d9 08 d1 f6 d1 c0 e9 ?? e8 ?? ?? ?? ?? 20 c3 4c 89 f0 4c 39 f6 75}  //weight: 40, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
