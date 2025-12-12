@@ -7371,3 +7371,25 @@ rule Trojan_Win32_Neoreblamy_NRI_2147959291_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_NRJ_2147959378_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NRJ!MTB"
+        threat_id = "2147959378"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 49 00 8a 44 0b ff 30 04 0b 49 83 f9 02}  //weight: 1, accuracy: High
+        $x_2_2 = "Mac\\Home\\Documents\\MMP\\mmp_server_stuff\\stuff\\distrib_server\\sfx\\ExeRestorer\\Release\\ExeRestorer.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

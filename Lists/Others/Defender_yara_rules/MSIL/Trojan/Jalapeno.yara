@@ -3403,3 +3403,26 @@ rule Trojan_MSIL_Jalapeno_LMB_2147959144_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_BAK_2147959386_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.BAK!MTB"
+        threat_id = "2147959386"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 11 02 16 02 8e 69 6f ?? 00 00 0a 38 ?? 00 00 00 38 ?? 00 00 00 20 00 00 00 00 fe 0e 0f 00 fe 0c 0f 00 45 01 00 00 00 13 00 00 00 fe 0c 0f 00 20 dc 03 00 00 3b e5 ff ff ff 38 00 00 00 00 11 0c 6f ?? 00 00 0a 73 10 00 00 0a 13 0d 38 ?? 00 00 00 11 11 6f ?? 00 00 0a 20 01 00 00 00 7e 27 00 00 04 7b 6e 00 00 04 39 b6 ff ff ff 26 20 00 00 00 00 38 ab ff ff ff 00}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

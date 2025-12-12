@@ -3645,3 +3645,26 @@ rule Trojan_MSIL_Injuke_AYMB_2147959199_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_BAA_2147959385_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.BAA!MTB"
+        threat_id = "2147959385"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 16 0b 2b 15 06 07 8f 1a 00 00 01 25 47 7e 02 00 00 04 61 d2 52 07 17 58 0b 07 06 8e 69 32 e5 28 ?? 00 00 0a 06 6f ?? 00 00 0a 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "VirtualProtect" ascii //weight: 1
+        $x_1_3 = "Sleep" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
