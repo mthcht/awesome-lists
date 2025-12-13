@@ -7818,3 +7818,72 @@ rule Trojan_Win64_AbuseCommMain_MB_2147959039_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_AbuseCommMain_MC_2147959434_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommMain.MC"
+        threat_id = "2147959434"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "tox:5D16859E0BC70E8830DEB8DE294C7E5AF8BD4D30CB1CB01F3BE17D0F592B3264" wide //weight: 1
+        $x_1_2 = {35 44 31 36 38 35 39 45 30 42 43 37 30 45 38 38 33 30 44 45 42 38 44 45 32 39 34 43 37 45 35 41 46 38 42 44 34 44 33 30 43 42 31 43 42 30 31 46 33 42 45 31 37 44 30 46 35 39 32 42 33 32 36 34 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 4c 00 00 00 00 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {35 44 31 36 38 35 39 45 30 42 43 37 30 45 38 38 33 30 44 45 42 38 44 45 32 39 34 43 37 45 35 41 46 38 42 44 34 44 33 30 43 42 31 43 42 30 31 46 33 42 45 31 37 44 30 46 35 39 32 42 33 32 36 34 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 4c 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "\\tox\\5D16859E0BC70E8830DEB8DE294C7E5AF8BD4D30CB1CB01F3BE17D0F592B3264.hstr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_AbuseCommMain_MD_2147959438_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommMain.MD"
+        threat_id = "2147959438"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "tox:8AE76D106C7F34134CAB98E41C5EEEF15B238BC523EC2F09C7765214CB038228" wide //weight: 1
+        $x_1_2 = {38 41 45 37 36 44 31 30 36 43 37 46 33 34 31 33 34 43 41 42 39 38 45 34 31 43 35 45 45 45 46 31 35 42 32 33 38 42 43 35 32 33 45 43 32 46 30 39 43 37 37 36 35 32 31 34 43 42 30 33 38 32 32 38 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 4c 00 00 00 00 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {38 41 45 37 36 44 31 30 36 43 37 46 33 34 31 33 34 43 41 42 39 38 45 34 31 43 35 45 45 45 46 31 35 42 32 33 38 42 43 35 32 33 45 43 32 46 30 39 43 37 37 36 35 32 31 34 43 42 30 33 38 32 32 38 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 4c 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "\\tox\\8AE76D106C7F34134CAB98E41C5EEEF15B238BC523EC2F09C7765214CB038228.hstr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_AbuseCommMain_ME_2147959442_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommMain.ME"
+        threat_id = "2147959442"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "tox:9897B2686C5256F5CA6A3AE7654DEF62A7E839DC54193D37D0CE5FFCAEC4A042" wide //weight: 1
+        $x_1_2 = {39 38 39 37 42 32 36 38 36 43 35 32 35 36 46 35 43 41 36 41 33 41 45 37 36 35 34 44 45 46 36 32 41 37 45 38 33 39 44 43 35 34 31 39 33 44 33 37 44 30 43 45 35 46 46 43 41 45 43 34 41 30 34 32 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 4c 00 00 00 00 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {39 38 39 37 42 32 36 38 36 43 35 32 35 36 46 35 43 41 36 41 33 41 45 37 36 35 34 44 45 46 36 32 41 37 45 38 33 39 44 43 35 34 31 39 33 44 33 37 44 30 43 45 35 46 46 43 41 45 43 34 41 30 34 32 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 4c 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_4 = "\\tox\\9897B2686C5256F5CA6A3AE7654DEF62A7E839DC54193D37D0CE5FFCAEC4A042.hstr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
