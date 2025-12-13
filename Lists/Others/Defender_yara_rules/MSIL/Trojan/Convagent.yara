@@ -439,3 +439,26 @@ rule Trojan_MSIL_Convagent_ALIB_2147955685_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_LMB_2147959453_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.LMB!MTB"
+        threat_id = "2147959453"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {28 5d 02 00 06 2d 06 16 28 03 01 00 0a 7e 9c 02 00 04 2c 2f 17 80 9a 03 00 04 7e a4 02 00 04 25 2d 17 26 7e a3 02 00 04 fe 06 d6 01 00 06 73 61 00 00 0a 25 80 a4 02 00 04 73 62 00 00 0a 28 65 00 00 0a}  //weight: 20, accuracy: High
+        $x_10_2 = {73 f0 01 00 06 80 a0 02 00 04 7e a0 02 00 04 6f e4 01 00 06 2b 2a 7e a0 02 00 04 6f df 01 00 06 2d 0a 7e a0 02 00 04 6f e7 01 00 06 73 04 01 00 0a 20 88 13 00 00 6f 05 01 00 0a 28 6a 00 00 0a 7e a1 02 00 04 2d cf 2a}  //weight: 10, accuracy: High
+        $x_5_3 = "OffLineKeyLogger" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
