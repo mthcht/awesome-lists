@@ -736,3 +736,29 @@ rule Trojan_Win64_Stealer_AHC_2147957749_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_MKA_2147959469_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.MKA!MTB"
+        threat_id = "2147959469"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {90 0f 57 c0 0f 11 45 2f 0f 57 c9 f3 0f 7f 4d 3f 48 8d 55 0f 48 83 7d 27 07 48 0f 47 55 0f 4c 8b 45 1f 48 8d 4d 2f}  //weight: 25, accuracy: High
+        $x_5_2 = "[DEBUG] Decrypted Key Address: 0x%p" ascii //weight: 5
+        $x_5_3 = "DEBUG] Failed To Fetch Key" ascii //weight: 5
+        $x_5_4 = "[DEBUG] Unsupported browser" ascii //weight: 5
+        $x_5_5 = "chrome.exe" ascii //weight: 5
+        $x_5_6 = "whale.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

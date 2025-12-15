@@ -68,3 +68,29 @@ rule Trojan_Win64_NetLoader_ARAX_2147954583_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NetLoader_MK_2147959470_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NetLoader.MK!MTB"
+        threat_id = "2147959470"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NetLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {c7 45 20 68 00 00 00 0f 57 c0 0f 11 45 28 0f 11 45 38 0f 11 45 48 0f 11 45 58 0f 11 45 68 0f 11 45 78 48 8b 4b 10 48 b8 ff ff ff ff ff ff ff 7f 48 2b c1 48 83 f8 01}  //weight: 25, accuracy: High
+        $x_4_2 = "PingClient/1.0" ascii //weight: 4
+        $x_3_3 = "downloaded_file_" ascii //weight: 3
+        $x_1_4 = "AUTH_SUCCESS" ascii //weight: 1
+        $x_1_5 = "file_url" ascii //weight: 1
+        $x_1_6 = "C:\\Info" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
