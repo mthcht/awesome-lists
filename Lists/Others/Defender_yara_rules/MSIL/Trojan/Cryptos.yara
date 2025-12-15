@@ -69,3 +69,27 @@ rule Trojan_MSIL_Cryptos_SK_2147952366_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cryptos_SM_2147959473_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cryptos.SM!MTBB"
+        threat_id = "2147959473"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cryptos"
+        severity = "Critical"
+        info = "MTBB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Elnhwkfu.Properties.Resources.resources" ascii //weight: 1
+        $x_1_2 = "$6225a3a6-9305-416e-9f6f-a0324f15d6ef" ascii //weight: 1
+        $x_1_3 = "If5sLhRjg5Q=" ascii //weight: 1
+        $x_1_4 = "hhmQeuBd6xBAnC0ZcdYjhA==" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

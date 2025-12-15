@@ -20,6 +20,28 @@ rule Trojan_Win32_ValleyRat_AVA_2147929127_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRat_AVA_2147929127_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.AVA!MTB"
+        threat_id = "2147929127"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {50 68 c8 51 41 00 8b 4d fc 51 e8 ?? ?? ?? ?? 83 c4 0c 6a 00 6a 00 68 ec 51 41 00 68 20 52 41 00 68 30 52 41 00 6a 00 ff 15}  //weight: 3, accuracy: Low
+        $x_1_2 = "Successfully created scheduled task" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ValleyRat_BSA_2147929167_0
 {
     meta:
