@@ -6706,3 +6706,25 @@ rule Trojan_MSIL_DarkTortilla_ABNB_2147959374_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_AFNB_2147959457_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.AFNB!MTB"
+        threat_id = "2147959457"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0c 08 14 fe 01 0d 09 2c 04 14 0a de 65 08 07 6f ?? 00 00 0a 00 08 07 6f ?? 00 00 0a 00 08 17 6f ?? 00 00 0a 00 08 18 6f ?? 00 00 0a 00 00 08 6f ?? 00 00 0a 13 04 00 11 04 02 16 02 8e 69 6f ?? 00 00 0a 0a de 2c}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
