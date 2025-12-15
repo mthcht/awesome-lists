@@ -148,6 +148,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 35.96.28.0/23,us-east-1,AMAZON,us-east-1
 35.96.240.0/24,ap-southeast-2,AMAZON,ap-southeast-2
 43.206.0.0/15,ap-northeast-1,AMAZON,ap-northeast-1
+43.226.27.0/24,us-west-2,AMAZON,us-west-2
 52.46.220.0/22,eu-north-1,AMAZON,eu-north-1
 52.93.56.0/24,eu-west-2,AMAZON,eu-west-2
 52.93.178.152/32,us-west-1,AMAZON,us-west-1
@@ -1668,6 +1669,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.81.0/24,ap-northeast-2,AMAZON,ap-northeast-2
 16.76.0.0/16,ap-northeast-1,AMAZON,ap-northeast-1
 18.96.96.0/19,me-central-1,AMAZON,me-central-1
+35.34.96.0/24,eu-west-2,AMAZON,eu-west-2
 35.50.134.0/24,us-west-2,AMAZON,us-west-2
 35.71.98.0/24,eu-north-1,AMAZON,eu-north-1
 35.96.43.0/24,sa-east-1,AMAZON,sa-east-1
@@ -3963,6 +3965,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 54.240.236.58/32,eu-south-1,AMAZON,eu-south-1
 69.107.9.192/29,ap-northeast-1,AMAZON,ap-northeast-1
 69.107.9.248/29,ap-northeast-1,AMAZON,ap-northeast-1
+69.107.11.40/29,eu-west-2,AMAZON,eu-west-2
 99.77.157.0/24,eu-west-3,AMAZON,eu-west-3
 99.83.99.0/24,eu-central-1,AMAZON,eu-central-1
 130.176.254.0/24,GLOBAL,AMAZON,GLOBAL
@@ -4921,6 +4924,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 52.119.144.0/21,eu-south-1,AMAZON,eu-south-1
 52.196.0.0/14,ap-northeast-1,AMAZON,ap-northeast-1
 54.240.236.89/32,eu-south-1,AMAZON,eu-south-1
+69.107.11.32/29,eu-west-2,AMAZON,eu-west-2
 99.77.150.0/24,ca-central-1,AMAZON,ca-central-1
 99.78.208.0/22,ap-northeast-1,AMAZON,ap-northeast-1
 150.222.42.0/26,eu-north-1,AMAZON,eu-north-1
@@ -6115,6 +6119,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 35.96.28.0/23,us-east-1,EC2,us-east-1
 35.96.240.0/24,ap-southeast-2,EC2,ap-southeast-2
 43.206.0.0/15,ap-northeast-1,EC2,ap-northeast-1
+43.226.27.0/24,us-west-2,EC2,us-west-2
 52.95.226.0/24,ap-east-1,EC2,ap-east-1
 3.4.0.0/24,us-east-1,EC2,us-east-1
 15.177.83.0/24,ap-southeast-2,EC2,ap-southeast-2
