@@ -2074,3 +2074,30 @@ rule Backdoor_MSIL_Crysan_ACNB_2147959384_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Crysan_AGNB_2147959503_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Crysan.AGNB!MTB"
+        threat_id = "2147959503"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 09 11 0e 8f 16 00 00 01 25 71 16 00 00 01 11 0c 11 0e 91 61 d2 81 16 00 00 01 11 0e 17 58 13 0e 11 0e 11 08 32 d9}  //weight: 2, accuracy: High
+        $x_4_2 = {fe 0e 09 00 fe 0c 09 00 20 00 00 00 00 fe 0c 04 00 a2 fe 0c 09 00 20 01 00 00 00 fe 0c 05 00 fe 0c 02 00 20 01 00 00 00 28 ?? 00 00 0a a2 fe 0c 09 00 20 02 00 00 00 fe 0c 06 00 fe 0c 02 00 20 01 00 00 00 28 ?? 00 00 0a a2 fe 0c 09 00 20 03 00 00 00 fe 0c 07 00 fe 0c 02 00 20 01 00 00 00 28 ?? 00 00 0a a2}  //weight: 4, accuracy: Low
+        $x_4_3 = {fe 0e 14 00 fe 0c 14 00 20 00 00 00 00 fe 0c 04 00 a2 fe 0c 14 00 20 01 00 00 00 fe 0c 05 00 fe 0c 02 00 20 01 00 00 00 28 ?? 00 00 0a a2 fe 0c 14 00 20 02 00 00 00 fe 0c 0c 00 fe 0c 02 00 20 01 00 00 00 28 ?? 00 00 0a a2 fe 0c 14 00 20 03 00 00 00 fe 0c 0d 00 fe 0c 02 00 20 01 00 00 00 28 ?? 00 00 0a a2}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+

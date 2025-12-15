@@ -7651,8 +7651,10 @@ rule Trojan_Win32_ClickFix_CCX_2147945258_0
         $x_1_4 = "ht'+'tp" wide //weight: 1
         $x_1_5 = "'h'+'tt'+'p" wide //weight: 1
         $x_1_6 = "htt'+'p" wide //weight: 1
+        $n_100_7 = "\\EdgeWebView\\Application\\142.0.3595.94\\msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 

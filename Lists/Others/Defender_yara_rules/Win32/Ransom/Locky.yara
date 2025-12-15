@@ -735,3 +735,24 @@ rule Ransom_Win32_Locky_VZV_2147958724_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Locky_MX_2147959502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Locky.MX!MTB"
+        threat_id = "2147959502"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Locky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {52 83 c4 04 81 45 08 fb e5 d4 ff 21 75 dc 81 45 08 05 1a eb ff 33 fa c7 45 dc f0 01 40 00 3b f7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

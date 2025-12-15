@@ -7709,3 +7709,31 @@ rule Trojan_Win32_GuLoader_SWA_2147959400_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SWB_2147959509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWB!MTB"
+        threat_id = "2147959509"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Bugtaler177\\urbicolous.ini" ascii //weight: 1
+        $x_1_2 = "\\Nierens\\miliondelene" ascii //weight: 1
+        $x_1_3 = "\\lysestagernes.bin" ascii //weight: 1
+        $x_1_4 = "\\steamrollering.htm" ascii //weight: 1
+        $x_1_5 = "\\utilitarismens\\diskoskastenes.jpg" ascii //weight: 1
+        $x_1_6 = "\\misvksternes\\seres.exe" ascii //weight: 1
+        $x_1_7 = "Klippefast211.geo" ascii //weight: 1
+        $x_1_8 = "Rolleheftes227.muc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
