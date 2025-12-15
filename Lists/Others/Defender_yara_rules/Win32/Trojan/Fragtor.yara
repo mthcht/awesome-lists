@@ -3283,3 +3283,53 @@ rule Trojan_Win32_Fragtor_PGFR_2147958778_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_SXB_2147959486_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SXB!MTB"
+        threat_id = "2147959486"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "\\1.dll" ascii //weight: 3
+        $x_3_2 = "BLACKLIST_IP||" ascii //weight: 3
+        $x_3_3 = "MD5_DETECT||" ascii //weight: 3
+        $x_2_4 = "BLACKLIST_DATA" ascii //weight: 2
+        $x_2_5 = "blacklist.dat" ascii //weight: 2
+        $x_1_6 = "svchost.exe" ascii //weight: 1
+        $x_1_7 = "winlogon.exe" ascii //weight: 1
+        $x_1_8 = "taskmgr.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_SXC_2147959487_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SXC!MTB"
+        threat_id = "2147959487"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 c8 f7 e7 c1 ea 04 6b c2 ?? 8d 14 2e 0f b6 5c 2e ?? 32 5c 10 ?? 8b 44 24 ?? 88 5c 28 ?? 41 45 75 de}  //weight: 20, accuracy: Low
+        $x_10_2 = {89 34 24 c7 44 24 ?? ?? ?? 00 00 c7 44 24 ?? ?? ?? 00 00 ff 15 ?? ?? ?? ?? eb 0c b9 ff ff ff ff eb 10 b8 ff ff ff ff 89 c6 57 ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

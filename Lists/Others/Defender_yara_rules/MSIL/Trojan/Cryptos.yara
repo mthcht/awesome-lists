@@ -69,17 +69,17 @@ rule Trojan_MSIL_Cryptos_SK_2147952366_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Cryptos_SM_2147959473_0
+rule Trojan_MSIL_Cryptos_SM_2147959475_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/Cryptos.SM!MTBB"
-        threat_id = "2147959473"
+        detection_name = "Trojan:MSIL/Cryptos.SM!MTB"
+        threat_id = "2147959475"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Cryptos"
         severity = "Critical"
-        info = "MTBB: an internal category used to refer to some threats"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"

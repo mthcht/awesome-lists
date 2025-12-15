@@ -298,3 +298,31 @@ rule Ransom_Win64_Akira_ARAX_2147954750_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Akira_I_2147959474_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Akira.I"
+        threat_id = "2147959474"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {2e 61 6b 69 72 61 00}  //weight: 3, accuracy: High
+        $x_1_2 = {2e 00 76 00 6d 00 65 00 6d 00 00 00 00 00 00 00 2e 00}  //weight: 1, accuracy: High
+        $x_1_3 = {2e 00 73 00 75 00 62 00 76 00 6f 00 6c 00 00 00 2e 00}  //weight: 1, accuracy: High
+        $x_1_4 = {2e 00 61 00 62 00 63 00 64 00 64 00 62 00 00 00 2e 00}  //weight: 1, accuracy: High
+        $x_1_5 = ".sqlitedb" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
