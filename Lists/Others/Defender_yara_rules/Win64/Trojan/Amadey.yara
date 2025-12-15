@@ -566,3 +566,26 @@ rule Trojan_Win64_Amadey_ABA_2147958447_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_PGAD_2147959493_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.PGAD!MTB"
+        threat_id = "2147959493"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e 00 00 00 00 00 00 3c 4e 6f 6e 65 3e 00 00 01 00 00 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 20 00 2f 00 63 00 [0-15] 2e 00 76 00 62 00 73 00 [0-42] 3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e}  //weight: 5, accuracy: Low
+        $x_5_2 = {3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e 00 00 00 00 00 00 3c 4e 6f 6e 65 3e 00 00 01 00 00 00 63 6d 64 2e 65 78 65 20 2f 63 [0-15] 2e 76 62 73 [0-42] 3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e}  //weight: 5, accuracy: Low
+        $x_5_3 = {2e 74 65 78 74 00 00 00 80 7b 00 00 00 10 00 00 80 7b 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 72 64 61 74 61 00 00 c8 22 00 00 00 90 00 00 c8 22 00 00 00 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

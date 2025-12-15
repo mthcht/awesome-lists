@@ -1348,3 +1348,28 @@ rule Trojan_Win64_ClipBanker_AHE_2147958597_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_A_2147959492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.A!AMTB"
+        threat_id = "2147959492"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Oops! Your MBR are encrypted with AES military algorithm." ascii //weight: 1
+        $x_1_2 = "To restore your MBR back, send 40$ in LTC or BTC to the wallets" ascii //weight: 1
+        $x_1_3 = "Support in Ryze Joiner Server." ascii //weight: 1
+        $x_1_4 = "If you restart your PC without submitting a key, it will be your last time using it." ascii //weight: 1
+        $x_1_5 = "LTC address copied!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

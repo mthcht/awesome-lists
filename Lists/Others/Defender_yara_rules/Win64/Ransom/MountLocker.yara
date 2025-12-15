@@ -70,3 +70,26 @@ rule Ransom_Win64_MountLocker_RPR_2147809922_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_MountLocker_PA_2147959496_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/MountLocker.PA!MTB"
+        threat_id = "2147959496"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MountLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "RecoveryManual.html" wide //weight: 1
+        $x_1_2 = "YOUR NETWORK HAS BEEN HACKED" ascii //weight: 1
+        $x_2_3 = "[INFO] locker > start init script" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
