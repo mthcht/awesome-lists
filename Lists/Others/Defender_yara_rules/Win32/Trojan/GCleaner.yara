@@ -1401,3 +1401,24 @@ rule Trojan_Win32_GCleaner_MON_2147959463_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_ZZN_2147959563_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.ZZN!MTB"
+        threat_id = "2147959563"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2b d0 52 6a 00 e8 ?? 9e fa ff 5a 2b d0 52 6a 00 e8 ?? 9e fa ff 5a 2b d0 31 16 83 c3 04 83 c6 04 3b 5d cc 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

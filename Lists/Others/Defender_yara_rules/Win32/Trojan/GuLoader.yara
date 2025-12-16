@@ -7737,3 +7737,55 @@ rule Trojan_Win32_GuLoader_SWB_2147959509_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SWC_2147959557_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWC!MTB"
+        threat_id = "2147959557"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\foreignize.ini" ascii //weight: 1
+        $x_1_2 = "Cestoda.pri" ascii //weight: 1
+        $x_1_3 = "frsteopfrelse.txt" ascii //weight: 1
+        $x_1_4 = "prejudicialness.ini" ascii //weight: 1
+        $x_1_5 = "selvcensurens.txt" ascii //weight: 1
+        $x_1_6 = "\\Sultaners\\teknologiomraadets.bin" ascii //weight: 1
+        $x_1_7 = "\\saapas.ini" ascii //weight: 1
+        $x_1_8 = "\\henlggelserne\\parvolin.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDV_2147959562_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDV!MTB"
+        threat_id = "2147959562"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "kiddle yow bittacle" ascii //weight: 1
+        $x_1_2 = "optjenende bilindbrud" ascii //weight: 1
+        $x_1_3 = "gennemspilning formication infundibulate" ascii //weight: 1
+        $x_1_4 = "kultiverede fastholdelsens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

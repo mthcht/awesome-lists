@@ -20,3 +20,24 @@ rule Trojan_Win64_SalatStealer_PSC_2147956566_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_FG_2147959571_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.FG!MTB"
+        threat_id = "2147959571"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 35 78 60 ee 00 0f b6 14 16 31 ea 8b 6c 24 50 88 14 2b 8d 45 01 8d 15 78 48 ed 00 39 42 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
