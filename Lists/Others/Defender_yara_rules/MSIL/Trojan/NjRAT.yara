@@ -1353,3 +1353,24 @@ rule Trojan_MSIL_NjRAT_SPBR_2147956975_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRAT_ZHI_2147959543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRAT.ZHI!MTB"
+        threat_id = "2147959543"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {16 02 8e b7 17 59 0c 0b 2b 0d 02 07 02 07 91 1d 61 d2 9c 07 1d 58 0b 07 08 31 ef 02 2a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

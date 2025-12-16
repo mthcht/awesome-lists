@@ -617,3 +617,25 @@ rule Trojan_Win32_Tepfer_BAJ_2147952674_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tepfer_ARR_2147959551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.ARR!MTB"
+        threat_id = "2147959551"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 44 24 30 8b 58 ?? 8b 4c 24 2c 33 19 8b 70}  //weight: 10, accuracy: Low
+        $x_40_2 = "id=1YBVIDkZgygNfUU2rbJXXCYdrzay5rMdY" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
