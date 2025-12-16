@@ -571,3 +571,25 @@ rule Ransom_Linux_Filecoder_AF_2147956608_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Filecoder_AG_2147959521_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Filecoder.AG!MTB"
+        threat_id = "2147959521"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Running in /tmp. Encrypting the entire system with key" ascii //weight: 1
+        $x_1_2 = {be 7a e3 58 00 48 89 c7 e8 fd 1d 00 00 be 80 e3 58 00 bf a0 cb 5f 00 e8 16 77 05 00 48 8d 45 80 ba 02 00 00 00 be d2 e3 58 00 48 89 c7 e8 26 1e 00 00 48 8d 45 b0 48 8d 95 20 ff ff ff 48 89 d6 48 89 c7 e8 ea 37 09 00 48 8d 55 80 48 8d 45 b0 48 89 d6 48 89 c7 e8 e9 06 00 00 89 c3 48 8d 45 b0 48 89 c7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -51,3 +51,29 @@ rule Ransom_Linux_Weaxor_B_2147959091_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Weaxor_C_2147959520_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Weaxor.C!MTB"
+        threat_id = "2147959520"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Weaxor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/biweax.php" ascii //weight: 1
+        $x_1_2 = "rx.txt" ascii //weight: 1
+        $x_1_3 = "RECOVERY INFORMATION.txt" ascii //weight: 1
+        $x_1_4 = "block device header file is exists, please rename and backup it and re-run again." ascii //weight: 1
+        $x_1_5 = "datahelper@cyberfear.com" ascii //weight: 1
+        $x_1_6 = "I cant kill process with id" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

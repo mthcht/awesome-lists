@@ -3443,6 +3443,29 @@ rule Trojan_MSIL_Zusy_NU_2147944036_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {5d 06 06 1f 1f 5f 64 06 06 1f 1f 5f 64 5b 5d 16 5f 06 06 20 33 97 10 92 06 5c 5a 66 5b 66 41 5b 00 00 00 20 a3 a9 16 b0 06 06 20 79 56 e9 4f 61 61 58 67}  //weight: 2, accuracy: High
+        $x_1_2 = {06 1f 16 63 66 58 06 65 1f 1f 5f 63 20 a9 e9 86 02 58 67 0a 02}  //weight: 1, accuracy: High
+        $x_1_3 = "Steal1.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_NU_2147944036_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.NU!MTB"
+        threat_id = "2147944036"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
         strings_accuracy = "Low"
     strings:
         $x_3_1 = {0a 25 17 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 06 72 ?? 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 0a 26}  //weight: 3, accuracy: Low
