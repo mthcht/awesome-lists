@@ -2545,3 +2545,29 @@ rule Trojan_Win64_LummaStealer_GVR_2147958807_0
         )
 }
 
+rule Trojan_Win64_LummaStealer_LM_2147959538_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.LM!MTB"
+        threat_id = "2147959538"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "UpdateFunctionParam99" ascii //weight: 20
+        $x_15_2 = "InitProcess68" ascii //weight: 15
+        $x_10_3 = "WriteHeap69" ascii //weight: 10
+        $x_5_4 = "AddHeap83" ascii //weight: 5
+        $x_3_5 = "DisableFileState60" ascii //weight: 3
+        $x_2_6 = "DllImportContext38" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
