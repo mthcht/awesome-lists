@@ -11642,6 +11642,7 @@ rule Trojan_Win32_ClickFix_AAB_2147951232_0
     strings:
         $x_1_1 = {6d 00 73 00 68 00 74 00 61 00 [0-16] 68 00 74 00 74 00 70 00 [0-80] 6d 00 73 00 68 00 74 00 61 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
         $n_100_2 = "msedgewebview2.exe" wide //weight: -100
+        $n_100_3 = "\\Edge\\Application\\msedge.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
