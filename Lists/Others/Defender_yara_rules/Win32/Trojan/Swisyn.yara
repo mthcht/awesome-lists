@@ -306,6 +306,35 @@ rule Trojan_Win32_Swisyn_ASW_2147933246_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Swisyn_ASW_2147933246_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Swisyn.ASW!MTB"
+        threat_id = "2147933246"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Swisyn"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "CLSID\\{ADB880A6-D8FF-11CF-9377-00AA003B7A11}\\InprocServer32" ascii //weight: 1
+        $x_1_2 = "RootKitDetector\\RootkitRevealer\\Exe\\Release\\RootkitRevealer.pdb" ascii //weight: 1
+        $x_1_3 = "cmd.exe /c chcp 65001 && set DIRCMD= && \"cmd /c dir /4 /a /s %s" wide //weight: 1
+        $x_1_4 = "Software\\Sysinternals\\RootkitRevealer" wide //weight: 1
+        $x_1_5 = "RKREVEAL150" wide //weight: 1
+        $x_1_6 = "Unable to install RootkitRevealer service" wide //weight: 1
+        $x_1_7 = "RootkitRevealer must be run from the console" wide //weight: 1
+        $x_1_8 = "RootkitRevealer v1.7" wide //weight: 1
+        $x_1_9 = "You may not redistribute RootkitRevealer without express written permission" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Swisyn_ASY_2147935965_0
 {
     meta:

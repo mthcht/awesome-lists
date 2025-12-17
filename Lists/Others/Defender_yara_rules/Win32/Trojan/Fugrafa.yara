@@ -107,3 +107,25 @@ rule Trojan_Win32_Fugrafa_MK_2147958629_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fugrafa_NB_2147959636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fugrafa.NB!MTB"
+        threat_id = "2147959636"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fugrafa"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {50 8d 4d f8 e8 df 01 ff ff 8d 4d f8 e8 87 01 00 00 0f b6 d0 85 d2 75 17 c7 45 f0 00 00 00 00 8d 4d f8 e8 51 01 00 00 8b 45 f0 e9 97 00}  //weight: 2, accuracy: High
+        $x_1_2 = "WrrySubmerged.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

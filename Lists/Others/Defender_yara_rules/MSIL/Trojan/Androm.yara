@@ -1936,3 +1936,27 @@ rule Trojan_MSIL_Androm_GTD_2147958994_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_ARR_2147959625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.ARR!MTB"
+        threat_id = "2147959625"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "$4427d5a3-599e-44f6-aff3-e08afc0bafad" ascii //weight: 6
+        $x_3_2 = "<Module>{d2048a9c-6647-4b07-ae32-46459aa70e3c}" ascii //weight: 3
+        $x_10_3 = "Cjmtydpk.exe" ascii //weight: 10
+        $x_1_4 = "SdKBHB3/hp+w6+oaoKp1HA==" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

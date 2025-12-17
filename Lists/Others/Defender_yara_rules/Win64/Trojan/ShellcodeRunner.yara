@@ -2276,3 +2276,26 @@ rule Trojan_Win64_ShellcodeRunner_NRF_2147959564_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_NRG_2147959626_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.NRG!MTB"
+        threat_id = "2147959626"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {31 c0 41 89 c1 4c 8d 05 ?? ?? ?? ?? 31 c0 4c 89 c9 4c 89 ca}  //weight: 1, accuracy: Low
+        $x_2_2 = {0f 94 c0 24 01 88 44 24 ?? 8a 44 24 ?? 24 01 48 83 c4 38}  //weight: 2, accuracy: Low
+        $x_2_3 = {48 8b 44 24 ?? 8a 4c 24 ?? 32 08 88 08}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
