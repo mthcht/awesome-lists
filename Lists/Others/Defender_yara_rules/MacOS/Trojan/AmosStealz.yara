@@ -140,3 +140,27 @@ rule Trojan_MacOS_AmosStealz_G_2147951810_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_AmosStealz_Z_2147959603_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealz.Z!MTB"
+        threat_id = "2147959603"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "curl -s" wide //weight: 1
+        $x_1_2 = "$(echo " wide //weight: 1
+        $x_1_3 = "| base64 -d" wide //weight: 1
+        $x_1_4 = "| bash" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

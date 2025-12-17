@@ -192,6 +192,7 @@ rule Trojan_Win32_Dexphot_CA_2147735853_0
         $x_1_1 = {2e 00 65 00 78 00 65 00 20 00 [0-32] 70 00 61 00 63 00 6b 00 61 00 67 00 65 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
         $x_1_2 = {2e 00 65 00 78 00 65 00 22 00 20 00 [0-32] 70 00 61 00 63 00 6b 00 61 00 67 00 65 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
         $n_1_3 = "taskhostw.exe" wide //weight: -1
+        $n_10_4 = "dl.tbcrelease.net/package" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
