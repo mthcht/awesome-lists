@@ -153,3 +153,31 @@ rule HackTool_Win32_Patcher_AMTB_2147934306_1
         (all of ($x*))
 }
 
+rule HackTool_Win32_Patcher_SGA_2147959661_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher.SGA!AMTB"
+        threat_id = "2147959661"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Successfully patched !" ascii //weight: 1
+        $x_1_2 = "Patching failed !" ascii //weight: 1
+        $x_1_3 = "This Patch will rock ParetoLogic Anti-Virus PLUS 7.0" ascii //weight: 1
+        $x_1_4 = "New Tiger [AoRE-Team]" ascii //weight: 1
+        $n_100_5 = "Uninst.exe" ascii //weight: -100
+        $n_100_6 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_7 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

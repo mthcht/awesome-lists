@@ -3450,3 +3450,27 @@ rule Trojan_MSIL_Jalapeno_PE_2147959403_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_SPZB_2147959656_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.SPZB!MTB"
+        threat_id = "2147959656"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {12 02 12 03 28 ?? 00 00 06 13 04 11 04 2c 13 12 03 7b 01 00 00 04 7e 0c 00 00 0a 28 ?? 00 00 0a 2c 18 16 13 05 2b 0d 1f 0a 28 ?? 00 00 0a 11 05 17 58 13 05 11 05 19 32 ee 2a 12 03 7b 01 00 00 04 7e 0c 00 00 0a 03 8e 69 20 00 30 00 00 1f 40 28 ?? 00 00 06 13 06 11 06 7e 0c 00 00 0a 28 ?? 00 00 0a 2c 07 09 28 ?? 00 00 06 2a 12 03 7b 01 00 00 04 11 06 03 03 8e 69 12 07 28 ?? 00 00 06 2c 0e 11 07 7e 0c 00 00 0a 28 ?? 00 00 0a 2c 07}  //weight: 2, accuracy: Low
+        $x_1_2 = "AzeroPum" ascii //weight: 1
+        $x_1_3 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_4 = "VirtualAllocEx" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

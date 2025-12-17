@@ -153,3 +153,25 @@ rule Trojan_Win64_Injuke_AHD_2147958255_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injuke_PGIN_2147959660_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injuke.PGIN!MTB"
+        threat_id = "2147959660"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 8b 44 24 08 48 3b 44 24 18 0f 83 47 00 00 00 48 8b 44 24 20 48 89 04 24 48 8b 44 24 08 31 c9 89 ca 48 f7 74 24 28 48 8b 04 24 44 0f b6 04 10 48 8b 44 24 10 48 8b 4c 24 08 0f b6 14 08 44 31 c2 88 14 08 48 8b 44 24 08 48 83 c0 01 48 89 44 24 08 e9}  //weight: 5, accuracy: High
+        $x_5_2 = "_ScreenConnect" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
