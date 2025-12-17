@@ -8667,3 +8667,27 @@ rule Trojan_Win32_Zusy_BAH_2147959362_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_AHN_2147959621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AHN!MTB"
+        threat_id = "2147959621"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\"%s\\dywizard.exe\" -doyo" ascii //weight: 10
+        $x_20_2 = "Software\\Douyou\\Settings" ascii //weight: 20
+        $x_30_3 = "dyplugin2.dll" ascii //weight: 30
+        $x_40_4 = "%s\\doyostart.exe" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -644,6 +644,28 @@ rule Trojan_Win32_Fragtor_AFG_2147898089_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {68 84 71 40 00 e8 ?? ?? ?? ?? 50 68 ?? 71 40 00 e8 ?? ?? ?? ?? a3 c0 c8 40 00 68 a0 71 40 00 e8 ?? ?? ?? ?? 50 68 ac 71 40 00}  //weight: 2, accuracy: Low
+        $x_1_2 = {8b 43 04 a3 ?? ?? ?? ?? 8b 43 08 a3 ?? ?? ?? ?? 8b 43 0c a3 ?? ?? ?? ?? 8b 43 10 a3 ?? ?? ?? ?? b8 78 71 40 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AFG_2147898089_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AFG!MTB"
+        threat_id = "2147898089"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

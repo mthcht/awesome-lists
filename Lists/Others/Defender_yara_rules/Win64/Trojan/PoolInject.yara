@@ -356,3 +356,26 @@ rule Trojan_Win64_PoolInject_KK_2147957800_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PoolInject_AHD_2147959622_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PoolInject.AHD!MTB"
+        threat_id = "2147959622"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PoolInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 0f af cb 44 03 ee 8d 14 09 0f be ?? ?? ?? ?? ?? 2b d3 41 03 d6 03 ca 0f}  //weight: 30, accuracy: Low
+        $x_20_2 = {89 44 24 38 8b 44 24 38 b9 0d f0 ad ba ba ef be ad de 85 c0 0f 45 ca}  //weight: 20, accuracy: High
+        $x_10_3 = "Stop reversing the binary" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
