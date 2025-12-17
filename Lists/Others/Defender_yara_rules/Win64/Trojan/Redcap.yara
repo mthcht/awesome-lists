@@ -367,3 +367,24 @@ rule Trojan_Win64_Redcap_AHC_2147958259_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Redcap_ARPA_2147959608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.ARPA!MTB"
+        threat_id = "2147959608"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 00 48 8b 8c 24 58 ac 00 00 48 89 8c 24 98 5c 01 00 0f b6 c8 48 8b 84 24 98 5c 01 00 8b 00 d3 f8 89 84 24 40 56 00 00 48 8d 0d 13 a1 01 00 ff 15 ?? ?? ?? ?? 48 8d 15 ee a0 01 00 48 8b c8 ff 15}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

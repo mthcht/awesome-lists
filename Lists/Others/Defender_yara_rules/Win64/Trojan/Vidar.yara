@@ -891,3 +891,55 @@ rule Trojan_Win64_Vidar_ABV_2147959494_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_B_2147959616_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.B!AMTB"
+        threat_id = "2147959616"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "File Grabber Rules" ascii //weight: 1
+        $x_1_2 = "Password" ascii //weight: 1
+        $x_1_3 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_4 = "Browser List" ascii //weight: 1
+        $x_1_5 = "Wallet Rules" ascii //weight: 1
+        $x_1_6 = "DEADBEEF" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
+rule Trojan_Win64_Vidar_C_2147959618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.C!AMTB"
+        threat_id = "2147959618"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "screenshot.jpg" ascii //weight: 1
+        $x_1_2 = "UseMasterPassword" ascii //weight: 1
+        $x_1_3 = "files\\information.txt" ascii //weight: 1
+        $x_1_4 = "passwords.txt" ascii //weight: 1
+        $x_1_5 = "Downloads\\%s_%s.txt" ascii //weight: 1
+        $x_1_6 = "Wallets" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

@@ -6858,3 +6858,26 @@ rule Trojan_Win32_Vidar_RJZ_2147951788_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_A_2147959615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.A!AMTB"
+        threat_id = "2147959615"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "nslookup.exe /?najshu308fags83" ascii //weight: 2
+        $x_1_2 = "slut biodiversity perth" ascii //weight: 1
+        $x_2_3 = "cmd /v /c Set UkOMu=cmd" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

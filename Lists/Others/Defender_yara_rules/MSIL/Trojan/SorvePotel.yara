@@ -32,6 +32,28 @@ rule Trojan_MSIL_SorvePotel_GMT_2147956606_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {fe 0c 1b 00 fe 0c 17 00 46 fe 0c 02 00 61 52 fe 0c 17 00 20 01 00 00 00 58 fe 0e 17 00 fe 0c 1b 00 20 01 00 00 00 58 fe 0e 1b 00}  //weight: 10, accuracy: High
+        $x_1_2 = "CCSYSCALLMkrefany" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SorvePotel_GMT_2147956606_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SorvePotel.GMT!MTB"
+        threat_id = "2147956606"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SorvePotel"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "High"
     strings:
