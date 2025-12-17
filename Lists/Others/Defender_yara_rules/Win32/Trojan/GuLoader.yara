@@ -5404,6 +5404,34 @@ rule Trojan_Win32_GuLoader_KMM_2147948579_0
         (5 of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_KNN_2147948700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.KNN!MTB"
+        threat_id = "2147948700"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Selvbestemmelsens Setup" ascii //weight: 1
+        $x_1_2 = "decodes\\Insecurely.exe" ascii //weight: 1
+        $x_1_3 = "\\Skideballernes\\blokregistreringernes.gif" ascii //weight: 1
+        $x_1_4 = "Elektroder.jpg" ascii //weight: 1
+        $x_1_5 = "Pigeonholed.Lar" ascii //weight: 1
+        $x_1_6 = "indlejrings.bat" ascii //weight: 1
+        $x_1_7 = "\\autentifikationerne\\shepherdly.ini" ascii //weight: 1
+        $x_1_8 = "cumidin.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_SUJ_2147948731_0
 {
     meta:
