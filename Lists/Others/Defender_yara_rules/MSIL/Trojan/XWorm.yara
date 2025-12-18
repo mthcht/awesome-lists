@@ -3767,3 +3767,29 @@ rule Trojan_MSIL_XWorm_FPP_2147959265_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_RR_2147959677_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.RR!MTB"
+        threat_id = "2147959677"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DownloadFile" ascii //weight: 1
+        $x_1_2 = "ToBase64String" ascii //weight: 1
+        $x_1_3 = "set_UseShellExecute" ascii //weight: 1
+        $x_1_4 = "ClientSocket" ascii //weight: 1
+        $x_5_5 = "XLogger" ascii //weight: 5
+        $x_5_6 = "XWormClient&&" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -148,3 +148,36 @@ rule Trojan_Win32_Goptaju_E_2147959535_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Goptaju_A_2147959689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Goptaju.A"
+        threat_id = "2147959689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Goptaju"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "cmd" wide //weight: 10
+        $x_10_2 = {2d 00 6a 00 6f 00 69 00 6e 00 20 00 90 00 02 00 40 00 2d 00 72 00 65 00 70 00 6c 00 61 00 63 00 65 00 20 00}  //weight: 10, accuracy: High
+        $x_1_3 = "whoami" wide //weight: 1
+        $x_1_4 = "ipconfig" wide //weight: 1
+        $x_1_5 = "net user" wide //weight: 1
+        $x_1_6 = "nltest" wide //weight: 1
+        $x_1_7 = "ping" wide //weight: 1
+        $n_1_8 = "onpremisesdomainname" wide //weight: -1
+        $n_1_9 = "amazonssmagent" wide //weight: -1
+        $n_1_10 = "trellix2mde" wide //weight: -1
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((2 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

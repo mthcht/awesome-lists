@@ -1828,3 +1828,24 @@ rule Trojan_Win64_Rozena_SXA_2147959070_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_YAI_2147959687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.YAI!MTB"
+        threat_id = "2147959687"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 10 8b 45 20 41 89 c0 8b 45 fc 48 63 c8 48 8b 45 10 48 01 c8 44 31 c2 88 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
