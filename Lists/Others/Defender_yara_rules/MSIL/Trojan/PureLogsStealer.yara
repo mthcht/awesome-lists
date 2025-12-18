@@ -243,3 +243,27 @@ rule Trojan_MSIL_PureLogsStealer_TVN_2147957040_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogsStealer_SJ_2147959740_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogsStealer.SJ!MTB"
+        threat_id = "2147959740"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogsStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 04 16 28 0f 00 00 0a 13 05 38 00 00 00 00 11 0b 16 73 10 00 00 0a 13 06 20 06 00 00 00 7e 3e 00 00 04 7b 65 00 00 04 39 b3 ff ff ff 26 20 01 00 00 00 38 a8 ff ff ff 11 0b 11 04 16 1a 6f 11 00 00 0a 26 38 b7 ff ff ff}  //weight: 1, accuracy: High
+        $x_1_2 = "Gsvgiya.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "$4ad96021-00a5-495b-a81f-17ebc8730342" ascii //weight: 1
+        $x_1_4 = "seR9cuXyK" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
