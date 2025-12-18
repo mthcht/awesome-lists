@@ -7864,3 +7864,31 @@ rule Trojan_Win32_GuLoader_RDW_2147959734_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SWE_2147959755_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWE!MTB"
+        threat_id = "2147959755"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\rouging\\badgerly" ascii //weight: 1
+        $x_1_2 = "\\bearnaisesovsers\\undauntedly.ini" ascii //weight: 1
+        $x_1_3 = "\\anteclassical\\dippedut.ini" ascii //weight: 1
+        $x_1_4 = "\\nonactualities\\Bilboquet.gif" ascii //weight: 1
+        $x_1_5 = "\\skidteradsets\\partnere.lnk" ascii //weight: 1
+        $x_1_6 = "\\characteristicness\\rabledes.zip" ascii //weight: 1
+        $x_1_7 = "\\Slovakken187\\Krigsfilmens.bin" ascii //weight: 1
+        $x_1_8 = "\\dissembler.gif" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

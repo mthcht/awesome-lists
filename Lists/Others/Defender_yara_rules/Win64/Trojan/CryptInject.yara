@@ -4490,3 +4490,25 @@ rule Trojan_Win64_CryptInject_CH_2147957123_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_RR_2147959763_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.RR!MTB"
+        threat_id = "2147959763"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "CastelaDLL.dll" ascii //weight: 1
+        $x_1_2 = "MinHook DLL" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -850,3 +850,26 @@ rule Ransom_MSIL_FileCryptor_AYA_2147957309_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCryptor_AYB_2147959754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.AYB!MTB"
+        threat_id = "2147959754"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {07 09 9a 28 26 00 00 0a 13 04 06 11 04 6f 27 00 00 0a 28 01 00 00 2b 2c 0d 07 09 9a 7e 01 00 00 04 28 02 00 00 06 09 17 58 0d 09 07 8e 69 32 d0}  //weight: 7, accuracy: High
+        $x_3_2 = "$74871748-d0a1-4faf-9e0a-912a4a32bda6" ascii //weight: 3
+        $x_1_3 = "EncryptFolder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
