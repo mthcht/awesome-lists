@@ -14306,3 +14306,25 @@ rule Trojan_MSIL_Remcos_BAC_2147959376_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_AQNB_2147959748_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.AQNB!MTB"
+        threat_id = "2147959748"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 18 18 8d ?? 00 00 01 25 16 7e ?? 00 00 04 a2 25 17 7e ?? 00 00 04 a2 28 ?? 00 00 0a 74 ?? 00 00 01 0b 07 72 ?? ?? 00 70 72 ?? ?? 00 70 72 ?? ?? 00 70 28 ?? 00 00 0a 18 19 8d ?? 00 00 01 25 16 02 a2 25 17 16 8c ?? 00 00 01 a2 25 18 02 8e 69 8c ?? 00 00 01 a2 28 ?? 00 00 0a 74 ?? 00 00 1b 0c de}  //weight: 5, accuracy: Low
+        $x_1_2 = "Cr3at3D3cryptor" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
