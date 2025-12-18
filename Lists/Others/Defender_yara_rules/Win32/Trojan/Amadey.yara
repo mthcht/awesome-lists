@@ -4690,3 +4690,25 @@ rule Trojan_Win32_Amadey_GAPE_2147959279_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_AAM_2147959703_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AAM!MTB"
+        threat_id = "2147959703"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8d 45 f4 50 8d 85 e4 fb ff ff 50 ff d3 6a 00 8d 85 e4 fb ff ff 50 8d 85 ec fd ff ff 50 ff 15 ?? ?? ?? ?? 6a 06 8d 85 e4 fb ff ff 50}  //weight: 2, accuracy: Low
+        $x_1_2 = {8d 45 f4 50 8d 85 d4 f7 ff ff 50 ff d3 6a 00 6a 06 6a 02 6a 00 6a 00 68 00 00 00 40 8d 85 d4 f7 ff ff 50}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

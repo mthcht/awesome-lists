@@ -741,3 +741,24 @@ rule Trojan_Win64_Meterpreter_KAB_2147951398_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_GTD_2147959701_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.GTD!MTB"
+        threat_id = "2147959701"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {66 0f 1f 84 00 00 00 00 00 48 89 c2 83 e2 0f 0f b6 14 11 32 14 03 83 f2 a5 88 14 03 48 89 c2 48 8d 40 01 48 39 c6}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
