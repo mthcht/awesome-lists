@@ -610,3 +610,29 @@ rule Trojan_Win64_Amadey_AMTA_2147959537_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_SX_2147959699_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.SX!MTB"
+        threat_id = "2147959699"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {0f 11 4d b8 0f 11 4d c8 0f 11 4d d8 0f 11 4d e8 0f 11 4d f8 0f 11 4d 08 33 c0 0f 11 45 90 48 89 45 a0 c7 45 88 01 00 00 00 4c 89 7d 80 45 33 c9 4c 8d 44 24 78 48 8d 54 24 68 48 8d 4c 24 60 ff 15}  //weight: 10, accuracy: High
+        $x_5_2 = {c7 44 24 40 20 00 cc 00 44 89 6c 24 38 44 89 6c 24 30 4c 89 7c 24 28 8b 8d b0 00 00 00 89 4c 24 20 44 8b 8d b4 00 00 00 45 33 c0 33 d2 48 8b cf}  //weight: 5, accuracy: High
+        $x_1_3 = "net localgroup \"Administrators" ascii //weight: 1
+        $x_1_4 = "SET Passwordchangeable=FALSE" ascii //weight: 1
+        $x_1_5 = "WMIC USERACCOUNT WHERE \"Name = '" ascii //weight: 1
+        $x_1_6 = "powershell -Command Expand-Archive -Path '" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2889,3 +2889,47 @@ rule Ransom_Win32_Filecoder_NPA_2147953652_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_SXF_2147959697_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.SXF!MTB"
+        threat_id = "2147959697"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c6 45 e0 0f c6 45 e1 ba c6 45 e2 ff c6 45 e3 0d c6 45 e4 0f c6 45 e5 a4 c6 45 e6 f7 c6 45 e7 dd c6 45 e8 47 c6 45 e9 f7 c6 45 ea c0 c6 45 eb 7d c6 45 ec 4c c6 45 ed df c6 45 ee 26 c6 45 ef 0f c6 45 f0 a5 c6 45 f1 c1 c6 45 f2 c3}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 51 3c 8b 45 08 8d 4c 10 04 89 4d ec 8b 55 ec 83 c2 14 89 55 e8 b8 08 00 00 00 6b c8 00 8b 55 e8 8b 44 0a 60}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Filecoder_SXG_2147959698_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.SXG!MTB"
+        threat_id = "2147959698"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {45 8b fc c7 44 24 ?? 11 45 14 19 c7 44 24 ?? 19 81 0a 0a c7 44 24 ?? 1f 2d 3c 4b c7 44 24 ?? 5a 69 78 87 c7 44 24 ?? 96 a5 b4 c3 c7 44 24 ?? d2 e1 f0 0f c7 44 24 ?? 1e 2d 3c 4b c7 44 24 ?? 5a 69 78 87}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 63 fb 48 8d 54 24 ?? 48 c1 e7 0a 49 03 ff 48 8b cf e8 ?? ?? ?? ?? 85 c0 75 4d}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
