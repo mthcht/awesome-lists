@@ -899,3 +899,30 @@ rule Trojan_MSIL_Tiny_NITF_2147946883_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tiny_AD_2147959781_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tiny.AD!AMTB"
+        threat_id = "2147959781"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tiny"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "statx.exe" ascii //weight: 2
+        $x_1_2 = "C:\\Program Files\\Windows NT\\Accessories\\bj.exe" ascii //weight: 1
+        $x_2_3 = "http://14.55.107.10" ascii //weight: 2
+        $x_1_4 = "statx.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
