@@ -7892,3 +7892,30 @@ rule Trojan_Win32_GuLoader_SWE_2147959755_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RDX_2147959822_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDX!MTB"
+        threat_id = "2147959822"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Doktorringes\\pektin\\perfection" ascii //weight: 1
+        $x_1_2 = "\\reweigher\\revetments.txt" ascii //weight: 1
+        $x_1_3 = "cashmere genereringers counterdigged" ascii //weight: 1
+        $x_1_4 = "rubricality" ascii //weight: 1
+        $x_1_5 = "hackneyman" ascii //weight: 1
+        $x_1_6 = "ray.exe" ascii //weight: 1
+        $x_1_7 = "crepidoma\\unsteeled.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

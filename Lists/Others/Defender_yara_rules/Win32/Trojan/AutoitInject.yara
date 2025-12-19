@@ -5819,3 +5819,35 @@ rule Trojan_Win32_AutoitInject_AANB_2147959331_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_SB_2147959818_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.SB!MTB"
+        threat_id = "2147959818"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$URLTEXT = STRINGREPLACE ( $URLTEXT , \"%\" & $MATCH , BINARYTOSTRING ( \"0x\" & $MATCH ) )" ascii //weight: 2
+        $x_2_2 = "REGDELETE ( \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\" )" ascii //weight: 2
+        $x_2_3 = "FILEWRITE ( $HFILEOPEN , \" taskkill.exe /F /IM InvAgent.exe /IM InvGet.exe /IM InvUpd.exe /IM tvnsvc.exe /T \" & @CRLF )" ascii //weight: 2
+        $x_2_4 = "RUN ( $FILE , @TEMPDIR , @SW_HIDE )" ascii //weight: 2
+        $x_1_5 = "GETOBJECT ( $HBITMAP , DLLSTRUCTGETSIZE ( $TDIB ) , $TDIB )" ascii //weight: 1
+        $x_1_6 = "@LOCALAPPDATADIR & \"\\Kingsoft\\WPS Office\\\" & $WPSLIST [ $II ] & \"\\utility\\uninst.exe\"\" /S\" )" ascii //weight: 1
+        $x_1_7 = "IF $ALLPID <> \"\" THEN RUN ( \"TASKKILL /F \" & $ALLPID & \" /T \" , @SYSTEMDIR , @SW_HIDE )" ascii //weight: 1
+        $x_1_8 = "$INVTMP & \"\\\" & $INISEC & \".bat\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((4 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
