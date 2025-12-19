@@ -8738,3 +8738,25 @@ rule Trojan_Win32_SmokeLoader_BG_2147952675_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SmokeLoader_AHB_2147959803_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SmokeLoader.AHB!MTB"
+        threat_id = "2147959803"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SmokeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {32 2b 2b c0 2e ?? c0 de ?? 83 c0 ?? a3 ?? ?? ?? ?? aa ed 10 78 ?? 2b c0 ?? e7 7f}  //weight: 30, accuracy: Low
+        $x_20_2 = {d4 b8 83 2b 2b 2b a8 ?? ?? ?? ?? c0 c0 ?? 39 8b ?? ?? ?? ?? 30 2b 2b a0 ?? ?? ?? ?? 2f c0 2e ?? 76}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

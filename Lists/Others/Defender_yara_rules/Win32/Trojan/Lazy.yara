@@ -2560,3 +2560,27 @@ rule Trojan_Win32_Lazy_LMJ_2147959067_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AHL_2147959804_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AHL!MTB"
+        threat_id = "2147959804"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "AV Killer ON" ascii //weight: 10
+        $x_20_2 = "Check this to Enable the Anti-Virus Killer option" ascii //weight: 20
+        $x_30_3 = "Check this to change the icon of the output file" ascii //weight: 30
+        $x_40_4 = "Crypt the file" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
