@@ -21,3 +21,26 @@ rule Ransom_Win64_Cerber_MKV_2147953700_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Cerber_ARAX_2147959853_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Cerber.ARAX!MTB"
+        threat_id = "2147959853"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = ".wcry" ascii //weight: 2
+        $x_2_2 = "Bitcoin to this Address" ascii //weight: 2
+        $x_2_3 = "files are encrypted" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
