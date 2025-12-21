@@ -77,6 +77,28 @@ rule Trojan_Win32_ShellCodeRunner_KK_2147943867_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {83 c0 23 6a 02 59 6b c9 2f 66 89 81 ?? ?? ?? ?? 6a 02 58 6b c0 2f 0f b7 80 ?? ?? ?? ?? 83 e8 07 6a 02 59 6b c9 30}  //weight: 20, accuracy: Low
+        $x_10_2 = "yyxf_play.dll" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ShellCodeRunner_KK_2147943867_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellCodeRunner.KK!MTB"
+        threat_id = "2147943867"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "Low"
     strings:

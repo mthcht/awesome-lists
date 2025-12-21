@@ -6881,3 +6881,27 @@ rule Trojan_Win32_Vidar_A_2147959615_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_KKB_2147959874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.KKB!MTB"
+        threat_id = "2147959874"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "38"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b 94 24 48 04 00 00 48 ff c2 4c 8b 84 24 70 04 00 00 4c 8b 8c 24 90 05 00 00 48 89 d9 48 89 c3 48 89 d0 4c 89 ca}  //weight: 20, accuracy: High
+        $x_10_2 = {48 89 ca 48 81 e2 ?? ?? ?? ?? 48 89 ce 48 29 d6 40 88 74 0c 30 48 ff c1}  //weight: 10, accuracy: Low
+        $x_5_3 = {48 8d 1c 02 48 8b 74 24 68 48 01 d6 0f b6 36 40 88 33 48 ff c2}  //weight: 5, accuracy: High
+        $x_3_4 = "main.GetInstallDetailsPayload" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -762,3 +762,32 @@ rule Trojan_Win64_Stealer_MKA_2147959469_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SXE_2147959875_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SXE!MTB"
+        threat_id = "2147959875"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "/xopbixc/data.php" ascii //weight: 3
+        $x_3_2 = "\\Software_Info.txt" ascii //weight: 3
+        $x_2_3 = "\\Vivaldi\\User Data\\Default\\Login Data" ascii //weight: 2
+        $x_2_4 = "\\Microsoft\\Edge\\User Data\\Default\\History" ascii //weight: 2
+        $x_2_5 = "\\Exodus\\exodus.wallet" ascii //weight: 2
+        $x_2_6 = "Chrome_CoinWallet" ascii //weight: 2
+        $x_1_7 = "Screenshot.jpg" ascii //weight: 1
+        $x_1_8 = "\\Telegram Desktop\\tdata" ascii //weight: 1
+        $x_1_9 = "ProcessHacker.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
