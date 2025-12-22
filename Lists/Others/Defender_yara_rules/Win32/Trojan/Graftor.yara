@@ -616,3 +616,24 @@ rule Trojan_Win32_Graftor_LMC_2147947987_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Graftor_BAD_2147959919_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.BAD!MTB"
+        threat_id = "2147959919"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {fe c3 8a 93 60 14 40 00 02 c2 8a 88 60 14 40 00 88 8b 60 14 40 00 88 90 60 14 40 00 02 ca 8a 89 60 14 40 00 30 0e 46 4f 75}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -59,6 +59,30 @@ rule Ransom_Win64_FileCoder_AB_2147766648_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "s have been encrypted.C:\\Windows\\System32\\svchost.exe" ascii //weight: 3
+        $x_3_2 = ".ccl.tmp" ascii //weight: 3
+        $x_2_3 = "Best Regards , CCLand" ascii //weight: 2
+        $x_2_4 = "C:\\\\Program Files\\\\Windows Defender" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_FileCoder_AB_2147766648_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.AB!MTB"
+        threat_id = "2147766648"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
