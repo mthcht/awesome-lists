@@ -4573,3 +4573,27 @@ rule Trojan_MSIL_ClipBanker_TVN_2147958773_0
         )
 }
 
+rule Trojan_MSIL_ClipBanker_SN_2147959902_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.SN!MTB"
+        threat_id = "2147959902"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SystemTextProcessor.exe" ascii //weight: 1
+        $x_1_2 = "SystemTextProcessor.Properties.Resources.resources" ascii //weight: 1
+        $x_1_3 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "bc1qs9h7yx4tdjfladxf5thgssek7kgxz5h2ha8smp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

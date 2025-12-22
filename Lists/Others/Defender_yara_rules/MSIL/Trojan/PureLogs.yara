@@ -1069,3 +1069,24 @@ rule Trojan_MSIL_PureLogs_ZBT_2147958574_0
         (2 of ($x*))
 }
 
+rule Trojan_MSIL_PureLogs_SI_2147959903_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogs.SI!MTB"
+        threat_id = "2147959903"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogs"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 00 02 28 0c 00 00 06 7d 04 00 00 04 de 2b 26 00 00 de 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
