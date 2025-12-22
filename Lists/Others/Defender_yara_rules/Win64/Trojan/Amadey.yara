@@ -636,3 +636,31 @@ rule Trojan_Win64_Amadey_SX_2147959699_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_PAHA_2147959938_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.PAHA!MTB"
+        threat_id = "2147959938"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "%LOCALAPPDATA%\\Google\\Chrome\\User Data" ascii //weight: 2
+        $x_2_2 = "Microsoft\\Edge\\User Data" ascii //weight: 2
+        $x_1_3 = "net localgroup Administrators" ascii //weight: 1
+        $x_2_4 = "Windows Defender exclusions" ascii //weight: 2
+        $x_1_5 = "cookies" ascii //weight: 1
+        $x_1_6 = "wallets" ascii //weight: 1
+        $x_2_7 = "/upload.php" ascii //weight: 2
+        $x_1_8 = "history" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
