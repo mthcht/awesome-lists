@@ -26,3 +26,25 @@ rule Trojan_Win32_LotusBlossom_ARA_2147957026_0
         )
 }
 
+rule Trojan_Win32_LotusBlossom_ARAX_2147959971_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LotusBlossom.ARAX!MTB"
+        threat_id = "2147959971"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LotusBlossom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {ff 15 24 a3 00 10 25 7f 00 00 80 79 05 48 83 c8 80 40}  //weight: 2, accuracy: High
+        $x_2_2 = {30 84 3d 68 fa ff ff 47 3b fe 72 e2}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

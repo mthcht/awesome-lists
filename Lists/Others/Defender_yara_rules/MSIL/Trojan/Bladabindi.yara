@@ -4703,3 +4703,30 @@ rule Trojan_MSIL_Bladabindi_SLKS_2147956822_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_AYJ_2147959966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.AYJ!MTB"
+        threat_id = "2147959966"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "EncryptedServerPayload" ascii //weight: 5
+        $x_2_2 = "ExecutePayload" ascii //weight: 2
+        $x_1_3 = "MultiStageLoader" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+        $x_1_5 = "source\\repos\\multiloader" ascii //weight: 1
+        $x_1_6 = "$3e17166a-0222-4480-9380-0391c85dc1a9" ascii //weight: 1
+        $x_1_7 = "powershell.exe -ExecutionPolicy Bypass -Command \"Set-MpPreference -Exclusion" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

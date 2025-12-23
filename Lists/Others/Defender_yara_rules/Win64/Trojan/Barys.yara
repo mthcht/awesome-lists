@@ -589,3 +589,29 @@ rule Trojan_Win64_Barys_MK_2147959877_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_AYA_2147959967_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.AYA!MTB"
+        threat_id = "2147959967"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Starting UDP Payload Attack" ascii //weight: 2
+        $x_2_2 = "TCP-RAND attack on %s:%d completed" ascii //weight: 2
+        $x_1_3 = "Attempting to kill TCP connections to target ports:" ascii //weight: 1
+        $x_1_4 = "Starting Discord Attack - Target: %s, Port: %d, Threads: %d" ascii //weight: 1
+        $x_1_5 = "Starting ICMP flood - Target: %s, Threads: %d" ascii //weight: 1
+        $x_1_6 = "Starting SAMP Attack - Target:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

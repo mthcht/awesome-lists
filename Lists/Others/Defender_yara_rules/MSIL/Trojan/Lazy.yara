@@ -3507,3 +3507,26 @@ rule Trojan_MSIL_Lazy_LMO_2147959065_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_AYC_2147959965_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.AYC!MTB"
+        threat_id = "2147959965"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {52 63 39 fd 59 c3 7d 1a 1b c2 59 08 73 c9 51 a3 f6 09 6d 1e d2 9c f4 48 55 cb 10 d8 9e 8f 30 82 22 72 b8 a6 c4 e2 0a 6b 5b 87 13 8f c4 53 40 a5 8d 0d 09 4e 89 52 09 36 6e 5b ef b6 c3 e5 6d 48 24 70 6d 18 6a 97 99 c2 89 5d 3a 0a 95 31 1d cf f6 9d 66 c6 f9 33}  //weight: 5, accuracy: High
+        $x_2_2 = "$dd3fdd9c-6b44-4d73-903b-766abd1b348d" ascii //weight: 2
+        $x_1_3 = "KillUninstallTool" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

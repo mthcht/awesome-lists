@@ -458,6 +458,30 @@ rule HackTool_Win32_Keygen_2147751727_3
         severity = "High"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "TreeAge Pro Suite" ascii //weight: 2
+        $x_1_2 = "KeyGenerator" ascii //weight: 1
+        $x_1_3 = "Serial Number" ascii //weight: 1
+        $x_1_4 = "Generate" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_2147751727_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -470,7 +494,7 @@ rule HackTool_Win32_Keygen_2147751727_3
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_2147751727_4
+rule HackTool_Win32_Keygen_2147751727_5
 {
     meta:
         author = "defender2yara"

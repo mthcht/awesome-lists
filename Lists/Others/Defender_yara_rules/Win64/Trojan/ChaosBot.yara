@@ -24,3 +24,24 @@ rule Trojan_Win64_ChaosBot_AMTB_2147956300_0
         )
 }
 
+rule Trojan_Win64_ChaosBot_ARA_2147959969_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ChaosBot.ARA!MTB"
+        threat_id = "2147959969"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ChaosBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4c 8b 04 11 4c 33 04 08 4c 89 84 0d 00 01 00 00 48 83 c1 08 eb e4}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
