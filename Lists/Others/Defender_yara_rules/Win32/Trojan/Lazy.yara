@@ -2584,3 +2584,26 @@ rule Trojan_Win32_Lazy_AHL_2147959804_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_ARR_2147959952_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.ARR!MTB"
+        threat_id = "2147959952"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Starting HTTP Bypass Flood on" ascii //weight: 4
+        $x_6_2 = "{\"query\":\"{ __schema { types { name fields { name } } } }\"}" ascii //weight: 6
+        $x_10_3 = "https://bitbucket.org/sekkka/taha/raw/main/ryx.txt" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
