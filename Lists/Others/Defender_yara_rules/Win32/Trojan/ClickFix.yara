@@ -10695,8 +10695,10 @@ rule Trojan_Win32_ClickFix_GGE_2147949396_0
         $x_1_3 = "cmd.cmd" wide //weight: 1
         $x_1_4 = ".php" wide //weight: 1
         $x_1_5 = "start" wide //weight: 1
+        $n_100_6 = "jpcimevt.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
