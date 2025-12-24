@@ -6491,3 +6491,25 @@ rule Trojan_Win32_Zbot_NB_2147954838_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zbot_ARR_2147960032_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.ARR!MTB"
+        threat_id = "2147960032"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "copy /y \"C:\\Windows\\system\\loop.exe\" \"C:\\Program Files\\Windows NT\"> nul" ascii //weight: 20
+        $x_5_2 = "SCHTASKS /Create /TN %name% /TR \"'C:\\Windows\\system\\Zloop.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

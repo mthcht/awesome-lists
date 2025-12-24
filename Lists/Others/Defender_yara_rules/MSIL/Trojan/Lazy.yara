@@ -552,13 +552,34 @@ rule Trojan_MSIL_Lazy_ALZ_2147844265_1
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {26 03 1f 10 28 ?? 00 00 2b 1f 20 28 ?? 00 00 2b 28 ?? 00 00 2b 0c 20 00 00 00 00 38 58 00 00 00 00 38 64 01 00 00 00 73 02 01 00 0a 25 11 04 28 ?? 03 00 06 00 25 17 28 ?? 03 00 06 00 25 18 28}  //weight: 1, accuracy: Low
+        $x_1_1 = {16 fe 01 0b 07 2c 09 00 06 28 ?? ?? ?? 0a 26 00 02 18 18 73 11 00 00 0a 0c 00 08 03 16 03 8e 69 6f ?? ?? ?? 0a 00 00 de 0b 08 2c 07 08 6f}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_MSIL_Lazy_ALZ_2147844265_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ALZ!MTB"
+        threat_id = "2147844265"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {26 03 1f 10 28 ?? 00 00 2b 1f 20 28 ?? 00 00 2b 28 ?? 00 00 2b 0c 20 00 00 00 00 38 58 00 00 00 00 38 64 01 00 00 00 73 02 01 00 0a 25 11 04 28 ?? 03 00 06 00 25 17 28 ?? 03 00 06 00 25 18 28}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lazy_ALZ_2147844265_3
 {
     meta:
         author = "defender2yara"
@@ -580,7 +601,7 @@ rule Trojan_MSIL_Lazy_ALZ_2147844265_2
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Lazy_ALZ_2147844265_3
+rule Trojan_MSIL_Lazy_ALZ_2147844265_4
 {
     meta:
         author = "defender2yara"
@@ -602,7 +623,7 @@ rule Trojan_MSIL_Lazy_ALZ_2147844265_3
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Lazy_ALZ_2147844265_4
+rule Trojan_MSIL_Lazy_ALZ_2147844265_5
 {
     meta:
         author = "defender2yara"
@@ -624,7 +645,7 @@ rule Trojan_MSIL_Lazy_ALZ_2147844265_4
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Lazy_ALZ_2147844265_5
+rule Trojan_MSIL_Lazy_ALZ_2147844265_6
 {
     meta:
         author = "defender2yara"
