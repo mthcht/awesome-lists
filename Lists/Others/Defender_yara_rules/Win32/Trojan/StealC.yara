@@ -4350,3 +4350,24 @@ rule Trojan_Win32_StealC_MS_2147959156_0
         )
 }
 
+rule Trojan_Win32_StealC_BAB_2147960047_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.BAB!MTB"
+        threat_id = "2147960047"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {83 c4 08 64 8b 0d 30 00 00 00 89 4d a0 8b 55 a0 8b 45 f0 89 42 08 8b 4d f4 8b 55 f0 03 51 10 89 55 9c 8b f4 ff 55}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
