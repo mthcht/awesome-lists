@@ -323,3 +323,26 @@ rule Ransom_Win64_LockFile_NP_2147958500_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_ARR_2147960058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.ARR!MTB"
+        threat_id = "2147960058"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {44 8a 04 0a 44 30 04 0f 4c 8d 41 ?? 4c 89 c1 4c 39 c3}  //weight: 10, accuracy: Low
+        $x_9_2 = {66 41 0f fe d4 66 44 0f ef eb 66 0f ef f1 66 41 0f ef fe 66 45 0f 6f fe 66 0f ef c2 66 45 0f 6f f5}  //weight: 9, accuracy: High
+        $x_1_3 = "YOUR FILES HAVE BEEN ENCRYPTED!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

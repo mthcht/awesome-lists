@@ -2607,3 +2607,25 @@ rule Trojan_Win32_Lazy_ARR_2147959952_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_LML_2147960056_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.LML!MTB"
+        threat_id = "2147960056"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {66 89 04 6e b9 4b 00 00 00 66 89 4c 24 28 ba 45 00 00 00 66 89 54 24 2a b8 52 00 00 00 66 89 44 24 2c 66 89 54 24 30 b9 4e 00 00 00 66 89 4c 24 2e b8 4c 00 00 00 66 89 44 24 32 ba 32 00 00 00 66 89 54 24 36 b9 33 00 00 00 66 89 4c 24 34 ba 4c 00 00 00 b8 2e 00 00 00 66 89 44 24 38 8b c2 b9 44 00 00 00 66 89 54 24 3c 66 89 4c 24 3a b2 72}  //weight: 20, accuracy: High
+        $x_10_2 = "Micros0ftEdgeUpdateTask0UA Task-S-1-5-18" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

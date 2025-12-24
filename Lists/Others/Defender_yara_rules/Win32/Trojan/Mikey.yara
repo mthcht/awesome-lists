@@ -412,3 +412,25 @@ rule Trojan_Win32_Mikey_POME_2147959751_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_LMK_2147960055_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.LMK!MTB"
+        threat_id = "2147960055"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {52 c6 44 24 1c 43 88 44 24 1e 88 4c 24 1f c6 44 24 20 74 88 44 24 21 c6 44 24 22 54 c6 44 24 23 68 88 44 24 25 88 4c 24 26 c6 44 24 27 64 c6 44 24 28 00}  //weight: 20, accuracy: High
+        $x_10_2 = {8b b4 24 88 06 00 00 8b c6 57 8d 50 02 66 8b 08 83 c0 02 66 85 c9 75 ?? 2b c2 d1 f8 8d 0c 46 89 4c 24 54 8b c1 3b ce}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

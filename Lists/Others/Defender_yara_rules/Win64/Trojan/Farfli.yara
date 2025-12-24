@@ -419,3 +419,24 @@ rule Trojan_Win64_Farfli_AHC_2147958728_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_LMA_2147960054_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.LMA!MTB"
+        threat_id = "2147960054"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {4c 8b 43 10 49 ff c1 b8 7d e9 78 d5 f7 e9 03 d1 c1 fa 0b 8b c2 c1 e8 1f 03 d0 b8 cd cc cc cc 69 d2 98 09 00 00 2b ca 41 f7 e2 80 e9 02 43 30 0c 03 c1 ea 03 8d 0c 92}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -497,3 +497,33 @@ rule Trojan_Win64_StealC_MB_2147959839_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_SB_2147960051_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.SB!MTB"
+        threat_id = "2147960051"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DrainLog" ascii //weight: 1
+        $x_1_2 = "DumpHungProcessWithPtype_ExportThunk" ascii //weight: 1
+        $x_1_3 = "DYXZjlebM" ascii //weight: 1
+        $x_1_4 = "DhOojoIOAgq2KeqlMH19riCtgFvVu" ascii //weight: 1
+        $x_1_5 = "DisableHook" ascii //weight: 1
+        $x_1_6 = "E6yQwL3PVNlD9d2pTk5H0VibiYH9eatq" ascii //weight: 1
+        $x_1_7 = "EIgXrKou" ascii //weight: 1
+        $x_1_8 = "En8C49zCuMDxOIerl" ascii //weight: 1
+        $x_1_9 = "EsO5jmNIzT5oNILLL8SG" ascii //weight: 1
+        $x_1_10 = "FHBZK2JC" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

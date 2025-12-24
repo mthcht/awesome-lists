@@ -3916,6 +3916,29 @@ rule Trojan_MSIL_Heracles_AHE_2147899407_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {13 12 20 f4 01 00 00 13 13 72 ?? ?? ?? 70 1a 8d 01 00 00 01 13 1d 11 1d 16 11 10 8c 22 00 00 01 a2 11 1d 17 11 11}  //weight: 30, accuracy: Low
+        $x_20_2 = "<ExecuteCommandForTempConnection>b__" ascii //weight: 20
+        $x_10_3 = "tempConnectionsLock" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AHE_2147899407_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AHE!MTB"
+        threat_id = "2147899407"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
@@ -3926,7 +3949,7 @@ rule Trojan_MSIL_Heracles_AHE_2147899407_3
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_AHE_2147899407_4
+rule Trojan_MSIL_Heracles_AHE_2147899407_5
 {
     meta:
         author = "defender2yara"

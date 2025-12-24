@@ -62,6 +62,33 @@ rule BrowserModifier_MSIL_MediaArena_363871_2
         family = "MediaArena"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ConvertMate" ascii //weight: 1
+        $x_1_2 = "Briefme.mp4" ascii //weight: 1
+        $x_1_3 = "c_h_r_o_m_e_._e_x_e" ascii //weight: 1
+        $x_1_4 = "ConvertMate.pdb" ascii //weight: 1
+        $x_1_5 = "climatcon.com" ascii //weight: 1
+        $n_100_6 = "Uninst.exe" ascii //weight: -100
+        $n_100_7 = "Uninstall.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule BrowserModifier_MSIL_MediaArena_363871_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "BrowserModifier:MSIL/MediaArena"
+        threat_id = "363871"
+        type = "BrowserModifier"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MediaArena"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "9"
         strings_accuracy = "High"
     strings:
@@ -79,7 +106,36 @@ rule BrowserModifier_MSIL_MediaArena_363871_2
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_3
+rule BrowserModifier_MSIL_MediaArena_363871_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "BrowserModifier:MSIL/MediaArena"
+        threat_id = "363871"
+        type = "BrowserModifier"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MediaArena"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "OpenFF" ascii //weight: 1
+        $x_1_2 = "get_PRF_URL" ascii //weight: 1
+        $x_1_3 = "get_applicationInfo" ascii //weight: 1
+        $x_1_4 = "conclie.com" ascii //weight: 1
+        $x_1_5 = "PDF Master" ascii //weight: 1
+        $x_1_6 = "MasterAnimation.mp4" ascii //weight: 1
+        $x_1_7 = "ConvertMaster.exe" ascii //weight: 1
+        $n_100_8 = "Uninst.exe" ascii //weight: -100
+        $n_100_9 = "Uninstall.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule BrowserModifier_MSIL_MediaArena_363871_5
 {
     meta:
         author = "defender2yara"
@@ -108,7 +164,7 @@ rule BrowserModifier_MSIL_MediaArena_363871_3
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_4
+rule BrowserModifier_MSIL_MediaArena_363871_6
 {
     meta:
         author = "defender2yara"
@@ -135,7 +191,7 @@ rule BrowserModifier_MSIL_MediaArena_363871_4
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_5
+rule BrowserModifier_MSIL_MediaArena_363871_7
 {
     meta:
         author = "defender2yara"
@@ -166,7 +222,7 @@ rule BrowserModifier_MSIL_MediaArena_363871_5
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_6
+rule BrowserModifier_MSIL_MediaArena_363871_8
 {
     meta:
         author = "defender2yara"
