@@ -4306,3 +4306,28 @@ rule Trojan_MSIL_Zusy_ARR_2147959550_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_AYF_2147960076_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AYF!MTB"
+        threat_id = "2147960076"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "YUhSMGNITTZMeTl6TTJSbVpuTXVjek11WVhBdGJtOXlkR2hsWVhOMExUSXVZVzFoZW05dVlYZHpMbU52YlM5dVpYZDFMblI0ZEE9PQ==" wide //weight: 5
+        $x_2_2 = "$a1b2c3d4-e5f6-7890-abcd-ef1234567890" ascii //weight: 2
+        $x_1_3 = "\\obj\\Release\\NewProject.pdb" ascii //weight: 1
+        $x_1_4 = "CheckVirtual" ascii //weight: 1
+        $x_1_5 = "GetConfigUrl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
