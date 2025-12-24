@@ -873,3 +873,28 @@ rule Ransom_MSIL_FileCryptor_AYB_2147959754_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCryptor_AYC_2147960011_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.AYC!MTB"
+        threat_id = "2147960011"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Your files have been encrypted" ascii //weight: 5
+        $x_2_2 = "cmd /c vssadmin.exe delete shadows /all /quiet" ascii //weight: 2
+        $x_1_3 = "\\HELP-DEC.txt" wide //weight: 1
+        $x_1_4 = ".Darkness" wide //weight: 1
+        $x_1_5 = "To ensure decryption you can send 1-2 files (less than 1MB) we will decrypt it for free." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

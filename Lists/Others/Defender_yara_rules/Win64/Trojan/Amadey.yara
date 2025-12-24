@@ -707,3 +707,26 @@ rule Trojan_Win64_Amadey_ZZ_2147959946_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_CI_2147960022_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.CI!MTB"
+        threat_id = "2147960022"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://steamcommunity.com/profiles/76561199872628623/" ascii //weight: 2
+        $x_2_2 = "Mozilla/5.0" ascii //weight: 2
+        $x_2_3 = "msedge_elf.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
