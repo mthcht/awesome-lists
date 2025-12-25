@@ -6011,3 +6011,27 @@ rule Trojan_Win32_OffLoader_ZPI_2147959885_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_BAF_2147960099_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAF!MTB"
+        threat_id = "2147960099"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://viewnerve.xyz/chrs?" ascii //weight: 3
+        $x_3_2 = "://theoryproperty.info/chr?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
