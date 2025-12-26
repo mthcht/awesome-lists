@@ -2245,6 +2245,32 @@ rule Trojan_Win32_Guloader_KA_2147806321_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_PAB_2147807766_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.PAB!MTB"
+        threat_id = "2147807766"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "advisbwr.pne" ascii //weight: 1
+        $x_1_2 = "Handshaking0.div" ascii //weight: 1
+        $x_1_3 = "lavprisvarehusets.fei" ascii //weight: 1
+        $x_1_4 = "preadamite.bib" ascii //weight: 1
+        $x_1_5 = "skndselens.sti" ascii //weight: 1
+        $x_2_6 = "tendypr.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_RPR_2147808065_0
 {
     meta:
