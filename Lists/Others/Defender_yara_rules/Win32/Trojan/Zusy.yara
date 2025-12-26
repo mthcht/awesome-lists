@@ -8691,3 +8691,31 @@ rule Trojan_Win32_Zusy_AHN_2147959621_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_AHK_2147960120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AHK!MTB"
+        threat_id = "2147960120"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {88 df 0f b6 fb 80 c7 ?? 80 fb ?? 0f b6 df 0f 42 df 89 f7 c1 e7 ?? 01 f7 0f b6 f3 01 fe eb}  //weight: 30, accuracy: Low
+        $x_30_2 = {89 55 f0 8b 30 f7 d1 d3 e3 4b 8b 8e ?? ?? ?? ?? 8d 46 ?? 89 45 e8 8d 86 ?? ?? ?? ?? 89 45 ec}  //weight: 30, accuracy: Low
+        $x_20_3 = {f2 0f 10 45 c0 f2 0f 10 4d c8 8d 4d e4 f2 0f 11 49 08 f2 0f 11 01 8d 45 9c}  //weight: 20, accuracy: High
+        $x_20_4 = {8b 4d ec 8b 55 f0 89 75 e0 89 11 89 45 e4 89 4d e8 8b 4d 08 c7 45 ec}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+
