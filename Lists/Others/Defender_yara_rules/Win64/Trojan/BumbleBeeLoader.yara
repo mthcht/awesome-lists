@@ -312,3 +312,50 @@ rule Trojan_Win64_BumbleBeeLoader_SFDB_2147925458_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BumbleBeeLoader_NIB_2147956853_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BumbleBeeLoader.NIB!MTB"
+        threat_id = "2147956853"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BumbleBeeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4c 89 c0 49 f7 e2 4c 89 c0 48 29 d0 48 d1 e8 48 01 d0 48 c1 e8 06 48 6b c0 7b 4c 89 c2 48 29 c2 48 89 c8}  //weight: 2, accuracy: High
+        $x_1_2 = {48 89 c8 49 f7 e2 48 89 c8 48 29 d0 48 d1 e8 48 01 d0}  //weight: 1, accuracy: High
+        $x_1_3 = {48 89 ca 48 c1 ea 3f 48 c1 f9 2b 01 d1 69 c9 ?? ?? ?? ?? f7 d9 01 c1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_BumbleBeeLoader_NIE_2147956854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BumbleBeeLoader.NIE!MTB"
+        threat_id = "2147956854"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BumbleBeeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 f7 e9 48 89 d0 48 c1 e8 3f 48 c1 fa 1a 48 01 c2 48 89 54 24 28 48 8d 54 24 28 48 89 f1}  //weight: 2, accuracy: High
+        $x_1_2 = {0f 57 c9 f2 0f 2a cb f2 0f 59 c8 f2 0f 11 4c 24 28 f2 0f 10 44 24 28}  //weight: 1, accuracy: High
+        $x_1_3 = {85 c0 0f 49 c8 81 e1 00 ff ff ff f7 d9 41 01 cc 41 ff c4 4d 63 f4}  //weight: 1, accuracy: High
+        $x_1_4 = {49 89 c6 45 31 ff 45 31 ed 0f 1f 44 00 00 4e 8d 24 3c 49 83 c4 20 44 89 f8 99 41 f7 fe}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

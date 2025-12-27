@@ -8,27 +8,6 @@ rule Ransom_Win32_Locky_A_2147709170_0
         platform = "Win32: Windows 32-bit platform"
         family = "Locky"
         severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {c7 45 d4 6b 65 72 6e c7 45 d8 65 6c 33 32 c7 45 dc 2e 64 6c 6c c6 45 e0 00}  //weight: 1, accuracy: High
-        $x_1_2 = {c7 45 e4 47 65 74 54 c7 45 e8 69 63 6b 43 c7 45 ec 6f 75 6e 74}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Ransom_Win32_Locky_A_2147709170_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win32/Locky.A"
-        threat_id = "2147709170"
-        type = "Ransom"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Locky"
-        severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
@@ -43,7 +22,7 @@ rule Ransom_Win32_Locky_A_2147709170_1
         (3 of ($x*))
 }
 
-rule Ransom_Win32_Locky_A_2147709170_2
+rule Ransom_Win32_Locky_A_2147709170_1
 {
     meta:
         author = "defender2yara"
@@ -728,6 +707,50 @@ rule Ransom_Win32_Locky_ZID_2147943832_0
         strings_accuracy = "High"
     strings:
         $x_5_1 = {d2 e8 d2 eb 24 01 80 e3 01 02 d8 0f b6 c3 0d 32 c1 2c 65 03 d0 8a 45 ff 80 e3 01 02 c0 0f b6 f3 02 c3 88 45 ff 8b ce 83 c9 19 8b c6 83 f0 2e 03 d1 03 d0 83 7d f8 00 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Locky_VZV_2147958724_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Locky.VZV!MTB"
+        threat_id = "2147958724"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Locky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b d0 c1 c2 0d 2a ca 32 cb 88 0c 07 8a c8 80 e1 1f 0f b6 d3 d3 c2 8b 4d ?? d1 c9 03 d1 8b c8 c1 c9 17 81 c1 68 2f 70 53 33 d1 40 89 55 ec 3b 46 10 72}  //weight: 5, accuracy: Low
+        $x_1_2 = "_Locky_recover_instructions.txt" ascii //weight: 1
+        $x_1_3 = ".locky" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Locky_MX_2147959502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Locky.MX!MTB"
+        threat_id = "2147959502"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Locky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {52 83 c4 04 81 45 08 fb e5 d4 ff 21 75 dc 81 45 08 05 1a eb ff 33 fa c7 45 dc f0 01 40 00 3b f7}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

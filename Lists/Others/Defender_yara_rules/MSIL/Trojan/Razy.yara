@@ -472,3 +472,115 @@ rule Trojan_MSIL_Razy_PPD_2147925390_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Razy_ZGM_2147954321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.ZGM!MTB"
+        threat_id = "2147954321"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {16 0a 2b 0e 03 06 03 06 91 1f 1e 61 d2 9c 06 17 58 0a 06 03 8e 69 32 ec 03 2a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Razy_BAA_2147955940_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.BAA!MTB"
+        threat_id = "2147955940"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 08 8f 08 00 00 01 25 71 08 00 00 01 20 aa 00 00 00 61 d2 81 08 00 00 01 08 17 58 0c 08 06 8e 69 32 dd}  //weight: 2, accuracy: High
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "GetTempFileName" ascii //weight: 1
+        $x_1_4 = "WriteAllBytes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Razy_PGRZ_2147956170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.PGRZ!MTB"
+        threat_id = "2147956170"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0b 16 0c 2b 1d 06 08 8f ?? 00 00 01 25 71 ?? 00 00 01 20 ?? 00 00 00 61 d2 81 ?? 00 00 01 08 17 58 0c 08 06 8e 69 32 dd}  //weight: 5, accuracy: Low
+        $x_5_2 = {43 00 3a 00 5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 4d 00 65 00 64 00 69 00 61 00 5c 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Razy_LM_2147956250_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.LM!MTB"
+        threat_id = "2147956250"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {72 5e b3 24 70 28 04 00 00 0a 2d ?? 28 05 00 00 0a 72 92 b3 24 70 28 06 00 00 0a 0b 16 0c 2b ?? 06 08 8f 08 00 00 01 25 71 08 00 00 01 [0-5] 61 d2 81 08 00 00 01 08 17 58 0c 08 06 8e}  //weight: 20, accuracy: Low
+        $x_10_2 = {70 28 03 00 00 0a 0a 72 5e b3 24 70 28 04 00 00 0a 2d ?? 28 05 00 00 0a 72 92 b3 24 70 28 06 00 00 0a 0b 16 0c 2b ?? 06 08 8f 08 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Razy_AYA_2147958368_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.AYA!MTB"
+        threat_id = "2147958368"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "rdm.91yunma.cn/api/upgrade/qcoin" wide //weight: 5
+        $x_2_2 = "huafei.91yunma.cn" wide //weight: 2
+        $x_1_3 = "function Encrypt(password, salt, vcode)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

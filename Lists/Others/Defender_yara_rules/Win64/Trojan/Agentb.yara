@@ -20,3 +20,25 @@ rule Trojan_Win64_Agentb_GDI_2147943974_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Agentb_GXY_2147952149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Agentb.GXY!MTB"
+        threat_id = "2147952149"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Agentb"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {46 32 14 1b 41 f7 f9 41 d2 ca 41 31 f2 83 c6 07 46 88 14 1b}  //weight: 5, accuracy: High
+        $x_5_2 = {89 c8 99 41 f7 f9 48 63 d2 41 0f b6 04 10 41 30 04 0a 48 83 c1 01 49 39 cb 75 e5 c3}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

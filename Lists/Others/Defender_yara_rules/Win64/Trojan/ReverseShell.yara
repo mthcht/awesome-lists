@@ -133,3 +133,118 @@ rule Trojan_Win64_ReverseShell_PAGI_2147934757_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_SX_2147946572_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.SX!MTB"
+        threat_id = "2147946572"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {48 89 ea 48 c7 44 24 20 00 00 00 00 4d 89 e1 ff 15 ?? ?? ?? ?? 48 8b 1d ?? ?? ?? ?? 4c 89 e9 ff d3 31 c0 b9 1a 00 00 00 48 89 ef f3 ab c7 44 24 70 68 00 00 00 ff 15}  //weight: 15, accuracy: Low
+        $x_15_2 = {45 31 c9 45 31 c0 4c 89 f1 48 89 c2 48 8d 44 24 70 4c 89 64 24 48 48 89 44 24 40 48 c7 44 24 38 00 00 00 00 48 c7 44 24 30 00 00 00 00 c7 44 24 28 00 00 00 00 c7 44 24 20 00 00 00 00 ff 15}  //weight: 15, accuracy: High
+        $x_10_3 = {31 f6 48 8b 7c 24 58 b9 7e 00 00 00 45 31 c9 48 89 f0 41 b8 00 04 00 00 48 89 ea 48 c7 84 24 d0 02 00 00 00 00 00 00 f3 48 ab 4c 89 f1 48 c7 84 24 d8 02 00 00 00 00 00 00 ff 15}  //weight: 10, accuracy: High
+        $x_5_4 = "%s_%08X.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ReverseShell_AR_2147951147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.AR!MTB"
+        threat_id = "2147951147"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 45 50 48 89 45 48 48 8b 45 48 48 89 45 40 48 8d 05 ?? ?? ?? ?? 48 8d 55 d0 48 89 54 24 48 48 8d 55 f0 48 89 54 24 40 48 c7 44 24 38 00 00 00 00}  //weight: 10, accuracy: Low
+        $x_5_2 = {48 8d ac 24 80 00 00 00 e8 ?? ?? ?? ?? 48 8d 05 ?? ?? ?? ?? 48 89 85 ?? 02 00 00 c7 85 ?? 02 00 00 5c 11 00 00}  //weight: 5, accuracy: Low
+        $x_1_3 = "cmd.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ReverseShell_KK_2147956474_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.KK!MTB"
+        threat_id = "2147956474"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 89 ac 24 88 00 00 00 48 8d ac 24 88 00 00 00 48 8b ?? ?? 1b 29 00 48 8b ?? ?? 1b 29 00 48 85 d2}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 89 5c 24 50 48 89 44 24 38 48 8b 48 18 48 89 d8 ff d1 48 85 db 0f 95 c1 48 8b 44 24 38 48 8b 5c 24}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ReverseShell_SXA_2147957712_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.SXA!MTB"
+        threat_id = "2147957712"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 01 d0 0f b6 00 83 f0 ?? 89 c1 8b 45 ?? 48 63 d0 48 8b 45 ?? 48 01 d0 89 ca 88 10}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 ba 4f 75 76 65 72 74 75 72 48 b9 65 20 64 65 20 6c 61 20 48 89 10 48 89 48 ?? 48 ba 70 61 67 65 20 77 65 62 48 b9 20 65 66 66 65 63 74 75 48 89 50 ?? 48 89 48 ?? 48 bf 63 74 75 c3 a9 65 2e 00}  //weight: 10, accuracy: Low
+        $x_1_3 = "shutdown /s /t 1" ascii //weight: 1
+        $x_1_4 = "Trojan" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ReverseShell_SXB_2147957713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.SXB!MTB"
+        threat_id = "2147957713"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {48 63 d0 48 8b 45 ?? 48 01 c2 0f b6 45 ?? 88 02 48 8b 45 ?? 48 89 c1 e8 ?? ?? ?? ?? 88 45 ?? 80 7d ?? ?? 74 0b 8b 45 ?? 48 98 48 3b 45}  //weight: 6, accuracy: Low
+        $x_4_2 = {48 98 0f b6 84 05 40 11 00 00 3c ?? 75 13 8b 85 48 21 00 00 83 e8 ?? 48 98 c6 84 05}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

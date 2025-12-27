@@ -38,6 +38,7 @@
 - 🚪 Suspicious destination port: [suspicious_ports_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_ports_list.csv)
 - 🛡️ Suspicious Firewall rules: [suspicious_windows_firewall_rules_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_firewall_rules_list.csv)
 - 🆔 Suspicious User-agent: [suspicious_http_user_agents_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_http_user_agents_list.csv)
+- 🔏 Suspicious CERTs signer: [\[suspicious CERTS\]](https://github.com/mthcht/awesome-lists/tree/main/Lists/CERTS)
 - 📇 Suspicious USB Ids: [suspicious_usb_ids_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_usb_ids_list.csv)
 - 🏷️ Suspicious mutex names: [suspicious_mutex_names_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_mutex_names_list.csv)
 - 🔢 Suspicious MAC address: [suspicious_mac_address_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_mac_address_list.csv)
@@ -304,6 +305,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   
   - [Virustotal](https://www.virustotal.com/#/home/search)
   - [SpamHaus](https://check.spamhaus.org/)
+  - [app.spur.us](https://app.spur.us/)
   - [AbuseIPDB](https://www.abuseipdb.com/)
   - [Telegram BOT hunting](https://matkap.cti.monster/)
   - [Malwarebazaar](https://bazaar.abuse.ch/)

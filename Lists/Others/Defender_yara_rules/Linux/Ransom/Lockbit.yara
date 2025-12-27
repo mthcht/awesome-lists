@@ -42,3 +42,25 @@ rule Ransom_Linux_Lockbit_CA_2147933283_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Lockbit_CE_2147945188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Lockbit.CE!MTB"
+        threat_id = "2147945188"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 7c 24 0c e8 33 ?? ?? ?? 31 c9 31 d2 89 c6 bf 10 00 00 00 31 c0 e8 81}  //weight: 1, accuracy: Low
+        $x_2_2 = {48 89 f8 48 89 f9 8a 11 48 ff c1 83 f2 ?? 88 51 ff 84 d2}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

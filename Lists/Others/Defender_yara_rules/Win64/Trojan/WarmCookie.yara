@@ -61,3 +61,24 @@ rule Trojan_Win64_WarmCookie_MKV_2147924758_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_WarmCookie_AWM_2147956984_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/WarmCookie.AWM!MTB"
+        threat_id = "2147956984"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "WarmCookie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 14 01 48 8b 45 10 88 50 01 48 8b 45 10 0f b6 40 01 0f b6 c0 48 63 d0 48 8b 45 10 48 01 d0 48 8d 50 02 48 8b 45 10 0f b6 00 0f b6 c0 48 63 c8 48 8b 45 10 48 01 c8 48 83 c0 02 48 89 c1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

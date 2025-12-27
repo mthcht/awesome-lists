@@ -132,3 +132,25 @@ rule Trojan_MSIL_Bandra_AMBC_2147902632_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bandra_PGB_2147946607_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bandra.PGB!MTB"
+        threat_id = "2147946607"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 12 00 28 ?? 00 00 0a 19 5b 18 5a 1f 14 58 28 ?? 00 00 0a 00 02 28 ?? 00 00 0a 6f ?? 00 00 0a 0a 12 00 28 ?? 00 00 0a 19 5b 18 5a 1f 14 59 28 ?? 00 00 0a 00 2a}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 32 00 30 00 36 00 2e 00 31 00 38 00 39 00 2e 00 31 00 38 00 39 00 2e 00 35 00 37 00 2f 00 [0-15] 00 7a 00 69 00 70}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -82,3 +82,25 @@ rule Trojan_Win32_Cerber_ENE_2147943983_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Cerber_MK_2147952620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Cerber.MK!MTB"
+        threat_id = "2147952620"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Cerber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {0f be 02 33 c1 8b 0d ?? ?? ?? ?? 03 4d fc 88 01 8b 55 fc 83 c2 01}  //weight: 15, accuracy: Low
+        $x_10_2 = {0f b6 05 a4 8a 43 00 83 f0 08 a2 ca e2 42 00 8a 0d a4 8a 43 00 80 e9 01 88 0d a4 8a 43}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

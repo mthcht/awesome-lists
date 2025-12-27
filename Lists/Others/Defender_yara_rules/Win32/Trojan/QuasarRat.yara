@@ -24,3 +24,24 @@ rule Trojan_Win32_QuasarRat_NEAI_2147843347_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_QuasarRat_AQUU_2147958475_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/QuasarRat.AQUU!MTB"
+        threat_id = "2147958475"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {46 0f b6 04 02 44 31 c7 41 88 3c 19 48 ff c3 4c 89 c8 4c 89 d2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2663,3 +2663,213 @@ rule Trojan_MSIL_Rozena_EAJ_2147941306_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_GAF_2147945455_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GAF!MTB"
+        threat_id = "2147945455"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {08 61 d2 13 0a 11 0a 18 59 20 ff 00 00 00 5f d2 13 0a 07 11 09 11 0a 9c 11 09 17 58}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_ECM_2147946271_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.ECM!MTB"
+        threat_id = "2147946271"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 09 06 09 91 18 59 20 ff 00 00 00 5f d2 9c 09 17 58 0d 09 06 8e 69 32 e7}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_SLDA_2147951300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.SLDA!MTB"
+        threat_id = "2147951300"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {7e 17 00 00 04 28 27 00 00 06 28 01 00 00 06 0a 06 20 3a 0b 11 8c 28 03 00 00 06 28 05 00 00 2b 80 02 00 00 04 06 20 d4 c3 b2 a1 28 03 00 00 06 28 06 00 00 2b 80 03 00 00 04 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_GPAT_2147952822_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GPAT!MTB"
+        threat_id = "2147952822"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {56 69 72 74 75 61 6c 41 6c 6c 6f 63 00 56 69 72 74 75 61 6c 50 72 6f 74 65 63 74 00 43 72 65 61 74 65 54 68 72 65 61 64 00 57 61 69 74 46 6f 72 53 69 6e 67 6c 65 4f 62 6a 65 63 74 00 2e 63 74 6f 72}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_GPAT_2147952822_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GPAT!MTB"
+        threat_id = "2147952822"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {2e 64 6c 6c 00 57 69 6e 33 32 00 6d 73 63 6f 72 6c 69 62 00 53 79 73 74 65 6d 00 4f 62 6a 65 63 74 00 4f 70 65 6e 50 72 6f 63 65 73 73 00 56 69 72 74 75 61 6c 41 6c 6c 6f 63 45 78 00 57 72 69 74 65 50 72 6f 63 65 73 73 4d 65 6d 6f 72 79 00 43 72 65 61 74 65 52 65 6d 6f 74 65 54 68 72 65 61 64 00 2e 63 74 6f 72}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_GPAQ_2147953145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GPAQ!MTB"
+        threat_id = "2147953145"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {56 69 72 74 75 61 6c 41 6c 6c 6f 63 45 78 00 57 72 69 74 65 50 72 6f 63 65 73 73 4d 65 6d 6f 72 79 00 56 69 72 74 75 61 6c 50 72 6f 74 65 63 74 45 78 00 43 72 65 61 74 65 50 72 6f 63 65 73 73 00 51 75 65 75 65 55 73 65 72 41 50 43 00 52 65 73 75 6d 65 54 68 72 65 61}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_CZI_2147953332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.CZI!MTB"
+        threat_id = "2147953332"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 04 00 00 0a 72 01 00 00 70 28 05 00 00 0a 13 0b 12 0b 72 0b 00 00 70 28 06 00 00 0a 72 0f 00 00 70 28 07 00 00 0a 28 08 00 00 0a 13 08 11 08 11 06 28 09 00 00 0a 00 73 0a 00 00 0a 13 09 11 09 6f 0b 00 00 0a 11 08 6f 0c 00 00 0a 00 11 09 6f 0d 00 00 0a 26 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_PGRO_2147956353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.PGRO!MTB"
+        threat_id = "2147956353"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {16 13 06 2b 17 ?? 11 06 ?? 11 06 91 18 59 20 ff 00 00 00 5f d2 9c 11 06 17 58 13 06 11 06 ?? 8e 69 32 e2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_BAA_2147956382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.BAA!MTB"
+        threat_id = "2147956382"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {7e 0b 00 00 04 11 10 91 13 11 11 11 1f 6c 61 d2 13 11 11 11 1f 56 59 d2 13 11 11 11 66 d2 13 11 11 11 1f 59 59 d2 13 11 11 11 1f 5e 61 d2 13 11 11 0a 11 10 11 11 9c 11 10 17 58 13 10 11 10 7e 0b 00 00 04 8e 69 32 b8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_GPAR_2147959280_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.GPAR!MTB"
+        threat_id = "2147959280"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {02 07 02 8e 69 5d 02 07 02 8e 69 5d 91 06 07 06 8e 69 5d 91 61 28 ?? 00 00 0a 02 07 17 58 02 8e 69 5d}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

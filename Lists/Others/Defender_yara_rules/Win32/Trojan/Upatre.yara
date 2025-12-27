@@ -596,3 +596,267 @@ rule Trojan_Win32_Upatre_BAA_2147935614_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Upatre_MR_2147945547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.MR!MTB"
+        threat_id = "2147945547"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 44 24 10 8b 14 ?? ?? 30 40 00 29 c0 57 59 40 c1 e9 02 3b c8 76}  //weight: 20, accuracy: Low
+        $x_10_2 = {83 4c 24 10 ff c7 44 24 34 18 21 40 00 c7 44 24 38 28 21 40 00 89 74 24 3c 89 74 24 20 89 74 24 14}  //weight: 10, accuracy: High
+        $x_1_3 = {32 1d 32 25 32 4a 32 5a 32 6a 32}  //weight: 1, accuracy: High
+        $x_1_4 = "C:\\TEMP\\gffos.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_PGU_2147947941_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.PGU!MTB"
+        threat_id = "2147947941"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {45 40 40 68 ?? ?? ?? ?? ff 00 6a 40 40 40 00 89 ?? ?? ?? ?? ff 40 40 30 68 6a 15}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_AHB_2147948333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.AHB!MTB"
+        threat_id = "2147948333"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a 07 8a 26 02 25 ?? ?? ?? 00 32 c4 eb ?? 00 00 00 88 07 3b f2 74 ?? 46 47 49 75}  //weight: 10, accuracy: Low
+        $x_5_2 = {23 ff 6a 07 09 52 6d 30 7a 05 50 00 b4 bc 63 7c 00 00 04 1c 00 72 0a d4 00 00 41 2c 0e 3c 02 00 23 44 44}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_AHC_2147948334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.AHC!MTB"
+        threat_id = "2147948334"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {89 9d 64 ff ff ff 89 9d 54 ff ff ff 89 9d 44 ff ff ff 89 9d 34 ff ff ff 89 9d 30 ff ff ff c7 45 9c 4c 00 00 00 ff d7}  //weight: 10, accuracy: High
+        $x_5_2 = {8b 4d e4 c7 01 01 23 45 67 8b 55 e4 c7 42 04 89 ab cd ef 8b 45 e4 c7 40 08 fe dc ba 98 8b 4d e4 c7 41 0c 76 54 32 10 8b 55 e4 52 ff 15}  //weight: 5, accuracy: High
+        $x_3_3 = "Some evil things happened" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_AB_2147951448_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.AB!MTB"
+        threat_id = "2147951448"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b ec 83 ec 10 8b 45 08 25 00 00 ff ff b9 4d 5a 00 00 ?? ?? 2d 00 00 01 00 66 39 08 ?? ?? 0f b7 48}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_LM_2147952360_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.LM!MTB"
+        threat_id = "2147952360"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8a c3 32 85 d7 fd ff ff 88 85 d7 fd ff ff 8b 8d a4 fd ff ff 85 c9 75 ?? 89 8d c4 fd ff ff eb ?? 0f b6 95 a4 fd ff ff 0f b6 c9 03 d1 8d 8d d8 fd ff ff 0f b6 c9 03 d1 29 95 a0 fd ff ff 8b 8d a4 fd ff ff}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_SXA_2147952582_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.SXA!MTB"
+        threat_id = "2147952582"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {b8 f6 01 00 00 2b 05 ?? ?? ?? ?? 46 83 c4 ?? 89 44 24 30 83 fe 08 7c d5}  //weight: 3, accuracy: Low
+        $x_2_2 = {88 85 d7 fd ff ff 8b c7 0f af 45 0c 8d 1c c5 00 00 00 00 2b d8 8d 1c 9d 08 00 00 00 89 9d b0 fd ff ff}  //weight: 2, accuracy: High
+        $x_1_3 = "ReductiveKillall" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_AC_2147952693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.AC!MTB"
+        threat_id = "2147952693"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {56 56 56 56 68 a8 20 40 00 ff 15 ?? ?? ?? ?? 89 45 e4 3b c6 ?? ?? ?? ?? ?? ?? 8b 3d 5c 20 40 00 56 56 6a 03 56 56 68 ?? ?? 00 00 68 d0 20 40 00 50}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_SX_2147953211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.SX!MTB"
+        threat_id = "2147953211"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {99 8d 76 51 f7 fe 8b b5 a4 fe ff ff 89 45 f4 b8 ?? ?? ?? ?? f7 65 c0 0f b7 45 ec c1 ea ?? 89 55 b0 89 45 d8 0f b6 55 e4}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 5d e8 8b 45 ac 2b d1 2b 55 d4 40 8d 54 1a 02 0f af 55 ec 89 45 ac}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_SXB_2147953853_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.SXB!MTB"
+        threat_id = "2147953853"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 41 18 ff d0 8b 84 24 f8 01 00 00 8b 08 8d 94 24 f4 04 00 00 52 50 8b 41 1c ff d0 8b 94 24 f4 04 00 00}  //weight: 3, accuracy: High
+        $x_2_2 = {31 0f af 44 24 ?? 03 c6 03 84 24 ?? ?? ?? ?? f7 d8 4b 89 44 24 ?? 75 ca}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_LMA_2147955982_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.LMA!MTB"
+        threat_id = "2147955982"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f af c7 99 8d 71 10 f7 fe 0f b7 95 b4 84 fe ff 03 15 ?? ?? ?? ?? 0f af d1 03 c2 0f af 85 b0 84 fe ff 89 85 b0 84 fe ff}  //weight: 10, accuracy: Low
+        $x_20_2 = {8b 85 b0 84 fe ff d1 e8 0f af 05 ?? ?? ?? ?? 0f b7 d7 0f af d1 03 c2 0f af 85 b0 84 fe ff 89 85 b0 84 fe ff}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Upatre_AHD_2147959353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.AHD!MTB"
+        threat_id = "2147959353"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 03 8b 4d 10 8b 55 0c 89 0c 90 42 89 55 0c 4e 83 fe}  //weight: 20, accuracy: Low
+        $x_30_2 = {41 01 c0 e8 ?? 0f b6 c0 09 c2 0f b6 82 ?? ?? ?? ?? 88 43 ?? 89 f8 29 f0 83 f8 ?? 74}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

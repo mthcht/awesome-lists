@@ -186,3 +186,70 @@ rule Trojan_Win64_KillAV_BSB_2147928762_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_ARAX_2147955721_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.ARAX!MTB"
+        threat_id = "2147955721"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "\\NSecSoftBYOVD.pdb" ascii //weight: 3
+        $x_2_2 = "Unload Driver Failed, You may need to unload driver manually" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_KillAV_SE_2147958205_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.SE!MTB"
+        threat_id = "2147958205"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Resource extracted to C:\\ProgramData\\NSecKrnl.sys" ascii //weight: 1
+        $x_1_2 = "WatchDogKiller-main\\x64\\Release\\NSecSoftBYOVDdll.pdb" ascii //weight: 1
+        $x_1_3 = "RunProcessTermination" ascii //weight: 1
+        $x_1_4 = "Drivers\\NSecKrnl\\NSecKrnl\\bin\\NSecKrnl64.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_KillAV_CR_2147958656_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.CR!MTB"
+        threat_id = "2147958656"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 3a 06 01 00 48 63 c8 49 8b c6 48 f7 e1 48 c1 ea 04 48 6b c2 34 48 2b c8 0f b6 84 29 78 51 04 00 88 84 2b d0 ec 04 00 48 ff c3 48 3b df}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

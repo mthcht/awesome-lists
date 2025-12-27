@@ -53,6 +53,7 @@ rule Trojan_Win32_NetUAbuse_A_2147916317_0
         $x_1_6 = " adm1nbac p@ssw0ddp@ssw" wide //weight: 1
         $x_1_7 = " whiteninja p@ssw0ddp@ssw" wide //weight: 1
         $x_1_8 = {20 00 61 00 64 00 6d 00 69 00 6e 00 [0-5] 70 00 34 00 24 00 35 00 77 00 30 00 72 00 64 00 31 00 32 00 33 00 32 00 31 00}  //weight: 1, accuracy: Low
+        $x_1_9 = {61 00 64 00 6d 00 69 00 6e 00 5f 00 67 00 70 00 6f 00 [0-5] 61 00 62 00 63 00 64 00 31 00 32 00 33 00 34 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (

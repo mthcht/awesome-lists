@@ -65,3 +65,24 @@ rule TrojanDownloader_Win32_Jaik_AJI_2147903158_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Jaik_ARA_2147948752_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Jaik.ARA!MTB"
+        threat_id = "2147948752"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 95 57 fc ff ff 83 f2 36 0f b6 45 d0 33 d0 88 95 57 fc ff ff 8b 4d ac 03 4d d0 8a 95 57 fc ff ff 88 11 e9 5b ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

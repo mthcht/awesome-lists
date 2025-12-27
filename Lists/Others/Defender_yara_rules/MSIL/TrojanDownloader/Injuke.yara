@@ -47,3 +47,26 @@ rule TrojanDownloader_MSIL_Injuke_AIK_2147844093_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Injuke_ARR_2147953378_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Injuke.ARR!MTB"
+        threat_id = "2147953378"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_25_1 = {04 11 05 07 11 05 91 28 ?? ?? ?? ?? 11 05 17 58 13 05 11 05 07 8e 69 32 e2}  //weight: 25, accuracy: Low
+        $x_15_2 = {07 2c 06 07 6f ?? ?? ?? 0a dc 06 28 ?? ?? ?? 06 2c 0c 72 85 04 00 70 28 ?? ?? ?? 0a 2b 0a 72}  //weight: 15, accuracy: Low
+        $x_10_3 = {08 7e 07 00 00 04 07 6f ?? ?? ?? ?? de 0a 08 2c 06}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -894,3 +894,416 @@ rule Trojan_MSIL_Mardom_ANXA_2147944523_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_ST_2147948417_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.ST!MTB"
+        threat_id = "2147948417"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {73 01 00 00 0a 25 6f 02 00 00 0a 72 ad 00 00 70 72 c3 00 00 70 6f 03 00 00 0a 72 ba 01 00 70 6f 04 00 00 0a 13 03 20 00 00 00 00 7e 3e 03 00 04 7b 28 03 00 04 3a 0f 00 00 00 26 20 00 00 00 00 38 04 00 00 00 fe 0c 01 00 45 01 00 00 00 05 00 00 00 38 00 00 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_AC_2147951419_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.AC!MTB"
+        threat_id = "2147951419"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7e e8 02 00 04 20 b3 ca b4 ff 20 2e a2 20 24 59 20 46 55 c5 70 59 20 3f d3 ce 6a 61 7d fc 02 00 04 20}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_AHFB_2147952446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.AHFB!MTB"
+        threat_id = "2147952446"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 06 28 ?? 00 00 0a 13 05 07 28 ?? 00 00 0a 13 06 11 04 11 05 11 06 6f ?? 00 00 0a 13 07 03 73 ?? 00 00 0a 13 08 11 08 11 07 16 73 ?? 00 00 0a 13 09 73 ?? 00 00 0a 13 0a 11 09 11 0a 6f ?? 00 00 0a 11 0a 6f ?? 00 00 0a 0c 1f 64 0d dd}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_MCH_2147952575_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.MCH!MTB"
+        threat_id = "2147952575"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "EventLogAnalyzer.Properties.Resources.resource" ascii //weight: 10
+        $x_10_2 = "RestoreCreator.Properties.Resources.resources" ascii //weight: 10
+        $x_10_3 = "HastaneProjeENSONhali.Properties.Resources.resource" ascii //weight: 10
+        $x_10_4 = "2760f04d-2e5d-49c8-a7d2-c2fbbd262ab1" ascii //weight: 10
+        $x_1_5 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_Mardom_PCH_2147952663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.PCH!MTB"
+        threat_id = "2147952663"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 0a 20 64 39 00 00 28 ?? 01 00 06 28 ?? 00 00 0a 6f ?? 00 00 0a 0c 73 04 00 00 0a 0d 14 13 04 2b 44 00 28 ?? 00 00 06 13 04 11 04 73 05 00 00 0a 13 05 11 05 08 16 73 06 00 00 0a 13 06 11 06 09 6f ?? 00 00 0a 09 13 07 de 2d}  //weight: 4, accuracy: Low
+        $x_2_2 = {28 04 00 00 06 0a 28 08 00 00 06 06 6f 09 00 00 0a 6f 0a 00 00 0a 0b 06 39 06 00 00 00 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_TRW_2147952856_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.TRW!MTB"
+        threat_id = "2147952856"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 02 11 03 11 09 6f 0a 00 00 0a 13 05 20 03 00 00 00 38 04 fc ff ff dd 82 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_ZCM_2147954054_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.ZCM!MTB"
+        threat_id = "2147954054"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 0a 11 0b 1a 5a 58 13 0c 11 09 08 5a 11 0b 58 13 0d 11 04 11 0c 18 58 91 13 0e 11 05 11 0d 20 ff 00 00 00 11 0e 59 1f 72 61 d2 9c 11 0b 17 58 13 0b 11 0b 08 3f c6 ff ff ff}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_AD_2147954438_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.AD!MTB"
+        threat_id = "2147954438"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7e 41 00 00 04 20 d6 cf 66 24 65 20 cc fd 01 57 59 20 5e 32 97 84 61 7d 13 00 00 04 38 cc fb ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_ZOM_2147954654_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.ZOM!MTB"
+        threat_id = "2147954654"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {06 13 04 28 ?? 00 00 06 13 09 11 09 72 a1 02 00 70 08 28 ?? 00 00 06 11 09 72 a9 02 00 70 09 28 ?? 00 00 06 14 13 0a 16 13 0b 1f 0a 11 0b 5b 26 de 0c 26 11 09 28 ?? 00 00 06 13 0a de 00 11 0a 11 04 28 ?? 00 00 06 13 04 11 04 28 ?? 00 00 06 13 0c 11 0c 28 ?? 00 00 06 13 0d 11 0d 02 28 ?? 00 00 06 de 11}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_PGMD_2147954843_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.PGMD!MTB"
+        threat_id = "2147954843"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 08 1a 5a 18 58 58 47 0d 20 ff 00 00 00 09 59 1f 72 61 d2 13 04 02 7b ?? 00 00 04 07 08 58 11 04 9c 08 17 58 0c 08 02 7b ?? 00 00 04 32 d1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_PGMD_2147954843_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.PGMD!MTB"
+        threat_id = "2147954843"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {73 13 00 00 06 72 01 00 00 70 72 33 00 00 70 72 4d 00 00 70 72 99 00 00 70 6f ?? 00 00 06 20 00 00 00 00 7e ?? 00 00 04 7b ?? 00 00 04 ?? ?? 00 00 00 26 20 00 00 00 00 38 04 00 00 00 fe ?? ?? 00 45 01 00 00 00 05 00 00 00 38 00 00 00 00 dd}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_BAA_2147955017_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.BAA!MTB"
+        threat_id = "2147955017"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 04 1a 5d 2c 03 03 2b 07 03 20 f3 00 00 00 61 b4 0a 2b 00 06 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_SLEI_2147955138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.SLEI!MTB"
+        threat_id = "2147955138"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {7e 26 06 00 04 72 b7 01 00 70 6f 8d 01 00 0a 73 6b 09 00 06 25 6f 6c 09 00 06 16 6a 6f 08 01 00 0a 25 25 6f 6c 09 00 06 6f 05 01 00 0a 69 6f 6d 09 00 06 13 04}  //weight: 2, accuracy: High
+        $x_2_2 = "FromBase64String" ascii //weight: 2
+        $x_2_3 = "CreateDecryptor" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_SLDT_2147955369_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.SLDT!MTB"
+        threat_id = "2147955369"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f 00 28 01 00 00 06 0f 01 28 02 00 00 06 d0 01 00 00 1b 28 06 00 00 0a 28 07 00 00 0a a5 01 00 00 1b}  //weight: 2, accuracy: High
+        $x_2_2 = {12 00 fe 15 0b 00 00 02 12 00 d0 0b 00 00 02 28 06 00 00 0a 28 08 00 00 0a 7d 0c 00 00 04 7e 02 00 00 04 14 02 7e 09 00 00 0a 7e 09 00 00 0a 16 1a 7e 09 00 00 0a 14 12 00 12 01 6f 10 00 00 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_ZRL_2147956598_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.ZRL!MTB"
+        threat_id = "2147956598"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {06 09 16 6f ?? 00 00 0a 13 04 12 04 28 ?? 00 00 0a 13 05 08 09 11 05 9c 09 17 58 0d 09 06 6f ?? 00 00 0a 32 db}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_BAB_2147957674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.BAB!MTB"
+        threat_id = "2147957674"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 08 91 0d 09 08 20 00 01 00 00 5d d2 59 20 00 01 00 00 58 20 00 01 00 00 5d d2 0d 09 19 63 09 1b 62 60 07 61 d2 0d 06 08 09 9c 08 17 58 0c 08 02 8e 69 32 cb}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_SLWD_2147958812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.SLWD!MTB"
+        threat_id = "2147958812"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {17 39 30 00 00 00 16 3a 2a 00 00 00 72 ?? ?? 00 70 28 69 00 00 06 72 ?? ?? 00 70 28 69 00 00 06 d0 ?? 00 00 01 28 c2 00 00 0a 06 6f ?? 01 00 0a 28 51 00 00 06}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_SLWE_2147958813_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.SLWE!MTB"
+        threat_id = "2147958813"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {72 e8 38 00 70 72 b0 3c 00 70 d0 89 00 00 01 28 c5 00 00 0a 06 6f 51 01 00 0a 28 51 00 00 06 0b fe 0c 02 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Mardom_PGMA_2147959224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.PGMA!MTB"
+        threat_id = "2147959224"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {06 08 1a 5a 18 58 58 47 0d 02 7b 07 00 00 04 07 08 58 20 ff 00 00 00 09 59 1f 72 61 d2 9c 08 17 58 0c 08 02 7b 06 00 00 04 3f d2 ff ff ff}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

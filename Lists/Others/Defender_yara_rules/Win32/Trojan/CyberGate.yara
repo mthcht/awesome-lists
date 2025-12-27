@@ -21,3 +21,24 @@ rule Trojan_Win32_CyberGate_ACG_2147919825_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CyberGate_MKV_2147953005_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CyberGate.MKV!MTB"
+        threat_id = "2147953005"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CyberGate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 4d d8 8b 55 dc 8b 52 0c 8b 49 0c 8a 14 1a 8b 7d 94 32 14 39 83 c6 01 88 14 01 8b 45 e4 0f 80 ?? ?? ?? ?? 3b f0 7e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

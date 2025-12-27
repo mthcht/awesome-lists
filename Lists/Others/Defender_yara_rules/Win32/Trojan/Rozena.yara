@@ -489,6 +489,28 @@ rule Trojan_Win32_Rozena_MK_2147847390_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {85 c0 0f 48 c2 c1 f8 03 0f b6 84 05 ?? ?? ff ff 0f be d0 8b 45 ?? 83 e0 07 89 c1 d3 fa 89 d0 83 e0 01 85 c0}  //weight: 15, accuracy: Low
+        $x_10_2 = {0f b6 00 0f be c0 34 ff 89 c2 8b 45 ?? 89 44 24 04 89 14 24}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Rozena_MK_2147847390_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rozena.MK!MTB"
+        threat_id = "2147847390"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
@@ -898,6 +920,70 @@ rule Trojan_Win32_Rozena_AMX_2147925766_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {89 c8 f7 ea 89 d0 c1 f8 05 89 ca c1 fa 1f 29 d0 69 d0 2c 01 00 00 89 c8 29 d0 89 06}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Rozena_EM_2147952439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rozena.EM!MTB"
+        threat_id = "2147952439"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f b6 00 0f be c0 34 ff 89 c2 8b 84 24 14 04 00 00 89 44 24 04 89 14 24}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Rozena_SPDP_2147952442_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rozena.SPDP!MTB"
+        threat_id = "2147952442"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8d 50 01 89 94 24 ?? ?? ?? ?? 0f b6 00 0f be c0 34 ff 89 c2 8b 84 24 ?? ?? ?? ?? 89 44 24 04 89 14 24 e8 ae 10 00 00 8b 84 24 ?? ?? ?? ?? 8d 50 ff 89 94 24 ?? ?? ?? ?? 85 c0 75 bd}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Rozena_AHC_2147952647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rozena.AHC!MTB"
+        threat_id = "2147952647"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 4c 24 20 89 4c 24 04 8b 4c 24 30 89 4c 24 08 c7 44 24 0c ?? ?? ?? ?? 8b 54 24 38 89 54 24 10}  //weight: 30, accuracy: Low
+        $x_20_2 = {0f b6 2c 11 8b 35 ?? ?? ?? ?? 0f b6 34 31 31 f5 31 c5 95 88 04 0a 95 41}  //weight: 20, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

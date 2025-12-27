@@ -147,3 +147,24 @@ rule Ransom_Win32_Crysis_MK_2147775739_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Crysis_MKV_2147954317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Crysis.MKV!MTB"
+        threat_id = "2147954317"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crysis"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {89 f8 8d 8f 00 72 01 00 8d 74 26 00 30 10 30 50 01 83 c0 02 39 c8 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

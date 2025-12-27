@@ -745,6 +745,27 @@ rule Trojan_Win32_Doina_MX_2147933716_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 85 f8 fe ff ff 68 04 01 00 00 50 e8 32 bd 00 00 68 ff 03 00 00 8d 85 f9 fa ff ff c6 85 f8 fa ff ff 00 6a 00 50}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Doina_MX_2147933716_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.MX!MTB"
+        threat_id = "2147933716"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "2"
         strings_accuracy = "High"
     strings:
@@ -795,5 +816,83 @@ rule Trojan_Win32_Doina_PGD_2147939517_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_Doina_AHC_2147956119_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.AHC!MTB"
+        threat_id = "2147956119"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {89 b4 24 28 02 00 00 89 9c 24 24 02 00 00 66 89 94 24 14 02 00 00 c6 84 24 40 02 00 00 ?? 83 bc 24 40 01 00 00}  //weight: 30, accuracy: Low
+        $x_20_2 = "taskkill /IM conhoz.exe /F" ascii //weight: 20
+        $x_10_3 = "Global\\TestDown2019Mutex" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Doina_MK_2147957825_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.MK!MTB"
+        threat_id = "2147957825"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f 43 8d 80 f5 ff ff 90 8a 01 8d 49 01 88 02 8d 52 01 84 c0}  //weight: 20, accuracy: High
+        $x_15_2 = "cmd /c ping 127.0.0.1 -n 3 > nul & del \"%s\"" ascii //weight: 15
+        $x_10_3 = "IV\\Project\\UpdateBin" ascii //weight: 10
+        $x_5_4 = "/C powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath \"%s\"" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Doina_MKA_2147958221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.MKA!MTB"
+        threat_id = "2147958221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "58"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "This file is a piece of malware" ascii //weight: 20
+        $x_15_2 = "your computer will be infected." ascii //weight: 15
+        $x_10_3 = "Hi %s, I'm a bot that's part of the UoP MALFOR Coursework." ascii //weight: 10
+        $x_8_4 = "Shutdown password entered - botnet shutting down" ascii //weight: 8
+        $x_5_5 = "Bot shutdown by user %s." ascii //weight: 5
+        $x_3_6 = "Malware already running!" ascii //weight: 3
+        $x_2_7 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
 }
 

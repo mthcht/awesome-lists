@@ -1913,28 +1913,6 @@ rule Trojan_Win32_Injector_RPV_2147807730_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Injector_RPZ_2147807732_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Injector.RPZ!MTB"
-        threat_id = "2147807732"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Injector"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {53 31 db 69 93 08 00 44 00 05 84 08 08 42 89 93 08 00 44 00 f7 e2 89 d0 5b c3}  //weight: 1, accuracy: High
-        $x_1_2 = {88 04 32 46 e9}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Injector_RPG_2147807855_0
 {
     meta:
@@ -2298,6 +2276,216 @@ rule Trojan_Win32_Injector_PAQD_2147939603_0
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {8b 55 fc 8b 32 33 c0 85 f6 7e ?? 8b 55 08 8a 14 10 30 14 07 40 3b c6 7c ?? 83 45 fc 04 83 c7 19 81 7d fc}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_LMA_2147949012_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.LMA!MTB"
+        threat_id = "2147949012"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 fc 6b c0 33 8b 55 ?? d1 fa 09 c2 8b 45 ?? 31 d0 89 45 ?? 8b 45 ?? 83 e0 0f 83 f8 0a 0f 94 c0 84 c0}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 45 fc 83 e0 01 85 c0 75 ?? 8b 45 f8 33 45 fc 89 45 f8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_KAB_2147951030_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.KAB!MTB"
+        threat_id = "2147951030"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {03 7d b8 81 ef ?? ?? ?? ?? 2b f8 31 3e 83 c3 04 83 c6 04 3b 5d e0 72}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b d6 03 55 c8 03 c2 8b 55 e8 03 d7 8b 4d d4}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_KAC_2147951399_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.KAC!MTB"
+        threat_id = "2147951399"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {83 5e 46 14 f6 6a 6e f6 5f 12 a4 44 82 99 cf 58 39 9e e0 67 3a 4f ad 33 99 66 cf 11 b7 0c}  //weight: 10, accuracy: High
+        $x_5_2 = "Earthworms1" ascii //weight: 5
+        $x_3_3 = "Hearingless" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_SX_2147953719_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.SX!MTB"
+        threat_id = "2147953719"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 55 84 83 c2 ?? 89 55 84 83 7d 84 01 7d ?? c7 45 a0 ?? ?? ?? ?? 8b 45 a0 0b 45 a0 0f af 45 a0 0f af 45 a0 89 45 a0 eb}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 08 2b ca 8b 55 bc 2b d1 89 55 bc 8b 45 c4 83 e0 ?? 0f af 45 bc 0f af 45 bc 89 45 bc}  //weight: 2, accuracy: Low
+        $x_1_3 = "SCardDisconnect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_ARR_2147954233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.ARR!MTB"
+        threat_id = "2147954233"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {8b 4d f4 83 c1 01 8b 55 fc 8b 02 99 f7 f9 0f af 45 f4 89 45 f4 c7 85 48}  //weight: 30, accuracy: High
+        $x_20_2 = {8b 45 fc 0b 45 f8 8b 4d f8 23 4d f8 0f af c1 0f af 45 f8 89 45 f8 eb}  //weight: 20, accuracy: High
+        $x_30_3 = {8b 85 3c ff ff ff 8b 0c 90 33 0d c4 a1 43 00 8b 95 60 ff ff ff 8b 85 3c ff ff ff}  //weight: 30, accuracy: High
+        $x_20_4 = {8b 4d fc 83 c1 01 8b 45 fc 99 f7 f9 0f af 45 fc 89 45 fc 8d 55 fc}  //weight: 20, accuracy: High
+        $x_30_5 = {8d 45 dc 89 45 b4 8b 4d b4 8b 55 ac 0f af 11 0f af 55 a8 89 55 a8 c7 45 e4}  //weight: 30, accuracy: High
+        $x_20_6 = {8b 4d 08 83 c1 01 8b 45 fc 99 f7 f9 0f af 45 10 89 45 10}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_20_*))) or
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Injector_MK_2147956188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.MK!MTB"
+        threat_id = "2147956188"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {c6 85 d8 f5 ff ff 36 c6 85 d9 f5 ff ff 36 c6 85 da f5 ff ff 36 88 95 db f5 ff ff}  //weight: 15, accuracy: High
+        $x_10_2 = {c6 85 f2 f5 ff ff 33 c6 85 f3 f5 ff ff 35 c6 85 f4 f5 ff ff 6d c6 85 f5 f5 ff ff 57 c6 85 f6 f5 ff ff 68}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_KK_2147957799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.KK!MTB"
+        threat_id = "2147957799"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {be 72 31 e3 ee 09 f6 e8 ?? ?? ?? ?? bf 1b c8 85 31 31 11 bf 45 b7 b6 28 01 f7 21 ff 81 c1 02 00 00 00 81 ef e8 53 06 59 4e 21 ff 39 c1}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_MKA_2147958985_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.MKA!MTB"
+        threat_id = "2147958985"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {24 c1 bc 00 ee c0 bc 00 6c 69 62 63 75 72 6c 2e}  //weight: 15, accuracy: High
+        $x_10_2 = {40 a6 25 00 d0 08 01 00 80 36 06 00 ac 68 24}  //weight: 10, accuracy: High
+        $x_5_3 = {ac 68 24 00 34 c0 bc 00 41 c0 bc 00 50 c0 bc}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_AHL_2147959011_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.AHL!MTB"
+        threat_id = "2147959011"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "90"
+        strings_accuracy = "Low"
+    strings:
+        $x_40_1 = {03 7d a8 81 ef ?? ?? ?? ?? 2b f8 6a ?? e8 ?? ?? ?? ?? 03 f8 31 3e 83 c3 ?? 83 c6 ?? 3b 5d cc 72}  //weight: 40, accuracy: Low
+        $x_30_2 = {8b 00 89 45 cc 83 45 d4 ?? 89 75 d0 8b 45 d0 83 e8 ?? 89 45 d0}  //weight: 30, accuracy: Low
+        $x_20_3 = "teokhehwue" ascii //weight: 20
     condition:
         (filesize < 20MB) and
         (all of ($x*))

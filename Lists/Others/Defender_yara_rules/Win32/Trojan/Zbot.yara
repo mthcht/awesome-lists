@@ -6426,3 +6426,90 @@ rule Trojan_Win32_Zbot_BAL_2147941286_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zbot_BAM_2147945619_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.BAM!MTB"
+        threat_id = "2147945619"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 45 cc 33 d2 b9 10 00 00 00 f7 f1 8b 45 cc 8a 88 ?? ?? ?? ?? 2a 8a ?? ?? ?? ?? 8b 55 cc 88 8a ?? ?? ?? ?? eb}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_MR_2147949982_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.MR!MTB"
+        threat_id = "2147949982"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {51 8b 95 30 ce ff ff 52 8b 85 a0 cf ff ff 50 ff 95 ec cd ff ff}  //weight: 10, accuracy: High
+        $x_5_2 = {8b c8 0f b7 85 c4 fc ff ff 03 05 20 89 42 00 8b 35 20 89 42 00 83 c6 01 99 f7 fe 03 c8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_NB_2147954838_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.NB!MTB"
+        threat_id = "2147954838"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c7 45 fc 86 00 00 00 8b 55 0c 03 55 f4 0f b6 02 89 45 f8 c7 45 fc 86 00 00 00 8b 4d 08 03 4d f4 8a 55 f8 88 11 c7 45 fc 86 00 00 00 eb c1}  //weight: 2, accuracy: High
+        $x_1_2 = {c7 45 ec 03 00 00 00 8b 4d 08 8b 51 04 83 ea 08 d1 ea 89 55 f4 8b 45 08 83 c0 08 89 45 f0 c7 45 fc 00 00 00 00 eb 09}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zbot_ARR_2147960032_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.ARR!MTB"
+        threat_id = "2147960032"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "copy /y \"C:\\Windows\\system\\loop.exe\" \"C:\\Program Files\\Windows NT\"> nul" ascii //weight: 20
+        $x_5_2 = "SCHTASKS /Create /TN %name% /TR \"'C:\\Windows\\system\\Zloop.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

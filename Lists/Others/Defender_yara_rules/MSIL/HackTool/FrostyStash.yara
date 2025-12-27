@@ -89,3 +89,86 @@ rule HackTool_MSIL_FrostyStash_C_2147932629_0
         (all of ($x*))
 }
 
+rule HackTool_MSIL_FrostyStash_AA_2147956418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MSIL/FrostyStash.AA!dha"
+        threat_id = "2147956418"
+        type = "HackTool"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FrostyStash"
+        severity = "High"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "TMR_Engine" ascii //weight: 1
+        $x_1_2 = "TMR_KeepAlive" ascii //weight: 1
+        $x_1_3 = "TMR_PingSystem" ascii //weight: 1
+        $x_1_4 = "TMR_PingNet" ascii //weight: 1
+        $x_1_5 = "TMR_CheckEvent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_MSIL_FrostyStash_BA_2147956419_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MSIL/FrostyStash.BA!dha"
+        threat_id = "2147956419"
+        type = "HackTool"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FrostyStash"
+        severity = "High"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WebSocketSharp" ascii //weight: 1
+        $x_1_2 = "v4.0.30319" ascii //weight: 1
+        $x_1_3 = "CancellationToken" ascii //weight: 1
+        $x_1_4 = "JavaScriptSerializer" ascii //weight: 1
+        $x_1_5 = "619cb2b1-9401-4025-8b83-b8fd42d9a1a1" ascii //weight: 1
+        $x_1_6 = "Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator" ascii //weight: 1
+        $x_1_7 = "SMNet.Form1.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_MSIL_FrostyStash_F_2147956420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MSIL/FrostyStash.F!dha"
+        threat_id = "2147956420"
+        type = "HackTool"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FrostyStash"
+        severity = "High"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Kill" ascii //weight: 1
+        $x_1_2 = "get_ModuleVersionId" ascii //weight: 1
+        $x_1_3 = "get_Message" ascii //weight: 1
+        $x_1_4 = "get_UserName" ascii //weight: 1
+        $x_1_5 = "get_ProcessName" ascii //weight: 1
+        $x_1_6 = "get_FullName" ascii //weight: 1
+        $x_1_7 = "set_ClientSize" ascii //weight: 1
+        $x_1_8 = "JavaScriptSerializer" ascii //weight: 1
+        $x_1_9 = "GetProcesses" ascii //weight: 1
+        $x_1_10 = "set_UseShellExecute" ascii //weight: 1
+        $x_1_11 = "get_Png" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

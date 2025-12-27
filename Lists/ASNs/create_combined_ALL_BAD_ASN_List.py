@@ -3,7 +3,7 @@ import csv
 import glob
 
 # Directory where the AS*_IP_Ranges.csv files are stored
-input_folder = '.'
+input_folder = 'ASN_IP_Ranges'
 output_file = '_ALL_BAD_ASN_IP_Ranges_List.csv'
 
 # Collect all AS*_IP_Ranges.csv files in the folder

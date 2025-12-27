@@ -305,3 +305,29 @@ rule TrojanSpy_AndroidOS_RewardSteal_AA_2147940013_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_RewardSteal_AD_2147947809_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/RewardSteal.AD!MTB"
+        threat_id = "2147947809"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "RewardSteal"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MinerExecutableDownload" ascii //weight: 1
+        $x_1_2 = "KEY_EXECUTABLE_DOWNLOADED" ascii //weight: 1
+        $x_1_3 = "/example/fcmexpr/miner" ascii //weight: 1
+        $x_1_4 = "MiningTracker" ascii //weight: 1
+        $x_1_5 = "/example/fcmexpr/keepalive/KeepAliveReceiver" ascii //weight: 1
+        $x_1_6 = "uasecurity.org/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

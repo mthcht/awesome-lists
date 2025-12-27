@@ -572,6 +572,40 @@ rule Trojan_MSIL_NanoCore_DA_2147897039_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "NanoCore Client" ascii //weight: 20
+        $x_1_2 = "KeyboardLogging" ascii //weight: 1
+        $x_1_3 = ".ClientPluginHost" ascii //weight: 1
+        $x_1_4 = "ClientInvokeDelegate" ascii //weight: 1
+        $x_1_5 = "PipeCreated" ascii //weight: 1
+        $x_1_6 = "get_ClientSettings" ascii //weight: 1
+        $x_1_7 = "get_Connected" ascii //weight: 1
+        $x_1_8 = "My.Computer" ascii //weight: 1
+        $x_1_9 = "System.Runtime.InteropServices" ascii //weight: 1
+        $x_1_10 = "MONEY MEN-$$$$" ascii //weight: 1
+        $x_1_11 = "BypassUserAccountControl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 5 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_NanoCore_DA_2147897039_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore.DA!MTB"
+        threat_id = "2147897039"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -670,5 +704,72 @@ rule Trojan_MSIL_NanoCore_BL_2147933059_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_MSIL_NanoCore_ZSL_2147956684_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore.ZSL!MTB"
+        threat_id = "2147956684"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 11 0a 11 0b 6f ?? 00 00 0a 13 0d 12 0d 28 ?? 00 00 0a 06 07 6f ?? 00 00 0a 59 13 0f 1f 10 13 10 1e 13 11 16 13 12 25 11 10 1f 1f 5f 63 20 ff 00 00 00 5f d2 13 13 25}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NanoCore_ZUJ_2147958707_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore.ZUJ!MTB"
+        threat_id = "2147958707"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {03 11 05 11 06 6f ?? 00 00 0a 13 0a 09 11 04 6f ?? 00 00 0a 59 13 0b 11 04 17 8d ?? 00 00 01 25 16 12 0a 28 ?? 00 00 0a 9c 6f ?? 00 00 0a 00 11 0b 17}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NanoCore_AMTB_2147958955_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore!AMTB"
+        threat_id = "2147958955"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "$79964F48-CA28-4A88-9650-1564117059D3" ascii //weight: 3
+        $x_1_2 = "ConsoleApplication3.MonoCecil" ascii //weight: 1
+        $x_1_3 = "ConsoleApplication3.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

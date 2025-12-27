@@ -267,3 +267,170 @@ rule Trojan_Win32_Mikey_AIV_2147943592_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_LMA_2147945892_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.LMA!MTB"
+        threat_id = "2147945892"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {0f be 04 19 41 99 c7 45 fc d9 06 00 00 f7 7d fc 8b c6 c7 45 fc 05 00 00 00 80 c2 4f 30 14 37 33 d2 f7 75 fc f7 da 1b d2 23 ca 46 3b 75 0c}  //weight: 15, accuracy: High
+        $x_10_2 = {8b 45 14 8b ce 8b 55 18 83 e1 07 c1 e1 03 e8 ?? ?? ?? ?? 30 04 1e 83 c6 01 83 d7 00 3b 7d 10 72 ?? ?? ?? 3b 75 0c 72 ?? 5f 5e 5b c9 c3}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mikey_AHF_2147949653_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.AHF!MTB"
+        threat_id = "2147949653"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "115"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = {4c 89 75 c0 48 c7 45 c8 0e 00 00 00 48 c7 45 d0 0a 00 00 00 4c 89 65 d8 48 c7 45 e0 0a 00 00 00 48 89 7d e8 48 89 5d f0}  //weight: 50, accuracy: High
+        $x_30_2 = "src\\modules\\browser\\crypto\\decrypt.rs" ascii //weight: 30
+        $x_30_3 = "src\\modules\\browser\\chromium\\crypto\\decrypt.rs" ascii //weight: 30
+        $x_20_4 = "src\\modules\\browser\\injection\\injector.rs" ascii //weight: 20
+        $x_20_5 = "src\\modules\\browser\\chromium\\injection\\injector.rs" ascii //weight: 20
+        $x_10_6 = "Failed to spawn download process for " ascii //weight: 10
+        $x_5_7 = "Browser executable not found at registry path" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_30_*) and 2 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_30_*) and 1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_30_*) and 2 of ($x_20_*))) or
+            ((1 of ($x_50_*) and 2 of ($x_30_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_50_*) and 2 of ($x_30_*) and 1 of ($x_10_*))) or
+            ((1 of ($x_50_*) and 2 of ($x_30_*) and 1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Mikey_OPQ_2147957695_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.OPQ!MTB"
+        threat_id = "2147957695"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {45 31 ff 45 89 fc 41 83 e4 03 46 8a 64 24 28 47 30 24 3b 4d 8d 67 01 4d 89 e7 4c 39 e1 75 e4}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mikey_BAG_2147957887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.BAG!MTB"
+        threat_id = "2147957887"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {69 64 61 74 61 00 00 00 20 00 00 00 00 04 00 00 02 00 00 00 7e 01}  //weight: 10, accuracy: High
+        $x_10_2 = {2e 72 73 72 63 00 00 00 00 20 00 00 00 20 04 00 00 06 00 00 00 80 01}  //weight: 10, accuracy: High
+        $x_10_3 = {2e 74 68 65 6d 69 64 61 00 c0 44 00 00 40 04 00 00 00 00 00 00 86 01}  //weight: 10, accuracy: High
+        $x_10_4 = {e0 2e 62 6f 6f 74 00 00 00 00 ae 22 00 00 00 49 00 00 ae 22 00 00 86 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mikey_LMJ_2147959696_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.LMJ!MTB"
+        threat_id = "2147959696"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 85 b8 fc ff ff 99 2b c2 d1 f8 33 c9 85 c0 7e ?? 66 83 b4 4d bc fe ff ff 7c 41 3b c8}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 46 0c 31 03 8b 06 83 e8 15 41 c1 e8 02 83 c3 04 3b c8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mikey_POME_2147959751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.POME!MTB"
+        threat_id = "2147959751"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8d 51 ff 83 e2 ?? 0f b6 92 ?? ?? ?? ?? 89 ce 83 e6 ?? 8a b6 ?? ?? ?? ?? 32 54 0f ff 32 34 0f 88 54 08 ff 88 34 08 83 c1 ?? 81 f9 ?? ?? ?? ?? 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mikey_LMK_2147960055_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.LMK!MTB"
+        threat_id = "2147960055"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {52 c6 44 24 1c 43 88 44 24 1e 88 4c 24 1f c6 44 24 20 74 88 44 24 21 c6 44 24 22 54 c6 44 24 23 68 88 44 24 25 88 4c 24 26 c6 44 24 27 64 c6 44 24 28 00}  //weight: 20, accuracy: High
+        $x_10_2 = {8b b4 24 88 06 00 00 8b c6 57 8d 50 02 66 8b 08 83 c0 02 66 85 c9 75 ?? 2b c2 d1 f8 8d 0c 46 89 4c 24 54 8b c1 3b ce}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

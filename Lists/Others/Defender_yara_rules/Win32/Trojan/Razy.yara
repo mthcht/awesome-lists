@@ -1180,6 +1180,27 @@ rule Trojan_Win32_Razy_ARA_2147897709_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {88 11 8a 00 8b 4d 10 03 c2 25 ff 00 00 00 03 cf 8a 84 05 fc fe ff ff 30 01 47 3b 7d 14 7c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_ARA_2147897709_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.ARA!MTB"
+        threat_id = "2147897709"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -1524,6 +1545,136 @@ rule Trojan_Win32_Razy_C_2147945058_0
         $x_1_3 = "InformationAccess.txt" wide //weight: 1
         $x_1_4 = "Adobe!.exe" wide //weight: 1
         $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_PGRZ_2147946036_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.PGRZ!MTB"
+        threat_id = "2147946036"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {25 3f 75 75 3d 75 3f f4 d6 75 3d 1b 75 75 75 5a 1f 6e 24 3f 4a 1f 3d f4 7d 75 3d f4 75 9d 6e 75 80 02 00 00 bd 75 97 bd 3f ac a9 01 91 25 76 86 91 cd 73 a5 a5 2d a4 b6 ea 02 08 18 9b 81}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_AC_2147951445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.AC!MTB"
+        threat_id = "2147951445"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 89 e5 53 57 56 83 e4 f8 81 ec 88 00 00 00 8b 45 08 31 c9 8b 54 24 78 8b 74 24 7c c7 44 24 74}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_LM_2147952037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.LM!MTB"
+        threat_id = "2147952037"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f b6 84 0d fc fe ff ff 88 84 3d fc fe ff ff 89 4d fc 88 94 0d fc fe ff ff 0f b6 8c 3d fc fe ff ff 0f b6 c2 03 c8 81 e1 ff 00 00 80 79 ?? 49 81 c9 00 ff ff ff 41 0f b6 84 0d fc fe ff ff 32 04 33 8b 4d fc 88 06 46 ff 4d 08}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_AHB_2147954617_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.AHB!MTB"
+        threat_id = "2147954617"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 44 24 30 35 ?? ?? ?? ?? 8b 4c 24 30 8b 54 24 34 0f af ca 8b 74 24 30 89 44 24 14 89 f0 f7 e6 01 ca}  //weight: 30, accuracy: Low
+        $x_20_2 = {d3 ef 66 35 ?? ?? 66 8b 1e 89 7c 24 78 8b 74 24 68 66 89 c1 66 d3 eb 0f b7 fb 66 81 f2}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_KK_2147957060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.KK!MTB"
+        threat_id = "2147957060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {db 43 00 00 00 09 db 81 ea 01 00 00 00 01 d3}  //weight: 20, accuracy: High
+        $x_10_2 = {0b 01 03 04 00 10 02 00 00 10 00 00 00 30 06}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Razy_ARR_2147957750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.ARR!MTB"
+        threat_id = "2147957750"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {49 41 49 31 c9 49 c1 e9}  //weight: 2, accuracy: High
+        $x_10_2 = {8b c3 0f b6 0c 3b 99 f7 7d 10 8b 45 0c 0f b6 04 02}  //weight: 10, accuracy: High
+        $x_8_3 = {43 4b 4b c1 eb ?? 43 4b 4b c1 eb ?? 31 db 43 83 c3}  //weight: 8, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -103,3 +103,25 @@ rule Trojan_Win32_Andromeda_RPY_2147899143_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Andromeda_AHB_2147953208_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Andromeda.AHB!MTB"
+        threat_id = "2147953208"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Andromeda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b cf 2b f7 8a 04 0e 8d 49 01 88 41 ff 42 8b 44 24 0c 3b d0 72}  //weight: 20, accuracy: High
+        $x_30_2 = {8b c1 c1 e8 ?? 30 04 3a 42 3b 54 24 0c 7c ?? 89 0d ?? ?? ?? ?? 8b cf}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

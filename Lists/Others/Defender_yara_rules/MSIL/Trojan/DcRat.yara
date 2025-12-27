@@ -415,3 +415,45 @@ rule Trojan_MSIL_DcRat_ZTY_2147941595_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DcRat_ZNR_2147946241_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DcRat.ZNR!MTB"
+        threat_id = "2147946241"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DcRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {06 11 06 11 05 6f ?? 00 00 0a 13 07 09 11 04 20 ff 00 00 00 12 07 28 ?? 00 00 0a 59 1f 72 61 d2 9c 11 06 17 58 13 06 11 04 17 58 13 04 11 06 07 2f 07 11 04 09 8e 69 32 c7 11 05 17 58 13 05 11 05 08 32 b7}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DcRat_ABD_2147959322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DcRat.ABD!MTB"
+        threat_id = "2147959322"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DcRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {00 07 09 06 09 91 08 09 08 8e 69 5d 91 61 d2 9c 08 09 08 8e 69 5d 08 09 08 8e 69 5d 91 17 58 20 00 01 00 00 5d d2 9c 00 09 17 58 0d 09 06 8e 69 fe 04 13 04 11 04 2d c8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

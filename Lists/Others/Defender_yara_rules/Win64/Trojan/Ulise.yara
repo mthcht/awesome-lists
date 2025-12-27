@@ -253,3 +253,117 @@ rule Trojan_Win64_Ulise_AUL_2147941838_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_ARAX_2147956093_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.ARAX!MTB"
+        threat_id = "2147956093"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 89 c1 41 83 e1 07 47 8a 0c 0a 44 32 0c 01 44 88 0c 02 48 ff c0 41 39 c0 7f e5}  //weight: 2, accuracy: High
+        $x_2_2 = {89 c8 99 41 f7 fa 48 63 d2 41 8a 04 13 32 04 0b 41 88 04 09 48 ff c1 41 39 c8 7f e4}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_Ulise_LM_2147957473_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.LM!MTB"
+        threat_id = "2147957473"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {40 00 00 40 6c 6c 76 6d 6d 73 76 63 00 e0 06 00 00 50 06 00 00 e0 06 00 00 cc 05 00}  //weight: 20, accuracy: High
+        $x_10_2 = {c8 a3 30 00 8c 00 00 00 00 10 31 00 08 6d 01 00 00 e0 05 00 ec 34 00 00}  //weight: 10, accuracy: High
+        $x_5_3 = {2e 66 70 74 61 62 6c 65 00 10 00 00 00 20 06}  //weight: 5, accuracy: High
+        $x_2_4 = {90 74 20 00 30 00 00 00 a4 f9 30 00 40 01}  //weight: 2, accuracy: High
+        $x_3_5 = {64 86 0c 00 5c b2 f0 68 00 00 00 00 00 00 00 00 f0 00 22 00}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Ulise_AHB_2147957980_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.AHB!MTB"
+        threat_id = "2147957980"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {c6 85 8a 00 00 00 48 c6 85 8b 00 00 00 83 c6 85 8c 00 00 00 c4 c6 85 8d 00 00 00 28 c6 85 8e 00 00 00 c3}  //weight: 30, accuracy: High
+        $x_20_2 = "Decrypting DLL with XOR key" ascii //weight: 20
+        $x_10_3 = "[KeyGet] Reflective injection successful" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Ulise_AHC_2147958925_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.AHC!MTB"
+        threat_id = "2147958925"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {42 8a 44 04 30 40 f6 c4 ?? 31 d0 42 88 04 01 66 44 0f ab f8 49 0f bf c3 e9 ?? ?? ?? ?? 69 c2 ?? ?? ?? ?? e9}  //weight: 30, accuracy: Low
+        $x_20_2 = {66 41 0f be d0 d3 d2 89 c2 83 e2 ?? f5 f9 8a 14 11 f5 f7 c3 ?? ?? ?? ?? 30 14 03 e9}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Ulise_AHC_2147958925_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.AHC!MTB"
+        threat_id = "2147958925"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {31 d0 42 88 04 01 fe cc 41 8a c0 69 c2 ?? ?? ?? ?? 49 ff c0 2b d2 41 f7 f1 49 83 f8}  //weight: 30, accuracy: Low
+        $x_20_2 = {42 8a 44 04 24 31 d0 42 88 04 01 69 c2 ?? ?? ?? ?? e9 ?? ?? ?? ?? 49 ff c0 f8 31 d2 f9 41 f7 f1 41 85 d1 49 81 fb ?? ?? ?? ?? e9}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

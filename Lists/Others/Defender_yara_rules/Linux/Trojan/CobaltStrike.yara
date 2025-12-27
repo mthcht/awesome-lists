@@ -116,3 +116,29 @@ rule Trojan_Linux_CobaltStrike_H_2147937784_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_CobaltStrike_I_2147951877_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/CobaltStrike.I!MTB"
+        threat_id = "2147951877"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main/command.parseCommandUpload" ascii //weight: 1
+        $x_1_2 = "main/command.portForwardServe" ascii //weight: 1
+        $x_1_3 = "main/packet.PullCommand" ascii //weight: 1
+        $x_1_4 = "/command/port_forward.go" ascii //weight: 1
+        $x_1_5 = "main/command.parseCommandShell" ascii //weight: 1
+        $x_1_6 = "main/command.Upload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -97,6 +97,27 @@ rule Trojan_MSIL_Dacic_SL_2147923796_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {73 01 00 00 0a 25 6f 02 00 00 0a 72 ad 00 00 70 72 c3 00 00 70 6f 03 00 00 0a 72 c0 01 00 70 6f 04 00 00 0a 13 01 20 00 00 00 00 7e 01 03 00 04 7b 23 03 00 04 39 0f 00 00 00 26 20 00 00 00 00 38 04 00 00 00 fe 0c 00 00 45 01 00 00 00 05 00 00 00 38 00 00 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Dacic_SL_2147923796_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dacic.SL!MTB"
+        threat_id = "2147923796"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

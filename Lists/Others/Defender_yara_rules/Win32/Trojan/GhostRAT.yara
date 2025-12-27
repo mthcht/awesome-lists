@@ -279,3 +279,48 @@ rule Trojan_Win32_GhostRAT_SPHF_2147935751_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GhostRAT_ARAX_2147954631_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GhostRAT.ARAX!MTB"
+        threat_id = "2147954631"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GhostRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = ":\\buildbot\\build1\\desktop_screen\\build\\bin\\active_desktop_launcher.pdb" ascii //weight: 3
+        $x_3_2 = ":\\Program Files\\RandomFolder_" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GhostRAT_SPVX_2147959671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GhostRAT.SPVX!MTB"
+        threat_id = "2147959671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GhostRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SystemRoot%\\System32\\svchost.exe -k imgsvc" ascii //weight: 2
+        $x_2_2 = "Msbfjs Gvturuxk Jkl" ascii //weight: 2
+        $x_1_3 = "Vpkq\\Bixasnbwp.pic" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

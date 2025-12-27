@@ -49,3 +49,29 @@ rule Ransom_MSIL_HakunaMatata_PDZ_2147945076_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HakunaMatata_SMA_2147959986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HakunaMatata.SMA!MSR"
+        threat_id = "2147959986"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HakunaMatata"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Hakuna Matata.exe" ascii //weight: 2
+        $x_2_2 = "ENCRYPT FILES IN PROCESS" wide //weight: 2
+        $x_2_3 = "DELETE SHADOW COPIES" wide //weight: 2
+        $x_2_4 = "DISABLE RECOVERY MODE" wide //weight: 2
+        $x_2_5 = "UAC BYPASS" wide //weight: 2
+        $x_1_6 = "Readme.txt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

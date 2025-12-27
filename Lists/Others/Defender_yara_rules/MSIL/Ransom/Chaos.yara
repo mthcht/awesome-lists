@@ -42,3 +42,26 @@ rule Ransom_MSIL_Chaos_NITA_2147939927_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Chaos_ACH_2147946600_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Chaos.ACH!MTB"
+        threat_id = "2147946600"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0c 2b 2e 08 6f ?? 00 00 0a 0d 00 09 28 ?? 00 00 0a 13 04 06 11 04 28 ?? 00 00 2b 13 05 11 05 2c 0f 00 02 7b ?? 00 00 04 09 6f}  //weight: 3, accuracy: Low
+        $x_2_2 = {2b 01 16 2b 01 17 0b 04 2c 14 04 2c 0e 0e 05 72 ?? 04 00 70 28 ?? 00 00 0a 2b 01 16 2b 01 17 0c 05 2c 14 05 2c 0e 0e 05 72 ?? 04 00 70 28 ?? 00 00 0a 2b 01}  //weight: 2, accuracy: Low
+        $x_1_3 = "10.30.10.243" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

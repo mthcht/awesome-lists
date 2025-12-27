@@ -257,3 +257,134 @@ rule Trojan_Win64_Redcap_ARDP_2147933485_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Redcap_AB_2147945993_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.AB!MTB"
+        threat_id = "2147945993"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {31 c9 eb 07 48 81 c1 60 98 00 00 48 81 f9 5f 98 00 00 7c f0 31 c9 eb 07 48 81 c1 30 34 00 00 48 81}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Redcap_GZF_2147952062_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.GZF!MTB"
+        threat_id = "2147952062"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 4c 24 ?? 48 8b 54 24 ?? 48 03 d1 48 8b ca 0f b6 09 33 c8 8b c1 48 8b 4c 24 ?? 48 8b 54 24 ?? 48 03 d1 48 8b ca 88 01 0f b6 05 ?? ?? ?? ?? 48 8b 4c 24 ?? 48 8b 54 24 40 48 03 d1 48 8b ca 0f b6 09 03 c8 8b c1 48 8b 4c 24 ?? 48 8b 54 24 ?? 48 03 d1 48 8b ca 88 01}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Redcap_SX_2147955238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.SX!MTB"
+        threat_id = "2147955238"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {48 89 d7 48 f7 eb 48 c1 fa ?? 49 89 d8 48 c1 fb ?? 48 29 da 48 8d 1c 52 48 8d 1c 9a 49 29 d8 0f 57 c9 f2 49 0f 2a c8}  //weight: 6, accuracy: Low
+        $x_4_2 = {48 89 d3 48 f7 ea 48 d1 fa 48 8b 84 24 ?? ?? ?? ?? 48 29 c2 48 8d 04 52 48 8d 04 42 48 29 c3}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Redcap_AHB_2147957814_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.AHB!MTB"
+        threat_id = "2147957814"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 89 f7 48 d1 e7 48 89 bc 24 c0 07 00 00 48 c1 ff ?? 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 4c 8b bc 24 c0 07 00 00 49 f7 ef 48 8d 04 72 48 c1 f8 ?? 48 29 f8 48 89 c2 48 c1 e0}  //weight: 30, accuracy: Low
+        $x_20_2 = {48 f7 ea 49 89 d8 48 c1 fb ?? 48 c1 fa ?? 48 29 da 48 69 c2 ?? ?? ?? ?? 4c 89 c2 49 29 c0 4d 89 01 48 c1 eb ?? 4c 8d 04 1a 4c 89 c0}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Redcap_AHC_2147958259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.AHC!MTB"
+        threat_id = "2147958259"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 29 d1 48 ff c9 48 89 4c 24 50 48 89 ce 48 f7 d9 48 c1 f9 ?? 48 8b bc 24 80 00 00 00 48 21 cf 48 8b 8c 24 98 01 00 00 48 01 cf}  //weight: 10, accuracy: Low
+        $x_20_2 = "c2-agent/internal/evasion.PatchAMSI" ascii //weight: 20
+        $x_30_3 = "c2-agent/internal/obfuscator.init" ascii //weight: 30
+        $x_40_4 = "c2-agent/internal/crypto.GetCleanAgentID" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Redcap_ARPA_2147959608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.ARPA!MTB"
+        threat_id = "2147959608"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 00 48 8b 8c 24 58 ac 00 00 48 89 8c 24 98 5c 01 00 0f b6 c8 48 8b 84 24 98 5c 01 00 8b 00 d3 f8 89 84 24 40 56 00 00 48 8d 0d 13 a1 01 00 ff 15 ?? ?? ?? ?? 48 8d 15 ee a0 01 00 48 8b c8 ff 15}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

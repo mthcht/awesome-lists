@@ -945,3 +945,24 @@ rule Trojan_MSIL_CobaltStrike_SDID_2147932395_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CobaltStrike_GVA_2147946060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CobaltStrike.GVA!MTB"
+        threat_id = "2147946060"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {28 7e 07 00 06 0a 02 2d 0c 03 2d 09 07 28 ef 03 00 06 26 2b 11 07 02 03 28 ee 03 00 06 26 2b 06 20 01 40 00 80 0a 06 2a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

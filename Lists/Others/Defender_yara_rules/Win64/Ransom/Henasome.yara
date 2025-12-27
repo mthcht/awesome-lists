@@ -49,3 +49,27 @@ rule Ransom_Win64_Henasome_MA_2147832359_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Henasome_AA_2147954062_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Henasome.AA!MTB"
+        threat_id = "2147954062"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Henasome"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "files in the specified directory have been encrypted" ascii //weight: 1
+        $x_1_2 = "Starting local encryption" ascii //weight: 1
+        $x_1_3 = "delete shadow copies" ascii //weight: 1
+        $x_1_4 = "README.TXT" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

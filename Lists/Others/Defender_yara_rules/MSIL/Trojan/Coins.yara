@@ -85,3 +85,24 @@ rule Trojan_MSIL_Coins_KAA_2147900306_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Coins_MKV_2147958335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Coins.MKV!MTB"
+        threat_id = "2147958335"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Coins"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0c 08 03 6f ?? 00 00 0a 08 06 6f ?? 00 00 0a 08 17 6f ?? 00 00 0a 08 18 6f ?? 00 00 0a 08 6f ?? 00 00 0a 0d 09 07 16 07 8e 69 6f ?? 00 00 0a 13 04 de 1f}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

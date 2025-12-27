@@ -88,3 +88,24 @@ rule Trojan_Win32_Bobik_NB_2147897389_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Bobik_ARA_2147952567_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bobik.ARA!MTB"
+        threat_id = "2147952567"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {66 8b 02 8d 52 fe 0f b7 8c 75 34 ff ff ff 66 89 84 75 34 ff ff ff 46 66 89 4a 02 3b f7 7c e1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

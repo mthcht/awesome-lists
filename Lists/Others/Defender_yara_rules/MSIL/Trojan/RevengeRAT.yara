@@ -181,27 +181,6 @@ rule Trojan_MSIL_RevengeRAT_D_2147895563_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RevengeRAT_PTIZ_2147903206_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RevengeRAT.PTIZ!MTB"
-        threat_id = "2147903206"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RevengeRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {d0 1a 00 00 04 28 ?? 00 00 0a 28 ?? 00 00 06 28 ?? 04 00 06 80 19 00 00 04 7e 19 00 00 04 2a}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_RevengeRAT_E_2147904612_0
 {
     meta:

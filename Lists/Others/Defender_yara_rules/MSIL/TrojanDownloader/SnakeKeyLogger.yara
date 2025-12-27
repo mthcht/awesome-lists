@@ -96,3 +96,26 @@ rule TrojanDownloader_MSIL_SnakeKeyLogger_RK_2147939356_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_SnakeKeyLogger_DWL_2147947494_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/SnakeKeyLogger.DWL!MTB"
+        threat_id = "2147947494"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Ikxnojohd.exe" ascii //weight: 1
+        $x_1_2 = "http://196.251.92.69" ascii //weight: 1
+        $x_1_3 = "Mozilla/5.0" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

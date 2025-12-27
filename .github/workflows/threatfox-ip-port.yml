@@ -1,0 +1,38 @@
+name: ThreatFox IP-Port Update
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'   # every 2 hours
+  workflow_dispatch:
+
+jobs:
+  update-threatfox-ip-port:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run ThreatFox IP-Port script
+        run: |
+          cd Lists/IP/Threatfox/
+          python fetch_threatfox_ip_port.py
+
+      - name: Commit and push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name  "GitHub Action"
+          git pull
+          git add Lists/IP/Threatfox/threatfox_ip_ports_list.csv
+          git commit -m "Update ThreatFox IP-Port feed" --allow-empty
+          git push

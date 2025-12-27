@@ -277,9 +277,9 @@ rule VirTool_Win32_CobaltStrike_H_2147781998_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
-        strings_accuracy = "Low"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = {8b 5d 08 c7 44 24 10 04 00 00 00 c7 44 24 0c 00 10 00 00 8d 87 80 00 00 00 89 44 24 08 c7 44 24 04 00 00 00 00 89 1c 24 ff 15 ?? ?? ?? ?? 83 ec 14 89 c6 8d 45 e0 89 44 24 10 8b 45 1c 89 7c 24 0c 89 74 24 04 89 1c 24 89 44 24 08 ff 15 ?? ?? ?? ?? 8b 45 e0 83 ec 14 39 f8 75}  //weight: 1, accuracy: Low
+        $x_1_1 = {8b 5d 08 8b 75 0c 8b 55 10 39 f0 7d 0e 89 c1 83 e1 03 8a 0c 0a 30 0c 03 40 eb ee 89 1c 24}  //weight: 1, accuracy: High
         $x_1_2 = {c7 44 24 24 65 00 00 00 c7 44 24 20 70 00 00 00 c7 44 24 1c 69 00 00 00 c7 44 24 18 70 00 00 00}  //weight: 1, accuracy: High
         $x_1_3 = "%c%c%c%c%c%c%c%c%cMSSE-%d-server" ascii //weight: 1
     condition:
@@ -308,6 +308,29 @@ rule VirTool_Win32_CobaltStrike_H_2147781998_1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule VirTool_Win32_CobaltStrike_H_2147781998_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/CobaltStrike.H"
+        threat_id = "2147781998"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 5d 08 c7 44 24 10 04 00 00 00 c7 44 24 0c 00 10 00 00 8d 87 80 00 00 00 89 44 24 08 c7 44 24 04 00 00 00 00 89 1c 24 ff 15 ?? ?? ?? ?? 83 ec 14 89 c6 8d 45 e0 89 44 24 10 8b 45 1c 89 7c 24 0c 89 74 24 04 89 1c 24 89 44 24 08 ff 15 ?? ?? ?? ?? 8b 45 e0 83 ec 14 39 f8 75}  //weight: 1, accuracy: Low
+        $x_1_2 = {c7 44 24 24 65 00 00 00 c7 44 24 20 70 00 00 00 c7 44 24 1c 69 00 00 00 c7 44 24 18 70 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "%c%c%c%c%c%c%c%c%cMSSE-%d-server" ascii //weight: 1
+        $x_1_4 = {89 c6 83 ec 10 31 c0 39 d8 7d ?? 8b 4d 10 89 c2 83 e2 03 8a 14 11 8b 4d 08 32 14 01 88 14 06 40 eb}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
 }
 
 rule VirTool_Win32_CobaltStrike_I_2147782908_0

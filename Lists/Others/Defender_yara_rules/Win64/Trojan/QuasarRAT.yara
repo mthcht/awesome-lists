@@ -117,3 +117,70 @@ rule Trojan_Win64_QuasarRAT_PAEY_2147914395_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_QuasarRAT_GZF_2147945773_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.GZF!MTB"
+        threat_id = "2147945773"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {4c 03 f5 45 8b 66 ?? 45 8b 6e ?? 4c 03 e5 41 8b 46 ?? 4c 03 ed 48 03 c5 48 89 44 24 ?? 41 39 7e ?? ?? ?? 66 66 0f 1f 84 00 00 00 00 00 41 8b 0c bc 48 8d 15 ?? ?? ?? ?? 48 03 cd 41 b8 ?? ?? ?? ?? e8 ?? ?? ?? ?? 85 c0 0f 84 ?? ?? ?? ?? ff c7 41 3b 7e 18}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_QuasarRAT_GVA_2147951901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.GVA!MTB"
+        threat_id = "2147951901"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 f8 8b 7c 24 34 0f b6 14 17 31 d0 89 fa 8b 7c 24 3c 88 04 37 46 89 f8 39 ee 7d 1a 0f b6 3c 33 85 c9 0f 84 38 01 00 00 89 f0 99 f7 f9 39 d1 77 cf}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_QuasarRAT_AAD_2147955161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.AAD!MTB"
+        threat_id = "2147955161"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell -NoProfile -WindowStyle Hidden" ascii //weight: 1
+        $x_1_2 = "103.131.200.208" ascii //weight: 1
+        $x_1_3 = "update/WindowsSystem.exe" ascii //weight: 1
+        $x_1_4 = "PowerShell\\pshostsvc.exe" ascii //weight: 1
+        $x_1_5 = "PSHostSvc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

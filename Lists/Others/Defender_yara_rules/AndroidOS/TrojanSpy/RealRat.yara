@@ -167,3 +167,25 @@ rule TrojanSpy_AndroidOS_RealRat_J_2147844102_0
         (3 of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_RealRat_K_2147950253_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/RealRat.K!MTB"
+        threat_id = "2147950253"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "RealRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {13 01 10 00 33 10 24 00 22 00 d0 09 54 41 ef 3b 52 42 fb 3b 52 43 f9 3b 70 40 20 4d 10 32 52 41 fb 3b 52 42 f9 3b b0 21 59 41 fb 3b 12 01 59 41 f7 3b 54 41 f5 3b 52 42 fd 3b d8 02 02 ff 44 03 01 02 d8 03 03 01 4b 03 01 02 11 00}  //weight: 1, accuracy: High
+        $x_1_2 = {52 52 f7 3b 39 02 06 00 6e 10 53 4b 05 00 0a 02 12 33 12 14 33 32 08 00 70 20 69 4b 45 00 d8 01 01 01 28 51 33 42 06 00 70 20 69 4b 35 00 28 f8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

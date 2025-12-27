@@ -8247,6 +8247,27 @@ rule Trojan_Win32_Dridex_AB_2147797680_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dridex_AB_2147797680_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dridex.AB!MTB"
+        threat_id = "2147797680"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 8d b4 e6 ff ff 8b 45 0c 0f b6 00 83 f8 31 ?? ?? 83 f8 35 ?? ?? 33 8d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Dridex_ADS_2147797953_0
 {
     meta:
@@ -9623,6 +9644,29 @@ rule Trojan_Win32_Dridex_UHD_2147934520_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {01 f8 88 c2 0f b6 c2 8b 7c 24 10 8a 14 07 8b 44 24 18 8a 34 08 30 f2 8b 44 24 ?? 88 14 08 41 c7 44 24 ?? 00 00 00 00 c7 44 24 20 84 46 b0 4d 8b 44 24 1c 39 c1 89 4c 24 08 89 74 24 04 89 5c 24 0c 0f 85}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Dridex_ADR_2147952454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dridex.ADR!MTB"
+        threat_id = "2147952454"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {83 c4 08 89 45 f0 6a 0a 68 e8 03 00 00 ff 75 08 ff 15 ?? ?? ?? ?? 85 c0 74 34 89 45 e8 50 ff 75 08}  //weight: 3, accuracy: Low
+        $x_2_2 = {68 49 73 75 7a 54 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 ff 75 ?? 6a 00 8d 93}  //weight: 2, accuracy: Low
+        $x_1_3 = "han_th09_chc17chm_edhu_achisuz" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

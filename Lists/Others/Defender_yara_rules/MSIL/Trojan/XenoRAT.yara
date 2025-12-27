@@ -178,3 +178,48 @@ rule Trojan_MSIL_XenoRAT_ZHJ_2147936674_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XenoRAT_AR_2147952487_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XenoRAT.AR!MTB"
+        threat_id = "2147952487"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XenoRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {fe 0c 05 00 fe 09 00 00 28 a8 00 00 06 fe 09 00 00 8e 69 6f 1c 00 00 0a fe 0c 05 00 6f 1d 00 00 0a fe 0c 04 00 6f 1e 00 00 0a fe 0e 00 00 de 20}  //weight: 20, accuracy: High
+        $x_10_2 = {fe 09 01 00 8e 69 fe 09 02 00 59 8d 3a 00 00 01 fe 0e 00 00 fe 09 01 00 fe 09 02 00 fe 0c 00 00 28 c5 00 00 06 fe 0c 00 00 8e 69 28 35 00 00 0a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XenoRAT_SJ_2147958825_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XenoRAT.SJ!MTB"
+        threat_id = "2147958825"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XenoRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {06 72 63 00 00 70 20 96 7a 92 7f 28 74 00 00 06 28 75 00 00 06 6f 3c 00 00 0a 11 05 20 95 32 e7 ad 5a 20 8f a3 1f 9f 58 2b b4 06 6f 3d 00 00 0a 11 05 20 a3 c6 30 d6 5a 20 67 45 80 5c 61 2b 9e}  //weight: 1, accuracy: High
+        $x_1_2 = "GetBytes" ascii //weight: 1
+        $x_1_3 = "Mutex" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -237,3 +237,114 @@ rule Trojan_MSIL_Xworm_ZSS_2147945144_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xworm_PGW_2147945223_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PGW!MTB"
+        threat_id = "2147945223"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {5d 16 fe 01 13 05 11 05 2c 0f 02 11 04 02 11 04 91 20 ?? 00 00 00 61 b4 9c 11 04 17 d6 13 04 11 04 09 31 d9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Xworm_PGW_2147945223_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PGW!MTB"
+        threat_id = "2147945223"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {14 fe 06 38 00 00 06 73 ?? 00 00 0a 0a 06 14 73 ?? 00 00 0a 20 10 27 00 00 20 98 3a 00 00 6f ?? 00 00 0a 73 ?? 00 00 0a 20 10 27 00 00 20 98 3a 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Xworm_PGW_2147945223_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PGW!MTB"
+        threat_id = "2147945223"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 1f 16 94 13 23 11 1f 17 94 13 24 02 11 23 11 24 6f ?? 00 00 0a 13 25 0e 0b 2c 39 11 1b 18 31 34}  //weight: 5, accuracy: Low
+        $x_5_2 = {11 27 06 61 06 61 d2 13 27 11 28 16 61 d2 13 28 11 29 06 61 06 61 d2 13 29}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Xworm_EM_2147953695_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.EM!MTB"
+        threat_id = "2147953695"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DownloadFileAsync" ascii //weight: 1
+        $x_1_2 = "D3DSCache" ascii //weight: 1
+        $x_1_3 = "hacker666lgbt" ascii //weight: 1
+        $x_1_4 = "main.exe" ascii //weight: 1
+        $x_1_5 = "fontdrvhost.exe" ascii //weight: 1
+        $x_1_6 = "dllhost.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Xworm_PGXW_2147954424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PGXW!MTB"
+        threat_id = "2147954424"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {e2 62 5e 78 70 3f 93 25 b0 26 c7 a1 3f 91 0f 04 ae de 9b 69 9e 5b d5 8f 6f cd ca 88 38 8d 85 98 bc f3 e7 48 a5 11 6d f4 4f 72 98 2f 3b b3 e4 d8 bb cf c6 ec ef 0b b9 cc 1e 77 4e 47 d8 e7 fb 4d 1c 42 01 2c f3 55 03 60 f6 12 a3 f9 4d b2 ae ee 89 10 83 0c 19 e7 b8 5f fb 28 4d e5 4a 82 18 7f}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

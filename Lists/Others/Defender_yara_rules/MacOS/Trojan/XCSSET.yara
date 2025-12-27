@@ -55,17 +55,19 @@ rule Trojan_MacOS_XCSSET_AB_2147933668_0
         family = "XCSSET"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "22"
+        threshold = "32"
         strings_accuracy = "High"
     strings:
-        $x_10_1 = "echo " wide //weight: 10
+        $x_20_1 = "echo " wide //weight: 20
         $x_2_2 = "| xxd -p -r | xxd -p -r |" wide //weight: 2
         $x_2_3 = "| base64 -D | base64 -D |" wide //weight: 2
         $x_10_4 = "| sh >/dev/null 2>&1 &" wide //weight: 10
+        $x_10_5 = "| sh ) >/dev/null 2>&1 &" wide //weight: 10
     condition:
         (filesize < 20MB) and
         (
-            ((2 of ($x_10_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_20_*) and 2 of ($x_10_*))) or
             (all of ($x*))
         )
 }
@@ -106,16 +108,20 @@ rule Trojan_MacOS_XCSSET_ST_2147935106_0
         family = "XCSSET"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "4"
+        threshold = "12"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = "curl -fskL -d " wide //weight: 1
-        $x_1_2 = "os=$(uname -s)&p=" wide //weight: 1
-        $x_1_3 = {68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
-        $x_1_4 = "| sh >/dev/null 2>&1 &" wide //weight: 1
+        $x_10_2 = {6f 00 73 00 3d 00 [0-32] 26 00 70 00 3d 00 78 00 63 00 6f 00 64 00 65 00 26 00 75 00 3d 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {6f 00 73 00 3d 00 [0-32] 26 00 70 00 3d 00 64 00 65 00 66 00 61 00 75 00 6c 00 74 00}  //weight: 10, accuracy: Low
+        $x_1_4 = {68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_MacOS_XCSSET_SC_2147935107_0
@@ -376,10 +382,10 @@ rule Trojan_MacOS_XCSSET_SZ_2147935617_0
         family = "XCSSET"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "21"
+        threshold = "51"
         strings_accuracy = "Low"
     strings:
-        $x_20_1 = "curl " wide //weight: 20
+        $x_50_1 = "curl " wide //weight: 50
         $x_1_2 = {68 00 74 00 74 00 70 00 [0-16] 62 00 75 00 6c 00 6b 00 6e 00 61 00 6d 00 65 00 73 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
         $x_1_3 = {68 00 74 00 74 00 70 00 [0-16] 63 00 61 00 73 00 74 00 6c 00 65 00 6e 00 65 00 74 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
         $x_1_4 = {68 00 74 00 74 00 70 00 [0-16] 63 00 68 00 61 00 6f 00 70 00 69 00 6e 00 67 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
@@ -400,10 +406,35 @@ rule Trojan_MacOS_XCSSET_SZ_2147935617_0
         $x_1_19 = {68 00 74 00 74 00 70 00 [0-16] 74 00 72 00 69 00 78 00 6d 00 61 00 74 00 65 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
         $x_1_20 = {68 00 74 00 74 00 70 00 [0-16] 66 00 69 00 67 00 6d 00 61 00 73 00 6f 00 6c 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
         $x_1_21 = {68 00 74 00 74 00 70 00 [0-16] 67 00 69 00 7a 00 6d 00 6f 00 64 00 6f 00 63 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_22 = {68 00 74 00 74 00 70 00 [0-16] 63 00 64 00 6e 00 74 00 6f 00 72 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_23 = {68 00 74 00 74 00 70 00 [0-16] 63 00 68 00 65 00 63 00 6b 00 63 00 64 00 6e 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_24 = {68 00 74 00 74 00 70 00 [0-16] 63 00 64 00 63 00 61 00 63 00 68 00 65 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_25 = {68 00 74 00 74 00 70 00 [0-16] 61 00 70 00 70 00 6c 00 65 00 63 00 64 00 6e 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_26 = {68 00 74 00 74 00 70 00 [0-16] 66 00 6c 00 6f 00 77 00 63 00 64 00 6e 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_27 = {68 00 74 00 74 00 70 00 [0-16] 65 00 6c 00 61 00 73 00 74 00 69 00 63 00 64 00 6e 00 73 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_28 = {68 00 74 00 74 00 70 00 [0-16] 72 00 75 00 62 00 6c 00 65 00 6e 00 65 00 74 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_29 = {68 00 74 00 74 00 70 00 [0-16] 66 00 69 00 78 00 6d 00 61 00 74 00 65 00 73 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_30 = {68 00 74 00 74 00 70 00 [0-16] 64 00 69 00 67 00 69 00 63 00 68 00 61 00 74 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_31 = {68 00 74 00 74 00 70 00 [0-16] 64 00 69 00 67 00 67 00 69 00 6d 00 61 00 78 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_32 = {68 00 74 00 74 00 70 00 [0-16] 66 00 69 00 67 00 6d 00 61 00 73 00 74 00 61 00 72 00 73 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_33 = {68 00 74 00 74 00 70 00 [0-16] 62 00 75 00 6c 00 6b 00 73 00 65 00 63 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_34 = {68 00 74 00 74 00 70 00 [0-16] 61 00 64 00 6f 00 62 00 65 00 74 00 72 00 69 00 78 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_35 = {68 00 74 00 74 00 70 00 [0-16] 66 00 69 00 67 00 6d 00 61 00 63 00 61 00 74 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_36 = {68 00 74 00 74 00 70 00 [0-16] 63 00 64 00 6e 00 72 00 6f 00 75 00 74 00 65 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_37 = {68 00 74 00 74 00 70 00 [0-16] 73 00 69 00 67 00 6d 00 61 00 6e 00 6f 00 77 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_38 = {68 00 74 00 74 00 70 00 [0-16] 6d 00 64 00 73 00 63 00 61 00 63 00 68 00 65 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_39 = {68 00 74 00 74 00 70 00 [0-16] 74 00 72 00 69 00 6e 00 69 00 74 00 79 00 73 00 6f 00 6c 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_40 = {68 00 74 00 74 00 70 00 [0-16] 76 00 65 00 72 00 69 00 66 00 79 00 73 00 69 00 67 00 6e 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_41 = {68 00 74 00 74 00 70 00 [0-16] 64 00 69 00 67 00 69 00 74 00 61 00 6c 00 63 00 64 00 6e 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_42 = {68 00 74 00 74 00 70 00 [0-16] 77 00 69 00 6e 00 64 00 73 00 65 00 63 00 75 00 72 00 65 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_43 = {68 00 74 00 74 00 70 00 [0-16] 61 00 64 00 6f 00 62 00 65 00 63 00 64 00 6e 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_44 = {68 00 74 00 74 00 70 00 [0-16] 6e 00 65 00 74 00 70 00 6c 00 61 00 6e 00 61 00 70 00 73 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_45 = {68 00 74 00 74 00 70 00 [0-16] 61 00 63 00 63 00 61 00 70 00 70 00 6c 00 65 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
+        $x_1_46 = {68 00 74 00 74 00 70 00 [0-16] 63 00 64 00 6e 00 67 00 6c 00 6f 00 62 00 61 00 6c 00 2e 00 72 00 75 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
-            ((1 of ($x_20_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }
@@ -424,6 +455,29 @@ rule Trojan_MacOS_XCSSET_SB_2147935618_0
     strings:
         $x_1_1 = {63 00 75 00 72 00 6c 00 20 00 2d 00 6f 00 20 00 2f 00 74 00 6d 00 70 00 2f 00 [0-32] 20 00 2d 00 66 00 73 00 6b 00 4c 00 20 00 2d 00 64 00 20 00 70 00 3d 00 64 00 65 00 66 00 61 00 75 00 6c 00 74 00 26 00 75 00 3d 00 [0-32] 26 00 61 00 3d 00}  //weight: 1, accuracy: Low
         $x_1_2 = {20 00 68 00 74 00 74 00 70 00 [0-32] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_XCSSET_BA_2147952334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/XCSSET.BA"
+        threat_id = "2147952334"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "XCSSET"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "do shell script" wide //weight: 1
+        $x_2_2 = {63 00 75 00 72 00 6c 00 20 00 2d 00 66 00 73 00 6b 00 4c 00 20 00 2d 00 6f 00 20 00 2f 00 74 00 6d 00 70 00 2f 00 [0-64] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 2f 00 [0-64] 26 00 26 00 20 00 6f 00 73 00 61 00 73 00 63 00 72 00 69 00 70 00 74 00 20 00 2f 00 74 00 6d 00 70 00}  //weight: 2, accuracy: Low
+        $x_1_3 = "rm -f /tmp/" wide //weight: 1
+        $x_1_4 = "end try" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

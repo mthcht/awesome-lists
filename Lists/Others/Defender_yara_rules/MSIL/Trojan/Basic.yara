@@ -62,3 +62,30 @@ rule Trojan_MSIL_Basic_A_2147936819_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Basic_AC_2147955227_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Basic.AC!MTB"
+        threat_id = "2147955227"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Basic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DCRat.Code" ascii //weight: 1
+        $x_1_2 = "keyloggerdata" ascii //weight: 1
+        $x_1_3 = "Ionic.Zip.Resources.ZippedResources.zip" ascii //weight: 1
+        $x_1_4 = "DebuggingModes" ascii //weight: 1
+        $x_1_5 = "GZipStream" ascii //weight: 1
+        $x_1_6 = "DebuggableAttribute" ascii //weight: 1
+        $x_1_7 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

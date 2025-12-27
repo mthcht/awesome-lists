@@ -1522,3 +1522,356 @@ rule Trojan_Win64_Rozena_PGR_2147942817_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_PA_2147945686_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.PA!MTB"
+        threat_id = "2147945686"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c9 8b d7 48 8b c1 48 8d 5b 01 83 e0 03 48 ff c1 0f b6 44 04 38 30 43 ff 48 83 ea 01 75 ?? 48 8b 5c 24 ?? 48 83 c4 20 5f c3}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_GVA_2147948171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.GVA!MTB"
+        threat_id = "2147948171"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "://110.41.170.231:8000/beacon.bin.enc" ascii //weight: 2
+        $x_1_2 = "schtasksshutdown" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_KK_2147949263_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.KK!MTB"
+        threat_id = "2147949263"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {69 c0 0d 66 19 00 8d ?? ?? ?? ?? ?? 89 d0 c1 f8 1f c1 e8 18 01 c2 0f b6 d2 29 c2 89 d0}  //weight: 20, accuracy: Low
+        $x_10_2 = {10 00 00 41 b9 04 00 00 00 41 b8 00 30 00 00 48 89 c2 b9 00 00 00 00 41 ff d2 48}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_ARB_2147949831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.ARB!MTB"
+        threat_id = "2147949831"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 01 d0 0f b6 10 0f b6 05 ?? ?? ?? ?? 31 c2 48 8d 0d ?? ?? ?? ?? 48 8b 45 f8 48 01 c8 88 10}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_CD_2147951006_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.CD!MTB"
+        threat_id = "2147951006"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {49 89 d0 ba 00 00 00 00 48 89 c1 e8 ?? ?? ?? ?? 48 8b 05 ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 48 89 c1 e8 ?? ?? ?? ?? 48 89 c2 48 8d 45 ?? 48 89 c1 e8 ?? ?? ?? ?? 41 b9 40 00 00 00 41 b8 00 30 00 00 ba ?? ?? ?? ?? b9 00 00 00 00 48 8b 05 ?? ?? ?? ?? ff d0}  //weight: 3, accuracy: Low
+        $x_2_2 = {49 89 d0 48 89 c2 e8 ?? ?? ?? ?? 48 8b 85 ?? ?? ?? ?? ff d0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_AB_2147952698_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.AB!MTB"
+        threat_id = "2147952698"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b9 27 00 00 00 48 89 c7 48 89 d6 f3 48 a5 48 89 f2 48 89 f8 0f b7 0a 66 89 08 48 b8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_SPZP_2147953392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SPZP!MTB"
+        threat_id = "2147953392"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 31 0a 48 83 c2 08 49 3b d0 72}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_PGRN_2147957038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.PGRN!MTB"
+        threat_id = "2147957038"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "powershell -w hidden -nop -e YwBtAGQALgBlAHgAZQAgAC8AYwAgACcAcABvAHcAZQByAHMAaABlAGwAbAAgAC0AdwA" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_ADMB_2147958384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.ADMB!MTB"
+        threat_id = "2147958384"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4b 8d 0c 06 33 d2 49 8b c0 49 f7 f2 42 0f b6 04 22 32 04 19 88 01 49 ff c0 4c 3b c7 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_APMB_2147958742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.APMB!MTB"
+        threat_id = "2147958742"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {99 41 f7 f9 48 63 c2 8a 14 04 48 89 c3 88 14 3c 88 0c 04 02 0c 3c 0f b6 c9 8a 04 0c 43 30 04 02 49 ff c0 eb}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_LM_2147958750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.LM!MTB"
+        threat_id = "2147958750"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f be d2 69 d2 2d 15 00 00 4c 63 c2 4d 69 c0 31 0c c3 30 49 c1 f8 22 c1 fa 1f 41 29 d0 41 0f af c1 44 01 c0 48 83 c1 01}  //weight: 20, accuracy: High
+        $x_10_2 = {41 56 41 55 41 54 55 57 56 53 48 83 ec 28 48 89 ce 41 89 d4 48 85 c9 0f 94 c0 85 d2 0f 94 c2 08 d0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_MK_2147958981_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.MK!MTB"
+        threat_id = "2147958981"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {8b 45 fc 48 63 d0 48 8b 45 f0 48 01 d0 0f b6 10 8b 45 fc 48 63 c8 48 8b 45 f0 48 01 c8 83 f2 73 88 10 83 45 fc 01}  //weight: 15, accuracy: High
+        $x_10_2 = {48 63 d0 48 69 d2 4f ec c4 4e 48 c1 ea 20 c1 fa 03 89 c1 c1 f9 1f 29 ca 6b ca 1a 29 c8 89 c2 89 d0 83 c0 41 89 c1 8b 45 fc 48 98 48 8d 15 f5 57 00 00 88 0c 10 83 45 fc 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_SX_2147959069_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SX!MTB"
+        threat_id = "2147959069"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f 4f d1 43 8d 0c 01 0f af c1 0f be d2 69 d2 ?? ?? ?? ?? 48 63 ca 48 69 c9}  //weight: 20, accuracy: Low
+        $x_20_2 = {0f 4f d0 45 8d 04 09 48 83 c1 ?? 41 0f af c0 0f be d2 69 d2 ?? ?? ?? ?? 4c 63 c2 c1 fa 1f 4d 69 c0}  //weight: 20, accuracy: Low
+        $x_10_3 = {45 8d 50 fc 41 8d 40 e0 41 80 f8 ?? 41 0f 4d c2 66 98 66 42 89 44 4a fe 49 8d 41 01 44 0f b6 44 01 ff 45 84 c0 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Rozena_SXA_2147959070_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SXA!MTB"
+        threat_id = "2147959070"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 01 f6 48 01 de 42 0f b7 04 36 48 8d 04 83 42 8b 04 28 48 01 d8 eb 04}  //weight: 20, accuracy: High
+        $x_10_2 = {44 8a 04 01 45 84 c0 74 1d 45 8d 48 e0 41 80 f8 59 7e 04 45 8d 48 fc 66 45 0f be c9 66 44 89 0c 42 48 ff c0 eb da}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_YAI_2147959687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.YAI!MTB"
+        threat_id = "2147959687"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 10 8b 45 20 41 89 c0 8b 45 fc 48 63 c8 48 8b 45 10 48 01 c8 44 31 c2 88 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_AHD_2147959957_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.AHD!MTB"
+        threat_id = "2147959957"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {33 c2 2b c2 48 98 48 8b [0-6] 0f be 04 01 8b [0-6] 33 c8 8b c1 48 63 4c 24 20 48 8b [0-6] 88 04 0a eb}  //weight: 30, accuracy: Low
+        $x_20_2 = {48 63 4c 24 20 48 89 44 cc 50 48 63 44 24 20 48 8b 44 c4 50 48 89 44 24 40 c7 44 24 24 00 00 00 00 eb}  //weight: 20, accuracy: High
+        $x_20_3 = {c6 44 24 53 65 c6 44 24 54 73 c6 44 24 55 73 c6 44 24 56 00 48 8d 54 24 48 48 8b 8c 24 88}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -5003,29 +5003,6 @@ rule Trojan_Win32_Ekstak_ASFC_2147902898_0
         (1 of ($x*))
 }
 
-rule Trojan_Win32_Ekstak_ASFC_2147902898_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Ekstak.ASFC!MTB"
-        threat_id = "2147902898"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Ekstak"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {8b ec 83 ec 08 56 68 ?? ?? 65 00 e8 5f}  //weight: 5, accuracy: Low
-        $n_10_2 = {57 00 61 00 6b 00 3f 00 58 00 62 00 6c 00 40 00 59 00 63 00 6d 00 41 00 5a 00 64 00 6e 00 42 00 5b 00 65 00 6f 00 43 00 5c 00 66 00 70 00 44 00 5d 00 67 00 71}  //weight: -10, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Ekstak_GPI_2147902934_0
 {
     meta:
@@ -8955,6 +8932,28 @@ rule Trojan_Win32_Ekstak_MBY_2147939471_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {55 8b ec 6a ff 68 ?? e5 65 00 68 ?? 7d 65 00 64 a1 00 00 00 00 50 64 89 25 00 00 00 00 83 ec 58 53 56 57 89 65 e8 ff 15 ?? e1 65 00 33 d2 8a d4}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Ekstak_NE_2147952189_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Ekstak.NE!MTB"
+        threat_id = "2147952189"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Ekstak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 ff 3b c1 75 30 8d 44 89 50 c1 e0 02 50 ff 35 64 2e a6 00 57 ff 35 88 30 a6 00 ff 15 e4 c1 65 00 3b c7 74 61 83 05 50 2e a6 00 10 a3 64 2e a6 00 a1 60 2e a6 00}  //weight: 2, accuracy: High
+        $x_1_2 = {83 4e 08 ff 89 3e 89 7e 04 ff 05 60 2e a6 00 8b 46 10 83 08 ff 8b c6}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

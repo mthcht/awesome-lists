@@ -250,3 +250,26 @@ rule Ransom_Win32_HydraCrypt_NIT_2147940413_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_HydraCrypt_MKV_2147960098_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/HydraCrypt.MKV!MTB"
+        threat_id = "2147960098"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "HydraCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {47 8a 1c 06 02 d3 88 55 0b 0f b6 d2 0f b6 0c 02 88 0c 06 88 1c 02 0f b6 14 06 0f b6 cb 03 d1 81 e2 ff 00 00 00 0f b6 0c 02 8b 55 fc 30 4c 17 ff 8a 55 0b 3b 7d f8 72}  //weight: 5, accuracy: High
+        $x_1_2 = "Attention! All Your data was encrypted!" ascii //weight: 1
+        $x_1_3 = "MAY DAMAGE YOUR DATA FOREVER!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

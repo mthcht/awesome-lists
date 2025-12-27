@@ -3553,3 +3553,118 @@ rule Trojan_MSIL_Injuke_APSA_2147940528_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_AHDB_2147949833_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.AHDB!MTB"
+        threat_id = "2147949833"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 2d 0b 72 ?? ?? 00 70 73 ?? 00 00 0a 7a 73 ?? 00 00 0a 0a 02 7b ?? 00 00 04 0b 16 0c 07 12 02 28 ?? 00 00 0a 73 ?? 00 00 0a 0d 09 02 7b ?? 00 00 04 02 7b ?? 00 00 04 6f ?? 00 00 0a 13 04 06 11 04 17 73 ?? 00 00 0a 13 05 03 11 05 6f ?? 00 00 0a 11 05 6f ?? 00 00 0a 06 16 6a 6f ?? 00 00 0a de 2c}  //weight: 5, accuracy: Low
+        $x_5_2 = {0a 13 07 73 ?? 00 00 0a 13 08 11 08 11 07 11 05 11 06 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 09 11 09 06 16 06 8e 69 6f ?? 00 00 0a 11 08 6f ?? 00 00 0a 13 0a de 3f}  //weight: 5, accuracy: Low
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_Injuke_ATEB_2147951975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.ATEB!MTB"
+        threat_id = "2147951975"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {08 11 05 91 13 06 06 7b ?? 00 00 04 07 11 05 07 6f ?? 00 00 0a 5d 6f ?? 00 00 0a 11 06 61 d2 6f ?? 00 00 0a 00 00 11 05 17 58 13 05 11 05 08 28 ?? 00 00 2b fe 04 13 07 11 07 2d c3}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injuke_AZFB_2147953319_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.AZFB!MTB"
+        threat_id = "2147953319"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {08 16 07 1f 0f 1f 10 1d 2d 61 26 26 26 26 26 26 7e ?? 00 00 04 06 07 1d 2d 58 26 26 26 7e ?? 00 00 04 06 18 28 ?? ?? 00 06 7e ?? 00 00 04 06 19 28 ?? ?? 00 06 7e ?? 00 00 04 06 28 ?? ?? 00 06 0d 7e ?? 00 00 04 09 03 16 03 8e 69 28 ?? ?? 00 06 2a 0a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injuke_AYMB_2147959199_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.AYMB!MTB"
+        threat_id = "2147959199"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {16 0b 2b 15 06 07 8f ?? 00 00 01 25 47 7e ?? 00 00 04 61 d2 52 07 17 58 0b 07 06 8e 69 32 e5}  //weight: 2, accuracy: Low
+        $x_5_2 = {0a 0a 06 17 6f ?? 00 00 0a 06 18 6f ?? 00 00 0a 06 03 04 6f ?? 00 00 0a 0b 07 02 16 02 8e 69 6f ?? 00 00 0a 02 16 02 8e 69 28 ?? 00 00 0a 03 16 03 8e 69 28 ?? 00 00 0a 04 16 04 8e 69 28 ?? 00 00 0a 0c de 14}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injuke_BAA_2147959385_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.BAA!MTB"
+        threat_id = "2147959385"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 16 0b 2b 15 06 07 8f 1a 00 00 01 25 47 7e 02 00 00 04 61 d2 52 07 17 58 0b 07 06 8e 69 32 e5 28 ?? 00 00 0a 06 6f ?? 00 00 0a 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "VirtualProtect" ascii //weight: 1
+        $x_1_3 = "Sleep" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

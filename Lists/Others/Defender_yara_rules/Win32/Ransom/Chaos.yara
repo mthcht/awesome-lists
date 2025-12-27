@@ -65,3 +65,123 @@ rule Ransom_Win32_Chaos_C_2147935687_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Chaos_AMX_2147947328_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.AMX!MTB"
+        threat_id = "2147947328"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" wide //weight: 1
+        $x_1_2 = "CHAOS RANSOMWARE" wide //weight: 1
+        $x_1_3 = "recover your files" wide //weight: 1
+        $x_1_4 = "ransom in Bitcoin" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Chaos_MX_2147947893_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.MX!MTB"
+        threat_id = "2147947893"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files are encrypted" ascii //weight: 1
+        $x_1_2 = "vssadmin delete shadows /all /quiet" ascii //weight: 1
+        $x_1_3 = "wbadmin delete catalog -quiet" ascii //weight: 1
+        $x_1_4 = "wmic shadowcopy delete" ascii //weight: 1
+        $x_1_5 = ".chaos" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule Ransom_Win32_Chaos_BMX_2147948037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.BMX!MTB"
+        threat_id = "2147948037"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_2 = "chaos@protonmail.com" ascii //weight: 1
+        $x_1_3 = "recover your data" ascii //weight: 1
+        $x_1_4 = "ChaosClipboardMonitor" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Chaos_MKV_2147948310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.MKV!MTB"
+        threat_id = "2147948310"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {41 8b c3 30 10 83 c2 0d 80 e2 ff 40 49 75 f4}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Chaos_BA_2147950549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Chaos.BA!MTB"
+        threat_id = "2147950549"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "your hard disk has been permanently locked, but you can recover it" ascii //weight: 1
+        $x_1_2 = "Readme.txt" ascii //weight: 1
+        $x_1_3 = "Encrypted file" ascii //weight: 1
+        $x_1_4 = "All your files are stolen and encrypted" ascii //weight: 1
+        $x_1_5 = "Find Readme.txt and follow the" ascii //weight: 1
+        $x_1_6 = "You can get bitcoin very easy on this site: https:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

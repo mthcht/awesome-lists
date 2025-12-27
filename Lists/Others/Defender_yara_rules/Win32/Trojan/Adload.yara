@@ -332,3 +332,26 @@ rule Trojan_Win32_Adload_GTM_2147814652_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Adload_EM_2147954219_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Adload.EM!MTB"
+        threat_id = "2147954219"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Adload"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "PDF-XChange Printer Standard v10.7.3.401" ascii //weight: 2
+        $x_2_2 = "nsis.sf.net/NSIS_Error" ascii //weight: 2
+        $x_2_3 = "Tracker Software Ltd." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

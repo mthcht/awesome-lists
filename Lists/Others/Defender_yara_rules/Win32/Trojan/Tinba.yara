@@ -657,3 +657,90 @@ rule Trojan_Win32_Tinba_ATI_2147940999_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tinba_AHB_2147947302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tinba.AHB!MTB"
+        threat_id = "2147947302"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tinba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8b 85 6c ff ff ff 8b 55 dc c1 f8 1f 8b c8 33 ca 8b 55 d8 33 c2 3b c1 0f}  //weight: 3, accuracy: High
+        $x_2_2 = {89 85 38 fe ff ff 89 85 34 fe ff ff 89 85 30 fe ff ff 89 85 2c fe ff ff 89 85 28 fe ff ff 89 85 18 fe ff ff 89 85 08 fe ff ff ff 15}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tinba_MR_2147948015_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tinba.MR!MTB"
+        threat_id = "2147948015"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tinba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f be 15 3d 61 42 00 0f af ca 0f af 0d 28 61 42 00 a0 36 61 42 00 02 c1}  //weight: 5, accuracy: High
+        $x_10_2 = {0f be 55 d0 81 c2 94 00 00 00 8a 45 8c 2a c2 88 45 8c 8b 4d 98 0f af 4d a0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tinba_KK_2147948347_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tinba.KK!MTB"
+        threat_id = "2147948347"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tinba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f be 55 88 0f af 55 e4 8a 45 a8 2a c2 88 45 a8 0f be 4d 88 8b 55 9c 8d 84 0a a3 02 00 00 8b 4d 90 2b c8 89 4d 90 8b 55 c0 0f af 55 94 8b 45 94 2b c2 89 45 94 eb b8}  //weight: 20, accuracy: High
+        $x_10_2 = {c7 45 c8 54 61 42 00 0f be 4d d0 69 c9 a1 fc ff ff 0f af 4d b8 89 4d 90 c7 45 d8 60 61 42 00 ba cd 39 f6 ff 2b 55 94 89 55 90 c7 45 a4 6c 61 42 00 8b 45 90 03 45 c0 8a 4d 88 02 c8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tinba_AB_2147953615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tinba.AB!MTB"
+        threat_id = "2147953615"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tinba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {66 8b 85 72 ff ff ff 66 25 ?? ?? 66 89 85 72 ff ff ff 8a 8d 1b ff ff ff f6 d9 0f b6 55 e7 88 8d 1b ff ff ff 0f b6 94 15 75 ff ff ff c7 45 a0 00 00 00 00 89 d6 83 ee}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

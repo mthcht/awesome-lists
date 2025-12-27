@@ -9373,33 +9373,6 @@ rule TrojanDownloader_O97M_Donoff_ET_2147720551_0
         (all of ($x*))
 }
 
-rule TrojanDownloader_O97M_Donoff_ET_2147720551_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/Donoff.ET"
-        threat_id = "2147720551"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "Donoff"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "= CreateObject(\"vbscript.regexp\")" ascii //weight: 1
-        $x_1_2 = ".Global = " ascii //weight: 1
-        $x_1_3 = ".Pattern = " ascii //weight: 1
-        $x_1_4 = {2e 52 65 70 6c 61 63 65 28 [0-15] 2c 20 22 22 29}  //weight: 1, accuracy: Low
-        $x_1_5 = "= CreateObject(\"WScript.Shell\")" ascii //weight: 1
-        $x_1_6 = "Sub AutoOpen()" ascii //weight: 1
-        $n_100_7 = "http://bkainline2/fileadmin" ascii //weight: -100
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule TrojanDownloader_O97M_Donoff_PC_2147720761_0
 {
     meta:
@@ -16406,6 +16379,29 @@ rule TrojanDownloader_O97M_Donoff_RVC_2147935198_0
         $x_1_1 = "ttp://couldmailauth.com/zhq93e8hsj93793892378hhxhb/reghjok_64.dll" ascii //weight: 1
         $x_1_2 = "=generaterandomstring&mid(chars,int(rnd*len(chars))+1,1)nextiendfunction" ascii //weight: 1
         $x_1_3 = "subauto_open()" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_O97M_Donoff_SRH_2147945888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/Donoff.SRH!MSR"
+        threat_id = "2147945888"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Donoff"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Open \"POST\", \"http://38.180.206.61/engine.php\"" ascii //weight: 2
+        $x_1_2 = "Environ(\"COMPUTERNAME\")" ascii //weight: 1
+        $x_1_3 = "Environ(\"Username\")" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

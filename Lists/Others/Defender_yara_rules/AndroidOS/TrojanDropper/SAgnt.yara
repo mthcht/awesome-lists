@@ -383,3 +383,26 @@ rule TrojanDropper_AndroidOS_SAgnt_U_2147943338_0
         (all of ($x*))
 }
 
+rule TrojanDropper_AndroidOS_SAgnt_W_2147956879_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:AndroidOS/SAgnt.W!MTB"
+        threat_id = "2147956879"
+        type = "TrojanDropper"
+        platform = "AndroidOS: Android operating system"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {6e 10 1e 00 06 00 0c 00 13 01 80 00 6e 20 27 00 10 00 0c 01 72 10 7c 01 01 00 0c 02 72 10 77 01 02 00 0a 03 38 03 19 00 72 10 78 01 02 00 0c 03 1f 03 12 00 54 34 03 00 1a 05 00 00 71 00 87 02 00 00 0c 05 6e 20 15 01 54 00 0a 04 38 04 04 00 12 12}  //weight: 1, accuracy: High
+        $x_1_2 = {62 00 0d 00 1a 01 00 00 71 00 6c 02 00 00 0c 01 6e 20 1f 01 10 00 0a 00 39 00 79 00 62 00 0d 00 6e 10 22 01 00 00 0c 00 1a 02 00 00 71 00 6b 02 00 00 0c 02 6e 20 13 01 20 00 0a 00 39 00 67 00 62 00 0d 00 6e 10 22 01 00 00 0c 00 1a 02 00 00 71 00 73 02 00 00 0c 02 6e 20 13 01 20 00 0a 00 39 00 55 00 62 00 0f 00 1a 02 00 00 71 00 75 02 00 00 0c 02 6e 20 13 01 20 00 0a 00 39 00 47 00 62 00 0f 00}  //weight: 1, accuracy: High
+        $x_1_3 = {1a 03 00 00 71 00 71 02 00 00 0c 03 6e 20 13 01 30 00 0a 00 39 00 39 00 62 00 0f 00 1a 03 00 00 71 00 74 02 00 00 0c 03 6e 20 13 01 30 00 0a 00 39 00 2b 00 62 00 0e 00 1a 03 00 00 71 00 6d 02 00 00 0c 03 6e 20 13 01 30 00 0a 00 39 00 1d 00 62 00 0b 00 6e 20 1f 01 10 00 0a 00 38 00 0a 00 62 00 0c 00 6e 20 1f 01 10 00 0a 00 39 00 0d 00 62 00 10 00 6e 20 15 01 02 00 0a 00 38 00 03 00 28 03}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

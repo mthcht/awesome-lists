@@ -1,0 +1,30 @@
+rule Trojan_Win32_LLMPromptGrader_A_2147951917_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LLMPromptGrader.A"
+        threat_id = "2147951917"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LLMPromptGrader"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = " an AI agent" wide //weight: 4
+        $x_4_2 = " you are a" wide //weight: 4
+        $x_4_3 = " you're a" wide //weight: 4
+        $x_4_4 = " you are the" wide //weight: 4
+        $x_4_5 = " you're the" wide //weight: 4
+        $x_4_6 = "--dangerously-skip-permissions" wide //weight: 4
+        $x_4_7 = "--yolo" wide //weight: 4
+        $x_4_8 = "--trust-all-tools" wide //weight: 4
+        $n_4_9 = "reg add" ascii //weight: -4
+        $n_4_10 = "reg.exe add" ascii //weight: -4
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (1 of ($x*))
+}
+

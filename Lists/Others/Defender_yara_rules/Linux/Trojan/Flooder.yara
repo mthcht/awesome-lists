@@ -245,3 +245,27 @@ rule Trojan_Linux_Flooder_I_2147940232_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Flooder_J_2147950396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Flooder.J!MTB"
+        threat_id = "2147950396"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Flooder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {fd 7b be a9 fd 03 00 91 f3 0b 00 f9 f3 00 00 f0 60 82 40 39 20 01 00 37 e0 00 00 d0 00 f4 47 f9 80 00 00 b4 00 00 00 b0 00 e0 26 91 5f fe ff 97 20 00 80 52 60 82 00 39 f3 0b 40 f9 fd 7b c2 a8}  //weight: 1, accuracy: High
+        $x_1_2 = {80 ca 63 38 61 7c 40 93 80 01 00 35 81 02 01 8b 38 04 00 39 37 0c 00 39 e1 43 01 91 40 fc ff 97 e0 2f 40 f9 01 fc 50 93 00 00 01 0b 00 04 c0 5a 80 02 00 79 c9 ff ff 17}  //weight: 1, accuracy: High
+        $x_1_3 = {ff 03 05 d1 21 1c 00 12 3f 08 00 71 e2 00 00 f0 e1 03 00 aa e4 03 00 91 fd 7b 12 a9 fd 83 04 91 05 23 80 d2 00 00 80 52 f3 9b 00 f9 33 00 80 52 43 08 40 f9 e3 8f 00 f9 03 00 80 d2 e2 03 13 2a 83 03 80 52 63 12 83 1a 8c ff ff 97 c0 01 00 b5 e0 00 00 d0 01 2c 46 f9 00 00 00 b0 00 e0 0d 91 a6 fc ff 97 e0 03 13 2a}  //weight: 1, accuracy: High
+        $x_1_4 = {7f 02 00 f1 76 46 00 91 d6 06 96 9a 7f f6 03 f1 c2 92 5a fa 48 fe ff 54 3f 3f 00 71 08 fe ff 54 e2 03 16 aa e0 03 14 aa 39 13 1d 53 01 00 80 52 ad fc ff 97 39 03 00 32 20 00 80 52 99 0a 00 39 80 16 00 39 80 36 00 91 1f 00 15 eb e2 00 00 54 01 00 13 8b bf 02 01 eb 02 01 00 54 00 7d 20 d4 f3 03 00 aa e7 ff ff 17}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

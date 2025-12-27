@@ -643,3 +643,24 @@ rule Trojan_Win32_Qukart_GZF_2147902366_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Qukart_GZF_2147902366_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Qukart.GZF!MTB"
+        threat_id = "2147902366"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Qukart"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {68 02 85 8b 79 6a a0 8b cf ?? ?? 65 56 81 74 04 ?? 81 68 45 52 ?? ?? 52 c5 a8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

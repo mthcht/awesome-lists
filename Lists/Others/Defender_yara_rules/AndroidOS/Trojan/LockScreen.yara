@@ -42,3 +42,25 @@ rule Trojan_AndroidOS_LockScreen_E_2147938559_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_LockScreen_F_2147951872_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/LockScreen.F!MTB"
+        threat_id = "2147951872"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {1a 09 72 00 71 10 4a 00 09 00 0c 09 70 30 12 00 87 09 07 63 07 36 15 07 00 10 6e 20 14 00 76 00 0c 06 07 16 07 37 6e 20 0f 00 76 00 0e 00}  //weight: 1, accuracy: High
+        $x_1_2 = {6e 10 0c 00 04 00 0c 00 1a 02 71 00 13 03 80 00 6e 30 19 00 20 03 22 00 40 00 22 02 01 00 70 20 01 00 42 00 70 20 53 00 20 00 6e 10 54 00 00 00 28 d1 0d 00 1e 01 27 00 12 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

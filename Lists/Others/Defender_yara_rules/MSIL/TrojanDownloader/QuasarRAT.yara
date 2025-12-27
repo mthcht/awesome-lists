@@ -293,3 +293,34 @@ rule TrojanDownloader_MSIL_QuasarRAT_SS_2147926173_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_QuasarRAT_Q_2147955990_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/QuasarRAT.Q!AMTB"
+        threat_id = "2147955990"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {68 74 74 70 [0-1] 3a 2f 2f 34 35 2e 34 33 2e 31 34 33 2e 32 31 32 2f}  //weight: 7, accuracy: Low
+        $x_7_2 = {68 74 74 70 [0-1] 3a 2f 2f 74 69 6e 79 75 72 6c 2e 63 6f 6d 2f 33 77 36 70 33 39 65 6d}  //weight: 7, accuracy: Low
+        $x_2_3 = "Add-MpPreference -ExclusionPath $" ascii //weight: 2
+        $x_1_4 = {5b 53 79 73 74 65 6d 2e 49 4f 2e 50 61 74 68 5d 3a 3a 43 6f 6d 62 69 6e 65 28 24 65 6e 76 3a 41 50 50 44 41 54 41 2c 20 27 [0-26] 27 2c 20 27 [0-20] 2e 65 78 65 27 29}  //weight: 1, accuracy: Low
+        $x_1_5 = "Invoke-WebRequest" ascii //weight: 1
+        $x_1_6 = "Start-Process -FilePath $outputFile" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_7_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_7_*))) or
+            (all of ($x*))
+        )
+}
+

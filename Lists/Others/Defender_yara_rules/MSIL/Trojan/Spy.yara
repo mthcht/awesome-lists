@@ -294,31 +294,6 @@ rule Trojan_MSIL_Spy_SCC_2147798240_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Spy_ABDSA_2147805127_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Spy.ABDSA!MTB"
-        threat_id = "2147805127"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Spy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "14"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "$939b6d4f-6a2f-43ef-82f6-56e424585645" ascii //weight: 10
-        $x_1_2 = "ICore" ascii //weight: 1
-        $x_1_3 = "ParallelLoopResult" ascii //weight: 1
-        $x_1_4 = "Dispose" ascii //weight: 1
-        $x_1_5 = "Disposition" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Spy_FRM_2147809849_0
 {
     meta:

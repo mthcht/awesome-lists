@@ -90,3 +90,24 @@ rule Trojan_Win32_Lockbit_MBFV_2147903392_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lockbit_AB_2147952697_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lockbit.AB!MTB"
+        threat_id = "2147952697"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {03 c7 c1 c0 07 33 f0 8b 44 24 28 03 c6 89 74 24 38 c1 c0 09 31 44 24 20 8b 44 24 20 03 c6 8b 74 24 34 c1 c0 0d 33 f8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

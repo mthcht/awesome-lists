@@ -381,3 +381,25 @@ rule Trojan_Win32_IRCBot_DS_2147852319_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_IRCBot_MK_2147957104_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/IRCBot.MK!MTB"
+        threat_id = "2147957104"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IRCBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {21 0f 2b 42 ?? ef 4f 21 32 38 ?? ?? ?? ?? ?? 48 6b 2b 14}  //weight: 15, accuracy: Low
+        $x_10_2 = {8b 5f 04 8d 84 30 98 af 0a 00 01 f3 50 83 c7 08 ff 96 ?? ?? ?? ?? 95 8a 07 47 08 c0}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -825,3 +825,76 @@ rule Ransom_MSIL_FileCryptor_PS_2147817058_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCryptor_AYA_2147957309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.AYA!MTB"
+        threat_id = "2147957309"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "VELOX RANSOMWARE" wide //weight: 5
+        $x_2_2 = "YOUR COMPUTER HAS BEEN LOCKED BY VELOX" wide //weight: 2
+        $x_1_3 = "Your files have been decrypted." wide //weight: 1
+        $x_1_4 = "veloxv.Properties.Resources" wide //weight: 1
+        $x_1_5 = "EncryptFolder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_FileCryptor_AYB_2147959754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.AYB!MTB"
+        threat_id = "2147959754"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {07 09 9a 28 26 00 00 0a 13 04 06 11 04 6f 27 00 00 0a 28 01 00 00 2b 2c 0d 07 09 9a 7e 01 00 00 04 28 02 00 00 06 09 17 58 0d 09 07 8e 69 32 d0}  //weight: 7, accuracy: High
+        $x_3_2 = "$74871748-d0a1-4faf-9e0a-912a4a32bda6" ascii //weight: 3
+        $x_1_3 = "EncryptFolder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_FileCryptor_AYC_2147960011_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.AYC!MTB"
+        threat_id = "2147960011"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Your files have been encrypted" ascii //weight: 5
+        $x_2_2 = "cmd /c vssadmin.exe delete shadows /all /quiet" ascii //weight: 2
+        $x_1_3 = "\\HELP-DEC.txt" wide //weight: 1
+        $x_1_4 = ".Darkness" wide //weight: 1
+        $x_1_5 = "To ensure decryption you can send 1-2 files (less than 1MB) we will decrypt it for free." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

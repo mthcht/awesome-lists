@@ -19,3 +19,27 @@ rule Trojan_Win32_DBatLoader_LKZ_2147933705_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DBatLoader_PSC_2147953810_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DBatLoader.PSC!MTB"
+        threat_id = "2147953810"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DBatLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rico@mbox.4net.it" ascii //weight: 1
+        $x_1_2 = "WINNT" ascii //weight: 1
+        $x_1_3 = "echoalphabeta gamasexokosotezo" ascii //weight: 1
+        $x_1_4 = "Notepad.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

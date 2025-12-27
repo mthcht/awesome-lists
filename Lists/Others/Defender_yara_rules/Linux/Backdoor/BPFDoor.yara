@@ -164,3 +164,48 @@ rule Backdoor_Linux_BPFDoor_G_2147943669_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_BPFDoor_I_2147947301_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/BPFDoor.I!MTB"
+        threat_id = "2147947301"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "BPFDoor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/bin/rm -f /dev/shm/%s;/bin/cp %s /dev/shm/%s && /bin/chmod 755 /dev/shm/%s && /dev/shm/%s --init && /bin/rm -f /dev/shm/%s" ascii //weight: 1
+        $x_1_2 = "/sbin/iptables -t nat -A PREROUTING -p tcp -s %s --dport %d -j REDIRECT --to-ports %d" ascii //weight: 1
+        $x_2_3 = {45 0f b6 d8 49 01 c3 45 8a 33 44 88 36 41 88 13 02 16 0f b6 d2 8a 14 10 41 30 14 3a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Linux_BPFDoor_J_2147947730_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/BPFDoor.J!MTB"
+        threat_id = "2147947730"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "BPFDoor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {88 45 ff 8b 45 f8 48 98 48 03 45 d8 8b 55 f8 48 63 d2 48 03 55 d8 0f b6 0a 0f b6 55 ff 48 03 55 e8 0f b6 12 31 ca 88 10 83 45 f8 01}  //weight: 2, accuracy: High
+        $x_1_2 = "[+]   Spawn shell ok." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

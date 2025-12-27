@@ -54,6 +54,28 @@ rule Ransom_Win32_RyukCrypt_PH_2147788484_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 e9 04 ba ?? ?? ?? ?? be ?? ?? ?? ?? ba ?? ?? ?? ?? ba ?? ?? ?? ?? ba ?? ?? ?? ?? 31 06 bb ?? ?? ?? ?? 83 c6 04 83 e9 04 83 f9 05 7d ?? e9}  //weight: 1, accuracy: Low
+        $x_1_2 = {bb f4 6a 08 fa 30 06 46 49 83 f9 01 7d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_RyukCrypt_PH_2147788484_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/RyukCrypt.PH!MTB"
+        threat_id = "2147788484"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RyukCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:

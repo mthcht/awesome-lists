@@ -665,3 +665,25 @@ rule Trojan_Win32_Gepys_GZY_2147907438_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Gepys_MK_2147956088_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Gepys.MK!MTB"
+        threat_id = "2147956088"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Gepys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {8b 4d 08 8b 51 04 83 ea ?? d1 ea 89 55 f4 8b 45 08 83 c0 ?? 89 45 f0 8b 4d 08 51 8b 55 10}  //weight: 15, accuracy: Low
+        $x_10_2 = {89 10 8b 4d 18 8b 11 8b 45 10 8b 0c 10 03 4d 14 8b 55 18 8b 02 8b 55 10 89 0c 02}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

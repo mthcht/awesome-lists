@@ -456,3 +456,95 @@ rule Trojan_Win32_Filecoder_RSD_2147905060_0
         )
 }
 
+rule Trojan_Win32_Filecoder_AHB_2147948764_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.AHB!MTB"
+        threat_id = "2147948764"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8d 55 e0 89 54 24 14 8b 55 f0 89 54 24 10 c7 44 24 0c 00 00 00 00 c7 44 24 08 01 00 00 00 c7 44 24 04 00 00 00 00 89 04 24 a1 ?? ?? ?? ?? ff d0 83 ec 1c}  //weight: 10, accuracy: Low
+        $x_5_2 = "Contact me at [email address]" ascii //weight: 5
+        $x_3_3 = "Pay me $1000 within 72 hours or your files will be deleted forever" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Filecoder_SXA_2147948786_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.SXA!MTB"
+        threat_id = "2147948786"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {c7 44 24 08 00 00 00 00 c7 44 24 04 ?? ?? ?? ?? 89 04 24 a1 ?? ?? ?? ?? ff d0 83 ec 1c 89 45 f0 83 7d f0 ?? 74 3d c7 44 24 10 ?? ?? ?? ?? 8d 45 e0 89 44 24 0c 8b 45 ec 89 44 24 08 8b 45 e8 89 44 24 04 8b 45 f0 89 04 24 a1 ?? ?? ?? ?? ff d0 83 ec}  //weight: 6, accuracy: Low
+        $x_1_2 = "ransomware" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "Your files have been encrypted." ascii //weight: 1
+        $x_1_5 = "To decrypt your files, send" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Filecoder_SXB_2147949361_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.SXB!MTB"
+        threat_id = "2147949361"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0f b6 10 8b 45 ec 0f b6 00 31 c2 8b 45 ec 88 10 83 45 f4 ?? 8d 45 e8 89 c1}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 45 f4 3b 45 0c 7d ?? 8d 85 60 ec ff ff 8d 95 68 ec ff ff 89 14 24 89 c1}  //weight: 2, accuracy: Low
+        $x_1_3 = "log.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Filecoder_ZZA_2147951836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.ZZA!MTB"
+        threat_id = "2147951836"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b9 ff ff ff ff ba 01 00 00 00 e8 39 2e 06 00 83 7d f4 01 75 eb 8b 4d f8 8b 55 fc 49 89 c8 49 c1 e0 20 49 83 c8 02 31 c0 85 c9 0f 95 c0 49 0f 45 d0 48 83 c4 60 5d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

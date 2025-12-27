@@ -50,3 +50,26 @@ rule TrojanDownloader_Win32_ValleyRAT_EC_2147913491_1
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_ValleyRAT_A_2147958391_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/ValleyRAT.A!AMTB"
+        threat_id = "2147958391"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 74 74 70 [0-1] 3a 2f 2f 31 31 31 32 2e 36 38 38 36 30 38 2e 78 79 7a 2f 77 62 2f 6d 32 2e 74 78 74}  //weight: 3, accuracy: Low
+        $x_2_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+        $x_1_3 = "Downloading binary from:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

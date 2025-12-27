@@ -103,3 +103,205 @@ rule Trojan_Win64_DonutLoader_C_2147944570_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_PCO_2147945189_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.PCO!MTB"
+        threat_id = "2147945189"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {31 00 34 00 31 00 2e 00 39 00 38 00 2e 00 36 00 2e 00 31 00 34 00 3a 00 35 00 35 00 36 00 33 00 2f 00 [0-7] 2e 00 65 00 78 00 65 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {31 34 31 2e 39 38 2e 36 2e 31 34 3a 35 35 36 33 2f [0-7] 2e 65 78 65}  //weight: 2, accuracy: Low
+        $x_1_3 = "executePowerShell" ascii //weight: 1
+        $x_1_4 = "downloadAndRunFile" ascii //weight: 1
+        $x_2_5 = "createRandomFolderInAppDataLocal" ascii //weight: 2
+        $x_1_6 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_7 = "restartAsAdmin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_DonutLoader_GRR_2147945416_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.GRR!MTB"
+        threat_id = "2147945416"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 01 c2 0f b6 d2 44 29 c2 41 89 d3 48 63 d2 44 0f b6 04 14 46 88 04 14 88 0c 14 42 02 0c 14 0f b6 c9 0f b6 14 0c 30 13 48 83 c3 01 49 39 d9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_CD_2147951153_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.CD!MTB"
+        threat_id = "2147951153"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b 4c 24 ?? 0f b6 8c 0c ?? ?? ?? ?? 31 c8 88 c2 48 8b 84 24 ?? ?? ?? ?? 48 8b 8c 24 ?? ?? ?? ?? 48 03 4c 24 ?? 88 14 08 48 8b 44 24}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_PG_2147956156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.PG!MTB"
+        threat_id = "2147956156"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {49 8b c0 83 e0 ?? 0f b6 04 08 42 30 04 06 49 ff c0 4c 3b c7}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_YRS_2147956607_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.YRS!MTB"
+        threat_id = "2147956607"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {47 0f b6 1c 10 45 03 cb 41 81 e1 ?? ?? ?? ?? 7d ?? 41 ff c9 41 81 c9 ?? ?? ?? ?? 41 ff c1 49 63 d1 42 0f b6 0c 02}  //weight: 1, accuracy: Low
+        $x_1_2 = {43 0f b6 0c 10 48 03 d1 0f b6 ca 42 0f b6 14 01 32 14 2e 88 16 48 ff c6 49 83 ee ?? 75 91}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_ADN_2147957697_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.ADN!MTB"
+        threat_id = "2147957697"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {45 33 c9 33 c9 e8 ?? ?? ?? ?? 48 8b 55 68 8b f8 48 83 fa 0f 76 36 48 8b 4d 50 48 ff c2 48 81 fa ?? ?? ?? ?? 72 1b 4c 8b 41 f8 49 2b c8 48 83 e9 08 48 83 f9 1f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_SX_2147957888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.SX!MTB"
+        threat_id = "2147957888"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {72 e4 48 c1 e8 ?? ?? ?? ?? ?? ?? 48 03 c1 b9 ?? ?? ?? ?? 48 33 c1 48 8d 4d}  //weight: 15, accuracy: Low
+        $x_10_2 = {48 8b 00 48 83 bd ?? ?? ?? ?? ?? 48 8d 95 ?? ?? ?? ?? 4c 8b c0 48 89 74 24 ?? 48 0f 47 95 ?? ?? ?? ?? 45 33 c9 33 c9}  //weight: 10, accuracy: Low
+        $x_5_3 = {0f b6 c8 48 89 4d ?? 8b 4c 24 ?? 48 c1 e8 ?? 89 4c 24 ?? 48 8d 0d ?? ?? ?? ?? 48 89 4c 24 ?? 89 44 24}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_AND_2147957891_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.AND!MTB"
+        threat_id = "2147957891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b c8 ff 15 ?? ?? ?? ?? 48 8b f0 48 8d 0d ?? db 01 00 ff 15 ?? ?? ?? ?? 48 8d 15 ?? db 01 00 48 8b c8 ff 15 ?? ?? ?? ?? 4c 8b f8 48 8d 0d ?? db 01 00 ff 15 ?? ?? ?? ?? 48 8d 15 ?? db 01 00 48 8b c8 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_GTD_2147958504_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.GTD!MTB"
+        threat_id = "2147958504"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {44 0f af c9 41 f6 c1 01 41 0f 94 c1 43 83 3c 20 0a 0f 9c c1 44 08 c9 41 89 c8 41 80 f0 01 45 0f b6 c0 49 c1 e0 05 49 8b 54 10 70 4c 01 f2 66 66 66 2e 0f 1f 84 00 00 00 00 00 31 f6 ff e2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

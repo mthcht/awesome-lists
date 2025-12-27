@@ -86,3 +86,32 @@ rule Trojan_Win64_Keylogger_RB_2147896980_0
         )
 }
 
+rule Trojan_Win64_Keylogger_MK_2147959700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Keylogger.MK!MTB"
+        threat_id = "2147959700"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {48 8b 85 e8 14 00 00 8b 40 04 c1 e0 10 89 85 e4 14 00 00 48 8b 85 e8 14 00 00 8b 40 08 c1 e0 18 01 85 e4 14}  //weight: 25, accuracy: High
+        $x_5_2 = "Keylogger is up and running..." ascii //weight: 5
+        $x_5_3 = "Hook procedure has been installed successfully" ascii //weight: 5
+        $x_3_4 = "[WIN KEY]" ascii //weight: 3
+        $x_2_5 = "[PRT SC]" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_25_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_25_*) and 2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

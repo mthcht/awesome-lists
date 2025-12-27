@@ -163,3 +163,228 @@ rule Trojan_Win32_VidarStealer_B_2147905457_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_VidarStealer_Z_2147955452_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {63 6d 64 20 2f 63 20 73 74 61 72 74 [0-16] 72 75 6e 64 6c 6c 33 32 2e 65 78 65}  //weight: 1, accuracy: Low
+        $x_1_2 = {70 6f 77 65 72 73 68 65 6c 6c [0-60] 73 74 61 72 74 2d 70 72 6f 63 65 73 73}  //weight: 1, accuracy: Low
+        $x_1_3 = "/c ping localhost -n" ascii //weight: 1
+        $x_1_4 = "encrypted_key" ascii //weight: 1
+        $x_1_5 = "Browser Stealer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_Z_2147955452_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Loading payload: type=%s" ascii //weight: 1
+        $x_1_2 = "Injection mode selected: %s" ascii //weight: 1
+        $x_1_3 = "Telegram Desktop" ascii //weight: 1
+        $x_1_4 = "logins.json" ascii //weight: 1
+        $x_1_5 = "Payload Loader" ascii //weight: 1
+        $x_1_6 = "Crypto Reader" ascii //weight: 1
+        $x_1_7 = "Monero" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_Z_2147955452_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "telegram_files" ascii //weight: 1
+        $x_1_2 = "steam_files" ascii //weight: 1
+        $x_1_3 = "discord_files" ascii //weight: 1
+        $x_1_4 = "\\Network\\Cookies" ascii //weight: 1
+        $x_1_5 = "_key.txt" ascii //weight: 1
+        $x_1_6 = "*.address.txt" ascii //weight: 1
+        $x_1_7 = "passwords.txt" ascii //weight: 1
+        $x_1_8 = "Screenshot" ascii //weight: 1
+        $x_1_9 = "Wallets" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_Z_2147955452_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "formhistory." ascii //weight: 1
+        $x_1_2 = "cookies.sqlite" ascii //weight: 1
+        $x_1_3 = "places.sqlite" ascii //weight: 1
+        $x_1_4 = "\\IndexedDB\\chrome-extension" ascii //weight: 1
+        $x_1_5 = "Login Data" ascii //weight: 1
+        $x_1_6 = "All injection attempts FAILED for attempt %d" ascii //weight: 1
+        $x_1_7 = "passwords.db" ascii //weight: 1
+        $x_1_8 = "webdata.db" ascii //weight: 1
+        $x_1_9 = "Shellcode" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_RH_2147955803_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.RH!MTB"
+        threat_id = "2147955803"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "steamcommunity" ascii //weight: 1
+        $x_1_2 = "UserName" wide //weight: 1
+        $x_1_3 = "PortNumber" wide //weight: 1
+        $x_1_4 = "encrypted_key" ascii //weight: 1
+        $x_1_5 = "powershell" ascii //weight: 1
+        $x_1_6 = "passwords.db" ascii //weight: 1
+        $x_1_7 = "cookies.db" ascii //weight: 1
+        $x_1_8 = "key4.db" ascii //weight: 1
+        $x_1_9 = "REFLECTIVE_DLL" ascii //weight: 1
+        $x_1_10 = "Injection mode selected" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_RH_2147955803_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.RH!MTB"
+        threat_id = "2147955803"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "api.telegram.org/" ascii //weight: 2
+        $x_1_2 = "screenshot" wide //weight: 1
+        $x_1_3 = "Telegram Desktop\\tdata" wide //weight: 1
+        $x_1_4 = "Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_5 = "Network\\Cookies" wide //weight: 1
+        $x_1_6 = "processhacker.exe" wide //weight: 1
+        $x_1_7 = "\\Login Data" wide //weight: 1
+        $x_1_8 = "\\places.sqlite" wide //weight: 1
+        $x_1_9 = "Brave-Browser\\User Data" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_ZA_2147956457_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.ZA!MTB"
+        threat_id = "2147956457"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "29"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "File Grabber Rules" ascii //weight: 5
+        $x_5_2 = "Loader Tasks" ascii //weight: 5
+        $x_1_3 = "HostName" ascii //weight: 1
+        $x_1_4 = "UserName" ascii //weight: 1
+        $x_1_5 = "Password" ascii //weight: 1
+        $x_1_6 = "PortNumber" ascii //weight: 1
+        $x_5_7 = "https://steamcommunity.com/profiles" ascii //weight: 5
+        $x_5_8 = "https://telegram.me" ascii //weight: 5
+        $x_5_9 = "\\IndexedDB\\chrome-extension_" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_ZB_2147956458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.ZB!MTB"
+        threat_id = "2147956458"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "34"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Google\\Chrome\\User Data" ascii //weight: 10
+        $x_10_2 = "BraveSoftware\\Brave-Browser\\User Data" ascii //weight: 10
+        $x_10_3 = "Microsoft\\Edge\\User Data" ascii //weight: 10
+        $x_1_4 = "Key decrypted successfully" ascii //weight: 1
+        $x_1_5 = "Encrypted key retrieved" ascii //weight: 1
+        $x_1_6 = "Found encrypted_key" ascii //weight: 1
+        $x_1_7 = "Browser not detected" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

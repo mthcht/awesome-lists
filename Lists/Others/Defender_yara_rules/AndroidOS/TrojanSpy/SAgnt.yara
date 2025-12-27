@@ -999,3 +999,52 @@ rule TrojanSpy_AndroidOS_SAgnt_BC_2147942310_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_SAgnt_BE_2147946727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SAgnt.BE!MTB"
+        threat_id = "2147946727"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {6e 20 d0 00 21 00 6e 10 9e 00 01 00 0c 01 6e 10 af 0c 01 00 0c 01 14 00 02 00 02 01 6e 20 9b 0a 01 00 0c 01 1f 01 43 02 12 00 71 40 c0 24 13 20 0c 01 11 01}  //weight: 1, accuracy: High
+        $x_1_2 = {63 00 a4 0b 38 00 29 00 54 30 75 0b 38 00 25 00 54 30 4b 0b 38 00 21 00 54 31 52 0b 38 01 1d 00 71 20 fa 27 10 00 0c 00 6e 10 fc 27 00 00 38 04 11 00 54 34 57 0b 6e 10 42 28 04 00 0c 04 22 01 fa 04 70 30 04 25 31 00 6e 20 ce 06 14 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_AndroidOS_SAgnt_BD_2147947799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/SAgnt.BD!MTB"
+        threat_id = "2147947799"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Lcn/realshell/CoreService" ascii //weight: 1
+        $x_1_2 = "GHOSTSHELL_SEND_SMS" ascii //weight: 1
+        $x_1_3 = "hookPublishService" ascii //weight: 1
+        $x_1_4 = "cn.realshell.ChannelData" ascii //weight: 1
+        $x_1_5 = "REALSHELL_PLUGINS" ascii //weight: 1
+        $x_1_6 = "Lcom/ys/service/WorkStartReceiver" ascii //weight: 1
+        $x_1_7 = "MESSAGE_DOWNLOAD_PLUGINS" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

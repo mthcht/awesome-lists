@@ -575,3 +575,214 @@ rule Trojan_MSIL_QuasarRat_SLUY_2147944193_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRat_KAT_2147946240_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.KAT!MTB"
+        threat_id = "2147946240"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {28 2e 01 00 0a 13 09 11 09 06 6f 2f 01 00 0a 6f 30 01 00 0a 00 11 09 06 6f 2f 01 00 0a 6f 31 01 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRat_JKU_2147948434_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.JKU!MTB"
+        threat_id = "2147948434"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {7e da 00 00 04 0c 00 00 07 6f a2 00 00 0a 72 e5 55 00 70 6f a3 00 00 0a 00 07 6f a2 00 00 0a 72 f5 55 00 70 08 72 e0 2a 00 70 28 7b 00 00 0a 6f a4 00 00 0a 00 07 6f a2 00 00 0a 16 6f b9 01 00 0a 00 07 6f a6 00 00 0a 26}  //weight: 2, accuracy: High
+        $x_2_2 = "TWV0aG9kMA==" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRat_DKC_2147948478_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.DKC!MTB"
+        threat_id = "2147948478"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {06 7e 5f 00 00 04 2c 07 7e 5f 00 00 04 2b 16 7e 5e 00 00 04 fe 06 e7 00 00 06 73 e7 00 00 0a 25 80 5f 00 00 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRat_SLTU_2147953124_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.SLTU!MTB"
+        threat_id = "2147953124"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {08 07 2d 07 11 07 1a 58 4b 2b 08 11 07 19 d3 1a 5a 58 4b}  //weight: 2, accuracy: High
+        $x_2_2 = "FromBase64String" ascii //weight: 2
+        $x_2_3 = "CreateDecryptor" ascii //weight: 2
+        $x_2_4 = "server1.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRat_PI_2147954858_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.PI!MTB"
+        threat_id = "2147954858"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "inj08a4e4437ee44eaa96c2e269585edd74" wide //weight: 2
+        $x_2_2 = "pay95458f83c5b9415dac2e5ba98654530d" wide //weight: 2
+        $x_2_3 = {0b 03 07 05 0e 04 73 2c 00 00 0a 0c 08 0e 06 1e 5b 6f ?? 00 00 0a 0d 73 2e 00 00 0a 13 04 11 04 17 6f ?? 00 00 0a 11 04 09 06 6f ?? 00 00 0a 13 05 02 73 24 00 00 0a 13 06 11 06 11 05 16 73 31 00 00 0a 13 07 02 8e 69 8d 2f 00 00 01 13 08 11 07 11 08 16 11 08 8e 69 6f ?? 00 00 0a 13 09 11 06 6f ?? 00 00 0a 11 07 6f ?? 00 00 0a 28 ?? 00 00 0a 11 08 16 11 09 6f 38 00 00 0a 26}  //weight: 2, accuracy: Low
+        $x_1_4 = {0b 07 16 73 25 00 00 0a 0c 08 06 6f 26 00 00 0a 06 6f 27 00 00 0a 0d de 1e 08 2c 06 08 6f 28 00 00 0a dc}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRat_PT_2147955073_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.PT!MTB"
+        threat_id = "2147955073"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Ginaporizan.6813905.png" ascii //weight: 5
+        $x_2_2 = {28 18 00 00 2b 0b 06 07 06 fe 06 22 03 00 06 73 dc 01 00 0a 28 19 00 00 2b 7d a7 01 00 04 06 7b a7 01 00 04 17 da 17 d6 8d 06 00 00 01 0c 06 7b a7 01 00 04 18 da 13 05 16 13 06 2b 0b 08 11 06 14 a2 11 06 17 d6 13 06 11 06 11 05 31 ef}  //weight: 2, accuracy: High
+        $x_1_3 = {00 02 03 16 03 8e 69 6f 7d 02 00 0a 00 02 6f 7e 02 00 0a 00 2a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRat_SLKO_2147955525_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.SLKO!MTB"
+        threat_id = "2147955525"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {72 c0 0d 00 70 28 54 09 00 06 0a 1b 8d 14 00 00 01 25 16 72 f1 0e 00 70 a2 25 17 02 a2 25 18 72 8b 0e 00 70 a2 25 19 06 a2 25 1a 72 af 0e 00 70 a2}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRat_TO_2147957243_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.TO!MTB"
+        threat_id = "2147957243"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {68 74 74 70 3a 2f 2f 31 38 35 2e 32 33 33 2e 31 36 34 2e 31 32 33 2f [0-25] 2e 65 78 65}  //weight: 7, accuracy: Low
+        $x_1_2 = {24 65 78 63 6c 75 73 69 6f 6e 50 61 74 68 20 3d 20 22 24 65 6e 76 3a 41 50 50 44 41 54 41 5c [0-30] 22}  //weight: 1, accuracy: Low
+        $x_1_3 = "Add-MpPreference -ExclusionPath $exclusionPath" ascii //weight: 1
+        $x_1_4 = "$outputFile = [System.IO.Path]::Combine($env:APPDATA" ascii //weight: 1
+        $x_1_5 = "Start-Sleep -Milliseconds 100" ascii //weight: 1
+        $x_1_6 = "Invoke-WebRequest -Uri $using:url -OutFile $using:outputFile" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRat_LI_2147958705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.LI!MTB"
+        threat_id = "2147958705"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Uninstalling... good bye :-(" wide //weight: 2
+        $x_2_2 = {00 70 00 69 00 6e 00 67 00 20 00 2d 00 6e 00 20 00 31 00 30 00 20 00 6c 00 6f 00 63 00 61 00 6c 00 68 00 6f 00 73 00 74 00 20 00 3e 00 20 00 6e 00 75 00 6c 00 0d 00 0a 00 64 00 65 00 6c 00 20 00 2f 00 61 00 20 00 2f 00 71 00 20 00 2f 00 66 00 20 00}  //weight: 2, accuracy: High
+        $x_2_3 = "Client_ProcessedByFody" ascii //weight: 2
+        $x_2_4 = "GetKeyloggerLogsDirectoryResponse" ascii //weight: 2
+        $x_2_5 = "SELECT * FROM AntivirusProduct" wide //weight: 2
+        $x_2_6 = "SELECT * FROM Win32_OperatingSystem WHERE Primary='true'" wide //weight: 2
+        $x_2_7 = "SELECT * FROM FirewallProduct" wide //weight: 2
+        $x_1_8 = "set_SystemInfos" ascii //weight: 1
+        $x_1_9 = "set_RemotePath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

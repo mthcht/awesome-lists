@@ -222,3 +222,24 @@ rule Trojan_MSIL_Fareit_SG_2147901064_0
         )
 }
 
+rule Trojan_MSIL_Fareit_MCJ_2147954209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Fareit.MCJ!MTB"
+        threat_id = "2147954209"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Fareit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {38 31 34 33 2d 64 36 63 66 30 65 37 35 37 66 30 64 00 00 0c 01 00 07 6e 65 77 61 73 73 6d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

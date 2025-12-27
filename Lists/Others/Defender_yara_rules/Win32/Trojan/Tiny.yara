@@ -283,3 +283,71 @@ rule Trojan_Win32_Tiny_EN_2147939573_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tiny_PPG_2147949922_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tiny.PPG!MTB"
+        threat_id = "2147949922"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = "You Are Fucked, Your information is now ours, Your files are now encrypted, Now start huffing the copium" ascii //weight: 4
+        $x_1_2 = {63 00 64 00 6e 00 2e 00 64 00 69 00 73 00 63 00 6f 00 72 00 64 00 61 00 70 00 70 00 2e 00 63 00 6f 00 6d 00 2f 00 61 00 74 00 74 00 61 00 63 00 68 00 6d 00 65 00 6e 00 74 00 73 00 2f 00 [0-112] 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {63 64 6e 2e 64 69 73 63 6f 72 64 61 70 70 2e 63 6f 6d 2f 61 74 74 61 63 68 6d 65 6e 74 73 2f [0-112] 2e 65 78 65}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Tiny_AB_2147951434_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tiny.AB!MTB"
+        threat_id = "2147951434"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {81 ec 1c 02 00 00 a1 e0 85 03 10 33 c4 89 84 24 18 02 00 00 8b 84 24 20 02 00 00 8b 40 14 b9 00 01 00 00 56 89 4c 24 0c 89 4c 24 10 85 c0 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tiny_A_2147959259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tiny.A!AMTB"
+        threat_id = "2147959259"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tiny"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "http://185.215.113.66/" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

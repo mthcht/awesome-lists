@@ -40,3 +40,23 @@ rule Backdoor_Win64_Supper_B_2147920400_0
         (1 of ($x*))
 }
 
+rule Backdoor_Win64_Supper_D_2147927457_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/Supper.D"
+        threat_id = "2147927457"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Supper"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "schtasks.exe /Create /SC MINUTE /TN GoogleUpdateTask /TR \"cmd.exe /C del \\\"%s\\\" && schtasks.exe /Delete /TN GoogleUpdateTask /F\" /F" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

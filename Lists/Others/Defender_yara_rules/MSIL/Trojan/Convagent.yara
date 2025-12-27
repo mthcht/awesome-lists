@@ -237,27 +237,6 @@ rule Trojan_MSIL_Convagent_PTCF_2147896999_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Convagent_PTDQ_2147898471_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Convagent.PTDQ!MTB"
-        threat_id = "2147898471"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Convagent"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {02 7b 03 00 00 04 6f 17 00 00 0a 06 6f 18 00 00 0a 6f 19 00 00 0a 17}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Convagent_KAB_2147910962_0
 {
     meta:
@@ -433,6 +412,51 @@ rule Trojan_MSIL_Convagent_AB_2147945022_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {08 20 a0 8e cd e8 58 0d 09 20 b2 4f 09 d2 59 16 16 61 61 16 62 2b b1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Convagent_ALIB_2147955685_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.ALIB!MTB"
+        threat_id = "2147955685"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 06 02 7d ?? 00 00 04 06 03 7d ?? 00 00 04 06 7b ?? 00 00 04 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 02 7b ?? 00 00 04 7b ?? 00 00 04 02 7b ?? 00 00 04 04 6f ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 2b 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {01 25 16 0f 01 28 ?? 00 00 0a 9c 25 17 0f 01 28 ?? 00 00 0a 9c 25 18 0f 01 28 ?? 00 00 0a 9c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Convagent_LMB_2147959453_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.LMB!MTB"
+        threat_id = "2147959453"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {28 5d 02 00 06 2d 06 16 28 03 01 00 0a 7e 9c 02 00 04 2c 2f 17 80 9a 03 00 04 7e a4 02 00 04 25 2d 17 26 7e a3 02 00 04 fe 06 d6 01 00 06 73 61 00 00 0a 25 80 a4 02 00 04 73 62 00 00 0a 28 65 00 00 0a}  //weight: 20, accuracy: High
+        $x_10_2 = {73 f0 01 00 06 80 a0 02 00 04 7e a0 02 00 04 6f e4 01 00 06 2b 2a 7e a0 02 00 04 6f df 01 00 06 2d 0a 7e a0 02 00 04 6f e7 01 00 06 73 04 01 00 0a 20 88 13 00 00 6f 05 01 00 0a 28 6a 00 00 0a 7e a1 02 00 04 2d cf 2a}  //weight: 10, accuracy: High
+        $x_5_3 = "OffLineKeyLogger" ascii //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))

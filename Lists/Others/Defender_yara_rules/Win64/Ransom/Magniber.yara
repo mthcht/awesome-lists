@@ -457,3 +457,70 @@ rule Ransom_Win64_Magniber_GA_2147932059_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Magniber_YBI_2147953002_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Magniber.YBI!MTB"
+        threat_id = "2147953002"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Magniber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a ae ae 06 00 00 32 e8 80 f5 ?? 88 2f 8a c5 48 ff c6}  //weight: 1, accuracy: Low
+        $x_1_2 = {8a a6 62 ba 01 00 32 e0 80 f4 ?? 88 27 8a c4 48 ff c6 e9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Ransom_Win64_Magniber_YBJ_2147953003_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Magniber.YBJ!MTB"
+        threat_id = "2147953003"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Magniber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 7d f0 48 89 5d f8 49 c7 c6 ?? ?? ?? ?? 49 81 f6 ?? ?? ?? ?? 41 56 49 c7 c6 ?? ?? ?? ?? 49 81 f6 ?? ?? ?? ?? 41 56 e9}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 ff c1 e9 05 00 48 ff c1 48 81 f9 ?? ?? ?? ?? 8a a6 ?? ?? ?? ?? 32 e0 80 f4 a0 88 27 88 27 e9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Ransom_Win64_Magniber_ARR_2147953941_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Magniber.ARR!MTB"
+        threat_id = "2147953941"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Magniber"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {33 18 18 5f 9b 55 d3 c4 31 f0 3a 57 4c}  //weight: 20, accuracy: High
+        $x_15_2 = {8a 1e f6 fc b4 ?? 5e c9 86 4c 78 04 f6 f5 fc 03 7f a0}  //weight: 15, accuracy: Low
+        $x_5_3 = {ea f6 ec ac 2d ?? ?? ?? ?? c0 6d 46 07 1c ?? 13 0f 11 f9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

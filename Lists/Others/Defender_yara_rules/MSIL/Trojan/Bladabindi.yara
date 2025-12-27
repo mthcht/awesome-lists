@@ -1822,6 +1822,28 @@ rule Trojan_MSIL_Bladabindi_NW_2147820440_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 04 11 04 74 ?? 00 00 1b 16 1f 3a 9d 11 04 75 ?? 00 00 1b 20}  //weight: 2, accuracy: Low
+        $x_1_2 = {13 04 11 04 74 ?? 00 00 1b 16 1f 3a 9d 11 04 75 ?? 00 00 1b 6f ?? 00 00 0a 17 9a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_NW_2147820440_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.NW!MTB"
+        threat_id = "2147820440"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
         strings_accuracy = "High"
     strings:
         $x_1_1 = {16 2d 11 2b 1f 2d 0d 16 2d f6 2b 1b 2b 1c 2b 1d 2b 1e 2b 0a 2b 21 2b 22}  //weight: 1, accuracy: High
@@ -4546,6 +4568,163 @@ rule Trojan_MSIL_Bladabindi_SLWA_2147941055_0
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {13 05 11 05 72 ?? 01 00 70 6f 30 00 00 0a 11 05 72 ?? 01 00 70 6f 31 00 00 0a 11 05 17 6f 32 00 00 0a 11 05 17}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_SLAW_2147941504_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.SLAW!MTB"
+        threat_id = "2147941504"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {12 02 2b 27 72 dd 00 00 70 2b 27 80 17 00 00 04 7e 17 00 00 04 14 2b 21 2c 0c 7e 17 00 00 04 2b 1f 80 18 00 00 04 de 2f 07 2b d5 28 d8 00 00 0a 2b d2 28 d9 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_ASAB_2147947473_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.ASAB!MTB"
+        threat_id = "2147947473"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {07 11 05 02 11 05 91 09 61 08 11 04 91 61 b4 2b 19 11 04 03 6f ?? 00 00 0a 17 da 33 05 16 13 04 2b 0b 11 04 17 d6 13 04 2b 03 9c 2b e4 11 05 17 d6 13 05 2b 03 0b 2b bc 11 05 11 06 31 02 2b 05 2b be 0d 2b a3}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_AYD_2147949878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.AYD!MTB"
+        threat_id = "2147949878"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "OfflineKeylogger Not Enabled" wide //weight: 2
+        $x_1_2 = "ExecutionPolicy Bypass Add-MpPreference -ExclusionProcess" wide //weight: 1
+        $x_1_3 = "Select * from AntivirusProduct" wide //weight: 1
+        $x_1_4 = "ExecutionPolicy Bypass -File" wide //weight: 1
+        $x_1_5 = "/create /f /RL HIGHEST /sc minute /mo 1 /tn" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_QQ_2147949925_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.QQ!MTB"
+        threat_id = "2147949925"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 04 17 1a 8d ?? ?? ?? 01 13 06 11 06 16 20 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 06 a2 11 06 17 20}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_GVA_2147951900_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.GVA!MTB"
+        threat_id = "2147951900"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {09 28 0d 00 00 0a 2d 14 28 15 00 00 06 2c 06 28 0d 00 00 06 2a 09 28 12 00 00 06 2a 03 25 2d 07 26 16 8d 02 00 00 01 28 05 00 00 06 2a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_SLKS_2147956822_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.SLKS!MTB"
+        threat_id = "2147956822"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 43 01 00 06 28 c2 04 00 06 13 04 11 04 28 6a 00 00 0a 13 05 28 44 01 00 06 28 68 00 00 0a 28 45 01 00 06 28 69 00 00 0a 11 05 28 6b 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_AYJ_2147959966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.AYJ!MTB"
+        threat_id = "2147959966"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "EncryptedServerPayload" ascii //weight: 5
+        $x_2_2 = "ExecutePayload" ascii //weight: 2
+        $x_1_3 = "MultiStageLoader" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+        $x_1_5 = "source\\repos\\multiloader" ascii //weight: 1
+        $x_1_6 = "$3e17166a-0222-4480-9380-0391c85dc1a9" ascii //weight: 1
+        $x_1_7 = "powershell.exe -ExecutionPolicy Bypass -Command \"Set-MpPreference -Exclusion" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

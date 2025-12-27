@@ -1292,27 +1292,6 @@ rule Trojan_Win64_Emotet_PAP_2147819776_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Emotet_PAE_2147819830_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/Emotet.PAE!MTB"
-        threat_id = "2147819830"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {99 b9 2b 00 00 00 f7 f9 8b c2 48 98 48 8b 0d ?? ?? ?? ?? 0f b6 04 01 8b 8c 24 [0-4] 33 c8 8b c1 48 63 8c 24 [0-4] 48 8b 15 [0-4] 88 04 0a eb}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_Emotet_PAG_2147819910_0
 {
     meta:

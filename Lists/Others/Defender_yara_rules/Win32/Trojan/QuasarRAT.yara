@@ -69,3 +69,48 @@ rule Trojan_Win32_QuasarRAT_DC_2147941678_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_QuasarRAT_SK_2147954282_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/QuasarRAT.SK!MTB"
+        threat_id = "2147954282"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {46 0f b6 4c 04 5c 4e 8d 14 00 41 83 e2 7f 45 31 ca 48 89 c1 83 e1 01 41 d3 e2 46 88 54 04 5c 48 83 f8 01 75 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_QuasarRAT_ABQ_2147958446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/QuasarRAT.ABQ!MTB"
+        threat_id = "2147958446"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 04 0f f6 d0 c0 c8 02 34 c5 88 04 0f 41 3b ca 72}  //weight: 5, accuracy: High
+        $x_1_2 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_3 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_4 = "ResumeThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

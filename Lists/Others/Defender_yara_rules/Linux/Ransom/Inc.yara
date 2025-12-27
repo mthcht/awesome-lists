@@ -20,3 +20,27 @@ rule Ransom_Linux_Inc_A_2147913437_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Inc_B_2147948585_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Inc.B!MTB"
+        threat_id = "2147948585"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Inc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "INCdirectorydirEncryption directory" ascii //weight: 1
+        $x_1_2 = "esxiskipfastslow%id%Encryption of file" ascii //weight: 1
+        $x_1_3 = "etc/motdvim-cmdvmsvc/getallvms" ascii //weight: 1
+        $x_1_4 = "vmsvc/power.offvmsvc/snapshot.removeallsrc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

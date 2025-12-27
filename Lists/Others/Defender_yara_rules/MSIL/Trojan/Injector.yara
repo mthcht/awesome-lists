@@ -1457,3 +1457,121 @@ rule Trojan_MSIL_Injector_EAPQ_2147936729_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_AMTB_2147946203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector!AMTB"
+        threat_id = "2147946203"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "BLACKHAWK.dll" ascii //weight: 2
+        $x_2_2 = "BLACKHAWK.pdb" ascii //weight: 2
+        $x_2_3 = "BLACKHAWK.Properties" ascii //weight: 2
+        $n_100_4 = "Uninst.exe" ascii //weight: -100
+        $n_100_5 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_6 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_AHB_2147947693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.AHB!MTB"
+        threat_id = "2147947693"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {11 07 11 08 11 05 11 08 91 11 06 11 08 11 06 8e 69 5d 91 61 d2 9c 11 08 17 58 13 08 11 08 11 05 8e 69 3f d9 ff ff ff}  //weight: 30, accuracy: High
+        $x_30_2 = {08 09 06 09 91 07 09 07 8e 69 5d 91 61 d2 9c 09 17 58 0d 09 06 8e 69 3f e4 ff ff ff}  //weight: 30, accuracy: High
+        $x_10_3 = {28 05 00 00 0a 13 06 11 05 8e 69 8d 06 00 00 01 13 07 16 13 08}  //weight: 10, accuracy: High
+        $x_10_4 = {28 01 00 00 0a 0b 06 8e 69 8d 01 00 00 01 0c 16 0d 38 13 00 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_Injector_AKQ_2147948431_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.AKQ!MTB"
+        threat_id = "2147948431"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {11 05 28 2c 00 00 0a 13 08 11 06 28 2c 00 00 0a 13 09 11 07 11 08 11 09 28 12 00 00 06 13 0a 11 0a 28 2c 00 00 0a 13 0b 11 04 39 0f 00 00 00 72 65 02 00 70 80 01 00 00 04 38 0a 00 00 00 72 a5 02 00 70 80 01 00 00 04 73 01 00 00 06 13 0c 11 0c 7e 01 00 00 04 11 0b 6f 11 00 00 06 2a}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_CSI_2147953335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.CSI!MTB"
+        threat_id = "2147953335"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 23 00 00 06 28 6e 00 00 0a 28 6f 00 00 0a 73 25 00 00 0a 0a 7e 04 00 00 04 28 1e 00 00 0a 06 72 a1 0e 00 70 28 01 00 00 06 6f 70 00 00 0a 74 01 00 00 1b 6f 71 00 00 0a 28 11 00 00 0a 28 0d 00 00 06 0b 28 3e 00 00 0a 72 8f 16 00 70 28 01 00 00 06 28 3c 00 00 0a 0c 08 07 28 72 00 00 0a 08 28 3d 00 00 0a 2c 1e 73 60 00 00 0a 25 08 73 73 00 00 0a 25 17 6f 62 00 00 0a 6f 74 00 00 0a 6f 66 00 00 0a 26}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_TWK_2147954661_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.TWK!MTB"
+        threat_id = "2147954661"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {07 72 83 00 00 70 28 26 00 00 06 28 16 00 00 06 28 15 00 00 06 6f 24 00 00 0a 07 72 95 00 00 70 28 27 00 00 06 28 16 00 00 06 28 15 00 00 06 6f 24 00 00 0a de 0a 07 2c 06 07 6f 25 00 00 0a dc 28 28 00 00 06 28 16 00 00 06 28 15 00 00 06 0a 28 0e 00 00 06 06 28 02 00 00 06 26 2a}  //weight: 2, accuracy: High
+        $x_2_2 = {73 33 00 00 0a 25 06 6f 34 00 00 0a 25 72 4b 01 00 70 6f 35 00 00 0a 25 72 7d 01 00 70 6f 36 00 00 0a 25 17 6f 37 00 00 0a 25 17 6f 38 00 00 0a 0b 07 28 39 00 00 0a 20 f4 01 00 00 28 3a 00 00 0a 25 6f 3b 00 00 0a 2c 0b 72 89 01 00 70 73 3c 00 00 0a 7a 6f 3d 00 00 0a 0c de 17}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -965,43 +965,6 @@ rule Trojan_Win64_Cobaltstrike_ED_2147814997_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Cobaltstrike_PAA_2147815543_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/Cobaltstrike.PAA!MTB"
-        threat_id = "2147815543"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "Cobaltstrike"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "17"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "okuwwgefqeg.dll" ascii //weight: 1
-        $x_1_2 = "DllMainDll" ascii //weight: 1
-        $x_1_3 = "RegisterServer" ascii //weight: 1
-        $x_1_4 = "awowacciiuwajyn" ascii //weight: 1
-        $x_1_5 = "brjvnyyakawu" ascii //weight: 1
-        $x_1_6 = "cvmgghrspqaecj" ascii //weight: 1
-        $x_1_7 = "dstilxaph" ascii //weight: 1
-        $x_1_8 = "ieordxmvyp" ascii //weight: 1
-        $x_1_9 = "kkkuiehtzdzuea" ascii //weight: 1
-        $x_1_10 = "mzpydjjenaxzqhmmd" ascii //weight: 1
-        $x_1_11 = "njtgkcdkfggzjsramntfufspnpfovlit" ascii //weight: 1
-        $x_1_12 = "otfmvfutkcx" ascii //weight: 1
-        $x_1_13 = "povmdajaysjbnn" ascii //weight: 1
-        $x_1_14 = "qadpxwucgjuy" ascii //weight: 1
-        $x_1_15 = "rezuiucg" ascii //weight: 1
-        $x_1_16 = "wafklhepa" ascii //weight: 1
-        $x_1_17 = "wzbjjmqvrdtvbnl" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_Cobaltstrike_CMN_2147818083_0
 {
     meta:
@@ -2701,6 +2664,30 @@ rule Trojan_Win64_Cobaltstrike_OJU_2147945071_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {48 89 f1 e8 ?? ?? ?? ?? 48 83 fa ?? 75 ?? 8b 08 ba ?? ?? ?? ?? 31 d1 8b 40 ?? ba ?? ?? ?? ?? 31 d0 09 c8 0f 84 ?? ?? ?? ?? 0f 1f 80 ?? ?? ?? ?? 48 83 7c 24 ?? ?? 74}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Cobaltstrike_AMTB_2147959485_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cobaltstrike!AMTB"
+        threat_id = "2147959485"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cobaltstrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /c echo dAcBAloYhKlSJAw>" ascii //weight: 1
+        $x_1_2 = "EastonHammes" ascii //weight: 1
+        $x_1_3 = "NapoleonFunk" ascii //weight: 1
+        $x_1_4 = "MarielaSchuster" ascii //weight: 1
+        $x_1_5 = "SamDooley" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

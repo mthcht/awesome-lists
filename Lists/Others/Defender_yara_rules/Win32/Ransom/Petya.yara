@@ -294,3 +294,25 @@ rule Ransom_Win32_Petya_BA_2147941997_0
         (6 of ($x*))
 }
 
+rule Ransom_Win32_Petya_PTC_2147949001_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Petya.PTC!MTB"
+        threat_id = "2147949001"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Petya"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8b 55 f8 8d 9c 0a ?? ?? ?? ?? b8 ?? ?? ?? ?? 99 f7 fb 41 30 91 ?? ?? ?? ?? 83 f9 10 7c}  //weight: 4, accuracy: Low
+        $x_2_2 = {6a 40 68 00 ?? ?? ?? 68 ?? ?? ?? ?? 8b 3d ?? ?? ?? ?? ff d7 85 c0 74 ?? ff}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

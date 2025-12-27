@@ -32,3 +32,24 @@ rule Trojan_Win64_Toughprogress_A_2147943064_0
         )
 }
 
+rule Trojan_Win64_Toughprogress_GVA_2147957993_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Toughprogress.GVA!MTB"
+        threat_id = "2147957993"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Toughprogress"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {42 0f b7 44 4d 00 42 8b 0c 8e 49 03 ca 44 8b 04 87 b8 0f 17 00 00 4d 03 c2 0f be 11 85 d2 74 10 6b c0 21 48 8d 49 01 03 c2 0f be 11 85 d2 75 f0 3b c3 74 1f 49 ff c1 4d 3b cb 72 c4}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

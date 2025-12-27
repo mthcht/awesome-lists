@@ -507,3 +507,112 @@ rule Trojan_MSIL_PureCrypter_ZNV_2147944768_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureCrypter_BAA_2147945618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.BAA!MTB"
+        threat_id = "2147945618"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 01 38 1e 00 00 00 11 01 16 ?? ?? 00 00 0a 13 02 38 00 00 00 00 11 00 16 73 15 00 00 0a 13 03 38 11 00 00 00 11 00 11 01 16 1a ?? ?? 00 00 0a 26 38 d1 ff ff ff 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_PureCrypter_ABAB_2147946872_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.ABAB!MTB"
+        threat_id = "2147946872"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0c 08 06 28 ?? 00 00 0a 07 28 ?? 00 00 0a 6f ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 11 04 09 17 73 ?? 00 00 0a 13 05 02 28 ?? 00 00 06 75 ?? 00 00 1b 13 06 11 05 11 06 16 11 06 8e 69 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 07 dd}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_PureCrypter_SK_2147947928_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.SK!MTB"
+        threat_id = "2147947928"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 05 72 4d 00 00 70 73 06 00 00 0a 6f 07 00 00 0a 6f 08 00 00 0a 13 06 73 04 00 00 0a 13 07 11 06 11 07 6f 09 00 00 0a 11 07 6f 0a 00 00 0a 13 04 dd 0f 00 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_PureCrypter_PS_2147949921_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.PS!MTB"
+        threat_id = "2147949921"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0c 08 06 6f ?? ?? ?? 0a 08 07 6f ?? ?? ?? 0a 08 6f ?? ?? ?? 0a 02 16 02 8e 69 6f ?? ?? ?? 0a 0d dd ?? ?? ?? 00 08 39 ?? ?? ?? 00 08 6f ?? ?? ?? 0a dc}  //weight: 3, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_3 = "GetFakePayload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_PureCrypter_GVA_2147957512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.GVA!MTB"
+        threat_id = "2147957512"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {02 74 44 00 00 01 6f 49 00 00 0a 6f c3 00 00 0a 6f bf 00 00 0a 72 69 04 00 70 72 01 00 00 70 6f c4 00 00 0a 28 c2 00 00 0a 39 2a 00 00 00 02 74 44 00 00 01 6f 49 00 00 0a 6f c3 00 00 0a 6f bf 00 00 0a 72 69 04 00 70 72 01 00 00 70 6f c4 00 00 0a 0a dd 6f 00 00 00 dd 06 00 00 00 26 dd 00 00 00 00 00 02 6f be 00 00 0a 72 7b 04 00 70 6f c5 00 00 0a 02 16 8d 17 00 00 01 6f c6 00 00 0a 6f bf 00 00 0a 28 c2 00 00 0a 39 27 00 00 00 02 6f be 00 00 0a 72 7b 04 00 70 6f c5 00 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

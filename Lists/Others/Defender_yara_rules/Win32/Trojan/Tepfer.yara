@@ -180,6 +180,27 @@ rule Trojan_Win32_Tepfer_EM_2147926886_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {31 3e 83 c3 04 83 c6 04 3b 5d e0 72 b1 b8 00 10 00 00 8b 55 e4 03 55 dc 2b d0 83 c2 04 89 55 ec}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_EM_2147926886_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.EM!MTB"
+        threat_id = "2147926886"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -442,6 +463,177 @@ rule Trojan_Win32_Tepfer_BAD_2147943151_1
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {b8 00 10 00 00 8b 55 ?? 03 55 ?? 2b d0 83 c2 04 89 55 ?? b8 6a 0a 00 00 ff 75 ?? b8 6a 0a 00 00 ff 75 ?? b8 6a 0a 00 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_MR_2147949736_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.MR!MTB"
+        threat_id = "2147949736"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 31 3e 83 c3 04 83 c6 04 3b 5d e0 72}  //weight: 10, accuracy: Low
+        $x_5_2 = {01 1e 8b 7d d8 03 7d a4 03 fb 03 f8 c7 45 b8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_BAF_2147951954_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.BAF!MTB"
+        threat_id = "2147951954"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {03 c3 8a 00 f3 0f 10 e4 f3 0f 10 ed 90 90 34 56 8b 15 ?? ?? ?? ?? 03 d3 88 02}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_BAG_2147951955_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.BAG!MTB"
+        threat_id = "2147951955"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 00 50 8b c6 33 d2 52 50 8b c1 99 03 04 24 13 54 24 04 83 c4 08 5a 88 10}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_BAH_2147952252_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.BAH!MTB"
+        threat_id = "2147952252"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {5a 2b d0 03 f2 31 37 83 c3 04 83 c7 04 3b 5d e0 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_BAI_2147952254_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.BAI!MTB"
+        threat_id = "2147952254"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {89 c0 89 f6 87 d2 ?? ?? ?? 8b bd d4 fb ff ff 8b b5 d8 fb ff ff 8b 9d dc fb ff ff 8b e5 5d c2 10 00}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_EDSM_2147952625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.EDSM!MTB"
+        threat_id = "2147952625"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 44 10 ff 8b 15 ?? ?? ?? ?? 33 c2 f7 d0}  //weight: 2, accuracy: Low
+        $x_2_2 = {5a 88 02 ff 07 4b ?? ?? 5f 5e 5b}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_BAJ_2147952674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.BAJ!MTB"
+        threat_id = "2147952674"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {89 ff 89 db 8b 45 10 8b 55 dc 8b 4d e0 8a 8c 8d ?? ?? ?? ?? 32 4d e7 88 0c 10}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tepfer_ARR_2147959551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tepfer.ARR!MTB"
+        threat_id = "2147959551"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tepfer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 44 24 30 8b 58 ?? 8b 4c 24 2c 33 19 8b 70}  //weight: 10, accuracy: Low
+        $x_40_2 = "id=1YBVIDkZgygNfUU2rbJXXCYdrzay5rMdY" ascii //weight: 40
     condition:
         (filesize < 20MB) and
         (all of ($x*))

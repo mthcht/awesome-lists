@@ -6712,27 +6712,6 @@ rule Trojan_Win32_CryptInject_PAGB_2147931021_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_CryptInject_WZV_2147931404_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/CryptInject.WZV!MTB"
-        threat_id = "2147931404"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "CryptInject"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {83 c4 04 81 e3 a0 eb 00 00 81 eb 8e 1d 01 00 81 c3 69 cb 00 00 5b 8b 8d f4 f4 ff ff 89 8d 54 e2 ff ff c7 85 ?? ?? ff ff 00 00 00 00 eb 0f 8b 95 ?? ?? ff ff 83 c2 01 89 95 60 f9 ff ff 8b 85 60 f9 ff ff 3b 85 7c f4 ff ff 73 50 8b 8d 54 e2 ff ff 03 8d ?? ?? ff ff 8b 95 50 e2 ff ff 03 95 ?? ?? ff ff 8a 02 88 01 56 81 f6 fc 07 01 00}  //weight: 5, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_CryptInject_OIU_2147935216_0
 {
     meta:
@@ -6835,6 +6814,48 @@ rule Trojan_Win32_CryptInject_CCJZ_2147942572_0
         $x_6_1 = {99 83 e2 1f 01 d0 c1 f8 05 83 e8 01 0f b6 44 05 ?? 31 c8 88 45 ?? c7 45}  //weight: 6, accuracy: Low
         $x_4_2 = {01 ca 0f b6 1a 8d 4d ?? 8b 55 ?? 01 ca 0f b6 12 31 da 88 10 83 45 ?? 01 83 7d ?? 03 7e}  //weight: 4, accuracy: Low
         $x_1_3 = "PAYLOAD_" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_CryptInject_AHB_2147946294_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CryptInject.AHB!MTB"
+        threat_id = "2147946294"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {39 d2 74 01 ea 31 07 68 ?? ?? ?? ?? 8b 1c 24 83 c4 04 81 c7 04 00 00 00 49 39 d7 75 e3}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_CryptInject_GA_2147957976_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CryptInject.GA!MTB"
+        threat_id = "2147957976"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 8c 0d ?? ?? ?? ?? 41 30 48 fd 41 8d 49 02 f7 e1 41 83 c1 05 c1 ea 03 6b c2 0f 2b c8 41 8d 41 fe 0f b6 8c 0d ?? ?? ?? ?? 41 30 48 fe 3d 77 01 00 00 0f 82}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

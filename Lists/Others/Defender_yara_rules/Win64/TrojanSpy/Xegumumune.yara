@@ -22,3 +22,27 @@ rule TrojanSpy_Win64_Xegumumune_AXU_2147927658_0
         (all of ($x*))
 }
 
+rule TrojanSpy_Win64_Xegumumune_ARA_2147952225_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:Win64/Xegumumune.ARA!MTB"
+        threat_id = "2147952225"
+        type = "TrojanSpy"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Xegumumune"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Keystroke & Screenshot Report" ascii //weight: 2
+        $x_2_2 = "send_data_with_screenshot" ascii //weight: 2
+        $x_2_3 = "payload_json" ascii //weight: 2
+        $x_2_4 = "/KeyLogger" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

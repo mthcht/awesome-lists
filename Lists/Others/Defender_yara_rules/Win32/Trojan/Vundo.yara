@@ -2869,3 +2869,69 @@ rule Trojan_Win32_Vundo_CA_334045_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vundo_AHB_464693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vundo.AHB!MTB"
+        threat_id = "464693"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vundo"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {c1 e1 08 0f b6 d4 0f b6 85 32 fb ff ff 03 ca 0f b6 95 33 fb ff ff c1 e1 08 03 c8 c1 e1 08 03 ca 89 4e fe 83 c4 0c 83 c6 08 83 ef 01 0f 85}  //weight: 10, accuracy: High
+        $x_5_2 = {03 d3 c1 fa 03 8b c2 c1 e8 1f 03 c2 8b c8 c1 e1 04 2b c8 8b d3 2b d1 0f be 8c 15 34 ff ff ff 8d b4 15 34 ff ff ff b8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vundo_GVA_472150_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vundo.GVA!MTB"
+        threat_id = "472150"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vundo"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 d2 8a d4 89 15 98 19 01 01 8b c8 81 e1 ff 00 00 00 89 0d 94 19 01 01 c1 e1 08 03 ca 89 0d 90 19 01 01 c1 e8 10 a3 8c 19 01 01 33 f6}  //weight: 2, accuracy: High
+        $x_1_2 = {8a 50 01 40 80 fa 22 74 29 84 d2 74 25 0f b6 d2 f6 82 61 1c 01 01 04 74 0c ff 01 85 f6 74 06 8a 10 88 16 46 40 ff 01 85 f6 74 d5 8a 10 88 16 46 eb ce}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vundo_AHC_474172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vundo.AHC!MTB"
+        threat_id = "474172"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vundo"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8a 10 80 f2 ?? 66 0f b6 d2 0f b7 d2 88 10 41 8b c1 80 39 ?? 75}  //weight: 30, accuracy: Low
+        $x_20_2 = {32 14 2f 8b 4c 24 14 8d 34 85 ?? ?? ?? ?? 33 f0 03 f6 22 d9 33 f0 32 d3 32 d0}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

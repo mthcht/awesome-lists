@@ -54,3 +54,24 @@ rule Ransom_Win32_MoneyMessage_A_2147844730_0
         )
 }
 
+rule Ransom_Win32_MoneyMessage_MXS_2147952634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/MoneyMessage.MXS!MTB"
+        threat_id = "2147952634"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "MoneyMessage"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {34 64 33 d2 88 85 ?? fe ff ff 8a 85 ?? fe ff ff 0f 1f 44 00 00 8a 84 15 ?? fe ff ff 8b 8d ?? fe ff ff 02 ca 32 c8 88 8c 15 ?? fe ff ff 42 83 fa 18 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

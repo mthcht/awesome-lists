@@ -62,3 +62,28 @@ rule Trojan_Win32_Antavmu_GMA_2147900250_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Antavmu_MR_2147947199_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Antavmu.MR!MTB"
+        threat_id = "2147947199"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Antavmu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {31 c9 31 d2 89 d0 89 d5 8b 9c 24 8c 00 00 00 83 e0 3f 83 c2 01 c1 fd 02 0f af c5 31 c8 83 c1 0d 01 d8 81 fa f4 01}  //weight: 10, accuracy: High
+        $x_5_2 = {89 d7 09 c7 85 f2 0f 95 44 24 03 85 ea 0f 95 c3 38 5c 24 03 0f 45 c7 01 d2 83 e9 01}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

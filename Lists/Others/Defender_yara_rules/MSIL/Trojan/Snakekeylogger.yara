@@ -666,3 +666,66 @@ rule Trojan_MSIL_Snakekeylogger_ANK_2147941726_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Snakekeylogger_PGAT_2147946179_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Snakekeylogger.PGAT!MTB"
+        threat_id = "2147946179"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Snakekeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 03 04 6f ?? ?? 00 0a 0a 12 01 fe 15 30 00 00 02 12 01 12 00 28 ?? ?? 00 0a 7d d3 00 00 04 12 01 12 00 28 ?? ?? 00 0a 7d d4 00 00 04 12 01 12 00 28 ?? ?? 00 0a 7d d5 00 00 04 0e 05 0d 09 39 9b 00 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Snakekeylogger_SPYT_2147949204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Snakekeylogger.SPYT!MTB"
+        threat_id = "2147949204"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Snakekeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {06 09 11 07 58 0e 06 1d 6a 5f 69 58 61 0a 02 09 11 07 6f ?? 00 00 0a 13 08 04 03 6f ?? 00 00 0a 59 13 09 11 09 13 0b 11 0b 13 0a 11 0a}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Snakekeylogger_ZYL_2147956825_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Snakekeylogger.ZYL!MTB"
+        threat_id = "2147956825"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Snakekeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 11 13 11 14 6f ?? 00 00 0a 13 2d 12 2d 28 ?? 00 00 0a 13 23 03 06 6f ?? 00 00 0a 59 13 24 11 23 28 ?? 00 00 0a 13 25 18 13 26 17}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

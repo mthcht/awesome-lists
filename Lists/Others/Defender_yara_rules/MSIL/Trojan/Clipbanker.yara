@@ -25,6 +25,31 @@ rule Trojan_MSIL_Clipbanker_RAA_2147760780_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Clipbanker_MK_2147810335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Clipbanker.MK!MTB"
+        threat_id = "2147810335"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Clipbanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {25 72 61 00 00 70 72 69 00 00 70 6f 27 00 00 0a 25 72 91 00 00 70 72 99 00 00 70 6f 27 00 00 0a 25 72 c1 00 00 70 72 c9 00 00 70 6f 27 00 00 0a 25 72 fb 00 00 70 72 03 01 00 70 6f 27 00 00 0a 25 72 1d 01 00 70 72 25 01 00 70 6f 27 00 00 0a 25 72 67 01 00 70 72 6f 01 00 70 6f 27 00 00 0a}  //weight: 15, accuracy: High
+        $x_10_2 = {2b 26 12 00 28 1e 00 00 0a 0b 12 01 28 1f 00 00 0a 28 0c 00 00 06 02 6f 20 00 00 0a 2c 0a 12 01 28 1f 00 00 0a 0c de 1b 12 00 28 21 00 00 0a 2d d1}  //weight: 10, accuracy: High
+        $x_2_3 = "((bitcoincash|bchreg):)?(q|p)[a-z0-9]{" ascii //weight: 2
+        $x_2_4 = "(t1|z[sc])[a-zA-Z0-9]{" ascii //weight: 2
+        $x_1_5 = "D{1}[5-9A-HJ-NP-U]{1}[1-9A-HJ-NP-Za-km-z]{" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Clipbanker_NBA_2147838856_0
 {
     meta:

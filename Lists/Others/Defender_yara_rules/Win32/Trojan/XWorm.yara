@@ -255,3 +255,141 @@ rule Trojan_Win32_XWorm_HA_2147942491_0
         )
 }
 
+rule Trojan_Win32_XWorm_GZQ_2147945528_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.GZQ!MTB"
+        threat_id = "2147945528"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {c6 85 ac fe ff ff 4c c6 85 ad fe ff ff 6f c6 85 ae fe ff ff 61 c6 85 af fe ff ff 64 c6 85 b0 fe ff ff 4c c6 85 b1 fe ff ff 69 c6 85 b2 fe ff ff 62 c6 85 b3 fe ff ff 72 c6 85 b4 fe ff ff 61 c6 85 b5 fe ff ff 72 c6 85 b6 fe ff ff 79 c6 85 b7 fe ff ff 57}  //weight: 5, accuracy: High
+        $x_5_2 = {5a b8 6b 00 00 00 66 89 85 50 fd ff ff b9 65 00 00 00 66 89 8d 52 fd ff ff ba 72 00 00 00 66 89 95 54 fd ff ff b8 6e 00 00 00 66 89 85 56 fd ff ff b9 65 00 00 00 66 89 8d 58 fd ff ff ba 6c 00 00 00 66 89 95 5a fd ff ff b8 33 00 00 00 66 89 85 5c fd ff ff b9 32 00 00 00 66 89 8d 5e fd ff ff ba 2e 00 00 00 66 89 95 60 fd ff ff b8 64 00 00 00 66 89 85 62 fd ff ff b9 6c 00 00 00 66 89 8d 64 fd ff ff ba 6c 00 00 00 66 89 95 66 fd ff ff 33 c0 66 89 85 68 fd ff ff c7 85}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_XWorm_BAF_2147948271_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.BAF!MTB"
+        threat_id = "2147948271"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 04 57 33 d2 30 01 8b 45 ?? 03 c1 f7 75 ?? 0f b6 04 57 33 d2 30 41 01 8b 45 d0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_XWorm_BAB_2147954670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.BAB!MTB"
+        threat_id = "2147954670"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {00 00 01 00 00 20 00 00 00 a2 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60}  //weight: 10, accuracy: High
+        $x_10_2 = {0e 05 00 00 00 20 01 00 00 04 00 00 00 a6 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40}  //weight: 10, accuracy: High
+        $x_10_3 = {0c 00 00 00 00 40 01 00 00 02 00 00 00 aa 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 42}  //weight: 10, accuracy: High
+        $x_1_4 = "checkprotection" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\WinLicense" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_XWorm_MCM_2147956048_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.MCM!MTB"
+        threat_id = "2147956048"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {56 42 35 21 f0 1f 2a [0-48] f8 1a 40 00 10 f0 30 00 00 ff ff ff 08 00 00 00 01 00 00 00 02 00 01 00 e9 00 00 00 a0 13 40 00 24 15 40 00 20 11 40 00 78}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_XWorm_MCN_2147956049_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.MCN!MTB"
+        threat_id = "2147956049"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2e 53 71 75 69 7a 50 61 82 9a 00 00 00 10 08 00 00 9c 00 00 00 f6 07 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 65 68 5f 66 72 61 6d 04 00 00 00 00 b0 08 00 00 02 00 00 00 92 08 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 70 64 61 74 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_XWorm_AMTB_2147958364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm!AMTB"
+        threat_id = "2147958364"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MXe77Hjr3fLHXxIK416L2RQyHLJKFpD5GynmFOQr1Zas4U1kWsCYAgSuRWbILZyDllySaE" ascii //weight: 1
+        $x_1_2 = "a2iKC8dQHAx3OBpcTPTuHc9sYQF4LYmMu1mVKn07Xugl8BE49rkJb7XW6PQSv6w06dfUhE" ascii //weight: 1
+        $x_1_3 = "5mlbGFlsC7Vi5yWZ4dQdrZA0MflHP9i18nXRUWby7AQrZODPrctymlle" ascii //weight: 1
+        $x_1_4 = "EXECUTION_STATE" ascii //weight: 1
+        $x_1_5 = "get_UserName" ascii //weight: 1
+        $x_1_6 = "get_MachineName" ascii //weight: 1
+        $x_1_7 = "h9dvA9Crk3ELw0vrVJ6FFrnv5QdkVxjY1My65xfOmY9duFxGH7KTgDyBWgBx2fOAq0dcp0" ascii //weight: 1
+        $x_1_8 = "ElojuyhUAoZ1mqb60ODxThEPDYqVzASyaqOx8ZbWCJJEHb6gBZBphwt8t1gZ5oZyI3KeA1" ascii //weight: 1
+        $x_1_9 = "mxoWMt7UEafchl6G2m5cRsj8zqbm9OXWHwT3AC5u17ndTDiPWMUtK2W1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+

@@ -1255,6 +1255,27 @@ rule Trojan_Win64_Bumblebee_AB_2147888990_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {49 8b 80 88 00 00 00 49 8b f8 49 8b 88 18 02 00 00 48 0f af c0 48 69 c0 ?? ?? 00 00 49 89 80 88 00 00 00 49 8b 80 b0 01 00 00 48 05 ?? ?? 00 00 48 09 81 98 01 00 00 49 8b c8 49 8b}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Bumblebee_AB_2147888990_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bumblebee.AB!MTB"
+        threat_id = "2147888990"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bumblebee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
@@ -2166,6 +2187,71 @@ rule Trojan_Win64_Bumblebee_AZL_2147942279_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {0f b6 00 0f b6 8c 24 69 9a 01 00 2b c1 48 8b 8c 24 f0 01 00 00 88 01 e8 ?? ?? ?? ?? 48 8b 80 f8 0f 00 00 48 8b 8c 24 98 ca 00 00 48 89 4c 24 20 45 33 c9 45 33 c0 ba 02 00 00 00 48 8b 8c 24 ?? 60 01 00 ff 50 48}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Bumblebee_AHB_2147945649_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bumblebee.AHB!MTB"
+        threat_id = "2147945649"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bumblebee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {89 45 a4 66 c7 45 a0 02 00 b9 50 00 00 00 48 8b ?? ?? ?? ?? 00 ff d0 66 89 45 a2 48 8d 55 a0 48 8b 85 58 01 00 00 41 b8 10 00 00 00 48 89 c1 48 8b ?? ?? ?? ?? 00 ff d0}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Bumblebee_GTB_2147948840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bumblebee.GTB!MTB"
+        threat_id = "2147948840"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bumblebee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {03 c8 8b c1 89 84 24 ?? ?? ?? ?? 0f be 44 24 ?? 83 f0 7d 88 44 24 ?? 0f b6 44 24}  //weight: 10, accuracy: Low
+        $x_1_2 = "deadlily Aselline" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Bumblebee_GTB_2147948840_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bumblebee.GTB!MTB"
+        threat_id = "2147948840"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bumblebee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "I_I^I]I\\I[IZIYIXH_H^H]H[HZHYHXHPHQHRHSHUHVHWIPIQIRISITIUIVIW" ascii //weight: 10
+        $x_1_2 = "HZHYHXHPHQHRHSHUHVHWIPIQIRISITIUIVI" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

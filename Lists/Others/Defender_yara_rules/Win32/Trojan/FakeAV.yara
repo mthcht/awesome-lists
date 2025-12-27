@@ -204,3 +204,26 @@ rule Trojan_Win32_FakeAV_NA_2147940056_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FakeAV_MX_2147952275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FakeAV.MX!MTB"
+        threat_id = "2147952275"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FakeAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "JUMP@@YIKKK@Z" ascii //weight: 1
+        $x_1_2 = "wsmt5.exe" ascii //weight: 1
+        $x_1_3 = "Xbl@YcmAZdnB[eoC" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

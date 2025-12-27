@@ -598,3 +598,146 @@ rule Trojan_Linux_Mirai_AA_2147908960_0
         )
 }
 
+rule Trojan_Linux_Mirai_LX_2147950973_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.LX!MTB"
+        threat_id = "2147950973"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Kill bypass attempt" ascii //weight: 2
+        $x_1_2 = "Kill blacklist" ascii //weight: 1
+        $x_1_3 = "Missing fds" ascii //weight: 1
+        $x_1_4 = "Kill new" ascii //weight: 1
+        $x_1_5 = "Deleted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_HAB_2147956705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAB!MTB"
+        threat_id = "2147956705"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[udpbypass_flood] started: ('%d')" ascii //weight: 30
+        $x_1_2 = "[syn_flood] started: ('%d')" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_HAB_2147956705_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAB!MTB"
+        threat_id = "2147956705"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "71"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[udpbypass_flood] started: ('%d')" ascii //weight: 30
+        $x_1_2 = "[syn_flood] started: ('%d')" ascii //weight: 1
+        $x_40_3 = "151.242.30.16" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_AMTB_2147957847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai!AMTB"
+        threat_id = "2147957847"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "fuser -k -n tcp %d 2>/dev/null" ascii //weight: 1
+        $x_1_2 = "NFnhiFSDfdsfFSD" ascii //weight: 1
+        $x_1_3 = "[locker] fcntl F_GETFL" ascii //weight: 1
+        $x_1_4 = "[locker] fcntl F_SETFL" ascii //weight: 1
+        $x_1_5 = "npxXoudifFeEgGaACScs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_AMTB_2147957847_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai!AMTB"
+        threat_id = "2147957847"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "wget http://%s/router.lblink-rep.sh" ascii //weight: 2
+        $x_2_2 = "wget http://%s/dvr.lilin-rep.sh" ascii //weight: 2
+        $x_3_3 = "boymoder.ddns.net" ascii //weight: 3
+        $x_3_4 = "$(wget${IFS}http://%s/dvr.tvt-rep.sh" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_SK_2147959375_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.SK!AMTB"
+        threat_id = "2147959375"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ecfafeab6ee7d642" ascii //weight: 1
+        $x_1_2 = "%s/%s/%s.sh" ascii //weight: 1
+        $x_1_3 = "*** %s ***: terminated" ascii //weight: 1
+        $x_1_4 = "lock_file" ascii //weight: 1
+        $x_1_5 = "/proc/cpuinfo" ascii //weight: 1
+        $x_1_6 = "delete[]" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

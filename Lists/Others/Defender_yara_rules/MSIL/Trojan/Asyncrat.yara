@@ -105,3 +105,24 @@ rule Trojan_MSIL_Asyncrat_PGA_2147942783_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Asyncrat_PGR_2147947942_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Asyncrat.PGR!MTB"
+        threat_id = "2147947942"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Asyncrat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {72 37 00 00 70 28 ?? 00 00 0a 0a 72 69 00 00 70 28 ?? 00 00 0a 0b 73 ?? 00 00 0a 0c 08 06 6f ?? 00 00 0a 08 07 6f ?? 00 00 0a 08 6f ?? 00 00 0a 02 16 02 8e 69 6f ?? 00 00 0a 0d dd 0d 00 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

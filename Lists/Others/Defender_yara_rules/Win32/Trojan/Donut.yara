@@ -47,3 +47,49 @@ rule Trojan_Win32_Donut_AMAB_2147853389_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Donut_YAB_2147945877_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Donut.YAB!MTB"
+        threat_id = "2147945877"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {b8 68 58 4d 56 bb 00 00 00 00 b9 0a 00 00 00 ba 58 56 00 00 ed 81 fb 68 58 4d 56 0f 94 45 e7}  //weight: 5, accuracy: High
+        $x_1_2 = "schtasks /create /tn" ascii //weight: 1
+        $x_1_3 = "djkggosj.bat" ascii //weight: 1
+        $x_5_4 = {0f b6 cb 32 b9 ?? ?? ?? ?? 8a 6d ff 8a 48 f3 8d 70 04 8a 58 f4 32 cf 32 5d fe 42 88 48 03 8a 48 f5 32 4d fd 88 48 05 8a 48 f6 32 cd}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Donut_GZN_2147952146_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Donut.GZN!MTB"
+        threat_id = "2147952146"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2b c6 d1 f8 03 c2 03 c7 6a 04 8d 74 18 01 68 00 10 00 00 8d 0c 36 51 6a 00 ff 15 ?? ?? ?? ?? 8b f8 85 f6}  //weight: 5, accuracy: Low
+        $x_5_2 = {6a 00 6a 00 68 ?? ?? ?? ?? 8b f0 56 6a 00 ff 15 ?? ?? ?? ?? 68 00 80 00 00 6a 00 56 ff 15}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

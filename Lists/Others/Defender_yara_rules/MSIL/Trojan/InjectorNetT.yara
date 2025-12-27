@@ -133,3 +133,24 @@ rule Trojan_MSIL_InjectorNetT_AAXA_2147944198_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_InjectorNetT_ARLB_2147958037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/InjectorNetT.ARLB!MTB"
+        threat_id = "2147958037"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "InjectorNetT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {04 72 39 00 00 70 6f ?? 00 00 0a 74 ?? 00 00 01 6f ?? 00 00 0a 28 ?? 00 00 0a 80 05 00 00 04 7e 04 00 00 04 72 3d 00 00 70 6f ?? 00 00 0a 74 ?? 00 00 01 6f ?? 00 00 0a 28 ?? 00 00 06 28 ?? 00 00 0a 80 01 00 00 04 72 41 00 00 70 1a 8d 01 00 00 01 0b 07 16 17 8c 1a 00 00 01 a2 07 17 72 49 00 00 70 a2 07 18 72 4b 00 00 70 28 ?? 00 00 06 a2 07 19 16 8c 13 00 00 01 a2 07 28 ?? 00 00 06 26 72 4f 00 00 70 1d 8d 01 00 00 01 0c 08 16 17 8c 1a 00 00 01 a2 08 17 72 59 00 00 70 28 ?? 00 00 06 a2 08 18 72 67 00 00 70 a2 08 19 72 59 00 00 70 a2 08 1a 17}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

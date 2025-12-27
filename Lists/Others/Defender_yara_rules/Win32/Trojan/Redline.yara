@@ -3944,6 +3944,27 @@ rule Trojan_Win32_Redline_GTD_2147832568_0
         threshold = "10"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {8b 55 f8 8a 14 11 80 f2 42 88 14 01 41 3b 4d fc ?? ?? 8b 4d fc 50 88 1c 08}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Redline_GTD_2147832568_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Redline.GTD!MTB"
+        threat_id = "2147832568"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {0f be c0 69 c8 ?? ?? ?? ?? ba ?? ?? ?? ?? 89 c8 f7 ea 8d 04 0a c1 f8 ?? 89 c2 89 c8 c1 f8 ?? 29 c2 89 d0 ba ?? ?? ?? ?? 0f af c2 89 c1 8b 55 f0 8b 45 0c 01 d0 31 cb 89 da 88 10 83 45 f0 01 eb}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
@@ -19008,6 +19029,27 @@ rule Trojan_Win32_Redline_PARD_2147931477_0
         strings_accuracy = "Low"
     strings:
         $x_3_1 = {0f be bc 15 ?? ?? ?? ?? 99 f7 ff 0f af 45 ?? 2b f0 0f b6 44 35 ?? 33 c8 8b 55 ?? 03 55 ?? 88 0a eb}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Redline_AC_2147945969_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Redline.AC!MTB"
+        threat_id = "2147945969"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {18 29 4a 5b cd 35 d5 84 17 f3 ?? 4c d1 44 ec a7 37 59 8a 68 a5 86 f0 f9}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

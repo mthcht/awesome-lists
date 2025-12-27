@@ -214,3 +214,71 @@ rule Trojan_Win32_Dacic_MBZ_2147941591_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dacic_AB_2147945971_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dacic.AB!MTB"
+        threat_id = "2147945971"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 cc 8b 48 0c 8b 55 dc 8b 42 0c 8b 95 00 ff ff ff 8b b5 f8 fe ff ff 8a 0c 11 32 0c 30 8b 55 cc 8b 42 0c 8b 95 f0 fe ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Dacic_AC_2147953616_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dacic.AC!MTB"
+        threat_id = "2147953616"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {88 04 0f 88 14 0e 0f b6 81 01 01 00 00 0f b6 91 00 01 00 00 0f b6 04 08 02 04 0a 8b 55 f8 0f b6 c0 0f b6 04 08 32 44 1a ff ff 4d fc 88 43 ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Dacic_SX_2147955086_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dacic.SX!MTB"
+        threat_id = "2147955086"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a 08 40 84 c9 75 f9 2b c2 c6 84 04 be ?? ?? ?? ?? 8d 84 24 ?? ?? ?? ?? 8d 48 ?? eb 03}  //weight: 10, accuracy: Low
+        $x_2_2 = "C:\\ping_pong\\win_client\\Release\\win_client.pdb" ascii //weight: 2
+        $x_1_3 = "cmd.exe /C ping -w 50 -n 1 1.1.1.1 > Nul & Del" ascii //weight: 1
+        $x_1_4 = "echo_and_return: connect() is OK." ascii //weight: 1
+        $x_1_5 = "get_port_from_controller: connect() is OK." ascii //weight: 1
+        $x_1_6 = "ShellExecute" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

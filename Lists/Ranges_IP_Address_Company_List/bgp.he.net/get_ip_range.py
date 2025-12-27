@@ -6,6 +6,7 @@ import argparse
 import sys
 import logging
 import re
+from datetime import datetime
 
 # Set up logging
 logging.basicConfig(filename='get_ip_range_debug.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -19,7 +20,6 @@ def get_asns_and_ip_ranges(query):
     asns = []
     ip_ranges = []
 
-    # Extract ASN and IP ranges from the search results
     rows = soup.find_all('tr')
     for row in rows:
         cols = row.find_all('td')
@@ -44,7 +44,6 @@ def get_asn_from_ip_range(ip_range):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Find the ASN in the page
     div_netinfo = soup.find('div', id='netinfo')
     if not div_netinfo:
         logging.error(f"'div' with id 'netinfo' not found for IP range: {ip_range}")
@@ -72,7 +71,6 @@ def get_asn_ip_ranges(asn_number):
 
     ip_ranges = []
 
-    # Extract IPv4 and IPv6 prefixes
     prefixes4_table = soup.find('table', id='table_prefixes4')
     if prefixes4_table:
         for row in prefixes4_table.find('tbody').find_all('tr'):
@@ -109,16 +107,19 @@ def main(queries, output_format):
             initial_ip_ranges = []
         else:
             asns, initial_ip_ranges = get_asns_and_ip_ranges(query)
-        
+
         all_ip_ranges = initial_ip_ranges.copy()
 
         for asn in asns:
             asn_ip_ranges = get_asn_ip_ranges(asn)
             all_ip_ranges.extend(asn_ip_ranges)
 
-        # Remove duplicates
         all_ip_ranges = list(set(all_ip_ranges))
         save_output(query, all_ip_ranges, output_format)
+
+    # Write sentinel log file at end
+    with open('ASN_FETCH_DONE.log', 'w') as f:
+        f.write(f'Done at {datetime.utcnow().isoformat()}Z\n')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Retrieve ASN and IP ranges of a company from bgp.he.net')

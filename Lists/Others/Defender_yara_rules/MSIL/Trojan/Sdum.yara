@@ -19,3 +19,25 @@ rule Trojan_MSIL_Sdum_RZAA_2147916432_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Sdum_NU_2147949050_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Sdum.NU!MTB"
+        threat_id = "2147949050"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Sdum"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {73 04 00 00 0a 72 ?? 00 00 70 73 ?? 00 00 0a 0a 06 72 ?? 00 00 70 6f ?? 00 00 0a de 03 26 de}  //weight: 2, accuracy: Low
+        $x_1_2 = "statx.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

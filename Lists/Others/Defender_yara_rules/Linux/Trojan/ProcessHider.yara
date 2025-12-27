@@ -112,3 +112,82 @@ rule Trojan_Linux_ProcessHider_D_2147923834_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_ProcessHider_SR7_2147950248_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/ProcessHider.SR7"
+        threat_id = "2147950248"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "ProcessHider"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "hide_demo" ascii //weight: 2
+        $x_2_2 = "/proc/self/fd/%d" ascii //weight: 2
+        $x_2_3 = "/proc/%s/stat" ascii //weight: 2
+        $x_2_4 = "process_to_filter" ascii //weight: 2
+        $x_2_5 = "original_readdir" ascii //weight: 2
+        $x_2_6 = "get_dir_name" ascii //weight: 2
+        $x_2_7 = "get_process_name" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_ProcessHider_SR21_2147950262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/ProcessHider.SR21"
+        threat_id = "2147950262"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "ProcessHider"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "insmod " wide //weight: 2
+        $x_10_2 = "rootkit.ko" wide //weight: 10
+        $x_10_3 = "diamorphine.ko" wide //weight: 10
+        $x_10_4 = "rtkkeylogger.ko" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Linux_ProcessHider_E_2147951882_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/ProcessHider.E!MTB"
+        threat_id = "2147951882"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "ProcessHider"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.checkMinerInHiddenLocations" ascii //weight: 1
+        $x_1_2 = "main.addToLdPreload" ascii //weight: 1
+        $x_1_3 = "main.checkAndLaunchMiner" ascii //weight: 1
+        $x_1_4 = "main.prepareAndLaunchMiner" ascii //weight: 1
+        $x_1_5 = "main.prepareTools" ascii //weight: 1
+        $x_1_6 = "main.launchMinerWithRandomName" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

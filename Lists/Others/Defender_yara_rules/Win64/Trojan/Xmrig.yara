@@ -83,3 +83,25 @@ rule Trojan_Win64_Xmrig_AXR_2147911533_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Xmrig_NG_2147952636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Xmrig.NG!MTB"
+        threat_id = "2147952636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Xmrig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 c7 40 18 07 00 00 00 4c 8d 44 24 30 48 8d 15 da e5 02 00 48 8d 8c 24 90 00 00 00 e8 7d af ff ff 48 8d 8c 24 90 00 00 00 48 83 bc 24 a8 00 00 00 07 48 0f 47 8c 24 90 00 00 00 45 33 c0 33 d2}  //weight: 2, accuracy: High
+        $x_1_2 = {4c 89 70 10 48 c7 40 18 07 00 00 00 81 ce 00 00 00 80 4c 8d 85 f8 04 00 00 48 8d 15 d6 0c 03 00 48 8d 8d 30 01 00 00 e8 5a d6 ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2868,3 +2868,273 @@ rule Trojan_Win32_Remcos_HB_2147942493_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_GVC_2147946059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.GVC!MTB"
+        threat_id = "2147946059"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {30 84 0a 17 00 00 00 02 84 0a 17 00 00 00 e2 f0}  //weight: 3, accuracy: High
+        $x_3_2 = {30 94 0e 17 00 00 00 02 94 0e 17 00 00 00 e2 f0}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_Remcos_AMTB_2147947468_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos!AMTB"
+        threat_id = "2147947468"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "kernsxcel32" ascii //weight: 1
+        $x_1_2 = "kexcsrnel32" ascii //weight: 1
+        $x_1_3 = "kerxcnsel32" ascii //weight: 1
+        $x_1_4 = "kersnxcel32" ascii //weight: 1
+        $x_1_5 = "ksxcernel32" ascii //weight: 1
+        $x_1_6 = "kerDxcnel32" ascii //weight: 1
+        $x_1_7 = "kernxcDel32" ascii //weight: 1
+        $x_1_8 = "kexcrDnel32" ascii //weight: 1
+        $x_1_9 = "kerneDlxc32" ascii //weight: 1
+        $x_1_10 = "keDrxcnel32" ascii //weight: 1
+        $x_1_11 = "shxceDll32.dll" ascii //weight: 1
+        $x_1_12 = "keDxcrnel32" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_ARMS_2147948105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.ARMS!MTB"
+        threat_id = "2147948105"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {83 c4 18 8d 45 f0 50 8d 45 a8 50 57 57 68 00 00 00 08 57 57 57 68 58 89 46 00 68 dc 89 46 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_ARSM_2147948269_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.ARSM!MTB"
+        threat_id = "2147948269"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {68 30 f1 46 00 68 f0 ea 46 00 ff d7 50 ff d6 68 48 f1 46 00 bd 94 ee 46 00 a3 30 7b 47 00 55 ff d7 50 ff d6 68 60 f1 46 00 55 a3 1c 7b 47 00 ff d3 50 ff d6 68 70 f1 46 00 55 a3 28 7b 47 00 ff d3 50 ff d6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_ABK_2147948771_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.ABK!MTB"
+        threat_id = "2147948771"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 84 15 ?? ?? ?? ?? 8b 8d ec ee ff ff 03 8d 68 fa ff ff 0f b6 11 33 d0 8b 85 ec ee ff ff 03 85 68 fa ff ff 88 10 e9}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_NJ_2147948817_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.NJ!MTB"
+        threat_id = "2147948817"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {eb 0f 8b 8d 58 fc ff ff 83 c1 01 89 8d 58 fc ff ff 8b 95 5c fc ff ff 8b 85 58 fc ff ff 3b 42 18 0f 83 f9}  //weight: 2, accuracy: High
+        $x_1_2 = {f0 eb ff ff 8b 85 e0 fd ff ff 03 04 8a 89 85 54 fc ff}  //weight: 1, accuracy: High
+        $x_1_3 = "32\\A.DLL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_AF_2147951438_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.AF!MTB"
+        threat_id = "2147951438"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {82 9b 6f 0b 9f 43 5e 08 67 34 35 3e 01 ?? 33 36 89 29 92 58 ae 15 21 c7 ac 74 87 b5}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_GXT_2147951871_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.GXT!MTB"
+        threat_id = "2147951871"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2b c1 33 d0 0f af 95 ?? ?? ?? ?? 69 85 ?? ?? ?? ?? 40 40 40 40 2b d0 88 95}  //weight: 5, accuracy: Low
+        $x_5_2 = {2b d1 0f b6 85 ?? ?? ?? ?? 05 ?? ?? ?? ?? 33 c2 0f af 85}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_SX_2147955084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.SX!MTB"
+        threat_id = "2147955084"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {99 f7 f9 8b 4d 0c 33 c0 8a 04 0a 8b 0f 03 c6 03 c1}  //weight: 10, accuracy: High
+        $x_8_2 = {8b ce 8d 73 01 8b d1 6a ?? c1 e9 ?? f3 a5 8b ca 83 e1 ?? f3 a4}  //weight: 8, accuracy: Low
+        $x_5_3 = {00 ff d6 4f 75 db}  //weight: 5, accuracy: High
+        $x_2_4 = "SetProcessDEPPolicy" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_AAD_2147955162_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.AAD!MTB"
+        threat_id = "2147955162"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {42 8b 75 18 8a 8c 95 ?? ?? ?? ?? 8a 14 30 32 d1 88 14 30 40 3b c7}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_SEC_2147957150_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.SEC!MTB"
+        threat_id = "2147957150"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {33 c2 8b 55 f0 89 45 d4 8b 45 e0 a2 ?? ?? ?? ?? 33 c1 0f af d6 89 45 e0 8a 45 e4 c7 45 f0 ?? ?? ?? ?? 32 c2 89 55 dc a2 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 8b 45 d4 a2 ?? ?? ?? ?? 8b 45 e0 0b 45 e8 2b 45 e0 89 45 d8 ff 15}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_ACM_2147959783_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.ACM!MTB"
+        threat_id = "2147959783"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8d 44 24 08 50 8d 44 24 1c 50 68 28 04 00 00 8d 44 24 0c 50 ff 15 ?? ?? ?? ?? 68 ?? 15 46 00 68 ?? 15 46 00 e8}  //weight: 2, accuracy: Low
+        $x_1_2 = {c6 44 24 10 b8 c6 44 24 11 01 c6 44 24 12 00 c6 44 24 13 00 c6 44 24 14 00 c6 44 24 15 c3 8d 44 24 04 50 6a 06 8d 44 24 18 50 56 8b 44 24 10 50 ff 15}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

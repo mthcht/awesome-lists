@@ -906,6 +906,28 @@ rule Trojan_MSIL_LummaStealer_NL_2147903607_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 7b 05 00 00 04 26 16 0b de 34 08 02 7b 06 00 00 04 20 18 01 00 00 14 14 14 6f 1f 00 00 0a 26 17 0b}  //weight: 2, accuracy: High
+        $x_1_2 = {28 1c 00 00 0a 02 7b 05 00 00 04 16 6f 1d 00 00 0a 0c 08 14 28 1e 00 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaStealer_NL_2147903607_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.NL!MTB"
+        threat_id = "2147903607"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -916,7 +938,7 @@ rule Trojan_MSIL_LummaStealer_NL_2147903607_2
         (all of ($x*))
 }
 
-rule Trojan_MSIL_LummaStealer_NL_2147903607_3
+rule Trojan_MSIL_LummaStealer_NL_2147903607_4
 {
     meta:
         author = "defender2yara"
@@ -938,7 +960,7 @@ rule Trojan_MSIL_LummaStealer_NL_2147903607_3
         (all of ($x*))
 }
 
-rule Trojan_MSIL_LummaStealer_NL_2147903607_4
+rule Trojan_MSIL_LummaStealer_NL_2147903607_5
 {
     meta:
         author = "defender2yara"
@@ -960,7 +982,7 @@ rule Trojan_MSIL_LummaStealer_NL_2147903607_4
         (all of ($x*))
 }
 
-rule Trojan_MSIL_LummaStealer_NL_2147903607_5
+rule Trojan_MSIL_LummaStealer_NL_2147903607_6
 {
     meta:
         author = "defender2yara"
@@ -983,7 +1005,7 @@ rule Trojan_MSIL_LummaStealer_NL_2147903607_5
         (all of ($x*))
 }
 
-rule Trojan_MSIL_LummaStealer_NL_2147903607_6
+rule Trojan_MSIL_LummaStealer_NL_2147903607_7
 {
     meta:
         author = "defender2yara"
@@ -3015,6 +3037,95 @@ rule Trojan_MSIL_LummaStealer_AZVA_2147942931_0
         $x_5_1 = {03 07 03 07 91 07 04 28 ?? ?? 00 06 9c 07 17 d6 0b 00 07 05 fe 02 16 fe 01 0c 08 2d e3}  //weight: 5, accuracy: Low
         $x_2_2 = {1f 09 0b 04 03 07 5d 9a 28 ?? 00 00 0a 02 28 ?? ?? 00 06 28 ?? ?? 00 0a 0a 2b 00 06 2a}  //weight: 2, accuracy: Low
         $x_2_3 = {02 03 66 5f 02 66 03 5f 60 8c ?? 00 00 01 0a 2b 00 06 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaStealer_NS_2147948405_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.NS!MTB"
+        threat_id = "2147948405"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {16 13 10 11 17 20 ef 85 2e d2 5a 20 4e 60 83 60 61 38 ?? ?? ff ff 11 07 18 d3 1a 5a 58 4b 18 64 13 13 16 13 14 11 17 20 09 68 5f 47 5a 20 38 51 13 af 61}  //weight: 2, accuracy: Low
+        $x_1_2 = {1f 10 8d 2d 00 00 01 13 0d 16 13 15 11 17 20 6a 4e 74 80 5a 20 dd 49 27 d5 61 38 ?? ?? ff ff 11 0c 1f 0d 11 0c 1f 0d 95 11 0d 1f 0d 95 5a 9e 11 0c 1f 0e 11 0c 1f 0e 95 11 0d 1f 0e 95 58 9e 11 17 20 39 f7 ff 9c 5a 20 ef d0 3e 94 61}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaStealer_GTB_2147949853_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.GTB!MTB"
+        threat_id = "2147949853"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {13 06 08 20 b7 5c 8a 00 6a 5e 26 16 13 0a 2b 2b 11 05 11 0a 8f 18 00 00 01 25 47 08 d2 61 d2 52 11 0a 20 ff 00 00 00 5f 2d 0b 08 08 5a 20 b7 5c 8a 00 6a 5e 0c 11 0a 17 58 13 0a 11 0a 11 05 8e 69 32 cd}  //weight: 10, accuracy: High
+        $x_1_2 = "DownloaderApp.exe" ascii //weight: 1
+        $x_1_3 = "ToBase64String" ascii //weight: 1
+        $x_1_4 = "aca85c-7124-473d-a2ec-2695fdf0888e" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaStealer_SR_2147953697_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.SR!MTB"
+        threat_id = "2147953697"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 1a 58 11 0b 6f 59 00 00 0a 69 54 06 1a 58 4a 8d 40 00 00 01 13 0d 11 0b 11 0d 16 06 1a 58 4a 6f 5a 00 00 0a 16 2d a8}  //weight: 2, accuracy: High
+        $x_2_2 = "$287fdb84-adda-47e5-bd47-728f6810eeb3" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_LummaStealer_ZQM_2147954903_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.ZQM!MTB"
+        threat_id = "2147954903"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 0a 11 0b 1a 5a 58 13 0c 11 09 08 5a 11 0b 58 13 0d 11 04 11 0c 18 58 91 13 0e 11 05 11 0d 20 ff 00 00 00 11 0e 59 1f 72 61 d2 9c 11 0b 17 58 13 0b 11 0b 08 32 c9 11 09 17 58 13 09 11 09 09 32 b2}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

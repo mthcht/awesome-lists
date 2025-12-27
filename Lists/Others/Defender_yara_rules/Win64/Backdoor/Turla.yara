@@ -164,3 +164,24 @@ rule Backdoor_Win64_Turla_DA_2147767380_0
         (5 of ($x*))
 }
 
+rule Backdoor_Win64_Turla_CD_2147951950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/Turla.CD!MTB"
+        threat_id = "2147951950"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Turla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {c6 44 14 40 00 4c 8d 15 ?? ?? ?? ?? 80 7c 24 40 00 4c 8d 4c 24 40 74 3e 41 0f b6 02 84 c0 74 36 45 0f b6 01 41 8d 48 20 44 0f b6 d9 41 8d 50 bf 80 fa 19 8d 48 bf 45 0f 47 d8 80 f9 19 77}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

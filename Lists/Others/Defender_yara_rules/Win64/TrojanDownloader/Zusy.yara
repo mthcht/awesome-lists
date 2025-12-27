@@ -62,3 +62,26 @@ rule TrojanDownloader_Win64_Zusy_RPB_2147928968_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Zusy_AUZ_2147952322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Zusy.AUZ!MTB"
+        threat_id = "2147952322"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 8b c8 48 8d 15 87 36 01 00 48 8b d8 ff 15 ?? ?? ?? ?? 48 8d 15 67 36 01 00 48 8b cb 48 89 05 25 00 02 00 ff 15}  //weight: 3, accuracy: Low
+        $x_2_2 = "195.66.27.77" ascii //weight: 2
+        $x_1_3 = "84.21.189.158" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -842,3 +842,31 @@ rule TrojanDropper_O97M_Donoff_PDA_2147833344_0
         (all of ($x*))
 }
 
+rule TrojanDropper_O97M_Donoff_GA_2147960117_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:O97M/Donoff.GA!MSR"
+        threat_id = "2147960117"
+        type = "TrojanDropper"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Donoff"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {46 75 6e 63 74 69 6f 6e 20 [0-13] 20 4c 69 62 20 22 6b 65 72 6e 65 6c 33 32 22 20 41 6c 69 61 73 20 22 4c 6f 61 64 4c 69 62 72 61 72 79 41 22 20 28 42 79 56 61 6c 20 [0-17] 20 41 73 20 53 74 72 69 6e 67 29 20 41 73 20 4c 6f 6e 67 50 74 72}  //weight: 2, accuracy: Low
+        $x_2_2 = "folderpath = \"C:\\ProgramData\\WPSOffice" ascii //weight: 2
+        $x_2_3 = "loaderpath = folderpath & \"\\wpsoffice_aam.ocx" ascii //weight: 2
+        $x_1_4 = "ExtractLoader (loaderpath)" ascii //weight: 1
+        $x_1_5 = "tcueomylalbo (loaderpath)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

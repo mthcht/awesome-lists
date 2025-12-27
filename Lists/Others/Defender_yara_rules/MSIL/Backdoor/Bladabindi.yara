@@ -4257,3 +4257,140 @@ rule Backdoor_MSIL_Bladabindi_ABJA_2147931099_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Bladabindi_AMTB_2147945336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi!AMTB"
+        threat_id = "2147945336"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "key_logger_Load" ascii //weight: 1
+        $x_1_2 = "SpyNote_Activated" ascii //weight: 1
+        $x_1_3 = "PayloadToolStripMenuItem_Click" ascii //weight: 1
+        $x_1_4 = "LogsSpyNote" ascii //weight: 1
+        $n_100_5 = "Uninst.exe" ascii //weight: -100
+        $n_100_6 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_7 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Bladabindi_SV_2147947655_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi.SV!MTB"
+        threat_id = "2147947655"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {07 09 08 09 1e d8 1e 6f 26 00 00 0a 18 28 27 00 00 0a 9c 09 17 d6 0d 09 11 04 13 05 11 05 31 e0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Bladabindi_SX_2147956837_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi.SX!MTB"
+        threat_id = "2147956837"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$a26d2fa7-2f04-4fee-80ee-5eddde36aff7" ascii //weight: 1
+        $x_1_2 = "Host process for windows Tasks" ascii //weight: 1
+        $x_1_3 = "scsvhost.exe" ascii //weight: 1
+        $x_1_4 = "c2Nzdmhvc3Qk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Bladabindi_AZLB_2147958309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi.AZLB!MTB"
+        threat_id = "2147958309"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 08 06 08 91 07 08 07 8e 69 5d 91 61 d2 9c 08 17 58 0c 08 06 8e 69 32 e7 7e ?? 00 00 04 7e ?? 00 00 04 7e ?? 00 00 04 06 28 ?? 00 00 06 28 ?? 00 00 06 16 9a 17 8d ?? 00 00 01 0d 09 16 7e ?? 00 00 04 d0 ?? 00 00 02 28 ?? 00 00 06 a2 09 28 ?? 00 00 06 26 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Bladabindi_AHMB_2147958522_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi.AHMB!MTB"
+        threat_id = "2147958522"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0d 09 07 6f ?? 00 00 0a 00 09 04 6f ?? 00 00 0a 00 09 05 6f ?? 00 00 0a 00 09 6f ?? 00 00 0a 13 04 11 04 02 16 02 8e 69 6f ?? 00 00 0a 13 05 09 6f ?? 00 00 0a 00 11 05 0a 2b 00 06 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Bladabindi_SW_2147959901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi.SW!MTB"
+        threat_id = "2147959901"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 08 8f 18 00 00 02 7b 1a 00 00 04 03 33 0f 06 08 8f 18 00 00 02 7b 1b 00 00 04 0d 2b 1a 06 08 8f 18 00 00 02 7b 1b 00 00 04 2c 0c 08 17 58 0c 08 07 32 cc 16 0c 2b c8}  //weight: 2, accuracy: High
+        $x_2_2 = "SUPER_POWER.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

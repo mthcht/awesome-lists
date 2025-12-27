@@ -1539,6 +1539,27 @@ rule Trojan_MSIL_Zilla_SLD_2147941057_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_SLEW_2147942671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SLEW!MTB"
+        threat_id = "2147942671"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {02 00 70 0a 72 ?? 03 00 70 0b 73 41 00 00 0a 0c 00 08 06 07 6f 42 00 00 0a 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zilla_AYB_2147942951_0
 {
     meta:
@@ -1668,6 +1689,499 @@ rule Trojan_MSIL_Zilla_ZNS_2147944755_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {0a 7d 12 01 00 04 19 8d ?? 00 00 01 25 16 11 4c 7c ?? 01 00 04 28 ?? 01 00 0a 9c 25 17 11 4c 7c ?? 01 00 04 28 ?? 01 00 0a 9c 25 18 11 4c 7c ?? 01 00 04 28 ?? 01 00 0a 9c 13 50 11 50 7e ?? 01 00 04 25 2d 17 26}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_PA_2147945291_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.PA!MTB"
+        threat_id = "2147945291"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8e 69 5d 91 61 d2 81 ?? ?? 00 01 11 ?? 17 58 13 ?? 11 ?? 11 06 8e 69}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_NH_2147946368_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.NH!MTB"
+        threat_id = "2147946368"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {06 08 91 18 5b 1f 0f 58 0d 07 09 d1 13 04 12 04 28 ?? 00 00 0a 28 ?? 00 00 0a 0b 08 18 58 0c 08 06 8e 69 32 db}  //weight: 2, accuracy: Low
+        $x_1_2 = {a2 25 18 72 ?? 09 00 70 a2 25 19 08 6f ?? 00 00 06 a2 25 1a 72 ?? 09 00 70 a2 28 ?? 00 00 0a 0a 07 6f ?? 00 00 0a 2d b5}  //weight: 1, accuracy: Low
+        $x_1_3 = "Anketirovanie.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_SLTP_2147947188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SLTP!MTB"
+        threat_id = "2147947188"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {73 35 00 00 06 25 28 0b 00 00 0a 6f 36 00 00 06 0a 12 00 28 0c 00 00 0a 17 33 05 28 65 00 00 06 28 6a 00 00 06 28 40 00 00 06 73 88 00 00 06 28 8d 00 00 06 22 00 00 40 40 28 2f 00 00 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_EIOS_2147949718_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.EIOS!MTB"
+        threat_id = "2147949718"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0d 2b 40 07 09 0f 02 ?? ?? ?? ?? ?? 05 0e 04 09 6b 06 5a 58 6c ?? ?? ?? ?? ?? 6b 5a 58 0f 02 ?? ?? ?? ?? ?? 05 0e 04 09 6b 06 5a 58 6c ?? ?? ?? ?? ?? 6b 5a 58 73 25 01 00 0a a4 75 00 00 01 09 17 58 0d 09 19 32 bc}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_SLKL_2147949857_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SLKL!MTB"
+        threat_id = "2147949857"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 16 00 00 0a 72 01 00 00 70 6f 17 00 00 0a 28 01 00 00 2b 28 02 00 00 2b 80 01 00 00 04 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_SLKL_2147949857_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SLKL!MTB"
+        threat_id = "2147949857"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 0d 00 00 06 28 0b 00 00 06 7e 01 00 00 04 7e 02 00 00 04 28 07 00 00 06 0a 06 2c 1c 06 8e 69 16 31 16 7e 03 00 00 04 28 2d 00 00 06 0b 07 16}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_SLEZ_2147950623_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SLEZ!MTB"
+        threat_id = "2147950623"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {73 66 00 00 06 0a 28 32 00 00 06 7e 1b 00 00 04 28 7b 00 00 0a 72 12 17 00 70 28 4f 00 00 0a 28 3d 00 00 06 26 06 28 7b 00 00 0a 72 12 17 00 70 28 4f 00 00 0a 7d 3d 00 00 04 28 75 00 00 0a 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_NITB_2147950975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.NITB!MTB"
+        threat_id = "2147950975"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 23 00 00 0a 02 6f ?? 00 00 0a 0a 06 6f ?? 00 00 0a 0b 06 07 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 17 8d 01 00 00 01 0d 07 6f ?? 00 00 0a 8e 69 2d 02 14 0d 07 08 09 6f ?? 00 00 0a 26 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "requestedPrivileges" ascii //weight: 1
+        $x_1_3 = "requestedExecutionLevel" ascii //weight: 1
+        $x_1_4 = "GetPathRoot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_AFFB_2147952441_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AFFB!MTB"
+        threat_id = "2147952441"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {70 1e 1f 30 6f ?? ?? 00 0a 16 1e 6f ?? 00 00 0a 6f ?? 00 00 0a 0a 28 ?? ?? 00 0a 72 ?? ?? 00 70 1e 1f 30 6f ?? ?? 00 0a 16 1e 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 03 28 ?? ?? 00 0a 0c 73 ?? ?? 00 0a 0d 73 ?? ?? 00 0a 13 04 11 04 09 06 07 6f ?? ?? 00 0a 17 73 ?? ?? 00 0a 13 05 11 05 08 16 08 8e 69 6f ?? ?? 00 0a 00 11 05 6f ?? ?? 00 0a 00 28 ?? ?? 00 0a 11 04 6f ?? ?? 00 0a 6f ?? ?? 00 0a 13 06 2b 00 11 06 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_AKFB_2147952571_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AKFB!MTB"
+        threat_id = "2147952571"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 09 11 09 72 ?? ?? 00 70 08 28 ?? 00 00 06 11 09 72 ?? ?? 00 70 09 28 ?? 00 00 06 11 09 72 ?? ?? 00 70 17 16 8d ?? 00 00 01 28 ?? 00 00 0a 74 ?? 00 00 01 13 0a 11 0a 11 04 16 11 04 8e 69 6f ?? 00 00 0a 13 04 11 04}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ARGB_2147953771_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ARGB!MTB"
+        threat_id = "2147953771"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {11 12 11 2c 11 12 11 2c 91 11 14 11 2c 11 13 5d 91 61 9c 11 06 17 d6 13 06 11 06 17 d6 13 06 11 06 17 d6 13 06 11 06 17 d6 13 06 11 06 17 d6 13 06 11 2c 17 d6 13 2c}  //weight: 5, accuracy: High
+        $x_5_2 = {11 12 11 2c 11 12 11 2c 91 11 15 11 2c 11 13 5d 91 61 9c 11 06 17 d6 13 06 11 06 17 d6 13 06 11 06 17 d6 13 06 11 06 17 d6 13 06 11 06 17 d6 13 06 11 2c 17 d6 13 2c}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_AJHB_2147954538_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AJHB!MTB"
+        threat_id = "2147954538"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 02 73 04 00 00 06 7d 01 00 00 04 02 73 06 00 00 06 7d 02 00 00 04 02 7b 01 00 00 04 6f ?? 00 00 06 0a 06 39 16 00 00 00 06 16 06 8e 69 28 ?? 00 00 0a 02 7b 02 00 00 04 06 6f ?? 00 00 06 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "Reverse" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ZLM_2147954540_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ZLM!MTB"
+        threat_id = "2147954540"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 06 17 58 13 06 11 06 06 8e 69 32 c3 11 05 28 ?? 00 00 06 13 04 73 ?? 00 00 0a 13 09 11 09 08 6f ?? 00 00 0a 11 09 09 6f ?? 00 00 0a 11 09 6f ?? 00 00 0a 13 0a 11 0a 11 04 16 11 04 8e 69 6f ?? 00 00 0a 13 04 11 04}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_SLKI_2147954951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SLKI!MTB"
+        threat_id = "2147954951"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {fe 06 e2 00 00 06 73 1f 00 00 0a 73 20 00 00 0a 25 17 6f 21 00 00 0a 6f 23 00 00 0a 7e 7b 01 00 04 72 91 05 00 70 28 2b 00 00 0a 39 86 00 00 00 28 cf 00 00 0a 72 90 06 00 70 28 33 00 00 0a 0c 7e cf 01 00 04 08}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ZBL_2147955500_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ZBL!MTB"
+        threat_id = "2147955500"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 07 08 6f ?? 00 00 0a 0d 12 03 28 ?? 00 00 0a 28 ?? 00 00 06 fe 01 2c 07 06 6f ?? 00 00 0a 2a 12 03 28 ?? 00 00 0a 28 ?? 00 00 06 33 14 06 12 03 28 ?? 00 00 0a 6f ?? 00 00 0a 06 6f ?? 00 00 0a 2a}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ZEL_2147955850_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ZEL!MTB"
+        threat_id = "2147955850"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {73 0d 00 00 06 0a 06 6f ?? 00 00 06 00 73 ?? 01 00 06 06 7b ?? 00 00 04 28 ?? 01 00 06 0b 07 8e 16 fe 03 0c 08 39 16 00 00 00 00 73 ?? 00 00 06 25 07 7d ?? 00 00 04 0d 09 28 ?? 00 00 06 00 00 2a}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_MK_2147955886_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.MK!MTB"
+        threat_id = "2147955886"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {26 20 00 00 00 00 38 60 ff ff ff 72 c5 00 00 70 73 15 00 00 0a 7a 03 28 16 00 00 0a 3a b5 ff ff ff 38 79 ff ff ff 72 d7 00 00 70 73 15 00 00 0a 7a 02 28 17 00 00 0a}  //weight: 15, accuracy: High
+        $x_10_2 = {17 73 07 00 00 0a 13 04 38 20 00 00 00 fe 0c 05 00 45 01 00 00 00 05 00 00 00 38 00 00 00 00 11 01 6f 08 00 00 0a 13 06 38 91 00 00 00 00 11 04 02 16 02 8e 69 6f 09 00 00 0a 38}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ZUL_2147956710_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ZUL!MTB"
+        threat_id = "2147956710"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 06 75 04 00 00 1b 11 07 8f ?? 00 00 01 25 71 ?? 00 00 01 11 07 02 58 0e 06 59 20 ff 00 00 00 5f d2 61 d2 81 ?? 00 00 01 11 12 1f 2e 94 20 5e 1b 00 00 59 13 10}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ASJB_2147956718_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ASJB!MTB"
+        threat_id = "2147956718"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0c 08 6f ?? 00 00 0a 13 04 11 04 2c 3d 00 08 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 7e ?? 00 00 04 25 2d 17 26 7e ?? 00 00 04 fe ?? ?? 01 00 06 73 ?? 00 00 0a 25 80 ?? 00 00 04 28 ?? 00 00 2b 28 ?? 00 00 2b 0a 00 00 28 ?? 00 00 0a 06 6f ?? 00 00 0a 0d 09 72 ?? 00 00 70 6f ?? 00 00 0a 26 15 28 ?? 00 00 0a 00 00 de 0b}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_AKMB_2147958596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AKMB!MTB"
+        threat_id = "2147958596"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 06 11 09 18 5b 07 72 ?? 00 00 70 18 8d ?? 00 00 01 25 16 7e ?? 00 00 04 2d 25 1f 10 d0 ?? 00 00 01 28 ?? 00 00 0a d0 ?? 00 00 02 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 80 ?? 00 00 04 7e ?? 00 00 04 7b ?? 00 00 0a 7e ?? 00 00 04 06 16 9a 6f ?? 00 00 0a a2 25 17 7e ?? 00 00 04 2d 25 1f 10 d0 ?? 00 00 01 28 ?? 00 00 0a d0 ?? 00 00 02 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 80 ?? 00 00 04 7e ?? 00 00 04 7b ?? 00 00 0a 7e ?? 00 00 04 06 17 9a 6f ?? 00 00 0a a2 6f ?? 00 00 0a 16 8c ?? 00 00 01 18 8d ?? 00 00 01 25 16 02 11 09 08 6f ?? 00 00 0a a2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ZUJ_2147958633_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ZUJ!MTB"
+        threat_id = "2147958633"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0c 16 0d 07 07 8e 69 17 59 91 1f 70 61 0d 07 8e 69 17 58 8d ?? 00 00 01 13 04 16 13 05 16 13 07}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ABMZ_2147959672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ABMZ!MTB"
+        threat_id = "2147959672"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 08 11 14 11 08 11 14 91 07 11 14 20 00 04 00 00 5d 91 61 08 11 14 20 00 02 00 00 5d 91 61 11 06 18 62 61 11 07 17 62 61 03 11 14 03 8e 69 5d 91 61 03 11 14 18 58 03 8e 69 5d 91 61 7e ?? 00 00 04 11 14 1f 40 5d 91 61 7e ?? 00 00 04 11 14 1f 40 5d 91 61 d2 9c 11 14 18 5d 2d 1d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_ASNB_2147960107_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.ASNB!MTB"
+        threat_id = "2147960107"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {04 0b 16 0c 2b 1f 02 08 91 0d 08 1e 5d 13 04 03 11 04 9a 13 05 02 08 11 05 09 28 ?? ?? 00 06 b4 9c 08 17 d6 0c 08 07 31 dd 02 0a 2b 00 06 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {0a 03 6e 60 02 28 ?? 00 00 0a 66 03 66 d2 6e 60 5f b7 0a 2b 00 06 2a}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

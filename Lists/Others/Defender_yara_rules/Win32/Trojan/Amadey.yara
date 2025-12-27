@@ -84,27 +84,6 @@ rule Trojan_Win32_Amadey_MK_2147773014_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_Amadey_DA_2147775307_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Amadey.DA!MTB"
-        threat_id = "2147775307"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Amadey"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = {8a 55 e1 8a c1 c0 ea 06 c0 e8 02 80 e1 03 88 45 e8 33 db 8a c5 c0 e1 04 c0 e8 04 80 e5 0f 02 c8 c0 e5 02 8d 47 01 88 4d e9 02 ea 89 45 e4 88 6d ea 85 c0}  //weight: 10, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Amadey_RT_2147777558_0
 {
     meta:
@@ -1747,6 +1726,28 @@ rule Trojan_Win32_Amadey_AMY_2147850644_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {68 f4 69 42 00 a3 ?? ?? ?? ?? ff d6 85 c0 74 0a 68 10 6a 42 00 50 ff d7}  //weight: 2, accuracy: Low
+        $x_1_2 = {33 c0 68 f4 69 42 00 a3 ?? ?? ?? ?? ff d6 85 c0 74 0a 68 20 6a 42 00 50 ff d7}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AMY_2147850644_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AMY!MTB"
+        threat_id = "2147850644"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -1759,7 +1760,7 @@ rule Trojan_Win32_Amadey_AMY_2147850644_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_Amadey_AMY_2147850644_3
+rule Trojan_Win32_Amadey_AMY_2147850644_4
 {
     meta:
         author = "defender2yara"
@@ -2291,6 +2292,28 @@ rule Trojan_Win32_Amadey_AMD_2147893178_4
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6a 04 8d 47 34 50 8b 44 24 24 8b 80 a4 00 00 00 83 c0 08 50 ff 74 24 30 ff 15 ?? ?? ?? ?? 8b 4c 24 18 8b 47 28 03 44 24 14 51}  //weight: 1, accuracy: Low
+        $x_2_2 = {8b ca c1 f9 06 83 e2 3f 6b d2 38 8b 0c 8d e0 5c 46 00 88 44 11 29 8b 0b 8b c1 c1 f8 06 83 e1 3f 6b d1 38 8b 0c 85 e0 5c 46 00 8b 45 14 c1 e8 10 32 44 11 2d 24 01 30 44 11 2d}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AMD_2147893178_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AMD!MTB"
+        threat_id = "2147893178"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:
@@ -2594,6 +2617,27 @@ rule Trojan_Win32_Amadey_AMA_2147902432_1
         strings_accuracy = "High"
     strings:
         $x_1_1 = {f7 d9 c1 e1 05 c1 e1 05 c1 e9 03 c1 e9 07 81 e9 4a 0e 4c 89 89 cb 59 81 f3 0d 10 fb 79 81 f3 81 81 42 0f 89 d8 5b 01 f0 01 18 58}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AMA_2147902432_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AMA!MTB"
+        threat_id = "2147902432"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8d 85 ec f7 ff ff 68 c0 ea ?? 00 50 ff 15 ?? ?? ?? ?? 83 c4 10 8d 85 ec f7 ff ff 6a 00 68 00 00 00 84 6a 00 6a 00 50 57 ff 15}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3594,6 +3638,27 @@ rule Trojan_Win32_Amadey_RPA_2147929973_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Amadey_RPA_2147929973_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.RPA!MTB"
+        threat_id = "2147929973"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {2e 00 65 00 78 00 65 00 20 00 78 00 20 00 2d 00 61 00 6f 00 61 00 20 00 2d 00 62 00 73 00 6f 00 30 00 20 00 2d 00 62 00 73 00 70 00 31 00 20 00 63 00 3a 00 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 00 7a 00 69 00 70 00 20 00 2d 00 70 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 20 00 2d 00 6f 00 63 00 3a 00 5c 00 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Amadey_NIT_2147931114_0
 {
     meta:
@@ -3947,6 +4012,27 @@ rule Trojan_Win32_Amadey_RPB_2147943510_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_RPB_2147943510_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.RPB!MTB"
+        threat_id = "2147943510"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00 20 00 2f 00 63 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 74 00 6e 00 20 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 20 00 2f 00 74 00 72 00 20 00 63 00 3a 00 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 00 65 00 78 00 65 00 20 00 2f 00 73 00 63 00 20 00 6d 00 69 00 6e 00 75 00 74 00 65 00 20 00 2f 00 6d 00 6f 00 20 00 31 00 30 00 20 00 2f 00 66 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Amadey_MR_2147943630_0
 {
     meta:
@@ -3989,6 +4075,660 @@ rule Trojan_Win32_Amadey_ZAC_2147945136_0
         $x_1_3 = "froMBASE64strinG(" wide //weight: 1
         $x_1_4 = "-join" wide //weight: 1
         $x_1_5 = "char[]" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_NJL_2147945776_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.NJL!MTB"
+        threat_id = "2147945776"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "LUNWH0Urhm2tL6hyXzW4Qeyq9q==" ascii //weight: 2
+        $x_1_2 = "whEgFTfWUlb7R4GwFgO ViVwOiIw==" ascii //weight: 1
+        $x_1_3 = "netsh advfirewall firewall set rule group=\"Remote Desktop\" new enable=Yes" ascii //weight: 1
+        $x_1_4 = "SET Passwordchangeable=FALSE" ascii //weight: 1
+        $x_1_5 = "WMIC USERACCOUNT WHERE \"Name =" ascii //weight: 1
+        $x_1_6 = "MqUrQEcT3WqTZ0J5afm0jH==" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_SUPC_2147948947_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.SUPC!MTB"
+        threat_id = "2147948947"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 04 16 40 32 c5 88 02 48 ff c2 49 ff c8 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_RPC_2147949248_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.RPC!MTB"
+        threat_id = "2147949248"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "103"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Get-ScheduledTask -TaskName" wide //weight: 1
+        $x_1_2 = "$task.Settings.DisallowStartIfOnBatteries = $false;$task.Settings.StopIfGoingOnBatteries = $false;" wide //weight: 1
+        $x_100_3 = "$task.Settings.WakeToRun = $false;$task.Settings.RunOnlyIfIdle = $false;$task.Settings.ExecutionTimeLimit = 'PT0S';" wide //weight: 100
+        $x_1_4 = "$task.Settings.MultipleInstances = 'IgnoreNew';Set-ScheduledTask -InputObject $task;" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_ARA_2147949561_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.ARA!MTB"
+        threat_id = "2147949561"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 45 b4 8b 0c 85 38 a8 41 00 8a 04 3b 03 ce 88 44 19 2e 43 3b da 7c e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_MJO_2147950812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.MJO!MTB"
+        threat_id = "2147950812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8d 4a ff 83 e1 1e 0f b6 89 ?? ?? ?? ?? 32 8a ?? ?? ?? ?? 88 4c 10 ff 81 fa a9 39 06 00 74 1a 89 d1 83 e1 1f 0f b6 89 ?? ?? ?? ?? 32 8a ?? ?? ?? ?? 88 0c 10 83 c2 02 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_2147951561_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.MTH!MTB"
+        threat_id = "2147951561"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTH: an internal category used to refer to some threats"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "2z1690.exe" ascii //weight: 1
+        $x_1_2 = "1d55e9.exe" ascii //weight: 1
+        $x_1_3 = "hater/nircmd.exe" ascii //weight: 1
+        $x_1_4 = "InstallHinfSection %s 128" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_BAB_2147952253_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.BAB!MTB"
+        threat_id = "2147952253"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f be 8d e3 ?? ?? ?? 0f be 95 ?? ?? ?? ?? 8b 85 ?? ?? ?? ?? 2b c2 0f af c8 33 8d ?? ?? ?? ?? 8b 55 b4 8b 45 a8 03 0c 90 8b 15 ?? ?? ?? ?? 03 95 ?? ?? ?? ?? 88 0a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_EFWA_2147952627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.EFWA!MTB"
+        threat_id = "2147952627"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c1 e8 05 03 45 e8 33 c8 8b 55 f8 2b d1 89 55 f8}  //weight: 2, accuracy: High
+        $x_2_2 = {03 45 f8 8b 4d e4 03 4d f8 8a 11 88 10 83 7d f8 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_BAC_2147952676_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.BAC!MTB"
+        threat_id = "2147952676"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b c8 0f af d1 33 95 ?? ?? ?? ?? 8b 45 c0 8b 8d ?? ?? ?? ?? 03 14 81 a1 ?? ?? ?? ?? 03 85 ?? ?? ?? ?? 88 10}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AYM_2147953621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AYM!MTB"
+        threat_id = "2147953621"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {51 83 ec 14 e8 ?? ?? ?? ?? a1 fc 70 41 00 ff d0 c7 44 24 04 ?? ?? ?? ?? 89 04 24 a1 ?? 71 41 00 ff d0 83 ec 08 e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_PPA_2147954622_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.PPA!MTB"
+        threat_id = "2147954622"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "powershell" wide //weight: 2
+        $x_1_2 = "hidden" wide //weight: 1
+        $x_1_3 = "WScript.Shell" wide //weight: 1
+        $x_1_4 = "Start-Sleep" wide //weight: 1
+        $x_2_5 = {53 00 74 00 61 00 72 00 74 00 20 00 4d 00 65 00 6e 00 75 00 5c 00 50 00 72 00 6f 00 67 00 72 00 61 00 6d 00 73 00 5c 00 53 00 74 00 61 00 72 00 74 00 75 00 70 00 5c 00 [0-16] 2e 00 6c 00 6e 00 6b 00}  //weight: 2, accuracy: Low
+        $x_2_6 = {5c 00 41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 52 00 6f 00 61 00 6d 00 69 00 6e 00 67 00 5c 00 [0-16] 2e 00 65 00 78 00 65 00}  //weight: 2, accuracy: Low
+        $x_1_7 = "Save" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_BAD_2147954671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.BAD!MTB"
+        threat_id = "2147954671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {2e 72 73 72 63 00 00 00 69 24 17 00 00 c0 02 00 00 26 17 00 00 f8}  //weight: 10, accuracy: High
+        $x_10_2 = {2e 69 64 61 74 61 00 00 00 10 00 00 00 f0 19 00 00 02 00 00 00 1e 18}  //weight: 10, accuracy: High
+        $x_10_3 = {2e 74 68 65 6d 69 64 61 00 20 35 00 00 00 1a 00 00 00 00 00 00 20 18}  //weight: 10, accuracy: High
+        $x_10_4 = {2e 62 6f 6f 74 00 00 00 00 ec 20 00 00 20 4f 00 00 ec 20 00 00 20 18}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_BAD_2147954671_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.BAD!MTB"
+        threat_id = "2147954671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {00 80 2e 00 00 20 00 00 00 80 2e 00 00 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0}  //weight: 10, accuracy: High
+        $x_10_2 = {05 00 00 00 a0 2e 00 00 06 00 00 00 a0 2e 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e}  //weight: 10, accuracy: High
+        $x_10_3 = {69 64 61 74 61 20 20 00 20 00 00 00 c0 2e 00 00 02 00 00 00 a6 2e 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 10, accuracy: High
+        $x_1_4 = "XprotExit" ascii //weight: 1
+        $x_1_5 = "\\\\.\\Oreans.vxd" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_GXV_2147955168_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.GXV!MTB"
+        threat_id = "2147955168"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {83 c4 0c 8b 55 14 2b 55 f4 03 55 f8 89 55 f8 8b 45 10 89 45 f0 8b 4d 14 89 4d f4 8b 55 f8 8a 45 ff 88 02 8b 4d f8 83 c1 01 89 4d f8}  //weight: 10, accuracy: High
+        $x_1_2 = "formhistory.sqlite" ascii //weight: 1
+        $x_1_3 = "config\\loginusers.vdf" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AMI_2147955392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AMI!MTB"
+        threat_id = "2147955392"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 14 f6 44 00 56 a3 bc 44 46 00 ff 15 ?? ?? ?? ?? 68 2c f6 44 00 56 a3 c0 44 46 00 ff 15 ?? ?? ?? ?? 68 48 f6 44 00 56 a3 c4 44 46 00 ff 15 ?? ?? ?? ?? 68 60 f6 44 00 56 a3 c8 44 46 00 ff 15 ?? ?? ?? ?? 68 7c f6 44 00 56 a3 cc 44 46 00}  //weight: 1, accuracy: Low
+        $x_2_2 = {56 a3 5c 44 46 00 ff 15 ?? ?? ?? ?? 68 dc f3 44 00 56 a3 60 44 46 00 ff 15 ?? ?? ?? ?? 68 f0 f3 44 00 56 a3 64 44 46 00 ff 15 ?? ?? ?? ?? 68 04 f4 44 00 56 a3 68 44 46 00 ff 15 ?? ?? ?? ?? 68 1c f4 44 00 56 a3 6c 44 46 00 ff 15 ?? ?? ?? ?? 68 30 f4 44 00 56}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_DIW_2147955508_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.DIW!MTB"
+        threat_id = "2147955508"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {47 87 f0 03 cb f7 da 41 81 37 ?? ?? ?? ?? c1 ca 1e f7 d9 33 d3 42 c1 ce 0a 46 81 f7 36 9e e2 b8 46 81 e8 d9 6c 24 cb c1 c6 0c 42 2b c5 81 c2 cc 9a 61 e2 81 c3 07 79 14 a6 81 eb 07 79 14 a6 81 ea cc 9a 61 e2 03 c5 4a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_GXT_2147955512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.GXT!MTB"
+        threat_id = "2147955512"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {55 89 e5 83 ec 18 c7 04 24 ?? ?? ?? ?? a1 ?? ?? ?? ?? ff d0 83 ec 04 e8 ?? ?? ?? ?? ?? c9 c3 8d 4c 24 04 83 e4 f0 ff 71 fc 55 89 e5 51 83 ec 14 e8 ?? ?? ?? ?? a1 ?? ?? ?? ?? ff d0 c7 44 24 ?? 00 00 00 00 89 04 24 a1 ?? ?? ?? ?? ff d0 83 ec}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AB_2147955946_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AB!MTB"
+        threat_id = "2147955946"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {89 f7 83 e7 1f 0f b6 1c 39 30 1c 32 8d 7e 01 83 e7 1f 0f b6 1c 39 30 5c 32 01 83 c6 02 39 f0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_GXW_2147956083_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.GXW!MTB"
+        threat_id = "2147956083"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {01 f3 51 b9 00 00 00 00 01 d9 31 01 59 8b 1c 24 83 c4}  //weight: 5, accuracy: High
+        $x_5_2 = {31 eb 5d 53 81 2c 24 ?? ?? ?? ?? 8b 14 24 83 c4 04}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_Z_2147957089_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.Z"
+        threat_id = "2147957089"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {cc 6a 20 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 59 c3 cc cc cc 6a 20 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 59 c3 cc cc cc 6a 06 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 59 c3 cc cc cc 6a 20 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8}  //weight: 1, accuracy: Low
+        $x_1_2 = {cc 6a 44 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 59 c3 cc cc cc 6a 5c 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 59 c3 cc cc cc 6a 0c 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8}  //weight: 1, accuracy: Low
+        $x_1_3 = {cc 6a 50 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 59 c3 cc cc cc 6a 40 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 59 c3 cc cc cc 6a 0c 68 ?? ?? ?? 00 b9 ?? ?? ?? 00 e8}  //weight: 1, accuracy: Low
+        $x_1_4 = "DenyTSConnections" ascii //weight: 1
+        $x_1_5 = {00 30 31 2d 2d 45 00}  //weight: 1, accuracy: High
+        $x_1_6 = {2d 2d 2d 00 35 31 32 30 00 00 00 00 76 6e 63 2e 65 78 65 00}  //weight: 1, accuracy: High
+        $x_1_7 = "netsh advfirewall firewall set rule group=\"Remote Desktop\" new enable=Yes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
+rule Trojan_Win32_Amadey_PAMA_2147957626_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.PAMA!MTB"
+        threat_id = "2147957626"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e 00 00 00 00 00 00 63 00 6d 00 64 00 20 00 2f 00 63 00 20 00 6d 00 6f 00 76 00 65 00 20 00 [0-32] 2e 00 62 00 61 00 74 00 20 00 26 00 26 00 20 00 [0-16] 2e 00 62 00 61 00 74 00 [0-26] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e 00 00 00 00 00 00 63 6d 64 20 2f 63 20 6d 6f 76 65 20 [0-32] 2e 62 61 74 20 26 26 20 [0-16] 2e 62 61 74 [0-26] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_5_3 = {2e 74 65 78 74 00 00 00 9c 66 00 00 00 10 00 00 00 68 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 64 61 74 61 00 00 00 a0 1a 00 00 00 80 00 00 00 02 00 00 00 6c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_Win32_Amadey_PAMA_2147957626_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.PAMA!MTB"
+        threat_id = "2147957626"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e 00 00 00 00 00 00 63 00 6d 00 64 00 20 00 2f 00 63 00 20 00 6d 00 6f 00 76 00 65 00 [0-42] 2e 00 62 00 61 00 74 00 20 00 26 00 26 00 20 00 [0-26] 2e 00 62 00 61 00 74 00 [0-26] 2e 00 65 00 78 00 65 00 [0-95] 3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e}  //weight: 5, accuracy: Low
+        $x_5_2 = {3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e 00 00 00 00 00 00 63 6d 64 20 2f 63 20 6d 6f 76 65 [0-42] 2e 62 61 74 20 26 26 20 [0-26] 2e 62 61 74 [0-26] 2e 65 78 65 [0-95] 3c 4e 6f 6e 65 3e 00 00 3c 4e 6f 6e 65 3e}  //weight: 5, accuracy: Low
+        $x_5_3 = {2e 74 65 78 74 00 00 00 b0 7e 00 00 00 10 00 00 00 80 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 72 64 61 74 61 00 00 20 24 00 00 00 90 00 00 00 30 00 00 00 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_Win32_Amadey_Y_2147957967_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.Y"
+        threat_id = "2147957967"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {69 6f 73 5f 62 61 73 65 3a 3a 65 6f 66 62 69 74 20 73 65 74 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (30|2d|39|61|2d|66) (30|2d|39|61|2d|66) 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (30|2d|39|61|2d|66) (30|2d|39|61|2d|66) 00 00 00 00 ?? ?? ?? ?? (30|2d|39|61|2d|66) (30|2d|39|61|2d|66) 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (30|2d|39|61|2d|66) (30|2d|39|61|2d|66) 00 00 00 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AMTB_2147958527_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey!AMTB"
+        threat_id = "2147958527"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "d5e48e78-2951-4117-b806-e4f8e626f28c" ascii //weight: 2
+        $x_2_2 = "65.109.1.228" ascii //weight: 2
+        $x_2_3 = "\\AppData\\Local\\Temp\\Web Data" ascii //weight: 2
+        $x_2_4 = "\\AppData\\Local\\Temp\\Login Data" ascii //weight: 2
+        $x_2_5 = "\\AppData\\Local\\Temp\\Cookies" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_NMP_2147959184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.NMP!MTB"
+        threat_id = "2147959184"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2b c8 8d 04 0a 33 d2 f7 f3 8b 5d ec 8b cb 83 7b 14 10 72 02 8b 0b 8a 04 32 8b 75 f4 88 04 31 46 89 75 f4 3b 75 f0}  //weight: 1, accuracy: High
+        $x_1_2 = {8b 45 e8 8a d4 c0 ea 04 8a c8 c0 e1 02 80 e2 03 02 d1 8a c4 88 55 e4 8a 55 ea 8a ca c0 e0 04 c0 e9 02 80 e1 0f c0 e2 06}  //weight: 1, accuracy: High
+        $x_2_3 = {d1 ea 2b c2 3b c8 76 07 bb ff ff ff 7f eb 08 8d 04 0a 3b d8 0f 42 d8 33 c9 8b c3 83 c0 01 0f 92 c1 f7 d9 0b c8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_GAPD_2147959278_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.GAPD!MTB"
+        threat_id = "2147959278"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {64 65 2e 0d 0d 0a 24 00 00 00 00 00 00 00 dd b6 42 53 99 d7 2c 00 99 d7 2c 00 99 d7 2c 00 8d bc 2f 01 94 d7 2c 00 8d bc 29 01 23 d7 2c 00 cb a2 28 01 8b d7 2c 00 cb a2 2f 01 8f d7 2c}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_GAPE_2147959279_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.GAPE!MTB"
+        threat_id = "2147959279"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {42 53 92 d7 2c 00 92 d7 2c 00 92 d7 2c 00 86 bc 2f 01 9f d7 2c 00 86 bc 29 01 28 d7 2c 00 c0 a2 28 01 80 d7 2c 00 c0 a2 2f 01 84 d7 2c 00 c0 a2 29 01 cb d7 2c 00 a3 8b d1 00 90 d7 2c}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_AAM_2147959703_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.AAM!MTB"
+        threat_id = "2147959703"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8d 45 f4 50 8d 85 e4 fb ff ff 50 ff d3 6a 00 8d 85 e4 fb ff ff 50 8d 85 ec fd ff ff 50 ff 15 ?? ?? ?? ?? 6a 06 8d 85 e4 fb ff ff 50}  //weight: 2, accuracy: Low
+        $x_1_2 = {8d 45 f4 50 8d 85 d4 f7 ff ff 50 ff d3 6a 00 6a 06 6a 02 6a 00 6a 00 68 00 00 00 40 8d 85 d4 f7 ff ff 50}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Amadey_ZZ_2147959945_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.ZZ"
+        threat_id = "2147959945"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {33 c9 3b 45 08 0f 45 c8 83 7a 14 10 8b c2 72 02 8b 02 83 7e 14 10 8b de 72 02 8b 1e 8a 04 01 88 04 3b 47 8d 41 01 3b 7d fc 7c d5}  //weight: 10, accuracy: High
+        $x_10_3 = {2b c8 8d 04 0a 33 d2 f7 f3 8b 5d ec 8b cb 83 7b 14 10 72 02 8b 0b 8a 04 32}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

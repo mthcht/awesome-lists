@@ -19,3 +19,24 @@ rule Trojan_Win64_WingoObfus_AB_2147901072_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_WingoObfus_NRP_2147948479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/WingoObfus.NRP!MTB"
+        threat_id = "2147948479"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "WingoObfus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 83 3d 8e d5 f7 00 04 75 29 81 3a 69 63 6d 70 75 21}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

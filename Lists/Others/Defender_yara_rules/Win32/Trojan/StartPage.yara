@@ -248,3 +248,25 @@ rule Trojan_Win32_StartPage_RPL_2147821596_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StartPage_NP_2147951208_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StartPage.NP!MTB"
+        threat_id = "2147951208"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StartPage"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8d 45 fc 50 8b 45 fc 8d 04 86 50 56 53 e8 f5 fd ff ff 83 c4 14 8b 45 fc 48 a3 90 72 40 00 89 35 94 72 40 00 5e 5b 89 ec}  //weight: 2, accuracy: High
+        $x_1_2 = {89 f9 89 f0 31 d2 f7 f1 89 d0 8a 80 00 67 40 00 88 03 8d 43 01 5f 5e 5b}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

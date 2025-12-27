@@ -536,3 +536,25 @@ rule Trojan_AndroidOS_SmsSpy_AH_2147921647_0
         (2 of ($x*))
 }
 
+rule Trojan_AndroidOS_SmsSpy_I_2147950251_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SmsSpy.I!MTB"
+        threat_id = "2147950251"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SmsSpy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0c 01 54 11 00 00 1a 02 b8 00 6e 20 0f 00 21 00 0c 03 1a 04 00 00 38 03 09 00 6e 20 0f 00 21 00 0c 02 5b 52 2d 00 28 03 5b 54 2d 00 1a 02 b7 00 6e 20 0e 00 21 00 0c 03 38 03 0d 00 6e 20 0e 00 21 00 0c 02 6e 10 67 00 02 00}  //weight: 1, accuracy: High
+        $x_1_2 = {12 02 12 23 13 04 13 00 34 40 08 00 54 70 29 00 6e 30 1e 00 30 02 28 10 60 00 01 00 13 05 0b 00 34 50 0b 00 60 00 01 00 35 40 07 00 54 70 29 00 6e 30 1e 00 10 02 22 00 09 00 1a 02 af 00 70 20 04 00 20 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

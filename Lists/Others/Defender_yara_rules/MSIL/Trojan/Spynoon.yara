@@ -1,3 +1,24 @@
+rule Trojan_MSIL_Spynoon_SS_2147774009_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.SS!MTB"
+        threat_id = "2147774009"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0d 2b 43 00 09 6c 23 [0-7] 40 5a 0e 05 6c 5b 28 ?? ?? ?? 0a 02 5a 13 04 06 7b ?? ?? ?? 04 09 11 04 23 ?? ?? ?? ?? ?? ?? ?? 40 5a 28 ?? ?? ?? 0a 23 ?? ?? ?? ?? ?? ?? ?? 40 5d d2 9c 00 09 17 58 0d 09 0e 05 fe 04 13 05 11 05}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Spynoon_MFP_2147782172_0
 {
     meta:
@@ -2218,6 +2239,155 @@ rule Trojan_MSIL_Spynoon_AIWA_2147943375_0
         $x_5_1 = {11 24 72 37 01 00 70 28 ?? 00 00 0a 8c ?? 00 00 01 6f ?? 00 00 0a 00 11 24 72 4b 01 00 70 72 6b 01 00 70 11 0a 1e 5d 13 2d 12 2d 28 ?? 00 00 0a 28 ?? 00 00 06 6f ?? 00 00 0a 11 3e}  //weight: 5, accuracy: Low
         $x_2_2 = {01 25 16 72 c5 04 00 70 a2 25 17 12 17 28 ?? 00 00 0a a2 25 18 72 db 04 00 70 a2 25 19 12 21 28 ?? 00 00 0a a2 25 1a 72 e5 04 00 70 a2}  //weight: 2, accuracy: Low
         $x_2_3 = {01 25 16 11 25 9c 25 17 11 26 9c 25 18 11 27 9c 13 32 11 0b 20 e8 03 00 00 5d 20 e7 03 00 00 fe 01 16 fe 01 13 33}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Spynoon_APAB_2147947394_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.APAB!MTB"
+        threat_id = "2147947394"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 06 08 6f ?? 00 00 0a 0d 12 03 28 ?? 00 00 0a 6c 07 28 ?? 00 00 0a 5a 13 04 12 03 28 ?? 00 00 0a 6c 07 23 65 73 2d 38 52 c1 f0 3f 58 28 ?? 00 00 0a 5a 13 05 12 03 28 ?? 00 00 0a 6c 07 23 65 73 2d 38 52 c1 00 40 58 28 ?? 00 00 0a 5a 11 04 11 04 5a 23 00 00 00 00 20 c0 ef 40 5b 13 06 11 05 11 05 5a 23 00 00 00 00 20 c0 ef 40 5b 13 07 25 5a 23 00 00 00 00 20 c0 ef 40 5b}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Spynoon_ATAB_2147947477_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.ATAB!MTB"
+        threat_id = "2147947477"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 06 11 05 6f ?? 00 00 0a 13 06 12 06 28 ?? 00 00 0a 6c 07 28 ?? 00 00 0a 5a 13 07 12 06 28 ?? 00 00 0a 6c 07 23 65 73 2d 38 52 c1 f0 3f 58 28 ?? 00 00 0a 5a 13 08 12 06 28 ?? 00 00 0a 6c 07 23 65 73 2d 38 52 c1 00 40 58 28 ?? 00 00 0a 5a 13 09 11 07 11 07 5a 23 00 00 00 00 20 c0 ef 40 5b 13 0a 11 08 11 08 5a 23 00 00 00 00 20 c0 ef 40 5b 13 0b 11 09 11 09 5a 23 00 00 00 00 20 c0 ef 40 5b}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Spynoon_AECB_2147948850_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.AECB!MTB"
+        threat_id = "2147948850"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 07 06 6f ?? 00 00 0a 13 0f 04 03 6f ?? 00 00 0a 59 0c 03 12 0f 28 ?? 00 00 0a 6f ?? 00 00 0a 08 17 59 25 0c 16 fe 02 16 fe 01 13 0d 11 0d 2c 02 2b 41 03 12 0f 28 ?? 00 00 0a 6f ?? 00 00 0a 08 17 59 25 0c 16 fe 02 16 fe 01 13 0e 11 0e 2c 02 2b 21 03 12 0f 28 ?? 00 00 0a 6f ?? 00 00 0a 06 17 58 0a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Spynoon_AQCB_2147949300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.AQCB!MTB"
+        threat_id = "2147949300"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 2d 0b 72 ?? ?? 00 70 73 ?? 00 00 0a 7a 73 ?? 00 00 0a 0a 06 02 7b ?? 00 00 04 02 7b ?? 00 00 04 6f ?? 00 00 0a 0b 73 ?? 00 00 0a 0c 08 07 17 73 ?? 00 00 0a 0d 03 09 6f ?? 00 00 0a 09 6f ?? 00 00 0a de 0a}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Spynoon_AQFB_2147952885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.AQFB!MTB"
+        threat_id = "2147952885"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 14 11 15 6f ?? 00 00 0a 13 17 04 03 6f ?? 00 00 0a 59 13 18 11 18 13 19 11 19 19 fe 02 13 1f 11 1f 2c 03 19 13 19 11 19 16 fe 04 13 20 11 20 2c 03 16 13 19 11 0a 16 5f 13 1a 11 1a 19 5d 13 1b 17 11 1a 58 19 5d 13 1c 18 11 1a 58 19 5d 13 1d 19 8d ?? 00 00 01 13 1e 11 1e 16 12 17 28 ?? 00 00 0a 9c 11 1e 17 12 17 28 ?? 00 00 0a 9c 11 1e 18 12 17 28 ?? 00 00 0a 9c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Spynoon_AEKB_2147957058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.AEKB!MTB"
+        threat_id = "2147957058"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {16 18 9e 25 17 17 9e 15 73 ?? 00 00 0a 7d ?? 00 00 04 06 06 7b ?? 00 00 04 6f ?? 00 00 0a 73 ?? 00 00 0a 7d ?? 00 00 04 06 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 7d ?? 00 00 04 06 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 7d ?? 00 00 04 06 73 ?? 00 00 0a 25 16 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 6f ?? 00 00 0a 00 25 17 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 6f ?? 00 00 0a 00 25 18 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 6f ?? 00 00 0a 00 7d ?? 00 00 04 06 16 16 06 7b ?? 00 00 04 6f ?? 00 00 0a 06}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Spynoon_AFMB_2147958425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.AFMB!MTB"
+        threat_id = "2147958425"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 04 11 05 6f ?? 00 00 0a 13 09 03 09 6f ?? 00 00 0a 59 13 0a 09 12 09 28 ?? 00 00 0a 6f ?? 00 00 0a 00 11 0a 17 59 25 13 0a 16 fe 02 16 fe 01 13 11 11 11 2c 05 38 ?? 00 00 00 09 12 09 28 ?? 00 00 0a 6f ?? 00 00 0a 00 11 0a 17 59 25 13 0a 16 fe 02 16 fe 01 13 12 11 12 2c 05 38 ?? 00 00 00 09 12 09 28 ?? 00 00 0a 6f ?? 00 00 0a 00 00 12 09}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

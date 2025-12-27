@@ -18,3 +18,25 @@ rule Trojan_Win32_WMIPersistance_A_2147919726_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_WMIPersistance_B_2147957291_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/WMIPersistance.B"
+        threat_id = "2147957291"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "WMIPersistance"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "mofcomp.exe" wide //weight: 1
+        $x_1_2 = "\\temp\\ai-" wide //weight: 1
+        $x_1_3 = ".mof" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

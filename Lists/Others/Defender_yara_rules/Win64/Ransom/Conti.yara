@@ -19,27 +19,6 @@ rule Ransom_Win64_Conti_ZA_2147814691_0
         (all of ($x*))
 }
 
-rule Ransom_Win64_Conti_GHJ_2147817051_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win64/Conti.GHJ!MTB"
-        threat_id = "2147817051"
-        type = "Ransom"
-        platform = "Win64: Windows 64-bit platform"
-        family = "Conti"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {c1 c0 0f 69 c8 93 35 87 1b 33 f9 c1 c7 0d 81 c7 14 af dd fa 8d 3c bf 49 83 c0 01}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Ransom_Win64_Conti_RPJ_2147827691_0
 {
     meta:
@@ -128,6 +107,55 @@ rule Ransom_Win64_Conti_QZ_2147937596_0
         $x_2_2 = "wmic shadowcopy delete" ascii //weight: 2
         $x_2_3 = "Clear-ComputerRestorePoint -All" ascii //weight: 2
         $x_2_4 = "system_health.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Conti_DC_2147956263_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Conti.DC!MTB"
+        threat_id = "2147956263"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "encrypted by CONTI ransomware" ascii //weight: 5
+        $x_5_2 = "If you try to use any additional recovery software - the files might be damaged or lost" ascii //weight: 5
+        $x_5_3 = "To make sure that we REALLY CAN recover data - we offer you to decrypt samples" ascii //weight: 5
+        $x_5_4 = "YOU SHOULD BE AWARE!" ascii //weight: 5
+        $x_5_5 = "We've downloaded your data and are ready to publish it on out news website if you do not respond" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Conti_GTV_2147958038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Conti.GTV!MTB"
+        threat_id = "2147958038"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "To decrypt your files, send 0.1 BTC to:" ascii //weight: 1
+        $x_1_2 = "=== CONTI RANSOMWARE ===" ascii //weight: 1
+        $x_1_3 = "!!! YOUR FILES ARE ENCRYPTED !!!" ascii //weight: 1
+        $x_1_4 = "=== DO NOT DELETE THIS FILE ===" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

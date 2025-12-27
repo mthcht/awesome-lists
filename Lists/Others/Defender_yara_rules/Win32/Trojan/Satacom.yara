@@ -175,3 +175,29 @@ rule Trojan_Win32_Satacom_RPT_2147836274_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Satacom_A_2147946836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Satacom.A"
+        threat_id = "2147946836"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Satacom"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {fe c2 0f b6 d2 8b 4c ?? ?? 8d 04 0b 0f b6 d8 8b 44 ?? ?? 89 44 ?? ?? 89 4c ?? ?? 02 c8 0f b6 c1 8b 4d f8 8a 44 ?? ?? 30 04 ?? ?? 3b ?? fc 7c d0}  //weight: 2, accuracy: Low
+        $x_1_2 = "|PIPE|vbOX" ascii //weight: 1
+        $x_1_3 = {25 73 5c 73 76 63 68 6f 73 74 2e 25 73 [0-16] 2e 64 61 74}  //weight: 1, accuracy: Low
+        $x_1_4 = "crypto_domain" ascii //weight: 1
+        $x_1_5 = "postback_url" ascii //weight: 1
+        $x_1_6 = "execute_method" ascii //weight: 1
+        $x_1_7 = "need_captcha" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

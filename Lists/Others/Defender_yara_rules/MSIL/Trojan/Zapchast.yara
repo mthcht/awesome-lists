@@ -246,3 +246,24 @@ rule Trojan_MSIL_Zapchast_ELO_2147942194_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zapchast_MK_2147957826_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zapchast.MK!MTB"
+        threat_id = "2147957826"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zapchast"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {73 04 00 00 06 0a 06 02 7d 02 00 00 04 06 fe 06 05 00 00 06 73 09 00 00 0a 73 0a 00 00 0a 28 0b 00 00 0a 7e 01 00 00 04 2d 11 14 fe 06 03 00 00 06 73 09 00 00 0a 80 01 00 00 04 7e 01 00 00 04 73 0a 00 00 0a 28 0b 00 00 0a 2a}  //weight: 25, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

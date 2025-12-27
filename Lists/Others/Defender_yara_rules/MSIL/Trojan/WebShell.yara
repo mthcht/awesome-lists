@@ -226,3 +226,468 @@ rule Trojan_MSIL_WebShell_ACH_2147944105_0
         )
 }
 
+rule Trojan_MSIL_WebShell_GVB_2147945398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.GVB!MTB"
+        threat_id = "2147945398"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {28 0f 00 00 06 2c 14 7e 02 00 00 04 72 15 00 00 70 28 2f 00 00 0a 80 02 00 00 04 06 72 1d 00 00 70 7e 02 00 00 04 28 2f 00 00 0a 7d 18 00 00 04 06 fe 06 48 00 00 06 73 30 00 00 0a 28 31 00 00 0a 6f 32 00 00 0a 2a}  //weight: 5, accuracy: High
+        $x_2_2 = "powershell" wide //weight: 2
+        $x_2_3 = "RunAs" wide //weight: 2
+        $x_1_4 = "/restart" wide //weight: 1
+        $x_1_5 = "/suicide" wide //weight: 1
+        $x_1_6 = "/startup" wide //weight: 1
+        $x_1_7 = "/delstartup" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_WebShell_AUAB_2147947492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AUAB!MTB"
+        threat_id = "2147947492"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {01 25 16 72 97 03 00 70 d0 ?? 00 00 01 16 73 ?? 00 00 0a a2 25 17 72 9f 03 00 70 d0 ?? 00 00 01 17 73 ?? 00 00 0a a2 25 18 72 c5 03 00 70 d0 ?? 00 00 01 18 73 ?? 00 00 0a a2 25 19 72 d7 03 00 70 d0 ?? 00 00 01 19 73 ?? 00 00 0a a2 02}  //weight: 4, accuracy: Low
+        $x_2_2 = {06 02 72 69 03 00 70 28 ?? 00 00 0a 7e ?? 00 00 04 16 40 ?? 00 00 00 17 8d ?? 00 00 01 0a 06 16 72 69 03 00 70 a2 02 06 28 ?? 00 00 0a 80 ?? 00 00 04 17 80 ?? 00 00 04 02 28 ?? 00 00 0a 20 80 c3 c9 01 28 ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_MR_2147947656_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.MR!MTB"
+        threat_id = "2147947656"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {08 09 94 0a 00 06 03 fe 01 16 fe 01 13 04 11 04 2d 04 17 0b de 15 00 09 17 58 0d}  //weight: 5, accuracy: High
+        $x_10_2 = {0a 06 16 1b 9e 06 17 17 9e 06 18 1a 9e 06}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AHBB_2147948009_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AHBB!MTB"
+        threat_id = "2147948009"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {16 fe 01 13 07 11 07 2d 0c 7e ?? 00 00 0a 13 06 38 8e 00 00 00 28 ?? ?? 00 0a 72 ?? ?? 00 70 1e 1f 30 6f ?? ?? 00 0a 16 1e 6f ?? ?? 00 0a 6f ?? ?? 00 0a 0a 28 ?? ?? 00 0a 72 ?? ?? 00 70 1e 1f 30 6f ?? ?? 00 0a 16 1e 6f ?? ?? 00 0a 6f ?? ?? 00 0a 0b 03 28 ?? ?? 00 0a 0c 73 ?? ?? 00 0a 0d 73 ?? ?? 00 0a 13 04 11 04 09 06 07 6f ?? ?? 00 0a 17 73 ?? ?? 00 0a 13 05 11 05 08 16 08 8e 69 6f ?? ?? 00 0a 00 11 05 6f ?? ?? 00 0a 00 28 ?? ?? 00 0a 11 04 6f ?? ?? 00 0a 6f ?? ?? 00 0a 13 06 2b 00 11 06 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {16 fe 01 13 06 11 06 2d 0d 00 7e ?? 00 00 0a 13 05 38 c6 00 00 00 03 2d 1c 02 28 ?? ?? 00 0a 72 ?? ?? 00 70 72 ?? ?? 00 70 6f ?? ?? 00 0a 28 ?? ?? 00 0a 2b 0b 28 ?? ?? 00 0a 02 6f ?? ?? 00 0a 00 0a 14 0b 73 ?? ?? 00 0a 0c 00 73 ?? ?? 00 0a 0d 09 03 2d 12 08 7e ?? 00 00 04 7e ?? 00 00 04 6f ?? ?? 00 0a 2b 10 08 7e ?? 00 00 04 7e ?? 00 00 04 6f ?? ?? 00 0a 00 17 73 ?? ?? 00 0a 13 04 11 04 06 16 06 8e 69 6f ?? ?? 00 0a 00 11 04 6f ?? ?? 00 0a 00 09 6f ?? ?? 00 0a 0b 00 de 12}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AQBB_2147948385_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AQBB!MTB"
+        threat_id = "2147948385"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 07 06 28 ?? ?? 00 0a 6f ?? ?? 00 0a 28 ?? ?? 00 0a 28 ?? ?? 00 0a 72 ?? ?? 00 70 72 ?? ?? 00 70 6f ?? ?? 00 0a 0c 02 6f ?? ?? 00 0a 6f ?? ?? 00 0a 07 6f ?? ?? 00 0a 28 ?? ?? 00 0a 0d 73 ?? ?? 00 0a 28 ?? ?? 00 0a 06 6f ?? ?? 00 0a 28 ?? ?? 00 0a 06 6f ?? ?? 00 0a 6f ?? ?? 00 0a 09 16 09 8e 69 6f ?? ?? 00 0a 0d 02 6f ?? ?? 00 0a 6f ?? ?? 00 0a 72 ?? ?? 00 70 6f ?? ?? 00 0a 14 fe 01 16 fe 01 13 07 11 07 2d 63 00 02 6f ?? ?? 00 0a 6f ?? ?? 00 0a 72 ?? ?? 00 70 d0 ?? 00 00 01 28 ?? ?? 00 0a 72 ?? ?? 00 70 17 8d ?? 00 00 01 13 08 11 08 16 d0 ?? 00 00 1b 28 ?? ?? 00 0a a2 11 08 28 ?? ?? 00 0a 14 17 8d ?? 00 00 01 13 09 11 09 16 09 a2 11 09}  //weight: 5, accuracy: Low
+        $x_2_2 = {0a 13 04 02 6f ?? ?? 00 0a 6f ?? ?? 00 0a 72 ?? ?? 00 70 6f ?? ?? 00 0a 74 ?? 00 00 01 72 ?? ?? 00 70 6f ?? ?? 00 0a 13 05 11 05 11 04 6f ?? ?? 00 0a 26 11 05 09 6f ?? ?? 00 0a 26 11 05 6f ?? ?? 00 0a 26 11 04 6f ?? ?? 00 0a 13 06}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_MKV_2147948847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.MKV!MTB"
+        threat_id = "2147948847"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {d0 16 00 00 01 28 ?? 00 00 0a 28 ?? 00 00 0a 72 67 01 00 70 6f ?? 00 00 0a 0a 06 14 28 ?? 00 00 0a 0d 09 2c 0d 00 72 a3 01 00 70 13 04 38 38 01 00 00 06 72 0f 02 00 70 6f ?? 00 00 0a 0b 07 14 28 ?? 00 00 0a 13 05 11 05 2c 0d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AOCB_2147949203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AOCB!MTB"
+        threat_id = "2147949203"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0b 07 72 ?? 00 00 70 1f 28 6f ?? 00 00 0a 0c 08 14 16 8d ?? 00 00 01 6f ?? 00 00 0a 74 ?? 00 00 01 0d 02 28 ?? 00 00 0a 1f 09 8d ?? 00 00 01 13 04 11 04 16 09 6f ?? 00 00 0a a2 11 04 17 72 ?? ?? 00 70 a2 11 04 18 09 6f ?? 00 00 0a 8c ?? 00 00 01 a2 11 04 19 72 ?? ?? 00 70 a2 11 04 1a 09 6f ?? 00 00 0a a2 11 04 1b 72 ?? ?? 00 70 a2 11 04 1c 09 6f ?? 00 00 0a a2 11 04 1d 72 ?? ?? 00 70 a2 11 04 1e 09 6f ?? 00 00 0a 8c ?? 00 00 01 a2 11 04 28 ?? 00 00 0a 6f ?? 00 00 0a 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_MZB_2147950310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.MZB!MTB"
+        threat_id = "2147950310"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 72 81 74 00 70 28 ?? 00 00 0a 00 7e 18 00 00 04 0b 07 2d 2e 00 02 28 ?? 00 00 0a 80 19 00 00 04 17 8d 4a 00 00 01 0a 06 16 72 81 74 00 70 a2 02 06 28 ?? 00 00 0a 80 1a 00 00 04 17 80 18 00 00 04 00 02 28 ?? 00 00 0a 20 80 c3 c9 01 6f ?? 00 00 0a 00 00 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AXDB_2147950638_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AXDB!MTB"
+        threat_id = "2147950638"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 07 06 28 ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 72 ?? 00 00 70 72 ?? 00 00 70 6f ?? 00 00 0a 0c 02 6f ?? 00 00 0a 6f ?? 00 00 0a 07 6f ?? 00 00 0a 28 ?? 00 00 0a 0d 73 ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 09 16 09 8e 69 6f ?? 00 00 0a 0d 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 00 00 70 6f ?? 00 00 0a 2d 60}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AHEB_2147951198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AHEB!MTB"
+        threat_id = "2147951198"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 16 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? ?? 00 70 6f ?? 00 00 0a 14 fe 01 16 fe 01 13 05 11 05 2d 63 00 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? ?? 00 70 d0 ?? 00 00 01 28 ?? 00 00 0a 72 ?? ?? 00 70 17 8d ?? 00 00 01 13 06 11 06 16 d0 ?? 00 00 1b 28 ?? 00 00 0a a2 11 06 28 ?? 00 00 0a 14 17 8d ?? 00 00 01 13 07 11 07 16 07 a2 11 07}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_CB_2147951249_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.CB!MTB"
+        threat_id = "2147951249"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {41 70 70 5f 57 65 62 5f [0-15] 2e 64 6c 6c}  //weight: 2, accuracy: Low
+        $x_2_2 = "Factory_app_web_" ascii //weight: 2
+        $x_2_3 = {4d 00 69 00 63 00 72 00 6f 00 73 00 6f 00 66 00 74 00 2e 00 4e 00 45 00 54 00 5c 00 46 00 72 00 61 00 6d 00 65 00 77 00 6f 00 72 00 6b}  //weight: 2, accuracy: High
+        $x_5_4 = {63 00 6d 00 64 00 00 09 70 00 6f 00 73 00 74}  //weight: 5, accuracy: High
+        $x_5_5 = {77 00 65 00 62 00 73 00 68 00 65 00 6c 00 6c}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_FPP_2147951551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.FPP!MTB"
+        threat_id = "2147951551"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 04 00 02 28 ?? 00 00 0a 72 52 05 00 70 28 ?? 00 00 0a 00 0a 00 02 28 ?? 00 00 0a 72 60 05 00 70 28 ?? 00 00 0a 00 0b 06 39 11 01 00 00 06 72 6e 05 00 70 28 ?? 00 00 0a 3a 01 01 00 00 00 00 28 2a 00 00 0a 00 23 00 00 00 00 00 6a f8 40 5a 28 ?? 00 00 0a 28 ?? 00 00 0a 00 72 70 05 00 70 28 ?? 00 00 0a 0c 07 7e 2e 00 00 0a 28 ?? 00 00 0a 3a 4d 00 00 00 11 05 07 72 6e 05 00 70 28 ?? 00 00 0a 3a 3b 00 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_CC_2147952052_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.CC!MTB"
+        threat_id = "2147952052"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {70 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 28 ?? 00 00 0a 06 6f ?? 00 00 0a 0c 73 ?? 00 00 0a 08 08 6f ?? 00 00 0a 07 16 02}  //weight: 3, accuracy: Low
+        $x_1_2 = "App_Web_" ascii //weight: 1
+        $x_1_3 = "RijndaelManaged" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AXEB_2147952084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AXEB!MTB"
+        threat_id = "2147952084"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0b 07 18 6f ?? 00 00 0a 00 07 28 ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 00 07 18 6f ?? 00 00 0a 00 07 6f ?? 00 00 0a 03 16 03 8e 69 6f ?? 00 00 0a 0c 2b 00 08 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_KRI_2147952184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.KRI!MTB"
+        threat_id = "2147952184"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 16 1f 10 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 73 17 00 00 0a 28 ?? 00 00 0a 72 93 00 00 70 6f ?? 00 00 0a 28 ?? 00 00 0a 72 93 00 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 11 04 16 11 04 8e 69 6f ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 06 1f 10 6f ?? 00 00 0a 6f ?? 00 00 0a de 03}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_BBI_2147952346_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.BBI!MTB"
+        threat_id = "2147952346"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 07 07 6f ?? 00 00 0a 07 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 03 73 12 00 00 0a 0d 09 08 16 73 0d 00 00 0a 13 04 11 04 73 13 00 00 0a 13 05 11 05 6f ?? 00 00 0a 13 06 28 15 00 00 0a 11 06 6f ?? 00 00 0a 0a de 0c 11 05 2c 07 11 05 6f ?? 00 00 0a dc de 0c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_UUI_2147952587_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.UUI!MTB"
+        threat_id = "2147952587"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {7a 06 08 6f ?? 00 00 0a 13 04 11 04 8e 69 08 2e 0b 72 d0 01 00 70 73 30 00 00 0a 7a 16 13 05 2b 13 11 04 11 05 11 04 11 05 91 09 61 d2 9c 11 05 17 58 13 05 11 05 11 04 8e 69 32 e5}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AMFB_2147952616_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AMFB!MTB"
+        threat_id = "2147952616"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 08 07 28 ?? ?? 00 0a 6f ?? ?? 00 0a 28 ?? ?? 00 0a 28 ?? ?? 00 0a 72 ?? ?? 00 70 72 ?? ?? 00 70 6f ?? ?? 00 0a 0d 03 28 ?? ?? 00 0a 28 ?? ?? 00 0a 13 04 73 ?? ?? 00 0a 28 ?? ?? 00 0a 07 6f ?? ?? 00 0a 28 ?? ?? 00 0a 07 6f ?? ?? 00 0a 6f ?? ?? 00 0a 11 04 16 11 04 8e 69 6f ?? ?? 00 0a 13 04 7e ?? ?? 00 04 72 ?? ?? 00 70 6f ?? ?? 00 0a 14 fe 01 16}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_HAE_2147953028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.HAE!MTB"
+        threat_id = "2147953028"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "37"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {56 69 72 74 75 61 6c 41 6c 6c 6f 63 00 6b 65 72 6e 65 6c 33 32 00 6c 70 41 64 64 72 65 73 73 00 64 77 53 69 7a 65 00 66 6c 41 6c 6c 6f 63 61 74 69 6f 6e 54 79 70 65 00 66 6c 50 72 6f 74 65 63 74}  //weight: 5, accuracy: High
+        $x_10_2 = {64 77 53 74 61 63 6b 53 69 7a 65 00 6c 70 53 74 61 72 74 41 64 64 72 65 73 73 00 6c 70 50 61 72 61 6d 65 74 65 72 00 64 77 43 72 65 61 74 69 6f 6e 46 6c 61 67 73 00 6c 70 54 68 72 65 61 64 49 64 00 57 61 69 74 46 6f 72 53 69 6e 67 6c 65 4f 62 6a 65 63 74}  //weight: 10, accuracy: High
+        $x_2_3 = {00 46 72 6f 6d 42 61 73 65 36 34 53 74 72 69 6e 67 00}  //weight: 2, accuracy: High
+        $x_20_4 = {6d 73 63 6f 72 6c 69 62 00 [0-32] 00 41 00 41 00 41 00 41 00 41 00 41 00 41 00 41 00 41}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AUIB_2147955835_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AUIB!MTB"
+        threat_id = "2147955835"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 07 08 28 ?? 00 00 0a 0d 72 ?? ?? 00 70 13 04 72 ?? ?? 00 70 13 05 11 04 11 05 28 ?? 00 00 0a 13 06 72 ?? ?? 00 70 13 07 72 ?? ?? 00 70 13 08 11 07 11 08 28 ?? 00 00 0a 13 09 11 07 11 05 28 ?? 00 00 0a 13 0a 73 ?? 00 00 0a 28 ?? 00 00 0a 09 6f ?? 00 00 0a 28 ?? 00 00 0a 09 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 16 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 13 0b 02}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_WebShell_AZKB_2147957541_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AZKB!MTB"
+        threat_id = "2147957541"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 08 07 28 ?? 00 00 0a 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 72 ?? ?? 00 70 72 ?? ?? 00 70 6f ?? 00 00 0a 0d 03 28 ?? 00 00 0a 28 ?? 00 00 0a 13 04 73 ?? 00 00 0a 28 ?? 00 00 0a 07 6f ?? 00 00 0a 28 ?? 00 00 0a 07 6f ?? 00 00 0a 6f ?? 00 00 0a 11 04 16 11 04 8e 69 6f ?? 00 00 0a 13 04 02 28 ?? 00 00 0a 6f ?? 00 00 0a 72 ?? ?? 00 70 6f ?? 00 00 0a 14 fe 01 16 fe 01 13 09 11 09 2d 64}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

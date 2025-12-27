@@ -43,3 +43,24 @@ rule Trojan_MSIL_Atraps_PGA_2147940782_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Atraps_A_2147945989_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Atraps.A!MTB"
+        threat_id = "2147945989"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Atraps"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {03 02 7b 06 00 00 04 28 53 00 00 06 10 01 73 62 00 00 0a 13 05 73 63 00 00 0a 0b 73 63 00 00 0a 0c 72 d4 11 00 70}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

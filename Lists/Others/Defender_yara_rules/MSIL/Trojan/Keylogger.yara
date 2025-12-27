@@ -985,6 +985,32 @@ rule Trojan_MSIL_Keylogger_AYA_2147930960_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "ChaosWorm" ascii //weight: 10
+        $x_1_2 = "Keylogger" ascii //weight: 1
+        $x_1_3 = "InfectSystem" ascii //weight: 1
+        $x_1_4 = "RunPayload" ascii //weight: 1
+        $x_1_5 = "SpreadViaUSB" ascii //weight: 1
+        $x_1_6 = "InfectNewExes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Keylogger_AYA_2147930960_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.AYA!MTB"
+        threat_id = "2147930960"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -996,7 +1022,7 @@ rule Trojan_MSIL_Keylogger_AYA_2147930960_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Keylogger_AYA_2147930960_1
+rule Trojan_MSIL_Keylogger_AYA_2147930960_2
 {
     meta:
         author = "defender2yara"
@@ -1112,6 +1138,27 @@ rule Trojan_MSIL_Keylogger_PGK_2147940783_0
     strings:
         $x_2_1 = {0a 06 17 6f ?? 00 00 0a 0d 09 14 fe 01 13 04 11 04 2c 0e 00 7e ?? 00 00 0a 06 6f ?? 00 00 0a 0d 00 09 07 08 6f}  //weight: 2, accuracy: Low
         $x_3_2 = {6d 00 6f 00 6e 00 69 00 74 00 6f 00 72 00 69 00 6e 00 67}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Keylogger_CSI_2147953334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.CSI!MTB"
+        threat_id = "2147953334"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {09 7d 3b 00 00 04 72 3f 0f 00 70 73 c7 00 00 06 80 59 00 00 04 7e b2 00 00 04 25 3a 17 00 00 00 26 7e 7d 00 00 04 fe 06 bc 00 00 06 73 1d 00 00 0a 25 80 b2 00 00 04 73 1e 00 00 0a 28 1f 00 00 0a 00 02 fe 06 73 00 00 06 73 1d 00 00 0a 73 1e 00 00 0a 28 1f 00 00 0a 00 02 7b 44 00 00 04 13 04 11 04 39 20 00 00 00 00 02 7b 46 00 00 04 02 7b 45 00 00 04 02 7b 47 00 00 04}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

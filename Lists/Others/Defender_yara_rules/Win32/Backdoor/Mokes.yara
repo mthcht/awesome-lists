@@ -65,6 +65,33 @@ rule Backdoor_Win32_Mokes_GZF_2147902811_0
         (all of ($x*))
 }
 
+rule Backdoor_Win32_Mokes_GZF_2147902811_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Mokes.GZF!MTB"
+        threat_id = "2147902811"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mokes"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {31 5d c0 06 09 f9 b0 79 a4 52 b6 f3 45 94 56 35 ?? ?? ?? ?? b8 ?? ?? ?? ?? 07 b9 ?? ?? ?? ?? 69 0b}  //weight: 10, accuracy: Low
+        $x_5_2 = {98 0e 31 5a ?? 22 c1 4f eb}  //weight: 5, accuracy: Low
+        $x_5_3 = {01 ed b1 30 d0 30 30 29 9e 53 aa 35 ?? ?? ?? ?? 07 95 39 78}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*))) or
+            ((1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Backdoor_Win32_Mokes_GXY_2147903507_0
 {
     meta:

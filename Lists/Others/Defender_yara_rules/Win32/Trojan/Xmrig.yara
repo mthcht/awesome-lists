@@ -107,3 +107,25 @@ rule Trojan_Win32_Xmrig_AX_2147896816_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Xmrig_ARAX_2147956835_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Xmrig.ARAX!MTB"
+        threat_id = "2147956835"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Xmrig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 46 10 8d 04 45 02 00 00 00 50 51 6a 01 6a 00 52 ff b5 ?? ff ff ff ff 15 08 20 41 00}  //weight: 2, accuracy: Low
+        $x_2_2 = "\\updater.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

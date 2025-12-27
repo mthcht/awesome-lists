@@ -19,30 +19,25 @@ rule Trojan_Win64_Bodegun_ABD_2147939881_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Bodegun_KK_2147944059_0
+rule Trojan_Win64_Bodegun_ARAC_2147959417_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/Bodegun.KK!MTB"
-        threat_id = "2147944059"
+        detection_name = "Trojan:Win64/Bodegun.ARAC!MTB"
+        threat_id = "2147959417"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Bodegun"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "30"
+        threshold = "4"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = {45 2b c6 41 8b c0 c1 e8 18 32 c1 88 85 ?? ?? 00 00 41 8b c0 c1 e8 10 32 c1 88 85 ?? ?? 00 00 41 8b c0 c1 e8 08 32 c1 88 85 [0-20] 00 00 33 c0 0f 57 c9 f3 0f 7f 8d ?? 02 00 00 48 89 85 ?? 02 00 00 88 4c 24 ?? 4c 8d 44 24 ?? 33 d2 48 8d 8d ?? 02 00 00}  //weight: 5, accuracy: Low
-        $x_25_2 = {52 65 6c 65 61 73 65 5c 57 69 6e 64 6f 77 73 [0-8] 52 61 6e 73 6f 6d 77 61 72 65 [0-8] 2e 70 64 62}  //weight: 25, accuracy: Low
-        $x_5_3 = "Added to Registry RunOnce (will run at next logon)." ascii //weight: 5
-        $x_5_4 = "Failed to add to Startup Folder via WScript.Shell method." ascii //weight: 5
+        $x_2_1 = {44 8b c0 48 8d 94 24 50 01 00 00 48 8d 4c 24 30 ff 15 ff 3c 00 00 4c 8d 8c 24 40 01 00 00 41 b8 00 80 00 00 48 8d 94 24 50 01 00 00 48 8b cf ff 15 a8 3d 00 00 85 c0 75 bc}  //weight: 2, accuracy: High
+        $x_2_2 = {45 33 c9 4c 8b c3 48 8d 15 ?? 40 00 00 33 c9 ff 15}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_25_*) and 1 of ($x_5_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 

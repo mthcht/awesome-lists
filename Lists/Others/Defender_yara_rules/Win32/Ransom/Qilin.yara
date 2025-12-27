@@ -56,3 +56,24 @@ rule Ransom_Win32_Qilin_AK_2147913418_0
         )
 }
 
+rule Ransom_Win32_Qilin_AQI_2147957795_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Qilin.AQI!MTB"
+        threat_id = "2147957795"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Qilin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 d6 89 d1 8b 54 24 30 8b 44 24 10 0f af ca f7 e2 01 ca 01 84 24 18 01 00 00 8b 4c 24 0c 8b 44 24 10 11 94 24 1c 01 00 00 0f af f1 f7 e1 01 f2 29 c7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

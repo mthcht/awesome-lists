@@ -80,6 +80,50 @@ rule Trojan_Win32_Virlock_NV_2147897385_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 06 32 c2 88 07 42 [0-10] 49 83 f9 00}  //weight: 2, accuracy: Low
+        $x_1_2 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_NV_2147897385_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.NV!MTB"
+        threat_id = "2147897385"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 06 32 c2 88 07 42 46 47 49 83 f9 00 0f 85 ed ff ff ff e9 2a 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = {89 07 8b f8 8b df b9 ?? 03 00 00 ba ?? 00 00 00 e9 be ff ff ff}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_NV_2147897385_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.NV!MTB"
+        threat_id = "2147897385"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
@@ -153,5 +197,308 @@ rule Trojan_Win32_Virlock_PADQ_2147913608_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_ARAX_2147945734_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.ARAX!MTB"
+        threat_id = "2147945734"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {32 c2 88 07 42 90 46 47 90 49 e9}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_ARAX_2147945734_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.ARAX!MTB"
+        threat_id = "2147945734"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 32 c2 90 e9}  //weight: 2, accuracy: High
+        $x_2_2 = {88 07 42 90 46 47}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_ARAX_2147945734_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.ARAX!MTB"
+        threat_id = "2147945734"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 06 32 c2 e9 ?? 00 00 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {88 07 46 90 47}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_LMX_2147948035_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.LMX!MTB"
+        threat_id = "2147948035"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 06 90 32 c2 88 07 42 46 90 47 90 49 90}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_SL_2147948061_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.SL!MTB"
+        threat_id = "2147948061"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 90 32 c2 88 07 90 e9 c5 ff ff ff}  //weight: 2, accuracy: High
+        $x_2_2 = {42 46 47 90 49}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_VMX_2147948477_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.VMX!MTB"
+        threat_id = "2147948477"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 06 90 32 c2 88 07 90 42 46 90 47 49 90}  //weight: 5, accuracy: High
+        $x_5_2 = {88 07 90 46 47 49 83 f9 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_Virlock_VMX_2147948477_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.VMX!MTB"
+        threat_id = "2147948477"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 06 32 c2 88 07 42}  //weight: 5, accuracy: High
+        $x_5_2 = {6a 40 68 00 10}  //weight: 5, accuracy: High
+        $x_10_3 = {46 47 90 49 90 83 f9 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*))) or
+            ((1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Virlock_NC_2147949049_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.NC!MTB"
+        threat_id = "2147949049"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {32 c2 88 07 [0-4] 49 83 f9 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {8a 06 32 c2 88 07 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 89 07 8b f8}  //weight: 2, accuracy: Low
+        $x_1_3 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Virlock_NE_2147949075_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.NE!MTB"
+        threat_id = "2147949075"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 06 32 c2 88 07 [0-14] 83 f9 00 0f}  //weight: 2, accuracy: Low
+        $x_1_2 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_PAGD_2147953249_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.PAGD!MTB"
+        threat_id = "2147953249"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8a 06 32 c2 88 07 42 46 [0-2] e9}  //weight: 3, accuracy: Low
+        $x_5_2 = {6a 40 68 00 30 00 00 68 00 ?? ?? ?? 6a 00 e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? c3}  //weight: 5, accuracy: Low
+        $x_5_3 = {6a 40 68 00 10 00 00 68 00 ?? ?? ?? 6a 00 e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? e8 ?? ?? ?? ?? c3}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_3_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Virlock_PAGP_2147954950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.PAGP!MTB"
+        threat_id = "2147954950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8a 06 32 c2 90 88 07 e9 00 00 00 00 42 46 90 47 49 83 f9 00 0f 85 e6}  //weight: 3, accuracy: High
+        $x_2_2 = {6a 40 68 00 10 00 00 68 00 98 00 00 6a 00 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_ARAC_2147956834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.ARAC!MTB"
+        threat_id = "2147956834"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 32 c2 90 e9 15 00 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = {83 f9 00 90 0f 85}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_ARAC_2147956834_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.ARAC!MTB"
+        threat_id = "2147956834"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 90 32 c2 e9}  //weight: 2, accuracy: High
+        $x_2_2 = {8a 06 32 c2 e9}  //weight: 2, accuracy: High
+        $x_3_3 = {88 07 90 42 46 90 47 49 83 f9 00 90 e9}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

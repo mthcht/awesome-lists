@@ -115,3 +115,29 @@ rule Trojan_MSIL_Lockscreen_PDR_2147940942_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lockscreen_PAHI_2147946359_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lockscreen.PAHI!MTB"
+        threat_id = "2147946359"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lockscreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_2_2 = "DisableTaskMgr" wide //weight: 2
+        $x_1_3 = "/k taskkill /f /im explorer.exe" wide //weight: 1
+        $x_2_4 = "Your system has been destroyed" wide //weight: 2
+        $x_2_5 = "\\\\.\\PhysicalDrive0" wide //weight: 2
+        $x_1_6 = "Failed to write to MBR" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

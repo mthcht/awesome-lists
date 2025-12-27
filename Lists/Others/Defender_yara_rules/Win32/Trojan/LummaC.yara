@@ -1276,27 +1276,6 @@ rule Trojan_Win32_LummaC_AST_2147926502_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaC_BSA_2147926650_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/LummaC.BSA!MTB"
-        threat_id = "2147926650"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "LummaC"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "10"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {8b c2 eb f9 8b 0d ?? d5 ?? 00 56 57 bf 4e e6 40 bb be 00 00 ff ff 3b cf 74 04 85 ce 75 26 e8 2c 00 00 00 8b c8 3b cf 75 07 b9 4f e6 40 bb eb 0e 85 ce 75 0a 0d 11 47 00 00 c1 e0 10}  //weight: 10, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_LummaC_ASU_2147926651_0
 {
     meta:
@@ -3773,6 +3752,28 @@ rule Trojan_Win32_LummaC_GZM_2147941524_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {89 d9 81 f1 ?? ?? ?? ?? 83 e3 ?? 01 db 29 cb 88 9c 14 ?? ?? ?? ?? 42 81 fa}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaC_KK_2147959406_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaC.KK!MTB"
+        threat_id = "2147959406"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 54 24 14 8b 4c 24 14 0f b6 05 ?? ?? ?? 00 02 c1 a2 ?? ?? ?? 00 0f b6 04 16 42 8a 0d ?? ?? ?? 00 32 c8 88 0d ?? ?? ?? 00 80 3c 16 00}  //weight: 20, accuracy: Low
+        $x_10_2 = {32 14 28 41 30 14 1e 47 43 89 4c 24 44 8b 8c 24 98 00 00 00 81 fb 00 01 00 00}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

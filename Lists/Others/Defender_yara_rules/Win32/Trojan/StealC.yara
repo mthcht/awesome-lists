@@ -4251,3 +4251,123 @@ rule Trojan_Win32_StealC_GVD_2147945134_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealC_ABM_2147957986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.ABM!MTB"
+        threat_id = "2147957986"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 74 74 70 3a 00 2f 00 2f 00 31 00 37 00 38 00 2e 00 31 00 36 00 2e 00 35 00 33 00 2e 00 37 00 2f 00 [0-15] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 74 74 70 3a 2f 2f 31 37 38 2e 31 36 2e 35 33 2e 37 2f [0-15] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_1_3 = "\\b(1|3|bc1)[a-zA-HJ-NP-Z0-9]{25,42}\\b" ascii //weight: 1
+        $x_1_4 = ".jpg.exe" ascii //weight: 1
+        $x_1_5 = ".pdf.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_StealC_SI_2147958654_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.SI!MTB"
+        threat_id = "2147958654"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {80 30 e3 48 8d 36 48 83 c0 01 48 39 c8}  //weight: 1, accuracy: High
+        $x_1_2 = {f6 22 88 02 41 54 41 5c 48 83 c2 01 48 39 ca}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_StealC_VZY_2147958821_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.VZY!MTB"
+        threat_id = "2147958821"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {83 c0 01 3d 00 01 00 00 74 ?? 39 14 85 ?? ?? ?? ?? 75 ?? 88 04 0b 83 c1 01 81 f9 d2 49 06 00 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_StealC_MS_2147959156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.MS!AMTB"
+        threat_id = "2147959156"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 36 00 32 00 2e 00 36 00 30 00 2e 00 32 00 32 00 36 00 2e 00 32 00 34 00 38 00 3a 00 [0-4] 2f 00 [0-75] 5f 00 [0-4] 62 00 75 00 69 00 6c 00 64 00 2e 00 62 00 69 00 6e 00}  //weight: 4, accuracy: Low
+        $x_4_2 = {68 74 74 70 3a 2f 2f 36 32 2e 36 30 2e 32 32 36 2e 32 34 38 3a [0-4] 2f [0-75] 5f [0-4] 62 75 69 6c 64 2e 62 69 6e}  //weight: 4, accuracy: Low
+        $x_3_3 = "URLDownloadToCacheFile" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_StealC_BAB_2147960047_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.BAB!MTB"
+        threat_id = "2147960047"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {83 c4 08 64 8b 0d 30 00 00 00 89 4d a0 8b 55 a0 8b 45 f0 89 42 08 8b 4d f4 8b 55 f0 03 51 10 89 55 9c 8b f4 ff 55}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -145,6 +145,27 @@ rule Trojan_MSIL_VIPKeylogger_ACH_2147943978_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {02 05 0e 04 6f ?? 00 00 0a 0a 06 0e 05 28 ?? 00 00 06 0b 04 03 6f ?? 00 00 0a 59 0c 08 19 32 0a 03 07 0e 05 28 ?? 00 00 06 2a 08 16 31 0a 03 07 08 0e 05 28}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_ACH_2147943978_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.ACH!MTB"
+        threat_id = "2147943978"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
         $x_5_1 = {6c 5b 13 0d 02 11 15 11 17 6f ?? 00 00 0a 13 18 12 18 28 ?? 00 00 0a 16 32 19 12 18 28 ?? 00 00 0a 16 32 0f 12 18 28 ?? 00 00 0a 16 fe 04 16 fe 01 2b 01 16}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
@@ -189,6 +210,182 @@ rule Trojan_MSIL_VIPKeylogger_ZKS_2147944620_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {5a 11 20 58 13 33 02 11 31 11 35 6f ?? 00 00 0a 13 38 12 38 28 ?? 00 00 0a 06 61 d2 13 39 12 38 28 ?? 00 00 0a 06 61 d2 13 3a 12 38 28 ?? 00 00 0a 06 61 d2 13 3b 11 39 07 1f 1f}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_ZSR_2147946558_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.ZSR!MTB"
+        threat_id = "2147946558"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 09 06 6f ?? 02 00 0a 6f ?? 02 00 0a 00 11 09 06 6f ?? 02 00 0a 6f ?? 02 00 0a 00 7e ?? 01 00 04 2c 07 7e ?? 01 00 04 2b 16 7e ?? 01 00 04 fe ?? 48 01 00 06 73 ?? 02 00 0a 25 80 ?? 01 00 04 13 0a 00 11 09 6f ?? 02 00 0a 13 0b 02 11 0a 07 6f ?? 02 00 0a 11 0b 6f ?? 02 00 0a 6f ?? 01 00 0a 00 de 0e}  //weight: 10, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_PGV_2147947446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.PGV!MTB"
+        threat_id = "2147947446"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {5a 13 12 12 06 28 ?? 00 00 0a 0e 04 7b 20 00 00 04 06 0e 04 7b 20 00 00 04 8e 69 5d 91 61 d2 13 13 12 06 28 ?? 00 00 0a 0e 04 7b 20 00 00 04 11 05 0e 04 7b 20 00 00 04 8e 69 5d 91 61 d2 13 14 12 06}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_AMBB_2147948259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.AMBB!MTB"
+        threat_id = "2147948259"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 0a 06 02 7d ?? 00 00 04 06 03 7d ?? 00 00 04 16 02 7b ?? 00 00 04 6f ?? 01 00 0a 28 ?? 01 00 0a 02 7b ?? 00 00 04 25 2d 16 26 02 02 fe ?? ?? 01 00 06 73 ?? 01 00 0a 25 0b 7d ?? 00 00 04 07 28 ?? 00 00 2b 06 fe ?? ?? 01 00 06 73 ?? 01 00 0a 28 ?? 00 00 2b 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {0a 59 0a 06 19 fe 04 16 fe 01 0b 07 2c 34 00 02 7b ?? 00 00 04 19 8d ?? 00 00 01 25 16 0f 01 28 ?? 01 00 0a 9c 25 17 0f 01 28 ?? 01 00 0a 9c 25 18 0f 01 28 ?? 01 00 0a 9c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_RVA_2147951324_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.RVA!MTB"
+        threat_id = "2147951324"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 9d a2 29 09 0b 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 9e 00 00 00 0e 00 00 00 4d 00 00 00 b2 01 00 00 61 00 00 00 1e 01 00 00 11 00 00 00 38 00 00 00 01 00 00 00 2d 00 00 00 05 00 00 00 10 00 00 00 1c 00 00 00 06 00 00 00 01 00 00 00 01 00 00 00 07 00 00 00 03 00 00 00 01 00 00 00 01}  //weight: 1, accuracy: High
+        $x_1_2 = "12345678-1234-1234-1234-123456789012" ascii //weight: 1
+        $x_1_3 = "CSVViewer.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_RVB_2147952235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.RVB!MTB"
+        threat_id = "2147952235"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 0b 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 7f 00 00 00 0c 00 00 00 62 00 00 00 73 00 00 00 55 00 00 00 d9 00 00 00 05 00 00 00 48 00 00 00 29 00 00 00 03 00 00 00 12 00 00 00 20 00 00 00 01 00 00 00 06 00 00 00 01 00 00 00 08 00 00 00 06 00 00 00 01 00 00 00 03}  //weight: 1, accuracy: High
+        $x_1_2 = "ecacec1c-da19-4421-9867-15e216f473fd" ascii //weight: 1
+        $x_1_3 = "BaselineTool.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_ZHN_2147952522_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.ZHN!MTB"
+        threat_id = "2147952522"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {17 11 21 58 19 5d 13 23 18 11 21 58 19 5d 13 24 19 8d ?? 00 00 01 13 25 11 25 16 12 1e 28 ?? 00 00 0a 9c 11 25 17 12 1e 28 ?? 00 00 0a 9c 11 25 18 12 1e}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_RVC_2147953141_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.RVC!MTB"
+        threat_id = "2147953141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 09 09 09 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 53 00 00 00 0d 00 00 00 63 00 00 00 57 00 00 00 5e 00 00 00 77 00 00 00 04 00 00 00 24 00 00 00 10 00 00 00 03 00 00 00 0d 00 00 00 16 00 00 00 03 00 00 00 01 00 00 00 07 00 00 00 09 00 00 00 01}  //weight: 1, accuracy: High
+        $x_1_2 = "DesktopProject.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "get_Teacher" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_VIPKeylogger_ZAK_2147956965_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.ZAK!MTB"
+        threat_id = "2147956965"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 0e 11 3f 1f 53 5a 61 13 40 00 02 11 3e 11 3f 6f ?? 00 00 0a 13 41 04 03 6f ?? 00 00 0a 59 13 42 11 42 13 43 11 43 19}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

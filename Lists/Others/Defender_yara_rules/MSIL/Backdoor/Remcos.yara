@@ -1904,12 +1904,120 @@ rule Backdoor_MSIL_Remcos_STK_2147944226_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 07 08 18 6f 07 00 00 0a 1f 10 28 08 00 00 0a 6f 09 00 00 0a 08 18 58 0c 08 07 6f 0a 00 00 0a 3f db ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Remcos_STK_2147944226_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.STK!MTB"
+        threat_id = "2147944226"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
         $x_2_1 = "SlicingDice LLC" ascii //weight: 2
         $x_2_2 = "$9daeffca-9f89-4e09-9129-4248afa353ea" ascii //weight: 2
         $x_2_3 = "Slicer.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Remcos_SUK_2147946849_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.SUK!MTB"
+        threat_id = "2147946849"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 04 1f 0a fe 02 13 06 11 06 2c 0c 07 08 66 5f 07 66 08 5f 60 0d 2b 13 00 11 05 17 1f 14 6f 29 01 00 0a 13 04 00 17 13 07 2b d5}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Remcos_SUK_2147946849_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.SUK!MTB"
+        threat_id = "2147946849"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {09 17 59 25 0d 16 fe 02 16 fe 01 13 0a 11 0a 2c 02 2b 41 03 12 0c 28 6c 00 00 0a 6f 51 00 00 0a 09 17 59 25 0d 16 fe 02 16 fe 01 13 0b 11 0b 2c 02}  //weight: 2, accuracy: High
+        $x_2_2 = "Cycle_Jump_Game.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Remcos_SSK_2147948060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.SSK!MTB"
+        threat_id = "2147948060"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 0a 11 0b 58 11 0c 58 6c 17 06 19 5a 28 5d 00 00 0a 6c 5b 26 06 1f 2a 5a 20 e8 03 00 00 5d 26 11 17 17 58 13 17}  //weight: 2, accuracy: High
+        $x_2_2 = "StormCast.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_Remcos_GTD_2147958170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Remcos.GTD!MTB"
+        threat_id = "2147958170"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a de 0a 09 2c 06 09 6f ?? 00 00 0a dc 7e ?? ?? ?? ?? 06 8e 69 20 ?? ?? ?? ?? 1f 40 28 ?? 00 00 06 0b 06 16 07 06 8e 69 28 ?? 00 00 0a 7e ?? ?? ?? ?? 16 07 7e ?? ?? ?? ?? 16 12 02 28 ?? 00 00 06 15 28 ?? 00 00 06 26 20 ?? 03 00 00 28 ?? 00 00 0a 2b f4}  //weight: 10, accuracy: Low
+        $x_1_2 = {34 00 35 00 2e 00 31 00 34 00 33 00 2e 00 31 00 36 00 37 00 2e 00 33 00 33}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

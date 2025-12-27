@@ -1119,27 +1119,6 @@ rule Trojan_Win32_IcedID_RT_2147907820_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_IcedID_BHL_2147913542_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedID.BHL!MTB"
-        threat_id = "2147913542"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedID"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {83 c6 04 88 45 dc 0f b6 4c 9d da 0f b6 89 ?? ?? ?? ?? 30 4d dd 0f b6 4c 9d db 0f b6 89 60 a6 02 01 30 4d de 0f b6 4c 9d d8 32 46 fc 0f b6 89 ?? ?? ?? ?? 30 4d df 88 45 dc 89 75 cc b8 01 00 00 00 83 fb 08 74}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_IcedID_STR_2147913637_0
 {
     meta:

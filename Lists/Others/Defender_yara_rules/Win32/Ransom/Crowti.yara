@@ -310,16 +310,19 @@ rule Ransom_Win32_Crowti_P_2147744741_0
         severity = "Critical"
         info = "MSR: Microsoft Security Response"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
+        threshold = "12"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "/C wmic SHADOWCOPY DELETE" wide //weight: 1
         $x_1_2 = "/C vssadmin.exe delete shadows /all /quiet" wide //weight: 1
         $x_1_3 = "TRY_TO_READ.html" wide //weight: 1
-        $x_1_4 = "I am truly sorry to inform you that all your important files are crypted" wide //weight: 1
+        $x_10_4 = "I am truly sorry to inform you that all your important files are crypted" wide //weight: 10
     condition:
         (filesize < 20MB) and
-        (3 of ($x*))
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Ransom_Win32_Crowti_MKV_2147937068_0

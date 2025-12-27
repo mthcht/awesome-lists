@@ -1513,3 +1513,114 @@ rule Trojan_MSIL_Marsilia_SWB_2147940142_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Marsilia_SLDF_2147949348_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.SLDF!MTB"
+        threat_id = "2147949348"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8e 69 18 59 8d c3 00 00 01 0a 16 0b 18 0c 2b 2d 06 07 06 07 91 03 17 91 61 d2 9c 06 07 06 07 91 1f 18 61 d2 9c 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Marsilia_ERYG_2147949720_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.ERYG!MTB"
+        threat_id = "2147949720"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 0a 07 16 07 8e 69 ?? ?? ?? ?? ?? 0c 07 16 03 11 04 08 ?? ?? ?? ?? ?? 11 0b 07 16 08 ?? ?? ?? ?? ?? 09 08 58 0d 11 04 08 58 13 04 11 11 17 58 13 11 11 11 6a 11 0d 32 c7}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Marsilia_GTB_2147950281_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.GTB!MTB"
+        threat_id = "2147950281"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 0b 16 0c 2b 1a 07 08 93 0d 06 09 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 08 17 d6 0c 08 07 8e 69 32 e0 06 6f 30}  //weight: 10, accuracy: Low
+        $x_10_2 = {0a 16 0b 02 6f ?? 00 00 0a 0c 16 0d 2b 36 08 09 93 13 04 07 20 ?? ?? ?? ?? 2f 19 06 11 04 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 07 17 d6 0b 2b 0c 06 72 ?? 00 00 70 28 ?? 00 00 0a 0a 09 17 d6 0d 09 08 8e 69 32 c4}  //weight: 10, accuracy: Low
+        $x_1_3 = "WindowsApp1.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_Marsilia_AB_2147951414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.AB!MTB"
+        threat_id = "2147951414"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {fe 0c 1a 00 20 2e 22 eb 4e 20 06 9d 10 15 61 20 01 00 00 00 63 20 f6 c4 88 f2 58 65 20 59 5b 79 df 61 61 fe 0e 1a 00 38}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Marsilia_SLQS_2147954239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.SLQS!MTB"
+        threat_id = "2147954239"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 08 6f 08 00 00 0a 28 09 00 00 0a a5 01 00 00 1b 0b 38 e2 00 00 00 06 6e 18 6a 33 27 17 8d 01 00 00 1b 0d 7e 01 00 00 04 02 09 16 fe 1c 01 00 00 1b 28 0a 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

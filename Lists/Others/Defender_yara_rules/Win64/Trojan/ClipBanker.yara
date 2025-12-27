@@ -557,6 +557,29 @@ rule Trojan_Win64_ClipBanker_C_2147844640_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_C_2147844640_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.C!MTB"
+        threat_id = "2147844640"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {33 c9 ff 15 ?? ?? ?? ?? 85 c0 0f 84 ?? ?? ?? ?? b9 01 00 00 00 ff 15 ?? ?? ?? ?? 48 8b d8 48 85 c0 0f 84 ?? ?? ?? ?? 48 8b c8 ff 15 ?? ?? ?? ?? 48 85 c0 0f 84}  //weight: 3, accuracy: Low
+        $x_3_2 = "0x581A6F88f87522c69662C75e76253f060C50b198" ascii //weight: 3
+        $x_2_3 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_ClipBanker_N_2147846841_0
 {
     meta:
@@ -1051,6 +1074,300 @@ rule Trojan_Win64_ClipBanker_SX_2147943594_0
         $x_10_1 = {ba 01 00 00 00 33 c9 ff 15 ?? ?? ?? ?? 48 8b d8 48 85 c0 74 ?? ff 15 ?? ?? ?? ?? 3d b7 00 00 00 75 ?? 48 8b cb}  //weight: 10, accuracy: Low
         $x_10_2 = {b9 01 00 00 00 ff 15 ?? ?? ?? ?? 48 8b f8 48 85 c0 74 ?? 48 8b c8 ff 15 ?? ?? ?? ?? 48 85 c0 74 0c 48 8b cf 48 8b f0 ff 15}  //weight: 10, accuracy: Low
         $x_5_3 = "drvoptimcxsq" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_GVA_2147947613_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.GVA!MTB"
+        threat_id = "2147947613"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "29"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 20
+        $x_3_2 = "fmt_bitcoin" ascii //weight: 3
+        $x_3_3 = "fmt_ethereum" ascii //weight: 3
+        $x_3_4 = "fmt_tron" ascii //weight: 3
+        $x_3_5 = "fmt_monero" ascii //weight: 3
+        $x_3_6 = "fmt_ripple" ascii //weight: 3
+        $x_3_7 = "fmt_cardano" ascii //weight: 3
+        $x_3_8 = "fmt_litecoin" ascii //weight: 3
+        $x_3_9 = "fmt_dogecoin" ascii //weight: 3
+        $x_3_10 = "fmt_solana" ascii //weight: 3
+        $x_3_11 = "fmt_cosmos" ascii //weight: 3
+        $x_3_12 = "fmt_terra" ascii //weight: 3
+        $x_3_13 = "fmt_polkadot" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((10 of ($x_3_*))) or
+            ((1 of ($x_20_*) and 3 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_ClipBanker_GVC_2147947614_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.GVC!MTB"
+        threat_id = "2147947614"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 c9 ff 15 89 39 02 00 85 c0 0f 84 25 03 00 00 b9 01 00 00 00 ff 15 7e 39 02 00 48 8b d8 48 85 c0 0f 84 07 03 00 00 48 8b c8 ff 15 21 36 02 00 48 85 c0 0f 84 f5 02 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_NITF_2147949029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NITF!MTB"
+        threat_id = "2147949029"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4c 0f 44 fd ff 15 49 1e 00 00 48 8b 5f 30 48 8d 15 8e 22 00 00 48 8b c8 ff 15 55 1e 00 00 48 8b d3 48 c7 c1 ff ff ff ff ff d0 8b 57 50 41 b9 40 00 00 00 41 b8 00 30 00 00 49 8b cc ff 15 09 1e 00 00 48 8b f0 48 85 c0 75 28 4d 85 ff 0f 84 8d 00 00 00 8b 57 50 33 c9 41 b9 40 00 00 00 41 b8 00 30 00 00 ff 15 e1 1d 00 00 48 8b f0 48 85 c0 74 6e 44 8b 47 54 49 8b d6 48 8b ce 48 89 77 30 e8 b9 14 00 00 66 3b 6f 06 73 2a 48 8d 9f 1c 01 00 00 90 8b 13 8b 4b f8 49 03 d6 44 8b 43 fc 48 03 ce e8 97 14 00 00 0f b7 47 06 48 8d 5b 28 ff c5 3b e8 7c de}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8d 40 04 0f b6 48 0c 32 08 88 48 10 0f b6 48 0d 32 48 01 88 48 11 0f b6 48 0e 32 48 02 88 48 12 0f b6 48 0f 32 48 03 88 48 13 48 83 ea 01 75 cf}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_NKA_2147952238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NKA!MTB"
+        threat_id = "2147952238"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "b(1|3|bc1)[a-zA-HJ-NP-Z0-9]{25,42}\\b" ascii //weight: 2
+        $x_1_2 = "b0x[a-fA-F0-9]{40}\\b" ascii //weight: 1
+        $x_1_3 = "b(L|M)[a-zA-HJ-NP-Z0-9]{26,34}\\b" ascii //weight: 1
+        $x_1_4 = "DT6aiXkYdYGt7LcrJDkG4pbiJwDGcAb1Wy" ascii //weight: 1
+        $x_1_5 = "1DgwPCJ2Tct51MRieFLg1mn2xMXEPacx9x" ascii //weight: 1
+        $x_1_6 = "LXmzfNpNpKqiavz3MfcPowFk3ivCfqEgSk" ascii //weight: 1
+        $x_1_7 = "SetClipboardData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_PTY_2147952662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.PTY!MTB"
+        threat_id = "2147952662"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {48 8d 4c 24 ?? 48 83 7c 24 ?? 0f 48 0f 47 4c 24 ?? 4d 8b ce 49 83 7e 18 0f 76 ?? 4d 8b 0e 33 d2 48 8b c3 48 f7 f7 46 0f b6 0c 0a 44 32 0c 19 48 8b 4e 10 48 8b 56 18 48 3b ca 73 ?? 48 8d 41 01 48 89 46 10 48 8b c6 48 83 fa 0f 76 ?? 48 8b 06 44 88 0c 08 c6 44 08 01 00 eb ?? 45 33 c0 ba 01 00 00 00 48 8b ce e8 ?? ?? ?? ?? 48 ff c3 48 3b 5c 24 40 72}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_MX_2147954635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.MX!MTB"
+        threat_id = "2147954635"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {85 c0 75 0b 48 83 c3 08 48 3b df 75 e6 33 c0 48 8b 5c 24 30 48 83 c4 20}  //weight: 1, accuracy: High
+        $x_1_2 = "AudioHelper\\x64\\Release\\AudioHelper.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_NR_2147956163_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NR!MTB"
+        threat_id = "2147956163"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 1d ee 07 20 00 48 8b 0d ef 07 20 00 31 c0 48 8d 3d 70 25 06 00 be 01 00 00 00 4c 8d 05 f4 78 06 00 41 b9 14 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8b 8c 24 c0 00 00 00 48 8b 09 48 89 08 48 8b 0d 08 fb 1f 00 48 89 c3 bf 01 00 00 00 48 89 c8 48 89 f9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_PGCB_2147956352_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.PGCB!MTB"
+        threat_id = "2147956352"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {44 54 36 61 69 58 6b 59 64 59 47 74 37 4c 63 72 4a 44 6b 47 34 70 62 69 4a 77 44 47 63 41 62 31 57 79 00 00 00 00 00 00 44 52 41 52 4b 78 6d 68 42 75 44 4d 61 5a 57 73 72 4a 68 6e 67 77 79 6b 69 79 76 72 77 62 32 72 52 4a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_MK_2147957211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.MK!MTB"
+        threat_id = "2147957211"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f 57 c9 66 0f 7f 8d ?? ?? ?? 00 4c 89 bd ?? ?? ?? 00 66 0f 7f 85 ?? ?? ?? 00 4c 8d 0d ?? 28 02 00 4c 8d 05}  //weight: 20, accuracy: Low
+        $x_15_2 = "firefox.exe" ascii //weight: 15
+        $x_10_3 = "browser.dll" ascii //weight: 10
+        $x_5_4 = "--disable-http2 --use-spdy=off --disable-quic" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_SXA_2147958138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.SXA!MTB"
+        threat_id = "2147958138"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {4c 89 2b 48 8d 15 ?? ?? ?? ?? 48 8d 8d c0 ?? ?? ?? ?? ?? ?? ?? ?? 48 8b d8 0f 57 c0 0f 11 45 98 4c 89 6d a8 4c 89 6d b0 41 b8 03}  //weight: 20, accuracy: Low
+        $x_1_2 = "?:[13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[a-zA-HJ-NP-Z0-9]{39,59}" ascii //weight: 1
+        $x_1_3 = "0x[a-fA-F0-9]{40}" ascii //weight: 1
+        $x_1_4 = "\\Music" ascii //weight: 1
+        $x_1_5 = "\\Videos" ascii //weight: 1
+        $x_1_6 = "inetpub" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_AHE_2147958597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.AHE!MTB"
+        threat_id = "2147958597"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[DEBUG] Shellcode written to remote process" ascii //weight: 10
+        $x_20_2 = "Master key decrypted via Reflective DLL Injection" ascii //weight: 20
+        $x_30_3 = "[ChromeB] Detected ABE encryption, using Reflective DLL Injection..." ascii //weight: 30
+        $x_40_4 = "[ChromeB] Wallet extraction completed. Found" ascii //weight: 40
+        $x_50_5 = "[ChromeB] Keylogger thread stopped" ascii //weight: 50
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_A_2147959492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.A!AMTB"
+        threat_id = "2147959492"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Oops! Your MBR are encrypted with AES military algorithm." ascii //weight: 1
+        $x_1_2 = "To restore your MBR back, send 40$ in LTC or BTC to the wallets" ascii //weight: 1
+        $x_1_3 = "Support in Ryze Joiner Server." ascii //weight: 1
+        $x_1_4 = "If you restart your PC without submitting a key, it will be your last time using it." ascii //weight: 1
+        $x_1_5 = "LTC address copied!" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

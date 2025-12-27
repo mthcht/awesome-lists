@@ -217,3 +217,32 @@ rule Trojan_Win32_InfoStealer_RP_2147906383_0
         )
 }
 
+rule Trojan_Win32_InfoStealer_AMTB_2147956317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/InfoStealer!AMTB"
+        threat_id = "2147956317"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\AppData\\Local\\Temp\\Web Data" ascii //weight: 1
+        $x_1_2 = "\\AppData\\Local\\Temp\\Login Data" ascii //weight: 1
+        $x_1_3 = "\\logins.json" ascii //weight: 1
+        $x_1_4 = "\\AppData\\Local\\Temp\\Cookies" ascii //weight: 1
+        $x_1_5 = "--disable" ascii //weight: 1
+        $x_2_6 = "--disable-client-side-phishing-detection" ascii //weight: 2
+        $x_2_7 = "--disable-background-networking" ascii //weight: 2
+        $x_2_8 = "Elevator.exe" ascii //weight: 2
+        $x_2_9 = "172.67.178.5" ascii //weight: 2
+        $x_2_10 = "badnesspandemic.shop" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

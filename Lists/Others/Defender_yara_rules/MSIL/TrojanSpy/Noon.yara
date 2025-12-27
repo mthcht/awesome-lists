@@ -858,3 +858,71 @@ rule TrojanSpy_MSIL_Noon_SRK_2147944392_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Noon_SSK_2147948062_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SSK!MTB"
+        threat_id = "2147948062"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 03 7b ca 00 00 04 11 11 91 11 11 1e 5a 1f 1f 5f 62 58 0a 00 11 11 17 58 13 11 11 11 03 7b ca 00 00 04 8e 69 1a 28 19 01 00 0a fe 04 13 12 11 12 2d cc}  //weight: 2, accuracy: High
+        $x_2_2 = "Tetris.Properties.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_MSIL_Noon_STK_2147948122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.STK!MTB"
+        threat_id = "2147948122"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 7b 3a 01 00 04 07 11 05 91 6f b9 03 00 0a 00 00 11 05 17 58 13 05 11 05 06 2f 09 11 05 07 8e 69 fe 04 2b 01 16 13 06 11 06 2d d3}  //weight: 2, accuracy: High
+        $x_2_2 = "AnalyzeGraphics.Properties.Resources.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_MSIL_Noon_SUK_2147948634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.SUK!MTB"
+        threat_id = "2147948634"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$60e78174-0558-4fee-91d1-7d3e4111c39b" ascii //weight: 1
+        $x_1_2 = "GameFood.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "Desenvolvido por Diogo Souza" ascii //weight: 1
+        $x_1_4 = "JogoGourmet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3173,3 +3173,153 @@ rule Trojan_MSIL_Nanocore_ATRA_2147939796_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Nanocore_PP_2147949923_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.PP!MTB"
+        threat_id = "2147949923"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 08 8d 0d 00 00 01 13 0a 7e ?? ?? ?? 04 02 1a 58 11 0a 16 11 08 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 11 0a 16 11 0a 8e 69 6f ?? ?? ?? 0a 13 0b 7e ?? ?? ?? 04 11 0b 6f ?? ?? ?? 0a 7e ?? ?? ?? 04 02 6f ?? ?? ?? 0a 7e ?? ?? ?? 04 6f ?? ?? ?? 0a 17 59 28 ?? ?? ?? 0a 16 7e ?? ?? ?? 04 02 1a 28 ?? ?? ?? 0a 11 0b 13 09 dd}  //weight: 2, accuracy: Low
+        $x_1_2 = "gljNUSsHFDwliDattkBofEezfcXtD" ascii //weight: 1
+        $x_1_3 = "CreateEncryptor" ascii //weight: 1
+        $x_1_4 = "DownloadData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Nanocore_MZV_2147951077_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.MZV!MTB"
+        threat_id = "2147951077"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {16 08 8e b7 17 59 13 0e 13 0d 2b 15 08 11 0d 08 11 0d 91 02 11 0d 03 5d 91 61 9c 11 0d 17 58 13 0d 11 0d 11 0e 31 e5}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Nanocore_ZAM_2147953757_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.ZAM!MTB"
+        threat_id = "2147953757"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {04 11 11 11 0f 6f ?? 00 00 0a 13 10 02 03 19 5a 8c ?? 00 00 01 11 0e 16 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 12 10 28 ?? 00 00 0a 9c 02 03 19 5a 8c 11 00 00 01 11 0e 17 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 12 10 28 ?? 00 00 0a 9c 02 03 8c ?? 00 00 01 11 0e 18}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Nanocore_AVIB_2147955836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.AVIB!MTB"
+        threat_id = "2147955836"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 09 1f 1f 5a 08 61 13 0a 06 11 0a 17 11 09 18 5d 58 17 11 09 17 58 18 5d 58 73 ?? ?? 00 0a 6f ?? ?? 00 0a 00 07 11 0a 11 0a 11 09 17 58 1f 1f 5f 63 20 ff 00 00 00 5f 6f ?? ?? 00 0a 00 00 11 09 17 58 13 09 11 09 1c 02 6f ?? ?? 00 0a 1d 5d 17 58 28 ?? ?? 00 0a fe 04 13 0b 11 0b 2d a0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Nanocore_ZNL_2147956380_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.ZNL!MTB"
+        threat_id = "2147956380"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 11 0a 11 0b 6f ?? 00 00 0a 13 14 12 14 28 ?? 00 00 0a 28 ?? 00 00 0a 13 0e 03 06 6f ?? 00 00 0a 59 13 0f 18 13 10 17 13 11 16 13 12 11 05 19 5f 13 13 11 13 17}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Nanocore_ZFK_2147957135_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.ZFK!MTB"
+        threat_id = "2147957135"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 07 08 6f ?? 00 00 0a 0d 02 16 16 6f ?? 00 00 0a 13 04 09 11 04 28 ?? 00 00 0a 13 05 11 05 2c 3d 00 17 8d ?? 00 00 01 13 06 11 06 16 12 03 28 ?? 00 00 0a 9c 06}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Nanocore_ANLB_2147957880_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.ANLB!MTB"
+        threat_id = "2147957880"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 05 0e 04 6f ?? 00 00 0a 0a 04 03 6f ?? 00 00 0a 59 0b 07 16 fe 02 16 fe 01 0c 08 2c 02 2b 68 03 06 72 ?? ?? 00 70 28 ?? 00 00 06 6f ?? 00 00 0a 00 07 17 59 0b 07 16 fe 02 16 fe 01 0d 09 2c 02 2b 45 03 06 72 ?? ?? 00 70 28 ?? 00 00 06 6f ?? 00 00 0a 00 07 17 59 0b 07 16 fe 02 16 fe 01 13 04 11 04 2c 02 2b 20 03 06 72 ?? ?? 00 70 28 ?? 00 00 06 6f ?? 00 00 0a 00 0e 05 0e 06 05 0e 04 06}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

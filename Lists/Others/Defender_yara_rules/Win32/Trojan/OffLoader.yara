@@ -2369,6 +2369,29 @@ rule Trojan_Win32_OffLoader_SPWQ_2147915935_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_SPWQ_2147915935_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPWQ!MTB"
+        threat_id = "2147915935"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "boxgrandfather.info/poli.php" ascii //weight: 4
+        $x_4_2 = "chickenslevel.xyz/polis.php" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_OffLoader_SPKM_2147916324_0
 {
     meta:
@@ -3956,30 +3979,6 @@ rule Trojan_Win32_OffLoader_ANA_2147939889_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_ANB_2147940150_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANB!MTB"
-        threat_id = "2147940150"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "frogtruck.xyz/mee.php?" wide //weight: 3
-        $x_3_2 = "quincestreet.icu/mees.php?" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_OffLoader_GPPD_2147940234_0
 {
     meta:
@@ -3997,54 +3996,6 @@ rule Trojan_Win32_OffLoader_GPPD_2147940234_0
     strings:
         $x_5_1 = "auntberry.xyz/pe/start/index.php" ascii //weight: 5
         $x_2_2 = "/VERYSILENT" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_ANC_2147940397_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANC!MTB"
-        threat_id = "2147940397"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "creatoreggs.icu/oiu.php?" wide //weight: 3
-        $x_3_2 = "buttonsize.xyz/oius.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AND_2147940596_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AND!MTB"
-        threat_id = "2147940596"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "teethelbow.icu/tri.php?pe" wide //weight: 3
-        $x_3_2 = "ministerkiss.xyz/tris.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -4095,30 +4046,6 @@ rule Trojan_Win32_OffLoader_AXSA_2147940762_0
         $x_1_3 = "/weaksecurity" ascii //weight: 1
         $x_1_4 = "/nocookies" ascii //weight: 1
         $x_1_5 = "/resume" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_ANE_2147940910_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANE!MTB"
-        threat_id = "2147940910"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "cakestoothbrush.icu/lui.php?pe" wide //weight: 3
-        $x_3_2 = "sodabedroom.xyz/luis.php" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -4246,10 +4173,16 @@ rule Trojan_Win32_OffLoader_AZTA_2147941476_0
         $x_10_6 = "://governmentmoney.icu/glf.php?" ascii //weight: 10
         $x_10_7 = "://robinkiss.info/krr.php?" ascii //weight: 10
         $x_10_8 = "://eventauthority.info/kkk.php?" ascii //weight: 10
-        $x_1_9 = "/silent" ascii //weight: 1
-        $x_1_10 = "/weaksecurity" ascii //weight: 1
-        $x_1_11 = "/nocookies" ascii //weight: 1
-        $x_1_12 = "/resume" ascii //weight: 1
+        $x_10_9 = "://yearducks.info/yyy.php?" ascii //weight: 10
+        $x_10_10 = "://creampump.info/bno.php?" ascii //weight: 10
+        $x_10_11 = "://nutkittens.info/kul.php?" ascii //weight: 10
+        $x_10_12 = "://visitorboy.info/rtr.php?" ascii //weight: 10
+        $x_10_13 = "://punishmentslave.info/tre.php?" ascii //weight: 10
+        $x_10_14 = "://roofspade.info/fou.php?" ascii //weight: 10
+        $x_1_15 = "/silent" ascii //weight: 1
+        $x_1_16 = "/weaksecurity" ascii //weight: 1
+        $x_1_17 = "/nocookies" ascii //weight: 1
+        $x_1_18 = "/resume" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (
@@ -4283,30 +4216,6 @@ rule Trojan_Win32_OffLoader_AMUA_2147941782_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_ANF_2147942618_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANF!MTB"
-        threat_id = "2147942618"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "daughtercemetery.xyz/par.php?pe" wide //weight: 3
-        $x_3_2 = "committeedinner.icu/pars.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_OffLoader_ZBT_2147942851_0
 {
     meta:
@@ -4332,150 +4241,6 @@ rule Trojan_Win32_OffLoader_ZBT_2147942851_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_ANG_2147943163_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.ANG!MTB"
-        threat_id = "2147943163"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "stoveweather.info/too.php?pe" wide //weight: 3
-        $x_3_2 = "yarncontool.icu/toos.php?" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AG_2147943736_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AG!MTB"
-        threat_id = "2147943736"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "airplanemove.info/yut.php?pe" wide //weight: 3
-        $x_3_2 = "producesound.xyz/yuts.php?" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AI_2147943980_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AI!MTB"
-        threat_id = "2147943980"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "memoryneck.info/goo.php?pe" wide //weight: 3
-        $x_3_2 = "volleyballsong.xyz/goos.php" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AJ_2147944233_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AJ!MTB"
-        threat_id = "2147944233"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "railwaytime.xyz/slfs.php" wide //weight: 3
-        $x_3_2 = "laughincome.icu/slf.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AK_2147944370_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AK!MTB"
-        threat_id = "2147944370"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "biketoes.xyz/slf.php?pe" wide //weight: 3
-        $x_3_2 = "smellstamp.icu/slfs.php" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_OffLoader_AL_2147944714_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/OffLoader.AL!MTB"
-        threat_id = "2147944714"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "OffLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "eventauthority.info/kkk.php?pe" wide //weight: 3
-        $x_3_2 = "quincepart.icu/kkks.php?" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_OffLoader_AH_2147945057_0
 {
     meta:
@@ -4493,11 +4258,37 @@ rule Trojan_Win32_OffLoader_AH_2147945057_0
     strings:
         $x_3_1 = "seabusiness.xyz/fkis.php" wide //weight: 3
         $x_3_2 = "sonplane.info/fki.php?pe" wide //weight: 3
-        $x_1_3 = "nocookies" wide //weight: 1
-        $x_1_4 = "Do you want to reboot now?" wide //weight: 1
+        $x_3_3 = "cakestoothbrush.icu/lui.php?pe" wide //weight: 3
+        $x_3_4 = "sodabedroom.xyz/luis.php" wide //weight: 3
+        $x_3_5 = "teethelbow.icu/tri.php?pe" wide //weight: 3
+        $x_3_6 = "ministerkiss.xyz/tris.php?pe" wide //weight: 3
+        $x_3_7 = "frogtruck.xyz/mee.php?" wide //weight: 3
+        $x_3_8 = "quincestreet.icu/mees.php?" wide //weight: 3
+        $x_3_9 = "creatoreggs.icu/oiu.php?" wide //weight: 3
+        $x_3_10 = "buttonsize.xyz/oius.php?pe" wide //weight: 3
+        $x_3_11 = "eventauthority.info/kkk.php?pe" wide //weight: 3
+        $x_3_12 = "quincepart.icu/kkks.php?" wide //weight: 3
+        $x_3_13 = "biketoes.xyz/slf.php?pe" wide //weight: 3
+        $x_3_14 = "smellstamp.icu/slfs.php" wide //weight: 3
+        $x_3_15 = "railwaytime.xyz/slfs.php" wide //weight: 3
+        $x_3_16 = "laughincome.icu/slf.php?pe" wide //weight: 3
+        $x_3_17 = "memoryneck.info/goo.php?pe" wide //weight: 3
+        $x_3_18 = "volleyballsong.xyz/goos.php" wide //weight: 3
+        $x_3_19 = "airplanemove.info/yut.php?pe" wide //weight: 3
+        $x_3_20 = "producesound.xyz/yuts.php?" wide //weight: 3
+        $x_3_21 = "stoveweather.info/too.php?pe" wide //weight: 3
+        $x_3_22 = "yarncontool.icu/toos.php?" wide //weight: 3
+        $x_3_23 = "daughtercemetery.xyz/par.php?pe" wide //weight: 3
+        $x_3_24 = "committeedinner.icu/pars.php?pe" wide //weight: 3
+        $x_1_25 = "nocookies" wide //weight: 1
+        $x_1_26 = "Do you want to reboot now?" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_3_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_3_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_OffLoader_SPV_2147945075_0
@@ -4518,6 +4309,1754 @@ rule Trojan_Win32_OffLoader_SPV_2147945075_0
         $x_3_1 = "sonplane.info/fki.php?pe" wide //weight: 3
         $x_3_2 = "seabusiness.xyz/fkis.php" wide //weight: 3
         $x_1_3 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_AHYA_2147945298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AHYA!MTB"
+        threat_id = "2147945298"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://memoryneck.info/goo.php?" ascii //weight: 4
+        $x_4_2 = "://volleyballsong.xyz/goos.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_GPPK_2147946057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.GPPK!MTB"
+        threat_id = "2147946057"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 b2 35 00 80}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_AVZA_2147946657_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AVZA!MTB"
+        threat_id = "2147946657"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://visitorboy.info/rtr.php?" ascii //weight: 4
+        $x_4_2 = "://hallchance.xyz/rtrs.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SKAP_2147946987_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SKAP!MTB"
+        threat_id = "2147946987"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "airporticicle.info/xcx.php" ascii //weight: 4
+        $x_1_2 = "/silent" ascii //weight: 1
+        $x_1_3 = "/weaksecurity" ascii //weight: 1
+        $x_1_4 = "/nocookies" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZHQ_2147947602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZHQ!MTB"
+        threat_id = "2147947602"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://tripshape.xyz/gons.php?" ascii //weight: 3
+        $x_3_2 = "://thingspies.info/gon.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SPAP_2147947861_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPAP!MTB"
+        threat_id = "2147947861"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "spoonporter.xyz/kiys.php" wide //weight: 4
+        $x_1_2 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SPGP_2147948702_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPGP!MTB"
+        threat_id = "2147948702"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "toothbrushdoctor.xyz/docs.php" wide //weight: 4
+        $x_1_2 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_AFCB_2147948946_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AFCB!MTB"
+        threat_id = "2147948946"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://religionrose.info/mit.php?" ascii //weight: 4
+        $x_4_2 = "://brakeslave.xyz/mits.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_APCB_2147949299_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.APCB!MTB"
+        threat_id = "2147949299"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://hairlace.info/gnu.php?" ascii //weight: 4
+        $x_4_2 = "://taxsmile.xyz/gnus.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ATCB_2147949414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ATCB!MTB"
+        threat_id = "2147949414"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://matchcabbage.info/lju.php?" ascii //weight: 4
+        $x_4_2 = "://wirevegetable.info/ljus.php?" ascii //weight: 4
+        $x_4_3 = "://roadtrousers.info/rnu.php?" ascii //weight: 4
+        $x_4_4 = "://shirtapparatus.xyz/rnus.php?" ascii //weight: 4
+        $x_4_5 = "://insurancemorning.info/bet.php?" ascii //weight: 4
+        $x_4_6 = "://belieffield.info/bets.php?" ascii //weight: 4
+        $x_4_7 = "://hourchess.info/plu.php?" ascii //weight: 4
+        $x_4_8 = "://woolreward.xyz/plus.php?" ascii //weight: 4
+        $x_1_9 = "/silent" ascii //weight: 1
+        $x_1_10 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_4_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_OffLoader_SPEP_2147949492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPEP!MTB"
+        threat_id = "2147949492"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "mineicicle.info/hmo.php" wide //weight: 4
+        $x_1_2 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SASP_2147949936_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SASP!MTB"
+        threat_id = "2147949936"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "maidjellyfish.info/tru.php" ascii //weight: 4
+        $x_4_2 = "thingsidea.info/trus.php" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ACEB_2147950984_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ACEB!MTB"
+        threat_id = "2147950984"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://inkseed.info/naj.php?" ascii //weight: 4
+        $x_4_2 = "://developmentgovernment.xyz/najs.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZVR_2147951060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZVR!MTB"
+        threat_id = "2147951060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://birthdayreward.xyz/xcxs.php?pe=" ascii //weight: 4
+        $x_1_2 = "/silent" ascii //weight: 1
+        $x_1_3 = "/weaksecurity" ascii //weight: 1
+        $x_1_4 = "/nocookies" ascii //weight: 1
+        $x_1_5 = "/resume" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ANEB_2147951366_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ANEB!MTB"
+        threat_id = "2147951366"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://screwengine.info/mir.php?" ascii //weight: 4
+        $x_4_2 = "://increaserock.xyz/mirs.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SPRP_2147951714_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPRP!MTB"
+        threat_id = "2147951714"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "roadrecord.xyz/arus.php" wide //weight: 4
+        $x_1_2 = "/silent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ASEB_2147951974_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ASEB!MTB"
+        threat_id = "2147951974"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://pailchange.info/okut.php?" ascii //weight: 4
+        $x_4_2 = "://celeryact.xyz/okuts.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_MKV_2147952087_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.MKV!MTB"
+        threat_id = "2147952087"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://beliefdirection.xyz/gimys.php?" ascii //weight: 4
+        $x_4_2 = "://spadesense.info/gimy.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ACFB_2147952173_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ACFB!MTB"
+        threat_id = "2147952173"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://industryfinger.info/arki.php?" ascii //weight: 4
+        $x_4_2 = "://expertpowder.xyz/arkis.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_PGOF_2147952221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOF!MTB"
+        threat_id = "2147952221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "roofcakes.info/mark.php" ascii //weight: 2
+        $x_2_2 = "vestsheet.xyz/marks.php" ascii //weight: 2
+        $x_1_3 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_PGOF_2147952221_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOF!MTB"
+        threat_id = "2147952221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "http://framestove.info/ajto.php?" ascii //weight: 2
+        $x_2_2 = "http://joinfall.xyz/ajtos.php?" ascii //weight: 2
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_PGOF_2147952221_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOF!MTB"
+        threat_id = "2147952221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "http://armytreatment.info/ytri.php?" ascii //weight: 2
+        $x_2_2 = "http://armroute.xyz/ytris.php?" ascii //weight: 2
+        $x_1_3 = "Do you want to reboot now?" ascii //weight: 1
+        $x_1_4 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_PGOF_2147952221_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOF!MTB"
+        threat_id = "2147952221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "http://exampleporter.info/niec.php?" ascii //weight: 2
+        $x_2_2 = "http://honeyshirt.xyz/niecs.php?" ascii //weight: 2
+        $x_1_3 = "Do you want to reboot now?" ascii //weight: 1
+        $x_1_4 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_MKZ_2147952367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.MKZ!MTB"
+        threat_id = "2147952367"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://needporter.info/jimy.php?" ascii //weight: 4
+        $x_4_2 = "://talktoe.xyz/jimys.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZEN_2147952447_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZEN!MTB"
+        threat_id = "2147952447"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://unitmoon.xyz/golys.php?" ascii //weight: 4
+        $x_4_2 = "://trainbear.info/goly.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZMN_2147952858_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZMN!MTB"
+        threat_id = "2147952858"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://umbrellapower.info/bhuy.php?" ascii //weight: 4
+        $x_4_2 = "://doordime.xyz/bhuys.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_AWFB_2147953076_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AWFB!MTB"
+        threat_id = "2147953076"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://spaderock.info/wdry.php?" ascii //weight: 4
+        $x_4_2 = "://boxlevel.xyz/wdrys.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_GAQ_2147953144_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.GAQ!MTB"
+        threat_id = "2147953144"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? 1d 00 ?? ?? 0e 00 00 64 36 00 ?? ?? ?? ?? be 9b 0e 00 00 3e 0d 00 ?? ?? ?? ?? 00 00 01 00 0d}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_KES_2147953391_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.KES!MTB"
+        threat_id = "2147953391"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://suitmemory.info/qort.php?" ascii //weight: 4
+        $x_4_2 = "://additionhydrant.xyz/qorts.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+        $x_1_5 = "Reboot now" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_AEGB_2147953542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AEGB!MTB"
+        threat_id = "2147953542"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://routepickle.info/cort.php?" ascii //weight: 4
+        $x_4_2 = "://hydrantice.xyz/corts.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZYN_2147953706_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZYN!MTB"
+        threat_id = "2147953706"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://pipehair.info/myrt.php?" ascii //weight: 4
+        $x_4_2 = "://respectrail.xyz/myrts.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_BAA_2147953848_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAA!MTB"
+        threat_id = "2147953848"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://kettleghost.info/hirv.php?" ascii //weight: 4
+        $x_4_2 = "://bloodcommittee.xyz/hirvs.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+        $x_1_5 = "Reboot now" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SPEQ_2147954065_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPEQ!MTB"
+        threat_id = "2147954065"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "reasoncoal.xyz/gywes.php" ascii //weight: 4
+        $x_4_2 = "glassgovernment.info/gywe.php" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ABHB_2147954307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ABHB!MTB"
+        threat_id = "2147954307"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://traymitten.info/nulo.php?" ascii //weight: 4
+        $x_4_2 = "://positionpail.xyz/nulos.php?" ascii //weight: 4
+        $x_4_3 = "://wireswim.info/tuyo.php?" ascii //weight: 4
+        $x_4_4 = "://plantswaves.xyz/tuyos.php?" ascii //weight: 4
+        $x_1_5 = "/silent" ascii //weight: 1
+        $x_1_6 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_4_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_OffLoader_POFF_2147954587_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.POFF!MTB"
+        threat_id = "2147954587"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-42] 2e 00 69 00 6e 00 66 00 6f 00 2f 00 [0-255] [0-255] 2f 00 73 00 69 00 6c 00 65 00 6e 00 74 00 00 00 67 00 65 00 74 00 [0-47] 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-42] 2e 00 78 00 79 00 7a 00 2f 00 [0-255] [0-255] 3d 00 [0-31] 2e 00 65 00 78 00 65 00 [0-31] 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 00 74 00 70 3a 2f 2f [0-42] 2e 69 6e 66 6f 2f [0-255] [0-255] 2f 73 69 6c 65 6e 74 00 00 67 65 74 [0-47] 68 74 00 74 00 70 3a 2f 2f [0-42] 2e 78 79 7a 2f [0-255] [0-255] 3d [0-31] 2e 65 78 65 [0-31] 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_OffLoader_POFF_2147954587_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.POFF!MTB"
+        threat_id = "2147954587"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-42] 2e 00 69 00 6e 00 66 00 6f 00 2f 00 [0-15] 2e 00 70 00 68 00 70 00 3f 00 [0-255] [0-255] 2f 00 73 00 69 00 6c 00 65 00 6e 00 74 00 00 00 67 00 65 00 74 00 [0-47] 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-42] 2e 00 78 00 79 00 7a 00 2f 00 [0-15] 2e 00 70 00 68 00 70 00 3f 00 [0-255] [0-255] 3d 00 [0-31] 2e 00 65 00 78 00 65 00 [0-31] 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 00 74 00 70 3a 2f 2f [0-42] 2e 69 6e 66 6f 2f [0-15] 2e 70 68 70 3f [0-255] [0-255] 2f 73 69 6c 65 6e 74 00 00 67 65 74 [0-47] 68 74 00 74 00 70 3a 2f 2f [0-42] 2e 78 79 7a 2f [0-15] 2e 70 68 70 3f [0-255] [0-255] 3d [0-31] 2e 65 78 65 [0-31] 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_OffLoader_POFF_2147954587_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.POFF!MTB"
+        threat_id = "2147954587"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-42] 2e 00 69 00 6e 00 66 00 6f 00 2f 00 [0-15] 2e 00 70 00 68 00 70 00 3f 00 [0-4] 3d 00 6e 00 26 00 6b 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? 26 00 74 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 26 00 [0-10] 3d 00 [0-255] 26 00 [0-10] 3d 00 00 00 2f 00 73 00 69 00 6c 00 65 00 6e 00 74 00 00 00 67 00 65 00 74 00 00 00 31 00 30 00 32 00 33 00 ?? ?? ?? ?? ?? ?? ?? ?? 35 00 30 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-42] 2e 00 78 00 79 00 7a 00 2f 00 [0-15] 2e 00 70 00 68 00 70 00 3f 00 [0-4] 3d 00 6e 00 26 00 6b 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? 26 00 74 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 26 00 [0-10] 3d 00 [0-255] 26 00 [0-10] 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 00 74 00 70 3a 2f 2f [0-42] 2e 69 6e 66 6f 2f [0-15] 2e 70 68 70 3f [0-4] 3d 6e 26 6b 3d ?? ?? ?? ?? ?? ?? ?? ?? 26 74 3d ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 26 [0-10] 3d [0-255] 26 [0-10] 3d 00 00 2f 73 69 6c 65 6e 74 00 00 67 65 74 00 00 31 30 32 33 ?? ?? ?? ?? ?? ?? ?? ?? 35 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 68 74 00 74 00 70 3a 2f 2f [0-42] 2e 78 79 7a 2f [0-15] 2e 70 68 70 3f [0-4] 3d 6e 26 6b 3d ?? ?? ?? ?? ?? ?? ?? ?? 26 74 3d ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 26 [0-10] 3d [0-255] 26 [0-10] 3d ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_OffLoader_POFF_2147954587_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.POFF!MTB"
+        threat_id = "2147954587"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-42] 2e 00 69 00 6e 00 66 00 6f 00 2f 00 [0-15] 2e 00 70 00 68 00 70 00 3f 00 [0-4] 3d 00 6e 00 26 00 6b 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? 26 00 74 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 26 00 [0-10] 3d 00 [0-255] 26 00 73 00 75 00 62 00 3d 00 00 00 2f 00 73 00 69 00 6c 00 65 00 6e 00 74 00 00 00 67 00 65 00 74 00 00 00 31 00 30 00 32 00 33 00 ?? ?? ?? ?? ?? ?? ?? ?? 35 00 30 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-42] 2e 00 78 00 79 00 7a 00 2f 00 [0-15] 2e 00 70 00 68 00 70 00 3f 00 [0-4] 3d 00 6e 00 26 00 6b 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? 26 00 74 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 26 00 [0-10] 3d 00 [0-255] 26 00 73 00 75 00 62 00 3d 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 00 74 00 70 3a 2f 2f [0-42] 2e 69 6e 66 6f 2f [0-15] 2e 70 68 70 3f [0-4] 3d 6e 26 6b 3d ?? ?? ?? ?? ?? ?? ?? ?? 26 74 3d ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 26 [0-10] 3d [0-255] 26 73 75 62 3d 00 00 2f 73 69 6c 65 6e 74 00 00 67 65 74 00 00 31 30 32 33 ?? ?? ?? ?? ?? ?? ?? ?? 35 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 68 74 00 74 00 70 3a 2f 2f [0-42] 2e 78 79 7a 2f [0-15] 2e 70 68 70 3f [0-4] 3d 6e 26 6b 3d ?? ?? ?? ?? ?? ?? ?? ?? 26 74 3d ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 26 [0-10] 3d [0-255] 26 73 75 62 3d ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_OffLoader_AOHB_2147954778_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AOHB!MTB"
+        threat_id = "2147954778"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://aftermathargument.info/brat.php?" ascii //weight: 4
+        $x_4_2 = "://crowdcats.xyz/brats.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SMR_2147954896_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SMR!MTB"
+        threat_id = "2147954896"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://bookgiants.info/grdi.php?" ascii //weight: 4
+        $x_4_2 = "://unittoe.xyz/grdis.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SZR_2147955015_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SZR!MTB"
+        threat_id = "2147955015"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://hammerocean.info/milu.php?" ascii //weight: 4
+        $x_4_2 = "://underweargroup.xyz/milus.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_BAC_2147955275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAC!MTB"
+        threat_id = "2147955275"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://passengerweather.info/grxs.php?" ascii //weight: 4
+        $x_4_2 = "://actioncloth.xyz/grxss.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_BAC_2147955275_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAC!MTB"
+        threat_id = "2147955275"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://selectionscarecrow.info/awas.php?" ascii //weight: 4
+        $x_4_2 = "://earthkittens.xyz/awass.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_NNM_2147955498_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.NNM!MTB"
+        threat_id = "2147955498"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://fogants.info/ampi.php?" ascii //weight: 4
+        $x_4_2 = "://behaviorplanes.xyz/ampis.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZFL_2147955915_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZFL!MTB"
+        threat_id = "2147955915"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://tripbike.info/gryt.php?" ascii //weight: 3
+        $x_3_2 = "://riddlecare.xyz/gryts.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_LDM_2147956058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.LDM!MTB"
+        threat_id = "2147956058"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://receiptclass.info/grym.php?" ascii //weight: 4
+        $x_4_2 = "://borderexperience.xyz/gryms.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ACJB_2147956276_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ACJB!MTB"
+        threat_id = "2147956276"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://bikeszinc.info/anjo.php?" ascii //weight: 4
+        $x_4_2 = "://wealthdiscussion.xyz/anjos.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_BAB_2147956463_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAB!MTB"
+        threat_id = "2147956463"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://dressthroat.info/bnjo.php?" ascii //weight: 4
+        $x_4_2 = "://pleasurejelly.xyz/bnjos.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_AWJB_2147956768_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AWJB!MTB"
+        threat_id = "2147956768"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://partsmoke.info/hook.php?" ascii //weight: 4
+        $x_4_2 = "://vesselcreator.xyz/hooks.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZZL_2147956917_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZZL!MTB"
+        threat_id = "2147956917"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://picturesurprise.info/hiik.php?" ascii //weight: 3
+        $x_3_2 = "://borderrabbits.xyz/hiiks.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_MOF_2147957134_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.MOF!MTB"
+        threat_id = "2147957134"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://scenttrousers.info/ikut.php?" ascii //weight: 4
+        $x_4_2 = "://kettlesnake.xyz/ikuts.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_BAD_2147957279_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAD!MTB"
+        threat_id = "2147957279"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://cellardirection.info/goop.php" ascii //weight: 4
+        $x_4_2 = "://jeansscience.xyz/goops.php" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_BAE_2147957480_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAE!MTB"
+        threat_id = "2147957480"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://bulbneck.xyz/absas.php?" ascii //weight: 4
+        $x_4_2 = "://skinbelieve.info/absa.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZUK_2147957743_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZUK!MTB"
+        threat_id = "2147957743"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://bucketdegree.xyz/vetos.php?" ascii //weight: 3
+        $x_3_2 = "://pushminister.info/veto.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZBJ_2147957955_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZBJ!MTB"
+        threat_id = "2147957955"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://hallkiss.info/gree.php?" ascii //weight: 3
+        $x_3_2 = "://pumptrains.xyz/grees.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZDJ_2147958039_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZDJ!MTB"
+        threat_id = "2147958039"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://rangefowl.xyz/octos.php?" ascii //weight: 3
+        $x_3_2 = "://impulseice.info/octo.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_POFA_2147958200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.POFA!MTB"
+        threat_id = "2147958200"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "http://questiontendency.xyz/allis.php?" ascii //weight: 4
+        $x_4_2 = "http://tempercream.info/alli.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_OffLoader_ZMJ_2147958413_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZMJ!MTB"
+        threat_id = "2147958413"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://activitywound.xyz/genos.php?" ascii //weight: 3
+        $x_3_2 = "://signchickens.info/geno.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZPJ_2147958533_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZPJ!MTB"
+        threat_id = "2147958533"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://boardvolleyball.info/asst.php?" ascii //weight: 3
+        $x_3_2 = "://brakeseed.xyz/assts.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZSJ_2147958615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZSJ!MTB"
+        threat_id = "2147958615"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://mountainbattle.info/anka.php?" ascii //weight: 3
+        $x_3_2 = "://channelhealth.xyz/ankas.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_POFB_2147958781_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.POFB!MTB"
+        threat_id = "2147958781"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "http://afterthoughtliquid.info/kuki.php?" ascii //weight: 4
+        $x_4_2 = "http://stomachgrape.xyz/kukis.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_OffLoader_ZZV_2147958880_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZZV!MTB"
+        threat_id = "2147958880"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://rabbithoney.info/arki.php?" ascii //weight: 4
+        $x_4_2 = "://baseballafternoon.xyz/arkis.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_SPLE_2147958987_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.SPLE!MTB"
+        threat_id = "2147958987"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "discoverytrucks.info/gant.php" wide //weight: 2
+        $x_1_2 = "Do you want to reboot now?" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_AWMB_2147959140_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AWMB!MTB"
+        threat_id = "2147959140"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://rootsystem.info/done.php?" ascii //weight: 4
+        $x_4_2 = "://monthaunt.xyz/dones.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZCI_2147959223_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZCI!MTB"
+        threat_id = "2147959223"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://inventionplastic.xyz/milts.php?" ascii //weight: 3
+        $x_3_2 = "://bookserror.info/milt.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZFI_2147959332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZFI!MTB"
+        threat_id = "2147959332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://seedrub.xyz/ujjts.php?" ascii //weight: 3
+        $x_3_2 = "://losstwig.info/ujjt.php?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_AENB_2147959458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AENB!MTB"
+        threat_id = "2147959458"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://instrumentthrone.info/miju.php?" ascii //weight: 4
+        $x_4_2 = "://bottlegrain.xyz/mijus.php?" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZII_2147959606_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZII!MTB"
+        threat_id = "2147959606"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://quarteranimal.xyz/mois?" ascii //weight: 3
+        $x_3_2 = "://accountwhistle.info/moi?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZLI_2147959782_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZLI!MTB"
+        threat_id = "2147959782"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://potatostar.info/glu?" ascii //weight: 3
+        $x_3_2 = "://slavecushion.xyz/glus?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZOI_2147959849_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZOI!MTB"
+        threat_id = "2147959849"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://dogsperson.xyz/amps?" ascii //weight: 3
+        $x_3_2 = "://bearjail.info/amp?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_ZPI_2147959885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZPI!MTB"
+        threat_id = "2147959885"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://tablehumor.xyz/grus?" ascii //weight: 3
+        $x_3_2 = "://booksbabies.info/gru?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_OffLoader_BAF_2147960099_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.BAF!MTB"
+        threat_id = "2147960099"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://viewnerve.xyz/chrs?" ascii //weight: 3
+        $x_3_2 = "://theoryproperty.info/chr?" ascii //weight: 3
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

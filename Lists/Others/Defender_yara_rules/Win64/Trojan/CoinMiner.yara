@@ -650,27 +650,6 @@ rule Trojan_Win64_CoinMiner_SIM_2147907278_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoinMiner_RM_2147908489_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/CoinMiner.RM!MTB"
-        threat_id = "2147908489"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "CoinMiner"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8a 02 34 3c 88 02 48 ff c2 8a 02 34 e8 88 02 48 ff c2 48 ff ce 75 e9}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_CoinMiner_NA_2147909349_0
 {
     meta:
@@ -740,84 +719,6 @@ rule Trojan_Win64_CoinMiner_PBH_2147928683_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
-}
-
-rule Trojan_Win64_CoinMiner_BSA_2147929053_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/CoinMiner.BSA!MTB"
-        threat_id = "2147929053"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "CoinMiner"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "33"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "Usage: xmrig" ascii //weight: 10
-        $x_1_2 = "cryptonight-heavy" ascii //weight: 1
-        $x_2_3 = "cryptonight-ultralite" ascii //weight: 2
-        $x_2_4 = "xmr.pool" ascii //weight: 2
-        $x_2_5 = "XMRig CPU miner" ascii //weight: 2
-        $x_2_6 = "no active pools, stop mining" ascii //weight: 2
-        $x_3_7 = "cryptonight-monero" ascii //weight: 3
-        $x_3_8 = "minergate" ascii //weight: 3
-        $x_4_9 = "cryptonight_turtle" ascii //weight: 4
-        $x_5_10 = "cryptonight/gpu" ascii //weight: 5
-        $x_6_11 = "stratum+tcp://" ascii //weight: 6
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 4 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 3 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 4 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 4 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_3_*) and 3 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 4 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 3 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_Win64_CoinMiner_BSA_2147929053_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/CoinMiner.BSA!MTB"
-        threat_id = "2147929053"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "CoinMiner"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "27"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "Usage: xmrig [OPTIONS]" ascii //weight: 10
-        $x_6_2 = "enable nicehash/xmrig-proxy" ascii //weight: 6
-        $x_1_3 = "cryptonight" ascii //weight: 1
-        $x_2_4 = "cryptonight-lite" ascii //weight: 2
-        $x_2_5 = "cryptonight-light" ascii //weight: 2
-        $x_3_6 = "maximum CPU usage for automatic threadsmode" ascii //weight: 3
-        $x_4_7 = "print hashrate report every N seconds" ascii //weight: 4
-        $x_5_8 = "port for the miner API" ascii //weight: 5
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
-            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
-            (all of ($x*))
-        )
 }
 
 rule Trojan_Win64_CoinMiner_BQ_2147930885_0
@@ -1009,5 +910,115 @@ rule Trojan_Win64_CoinMiner_KK_2147943866_0
             ((1 of ($x_6_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win64_CoinMiner_SX_2147946571_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.SX!MTB"
+        threat_id = "2147946571"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 c7 44 24 38 08 00 00 00 48 8b 44 24 38 48 89 44 24 48 48 c7 44 24 40 00 00 00 00 48 8d 44 24 40 48 89 44 24 20 4c 8b 4c 24 48 4c 8d 44 24 78 48 8b 54 24 50 48 8b 84 24 80 00 00 00 48 8b 08 ff 15 ?? ?? ?? ?? 85 c0 75 17}  //weight: 20, accuracy: Low
+        $x_20_2 = {48 c7 c0 ff ff ff ff e9 ?? ?? ?? ?? c7 44 24 78 00 00 00 00 48 c7 44 24 20 00 00 00 00 4c 8d 4c 24 78 44 8b 84 24 b0 00 00 00 48 8b 94 24 a8 00 00 00 48 8b 4c 24 60 ff 15 ?? ?? ?? ?? 85 c0 75 46}  //weight: 20, accuracy: Low
+        $x_10_3 = "WkDDHiThxzav" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoinMiner_MK_2147952302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.MK!MTB"
+        threat_id = "2147952302"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {89 45 78 0f b6 05 ?? 40 01 00 88 45 7c 48 8d 45 70 f3 0f 7f 85 80 00 00 00 48 89 45 10 f2 0f 10 05 ?? 3f 01 00 66 44 89 65 7e f2 0f 11 45 70 44 88 65 7d}  //weight: 15, accuracy: Low
+        $x_10_2 = {48 83 65 c0 00 83 3d ?? ab 01 00 00 c6 45 d0 00 c6 45 e8 00 c6 45 f0 00 c6 45 f8 00 75 10 0f 10 05 ?? 95 01 00 c6 45 e8 01 f3 0f 7f 45 d8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoinMiner_MKA_2147955885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.MKA!MTB"
+        threat_id = "2147955885"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_25_1 = {60 00 00 68 2e 72 73 72 63 00 00 00 98 91 02 00 00}  //weight: 25, accuracy: High
+        $x_10_2 = {01 00 09 04 00 00 58 02 00 00 68 ?? ?? 01 e9 13 00 00}  //weight: 10, accuracy: Low
+        $x_5_3 = {40 00 00 40 2e 64 61 74 61 00 00 00 ?? d0 5a 00 00 40 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoinMiner_PG_2147955989_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.PG!MTB"
+        threat_id = "2147955989"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 78 02 48 b9 b2 18 bf 10 be 21 b6 13 48 89 08 48 8d 35 48 86 10 00 b9 10 7f 00 00 f3 48 a5 48 89 84 24 60 01 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoinMiner_CBK_2147958286_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.CBK!MTB"
+        threat_id = "2147958286"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 63 04 24 0f b6 0d ?? ?? ?? ?? 0f b7 44 44 ?? 33 c1 48 63 0c 24 66 89 44 4c ?? 48 63 04 24 0f b7 44 44 ?? 0f b7 4c 24 ?? 3b c1 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

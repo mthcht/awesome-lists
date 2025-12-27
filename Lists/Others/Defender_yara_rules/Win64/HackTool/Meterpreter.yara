@@ -89,6 +89,32 @@ rule HackTool_Win64_Meterpreter_A_2147726024_3
         severity = "High"
         info = "dll: Dynamic Link Library component of a malware"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {5d 68 fa 3c [0-4] 8b}  //weight: 1, accuracy: Low
+        $x_1_2 = {5b bc 4a 6a 0f 85}  //weight: 1, accuracy: High
+        $x_1_3 = {48 0f b6 02 8b 4a 01 48 8b 52 05 41 88 02 41 89 4a 01 49 89 52 05 49 8b c3 c3}  //weight: 1, accuracy: High
+        $x_1_4 = {48 0f b7 02 8b 4a 02 48 8b 52 06 66 41 89 02 41 89 4a 02 49 89 52 06 49 8b c3 c3}  //weight: 1, accuracy: High
+        $x_1_5 = {48 8b 04 0a 4c 8b 54 0a 08 48 83 c1 [0-1] 48 89 41 e0 4c 89 51 e8 48 8b 44 0a f0 4c 8b 54 0a f8 49 ff c9 48 89 41 f0 4c 89 51 f8 75 d4}  //weight: 1, accuracy: Low
+        $x_1_6 = {48 8b d8 48 85 c0 0f 84 ?? ?? ?? ?? 48 8b d0 8b 0d ?? ?? ?? ?? e8 ?? ?? ?? ?? 48 8b cb 85 c0 74 16 33 d2 e8 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 89 03 48 83 4b 08 ff}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win64_Meterpreter_A_2147726024_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Meterpreter.A!dll"
+        threat_id = "2147726024"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "High"
+        info = "dll: Dynamic Link Library component of a malware"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "Low"
     strings:

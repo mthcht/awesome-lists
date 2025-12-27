@@ -51,6 +51,30 @@ rule TrojanSpy_Win32_KeyLogger_HB_2147725641_0
         (all of ($x*))
 }
 
+rule TrojanSpy_Win32_KeyLogger_SM_2147809890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:Win32/KeyLogger.SM!MTB"
+        threat_id = "2147809890"
+        type = "TrojanSpy"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion" ascii //weight: 1
+        $x_1_2 = "taskkill /im" ascii //weight: 1
+        $x_1_3 = "a9ew64jszjh70gt909c0ji9ln2bm1um27i00a3hepj144emtht" ascii //weight: 1
+        $x_1_4 = "oy7oel014pgx3rnmgo1floytt4o8eghapzuon70fhru0lnlsvl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule TrojanSpy_Win32_KeyLogger_SP_2147835865_0
 {
     meta:

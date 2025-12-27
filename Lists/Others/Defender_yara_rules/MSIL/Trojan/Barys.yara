@@ -909,6 +909,27 @@ rule Trojan_MSIL_Barys_PHT_2147934640_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_SLYT_2147941290_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SLYT!MTB"
+        threat_id = "2147941290"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8e 69 39 16 00 00 00 17 8d 01 00 00 01 0d 09 16 16 8d 18 00 00 01 a2 09 38 01 00 00 00 14 0c 07 14 08 6f 16 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Barys_ZABY_2147941597_0
 {
     meta:
@@ -925,6 +946,265 @@ rule Trojan_MSIL_Barys_ZABY_2147941597_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {06 0b 07 28 ?? 00 00 06 13 05 11 05 72 49 00 00 70 1b 8d ?? 00 00 01 13 0b 11 0b 16 72 3f 01 00 70 a2 11 0b 17 72 45 01 00 70 a2 11 0b 18 72 4d 01 00 70 a2 11 0b 19 72 51 01 00 70 a2 11 0b 1a 72 57 01 00 70}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_A_2147945978_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.A!MTB"
+        threat_id = "2147945978"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {fe 0e 0a 00 fe 0c 18 00 20 2d 31 7e 18 5a 20 6a c8 b2 df 61 38 61 ef ff ff 20 c1 fc fb 36 20 03 00 00 00 20 c4 2d 00 00 5a 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_AXBB_2147948708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.AXBB!MTB"
+        threat_id = "2147948708"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0a 06 7e 01 00 00 04 7e 02 00 00 04 6f ?? 00 00 0a 0b 7e ?? 00 00 04 6f ?? 00 00 0a 0c 07 08 16 08 8e 69 6f ?? 00 00 0a 0d 09 13 04 2b 00 11 04 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_SLFH_2147949346_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SLFH!MTB"
+        threat_id = "2147949346"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 04 73 30 00 00 0a 13 05 28 31 00 00 0a 72 1b 00 00 70 28 32 00 00 0a 6f 33 00 00 0a 13 06 02 73 34 00 00 0a 13 07 09 11 06 6f 35 00 00 0a 26 09 11 07}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_SLWQ_2147954523_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SLWQ!MTB"
+        threat_id = "2147954523"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Stop-Process -Name 'SecurityHealthSystray' -Force -ErrorAction SilentlyContinue" wide //weight: 2
+        $x_2_2 = "Add-MpPreference -ExclusionProcess 'svchost.exe'" wide //weight: 2
+        $x_2_3 = "Add-MpPreference -ExclusionProcess '$77kit.exe'" wide //weight: 2
+        $x_2_4 = "-NoProfile -ExecutionPolicy Bypass -File \"" wide //weight: 2
+        $x_2_5 = "Add-MpPreference -ExclusionPath ($env:USERPROFILE + '\\AppData\\Local\\Temp')" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_ZRM_2147954904_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.ZRM!MTB"
+        threat_id = "2147954904"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {10 00 00 01 06 07 03 6f ?? 00 00 0a 5d 91 07 1b 58 06 8e 69 58 1f 1f 5f 63 20 ff 00 00 00 5f d2 61 d2 ?? 10 00 00 01 07 17 58 0b 07 02 8e 69 32 c6}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_SL_2147954964_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SL!MTB"
+        threat_id = "2147954964"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 00 28 75 00 00 06 7e 04 00 00 04 7e 05 00 00 04 72 01 00 00 70 72 51 00 00 70 14 6f 53 00 00 06 38 00 00 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_SM_2147955418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SM!MTB"
+        threat_id = "2147955418"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 00 28 75 00 00 06 7e 04 00 00 04 7e 05 00 00 04 72 01 00 00 70 72 4d 00 00 70 14 6f 53 00 00 06 38 00 00 00 00 dd c7 ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_AR_2147956204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.AR!MTB"
+        threat_id = "2147956204"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0b 16 0c 2b ?? 06 08 8f 08 ?? ?? 01 25 71 08}  //weight: 5, accuracy: Low
+        $x_25_2 = "C:\\Windows\\Media\\mppr.exe" ascii //weight: 25
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_GPV_2147958156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.GPV!MTB"
+        threat_id = "2147958156"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {13 05 2b b5 16 0a 16 13 05 2b ae 04 03 61 1f 51 59 06 7e 16 00 00 04 20 d3 00 00 00 7e 16 00 00 04 20 d3 00 00 00 91 7e 16 00 00 04 20 8d 00 00 00 91 5f 1f 52 5f 9c 61 45 01 00 00 00 15 00 00 00 11 07 20 36 01 00 00 91 20 d2 00 00 00 59 13 05 38 63 ff ff ff 19 2b f6 14 0b 17 13 05}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_SLWC_2147958163_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SLWC!MTB"
+        threat_id = "2147958163"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 29 00 00 0a 6f 2a 00 00 0a 08 7e 2f 00 00 0a 6f 30 00 00 0a 07 14 16 8d 03 00 00 01 6f 31 00 00 0a 26}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_NB_2147959749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.NB!MTB"
+        threat_id = "2147959749"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {6f 2e 00 00 0a 0c 72 6d 01 00 70 72 fb 00 00 70 28 2f 00 00 0a 28 30 00 00 0a 74 14 00 00 01 0d 09 72 29 01 00 70 6f 31 00 00 0a 09 72 33 01 00 70 6f 32 00 00 0a 09 20 10 27 00 00 6f 33 00 00 0a 09 20 10 27 00 00 6f 34 00 00 0a 09 16 6f 35 00 00 0a 28 36 00 00 0a 08 6f 37 00 00 0a}  //weight: 2, accuracy: High
+        $x_1_2 = {11 06 6f 3d 00 00 0a 73 3e 00 00 0a 6f 3f 00 00 0a 13 07 11 06 6f 40 00 00 0a 20 c8 00 00 00 2e 05 dd 83 01 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_PCP_2147960053_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.PCP!MTB"
+        threat_id = "2147960053"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 01 11 12 6f ?? 00 00 0a 17 73 08 00 00 0a 13 02 38 00 00 00 00 00 11 02 02 16 02 8e 69 6f ?? 00 00 0a 20 06 00 00 00 7e 21 00 00 04 7b 75 00 00 04 3a 1d 00 00 00 26 20 00 00 00 00 38 12 00 00 00 38 09 00 00 00 20 00 00 00 00 fe 0e 0c 00 fe 0c 0c 00 45 01 00 00 00 26 00 00 00 fe 0c 0c 00 20 dc 03 00 00 3b e5 ff ff ff 38 13 00 00 00 11 01 6f ?? 00 00 0a 73 0b 00 00 0a 13 09 38 0c 00 00 00 11 02 6f ?? 00 00 0a 38 e1 ff ff ff}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

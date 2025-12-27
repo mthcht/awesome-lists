@@ -109,6 +109,31 @@ rule Ransom_MSIL_Filecoder_MK_2147761624_0
         family = "Filecoder"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "files on your computer" wide //weight: 1
+        $x_1_2 = "personal decryption code" wide //weight: 1
+        $x_1_3 = "keygroup777" wide //weight: 1
+        $x_1_4 = "bitcoin" wide //weight: 1
+        $x_1_5 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_MK_2147761624_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.MK!MTB"
+        threat_id = "2147761624"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
@@ -124,7 +149,7 @@ rule Ransom_MSIL_Filecoder_MK_2147761624_0
         (all of ($x*))
 }
 
-rule Ransom_MSIL_Filecoder_MK_2147761624_1
+rule Ransom_MSIL_Filecoder_MK_2147761624_2
 {
     meta:
         author = "defender2yara"
@@ -149,7 +174,7 @@ rule Ransom_MSIL_Filecoder_MK_2147761624_1
         (all of ($x*))
 }
 
-rule Ransom_MSIL_Filecoder_MK_2147761624_2
+rule Ransom_MSIL_Filecoder_MK_2147761624_3
 {
     meta:
         author = "defender2yara"
@@ -2076,6 +2101,27 @@ rule Ransom_MSIL_Filecoder_MA_2147822280_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {72 11 00 00 70 28 3a 00 00 06 7e 1e 00 00 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_MA_2147822280_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.MA!MTB"
+        threat_id = "2147822280"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "Low"
     strings:
@@ -2091,7 +2137,7 @@ rule Ransom_MSIL_Filecoder_MA_2147822280_0
         (all of ($x*))
 }
 
-rule Ransom_MSIL_Filecoder_MA_2147822280_1
+rule Ransom_MSIL_Filecoder_MA_2147822280_2
 {
     meta:
         author = "defender2yara"
@@ -2389,29 +2435,6 @@ rule Ransom_MSIL_Filecoder_AVA_2147839139_0
         $x_2_1 = {0b 16 0c 2b 16 07 08 9a 28 ?? ?? ?? 06 2c 08 07 08 9a 28 ?? ?? ?? 0a 08 17 58 0c 08 07 8e 69 32 e4}  //weight: 2, accuracy: Low
         $x_1_2 = "GetFolderPath" ascii //weight: 1
         $x_1_3 = ".locked" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Ransom_MSIL_Filecoder_SP_2147840015_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:MSIL/Filecoder.SP!MTB"
-        threat_id = "2147840015"
-        type = "Ransom"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Filecoder"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_3_1 = {0a 08 17 58 0c 08 1f 0a 32 f0 10 00 07 06 6f}  //weight: 3, accuracy: Low
-        $x_1_2 = "white_ransomeware" ascii //weight: 1
-        $x_1_3 = "white.jcrypt.txt" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -2769,28 +2792,6 @@ rule Ransom_MSIL_Filecoder_PAAW_2147851430_0
         $x_1_1 = {07 11 04 07 11 04 91 08 11 04 08 8e 69 5d 91 11 04 04 d6 08 8e 69 d6 1d 5f 62 d2 20 ff 00 00 00 5f 61 b4 9c 11 04 17 d6 13 04 11 04 09 31 d1}  //weight: 1, accuracy: High
         $x_1_2 = "DisableRegistryTools" wide //weight: 1
         $x_1_3 = "DisableTaskMgr" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Ransom_MSIL_Filecoder_AYV_2147852625_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:MSIL/Filecoder.AYV!MTB"
-        threat_id = "2147852625"
-        type = "Ransom"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Filecoder"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {0d 16 13 04 2b 17 09 11 04 9a 13 05 00 02 11 05 28 04 00 00 06 00 00 11 04 17 58 13 04 11 04 09 8e 69 32 e2}  //weight: 2, accuracy: High
-        $x_1_2 = "\\Users\\hello\\OneDrive\\Bureau\\Ransomware\\Ransomware\\obj\\Debug\\Ransomware.pdb" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3457,6 +3458,56 @@ rule Ransom_MSIL_Filecoder_NITE_2147925863_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_NITE_2147925863_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.NITE!MTB"
+        threat_id = "2147925863"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {06 07 9a 0c 73 12 00 00 06 0d 09 08 28 ?? 00 00 0a 6f ?? 00 00 0a 7d 0b 00 00 04 02 7b 02 00 00 04 09 fe 06 13 00 00 06 73 1b 00 00 0a 28 ?? 00 00 2b 2c 42 08 72 ?? 00 00 70 6f ?? 00 00 0a 2d 35 08 28 ?? 00 00 0a 13 04 02 11 04 72 ?? 00 00 70 28 ?? 00 00 06 13 05 08 11 05 28 ?? 00 00 0a 08 08 72 ?? 00 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a de 03 26 de 00 07 17 58 0b 07 06 8e 69 32 80}  //weight: 2, accuracy: Low
+        $x_2_2 = {04 6f 22 00 00 0a 0a 03 8e 69 8d ?? 00 00 01 0b 16 0c 2b 13 07 08 03 08 91 06 08 06 8e 69 5d 91 61 d2 9c 08 17 58 0c 08 03 8e 69 32 e7 07 2a}  //weight: 2, accuracy: Low
+        $x_1_3 = "EncryptTargetFolders" ascii //weight: 1
+        $x_1_4 = "XorEncryptDecrypt" ascii //weight: 1
+        $x_1_5 = "KeegansRansomware" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_NITE_2147925863_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.NITE!MTB"
+        threat_id = "2147925863"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {73 16 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 17 6f 1c 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_2_2 = {73 16 00 00 0a 25 72 ?? 01 00 70 6f ?? 00 00 0a 25 72 ?? 01 00 70 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 16}  //weight: 2, accuracy: Low
+        $x_2_3 = {73 16 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 02 72 ?? 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 73 16 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 72 ?? 00 00 70 02 72 ?? 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 25 72 ?? 00 00 70 6f ?? 00 00 0a 25 16 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 03 02 6f ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_1_4 = "delete shadows /all /quiet" wide //weight: 1
+        $x_1_5 = "DisableWindowsRecoveryEnvironment" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_MSIL_Filecoder_NITD_2147925865_0
 {
     meta:
@@ -3784,6 +3835,29 @@ rule Ransom_MSIL_Filecoder_NITF_2147945122_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {72 01 00 00 70 28 ?? 00 00 06 28 ?? 00 00 06 28 ?? 00 00 06 28 ?? 00 00 06 28 ?? 00 00 06 28 ?? 00 00 06}  //weight: 2, accuracy: Low
+        $x_2_2 = {72 29 01 00 70 28 ?? 00 00 06 72 71 01 00 70 28 ?? 00 00 06 72 c5 01 00 70 28 ?? 00 00 06 72 01 02 00 70 28 ?? 00 00 06 72 41 02 00 70 28 ?? 00 00 06}  //weight: 2, accuracy: Low
+        $x_1_3 = {7e 14 00 00 0a 72 2a 06 00 70 17 6f ?? 00 00 0a 0a 06 72 86 06 00 70 72 93 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 72 93 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a de 0a 06 2c 06 06 6f ?? 00 00 0a dc 72 a2 06 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 72 0e 07 00 70 28 ?? 00 00 0a 28 ?? 00 00 06 de 03}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_NITF_2147945122_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.NITF!MTB"
+        threat_id = "2147945122"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "Low"
     strings:
@@ -3793,5 +3867,133 @@ rule Ransom_MSIL_Filecoder_NITF_2147945122_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_EDK_2147945216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.EDK!MTB"
+        threat_id = "2147945216"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ransomeware.ps1" ascii //weight: 1
+        $x_1_2 = "DO NOT ignore this message" ascii //weight: 1
+        $x_1_3 = "your files will be lost forever!" ascii //weight: 1
+        $x_1_4 = "UniKeyNT.exe" ascii //weight: 1
+        $x_1_5 = "getPassword" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_PAE_2147952509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.PAE!MTB"
+        threat_id = "2147952509"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "All of your files have been encrypted" wide //weight: 3
+        $x_2_2 = ".caelus" wide //weight: 2
+        $x_1_3 = "RECOVER_FILES.txt" wide //weight: 1
+        $x_1_4 = "Please send 14 bitcoin to the following bitcoin address" wide //weight: 1
+        $x_1_5 = "RansomwarePOC" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_JKX_2147954663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.JKX!MTB"
+        threat_id = "2147954663"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "CreateRansomNote" ascii //weight: 2
+        $x_2_2 = "EncryptFiles" ascii //weight: 2
+        $x_1_3 = "GetLogicalDrives" ascii //weight: 1
+        $x_1_4 = "GetDirectories" ascii //weight: 1
+        $x_2_5 = "Your files have been encrypted by <ProjectName>." wide //weight: 2
+        $x_2_6 = "ransom_note.txt" wide //weight: 2
+        $x_2_7 = "/TR shutdown.exe /s /f /t 0 /c" wide //weight: 2
+        $x_2_8 = "SecureStorage will shutdown in 24 hours" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_A_2147956865_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.A!AMTB"
+        threat_id = "2147956865"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {11 06 17 58 20 00 01 00 00 5d 13 06 11 07 06 11 06 91 58 20 00 01 00 00 5d 13 07 06 11 06 91 13 09 06 11 06 06 11 07 91 9c 06 11 07 11 09 9c 06 06 11 06 91 06 11 07 91 58 20 00 01 00 00 5d 91 13 0a 11 05 11 08 02 11 08 91 11 0a 61 d2 9c 11 08 17 58 13 08 11 08 02 8e 69 32 a4}  //weight: 3, accuracy: High
+        $x_2_2 = {08 06 09 91 58 03 09 03 8e 69 5d 91 58 20 00 01 00 00 5d 0c 06 09 91 13 04 06 09 06 08 91 9c 06 08 11 04 9c 09 17 58 0d 09 20 00 01 00 00 32 d0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Filecoder_J_2147957402_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.J!AMTB"
+        threat_id = "2147957402"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {20 00 10 00 00 8d 13 00 00 01 13 06 2b 0c 11 05 11 06 16 11 07 6f ?? ?? ?? 0a 09 11 06 16 11 06 8e 69 6f ?? ?? ?? 0a 25 13 07 16 30 e1}  //weight: 5, accuracy: Low
+        $x_1_2 = ".meowed" ascii //weight: 1
+        $x_1_3 = ".mouzd" ascii //weight: 1
+        $x_1_4 = ".locked" ascii //weight: 1
+        $x_1_5 = ".harmstreet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

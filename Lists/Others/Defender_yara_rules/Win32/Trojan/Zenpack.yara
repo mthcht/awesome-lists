@@ -1952,3 +1952,24 @@ rule Trojan_Win32_Zenpack_YAB_2147916575_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zenpack_EGQN_2147947298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zenpack.EGQN!MTB"
+        threat_id = "2147947298"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zenpack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 4c 24 15 8b 44 24 18 0f b6 54 24 16 88 0c 03 0f b6 4c 24 17 43 88 14 03 8b 54 24 20 43 88 0c 03}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

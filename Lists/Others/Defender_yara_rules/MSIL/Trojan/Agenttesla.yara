@@ -1,3 +1,25 @@
+rule Trojan_MSIL_Agenttesla_PAL_2147787188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PAL!MTB"
+        threat_id = "2147787188"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 0c 11 1e 1f 11 5a 58 13 1f 00 02 11 1d 11 1e 6f ?? 00 00 0a 13 20 04 03 6f ?? 00 00 0a 59 13 21 11 21 13 22 11 22 19 fe 02 13 28 11 28 2c 03}  //weight: 5, accuracy: Low
+        $x_5_2 = {11 0c 16 5f 13 23 11 23 19 5d 13 24 17 11 23 58 19 5d 13 25 18 11 23 58 19 5d 13 26 19}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Agenttesla_XNHU_2147805871_0
 {
     meta:
@@ -22,33 +44,6 @@ rule Trojan_MSIL_Agenttesla_XNHU_2147805871_0
         $x_1_7 = "reader" ascii //weight: 1
         $x_1_8 = "regenerate" ascii //weight: 1
         $x_1_9 = "uniqueDuck" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_Agenttesla_ZARS_2147807215_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Agenttesla.ZARS!MTB"
-        threat_id = "2147807215"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Agenttesla"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "BeginRead" ascii //weight: 1
-        $x_1_2 = "isDisconnected" ascii //weight: 1
-        $x_1_3 = "BeginReceive" ascii //weight: 1
-        $x_1_4 = "AES_Decryptor" ascii //weight: 1
-        $x_1_5 = "AES_Encryptor" ascii //weight: 1
-        $x_1_6 = "Shot" ascii //weight: 1
-        $x_1_7 = "Read" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -478,8 +473,230 @@ rule Trojan_MSIL_Agenttesla_PGA_2147942842_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {02 05 0e 04 6f ?? 00 00 0a 0a 06 0e 05 28 ?? 00 00 06 0b 04 03 6f ?? 00 00 0a 59 0c 08 19 32 0a 03 07 0e 05 28 ?? 00 00 06 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGA_2147942842_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGA!MTB"
+        threat_id = "2147942842"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
         $x_4_1 = {72 01 00 00 70 72 33 00 00 70 28 ?? 00 00 06 72 4d 00 00 70 72 99 00 00 70}  //weight: 4, accuracy: Low
         $x_1_2 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 63 00 69 00 61 00 2e 00 74 00 66 00 2f 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 2e 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGY_2147943194_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGY!MTB"
+        threat_id = "2147943194"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 34 00 35 00 2e 00 38 00 37 00 2e 00 36 00 30 00 2e 00 31 00 32 00 37 00 2f 00 77 00 61 00 79 00 2f 00 [0-64] 2e 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 00 74 00 74 00 70 00 3a 00 2f 2f 34 35 2e 38 37 2e 36 30 2e 31 32 37 2f 77 61 79 2f [0-64] 2e}  //weight: 5, accuracy: Low
+        $x_5_3 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 63 00 69 00 61 00 2e 00 74 00 66 00 2f 00 [0-64] 2e 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 2f 63 69 61 2e 74 66 2f [0-64] 2e}  //weight: 5, accuracy: Low
+        $x_1_5 = ".pdf" ascii //weight: 1
+        $x_1_6 = ".wav" ascii //weight: 1
+        $x_1_7 = ".vdf" ascii //weight: 1
+        $x_1_8 = ".mp4" ascii //weight: 1
+        $x_5_9 = {28 04 00 00 06 72 01 00 00 70 72 33 00 00 70 28 05 00 00 06 72 4d 00 00 70 72 99 00 00 70 28 06 00 00 06 20 00 00 00 00 7e ?? ?? 00 04 7b ?? ?? 00 04 ?? 0f 00 00 00 26 20 00 00 00 00 38 04 00 00 00 fe 0c ?? 00 45 01 00 00 00 05 00 00 00 38 00 00 00 00 dd}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_Agenttesla_PGAT_2147945221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGAT!MTB"
+        threat_id = "2147945221"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 08 11 1c 11 0c 6f ?? ?? 00 0a 23 00 00 00 00 00 00 59 40 5a a1 11 09 11 1c 11 0c 6f ?? ?? 00 0a 23 00 00 00 00 00 00 24 40 5a 23 00 00 00 00 00 00 14 40 59 a1 11 1c 17 d6 13 1c 11 1c 11 1b 31 be}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGAT_2147945221_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGAT!MTB"
+        threat_id = "2147945221"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 1a 1f 11 5a 11 19 1f 1f 5a 58 11 0b 20 ?? ?? 00 00 6f ?? 00 00 0a 61 13 1b 11 19 1f 13 5a 11 1a 1f 17 5a 58 11 0b 20 ?? ?? 00 00 6f ?? 00 00 0a 61 13 1c 11 1a 11 19 61 20 ?? 00 00 00 5f 13 1d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGAC_2147948463_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGAC!MTB"
+        threat_id = "2147948463"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {08 16 fe 02 13 04 11 04 2c 13 02 7b ?? 00 00 04 12 01 28 ?? 00 00 0a 6f ?? ?? 00 0a 00 08 17 59 25 0c 16 fe 02 13 05 11 05 2c 13}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGAC_2147948463_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGAC!MTB"
+        threat_id = "2147948463"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 09 11 09 2c 05 07 1f 63 58 0b 03 12 0c 28 ?? 00 00 0a 6f ?? 00 00 0a 09 17 59 25 0d 16 fe 02 16 fe 01 13 0a 11 0a 2c 02 2b 41 03 12 0c 28 ?? 00 00 0a 6f ?? 00 00 0a 09 17 59 25 0d 16 fe 02 16 fe 01 13 0b 11 0b 2c 02 2b 21 03 12 0c 28 ?? 00 00 0a 6f ?? 00 00 0a 06 17 58 0a 38 1e ff ff ff 08 17 58 0c 16 0a 38 13 ff ff ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGAG_2147949290_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGAG!MTB"
+        threat_id = "2147949290"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 8c 07 00 00 1b 03 04 05 6f ?? ?? 00 0a 06 17 58 0a 0e 05 25 5a 0e 05 58 18 5d 2c 0e 11 04 20 76 01 00 00 91 0c 38 67 ff ff ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGAR_2147950675_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGAR!MTB"
+        threat_id = "2147950675"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 0b 11 0d 6f ?? 00 00 0a 13 0e 04 03 6f ?? 00 00 0a 59 13 0f 11 0f 13 10 11 10 19 fe 02 13 16 11 16 2c 03 19 13 10 11 10 16 fe 04 13 17 11 17 2c 03}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PGBA_2147951190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGBA!MTB"
+        threat_id = "2147951190"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "sYgcdvgJl/SfqIMcHzF0kj0tesjCUv5pgTjmsNcULhRKwEY7gI9t41Ag26FqEWfq" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_PALA_2147956567_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PALA!MTB"
+        threat_id = "2147956567"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {00 00 1b 03 04 6f ?? 00 00 0a 0b [0-15] 13 06 38 ?? ff ff ff 06 17 58 0a 20 ?? ?? 00 00 0d [0-5] 13 04 20 ?? ?? 00 00 09 18 5b 11 04 59 32 [0-15] 00 00 59 13 06 38 ?? ff ff ff}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

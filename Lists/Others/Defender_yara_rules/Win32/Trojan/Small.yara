@@ -966,6 +966,28 @@ rule Trojan_Win32_Small_C_2147945084_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Small_AHB_2147955300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Small.AHB!MTB"
+        threat_id = "2147955300"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {85 c0 89 da 59 74 ?? 29 f8 ba ?? 00 00 00 83 c0 ?? 89 d1 99 f7 f9 0f be 54 2a b4 8d 65 f4 89 d0}  //weight: 20, accuracy: Low
+        $x_30_2 = {0f be d9 38 c1 74 ?? 42 0f b6 02 84 c0 74 ?? 0f be c0 39 d8 eb ?? 3a 0a 89 d0}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Small_11283_0
 {
     meta:

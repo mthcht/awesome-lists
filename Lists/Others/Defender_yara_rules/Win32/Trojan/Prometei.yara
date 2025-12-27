@@ -45,3 +45,25 @@ rule Trojan_Win32_Prometei_APR_2147936605_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Prometei_AHC_2147951552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Prometei.AHC!MTB"
+        threat_id = "2147951552"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Prometei"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8a 4d fc 02 c8 30 0f 3b c3 74 ?? 8b 4d f8 48 01 4d fc 47 8d 8f ?? ?? ?? ?? 3b ce 7c}  //weight: 20, accuracy: Low
+        $x_30_2 = {c6 45 de 6c c6 45 df 69 c6 45 e0 64 c6 45 e1 20 c6 45 e2 63 c6 45 e3 6f 88 5d e4 89 5d ec}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

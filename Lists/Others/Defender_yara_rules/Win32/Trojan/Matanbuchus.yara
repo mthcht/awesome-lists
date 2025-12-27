@@ -167,3 +167,93 @@ rule Trojan_Win32_Matanbuchus_MKZ_2147933800_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Matanbuchus_CCIM_2147946885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Matanbuchus.CCIM!MTB"
+        threat_id = "2147946885"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Matanbuchus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 45 f8 83 c0 01 8b 4d fc 83 d1 00 89 45 f8 89 4d fc 8b 55 fc 3b 55 10}  //weight: 2, accuracy: High
+        $x_2_2 = {6a 00 6a 01 8b 4d fc 51 8b 55 f8 52 e8 ?? ?? ?? ?? 8b f0 6a 00 6a 08 8b 45 fc 50 8b 4d f8 51 e8}  //weight: 2, accuracy: Low
+        $x_1_3 = {0f be d0 8b 45 08 0f be 1c 30 33 da 6a 00 6a 01 8b 4d fc 51 8b 55 f8 52 e8 ?? ?? ?? ?? 8b 4d 08 88 1c 01}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Matanbuchus_C_2147946897_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Matanbuchus.C!MTB"
+        threat_id = "2147946897"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Matanbuchus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b c8 8b 45 14 8b 55 18 e8 ?? ?? ?? ?? 25 ff 00 00 00 0f be d0 8b 45 08 0f be 1c 30 33 da 6a 00 6a 01 8b 4d fc 51 8b 55 f8 52 e8 ?? ?? ?? ?? 8b 4d 08 88 1c 01 e9}  //weight: 2, accuracy: Low
+        $x_1_2 = {68 88 01 01 10 8d 8d e0 fe ff ff e8 ?? ?? ?? ?? 68 8c 01 01 10 8d 8d e0 fe ff ff 51 8d 95 c8 fe ff ff 52 e8 ?? ?? ?? ?? 83 c4 0c 68 94 01 01 10}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Matanbuchus_GTD_2147947198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Matanbuchus.GTD!MTB"
+        threat_id = "2147947198"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Matanbuchus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {6a 04 68 00 30 00 00 68 00 00 10 00 6a 00 6a 00 6a 00 e8 ?? ?? ?? ?? 83 c4 08 ff d0}  //weight: 5, accuracy: Low
+        $x_5_2 = {ba 04 00 00 00 6b c2 00 8b 4d f4 8b 54 01 10 89 55 e4 83 7d 0c 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Matanbuchus_GXD_2147952148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Matanbuchus.GXD!MTB"
+        threat_id = "2147952148"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Matanbuchus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "nicewk.com" wide //weight: 5
+        $x_1_2 = "C:\\\\kernel32" ascii //weight: 1
+        $x_1_3 = "curl_easy_cleanup" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

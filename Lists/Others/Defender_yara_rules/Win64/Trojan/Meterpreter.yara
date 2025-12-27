@@ -692,3 +692,73 @@ rule Trojan_Win64_Meterpreter_GAD_2147939647_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_AHB_2147947241_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.AHB!MTB"
+        threat_id = "2147947241"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 85 4c 10 00 00 48 98 0f b6 84 05 f0 07 00 00 32 85 4b 10 00 00 89 c2 8b 85 4c 10 00 00 48 98 88 54 05 b0 83 85 4c 10 00 00 01 8b 85 4c 10 00 00 3d 39 08 00 00 76}  //weight: 2, accuracy: High
+        $x_2_2 = {48 8d 95 e0 07 00 00 48 8b 85 48 10 00 00 48 01 d0 0f b6 00 32 85 37 10 00 00 48 8d 4d a0 48 8b 95 48 10 00 00 48 01 ca 88 02 48 83 85 48 10 00 00 01 48 81 bd 48 10 00 00 39 08 00 00 76}  //weight: 2, accuracy: High
+        $x_3_3 = {b9 07 01 00 00 48 89 c7 48 89 d6 f3 48 a5 48 89 f2 48 89 f8 0f b7 0a 66 89 08 c6 85 ?? 10 00 00 42}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Meterpreter_KAB_2147951398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.KAB!MTB"
+        threat_id = "2147951398"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 c2 89 d0 48 69 c0 ?? ?? ?? ?? 48 c1 e8 ?? c1 e8 ?? 6b c0 ?? 29 c2 89 d0 05}  //weight: 20, accuracy: Low
+        $x_10_2 = {6b c0 33 8b 55 f8 d1 fa 09 c2 8b 45 f8 31 d0 89 45 f8 8b 45 f8 83 e0 0f 83 f8 0a 0f 94 c0 84 c0 74 0b}  //weight: 10, accuracy: High
+        $x_5_3 = ".jxk3z" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Meterpreter_GTD_2147959701_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.GTD!MTB"
+        threat_id = "2147959701"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {66 0f 1f 84 00 00 00 00 00 48 89 c2 83 e2 0f 0f b6 14 11 32 14 03 83 f2 a5 88 14 03 48 89 c2 48 8d 40 01 48 39 c6}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

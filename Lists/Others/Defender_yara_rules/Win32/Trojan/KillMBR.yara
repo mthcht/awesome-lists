@@ -744,6 +744,28 @@ rule Trojan_Win32_KillMBR_ARAZ_2147928457_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Your disk have a lock!Please input the unlock password!" ascii //weight: 2
+        $x_2_2 = "@\\\\.\\\\physicaldrive0" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_KillMBR_ARAZ_2147928457_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillMBR.ARAZ!MTB"
+        threat_id = "2147928457"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
@@ -756,7 +778,7 @@ rule Trojan_Win32_KillMBR_ARAZ_2147928457_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_KillMBR_ARAZ_2147928457_1
+rule Trojan_Win32_KillMBR_ARAZ_2147928457_2
 {
     meta:
         author = "defender2yara"
@@ -988,6 +1010,30 @@ rule Trojan_Win32_KillMBR_ENII_2147942195_0
         strings_accuracy = "High"
     strings:
         $x_2_1 = {01 d0 0f b6 00 89 c2 8b 45 e8 89 d1 31 c1 8b 55 f0 8b 45 f4 01 d0 89 ca 88 10 83 45 f4 01 8b 45 f4 3b 45 ec}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_KillMBR_PAFV_2147949535_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillMBR.PAFV!MTB"
+        threat_id = "2147949535"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "MbrOverwriter" ascii //weight: 2
+        $x_1_2 = "IsAdministrator" ascii //weight: 1
+        $x_1_3 = "This application needs to be run as an administrator." wide //weight: 1
+        $x_2_4 = "\\\\.\\PhysicalDrive0" wide //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

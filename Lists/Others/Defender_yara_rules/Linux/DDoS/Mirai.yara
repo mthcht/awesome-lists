@@ -22,8 +22,10 @@ rule DDoS_Linux_Mirai_PA_2147740683_0
         $x_1_7 = "killerstorm" ascii //weight: 1
         $x_1_8 = "KHserverHACKER" ascii //weight: 1
         $x_1_9 = "huaweiscanner_scanner_kill" ascii //weight: 1
+        $n_10_10 = "com.bitdefender" ascii //weight: -10
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_2_*) and 3 of ($x_1_*))) or
             ((2 of ($x_2_*) and 1 of ($x_1_*))) or

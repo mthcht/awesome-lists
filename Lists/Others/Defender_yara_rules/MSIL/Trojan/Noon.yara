@@ -299,3 +299,150 @@ rule Trojan_MSIL_Noon_ZIT_2147943239_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Noon_EANW_2147946276_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Noon.EANW!MTB"
+        threat_id = "2147946276"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 09 11 39 16 9c 11 39 17 58 13 39 11 39 1f 0a 11 09 8e 69 ?? ?? ?? ?? ?? 32 e5}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Noon_ZTQ_2147948252_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Noon.ZTQ!MTB"
+        threat_id = "2147948252"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {03 11 04 09 6f ?? 00 00 0a 13 09 12 09 28 ?? 00 00 0a 0a 12 09 28 ?? 00 00 0a 0b 12 09 28 ?? 00 00 0a 0c 06 13 06 07 13 06 08 13 06 11 06 11 06 11 06 28 ?? 00 00 0a 13 05 03 11 04 09 11 05}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Noon_ZQO_2147952159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Noon.ZQO!MTB"
+        threat_id = "2147952159"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 0b 17 58 1f 25 5a 11 ?? 17 58 1f 65 5a 61 07 61 13 ?? 11 ?? 11 ?? 23 00 00 00 00 00 40 8f 40 5a 69 61 13 ?? 02 11 ?? 11 ?? 6f ?? 00 00 0a 13 ?? 04 03 6f ?? 00 00 0a 59}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Noon_ZRN_2147953147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Noon.ZRN!MTB"
+        threat_id = "2147953147"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 09 11 14 1f 3d 5a 61 13 15 02 11 13 11 14 6f ?? 00 00 0a 13 16 04 03 6f ?? 00 00 0a 59 13 17 11 17 13 18 11 18 19 31 03 19 13 18 11 18}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Noon_ZHL_2147956197_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Noon.ZHL!MTB"
+        threat_id = "2147956197"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 11 0b 11 0c 6f ?? 00 00 0a 13 23 12 23 28 ?? 00 00 0a 13 1d 19 8d ?? 00 00 01 25 16 1f 10 9e 25 17 1e 9e 13 1e 03 07}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Noon_ZRK_2147957658_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Noon.ZRK!MTB"
+        threat_id = "2147957658"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {1b 13 05 2b 8d 02 8c 0c 00 00 1b 03 04 6f ?? 00 00 0a 0b 1b 13 05 38 ?? ff ff ff 06 17 58 0a 05 25 5a 0d 05 09 58 0d 1e 13 05 38 ?? ff ff ff 09 18 5d 2d 0f 11 06 20 82 00 00 00 91}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Noon_ZFJ_2147958238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Noon.ZFJ!MTB"
+        threat_id = "2147958238"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2a 20 00 01 00 00 8d ?? 00 00 01 0a 16 0b 2b 29 07 0c 16 0d 2b 17 08 17 5f 17 2e 07 08 17 64 25 0c 2b 05 08 17 64 02 61 0c 09 17 58 0d 09 1e}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

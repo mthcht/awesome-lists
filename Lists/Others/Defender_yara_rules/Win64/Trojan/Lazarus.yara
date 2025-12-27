@@ -24,3 +24,25 @@ rule Trojan_Win64_Lazarus_A_2147769063_0
         (5 of ($x*))
 }
 
+rule Trojan_Win64_Lazarus_MCP_2147959051_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazarus.MCP!MTB"
+        threat_id = "2147959051"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazarus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {53 6c 69 76 65 72 43 75 73 74 6f 6d [0-18] 44 4c 4c 2e 64 6c 6c 00 6d 61 69 6e}  //weight: 1, accuracy: Low
+        $x_1_2 = {2e 6d 73 76 63 6a 6d 63 [0-32] c0 2e 30 30 63 66 67}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

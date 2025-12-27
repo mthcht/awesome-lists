@@ -482,3 +482,47 @@ rule Trojan_Win32_Chapak_EAAL_2147943997_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Chapak_BAA_2147949085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Chapak.BAA!MTB"
+        threat_id = "2147949085"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chapak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b c6 c1 e0 04 03 45 e8 8d 0c 33 33 d0 33 d1 6a 00 2b fa 81 c3}  //weight: 2, accuracy: High
+        $x_2_2 = {8b 45 08 89 38 89 70 04 83 c0 08 ff 4d f8 89 45 08 0f 85}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Chapak_EFXB_2147952595_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Chapak.EFXB!MTB"
+        threat_id = "2147952595"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chapak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {03 4d fc c1 e0 04 03 45 f8 33 c8 8d 04 3b 33 c8 8d 9b}  //weight: 2, accuracy: High
+        $x_2_2 = {8a 0c 0a 88 0c 02 42 8b 85 44 f7 ff ff 8b 8d 3c f7 ff ff 3b d0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -633,3 +633,47 @@ rule Trojan_Win32_KeyLogger_NL_2147931491_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KeyLogger_EJQQ_2147945211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KeyLogger.EJQQ!MTB"
+        threat_id = "2147945211"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {33 c1 8b 55 08 03 55 fc 88 02 ?? ?? b0 01 8b e5 5d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_KeyLogger_MX_2147947890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KeyLogger.MX!MTB"
+        threat_id = "2147947890"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Keylogger" ascii //weight: 1
+        $x_1_2 = "ProjectLogfuck.pdb" ascii //weight: 1
+        $x_1_3 = "webhook" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

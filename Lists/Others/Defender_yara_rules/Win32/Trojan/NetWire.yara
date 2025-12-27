@@ -430,3 +430,25 @@ rule Trojan_Win32_NetWire_NA_2147915615_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_NetWire_GMT_2147957175_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/NetWire.GMT!MTB"
+        threat_id = "2147957175"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "NetWire"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "ACTXPRXY3" wide //weight: 5
+        $x_5_2 = {41 00 54 00 ?? 00 52 00 32 00 0c 00 52 00 48 00 49 00 54 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

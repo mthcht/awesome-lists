@@ -444,6 +444,28 @@ rule Virus_Win32_Expiro_EM_2147852532_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_5_1 = {55 8b ec 83 3d 84 d0 44 00 01 75 05 e8 68 8c 0d 00}  //weight: 5, accuracy: High
+        $x_5_2 = {8b f0 85 f6 75 0d 6a 12 e8 41 7e 0c 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Virus_Win32_Expiro_EM_2147852532_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win32/Expiro.EM!MTB"
+        threat_id = "2147852532"
+        type = "Virus"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Expiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = {50 51 52 53 55 56 57 e8 00 00 00 00}  //weight: 2, accuracy: High
         $x_3_2 = {81 c6 00 04 00 00 81 c0 00 04 00 00 81 fe 00 c0 08 00 0f 85}  //weight: 3, accuracy: High
         $x_3_3 = {81 c6 00 04 00 00 81 c1 00 04 00 00 81 fe 00 c0 08 00 0f 85}  //weight: 3, accuracy: High
@@ -701,5 +723,45 @@ rule Virus_Win32_Expiro_HNW_2147936833_1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Virus_Win32_Expiro_HNW_2147936833_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win32/Expiro.HNW!MTB"
+        threat_id = "2147936833"
+        type = "Virus"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Expiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "501"
+        strings_accuracy = "Low"
+    strings:
+        $x_500_1 = {40 00 00 40 2e 72 65 6c 6f 63 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 40 00 00 e2 00 00 00 00 00 00 00 00 00 00}  //weight: 500, accuracy: Low
+        $x_1_2 = {30 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 30 ?? 30}  //weight: 1, accuracy: Low
+        $x_1_3 = {31 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 31 ?? 31}  //weight: 1, accuracy: Low
+        $x_1_4 = {32 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 32 ?? 32}  //weight: 1, accuracy: Low
+        $x_1_5 = {33 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 33 ?? 33}  //weight: 1, accuracy: Low
+        $x_1_6 = {34 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 34 ?? 34}  //weight: 1, accuracy: Low
+        $x_1_7 = {35 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 35 ?? 35}  //weight: 1, accuracy: Low
+        $x_1_8 = {36 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 36 ?? 36}  //weight: 1, accuracy: Low
+        $x_1_9 = {37 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 37 ?? 37}  //weight: 1, accuracy: Low
+        $x_1_10 = {38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 38 ?? 38}  //weight: 1, accuracy: Low
+        $x_1_11 = {39 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 39 ?? 39}  //weight: 1, accuracy: Low
+        $x_1_12 = {3a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 3a ?? 3a}  //weight: 1, accuracy: Low
+        $x_1_13 = {3b 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 3b ?? 3b}  //weight: 1, accuracy: Low
+        $x_1_14 = {3c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 3c ?? 3c}  //weight: 1, accuracy: Low
+        $x_1_15 = {3d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 3d ?? 3d}  //weight: 1, accuracy: Low
+        $x_1_16 = {3e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 3e ?? 3e}  //weight: 1, accuracy: Low
+        $x_1_17 = {3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 3f ?? 3f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_500_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

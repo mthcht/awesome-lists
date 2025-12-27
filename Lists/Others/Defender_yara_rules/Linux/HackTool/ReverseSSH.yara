@@ -76,3 +76,27 @@ rule HackTool_Linux_ReverseSSH_C_2147935674_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_ReverseSSH_D_2147946603_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/ReverseSSH.D!MTB"
+        threat_id = "2147946603"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "ReverseSSH"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "createReversePortForwardingCallback" ascii //weight: 1
+        $x_1_2 = "main.createSSHSessionHandler" ascii //weight: 1
+        $x_1_3 = "github.com/Fahrj/reverse-ssh" ascii //weight: 1
+        $x_1_4 = "main.createPasswordHandler" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

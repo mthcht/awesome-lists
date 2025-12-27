@@ -501,3 +501,67 @@ rule Trojan_MSIL_Perseus_MA_2147901836_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Perseus_NITA_2147945267_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Perseus.NITA!MTB"
+        threat_id = "2147945267"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Perseus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {72 11 01 00 70 28 ?? 00 00 0a 74 28 00 00 01 13 09 11 09 6f ?? 00 00 0a 74 29 00 00 01 13 0a 11 0a 6f ?? 00 00 0a 73 2f 00 00 0a 6f ?? 00 00 0a 13 0b 73 31 00 00 0a 13 0c 11 0c 11 0b 6f ?? 00 00 0a 00 11 0c 6f ?? 00 00 0a 6f ?? 00 00 0a 16 6f ?? 00 00 0a 6f ?? 00 00 0a 13 0d 28 ?? 00 00 0a 72 05 01 00 70 11 05 11 06 72 fd 00 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a 13 0e 11 0e 17 18 73 37 00 00 0a 13 1b}  //weight: 3, accuracy: Low
+        $x_2_2 = {72 c0 01 00 70 28 ?? 00 00 0a 74 28 00 00 01 13 0f 11 0f 6f ?? 00 00 0a 74 29 00 00 01 13 10 11 10 6f ?? 00 00 0a 73 2f 00 00 0a 6f ?? 00 00 0a 13 11 73 31 00 00 0a 13 12 11 12 11 11 6f ?? 00 00 0a 00 11 12 6f ?? 00 00 0a 6f ?? 00 00 0a 16 6f ?? 00 00 0a 6f ?? 00 00 0a 13 13 02 7b 0b 00 00 04 1f 1e 6f ?? 00 00 0a 00 02 7b 08 00 00 04 72 6f 02 00 70 6f ?? 00 00 0a 00 28 ?? 00 00 0a 72 9d 02 00 70 11 05 11 06 72 fd 00 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a 13 14 11 14 17 18 73 37 00 00 0a 13 1d 00 11 13 28 ?? 00 00 0a 13 1e}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Perseus_SLDZ_2147951562_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Perseus.SLDZ!MTB"
+        threat_id = "2147951562"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Perseus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {1a 59 28 13 00 00 0a 13 05 11 05 8d 11 00 00 01 13 06 08 08 8e 69 18 59 1a 59 11 05 59 11 06 16 11 05 28 14 00 00 0a 00 11 06 28 01 00 00 2b}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Perseus_SLDH_2147957174_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Perseus.SLDH!MTB"
+        threat_id = "2147957174"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Perseus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 2f 00 00 0a 00 07 16 09 16 07 8e 69 08 8e 69 59 28 2f 00 00 0a 00 73 10 00 00 06 13 04 28 30 00 00 0a 11 04 03 06 14 09 08 6f 0a 00 00 06 6f 31 00 00 0a 13 05 11 05 13 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

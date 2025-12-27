@@ -368,3 +368,25 @@ rule Virus_Win32_Sality_HNB_2147936832_0
         (all of ($x*))
 }
 
+rule Virus_Win32_Sality_PC_2147949775_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win32/Sality.PC!MTB"
+        threat_id = "2147949775"
+        type = "Virus"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Sality"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {51 6a 00 6a 00 6a 00 6a 00 6a 00 8d 95 00 f8 ff ff 52 6a 00 ff 15 00 10 00 10}  //weight: 2, accuracy: High
+        $x_1_2 = {6a 00 6a 00 6a 04 6a 00 6a 02 68 00 00 00 40 8d 85 00 f8 ff ff 50 ff 15 0c 10 00 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

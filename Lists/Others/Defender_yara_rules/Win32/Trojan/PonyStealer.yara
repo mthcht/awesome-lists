@@ -1195,3 +1195,199 @@ rule Trojan_Win32_PonyStealer_GZZ_2147942338_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PonyStealer_AHB_2147946296_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.AHB!MTB"
+        threat_id = "2147946296"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {66 0f 76 f2 0f fa f2 0f 6f ff 41 0f eb d8 0f 71 f0 02 0f d5 d2 ff 73 2c 66 0f 74 c1 66 0f fe d9 0f fc ff 31 0c 24 66 0f 76 f2 0f fa f2 0f 6f ff 5a 0f eb d8 0f 71 f0 02 0f d5 d2 83 fa 00 75}  //weight: 3, accuracy: High
+        $x_2_2 = {48 66 0f 74 c1 66 0f fe d9 0f fc ff 48 66 0f 76 f2 0f fa f2 0f 6f ff 48 0f eb d8 0f 71 f0 02 0f d5 d2 33 14 03 66 0f 74 c1 66 0f fe d9 0f fc ff e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_DAE_2147946311_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.DAE!MTB"
+        threat_id = "2147946311"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c7 85 f0 fd ff ff 8c 23 00 00 c7 85 f4 fd ff ff 05 00 00 00 83 a5 30 ff ff ff 00 eb}  //weight: 2, accuracy: High
+        $x_2_2 = {58 31 30 89 8d 80 00 00 00 b9 c3 13 9f 76}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_DAF_2147946312_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.DAF!MTB"
+        threat_id = "2147946312"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {66 0f 64 c1 66 0f e8 d5 0f 73 f7 36 66 0f d5 f4 66 0f ef c4 66 0f 76 d7 66 0f fd d6 66 0f d8 c4 66 0f e9 c2 66 0f 64 e8 66 0f 67 c4}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_DAG_2147949083_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.DAG!MTB"
+        threat_id = "2147949083"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {5e b9 00 00 00 00 0b 08 46 31 f1 3b 8c 24 ?? ?? ?? ?? 75}  //weight: 2, accuracy: Low
+        $x_2_2 = {31 30 57 83 f7}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_DAG_2147949083_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.DAG!MTB"
+        threat_id = "2147949083"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 9c 24 1c 01 00 00 50 8b 44 24 04 58 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 50 8b 44 24 04 58 83 c0 04 81 fa ?? ?? ?? ?? 39 58}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_AB_2147951440_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.AB!MTB"
+        threat_id = "2147951440"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {63 75 6c 69 6e 00 00 41 6d 70 68 69 73 74 6f 6d 6f 69 64 31 00 01 00 02 00 00 28 40}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_MK_2147955502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.MK!MTB"
+        threat_id = "2147955502"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {67 38 00 00 00 00 00 ff cc 31 00 31 a4 4d 97 89 80 8b 5d 49 b0 f7 00 c3}  //weight: 15, accuracy: High
+        $x_10_2 = {4b b1 b7 3a 4f ad 33 99 66 cf 11 b7 0c 00 aa 00 60 d3 93}  //weight: 10, accuracy: High
+        $x_5_3 = "sheth.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_AHC_2147958508_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.AHC!MTB"
+        threat_id = "2147958508"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {46 00 30 38 46 00 13 00 10 49 ?? 48 54 54 50 48}  //weight: 30, accuracy: Low
+        $x_20_2 = {8f 46 00 07 54 49 64 58 35 ?? ?? ?? ?? 46 00 07 07 54 49}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_PonyStealer_AHD_2147958552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PonyStealer.AHD!MTB"
+        threat_id = "2147958552"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PonyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {fe 0a 0b 00 14 00 36 06 00 54 ff ?? ff 24 ff 04 e8 fe}  //weight: 50, accuracy: Low
+        $x_100_2 = {ff 1b 4c 00 ?? 4d 00 fb 30 1c 73 07 27 24 ?? 27 44 ff 27}  //weight: 100, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

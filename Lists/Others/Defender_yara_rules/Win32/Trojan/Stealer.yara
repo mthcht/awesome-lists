@@ -1433,3 +1433,191 @@ rule Trojan_Win32_Stealer_LMB_2147944506_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_LM_2147948103_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.LM!MTB"
+        threat_id = "2147948103"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {40 00 00 c0 20 20 20 20 20 20 20 20 00 ?? ?? 00 00 f0 05 00 00 02 00 00 00 d4 05 00}  //weight: 10, accuracy: Low
+        $x_20_2 = {40 00 00 e0 2e 72 73 72 63 00 00 00 c0 02 00 00 00 d0 05 00 00 02 00 00 00 d0 05 00}  //weight: 20, accuracy: High
+        $x_5_3 = {40 00 00 c0 2e 69 64 61 74 61 20 20 00 10 00 00 00 e0 05 00 00 02 00 00 00 d2 05 00 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Stealer_NKC_2147949868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.NKC!MTB"
+        threat_id = "2147949868"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Do you want to run a malware" ascii //weight: 1
+        $x_2_2 = "F_k.Q_Y.O S.z_t_u_n.7D z Xj.h.x k<_X_j fJ O.L B?.x.P.f_d)C_jE.s7" ascii //weight: 2
+        $x_1_3 = "H k2.lF_i7o.u_d H.c.m u.S.R_C.k_t Q.hM.ie" ascii //weight: 1
+        $x_1_4 = "8.1.A.8.p B_M_W.7x Da_l_S.z.4n K.8.N K,b_P.V.vha_V c3 Km k4_u3N.K x.4.O_j.o o9 E_n.y Y.s_e.Xw" ascii //weight: 1
+        $x_1_5 = "OIv_a.O_P:m.H_I3u.R(s CT_yM q K_iOM Q rh.B Jv.n D F3 l+ j.L_H" ascii //weight: 1
+        $x_1_6 = "Y U.r_i cVh.VZ_B Y p_h.3n.w Rg.e_H" ascii //weight: 1
+        $x_1_7 = "z u_T_j o_R| LKp b- Z_dE t V_mx.ac: I.8c+.aM.K.8b A2_y l@ P M.9!o.n" ascii //weight: 1
+        $x_1_8 = "D p C\\.r.Js.D6.G Wv.2u.R.T+.BR_cM H.W.T&X.G.R uvz.ux_y F_q D" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Stealer_MK_2147952541_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.MK!MTB"
+        threat_id = "2147952541"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {88 d9 89 c2 d3 e2 88 d9 8b 74 24 10 0f a5 c6 31 c0 f6 c3 20 0f 45 f2 0f 45 d0}  //weight: 15, accuracy: High
+        $x_10_2 = {d3 e6 89 74 24 58 89 d6 81 f6 98 41 3d 55 89 74 24 58 c7 44 24 44 00 00 00 00 c7 44 24 40 9f 50 ca 31 89 44 24 1c 89 54 24 18}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Stealer_MK_2147952541_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.MK!MTB"
+        threat_id = "2147952541"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "localstate.key" ascii //weight: 10
+        $x_10_2 = "o/41/tokens.txt" ascii //weight: 10
+        $x_10_3 = "-NoProfile -ExecutionPolicy Bypass -Command \"IEX (New-Object Net.WebClient).DownloadString('" ascii //weight: 10
+        $x_10_4 = "g/screen/screen.bmp" ascii //weight: 10
+        $x_5_5 = "\\Login Data" ascii //weight: 5
+        $x_5_6 = "\\Web Data" ascii //weight: 5
+        $x_5_7 = "\\Cookies" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Stealer_MKN_2147955524_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.MKN!MTB"
+        threat_id = "2147955524"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {83 c4 04 8b 7d 98 33 f6 2b c7 74 ?? 66 0f 1f 44 00 00 e8 f8 ?? 02 00 30 04 37 46 8b 45 9c 8b 7d 98 2b c7 3b f0 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Stealer_ARR_2147956868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.ARR!MTB"
+        threat_id = "2147956868"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {11 0b 11 0c 9a 13 0d 11 0d 28 ?? ?? ?? ?? 18 fe 02 13 0e 11 0e 2c 40 11 0d}  //weight: 15, accuracy: Low
+        $x_5_2 = {13 06 08 11 04 11 06 6c 11 05 6c 5b a1 11 04 17 d6 13 04 11 04 09 31 c7}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Stealer_LMF_2147958749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.LMF!MTB"
+        threat_id = "2147958749"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {03 c5 81 c0 93 00 00 00 b9 c2 05 00 00 ba f2 7f 7d fd 30 10 40 49}  //weight: 20, accuracy: High
+        $x_10_2 = {0d 87 fa 1a 80 f2 f2 f2 79 4f fa f2 f2 f2 c1 3b 73 00 df 77}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Stealer_KK_2147959873_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.KK!MTB"
+        threat_id = "2147959873"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a 0c 33 8a c3 02 c5 33 d2 34 55 02 c8 c0 e0 03 32 c8 8b c3 6a 07 5f f7 f7 02 ca 88 0c 33 43 3b 5d 0c}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b6 c2 6b d0 0d 80 c2 11 30 14 31 41 3b 4d 0c}  //weight: 10, accuracy: High
+        $x_5_3 = {03 c6 69 c0 fb 00 00 00 83 c0 61 33 c1 69 c0 dd 02 00 00 0f b7 c0 33 c3 99}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

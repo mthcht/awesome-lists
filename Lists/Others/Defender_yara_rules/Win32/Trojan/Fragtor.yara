@@ -244,6 +244,29 @@ rule Trojan_Win32_Fragtor_KAB_2147852099_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_KAB_2147852099_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.KAB!MTB"
+        threat_id = "2147852099"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {83 f1 55 8d 52 01 66 89 0e 8d b5 ?? ?? ff ff 0f b7 04 56 8d 34 56 8b c8 66 85 c0 75}  //weight: 20, accuracy: Low
+        $x_8_2 = "C:\\Users\\HP\\source\\repos\\Project RO\\Release\\Project RO.pdb" ascii //weight: 8
+        $x_7_3 = ".ragnarok" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_SPK_2147852351_0
 {
     meta:
@@ -621,6 +644,28 @@ rule Trojan_Win32_Fragtor_AFG_2147898089_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {68 84 71 40 00 e8 ?? ?? ?? ?? 50 68 ?? 71 40 00 e8 ?? ?? ?? ?? a3 c0 c8 40 00 68 a0 71 40 00 e8 ?? ?? ?? ?? 50 68 ac 71 40 00}  //weight: 2, accuracy: Low
+        $x_1_2 = {8b 43 04 a3 ?? ?? ?? ?? 8b 43 08 a3 ?? ?? ?? ?? 8b 43 0c a3 ?? ?? ?? ?? 8b 43 10 a3 ?? ?? ?? ?? b8 78 71 40 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AFG_2147898089_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AFG!MTB"
+        threat_id = "2147898089"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -722,6 +767,33 @@ rule Trojan_Win32_Fragtor_NF_2147899073_2
 }
 
 rule Trojan_Win32_Fragtor_NF_2147899073_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.NF!MTB"
+        threat_id = "2147899073"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Leveraging DKOM to achieve LPE" ascii //weight: 2
+        $x_2_2 = "Calling Write64 wrapper to overwrite current EPROCESS->Token" ascii //weight: 2
+        $x_1_3 = "Device\\Mup\\;Csc\\.\\." wide //weight: 1
+        $x_1_4 = "Current EPROCESS address" ascii //weight: 1
+        $x_1_5 = "Current THREAD address" ascii //weight: 1
+        $x_1_6 = "System EPROCESS address" ascii //weight: 1
+        $x_1_7 = "cmd.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_NF_2147899073_4
 {
     meta:
         author = "defender2yara"
@@ -1831,6 +1903,28 @@ rule Trojan_Win32_Fragtor_RFAK_2147926045_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_MX_2147926226_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.MX!MTB"
+        threat_id = "2147926226"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {db 45 fc 99 b9 64 00 00 00 f7 f9 83 ec 08 dd 1c 24 42}  //weight: 1, accuracy: High
+        $x_1_2 = "windq.v3" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_BSA_2147926248_0
 {
     meta:
@@ -2446,6 +2540,49 @@ rule Trojan_Win32_Fragtor_PGF_2147939226_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_PGF_2147939226_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.PGF!MTB"
+        threat_id = "2147939226"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {89 c1 83 e1 1f 0f b6 89 ?? ?? ?? ?? 30 0c 06 40 3d 00 9e 00 00 72 e9}  //weight: 5, accuracy: Low
+        $x_5_2 = {89 c1 83 e1 1f 0f b6 89 ?? ?? ?? ?? 30 0c 07 40 3d 00 9e 00 00 75 e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AM_2147942012_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AM!MTB"
+        threat_id = "2147942012"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {6a 00 6a 00 6a 00 6a 01 68 58 2a 47 00 ff 15 64 c1 45 00 8b d8 89 5d dc 85 db 0f 84 89 01 00 00 6a 00 68 00 01 00 80 6a 00 6a 00 68 80 2e 47 00 53 ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_BAA_2147942112_0
 {
     meta:
@@ -2594,6 +2731,669 @@ rule Trojan_Win32_Fragtor_AO_2147945016_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {53 56 57 56 81 e6 b8 37 00 00 81 ce fe 4b 00 00 81 e6 1d 61 01 00 81 ee 00 21 00 00 5e 50 50 83 c4 04 81 e8 4b 46 00 00 81 f0 4e 0e 01 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_LM_2147945893_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.LM!MTB"
+        threat_id = "2147945893"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {8a 95 e7 ef ff ff 2a d0 8b 85 18 f0 ff ff 02 d1 30 17 83 c0 21 3b 85 14 f0 ff ff 7e ?? ff 8d 0c f0 ff ff 3b c6 7c ?? 8b d6 d1 ea 2b d6 03 d0 8d 7c 0a 05 eb}  //weight: 15, accuracy: Low
+        $x_10_2 = {83 fa 67 75 ?? 8d 4c 00 01 8b d0 d3 e2 8d 48 01 85 c9 7e ?? 8d 49 00 0f af d0 03 d2 03 d2 03 d2 49 75 f4}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_LM_2147945893_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.LM!MTB"
+        threat_id = "2147945893"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {c6 44 24 19 24 c6 44 24 1a 74 [0-7] c6 44 24 1b 72 c6 44 24 1c 69 [0-5] c6 44 24 1d 67 c6 44 24 1e 67 c6 44 24 1f 65 c6 44 24 20 72}  //weight: 20, accuracy: Low
+        $x_10_2 = {0f b6 84 14 7c 01 00 00 88 04 17 83 c2 01 83 fa ?? ?? ?? 89 7c 24 04 89 34 24 c6 84 24 be 04 00 00 00}  //weight: 10, accuracy: Low
+        $x_5_3 = {c6 44 24 26 53 c6 44 24 27 63 c6 44 24 28 68 c6 44 24 29 65 c6 44 24 2a 64 c6 44 24 2b 75 c6 44 24 2c 6c ?? ?? ?? ?? ?? ?? c6 44 24 2d 65 c6 44 24 2e 64}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AG_2147945970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AG!MTB"
+        threat_id = "2147945970"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 0c 27 23 c0 33 cb 66 25 10 91 8b d0 41 42 0f 8c 01 99 eb ff 48 c7 44 24 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AI_2147945977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AI!MTB"
+        threat_id = "2147945977"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {c7 45 fc 04 00 00 00 8d 4d c8 c7 45 e0 00 00 00 00 2b ce c7 45 e4 00 00 00 00 b8 ?? ?? ?? ?? c7 45 e8 00 00 00 00 f7 e9 c1 fa 02 8b c2 c1 e8 1f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_KK_2147946088_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.KK!MTB"
+        threat_id = "2147946088"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {28 ad c0 14 83 c0 04 eb 0b dd 35 ?? ?? ?? ?? a1 ?? ?? ?? ?? 83 ea 01 f9 72}  //weight: 8, accuracy: Low
+        $x_7_2 = {83 2f 01 f9 72 0b 2f e3 ?? 09 c0 4b 8a 5b af 0c d7}  //weight: 7, accuracy: Low
+        $x_5_3 = "Fe3048124832f0cef883941e6035e2bbbc237.exeFe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AHB_2147948328_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AHB!MTB"
+        threat_id = "2147948328"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {6a 6c 6a 6c 6a 64 6a 2e 6a 32 6a 33 6a 6c 53 6a 6e 6a 72 53 6a 6b 8d 85 ec fe ff ff}  //weight: 20, accuracy: High
+        $x_30_2 = {8d 45 f4 50 8d 85 ec ee ff ff 68 ?? ?? ?? ?? 50 ff 55 f8 85 c0 75}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_GVC_2147950103_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.GVC!MTB"
+        threat_id = "2147950103"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b c6 c1 e8 1e 33 c6 69 f0 ?? ?? ?? ?? 03 f1 89 b4 8d 24 ec ff ff 41 81 f9 70 02 00 00 72 e1}  //weight: 2, accuracy: Low
+        $x_1_2 = {8b 5d f4 8d 04 0b 8b 4d fc 35 ?? ?? ?? ?? 8a 44 05 a8 88 04 31 41 89 4d fc 83 f9 14 0f 82}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_GVD_2147950104_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.GVD!MTB"
+        threat_id = "2147950104"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 5c 24 18 8d 04 0b 8b 4c 24 10 35 00 00 00 80 8a 44 04 28 88 04 31 41 89 4c 24 10 83 f9 14 0f 82 78 ff ff ff}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 86 b8 00 00 00 8b 96 b4 00 00 00 8d 48 01 3b d1 75 10 fe c0 30 86 be 00 00 00 ff 86 b4 00 00 00 eb dd}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AR_2147954447_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AR!MTB"
+        threat_id = "2147954447"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 46 04 03 c1 8b 4d b4 03 d0 41 8b 45 b4 83 e0 03 89 4d b4 8a 44 05 d0 30 02 33 c0 8b 55 b8 3b cb}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_MK_2147954933_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.MK!MTB"
+        threat_id = "2147954933"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {b8 8e 01 00 00 2b c6 8d 7e 01 0f af c7 c1 e0 04 03 d8 ff 85 b0 f8 ff ff 8b 85 a0 f8 ff ff}  //weight: 15, accuracy: High
+        $x_10_2 = {8a 8d a7 f8 ff ff 8b 95 c0 f8 ff ff 88 0c 10 8b 8d 90 f8 ff ff 8a 54 08 01 8b 8d c0 f8 ff ff 88 54 08 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_MKA_2147955147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.MKA!MTB"
+        threat_id = "2147955147"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {89 c7 c6 44 24 ?? 24 c6 44 24 ?? 74 c6 44 24 ?? 72 c6 44 24 ?? 69 c6 44 24 ?? 67 c6 44 24 ?? 67 c6 44 24 ?? 65 c6 44 24 ?? 72 f3 a5 c6 44 24 ?? 3d c6 44 24}  //weight: 15, accuracy: Low
+        $x_10_2 = {53 8d bc 24 ?? 01 00 00 c6 44 24 ?? 63 c6 44 24 ?? 68 c6 44 24 ?? 65 c6 44 24 ?? 64 c6 44 24 ?? 75 c6 44 24 ?? 6c c6 44 24 ?? 65 c6 44 24 ?? 64 c6 44 24}  //weight: 10, accuracy: Low
+        $x_5_3 = {0f b6 84 0c ?? 01 00 00 88 04 0f 83 c1 01 83 f9 76 ?? ?? 89 7c 24 04 89 34 24 89 54 24 1c c6 84 24 c6 04}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_LMC_2147955370_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.LMC!MTB"
+        threat_id = "2147955370"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {c6 45 e3 00 c6 45 f2 34 c6 45 f3 00 c6 45 d4 25 c6 45 d5 73 c6 45 d6 5c c6 45 d7 25 c6 45 d8 63 c6 45 d9 25 c6 45 da 63 c6 45 db 25 c6 45 dc 63 c6 45 dd 25 c6 45 de 63 c6 45 df 00}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_BAB_2147955837_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.BAB!MTB"
+        threat_id = "2147955837"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {2b f0 8b 45 dc 31 30 83 c3 04 83 45 dc 04 3b 5d d8 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_SMN_2147956671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SMN!MTB"
+        threat_id = "2147956671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {c1 e0 05 33 f0 b8 ?? ?? ?? ?? f7 e6 8b c8 b8 25 49 92 24 f7 e6 b8 ?? ?? ?? ?? 03 ca f7 e6 8b c6 d1 e9 2b c2 83 e1 ?? d1 e8 03 c2 c1 e8 03 2b c1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_CBK_2147956689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.CBK!MTB"
+        threat_id = "2147956689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {50 58 58 f9 f8 83 f7 ?? f9 f8 83 45 ?? ?? 8d 85 ?? ?? ff ff 89 44 24 ?? 8b 45 ?? 89 04 24 e8}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_BAC_2147957282_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.BAC!MTB"
+        threat_id = "2147957282"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f be 10 33 da 8b 45 fc 50 8b 4d 08 e8 ?? ?? ?? ?? 88 18 eb}  //weight: 2, accuracy: Low
+        $x_1_2 = "cmd /c timeout /t 5 > nul && del" ascii //weight: 1
+        $x_1_3 = "ShellExecuteA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AHC_2147957306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AHC!MTB"
+        threat_id = "2147957306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {58 6a 20 66 89 45 ce 58 6a 69 66 89 45 d0 58 6a 6c 66 89 45 d4 58 6a 65 66 89 45 d6 58 6a 73 66 89 45 d8}  //weight: 30, accuracy: High
+        $x_20_2 = {0f b6 c1 8a 4c 3b ?? 0f 43 d0 c0 e2 ?? ?? ?? ?? 57 1a c0 83 c3 ?? 24 ?? 04 ?? 2a c8 02 ca 88 0e 46}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_GVE_2147957333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.GVE!MTB"
+        threat_id = "2147957333"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 4c 24 08 8b 44 24 04 8a 09 32 08 88 08}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 4c 24 5c 8b 84 24 bc 01 00 00 89 44 24 4c 8b 54 24 78 89 c6 03 74 24 7c 89 74 24 50 8a 14 02 88 54 24 57 39 c8 73 17 8b 44 24 50 8b 54 24 58 8b 74 24 4c 8a 4c 24 57 32 0c 32 88 08 eb 97}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_SXA_2147957566_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SXA!MTB"
+        threat_id = "2147957566"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {50 ff d3 85 c0 74 f3 6a ?? 8d 85 ?? ?? ?? ?? 50 8d 85 ?? ?? ?? ?? 50 ff d7 85 c0 75 09 68 ?? ?? ?? ?? ff d6 eb d4}  //weight: 30, accuracy: Low
+        $x_15_2 = {50 ff d7 68 e8 03 00 00 ff d6 8d 85 ?? ?? ?? ?? 50 ff d3 85 c0 75 e3}  //weight: 15, accuracy: Low
+        $x_5_3 = {2b f9 d1 ff 8b c7 8b cf 99 83 e2 ?? 03 c2 c1 f8 ?? 2b c8 83 c1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_AB_2147957586_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.AB!MTB"
+        threat_id = "2147957586"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {83 c7 0c 83 c3 f4 84 c9 75 73 85 db 0f 84 85 00 00 00 8b 47 04 8b 77 08 8d 4d e0 ba ?? ?? ?? ?? 89 45 f0 68 ?? ?? ?? ?? 6a 19 e8 ?? ?? ?? ?? 83 c4 08 8b 45 e4 3b 75 e8 75 26 56 89 c6 50 ff 75 f0 e8 ?? ?? ?? ?? 83 c4 0c 85 c0 0f 94 c1 8b 45 e0 85 c0 75 16 eb a9}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_MCP_2147958548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.MCP!MTB"
+        threat_id = "2147958548"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {14 d2 43 00 01 f8 30 00 00 ff ff ff 08 00 00 00 01 00 00 00 01 00 00 00 e9 00 00 00 e4 cc 43 00 ac cc 43 00 84 42 40 00 78 00 00 00 82 00 00 00 8b 00 00 00 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 73 6f 70 72 61 6e 69 73}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_ARR_2147958669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.ARR!MTB"
+        threat_id = "2147958669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "LoadmyDll" ascii //weight: 6
+        $x_4_2 = "strat run" ascii //weight: 4
+        $x_10_3 = "IOJCMain" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_ARR_2147958669_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.ARR!MTB"
+        threat_id = "2147958669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a cb f6 d1 32 cb 80 e1 ?? 32 d9 8d 55}  //weight: 10, accuracy: Low
+        $x_20_2 = {4a 00 4a 00 56 00 31 00 33 00 4a 00 33 00 54 00 71 00 51 00 4e 00 6a 00 39 00 34 00 50 00 76 00 30 00 36 00 39 00 4b 00 77 00 61 00 6c 00 46 00 33 00 69 00 5a 00 76 00 44 00 39 00 38}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_ARR_2147958669_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.ARR!MTB"
+        threat_id = "2147958669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {0f 10 23 0f 10 6b ?? 0f 57 e0 0f 57 e9 0f 11 20 0f 11 68}  //weight: 8, accuracy: Low
+        $x_6_2 = {f7 e1 8d 8e ?? ?? ?? ?? 89 d0 89 fa d1 e8 66 83 7e}  //weight: 6, accuracy: Low
+        $x_4_3 = {f7 e1 8b 46 ?? 89 d7 89 c1 f7 66}  //weight: 4, accuracy: Low
+        $x_2_4 = "FromUtf8ErrorbytesNulMutexError~\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_LME_2147958751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.LME!MTB"
+        threat_id = "2147958751"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {b0 01 84 c0 79 ?? 81 c2 00 58 47 f8 89 54 24 08 83 d1 0d 89 4c 24 0c}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 4d e4 83 c4 0c 8b 45 dc 03 c0 c6 45 ef 01 89 71 30 66 89 41 2c 66 89 79 2e 8b 4d e0 83 f9 07}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_PBK_2147958775_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.PBK!MTB"
+        threat_id = "2147958775"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 04 0a 8d 49 ?? 32 c3 2a 85 ?? ?? ?? ?? 88 41 ?? 83 ee ?? 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_PGFR_2147958778_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.PGFR!MTB"
+        threat_id = "2147958778"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {31 d2 f7 75 14 8b 45 d4 0f b6 0c 11 31 c8 88 45 df 83 3d ?? ?? ?? ?? 00 74 ?? 8a 55 df a1 ?? ?? ?? ?? 8b 0d ?? ?? ?? ?? 89 ce 83 c6 01 89 35 ?? ?? ?? ?? 88 14 08}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_SXB_2147959486_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SXB!MTB"
+        threat_id = "2147959486"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "\\1.dll" ascii //weight: 3
+        $x_3_2 = "BLACKLIST_IP||" ascii //weight: 3
+        $x_3_3 = "MD5_DETECT||" ascii //weight: 3
+        $x_2_4 = "BLACKLIST_DATA" ascii //weight: 2
+        $x_2_5 = "blacklist.dat" ascii //weight: 2
+        $x_1_6 = "svchost.exe" ascii //weight: 1
+        $x_1_7 = "winlogon.exe" ascii //weight: 1
+        $x_1_8 = "taskmgr.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_SXC_2147959487_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SXC!MTB"
+        threat_id = "2147959487"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 c8 f7 e7 c1 ea 04 6b c2 ?? 8d 14 2e 0f b6 5c 2e ?? 32 5c 10 ?? 8b 44 24 ?? 88 5c 28 ?? 41 45 75 de}  //weight: 20, accuracy: Low
+        $x_10_2 = {89 34 24 c7 44 24 ?? ?? ?? 00 00 c7 44 24 ?? ?? ?? 00 00 ff 15 ?? ?? ?? ?? eb 0c b9 ff ff ff ff eb 10 b8 ff ff ff ff 89 c6 57 ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Fragtor_PGFT_2147959659_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.PGFT!MTB"
+        threat_id = "2147959659"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {64 72 69 76 65 2e 75 73 65 72 63 6f 6e 74 65 6e 74 2e 67 6f 6f 67 6c 65 2e 63 6f 6d 2f 64 6f 77 6e 6c 6f 61 64 3f 69 64 3d 31 59 42 56 49 44 6b 5a 67 79 67 4e 66 55 55 32 72 62 4a 58 58 43 59 64 72 7a 61 79 35 72 4d 64 59 26 65 78 70 6f 72 74 3d 64 6f 77 6e 6c 6f 61 64 26 61 75 74 68 75 73 65 72 3d 30 26 63 6f 6e 66 69 72 6d 3d 74 00 2f 73 65 72 76 69 63 65}  //weight: 5, accuracy: High
+        $x_5_2 = "0J7EFGABCeuvdDK489SEV56ewf332Nd123sfeW4werf5FDGwYZRtwz" ascii //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))

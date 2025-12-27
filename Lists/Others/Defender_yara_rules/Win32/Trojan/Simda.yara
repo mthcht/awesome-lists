@@ -321,3 +321,88 @@ rule Trojan_Win32_Simda_MX_2147928075_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Simda_AB_2147951436_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Simda.AB!MTB"
+        threat_id = "2147951436"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Simda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4d 87 c6 03 ee 4e 45 83 cd 17 4e 03 eb 48 43 03 fb 4f 48 2b f8 66 09 f6 8b ca 03 d0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Simda_AC_2147951437_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Simda.AC!MTB"
+        threat_id = "2147951437"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Simda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {81 ee 01 00 00 00 81 c7 01 00 00 00 81 eb 01 00 00 00 8b d7 43 8b c2 29 05 78 86 41 00 48 03 05 43 85 41 00 d1 c8 48 d1 c0 2b c6 8b d0 81 ea}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Simda_ADM_2147958239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Simda.ADM!MTB"
+        threat_id = "2147958239"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Simda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 0e 8b 56 04 03 55 f4 83 c4 0c 8d 45 fc 50 8b 45 08 51 57 52 50 ff 15 ?? ?? ?? ?? 68 00 80 00 00 6a 00 57}  //weight: 2, accuracy: Low
+        $x_1_2 = {88 48 0a c7 45 fc 00 00 00 00 ff 15 ?? ?? ?? ?? 85 c0 74 1f 68 14 32 40 00 50 ff 15 ?? ?? ?? ?? 8b f0 85 f6 74 0d 8d 55 fc 52}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Simda_PASD_2147958474_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Simda.PASD!MTB"
+        threat_id = "2147958474"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Simda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4a c0 cc 01 b9 9a 0c 00 00 8b d1 03 15 cc 91 40 00 81 ea d5 07 00 00 2b d1 8b ca 29 0d 90 91 40 00 d1 c9 49 2b 0d 0e 92 40 00 41 01 0d 02 92 40 00 8b d7 d1 c2 2b 15 17 90 40 00 01 15 cb 91 40 00 2b d0 42 03 15 18 91 40 00 81 ea 0e 06 00 00 29 15 29 91 40 00 4a 89 15 56 90 40 00 aa}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

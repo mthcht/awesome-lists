@@ -86,3 +86,25 @@ rule Trojan_Win32_RedCap_SPD_2147847626_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RedCap_AR_2147956291_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RedCap.AR!MTB"
+        threat_id = "2147956291"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RedCap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "RR3IL6YJTKWSXB3I6KRTAAVBFXUV2Q5BBDN" ascii //weight: 15
+        $x_5_2 = "TotalVisibleMemorySize=(%d+)" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -904,6 +904,30 @@ rule Trojan_MSIL_Quasar_NQ_2147845771_4
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_NQ_2147845771_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.NQ!MTB"
+        threat_id = "2147845771"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {73 03 01 00 0a 13 11 11 11 6f ?? 01 00 0a 13 12 08 28 ?? 00 00 0a 2d 10 08 11 12 28 ?? 01 00 0a 16 13 1d dd 72 03 00 00 11 0b 2c 6f 11 05 1f 09 8d 33 00 00 01 13 22 11 22 16 72 de 03 00 70 a2 11 22 17 28 ?? 00 00 0a 6f ?? 00 00 0a a2 11 22 18 72 f2 03 00 70 a2 11 22 19 11 12 a2 11 22 1a 72 f6 03 00 70 a2 11 22}  //weight: 3, accuracy: Low
+        $x_1_2 = "Remove-Item -Path $exePath -Force" ascii //weight: 1
+        $x_1_3 = "Start-Sleep -Seconds 10" ascii //weight: 1
+        $x_1_4 = "currentDir\\Fivem" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Quasar_ABSF_2147845963_0
 {
     meta:
@@ -1781,6 +1805,220 @@ rule Trojan_MSIL_Quasar_AQI_2147944751_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {13 12 2b 23 11 11 11 12 9a 13 13 00 11 13 28 ?? ?? ?? 0a 13 14 11 14 2c 07 00 07 17 58 0b 2b 0f 00 11 12 17 58 13 12 11 12 11 11 8e 69}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_AHAB_2147947125_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.AHAB!MTB"
+        threat_id = "2147947125"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {ff ff 11 08 74 ?? 00 00 01 75 ?? 00 00 01 74 ?? 00 00 1b 11 09 11 07 11 0a 25 17 58 13 0a 91 08 61 d2 9c 16}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_AQR_2147947342_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.AQR!MTB"
+        threat_id = "2147947342"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {02 8e 69 8d 12 00 00 01 0a 16 0b 2b 13 06 07 02 07 91 03 07 03 8e 69 5d 91 61 d2 9c 07 17 58 0b 07 02 8e 69}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_AWAB_2147947621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.AWAB!MTB"
+        threat_id = "2147947621"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {fe 0c 02 00 fe 0c 04 00 fe 0c 01 00 fe 0c 04 00 91 20 aa 00 00 00 61 d2 9c}  //weight: 4, accuracy: High
+        $x_2_2 = {fe 0c 01 00 fe 0c 04 00 8f 18 01 00 01 25 47 fe 0c 00 00 fe 0c 04 00 fe 0c 00 00 8e 69 5d 91 61 d2 52}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_ATBB_2147948598_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.ATBB!MTB"
+        threat_id = "2147948598"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 08 11 0a 11 08 11 0a 91 11 06 11 0a 11 06 8e 69 5d 91 61 d2 9c 11 0a 17 58 13 0a 11 0a 11 08 8e 69 32 dc 11 06 16 91 13 0b 11 06 17 11 06 16 11 06 8e 69 17 59 28 ?? 00 00 0a 11 06 11 06 8e 69 17 59 11 0b 9c 11 09 17 58 13 09 11 09 19 32 aa}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_MCL_2147956066_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.MCL!MTB"
+        threat_id = "2147956066"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 05 11 06 08 11 06 91 11 04 11 06 11 04 8e 69 5d 91 61 d2 9c 11 06 17 58 13 06 11 06 11 05 8e 69 32}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_ZVL_2147956726_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.ZVL!MTB"
+        threat_id = "2147956726"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {03 11 05 09 6f ?? 01 00 0a 13 06 12 06 28 ?? 01 00 0a 12 06 28 ?? 01 00 0a 58 86 12 06 28 ?? 01 00 0a 58 86 19 5b b4 13 07 11 07 6b}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_AJKB_2147957154_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.AJKB!MTB"
+        threat_id = "2147957154"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {07 08 02 08 91 06 08 03 6f ?? 00 00 0a 5d 91 61 d2 9c 08 17 58 0c 08 02 8e 69 fe 04 13 04 11 04 2d de}  //weight: 5, accuracy: Low
+        $x_5_2 = {07 08 02 08 91 06 08 06 8e 69 5d 91 61 d2 9c 08 17 58 0c 08 02 8e 69 fe 04 13 04 11 04 2d e1}  //weight: 5, accuracy: High
+        $x_5_3 = {11 12 07 11 09 07 91 11 11 07 11 11 8e 69 5d 91 61 d2 9c 07 17 58 0b 07 11 09 8e 69 fe 04 13 16 11 16 2d dc}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_ZIK_2147957229_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.ZIK!MTB"
+        threat_id = "2147957229"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 11 11 09 8e 69 8d ?? 00 00 01 13 12 16 0b 2b 17 11 12 07 11 09 07 91 11 11 07 11 11 8e 69 5d 91 61 d2 9c 07 17 58 0b}  //weight: 5, accuracy: Low
+        $x_5_2 = {07 94 1d 5d 16 fe 01 16 fe 01 13 15 11 15 2d 0e 06 07 06 07 94 20 ff 00 00 00 61 1c 58 9e 00 07 17}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_ALKB_2147957232_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.ALKB!MTB"
+        threat_id = "2147957232"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {11 12 07 11 09 07 91 11 11 07 11 11 8e 69 5d 91 61 d2 9c 07 17 58 0b 07 11 09 8e 69 fe 04 13 15 11 15 2d dc}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasar_MKV_2147957903_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.MKV!MTB"
+        threat_id = "2147957903"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0c 1f 18 8d 2e 00 00 01 25 d0 5d 00 00 04 28 ?? 00 00 0a 0d 08 28 ?? 00 00 0a 13 04 73 38 00 00 0a 13 06 00 11 06 09 6f ?? 00 00 0a 00 11 06 18 6f ?? 00 00 0a 00 11 06 18 6f ?? 00 00 0a 00 11 06 6f ?? 00 00 0a 13 07 11 07 11 04 16 11 04 8e 69 6f ?? 00 00 0a 13 05 00 de 14}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

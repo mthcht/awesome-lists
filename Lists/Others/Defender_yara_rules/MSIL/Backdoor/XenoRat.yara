@@ -50,3 +50,29 @@ rule Backdoor_MSIL_XenoRat_BSA_2147927609_1
         )
 }
 
+rule Backdoor_MSIL_XenoRat_HB_2147949988_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/XenoRat.HB!MTB"
+        threat_id = "2147949988"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XenoRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<socket>5__" ascii //weight: 1
+        $x_1_2 = "LASTINPUTINFO" ascii //weight: 1
+        $x_2_3 = {53 65 6e 64 41 73 79 6e 63 00 52 65 63 65 69 76 65 41 73 79 6e 63 00 46 72 6f 6d 41 73 79 6e 63 00 43 6f 6e 6e 65 63 74 41 73 79 6e 63 00 4c 6f 63 61 6c 41 6c 6c 6f 63}  //weight: 2, accuracy: High
+        $x_1_4 = {47 65 74 57 69 6e 64 6f 77 54 68 72 65 61 64 50 72 6f 63 65 73 73 49 64 00 47 65 74 50 72 6f 63 65 73 73 42 79 49 64 00}  //weight: 1, accuracy: High
+        $x_1_5 = "get_UserName" ascii //weight: 1
+        $x_10_6 = {67 65 74 5f 49 73 41 74 74 61 63 68 65 64 00 67 65 74 5f 43 6f 6e 6e 65 63 74 65 64 00 41 77 61 69 74 55 6e 73 61 66 65 4f 6e 43 6f 6d 70 6c 65 74 65 64 00 67 65 74 5f 49 73 43 6f 6d 70 6c 65 74 65 64}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

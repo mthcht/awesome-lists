@@ -72,3 +72,26 @@ rule Trojan_Win32_Lamer_KGAA_2147907480_0
         )
 }
 
+rule Trojan_Win32_Lamer_C_2147945428_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lamer.C!MTB"
+        threat_id = "2147945428"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lamer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "VirtualAllocEx\",\"SUCCESS\",\"0x00990000\",\"th32ProcessID->1824\",\"szExeFile->HelpMe.exe\",\"lpAddress->0x00000000\",\"dwSize->4096\",\"flAllocationType->0x00001000\",\"flProtect->0x00000040" ascii //weight: 2
+        $x_1_2 = "shellexecute=AutoRun.exe" ascii //weight: 1
+        $x_1_3 = "Internet Explorer.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

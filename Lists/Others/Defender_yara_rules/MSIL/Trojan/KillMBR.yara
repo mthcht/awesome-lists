@@ -889,6 +889,31 @@ rule Trojan_MSIL_KillMBR_ARAX_2147923238_2
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_ARAX_2147923238_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.ARAX!MTB"
+        threat_id = "2147923238"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Booster.pdb" ascii //weight: 2
+        $x_2_2 = "Google\\Chrome\\User Data\\Default\\History" wide //weight: 2
+        $x_2_3 = "\\\\.\\PhysicalDrive0" wide //weight: 2
+        $x_1_4 = "GetWiFiPasswords" ascii //weight: 1
+        $x_1_5 = "GetMBRData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_KillMBR_PAGH_2147932409_0
 {
     meta:
@@ -1113,6 +1138,27 @@ rule Trojan_MSIL_KillMBR_EXO_2147942196_0
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {00 06 07 02 07 ?? ?? ?? ?? ?? 20 ff 00 00 00 5f d2 9c 00 07 17 58 0b 07 20 6a 77 78 00 fe 04 0c 08 2d dd}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_KillMBR_ZEI_2147959281_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.ZEI!MTB"
+        threat_id = "2147959281"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 06 72 cd 01 00 70 17 8c ?? 00 00 01 17 6f ?? 00 00 0a 7e ?? 00 00 0a 72 59 01 00 70 6f ?? 00 00 0a 0b 07 72 eb 01 00 70 17 8c ?? 00 00 01 17 6f ?? 00 00 0a 7e ?? 00 00 0a 72 15 02 00 70}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

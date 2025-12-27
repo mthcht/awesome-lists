@@ -52,3 +52,27 @@ rule Ransom_Win64_IndustrialSpy_MA_2147850598_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_IndustrialSpy_MKV_2147950811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/IndustrialSpy.MKV!MTB"
+        threat_id = "2147950811"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "IndustrialSpy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {41 c1 e6 08 44 0b f0 8b c6 83 bb a0 00 00 00 00 44 89 75 ec 74 ?? 33 83 ?? 00 00 00 33 83 ?? 00 00 00 89 45 e0 41 8b c6 33 83 ?? 00 00 00 33 83 ?? 00 00 00 eb}  //weight: 3, accuracy: Low
+        $x_4_2 = {c1 e8 10 88 41 05 8a 45 e4 41 c1 e8 08 44 88 41 06 4c 8b 45 ?? 88 41 07 44 3b ff 0f 82}  //weight: 4, accuracy: Low
+        $x_1_3 = "readme.htm" ascii //weight: 1
+        $x_1_4 = "Self deleting" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

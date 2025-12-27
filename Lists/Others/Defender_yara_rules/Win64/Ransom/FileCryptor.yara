@@ -95,3 +95,26 @@ rule Ransom_Win64_FileCryptor_PR_2147815323_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCryptor_AP_2147958793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCryptor.AP!AMTB"
+        threat_id = "2147958793"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "**NEW VICTIM**" ascii //weight: 1
+        $x_1_2 = "If the deadline is ignored, your files and stored credentials will be extracted and published on darknet marketplaces." ascii //weight: 1
+        $x_1_3 = "\\\\VICTIM-PC\\ADMIN$\\svchost32.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

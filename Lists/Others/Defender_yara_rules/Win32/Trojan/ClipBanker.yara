@@ -2621,6 +2621,32 @@ rule Trojan_Win32_ClipBanker_CB_2147916723_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_CB_2147916723_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.CB!MTB"
+        threat_id = "2147916723"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "bc1qvfwq2xw8nfksegk3e7zmll0p5l2e306kpt9k5p" wide //weight: 2
+        $x_2_2 = "3F9R5aojt3NcE6bXkU92RQ7Y2dyaGEkGjd" wide //weight: 2
+        $x_2_3 = "rfP8ruvDkjcqemnWXatLREqiy2heFeMBTc" wide //weight: 2
+        $x_2_4 = "XhFp3ctWT7hvXPhCUKDuEEk7Dbqf2fXcdY" wide //weight: 2
+        $x_2_5 = "17vPx2X9W2Gb4HKu1AxCvbcEVa77G38fYX" wide //weight: 2
+        $x_1_6 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ClipBanker_CD_2147917153_0
 {
     meta:
@@ -2872,6 +2898,50 @@ rule Trojan_Win32_ClipBanker_NJH_2147943446_0
         $x_1_4 = "GlobalUnlock" ascii //weight: 1
         $x_1_5 = {01 d8 89 d1 21 f1 09 d6 0f af f1 01 c6 89 f0 83 e0 fc 89 f1 83 e1 02 89 f2 83 ca 02 0f af d1 83 f1 02 0f af c8 01 ca}  //weight: 1, accuracy: High
         $x_1_6 = {89 c1 83 c9 01 21 d1 83 f0 01 8d 1c 48 89 de 83 e6 02 89 f2 83 f2 02 89 54 24 04 89 f5}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClipBanker_GXF_2147952147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.GXF!MTB"
+        threat_id = "2147952147"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 3f 56 ff 76 20 6a 00 6a fd 6a 00 6a 00 6a 00 6a 00 6a 00 68 ?? ?? ?? ?? 57 6a 00 ff 15}  //weight: 5, accuracy: Low
+        $x_5_2 = {6a 00 ff 15 ?? ?? ?? ?? 85 c0 ?? ?? 56 ff 15 ?? ?? ?? ?? 47 03 f6 83 ff 08}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClipBanker_ARR_2147955240_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.ARR!MTB"
+        threat_id = "2147955240"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {f7 31 00 00 fb 31 00 00 06 32 00 00 12 32 00 00 27 32 00}  //weight: 10, accuracy: High
+        $x_5_2 = {48 8b 44 24 38 48 8d 44 00 ?? 89 44 24 28 48 8b 44 24 68 48 89 44 24 20}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

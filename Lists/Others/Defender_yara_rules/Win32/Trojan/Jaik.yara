@@ -22,6 +22,27 @@ rule Trojan_Win32_Jaik_GIC_2147845971_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_MKV_2147847905_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.MKV!MTB"
+        threat_id = "2147847905"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 45 bc 89 45 bc 8b 4d f0 8b 55 d0 8b 04 8a 33 05 ?? ?? ?? ?? 8b 4d f0 8b 55 d0 89 04 8a c7 45 c4 ac 39 00 00 8b 4d c4 83 c1 01 8b 45 c4 99 f7 f9 0f af 45 c4 89 45 c4 8b 55 f0 83 c2 01 89 55 f0 e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Jaik_GPC_2147891513_0
 {
     meta:
@@ -301,6 +322,27 @@ rule Trojan_Win32_Jaik_ARA_2147926725_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_ARA_2147926725_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.ARA!MTB"
+        threat_id = "2147926725"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 99 58 16 43 00 32 da 88 99 58 16 43 00 41 81 f9 db db 01 00 72 e9 33 c9}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Jaik_ARAZ_2147928718_0
 {
     meta:
@@ -411,6 +453,139 @@ rule Trojan_Win32_Jaik_NH_2147943200_1
         $x_1_4 = "Definec.exe" ascii //weight: 1
         $x_1_5 = "msslac.dll" ascii //weight: 1
         $x_1_6 = "AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\cbas.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Jaik_KK_2147947318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.KK!MTB"
+        threat_id = "2147947318"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 8d e4 fd ff ff 03 c2 8b 95 e0 fd ff ff 0f b6 c0 0f b6 84 05 f0 fe ff ff 30 04 0a}  //weight: 30, accuracy: High
+        $x_20_2 = {03 c8 81 e1 ff 00 00 80 79 ?? 49 81 c9 00 ff ff ff 41 8a 84 0d ?? ?? ?? ?? 88 84 3d 01 47 89 8d ?? ?? ff ff 88 9c 0d 02 81 ff}  //weight: 20, accuracy: Low
+        $x_10_3 = "msgdeupdate.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Jaik_ISR_2147947670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.ISR!MTB"
+        threat_id = "2147947670"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Cndom6.sys" ascii //weight: 1
+        $x_1_2 = "XiaoH.sys" ascii //weight: 1
+        $x_1_3 = "Add-MpPreference -ExclusionPath 'C:\\\\Users\\\\Public\\\\Documents" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Jaik_BAA_2147957548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.BAA!MTB"
+        threat_id = "2147957548"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 04 0f f6 d0 c0 c8 04 34 58 88 04 0f 41 3b ca 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Jaik_AHB_2147959010_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.AHB!MTB"
+        threat_id = "2147959010"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {89 c8 c1 e0 ?? 31 c1 89 d0 c1 f8 ?? 89 cb 31 d0 c1 fb ?? 31 c8 8d 8d 20 ff ff ff 31 c3}  //weight: 30, accuracy: Low
+        $x_20_2 = {ff 0f a4 c2 ?? c1 e0 ?? 29 c6 8b 45 10 19 d7 99 8b 85 e4 fe ff ff 0f af c2}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Jaik_AJK_2147959020_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.AJK!MTB"
+        threat_id = "2147959020"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 34 86 0f b7 04 47 03 f1 8b 3c 82 8b c6 03 f9 b9 fc 2c 01 10 8a 10 3a 11 75 1a 84 d2 74 12 8a 50 01 3a 51 01}  //weight: 3, accuracy: High
+        $x_2_2 = {68 7c 2d 01 10 8d 44 24 54 50 ff 15 ?? ?? ?? ?? 6a 00 6a 00 6a 20 6a 01 6a 01 68 80}  //weight: 2, accuracy: Low
+        $x_1_3 = "silver\\hack" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Jaik_MK_2147959467_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.MK!MTB"
+        threat_id = "2147959467"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_25_1 = {8b c2 d1 ea 83 e0 01 f7 d8 25 20 83 b8 ed 33 d0 83 ee 01 ?? ?? 89 14 8d e0 db 14 00 41 81 f9 00 01 00 00 ?? ?? 5e ba 00 04 00 00 8b 8a e0 d7 14 00 0f b6 c1 c1 e9 08 33 0c 85 e0 db 14 00 89 8a e0 db 14}  //weight: 25, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

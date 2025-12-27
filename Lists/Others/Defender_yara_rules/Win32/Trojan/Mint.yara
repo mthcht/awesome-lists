@@ -149,3 +149,133 @@ rule Trojan_Win32_Mint_AF_2147944993_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mint_AI_2147951432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.AI!MTB"
+        threat_id = "2147951432"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {66 89 45 c0 b9 7f 40 00 00 66 89 4d c2 c6 45 c4 8a c6 45 c5 f5 c6 45 c6 0d c6 45 c7 f3 c6 45 c8 5a c6 45 c9 00 c6 45 ca 5c c6 45 cb c8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mint_AJ_2147952699_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.AJ!MTB"
+        threat_id = "2147952699"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 6c 81 04 21 f5 89 d7 83 e7 02 89 c3 83 f3 01 01 fb 8b 7c 99 04 89 fb 81 e3 fe ff ff 7f 09 eb d1 eb 83 e7 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mint_AG_2147954446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.AG!MTB"
+        threat_id = "2147954446"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 89 e5 83 ec 20 31 c0 89 45 ee 89 45 ea 89 45 e0 64 a1 30 00 00 00 8b 40 08 89 45 ee 8b 45 ee 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mint_AH_2147954448_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.AH!MTB"
+        threat_id = "2147954448"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 f1 83 f1 ff 83 e1 02 89 f0 83 f0 ff 89 f2 83 f2 ff 21 d0 83 f0 ff 25 fd ff ff ff 0f af c1 89 f1 83 e1 02 83 ce 02}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mint_SXA_2147954776_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.SXA!MTB"
+        threat_id = "2147954776"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {33 4d c4 88 8d 67 ff ff ff 8b 15 ?? ?? ?? ?? 33 55 80 89 95 14 ff ff ff 0f b6 45 a3 83 c0 ?? 8b 8d 20 ff ff ff 83 c1 ?? 33 c1 88 45 ef}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 8d 68 ff ff ff 03 4d cc 03 8d 68 ff ff ff 33 8d 7c ff ff ff 66 89 8d 6c ff ff ff 0f b6 95 73 ff ff ff 8b 45 cc 2b c2 0f b7 4d d4 8d 54 08 fb 88 55 b7 8b 45 b8 83 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mint_MK_2147958295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.MK!MTB"
+        threat_id = "2147958295"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {8b 4d 08 81 e9 80 96 98 00 8b 55 0c 83 da 00 89 4d 08 89 55 0c 8b 45 fc 83 c0 01 89 45 fc}  //weight: 15, accuracy: High
+        $x_10_2 = {c6 45 d8 8a c6 45 d9 53 c6 45 da 85 c6 45 db 66 c6 45 dc 41 c6 45 dd 76 c6 45 de 36}  //weight: 10, accuracy: High
+        $x_3_3 = "-NoProfile -ExecutionPolicy Bypass -Command \"IEX (New-Object Net.WebClient).DownloadString" ascii //weight: 3
+        $x_2_4 = "-NoProfile -ExecutionPolicy Bypass -File" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -452,6 +452,34 @@ rule Ransom_Win64_Filecoder_ARA_2147917869_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_ARA_2147917869_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.ARA!MTB"
+        threat_id = "2147917869"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\\\.\\PhysicalDrive" ascii //weight: 10
+        $x_2_2 = "shellexecute=DEAD97.exe" ascii //weight: 2
+        $x_2_3 = "vssadmin delete shadows /all /quiet" ascii //weight: 2
+        $x_2_4 = "YOUR COMPUTER HAS BEEN FUCKED BY THE MEMZ TROJAN" ascii //weight: 2
+        $x_2_5 = "YOU CANNOT ESCAPE" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Ransom_Win64_Filecoder_GV_2147920833_0
 {
     meta:
@@ -497,6 +525,142 @@ rule Ransom_Win64_Filecoder_NITA_2147924132_0
         $x_2_2 = "BlackStriker.pdb" ascii //weight: 2
         $x_1_3 = "Sai do meu codigo" ascii //weight: 1
         $x_1_4 = "Oh no" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_MX_2147928076_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MX!MTB"
+        threat_id = "2147928076"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 05 cc a7 11 00 31 c9 31 ff 48 89 fe 0f 1f}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_MX_2147928076_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MX!MTB"
+        threat_id = "2147928076"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 44 24 30 48 8b 5c 24 18 e8 27 ff ff ff e9 49 ff ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_MX_2147928076_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MX!MTB"
+        threat_id = "2147928076"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_2 = "xor_locker" ascii //weight: 1
+        $x_1_3 = "decrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_MX_2147928076_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MX!MTB"
+        threat_id = "2147928076"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 8d 8d d0 03 00 00 4c 8b 85 f8 04 00 00 48 8d 55 c0 48 8d 45 c0 c7 44 24 28 01 00 00 00 48 8d 4d b0 48 89 4c 24 20 48 89 c1 e8 72 13 00 00 48 8b 8d 00 05 00 00 48 8b 95 f8 04 00 00 48 8d 45 c0 49 89 c9 49 89 d0 ba}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_MX_2147928076_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MX!MTB"
+        threat_id = "2147928076"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".encrypted" ascii //weight: 1
+        $x_1_2 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_3 = "to restore them" ascii //weight: 1
+        $x_1_4 = "message will be deleted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_MX_2147928076_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MX!MTB"
+        threat_id = "2147928076"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "EByte-Ransomware" ascii //weight: 1
+        $x_1_2 = "EncryptFile" ascii //weight: 1
+        $x_1_3 = "EncryptDirectory" ascii //weight: 1
+        $x_1_4 = "sendLockerID" ascii //weight: 1
+        $x_1_5 = "setWallpaper" ascii //weight: 1
+        $x_1_6 = "getDrives" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -581,6 +745,33 @@ rule Ransom_Win64_Filecoder_NITD_2147931302_0
 }
 
 rule Ransom_Win64_Filecoder_NITD_2147931302_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.NITD!MTB"
+        threat_id = "2147931302"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "WannaDecryption.pdb" ascii //weight: 2
+        $x_2_2 = "encrypted file" ascii //weight: 2
+        $x_2_3 = "Your files are encrypted" ascii //weight: 2
+        $x_2_4 = "Decryption completed!" ascii //weight: 2
+        $x_2_5 = "Decrypting files" ascii //weight: 2
+        $x_1_6 = "To decrypt your files" ascii //weight: 1
+        $x_1_7 = "drop of the panic payload panicked" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_NITD_2147931302_2
 {
     meta:
         author = "defender2yara"
@@ -741,6 +932,31 @@ rule Ransom_Win64_Filecoder_PAQ_2147939019_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAQ_2147939019_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAQ!MTB"
+        threat_id = "2147939019"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "gGlobal\\{E7F2A1D0-B9C4-4E8F-95A3-6B0D82C1E4F9}_VortexCry_Mutex" wide //weight: 3
+        $x_3_2 = "vcry\\x64\\Release\\vcry.pdb" ascii //weight: 3
+        $x_2_3 = "\\\\.\\pipe\\VortexCry_Pipe" wide //weight: 2
+        $x_2_4 = {0f b6 04 31 34 fe 88 01 48 8d 49 01 48 83 eb 01 75}  //weight: 2, accuracy: High
+        $x_1_5 = {f3 0f 6f 44 01 f0 0f 57 c2 f3 0f 7f 40 f0 f3 0f 6f 0c 01 0f 57 ca f3 0f 7f 08 f3 0f 6f 44 01 10 0f 57 c2 f3 0f 7f 40 10 f3 0f 6f 4c 01 20 0f 57 ca f3 0f 7f 48 20 48 83 c2 40 48 8d 40 40 49 3b d1 72}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win64_Filecoder_CCJX_2147939639_0
 {
     meta:
@@ -881,5 +1097,733 @@ rule Ransom_Win64_Filecoder_BMX_2147945108_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PAHG_2147946145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHG!MTB"
+        threat_id = "2147946145"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "vssadmin delete shadowstorage /all /quiet" ascii //weight: 10
+        $x_10_2 = "vssadmin delete shadows /all /quiet" ascii //weight: 10
+        $x_2_3 = "reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableAntiSpyware /t REG_DWORD /d 1 /f" ascii //weight: 2
+        $x_2_4 = "reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableRealtimeMonitoring /t REG_DWORD /d 1 /f" ascii //weight: 2
+        $x_1_5 = "DisableTaskMgr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Ransom_Win64_Filecoder_AMX_2147946340_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.AMX!MTB"
+        threat_id = "2147946340"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".heartbreaker" ascii //weight: 1
+        $x_1_2 = "github.com/saaaarwar/mimicore" ascii //weight: 1
+        $x_1_3 = "litcrypt" ascii //weight: 1
+        $x_1_4 = "encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_AMX_2147946340_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.AMX!MTB"
+        threat_id = "2147946340"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "files have been encrypted" ascii //weight: 1
+        $x_1_2 = "infected with a ransomware virus" ascii //weight: 1
+        $x_1_3 = "bitcoins.com" ascii //weight: 1
+        $x_1_4 = "Get-WmiObject Win32_ShadowCopy" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PZD_2147946435_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PZD!MTB"
+        threat_id = "2147946435"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 01 d0 0f b6 00 83 f0 55 89 c2 48 8d 4d ?? 48 8b 85 ?? 0f 00 00 48 01 c8 88 10 48 83 85 ?? 0f 00 00 01 48 8b 85 ?? 0f 00 00 48 3b 85 ?? 0f 00 00 72}  //weight: 3, accuracy: Low
+        $x_2_2 = {66 69 6c 65 73 20 [0-50] 65 6e 63 72 79 70 74 65 64}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_YBC_2147946846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBC!MTB"
+        threat_id = "2147946846"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\Windows\\System32\\drivers\\etc\\hosts" ascii //weight: 1
+        $x_1_2 = "encryption_log.txt" ascii //weight: 1
+        $x_1_3 = "!!! SYSTEM COMPROMISED !!!" wide //weight: 1
+        $x_1_4 = "YOUR FILES ARE GONE" wide //weight: 1
+        $x_1_5 = "!!! SYSTEM LOCKED !!!" wide //weight: 1
+        $x_1_6 = "YOUR COMPUTER IS UNDER CONTROL" wide //weight: 1
+        $x_1_7 = "LockScreenClass" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_YBD_2147946847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBD!MTB"
+        threat_id = "2147946847"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".ransom" wide //weight: 1
+        $x_1_2 = "Software\\Policies\\Microsoft\\Windows NT\\Security" wide //weight: 1
+        $x_1_3 = "DisableFirewall" wide //weight: 1
+        $x_1_4 = "Software\\Policies\\Microsoft\\Windows NT\\SystemRestore" wide //weight: 1
+        $x_1_5 = "DisableSR" wide //weight: 1
+        $x_1_6 = "To decrypt them" wide //weight: 1
+        $x_1_7 = "Your files have been encrypted" wide //weight: 1
+        $x_1_8 = "wallet address" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_YBE_2147946848_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBE!MTB"
+        threat_id = "2147946848"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".LockedA" ascii //weight: 1
+        $x_1_2 = "Information.HTA" wide //weight: 1
+        $x_1_3 = "DontDeleteThisFolder\\Enc.key" ascii //weight: 1
+        $x_1_4 = "System Volume Information" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_YBE_2147946848_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBE!MTB"
+        threat_id = "2147946848"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Files Have Been Encrypted" ascii //weight: 1
+        $x_1_2 = "encrypted by our advanced attack" ascii //weight: 1
+        $x_1_3 = "HOW-TO-RESTORE-YOUR-FILES.txt" wide //weight: 1
+        $x_1_4 = "located in every encrypted folder" wide //weight: 1
+        $x_1_5 = "Buy Bitcoin" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_YBF_2147947084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBF!MTB"
+        threat_id = "2147947084"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f 57 c8 f3 0f 7f 48 ?? 66 0f 6f ca f3 0f 6f 40 ?? 0f 57 c2 f3 0f 7f 40 ?? f3 0f 6f}  //weight: 1, accuracy: Low
+        $x_1_2 = {80 30 3f 48 8d 40 01 ff c1 81 f9 2c 3c 00 00 72}  //weight: 1, accuracy: High
+        $x_1_3 = "Global\\lockv7" wide //weight: 1
+        $x_1_4 = "locked.html" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_C_2147947184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.C!MTB"
+        threat_id = "2147947184"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {49 0f 43 c7 45 0f b6 0e 44 32 08 48 8b 4f}  //weight: 5, accuracy: High
+        $x_5_2 = "shellcode" wide //weight: 5
+        $x_5_3 = "Trend Micro" wide //weight: 5
+        $x_5_4 = "veeam." wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_C_2147947184_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.C!MTB"
+        threat_id = "2147947184"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "main.deleteVSS" ascii //weight: 3
+        $x_3_2 = "main.encryptFile" ascii //weight: 3
+        $x_3_3 = "main.scanAndEncrypt" ascii //weight: 3
+        $x_2_4 = "main.shouldEncrypt" ascii //weight: 2
+        $x_2_5 = "main.shouldExclude" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_FFD_2147947526_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.FFD!MTB"
+        threat_id = "2147947526"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 c0 c6 02 89 f0 44 30 e8 44 30 f0 48 8b 4d ?? 88 04 31 48 8d 46 01 48 89 45 f8 48 89 c6 48 39 c7 0f 84}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_GGN_2147948038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.GGN!MTB"
+        threat_id = "2147948038"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Global\\RansomLord_2025" ascii //weight: 1
+        $x_1_2 = "vssadmin delete shadows /all /quiet" ascii //weight: 1
+        $x_1_3 = "SEND PROOF TO darkweb_dead" ascii //weight: 1
+        $x_1_4 = "YOUR SYSTEM IS ANNIHILATED" ascii //weight: 1
+        $x_1_5 = "sc stop WinDefend" ascii //weight: 1
+        $x_1_6 = "PAY_UP.txt" ascii //weight: 1
+        $x_1_7 = "DisableAntiSpyware /t REG_DWORD /d 1 /f" ascii //weight: 1
+        $x_1_8 = ".encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_MKQ_2147948149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.MKQ!MTB"
+        threat_id = "2147948149"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Disable Firewall" ascii //weight: 1
+        $x_1_2 = "Encrypt all files" ascii //weight: 1
+        $x_1_3 = "!!! WARNING: RANSOMWARE DETECTED !!!" ascii //weight: 1
+        $x_1_4 = "VIRUS DETECTED! PAY TO REMOVE!" ascii //weight: 1
+        $x_1_5 = "ransom_note.txt" ascii //weight: 1
+        $x_1_6 = ".encrypted" ascii //weight: 1
+        $x_1_7 = "Your PC is FUCKED" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_EMYO_2147949073_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.EMYO!MTB"
+        threat_id = "2147949073"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ransom" ascii //weight: 1
+        $x_1_2 = "YourEncryptionKeyHere" ascii //weight: 1
+        $x_1_3 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_4 = "decrypt your files" ascii //weight: 1
+        $x_1_5 = "random_device" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_SX_2147949162_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.SX!MTB"
+        threat_id = "2147949162"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 b8 00 00 00 00 ba 00 00 00 00 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 48 8b 45 ?? 48 c7 44 24 20 00 00 00 00 4d 89 c1 41 89 c8 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 85 c0}  //weight: 5, accuracy: Low
+        $x_3_2 = {48 8d 55 c0 48 8b 85 ?? ?? 00 00 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 85 c0 0f 95 c0 84 c0}  //weight: 3, accuracy: Low
+        $x_1_3 = "Your files have been encrypted." ascii //weight: 1
+        $x_1_4 = "ransom.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PAHN_2147949646_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHN!MTB"
+        threat_id = "2147949646"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Shutdown is blocked by background task" wide //weight: 1
+        $x_2_2 = "Encrypted:" wide //weight: 2
+        $x_2_3 = "DisableTaskMgr" wide //weight: 2
+        $x_1_4 = "Unauthorized access detected" ascii //weight: 1
+        $x_1_5 = "System compromised." ascii //weight: 1
+        $x_1_6 = "SilentShutdownBlocker" ascii //weight: 1
+        $x_1_7 = "icacls" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PID_2147949780_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PID!MTB"
+        threat_id = "2147949780"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {44 89 d0 99 f7 fe 48 63 d2 41 0f b6 04 14 42 30 04 13 49 83 c2 01 4c 39 d7 75}  //weight: 6, accuracy: High
+        $x_2_2 = "files have been encrypted" ascii //weight: 2
+        $x_2_3 = "HACKED BY THEFOLLOWERS" ascii //weight: 2
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_NITE_2147951316_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.NITE!MTB"
+        threat_id = "2147951316"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "You are encrypted!!!" ascii //weight: 2
+        $x_2_2 = "All backup data and entire data are under our control" ascii //weight: 2
+        $x_2_3 = "impossible to recover" ascii //weight: 2
+        $x_2_4 = "do not repair files or terminate related processes" ascii //weight: 2
+        $x_2_5 = "please pay us a ransom" ascii //weight: 2
+        $x_1_6 = "sell your data" ascii //weight: 1
+        $x_1_7 = "violate the above requirements" ascii //weight: 1
+        $x_1_8 = "all data will be published on the Internet" ascii //weight: 1
+        $x_1_9 = "H2OWATER TeAm" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PAHR_2147951367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHR!MTB"
+        threat_id = "2147951367"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 57 38 41 b9 04 00 00 00 48 8b 4f 18 41 b8 00 30 00 00 ff}  //weight: 2, accuracy: High
+        $x_3_2 = {41 0f b7 01 4d 8d 49 02 83 f8 61 8d 48 e0 0f 42 c8 45 6b db 21 44 03 d9 49 83 ea 01 75}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PAHT_2147952264_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHT!MTB"
+        threat_id = "2147952264"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Key broken!" wide //weight: 1
+        $x_2_2 = ".babyk" wide //weight: 2
+        $x_2_3 = "How To Restore Your Files.txt" wide //weight: 2
+        $x_1_4 = "Your files decrypted, bye!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_AFU_2147952376_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.AFU!MTB"
+        threat_id = "2147952376"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 b8 0b 00 00 ?? ?? ?? ?? ?? ?? bf 01 00 00 00 31 f6 48 8b 55 ?? 48 89 d0 48 f7 d8}  //weight: 1, accuracy: Low
+        $x_2_2 = "USERPROFILEREADME.txt" ascii //weight: 2
+        $x_3_3 = "Your files are encrypted and cannot be decrypted" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_EAZF_2147952384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.EAZF!MTB"
+        threat_id = "2147952384"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_2 = "decrypt them" ascii //weight: 1
+        $x_1_3 = "config.txt" ascii //weight: 1
+        $x_1_4 = "key=your_secret_key" ascii //weight: 1
+        $x_1_5 = "If we don't receive payment within 7 days, the key will be deleted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_PAHU_2147952393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAHU!MTB"
+        threat_id = "2147952393"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bcdedit /set {default} recoveryenabled No" ascii //weight: 1
+        $x_2_2 = "DisableAntiSpyware" ascii //weight: 2
+        $x_2_3 = "-DisableRealtimeMonitoring" ascii //weight: 2
+        $x_2_4 = "FILES ENCRYPTED" wide //weight: 2
+        $x_2_5 = "Pay the ransom" ascii //weight: 2
+        $x_1_6 = "sc stop WinDefend" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_SLCP_2147952394_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.SLCP!MTB"
+        threat_id = "2147952394"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 85 10 05 00 00 48 8d 50 08 48 8b 8d 30 05 00 00 48 8d 85 d0 02 00 00 48 89 54 24 20 49 89 c9 4c 8d 05 cb a8 34 00 ba 00 02 00 00 48 89 c1 e8 1c fb ff ff 48 8d 85 d0 00 00 00 48 89 c2 48 8d 05 b7 a8 34 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_SLEP_2147952395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.SLEP!MTB"
+        threat_id = "2147952395"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {e9 da 02 00 00 48 8d 85 90 12 00 00 4c 8d 05 9a 98 46 00 48 8b 95 f0 14 00 00 48 89 c1 e8 0c 0e 43 00 48 8d 95 90 12 00 00 48 8d 85 c0 10 00 00 41 b8 04 00 00 00 48 89 c1}  //weight: 2, accuracy: High
+        $x_1_2 = "ransom.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_EABA_2147952577_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.EABA!MTB"
+        threat_id = "2147952577"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_2 = "decrypt them" ascii //weight: 1
+        $x_1_3 = "send $100 to [attacker's email address]." ascii //weight: 1
+        $x_1_4 = "d.encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Filecoder_AP_2147956866_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.AP!AMTB"
+        threat_id = "2147956866"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "vssadmindeleteshadows//all//quiet" ascii //weight: 3
+        $x_3_2 = "Tus archivos han sido cifrados" ascii //weight: 3
+        $x_2_3 = "hola soy el TOX ransom" ascii //weight: 2
+        $x_1_4 = "Ransom completo. Para recuperar, ejecuta" ascii //weight: 1
+        $x_1_5 = "ransom.pdb" ascii //weight: 1
+        $x_1_6 = "leeme.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Ransom_Win64_Filecoder_SXE_2147957101_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.SXE!MTB"
+        threat_id = "2147957101"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2b cf 83 e1 ?? ?? ?? ?? ?? ?? 2b c1 44 8b e8 4c 8b e3 4c 2b e7 49}  //weight: 10, accuracy: Low
+        $x_10_2 = {2b cf 83 e1 ?? ?? ?? ?? ?? ?? 2b c1 44 8b e8 8b f0 48 2b f7}  //weight: 10, accuracy: Low
+        $x_1_3 = "ransom.txt" ascii //weight: 1
+        $x_1_4 = "key.bin" ascii //weight: 1
+        $x_1_5 = "Your files have been encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 

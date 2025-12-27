@@ -2928,3 +2928,134 @@ rule Trojan_Win64_Dridex_PGD_2147939656_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dridex_DRX_2147951976_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.DRX!MTB"
+        threat_id = "2147951976"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 d3 e2 48 89 55 e0 8a 4d d3 88 08 48 8b 45 88 48 69 d0 ?? ?? ?? ?? 48 89 55 e0 b8 77 a9 00 00 89 c1 48 2b 4d 00 8b 45 bc 8b 55 a4 83 f2 ff 89 55 b8 4c 8b 45 ?? 4c 31 c1 83 c0 01 48 89 4d e0 89 45 bc e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dridex_LM_2147952523_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.LM!MTB"
+        threat_id = "2147952523"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {83 fe 0f 73 ?? 41 0f b6 45 ?? 8b ce 49 83 c5 02 d3 e0 8d 4e 08 44 03 e0 41 0f b6 45 ?? d3 e0 44 03 e0 83 c6 10 41 8b c4 48 23 c2}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b ca b8 01 00 00 00 c1 ed 10 d3 e0 ff c8 41 23 c4 03 c5 41 8b 2c 81 8b c5 40 0f b6 d5 c1 e8 08 0f b6 c8 41 d3 ec 2b f1 40 84 ed}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dridex_KK_2147953714_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.KK!MTB"
+        threat_id = "2147953714"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 8c 24 98 00 00 00 40 8a 6c 24 6f 81 f1 ?? ?? ?? ?? 89 8c 24 98 00 00 00 40 20 dd 83 c0 ?? 3b 44 24 4c 0f 92 c3 40 20 dd 89 44 24 7c 40 f6 c5}  //weight: 20, accuracy: Low
+        $x_10_2 = {42 f3 33 50 7c 25 ?? ?? ?? ?? 87 85 de 4c a9 a5 53 2c ?? 8e 28 e3}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dridex_KAB_2147953715_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.KAB!MTB"
+        threat_id = "2147953715"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8a 9c 24 bf 00 00 00 80 f3 ?? 88 9c 24 bf 00 00 00 44 8b 5c 24 2c 8b 7c 24 38 41 01 fb 48 8b 44 24 30 48 83 c0}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 8b 0c 24 48 81 f1 ?? ?? ?? ?? 48 89 4c 24 40 48 8b 4c 24 28 48 8b 54 24 18 44 8a 04 0a 44 8a 4c 24 39}  //weight: 10, accuracy: Low
+        $x_5_3 = "ZlSO+fr6Lq*K*2w4m" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dridex_KAC_2147954464_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.KAC!MTB"
+        threat_id = "2147954464"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b 44 24 08 89 4c 24 04 48 89 c1 48 d3 e8 48 89 44 24 38 8b 54 24 04 83 e2 ?? c7 44 24 28 ?? 00 00 00 83 fa 00}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 44 24 20 8b 4c 24 44 81 c1 ?? ?? ?? ?? 21 c8 c7 44 24 28 ?? 00 00 00 83 f8 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dridex_KAD_2147954722_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dridex.KAD!MTB"
+        threat_id = "2147954722"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f b6 0c 2f 8b c3 48 33 c8 48 ff c7 0f b6 c1 8b cb c1 e9 08 ?? ?? ?? ?? 33 d9 48 3b fe 7c}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

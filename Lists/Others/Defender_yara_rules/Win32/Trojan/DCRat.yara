@@ -330,3 +330,137 @@ rule Trojan_Win32_DCRat_MPX_2147928219_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DCRat_MX_2147947137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.MX!MTB"
+        threat_id = "2147947137"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 7d 08 8b c7 c1 f8 05 8d 34 85 60 3f 42 00 8b 06 83 e7 1f c1 e7 06 03 c7 8a 58 24 02 db d0 fb}  //weight: 1, accuracy: High
+        $x_1_2 = "libGLESv2.dll" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DCRat_GXD_2147948270_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.GXD!MTB"
+        threat_id = "2147948270"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {00 4b 4a 3f 4b 32 3f 83 c4 14}  //weight: 5, accuracy: High
+        $x_5_2 = {43 42 43 33 36 3d ?? ?? ?? ?? 3f 01 00 5f}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DCRat_GVE_2147954839_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.GVE!MTB"
+        threat_id = "2147954839"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {df 01 3f 67 41 fb 74 2d 30 04 e6 ad fe a3 f9 74 1c 80 ed ad 07 f8 7f be b0 f6 c5 47 1e 97 76 8a}  //weight: 2, accuracy: High
+        $x_1_2 = "Hatto12" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DCRat_GVF_2147955710_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.GVF!MTB"
+        threat_id = "2147955710"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "42FC44596E89DA5AE6D4D3E3F99803B92713C413F3B56B0F59C5CC4E681E362C" ascii //weight: 3
+        $x_1_2 = "E123F60E9FC6E974D1381F2F15FB19E7960628CC8925D65E344C2F2BDC64F424" ascii //weight: 1
+        $x_1_3 = "$4a2f8fb6-1077-469a-9246-736e6afe8da1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DCRat_ARR_2147958890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.ARR!MTB"
+        threat_id = "2147958890"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "9738f957-95e9-4cd9-ba0f-974ff6af6fd9" ascii //weight: 10
+        $x_3_2 = "SYTbvM5Wvh2B4EZf3NtOE0rSL0dYY64JC7DcUgK" ascii //weight: 3
+        $x_7_3 = "<PrivateImplementationDetails>{236CEC7C-EDBB-4383-9F57-AD405848312F}" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DCRat_A_2147959765_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.A!AMTB"
+        threat_id = "2147959765"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "PEsPEsEP" ascii //weight: 2
+        $x_2_2 = "N-* peSpeSep " ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

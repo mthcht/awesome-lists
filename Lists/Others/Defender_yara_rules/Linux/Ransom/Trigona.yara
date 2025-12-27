@@ -95,3 +95,28 @@ rule Ransom_Linux_Trigona_D_2147907306_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Trigona_E_2147959090_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Trigona.E!MTB"
+        threat_id = "2147959090"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Trigona"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "how_to_decrypt.txt" ascii //weight: 1
+        $x_1_2 = "vim-cmd vmsvc/getallvms" ascii //weight: 1
+        $x_1_3 = "/wipepath" ascii //weight: 1
+        $x_1_4 = ".-encrypted" ascii //weight: 1
+        $x_1_5 = "vim-cmd vmsvc/power.off" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

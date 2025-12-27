@@ -1882,6 +1882,31 @@ rule Trojan_Win64_Zusy_NIT_2147943748_0
         )
 }
 
+rule Trojan_Win64_Zusy_NIT_2147943748_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.NIT!MTB"
+        threat_id = "2147943748"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 44 24 30 48 8b 4c 24 30 48 ff c9 48 89 4c 24 30 48 85 c0 74 2b 48 8b 44 24 20 48 8b 4c 24 28 0f b6 09 88 08 48 8b 44 24 20 48 ff c0 48 89 44 24 20 48 8b 44 24 28 48 ff c0 48 89 44 24 28 eb be}  //weight: 2, accuracy: High
+        $x_2_2 = {48 8b 04 24 0f be 00 48 8b 0c 24 48 ff c1 48 89 0c 24 85 c0 74 0c 48 8b 44 24 20 48 89 44 24 20 eb de}  //weight: 2, accuracy: High
+        $x_2_3 = {4c 8b dc 48 81 ec 88 02 00 00 48 8b 05 b7 d9 00 00 48 89 84 24 70 02 00 00 49 89 5b 10 49 89 73 18 48 8d 4c 24 50 33 d2 41 b8 04 01 00 00 49 89 7b 20 e8 c9 46 00 00 48 8d 8c 24 60 01 00 00 33 d2 41 b8 04 01 00 00 e8 b4 46 00 00 48 8d 4c 24 50 ba 04 01 00 00 ff 15 4c d8 ff ff 33 c0 48 8d 7c 24 50 48 c7 c1 ff ff ff ff 48 8d 1d 2f e3 00 00 f2 ae 48 8b 05 26 de ff ff 33 f6 48 89 47 ff 8b 05 22 de ff ff 48 8b ce 89 47 07 0f b7 05 19 de ff ff 66 89 47 0b 0f b6 05 10 de ff ff 88 47 0d}  //weight: 2, accuracy: High
+        $x_1_4 = "FindFirstFile(inf)" ascii //weight: 1
+        $x_1_5 = "Remove: %s success!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_NS_2147944940_0
 {
     meta:
@@ -1899,6 +1924,1077 @@ rule Trojan_Win64_Zusy_NS_2147944940_0
     strings:
         $x_3_1 = {48 8d 0d 81 2e 00 00 ff 15 c3 2a 00 00 48 8d 3d a0 2e 00 00 48 8b d7 48 8d 4d ?? e8 30 02 00 00}  //weight: 3, accuracy: Low
         $x_1_2 = {45 33 c9 48 8d 15 56 2f 00 00 33 c9 ff 15 46 2b 00 00 48 8d 4d ?? e8 65 00 00 00 4c 8b c0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_MR_2147945445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MR!MTB"
+        threat_id = "2147945445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {30 01 48 8d 49 01 ff c0 3b c7 7c}  //weight: 10, accuracy: High
+        $x_30_2 = {44 8b c0 b8 4f ec c4 4e 41 f7 e8 c1 fa 03 8b ca c1 e9 1f 03 d1 6b ca 1a 44 2b c1 49 63 c0 0f b6 04 38 88 44 1c 30 48 ff c3 48 83 fb 08}  //weight: 30, accuracy: High
+        $x_10_3 = "EyeLoveMyMuteX" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_MR_2147945445_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MR!MTB"
+        threat_id = "2147945445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {c6 84 24 ad 01 00 00 d3 c6 84 24 ae 01 00 00 67 c6 84 24 af 01 00 00 5b c7 84 24 b0 01 00 00 cf be 3a 46}  //weight: 10, accuracy: High
+        $x_5_2 = {41 8b cb 41 8b c3 48 c1 e9 10 25 ff 00 04 00 83 e1 06 89 ?? ?? 72 05 00 48 81 c9 29 00 00 01 48 f7 d1 ?? ?? 0d 80 4f 05 00 48 ?? ?? 79 4f 05 00 3c 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_MR_2147945445_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MR!MTB"
+        threat_id = "2147945445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 8b 15 ac 1e 0d 00 8b c2 83 e0 3f 48 8b da 48 33 1d 85 49 0d 00 8b c8 48 d3 cb b9 40 00 00 00 2b c8 48 d3 cf 48 33 fa 48 89 3d 6c 49 0d 00 33 c9}  //weight: 5, accuracy: High
+        $x_10_2 = {4c 8b 15 cd 13 0d 00 41 8b ca 49 8b f2 48 33 32 83 e1 3f 4d 8b ca 48 d3 ce 4c 33 4a 08 49 8b da 48 33 5a 10 49 d3 c9 48 d3 cb 4c 3b cb}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_HMZ_2147945594_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.HMZ!MTB"
+        threat_id = "2147945594"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {01 c1 0f b6 c1 8a 84 04 ?? ?? ?? ?? 48 63 8c 24 84 00 00 00 48 8b 54 24 48 30 04 0a 8b 84 24 84 00 00 00 83 c0 01 89 44 24 70 8b 05 ?? ?? ?? ?? 8d 48 ff 0f af c8 f6 c1 01 b8 17 f9 ce f2 b9 47 a4 cc 08 0f 44 c1 83 3d a6 5a 09 00 0a 0f 4c c1 44 8b 74 24 44 4d 89 ef e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_LMG_2147946030_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LMG!MTB"
+        threat_id = "2147946030"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {48 8b 44 24 20 48 63 48 04 48 8b 44 0c 68 48 f7 d8 1b d2 f7 d2 83 e2 04 0b 54 0c 30 83 e2 15 83 ca 02 89 54 0c 30 23 54 0c 34}  //weight: 15, accuracy: High
+        $x_10_2 = {8b c8 c1 e9 1e 33 c8 69 c1 65 89 07 6c 03 c2 89 44 95 14 ?? ?? ?? 49 3b d0 72 e5 44 89 45 10 [0-4] 48 8d 45 10}  //weight: 10, accuracy: Low
+        $x_5_3 = {f2 0f 59 05 ?? ?? ?? ?? 0f 57 c9 48 85 c0 78 ?? f2 48 0f 2a c8 eb ?? 48 8b c8 48 d1 e9 83 e0 01 48 0b c8 f2 48 0f 2a c9 f2 0f 58 c9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KK_2147946085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KK!MTB"
+        threat_id = "2147946085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 30 01 45 30 51 01 45 30 41 02 41 30 51 03 49 83 c1 04 83 e9}  //weight: 20, accuracy: High
+        $x_10_2 = {8a 44 0c 50 48 ff c1 41 30 01 49 ff c1 48 3b ca}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KK_2147946085_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KK!MTB"
+        threat_id = "2147946085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 85 9c 01 00 00 48 98 0f b6 84 05 2a 01 00 00 84 c0}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 85 9c 01 00 00 48 98 0f b6 84 05 2a 01 00 00 66 0f be d0 8b 85 9c 01 00 00 48 98 66 89 94 45 e0 00 00 00 83 85 9c 01 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KK_2147946085_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KK!MTB"
+        threat_id = "2147946085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {f3 43 0f 6f 04 08 0f 57 c2 f3 43 0f 7f 04 08 41 8d 42 f0 f3 42 0f 6f 04 08 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 08 41 8b c2 f3 42 0f 6f 04 08 0f 57 c2 f3 42 0f 7f 04 08 41 8d 42 10 f3 42 0f 6f 04 08 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 08 41 83 c0 40 41 83 c2 40 45 3b c3}  //weight: 6, accuracy: High
+        $x_10_2 = {41 8d 4a 01 45 8b ca 44 0f b6 04 19 42 0f b6 0c 13 41 80 e8 41 fe c9 49 d1 e9 c0 e1 04 41 83 c2 02 44 0a c1 45 88 04 01 8b 0f 44 3b d1 72 d1}  //weight: 10, accuracy: High
+        $x_4_3 = "TuoniAgent.dll" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SXC_2147947640_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXC!MTB"
+        threat_id = "2147947640"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {41 b9 00 00 00 00 49 89 d0 48 89 c2 b9 00 00 00 00 48 8b 05 29 8c 01 00 ff d0 b9 f4 01 00 00 48 8b 05 db 89 01 00 ff d0 48 8d 85 90 01 00 00 48 89 c1 48 8b 05 28 89 01 00 ff d0}  //weight: 3, accuracy: Low
+        $x_2_2 = {48 8d 85 c0 01 00 00 41 b8 00 00 00 00 48 89 c1 48 8b 05 46 8e 01 00 ff d0 48 8d 45 b0 ba 06 00 00 00 48 89 c1 48 8b 05 f1 8e 01 00 ff d0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AUK_2147947895_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AUK!MTB"
+        threat_id = "2147947895"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4b 41 59 28 b5 2f fd 00 88 c4 cc 01 1a d4 5d 72}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AHG_2147948330_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHG!MTB"
+        threat_id = "2147948330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0f b6 b4 18 ea 01 00 00 40 c0 ee 04 40 0f b6 f6 48 8d 3d b9 66 05 00 0f b6 34 37 48 81 fa 0b 02 00 00 0f 83}  //weight: 3, accuracy: High
+        $x_2_2 = {48 89 c1 48 b8 89 ?? ?? ?? ?? ?? ?? ?? 48 89 d6 48 f7 ea 48 01 f2 48 c1 fa 03 48 c1 fe 3f 48 29 f2 48 ff c2 48 89 c8 48 89 d1}  //weight: 2, accuracy: Low
+        $x_2_3 = {48 89 c6 48 b8 89 ?? ?? ?? ?? ?? ?? ?? 49 89 d0 48 f7 ef 4c 8d 0c 3a 49 c1 f9 03 48 c1 ff 3f 49 29 f9 49 8d 79 01 48 89 f0 4c 89 c2 48 89 fe}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Zusy_AHI_2147948335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHI!MTB"
+        threat_id = "2147948335"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {66 89 84 24 a6 01 00 00 c6 84 24 a8 01 00 00 88 c6 84 24 a9 01 00 00 95 c6 84 24 aa 01 00 00 7d c6 84 24 ab 01 00 00 86 c6 84 24 ac 01 00 00 7d c6 84 24 ad 01 00 00 d3 c6 84 24 ae 01 00 00 67 c6 84 24 af 01 00 00 5b}  //weight: 10, accuracy: High
+        $x_5_2 = {c6 84 24 28 01 00 00 85 c6 84 24 29 01 00 00 60 c6 84 24 2a 01 00 00 e4 c6 84 24 2b 01 00 00 b2 c6 84 24 2c 01 00 00 03 c6 84 24 2d 01 00 00 a9 c6 84 24 2e 01 00 00 7a c6 84 24 2f 01 00 00 8b c7 84 24 30 01 00 00 1e 86 96 f3}  //weight: 5, accuracy: High
+        $x_3_3 = "[+] Decrypted AES Key (hex)" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SXG_2147948336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXG!MTB"
+        threat_id = "2147948336"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 63 47 3c 48 8b 4c 24 58 48 03 c3 4c 89 64 24 20 44 8b 84 38 ?? ?? ?? ?? 8b 94 38 ?? ?? ?? ?? 4c 03 c7 44 8b 8c 38 ?? ?? ?? ?? 49 03 d6 41 ff d7 0f b7 45 06 ff c6 48 83 c3 28 3b f0 7c}  //weight: 5, accuracy: Low
+        $x_3_2 = {48 89 5c 24 20 41 ff d7 8b 45 28 48 8d 54 24 ?? 48 8b 4c 24 ?? 49 03 c6 48 89 84 24 ?? ?? ?? ?? 41 ff d5 48 8b 4c 24 ?? ff 54 24}  //weight: 3, accuracy: Low
+        $x_2_3 = {f3 0f 7f 45 af 66 44 89 6d 9f 48 8d 55 e7 4c 8b 55 e7 4c 8b 5d ff 49 83 fb 10 49 0f 43 d2 48 c7 c3 ff ff ff ff 4c 8b 4d f7 4d 85 c9 74 2f}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KAB_2147948348_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KAB!MTB"
+        threat_id = "2147948348"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {0f b6 c1 41 33 c0 69 c8 93 01 00 01 8b c1 c1 e8 0d 33 c1 69 c8 95 e9 d1 5b 44 8b c1 41 c1 e8 0f 44 33 c1 45 84 c9 75}  //weight: 10, accuracy: High
+        $x_8_2 = {b8 4f ec c4 4e 41 f7 e8 c1 fa 04 8b c2 c1 e8 1f 03 d0 0f b7 c2 6b c8 34 41 0f b7 c0 66 2b c1 66 83 c0 38 66 41 31 01 41 ff c0 4d 8d 49 02 41 81 f8}  //weight: 8, accuracy: High
+        $x_7_3 = {66 2b c1 66 83 c0 38 66 41 31 01 41 ff c0 4d 8d 49 02 41 81 f8}  //weight: 7, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_LM_2147948580_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LM!MTB"
+        threat_id = "2147948580"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {80 30 a1 48 89 c0 48 83 c0 01 48 39 c8 75 ?? 4d 87 db 4d 8d 6d 00 f3 41 0f 6f 09 b8 f0 f0 f0 f0 4d 8d 41 10}  //weight: 10, accuracy: Low
+        $x_20_2 = {0f b6 02 d0 c8 48 89 c0 88 02 4d 8d 12 4d 89 d2 4d 8d 12 48 83 c2 01 48 39 ca 75 e4 49 8b 41 2a 49 89 41 0a 41 0f b7 41 32 66 41 89 41 12 48 89 ff 4d 89 c9}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KAD_2147950798_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KAD!MTB"
+        threat_id = "2147950798"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 89 4c 24 40 48 8b 5a ?? 48 89 5c 24 48 48 8b 72 ?? 48 89 74 24 30 48 8b 7a ?? 48 89 7c 24 38 48 8b 52 ?? 48 89 54 24 28 b8}  //weight: 20, accuracy: Low
+        $x_10_2 = {0f b6 54 0c 76 83 f2 ?? 88 14 08 48 ff c1 66 90 48 83 f9}  //weight: 10, accuracy: Low
+        $x_5_3 = "main.obfuscateCommand" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AHJ_2147951394_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHJ!MTB"
+        threat_id = "2147951394"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 0f af c2 8b 0c 01 89 4d e4 48 8b 4d b8 b8 05 00 00 00 48 98 ba 08 00 00 00 48 63 d2 48 0f af c2 8b 4c 01}  //weight: 20, accuracy: High
+        $x_30_2 = {48 63 d2 48 0f af c2 0f b7 0c 01 89 8d 4c ff ff ff 8b 8d 4c ff ff ff c1 f9 0c 0f b7 c9 89 8d 48 ff ff ff 8b 8d 4c ff ff ff}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AE_2147951446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AE!MTB"
+        threat_id = "2147951446"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 da 30 c2 89 d9 08 c1 80 f1 01 08 d1 80 f1 01 20 d0 20 da 89 c3 80 f3 01 30 d0 80 f2 01 08 da}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_PGZC_2147951847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGZC!MTB"
+        threat_id = "2147951847"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 74 74 70 3a 2f 2f 31 39 35 2e 36 36 2e 32 37 2e 37 37 3a 35 35 35 34 2f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5f 62 6f 75 6e 64 5f 62 75 69 6c 64 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 74 70 3a 2f 2f 39 31 2e 31 30 38 2e 32 34 31 2e 38 30 3a 35 35 35 34 2f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5f 62 6f 75 6e 64 5f 62 75 69 6c 64 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "tjgajdjrg.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Zusy_PGK_2147951956_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGK!MTB"
+        threat_id = "2147951956"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "tjgajdjrg.exe" ascii //weight: 5
+        $x_10_2 = {68 74 74 70 [0-1] 3a 2f 2f [0-48] 2f [0-32] 5f [0-32] 2e 65 78 65}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SXJ_2147952288_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXJ!MTB"
+        threat_id = "2147952288"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {88 45 7c 48 8d 45 70 f3 0f 7f 85 80 00 00 00 48 89 45 10 f2 0f 10 05 ?? ?? ?? ?? 66 44 89 65 7e f2 0f 11 45 70 44 88 65 7d}  //weight: 3, accuracy: Low
+        $x_2_2 = {48 8b 4d 28 48 83 f9 ?? 4c 89 64 24 ?? 4c 8d 45 10 4c 0f 47 45 ?? 48 8d 95 ?? ?? ?? ?? 48 83 bd c8 ?? ?? ?? ?? 48 0f 47 95}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SXK_2147952415_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXK!MTB"
+        threat_id = "2147952415"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {4c 8d 45 f0 48 83 f9 ?? 4c 0f 47 45 f0 48 83 7f 18 ?? 76 03 48 8b 3f 4c 89 64 24 ?? 45 33 c9 48 8b d7 33 c9 e8}  //weight: 6, accuracy: Low
+        $x_4_2 = {4c 89 bc 24 10 15 00 00 4c 8d 65 80 4c 0f 47 65 80 4d 8d 7d 4c 0f 57 c0 0f 57 c9 0f 11 44 24 60}  //weight: 4, accuracy: High
+        $x_1_3 = "nbgtpasrg.exe" ascii //weight: 1
+        $x_1_4 = "crypted_build.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_MK_2147952544_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MK!MTB"
+        threat_id = "2147952544"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "BlAHgAZQAiACAAaAB0AHQAcABzADoALwAvAGcAaQB0AGgAdQBiAC4AYwBvAG0ALwB0AHMAZw" ascii //weight: 20
+        $x_5_2 = {48 89 54 24 50 48 c7 44 24 68 0f 00 00 00 48 8d ?? ?? ?? ?? ?? 48 89 54 24 60 48 c7 44 24 78 f8 03}  //weight: 5, accuracy: Low
+        $x_5_3 = {48 8b 6d 00 48 c7 44 24 48 0a 00 00 00 48 8d ?? ?? ?? ?? ?? 48 89 54 24 40 48 c7 44 24 58 0c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Zusy_MKA_2147952621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MKA!MTB"
+        threat_id = "2147952621"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {48 89 44 24 40 0f 57 c0 0f 11 03 48 89 73 10 48 c7 43 18 0f 00 00 00 c6 03 00 c7 44 24 30 01}  //weight: 25, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AF_2147952701_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AF!MTB"
+        threat_id = "2147952701"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b 6d 00 0f 11 84 24 ?? 00 00 00 48 c7 84 24 a0 00 00 00 00 00 00 00 c7 84 24 c0 00 00 00 68 00 00 00 48 c7 04 24 00 00 00 00 48 8d ?? ?? ?? ?? ?? 48 89}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AG_2147952702_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AG!MTB"
+        threat_id = "2147952702"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 d0 48 c1 c0 06 48 31 d0 48 89 c2 48 c1 ea 19 48 31 c2 48 89 d0 48 d1 c0 48 31 d0 48 c7 c2 ?? ?? ?? ?? 48 29 c2 48 89 d0 48 d1 c0 31 d0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_LMO_2147953644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LMO!MTB"
+        threat_id = "2147953644"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b c3 83 e0 1f 42 0f b6 14 30 32 14 1f 0f be cb 44 6b c1 bb 41 32 d0 80 f2 ?? 48 8b ce e8}  //weight: 20, accuracy: Low
+        $x_10_2 = "Release\\sessionuserhost" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_PGZI_2147953959_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGZI!MTB"
+        threat_id = "2147953959"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 31 00 37 00 36 00 2e 00 34 00 36 00 2e 00 31 00 35 00 32 00 2e 00 36 00 32 00 3a 00 35 00 38 00 35 00 38 00 2f 00 [0-47] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 74 74 70 3a 2f 2f 31 37 36 2e 34 36 2e 31 35 32 2e 36 32 3a 35 38 35 38 2f [0-47] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_5_3 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 39 00 31 00 2e 00 31 00 30 00 38 00 2e 00 32 00 34 00 31 00 2e 00 38 00 30 00 3a 00 35 00 35 00 35 00 34 00 2f 00 [0-47] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {68 74 74 70 3a 2f 2f 39 31 2e 31 30 38 2e 32 34 31 2e 38 30 3a 35 35 35 34 2f [0-47] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_1_5 = "nbgtpasrg.exe" ascii //weight: 1
+        $x_1_6 = "tjgajdjrg.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Zusy_MKB_2147954292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MKB!MTB"
+        threat_id = "2147954292"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {31 e9 0f 94 c1 0f 95 c2 83 f8 0a 0f 9c c3 83 f8 09 0f 9f c0 20 c1 08 d0 20 d3 08 cb 89 da 30 c2}  //weight: 15, accuracy: High
+        $x_15_2 = {89 c1 30 d1 41 b3 01 20 c2 08 ca 44 30 d9 89 c8 30 d0 08 d1 44 30 d9 08 c1}  //weight: 15, accuracy: High
+        $x_10_3 = {0f 94 c0 0f 95 c1 44 20 c0 41 08 c8 41 20 c9 41 08 c1 44 89 c8 44 30 c0 45 84 c9}  //weight: 10, accuracy: High
+        $x_10_4 = {89 c3 41 b1 01 44 30 cb 89 da 20 c2 89 d9 20 d1 30 da 08 ca 89 d1}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Zusy_AH_2147954454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AH!MTB"
+        threat_id = "2147954454"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 ce 48 0f af ca 48 89 d7 48 31 f2 48 01 ca 48 89 f9 48 09 f7 49 89 c8 49 21 f0 49 31 f8 49 85 d0 ?? ?? 48 89 4c 24 18 48 89 ca 48 83}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KAG_2147954465_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KAG!MTB"
+        threat_id = "2147954465"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b c8 c1 e9 1e 33 c8 69 c1 ?? ?? ?? ?? 03 c2 89 84 95 64 01 00 00 48 ff c2 49 3b d0}  //weight: 20, accuracy: Low
+        $x_10_2 = "wctEE5D.tmp" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_PGLY_2147954628_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGLY!MTB"
+        threat_id = "2147954628"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 20 d3 08 d3 89 ca 44 30 c2 08 d0 44 20 ca 44 20 d1 08 d1 30 d9 44 30 c0 08 c8 88 04 3e 48 8d 35 ?? ?? ?? ?? 44 8b 7d}  //weight: 5, accuracy: Low
+        $x_5_2 = {8f e8 f7 a8 6a 7d bf f9 bb 6b e9 6a c4 11 c1 7a db c1 9f ef c7 03 ea f2 43 89 69 4a e0 7e 5e 0a 5f 7f e8 75 35 ea 52 13 f4 67 2f 28 04 99 06 c6 c9 5e 6d bc}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_Zusy_LMR_2147954914_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LMR!MTB"
+        threat_id = "2147954914"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 dc 89 d7 8b 55 e0 0f b6 34 3e 09 f2 21 d1 09 c8 88 c2 8b 45 e8 8b 4d e4 88 14 08 8b 45 e4 83 c0 01 89 45 e4}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b6 04 08 89 45 cc 8b 4d 0c 8b 45 e4 31 d2 f7 ?? ?? 8b 45 cc 0f b6 0c 11 31 c8 89 45 d0 8b 45 ec 8b 4d e4 0f b6 0c 08 8b 45 0c 89 45 d4 8b 45 e4}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KAH_2147955790_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KAH!MTB"
+        threat_id = "2147955790"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {20 da 08 ca 89 d9 20 c1 30 c3 08 cb 89 d9 30 d1 84 db}  //weight: 20, accuracy: High
+        $x_10_2 = {0f af d0 89 d0 44 31 e8 89 ?? ?? ?? ?? 83 e2 01 09 ?? 31 d0 85 d0}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KAM_2147955794_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KAM!MTB"
+        threat_id = "2147955794"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f af c3 c1 c8 05 8b d0 33 d1 8b cf 33 fe 41 8b f2 d3 ca 8b c8}  //weight: 20, accuracy: High
+        $x_10_2 = {41 c1 c8 05 41 0f af d3 41 8b c8 c1 ca 05 d3 c0 8b ca 33 c2 41 d3 c1 45 33 c8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_LMP_2147955979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LMP!MTB"
+        threat_id = "2147955979"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {6a b7 58 d3 f8 30 44 0d 1c 41 83 f9 03}  //weight: 5, accuracy: High
+        $x_10_2 = {8a 02 34 4d 88 01 8a 42 01 34 26 88 41 01 8a 42 02 34 13 88 41 02 8a 42 03 34 09 88 41 03 8a 42 04 34 04 88 41 04 8a 42 05 34 02 88 41 05 8a 42 06 34 01 88 41 06 8b c1}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_ATR_2147956122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ATR!MTB"
+        threat_id = "2147956122"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b c1 99 8b c8 8d 47 ?? 33 ca 2b ca 80 f9 ?? 0f 45 c7 46}  //weight: 3, accuracy: Low
+        $x_2_2 = {09 f0 09 f8 8b 4c 24 ?? 89 04 a9 bf}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_PST_2147956719_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PST!MTB"
+        threat_id = "2147956719"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 ff c3 f7 e9 03 d1 c1 fa 08 8b c2 c1 e8 1f 03 d0 b8 67 66 66 66 69 d2 c8 01 00 00 2b ca 41 f7 eb 80 c1 36 43 30 0c 08 c1 fa 02 41 8b cb 8b c2 c1 e8 1f}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_ARR_2147956891_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ARR!MTB"
+        threat_id = "2147956891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "Proyecto1" ascii //weight: 8
+        $x_10_2 = {00 4f 70 65 6e 48 74 6d 6c}  //weight: 10, accuracy: High
+        $x_2_3 = {00 2b 33 71 b5 02 00 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_ARR_2147956891_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ARR!MTB"
+        threat_id = "2147956891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {66 0f 46 c8 41 c1 e0 ?? 66 41 89 09 4d 8d 49 ?? 49 ff ca 75}  //weight: 5, accuracy: Low
+        $x_15_2 = {0f b6 c8 41 8b 00 d3 c8 41 33 c3 2b c2 41 89 00 4d 8d 40}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_ARR_2147956891_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ARR!MTB"
+        threat_id = "2147956891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_13_1 = {45 89 c2 41 c0 e2 ?? 48 ff c2 45 89 c8 45 08 d0 f6 c1 01 b1}  //weight: 13, accuracy: Low
+        $x_5_2 = {49 01 d8 48 01 da 4c 89 f9 4d 89 e9 e8 ?? ?? ?? ?? 4c 89 f9 4c 89 f2 49 89 f8 4d 89 e9}  //weight: 5, accuracy: Low
+        $x_2_3 = "$Trigger_var = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Minutes 2);" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_GMT_2147956898_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.GMT!MTB"
+        threat_id = "2147956898"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {45 33 c0 8b 4b 1c 49 03 c2 49 03 ca 42 0f b7 14 48 41 b9 00 80 00 00 8b 04 91 49 8b d4 49 03 c2 49 8b cf ff d0}  //weight: 5, accuracy: High
+        $x_5_2 = {02 00 1c b8 02 00 23 b8 02 00 2a b8 02 00 31 b8 02 00 38 b8 02 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_MKC_2147957715_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MKC!MTB"
+        threat_id = "2147957715"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {41 f7 e0 c1 ea ?? 6b c2 ?? 2b c8 48 63 c1 41 8b c8 83 e1 ?? 42 0f b6 84 ?? ?? ?? ?? 00 42 32 84}  //weight: 15, accuracy: Low
+        $x_10_2 = {48 33 c1 4c 31 bd ?? ?? 00 00 48 8d 8d ?? ?? 00 00 48 31 b5 ?? ?? 00 00 4c 31 b5 ?? ?? 00 00 4c 31 ad ?? ?? 00 00 48 31 bd ?? ?? 00 00 48 89 85}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AHE_2147957813_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHE!MTB"
+        threat_id = "2147957813"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "151"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = {48 8d 44 24 50 45 31 c9 45 31 c0 48 89 44 24 48 48 8d 44 24 70 48 89 da 31 c9 48 89 44 24 40 48 c7 44 24 38 00 00 00 00 48 c7 44 24 30 00 00 00 00 c7 44 24 28 00 00 00 08 c7 44 24 20 00 00 00 00 ff 15}  //weight: 100, accuracy: High
+        $x_50_2 = "powershell  -c \"$n=[System.Linq.Enumerable]::First([char[]](10));irm" ascii //weight: 50
+        $x_1_3 = "event-sdata-microsoft.com" ascii //weight: 1
+        $x_1_4 = "loginlive-microsoft.org" ascii //weight: 1
+        $x_1_5 = "event-time-microsoft.org" ascii //weight: 1
+        $x_1_6 = "event-sda-ta-microsoft.live" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_50_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Zusy_PBK_2147958772_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PBK!MTB"
+        threat_id = "2147958772"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {ac 30 d0 48 c1 c2 ?? aa e2}  //weight: 2, accuracy: Low
+        $x_2_2 = {ac d0 c8 2c ?? 34 ?? aa e2}  //weight: 2, accuracy: Low
+        $x_2_3 = {4c 89 c2 ac c0 c8 ?? 30 d0 aa 48 c1 ca ?? e2}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SLWF_2147958800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SLWF!MTB"
+        threat_id = "2147958800"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4c 89 74 24 28 45 33 c9 45 33 c0 c7 44 24 20 00 01 00 84 48 8b d3 48 8b c8 ff 15 ?? ?? 04 00 48 8b d8 48 85 c0 75 10 48 8b cf ff 15 ?? ?? 04 00 33 c0 e9 fd 00 00 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SXM_2147959318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXM!MTB"
+        threat_id = "2147959318"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {48 8d 44 24 30 4c 89 64 24 50 4c 8b cf 4c 89 6c 24 58 0f 57 44 24 50 66 0f 7f 44 24 30 44 89}  //weight: 10, accuracy: High
+        $x_5_2 = {c7 44 24 60 02 00 00 00 4c 89 7c 24 58 48 8b 4d 38 48 89 4c 24 50 4c 89 7c 24 48 4c 89 7c 24 40 89 54 24 38 44 89 4c 24 30 44 89 54 24 28 44 89 5c 24 20}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

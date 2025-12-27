@@ -571,3 +571,99 @@ rule Trojan_Win64_Dacic_SEC_2147942173_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_C_2147945427_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.C!MTB"
+        threat_id = "2147945427"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "app_bound_encrypted_key" ascii //weight: 2
+        $x_2_2 = "chrome_appbound_key.txt" ascii //weight: 2
+        $x_2_3 = "SELECT host_key, name, encrypted_value FROM cookies;" ascii //weight: 2
+        $x_2_4 = "SELECT origin_url, username_value, password_value FROM logins;" ascii //weight: 2
+        $x_2_5 = "SELECT guid, name_on_card, expiration_month, expiration_year, card_number_encrypted FROM credit_cards;" ascii //weight: 2
+        $x_1_6 = "ReflectiveLoader" ascii //weight: 1
+        $x_1_7 = "User Data" ascii //weight: 1
+        $x_1_8 = "Login Data" ascii //weight: 1
+        $x_1_9 = "chrome_decrypt.log" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dacic_GXU_2147952345_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.GXU!MTB"
+        threat_id = "2147952345"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {45 8a 08 41 0f be c9 66 41 89 ca 89 84 24 ?? ?? ?? ?? 44 8a 4c 24 ?? 41 80 e1 ?? 44 88 8c 24 ?? ?? ?? ?? 66 44 89 54 54 ?? 48 8b 94 24 ?? ?? ?? ?? 48 83 c2 ?? 48 89 94 24 ?? ?? ?? ?? 66 44 8b 54 24 ?? 66 41 81 f2 ?? ?? 66 44 89 94 24 ?? ?? ?? ?? 48 83 fa}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dacic_AHB_2147956311_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.AHB!MTB"
+        threat_id = "2147956311"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 33 d1 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 8b c2 48 c1 e0 ?? 48 33 c2 48 33 c1 48 89 43 ?? 0f 31 48 c1 e2 ?? 48 8d 4d 10 48 0b c2 48 33 c1}  //weight: 30, accuracy: Low
+        $x_20_2 = {0f b6 c8 48 8d 46 ?? 8b e9 48 0f 44 de 83 f5 ?? 84 c9 48 0f 44 c6 48 8b 30 44 38 66 19 74}  //weight: 20, accuracy: Low
+        $x_10_3 = "msedge.crashpad_%u_%04X" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Dacic_AHB_2147956311_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.AHB!MTB"
+        threat_id = "2147956311"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 33 d1 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 8b c2 48 c1 e0 ?? 48 33 c2 48 33 c1 48 89 43 ?? 0f 31 48 c1 e2 ?? 48 8d 4d 10 48 0b c2 48 33 c1}  //weight: 30, accuracy: Low
+        $x_20_2 = "WARNING: Analysis environment detected" ascii //weight: 20
+        $x_10_3 = "Obfuscation may be compromised" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

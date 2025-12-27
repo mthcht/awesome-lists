@@ -1,3 +1,24 @@
+rule Trojan_Win32_ModiLoader_AMI_2147853253_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ModiLoader.AMI!MTB"
+        threat_id = "2147853253"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ModiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b f0 8b dc c6 03 63 c6 43 01 6d c6 43 02 64 c6 43 03 20 c6 43 04 2f c6 43 05 63 c6 43 06 20 c6 43 07 65 c6 43 08 72 c6 43 09 61 c6 43 0a 73 c6 43 0b 65 c6 43 0c 20 c6 43 0d 2f c6 43 0e 46 c6 43 0f 20 8b c6 8b d3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ModiLoader_AML_2147888189_0
 {
     meta:
@@ -56,6 +77,28 @@ rule Trojan_Win32_ModiLoader_AMR_2147889365_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {8b d6 8b c3 ff 15 ?? ?? ?? ?? 84 db 75 0d e8 ?? ?? ?? ?? 8b 98 00 00 00 00 eb 0f 80 fb 18 77 0a 33 c0 8a c3 8a 98 38 30 00 10 33 c0 8a c3 8b d6}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ModiLoader_AMU_2147889654_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ModiLoader.AMU!MTB"
+        threat_id = "2147889654"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ModiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {50 6a 00 68 ff 0f 1f 00 e8 ?? ?? ?? ?? 8d 54 24 04 52 6a 04 68 ?? ?? ?? ?? 8d 54 24 0c 52 50 e8 ?? ?? ?? ?? 8b c3 59 5a 5f 5e 5b}  //weight: 1, accuracy: Low
+        $x_2_2 = {6a 00 6a 00 6a 00 6a 00 68 3c b0 45 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 6a 00 68 4c b0 45 00 8d 45 fc}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -221,6 +264,50 @@ rule Trojan_Win32_ModiLoader_BAA_2147935613_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {33 06 29 d8 2d ?? ?? ?? ?? 89 02 83 c6 04 41 8b c1 2b 45 18 0f 85 05}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ModiLoader_LM_2147946094_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ModiLoader.LM!MTB"
+        threat_id = "2147946094"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ModiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 45 ac 3b 45 a8 73 ?? 8b 45 a8 31 45 ac 8b 45 ac 31 45 a8 8b 45 a8 31 45 ac}  //weight: 20, accuracy: Low
+        $x_10_2 = {8d 04 b6 8b 44 c7 08 89 45 ac 8d 04 b6 8b 44 c7 10 89 45 a8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ModiLoader_ALM_2147955829_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ModiLoader.ALM!MTB"
+        threat_id = "2147955829"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ModiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b d8 68 6c 2e 44 00 53 e8 ?? ?? ?? ?? a3 44 f5 56 00 83 3d 7c f5 46 00 00 0f 85 ee 00 00 00 68 7c 2e 44 00 e8 ?? ?? ?? ?? a3 7c f5 46 00 83 3d 7c f5 46 00 00 0f 84 d2 00 00 00 68 88 2e 44 00 a1 7c f5 46 00 50 e8 ?? ?? ?? ?? a3 48 f5 56 00 68 98 2e 44 00}  //weight: 2, accuracy: Low
+        $x_1_2 = {68 dc 2e 44 00 a1 7c f5 46 00 50 e8 ?? ?? ?? ?? a3 58 f5 56 00 68 f0 2e 44 00 a1 7c f5 46 00 50 e8 ?? ?? ?? ?? a3 5c f5 56 00 68 08 2f 44 00 a1 7c f5 46 00 50}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

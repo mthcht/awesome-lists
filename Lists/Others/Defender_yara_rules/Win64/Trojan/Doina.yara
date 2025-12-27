@@ -154,3 +154,169 @@ rule Trojan_Win64_Doina_SPDG_2147935586_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_ARA_2147949562_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.ARA!MTB"
+        threat_id = "2147949562"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 09 33 c8 8b c1 48 8b 4c 24 38 48 8b 94 24 60 01 00 00 48 03 d1 48 8b ca 88 01 e9 1a ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Doina_MCG_2147951785_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.MCG!MTB"
+        threat_id = "2147951785"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {61 73 64 67 6e 72 74 72 74 67 00 63 76 62 63 76 62 00 64 66 67 64 65 79 65 72 74 79 00 68 6a 6b 74 79 6a 66 67}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Doina_ARAX_2147954939_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.ARAX!MTB"
+        threat_id = "2147954939"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 45 fc 48 98 48 8d 15 ?? ?? ?? ?? 0f b6 04 10 83 f0 23 89 c1 8b 45 fc 48 98 48 8d 15 ?? ?? ?? ?? 88 0c 10 83 45 fc 01 8b 45 fc 83 f8 0c 76 d0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Doina_AHB_2147955159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.AHB!MTB"
+        threat_id = "2147955159"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 4c 24 2c 8d 04 95 00 00 00 00 31 d0 83 c2 ?? 01 c8 89 44 24 2c 81 fa}  //weight: 30, accuracy: Low
+        $x_30_2 = {31 c8 83 c1 ?? 44 01 c0 89 44 24 2c 8b 44 24 2c 44 8b 44 24 2c c1 f8 ?? 01 d0 83 c2 ?? 44 31 c0 89 44 24 2c}  //weight: 30, accuracy: Low
+        $x_50_3 = "JABmACAAPQAgACIAJABlAG4AdgA6AHQAZQBtAHAAXAB1AHAAZABhAHQAZQAuAGUAeABlACIAOwA" ascii //weight: 50
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_50_*) and 1 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Doina_SX_2147957612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.SX!MTB"
+        threat_id = "2147957612"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "cmd.exe /C ping 127.0.0.1 -n 2 > nul & del \"%s\"" ascii //weight: 2
+        $x_2_2 = "SELECT * FROM AntiVirusProduct" ascii //weight: 2
+        $x_1_3 = "\\Google\\Chrome\\User Data\\Default\\History" ascii //weight: 1
+        $x_1_4 = "History.txt" ascii //weight: 1
+        $x_1_5 = "Downloads.txt" ascii //weight: 1
+        $x_1_6 = "SELECT tab_url FROM downloads" ascii //weight: 1
+        $x_1_7 = "\\Telegram Desktop\\Telegram.exe" ascii //weight: 1
+        $x_1_8 = "data.php" ascii //weight: 1
+        $x_1_9 = "Info.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Doina_AHD_2147957673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.AHD!MTB"
+        threat_id = "2147957673"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "130"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {4c 2b c1 66 90 0f b7 02 48 8d 52 ?? 66 41 89 44 10 fe 66 85 c0 75 ?? 48 8d 8c 24 80 04 00 00 48 83 e9}  //weight: 30, accuracy: Low
+        $x_50_2 = "RXS_RAHUgtL4wFDMHMxxc" ascii //weight: 50
+        $x_40_3 = "Brave_Phantom" ascii //weight: 40
+        $x_10_4 = "\\Comodo\\Dragon\\User Data\\Local State" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Doina_SXA_2147959003_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.SXA!MTB"
+        threat_id = "2147959003"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {4c 8b 06 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 49 01 c0 4c 89 c0 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 31 c8 49 f7 e0 48 31 c2 48 c1 ea ?? 48 8d 4a 04 4c 89 06 31 d2 e8 ?? ?? ?? ?? 48 8b 85 b0 07 00 00 89 c1 83 e1}  //weight: 20, accuracy: Low
+        $x_10_2 = {81 f1 43 4d 00 00 0f b6 40 02 83 f0 44 66 09 c8 0f 85 ?? ?? ?? ?? 49 8d 4d 01 48 39 d9 0f 83 ?? ?? ?? ?? 48 c1 e1 04 48 8d 04 0e 48 8b 3c 0e 4c 8b 64 0e 08 48 8d 14 0e 48 83 c2 10 49 c1 e0 04 49 83 c0 e0}  //weight: 10, accuracy: Low
+        $x_1_3 = "cmd.exe\\\\.\\NULPATH" ascii //weight: 1
+        $x_1_4 = "SetSuspendStateshutdown /r /t 0shutdown /s /t" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

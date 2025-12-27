@@ -200,3 +200,26 @@ rule Trojan_Win32_Tasker_BAA_2147944119_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tasker_LM_2147946818_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tasker.LM!MTB"
+        threat_id = "2147946818"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tasker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {81 44 00 94 83 44 00 40 33 40 00 00 a8 44 00 94 30 40 00 b0 30 40 00 fc 83 44 00 40 75 43 00 6c 89 44 00 ac 6f 41 00 bc 85 44 00 f8 85 44 00 04 87 44 00 88 01 43 00 30 cb}  //weight: 20, accuracy: High
+        $x_10_2 = {35 01 00 9c 96 42 00 8d 40 00 b8 1e 45 00 07 04 54 79 ?? 35 8c 1d 45 00 08 57 44 00 5e 00 05 55 6e 69 74 31 00 00 55 8b}  //weight: 10, accuracy: Low
+        $x_5_3 = {33 c0 01 1e 8b 7d d8 03 7d a4 03 fb 03 f8 c7 45 b8 89 15 00 00 6a 00 e8 ?? ?? ?? ?? 03 7d b8 81 ef 89 15 00 00 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 31 3e 83 c3 04 83 c6 04 3b 5d e0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -76,7 +76,7 @@ rule TrojanClicker_Win32_Clikug_C_2147687018_0
         type = "TrojanClicker"
         platform = "Win32: Windows 32-bit platform"
         family = "Clikug"
-        severity = "Critical"
+        severity = "Low"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"

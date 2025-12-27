@@ -50,3 +50,32 @@ rule Trojan_MacOS_SuspDownloadExec_E_2147944299_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_SuspDownloadExec_G_2147949992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SuspDownloadExec.G"
+        threat_id = "2147949992"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SuspDownloadExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {64 00 73 00 63 00 6c 00 20 00 2e 00 [0-4] 61 00 75 00 74 00 68 00 6f 00 6e 00 6c 00 79 00}  //weight: 2, accuracy: Low
+        $x_2_2 = "dscl /local/default -authonly" wide //weight: 2
+        $x_3_3 = "whoami" wide //weight: 3
+        $x_3_4 = "curl -o" wide //weight: 3
+        $x_3_5 = "xattr -c" wide //weight: 3
+        $x_3_6 = "chmod +x" wide //weight: 3
+        $x_3_7 = ">/dev/null 2>&1" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((5 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

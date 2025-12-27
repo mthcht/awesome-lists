@@ -24,3 +24,31 @@ rule Trojan_MSIL_KatzStealer_DA_2147942805_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KatzStealer_GMX_2147957353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KatzStealer.GMX!MTB"
+        threat_id = "2147957353"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KatzStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "VirtualMachineDetector" ascii //weight: 1
+        $x_1_2 = "caminhovbs" ascii //weight: 1
+        $x_1_3 = "VMDetector" ascii //weight: 1
+        $x_1_4 = "nomedoarquivo" ascii //weight: 1
+        $x_1_5 = "nomenativo" ascii //weight: 1
+        $x_1_6 = "persitencia" ascii //weight: 1
+        $x_1_7 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_8 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

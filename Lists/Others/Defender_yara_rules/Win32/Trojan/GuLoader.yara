@@ -76,6 +76,30 @@ rule Trojan_Win32_GuLoader_RG_2147775679_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_KB_2147781662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.KB!MTB"
+        threat_id = "2147781662"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "legatbestyrelserne autogyros" ascii //weight: 1
+        $x_1_2 = "krasse befris desize" ascii //weight: 1
+        $x_1_3 = "jowed" ascii //weight: 1
+        $x_1_4 = "entohyal spaulder.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_BY_2147786317_0
 {
     meta:
@@ -2573,6 +2597,62 @@ rule Trojan_Win32_GuLoader_RSG_2147932999_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SVM_2147933263_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVM!MTB"
+        threat_id = "2147933263"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "quadriciliate.txt" ascii //weight: 2
+        $x_2_2 = "budgereegah.jpg" ascii //weight: 2
+        $x_2_3 = "avisskriverier.jpg" ascii //weight: 2
+        $x_2_4 = "Tekstmasses227.ini" ascii //weight: 2
+        $x_2_5 = "Retroposed.jpg" ascii //weight: 2
+        $x_2_6 = "Delbetalingers.txt" ascii //weight: 2
+        $x_2_7 = "contractibleness\\breblgernes" ascii //weight: 2
+        $x_1_8 = "skruetrkkeres.mus" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVM_2147933263_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVM!MTB"
+        threat_id = "2147933263"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Skrigedukker\\fidusmalers" ascii //weight: 1
+        $x_1_2 = "\\tortoise\\Laurbrs155.ini" ascii //weight: 1
+        $x_1_3 = "Benzophenothiazine113.txt" ascii //weight: 1
+        $x_1_4 = "Hyporhachis.kue" ascii //weight: 1
+        $x_1_5 = "gavstrikkernes.tit" ascii //weight: 1
+        $x_1_6 = "overburdeningly.rec" ascii //weight: 1
+        $x_1_7 = "tetrasporangia.ven" ascii //weight: 1
+        $x_1_8 = "\\fotografis.zip" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RSK_2147933300_0
 {
     meta:
@@ -2918,6 +2998,30 @@ rule Trojan_Win32_GuLoader_RBA_2147934680_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "udvlgelsesvinduets" ascii //weight: 1
+        $x_1_2 = "hoejadelen" ascii //weight: 1
+        $x_1_3 = "sejlbaads" ascii //weight: 1
+        $x_1_4 = "highcourt.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBA_2147934680_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBA!MTB"
+        threat_id = "2147934680"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
@@ -2934,6 +3038,31 @@ rule Trojan_Win32_GuLoader_RBA_2147934680_0
 }
 
 rule Trojan_Win32_GuLoader_RBB_2147934688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBB!MTB"
+        threat_id = "2147934688"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "#\\imprgneringer\\Botilla\\hjlpefilens" ascii //weight: 1
+        $x_1_2 = "quarterland" ascii //weight: 1
+        $x_1_3 = "gastrophilus timeforbrugenes" ascii //weight: 1
+        $x_1_4 = "steprelationship" ascii //weight: 1
+        $x_1_5 = "grundlovstalens redhandedness.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBB_2147934688_1
 {
     meta:
         author = "defender2yara"
@@ -2984,6 +3113,31 @@ rule Trojan_Win32_GuLoader_RBC_2147934700_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBC_2147934700_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBC!MTB"
+        threat_id = "2147934700"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "levnets\\semireflexively" ascii //weight: 1
+        $x_1_2 = "\\Desertioner\\uskikken.gif" ascii //weight: 1
+        $x_1_3 = "\\aandsevner\\natricinae.ini" ascii //weight: 1
+        $x_1_4 = "opkrvedes grafikprogrammer antitragal" ascii //weight: 1
+        $x_1_5 = "macrosymbiont.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBD_2147934845_0
 {
     meta:
@@ -3002,6 +3156,31 @@ rule Trojan_Win32_GuLoader_RBD_2147934845_0
         $x_1_1 = "verdenslitteraturerne" ascii //weight: 1
         $x_1_2 = "mirza enunciation" ascii //weight: 1
         $x_1_3 = "byretsdommeres.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBD_2147934845_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBD!MTB"
+        threat_id = "2147934845"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "kirkegange\\baltheus\\digression" ascii //weight: 1
+        $x_1_2 = "Precosmically\\multihead" ascii //weight: 1
+        $x_1_3 = "%seacross%\\solcreme" ascii //weight: 1
+        $x_1_4 = "\\nooky\\Concolour.ini" ascii //weight: 1
+        $x_1_5 = "\\spermatia" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3031,7 +3210,58 @@ rule Trojan_Win32_GuLoader_RBE_2147934990_0
         (3 of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBE_2147934990_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBE!MTB"
+        threat_id = "2147934990"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Sybaritism\\Underprikkede" ascii //weight: 1
+        $x_1_2 = "Skemalisterne.ini" ascii //weight: 1
+        $x_1_3 = "\\kontortelefon\\octaval.jpg" ascii //weight: 1
+        $x_1_4 = "afloesningsopgaven quantitiveness" ascii //weight: 1
+        $x_1_5 = "boller" ascii //weight: 1
+        $x_1_6 = "nedsablingen" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBF_2147935104_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBF!MTB"
+        threat_id = "2147935104"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Forceps\\restigmatises\\Torrence" ascii //weight: 1
+        $x_1_2 = "\\Delegerets144\\dampningerne.kil" ascii //weight: 1
+        $x_1_3 = "\\enterorrhea\\outtake.upf" ascii //weight: 1
+        $x_1_4 = "%typebetegnelsers%\\chlorinator\\fogedretterne" ascii //weight: 1
+        $x_1_5 = "kunstgdningers orkestergraven.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBF_2147935104_1
 {
     meta:
         author = "defender2yara"
@@ -3082,7 +3312,55 @@ rule Trojan_Win32_GuLoader_RBG_2147935278_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBG_2147935278_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBG!MTB"
+        threat_id = "2147935278"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Knight-Ridder Inc." ascii //weight: 1
+        $x_1_2 = "Viad Corp" ascii //weight: 1
+        $x_1_3 = "Medtronic Inc." ascii //weight: 1
+        $x_1_4 = "Comfort Systems USA Inc." ascii //weight: 1
+        $x_1_5 = "unreworded demimondn.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBH_2147935324_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBH!MTB"
+        threat_id = "2147935324"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "platilla triethylstibine spiseblers" ascii //weight: 1
+        $x_1_2 = "satanism fairm" ascii //weight: 1
+        $x_1_3 = "yarmelke gaunt.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBH_2147935324_1
 {
     meta:
         author = "defender2yara"
@@ -3133,7 +3411,57 @@ rule Trojan_Win32_GuLoader_RBI_2147935332_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBI_2147935332_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBI!MTB"
+        threat_id = "2147935332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\repetrpr\\tabloidavis\\portsmouth" ascii //weight: 1
+        $x_1_2 = "-\\betagelsers\\stifinderens.jpg" ascii //weight: 1
+        $x_1_3 = "%blgede%\\hummeres\\unsad" ascii //weight: 1
+        $x_1_4 = "7\\fylke\\scaphocerite.txt" ascii //weight: 1
+        $x_1_5 = "fum espavel.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBJ_2147935382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBJ!MTB"
+        threat_id = "2147935382"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Activate\\Cannibalization\\Distractible" ascii //weight: 1
+        $x_1_2 = "konebytningens\\purismen\\pygmaean" ascii //weight: 1
+        $x_1_3 = "%Azoturia%\\lumina" ascii //weight: 1
+        $x_1_4 = "esurience interpretive" ascii //weight: 1
+        $x_1_5 = "animhdr vicevrtens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBJ_2147935382_1
 {
     meta:
         author = "defender2yara"
@@ -3183,7 +3511,55 @@ rule Trojan_Win32_GuLoader_RBK_2147935664_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBK_2147935664_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBK!MTB"
+        threat_id = "2147935664"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Zions Bancorporation" ascii //weight: 1
+        $x_1_2 = "Mirant Corporation" ascii //weight: 1
+        $x_1_3 = "Regions Financial Corp." ascii //weight: 1
+        $x_1_4 = "amalgameret.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBL_2147935769_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBL!MTB"
+        threat_id = "2147935769"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WestPoint Stevens Inc" ascii //weight: 1
+        $x_1_2 = "Valve Corporation" ascii //weight: 1
+        $x_1_3 = "Medtronic Inc." ascii //weight: 1
+        $x_1_4 = "guiltiest.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBL_2147935769_1
 {
     meta:
         author = "defender2yara"
@@ -3230,7 +3606,57 @@ rule Trojan_Win32_GuLoader_RBM_2147935856_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBM_2147935856_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBM!MTB"
+        threat_id = "2147935856"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\planular\\undervisningsomraadets" ascii //weight: 1
+        $x_1_2 = "\\Fermenteret156\\occlusocervical" ascii //weight: 1
+        $x_1_3 = "honoreredes.aut" ascii //weight: 1
+        $x_1_4 = "\\Cathy\\*.bin" ascii //weight: 1
+        $x_1_5 = "%muggery%\\Oxygens\\Fletfilen" ascii //weight: 1
+        $x_1_6 = "\\enevrelser.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBN_2147935960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBN!MTB"
+        threat_id = "2147935960"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Allied Waste Industries, Inc." ascii //weight: 1
+        $x_1_2 = "Metaldyne Corporation" ascii //weight: 1
+        $x_1_3 = "Southwest Airlines Co" ascii //weight: 1
+        $x_1_4 = "formblingen statuses.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBN_2147935960_1
 {
     meta:
         author = "defender2yara"
@@ -3255,7 +3681,7 @@ rule Trojan_Win32_GuLoader_RBN_2147935960_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_RBN_2147935960_1
+rule Trojan_Win32_GuLoader_RBN_2147935960_2
 {
     meta:
         author = "defender2yara"
@@ -3282,6 +3708,30 @@ rule Trojan_Win32_GuLoader_RBN_2147935960_1
 }
 
 rule Trojan_Win32_GuLoader_RBO_2147936611_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBO!MTB"
+        threat_id = "2147936611"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Coca-Cola Enterprises Inc." ascii //weight: 1
+        $x_1_2 = "Outback Steakhouse Inc." ascii //weight: 1
+        $x_1_3 = "Maxim Integrated Products Inc." ascii //weight: 1
+        $x_1_4 = "diminishment.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBO_2147936611_1
 {
     meta:
         author = "defender2yara"
@@ -3330,6 +3780,32 @@ rule Trojan_Win32_GuLoader_RBP_2147937067_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBP_2147937067_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBP!MTB"
+        threat_id = "2147937067"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Parker Hannifin Corp." ascii //weight: 1
+        $x_1_2 = "BMC Software Inc." ascii //weight: 1
+        $x_1_3 = "Federal Mogul Corp." ascii //weight: 1
+        $x_1_4 = "La-Z-Boy Inc." ascii //weight: 1
+        $x_1_5 = "Smurfit-Stone Container Corp" ascii //weight: 1
+        $x_1_6 = "markren gedekiddene.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBQ_2147937166_0
 {
     meta:
@@ -3350,6 +3826,32 @@ rule Trojan_Win32_GuLoader_RBQ_2147937166_0
         $x_1_3 = "depressivt" ascii //weight: 1
         $x_1_4 = "intermorainic rectifier" ascii //weight: 1
         $x_1_5 = "stiltifying registertekstens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBQ_2147937166_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBQ!MTB"
+        threat_id = "2147937166"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Raspberry33\\Programudviklings" ascii //weight: 1
+        $x_1_2 = "%bibeholdtes%\\beluredes" ascii //weight: 1
+        $x_1_3 = "konometriske\\Stilsikre221\\tudkoppernes" ascii //weight: 1
+        $x_1_4 = "\\aadselgravernes\\forlberens.jpg" ascii //weight: 1
+        $x_1_5 = "Unvenerated.obo" ascii //weight: 1
+        $x_1_6 = "gymnotoka.rea" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -3379,7 +3881,57 @@ rule Trojan_Win32_GuLoader_RBR_2147937312_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RBR_2147937312_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBR!MTB"
+        threat_id = "2147937312"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\forsmmelses\\galehus" ascii //weight: 1
+        $x_1_2 = "\\westling\\skindhuerne.ini" ascii //weight: 1
+        $x_1_3 = "\\trykkogeres.gif" ascii //weight: 1
+        $x_1_4 = "\\Endestationers\\Selvbefrugtningernes.ini" ascii //weight: 1
+        $x_1_5 = "\\Kraftudfoldelser\\Corrigibleness.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GuLoader_RBS_2147937378_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBS!MTB"
+        threat_id = "2147937378"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Creephole\\Fodpleje\\cheminova" ascii //weight: 1
+        $x_1_2 = "blindet\\Admiralers175" ascii //weight: 1
+        $x_1_3 = "\\Magteslsest\\outgate.txt" ascii //weight: 1
+        $x_1_4 = "%%\\nonforfeiture\\unslacking.ini" ascii //weight: 1
+        $x_1_5 = "%elevskolerne%\\unlocalizables\\yvette" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBS_2147937378_1
 {
     meta:
         author = "defender2yara"
@@ -3405,6 +3957,31 @@ rule Trojan_Win32_GuLoader_RBS_2147937378_0
 }
 
 rule Trojan_Win32_GuLoader_RBT_2147937385_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBT!MTB"
+        threat_id = "2147937385"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "gadekasernens\\nonnegligent\\supergallantness" ascii //weight: 1
+        $x_1_2 = "%stickiest%\\christener\\udsteningen" ascii //weight: 1
+        $x_1_3 = "\\sparable.bin" ascii //weight: 1
+        $x_1_4 = "hyperbatbata twelvemo" ascii //weight: 1
+        $x_1_5 = "hypotheses carbodynamite.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBT_2147937385_1
 {
     meta:
         author = "defender2yara"
@@ -4164,6 +4741,3231 @@ rule Trojan_Win32_GuLoader_RAX_2147944869_0
         $x_1_4 = "\\Sprogbrugerne\\enerne.txt" ascii //weight: 1
         $x_1_5 = "buggymen coverchief besotting" ascii //weight: 1
         $x_1_6 = "korroder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SAF_2147945145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SAF!MTB"
+        threat_id = "2147945145"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "kommpressorernes.uni" ascii //weight: 2
+        $x_1_2 = "viderebringelsers.yan" ascii //weight: 1
+        $x_1_3 = "unwarrantableness.ant" ascii //weight: 1
+        $x_1_4 = "pararosaniline.haw" ascii //weight: 1
+        $x_1_5 = "precisionism.for" ascii //weight: 1
+        $x_1_6 = "vkkelsesprdikanter.ech" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RAY_2147945331_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAY!MTB"
+        threat_id = "2147945331"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "demokratiernes\\horograph\\stuporific" ascii //weight: 1
+        $x_1_2 = "%thurst%\\indsmrer\\waldgravine" ascii //weight: 1
+        $x_1_3 = "hygrometers sygesikringerne japanolatry" ascii //weight: 1
+        $x_1_4 = "kampkunsts gambusia sondringerne" ascii //weight: 1
+        $x_1_5 = "alchemister.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RAZ_2147945774_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RAZ!MTB"
+        threat_id = "2147945774"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "polcpr vindicatively afsigende" ascii //weight: 1
+        $x_1_2 = "uncogently ingulf" ascii //weight: 1
+        $x_1_3 = "lateward loftsbelysningens geneviugves" ascii //weight: 1
+        $x_1_4 = "bassett uncases reneglect" ascii //weight: 1
+        $x_1_5 = "liggeplads valentino.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "tilstandsform.wal" ascii //weight: 1
+        $x_1_2 = "sekularismens.tre" ascii //weight: 1
+        $x_1_3 = "immigrationen.jol" ascii //weight: 1
+        $x_1_4 = "cindersbanernes.fic" ascii //weight: 1
+        $x_1_5 = "outtricking\\Detentions\\liniefring" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "jerboa stabstamburs" ascii //weight: 1
+        $x_1_2 = "subfebrile" ascii //weight: 1
+        $x_1_3 = "genkendendes vellignendes" ascii //weight: 1
+        $x_1_4 = "ekskluderet emendations.exe" ascii //weight: 1
+        $x_1_5 = "fibrochondrosteal arbejdsmnd february" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Sagndannelses.jay" ascii //weight: 1
+        $x_1_2 = "Centripetalkraftens151.mul" ascii //weight: 1
+        $x_1_3 = "Pulverizes.Kom57" ascii //weight: 1
+        $x_1_4 = "Chunari.Car" ascii //weight: 1
+        $x_1_5 = "chiropraxis.kil" ascii //weight: 1
+        $x_1_6 = "Itsy.kat" ascii //weight: 1
+        $x_1_7 = "\\Lasten162\\Pulverizes.Kom57" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Carnify.jpg" ascii //weight: 1
+        $x_1_2 = "Dumpingpriss227.ret" ascii //weight: 1
+        $x_1_3 = "chadors.fis" ascii //weight: 1
+        $x_1_4 = "ordknappeste.dom" ascii //weight: 1
+        $x_1_5 = "recipiomotor.ini" ascii //weight: 1
+        $x_1_6 = "lyseslukker" ascii //weight: 1
+        $x_1_7 = "Tamponadernes61" ascii //weight: 1
+        $x_1_8 = "\\Dims49\\kreplan.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ryddeligeres.gid" ascii //weight: 1
+        $x_1_2 = "uens.rap" ascii //weight: 1
+        $x_1_3 = "pistoleers.jpg" ascii //weight: 1
+        $x_1_4 = "microcephal.epu" ascii //weight: 1
+        $x_1_5 = "disadvise.txt" ascii //weight: 1
+        $x_1_6 = "Baggrundsbillede.ini" ascii //weight: 1
+        $x_1_7 = "Arvemassernes.jpg" ascii //weight: 1
+        $x_1_8 = "manifestklr.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ondskabsfulderes.ini" ascii //weight: 1
+        $x_1_2 = "overbooked.jpg" ascii //weight: 1
+        $x_1_3 = "laget.txt" ascii //weight: 1
+        $x_1_4 = "intratomic.jpg" ascii //weight: 1
+        $x_1_5 = "chambellan.ini" ascii //weight: 1
+        $x_1_6 = "antimilitaristically.jpg" ascii //weight: 1
+        $x_1_7 = "Preannouncement247.tha" ascii //weight: 1
+        $x_1_8 = "Henrikkes.trn" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pleaser.kam" ascii //weight: 1
+        $x_1_2 = "uncancelable\\irreligious\\gigtfebers" ascii //weight: 1
+        $x_1_3 = "\\fribadestrandes\\*.gif" ascii //weight: 1
+        $x_1_4 = "\\decarch.ini" ascii //weight: 1
+        $x_1_5 = "terraciform\\Goatland\\knalleristens" ascii //weight: 1
+        $x_1_6 = "astrakanskindets" ascii //weight: 1
+        $x_1_7 = "\\hjaelpetekster.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pulverisering.txt" ascii //weight: 1
+        $x_1_2 = "quipo.tig" ascii //weight: 1
+        $x_1_3 = "\\Medarbejders196.jpg" ascii //weight: 1
+        $x_1_4 = "\\kloaknets.jpg" ascii //weight: 1
+        $x_1_5 = "embedseksamens taygeta isazoxy" ascii //weight: 1
+        $x_1_6 = "erotic annizettes.exe" ascii //weight: 1
+        $x_1_7 = "horisontallinie" ascii //weight: 1
+        $x_1_8 = "velstandssamfundet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "extraterrestrially.hea" ascii //weight: 1
+        $x_1_2 = "skinnecyklerne.wit" ascii //weight: 1
+        $x_1_3 = "holes\\dosmersedlers\\Prefocusses" ascii //weight: 1
+        $x_1_4 = "Dunlop.rek" ascii //weight: 1
+        $x_1_5 = "Hippen11\\Forfgtelse\\" ascii //weight: 1
+        $x_1_6 = "Bittesmaa208\\begrett\\misregulating" ascii //weight: 1
+        $x_1_7 = "%%\\enaluron\\Schedule.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "belurende" ascii //weight: 1
+        $x_1_2 = "dissociation bionergy automatreaktion" ascii //weight: 1
+        $x_1_3 = "picein" ascii //weight: 1
+        $x_1_4 = "beskrivelsesvaerktoej.exe" ascii //weight: 1
+        $x_1_5 = "alkoholikeren lokaliserendes" ascii //weight: 1
+        $x_1_6 = "valutacentralen catfacing" ascii //weight: 1
+        $x_1_7 = "sunfishery.hyd" ascii //weight: 1
+        $x_1_8 = "vardapet.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_10
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "trakkasseriet.ins" ascii //weight: 1
+        $x_1_2 = "malachite.rek" ascii //weight: 1
+        $x_1_3 = "datagram.sge" ascii //weight: 1
+        $x_1_4 = "bonbonens" ascii //weight: 1
+        $x_1_5 = "tropsfreres\\hjemfre\\tidsindstillende" ascii //weight: 1
+        $x_1_6 = "branddaskers" ascii //weight: 1
+        $x_1_7 = "\\Stoppekurve\\germanisere.lnk" ascii //weight: 1
+        $x_1_8 = "Materialesamling109\\menighedens" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_11
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "udvindinger.kon" ascii //weight: 1
+        $x_1_2 = "envapours waylaidlessness histopathology" ascii //weight: 1
+        $x_1_3 = "prosectorium.els" ascii //weight: 1
+        $x_1_4 = "dikteringens.tra" ascii //weight: 1
+        $x_1_5 = "arveretsligt.tri" ascii //weight: 1
+        $x_1_6 = "debatfilmenes.exe" ascii //weight: 1
+        $x_1_7 = "brnevenners" ascii //weight: 1
+        $x_1_8 = "trinflger harpoons checkmates" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_12
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "depending dyds moorage" ascii //weight: 1
+        $x_1_2 = "dt talehandlinger" ascii //weight: 1
+        $x_1_3 = "ristedes authoritarianism" ascii //weight: 1
+        $x_1_4 = "oleaginous.exe" ascii //weight: 1
+        $x_1_5 = "smaakravl" ascii //weight: 1
+        $x_1_6 = "injektionerne" ascii //weight: 1
+        $x_1_7 = "\\Sygeplejeassistent\\triseptate.jpg" ascii //weight: 1
+        $x_1_8 = "bitestiklernes\\formninger\\litterateur" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_13
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "slutningseffektens.txt" ascii //weight: 1
+        $x_1_2 = "opgavehaandteringernes.txt" ascii //weight: 1
+        $x_1_3 = "metaleptically.txt" ascii //weight: 1
+        $x_1_4 = "familiesammenholds.cof" ascii //weight: 1
+        $x_1_5 = "Umlaut196.jpg" ascii //weight: 1
+        $x_1_6 = "calycozoic.ini" ascii //weight: 1
+        $x_1_7 = "dermatolog teutophil presuming" ascii //weight: 1
+        $x_1_8 = "diplochlamydeous underprisers bollandist" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_NS_2147947244_14
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.NS!MTB"
+        threat_id = "2147947244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "uforstandighederne.txt" ascii //weight: 1
+        $x_1_2 = "supplemental.dag" ascii //weight: 1
+        $x_1_3 = "mangelvarer.slu" ascii //weight: 1
+        $x_1_4 = "Raspier.ini" ascii //weight: 1
+        $x_1_5 = "strejftogs.blo" ascii //weight: 1
+        $x_1_6 = "\\Nonfavored\\Kolonibestyreres" ascii //weight: 1
+        $x_1_7 = "\\eurokommunismes\\vejfringerne" ascii //weight: 1
+        $x_1_8 = "eftertndings\\civilsamfund\\billardkernes" ascii //weight: 1
+        $x_1_9 = "Squelching154" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUB_2147947316_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUB!MTB"
+        threat_id = "2147947316"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\sceptry\\decibels\\prisklasser" ascii //weight: 1
+        $x_1_2 = "\\reserveofficerers.jpg" ascii //weight: 1
+        $x_1_3 = "\\kunstfrdigt.lnk" ascii //weight: 1
+        $x_1_4 = "\\Cotylophorous\\Calvinisten.zip" ascii //weight: 1
+        $x_1_5 = "\\affutager\\bougainvillaeas.ini" ascii //weight: 1
+        $x_1_6 = "Prohumanistic1.sil" ascii //weight: 1
+        $x_1_7 = "caravanist.mem" ascii //weight: 1
+        $x_1_8 = "redaktren.fri" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUD_2147947674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUD!MTB"
+        threat_id = "2147947674"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Saddeltags183" ascii //weight: 1
+        $x_1_2 = "\\Soveposer\\brysthule.txt" ascii //weight: 1
+        $x_1_3 = "\\Grusgrave191\\afgiftsordningernes.zip" ascii //weight: 1
+        $x_1_4 = "Pyramidella.enj" ascii //weight: 1
+        $x_1_5 = "Sentinelling.occ" ascii //weight: 1
+        $x_1_6 = "betingede.pea" ascii //weight: 1
+        $x_1_7 = "\\Turbojetternes129\\saneringsplaner.zip" ascii //weight: 1
+        $x_1_8 = "\\bemused\\halicot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUE_2147947753_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUE!MTB"
+        threat_id = "2147947753"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\zarinas\\aareforfedtningens" ascii //weight: 1
+        $x_1_2 = "\\Chapelry76.bmp" ascii //weight: 1
+        $x_1_3 = "Deklamatorens.tro" ascii //weight: 1
+        $x_1_4 = "Suttekludene.rel" ascii //weight: 1
+        $x_1_5 = "dumrians.taf" ascii //weight: 1
+        $x_1_6 = "prepend.kon" ascii //weight: 1
+        $x_1_7 = "\\equiomnipotent\\vangers.txt" ascii //weight: 1
+        $x_1_8 = "ridiculise\\tossehovedernes\\" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUF_2147948324_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUF!MTB"
+        threat_id = "2147948324"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Balloteret.gif" ascii //weight: 1
+        $x_1_2 = "\\acquent.ini" ascii //weight: 1
+        $x_1_3 = "\\strandbredders.htm" ascii //weight: 1
+        $x_1_4 = "\\Visioner\\postically.zip" ascii //weight: 1
+        $x_1_5 = "\\pretrernes\\museums.jpg" ascii //weight: 1
+        $x_1_6 = "ethylenically\\temblors.txt" ascii //weight: 1
+        $x_1_7 = "\\Mea175.exe" ascii //weight: 1
+        $x_1_8 = "\\dialogbokse\\nedslagtede.txt" ascii //weight: 1
+        $x_1_9 = "\\uarbejdsdygtiges\\godsterminalernes.ini" ascii //weight: 1
+        $x_1_10 = "Phenomenalize46.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUG_2147948415_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUG!MTB"
+        threat_id = "2147948415"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\parodi\\nonexceptionally.lnk" ascii //weight: 1
+        $x_1_2 = "\\Venskabsbyernes234\\breaths.jpg" ascii //weight: 1
+        $x_1_3 = "Godet65.gyt" ascii //weight: 1
+        $x_1_4 = "gengldelsers.unf" ascii //weight: 1
+        $x_1_5 = "overforsikre.med" ascii //weight: 1
+        $x_1_6 = "summeriest.app" ascii //weight: 1
+        $x_1_7 = "\\surcharges.ini" ascii //weight: 1
+        $x_1_8 = "\\Snailery\\Administrant.ini" ascii //weight: 1
+        $x_1_9 = "\\knledene.ini" ascii //weight: 1
+        $x_1_10 = "\\abolitionised\\antiendowment.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_KMM_2147948579_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.KMM!MTB"
+        threat_id = "2147948579"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Rachiomyelitis" ascii //weight: 1
+        $x_1_2 = "dagsrutinernes" ascii //weight: 1
+        $x_1_3 = "congenerical" ascii //weight: 1
+        $x_1_4 = "\\Resnick.jpg" ascii //weight: 1
+        $x_1_5 = "unparadoxically" ascii //weight: 1
+        $x_1_6 = "Habsburgeren" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_KNN_2147948700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.KNN!MTB"
+        threat_id = "2147948700"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Selvbestemmelsens Setup" ascii //weight: 1
+        $x_1_2 = "decodes\\Insecurely.exe" ascii //weight: 1
+        $x_1_3 = "\\Skideballernes\\blokregistreringernes.gif" ascii //weight: 1
+        $x_1_4 = "Elektroder.jpg" ascii //weight: 1
+        $x_1_5 = "Pigeonholed.Lar" ascii //weight: 1
+        $x_1_6 = "indlejrings.bat" ascii //weight: 1
+        $x_1_7 = "\\autentifikationerne\\shepherdly.ini" ascii //weight: 1
+        $x_1_8 = "cumidin.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUJ_2147948731_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUJ!MTB"
+        threat_id = "2147948731"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\lumberman.ini" ascii //weight: 1
+        $x_1_2 = "patchworky\\Unbeveled" ascii //weight: 1
+        $x_1_3 = "chingma\\Uninstall\\prerevised\\Kadaver67" ascii //weight: 1
+        $x_1_4 = "\\art\\Pharynges.lnk" ascii //weight: 1
+        $x_1_5 = "\\plotting\\glosserede.dll" ascii //weight: 1
+        $x_1_6 = "givingly\\Husstv\\centrifugalsprederen" ascii //weight: 1
+        $x_1_7 = "Beehive\\flleshuses\\Photopic" ascii //weight: 1
+        $x_1_8 = "\\inappetence\\biplanerne\\Kamuflerendes.gif" ascii //weight: 1
+        $x_1_9 = "\\Nedslaaedes174\\statsgarantiens.ini" ascii //weight: 1
+        $x_1_10 = "\\usselheden\\tagpappens.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUL_2147949548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUL!MTB"
+        threat_id = "2147949548"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Reinjures\\medsendtes" ascii //weight: 1
+        $x_1_2 = "\\tolvaarsfdselsdagen\\festugen" ascii //weight: 1
+        $x_1_3 = "\\stemmejerns\\katodestraalernes.htm" ascii //weight: 1
+        $x_1_4 = "\\Galactocele.ini" ascii //weight: 1
+        $x_1_5 = "Remrkedes.sis" ascii //weight: 1
+        $x_1_6 = "Brudfladen.Dra" ascii //weight: 1
+        $x_1_7 = "Maleriudstillingerne98.jpg" ascii //weight: 1
+        $x_1_8 = "\\Ottavas\\Kronerne" ascii //weight: 1
+        $x_1_9 = "startbogstaver.bin" ascii //weight: 1
+        $x_1_10 = "\\Brugsklart\\dataskrme.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUM_2147951733_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUM!MTB"
+        threat_id = "2147951733"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\almenhedens" ascii //weight: 1
+        $x_1_2 = "\\Flokatis58.ini" ascii //weight: 1
+        $x_1_3 = "\\Divertila" ascii //weight: 1
+        $x_1_4 = "\\bearer.ini" ascii //weight: 1
+        $x_1_5 = "bonkammeraters.fli" ascii //weight: 1
+        $x_1_6 = "overordentliges.gul" ascii //weight: 1
+        $x_1_7 = "overprsidiets.tin" ascii //weight: 1
+        $x_1_8 = "sirki.kue" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUN_2147951949_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUN!MTB"
+        threat_id = "2147951949"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\bagflikninger\\mozarab.ini" ascii //weight: 1
+        $x_1_2 = "Amalgamernes.txt" ascii //weight: 1
+        $x_1_3 = "Endothermous.txt" ascii //weight: 1
+        $x_1_4 = "Resultatfelternes.ini" ascii //weight: 1
+        $x_1_5 = "Udenrigsredaktrerne.txt" ascii //weight: 1
+        $x_1_6 = "femtoneskalaer.nat" ascii //weight: 1
+        $x_1_7 = "gargol.jpg" ascii //weight: 1
+        $x_1_8 = "incapacitation.man" ascii //weight: 1
+        $x_1_9 = "tekrusenes.pro" ascii //weight: 1
+        $x_1_10 = "venire.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RBU_2147952029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RBU!MTB"
+        threat_id = "2147952029"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "amariterkursus\\decaesarize\\Eksekverbar" ascii //weight: 1
+        $x_1_2 = "Electropotential\\Brombrrenes82\\Proteles" ascii //weight: 1
+        $x_1_3 = ".\\Enakteres101.ini" ascii //weight: 1
+        $x_1_4 = "#\\dommervagts\\hypogonadism.jpg" ascii //weight: 1
+        $x_1_5 = "%unlavished%\\vindue" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUO_2147952263_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUO!MTB"
+        threat_id = "2147952263"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\aigialosauridae\\ded.bin" ascii //weight: 1
+        $x_1_2 = "\\Threskiornithidae\\Upaaviseligheden.htm" ascii //weight: 1
+        $x_1_3 = "99\\udbredte.gif" ascii //weight: 1
+        $x_1_4 = "Centripetalkraftens151.mul" ascii //weight: 1
+        $x_1_5 = "Itsy.kat" ascii //weight: 1
+        $x_1_6 = "Sagndannelses.jay" ascii //weight: 1
+        $x_1_7 = "chiropraxis.kil" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCA_2147952308_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCA!MTB"
+        threat_id = "2147952308"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Undertrykkelses\\bacalao\\Bipeltate183" ascii //weight: 1
+        $x_1_2 = "eeyuch\\Lithotresis215\\tankangrebets" ascii //weight: 1
+        $x_1_3 = "99\\onlookers\\qoheleth.ini" ascii //weight: 1
+        $x_1_4 = "%relabeler%\\Pibloktos\\uldtrjer" ascii //weight: 1
+        $x_1_5 = "-\\Opfindsomste.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUP_2147952445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUP!MTB"
+        threat_id = "2147952445"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Megapterine109.ini" ascii //weight: 1
+        $x_1_2 = "\\produktivitet\\Galvanopsychic" ascii //weight: 1
+        $x_1_3 = "\\dowl.txt" ascii //weight: 1
+        $x_1_4 = "Opacite.Hom" ascii //weight: 1
+        $x_1_5 = "Ddt17.hom" ascii //weight: 1
+        $x_1_6 = "arbejdsfunktion.ich" ascii //weight: 1
+        $x_1_7 = "kaskades.gle" ascii //weight: 1
+        $x_1_8 = "rewrite.whi" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_KH_2147952462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.KH!MTB"
+        threat_id = "2147952462"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "udvalgsbehandler.skj" ascii //weight: 1
+        $x_1_2 = "byorkester.hyp" ascii //weight: 1
+        $x_1_3 = "classically.kal" ascii //weight: 1
+        $x_1_4 = "rundskaaren.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCB_2147952650_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCB!MTB"
+        threat_id = "2147952650"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ubehagelighedernes\\Levitate\\stoppende" ascii //weight: 1
+        $x_1_2 = "%bider%\\schnauzers\\udviklingshastighedens" ascii //weight: 1
+        $x_1_3 = "%monoprogrammings%\\erma\\undogmatical" ascii //weight: 1
+        $x_1_4 = "\\Maaneformrkelse.ini" ascii //weight: 1
+        $x_1_5 = "\\spinderokkes\\Gennempletterede.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUR_2147952691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUR!MTB"
+        threat_id = "2147952691"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\mineralizables\\niggerfish\\Erhvervslederne" ascii //weight: 1
+        $x_1_2 = "\\Synaloepha.jpg" ascii //weight: 1
+        $x_1_3 = "\\halma.ini" ascii //weight: 1
+        $x_1_4 = "\\bippene\\spydspidsens.ini" ascii //weight: 1
+        $x_1_5 = "sikkerhedskopierings.jpg" ascii //weight: 1
+        $x_1_6 = "\\hstmaskine\\artificialness.ini" ascii //weight: 1
+        $x_1_7 = "molekylrt\\skospndets\\troposfrens" ascii //weight: 1
+        $x_1_8 = "\\Frerskab\\stningsstrukturens.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_KK_2147952859_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.KK!MTB"
+        threat_id = "2147952859"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "uptower bronteon" ascii //weight: 1
+        $x_1_2 = "shaughn paraffinises.exe" ascii //weight: 1
+        $x_1_3 = "nonsupportably" ascii //weight: 1
+        $x_1_4 = "lnsommeres paucity eurosejren" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCC_2147952968_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCC!MTB"
+        threat_id = "2147952968"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "myrialitre\\forsvenskendes\\falsities" ascii //weight: 1
+        $x_1_2 = "%komtessernes%\\Overfaintly\\mouthpiece" ascii //weight: 1
+        $x_1_3 = "skrivetilladelserne" ascii //weight: 1
+        $x_1_4 = "forenendes conquer lyshaaret" ascii //weight: 1
+        $x_1_5 = "navigerede perivenous" ascii //weight: 1
+        $x_1_6 = "bigamists logomancy.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUS_2147953026_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUS!MTB"
+        threat_id = "2147953026"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\gniderierne" ascii //weight: 1
+        $x_1_2 = "\\medicophysical.txt" ascii //weight: 1
+        $x_1_3 = "\\rotteflde\\anlgsjemedene.exe" ascii //weight: 1
+        $x_1_4 = "\\philomathy.gif" ascii //weight: 1
+        $x_1_5 = "\\astmalgernes\\jagtbdes.bin" ascii //weight: 1
+        $x_1_6 = "\\nordeuropiske.exe" ascii //weight: 1
+        $x_1_7 = "\\elitekorps.dll" ascii //weight: 1
+        $x_1_8 = "\\kaladana\\stablendes.bin" ascii //weight: 1
+        $x_1_9 = "Navigabel.jpg" ascii //weight: 1
+        $x_1_10 = "bariatrics.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCD_2147953140_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCD!MTB"
+        threat_id = "2147953140"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pljning subcuratorship sammensmeltningens" ascii //weight: 1
+        $x_1_2 = "skamferes kanalseparation cotangens" ascii //weight: 1
+        $x_1_3 = "slimness devourment xiphiplastron" ascii //weight: 1
+        $x_1_4 = "saloons.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCE_2147953317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCE!MTB"
+        threat_id = "2147953317"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Somniloquy158\\Dromedarerne39\\skidesurt" ascii //weight: 1
+        $x_1_2 = "%Tegnomraadet%\\overtalelsesevne\\uncourtesy" ascii //weight: 1
+        $x_1_3 = "unperiodically unseasonable omregningen" ascii //weight: 1
+        $x_1_4 = "stvsugning pantalets ethnobotanist" ascii //weight: 1
+        $x_1_5 = "afladningen fertiliserer" ascii //weight: 1
+        $x_1_6 = "caliber.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCF_2147953318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCF!MTB"
+        threat_id = "2147953318"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Fringing\\hovedkortene" ascii //weight: 1
+        $x_1_2 = "%asian%\\aularian" ascii //weight: 1
+        $x_1_3 = "pentylidene agnfiskene" ascii //weight: 1
+        $x_1_4 = "blepharoadenitis alloplast anaptychus" ascii //weight: 1
+        $x_1_5 = "tilmeldte dbefonterne relish" ascii //weight: 1
+        $x_1_6 = "efterbrndere antifoniers.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCG_2147953518_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCG!MTB"
+        threat_id = "2147953518"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "elevcentreredes\\ramified" ascii //weight: 1
+        $x_1_2 = "%onagers%\\opholdsstuers\\ddslejernes" ascii //weight: 1
+        $x_1_3 = "\\kemikalies\\jamnia.lnk" ascii //weight: 1
+        $x_1_4 = "\\tjrnekrattet\\deheathenize.ini" ascii //weight: 1
+        $x_1_5 = "Nonplatitudinously.ene" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUT_2147953583_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUT!MTB"
+        threat_id = "2147953583"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Roesukkerets23\\raught" ascii //weight: 1
+        $x_1_2 = "Acetoxyphthalide124.txt" ascii //weight: 1
+        $x_1_3 = "Artet45.cat" ascii //weight: 1
+        $x_1_4 = "Forskningsprojekters102.jpg" ascii //weight: 1
+        $x_1_5 = "Insuppressibility.ini" ascii //weight: 1
+        $x_1_6 = "efterbehandlende.jpg" ascii //weight: 1
+        $x_1_7 = "veltilfredheden.avl" ascii //weight: 1
+        $x_1_8 = "\\befallen\\Prislags.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUV_2147953612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUV!MTB"
+        threat_id = "2147953612"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\vandforsyningernes\\overobediently\\cauboge" ascii //weight: 1
+        $x_1_2 = "\\nednormeringens\\hayburner.ini" ascii //weight: 1
+        $x_1_3 = "\\bralrende\\audings.htm" ascii //weight: 1
+        $x_1_4 = "\\fewness\\hypotesens.dll" ascii //weight: 1
+        $x_1_5 = "\\Forbigangen162\\grundvandsbeskyttelsens.jpg" ascii //weight: 1
+        $x_1_6 = "\\tndingsnglerne" ascii //weight: 1
+        $x_1_7 = "\\contignate.lnk" ascii //weight: 1
+        $x_1_8 = "Preutilizing49.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUW_2147953627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUW!MTB"
+        threat_id = "2147953627"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\quippy.txt" ascii //weight: 1
+        $x_1_2 = "\\vestvggens.htm" ascii //weight: 1
+        $x_1_3 = "\\style.Nig" ascii //weight: 1
+        $x_1_4 = "\\threshel\\trimellitic.ini" ascii //weight: 1
+        $x_1_5 = "Valmuefrs.Ove" ascii //weight: 1
+        $x_1_6 = "Afprik.txt" ascii //weight: 1
+        $x_1_7 = "Centraliseret.jpg" ascii //weight: 1
+        $x_1_8 = "Decarbonylating.ini" ascii //weight: 1
+        $x_1_9 = "Tedesca.jpg" ascii //weight: 1
+        $x_1_10 = "opbevaringskapaciteternes.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCH_2147953648_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCH!MTB"
+        threat_id = "2147953648"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-\\anderledestnkende\\convival" ascii //weight: 1
+        $x_1_2 = "honeyhearted\\Earthslide78\\susser" ascii //weight: 1
+        $x_1_3 = "88\\Larrup\\Accursedly.zip" ascii //weight: 1
+        $x_1_4 = "DST Systems, Inc." ascii //weight: 1
+        $x_1_5 = "E.W. Scripps Company" ascii //weight: 1
+        $x_1_6 = "rouleauers.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCI_2147953742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCI!MTB"
+        threat_id = "2147953742"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "gradiometer\\juloid\\sodalithite" ascii //weight: 1
+        $x_1_2 = "%harvendes%\\lykkeflelsen" ascii //weight: 1
+        $x_1_3 = "Anadarko Petroleum Corporation" ascii //weight: 1
+        $x_1_4 = "Bristol-Myers Squibb Company" ascii //weight: 1
+        $x_1_5 = "urpremieres.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCJ_2147953845_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCJ!MTB"
+        threat_id = "2147953845"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\protesen\\kendingssignaler" ascii //weight: 1
+        $x_1_2 = "\\scientolism\\oplsningernes.bin" ascii //weight: 1
+        $x_1_3 = "%Ordvekslingens%\\inadvertant\\billardkuglerne" ascii //weight: 1
+        $x_1_4 = "Fremtidsforskeren35.ini" ascii //weight: 1
+        $x_1_5 = "Quanta Services Inc." ascii //weight: 1
+        $x_1_6 = "pachyglossous.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCK_2147953924_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCK!MTB"
+        threat_id = "2147953924"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "coupbcerne" ascii //weight: 1
+        $x_1_2 = "sygeplejeskolens staphyloplastic kaffebords" ascii //weight: 1
+        $x_1_3 = "registreringsafgiftens xylidine.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCL_2147953948_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCL!MTB"
+        threat_id = "2147953948"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\gehejmeraadernes\\Inconscience62" ascii //weight: 1
+        $x_1_2 = "%Club%\\Racisten239\\ltningens" ascii //weight: 1
+        $x_1_3 = "embedseksamens taygeta isazoxy" ascii //weight: 1
+        $x_1_4 = "horisontallinie" ascii //weight: 1
+        $x_1_5 = "velstandssamfundet" ascii //weight: 1
+        $x_1_6 = "erotic annizettes.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCM_2147954478_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCM!MTB"
+        threat_id = "2147954478"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "malihinis prydelser pleurocentral" ascii //weight: 1
+        $x_1_2 = "konstruktionsmaaden" ascii //weight: 1
+        $x_1_3 = "sejrs" ascii //weight: 1
+        $x_1_4 = "arealberegningerne knleddet.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUX_2147954479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUX!MTB"
+        threat_id = "2147954479"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\cerianthoid\\veneral" ascii //weight: 1
+        $x_1_2 = "\\Ordrig\\Overindustrialized.exe" ascii //weight: 1
+        $x_1_3 = "Dagvagterne70.met" ascii //weight: 1
+        $x_1_4 = "Nazarenes177.ita" ascii //weight: 1
+        $x_1_5 = "Radikalerne.txt" ascii //weight: 1
+        $x_1_6 = "Rubijervine207.jpg" ascii //weight: 1
+        $x_1_7 = "beguilingly.txt" ascii //weight: 1
+        $x_1_8 = "\\Specialordbog\\Hensover" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCN_2147954725_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCN!MTB"
+        threat_id = "2147954725"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "astrolabical stikprve" ascii //weight: 1
+        $x_1_2 = "preendorsement snuptagets uberously" ascii //weight: 1
+        $x_1_3 = "eavesdrip draftily stridsksernes" ascii //weight: 1
+        $x_1_4 = "park semanticist" ascii //weight: 1
+        $x_1_5 = "typhoemia apehood.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCO_2147954837_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCO!MTB"
+        threat_id = "2147954837"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "depending dyds moorage" ascii //weight: 1
+        $x_1_2 = "ristedes authoritarianism" ascii //weight: 1
+        $x_1_3 = "dt talehandlinger" ascii //weight: 1
+        $x_1_4 = "oleaginous.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCP_2147954948_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCP!MTB"
+        threat_id = "2147954948"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "#\\Clientless12\\afgnavedes" ascii //weight: 1
+        $x_1_2 = "5\\Sunblock41\\scabish.ini" ascii //weight: 1
+        $x_1_3 = "hvidtekalkens inkwood fiddlewood" ascii //weight: 1
+        $x_1_4 = "strigae chromatospheric" ascii //weight: 1
+        $x_1_5 = "muskatens" ascii //weight: 1
+        $x_1_6 = "advarslerne.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUY_2147954949_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUY!MTB"
+        threat_id = "2147954949"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\hotcha\\Emptiness.bin" ascii //weight: 1
+        $x_1_2 = "\\Ultimates67\\overyoung.txt" ascii //weight: 1
+        $x_1_3 = "\\Monteredes" ascii //weight: 1
+        $x_1_4 = "\\copolymerises\\frostbitten.gif" ascii //weight: 1
+        $x_1_5 = "\\deaminize.jpg" ascii //weight: 1
+        $x_1_6 = "\\tvrsummerne.htm" ascii //weight: 1
+        $x_1_7 = "Exsiccating.bry" ascii //weight: 1
+        $x_1_8 = "Offentlighedsfaserne.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SUZ_2147954963_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SUZ!MTB"
+        threat_id = "2147954963"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Antiburgher.bul" ascii //weight: 1
+        $x_1_2 = "Bygningsfejlenes222.dis" ascii //weight: 1
+        $x_1_3 = "Eneboerne.kan" ascii //weight: 1
+        $x_1_4 = "Gummistvlens.dem" ascii //weight: 1
+        $x_1_5 = "Overstrmmedes.jen" ascii //weight: 1
+        $x_1_6 = "Subcompleteness181.fil" ascii //weight: 1
+        $x_1_7 = "rhynchocephalia.eas" ascii //weight: 1
+        $x_1_8 = "upbuoying.skr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVA_2147955222_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVA!MTB"
+        threat_id = "2147955222"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\outstander\\topopolitan.jpg" ascii //weight: 1
+        $x_1_2 = "Basemodem129.opv" ascii //weight: 1
+        $x_1_3 = "Indlaans43.daa" ascii //weight: 1
+        $x_1_4 = "Tristichous.tal" ascii //weight: 1
+        $x_1_5 = "dokumentargruppe.cal" ascii //weight: 1
+        $x_1_6 = "firearms.pyr" ascii //weight: 1
+        $x_1_7 = "hemihydrosis.orl" ascii //weight: 1
+        $x_1_8 = "\\Direktionen218\\Flowerpecker.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCS_2147955312_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCS!MTB"
+        threat_id = "2147955312"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "fortinnedes maps konkretiserende" ascii //weight: 1
+        $x_1_2 = "kbmandsregning" ascii //weight: 1
+        $x_1_3 = "philotheistic" ascii //weight: 1
+        $x_1_4 = "spinkede.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCT_2147955423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCT!MTB"
+        threat_id = "2147955423"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\hyperaesthete\\Eskimologisk\\centricae" ascii //weight: 1
+        $x_1_2 = "%ledgeman%\\tilbagerapporteringer" ascii //weight: 1
+        $x_1_3 = "\\Acerbate\\Storpolitiskes" ascii //weight: 1
+        $x_1_4 = "overconscientiousness shivoos" ascii //weight: 1
+        $x_1_5 = "slounger sar" ascii //weight: 1
+        $x_1_6 = "elektronikfirmaet.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVB_2147955424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVB!MTB"
+        threat_id = "2147955424"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\yogis\\apoteksassistenterne" ascii //weight: 1
+        $x_1_2 = "\\paaklagede\\budgetrodet.ini" ascii //weight: 1
+        $x_1_3 = "\\usknne.zip" ascii //weight: 1
+        $x_1_4 = "Gigantisk.txt" ascii //weight: 1
+        $x_1_5 = "Longwinded.qua" ascii //weight: 1
+        $x_1_6 = "interimskvitteringens.mak" ascii //weight: 1
+        $x_1_7 = "ridebanespringning.jpg" ascii //weight: 1
+        $x_1_8 = "\\geografiske.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SD_2147955438_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SD!MTB"
+        threat_id = "2147955438"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\coroplasty.dll" ascii //weight: 1
+        $x_1_2 = "glathvlen.bat" ascii //weight: 1
+        $x_1_3 = "hylarchical\\subtill.bin" ascii //weight: 1
+        $x_1_4 = "advokatfirmaets\\skiddoo\\listede" ascii //weight: 1
+        $x_1_5 = "kastepiles.mic" ascii //weight: 1
+        $x_1_6 = "kraftvrkernes.cir" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SD_2147955438_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SD!MTB"
+        threat_id = "2147955438"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "lese palmas stemmeridsens" ascii //weight: 1
+        $x_1_2 = "staphylinideous smrtyvenes frstemand" ascii //weight: 1
+        $x_1_3 = "nondistillable bogbinderens.exe" ascii //weight: 1
+        $x_1_4 = "fluoric.hel" ascii //weight: 1
+        $x_1_5 = "\\servicecheferne.htm" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SD_2147955438_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SD!MTB"
+        threat_id = "2147955438"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bollerne rejuggle virksomhedsskatterne" ascii //weight: 1
+        $x_1_2 = "centralvarmeapparatets underbemandendes circumnavigable" ascii //weight: 1
+        $x_1_3 = "bortkomsts.exe" ascii //weight: 1
+        $x_1_4 = "folketingstidendernes forgeful slentrendes" ascii //weight: 1
+        $x_1_5 = "brachygraphical" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVC_2147955957_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVC!MTB"
+        threat_id = "2147955957"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\obside\\Magneter.ini" ascii //weight: 1
+        $x_1_2 = "lavprisvarehuse.txt" ascii //weight: 1
+        $x_1_3 = "\\frafaldsprocent.jpg" ascii //weight: 1
+        $x_1_4 = "Achondritic102.fim" ascii //weight: 1
+        $x_1_5 = "Astrakan.txt" ascii //weight: 1
+        $x_1_6 = "Beglooms.out" ascii //weight: 1
+        $x_1_7 = "Brysthules177.ekv" ascii //weight: 1
+        $x_1_8 = "Eksproprieringsplan.stj" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVD_2147956130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVD!MTB"
+        threat_id = "2147956130"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\tidsbestemmer.ini" ascii //weight: 1
+        $x_1_2 = "\\Iconvert\\photocrayon\\Stercorite" ascii //weight: 1
+        $x_1_3 = "\\Auditors244\\Irradiancy.jpg" ascii //weight: 1
+        $x_1_4 = "\\tilsynekomstens\\guachipilin" ascii //weight: 1
+        $x_1_5 = "\\unfinancial\\Brevvekslede.htm" ascii //weight: 1
+        $x_1_6 = "\\kovarer\\signeres.ini" ascii //weight: 1
+        $x_1_7 = "\\wifelet\\Sygeplejeassistents.zip" ascii //weight: 1
+        $x_1_8 = "\\renskrifter.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCV_2147956141_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCV!MTB"
+        threat_id = "2147956141"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "yuckle regelfaststtelserne seducers" ascii //weight: 1
+        $x_1_2 = "mavelandingen praktikkernes" ascii //weight: 1
+        $x_1_3 = "entitet dityramber" ascii //weight: 1
+        $x_1_4 = "mainframes tyrsenoi" ascii //weight: 1
+        $x_1_5 = "tapskruernes loliginidae.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCW_2147956214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCW!MTB"
+        threat_id = "2147956214"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "merkantiliseringerne\\iras\\alfedans" ascii //weight: 1
+        $x_1_2 = "proterandrously\\Muldede\\" ascii //weight: 1
+        $x_1_3 = "\\breddeminutternes.ini" ascii //weight: 1
+        $x_1_4 = "%choriocapillaris%\\listeriosis" ascii //weight: 1
+        $x_1_5 = "Abortgrupper164\\Traenet.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVE_2147956337_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVE!MTB"
+        threat_id = "2147956337"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\romantikers\\vaporizes" ascii //weight: 1
+        $x_1_2 = "\\effervescences.bin" ascii //weight: 1
+        $x_1_3 = "\\gytling.gif" ascii //weight: 1
+        $x_1_4 = "Kejsertankers.sch" ascii //weight: 1
+        $x_1_5 = "\\klasseundervisningerne.txt" ascii //weight: 1
+        $x_1_6 = "\\Pogonophoran\\debatteateret.jpg" ascii //weight: 1
+        $x_1_7 = "\\Reactionarism.bin" ascii //weight: 1
+        $x_1_8 = "\\Tonguelike.zip" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCX_2147956395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCX!MTB"
+        threat_id = "2147956395"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "littlin lagkagens" ascii //weight: 1
+        $x_1_2 = "quebec spartaneres" ascii //weight: 1
+        $x_1_3 = "lgdommmerordnings" ascii //weight: 1
+        $x_1_4 = "vamooses.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVF_2147956396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVF!MTB"
+        threat_id = "2147956396"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\superfosfaters\\ejendomsskatterne\\promammalian" ascii //weight: 1
+        $x_1_2 = "\\Joram.ini" ascii //weight: 1
+        $x_1_3 = "redelighed\\exposing" ascii //weight: 1
+        $x_1_4 = "Praediality.sta" ascii //weight: 1
+        $x_1_5 = "\\vexillation\\havelaage.txt" ascii //weight: 1
+        $x_1_6 = "\\decigrammet\\Hamadryas.zip" ascii //weight: 1
+        $x_1_7 = "\\Sognenes\\radiologens.lnk" ascii //weight: 1
+        $x_1_8 = "\\talesprogets.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCY_2147956446_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCY!MTB"
+        threat_id = "2147956446"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "skidteriets\\Tretommersm\\" ascii //weight: 1
+        $x_1_2 = "%Bryophyte%\\Gilt\\basalters" ascii //weight: 1
+        $x_1_3 = "kaolin haandsbreddernes" ascii //weight: 1
+        $x_1_4 = "syerskes timelrernes" ascii //weight: 1
+        $x_1_5 = "servobremse" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RCZ_2147956620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RCZ!MTB"
+        threat_id = "2147956620"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\micelles\\kuglerums" ascii //weight: 1
+        $x_1_2 = "ledelsesmssiges\\quinary\\ponchoers" ascii //weight: 1
+        $x_1_3 = "99\\kassebeholdningernes.ini" ascii //weight: 1
+        $x_1_4 = "%consumerism%\\gaussfilterfunktionernes" ascii //weight: 1
+        $x_1_5 = "6\\Remonstrant230\\krigsfrelsernes.exe" ascii //weight: 1
+        $x_1_6 = "88\\Chemisetternes.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVG_2147956708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVG!MTB"
+        threat_id = "2147956708"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Jonathanization\\toningens.htm" ascii //weight: 1
+        $x_1_2 = "\\kritikers.ini" ascii //weight: 1
+        $x_1_3 = "judiciality.exe" ascii //weight: 1
+        $x_1_4 = "\\Blodprocenterne247\\maffick.bin" ascii //weight: 1
+        $x_1_5 = "\\journeyers\\ilmarcher.htm" ascii //weight: 1
+        $x_1_6 = "\\Pledgors58\\Nx.ini" ascii //weight: 1
+        $x_1_7 = "Austenitizing.gym" ascii //weight: 1
+        $x_1_8 = "Populously.ypp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDA_2147956766_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDA!MTB"
+        threat_id = "2147956766"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "brudepars\\etaarsfdselsdagens\\dksbaaden" ascii //weight: 1
+        $x_1_2 = "%Bevomited25%\\Markedsudvikling122\\printerskrift" ascii //weight: 1
+        $x_1_3 = "7\\necessism\\pectosase.lnk" ascii //weight: 1
+        $x_1_4 = "88\\rectangle\\Brasier.ini" ascii //weight: 1
+        $x_1_5 = "((\\gnaskerierne\\glemmebog.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVH_2147956767_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVH!MTB"
+        threat_id = "2147956767"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "earbob indrmmelsers" ascii //weight: 1
+        $x_1_2 = "stuehusets.exe" ascii //weight: 1
+        $x_1_3 = "faresignalers" ascii //weight: 1
+        $x_1_4 = "proborrowing moskiqen" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDB_2147956878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDB!MTB"
+        threat_id = "2147956878"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "johannas affedtningernes lingams" ascii //weight: 1
+        $x_1_2 = "argumentation compliable" ascii //weight: 1
+        $x_1_3 = "uforsigtigheders lufberry.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVI_2147956957_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVI!MTB"
+        threat_id = "2147956957"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\gennempljet\\Bryllupsdag" ascii //weight: 1
+        $x_1_2 = "\\Blokningens\\ubarmhjertigheden.gif" ascii //weight: 1
+        $x_1_3 = "Derogative.Unr" ascii //weight: 1
+        $x_1_4 = "Driftsbidrag.ini" ascii //weight: 1
+        $x_1_5 = "Hiccoughs5.jpg" ascii //weight: 1
+        $x_1_6 = "Proport.reg" ascii //weight: 1
+        $x_1_7 = "\\Kandelabrene\\Tirernes97\\Paaseende" ascii //weight: 1
+        $x_1_8 = "hovedstadsomraadets.pot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDC_2147957057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDC!MTB"
+        threat_id = "2147957057"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "recontracting\\Saxonical243\\loch" ascii //weight: 1
+        $x_1_2 = "%formodede%\\inacquaintance" ascii //weight: 1
+        $x_1_3 = "6\\adinidan\\funned.ini" ascii //weight: 1
+        $x_1_4 = "mbaya skrupsentimentale" ascii //weight: 1
+        $x_1_5 = "skipping klaringens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDD_2147957138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDD!MTB"
+        threat_id = "2147957138"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "frittens eumolpus" ascii //weight: 1
+        $x_1_2 = "riposteret" ascii //weight: 1
+        $x_1_3 = "oplsningsmiddel historicising.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVJ_2147957147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVJ!MTB"
+        threat_id = "2147957147"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "endopolyploidy" ascii //weight: 1
+        $x_1_2 = "inorganity grotesque oatcakes" ascii //weight: 1
+        $x_1_3 = "pretired" ascii //weight: 1
+        $x_1_4 = "talmudization.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDE_2147957341_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDE!MTB"
+        threat_id = "2147957341"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "evadtre bdle" ascii //weight: 1
+        $x_1_2 = "lianer lsternes" ascii //weight: 1
+        $x_1_3 = "ledtoget singularisers superinjustice" ascii //weight: 1
+        $x_1_4 = "anernes sniddle.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVL_2147957442_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVL!MTB"
+        threat_id = "2147957442"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\enrail\\kvgavl\\kamuflage" ascii //weight: 1
+        $x_1_2 = "\\multidigitate\\Stanching179.exe" ascii //weight: 1
+        $x_1_3 = "\\Seemed139.jpg" ascii //weight: 1
+        $x_1_4 = "\\Neochristianity.Reg32" ascii //weight: 1
+        $x_1_5 = "Arkfderkontrollen.ini" ascii //weight: 1
+        $x_1_6 = "Discountpriser.dio" ascii //weight: 1
+        $x_1_7 = "\\Smilehuller\\Trephining\\Livritkldt" ascii //weight: 1
+        $x_1_8 = "\\Forhandlerseminarerne\\Emigrationers" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDF_2147957634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDF!MTB"
+        threat_id = "2147957634"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "udvirkedes" ascii //weight: 1
+        $x_1_2 = "stillelsningsprven lovregelen haandvrksraadets" ascii //weight: 1
+        $x_1_3 = "insekternes capripede" ascii //weight: 1
+        $x_1_4 = "reoxidize urovarslings.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDG_2147957727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDG!MTB"
+        threat_id = "2147957727"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "terapiassistenten" ascii //weight: 1
+        $x_1_2 = "skvisningernes gruppediskussionens exorcistic" ascii //weight: 1
+        $x_1_3 = "solanders kontorassistenten zedoaries" ascii //weight: 1
+        $x_1_4 = "bortkastningerne" ascii //weight: 1
+        $x_1_5 = "resgstens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDH_2147957991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDH!MTB"
+        threat_id = "2147957991"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\stiks\\knosp" ascii //weight: 1
+        $x_1_2 = "acalycine\\unsalvaged\\qindars" ascii //weight: 1
+        $x_1_3 = "%ophovnede%\\tjaele\\Eleemosynar" ascii //weight: 1
+        $x_1_4 = "internuncially.ini" ascii //weight: 1
+        $x_1_5 = "\\Sealike18\\colorfully.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVP_2147957999_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVP!MTB"
+        threat_id = "2147957999"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\nattergalene\\hovedmedvirkendes\\informationssgning" ascii //weight: 1
+        $x_1_2 = "\\pindebrnde\\Sangerfest101.lnk" ascii //weight: 1
+        $x_1_3 = "\\occidentalized\\Ufordragelighedens.ini" ascii //weight: 1
+        $x_1_4 = "\\ringsteder\\dyrlgernes.jpg" ascii //weight: 1
+        $x_1_5 = "\\Slbningens120.lnk" ascii //weight: 1
+        $x_1_6 = "\\amperemetrets.bin" ascii //weight: 1
+        $x_1_7 = "\\svrdliljer.htm" ascii //weight: 1
+        $x_1_8 = "\\arealforhold\\bladgrnt.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVO_2147958000_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVO!MTB"
+        threat_id = "2147958000"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Blanderen.lnk" ascii //weight: 1
+        $x_1_2 = "\\trkasserne\\scamel.jpg" ascii //weight: 1
+        $x_1_3 = "\\Nonsolubly\\hotmouthed.ini" ascii //weight: 1
+        $x_1_4 = "\\dishwasher.ini" ascii //weight: 1
+        $x_1_5 = "\\Sealike18\\colorfully.jpg" ascii //weight: 1
+        $x_1_6 = "\\intercompare.zip" ascii //weight: 1
+        $x_1_7 = "Arrogates215.dor" ascii //weight: 1
+        $x_1_8 = "Spiritusbeskatningen240.anu" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVQ_2147958118_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVQ!MTB"
+        threat_id = "2147958118"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Unbetterable98\\smrgaasen" ascii //weight: 1
+        $x_1_2 = "\\Internalization65\\Unchatteled.jpg" ascii //weight: 1
+        $x_1_3 = "\\Acrostolion47\\Semipanic179.lnk" ascii //weight: 1
+        $x_1_4 = "Bajonetfatninger.don" ascii //weight: 1
+        $x_1_5 = "Haandtaskens.bev" ascii //weight: 1
+        $x_1_6 = "Intrafistular.sel" ascii //weight: 1
+        $x_1_7 = "Patruljefrernes.ini" ascii //weight: 1
+        $x_1_8 = "heteroseksualitets.sma" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDI_2147958136_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDI!MTB"
+        threat_id = "2147958136"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\hvsendes\\spinescence\\Mimosis39" ascii //weight: 1
+        $x_1_2 = "vandreren\\unhating\\Filigera" ascii //weight: 1
+        $x_1_3 = "shepstare" ascii //weight: 1
+        $x_1_4 = "gymnogynous microphonic" ascii //weight: 1
+        $x_1_5 = "piscifauna fodgngerfelternes" ascii //weight: 1
+        $x_1_6 = "murermesters.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDJ_2147958158_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDJ!MTB"
+        threat_id = "2147958158"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\tommelfingerneglenes\\Punktafgifternes" ascii //weight: 1
+        $x_1_2 = "\\Regalist129\\sues" ascii //weight: 1
+        $x_1_3 = "\\winnowill\\Falkonerernes.ini" ascii //weight: 1
+        $x_1_4 = "%Belurende%\\indebaarnes" ascii //weight: 1
+        $x_1_5 = "studiested adamitical" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDK_2147958246_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDK!MTB"
+        threat_id = "2147958246"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "dorsicommissure khaldian" ascii //weight: 1
+        $x_1_2 = "kaleege warmest" ascii //weight: 1
+        $x_1_3 = "praktikabel forskningsarbejdernes crowtoe" ascii //weight: 1
+        $x_1_4 = "bemercy goatsbane fedtstoffernes" ascii //weight: 1
+        $x_1_5 = "parameterfremstillingens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVR_2147958247_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVR!MTB"
+        threat_id = "2147958247"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Bolivianerens57.bin" ascii //weight: 1
+        $x_1_2 = "\\lommetrklders.htm" ascii //weight: 1
+        $x_1_3 = "\\ultraselect.ini" ascii //weight: 1
+        $x_1_4 = "\\advance\\Insolvente74.jpg" ascii //weight: 1
+        $x_1_5 = "\\reperplex.jpg" ascii //weight: 1
+        $x_1_6 = "\\sideless\\formuefllesskabernes.txt" ascii //weight: 1
+        $x_1_7 = "\\censusses.txt" ascii //weight: 1
+        $x_1_8 = "\\saraband\\Udtalelsen223.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDL_2147958291_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDL!MTB"
+        threat_id = "2147958291"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "underkommandoer" ascii //weight: 1
+        $x_1_2 = "courser elef" ascii //weight: 1
+        $x_1_3 = "steril squeg dumpiest" ascii //weight: 1
+        $x_1_4 = "festivities" ascii //weight: 1
+        $x_1_5 = "troligeres skovmandshilsenen.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVT_2147958403_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVT!MTB"
+        threat_id = "2147958403"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "alumnol unbirdly" ascii //weight: 1
+        $x_1_2 = "pseudoeugenics manager" ascii //weight: 1
+        $x_1_3 = "bordellets harleian.exe" ascii //weight: 1
+        $x_1_4 = "slmningernes bedmate trosiver" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDM_2147958456_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDM!MTB"
+        threat_id = "2147958456"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Sukkerskaalen\\Kilohertzen59\\Cares26" ascii //weight: 1
+        $x_1_2 = "fjortenaarsfdselsdagen\\spirals" ascii //weight: 1
+        $x_1_3 = "\\kantates\\tilbagestaaende.txt" ascii //weight: 1
+        $x_1_4 = "\\Lacunaria17\\ombygningsarbejdernes.exe" ascii //weight: 1
+        $x_1_5 = "%elefants%\\tetradesmus\\indlullet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVU_2147958462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVU!MTB"
+        threat_id = "2147958462"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Forskaanelsen35\\mangedobling.gif" ascii //weight: 1
+        $x_1_2 = "Sprognormeringernes\\Uninstall\\nonorganically" ascii //weight: 1
+        $x_1_3 = "\\Calcitrate\\gennemspiller.jpg" ascii //weight: 1
+        $x_1_4 = "\\franarrendes.ini" ascii //weight: 1
+        $x_1_5 = "\\begravelsesmyndigheder\\Fordummendes.bin" ascii //weight: 1
+        $x_1_6 = "\\Lovbundnes\\frokoststuerne" ascii //weight: 1
+        $x_1_7 = "Servitutbelagtes\\quindene" ascii //weight: 1
+        $x_1_8 = "Damoklessvrdet76.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDN_2147958569_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDN!MTB"
+        threat_id = "2147958569"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "respirer\\udlosse\\kowtower" ascii //weight: 1
+        $x_1_2 = "rigescent\\advokatbestalling\\phyllostome" ascii //weight: 1
+        $x_1_3 = "%smedning%\\Benpibens104" ascii //weight: 1
+        $x_1_4 = "\\atomorganisation\\kolliderende.jpg" ascii //weight: 1
+        $x_1_5 = "\\hjfjeldssoles\\Skeletonian180.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDO_2147958655_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDO!MTB"
+        threat_id = "2147958655"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "NiSource Inc" ascii //weight: 1
+        $x_1_2 = "Airborne, Inc." ascii //weight: 1
+        $x_1_3 = "cheerer sklmske.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDP_2147958740_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDP!MTB"
+        threat_id = "2147958740"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\gurgulation\\buffooneries\\converterne" ascii //weight: 1
+        $x_1_2 = "heightens\\engangsskat\\" ascii //weight: 1
+        $x_1_3 = "\\coappear\\Hagboat.bin" ascii //weight: 1
+        $x_1_4 = "\\ared\\Lemmernes.ini" ascii //weight: 1
+        $x_1_5 = "\\Wilderland\\hemiataxy.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDP_2147958740_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDP!MTB"
+        threat_id = "2147958740"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Chutzpas141\\Chargeably31" ascii //weight: 1
+        $x_1_2 = "\\subobscureness\\Groundward.ini" ascii //weight: 1
+        $x_1_3 = "\\Tekstndringerne.bin" ascii //weight: 1
+        $x_1_4 = "%frelsersoldat%\\Hornmusik\\aviserer" ascii //weight: 1
+        $x_1_5 = "\\interpellerendes.jpg" ascii //weight: 1
+        $x_1_6 = "\\fjerkrfarme\\sikstus.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVW_2147958741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVW!MTB"
+        threat_id = "2147958741"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Overinsistent\\debatartikler" ascii //weight: 1
+        $x_1_2 = "\\rustkamrenes.ini" ascii //weight: 1
+        $x_1_3 = "\\skrivearbejdet\\forbandet.ini" ascii //weight: 1
+        $x_1_4 = "\\Nocten\\eclectic.zip" ascii //weight: 1
+        $x_1_5 = "\\behandlingsmetoden\\Bankfunktionrers231.dll" ascii //weight: 1
+        $x_1_6 = "\\Lsladelser\\Cystotrachelotomy.bin" ascii //weight: 1
+        $x_1_7 = "\\tndere\\plasters.ini" ascii //weight: 1
+        $x_1_8 = "\\gwinter.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDQ_2147958889_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDQ!MTB"
+        threat_id = "2147958889"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Level 3 Communications Inc." ascii //weight: 1
+        $x_1_2 = "VirtualDJ" ascii //weight: 1
+        $x_1_3 = "Beepa Pty Ltd" ascii //weight: 1
+        $x_1_4 = "scarabaeus.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDR_2147958910_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDR!MTB"
+        threat_id = "2147958910"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "uvanligereomk" ascii //weight: 1
+        $x_1_2 = "NONSTIC" ascii //weight: 1
+        $x_1_3 = "Meousgavebo" ascii //weight: 1
+        $x_1_4 = "unawarelymed" ascii //weight: 1
+        $x_1_5 = "INSTRUKTIONS" ascii //weight: 1
+        $x_1_6 = "Anti60" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVX_2147959002_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVX!MTB"
+        threat_id = "2147959002"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Dehydreringers74.zip" ascii //weight: 1
+        $x_1_2 = "\\Porcelainizing.ini" ascii //weight: 1
+        $x_1_3 = "\\siklinger.ini" ascii //weight: 1
+        $x_1_4 = "\\Friturekurvene.zip" ascii //weight: 1
+        $x_1_5 = "\\surcrue\\mercis.bin" ascii //weight: 1
+        $x_1_6 = "\\romboiden\\Bedims79.htm" ascii //weight: 1
+        $x_1_7 = "\\gevindene\\northwestern.ini" ascii //weight: 1
+        $x_1_8 = "\\dukhobor\\udliggerbaad.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDS_2147959009_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDS!MTB"
+        threat_id = "2147959009"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "opkaldssekvensernes\\adfrdsformers" ascii //weight: 1
+        $x_1_2 = "%prepromised%\\integritetsregels\\tatoverede" ascii //weight: 1
+        $x_1_3 = "astrophotometer forfrem skolehjemmenes" ascii //weight: 1
+        $x_1_4 = "udfoldelsen ansttelsesperiode" ascii //weight: 1
+        $x_1_5 = "ataxiaphasia" ascii //weight: 1
+        $x_1_6 = "appulses.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVY_2147959084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVY!MTB"
+        threat_id = "2147959084"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\risikobegrebs" ascii //weight: 1
+        $x_1_2 = "\\therapy.txt" ascii //weight: 1
+        $x_1_3 = "\\joltless.txt" ascii //weight: 1
+        $x_1_4 = "\\Bliders147\\foresight.ini" ascii //weight: 1
+        $x_1_5 = "\\beldringe.ini" ascii //weight: 1
+        $x_1_6 = "\\kloakeringsomraaders\\Cloze201.ini" ascii //weight: 1
+        $x_1_7 = "\\Phosphonuclease.exe" ascii //weight: 1
+        $x_1_8 = "kronprinserne.pro" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDT_2147959120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDT!MTB"
+        threat_id = "2147959120"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "7\\putlogs\\hypocistis.dll" ascii //weight: 1
+        $x_1_2 = "leonardo\\Pseudoarticulation158\\corynid" ascii //weight: 1
+        $x_1_3 = "arimathaean" ascii //weight: 1
+        $x_1_4 = "heterochromosome forholdsvist uddifferentieringer" ascii //weight: 1
+        $x_1_5 = "bortkaster pharmacologically.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SH_2147959159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SH!MTB"
+        threat_id = "2147959159"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cirkuss rigsstatistikerens weathered" ascii //weight: 1
+        $x_1_2 = "sibilated skarnkassen" ascii //weight: 1
+        $x_1_3 = "pyloroplasty racehorses" ascii //weight: 1
+        $x_1_4 = "adoptivmor.tip" ascii //weight: 1
+        $x_1_5 = "glycaemia.gaz" ascii //weight: 1
+        $x_1_6 = "madreporacean.sug" ascii //weight: 1
+        $x_1_7 = "Barberen.che" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDU_2147959182_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDU!MTB"
+        threat_id = "2147959182"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Promaximum150\\malihini\\Boligselskabet" ascii //weight: 1
+        $x_1_2 = "modellnfr\\Reorganiserende166" ascii //weight: 1
+        $x_1_3 = "%Lensmanden%\\geomorfologi" ascii //weight: 1
+        $x_1_4 = "\\Undstningsaktion\\sapromic.jpg" ascii //weight: 1
+        $x_1_5 = "\\skyttefisks.gif" ascii //weight: 1
+        $x_1_6 = "\\alstrups\\overflsom.ini" ascii //weight: 1
+        $x_1_7 = "\\phoneticohieroglyphic.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SVZ_2147959321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SVZ!MTB"
+        threat_id = "2147959321"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Undegrebet.gif" ascii //weight: 1
+        $x_1_2 = "\\scrublike.bin" ascii //weight: 1
+        $x_1_3 = "Cerecloths.kom" ascii //weight: 1
+        $x_1_4 = "Diamantmine.tip" ascii //weight: 1
+        $x_1_5 = "ordensmagters.cha" ascii //weight: 1
+        $x_1_6 = "virkekrfternes.sal" ascii //weight: 1
+        $x_1_7 = "\\Nonsynthetic.zip" ascii //weight: 1
+        $x_1_8 = "\\pietoso\\Krapina230.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SWA_2147959400_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWA!MTB"
+        threat_id = "2147959400"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\foreintend\\sphaerocobaltite\\reade" ascii //weight: 1
+        $x_1_2 = "\\borehullerne\\Korset.bin" ascii //weight: 1
+        $x_1_3 = "Nedrigheder49.ini" ascii //weight: 1
+        $x_1_4 = "Sikkerhedsventilens.buc" ascii //weight: 1
+        $x_1_5 = "Thunderlike254.bac" ascii //weight: 1
+        $x_1_6 = "carromatas.clo" ascii //weight: 1
+        $x_1_7 = "impoverishment.ynd" ascii //weight: 1
+        $x_1_8 = "nonlibidinous.moo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SWB_2147959509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWB!MTB"
+        threat_id = "2147959509"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Bugtaler177\\urbicolous.ini" ascii //weight: 1
+        $x_1_2 = "\\Nierens\\miliondelene" ascii //weight: 1
+        $x_1_3 = "\\lysestagernes.bin" ascii //weight: 1
+        $x_1_4 = "\\steamrollering.htm" ascii //weight: 1
+        $x_1_5 = "\\utilitarismens\\diskoskastenes.jpg" ascii //weight: 1
+        $x_1_6 = "\\misvksternes\\seres.exe" ascii //weight: 1
+        $x_1_7 = "Klippefast211.geo" ascii //weight: 1
+        $x_1_8 = "Rolleheftes227.muc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SWC_2147959557_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWC!MTB"
+        threat_id = "2147959557"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\foreignize.ini" ascii //weight: 1
+        $x_1_2 = "Cestoda.pri" ascii //weight: 1
+        $x_1_3 = "frsteopfrelse.txt" ascii //weight: 1
+        $x_1_4 = "prejudicialness.ini" ascii //weight: 1
+        $x_1_5 = "selvcensurens.txt" ascii //weight: 1
+        $x_1_6 = "\\Sultaners\\teknologiomraadets.bin" ascii //weight: 1
+        $x_1_7 = "\\saapas.ini" ascii //weight: 1
+        $x_1_8 = "\\henlggelserne\\parvolin.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDV_2147959562_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDV!MTB"
+        threat_id = "2147959562"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "kiddle yow bittacle" ascii //weight: 1
+        $x_1_2 = "optjenende bilindbrud" ascii //weight: 1
+        $x_1_3 = "gennemspilning formication infundibulate" ascii //weight: 1
+        $x_1_4 = "kultiverede fastholdelsens.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SWD_2147959653_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWD!MTB"
+        threat_id = "2147959653"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "aalholms.exe" ascii //weight: 1
+        $x_1_2 = "vidriks lumskeri coiffeurs" ascii //weight: 1
+        $x_1_3 = "fodervikkers genoprette obelus" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDW_2147959734_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDW!MTB"
+        threat_id = "2147959734"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "symbolisers detraction semantological" ascii //weight: 1
+        $x_1_2 = "udkommanderedes cantily" ascii //weight: 1
+        $x_1_3 = "bryderiet" ascii //weight: 1
+        $x_1_4 = "diaskoperne.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SWE_2147959755_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWE!MTB"
+        threat_id = "2147959755"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\rouging\\badgerly" ascii //weight: 1
+        $x_1_2 = "\\bearnaisesovsers\\undauntedly.ini" ascii //weight: 1
+        $x_1_3 = "\\anteclassical\\dippedut.ini" ascii //weight: 1
+        $x_1_4 = "\\nonactualities\\Bilboquet.gif" ascii //weight: 1
+        $x_1_5 = "\\skidteradsets\\partnere.lnk" ascii //weight: 1
+        $x_1_6 = "\\characteristicness\\rabledes.zip" ascii //weight: 1
+        $x_1_7 = "\\Slovakken187\\Krigsfilmens.bin" ascii //weight: 1
+        $x_1_8 = "\\dissembler.gif" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDX_2147959822_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDX!MTB"
+        threat_id = "2147959822"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Doktorringes\\pektin\\perfection" ascii //weight: 1
+        $x_1_2 = "\\reweigher\\revetments.txt" ascii //weight: 1
+        $x_1_3 = "cashmere genereringers counterdigged" ascii //weight: 1
+        $x_1_4 = "rubricality" ascii //weight: 1
+        $x_1_5 = "hackneyman" ascii //weight: 1
+        $x_1_6 = "ray.exe" ascii //weight: 1
+        $x_1_7 = "crepidoma\\unsteeled.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDY_2147959836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDY!MTB"
+        threat_id = "2147959836"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Aftjeningers\\anmeldelsespligter\\boligselskabers" ascii //weight: 1
+        $x_1_2 = "intolerances\\glutelins\\chronology" ascii //weight: 1
+        $x_1_3 = "\\Whangees17\\Nedfldningen214" ascii //weight: 1
+        $x_1_4 = "%Parcellist%\\Palermitan\\Unprotect" ascii //weight: 1
+        $x_1_5 = "\\Dikterer.htm" ascii //weight: 1
+        $x_1_6 = "\\trvlerodens\\idem.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RDZ_2147960109_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RDZ!MTB"
+        threat_id = "2147960109"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\finned\\supersalient\\Taxametersystemet" ascii //weight: 1
+        $x_1_2 = "typebestemmer\\Nonreceptivity111" ascii //weight: 1
+        $x_1_3 = "%overdevout%\\transversale" ascii //weight: 1
+        $x_1_4 = "\\irradicate.jpg" ascii //weight: 1
+        $x_1_5 = "iagttagerrollerne skg amazona" ascii //weight: 1
+        $x_1_6 = "ramies" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

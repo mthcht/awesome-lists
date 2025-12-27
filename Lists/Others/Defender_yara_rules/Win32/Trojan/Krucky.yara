@@ -46,3 +46,48 @@ rule Trojan_Win32_Krucky_NAC_2147926934_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Krucky_AHB_2147948332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Krucky.AHB!MTB"
+        threat_id = "2147948332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Krucky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {b9 19 00 00 00 33 c0 8a 90 ?? ?? ?? ?? 32 d1 41 81 e1 ff 00 00 80 88 54 05 e4 79 ?? 49 81 c9 00 ff ff ff 41 40 83 f8 0c 7c}  //weight: 10, accuracy: Low
+        $x_5_2 = {89 45 d4 89 45 d8 89 45 dc 88 45 e0 89 45 e4 89 45 e8 89 45 ec 88 45 f0 a1 ?? ?? ?? ?? 8b 11 8b 52 08 05 b8 00 00 00 50 ff d2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Krucky_AHD_2147949367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Krucky.AHD!MTB"
+        threat_id = "2147949367"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Krucky"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 06 0f b6 50 ?? 0f b6 00 8a 4d ?? fe c6 8b 04 85 ?? ?? ?? ?? d3 ea 19 c9 31 c8 29 c8 3b 55 14 74}  //weight: 10, accuracy: Low
+        $x_5_2 = {42 66 af f7 d1 01 d1 66 89 47 fe 88 0e 46 89 d1 5f 43 80 ff 02 75}  //weight: 5, accuracy: High
+        $x_3_3 = "SyslamwindwsaSyslemeiltgSyslamwind" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

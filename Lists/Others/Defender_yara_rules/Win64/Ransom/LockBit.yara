@@ -205,3 +205,96 @@ rule Ransom_Win64_LockBit_AQUA_2147941881_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_MKC_2147947169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.MKC!MTB"
+        threat_id = "2147947169"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-----BEGIN RSA PUBLIC KEY-----" ascii //weight: 1
+        $x_1_2 = "-----END RSA PUBLIC KEY-----" ascii //weight: 1
+        $x_3_3 = "hijacked.pdb" ascii //weight: 3
+        $x_1_4 = "decryptiondescription.pdf" ascii //weight: 1
+        $x_2_5 = ".lock" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_LockBit_TRX_2147947397_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.TRX!MTB"
+        threat_id = "2147947397"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "How to decrypt my data.txt" ascii //weight: 1
+        $x_1_2 = "Your decrypt ID:" ascii //weight: 1
+        $x_1_3 = "@proton.me" ascii //weight: 1
+        $x_2_4 = "ai\\ak47\\writenull\\x64\\Release\\writenull.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_LockBit_MZZ_2147952259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.MZZ!MTB"
+        threat_id = "2147952259"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 31 d2 45 31 da 44 30 14 06 c1 e5 0b 44 31 cd 45 89 d1 41 c1 e9 ?? 89 ea c1 ea 08 31 ea 44 31 d2 44 31 ca 30 54 06 01 45 89 d9 48 83 c0 02 49 39 c0 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_LockBit_NIT_2147953977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.NIT!MTB"
+        threat_id = "2147953977"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 2a 7c 00 00 85 c0 0f 84 9d 00 00 00 48 8d 45 b0 48 83 c0 2c 48 8d 15 ae 99 00 00 48 89 c1 e8 93 7b 00 00 48 85 c0 75 38 48 8d 45 b0 48 83 c0 2c 48 8d 15 99 99 00 00 48 89 c1 e8 77 7b 00 00 48 85 c0 75 1c 48 8d 45 b0 48 83 c0 2c 48 8d 15 82 99 00 00 48 89 c1}  //weight: 1, accuracy: High
+        $x_2_2 = {e8 fc 78 00 00 48 89 85 10 01 00 00 48 83 bd 10 01 00 00 ff 0f 84 1c 01 00 00 c7 45 d0 30 01 00 00 48 8d 05 d1 99 00 00 48 89 45 a0 48 8d 05 ce 99 00 00 48 89 45 a8 48 8d 05 cd 99 00 00 48 89 45 b0 48 8d 05 c6 99 00 00 48 89 45 b8 48 8d 05 c3 99 00 00 48 89 45 c0 48 8d 05 bf 99 00 00 48 89 45 c8 c7 85 0c 01 00 00 06 00 00 00 48 8d 55 d0 48 8b 85 10 01 00 00 48 89 c1 e8 09 78 00 00}  //weight: 2, accuracy: High
+        $x_2_3 = {ba 01 00 00 00 48 8d 05 27 99 00 00 48 89 c1 e8 5b f9 ff ff 48 8d 05 48 99 00 00 48 89 c1 e8 c0 76 00 00 ba 01 00 00 00 48 8d 05 8c 99 00 00 48 89 c1 e8 38 f9 ff ff 48 8d 05 a5 99 00 00 48 89 c1 e8 9d 76 00 00 48 8d 05 c6 99 00 00 48 89 c1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

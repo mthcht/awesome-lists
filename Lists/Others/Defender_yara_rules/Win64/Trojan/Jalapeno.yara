@@ -19,3 +19,24 @@ rule Trojan_Win64_Jalapeno_DA_2147920323_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Jalapeno_AB_2147951423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Jalapeno.AB!MTB"
+        threat_id = "2147951423"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 0f b7 09 48 b8 c5 4e ec c4 4e ec c4 4e 48 f7 e1 48 c1 ea 04 48 6b c2 34 48 2b c8 0f b7 44 4c 20 66 41 89 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

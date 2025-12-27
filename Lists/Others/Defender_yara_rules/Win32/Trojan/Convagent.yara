@@ -1805,7 +1805,213 @@ rule Trojan_Win32_Convagent_BAD_2147944384_0
         threshold = "2"
         strings_accuracy = "Low"
     strings:
+        $x_2_1 = {8a 0c 32 80 f9 64 77 ?? b0 64 eb ?? 80 f9 c8 b0 2d 76 ?? b0 c8 2a c1 88 04 32 42 3b d7 72}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_BAD_2147944384_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.BAD!MTB"
+        threat_id = "2147944384"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
         $x_2_1 = {0f b6 45 fe 03 c2 88 45 ?? 0f b6 4d ?? 8b 55 ?? 2b d1 89 55 ?? 0f b6 45 ?? 03 05}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_AGC_2147949644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.AGC!MTB"
+        threat_id = "2147949644"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 45 e4 8d 55 e8 33 f6 52 89 75 e8 8b 08 56 50 ff 51 24 85 c0 79 0f 6a 10 68 00 3f 41 00 68 f4 3f 41 00 56}  //weight: 1, accuracy: High
+        $x_2_2 = {85 c0 78 58 8b 45 ec 8d 55 d4 52 89 75 d4 68 ?? ?? ?? ?? 8b 08 50 ff 11 85 c0 78 37 53 8d 4d c8}  //weight: 2, accuracy: Low
+        $x_3_3 = {8d 75 94 8d 7d 84 a5 8d 4d c4 68 54 40 41 00 a5 a5 a5 e8 ?? ?? ?? ?? c6 45 fc 0b 8b 10 85 d2}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_KK_2147951395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.KK!MTB"
+        threat_id = "2147951395"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 85 c0 0f 84 ?? ?? 00 00 0f 10 05 ?? ?? 03 00 0f 11 40 1a 0f 10 05 ?? ?? 03 00 0f 11 40 10 0f 10 05 ?? ?? 03 00 48 89 85 ?? 05 00 00 0f 11 00 48 8d 4d}  //weight: 10, accuracy: Low
+        $x_5_2 = "Freelancer_Contract_Viewer.pdb" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_KK_2147951395_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.KK!MTB"
+        threat_id = "2147951395"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 6c 24 48 8d 55 01 8b 44 24 74 8b 4c 24 40 0f b6 5c 24 25}  //weight: 20, accuracy: High
+        $x_10_2 = "_Z16GetInfectionInfoP15_INFECTION_INFO" ascii //weight: 10
+        $x_5_3 = "_Z24DecryptAndExtractPayloadPvmPS_Pm" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_ARR_2147956042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {f7 f9 52 8d 54 3c 14 68}  //weight: 2, accuracy: High
+        $x_8_2 = {8b c1 33 d2 f7 f3 8a 04 2a 8a 14 31 32 d0 88 14 31 41 3b cf}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_ARR_2147956042_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {83 f0 01 48 8b 4c 24 18 48 8b 5c 24 20 89 c2 48 8b 44 24 68}  //weight: 15, accuracy: High
+        $x_5_2 = {48 8b 72 18 48 83 c6 fe 48 83 fe 0b 0f 87 ?? ?? ?? ?? 4c 8b 42 ?? 48 8d 05}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_ARR_2147956042_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {8b c1 8a 9c 0d ?? ?? ?? ?? 99 f7 ff 8b 45 08 0f b6 04 02}  //weight: 15, accuracy: Low
+        $x_10_2 = "GenericLogImpl" ascii //weight: 10
+        $x_5_3 = "[Orange64] DeleteFilePath:%wZ" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_ARR_2147956042_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "z0LjQuSDQsiDQvdCw0YjQtdC5INGB0" ascii //weight: 15
+        $x_15_2 = "$codeB64 = \"JFNlc3Npb25JZCA9ICInIiI" ascii //weight: 15
+        $x_15_3 = "LSDQv9C+0LTQtdGAINCf0L7Qu9GM0LfQvtCyLiIK\")" ascii //weight: 15
+        $x_5_4 = "bobrik.exe" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_5_*))) or
+            ((2 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Convagent_MKA_2147959071_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.MKA!MTB"
+        threat_id = "2147959071"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {3d a9 49 c1 ea 0f eb 02 8b 57 69 d2 0f 00 ff}  //weight: 15, accuracy: High
+        $x_10_2 = {bc e8 c1 41 f7 e0 eb 01 04 b8 39 53 1c}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -857,3 +857,206 @@ rule Trojan_Win32_Midie_SEF_2147937991_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Midie_A_2147945991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.A!MTB"
+        threat_id = "2147945991"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {50 68 06 00 02 00 6a 00 68 a0 41 00 10 68 01 00 00 80 ff 15 04 30 00 10 85 c0 75 23 51 ?? b9 a1 06 00 00 59 68 05 15 00 00 ff}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Midie_KHT_2147947911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.KHT!MTB"
+        threat_id = "2147947911"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 c0 89 0d ?? ?? ?? ?? 8b 4d 0c 8a 44 38 08 32 04 0a 88 01 eb ?? 8b 4d 0c 8b 75 a4 8b 7d 84 41 83 ad 78 ff ff ff 01 89 4d 0c 0f 85}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Midie_KAB_2147950797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.KAB!MTB"
+        threat_id = "2147950797"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {3e 8d 0c b5 00 00 00 00 8b 0c 08 33 4d fc 3e 8d 14 b5 00 00 00 00 89 0c 10 83 c6 ?? 3b 75 0c 75}  //weight: 20, accuracy: Low
+        $x_8_2 = "7yz-11.dll" ascii //weight: 8
+        $x_7_3 = "C:\\aow_dr.cmd" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Midie_SX_2147952309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.SX!MTB"
+        threat_id = "2147952309"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 4d fc 8b 45 fc 03 c9 33 ce 46 03 c1 89 45 fc e8 ?? ?? ?? ?? 99 f7 ff 81 c2 ?? ?? ?? ?? 3b f2 7c de}  //weight: 3, accuracy: Low
+        $x_2_2 = {0f 11 45 80 ff d6 0f 10 45 a0 8d 45 b0 50 0f 11 85 70 ff ff ff ff d6 0f 10 45 b0 8d 85 50 ff ff ff 50}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Midie_AHI_2147957305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.AHI!MTB"
+        threat_id = "2147957305"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 45 8c 89 45 d4 8b 45 d8 89 45 c4 c7 45 bc ?? ?? ?? ?? 8b 45 d4 6b c0}  //weight: 30, accuracy: Low
+        $x_20_2 = {89 85 78 ff ff ff 8b 45 d4 03 45 a0 66 0f b6 08 8b 45 ?? 66 2b 08 0f}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Midie_BA_2147957456_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.BA!MTB"
+        threat_id = "2147957456"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b d7 13 cf c1 ea ?? 0f a4 ef 10 33 c0 c1 e5 ?? 0b c7 0b d5 33 c1 33 54 24 ?? 33 ed 0b 6c 24 ?? 01 54 24 1c 13 e8 33 ff 89 6c 24 14}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Midie_LMC_2147957474_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.LMC!MTB"
+        threat_id = "2147957474"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {81 e2 00 00 00 80 09 c2 89 d1 89 c8 d1 e8 8b 14 ?? ?? ?? ?? ?? 31 d0 89 ca 83 e2 01 8b 14 95 40 04 41 00 31 c2}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Midie_KK_2147958708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.KK!MTB"
+        threat_id = "2147958708"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "fm_installing_bot_1984" ascii //weight: 1
+        $x_2_2 = "fm_working_bot_1984" ascii //weight: 2
+        $x_3_3 = "Bot path:" ascii //weight: 3
+        $x_4_4 = "down_and_run" ascii //weight: 4
+        $x_5_5 = "Remote path:" ascii //weight: 5
+        $x_6_6 = "OK download Bot!" ascii //weight: 6
+        $x_7_7 = "OK ShellExecute Bot!" ascii //weight: 7
+        $x_8_8 = "FALSE ShellExecute Bot!" ascii //weight: 8
+        $x_9_9 = "FAIL download Bot! sleep" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Midie_SXC_2147959004_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.SXC!MTB"
+        threat_id = "2147959004"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {c7 85 78 ff ff ff 2e 64 6c 6c 0f 28 05 ?? ?? ?? ?? c6 85 7c ff ff ff 00 0f 11 45 a0 c7 45 b0 69 74 79 50 c7 45 b4 6c 61 79 65 c7 45 b8 72 2e 64 6c 66 c7 45 bc 6c 00}  //weight: 15, accuracy: Low
+        $x_10_2 = {83 c4 0c c7 85 c8 fe ff ff 00 04 00 00 8d 85 c4 fe ff ff c7 85 d0 fe ff ff ?? ?? ?? ?? c7 85 d4 fe ff ff ?? ?? ?? ?? c7 85 e0 fe ff ff ?? ?? ?? ?? 50 ff 15}  //weight: 10, accuracy: Low
+        $x_1_3 = "taskkill /f /im hh.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -22,3 +22,26 @@ rule VirTool_Win64_Luidek_A_2147808500_0
         (3 of ($x*))
 }
 
+rule VirTool_Win64_Luidek_B_2147947264_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Luidek.B"
+        threat_id = "2147947264"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Luidek"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "lupo/lupo-client/cmd.Response" ascii //weight: 1
+        $x_1_2 = "lupo/lupo-client/core" ascii //weight: 1
+        $x_1_3 = "lupobackexecshowkillloadr" ascii //weight: 1
+        $x_1_4 = "mattn/go-shellwords" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

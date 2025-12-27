@@ -268,6 +268,28 @@ rule VirTool_Win64_CobaltStrike_D_2147773436_0
         family = "CobaltStrike"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {31 c0 49 89 c9 39 d0 7d 13 48 89 c1 83 e1 03 41 8a 0c 08 41 30 0c 01 48 ff c0 eb e9 4c 89 c9}  //weight: 1, accuracy: High
+        $x_1_2 = {c7 44 24 48 65 00 00 00 c7 44 24 40 70 00 00 00 c7 44 24 38 69 00 00 00 c7 44 24 30 70 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "%c%c%c%c%c%c%c%c%cMSSE-%d-server" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule VirTool_Win64_CobaltStrike_D_2147773436_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/CobaltStrike.D"
+        threat_id = "2147773436"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -280,7 +302,7 @@ rule VirTool_Win64_CobaltStrike_D_2147773436_0
         (all of ($x*))
 }
 
-rule VirTool_Win64_CobaltStrike_D_2147773436_1
+rule VirTool_Win64_CobaltStrike_D_2147773436_2
 {
     meta:
         author = "defender2yara"
@@ -302,7 +324,7 @@ rule VirTool_Win64_CobaltStrike_D_2147773436_1
         (all of ($x*))
 }
 
-rule VirTool_Win64_CobaltStrike_D_2147773436_2
+rule VirTool_Win64_CobaltStrike_D_2147773436_3
 {
     meta:
         author = "defender2yara"
@@ -325,7 +347,7 @@ rule VirTool_Win64_CobaltStrike_D_2147773436_2
         (all of ($x*))
 }
 
-rule VirTool_Win64_CobaltStrike_D_2147773436_3
+rule VirTool_Win64_CobaltStrike_D_2147773436_4
 {
     meta:
         author = "defender2yara"
@@ -348,7 +370,7 @@ rule VirTool_Win64_CobaltStrike_D_2147773436_3
         (all of ($x*))
 }
 
-rule VirTool_Win64_CobaltStrike_D_2147773436_4
+rule VirTool_Win64_CobaltStrike_D_2147773436_5
 {
     meta:
         author = "defender2yara"
@@ -373,7 +395,7 @@ rule VirTool_Win64_CobaltStrike_D_2147773436_4
         (all of ($x*))
 }
 
-rule VirTool_Win64_CobaltStrike_D_2147773436_5
+rule VirTool_Win64_CobaltStrike_D_2147773436_6
 {
     meta:
         author = "defender2yara"
@@ -435,9 +457,10 @@ rule VirTool_Win64_CobaltStrike_G_2147781999_0
         $x_1_2 = {41 b8 20 00 00 00 ff 15 ?? ?? ?? ?? 4c 8d ?? ?? ?? ?? ?? 49 89 d9 31 d2 31 c9 48 c7 44 24 28 00 00 00 00 c7 44 24 20 00 00 00 00 ff 15}  //weight: 1, accuracy: Low
         $x_1_3 = {c7 44 24 48 65 00 00 00 c7 44 24 40 70 00 00 00 c7 44 24 38 69 00 00 00 c7 44 24 30 70 00 00 00}  //weight: 1, accuracy: High
         $x_1_4 = "%c%c%c%c%c%c%c%c%cMSSE-%d-server" ascii //weight: 1
+        $x_1_5 = {48 89 c2 83 e2 ?? 41 8a 14 14 32 54 05 ?? 88 14 03 48 ff c0 eb}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (4 of ($x*))
 }
 
 rule VirTool_Win64_CobaltStrike_I_2147782890_0

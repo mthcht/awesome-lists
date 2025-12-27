@@ -550,3 +550,90 @@ rule Trojan_Win32_Graftor_SEFT_2147938420_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Graftor_SX_2147947158_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.SX!MTB"
+        threat_id = "2147947158"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {ff 36 8d 85 f8 fe ff ff 50 ff 15 ?? ?? ?? ?? 59 85 c0 59 74 1b 47 83 c6 04 3b 7d 0c 7c e2}  //weight: 3, accuracy: Low
+        $x_2_2 = {b9 81 00 00 00 33 c0 8d bd ee fa ff ff f3 ab 80 a5 f8 fd ff ff 00 6a 40 66 ab 59 33 c0 8d bd f9 fd ff ff 68 e0 40 40 00 f3 ab 66 ab aa}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Graftor_LMC_2147947987_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.LMC!MTB"
+        threat_id = "2147947987"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {33 c0 85 c9 74 ?? ?? ?? 8d 9b 00 00 00 00 30 04 38 8b 8d e8 ec ff ff 40 3b c1}  //weight: 20, accuracy: Low
+        $x_10_2 = {8a 47 01 47 84 c0 75 ?? ?? ?? ?? ?? ?? ?? 8d 85 f0 fe ff ff 89 17 48 8a 48 01 40 84 c9 75 ?? 66 8b 0d ?? ?? ?? ?? 8a 15 16 b2 40 00 8d bd f0 fe ff ff 66 89 08 88 50 02 4f 8d a4 24 00 00 00 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Graftor_LMC_2147947987_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.LMC!MTB"
+        threat_id = "2147947987"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 95 3b ff ff ff 33 55 8c 89 55 dc 8b 85 dc fe ff ff 83 e8 45 83 c8 02 88 45 d7 0f b6 8d f3 fe ff ff 2b 8d 14 ff ff ff 81 f1 98 00 00 00 33 0d ?? ?? ?? ?? 88 8d f3 fe ff ff 0f b7 95 d0 fe ff ff 8b 45 b4}  //weight: 10, accuracy: Low
+        $x_20_2 = {8b 4d e8 83 e9 4f 83 f1 15 66 89 8d c8 fe ff ff 8b 95 10 ff ff ff 2b 95 94 fe ff ff 83 e2 5b 89 95 50 ff ff ff 8b 85 a4 fe ff ff 83 c0 01 89 85 08 ff ff ff 8b 4d 8c 83 e1 21 8b 95 d8 fe ff ff 83 ea 18 33 ca 83 f1 35}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Graftor_BAD_2147959919_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.BAD!MTB"
+        threat_id = "2147959919"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {fe c3 8a 93 60 14 40 00 02 c2 8a 88 60 14 40 00 88 8b 60 14 40 00 88 90 60 14 40 00 02 ca 8a 89 60 14 40 00 30 0e 46 4f 75}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

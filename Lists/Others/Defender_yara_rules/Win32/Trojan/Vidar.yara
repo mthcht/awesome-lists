@@ -5779,6 +5779,28 @@ rule Trojan_Win32_Vidar_NV_2147914401_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {f6 c1 20 0f 45 f7 0f 45 f8 89 bc cc 5c 0b 00 00 31 d6 89 b4 cc 58 0b 00 00 f6 c1 0f 75 c5}  //weight: 2, accuracy: High
+        $x_1_2 = {c1 e6 05 8b bc 24 58 01 00 00 0f b7 9c 4c 58 09 00 00 01 fb 01 f3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_NV_2147914401_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.NV!MTB"
+        threat_id = "2147914401"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -6810,6 +6832,74 @@ rule Trojan_Win32_Vidar_AE_2147944990_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {46 d1 da 59 47 89 46 04 c7 a0 8c 6b 73 94 1b 53 1b 1c 7c 7d d4 52 94}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_RJZ_2147951788_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.RJZ!MTB"
+        threat_id = "2147951788"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8a 04 37 2c 05 34 53 88 04 37 46 57 e8 ?? ?? ?? ?? 59 3b f0 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_A_2147959615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.A!AMTB"
+        threat_id = "2147959615"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "nslookup.exe /?najshu308fags83" ascii //weight: 2
+        $x_1_2 = "slut biodiversity perth" ascii //weight: 1
+        $x_2_3 = "cmd /v /c Set UkOMu=cmd" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_KKB_2147959874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.KKB!MTB"
+        threat_id = "2147959874"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "38"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b 94 24 48 04 00 00 48 ff c2 4c 8b 84 24 70 04 00 00 4c 8b 8c 24 90 05 00 00 48 89 d9 48 89 c3 48 89 d0 4c 89 ca}  //weight: 20, accuracy: High
+        $x_10_2 = {48 89 ca 48 81 e2 ?? ?? ?? ?? 48 89 ce 48 29 d6 40 88 74 0c 30 48 ff c1}  //weight: 10, accuracy: Low
+        $x_5_3 = {48 8d 1c 02 48 8b 74 24 68 48 01 d6 0f b6 36 40 88 33 48 ff c2}  //weight: 5, accuracy: High
+        $x_3_4 = "main.GetInstallDetailsPayload" ascii //weight: 3
     condition:
         (filesize < 20MB) and
         (all of ($x*))

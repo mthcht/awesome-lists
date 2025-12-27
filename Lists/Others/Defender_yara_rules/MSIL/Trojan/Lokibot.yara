@@ -1305,6 +1305,27 @@ rule Trojan_MSIL_Lokibot_EI_2147811455_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lokibot_ALY_2147811470_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.ALY!MTB"
+        threat_id = "2147811470"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {06 11 11 58 16 5f 13 1d 11 1d 19 5d 13 1e 17 11 1d 58 19 5d 13 1f 18 11 1d 58 19 5d 13 20 19 8d ?? 00 00 01 13 21 11 21 16 12 1a 28 ?? 00 00 0a 9c 11 21 17 12 1a 28}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lokibot_EH_2147811586_0
 {
     meta:
@@ -1746,6 +1767,27 @@ rule Trojan_MSIL_Lokibot_ABX_2147833104_0
 }
 
 rule Trojan_MSIL_Lokibot_ALK_2147833950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.ALK!MTB"
+        threat_id = "2147833950"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {16 13 06 2b 30 07 06 11 06 9a 28 ?? 00 00 06 13 07 11 05 72 ?? 04 00 70 17 17 8d ?? 00 00 01 13 0e 11 0e 16 11 07 a2 11 0e 28 ?? 00 00 06 26 11 06 17 58 13 06 11 06 06 8e 69}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lokibot_ALK_2147833950_1
 {
     meta:
         author = "defender2yara"
@@ -2852,6 +2894,48 @@ rule Trojan_MSIL_Lokibot_ABL_2147940691_0
         threshold = "1"
         strings_accuracy = "Low"
     strings:
+        $x_1_1 = {0a 16 0b 2b 14 00 06 07 06 07 91 07 28 ?? 00 00 06 61 d2 9c 00 07 17 58 0b 07 06 8e 69 fe 04 0c 08}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lokibot_ABL_2147940691_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.ABL!MTB"
+        threat_id = "2147940691"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {16 0c 2b 1c 07 08 9a 03 28 ?? 00 00 06 0d 09 2c 05 16 2d e6 09 2a 08 1c 2c d9 17 25 2c 09 58 0c 15 2c e1 08 07 8e 69}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lokibot_ABL_2147940691_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.ABL!MTB"
+        threat_id = "2147940691"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
         $x_1_1 = {16 13 0d 2b 25 11 0c 11 0d 94 13 0e 00 11 0e 16 fe 04 13 0f 11 0f 2c 0b 72 ?? 01 00 70 73 ?? 00 00 0a 7a 00 11 0d 17 58 13 0d 11 0d 11 0c 8e 69}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
@@ -2895,6 +2979,69 @@ rule Trojan_MSIL_Lokibot_ANVA_2147942376_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {02 11 07 11 08 6f ?? 00 00 0a 13 09 12 09 28 ?? 00 00 0a 16 61 d2 13 0a 12 09 28 ?? 00 00 0a 16 61 d2 13 0b 12 09 28 ?? 00 00 0a 16 61 d2 13 0c 07 11 0a 6f ?? 00 00 0a 08 11 0b 6f ?? 00 00 0a 09 11 0c 6f ?? 00 00 0a 04 03 6f ?? 00 00 0a 59 13 0d 11 0d 19 32 32 07 6f ?? 00 00 0a 13 0e 08 6f ?? 00 00 0a 13 0f 09 6f ?? 00 00 0a 13 10 03 11 0e 6f ?? 00 00 0a 03 11 0f 6f ?? 00 00 0a 03 11 10 6f ?? 00 00 0a 2b 79}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lokibot_SL_2147949855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.SL!MTB"
+        threat_id = "2147949855"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 11 11 11 16 09 11 06 9a a2 11 11 28 02 00 00 06 74 02 00 00 1b 13 07 12 00 06 8e 69 11 07 8e 69 58 28 01 00 00 2b 11 07 16 06 06 8e 69 11 07 8e 69 59 11 07 8e 69}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lokibot_ADA_2147953758_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.ADA!MTB"
+        threat_id = "2147953758"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {16 0a 2b 1f 7e ?? 00 00 04 06 7e ?? 00 00 04 5d 91 0b 02 06 02 06 91 07 61 28 ?? 00 00 0a 9c 06 17 58 0a 06 02 8e 69}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lokibot_ALA_2147953764_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.ALA!MTB"
+        threat_id = "2147953764"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 0f 11 0e 74 ?? 00 00 1b 8e 69 17 58 11 0f 74 ?? 00 00 1b 8e 69 58 17 58 06 75 ?? 00 00 1b 8e 69 58}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

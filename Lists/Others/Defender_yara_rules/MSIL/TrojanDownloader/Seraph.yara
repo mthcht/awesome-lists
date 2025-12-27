@@ -1181,3 +1181,24 @@ rule TrojanDownloader_MSIL_Seraph_AFUA_2147941593_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Seraph_AKJB_2147956476_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Seraph.AKJB!MTB"
+        threat_id = "2147956476"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Seraph"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {07 06 08 18 6f ?? 00 00 0a 1f 10 28 ?? 00 00 0a 6f ?? 00 00 0a 1f 2a 28 ?? 00 00 06 13 05 2b b4 00 15 13 05 2b ae 00 1f fc 13 05 2b a7 08 18 58 0c 08 06 6f ?? 00 00 0a fe 04 0d 09 2c 0e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

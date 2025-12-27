@@ -526,3 +526,70 @@ rule Ransom_Linux_Filecoder_AD_2147942311_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Filecoder_AE_2147951874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Filecoder.AE!MTB"
+        threat_id = "2147951874"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {be 47 bb 40 00 31 c0 bf d8 b9 40 00 e8 44 1d 00 00 0f b6 3d fd f6 20 00 e8 88 42 00 00 bf 18 00 00 00 48 89 05 3c f7 20 00 e8 57 fa ff ff 4c 89 ef 48 89 c3 e8 4c fc ff ff 48 89 03 48 8b 05 12 f7 20 00 48 c7 43 08 00 00 00 00 48 89 43 10 48 89 18 48 83 c3 08 48 8b 05 90 f6 20 00 48 89 1d f1 f6 20 00 48 85 c0}  //weight: 1, accuracy: High
+        $x_1_2 = {31 c0 be 59 bb 40 00 bf d8 b9 40 00 e8 44 1c 00 00 be 92 ba 40 00 bf 66 bb 40 00 e8 75 f9 ff ff 48 85 c0 48 89 c3 74 ae 80 3d 56 f5 20 00 00 75 a5 0f b7 15 ad f5 20 00 48 8b 3d 9e f5 20 00 48 89 c1 be 01 00 00 00 e8 79 fc ff ff 48 89 df e8 f1 fb ff ff eb 80 be e8 03 00 00 bf 01 00 00 00 45 31 ed}  //weight: 1, accuracy: High
+        $x_1_3 = {48 89 ea 44 89 e6 bf a0 15 61 00 66 89 05 ce f7 20 00 e8 19 39 00 00 80 3d c4 f7 20 00 00 0f 85 2d 02 00 00 bf a0 15 61 00 e8 a2 20 00 00 48 8b 7d 00 be 2f 00 00 00 e8 74 fc ff ff 4c 8d 68 01 bf 19 bb 40 00 31 c0 4c 89 ee e8 31 24 00 00 31 c0 bf 2a bb 40 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Linux_Filecoder_AF_2147956608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Filecoder.AF!MTB"
+        threat_id = "2147956608"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 89 e5 41 57 41 56 53 50 41 89 fe 48 8d 1d 4f c9 ff ff 48 8d 35 ec c2 ff ff 48 89 df 44 89 f2 31 c0 e8 30 28 00 00 4c 8d 3d a9 f4 00 00 48 8d 15 22 c0 ff ff be 00 04 00 00 4c 89 ff 44 89 f1 31 c0 e8 f0 a9 00 00 48 8d 35 5b c4 ff ff 4c 8d 35 19 c3 ff ff 48 89 df 4c 89 f2 31 c0 e8 f5 27 00 00 48 8d 3d d2 c4 ff ff 4c 89 fe 31 c0 e8 d4 29 00 00 4c 89 ff e8 cc a9 00 00 41 89 c7 48 8d 35 97 c7 ff ff 48 89 df 4c 89 f2 89 c1 31 c0}  //weight: 1, accuracy: High
+        $x_1_2 = {49 8b 7d 00 be 2f 00 00 00 e8 e5 9a 00 00 48 83 c0 01 48 8d 3d 52 b4 ff ff 48 89 45 c8 48 89 c6 31 c0 e8 ac 19 00 00 48 8d 3d 28 ba ff ff 31 c0 e8 9e 19 00 00 41 83 fc 02 7c 30 44 89 e3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Linux_Filecoder_AG_2147959521_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Filecoder.AG!MTB"
+        threat_id = "2147959521"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Running in /tmp. Encrypting the entire system with key" ascii //weight: 1
+        $x_1_2 = {be 7a e3 58 00 48 89 c7 e8 fd 1d 00 00 be 80 e3 58 00 bf a0 cb 5f 00 e8 16 77 05 00 48 8d 45 80 ba 02 00 00 00 be d2 e3 58 00 48 89 c7 e8 26 1e 00 00 48 8d 45 b0 48 8d 95 20 ff ff ff 48 89 d6 48 89 c7 e8 ea 37 09 00 48 8d 55 80 48 8d 45 b0 48 89 d6 48 89 c7 e8 e9 06 00 00 89 c3 48 8d 45 b0 48 89 c7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

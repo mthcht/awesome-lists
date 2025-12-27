@@ -1310,3 +1310,67 @@ rule Trojan_MSIL_NjRAT_ZUT_2147943791_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRAT_SPEQ_2147954668_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRAT.SPEQ!MTB"
+        threat_id = "2147954668"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0b 06 07 28 ?? 00 00 0a 0c 08 72 ?? ?? ?? 70 72 ?? ?? ?? 70 6f ?? 00 00 0a 28 ?? 00 00 0a 0d 14 13 04 11 04 13 05 09 28 ?? 00 00 0a 6f ?? 00 00 0a 11 04 14 6f ?? 00 00 0a 13 06 2a}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NjRAT_SPBR_2147956975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRAT.SPBR!MTB"
+        threat_id = "2147956975"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {13 05 11 05 09 6f ?? 00 00 0a 11 05 08 6f ?? 00 00 0a 11 05 17 6f ?? 00 00 0a 11 05 18 6f ?? 00 00 0a 73 ?? 00 00 0a 13 06 11 06 11 05 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 07 11 07 06 16 06 8e b7 6f ?? 00 00 0a de 0c 11 07 2c 07 11 07 6f ?? 00 00 0a dc}  //weight: 4, accuracy: Low
+        $x_2_2 = {08 09 08 09 91 07 61 9c 09 17 d6 0d 09 11 04 31 ef}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NjRAT_ZHI_2147959543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRAT.ZHI!MTB"
+        threat_id = "2147959543"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {16 02 8e b7 17 59 0c 0b 2b 0d 02 07 02 07 91 1d 61 d2 9c 07 1d 58 0b 07 08 31 ef 02 2a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

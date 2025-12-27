@@ -630,3 +630,29 @@ rule Ransom_Win32_Conti_LKV_2147846615_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Conti_MKZ_2147951590_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Conti.MKZ!MTB"
+        threat_id = "2147951590"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "All exfiltrated data published on darknet forums" ascii //weight: 3
+        $x_3_2 = "vssadmin delete shadows /all /quiet" ascii //weight: 3
+        $x_2_3 = "RECOVER_INSTRUCTIONS.html" ascii //weight: 2
+        $x_3_4 = "Contact ONLY after payment confirmation" ascii //weight: 3
+        $x_2_5 = "COMPROMISED" ascii //weight: 2
+        $x_2_6 = "DisableRealtimeMonitoring" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

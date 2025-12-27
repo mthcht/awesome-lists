@@ -371,6 +371,27 @@ rule Trojan_MSIL_Webshell_AWB_2147944502_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0b 11 05 11 04 09 08 02 6f ?? 00 00 0a 28 ?? 00 00 0a 74 ?? 00 00 01 7b ?? 00 00 0a 25 16 03 a2 25 17 04 a2 25 18 06 a2 25 19 07 a2 26 07 00 02 6f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Webshell_AWB_2147944502_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Webshell.AWB!MTB"
+        threat_id = "2147944502"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Webshell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "Low"
     strings:
@@ -382,6 +403,62 @@ rule Trojan_MSIL_Webshell_AWB_2147944502_0
         $x_1_6 = "Directory created success" wide //weight: 1
         $x_1_7 = "File Delete Success" wide //weight: 1
         $x_1_8 = "Process Kill Success" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Webshell_GVA_2147946063_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Webshell.GVA!MTB"
+        threat_id = "2147946063"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Webshell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "24"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "txtNewPasswordConfirmed" ascii //weight: 3
+        $x_3_2 = "lnkForgotPassword" ascii //weight: 3
+        $x_3_3 = "lnkForgotPassword_Click" ascii //weight: 3
+        $x_3_4 = "chkAutoLogin" ascii //weight: 3
+        $x_1_5 = "~/frmResetURL.aspx" wide //weight: 1
+        $x_1_6 = "~/MasterPages/Dummy.Master" wide //weight: 1
+        $x_1_7 = "~/frmForgotPassword.aspx" wide //weight: 1
+        $x_1_8 = "@EmailAddress" wide //weight: 1
+        $x_2_9 = "imgCaptcha" wide //weight: 2
+        $x_2_10 = "CaptchaImage" wide //weight: 2
+        $x_1_11 = "txtCaptcha" wide //weight: 1
+        $x_1_12 = "~/CompileSite.aspx" wide //weight: 1
+        $x_1_13 = "~/LoginPreview.aspx" wide //weight: 1
+        $x_1_14 = "grenhy" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Webshell_SPZB_2147948742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Webshell.SPZB!MTB"
+        threat_id = "2147948742"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Webshell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 06 07 13 09 1f 0b 8d 01 00 00 01 13 0a 11 0a 16 11 09 a2 11 0a 17 72 f6 04 00 70 a2 11 0a 18 11 06}  //weight: 2, accuracy: High
+        $x_1_2 = "osvmhdfl.dll" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

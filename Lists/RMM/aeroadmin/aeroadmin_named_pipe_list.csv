@@ -1,2 +1,2 @@
-pipe_name,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_tool_type,metadata_usage,metadata_comment,metadata_reference
-\DAV RPC SERVICE,used by aeroadmin for remote control (also used by other lateral movement tools and tools like keepass and chrome),aeroadmin,RMM,https://ulm.aeroadmin.com/AeroAdmin.exe,high,high,medium,greyware_tool,Hunting,,https://ulm.aeroadmin.com/AeroAdmin.exe
+pipe_name,metadata_description,metadata_tool,metadata_category,metadata_link,metadata_priority,metadata_fp_risk,metadata_severity,metadata_tool_type,metadata_usage,metadata_comment,metadata_reference,metadata_regex_cortex
+\DAV RPC SERVICE,used by aeroadmin for remote control (also used by other lateral movement tools and tools like keepass and chrome),aeroadmin,RMM,https://ulm.aeroadmin.com/AeroAdmin.exe,high,high,medium,greyware_tool,Hunting,,https://ulm.aeroadmin.com/AeroAdmin.exe,^DAV RPC SERVICE$

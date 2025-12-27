@@ -204,3 +204,25 @@ rule Trojan_Win64_Lotok_NC_2147944295_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lotok_PAGR_2147954819_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lotok.PAGR!MTB"
+        threat_id = "2147954819"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lotok"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {33 d2 48 8b ?? ?? ?? ?? ?? 48 8b c3 49 2b c8 48 f7 f1 46 0f b6 0c 02 44 32 0c 1f 4d 3b d3 73}  //weight: 2, accuracy: Low
+        $x_1_2 = "powershell -ExecutionPolicy Bypass -WindowStyle Hidden -EncodedCommand" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -195,3 +195,91 @@ rule Trojan_MSIL_Diztakun_ND_2147933525_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Diztakun_AXC_2147948425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Diztakun.AXC!MTB"
+        threat_id = "2147948425"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Diztakun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 72 11 00 00 70 6f 18 00 00 0a 00 06 28 19 00 00 0a 26 7e 1a 00 00 0a 72 80 01 00 70 6f 1b 00 00 0a 0b 07 72 f4 01 00 70 17 8c 22 00 00 01 17 6f 1c 00 00 0a 00 7e 1d 00 00 0a 72 12 02 00 70 6f 1b 00 00 0a 0c 08 72 7e 02 00 70 72 8a 02 00 70 17 6f 1c 00 00 0a}  //weight: 2, accuracy: High
+        $x_1_2 = "ProcessStartInfo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Diztakun_EOCS_2147951130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Diztakun.EOCS!MTB"
+        threat_id = "2147951130"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Diztakun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 05 11 04 06 07 ?? ?? ?? ?? ?? 16 73 0c 00 00 0a 13 06 73 0d 00 00 0a 13 07 11 06 11 07 ?? ?? ?? ?? ?? 11 07 ?? ?? ?? ?? ?? 13 08 de 30 11 07 2c 07 11 07 ?? ?? ?? ?? ?? dc 11 06 2c 07 11 06 ?? ?? ?? ?? ?? dc 11 05 2c 07 11 05 ?? ?? ?? ?? ?? dc}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Diztakun_MR_2147951458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Diztakun.MR!MTB"
+        threat_id = "2147951458"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Diztakun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0a 06 72 af 00 00 70 6f b9 00 00 0a 0b 07 16 2f 0c}  //weight: 5, accuracy: High
+        $x_10_2 = {11 10 16 11 10 8e 69 6f cd 00 00 0a 7e 44 00 00 04 0b 07}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Diztakun_AR_2147952014_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Diztakun.AR!MTB"
+        threat_id = "2147952014"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Diztakun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "SW5maW5pdGVCbHVlJQ==" wide //weight: 10
+        $x_8_2 = {06 11 0d 16 11 0b 6f c2 00 00 0a 26 11 0a 11 0d 16 11 0b 11 0c 16}  //weight: 8, accuracy: High
+        $x_7_3 = {7e 3c 00 00 04 2d 37 72 85 00 00 70 0a 06 28 8c 00 00 0a 0b 28 8d 00 00 0a 07 16 07 8e 69 6f 8e 00 00 0a}  //weight: 7, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

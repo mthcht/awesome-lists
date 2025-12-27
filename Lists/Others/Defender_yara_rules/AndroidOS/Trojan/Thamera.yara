@@ -231,3 +231,47 @@ rule Trojan_AndroidOS_Thamera_F_2147937882_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Thamera_J_2147948610_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Thamera.J!MTB"
+        threat_id = "2147948610"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Thamera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {6e 10 11 45 07 00 0c 00 07 23 1f 03 dc 04 6e 10 c9 2a 03 00 22 04 38 08 12 05 70 30 01 2e 04 05 6e 40 b8 1d 43 11 0c 00}  //weight: 1, accuracy: High
+        $x_1_2 = {54 20 52 05 12 01 5b 01 8d 02 52 21 51 05 71 20 e5 0d 10 00 0e 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_AndroidOS_Thamera_G_2147950252_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Thamera.G!MTB"
+        threat_id = "2147950252"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Thamera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {63 00 03 00 1a 01 31 04 12 02 12 13 39 00 1e 00 1c 00 b5 00 1a 04 00 20 23 35 65 09 62 06 5b 0f 4d 06 05 02 6e 30 bc 27 40 05 0c 00 69 00 02 00 6e 20 b5 28 30 00}  //weight: 1, accuracy: High
+        $x_1_2 = {1c 03 b5 00 1a 04 62 18 23 25 65 09 6e 30 bc 27 43 05 0c 03 69 03 04 00 6e 20 b5 28 03 00 28 07 0d 03 1a 04 b8 04 71 30 1f 05 41 03 6a 00 05 00 62 00 04 00 38 00 18 00 23 23 67 09}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

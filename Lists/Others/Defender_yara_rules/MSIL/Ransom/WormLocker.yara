@@ -145,3 +145,31 @@ rule Ransom_MSIL_WormLocker_AWM_2147939425_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_WormLocker_NKA_2147952495_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/WormLocker.NKA!MTB"
+        threat_id = "2147952495"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WormLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SysWOW64.Script.ransom_voice.vbs" ascii //weight: 1
+        $x_2_2 = "reg add HKLM\\SOFTWARE\\Policies\\Microsoft\\FVE /v EnableBDEWithNoTPM /t REG_DWORD /d 1 /f" ascii //weight: 2
+        $x_1_3 = "manage-bde -on C: -pw -rk C:\\key.bin" ascii //weight: 1
+        $x_1_4 = "C:\\Windows\\System32\\WormLocker2.0.exe" ascii //weight: 1
+        $x_1_5 = "/C reg add HKCU\\Environment /v windir /d \"cmd.exe /c start c:\\payload.exe" ascii //weight: 1
+        $x_1_6 = ".encrypted" ascii //weight: 1
+        $x_1_7 = "/C reagentc /disable && vssadmin delete shadows /all /quiet" ascii //weight: 1
+        $x_1_8 = "9de7e59b-eb4f-4841-8726-3b10dd84c3c8" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

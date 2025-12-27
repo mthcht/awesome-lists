@@ -254,3 +254,75 @@ rule Ransom_Win64_Akira_AKR_2147911447_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Akira_YAB_2147945775_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Akira.YAB!MTB"
+        threat_id = "2147945775"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".arika" wide //weight: 1
+        $x_1_2 = ".vhdx" wide //weight: 1
+        $x_10_3 = {48 89 ca 48 83 e2 03 44 8a 04 14 44 30 c0 88 04 0e 48 ff c1 4c 39 d1}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Akira_ARAX_2147954750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Akira.ARAX!MTB"
+        threat_id = "2147954750"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 83 ec 78 48 89 d7 48 89 4c 24 38 48 8d 42 30 48 89 44 24 60 4c 8b 7a 10 48 8b 6a 28 48 8b 72 18 0f b6 5a 38 8a 42 40 88 44 24 2f 48 8b 0a 48 8b 42 08 48 89 44 24 40 4c 8b 72 20 8a 42 41 88 44 24 2e f6 44 24 2e 01}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Akira_I_2147959474_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Akira.I"
+        threat_id = "2147959474"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {2e 61 6b 69 72 61 00}  //weight: 3, accuracy: High
+        $x_1_2 = {2e 00 76 00 6d 00 65 00 6d 00 00 00 00 00 00 00 2e 00}  //weight: 1, accuracy: High
+        $x_1_3 = {2e 00 73 00 75 00 62 00 76 00 6f 00 6c 00 00 00 2e 00}  //weight: 1, accuracy: High
+        $x_1_4 = {2e 00 61 00 62 00 63 00 64 00 64 00 62 00 00 00 2e 00}  //weight: 1, accuracy: High
+        $x_1_5 = ".sqlitedb" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

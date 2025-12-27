@@ -995,6 +995,33 @@ rule Trojan_Win32_Glupteba_MX_2147754226_2
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Glupteba_A_2147756875_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.A!MTB"
+        threat_id = "2147756875"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MiniDumpWriteDump" ascii //weight: 1
+        $x_1_2 = "Discord" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = ".IsElevated" ascii //weight: 1
+        $x_1_5 = "net/http.persistConnWriter.Write" ascii //weight: 1
+        $x_1_6 = "maxPayloadSizeForWrite" ascii //weight: 1
+        $x_1_7 = "GeoIP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Glupteba_DSA_2147759454_0
 {
     meta:
@@ -2451,6 +2478,29 @@ rule Trojan_Win32_Glupteba_NG_2147770406_2
             ((1 of ($x_2_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_Glupteba_NG_2147770406_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.NG!MTB"
+        threat_id = "2147770406"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {09 d2 01 d3 5e 83 ec 04 89 14 24 5a 41 bb ?? ?? ?? ?? 83 ec 04 89 1c 24 8b 1c 24 83 c4 04 53 8b 14 24 83 c4 04 81 f9 06 98 00 01 75 b4}  //weight: 2, accuracy: Low
+        $x_1_2 = {c7 04 24 44 95 40 00 41 01 d2 68 00 90 40 00 5e 01 c0 8b 1c 24 83 c4 04 e8 45 00 00 00 8b 34 24 83 c4 04 50 8b 0c 24 83 c4 04 5b 09 ca}  //weight: 1, accuracy: High
+        $x_1_3 = "Remote Access" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
 rule Trojan_Win32_Glupteba_NH_2147770426_0
@@ -9460,6 +9510,29 @@ rule Trojan_Win32_Glupteba_ETNW_2147943990_0
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {8b 4c 24 1c d3 e8 30 04 3e 81 fd 49 06 00 00 0f 85 ?? ?? ?? ?? 89 54 24 18}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Glupteba_ARR_2147956039_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Glupteba.ARR!MTB"
+        threat_id = "2147956039"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Glupteba"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 3c 1e 85 d2 74 ?? 89 f0 89 d3 99 f7 fb 39 d3 77}  //weight: 10, accuracy: Low
+        $x_7_2 = {8b 4c 24 44 29 d1 29 d5 87 dd f7 db 87 dd c1 fd ?? 21 ea 01 da}  //weight: 7, accuracy: Low
+        $x_3_3 = {89 f8 0f b6 3c 0a 31 f8 8b bc 24 ?? ?? ?? ?? 88 04 37 46}  //weight: 3, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

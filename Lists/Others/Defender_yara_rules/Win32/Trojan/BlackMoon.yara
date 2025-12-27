@@ -1059,3 +1059,28 @@ rule Trojan_Win32_BlackMoon_GTK_2147934695_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BlackMoon_MR_2147947814_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BlackMoon.MR!MTB"
+        threat_id = "2147947814"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BlackMoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {3b f0 73 1e 80 66 04 00 83 0e ff 83 66 08 00 c6 46 05 0a a1 80 af 65 00 83 c6 24 05 80 04 00 00 eb}  //weight: 10, accuracy: High
+        $x_2_2 = "WWW.12GAMDH.COM" ascii //weight: 2
+        $x_1_3 = "RemovePlayer" ascii //weight: 1
+        $x_1_4 = "CreatePlayer" ascii //weight: 1
+        $x_1_5 = "GetPlayState" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

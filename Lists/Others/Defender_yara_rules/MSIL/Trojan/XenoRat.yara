@@ -114,6 +114,27 @@ rule Trojan_MSIL_XenoRat_AXE_2147928137_0
         threshold = "1"
         strings_accuracy = "Low"
     strings:
+        $x_1_1 = {02 08 18 58 6f ?? 00 00 0a 28 ?? 00 00 06 1e 62 09 60 0d 02 08 19 58 6f ?? 00 00 0a 28 ?? 00 00 06 1f 0c 62 09 60 0d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XenoRat_AXE_2147928137_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XenoRat.AXE!MTB"
+        threat_id = "2147928137"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XenoRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
         $x_1_1 = {0c 2b 2c 08 6f ?? 00 00 0a 25 72 ?? 02 00 70 6f ?? 00 00 0a 6f ?? 00 00 0a 0d 06 09 6f ?? 00 00 0a 2d 07 06 09 6f ?? 00 00 0a 6f ?? 00 00 0a 08 6f}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and

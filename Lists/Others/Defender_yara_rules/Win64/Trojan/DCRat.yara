@@ -280,3 +280,115 @@ rule Trojan_Win64_DCRat_ETL_2147944790_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DCRat_GVC_2147954272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.GVC!MTB"
+        threat_id = "2147954272"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b0 06 bd c2 ef d9 fe 50 21 51 fa 29 c9 4c 85 15 00 19 1b 04 3d d9 48 c7 7d 30 64 e8 47 7a 6c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DCRat_YAE_2147954700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.YAE!MTB"
+        threat_id = "2147954700"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {43 0f be 0c 01 49 ff c0 03 ca 69 d1 ?? ?? ?? ?? 8b ca c1 e9 06 33 d1 4c 3b c0 75 e4 8d 04 d2 8b c8 c1 e9 0b 33 c8}  //weight: 1, accuracy: Low
+        $x_1_2 = "OnlyNoConsole\\svc.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DCRat_YAF_2147954701_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.YAF!MTB"
+        threat_id = "2147954701"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "https://tmpfiles.org/" ascii //weight: 2
+        $x_1_2 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_3 = "powershell -Command \"Invoke-WebRequest -Uri" ascii //weight: 1
+        $x_1_4 = {53 74 61 72 74 2d 50 72 6f 63 65 73 73 20 27 43 3a 5c [0-48] 2e 65 78 65}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DCRat_MK_2147954935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.MK!MTB"
+        threat_id = "2147954935"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {f2 48 0f 2a d1 66 0f 6e c8 f3 0f e6 c9 f3 0f e6 c0 f2 0f 58 c0 f2 0f 5c c8 f2 0f 59 ca f2 0f 11 4d b7}  //weight: 20, accuracy: High
+        $x_15_2 = "Curre360leakfixer.exe" ascii //weight: 15
+        $x_3_3 = "%s\\ok_%ld.stml" ascii //weight: 3
+        $x_2_4 = "%s\\ok_%ld.txt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DCRat_CR_2147958570_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.CR!MTB"
+        threat_id = "2147958570"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 34 5b 48 8b 34 f2 48 89 34 d8 48 ff c3 48 39 cb 7c ec}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

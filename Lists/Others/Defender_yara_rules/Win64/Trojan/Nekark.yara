@@ -73,3 +73,26 @@ rule Trojan_Win64_Nekark_NN_2147940430_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Nekark_AR_2147958043_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Nekark.AR!MTB"
+        threat_id = "2147958043"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nekark"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 45 fc 48 98 48 8d 14 c5 00 00 00 00 48 8b 45 e8 48 01 d0 48 8b 10 8b 45 fc}  //weight: 2, accuracy: High
+        $x_8_2 = "Global\\CrashpadHandlerMutex" ascii //weight: 8
+        $x_10_3 = "%s\\\\NetHosts.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

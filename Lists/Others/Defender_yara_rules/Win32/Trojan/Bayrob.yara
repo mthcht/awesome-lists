@@ -381,3 +381,113 @@ rule Trojan_Win32_Bayrob_AMX_2147939133_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Bayrob_NIT_2147945689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bayrob.NIT!MTB"
+        threat_id = "2147945689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bayrob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {ba 49 ab ff ff 66 89 15 ?? ?? ?? 00 8a 17 30 11 dd 05 ?? ?? ?? 00 d8 c1 41 47 dc 05 ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 3b c8 75 d6}  //weight: 3, accuracy: Low
+        $x_2_2 = {8b 72 08 8b 1c 37 89 1c 8e 8b 72 04 bb 01 00 00 00 03 cb 2b f0 83 c7 04 3b ce 7c e4}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Bayrob_NIT_2147945689_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bayrob.NIT!MTB"
+        threat_id = "2147945689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bayrob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {e8 7c 31 ff ff 6a 02 5e 89 30 e8 3e 31 ff ff 89 30 e9 d2 03 00 00 66 83 7b 02 3a 75 1d 0f b7 03 66 85 c0 74 06 66 39 73 04 74 d5 50 e8 0f ef ff ff}  //weight: 3, accuracy: High
+        $x_2_2 = {89 b5 b0 fb ff ff 89 b5 b4 fb ff ff e8 63 82 00 00 83 c4 1c 89 47 1c 89 47 18 89 47 20 e9 31 02 00 00 39 b5 90 fb ff ff 0f 84 c8 fe ff ff ff b5 90 fb ff ff e8 1c 16 ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Bayrob_NB_2147953773_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bayrob.NB!MTB"
+        threat_id = "2147953773"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bayrob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b7 51 02 83 c1 02 0f b7 34 0f 2b f2 74 ec}  //weight: 2, accuracy: High
+        $x_1_2 = {0f b7 11 8b c2 0f b7 37 2b f0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Bayrob_NA_2147953812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bayrob.NA!MTB"
+        threat_id = "2147953812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bayrob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 75 0c 8a 06 49 88 02 42 46 85 c9}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 72 04 41 2b f0 3b ce 7c e6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Bayrob_NN_2147954436_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bayrob.NN!MTB"
+        threat_id = "2147954436"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bayrob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f af d1 89 15 ?? ?? ?? 00 89 04 24 c7 44 24 04}  //weight: 2, accuracy: Low
+        $x_1_2 = {8b 4e 04 66 8b 15 ?? ?? ?? 00 0f bf d2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -154,3 +154,25 @@ rule Trojan_Win32_Hupigon_NH_2147899139_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Hupigon_AHU_2147956372_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Hupigon.AHU!MTB"
+        threat_id = "2147956372"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Hupigon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {89 46 64 68 68 aa 46 00 8b 46 30 50 e8 ?? ?? ?? ?? 89 46 68 68 70 aa 46 00 8b 46 30 50 e8 ?? ?? ?? ?? 89 46 6c 68 7c aa 46 00 8b 46 30 50 e8 ?? ?? ?? ?? 89 46 70 68 84 aa 46 00 8b 46 30 50 e8 ?? ?? ?? ?? 89 46 74 68}  //weight: 2, accuracy: Low
+        $x_1_2 = {8b 46 30 50 e8 ?? ?? ?? ?? 89 46 50 68 38 aa 46 00 8b 46 30 50 e8 ?? ?? ?? ?? 89 46 54 68 40 aa 46 00 8b 46 30 50 e8 ?? ?? ?? ?? 89 46 58 68 4c aa 46 00 8b 46 30 50 e8 ?? ?? ?? ?? 89 46 5c 68 54 aa 46 00 8b 46 30 50 e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

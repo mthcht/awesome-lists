@@ -83,3 +83,27 @@ rule Trojan_Win32_KillAV_A_2147834222_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillAV_EM_2147951023_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillAV.EM!MTB"
+        threat_id = "2147951023"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {39 4d 0c 76 10 8b 45 08 8a 55 10 03 c1 28 10 41 3b 4d 0c 72 f0}  //weight: 3, accuracy: High
+        $x_1_2 = "Recycler\\aa.txt" ascii //weight: 1
+        $x_1_3 = "AntivusType = %d ProcessName = %s" ascii //weight: 1
+        $x_1_4 = "Begin Write ShellCode File" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
