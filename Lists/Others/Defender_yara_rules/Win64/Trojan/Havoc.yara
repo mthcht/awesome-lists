@@ -219,3 +219,25 @@ rule Trojan_Win64_Havoc_P_2147958374_0
         )
 }
 
+rule Trojan_Win64_Havoc_ARR_2147960149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.ARR!MTB"
+        threat_id = "2147960149"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {0f b6 c1 42 32 84 39 ?? ?? ?? ?? ?? ?? 88 44 0d 40 48 ff c1 48 3b ca}  //weight: 12, accuracy: Low
+        $x_8_2 = {0f b6 c8 48 8d 55 40 48 03 d0 48 ff c0 32 4c 17}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

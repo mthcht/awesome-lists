@@ -70,3 +70,27 @@ rule Trojan_O97M_Downloader_BP_2147959883_0
         (all of ($x*))
 }
 
+rule Trojan_O97M_Downloader_BH_2147960132_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/Downloader.BH!MSR"
+        threat_id = "2147960132"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Downloader"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "strURL = \"http://91.107.150.184/office.bat\"" ascii //weight: 1
+        $x_1_2 = "strFilePath = \"C:\\windows\\temp\\office.bat\"" ascii //weight: 1
+        $x_1_3 = "Set objADOStream = CreateObject(\"ADODB.Stream\")" ascii //weight: 1
+        $x_1_4 = "strCommand = \"cmd.exe /c \" & strFilePath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
