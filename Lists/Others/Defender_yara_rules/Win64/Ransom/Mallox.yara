@@ -132,3 +132,31 @@ rule Ransom_Win64_Mallox_C_2147946172_0
         )
 }
 
+rule Ransom_Win64_Mallox_SX_2147960176_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Mallox.SX!MTB"
+        threat_id = "2147960176"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mallox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f 57 c0 0f 11 01 4c 89 79 10 4c 89 79 18 0f 10 04 11 48 8d 49 20 48 8d 04 11 0f 11 41 e0 0f 10 4c 11 f0 0f 11 49 f0 4c 89 7c 11 f0 48 c7 44 11 f8 07 00 00 00 66 44 89 7c 11 e0 48 3b c3 75 c0}  //weight: 20, accuracy: High
+        $x_20_2 = {c5 f9 ef c0 c5 f8 11 01 4c 89 79 10 4c 89 79 18 c5 fc 10 04 11 c5 fc 11 01 4c 89 7c 11 10 48 c7 44 11 18 07 00 00 00 66 44 89 3c 11 48 8d 49 20 48 8d 04 11 48 3b c3 75 c7}  //weight: 20, accuracy: High
+        $x_5_3 = "Your files has been encrypted" ascii //weight: 5
+        $x_5_4 = "Include your key in your letter" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 2 of ($x_5_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
