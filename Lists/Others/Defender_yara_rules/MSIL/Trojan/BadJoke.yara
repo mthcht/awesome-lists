@@ -142,3 +142,27 @@ rule Trojan_MSIL_BadJoke_GXV_2147952519_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BadJoke_SL_2147960170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BadJoke.SL!MTB"
+        threat_id = "2147960170"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$685b80d7-c4d5-45d2-aa3f-542ce54bb780" ascii //weight: 1
+        $x_1_2 = "WraithAC.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "fuck you" ascii //weight: 1
+        $x_1_4 = ".compressed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

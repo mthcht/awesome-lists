@@ -49,3 +49,27 @@ rule Ransom_MSIL_Hiddentear_DA_2147765426_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Hiddentear_SK_2147960168_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Hiddentear.SK!MTB"
+        threat_id = "2147960168"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Hiddentear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "hels.readme.txt" ascii //weight: 1
+        $x_1_2 = "BLACK-HEOLAS" ascii //weight: 1
+        $x_1_3 = "Your important files are locked by encryption" ascii //weight: 1
+        $x_1_4 = "BlackHeolasSupport@onionmail.org" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

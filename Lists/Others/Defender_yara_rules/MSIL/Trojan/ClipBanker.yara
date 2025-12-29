@@ -4597,3 +4597,26 @@ rule Trojan_MSIL_ClipBanker_SN_2147959902_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_SP_2147960169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.SP!MTB"
+        threat_id = "2147960169"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C:\\Users\\Snowden\\source\\repos\\SystemTextProcessor\\obj\\Release\\SystemTextProcessor.pdb" ascii //weight: 2
+        $x_2_2 = "SystemTextProcessor.Properties.Resources" ascii //weight: 2
+        $x_2_3 = "SystemTextProcessor.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
