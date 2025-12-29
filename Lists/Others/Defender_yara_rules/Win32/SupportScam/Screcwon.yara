@@ -34,9 +34,12 @@ rule SupportScam_Win32_Screcwon_MA_2147944259_0
         $x_1_19 = ".ephelp.site" ascii //weight: 1
         $x_1_20 = "dcontrol.guidzin.com" ascii //weight: 1
         $x_1_21 = "docs.viewyourstatementonline.com" ascii //weight: 1
+        $x_1_22 = "olphelp.top" ascii //weight: 1
+        $x_1_23 = "tbaysupport.ca" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (
+            ((21 of ($x_1_*))) or
             ((1 of ($x_20_*) and 1 of ($x_1_*))) or
             ((2 of ($x_20_*))) or
             (all of ($x*))
@@ -93,8 +96,18 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_33 = "pilwerui.rchelp.top" ascii //weight: 30
         $x_30_34 = "rwbhelp.top" ascii //weight: 30
         $x_30_35 = "zvhelp.top" ascii //weight: 30
-        $x_30_36 = "kcclive.top" ascii //weight: 30
-        $x_30_37 = "mango.quatrocliche.com" ascii //weight: 30
+        $x_30_36 = "wyghelp.top" ascii //weight: 30
+        $x_30_37 = "ofhelp.top" ascii //weight: 30
+        $x_30_38 = "kcclive.top" ascii //weight: 30
+        $x_30_39 = "mango.quatrocliche.com" ascii //weight: 30
+        $x_30_40 = "molatoriism.icu" ascii //weight: 30
+        $x_30_41 = "onyxsupportx.de" ascii //weight: 30
+        $x_30_42 = "onyxfortitech.de" ascii //weight: 30
+        $x_30_43 = "onyxnexguard.de" ascii //weight: 30
+        $x_30_44 = "onyxaquarius.top" ascii //weight: 30
+        $x_30_45 = "engajroker.cyou" ascii //weight: 30
+        $x_30_46 = "mail.ssadownload.top" ascii //weight: 30
+        $x_30_47 = "policy.igc-technologies.com" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (
