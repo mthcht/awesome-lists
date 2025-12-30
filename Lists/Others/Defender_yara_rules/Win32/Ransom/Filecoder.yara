@@ -2933,3 +2933,28 @@ rule Ransom_Win32_Filecoder_SXG_2147959698_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_AHD_2147960229_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.AHD!MTB"
+        threat_id = "2147960229"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "ping 127.2 -n 10 & cd/ & echo(|\"%s\" --disable & rd /q /s \"%s" ascii //weight: 10
+        $x_20_2 = "PAY2KEY_LOG.txt" ascii //weight: 20
+        $x_30_3 = "-e watch -pid" ascii //weight: 30
+        $x_40_4 = "[*] Work finished" ascii //weight: 40
+        $x_50_5 = "[*] Scan hosts started at: %s" ascii //weight: 50
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5772,3 +5772,47 @@ rule Trojan_Win32_Farfli_AFA_2147959558_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_GXV_2147960225_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.GXV!MTB"
+        threat_id = "2147960225"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {84 d1 33 d9 3b f4 f9 66 85 de 03 f9}  //weight: 5, accuracy: High
+        $x_5_2 = {fe c8 f6 d0 f8 3b cb 32 d8 f8 88 14 04}  //weight: 5, accuracy: High
+        $x_1_3 = "TbsAppInstance" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Farfli_BAB_2147960227_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.BAB!MTB"
+        threat_id = "2147960227"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 ce 8a 14 8f 0f b6 4c 24 14 32 d3 32 4c 24 2c 02 d1 8b 4c 24 10 32 ca 28 0c 28 0f b6 0c 28 89 4c 24 2c 83 e8 01 75}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
