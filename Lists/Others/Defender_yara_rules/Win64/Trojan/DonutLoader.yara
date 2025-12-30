@@ -305,3 +305,24 @@ rule Trojan_Win64_DonutLoader_GTD_2147958504_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_PGDO_2147960285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.PGDO!MTB"
+        threat_id = "2147960285"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {61 36 32 39 30 34 39 33 65 63 30 61 65 37 32 66 39 34 62 35 65 34 35 30 37 64 36 33 34 32 30 65 34 30 64 35 65 33 35 34 30 34 64 39 39 61 35 38 33 61 36 32 61 63 66 65 64 64 64 66 64 38 34 38 00 61 33 62 36 34 66 37 63 61 31 65 66 36 35 38 38 36 30 37 65 61 63 34 61 64 64 39 37 66 64 35 64 66 62 62 39 36 33 39 31 37 35 64 34 30 31 32 30 33 38 66 63 35 30 39 38 34 63 30 33 35 62 63 64 00 4e 74 41 6c 6c 6f 63 61 74 65 56 69 72 74 75 61 6c 4d 65 6d 6f 72 79 00 4e 74 50 72 6f 74 65 63 74 56 69 72 74 75 61 6c 4d 65 6d 6f 72 79 00 4e 74 43 72 65 61 74 65 54 68 72 65 61 64 45 78}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -55,3 +55,24 @@ rule Trojan_Win64_SantaStealer_A_2147959612_0
         )
 }
 
+rule Trojan_Win64_SantaStealer_PS_2147960283_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SantaStealer.PS!MTB"
+        threat_id = "2147960283"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SantaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 0f b6 54 05 00 41 30 14 06 48 83 c0 01 48 3b 45 28 72 ec}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
