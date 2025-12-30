@@ -117,3 +117,57 @@ rule VirTool_Win32_Empire_A_2147815730_2
         (8 of ($x*))
 }
 
+rule VirTool_Win32_Empire_C_2147960256_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/Empire.C"
+        threat_id = "2147960256"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Empire"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Invoke-Empire -Servers @(" ascii //weight: 1
+        $x_1_2 = ".Headers.Add(\"User-Agent\"" ascii //weight: 1
+        $x_1_3 = "[GC]::Collect()" ascii //weight: 1
+        $x_1_4 = "(ps|tasklist)" ascii //weight: 1
+        $x_1_5 = "$Script:ControlServers[$Script:ServerIndex]" ascii //weight: 1
+        $x_1_6 = "Start-Negotiate -S" ascii //weight: 1
+        $x_1_7 = " -StagingKey" ascii //weight: 1
+        $x_1_8 = "$script:AgentJitter" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule VirTool_Win32_Empire_D_2147960257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/Empire.D"
+        threat_id = "2147960257"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Empire"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = ".DownloadData($ser+$t);" ascii //weight: 1
+        $x_1_2 = "=[System.Text.Encoding]::ASCII.GetBytes('" ascii //weight: 1
+        $x_1_3 = {24 00 74 00 3d 00 27 00 2f 00 [0-48] 2e 00 70 00 68 00 70 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {24 74 3d 27 2f [0-48] 2e 70 68 70}  //weight: 1, accuracy: Low
+        $x_1_5 = ".Proxy=[System.Net.WebRequest]::DefaultWebProxy;" ascii //weight: 1
+        $x_1_6 = "$Script:Proxy" ascii //weight: 1
+        $x_1_7 = ".Headers.Add('User-Agent',$" ascii //weight: 1
+        $x_1_8 = ".Headers.Add(\"Cookie\",\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (7 of ($x*))
+}
+

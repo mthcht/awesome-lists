@@ -198,3 +198,28 @@ rule Ransom_MSIL_WannaCrypt_BA_2147958846_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_WannaCrypt_AYB_2147960255_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/WannaCrypt.AYB!MTB"
+        threat_id = "2147960255"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WannaCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Wana_Decrypt0r" wide //weight: 5
+        $x_2_2 = "Wanna.Properties.Resources" wide //weight: 2
+        $x_1_3 = "\\Wanna\\obj\\Debug\\Wanna.pdb" ascii //weight: 1
+        $x_1_4 = "Ooops, your files have been encry" wide //weight: 1
+        $x_1_5 = "Send $7000 worth of bitcoin to this address:" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8209,3 +8209,24 @@ rule Trojan_Win32_Guloader_SPWY_2147957151_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_BAA_2147960270_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.BAA!MTB"
+        threat_id = "2147960270"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {50 85 d2 85 db 5b 66 85 d2 66 3d ?? ?? 01 d3 66 85 c0 66 85 c0 31 0b e9}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

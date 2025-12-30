@@ -66,3 +66,30 @@ rule Trojan_Win64_BroPass_C_2147947414_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BroPass_MKB_2147960272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BroPass.MKB!MTB"
+        threat_id = "2147960272"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BroPass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "75"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "Stealing WiFi passwords" ascii //weight: 15
+        $x_15_2 = "Stealing Telegram session" ascii //weight: 15
+        $x_15_3 = "Checking for crypto wallets" ascii //weight: 15
+        $x_10_4 = "Stealing WhatsApp sessions (Browser + Store + Desktop)" ascii //weight: 10
+        $x_10_5 = "Extracting browser autofills" ascii //weight: 10
+        $x_5_6 = "Stealing VPN configurations" ascii //weight: 5
+        $x_5_7 = "Stealing clipboard data" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

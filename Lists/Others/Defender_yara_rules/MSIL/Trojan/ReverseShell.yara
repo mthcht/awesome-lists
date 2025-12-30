@@ -41,3 +41,51 @@ rule Trojan_MSIL_ReverseShell_ZJV_2147941274_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ReverseShell_A_2147960267_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ReverseShell.A!AMTB"
+        threat_id = "2147960267"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {72 01 00 00 70 20 bb 01 00 00 73 11 00 00 0a 0c 08}  //weight: 4, accuracy: High
+        $x_1_2 = {25 6f 1d 00 00 0a 72 37 00 00 70 6f 20 00 00 0a 25 6f 1d 00 00 0a 72 47 00 00 70 07 28 21 00 00 0a 6f 22 00 00 0a 25 6f 1d 00 00 0a 17 6f 23 00 00 0a 25}  //weight: 1, accuracy: High
+        $x_1_3 = {25 6f 27 00 00 0a 6f 28 00 00 0a 13 07 6f 29 00 00 0a 6f 28 00 00 0a 13 08 28 13 00 00 0a 11 07 6f 14 00 00 0a 13 09 28 13 00 00 0a 11 08 6f 14 00 00 0a 13 0a 09 11 09 16 11 09 8e 69 6f 15 00 00 0a 09}  //weight: 1, accuracy: High
+        $x_1_4 = "185.244.180.169" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ReverseShell_AA_2147960268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ReverseShell.AA!AMTB"
+        threat_id = "2147960268"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {72 01 00 00 70 20 bb 01 00 00 73 10 00 00 0a 0c 08}  //weight: 4, accuracy: High
+        $x_1_2 = {25 6f 1c 00 00 0a 72 37 00 00 70 6f 1f 00 00 0a 25 6f 1c 00 00 0a 72 47 00 00 70 07 28 20 00 00 0a 6f 21 00 00 0a 25 6f 1c 00 00 0a 17 6f 22 00 00 0a 25}  //weight: 1, accuracy: High
+        $x_1_3 = {25 6f 26 00 00 0a 6f 27 00 00 0a 13 07 6f 28 00 00 0a 6f 27 00 00 0a 13 08 28 12 00 00 0a 11 07 6f 13 00 00 0a 13 09 28 12 00 00 0a 11 08 6f 13 00 00 0a 13 0a 09 11 09 16 11 09 8e 69 6f 14 00 00 0a 09}  //weight: 1, accuracy: High
+        $x_1_4 = "188.127.227.226" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
