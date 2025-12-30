@@ -166,3 +166,98 @@ rule HackTool_MacOS_Metasploit_P8_2147959983_0
         (all of ($x*))
 }
 
+rule HackTool_MacOS_Metasploit_P9_2147960210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Metasploit.P9"
+        threat_id = "2147960210"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Metasploit"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {31 c0 99 50 40 50 40 50 52 b0 61 cd 80 72 6c 89 c7}  //weight: 2, accuracy: High
+        $x_2_2 = {89 e3 6a 10 53 57 52 b0 62 cd 80 72 51}  //weight: 2, accuracy: High
+        $x_2_3 = {89 e5 83 ec 08 31 c9 f7 e1 51 89 e6 b0 04 50 56 57 50 48 cd 80}  //weight: 2, accuracy: High
+        $x_2_4 = {31 c0 50 50 48 50 40 66 b8 02 10 50 31 c0 b0 07 50 56 52 52 b0 c5 cd 80}  //weight: 2, accuracy: High
+        $x_2_5 = {56 89 d8 29 f0 50 57 52 31 c0 b0 03 cd 80 72 08 29 c3 29 c6 75 ea}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_MacOS_Metasploit_P10_2147960211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Metasploit.P10"
+        threat_id = "2147960211"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Metasploit"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {31 c0 50 89 e7 6a 10 54 57 50 50}  //weight: 2, accuracy: High
+        $x_2_2 = {58 58 40 50 50 6a 1f 58 cd 80}  //weight: 2, accuracy: High
+        $x_2_3 = {6a 5a 58 cd 80 ff 4f f0 79 f6}  //weight: 2, accuracy: High
+        $x_2_4 = {89 e3 50 54 54 53 50 b0 3b cd 80}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_MacOS_Metasploit_P11_2147960212_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Metasploit.P11"
+        threat_id = "2147960212"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Metasploit"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {31 c0 99 50 40 50 40 50 52 b0 61 cd 80 0f 82 7e 00 00 00 89 c6}  //weight: 2, accuracy: High
+        $x_2_2 = {89 e3 6a 10 53 56 52 b0 68 cd 80 72 67}  //weight: 2, accuracy: High
+        $x_2_3 = {52 56 52 b0 6a cd 80 72 5e 52 52 56 52 b0 1e cd 80}  //weight: 2, accuracy: High
+        $x_2_4 = {31 db 83 eb 01 43 53 57 53 b0 5a cd 80 72 43 83 fb 03 75 f1}  //weight: 2, accuracy: High
+        $x_2_5 = {89 e3 50 50 53 50 b0 3b cd 80}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_MacOS_Metasploit_P12_2147960213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Metasploit.P12"
+        threat_id = "2147960213"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Metasploit"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {31 c0 99 50 40 50 40 50 52 b0 61 cd 80 72 6d 89 c7}  //weight: 2, accuracy: High
+        $x_2_2 = {89 e3 6a 10 53 57 52 b0 62 cd 80 72 52}  //weight: 2, accuracy: High
+        $x_2_3 = {31 db 83 eb 01 43 53 57 53 b0 5a cd 80 72 43 83 fb 03 75 f1}  //weight: 2, accuracy: High
+        $x_2_4 = {31 c0 50 50 50 50 b0 3b cd 80}  //weight: 2, accuracy: High
+        $x_2_5 = {89 e3 50 50 53 50 b0 3b cd 80 31 c0 50 89 e3 50 50 53 50 50 b0 07 cd 80}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

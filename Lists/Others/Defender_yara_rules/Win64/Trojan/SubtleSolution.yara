@@ -9,13 +9,12 @@ rule Trojan_Win64_SubtleSolution_A_2147959523_0
         family = "SubtleSolution"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "31"
+        threshold = "30"
         strings_accuracy = "High"
     strings:
         $x_10_1 = "Implant graceful shutdown" ascii //weight: 10
         $x_10_2 = "struct ImplantId" ascii //weight: 10
         $x_10_3 = "struct ImplantConfig" ascii //weight: 10
-        $x_1_4 = "tmp.pdb" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
