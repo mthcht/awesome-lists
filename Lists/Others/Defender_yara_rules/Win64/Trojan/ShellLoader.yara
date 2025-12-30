@@ -54,3 +54,24 @@ rule Trojan_Win64_ShellLoader_GVB_2147959121_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellLoader_MK_2147960196_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellLoader.MK!MTB"
+        threat_id = "2147960196"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_35_1 = {41 b8 02 00 00 00 49 3b c0 4c 0f 42 c0 49 8b d6 48 83 3d ?? ?? ?? ?? 0f 48 0f 47 15 ?? ?? ?? ?? 48 03 d7 48 8d 4c 24 30}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

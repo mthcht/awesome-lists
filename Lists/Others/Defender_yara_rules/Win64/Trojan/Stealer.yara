@@ -791,3 +791,29 @@ rule Trojan_Win64_Stealer_SXE_2147959875_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_MKB_2147960199_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.MKB!MTB"
+        threat_id = "2147960199"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "cmd.exe /c xcopy /E /I /H /Y \"%s\" \"%s\\tdata" ascii //weight: 15
+        $x_10_2 = "Login_Data" ascii //weight: 10
+        $x_10_3 = "cmd.exe /c powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File \"%s" ascii //weight: 10
+        $x_10_4 = "%sbrowser_data.zip" ascii //weight: 10
+        $x_10_5 = "%stelegram_data.zip" ascii //weight: 10
+        $x_5_6 = "%s\\%s_decrypted" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2365,3 +2365,55 @@ rule Trojan_Win64_ShellcodeRunner_NRK_2147960015_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_MKC_2147960194_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.MKC!MTB"
+        threat_id = "2147960194"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {48 89 44 24 78 4d 8d 24 82 45 8b 24 24 49 01 d4 4d 8d 2c 43 45 0f b7 6d 00 4f 8d 2c a9 45 8b 6d 00 49 01 d5 4c 89 6c 24 60}  //weight: 15, accuracy: High
+        $x_10_2 = {c7 44 24 1e 3a 5c 77 69 48 ba 6e 64 6f 77 73 5c 73 79 48 89 54 24 22 48 ba 73 74 65 6d 33 32 5c 6e 48 89 54 24 2a 48 ba 74 64 6c 6c 2e 64 6c 6c 48 89 54 24 32}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_MKD_2147960197_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.MKD!MTB"
+        threat_id = "2147960197"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "Hi from Red Team Operator" ascii //weight: 15
+        $x_10_2 = "RTO: MalDev" ascii //weight: 10
+        $x_8_3 = "[+] Shellcode written successfully" ascii //weight: 8
+        $x_5_4 = "[+] Injection successful" ascii //weight: 5
+        $x_3_5 = "[+] Process handle obtained" ascii //weight: 3
+        $x_2_6 = "[+] Remote thread created successfully" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_5_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_5_*) and 1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

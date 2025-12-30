@@ -107,7 +107,6 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_44 = "onyxaquarius.top" ascii //weight: 30
         $x_30_45 = "engajroker.cyou" ascii //weight: 30
         $x_30_46 = "mail.ssadownload.top" ascii //weight: 30
-        $x_30_47 = "policy.igc-technologies.com" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (

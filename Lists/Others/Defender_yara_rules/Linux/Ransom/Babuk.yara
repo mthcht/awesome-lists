@@ -449,3 +449,26 @@ rule Ransom_Linux_Babuk_S_2147948034_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Babuk_U_2147960193_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Babuk.U!MTB"
+        threat_id = "2147960193"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Babuk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "esxcli --formatter=csv network nic list" ascii //weight: 1
+        $x_1_2 = "VMXCartelID" ascii //weight: 1
+        $x_1_3 = "vmCount %d affectedVmCount %d vmTotalCount" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
