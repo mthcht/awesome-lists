@@ -191,3 +191,25 @@ rule Ransom_Win64_Encoder_NE_2147959838_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_NB_2147960207_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.NB!MTB"
+        threat_id = "2147960207"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 05 11 4c 11 00 48 01 d8 44 8b 00 45 85 c0 74 0d 48 8b 50 10 48 8b 48 08 4d 89 e9 ff d7}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 05 2e 4c 11 00 85 c0 0f 8e 51 fe ff ff 48 8b 3d 2b 66 11 00 31 db}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

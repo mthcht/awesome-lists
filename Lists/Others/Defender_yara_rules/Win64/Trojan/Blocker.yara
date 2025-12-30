@@ -21,3 +21,26 @@ rule Trojan_Win64_Blocker_DAO_2147851988_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Blocker_NB_2147960206_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Blocker.NB!MTB"
+        threat_id = "2147960206"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Blocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 44 24 28 83 a0 a8 03 00 00 fd 45 33 c9 4c 8d 44 24 20 48 8d 54 24 48 48 8d 4d 80 e8 eb fd ff ff 8b 44 24 68 48 8b 8d 90 01 00 00 48 33 cc e8 1c 80 00 00 4c 8d 9c 24 a0 02 00 00 49 8b 5b 18 49 8b 7b 20 49 8b e3}  //weight: 2, accuracy: High
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "winlogsvc.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
