@@ -3323,3 +3323,25 @@ rule Trojan_MSIL_Nanocore_ANLB_2147957880_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Nanocore_AYNB_2147960316_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Nanocore.AYNB!MTB"
+        threat_id = "2147960316"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {16 02 8e b7 17 59 0c 0b 2b 0d 02 07 02 07 91 1e 61 d2 9c 07 1e 58 0b 07 08 31 ef 02 2a}  //weight: 5, accuracy: High
+        $x_2_2 = {0a 16 02 6f ?? 00 00 0a 17 59 0d 0c 2b 1e 06 02 08 6f ?? 00 00 0a 1e 59 28 ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 0a 0a 08 17 58 0c 08 09 31 de}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

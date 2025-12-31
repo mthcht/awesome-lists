@@ -860,3 +860,24 @@ rule Trojan_Win32_Upatre_AHD_2147959353_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Upatre_PGI_2147960306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.PGI!MTB"
+        threat_id = "2147960306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "A9,C7,2E,9F,BF,6C,AA,46,76,68,16,02,CD,0B,87,2E,A5,C9,E4,F1,A9,D6,4E,C7,6C,9D,E4,A6,59,23,0F,71,33" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -42,3 +42,28 @@ rule Trojan_MSIL_PureCrypt_CCDN_2147895107_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureCrypt_RR_2147960314_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypt.RR!MTB"
+        threat_id = "2147960314"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 04 28 01 00 00 2b 28 02 00 00 2b 13 05 38 12 00 00 00 11 03 11 04 16 11 02 6f 17 00 00 0a 26 38 db ff ff ff}  //weight: 10, accuracy: High
+        $x_1_2 = "GZipStream" ascii //weight: 1
+        $x_1_3 = {42 69 74 43 6f 6e 76 65 72 74 65 72 00 54 6f 49 6e 74 33 32}  //weight: 1, accuracy: High
+        $x_1_4 = "Trim" ascii //weight: 1
+        $x_1_5 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

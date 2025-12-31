@@ -170,3 +170,26 @@ rule Trojan_MSIL_Snakelogger_PKUH_2147928393_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Snakelogger_PS_2147960304_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Snakelogger.PS!MTB"
+        threat_id = "2147960304"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Snakelogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0b 02 03 04 06 07 05 0e 04 0e 05 23 ?? ?? ?? ?? ?? ?? ?? ?? 28 ?? ?? ?? 06 00 00 06 17 58 0a 06 02 6f ?? ?? ?? 0a 2f 0b 03 6f ?? ?? ?? 0a 04 fe 04 2b 01 16 0c 08}  //weight: 10, accuracy: Low
+        $x_1_2 = "txtDoktorRePassword" ascii //weight: 1
+        $x_1_3 = "PharmacyProject.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

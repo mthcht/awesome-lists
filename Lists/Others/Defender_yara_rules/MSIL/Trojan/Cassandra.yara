@@ -68,3 +68,49 @@ rule Trojan_MSIL_Cassandra_EXP_2147957514_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_SM_2147960300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.SM!MTB"
+        threat_id = "2147960300"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "CasharkZoot.dll" ascii //weight: 1
+        $x_1_2 = "CashToEarn is a rewards platform where you earn cash or crypto by completing tasks like surveys" ascii //weight: 1
+        $x_1_3 = "2.3.9.8" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Cassandra_SB_2147960301_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.SB!MTB"
+        threat_id = "2147960301"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BuildCalc Pro.dll" ascii //weight: 1
+        $x_1_2 = "Structural engineering calculation software" ascii //weight: 1
+        $x_1_3 = "StructureTech Solutions" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
