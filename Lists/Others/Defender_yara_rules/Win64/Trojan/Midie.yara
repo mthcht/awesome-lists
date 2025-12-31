@@ -662,3 +662,24 @@ rule Trojan_Win64_Midie_GTV_2147960350_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_GVK_2147960383_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.GVK!MTB"
+        threat_id = "2147960383"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 0c 3a 8b c2 83 e0 07 c0 c1 02 32 88 ?? ?? ?? ?? f6 d1 80 c1 5a 88 0c 3a 42 3b d6 7c e2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

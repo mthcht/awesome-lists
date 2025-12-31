@@ -261,3 +261,72 @@ rule HackTool_MacOS_Metasploit_P12_2147960213_0
         (all of ($x*))
 }
 
+rule HackTool_MacOS_Metasploit_P14_2147960372_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Metasploit.P14"
+        threat_id = "2147960372"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Metasploit"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c5 c0 a0 e3 00 00 20 e0 02 15 a0 e3 07 20 a0 e3 01 3a a0 e3 00 40 e0 e3 05 50 25 e0 80 00 00 ef 00 b0 a0 e1 02 00 a0 e3 01 10 a0 e3 06 20 a0 e3 61 c0 a0 e3 80 00 00 ef 00 a0 a0 e1}  //weight: 2, accuracy: High
+        $x_2_2 = {10 20 a0 e3 68 c0 a0 e3 80 00 00 ef 0a 00 a0 e1 01 10 a0 e3 6a c0 a0 e3 80 00 00 ef 1e c0 a0 e3 0a 00 a0 e1 10 10 a0 e3 18 10 0d e5 10 20 4d e2 18 30 4d e2 80 00 00 ef}  //weight: 2, accuracy: High
+        $x_2_3 = {0a 00 a0 e1 06 c0 a0 e3 80 00 00 ef 07 a0 a0 e1 03 c0 a0 e3 0a 00 a0 e1 0b 10 a0 e1 04 20 a0 e3 80 00 00 ef 00 90 9b e4 0b 80 a0 e1}  //weight: 2, accuracy: High
+        $x_2_4 = {03 c0 a0 e3 0a 00 a0 e1 08 10 a0 e1 09 20 a0 e1 80 00 00 ef 00 00 50 e3 04 00 00 ba 00 80 88 e0 00 90 49 e0 00 00 59 e3 f4 ff ff 1a 00 f0 8b e2 01 c0 a0 e3 80 00 00 ef}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_MacOS_Metasploit_P15_2147960373_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Metasploit.P15"
+        threat_id = "2147960373"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Metasploit"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c5 c0 a0 e3 00 00 20 e0 02 15 a0 e3 07 20 a0 e3 01 3a a0 e3 00 40 e0 e3 05 50 25 e0 80 00 00 ef 00 b0 a0 e1}  //weight: 2, accuracy: High
+        $x_2_2 = {02 00 a0 e3 01 10 a0 e3 06 20 a0 e3 61 c0 a0 e3 80 00 00 ef 00 a0 a0 e1}  //weight: 2, accuracy: High
+        $x_2_3 = {10 20 a0 e3 62 c0 a0 e3 80 00 00 ef 00 00 50 e3 12 00 00 1a 03 c0 a0 e3 0a 00 a0 e1 0b 10 a0 e1 04 20 a0 e3 80 00 00 ef 00 90 9b e4 0b 80 a0 e1}  //weight: 2, accuracy: High
+        $x_2_4 = {03 c0 a0 e3 0a 00 a0 e1 08 10 a0 e1 09 20 a0 e1 80 00 00 ef 00 00 50 e3 04 00 00 ba 00 80 88 e0 00 90 49 e0 00 00 59 e3 f4 ff ff 1a 00 f0 8b e2 01 c0 a0 e3 80 00 00 ef}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_MacOS_Metasploit_P16_2147960374_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:MacOS/Metasploit.P16"
+        threat_id = "2147960374"
+        type = "HackTool"
+        platform = "MacOS: "
+        family = "Metasploit"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {02 00 a0 e3 01 10 a0 e3 06 20 a0 e3 61 c0 a0 e3 80 00 00 ef 00 a0 a0 e1}  //weight: 2, accuracy: High
+        $x_2_2 = {0a 00 a0 e1 0e 10 a0 e1 10 20 a0 e3 68 c0 a0 e3 80 00 00 ef 0a 00 a0 e1 01 10 a0 e3 6a c0 a0 e3 80 00 00 ef}  //weight: 2, accuracy: High
+        $x_2_3 = {1e c0 a0 e3 0a 00 a0 e1 10 10 a0 e3 18 10 0d e5 10 20 4d e2 18 30 4d e2 80 00 00 ef 00 b0 a0 e1 02 50 a0 e3 5a c0 a0 e3 0b 00 a0 e1 05 10 a0 e1 80 00 00 ef}  //weight: 2, accuracy: High
+        $x_2_4 = {05 50 45 e0 0d 60 a0 e1 20 d0 4d e2 14 00 8f e2 00 00 86 e4 04 50 86 e5 06 10 a0 e1 00 20 a0 e3 3b c0 a0 e3 80 00 00 ef}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -213,3 +213,26 @@ rule Ransom_Win64_Encoder_NB_2147960207_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_PF_2147960382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.PF!MTB"
+        threat_id = "2147960382"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BOT_CONNECTED" ascii //weight: 1
+        $x_1_2 = "\\READ_ME.txt" wide //weight: 1
+        $x_3_3 = "YOUR FILES ARE ENCRYPTED" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

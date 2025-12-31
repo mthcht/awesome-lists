@@ -41,3 +41,30 @@ rule Trojan_Win64_Lummastealer_NE_2147956237_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lummastealer_RR_2147960385_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lummastealer.RR!MTB"
+        threat_id = "2147960385"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lummastealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "System\\CurrentControlSet\\Control\\Session Manager" ascii //weight: 1
+        $x_1_2 = "rundll32.exe %sadvpack.dll,DelNodeRunDLL32 \"%s\"" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce" ascii //weight: 1
+        $x_1_4 = "wextract_cleanup%d" ascii //weight: 1
+        $x_1_5 = "PendingFileRenameOperations" ascii //weight: 1
+        $x_1_6 = "System\\CurrentControlSet\\Control\\Session Manager\\FileRenameOperations" ascii //weight: 1
+        $x_1_7 = "sc.exe /?dufy38794yfhsjdhf8" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
