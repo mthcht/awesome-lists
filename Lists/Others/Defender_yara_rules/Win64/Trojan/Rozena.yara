@@ -1875,3 +1875,30 @@ rule Trojan_Win64_Rozena_AHD_2147959957_0
         )
 }
 
+rule Trojan_Win64_Rozena_SXB_2147960344_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SXB!MTB"
+        threat_id = "2147960344"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Set objShell = CreateObject(\"WScript.Shell\")" ascii //weight: 2
+        $x_1_2 = "strDirectory = objShell.ExpandEnvironmentStrings(\" % temp % \")" ascii //weight: 1
+        $x_2_3 = "dim xHttp: Set xHttp = createobject(\"Microsoft.XMLHTTP\")" ascii //weight: 2
+        $x_2_4 = "dim bStrm: Set bStrm = createobject(\"Adodb.Stream\")" ascii //weight: 2
+        $x_2_5 = "objShell.RegWrite \"HKCUControl PanelDesktopWallpaper\", strDirectory + " ascii //weight: 2
+        $x_2_6 = "objShell.Run \" % windir % System32RUNDLL32.EXE user32.dll, UpdatePerUserSystemParameters\", 1, True" ascii //weight: 2
+        $x_1_7 = "netstat -ano > nul 2>&1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
