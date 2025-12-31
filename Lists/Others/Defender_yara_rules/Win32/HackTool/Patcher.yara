@@ -139,6 +139,34 @@ rule HackTool_Win32_Patcher_AMTB_2147934306_1
         family = "Patcher"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "TSRh TeaM PROUDLY PRESENTS :" ascii //weight: 1
+        $x_1_2 = "Tahoma" ascii //weight: 1
+        $x_1_3 = "choose target file ..." ascii //weight: 1
+        $x_1_4 = "Cracked by" ascii //weight: 1
+        $x_1_5 = "99-99-9999" ascii //weight: 1
+        $n_100_6 = "Uninst.exe" ascii //weight: -100
+        $n_100_7 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_8 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Patcher_AMTB_2147934306_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher!AMTB"
+        threat_id = "2147934306"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:

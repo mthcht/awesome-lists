@@ -3630,6 +3630,28 @@ rule Trojan_MSIL_RedLineStealer_AMCW_2147929312_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RedLineStealer_AMTB_2147935559_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedLineStealer!AMTB"
+        threat_id = "2147935559"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedLineStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ForCrypt.exe" ascii //weight: 2
+        $x_2_2 = "C:\\Users\\st4in\\source\\repos\\ForCrypt\\obj\\Debug\\ForCrypt.pdb" ascii //weight: 2
+        $x_1_3 = "$b6fa0713-cea2-44e4-8cba-b1c298b00a89" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_RedLineStealer_ZOR_2147946264_0
 {
     meta:

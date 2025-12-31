@@ -4331,3 +4331,29 @@ rule Trojan_MSIL_Zusy_AYF_2147960076_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_AZY_2147960351_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AZY!MTB"
+        threat_id = "2147960351"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0b 07 16 02 a2 73 07 00 00 0a 0c 28 ?? 00 00 0a 28 ?? 00 00 0a 1f 5c 6f ?? 00 00 0a 17 58 6f ?? 00 00 0a 19 17 73 0b 00 00 0a 0d 09 7e 01 00 00 04 6a 6f}  //weight: 3, accuracy: Low
+        $x_2_2 = {16 0a 2b 27 02 7e 02 00 00 04 02 7b 03 00 00 04 d2 03 04 06 58 e0 91 61 95 02 7b 03 00 00 04 1e 64 61 7d 03 00 00 04 06 17 58 0a 06 05 37 d5}  //weight: 2, accuracy: High
+        $x_1_3 = "xpack!" ascii //weight: 1
+        $x_1_4 = "sMatchDecoders" ascii //weight: 1
+        $x_1_5 = "sRepDecoders" ascii //weight: 1
+        $x_1_6 = "sRepG0Decoders" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
