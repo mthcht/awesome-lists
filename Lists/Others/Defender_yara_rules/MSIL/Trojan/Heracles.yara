@@ -9052,3 +9052,26 @@ rule Trojan_MSIL_Heracles_PGV_2147960308_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_AYE_2147960356_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AYE!MTB"
+        threat_id = "2147960356"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {07 28 13 00 00 0a 2d 07 07 28 14 00 00 0a 26 00 06 28 0c 00 00 06 28 0d 00 00 06 13 04 09 11 04 28 15 00 00 0a 20 10 27 00 00 28 16 00 00 0a 09 28 17 00 00 0a 26 de 06}  //weight: 7, accuracy: High
+        $x_3_2 = "dropHijackDll" ascii //weight: 3
+        $x_1_3 = "DecompressPdfFromBase64" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

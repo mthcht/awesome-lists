@@ -19,3 +19,28 @@ rule Ransom_Win64_Trigona_YAA_2147904059_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Trigona_MX_2147960353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Trigona.MX!MTB"
+        threat_id = "2147960353"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Trigona"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Try to encrypt file" wide //weight: 1
+        $x_1_2 = "Get computer ID" wide //weight: 1
+        $x_1_3 = "/stealth" wide //weight: 1
+        $x_1_4 = "Encryption completed." wide //weight: 1
+        $x_1_5 = "OnePathEncryption" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

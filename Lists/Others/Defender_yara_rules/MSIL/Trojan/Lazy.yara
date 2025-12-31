@@ -3573,3 +3573,27 @@ rule Trojan_MSIL_Lazy_AYC_2147959965_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_AYF_2147960358_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.AYF!MTB"
+        threat_id = "2147960358"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {00 03 28 9e 00 00 0a 0b 73 97 00 00 0a 0c 08 02 7b ?? 00 00 04 6f 9f 00 00 0a 17 73 99 00 00 0a 0d 09 07 16 07 8e 69 6f 9a 00 00 0a 00 09 6f 9b 00 00 0a 00 28 8e 00 00 0a 08 6f 9c 00 00 0a 6f a0 00 00 0a 0a 2b 00 06 2a}  //weight: 7, accuracy: Low
+        $x_3_2 = "update.633.su" wide //weight: 3
+        $x_1_3 = "FuckMS.ps1" wide //weight: 1
+        $x_1_4 = "SELECT * FROM Win32_BaseBoard" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

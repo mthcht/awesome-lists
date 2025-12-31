@@ -8137,3 +8137,25 @@ rule Trojan_Win32_LummaStealer_CL_2147960135_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_FAP_2147960354_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.FAP!MTB"
+        threat_id = "2147960354"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {8b d3 83 e2 1f 8a 0c 29 8b 6c 24 2c 32 0c 28 8b c3 8b 6c 24 60 83 e0 7f 43 32 0c 28}  //weight: 4, accuracy: High
+        $x_5_2 = {8b 44 24 28 8b 54 24 34 32 0c 06 32 0c 16 32 4c 24 12 30 0f 8b 4c 24 58 8b 74 24 54 3b 5c 24 44 72 a6}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
