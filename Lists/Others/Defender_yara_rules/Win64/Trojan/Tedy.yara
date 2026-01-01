@@ -1960,6 +1960,28 @@ rule Trojan_Win64_Tedy_KK_2147943868_1
         threshold = "30"
         strings_accuracy = "High"
     strings:
+        $x_20_1 = {48 b9 00 09 6e 88 f1 ff ff ff 48 8d 34 19 48 8d 76 ec 48 8b 7c 24 50 48 39 37 7d 93}  //weight: 20, accuracy: High
+        $x_10_2 = {48 8b 94 24 20 07 00 00 48 81 c2 38 02 00 00 4c 8b 84 24 d0 04 00 00 49 ff c8 48 8b 84 24 10 07 00 00 48 89 cb 48 8b b4 24 18 07 00 00 4c 89 c1}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_KK_2147943868_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KK!MTB"
+        threat_id = "2147943868"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
         $x_20_1 = {8b 45 f8 48 63 d0 48 8b 45 10 48 01 d0 0f b6 00 88 45 f7 8b 45 fc 48 63 d0 48 8b 45 20 48 01 d0 0f b6 00 88 45 f6 0f b6 45 f7 0a 45 f6}  //weight: 20, accuracy: High
         $x_10_2 = {89 c2 0f b6 45 f7 22 45 f6 f7 d0 21 d0 88 45 f5 8b 45 f8 48 63 d0 48 8b 45 10 48 01 c2 0f b6 45 f5 88 02 83 45 fc 01 83 45 f8 01}  //weight: 10, accuracy: High
     condition:
@@ -1967,7 +1989,7 @@ rule Trojan_Win64_Tedy_KK_2147943868_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_KK_2147943868_2
+rule Trojan_Win64_Tedy_KK_2147943868_3
 {
     meta:
         author = "defender2yara"
@@ -3033,6 +3055,28 @@ rule Trojan_Win64_Tedy_GZD_2147959968_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {f3 41 0f 5c f5 f3 41 0f 5c fc f3 45 0f 5c c6 b9 53 00 00 00 44 0f 28 fe 44 0f 28 de 44 0f 28 cf 45 0f 28 d0 ff 15 ?? ?? ?? ?? 66 85 c0 79 ?? 41 0f 28 f5 f3 45 0f 58 f0 f3 44 0f 58 e7 f3 41 0f 58 f7 45 0f 28 c6 45 0f 28 d6 41 0f 28 fc 44 0f 28 cf 44 0f 28 de b9 41 00 00 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_POTN_2147960409_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.POTN!MTB"
+        threat_id = "2147960409"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "[Hollow] Starting hollowing..." ascii //weight: 5
+        $x_5_2 = {53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 73 00 76 00 63 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 20 00 2d 00 6b 00 20 00 6e 00 65 00 74 00 73 00 76 00 63 00 73 00 00 00 00 00 6e 00 6f 00 74 00 65 00 70 00 61 00 64 00 2e 00 65 00 78 00 65 00 00 00 4d 5a}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

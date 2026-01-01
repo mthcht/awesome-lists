@@ -7996,3 +7996,28 @@ rule Trojan_Win32_GuLoader_SWF_2147960327_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REB_2147960408_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REB!MTB"
+        threat_id = "2147960408"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Originalitetens213\\Binocle182\\nonaesthetically" ascii //weight: 1
+        $x_1_2 = "%nondrying%\\Rumsondernes\\clathraceae" ascii //weight: 1
+        $x_1_3 = "fertilises glossologies" ascii //weight: 1
+        $x_1_4 = "moderskabet" ascii //weight: 1
+        $x_1_5 = "photonastic arabised.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

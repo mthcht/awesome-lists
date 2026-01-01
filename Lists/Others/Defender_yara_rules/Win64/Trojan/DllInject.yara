@@ -632,3 +632,27 @@ rule Trojan_Win64_DllInject_BU_2147938227_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllInject_AHB_2147960410_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllInject.AHB!MTB"
+        threat_id = "2147960410"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Continuing with startup logic..." ascii //weight: 10
+        $x_20_2 = "AmalgamLoader" ascii //weight: 20
+        $x_30_3 = "Auto-injector initialized successfully" ascii //weight: 30
+        $x_40_4 = "Initializing security subsystem for anti-sandbox and evasion..." ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

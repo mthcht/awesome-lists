@@ -116,6 +116,28 @@ rule Trojan_Win64_Shelma_PGSH_2147958887_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "85fcd8f39fe1fd85858585c6cbf0f0f0f0fcffe3e0eff3e2e2fdf9e2eceeeff8d893fbdee2f8cde2feffebf8d893f8dee2f0819de2dac1f8d89dfbe0ededf" ascii //weight: 5
+        $x_5_2 = "notepad.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Shelma_PGSH_2147958887_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Shelma.PGSH!MTB"
+        threat_id = "2147958887"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Shelma"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:

@@ -18319,3 +18319,27 @@ rule Trojan_Win64_CobaltStrike_ABCS_2147959488_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_POCS_2147959926_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.POCS!MTB"
+        threat_id = "2147959926"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2e 74 65 78 74 00 00 00 76 e0 05 00 00 10 00 00 76 e0 05 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 72 64 61 74 61 00 00 54 08 02 00 00 00 06 00 54 08 02 00 00 00 06 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61 00 00 00 d8 2d}  //weight: 5, accuracy: High
+        $x_5_2 = {2e 74 65 78 74 00 00 00 76 e0 05 00 00 10 00 00 00 e2 05 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 72 64 61 74 61 00 00 54 08 02 00 00 00 06 00 00 0a 02 00 00 e6 05 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61 00 00 00 d8 2d}  //weight: 5, accuracy: High
+        $x_5_3 = {0f be 04 01 48 63 4c 24 20 0f b6 8c 0c ?? ?? ?? ?? 48 63 54 24 ?? 0f b6 94 14 ?? ?? ?? ?? 03 ca 81 e1 ff 00 00 00 48 63 c9 0f b6 8c 0c ?? ?? ?? ?? 33 c1 48 63 4c 24 ?? 48 8b 54 24 ?? 88 04 0a e9}  //weight: 5, accuracy: Low
+        $x_5_4 = {2b c2 48 98 48 8b 4c 24 ?? 0f be 04 01 8b 4c 24 ?? 33 c8 8b c1 48 63 4c 24 ?? 48 8b 54 24 ?? 88 04 0a eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
