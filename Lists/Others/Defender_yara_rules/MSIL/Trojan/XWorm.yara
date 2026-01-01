@@ -3881,3 +3881,25 @@ rule Trojan_MSIL_XWorm_AZNB_2147960317_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AFOB_2147960415_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AFOB!MTB"
+        threat_id = "2147960415"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {70 0c 06 28 ?? 00 00 0a 0d 07 28 ?? 00 00 0a 13 04 08 28 ?? 00 00 0a 13 05 73 ?? 00 00 0a 13 07 11 07 11 04 6f ?? 00 00 0a 11 07 11 05 6f ?? 00 00 0a 11 07 17 6f ?? 00 00 0a 11 07 18 6f ?? 00 00 0a 73 ?? 00 00 0a 13 08 11 08 11 07 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 09 11 09 09 16 09 8e 69 6f ?? 00 00 0a 11 09 6f ?? 00 00 0a 11 08 6f ?? 00 00 0a 13 06 de 0c}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

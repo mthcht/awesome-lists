@@ -546,3 +546,26 @@ rule Backdoor_MSIL_WebShell_GTQ_2147945169_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_WebShell_AEOB_2147960414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/WebShell.AEOB!MTB"
+        threat_id = "2147960414"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {a2 25 1a 16 8c ?? 00 00 01 a2 28 ?? 00 00 06 00 00 72 ?? 00 00 70 0a 73 ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 16 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 00 00 70 6f ?? 00 00 0a 14 fe 01 0c 08 2c 23 00 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 00 00 70 07}  //weight: 5, accuracy: Low
+        $x_5_2 = {72 1b 00 00 70 0a 73 ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 16 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 00 00 70 6f ?? 00 00 0a 2d 60 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 00 00 70 d0 ?? 00 00 01 28 ?? 00 00 0a 72 ?? 00 00 70 17}  //weight: 5, accuracy: Low
+        $x_5_3 = {72 33 00 00 70 0a 73 ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 28 ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 16 02 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 00 00 70 6f ?? 00 00 0a 2d 60 02 6f ?? 00 00 0a 6f ?? 00 00 0a 72 ?? 00 00 70 d0 ?? 00 00 01 28 ?? 00 00 0a 72 ?? 00 00 70 17}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
