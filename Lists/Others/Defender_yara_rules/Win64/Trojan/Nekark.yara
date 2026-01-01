@@ -55,6 +55,28 @@ rule Trojan_Win64_Nekark_NN_2147940430_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c7 44 24 0c 02 00 00 00 c7 44 24 08 00 00 00 00 c7 44 24 04 2c 80 40 00 c7 04 24 01 00 00 80 e8 9f 56 00 00 83 ec 14 89 45 f4 83 7d f4 00}  //weight: 2, accuracy: High
+        $x_1_2 = {8b 45 f0 89 54 24 14 8b 55 08 89 54 24 10 c7 44 24 0c 01 00 00 00 c7 44 24 08 00 00 00 00 c7 44 24 04 5a 80 40 00 89 04 24 e8 5f 56 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Nekark_NN_2147940430_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Nekark.NN!MTB"
+        threat_id = "2147940430"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nekark"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "High"
     strings:
