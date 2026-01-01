@@ -2469,6 +2469,27 @@ rule Trojan_MSIL_Heracles_AHR_2147851480_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {13 07 11 09 11 07 17 28 ?? 00 00 06 28 ?? 00 00 06 12 00 20 d0 07 00 00 11 05 1d 1f 0b 6f ?? 00 00 0a d6 11 05 17 1f 0a 6f ?? 00 00 0a 11 05 17 1f 1e 6f ?? 00 00 0a 28 ?? 00 00 0a 11 09 06 28}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AHR_2147851480_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AHR!MTB"
+        threat_id = "2147851480"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
@@ -2479,7 +2500,7 @@ rule Trojan_MSIL_Heracles_AHR_2147851480_2
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_AHR_2147851480_3
+rule Trojan_MSIL_Heracles_AHR_2147851480_4
 {
     meta:
         author = "defender2yara"
@@ -2503,7 +2524,7 @@ rule Trojan_MSIL_Heracles_AHR_2147851480_3
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_AHR_2147851480_4
+rule Trojan_MSIL_Heracles_AHR_2147851480_5
 {
     meta:
         author = "defender2yara"
