@@ -9,7 +9,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 logging.basicConfig(level=logging.DEBUG, format="[%(levelname)s] %(message)s")
 
 # URL to download the CSV
-CSV_URL = "https://certcentral.org/api/download_csv"
+CSV_URL = "https://certGraveyard.org/api/download_csv"
 LOCAL_PATH = "certcentral_signers_list.csv"
 
 # Mapping of original headers to CIM-compliant names
