@@ -683,3 +683,30 @@ rule Trojan_Win64_Midie_GVK_2147960383_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_GVL_2147960423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.GVL!MTB"
+        threat_id = "2147960423"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {41 b9 12 85 28 a7 41 0f b6 c9 66 44 0f af c9 8b 4c 0b ee 41 81 e9 ac 85 04 b6 41 51 80 74 24 06 1c 48 81 d3 04 00 00 00 41 c1 e9 2f 0f 84 12 d1 ff ff}  //weight: 3, accuracy: High
+        $x_1_2 = {80 6c 5c 01 3f 0a 1c 19 80 74 24 01 29}  //weight: 1, accuracy: High
+        $x_2_3 = {32 44 24 09 1a c4 66 8b 04 22 49 81 da 02 00 00 00 e9 d2 ea ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

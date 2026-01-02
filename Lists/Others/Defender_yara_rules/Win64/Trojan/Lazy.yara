@@ -4712,3 +4712,27 @@ rule Trojan_Win64_Lazy_AHN_2147960121_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHO_2147960427_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHO!MTB"
+        threat_id = "2147960427"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "DecryptSocketKeyPayloadManage" ascii //weight: 10
+        $x_20_2 = "Discard_Payload_Detail" ascii //weight: 20
+        $x_30_3 = "Uninstall_Payload" ascii //weight: 30
+        $x_40_4 = "Batch_Payload_Token_Tag_Sync" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

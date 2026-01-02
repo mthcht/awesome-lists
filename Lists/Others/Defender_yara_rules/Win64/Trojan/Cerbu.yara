@@ -280,3 +280,26 @@ rule Trojan_Win64_Cerbu_ND_2147960331_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AHE_2147960428_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHE!MTB"
+        threat_id = "2147960428"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 8b c1 48 c1 e8 ?? 48 33 c1 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 0f af c8 48 03 ca 48 89 8c d4 b8 02 00 00 49 03 d5 48 3b d7 72}  //weight: 30, accuracy: Low
+        $x_20_2 = "Global\\SystemInfoMutex" ascii //weight: 20
+        $x_10_3 = "BraveSoftware\\Brave-Browser\\User Data" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
