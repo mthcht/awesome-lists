@@ -26,3 +26,27 @@ rule Ransom_Win64_Qilin_B_2147917635_0
         (7 of ($x*))
 }
 
+rule Ransom_Win64_Qilin_A_2147960430_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Qilin.A!AMTB"
+        threat_id = "2147960430"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Qilin"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your network has been penetrated by Qilin" ascii //weight: 1
+        $x_1_2 = "Global\\QILIN_ENCRYPT" ascii //weight: 1
+        $x_1_3 = "README_QILIN" ascii //weight: 1
+        $x_1_4 = "All files have been encrypted by Qilin ransomware" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
