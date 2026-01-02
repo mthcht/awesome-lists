@@ -1,0 +1,35 @@
+name: Fetch Zscaler IP Ranges
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"   # every 2 hours
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Lists/Ranges_IP_Address_Company_List/Zscaler
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Run Zscaler IP ranges fetch script
+        run: |
+          python fetch_zscaler_ip_ranges.py zscaler_ip_ranges.csv
+
+      - name: Commit and push updates
+        run: |
+          git pull
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add zscaler_ip_ranges.csv
+          git commit -m "Update Zscaler IP ranges [auto]" || echo "No changes to commit"
+          git push
