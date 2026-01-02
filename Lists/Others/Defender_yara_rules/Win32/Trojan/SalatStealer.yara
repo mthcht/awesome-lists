@@ -321,25 +321,3 @@ rule Trojan_Win32_SalatStealer_NRR_2147958664_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_SalatStealer_NZ_2147960418_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/SalatStealer.NZ!MTB"
-        threat_id = "2147960418"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "SalatStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {33 2e 20 20 1a 46 20 20 10 20 20 20 17 0c 3d 30 44 3f 33 2a 30 40 13 09 24 27 1a 6f 13 09 24 27 29 60 13}  //weight: 2, accuracy: High
-        $x_1_2 = {87 12 39 39 09 4c 0a 09 1a 70 06 23 06 4f 84 18 13 13 09 09 1a 16}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
