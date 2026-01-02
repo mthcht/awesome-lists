@@ -8783,3 +8783,34 @@ rule Trojan_Win32_SmokeLoader_ARR_2147960273_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SmokeLoader_ARR_2147960273_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SmokeLoader.ARR!MTB"
+        threat_id = "2147960273"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SmokeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {0e cc d0 5c 66 c7 d7 80 32 ?? d0 b4 c5}  //weight: 12, accuracy: Low
+        $x_8_2 = {86 23 5f 8c cd 30 6d ?? 23 83 ?? ?? ?? ?? 09 f2 b6}  //weight: 8, accuracy: Low
+        $x_12_3 = {ac 92 94 25 ?? ?? ?? ?? aa 92 99 25}  //weight: 12, accuracy: Low
+        $x_8_4 = {c4 36 a7 aa 5f 30 3a a6 fe c9 a1}  //weight: 8, accuracy: High
+        $x_12_5 = {12 ce 4f 3a 10 d0 b7 ?? ?? ?? ?? 31 68 cf}  //weight: 12, accuracy: Low
+        $x_8_6 = {53 08 04 9f 12 1d ?? ?? ?? ?? 33 e3 4f 67 b3}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_8_*))) or
+            ((1 of ($x_12_*) and 1 of ($x_8_*))) or
+            ((2 of ($x_12_*))) or
+            (all of ($x*))
+        )
+}
+

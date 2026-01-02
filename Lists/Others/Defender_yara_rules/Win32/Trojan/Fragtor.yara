@@ -3339,20 +3339,24 @@ rule Trojan_Win32_Fragtor_SXB_2147959486_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "16"
+        threshold = "35"
         strings_accuracy = "High"
     strings:
-        $x_3_1 = "\\1.dll" ascii //weight: 3
-        $x_3_2 = "BLACKLIST_IP||" ascii //weight: 3
-        $x_3_3 = "MD5_DETECT||" ascii //weight: 3
-        $x_2_4 = "BLACKLIST_DATA" ascii //weight: 2
-        $x_2_5 = "blacklist.dat" ascii //weight: 2
+        $x_10_1 = "\\1.dll" ascii //weight: 10
+        $x_10_2 = "/sc onlogon /delay 0000:30" ascii //weight: 10
+        $x_10_3 = "BLACKLIST_IP||" ascii //weight: 10
+        $x_10_4 = "MD5_DETECT||" ascii //weight: 10
+        $x_2_5 = "BLACKLIST_DATA" ascii //weight: 2
         $x_1_6 = "svchost.exe" ascii //weight: 1
         $x_1_7 = "winlogon.exe" ascii //weight: 1
         $x_1_8 = "taskmgr.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((3 of ($x_10_*) and 1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((4 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_Fragtor_SXC_2147959487_0

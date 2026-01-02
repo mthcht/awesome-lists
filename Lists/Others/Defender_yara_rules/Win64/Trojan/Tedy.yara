@@ -3082,3 +3082,47 @@ rule Trojan_Win64_Tedy_POTN_2147960409_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SXE_2147960462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXE!MTB"
+        threat_id = "2147960462"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {42 0f 10 14 00 0f 57 d0 f3 42 0f 6f 5c 00 ?? 66 0f ef d9 42 0f 11 14 00 f3 42 0f 7f 5c 00 ?? 49 83 c0 ?? 4c 39 c2 75 d8}  //weight: 15, accuracy: Low
+        $x_10_2 = {66 41 0f 7e ca 44 89 d6 41 c1 ea ?? 45 32 14 08 c1 ee ?? 4d 8d 48 ?? 41 bb ?? ?? ?? ?? 49 83 f9}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SXF_2147960463_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXF!MTB"
+        threat_id = "2147960463"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8d 51 ff 44 0f b6 84 0c 9f 01 00 00 83 e2 06 44 32 44 14 20 41 80 f0 aa 44 88 44 01 ff 48 83 f9 17 74 72 0f b6 94 0c a0 01 00 00 41 89 c8 41 83 e0 07 42 32 54 04 20 80 f2 aa 88 14 01 48 83 c1 02 eb bd}  //weight: 20, accuracy: High
+        $x_10_2 = {44 0f b6 8c 15 00 d2 3c 00 44 8d 52 0f 85 d2 44 0f 49 d2 41 83 e2 f0 41 89 d3 45 29 d3 46 0f b6 94 1d 90 d1 3c 00 45 0f b6 c0 4d 01 c8 4d 01 d0 45 0f b6 d0 46 0f b6 9c 15 00 d2 3c 00 44 88 9c 15 00 d2 3c 00 46 88 8c 15 00 d2 3c 00 48 ff c2 48 81 fa 00 01 00 00 75 a7}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
