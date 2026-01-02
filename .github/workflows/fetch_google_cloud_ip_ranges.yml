@@ -1,0 +1,42 @@
+name: Fetch Google Cloud IP Ranges
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"   # Every 2 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-google-cloud-ip-ranges
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Lists/Ranges_IP_Address_Company_List/Cloud Hosting Providers/Google
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Run Google Cloud IP range fetch script
+        run: |
+          python fetch_google_cloud_ip_ranges.py google_cloud_ip_ranges.csv
+
+      - name: Commit and push updates
+        run: |
+          git pull --rebase
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add google_cloud_ip_ranges.csv
+          git commit -m "Update Google Cloud IP ranges [auto]" || echo "No changes to commit"
+          git push
