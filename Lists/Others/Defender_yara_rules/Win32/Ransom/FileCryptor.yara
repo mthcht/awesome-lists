@@ -596,3 +596,29 @@ rule Ransom_Win32_FileCryptor_PT_2147817476_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCryptor_PAHF_2147960435_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCryptor.PAHF!MTB"
+        threat_id = "2147960435"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "vssadmin delete shadows /all /quiet" ascii //weight: 2
+        $x_1_2 = "bcdedit /set {default} recoveryenabled no" ascii //weight: 1
+        $x_1_3 = "bcdedit /set {default} bootstatuspolicy ignoreallfailures" ascii //weight: 1
+        $x_1_4 = "DisableAntiSpyware" ascii //weight: 1
+        $x_1_5 = "DisableAntiVirus" ascii //weight: 1
+        $x_2_6 = "YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
