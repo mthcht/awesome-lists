@@ -1,0 +1,34 @@
+name: Fetch GitGuardian IP Ranges
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Every 2 hours
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Lists/Ranges_IP_Address_Company_List/GitGuardian
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Run GitGuardian IP range fetch script
+        run: python fetch_gitguardian_ips.py
+
+      - name: Commit and push updates
+        run: |
+          git pull
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add gitguardian_ip_ranges.csv
+          git commit -m "Update GitGuardian IP ranges [auto]" || echo "No changes to commit"
+          git push
