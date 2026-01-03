@@ -127,3 +127,35 @@ rule Trojan_Win64_GhostRat_GA_2147960260_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_GhostRat_AMB_2147960471_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GhostRat.AMB!MTB"
+        threat_id = "2147960471"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GhostRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "aHR0cDovLzIwNi4xMTkuMTc0LjE1Ojc4NTgvYS5kYXQ" ascii //weight: 3
+        $x_3_2 = "aHR0cDovLzIwNy41Ni4xOC40Mzo3ODU4L2EuZGF0" ascii //weight: 3
+        $x_1_3 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_4 = "fake_encryption_key_12345" ascii //weight: 1
+        $x_1_5 = "fake_data_for_hashing" ascii //weight: 1
+        $x_1_6 = "immunitydebugger.exe" ascii //weight: 1
+        $x_1_7 = "temp_data.log" ascii //weight: 1
+        $x_1_8 = "vmwareuser.exe" ascii //weight: 1
+        $x_1_9 = "xenservice.exe" ascii //weight: 1
+        $x_1_10 = "ollydbg.exe" ascii //weight: 1
+        $x_1_11 = "C:\\hd.exe" ascii //weight: 1
+        $x_1_12 = "sandbox" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
