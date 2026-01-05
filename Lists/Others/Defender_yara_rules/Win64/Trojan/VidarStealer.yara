@@ -190,3 +190,29 @@ rule Trojan_Win64_VidarStealer_KK_2147959872_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_VidarStealer_RHA_2147960508_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VidarStealer.RHA!MTB"
+        threat_id = "2147960508"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {50 45 00 00 64 86 03 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 0b 02 0e 2c ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 40 a0 0c}  //weight: 1, accuracy: Low
+        $x_2_2 = "\\ProgramData\\" ascii //weight: 2
+        $x_2_3 = "\\Network\\Cookies" ascii //weight: 2
+        $x_2_4 = "firefox" ascii //weight: 2
+        $x_2_5 = "chrome.dll" ascii //weight: 2
+        $x_2_6 = "\\key4.db" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

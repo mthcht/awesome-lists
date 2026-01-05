@@ -8021,3 +8021,29 @@ rule Trojan_Win32_GuLoader_REB_2147960408_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REC_2147960507_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REC!MTB"
+        threat_id = "2147960507"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%Swindling26%\\biocellate" ascii //weight: 1
+        $x_1_2 = "\\astrologi\\Absorbefacient\\fuldskaeg" ascii //weight: 1
+        $x_1_3 = "sagsgeren canette" ascii //weight: 1
+        $x_1_4 = "genuinenesses" ascii //weight: 1
+        $x_1_5 = "skovrankens individfil" ascii //weight: 1
+        $x_1_6 = "mediofrontal.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

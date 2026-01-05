@@ -596,3 +596,26 @@ rule Trojan_Win64_StealC_ABS_2147960387_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_PVA_2147960509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.PVA!MTB"
+        threat_id = "2147960509"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "http://kaskdkwqkwqe.space/7zip.exe" ascii //weight: 5
+        $x_2_2 = {c7 44 24 28 05 00 00 00 48 c7 44 24 20 00 00 00 00 41 b9 00 00 00 00 4c 8b 44 24 60 48 8d 15 73 27 00 00 b9 00 00 00 00 ff 15}  //weight: 2, accuracy: High
+        $x_1_3 = "C:\\Users\\Public\\Pictures\\backup.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
