@@ -8763,3 +8763,25 @@ rule Trojan_Win32_Zusy_AHK_2147960120_0
         )
 }
 
+rule Trojan_Win32_Zusy_PGZU_2147960524_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.PGZU!MTB"
+        threat_id = "2147960524"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {7a 00 6f 00 6f 00 00 00 25 00 74 00 65 00 6d 00 70 00 25 00 [0-15] 25 00 73 00 5c 00 [0-31] 2e 00 74 00 78 00 74 00 [0-15] 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2f 00 74 00 63 00 6f 00 69 00 6e 00 2e 00 70 00 68 00 70 00 3f 00 73 00 3d 00 25 00 73 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {7a 6f 6f 00 00 25 74 65 6d 70 25 [0-15] 25 73 5c [0-31] 2e 74 78 74 [0-15] 68 74 74 70 3a 2f 2f [0-6] 2e [0-6] 2e [0-6] 2e [0-6] 2f 74 63 6f 69 6e 2e 70 68 70 3f 73 3d 25 73}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

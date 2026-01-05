@@ -18169,6 +18169,35 @@ rule Trojan_Win64_CobaltStrike_RR_2147955865_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_RR_2147955865_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.RR!MTB"
+        threat_id = "2147955865"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "152"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {01 48 89 51 08 4c 8b 46 30 48 8b 46 38 44 8a 48 38 8a 40 39 88 44 24 20 48 8d 15 [0-5] e8}  //weight: 100, accuracy: Low
+        $x_1_2 = "E:\\Env\\Rust\\.cargo\\registry\\src\\rsproxy.cn-0dccff568467c15b\\aes-0.8.4\\src\\soft\\fixslice64.rs" ascii //weight: 1
+        $x_50_3 = "URZGXT.pdb" ascii //weight: 50
+        $x_50_4 = "TFWYAZ.pdb" ascii //weight: 50
+        $x_1_5 = "attempt to divide by zero" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_50_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 2 of ($x_50_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_CobaltStrike_AHD_2147956516_0
 {
     meta:
