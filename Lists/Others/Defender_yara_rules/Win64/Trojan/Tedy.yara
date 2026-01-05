@@ -3156,3 +3156,70 @@ rule Trojan_Win64_Tedy_SXF_2147960463_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GVL_2147960536_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GVL!MTB"
+        threat_id = "2147960536"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 14 01 83 e2 07 0f b6 14 13 30 50 01 48 83 c0 01 4c 39 d0 75 e9 4c 89 c9 4c 89 44 24 20 4c 89 c2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AMT_2147960541_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AMT!MTB"
+        threat_id = "2147960541"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 74 74 70 3a 2f 2f 36 32 2e 36 30 2e 32 32 36 2e 32 34 38 3a 35 35 35 33 2f [0-15] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_1_2 = "dodpp.exe" ascii //weight: 1
+        $x_1_3 = "Adding directories to Windows Defender exclusion list" ascii //weight: 1
+        $x_1_4 = "Skipping exclusion for random folder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_GVM_2147960549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GVM!MTB"
+        threat_id = "2147960549"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8d 48 04 83 e1 07 41 0f b6 0c 0b 32 4c 06 04 41 88 0c 01 48 83 c0 01 4c 39 c0 75 e4}  //weight: 2, accuracy: High
+        $x_2_2 = {73 f5 e4 f3 9d 42 ec 6f e8 b4 86 54 7b 81 85 17 60 61 63 d8 f6 bd 9c 66 86 60 c0 8e ba 73 fe e4 9f 65 b2 87 85 b4 31 48 7d 10 75 d9 56 ab 3c 52}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

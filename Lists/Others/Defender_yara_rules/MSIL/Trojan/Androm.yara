@@ -1960,3 +1960,24 @@ rule Trojan_MSIL_Androm_ARR_2147959625_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_CR_2147960548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.CR!MTB"
+        threat_id = "2147960548"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 11 18 6f 0a 00 00 0a 38 b3 ff ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

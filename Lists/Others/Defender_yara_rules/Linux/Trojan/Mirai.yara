@@ -645,29 +645,6 @@ rule Trojan_Linux_Mirai_HAB_2147956705_0
         (all of ($x*))
 }
 
-rule Trojan_Linux_Mirai_HAB_2147956705_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Linux/Mirai.HAB!MTB"
-        threat_id = "2147956705"
-        type = "Trojan"
-        platform = "Linux: Linux platform"
-        family = "Mirai"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
-        threshold = "71"
-        strings_accuracy = "High"
-    strings:
-        $x_30_1 = "[udpbypass_flood] started: ('%d')" ascii //weight: 30
-        $x_1_2 = "[syn_flood] started: ('%d')" ascii //weight: 1
-        $x_40_3 = "151.242.30.16" ascii //weight: 40
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Linux_Mirai_AMTB_2147957847_0
 {
     meta:
@@ -736,6 +713,28 @@ rule Trojan_Linux_Mirai_SK_2147959375_0
         $x_1_4 = "lock_file" ascii //weight: 1
         $x_1_5 = "/proc/cpuinfo" ascii //weight: 1
         $x_1_6 = "delete[]" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_HAC_2147960540_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAC!MTB"
+        threat_id = "2147960540"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {00 74 30 74 61 6c 63 30 6e 00}  //weight: 30, accuracy: High
+        $x_5_2 = "/bin/busybox FASTCAT" ascii //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))

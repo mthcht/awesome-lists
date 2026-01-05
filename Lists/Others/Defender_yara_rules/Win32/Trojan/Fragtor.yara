@@ -3425,3 +3425,27 @@ rule Trojan_Win32_Fragtor_MKC_2147960486_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_BAD_2147960550_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.BAD!MTB"
+        threat_id = "2147960550"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 d2 89 55 d8 0f b7 51 0d 0f b6 49 0f c1 e1 10 09 d1 8b 55 dc 89 4d d4 8b 4d e0 8d 3c 0a eb}  //weight: 2, accuracy: High
+        $x_1_2 = "DllRegisterServer" ascii //weight: 1
+        $x_1_3 = "netsvcs" ascii //weight: 1
+        $x_1_4 = "WakeByAddressAll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
