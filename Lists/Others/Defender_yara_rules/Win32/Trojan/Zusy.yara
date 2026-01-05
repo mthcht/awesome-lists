@@ -7114,6 +7114,28 @@ rule Trojan_Win32_Zusy_LM_2147944138_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b6 0f 0f b6 47 01 c1 e1 08 03 c8 0f b6 47 02 c1 e1 08 03 c8 0f b6 47 03 c1 e1 08 41 03 c1 89 03 0f b6 4f 04 0f b6 47 05 c1 e1 08 03 c8 0f b6 47 06 c1 e1 08 03 c8}  //weight: 20, accuracy: High
+        $x_10_2 = "AdvDiskLocker_ring3" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_LM_2147944138_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LM!MTB"
+        threat_id = "2147944138"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -7125,7 +7147,7 @@ rule Trojan_Win32_Zusy_LM_2147944138_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_LM_2147944138_1
+rule Trojan_Win32_Zusy_LM_2147944138_2
 {
     meta:
         author = "defender2yara"

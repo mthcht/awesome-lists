@@ -93,3 +93,28 @@ rule Trojan_Win64_BroPass_MKB_2147960272_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BroPass_MK_2147960488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BroPass.MK!MTB"
+        threat_id = "2147960488"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BroPass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {33 db 4c 8b c8 48 89 5c 24 30 45 33 c0 89 5c 24 28 33 d2 49 8b ce 4c 89 7c 24 20 ?? ?? ?? ?? ?? ?? 48 83 ?? ?? 48 8b f0 48 0f 44 f3 48 85 f6}  //weight: 20, accuracy: Low
+        $x_5_2 = "TELEGRAM_TOKEN" ascii //weight: 5
+        $x_5_3 = "DISCORD_WEBHOOK" ascii //weight: 5
+        $x_3_4 = "--headless=new" ascii //weight: 3
+        $x_2_5 = "--no-sandbox --disable-gpu" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

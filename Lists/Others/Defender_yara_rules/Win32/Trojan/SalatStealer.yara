@@ -321,3 +321,33 @@ rule Trojan_Win32_SalatStealer_NRR_2147958664_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_CL_2147960482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.CL!MTB"
+        threat_id = "2147960482"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "main.DecryptGecko" ascii //weight: 2
+        $x_2_2 = "main.decryptAPPB" ascii //weight: 2
+        $x_2_3 = "main.enablePrivilege" ascii //weight: 2
+        $x_2_4 = "main.findLsassProcess" ascii //weight: 2
+        $x_2_5 = "main.getSystemToken" ascii //weight: 2
+        $x_2_6 = "main.selfDelete" ascii //weight: 2
+        $x_2_7 = "main.GetAppBoundKey" ascii //weight: 2
+        $x_2_8 = "main.decryptDataEdge" ascii //weight: 2
+        $x_2_9 = "main.GetChromiumMasterKeys" ascii //weight: 2
+        $x_2_10 = "main.isAdmin" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

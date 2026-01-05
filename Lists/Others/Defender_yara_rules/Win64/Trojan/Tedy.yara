@@ -3060,6 +3060,36 @@ rule Trojan_Win64_Tedy_GZD_2147959968_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CL_2147960333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CL!MTB"
+        threat_id = "2147960333"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Fiddler" ascii //weight: 2
+        $x_2_2 = "dnSpy" ascii //weight: 2
+        $x_2_3 = "BinaryNinja" ascii //weight: 2
+        $x_2_4 = "Ida Pro" ascii //weight: 2
+        $x_2_5 = "ollydbg.exe" ascii //weight: 2
+        $x_2_6 = "x64dbg.exe" ascii //weight: 2
+        $x_2_7 = "Vmtoolsd.exe" ascii //weight: 2
+        $x_2_8 = "vboxtray.exe" ascii //weight: 2
+        $x_2_9 = "Debugger detected!" ascii //weight: 2
+        $x_2_10 = "joeboxcontrol.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_POTN_2147960409_0
 {
     meta:

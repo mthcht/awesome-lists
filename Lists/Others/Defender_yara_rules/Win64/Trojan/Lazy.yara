@@ -4736,3 +4736,29 @@ rule Trojan_Win64_Lazy_AHO_2147960427_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MKH_2147960485_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKH!MTB"
+        threat_id = "2147960485"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "shutdown -f -s -t 10 -c \"The computer will be forcibly shut down in 60 seconds" ascii //weight: 10
+        $x_10_2 = "task manager has been forbidden" ascii //weight: 10
+        $x_10_3 = "Destroy drive letter successfully!" ascii //weight: 10
+        $x_10_4 = "hacked.jpg" ascii //weight: 10
+        $x_5_5 = "DisableTaskMgr" ascii //weight: 5
+        $x_5_6 = "DisableRegistryTools" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
