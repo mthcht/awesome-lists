@@ -80,3 +80,27 @@ rule Trojan_Win64_BrowserStealer_KZ_2147952236_0
         )
 }
 
+rule Trojan_Win64_BrowserStealer_PVA_2147960498_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BrowserStealer.PVA!MTB"
+        threat_id = "2147960498"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BrowserStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {2b f8 49 8d 55 0f 44 89 74 24 48 48 8d 4d f4 48 89 4c 24 40 89 7c 24 38 48 89 44 24 30 44 89 74 24 28 4c 89 74 24 20 4c 8d 4d 80 44 8b c6 48 8b 4d e8 ff 15}  //weight: 3, accuracy: High
+        $x_4_2 = "Local\\Project2_SingleInstance" wide //weight: 4
+        $x_1_3 = "build_zip_payload: failed to append logs.txt" ascii //weight: 1
+        $x_1_4 = "send_archive: failed to transmit zip payload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
