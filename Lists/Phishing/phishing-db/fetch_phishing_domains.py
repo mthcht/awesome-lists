@@ -3,7 +3,7 @@ import csv
 from datetime import datetime
 
 # Define the source URL and output filename
-url = "https://raw.githubusercontent.com/Phishing-Database/Phishing.Database/refs/heads/master/phishing-domains-ACTIVE.txt"
+url = "https://phish.co.za/latest/phishing-domains-ACTIVE.txt"
 output_file = "phish_co_za_domains_list.csv"
 
 # Get the current date in YYYY/MM/DD format
@@ -27,4 +27,5 @@ if response.status_code == 200:
     print(f"CSV file saved as {output_file}")
 else:
     print("Failed to download the file.")
+
 
