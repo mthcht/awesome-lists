@@ -4762,3 +4762,24 @@ rule Trojan_Win64_Lazy_MKH_2147960485_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_ADD_2147960587_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ADD!MTB"
+        threat_id = "2147960587"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {f7 e7 c1 ea 05 0f be c2 6b c8 33 40 8a c7 ff c7 2a c1 04 38 41 30 00 49 ff c0 83 ff 1c 7c}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

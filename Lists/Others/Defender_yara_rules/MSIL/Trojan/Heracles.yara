@@ -9096,3 +9096,45 @@ rule Trojan_MSIL_Heracles_AYE_2147960356_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_GPAV_2147960588_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.GPAV!MTB"
+        threat_id = "2147960588"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "cccaaaiii/Test-12/refs/heads/main/Designtimeresolver.exe.config" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_GPAW_2147960589_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.GPAW!MTB"
+        threat_id = "2147960589"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {4d 00 78 00 4d 00 6a 00 51 00 32 00 4c 00 32 00 52 00 6c 00 64 00 6a 00 42 00 53 00 62 00 33 00 00 39 52 00 54 00 64 00 48 00 4a 00 70 00 62 00 6d 00 64 00 7a 00 4c 00 33 00 4a 00 68 00 64 00 79 00 39 00 79 00 5a 00 57 00 5a 00 7a 00 4c 00 32 00 68 00 6c 00 59 00 57 00 00 3b 52 00 7a 00 4c 00 32 00 31 00 68 00 61 00 57 00 34 00 76 00 5a 00 47 00 56 00 32 00 4d 00 46 00 4a 00 76 00 64 00 46 00 4e 00 30 00 63 00 6d 00 6c 00 75 00 5a 00 33 00 4d 00 00 0b 75 00 5a 00 58 00 68 00 6c}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

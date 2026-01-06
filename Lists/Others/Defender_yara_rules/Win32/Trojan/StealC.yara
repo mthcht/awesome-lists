@@ -4371,3 +4371,31 @@ rule Trojan_Win32_StealC_BAB_2147960047_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StealC_AMSC_2147960596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.AMSC!MTB"
+        threat_id = "2147960596"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 74 74 70 3a 2f 2f 36 32 2e 36 30 2e 32 32 36 2e 31 35 39 2f [0-15] 2e 65 78 65}  //weight: 5, accuracy: Low
+        $x_1_2 = {5b 61 75 74 6f 72 75 6e 5d 0d 0a 6f 70 65 6e 3d 55 70 64 61 74 65 2e 65 78 65 0d 0a 69 63 6f 6e 3d 73 68 65 6c 6c 33 32 2e 64 6c 6c}  //weight: 1, accuracy: High
+        $x_1_3 = "1DXc1eazyWTHTq6JMdURSqqrFGTzGL8eF1" ascii //weight: 1
+        $x_1_4 = "LedxKBWF4MiM3x9F7zmCdaxnnu8A8SUohZ" ascii //weight: 1
+        $x_1_5 = "GetClipboardData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -4070,3 +4070,24 @@ rule Trojan_MSIL_PureLogStealer_ACOB_2147960395_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_PHH_2147960590_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.PHH!MTB"
+        threat_id = "2147960590"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {05 09 6c 5a 69 26 02 07 08 6f ?? 00 00 0a 13 04 03 06 6f ?? 00 00 0a 59 13 05 12 04 28 ?? 00 00 0a 13 06 06 11 06 09 61 d2}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

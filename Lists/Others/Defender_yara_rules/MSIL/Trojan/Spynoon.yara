@@ -2393,3 +2393,24 @@ rule Trojan_MSIL_Spynoon_AFMB_2147958425_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Spynoon_AMOB_2147960585_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spynoon.AMOB!MTB"
+        threat_id = "2147960585"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 07 08 6f ?? 00 00 0a 13 05 03 06 6f ?? 00 00 0a 59 13 06 12 05 28 ?? 00 00 0a 13 07 06 11 07 11 04 61 d2 6f ?? 00 00 0a 00 06 13 11 06 6f ?? 00 00 0a 17 59 13 12 11 11 11 12 11 11 11 12 6f ?? 00 00 0a 11 04 d2 61 d2 6f ?? 00 00 0a 00 11 06 17 59 25 13 06 16 fe 02 16 fe 01 13 13 11 13 2c 05 38 ?? 00 00 00 12 05 28 ?? 00 00 0a 13 08 06 11 08 11 04 61 d2 6f ?? 00 00 0a 00 06 13 11 06 6f ?? 00 00 0a 17 59 13 12 11 11 11 12 11 11 11 12 6f ?? 00 00 0a 11 04 d2 61 d2 6f ?? 00 00 0a 00 11 06 17 59 25 13 06 16 fe 02 16 fe 01 13 14 11 14 2c 02 2b 50 12 05 28 ?? 00 00 0a 13 09 06 11 09 11 04 61 d2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

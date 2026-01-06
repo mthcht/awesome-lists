@@ -71,3 +71,28 @@ rule TrojanDropper_Win32_Farfli_J_2147722428_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win32_Farfli_AMTB_2147960593_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win32/Farfli!AMTB"
+        threat_id = "2147960593"
+        type = "TrojanDropper"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "D!E&F(G*H,I-K.p5r7s9t;u=v>w?x@yAzB{D|F}H~J" ascii //weight: 1
+        $x_1_2 = "get_VirtualAddress" ascii //weight: 1
+        $x_1_3 = "get_TargetOffset" ascii //weight: 1
+        $x_1_4 = "get_FullName" ascii //weight: 1
+        $x_1_5 = "FileInfo" ascii //weight: 1
+        $x_1_6 = "VirtualProtect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
