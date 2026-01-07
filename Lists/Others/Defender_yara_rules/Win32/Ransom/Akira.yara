@@ -54,3 +54,76 @@ rule Ransom_Win32_Akira_B_2147907860_0
         )
 }
 
+rule Ransom_Win32_Akira_DA_2147960654_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Akira.DA!MTB"
+        threat_id = "2147960654"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "akira_readme.txt" ascii //weight: 10
+        $x_10_2 = ".akira" ascii //weight: 10
+        $x_1_3 = "Cipher dont start!" ascii //weight: 1
+        $x_1_4 = "Decrypt exception:" ascii //weight: 1
+        $x_1_5 = "--encryption_path" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Akira_Z_2147960655_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Akira.Z!MTB"
+        threat_id = "2147960655"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "akira_readme.txt" ascii //weight: 1
+        $x_1_2 = "Number of threads to encrypt =" ascii //weight: 1
+        $x_1_3 = "write_encrypt_info error:" ascii //weight: 1
+        $x_1_4 = "Log-%d-%m-%Y-%H-%M-%S" ascii //weight: 1
+        $x_1_5 = "--encryption_path" ascii //weight: 1
+        $x_1_6 = "--encryption_percent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Akira_ZA_2147960656_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Akira.ZA!MTB"
+        threat_id = "2147960656"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 08 0f 57 c0 89 44 24 18 8b 45 0c 89 44 24 1c 8d 44 24 10 50 8d 44 24 08 66 0f 13 44 24 14 50 51 52 ff 36 c7 44 24 34 00 00 00 00 c7 44 24 18 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {8a 04 0e 84 c0 0f 84 e2 01 00 00 88 85 54 ff ff ff 0f b6 44 0e 01 88 85 55}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
