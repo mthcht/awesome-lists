@@ -21,7 +21,7 @@ Windows2012,suspicious spoofed names observed in various RDP Bruteforce attacks 
 mstsc,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
 FreeRDP,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
 Windows2019,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
-WORKSTATION,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Detection,Successful Authentication
+WORKSTATION,suspicious spoofed names observed in various RDP Bruteforce attacks from a famous exploitation tool,https://github.com/dafthack/RDPSpray,high,Hunting,Successful Authentication
 WIN-JGRMF8L11HO,workstation name observed in log entries during multiple incidents,https://www.huntress.com/blog/akira-ransomware-indicators,high,Detection,Successful Authentication
 WIN-*,default machine name pattern - could be interresting to search in Successful authentication logs,https://www.huntress.com/blog/akira-ransomware-indicators,low,Hunting,Successful Authentication
 DESKTOP-*,default machine name pattern - could be interresting to search in Successful authentication logs,https://www.huntress.com/blog/akira-ransomware-indicators,low,Hunting,Successful Authentication
