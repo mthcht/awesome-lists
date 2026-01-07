@@ -82,3 +82,25 @@ rule Trojan_Win64_Stealc_DN_2147959767_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealc_ZZ_2147960628_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealc.ZZ"
+        threat_id = "2147960628"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealc"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {48 8b ec 48 83 ec ?? 48 8d 15 ?? ?? ?? ?? 48 8d 0d ?? ?? ?? ?? e8 ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 48 8d 0d ?? ?? ?? ?? e8 ?? ?? ?? ?? 0f 57 c0}  //weight: 10, accuracy: Low
+        $x_10_3 = {4c 8b c0 48 8d 15 ?? ?? ?? ?? 48 8d 4d c0 e8 ?? ?? ?? ?? 48 8d 55 c0 48 8d 4d e0 e8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

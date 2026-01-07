@@ -78,3 +78,25 @@ rule Trojan_Win64_Alevaul_GDI_2147943982_0
         )
 }
 
+rule Trojan_Win64_Alevaul_GTV_2147960625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Alevaul.GTV!MTB"
+        threat_id = "2147960625"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Alevaul"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {fe 48 5d db c7 45 ?? 3b a4 7a 4c c7 45 ?? 5b d7 ea b8 c7 45 ?? 59 d7 3f a2 c7 45 ?? 7b 55 61 c3}  //weight: 5, accuracy: Low
+        $x_5_2 = {66 44 0b c0 66 44 89 01 0f b7 42 02 0f b7 c8 66 c1 e8 0a 66 83 e1 1c 66 83 e0 0f 66 c1 e1 02 66 0b c8 66 41 89 49 02 0f b7 42 04 0f b7 c8 66 c1 e8 0a 66 83 e1 1c 66 83 e0 0f 66 c1 e1 02 66 0b c8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -591,3 +591,24 @@ rule Trojan_Win32_Jaik_MK_2147959467_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_SCPC_2147960626_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.SCPC!MTB"
+        threat_id = "2147960626"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e0 2e 69 6d 70 6f 72 74 73 00 10 00 00 00 f0 01 00 00 10 00 00 00 f0 01 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 72 73 72 63 00 00 00 00 20 00 00 00 00 02 00 00 20 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 74 68 65 6d 69 64 61 00 60 3b}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -896,3 +896,26 @@ rule Trojan_Win32_Doina_MKA_2147958221_0
         )
 }
 
+rule Trojan_Win32_Doina_PGX_2147960627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.PGX!MTB"
+        threat_id = "2147960627"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "RNESV@QD[Lhbqnrnes[Vhmcnvr[BtqqdmsUdqrhnm[Dwoknqdq[@cu`mbdc[Enkcdq[GhcdEhkdDws" ascii //weight: 2
+        $x_1_2 = "LocalizedResourceName=@shell32.dll,-30481" ascii //weight: 1
+        $x_2_3 = "RXRSDL[BnmsqnkRds//0[Bnmsqnk[R`edAnns" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

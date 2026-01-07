@@ -733,10 +733,14 @@ rule Trojan_Linux_Mirai_HAC_2147960540_0
         threshold = "35"
         strings_accuracy = "High"
     strings:
-        $x_30_1 = {00 74 30 74 61 6c 63 30 6e 00}  //weight: 30, accuracy: High
+        $x_30_1 = {00 74 30 74 61 6c 63 30 6e}  //weight: 30, accuracy: High
         $x_5_2 = "/bin/busybox FASTCAT" ascii //weight: 5
+        $x_5_3 = "[%s:%d] sent ping to the cnc" ascii //weight: 5
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_30_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
 }
 
