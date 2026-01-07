@@ -118,3 +118,24 @@ rule Trojan_Win64_KeyLogger_A_2147956023_0
         )
 }
 
+rule Trojan_Win64_KeyLogger_MFF_2147960605_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.MFF!MTB"
+        threat_id = "2147960605"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 8b ce 48 8b d7 8a 01 2c 40 34 bc 88 01 48 ff c1 48 ff ca 75 f0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
