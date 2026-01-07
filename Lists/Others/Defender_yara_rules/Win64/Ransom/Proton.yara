@@ -20,3 +20,26 @@ rule Ransom_Win64_Proton_MA_2147852270_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Proton_A_2147960637_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Proton.A"
+        threat_id = "2147960637"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Proton"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {34 42 39 39 31 33 36 39 2d 37 43 37 43 2d 34 37 41 41 2d 41 38 31 45 2d 45 46 36 45 44 31 46 35 45 32 34 43 00}  //weight: 1, accuracy: High
+        $x_1_2 = {3c 00 42 00 41 00 43 00 4b 00 55 00 50 00 5f 00 45 00 4d 00 41 00 49 00 4c 00 3e 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = {3c 00 49 00 44 00 3e 00 00 00}  //weight: 1, accuracy: High
+        $x_1_4 = {2e 00 5b 00 3c 00 45 00 4d 00 41 00 49 00 4c 00 3e 00 5d 00 3c 00 45 00 58 00 54 00 45 00 4e 00 53 00 49 00 4f 00 4e 00 3e 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
