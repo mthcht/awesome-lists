@@ -4805,3 +4805,25 @@ rule Trojan_Win64_Lazy_AHQ_2147960660_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_GVL_2147960678_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GVL!MTB"
+        threat_id = "2147960678"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4d 8d 40 01 f7 e9 03 d1 c1 fa 05 8b c2 c1 e8 1f 03 d0 0f be c2 6b d0 3a 0f b6 c1 ff c1 2a c2 04 34 41 30 40 ff 83 f9 1d 7c d1}  //weight: 1, accuracy: High
+        $x_1_2 = {4d 8d 40 01 f7 e1 c1 ea 04 0f be c2 6b d0 34 0f b6 c1 ff c1 2a c2 04 30 41 30 40 ff 83 f9 04 7c da}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

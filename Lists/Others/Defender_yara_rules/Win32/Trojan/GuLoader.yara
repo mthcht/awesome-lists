@@ -8047,3 +8047,31 @@ rule Trojan_Win32_GuLoader_REC_2147960507_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SWG_2147960672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SWG!MTB"
+        threat_id = "2147960672"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Endamebae\\Tronernes.ini" ascii //weight: 1
+        $x_1_2 = "\\Unvenerative99.htm" ascii //weight: 1
+        $x_1_3 = "\\unchartered.bin" ascii //weight: 1
+        $x_1_4 = "\\columbaries\\lysestagerne.dll" ascii //weight: 1
+        $x_1_5 = "\\annammelsers.htm" ascii //weight: 1
+        $x_1_6 = "\\devotional\\prisbelnnes.gif" ascii //weight: 1
+        $x_1_7 = "\\Kvalifikationernes\\effektueringernes.lnk" ascii //weight: 1
+        $x_1_8 = "Irrecognizably.Til" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

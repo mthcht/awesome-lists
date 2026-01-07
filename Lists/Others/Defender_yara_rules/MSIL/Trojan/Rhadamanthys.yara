@@ -378,3 +378,25 @@ rule Trojan_MSIL_Rhadamanthys_GVA_2147955709_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rhadamanthys_APOB_2147960676_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rhadamanthys.APOB!MTB"
+        threat_id = "2147960676"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 0d 11 11 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 02 38 00 00 00 00 00 11 02 02 16 02 8e 69 6f ?? 00 00 0a 38 5b 00 00 00 38 09 00 00 00 20 00 00 00 00 fe 0e 0e 00 fe 0c 0e 00 45 01 00 00 00 4c 00 00 00 fe 0c 0e 00 20 dc 03 00 00 3b ?? ff ff ff 38 39 00 00 00 11 0d 6f ?? 00 00 0a 73 ?? 00 00 0a 13 0c 20 00 00 00 00 7e ?? 00 00 04 7b ?? 00 00 04 3a ?? ff ff ff 26 20 05 00 00 00 38 ?? ff ff ff 11 02 6f ?? 00 00 0a 38}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
