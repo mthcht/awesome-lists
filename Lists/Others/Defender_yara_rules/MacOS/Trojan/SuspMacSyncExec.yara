@@ -16,6 +16,7 @@ rule Trojan_MacOS_SuspMacSyncExec_B_2147960131_0
         $x_1_2 = "https://t.me/phefuckxiabot | sed -n" wide //weight: 1
         $x_1_3 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 6b 00 79 00 73 00 2e 00 6c 00 69 00 2f 00 [0-16] 2e 00 70 00 68 00 70 00 3f 00}  //weight: 1, accuracy: Low
         $x_1_4 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 6b 00 79 00 73 00 2e 00 63 00 78 00 2f 00 [0-16] 2e 00 70 00 68 00 70 00 3f 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 70 00 6c 00 61 00 37 00 69 00 6e 00 61 00 2e 00 63 00 66 00 64 00 2f 00 [0-16] 2e 00 70 00 68 00 70 00 3f 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
