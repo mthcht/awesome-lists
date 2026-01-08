@@ -78,3 +78,27 @@ rule Trojan_Win32_Runner_CCJT_2147929896_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Runner_HAB_2147960716_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Runner.HAB!MTB"
+        threat_id = "2147960716"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Runner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "bat.bat" ascii //weight: 2
+        $x_2_2 = "bin.sfx.exe" ascii //weight: 2
+        $x_2_3 = "vbs.vbs" ascii //weight: 2
+        $x_5_4 = "WshShell.Run \"cmd.exe /c bat.bat\", 0, false" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

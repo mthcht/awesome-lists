@@ -7591,3 +7591,47 @@ rule Trojan_Win32_Neoreblamy_NSC_2147960503_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_NSD_2147960693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NSD!MTB"
+        threat_id = "2147960693"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {83 65 d8 00 eb 07 8b 45 d8 40 89 45 d8 81 7d d8}  //weight: 1, accuracy: High
+        $x_2_2 = {8b 45 fc 33 45 f8 99 89 45 f0 89 55 f4 8d 45 f0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Neoreblamy_NSE_2147960694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NSE!MTB"
+        threat_id = "2147960694"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7d 2e 83 65 e8 00 eb 07 8b 45 e8 40 89 45 e8 81 7d e8}  //weight: 1, accuracy: High
+        $x_2_2 = {d3 e6 8b 45 c4 99 f7 7d bc 8b ca d3 e6 8b c6}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

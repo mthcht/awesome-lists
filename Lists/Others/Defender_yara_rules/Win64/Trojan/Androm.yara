@@ -152,3 +152,24 @@ rule Trojan_Win64_Androm_SX_2147956758_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Androm_PGAN_2147960708_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Androm.PGAN!MTB"
+        threat_id = "2147960708"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {99 41 f7 f8 48 8b 04 24 83 c2 1d 81 c2 78 03 00 00 31 d1 88 ca 48 63 4c 24 0c 88 14 08 8b 44 24 0c 83 c0 01 89 44 24 0c eb b7}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2388,6 +2388,28 @@ rule Trojan_Win32_Remcos_ARE_2147900189_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {68 20 b5 45 00 a1 40 58 4b 00 50 e8 ?? ?? ?? ?? a3 84 65 5b 00 68 30 b5 45 00 a1 40 58 4b 00 50 e8 ?? ?? ?? ?? a3 88 65 5b 00 68 44 b5 45 00 a1 40 58 4b 00 50 e8}  //weight: 2, accuracy: Low
+        $x_1_2 = {68 40 e5 42 00 8b 03 50 e8 ?? ?? ?? ?? a3 48 64 5b 00 68 4c e5 42 00 8b 03 50 e8 ?? ?? ?? ?? a3 4c 64 5b 00 68 5c e5 42 00 8b 03 50 e8 ?? ?? ?? ?? a3 50 64 5b 00 68 78 e5 42 00 8b 03 50}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Remcos_ARE_2147900189_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.ARE!MTB"
+        threat_id = "2147900189"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:

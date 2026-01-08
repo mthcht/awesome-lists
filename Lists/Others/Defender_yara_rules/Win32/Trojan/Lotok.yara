@@ -442,3 +442,26 @@ rule Trojan_Win32_Lotok_RL_2147906605_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lotok_AML_2147960713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lotok.AML!MTB"
+        threat_id = "2147960713"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lotok"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {2b c6 8b f0 c1 e6 04 03 f3 8b d8 c1 eb 05 03 dd 33 f3 8d 1c 10 33 f3 81 c2 47 86 c8 61 2b ce 4f 75}  //weight: 3, accuracy: High
+        $x_1_2 = "FXNy-SVgMSLB0At0-OOhUKsa-D1" ascii //weight: 1
+        $x_1_3 = "zzRTtFP91.dat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

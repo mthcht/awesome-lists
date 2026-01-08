@@ -817,3 +817,30 @@ rule Trojan_Win64_Stealer_MKB_2147960199_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_LMH_2147960695_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.LMH!MTB"
+        threat_id = "2147960695"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Detailed credential telemetry for **" ascii //weight: 20
+        $x_10_2 = "Haidez Grabber" ascii //weight: 10
+        $x_5_3 = "Bug Hunter L1" ascii //weight: 5
+        $x_4_4 = "Bug Hunter L2" ascii //weight: 4
+        $x_3_5 = "Developed by Z61dd" ascii //weight: 3
+        $x_2_6 = "Termination sweep complete. Waiting for file locks to fully release." ascii //weight: 2
+        $x_1_7 = "Scanning for and terminating browser network services..." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

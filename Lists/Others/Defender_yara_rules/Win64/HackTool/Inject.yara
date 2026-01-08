@@ -20,3 +20,29 @@ rule HackTool_Win64_Inject_SX_2147959607_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_Inject_SXA_2147960711_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Inject.SXA!MTB"
+        threat_id = "2147960711"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Inject"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Process injection (DLL injection)" ascii //weight: 5
+        $x_5_2 = "Injection successful!" ascii //weight: 5
+        $x_2_3 = "token theft" ascii //weight: 2
+        $x_2_4 = "Attempting to steal SYSTEM token from winlogon.exe" ascii //weight: 2
+        $x_1_5 = "Successfully impersonating SYSTEM!" ascii //weight: 1
+        $x_1_6 = "Process is running with elevated privileges" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
