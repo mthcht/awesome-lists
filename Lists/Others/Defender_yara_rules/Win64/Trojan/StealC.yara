@@ -619,3 +619,29 @@ rule Trojan_Win64_StealC_PVA_2147960509_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_ASC_2147960816_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.ASC!MTB"
+        threat_id = "2147960816"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2f 00 2f 00 79 00 7a 00 67 00 79 00 2e 00 63 00 63 00 2f 00 [0-15] 2e 00 62 00 69 00 6e 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {2f 00 2f 00 64 00 6d 00 73 00 73 00 39 00 39 00 39 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-15] 2e 00 62 00 69 00 6e 00}  //weight: 5, accuracy: Low
+        $x_1_3 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_4 = "ResumeThread" ascii //weight: 1
+        $x_1_5 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_6 = "\\Us\\JH.exe /create /sc onlogon /tn Vip /rl highest /tr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
