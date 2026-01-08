@@ -12966,3 +12966,25 @@ rule Trojan_Win32_ClickFix_JJH_2147959773_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_HW_2147960745_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HW!MTB"
+        threat_id = "2147960745"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "//:sptth" wide //weight: 10
+        $x_50_2 = {69 00 65 00 78 00 28 00 69 00 77 00 72 00 20 00 28 00 5b 00 73 00 74 00 72 00 69 00 6e 00 67 00 5d 00 3a 00 3a 00 6a 00 6f 00 69 00 6e 00 28 00 27 00 27 00 2c 00 28 00 24 00 [0-8] 5b 00 2d 00 31 00 2e 00 2e 00 2d 00 24 00 00 2e 00 6c 00 65 00 6e 00 67 00 74 00 68 00 5d 00 29 00}  //weight: 50, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

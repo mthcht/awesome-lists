@@ -2461,3 +2461,50 @@ rule Trojan_Win64_ShellcodeRunner_KK_2147960411_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_BMD_2147960761_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.BMD!MTB"
+        threat_id = "2147960761"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 01 d0 0f b6 00 89 c1 48 8b 45 f8 ba 00 00 00 00 48 f7 75 f0 48 8d 05 b4 27 00 00 0f ?? ?? 02 31 c1 48 8b 55 10 48 8b 45 f8 48 01 d0 89 ca 88 10}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_BMD_2147960761_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.BMD!MTB"
+        threat_id = "2147960761"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 01 d0 44 0f b6 00 48 8b 45 ?? ba ?? ?? ?? ?? 48 f7 75}  //weight: 2, accuracy: Low
+        $x_2_2 = {48 01 d0 0f b6 08 48 8b 55 ?? 48 8b 45 ?? 48 01 d0 44 89 c2 31 ca 88 10 48 83 45}  //weight: 2, accuracy: Low
+        $x_2_3 = "Decoding Base64 payload (Size: %d)..." ascii //weight: 2
+        $x_2_4 = "Setting Persistence (AutoRun)..." ascii //weight: 2
+        $x_2_5 = "XOR-ing DLL name string..." ascii //weight: 2
+        $x_2_6 = "Deleting associated file: %s" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

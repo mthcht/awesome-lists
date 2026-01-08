@@ -1095,3 +1095,33 @@ rule Trojan_Win64_Vidar_PL_2147960692_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_D_2147960758_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.D!AMTB"
+        threat_id = "2147960758"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "DEADBEEF" ascii //weight: 2
+        $x_1_2 = "Firefox Plugins" ascii //weight: 1
+        $x_1_3 = "File Grabber Rules" ascii //weight: 1
+        $x_1_4 = "Loader Tasks" ascii //weight: 1
+        $x_1_5 = "\\Network\\Cookies" ascii //weight: 1
+        $x_1_6 = "Browser List" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((5 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

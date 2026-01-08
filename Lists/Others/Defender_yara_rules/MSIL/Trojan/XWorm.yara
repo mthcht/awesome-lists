@@ -3926,3 +3926,26 @@ rule Trojan_MSIL_XWorm_AGOB_2147960437_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_SVN_2147960762_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.SVN!MTB"
+        threat_id = "2147960762"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "XClient.exe" wide //weight: 2
+        $x_2_2 = "rangeDecoder" ascii //weight: 2
+        $x_2_3 = "PixelFormat" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

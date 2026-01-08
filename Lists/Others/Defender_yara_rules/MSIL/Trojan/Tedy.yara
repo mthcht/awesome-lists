@@ -2298,6 +2298,30 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_ARR_2147957141_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARR!MTB"
+        threat_id = "2147957141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_12_1 = "<Module>{5A555375-FAD9-4C5E-AF92-76DBFBCB0E79}" ascii //weight: 12
+        $x_19_2 = "<PrivateImplementationDetails>{445BAACA-13F1-4BA4-AD28-C8701F7CE2A6}" ascii //weight: 19
+        $x_8_3 = "<Module>{a8f06f09-58a8-4dc9-b1e7-fc0dc9327e23}" ascii //weight: 8
+        $x_1_4 = "-.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Tedy_LME_2147959064_0
 {
     meta:

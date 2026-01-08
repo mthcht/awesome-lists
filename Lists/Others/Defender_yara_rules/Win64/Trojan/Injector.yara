@@ -287,3 +287,28 @@ rule Trojan_Win64_Injector_SXD_2147959940_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_AMTB_2147960766_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector!AMTB"
+        threat_id = "2147960766"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "RtlAdjustPrivilege" ascii //weight: 1
+        $x_1_2 = "NtRaiseHardError" ascii //weight: 1
+        $x_1_3 = "lsass.exe" ascii //weight: 1
+        $x_1_4 = "NtQueryVirtualMemory" ascii //weight: 1
+        $x_1_5 = "NtQuerySystemInformation" ascii //weight: 1
+        $x_1_6 = "QWNjZWxNb2RlID0gMApTZW5zaXRpdml0eSA9IDEuMwpBY2NlbGVyYXRpb24gPSAw" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

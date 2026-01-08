@@ -347,3 +347,25 @@ rule Trojan_MSIL_Starter_MBWO_2147930126_0
         )
 }
 
+rule Trojan_MSIL_Starter_ARR_2147960744_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Starter.ARR!MTB"
+        threat_id = "2147960744"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Starter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {0b 14 0c 06 08 25 2d 04 26 09 2b 0a}  //weight: 8, accuracy: High
+        $x_12_2 = "TabTipProxy.exe" ascii //weight: 12
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
