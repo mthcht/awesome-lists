@@ -8100,3 +8100,29 @@ rule Trojan_Win32_GuLoader_RED_2147960775_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REE_2147960808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REE!MTB"
+        threat_id = "2147960808"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "hastesagers\\ledgers\\brystnings" ascii //weight: 1
+        $x_1_2 = "\\Endamebae\\Tronernes.ini" ascii //weight: 1
+        $x_1_3 = "\\devotional\\prisbelnnes.gif" ascii //weight: 1
+        $x_1_4 = "Kvalifikationernes\\effektueringernes.lnk" ascii //weight: 1
+        $x_1_5 = "%rengringsassistenten%\\Proministry198\\Extricable" ascii //weight: 1
+        $x_1_6 = "\\uninnocuously\\whoremasterly.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

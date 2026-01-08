@@ -1242,3 +1242,28 @@ rule Ransom_Win64_FileCoder_GP_2147958370_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_KU_2147960809_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.KU!MTB"
+        threat_id = "2147960809"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "themepack" wide //weight: 1
+        $x_1_2 = "bootsect.bak" wide //weight: 1
+        $x_1_3 = "tor browser" wide //weight: 1
+        $x_1_4 = "! ENCRYPTING" ascii //weight: 1
+        $x_1_5 = "DontSuicide!1488" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

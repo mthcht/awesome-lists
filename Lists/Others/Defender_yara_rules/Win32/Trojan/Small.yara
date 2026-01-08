@@ -801,6 +801,31 @@ rule Trojan_Win32_Small_EM_2147836902_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Small_EM_2147836902_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Small.EM!MTB"
+        threat_id = "2147836902"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 01 03 00 a0 43 e2 34}  //weight: 1, accuracy: High
+        $x_1_2 = "UnmapViewOfFile" ascii //weight: 1
+        $x_1_3 = "MapViewOfFile" ascii //weight: 1
+        $x_1_4 = "OpenFileMappingA" ascii //weight: 1
+        $x_1_5 = "DRAMMAP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Small_AF_2147838619_0
 {
     meta:
