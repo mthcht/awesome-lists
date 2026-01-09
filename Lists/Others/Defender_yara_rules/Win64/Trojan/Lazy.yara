@@ -4827,3 +4827,27 @@ rule Trojan_Win64_Lazy_GVL_2147960678_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MKI_2147960854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKI!MTB"
+        threat_id = "2147960854"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "[*] BYPASS STARTED." ascii //weight: 20
+        $x_15_2 = "[+] DNS FREEZE APPLIED!" ascii //weight: 15
+        $x_10_3 = "[-] VGC NOT FOUND!" ascii //weight: 10
+        $x_5_4 = "[+] CPU SPIKE DETECTED! APPLYING DNS FREEZE" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

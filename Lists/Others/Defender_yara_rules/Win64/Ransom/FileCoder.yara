@@ -1267,3 +1267,33 @@ rule Ransom_Win64_FileCoder_KU_2147960809_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_C_2147960838_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.C!AMTB"
+        threat_id = "2147960838"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "IF YOU DO NOT TAKE CARE OF THIS ISSUE WITHIN THE NEXT 72 HOURS, YOU WILL FACE DOUBLE PRICE INCREASE." ascii //weight: 1
+        $x_1_2 = "Before paying you can send 2-3 files less than 1MB, we will decrypt them to guarantee." ascii //weight: 1
+        $x_2_3 = "Encrypt.HigherThan500MB" ascii //weight: 2
+        $x_2_4 = "Special Files.EncryptSpecialFilesFurther" ascii //weight: 2
+        $x_2_5 = "Wallpaper.ChangeDesktopWallpaper" ascii //weight: 2
+        $x_2_6 = "Log.DiscordLogMessage" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((4 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

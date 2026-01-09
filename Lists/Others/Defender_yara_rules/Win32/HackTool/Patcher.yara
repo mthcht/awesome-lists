@@ -209,3 +209,63 @@ rule HackTool_Win32_Patcher_SGA_2147959661_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_Patcher_B_2147960839_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher.B!AMTB"
+        threat_id = "2147960839"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "..-=> Crack Info <=.." ascii //weight: 1
+        $x_2_2 = "CONGRATULATION" ascii //weight: 2
+        $x_1_3 = ".___..-=[  The Hive  ]=-..___." ascii //weight: 1
+        $x_2_4 = "GPM-XM-754678" ascii //weight: 2
+        $x_2_5 = "File Succesfully patched" ascii //weight: 2
+        $x_1_6 = "%s.BAK" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule HackTool_Win32_Patcher_B_2147960839_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher.B!AMTB"
+        threat_id = "2147960839"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "::[cracked by]::::[diablo2oo2]::" ascii //weight: 1
+        $x_1_2 = "Incorrect version or file already patched !" ascii //weight: 1
+        $x_2_3 = "Cracker :" ascii //weight: 2
+        $x_1_4 = "Apply the patch" ascii //weight: 1
+        $x_2_5 = "lcc_patcher" ascii //weight: 2
+        $x_2_6 = "diablo2oo2" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

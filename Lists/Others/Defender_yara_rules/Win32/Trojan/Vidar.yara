@@ -6905,3 +6905,24 @@ rule Trojan_Win32_Vidar_KKB_2147959874_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_SCPC_2147960828_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.SCPC!MTB"
+        threat_id = "2147960828"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 20 20 20 20 20 20 20 b0 00 00 00 00 b0 02 00 00 02 00 00 00 fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 72 73 72 63}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

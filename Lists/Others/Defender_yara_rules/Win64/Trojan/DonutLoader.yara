@@ -240,6 +240,28 @@ rule Trojan_Win64_DonutLoader_ADN_2147957697_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_ADN_2147957697_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.ADN!MTB"
+        threat_id = "2147957697"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4c 89 f0 48 f7 d8 0f 80 ?? 09 00 00 4c 8b ?? ?? 04 00 00 48 8d 0d ?? ?? 01 00 e8 ?? ?? 01 00 48 85 c0 0f 84 ?? 09 00 00 49 89 ?? 48 8d 15 ?? ?? 01 00 48 89 c1}  //weight: 2, accuracy: Low
+        $x_1_2 = "silentrift_loader.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_DonutLoader_SX_2147957888_0
 {
     meta:

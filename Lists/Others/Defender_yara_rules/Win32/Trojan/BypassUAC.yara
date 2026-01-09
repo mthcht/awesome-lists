@@ -75,3 +75,29 @@ rule Trojan_Win32_BypassUAC_AB_2147945975_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BypassUAC_MK_2147960852_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BypassUAC.MK!MTB"
+        threat_id = "2147960852"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "MTU2LjIzNC41OC4xOTQ=" ascii //weight: 15
+        $x_10_2 = "UVhaaGMzUlRkbU11WlhobA==" ascii //weight: 10
+        $x_10_3 = "TXpZd2RISmhlUzVsZUdVPQ==" ascii //weight: 10
+        $x_5_4 = "DeConhost.exe" ascii //weight: 5
+        $x_3_5 = "startmonitornokill" ascii //weight: 3
+        $x_2_6 = "Failed to write shellcode to file." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
