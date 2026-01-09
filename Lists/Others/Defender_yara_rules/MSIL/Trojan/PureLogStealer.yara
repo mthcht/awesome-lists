@@ -4091,3 +4091,30 @@ rule Trojan_MSIL_PureLogStealer_PHH_2147960590_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_AUOB_2147960884_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.AUOB!MTB"
+        threat_id = "2147960884"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 03 11 02 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 09 38 00 00 00 00 00 11 09 02 16 02 8e 69 6f ?? 00 00 0a 20 01 00 00 00 7e 6d 00 00 04 7b 59 00 00 04 39 1d 00 00 00 26 20 00 00 00 00 38 12 00 00 00 38 09 00 00 00 20 00 00 00 00 fe 0e 08 00 fe 0c 08 00 45 01 00 00 00 21 00 00 00 fe 0c 08 00 20 dc 03 00 00 3b ?? ff ff ff 38 ?? 00 00 00 11 03 6f ?? 00 00 0a 13 07 38 0c 00 00 00 11 09 6f ?? 00 00 0a 38}  //weight: 5, accuracy: Low
+        $x_5_2 = {11 03 11 06 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 04 38 00 00 00 00 00 11 04 02 16 02 8e 69 6f ?? 00 00 0a 20 05 00 00 00 7e 3d 00 00 04 7b 55 00 00 04 39 1d 00 00 00 26 20 00 00 00 00 38 12 00 00 00 38 09 00 00 00 20 00 00 00 00 fe 0e 07 00 fe 0c 07 00 45 01 00 00 00 21 00 00 00 fe 0c 07 00 20 dc 03 00 00 3b ?? ff ff ff 38 ?? 00 00 00 11 03 6f ?? 00 00 0a 13 08 38 ?? 00 00 00 11 04 6f ?? 00 00 0a 38}  //weight: 5, accuracy: Low
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
