@@ -1103,3 +1103,25 @@ rule Trojan_Win64_Rhadamanthys_NSA_2147960815_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rhadamanthys_NSE_2147960897_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.NSE!MTB"
+        threat_id = "2147960897"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {89 f1 48 89 c2 48 8d 05 ?? ?? 00 00 31 c1 89 c8 31 d0 eb}  //weight: 3, accuracy: Low
+        $x_2_2 = {48 0f af d1 48 c1 ea 24 8d 14 92 c1 e2 02 29 d0 83 f8 13}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
