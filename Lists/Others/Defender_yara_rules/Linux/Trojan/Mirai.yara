@@ -744,3 +744,27 @@ rule Trojan_Linux_Mirai_HAC_2147960540_0
         )
 }
 
+rule Trojan_Linux_Mirai_HAD_2147960917_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAD!MTB"
+        threat_id = "2147960917"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "t0talc0ntr0l" ascii //weight: 30
+        $x_10_2 = "BOT_ID_NOT_" ascii //weight: 10
+        $x_10_3 = "bytes from cnc" ascii //weight: 10
+        $x_10_4 = "rejected by CNC" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

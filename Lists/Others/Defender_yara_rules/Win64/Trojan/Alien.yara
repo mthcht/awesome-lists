@@ -72,3 +72,26 @@ rule Trojan_Win64_Alien_ARAA_2147905502_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Alien_GVK_2147960912_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Alien.GVK!MTB"
+        threat_id = "2147960912"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Alien"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/v ShowSuperHidden /t REG_DWORD /d 2 /f" ascii //weight: 1
+        $x_1_2 = "powershell -windowstyle hidden -command \"Start-Process cmd -ArgumentList '/s,/c" ascii //weight: 1
+        $x_3_3 = "://arkupdate.com/download/installer.msi" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
