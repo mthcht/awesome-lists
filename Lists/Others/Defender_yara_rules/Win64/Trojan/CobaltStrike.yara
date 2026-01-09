@@ -18372,3 +18372,27 @@ rule Trojan_Win64_CobaltStrike_POCS_2147959926_0
         (2 of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_AHE_2147960879_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.AHE!MTB"
+        threat_id = "2147960879"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[INFO] RunMainLogic" ascii //weight: 10
+        $x_20_2 = "[INFO] CaptureSecureScreen" ascii //weight: 20
+        $x_30_3 = "[INFO] Executing restart command" ascii //weight: 30
+        $x_40_4 = "[INFO] Enable AutoAdminLogon" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

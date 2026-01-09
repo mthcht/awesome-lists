@@ -147,3 +147,26 @@ rule Worm_Win32_Bundpil_KK_2147953712_0
         (all of ($x*))
 }
 
+rule Worm_Win32_Bundpil_AHB_2147960877_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Bundpil.AHB!MTB"
+        threat_id = "2147960877"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bundpil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {2a c8 8a c1 88 0d ?? ?? 00 10 b1 ?? f6 e9 a2 ?? ?? 00 10 e8 ?? ?? ?? ?? b1 ?? 2a c8 4e 88 0d}  //weight: 30, accuracy: Low
+        $x_20_2 = "SsMpKnIlFfAdxa" ascii //weight: 20
+        $x_10_3 = "aBUySvPsNnHkFi" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

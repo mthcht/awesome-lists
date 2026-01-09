@@ -4851,3 +4851,25 @@ rule Trojan_Win64_Lazy_MKI_2147960854_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHP_2147960878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHP!MTB"
+        threat_id = "2147960878"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {66 0f 6e 40 ?? 41 0f 54 d3 66 0f 67 d2 66 0f 67 d2 66 41 0f fc d5 0f 57 d0 66 0f 7e 50}  //weight: 30, accuracy: Low
+        $x_20_2 = "randomshitidfkrah1244662" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

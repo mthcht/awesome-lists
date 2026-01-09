@@ -269,3 +269,27 @@ rule HackTool_Win32_Patcher_B_2147960839_1
         )
 }
 
+rule HackTool_Win32_Patcher_AHB_2147960876_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher.AHB!MTB"
+        threat_id = "2147960876"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Found Binary Ninja installation path: %s" ascii //weight: 10
+        $x_20_2 = "Successfully patched %s" ascii //weight: 20
+        $x_30_3 = "Binary Ninja installation path not found" ascii //weight: 30
+        $x_40_4 = "Patching..." ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
