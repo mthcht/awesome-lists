@@ -29,3 +29,27 @@ rule Ransom_Win64_Nova_MA_2147850246_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Nova_GTV_2147960923_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Nova.GTV!MTB"
+        threat_id = "2147960923"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nova"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "README-NOVA.me" ascii //weight: 1
+        $x_1_2 = "you under controll by Nova ransomware" ascii //weight: 1
+        $x_1_3 = "nova_encryptor.pdb" ascii //weight: 1
+        $x_1_4 = "do not touch the files becouse we can't decrypt it if you touch it" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
