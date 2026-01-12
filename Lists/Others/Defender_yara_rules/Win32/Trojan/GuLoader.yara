@@ -8126,3 +8126,31 @@ rule Trojan_Win32_GuLoader_REE_2147960808_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REF_2147960941_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REF!MTB"
+        threat_id = "2147960941"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\arbejdstimerne\\Moderlig" ascii //weight: 1
+        $x_1_2 = "%Novalia0%\\capo\\Paganised" ascii //weight: 1
+        $x_1_3 = "-\\virksomhedsordningernes.ini" ascii //weight: 1
+        $x_1_4 = "5\\rile\\dualitetens.txt" ascii //weight: 1
+        $x_1_5 = "phlebodium reweds godkendelsesmyndighedernes" ascii //weight: 1
+        $x_1_6 = "overstterteknikkers reorchestrated evangeliebgerne" ascii //weight: 1
+        $x_1_7 = "grnseomraadets" ascii //weight: 1
+        $x_1_8 = "skjtelb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

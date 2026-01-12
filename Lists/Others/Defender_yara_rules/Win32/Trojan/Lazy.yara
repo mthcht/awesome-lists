@@ -207,6 +207,32 @@ rule Trojan_Win32_Lazy_AB_2147849152_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AB_2147849152_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AB!MTB"
+        threat_id = "2147849152"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "$action1 = New-ScheduledTaskAction -Execute 'cmd' -Argument '/c start /B /min copy /Y" ascii //weight: 3
+        $x_3_2 = "startmonitornokill" ascii //weight: 3
+        $x_2_3 = "ServiceHub.exe" ascii //weight: 2
+        $x_2_4 = "Start Remote Monitor Service..." ascii //weight: 2
+        $x_1_5 = "$trigger = New-ScheduledTaskTrigger -AtLogOn;" ascii //weight: 1
+        $x_1_6 = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Lazy_DM_2147849423_0
 {
     meta:

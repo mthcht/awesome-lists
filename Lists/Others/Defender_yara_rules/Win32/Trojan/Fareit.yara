@@ -4494,3 +4494,25 @@ rule Trojan_Win32_Fareit_BAH_2147959917_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fareit_AHB_2147960946_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fareit.AHB!MTB"
+        threat_id = "2147960946"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fareit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {ff 31 85 db 85 ff 59 66 ?? ?? ?? ?? 66 ?? ?? ?? ?? 31 f1 3d ?? ?? ?? ?? 66 85 db e9}  //weight: 30, accuracy: Low
+        $x_20_2 = {50 66 85 c0 85 c0 5b 81 ff ?? ?? ?? ?? 81 fa ?? ?? ?? ?? 01 d3 66 ?? ?? ?? ?? 85 c0 31 0b eb}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

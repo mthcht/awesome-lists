@@ -20,3 +20,25 @@ rule TrojanDropper_Win64_XWorm_AHC_2147960743_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win64_XWorm_AHD_2147960945_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/XWorm.AHD!MTB"
+        threat_id = "2147960945"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {44 89 7d e7 41 8b c7 0f 1f 40 00 66 66 0f 1f 84 00 00 00 00 00 8b 4d e7 30 4c 05 0f 48 ff c0 48 83 f8 ?? 72}  //weight: 30, accuracy: Low
+        $x_20_2 = "%s%llx.tmp" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

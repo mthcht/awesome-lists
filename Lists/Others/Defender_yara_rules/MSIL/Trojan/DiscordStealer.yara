@@ -177,3 +177,25 @@ rule Trojan_MSIL_DiscordStealer_GP_2147901079_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DiscordStealer_MK_2147960947_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DiscordStealer.MK!MTB"
+        threat_id = "2147960947"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {08 09 11 08 58 02 09 11 08 58 91 11 06 11 08 91 61 d2 9c 11 08 17 58 13 08 11 08 11 07 32 e1}  //weight: 20, accuracy: High
+        $x_15_2 = "RIVATOR STEALER" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

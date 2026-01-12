@@ -82,3 +82,25 @@ rule Trojan_Win32_Crysan_EAZK_2147936810_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Crysan_ARR_2147960954_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Crysan.ARR!MTB"
+        threat_id = "2147960954"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 c8 8d 04 3a 33 c8 2b d9 8b cb 8b c3 c1 e1}  //weight: 2, accuracy: High
+        $x_18_2 = "C:\\Users\\tamar\\source\\repos\\ConsoleApplication1\\Release\\ConsoleApplication1.pdb" ascii //weight: 18
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

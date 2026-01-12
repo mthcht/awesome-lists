@@ -44,3 +44,26 @@ rule Trojan_Win32_KillWin_NH_2147929306_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillWin_ARR_2147960953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillWin.ARR!MTB"
+        threat_id = "2147960953"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillWin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {41 0f 45 d5 0b 54 31 ?? 0b d7 83 e2 17}  //weight: 2, accuracy: Low
+        $x_12_2 = "TASKROUTINE_DISABLE_REGISTRY" ascii //weight: 12
+        $x_6_3 = "Registry logging is DISABLED (TASKROUTINE_DISABLE_REGISTRY=1)" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -414,3 +414,24 @@ rule Trojan_Win32_XWorm_BAC_2147960551_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_AB_2147960944_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.AB!MTB"
+        threat_id = "2147960944"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {85 c9 74 09 33 d2 48 ff 25 83 56 05 00 [0-4] 48 83 ec 28 8b 15 5e 7e 12 00 33 c9 41 b9 04 00 00 00 41 b8 00 20 20 00 ff 15 32 55 05 00 48 85 c0 74 18 33 d2 41 b8 00 80 00 00 48 8b c8 ff 15 24 55 05 00 b0 01 48 83 c4 28}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
