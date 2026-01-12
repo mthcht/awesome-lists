@@ -3337,6 +3337,29 @@ rule Trojan_MSIL_Jalapeno_AMTB_2147958515_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_BAI_2147958977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.BAI!MTB"
+        threat_id = "2147958977"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {08 2d 11 72 ?? 00 00 70 02 28 ?? 00 00 0a 73 ?? 00 00 0a 7a 73 ?? 00 00 0a 0d 08 09 6f ?? 00 00 0a 09 6f ?? 00 00 0a 13 04 de 14 09 2c 06 09 6f ?? 00 00 0a dc}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Jalapeno_BAG_2147958993_0
 {
     meta:
@@ -3512,6 +3535,29 @@ rule Trojan_MSIL_Jalapeno_QB_2147960164_0
     strings:
         $x_4_1 = {11 0d 11 00 6f ?? 00 00 0a 17 73 09 00 00 0a 13 02 38 00 00 00 00 00 11 02 02 16 02 8e 69 6f ?? 00 00 0a 38 5b 00 00 00 38 09 00 00 00 20 00 00 00 00 fe 0e 0a 00 fe 0c 0a 00 45 01 00 00 00 4c 00 00 00 fe 0c 0a 00 20 dc 03 00 00 3b e5 ff ff ff 38 39 00 00 00 11 0d 6f ?? 00 00 0a}  //weight: 4, accuracy: Low
         $x_2_2 = "$8254235f-270e-4d9d-b832-4d9ca99f5280" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Jalapeno_BAL_2147960975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.BAL!MTB"
+        threat_id = "2147960975"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 0d 11 11 6f 0c 00 00 0a 17 73 0d 00 00 0a 13 02 38 00 00 00 00 00 11 02 02 16 02 8e 69 ?? ?? 00 00 0a 38 5b 00 00 00 38 09 00 00 00 20 00 00 00 00 fe 0e 0c 00 fe 0c 0c 00 45 01 00 00 00 4c 00 00 00 fe 0c 0c 00 20 dc 03 00 00 3b e5 ff ff ff 38 39 00 00 00 11 0d ?? ?? 00 00 0a 73 10 00 00 0a 13 03 20 02 00 00 00 7e 62 00 00 04 7b 6b 00 00 04 39 c2 ff ff ff 26 20 00 00 00 00 38 b7 ff ff ff 11 02 ?? ?? 00 00 0a 38 c7 ff ff ff}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

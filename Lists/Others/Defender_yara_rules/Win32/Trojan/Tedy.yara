@@ -1011,3 +1011,26 @@ rule Trojan_Win32_Tedy_SXD_2147960177_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_RR_2147960968_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.RR!MTB"
+        threat_id = "2147960968"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FILEDELETE ( @TEMPDIR & \"\\im_path.ini\" )" ascii //weight: 1
+        $x_1_2 = "INIREAD ( $READMETXT , \"RunOnce\" , \"path\" , \"\" )" ascii //weight: 1
+        $x_1_3 = "RUNWAIT ( @COMSPEC & \" /c echo y|takeown /f \"\"\" & @SCRIPTDIR & \"\"\" /R /D Y&echo y|cacls \"\"\" & @SCRIPTDIR & \"\"\" /T /C /G" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
