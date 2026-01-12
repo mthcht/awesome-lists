@@ -490,6 +490,33 @@ rule Trojan_Win32_Offloader_C_2147903565_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Offloader_C_2147903565_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Offloader.C!MTB"
+        threat_id = "2147903565"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Offloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-42] 2e 00 63 00 72 00 6f 00 77 00 2f 00 [0-255] [0-255] 2f 00 73 00 69 00 6c 00 65 00 6e 00 74 00 00 00 67 00 65 00 74 00 [0-47] 68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-42] 2e 00 69 00 6e 00 66 00 6f 00 2f 00 [0-255] [0-255] 3d 00 [0-31] 2e 00 65 00 78 00 65 00 [0-31] 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 00 74 00 70 73 3a 2f 2f [0-42] 2e 63 72 6f 77 2f [0-255] [0-255] 2f 73 69 6c 65 6e 74 00 00 67 65 74 [0-47] 68 74 00 74 00 70 73 3a 2f 2f [0-42] 2e 69 6e 66 6f 2f [0-255] [0-255] 3d [0-31] 2e 65 78 65 [0-31] 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_Offloader_KAA_2147903577_0
 {
     meta:

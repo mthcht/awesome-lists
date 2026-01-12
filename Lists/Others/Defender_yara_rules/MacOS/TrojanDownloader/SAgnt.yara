@@ -64,3 +64,26 @@ rule TrojanDownloader_MacOS_SAgnt_AK_2147899666_0
         (1 of ($x*))
 }
 
+rule TrojanDownloader_MacOS_SAgnt_HAB_2147960961_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MacOS/SAgnt.HAB!MTB"
+        threat_id = "2147960961"
+        type = "TrojanDownloader"
+        platform = "MacOS: "
+        family = "SAgnt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 74 74 70 73 3a 2f 2f [0-16] 2e 73 70 61 63 65 2f 63 75 72 6c 2f}  //weight: 5, accuracy: Low
+        $x_1_2 = "-w \"%{http_code}\" \"$" ascii //weight: 1
+        $x_10_3 = {2f 4c 69 62 72 61 72 79 2f 41 70 70 6c 69 63 61 74 69 6f 6e 20 53 75 70 70 6f 72 74 2f [0-16] 00 00 00 00 [0-16] 2f 4c 69 62 72 61 72 79 2f 4c 6f 67 73 2f 00 2e 6c 6f 67}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

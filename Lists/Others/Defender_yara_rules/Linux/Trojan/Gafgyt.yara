@@ -110,3 +110,50 @@ rule Trojan_Linux_Gafgyt_C_2147788203_0
         )
 }
 
+rule Trojan_Linux_Gafgyt_A_2147960955_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Gafgyt.A!AMTB"
+        threat_id = "2147960955"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Gafgyt"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "158.94.210.88" ascii //weight: 4
+        $x_3_2 = "[%s:%d] detected newer instance running! suicide()" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Gafgyt_HAC_2147960960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Gafgyt.HAC!MTB"
+        threat_id = "2147960960"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Gafgyt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "58"
+        strings_accuracy = "High"
+    strings:
+        $x_9_1 = "/proc/%d/exe" ascii //weight: 9
+        $x_11_2 = "%x:%x:%x:%x:%x:%x:%d.%d.%d.%d" ascii //weight: 11
+        $x_8_3 = "User-Agent: %s" ascii //weight: 8
+        $x_17_4 = "data=random_data" ascii //weight: 17
+        $x_13_5 = ":]:%x %63[" ascii //weight: 13
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
