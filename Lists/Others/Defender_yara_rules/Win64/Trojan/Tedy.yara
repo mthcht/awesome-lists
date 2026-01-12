@@ -3244,3 +3244,28 @@ rule Trojan_Win64_Tedy_GVM_2147960549_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SXG_2147960935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXG!MTB"
+        threat_id = "2147960935"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 89 44 24 20 41 b9 10 00 00 00 4c 8d 45 ?? ba 04 61 40 9c 48 8b}  //weight: 20, accuracy: Low
+        $x_10_2 = {24 30 c7 44 24 28 80 00 00 00 c7 44 24 20 03 00 00 00 45 33 c9 45 33 c0 ba 00 00 00 c0 48 8d 0d ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8b ?? 0f 57 c0}  //weight: 10, accuracy: Low
+        $x_2_3 = "\\\\.\\WinMsrDev" ascii //weight: 2
+        $x_2_4 = "Driver is already loaded" ascii //weight: 2
+        $x_2_5 = "\\ntoskrnl.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

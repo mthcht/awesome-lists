@@ -464,3 +464,25 @@ rule Trojan_Win64_Farfli_SXD_2147960434_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_SXE_2147960937_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.SXE!MTB"
+        threat_id = "2147960937"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {41 0f b6 04 11 49 ff c1 33 01 c1 c0 05 05 ?? ?? ?? ?? 89 01 4d 3b c8 72 e7}  //weight: 20, accuracy: Low
+        $x_10_2 = {0f b6 0c 02 41 33 0a 8b c1 c1 e9 0d 69 c0 ?? ?? ?? ?? 33 c1 41 89 02 c1 e8 10 43 32 44 19 ?? 41 32 02 43 88 44 19 ?? 4d 3b c8 72 c4}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

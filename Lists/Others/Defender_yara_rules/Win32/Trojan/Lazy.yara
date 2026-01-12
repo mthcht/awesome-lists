@@ -2673,3 +2673,26 @@ rule Trojan_Win32_Lazy_NP_2147960208_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_SXI_2147960936_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.SXI!MTB"
+        threat_id = "2147960936"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 45 80 2b c1 89 4d 8c 99 f7 bd 74 ff ff ff 6b c0 18 89 45 88 3d 00 10 00 00}  //weight: 10, accuracy: High
+        $x_5_2 = {33 c0 8b f4 89 65 ?? 89 b5 ?? ?? ?? ?? 8b fe ab ab ab ab 33 c0 88 06}  //weight: 5, accuracy: Low
+        $x_1_3 = "C:\\Users\\A.Sogachev\\ip2awg\\include/json.hpp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
