@@ -1040,6 +1040,35 @@ rule Ransom_MSIL_HiddenTear_AHT_2147946601_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "worm.log" wide //weight: 4
+        $x_1_2 = "Update.lnk" wide //weight: 1
+        $x_1_3 = "[InternetShortcut]" wide //weight: 1
+        $x_1_4 = "keylog.txt" wide //weight: 1
+        $x_1_5 = "[BACKSPACE]" wide //weight: 1
+        $x_1_6 = "[TAB]" wide //weight: 1
+        $x_2_7 = "Your files have been encrypted" wide //weight: 2
+        $x_3_8 = "Check READ_ME.txt on your desktop" wide //weight: 3
+        $x_5_9 = "TRUEW0RM" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_HiddenTear_AHT_2147946601_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.AHT!MTB"
+        threat_id = "2147946601"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "Low"
     strings:
