@@ -2508,3 +2508,24 @@ rule Trojan_Win64_ShellcodeRunner_BMD_2147960761_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_KLX_2147961057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.KLX!MTB"
+        threat_id = "2147961057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {31 14 99 48 ff c3 48 3b d8 72 f5 48 8b 9c 24 b8 00 00 00 48 8d 04 85 00 00 00 00 49 3b c1 73 0b 30 14 01 48 ff c0 49 3b c1 72 f5}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
