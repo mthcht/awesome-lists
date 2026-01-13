@@ -245,3 +245,26 @@ rule Trojan_Win64_ValleyRat_GVC_2147956531_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_PI_2147961039_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.PI!MTB"
+        threat_id = "2147961039"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "kiai360.bat" ascii //weight: 1
+        $x_1_2 = "ZhiMaUpdate.dll" ascii //weight: 1
+        $x_1_3 = "RedTeamKey123456" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
