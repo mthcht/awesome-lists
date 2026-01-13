@@ -49,3 +49,45 @@ rule Trojan_Win64_MuddyWater_DC_2147956536_0
         )
 }
 
+rule Trojan_Win64_MuddyWater_GVF_2147961012_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MuddyWater.GVF!MTB"
+        threat_id = "2147961012"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MuddyWater"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 83 f9 13 77 26 0f b6 54 31 02 c1 e2 10 44 0f b7 04 31 44 01 c2 81 c2 00 00 00 f0 33 14 08 89 94 0c 80 01 00 00 48 83 c1 04 eb d4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_MuddyWater_GVG_2147961013_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MuddyWater.GVG!MTB"
+        threat_id = "2147961013"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MuddyWater"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 83 fa 0b 77 2b 44 0f b6 44 0a 02 41 c1 e0 10 44 0f b7 0c 0a 45 01 c8 41 81 c0 00 00 00 c9 44 33 04 10 44 89 84 15 b0 0e 00 00 48 83 c2 04 eb cf}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

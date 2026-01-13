@@ -22,3 +22,25 @@ rule Tampering_Win32_PPLClipUp_A_2147952090_0
         (all of ($x*))
 }
 
+rule Tampering_Win32_PPLClipUp_B_2147961014_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Tampering:Win32/PPLClipUp.B"
+        threat_id = "2147961014"
+        type = "Tampering"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PPLClipUp"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "clipup.exe -ppl " wide //weight: 1
+        $n_5_2 = ".tmp" wide //weight: -5
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
