@@ -82,3 +82,27 @@ rule Ransom_Win64_BlackByte_GB_2147930059_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_BlackByte_SZ_2147961064_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/BlackByte.SZ!MTB"
+        threat_id = "2147961064"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlackByte"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Gentlemen, your network has been encrypted" ascii //weight: 1
+        $x_1_2 = "modification of encrypted files will make recovery impossible" ascii //weight: 1
+        $x_1_3 = "We have exfiltrated all your confidential and business data" ascii //weight: 1
+        $x_1_4 = "Only we can decrypt your data" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

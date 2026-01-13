@@ -928,3 +928,25 @@ rule Trojan_Win32_Phorpiex_SX_2147957801_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Phorpiex_AKP_2147961062_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Phorpiex.AKP!MTB"
+        threat_id = "2147961062"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8d 85 f0 fb ff ff 50 68 60 52 41 00 ff 15 ?? ?? ?? ?? 8d 8d f0 fb ff ff 51 68 70 52 41 00 8d 95 f8 fd ff ff 52 ff 15 ?? ?? ?? ?? 83 c4 0c 8d 85 f8 fd ff ff 50}  //weight: 2, accuracy: Low
+        $x_1_2 = {50 68 70 54 41 00 8d 8d f8 fd ff ff 51 ff 15 ?? ?? ?? ?? 83 c4 0c 8d 95 f8 fd ff ff 52}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

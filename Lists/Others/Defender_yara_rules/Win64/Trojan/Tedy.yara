@@ -3291,3 +3291,26 @@ rule Trojan_Win64_Tedy_BAC_2147960976_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_ABR_2147961076_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ABR!MTB"
+        threat_id = "2147961076"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {69 c0 6d 4e c6 41 05 39 30 00 00 89 c2 c1 ea 10 41 30 14 08 48 ff c1}  //weight: 5, accuracy: High
+        $x_1_2 = "sandboxmalwarevirussampletestanalysis" ascii //weight: 1
+        $x_1_3 = "virtualvbox" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
