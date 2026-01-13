@@ -1157,3 +1157,24 @@ rule Ransom_MSIL_HiddenTear_GVA_2147948843_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_ATH_2147961021_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.ATH!MTB"
+        threat_id = "2147961021"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {15 6a 16 28 ?? 00 00 0a 17 8d ?? 00 00 01 0c 08 16 17 9e 08 28 ?? 00 00 0a 02 02 7b ?? 00 00 04 72 ?? 00 00 70 15 16 28 ?? 00 00 0a 7d ?? 00 00 04 73 ?? 00 00 06 0a 06}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
