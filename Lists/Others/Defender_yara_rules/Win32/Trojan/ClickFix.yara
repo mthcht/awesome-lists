@@ -12996,3 +12996,45 @@ rule Trojan_Win32_ClickFix_HW_2147960745_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_ID_2147961031_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ID!MTB"
+        threat_id = "2147961031"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 20 00 2f 00 69 00 20 00 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-48] 2f 00 6d 00 73 00 69 00 2f 00 23 20 20 06 61 2d 7a 30 2d 39 20 00 2f 00 71 00 6e 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IF_2147961032_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IF!MTB"
+        threat_id = "2147961032"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2d 00 73 00 20 00 68 00 74 00 74 00 70 00 3a 00 2f 00 [0-48] 3a 00 [0-8] 2f 00 [0-10] 2e 00 76 00 62 00 73 00 20 00 2d 00 6f 00 20 00 25 00 74 00 65 00 6d 00 70 00 25 00 [0-2] 02 2e 00 76 00 62 00 73 00 20 00 3e 00 6e 00 75 00 6c 00 20 00 26 00 26 00 [0-20] 77 00 73 00 63 00 72 00 69 00 70 00 74 00 2e 00 65 00 78 00 65 00 20 00 2f 00 2f 00 62 00 20 00 2f 00 2f 00 45 00 3a 00 56 00 42 00 53 00 63 00 72 00 69 00 70 00 74 00 20 00 25 00 74 00 65 00 6d 00 70 00 25 00 [0-2] 02 2e 00 76 00 62 00 73 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
