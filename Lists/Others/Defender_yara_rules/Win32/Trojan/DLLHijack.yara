@@ -19,6 +19,31 @@ rule Trojan_Win32_DLLHijack_DF_2147939451_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DLLHijack_DG_2147940536_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.DG!MTB"
+        threat_id = "2147940536"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GUP.EXE LIBCURL.DLL PROXY - PAYLOAD THREAD" ascii //weight: 1
+        $x_1_2 = "DLL_PROCESS_ATTACH (GUP.exe + shadowpipe.network:8443)" ascii //weight: 1
+        $x_1_3 = "DLL-Sideloading" ascii //weight: 1
+        $x_1_4 = "REMOTE INJECTION" ascii //weight: 1
+        $x_1_5 = "SHELLCODE DOWNLOAD" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_DLLHijack_RPA_2147944575_0
 {
     meta:
