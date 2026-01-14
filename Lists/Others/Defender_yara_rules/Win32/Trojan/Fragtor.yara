@@ -3449,3 +3449,28 @@ rule Trojan_Win32_Fragtor_BAD_2147960550_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_SXD_2147961089_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SXD!MTB"
+        threat_id = "2147961089"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {83 7c 24 24 10 8d 4c 24 38 a3 ?? ?? ?? ?? b8 02 00 00 00 66 89 44 24 34 8d 44 24 10 0f 43 44 24 10}  //weight: 5, accuracy: Low
+        $x_10_2 = "keylogger\\" ascii //weight: 10
+        $x_10_3 = ".\\logs\\%Y-%m-%d__%H-%M-%S.log" ascii //weight: 10
+        $x_1_4 = "[PRINT_SCREEN]" ascii //weight: 1
+        $x_1_5 = "[ESCAPE]" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
