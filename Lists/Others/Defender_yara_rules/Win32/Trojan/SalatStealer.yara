@@ -351,3 +351,29 @@ rule Trojan_Win32_SalatStealer_CL_2147960482_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_GTV_2147961112_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.GTV!MTB"
+        threat_id = "2147961112"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GetKeyboardStateGetClipboardDataGetLastInput" ascii //weight: 1
+        $x_1_2 = "Electrum\\wallet" ascii //weight: 1
+        $x_1_3 = "processBrowsers\\Logins_$appdata\\discordread" ascii //weight: 1
+        $x_1_4 = "cookies.sqliteloginusers.vdfpassword" ascii //weight: 1
+        $x_1_5 = "TelegramDesktopNetwork\\Cookies" ascii //weight: 1
+        $x_1_6 = "httpbibawinv.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

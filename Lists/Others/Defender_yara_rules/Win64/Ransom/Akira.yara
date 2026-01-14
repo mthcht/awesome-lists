@@ -10,6 +10,29 @@ rule Ransom_Win64_Akira_PB_2147844371_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "akira_readme.txt" wide //weight: 3
+        $x_1_2 = "AKIRA_" wide //weight: 1
+        $x_1_3 = "settings.dat.akira" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Akira_PB_2147844371_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Akira.PB!MTB"
+        threat_id = "2147844371"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "High"
     strings:

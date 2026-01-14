@@ -67,3 +67,26 @@ rule Trojan_Win32_KillWin_ARR_2147960953_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillWin_ARR_2147960953_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillWin.ARR!MTB"
+        threat_id = "2147960953"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillWin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "If you execute this malware and lose your data, the producer will not be responsible!" ascii //weight: 2
+        $x_8_2 = "del /f /s /q C:\\bootmgr" ascii //weight: 8
+        $x_10_3 = "diskpart /s \"1.txt\"" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
