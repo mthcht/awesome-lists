@@ -217,3 +217,26 @@ rule Trojan_MSIL_Tasker_NB_2147919498_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tasker_PGDK_2147961176_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tasker.PGDK!MTB"
+        threat_id = "2147961176"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tasker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "C:\\Users\\Public\\Downloads\\Securit.exe" ascii //weight: 5
+        $x_5_2 = {72 00 75 00 6e 00 61 00 73 00 [0-2] 53 00 79 00 73 00 74 00 65 00 6d 00 55 00 70 00 64 00 61 00 74 00 65 00 72 00 54 00 61 00 73 00 6b 00 [0-2] 2f 00 63 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 66 00 20 00 2f 00 74 00 6e 00 20 00 22 00 [0-2] 22 00 20 00 2f 00 74 00 72 00 20 00 22 00 5c 00 22 00 [0-2] 5c 00 22 00 22 00 20 00 2f 00 73 00 63 00 20 00 6f 00 6e 00 6c 00 6f 00 67 00 6f 00 6e 00 20 00 2f 00 64 00 65 00 6c 00 61 00 79 00 20 00 30 00 30 00 30 00 30 00 3a 00 33 00 30 00 20 00 2f 00 72 00 6c 00 20 00 68 00 69 00 67 00 68 00 65 00 73 00 74 00 [0-2] 73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00}  //weight: 5, accuracy: Low
+        $x_5_3 = {72 75 6e 61 73 [0-2] 53 79 73 74 65 6d 55 70 64 61 74 65 72 54 61 73 6b [0-2] 2f 63 72 65 61 74 65 20 2f 66 20 2f 74 6e 20 22 [0-2] 22 20 2f 74 72 20 22 5c 22 [0-2] 5c 22 22 20 2f 73 63 20 6f 6e 6c 6f 67 6f 6e 20 2f 64 65 6c 61 79 20 30 30 30 30 3a 33 30 20 2f 72 6c 20 68 69 67 68 65 73 74 [0-2] 73 63 68 74 61 73 6b 73}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

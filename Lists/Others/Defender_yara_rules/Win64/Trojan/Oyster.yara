@@ -545,3 +545,27 @@ rule Trojan_Win64_Oyster_CP_2147961045_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Oyster_CQ_2147961171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Oyster.CQ!MTB"
+        threat_id = "2147961171"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Oyster"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4b 45 52 4e c7 45 ?? 45 4c 33 32 c7 45 ?? 2e 44 4c 4c}  //weight: 2, accuracy: Low
+        $x_2_2 = {4c 69 62 72 c7 45 ?? 61 72 79 41}  //weight: 2, accuracy: Low
+        $x_2_3 = "GetP" ascii //weight: 2
+        $x_2_4 = {72 6f 63 41 c7 45 ?? 64 64 72 65 66 c7 45}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

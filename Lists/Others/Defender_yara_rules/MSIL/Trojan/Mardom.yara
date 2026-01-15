@@ -1328,3 +1328,24 @@ rule Trojan_MSIL_Mardom_PGMA_2147959224_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_ABM_2147961177_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.ABM!MTB"
+        threat_id = "2147961177"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {fe 0c 00 00 fe 0c 01 00 fe 09 00 00 fe 0c 01 00 91 fe 09 01 00 fe 0c 01 00 fe 09 01 00 8e 69 5d 91 61 d2 9c fe 0c 01 00 20 01 00 00 00 58 fe 0e 01 00 fe 0c 01 00 fe 09 00 00 8e 69 3f bf ff ff ff fe 0c 00 00 2a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
