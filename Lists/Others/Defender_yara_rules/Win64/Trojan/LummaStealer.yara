@@ -975,6 +975,32 @@ rule Trojan_Win64_LummaStealer_DZ_2147940931_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_DZ_2147940931_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.DZ!MTB"
+        threat_id = "2147940931"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\TEMP\\auth_key.dat" ascii //weight: 1
+        $x_1_2 = "Start Injection" ascii //weight: 1
+        $x_1_3 = "DisableRealtimeMonitoring" ascii //weight: 1
+        $x_1_4 = "DisableBehaviorMonitoring" ascii //weight: 1
+        $x_1_5 = "DisableIOAVProtection" ascii //weight: 1
+        $x_1_6 = "DLL INJECTED SUCCESSFULLY" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_LummaStealer_NP_2147941081_0
 {
     meta:

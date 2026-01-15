@@ -68,3 +68,25 @@ rule Trojan_Win64_Mint_ABM_2147960286_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mint_AB_2147961181_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mint.AB!MTB"
+        threat_id = "2147961181"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4f 8b 0c e6 47 0f b6 0c 01 4f 8b 14 e7 45 8d 58 05 41 83 e3 0f 47 2a 0c 1a 45 89 c3 41 83 e3 0f 47 32 0c 1a 46 8d 14 01 46 88 0c 17 49 83 c0 01 4c 39 c2 75 cb}  //weight: 5, accuracy: High
+        $x_5_2 = {48 0f af c2 4c 01 c0 49 89 c1 49 c1 e9 38 44 30 0c 0f 48 83 c1 01 48 81 f9}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
