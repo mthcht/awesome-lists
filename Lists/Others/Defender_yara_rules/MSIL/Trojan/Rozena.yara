@@ -2873,3 +2873,26 @@ rule Trojan_MSIL_Rozena_GPAR_2147959280_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_DB_2147961145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.DB!MTB"
+        threat_id = "2147961145"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {13 08 16 13 10 2b 17 11 08 11 10 11 08 11 10 91 20 fa 00 00 00 61 d2 9c 11 10 17 58 13 10 11 10 11 08 8e 69 32 e1}  //weight: 10, accuracy: High
+        $x_1_2 = "XOR-decoded payload" ascii //weight: 1
+        $x_1_3 = "Create new process grabber" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
