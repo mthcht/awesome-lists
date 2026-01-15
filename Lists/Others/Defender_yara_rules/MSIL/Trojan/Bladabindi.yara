@@ -4753,3 +4753,32 @@ rule Trojan_MSIL_Bladabindi_AYK_2147960357_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_ZSH_2147961161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.ZSH!MTB"
+        threat_id = "2147961161"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "* Windows blocked!" ascii //weight: 1
+        $x_1_2 = "Your files are encrypted!" ascii //weight: 1
+        $x_1_3 = "Telegram" ascii //weight: 1
+        $x_1_4 = "taskkill.exe /im Explorer.exe /f" ascii //weight: 1
+        $x_1_5 = "AnyRun_Detected" ascii //weight: 1
+        $x_1_6 = "SandBox_Detected" ascii //weight: 1
+        $x_1_7 = "DisableSafeMode" ascii //weight: 1
+        $x_1_8 = "DisableRegistry" ascii //weight: 1
+        $x_1_9 = "DisableTaskManager" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

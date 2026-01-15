@@ -1827,3 +1827,27 @@ rule Ransom_Win64_Filecoder_SXE_2147957101_0
         )
 }
 
+rule Ransom_Win64_Filecoder_PAE_2147961157_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAE!MTB"
+        threat_id = "2147961157"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Your files are encrypted by PettyLaw 1.0!" ascii //weight: 4
+        $x_2_2 = "ENCRYPTION COMPLETE" ascii //weight: 2
+        $x_2_3 = ".petty" ascii //weight: 2
+        $x_1_4 = "Check Matrix room for decryption instructions." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
