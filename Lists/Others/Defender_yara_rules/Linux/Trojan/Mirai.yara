@@ -759,13 +759,17 @@ rule Trojan_Linux_Mirai_HAD_2147960917_0
         threshold = "60"
         strings_accuracy = "High"
     strings:
-        $x_30_1 = "t0talc0ntr0l" ascii //weight: 30
+        $x_30_1 = "talc0ntr0l" ascii //weight: 30
         $x_10_2 = "BOT_ID_NOT_" ascii //weight: 10
         $x_10_3 = "bytes from cnc" ascii //weight: 10
-        $x_10_4 = "rejected by CNC" ascii //weight: 10
+        $x_10_4 = "ejected by CNC" ascii //weight: 10
+        $x_10_5 = "[%s:%d] OOM killer" ascii //weight: 10
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_30_*) and 3 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Linux_Mirai_HAE_2147961061_0

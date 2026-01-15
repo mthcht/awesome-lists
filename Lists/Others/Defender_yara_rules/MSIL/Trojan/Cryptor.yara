@@ -50,3 +50,27 @@ rule Trojan_MSIL_Cryptor_B_2147759686_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cryptor_LMB_2147961122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cryptor.LMB!MTB"
+        threat_id = "2147961122"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {33 d2 48 8b c5 48 f7 f1 42 0f b6 44 22 07 30 04 2f 48 ff c5 49 3b ef}  //weight: 20, accuracy: High
+        $x_5_2 = "GetRecoveryKey_BITLOCKER@@YA_NPEAXAEAV" ascii //weight: 5
+        $x_3_3 = "CreateFile_BITLOCKER@@YAPEAXPEAUencrypt_source_opt@@PEAU_MYBD_KEYINFO@@PEAU_MYBD_PARAM@@@Z" ascii //weight: 3
+        $x_2_4 = "ReadFile_BITLOCKER@@YA_NPEAX0IPEAI_K@Z" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

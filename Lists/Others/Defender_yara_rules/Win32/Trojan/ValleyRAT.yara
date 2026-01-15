@@ -110,3 +110,28 @@ rule Trojan_Win32_ValleyRAT_AHB_2147959548_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRAT_ABV_2147961126_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.ABV!MTB"
+        threat_id = "2147961126"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 74 74 70 3a 2f 2f 31 30 33 2e 31 32 31 2e 39 33 2e 37 38 3a 32 33 32 33 2f [0-15] 2e 62 69 6e}  //weight: 5, accuracy: Low
+        $x_1_2 = "schtasks /create /tn \"%s\" /tr \"\"%s\"\" /sc onlogon /rl highest" ascii //weight: 1
+        $x_1_3 = "CreatePersistentTask called" ascii //weight: 1
+        $x_1_4 = "Cleaning up memory" ascii //weight: 1
+        $x_1_5 = "Delaying execution" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
