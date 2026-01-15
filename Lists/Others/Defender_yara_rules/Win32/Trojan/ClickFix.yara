@@ -3284,7 +3284,9 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_72 = "https://www.opinf.com/" wide //weight: 1
         $x_1_73 = "https://criptiko.com/" wide //weight: 1
         $x_1_74 = "194.87.54.19" wide //weight: 1
-        $x_1_75 = {6c 00 61 00 6e 00 64 00 65 00 72 00 73 00 61 00 72 00 65 00 6e 00 61 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-255] 2f 00 66 00 69 00 6c 00 65 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_75 = "87.121.82.41" wide //weight: 1
+        $x_1_76 = "guid.b-cdn.net" wide //weight: 1
+        $x_1_77 = {6c 00 61 00 6e 00 64 00 65 00 72 00 73 00 61 00 72 00 65 00 6e 00 61 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-255] 2f 00 66 00 69 00 6c 00 65 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
