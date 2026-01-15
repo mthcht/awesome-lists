@@ -6137,3 +6137,26 @@ rule Trojan_Win32_OffLoader_ZQH_2147961075_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_POFG_2147961150_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.POFG!MTB"
+        threat_id = "2147961150"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://feelingachiever.xyz/wirs?" ascii //weight: 3
+        $x_1_2 = "/silent" ascii //weight: 1
+        $x_1_3 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

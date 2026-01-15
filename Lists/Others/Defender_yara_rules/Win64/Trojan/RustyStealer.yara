@@ -212,3 +212,30 @@ rule Trojan_Win64_RustyStealer_PB_2147956812_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_NSA_2147961155_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.NSA!MTB"
+        threat_id = "2147961155"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "McAfeeMcAfee\\Endpoint Security" ascii //weight: 1
+        $x_1_2 = "Panda SecurityPandaPanda Security\\Protection" ascii //weight: 1
+        $x_1_3 = "CylanceCylancePROTECTCylance\\Desktop" ascii //weight: 1
+        $x_1_4 = "ESETESET SecurityESET\\ESET SecurityESET\\ESET Endpoint Security" ascii //weight: 1
+        $x_1_5 = "AvastAvast AntivirusAVAST Software\\AvastAVAST Software\\Persistent Data\\Avast\\avast5.ini" ascii //weight: 1
+        $x_2_6 = "No detections foundPROGRAMDATAC:\\ProgramData" ascii //weight: 2
+        $x_1_7 = "MalwarebytesMalwarebytes\\MBAMService" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
