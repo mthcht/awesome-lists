@@ -1851,3 +1851,28 @@ rule Ransom_Win64_Filecoder_PAE_2147961157_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PAY_2147961213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PAY!MTB"
+        threat_id = "2147961213"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WinDefend\" /v Start /t REG_DWORD /d 4 /f" ascii //weight: 2
+        $x_2_2 = "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableAntiSpyware /t REG_DWORD /d 1 /f" ascii //weight: 2
+        $x_2_3 = "netsh advfirewall set allprofiles state off" ascii //weight: 2
+        $x_2_4 = "http://93.184.216.34:8080/malware.exe" ascii //weight: 2
+        $x_1_5 = "%s.encrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
