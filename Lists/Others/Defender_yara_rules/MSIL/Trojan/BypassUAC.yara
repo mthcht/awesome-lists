@@ -165,3 +165,28 @@ rule Trojan_MSIL_BypassUAC_NG_2147925555_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_PAHI_2147961190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.PAHI!MTB"
+        threat_id = "2147961190"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SELECT ParentProcessId FROM Win32_Process WHERE ProcessId = {0}" wide //weight: 1
+        $x_1_2 = "root\\CIMV2" wide //weight: 1
+        $x_1_3 = "NoOneComeALive" wide //weight: 1
+        $x_1_4 = "start /C C:\\Windows\\System32\\fodhelper.exe" wide //weight: 1
+        $x_2_5 = "rootkit dropper" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
