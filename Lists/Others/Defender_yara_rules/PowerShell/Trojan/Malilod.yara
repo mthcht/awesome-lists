@@ -10,9 +10,9 @@ rule Trojan_PowerShell_Malilod_A_2147934183_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "5"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = ")+'e'+'x')(printout -useb $" wide //weight: 1
+        $x_1_1 = {29 00 2b 00 27 00 65 00 27 00 2b 00 27 00 78 00 27 00 29 00 28 00 [0-32] 20 00 2d 00 75 00 73 00 65 00 62 00 20 00 24 00}  //weight: 1, accuracy: Low
         $x_1_2 = ";new-alias printout c$($" wide //weight: 1
         $x_1_3 = ";.$([char](" wide //weight: 1
         $x_1_4 = ";foreach($" wide //weight: 1
