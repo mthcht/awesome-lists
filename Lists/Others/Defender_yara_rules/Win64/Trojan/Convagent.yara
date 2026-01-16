@@ -919,6 +919,27 @@ rule Trojan_Win64_Convagent_KK_2147957569_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 63 44 24 20 48 8b 4c 24 40 0f b6 04 01 89 44 24 28 8b 44 24 20 99 f7 7c 24 24 8b c2 48 98 48 8b 4c 24 50 0f b6 04 01 8b 4c 24 28 33 c8 8b c1 48 63 4c 24 20 48 8b 54 24 48 88 04 0a 8b 44 24 20 ff c0 89 44 24 20}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Convagent_KK_2147957569_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.KK!MTB"
+        threat_id = "2147957569"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "41"
         strings_accuracy = "High"
     strings:
@@ -1047,6 +1068,29 @@ rule Trojan_Win64_Convagent_LMA_2147959066_0
     strings:
         $x_20_1 = {48 c7 44 24 58 00 00 00 00 48 83 fa 0d 72 ?? 48 ba 55 61 39 65 6e 61 62 6c 48 33 10 49 b8 61 62 6c 65 5f 69 66 49 4c 33 40 05 49 09 d0 0f}  //weight: 20, accuracy: Low
         $x_10_2 = {48 8b 44 24 48 48 8b 8e d0 02 00 00 48 8b 96 d8 02 00 00 48 29 ca 48 c1 fa 03 48 39 d0 0f 83 77 01 00 00 4c 8b 86 98 02 00 00 4c 3b 86 a0 02 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Convagent_SXD_2147961199_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.SXD!MTB"
+        threat_id = "2147961199"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {49 83 fc 10 74 39 41 b8 10 00 00 00 4c 89 e1 48 89 ea 49 89 f9 e8 ?? ?? ?? ?? 48 83 fa 03 0f 86 ?? ?? ?? ?? 8b 00 49 83 fc 0c 89 c1 0f c9 0f 45 c8 42 89 8c 24 ?? ?? ?? ?? 49 83 c4 04 eb c1}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 29 c4 48 89 ce 4c 8d 8c 24 78 01 00 00 41 c7 01 30 75 00 00 c7 44 24 20 04 00 00 00 ba ff ff 00 00 41 b8 06 10 00 00 ff 15 ?? ?? ?? ?? 83 f8 ff 74 04 31 c9 eb 10 ff 15 ?? ?? ?? ?? 89 c1 48 c1 e1 20 48 83 c9 02}  //weight: 10, accuracy: Low
+        $x_5_3 = {49 89 d1 48 8d 94 24 a0 07 00 00 b9 80 00 00 00 31 c0 48 89 d7 f3 ab 4c 8d 84 24 00 03 00 00 41 c7 00 00 01 00 00 b9 01 00 00 00 41 ff d1 85 c0}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

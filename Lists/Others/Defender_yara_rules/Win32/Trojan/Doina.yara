@@ -919,3 +919,27 @@ rule Trojan_Win32_Doina_PGX_2147960627_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_KK_2147961192_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.KK!MTB"
+        threat_id = "2147961192"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "cmd /c ping 127.0.0.1 -n 3 > nul & del \"%s\"" ascii //weight: 10
+        $x_8_2 = "/C powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath \"%s\"" ascii //weight: 8
+        $x_5_3 = "D:\\Dev\\IV\\Project\\UpdateBin" ascii //weight: 5
+        $x_2_4 = "AppInit_DLLs successfully updated!" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

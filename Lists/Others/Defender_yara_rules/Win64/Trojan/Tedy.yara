@@ -3336,3 +3336,27 @@ rule Trojan_Win64_Tedy_ABR_2147961076_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_KKB_2147961196_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KKB!MTB"
+        threat_id = "2147961196"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8d 5a 01 48 89 c6 48 c1 e0 04 48 8d 3c 04 48 8b 3c d7 4c 8d 04 16 4d 8d 40 01 49 0f af f8 48 01 f9 48 89 f0 48 89 da}  //weight: 20, accuracy: High
+        $x_15_2 = {4c 8d 04 b6 4e 8d 84 c4 90 04 00 00 4c 8d 0c 80 4e 8d 0c 48 49 01 f9 4d 89 0c c0 48 ff c0}  //weight: 15, accuracy: High
+        $x_10_3 = {41 83 f2 55 44 88 14 18 66 90}  //weight: 10, accuracy: High
+        $x_5_4 = "grow.com0" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

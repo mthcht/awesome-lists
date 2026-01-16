@@ -8806,3 +8806,27 @@ rule Trojan_Win32_Zusy_PGZU_2147960524_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Zusy_KKO_2147961195_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KKO!MTB"
+        threat_id = "2147961195"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "38"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b d0 83 e2 0f 8a 92 cc 41 40 00 88 13 4b c1 e8 04}  //weight: 20, accuracy: High
+        $x_10_2 = " ->This Run Time" ascii //weight: 10
+        $x_5_3 = "eo!#firstdatetime" ascii //weight: 5
+        $x_3_4 = "runtimes.txt" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

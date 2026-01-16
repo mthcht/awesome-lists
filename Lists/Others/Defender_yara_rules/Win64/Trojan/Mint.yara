@@ -90,3 +90,53 @@ rule Trojan_Win64_Mint_AB_2147961181_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mint_KK_2147961198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mint.KK!MTB"
+        threat_id = "2147961198"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {44 89 c8 99 41 f7 fb 48 63 d2 8a 44 14 08 42 32 04 09 43 88 04 0a 49 ff c1 45 39 c8}  //weight: 20, accuracy: High
+        $x_20_2 = {49 89 c1 41 83 e1 03 46 8a 4c 0c 08 44 32 0c 01 44 88 0c 02 48 ff c0 41 39 c0}  //weight: 20, accuracy: High
+        $x_20_3 = {48 89 c1 83 e1 07 8a 4c 0c 08 41 32 0c 01 88 0c 02 48 ff c0 41 39 c0}  //weight: 20, accuracy: High
+        $x_10_4 = {8a 88 00 01 00 00 44 8a 98 01 01 00 00 ff c1 88 88 00 01 00 00 0f b6 c9 44 8a 0c 08 45 01 cb 44 88 98 01 01 00 00 45 0f b6 db 42 8a 1c 18 88 1c 08 46 88 0c 18 44 02 0c 08 45 0f b6 c9 42 8a 0c 08 42 30 0c 12 49 ff c2 45 39 d0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Mint_SXB_2147961200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mint.SXB!MTB"
+        threat_id = "2147961200"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f 10 48 10 0f 11 8c 24 00 02 00 00 48 89 58 10 48 c7 40 18 0f 00 00 00 88 18 48 39 9c 24 00 02 00 00 74 53 89 5c 24 40 48 8d 94 24 f0 01 00 00 48 83 bc 24 08 02 00 00 10 48 0f 43 94 24 f0 01 00 00 48 89 5c 24 20 4c 8d 4c 24 40 44 8b 84 24 00 02 00 00 49 8b cc ff 15}  //weight: 20, accuracy: High
+        $x_10_2 = {4c 8d bc 24 10 02 00 00 48 83 bc 24 28 02 00 00 10 4c 0f 43 bc 24 10 02 00 00 0f 57 c0 0f 11 84 24 f0 01 00 00 48 89 9c 24 00 02 00 00 48 89 9c 24 08 02 00 00 49 8d 76 1c bb 0f 00 00 00 48 8d bc 24 f0 01 00 00 48 3b f3 76 74}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -375,6 +375,28 @@ rule Trojan_Win64_Vidar_KK_2147955082_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_KK_2147955082_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.KK!MTB"
+        threat_id = "2147955082"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {42 0f b6 4c 3c 50 89 ca c1 ea 04 0f b6 14 02 42 88 14 7e 83 e1 0f 0f b6 0c 01 42 88 4c 7e 01 42 0f b6 4c 3c 51 89 ca c1 ea 04 0f b6 14 02 42 88 54 7e 02 83 e1 0f 0f b6 0c 01 42 88 4c 7e 03 49 83 c7 02 4c 39 ff 75 b8}  //weight: 20, accuracy: High
+        $x_5_2 = "a3b64f7ca1ef6588607eac4add97fd5dfbb9639175d4012038fc50984c035bcd" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_MK_2147955286_0
 {
     meta:

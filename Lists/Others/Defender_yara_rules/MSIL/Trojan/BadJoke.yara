@@ -166,3 +166,28 @@ rule Trojan_MSIL_BadJoke_SL_2147960170_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BadJoke_MK_2147961201_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BadJoke.MK!MTB"
+        threat_id = "2147961201"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Dumping physical memory to disk: @p" ascii //weight: 20
+        $x_15_2 = "--dumpstartT" ascii //weight: 15
+        $x_15_3 = "--dumpprogress[" ascii //weight: 15
+        $x_10_4 = "]A problem has been detected and windows has been shutdown to prevent damage to your computer." ascii //weight: 10
+        $x_10_5 = "(Stop code: DRIVER_IRQL_NOT_LESS_OR_EQUAL" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
