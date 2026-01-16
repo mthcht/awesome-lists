@@ -1022,6 +1022,30 @@ rule Trojan_Win32_Tedy_RR_2147960968_0
         family = "Tedy"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 4c 24 68 30 08 8b 44 24 38 40 3b c3 1b d2 23 d0 85 ff 7e 07 8a 44 24 72 88 06}  //weight: 1, accuracy: High
+        $x_1_2 = "(8E23H7LM==NQ<AEEUDJHWKWZZJPPTcbdUYZdVWgj" wide //weight: 1
+        $x_1_3 = "C:\\buildmachine\\Temp\\srcN4M_4x\\Windows\\Out_2013\\x86\\Release\\DLCL\\DLCL.pdb" ascii //weight: 1
+        $x_1_4 = "DLCL.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_RR_2147960968_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.RR!MTB"
+        threat_id = "2147960968"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"

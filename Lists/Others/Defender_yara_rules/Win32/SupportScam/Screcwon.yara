@@ -10,38 +10,38 @@ rule SupportScam_Win32_Screcwon_MA_2147944259_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "21"
+        threshold = "120"
         strings_accuracy = "High"
     strings:
-        $x_20_1 = "C:\\Users\\jmorgan\\Source\\cwcontrol\\Misc\\Bootstrapper\\Release\\ClickOnceRunner.pdb" ascii //weight: 20
-        $x_20_2 = "C:\\Users\\jmorgan\\Source\\cwcontrol\\Custom\\DotNetRunner\\Release\\DotNetRunner.pdb" ascii //weight: 20
-        $x_1_3 = ".top&p=8880" ascii //weight: 1
-        $x_1_4 = ".innocreed.com" ascii //weight: 1
-        $x_1_5 = ".controlhub.es" ascii //weight: 1
-        $x_1_6 = ".ratoscreenco.com" ascii //weight: 1
-        $x_1_7 = ".screensconnectpro.com" ascii //weight: 1
-        $x_1_8 = "slplegalfinance.com" ascii //weight: 1
-        $x_1_9 = ".filesdonwloads.com" ascii //weight: 1
-        $x_1_10 = "wizz.infinitycloud.org" ascii //weight: 1
-        $x_1_11 = "llkt501.ddns.net" ascii //weight: 1
-        $x_1_12 = "yourrldns22.hopto.org" ascii //weight: 1
-        $x_1_13 = "wk36back966.site" ascii //weight: 1
-        $x_1_14 = "void.corsazone.com" ascii //weight: 1
-        $x_1_15 = "relay.ziadpaneel.com" ascii //weight: 1
-        $x_1_16 = "mail.securedocumentfiledownload.com" ascii //weight: 1
-        $x_1_17 = "dual.saltuta.com" ascii //weight: 1
-        $x_1_18 = ".organzoperate.com" ascii //weight: 1
-        $x_1_19 = ".ephelp.site" ascii //weight: 1
-        $x_1_20 = "dcontrol.guidzin.com" ascii //weight: 1
-        $x_1_21 = "docs.viewyourstatementonline.com" ascii //weight: 1
-        $x_1_22 = "olphelp.top" ascii //weight: 1
-        $x_1_23 = "tbaysupport.ca" ascii //weight: 1
+        $x_20_1 = "Source\\cwcontrol\\Misc\\Bootstrapper\\Release\\ClickOnceRunner.pdb" ascii //weight: 20
+        $x_20_2 = "Source\\cwcontrol\\Custom\\DotNetRunner\\Release\\DotNetRunner.pdb" ascii //weight: 20
+        $x_20_3 = "Source\\ScreenConnectWork\\Custom\\DotNetRunner\\Release\\DotNetRunner.pdb" ascii //weight: 20
+        $x_100_4 = ".top&p=8880" ascii //weight: 100
+        $x_100_5 = ".innocreed.com" ascii //weight: 100
+        $x_100_6 = ".controlhub.es" ascii //weight: 100
+        $x_100_7 = ".ratoscreenco.com" ascii //weight: 100
+        $x_100_8 = ".screensconnectpro.com" ascii //weight: 100
+        $x_100_9 = "slplegalfinance.com" ascii //weight: 100
+        $x_100_10 = ".filesdonwloads.com" ascii //weight: 100
+        $x_100_11 = "wizz.infinitycloud.org" ascii //weight: 100
+        $x_100_12 = "llkt501.ddns.net" ascii //weight: 100
+        $x_100_13 = "yourrldns22.hopto.org" ascii //weight: 100
+        $x_100_14 = "wk36back966.site" ascii //weight: 100
+        $x_100_15 = "void.corsazone.com" ascii //weight: 100
+        $x_100_16 = "relay.ziadpaneel.com" ascii //weight: 100
+        $x_100_17 = "mail.securedocumentfiledownload.com" ascii //weight: 100
+        $x_100_18 = "dual.saltuta.com" ascii //weight: 100
+        $x_100_19 = ".organzoperate.com" ascii //weight: 100
+        $x_100_20 = ".ephelp.site" ascii //weight: 100
+        $x_100_21 = "dcontrol.guidzin.com" ascii //weight: 100
+        $x_100_22 = "docs.viewyourstatementonline.com" ascii //weight: 100
+        $x_100_23 = "olphelp.top" ascii //weight: 100
+        $x_100_24 = "tbaysupport.ca" ascii //weight: 100
     condition:
         (filesize < 20MB) and
         (
-            ((21 of ($x_1_*))) or
-            ((1 of ($x_20_*) and 1 of ($x_1_*))) or
-            ((2 of ($x_20_*))) or
+            ((1 of ($x_100_*) and 1 of ($x_20_*))) or
+            ((2 of ($x_100_*))) or
             (all of ($x*))
         )
 }
