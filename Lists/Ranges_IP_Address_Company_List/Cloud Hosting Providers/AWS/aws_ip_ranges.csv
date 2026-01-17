@@ -5985,6 +5985,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 1.178.5.0/24,us-east-1,S3,us-east-1
 1.178.6.0/24,us-east-1,S3,us-east-1
 3.2.64.0/24,us-east-1,S3,us-east-1
+3.2.65.0/24,us-east-1,S3,us-east-1
 44.192.134.240/28,us-east-1,S3,us-east-1
 44.192.140.64/28,us-east-1,S3,us-east-1
 1.178.8.0/24,us-east-2,S3,us-east-2
@@ -7863,6 +7864,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 205.251.192.0/21,GLOBAL,ROUTE53,GLOBAL
 3.4.32.0/20,GLOBAL,ROUTE53,GLOBAL
 63.246.114.0/23,GLOBAL,ROUTE53,GLOBAL
+52.61.226.0/23,us-gov-west-1,ROUTE53,us-gov-west-1
 34.217.143.0/24,us-west-2,ROUTE53,us-west-2
 52.82.176.0/22,cn-northwest-1,ROUTE53,cn-northwest-1
 34.217.142.0/24,us-west-2,ROUTE53,us-west-2
@@ -7879,6 +7881,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 52.46.184.0/22,eu-central-1,ROUTE53,eu-central-1
 18.196.223.0/24,eu-central-1,ROUTE53,eu-central-1
 3.4.26.0/23,us-gov-east-1,ROUTE53,us-gov-east-1
+96.127.116.0/23,us-gov-west-1,ROUTE53,us-gov-west-1
 120.52.22.96/27,GLOBAL,CLOUDFRONT,GLOBAL
 23.228.222.0/24,GLOBAL,CLOUDFRONT,GLOBAL
 205.251.249.0/24,GLOBAL,CLOUDFRONT,GLOBAL
