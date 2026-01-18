@@ -844,3 +844,28 @@ rule Trojan_Win64_Stealer_LMH_2147960695_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SXF_2147961236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SXF!MTB"
+        threat_id = "2147961236"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {34 9d 0f b6 c0 c1 e0 08 83 f1 14 09 c1 4c 8d 44 24 ?? 66 41 89 08 48 8d 94 24 ?? ?? ?? ?? 41 b9 02 00 00 00 48 89 f1}  //weight: 20, accuracy: Low
+        $x_10_2 = {4d 89 ec 4d 29 c4 4d 0f 42 c5 48 89 d9 e8 ?? ?? ?? ?? 48 98 85 c0 4c 0f 45 e0 4d 85 e4 0f 98 c0 0f 9f c1 28 c1 48 ff c5 49 83 c6 e8 48 89 f0 80 f9 01 74}  //weight: 10, accuracy: Low
+        $x_2_3 = "Decrypting saved passwords" ascii //weight: 2
+        $x_2_4 = "\\outputshadowsniff" ascii //weight: 2
+        $x_2_5 = "RememberPassword" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

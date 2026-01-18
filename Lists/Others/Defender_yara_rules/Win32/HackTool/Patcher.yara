@@ -293,3 +293,28 @@ rule HackTool_Win32_Patcher_AHB_2147960876_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_Patcher_D_2147961235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher.D!AMTB"
+        threat_id = "2147961235"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "REVENGE Crew Crack" ascii //weight: 1
+        $x_1_2 = "Registry patched successfully!" ascii //weight: 1
+        $x_1_3 = "Shit! I Can't open target file!" ascii //weight: 1
+        $x_1_4 = "Now, give me file to penetrate" ascii //weight: 1
+        $x_1_5 = "Patch OK! Enjoy It!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

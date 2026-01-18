@@ -301,3 +301,27 @@ rule Trojan_Win64_Filecoder_AHC_2147959355_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_AHE_2147961248_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.AHE!MTB"
+        threat_id = "2147961248"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "main.startEncrypting" ascii //weight: 10
+        $x_20_2 = "main.EncryptDir" ascii //weight: 20
+        $x_30_3 = "main.writeToTail" ascii //weight: 30
+        $x_40_4 = "main.MakeReadMeFile" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

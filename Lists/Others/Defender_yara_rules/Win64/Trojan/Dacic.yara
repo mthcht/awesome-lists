@@ -667,3 +667,29 @@ rule Trojan_Win64_Dacic_AHB_2147956311_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_SXA_2147961237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.SXA!MTB"
+        threat_id = "2147961237"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "34"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "steal token" ascii //weight: 10
+        $x_10_2 = "Keylogger started" ascii //weight: 10
+        $x_5_3 = "BrowserPivot injection" ascii //weight: 5
+        $x_5_4 = "Taking screenshot" ascii //weight: 5
+        $x_2_5 = "Credential module" ascii //weight: 2
+        $x_2_6 = "Stealth features" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

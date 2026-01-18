@@ -6926,3 +6926,30 @@ rule Trojan_Win32_Vidar_SCPC_2147960828_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_MCQ_2147961259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.MCQ!MTB"
+        threat_id = "2147961259"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ANT DECRYPT KEY" ascii //weight: 1
+        $x_1_2 = "GetKeyboardStateGetClipboardDataGetLastInput" ascii //weight: 1
+        $x_1_3 = "processBrowsers\\Logins_$appdata\\discordread" ascii //weight: 1
+        $x_1_4 = "Electrum\\wallets" ascii //weight: 1
+        $x_1_5 = "cookies.sqliteloginusers.vdfpassword" ascii //weight: 1
+        $x_1_6 = "processBrowsers\\Logins_$appdata\\discordre" ascii //weight: 1
+        $x_1_7 = "httpbibawinv.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

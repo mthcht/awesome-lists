@@ -8830,3 +8830,28 @@ rule Trojan_Win32_Zusy_KKO_2147961195_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_AHQ_2147961249_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AHQ!MTB"
+        threat_id = "2147961249"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "%ws\\keylogall.txt" ascii //weight: 10
+        $x_20_2 = "pipe\\ssstealer" ascii //weight: 20
+        $x_30_3 = "/filenamebypass" ascii //weight: 30
+        $x_40_4 = "/browsershell" ascii //weight: 40
+        $x_50_5 = "/udunwallet" ascii //weight: 50
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

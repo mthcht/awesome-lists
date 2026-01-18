@@ -3563,3 +3563,26 @@ rule Trojan_MSIL_Jalapeno_BAL_2147960975_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_MCQ_2147961260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.MCQ!MTB"
+        threat_id = "2147961260"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$2277a1bb-745e-4da7-a493-e81f996fedab" ascii //weight: 1
+        $x_1_2 = "_update.exe" ascii //weight: 1
+        $x_1_3 = "costura.costura.pdb.compressed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

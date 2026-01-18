@@ -6160,3 +6160,27 @@ rule Trojan_Win32_OffLoader_POFG_2147961150_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_STD_2147961254_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.STD!MTB"
+        threat_id = "2147961254"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://argumentablyfile.space/abs?" ascii //weight: 4
+        $x_4_2 = "://barebefun.space/abss?b" ascii //weight: 4
+        $x_1_3 = "/silent" ascii //weight: 1
+        $x_1_4 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

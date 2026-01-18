@@ -423,3 +423,25 @@ rule Trojan_Win64_PoolInject_GVB_2147959812_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PoolInject_AHE_2147961247_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PoolInject.AHE!MTB"
+        threat_id = "2147961247"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PoolInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {8b 44 24 04 0f b6 0c 24 48 8b 54 24 08 0f b6 04 02 33 c1 8b 4c 24 04 48 8b 54 24 08 88 04 0a e9}  //weight: 30, accuracy: High
+        $x_20_2 = {c7 45 f0 4c 6f 61 64 c7 45 f4 4c 69 62 72 c7 45 f8 61 72 79 41 c6 45 fc 00}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

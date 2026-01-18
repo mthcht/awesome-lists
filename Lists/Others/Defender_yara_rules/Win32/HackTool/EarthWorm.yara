@@ -27,3 +27,33 @@ rule HackTool_Win32_EarthWorm_A_2147951343_0
         (7 of ($x*))
 }
 
+rule HackTool_Win32_EarthWorm_SA_2147961273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/EarthWorm.SA"
+        threat_id = "2147961273"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "EarthWorm"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "lcx_tran --listenport" ascii //weight: 1
+        $x_1_2 = "ssocksd --listenport" ascii //weight: 1
+        $x_1_3 = "lcx_slave --refhost [ref_ip] --refport" ascii //weight: 1
+        $x_1_4 = "rcsocks" ascii //weight: 1
+        $x_1_5 = "rssocks" ascii //weight: 1
+        $x_1_6 = "error on connect %s:%d [proto_init_cmd_rcsocket]" ascii //weight: 1
+        $x_3_7 = "http://rootkiter.com/earthwrom/" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_1_*))) or
+            ((1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

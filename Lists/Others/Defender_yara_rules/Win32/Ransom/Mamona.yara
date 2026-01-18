@@ -66,3 +66,26 @@ rule Ransom_Win32_Mamona_AB_2147951431_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Mamona_A_2147961265_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Mamona.A"
+        threat_id = "2147961265"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mamona"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 00 61 00 72 00 6e 00 69 00 6e 00 67 00 3a 00 20 00 42 00 6f 00 74 00 68 00 20 00 70 00 61 00 73 00 73 00 77 00 6f 00 72 00 64 00 20 00 61 00 6e 00 64 00 20 00 68 00 61 00 73 00 68 00 20 00 70 00 72 00 6f 00 76 00 69 00 64 00 65 00 64 00 2e 00 20 00 48 00 61 00 73 00 68 00 20 00 77 00 69 00 6c 00 6c 00 20 00 62 00 65 00 20 00 75 00 73 00 65 00 64 00 20 00 66 00 69 00 72 00 73 00 74 00 2c 00 20 00 74 00 68 00 65 00 6e 00 20 00 70 00 61 00 73 00 73 00 77 00 6f 00 72 00 64 00 2e 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {4d 61 6d 6f 6e 61 00}  //weight: 1, accuracy: High
+        $x_1_3 = {70 00 72 00 69 00 6e 00 74 00 65 00 64 00 20 00 6e 00 6f 00 74 00 65 00 20 00 74 00 6f 00 20 00 70 00 72 00 69 00 6e 00 74 00 65 00 72 00 3a 00 20 00 25 00 73 00 00 00}  //weight: 1, accuracy: High
+        $x_1_4 = {59 00 4f 00 55 00 52 00 20 00 46 00 49 00 4c 00 45 00 53 00 20 00 48 00 41 00 56 00 45 00 20 00 42 00 45 00 45 00 4e 00 20 00 45 00 4e 00 43 00 52 00 59 00 50 00 54 00 45 00 44 00 21 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
