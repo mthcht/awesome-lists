@@ -202,3 +202,29 @@ rule Trojan_MacOS_SuspAmosExec_I_2147956166_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_SuspAmosExec_G_2147961292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SuspAmosExec.G"
+        threat_id = "2147961292"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SuspAmosExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "display dialog" wide //weight: 1
+        $x_1_2 = "with hidden answer" wide //weight: 1
+        $x_1_3 = "username, password" wide //weight: 1
+        $x_1_4 = "grabPlugins" wide //weight: 1
+        $x_1_5 = "chromium" wide //weight: 1
+        $x_1_6 = "ldinpeekobnhjjdofggfgjlcehhmanlj" wide //weight: 1
+        $x_1_7 = "fccgmnglbhajioalokbcidhcaikhlcpm" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

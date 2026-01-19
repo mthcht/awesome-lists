@@ -320,3 +320,26 @@ rule Ransom_Win64_LockBit_PI_2147960690_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_PJ_2147961302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.PJ!MTB"
+        threat_id = "2147961302"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[%d] Encrypted:" wide //weight: 1
+        $x_1_2 = "\\defrag.\\svchost" wide //weight: 1
+        $x_3_3 = "ReadMeForDecryptqr" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

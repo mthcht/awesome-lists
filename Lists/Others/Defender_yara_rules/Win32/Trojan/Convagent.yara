@@ -2038,3 +2038,24 @@ rule Trojan_Win32_Convagent_MKA_2147959071_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_ARAC_2147961297_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARAC!MTB"
+        threat_id = "2147961297"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {8b 45 fc 83 c0 01 89 45 fc 8b 4d fc 3b 4d 0c 7d 14 8b 55 08 03 55 fc 8a 02 34 c5 8b 4d 08 03 4d fc 88 01 eb db}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
