@@ -4205,3 +4205,25 @@ rule Trojan_MSIL_PureLogStealer_RVC_2147961105_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_AXOB_2147961285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.AXOB!MTB"
+        threat_id = "2147961285"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {16 fe 01 13 12 11 12 2c 0d 00 06 1b 7d ?? 00 00 04 38 ?? ff ff ff 06 6f ?? 00 00 06 16 fe 01 13 13 11 13 2c 0d 00 06 1b 7d ?? 00 00 04 38 ?? ff ff ff 06 06 7b ?? 00 00 04 06 7b ?? 00 00 04 06 7b ?? 00 00 04 6f ?? 00 00 0a 7d ?? 00 00 04 06 17 7d ?? 00 00 04 38 ?? ff ff ff 00 06 6f ?? 00 00 06 16 fe 01 13 14 11 14 2c 0d 00 06 1b 7d ?? 00 00 04 38 ?? ff ff ff 06 7c ?? 00 00 04 28 ?? 00 00 0a 13 04 08 11 04 06 7b ?? 00 00 04 06 7b ?? 00 00 04 58 6f ?? 00 00 06 13 04 11 04 1c 62 11 04 18 63 60 d2 13 04 11 04 1c 63 11 04}  //weight: 5, accuracy: Low
+        $x_5_2 = {18 62 60 d2 13 04 06 7b ?? 00 00 04 11 04 6f ?? 00 00 0a 00 06 25 7b ?? 00 00 04 17 59 7d ?? 00 00 04 06 18 7d ?? 00 00 04 38 ?? fe ff ff 00 06 6f ?? 00 00 06 16 fe 01 13 15 11 15 2c 0d 00 06 1b 7d ?? 00 00 04 38 ?? fe ff ff 06 7c ?? 00 00 04 28 ?? 00 00 0a 13 05 08 11 05 06 7b ?? 00 00 04 06 7b ?? 00 00 04 58 6f ?? 00 00 06 13 05 11 05 1f 5a 61 d2 13 05 11 05 1f 5a 61 d2 13 05 06}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
