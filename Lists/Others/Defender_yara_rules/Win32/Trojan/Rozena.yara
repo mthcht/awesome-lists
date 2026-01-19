@@ -989,3 +989,24 @@ rule Trojan_Win32_Rozena_AHC_2147952647_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rozena_PGRO_2147961329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rozena.PGRO!MTB"
+        threat_id = "2147961329"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f 10 04 30 0f 57 c1 0f 11 04 30 0f 10 44 06 ?? 0f 57 c1 0f 11 44 06 ?? 0f 10 44 06 ?? 0f 57 c1 0f 11 44 06 ?? 0f 10 44 06 ?? 0f 57 c1 0f 11 44 06 ?? 83 c0 ?? 3b c1 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
