@@ -486,3 +486,26 @@ rule Trojan_Win64_Farfli_SXE_2147960937_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_ARR_2147961322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.ARR!MTB"
+        threat_id = "2147961322"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {8b 0c 24 48 8b 54 24 ?? 0f b6 0c 0a 33 c8 8b c1 8b 0c 24 48 8b 54 24 ?? 88 04 0a eb}  //weight: 7, accuracy: Low
+        $x_3_2 = {33 00 7c 00 30 00 3a 00 64 00 62 00 7c 00 30 00 3a 00 6c 00 6b 00 7c 00 30 00 3a 00 68 00 73 00 7c 30 03 00 03 a0 06 c0 06 40 07 c0 03 00 03 a0 06 c0 06 c0 07 c0 03 00 03 a0 06 80 06 20 07 c0 03 00 03 a0 07 00 06 a0 07 c0 30 33 00 20 00 2e 00 31 00 20 00 2e 00 36 00 32 00 30 00 32 00 3a 00 7a 00 62 00 7c 00 30 00 2e 00 31 00 3a 00 62 00 62 00 7c 00}  //weight: 3, accuracy: High
+        $x_10_3 = "tloader v1.0 - Shellcode" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

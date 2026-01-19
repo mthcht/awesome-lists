@@ -567,3 +567,27 @@ rule Trojan_Win64_DllHijack_GTV_2147960624_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_LMA_2147961320_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.LMA!MTB"
+        threat_id = "2147961320"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {33 d2 49 8b c0 49 f7 f2 0f b6 04 0a 43 30 04 01 49 ff c0 48 8b 4c 24 48 48 8b c1 4c 8b 4c 24 40 49 2b c1 4c 3b c0}  //weight: 20, accuracy: High
+        $x_10_2 = "Erro ao carregar o arquivo DLL para mem" ascii //weight: 10
+        $x_3_3 = "dulo em mem" ascii //weight: 3
+        $x_2_4 = "Erro ao carregar a DLL na mem" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2958,3 +2958,28 @@ rule Ransom_Win32_Filecoder_AHD_2147960229_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_LM_2147961321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.LM!MTB"
+        threat_id = "2147961321"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Try to encrypt selected objects" ascii //weight: 1
+        $x_2_2 = "Encryption in fast mode" ascii //weight: 2
+        $x_3_3 = "Encryption completed." ascii //weight: 3
+        $x_4_4 = "Ready to scan folders and files encryption." ascii //weight: 4
+        $x_10_5 = {44 8b 55 0c 46 33 94 c9 10 02 00 00 44 89 55 30 4c 8b ca 4d 03 c9 4d 03 c9 44 8b 55 10 46 33 94 c9 14 02 00 00 44 89 55 34 4c 8b ca 4d 03 c9 4d 03 c9 44 8b 55 14 46 33 94 c9 18 02 00 00 44 89 55 38 48 03 d2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
