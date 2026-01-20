@@ -199,3 +199,29 @@ rule Trojan_Win32_DiskWriter_AP_2147958371_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DiskWriter_SX_2147961406_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DiskWriter.SX!MTB"
+        threat_id = "2147961406"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DiskWriter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "54"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {99 b9 14 00 00 00 f7 f9 83 ea 0a 89 55 ?? ?? ?? ?? ?? ?? 99 b9 14 00 00 00 f7 f9 83 ea 0a}  //weight: 20, accuracy: Low
+        $x_15_2 = {c1 ea 08 8b 45 ?? c1 e8 09 0b d0 0f af 55 ?? 83 e2 2e 8b 4d ?? c1 e9 08 23 d1}  //weight: 15, accuracy: Low
+        $x_10_3 = "reg add HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon /v Shell /d explorer.exe" ascii //weight: 10
+        $x_5_4 = "taskkill /f /im svchost.exe >nul 2>&1" ascii //weight: 5
+        $x_2_5 = "\\\\.\\PhysicalDrive0" ascii //weight: 2
+        $x_2_6 = "boot.bin" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

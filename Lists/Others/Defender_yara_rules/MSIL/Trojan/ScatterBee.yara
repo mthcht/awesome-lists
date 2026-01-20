@@ -16,7 +16,7 @@ rule Trojan_MSIL_ScatterBee_A_2147959881_0
         $x_1_1 = "DropLoad.Command+<loadExec" ascii //weight: 1
         $x_1_2 = "DropLoad.Command+<MakeHttpRequest" ascii //weight: 1
         $x_1_3 = "DropLoad.Request+<GetTelegramTask" ascii //weight: 1
-        $x_1_4 = "DropLoad.Command+<ExecuteAssemblyXOR" ascii //weight: 1
+        $x_1_4 = "DropLoad.Command+<ExecuteAssembly" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

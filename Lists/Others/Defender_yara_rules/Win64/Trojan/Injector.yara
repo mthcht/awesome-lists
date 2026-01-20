@@ -312,3 +312,26 @@ rule Trojan_Win64_Injector_AMTB_2147960766_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXE_2147961408_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXE!MTB"
+        threat_id = "2147961408"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {49 8b d4 49 8b cf ff 15 ?? ?? ?? ?? 85 c0 0f 84 ?? ?? ?? ?? 48 39 7d e8 0f 85 ?? ?? ?? ?? 4c 89 6c 24 30 44 89 6c 24 28 4c 89 64 24 20 4c 8b 0d ?? ?? ?? ?? 45 33 c0 33 d2 49 8b cf ff 15 ?? ?? ?? ?? 48 8b d8 48 85 c0}  //weight: 30, accuracy: Low
+        $x_10_2 = "Successfully injected" ascii //weight: 10
+        $x_10_3 = "bypass anti-cheat hook" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

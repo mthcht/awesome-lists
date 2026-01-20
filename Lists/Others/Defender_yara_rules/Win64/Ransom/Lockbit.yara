@@ -152,3 +152,24 @@ rule Ransom_Win64_Lockbit_ARAC_2147961296_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Lockbit_YBG_2147961404_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Lockbit.YBG!MTB"
+        threat_id = "2147961404"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {4c 89 c0 4d 69 c0 ?? ?? ?? ?? 89 c1 49 c1 e8 20 44 29 c1 d1 e9 44 01 c1 c1 e9 06 41 89 c8 41 c1 e0 07 41 29 c8 44 29 c0 88 84 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

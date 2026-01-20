@@ -527,3 +527,26 @@ rule Trojan_Win32_AsyncRAT_SB_2147957741_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_AsyncRAT_SX_2147961407_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRAT.SX!MTB"
+        threat_id = "2147961407"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {59 5a 02 18 8b 4c 24 ?? 89 fa 80 c3 2a 0f b6 c3}  //weight: 20, accuracy: Low
+        $x_10_2 = {89 de 31 c0 f3 a4 8d b2 ?? ?? ?? ?? ?? ?? ?? ?? ?? 89 d7 f3 aa 89 f7 b9 ?? ?? ?? ?? 8d 74 24 ?? f3 a4 89 d7}  //weight: 10, accuracy: Low
+        $x_5_3 = {0f 95 c3 89 d9 01 d9 00 db 8b 54 24 ?? 01 d5 39 ef 0f 42 ef 84 c0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
