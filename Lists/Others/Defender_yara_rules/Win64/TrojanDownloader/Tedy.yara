@@ -20,3 +20,26 @@ rule TrojanDownloader_Win64_Tedy_NITA_2147941020_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Tedy_CP_2147961387_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Tedy.CP!MTB"
+        threat_id = "2147961387"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://files.catbox.moe/" ascii //weight: 2
+        $x_2_2 = "Stop Internet" ascii //weight: 2
+        $x_2_3 = "netsh advfirewall firewall delete rule name=all program=" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
