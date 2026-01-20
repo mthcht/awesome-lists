@@ -1,0 +1,21 @@
+rule VirTool_Win64_Secresz_A_2147961359_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Secresz.A"
+        threat_id = "2147961359"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Secresz"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 75 f0 ?? ?? ?? ?? 4c 8b 45 d0 8b d3 48 8b cf e8 ?? ?? ?? ?? 48 8b 0d 09 30 00 00 85 c0 ?? ?? ?? ?? ?? ?? ?? ?? ?? e8 ?? ?? ?? ?? 33 d2 48 8b 4d d0 ff ?? ?? ?? ?? ?? 48 8b 4d d8 ff}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 8b 5c 24 60 48 8b 7c 24 58 48 2b df 48 83 fb 02 ?? ?? ?? ?? ?? ?? 80 3f 4d ?? ?? ?? ?? ?? ?? 80 7f 01 5a [0-19] b9 04 01 00 00 ff ?? ?? ?? ?? ?? ff ?? ?? ?? ?? ?? 44 8b c8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
