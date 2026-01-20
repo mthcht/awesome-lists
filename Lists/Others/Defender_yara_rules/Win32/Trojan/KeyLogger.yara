@@ -677,3 +677,31 @@ rule Trojan_Win32_KeyLogger_MX_2147947890_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KeyLogger_LM_2147961377_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KeyLogger.LM!MTB"
+        threat_id = "2147961377"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Keylogger initialization failure: error" ascii //weight: 1
+        $x_2_2 = "Keylogger Stopped" ascii //weight: 2
+        $x_3_3 = "[Text Pasted From Clipboard]" ascii //weight: 3
+        $x_4_4 = "[Text copied to clipboard]" ascii //weight: 4
+        $x_5_5 = "* ViottoKeylogger v" ascii //weight: 5
+        $x_6_6 = "Keylogger Started" ascii //weight: 6
+        $x_7_7 = "{User was idle for" ascii //weight: 7
+        $x_8_8 = "log_%04i.%02i.%02i_%02i.%02i.txt" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

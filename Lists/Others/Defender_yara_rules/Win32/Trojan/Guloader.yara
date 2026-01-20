@@ -8281,3 +8281,30 @@ rule Trojan_Win32_Guloader_KU_2147961291_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SWBI_2147961384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SWBI!MTB"
+        threat_id = "2147961384"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Frondescent206\\Brunizem" ascii //weight: 2
+        $x_1_2 = "bajonetlaasenes.lam" ascii //weight: 1
+        $x_1_3 = "Impressionally.txt" ascii //weight: 1
+        $x_1_4 = "Unempirical92.ini" ascii //weight: 1
+        $x_1_5 = "bydemaaderne.jpg" ascii //weight: 1
+        $x_1_6 = "Bandoleret.jpg" ascii //weight: 1
+        $x_1_7 = "Catercousin.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3607,6 +3607,34 @@ rule Trojan_MSIL_XWorm_APJB_2147956614_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_PX_2147956814_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.PX!MTB"
+        threat_id = "2147956814"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {04 03 61 1f ?? 59 06 61 45}  //weight: 5, accuracy: Low
+        $x_1_2 = "XLogger" ascii //weight: 1
+        $x_1_3 = "callk" ascii //weight: 1
+        $x_1_4 = "IsUpdate" ascii //weight: 1
+        $x_1_5 = "ActivatePong" ascii //weight: 1
+        $x_1_6 = "SetWindowsHookEx" ascii //weight: 1
+        $x_1_7 = "MapVirtualKey" ascii //weight: 1
+        $x_1_8 = "INDATE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_ZMK_2147957479_0
 {
     meta:

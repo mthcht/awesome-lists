@@ -115,3 +115,27 @@ rule Trojan_Win64_Keylogger_MK_2147959700_0
         )
 }
 
+rule Trojan_Win64_Keylogger_ARR_2147961378_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Keylogger.ARR!MTB"
+        threat_id = "2147961378"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Stealth Keylogger Started (Fixed Version)" ascii //weight: 10
+        $x_7_2 = "BROESERCOOKIE.exe" ascii //weight: 7
+        $x_2_3 = "Payload execution phase completed" ascii //weight: 2
+        $x_1_4 = "Browser Cookie Stealer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

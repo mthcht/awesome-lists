@@ -43,3 +43,25 @@ rule Trojan_Win64_Agent_ARR_2147958430_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Agent_ARR_2147958430_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Agent.ARR!MTB"
+        threat_id = "2147958430"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Agent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {49 8d 43 01 43 30 4c 10 ff 4c 8b df c1 ea ?? 8d 0c 92 03 c9}  //weight: 12, accuracy: Low
+        $x_8_2 = "zf|1:lc|1:dd|1:3t|08:3o|1.0.0.721:3p|1:2t|8888:2o|1.0.0.721:2p|1:1t|6666:1o|1.0.0.721:1p|" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
