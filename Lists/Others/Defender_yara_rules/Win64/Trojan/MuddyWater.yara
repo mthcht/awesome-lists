@@ -91,3 +91,24 @@ rule Trojan_Win64_MuddyWater_GVG_2147961013_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_MuddyWater_GVH_2147961473_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MuddyWater.GVH!MTB"
+        threat_id = "2147961473"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MuddyWater"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 83 fa 23 77 2b 44 0f b6 44 0a 02 41 c1 e0 10 44 0f b7 0c 0a 45 01 c8 41 81 c0 ?? ?? ?? ?? 44 33 04 10 44 89 84 14 80 02 00 00 48 83 c2 04 eb cf}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
