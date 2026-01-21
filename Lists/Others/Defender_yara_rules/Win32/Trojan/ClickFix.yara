@@ -13087,3 +13087,116 @@ rule Trojan_Win32_ClickFix_DJF_2147961444_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_SIAA_2147961452_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SIAA"
+        threat_id = "2147961452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {63 00 6d 00 64 00 [0-16] 2f 00 63 00 [0-48] 6d 00 73 00 68 00 74 00 61 00}  //weight: 10, accuracy: Low
+        $x_10_2 = "http" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SZA_2147961453_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SZA"
+        threat_id = "2147961453"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-16] 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00 2f 00 76 00 65 00 72 00 69 00 66 00 69 00 63 00 61 00 74 00 69 00 6f 00 6e 00 2e 00 68 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-16] 68 00 74 00 74 00 70 00 [0-255] 2e 00 72 00 75 00 2f 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SZAA_2147961454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SZAA"
+        threat_id = "2147961454"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell.exe" wide //weight: 1
+        $x_1_2 = {69 00 65 00 78 00 28 00 69 00 77 00 72 00 [0-16] 2d 00 75 00 72 00 69 00 [0-48] 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "-useb" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SKJ_2147961455_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SKJ"
+        threat_id = "2147961455"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "forfiles" wide //weight: 10
+        $x_10_2 = "cmd /c start mshta" wide //weight: 10
+        $x_10_3 = "cmd /c start powershell" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IJ_2147961460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IJ!MTB"
+        threat_id = "2147961460"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "cd c:\\users\\public & curl" wide //weight: 10
+        $x_3_2 = "/%78%31%31%31%31%31%31 " wide //weight: 3
+        $x_3_3 = "/%58%31%31%31%31%31%31 " wide //weight: 3
+        $x_5_4 = {20 00 2d 00 6f 00 20 00 [0-32] 2e 00 62 00 61 00 74 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

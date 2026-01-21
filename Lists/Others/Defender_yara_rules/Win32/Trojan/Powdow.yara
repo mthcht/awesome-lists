@@ -122,3 +122,25 @@ rule Trojan_Win32_Powdow_SX_2147958426_0
         )
 }
 
+rule Trojan_Win32_Powdow_HH_2147961461_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Powdow.HH!MTB"
+        threat_id = "2147961461"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Powdow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {3a 00 5c 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 5c 00 6b 00 62 00 23 08 08 03 30 2d 39 2e 00 65 00 78 00 65 00 20 00 2d 00 65 00 20 00 79 00 77 00 62 00 74 00 61 00 67 00 71 00 61 00 69 00 61 00 61 00 76 00 61 00 67 00 6d 00 61 00 69 00 61 00 62 00 77 00 61 00 67 00 38 00 61 00 64 00 77 00 62 00 6c 00 61 00 68 00 69 00 61 00 63 00 77 00 62 00 6f 00 61 00 67 00 75 00 61 00 62 00 61 00 62 00 73 00 61 00 63 00}  //weight: 5, accuracy: Low
+        $x_5_2 = "\\vcredist.exe -e ywbtagqaiaavagmaiabwag8adwblahiacwboaguababsa" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
