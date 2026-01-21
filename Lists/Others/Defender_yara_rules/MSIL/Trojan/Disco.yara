@@ -310,3 +310,25 @@ rule Trojan_MSIL_Disco_GNW_2147904163_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disco_MK_2147961465_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disco.MK!MTB"
+        threat_id = "2147961465"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {02 28 18 00 00 06 0c 1a 08 8e 69 58 8d 16 00 00 01 0d 08 8e 69 28 4b 00 00 0a 09 16 6f 4f 00 00 0a 08 09 1a 6f 4f 00 00 0a 7e 05 00 00 04 09 16 09 8e 69 6f 4a 00 00 0a}  //weight: 25, accuracy: High
+        $x_10_2 = {28 2d 00 00 06 26 25 11 06 28 29 00 00 06 26 11 05 28 2b 00 00 06 26 28 2c 00 00 06 26 7e 48 00 00 0a 11 04 28 25 00 00 06 26 73 49 00 00 0a 13 0a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
