@@ -13041,3 +13041,49 @@ rule Trojan_Win32_ClickFix_IF_2147961032_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DJE_2147961443_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJE!MTB"
+        threat_id = "2147961443"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "forfiles /p" wide //weight: 1
+        $x_1_2 = "/m notepad.exe /c" wide //weight: 1
+        $x_1_3 = "start mshta http://" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DJF_2147961444_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJF!MTB"
+        threat_id = "2147961444"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "copy C:\\WINDOWS\\system32\\finger.exe" wide //weight: 1
+        $x_1_2 = "\\AppData\\Local\\Temp\\" wide //weight: 1
+        $x_1_3 = {63 00 6f 00 6e 00 66 00 69 00 72 00 6d 00 40 00 [0-150] 7c 00 63 00 6d 00 64 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

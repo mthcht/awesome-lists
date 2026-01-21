@@ -815,3 +815,28 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_4
         (all of ($x*))
 }
 
+rule HackTool_Win32_Keygen_RE_2147960753_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen.RE!AMTB"
+        threat_id = "2147960753"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "This program has been cracked by CRUDE." ascii //weight: 1
+        $x_1_2 = "File successfully patched!" ascii //weight: 1
+        $x_1_3 = "File seeking failed!" ascii //weight: 1
+        $x_1_4 = "tEaM cRuDe" ascii //weight: 1
+        $x_1_5 = "martin galway's rambo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
