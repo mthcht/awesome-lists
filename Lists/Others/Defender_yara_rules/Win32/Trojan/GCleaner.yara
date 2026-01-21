@@ -1590,3 +1590,24 @@ rule Trojan_Win32_GCleaner_NNS_2147961415_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_RAM_2147961543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.RAM!MTB"
+        threat_id = "2147961543"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 55 bc 03 55 ac 81 ea b2 84 31 00 2b d7 03 c2 50 6a 00 e8 67 ed fa ff 5a 2b d0 31 13 83 c6 04 83 c3 04 3b 75 d4 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

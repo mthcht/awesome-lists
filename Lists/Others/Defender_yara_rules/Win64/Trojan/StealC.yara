@@ -645,3 +645,25 @@ rule Trojan_Win64_StealC_ASC_2147960816_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_GTV_2147961542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.GTV!MTB"
+        threat_id = "2147961542"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {ba 02 00 00 00 48 8d 8d 70 03 00 00 ff 15 ?? ?? ?? ?? 45 33 c9 c7 44 24 ?? 01 00 00 00 4c 8d 85 70 03 00 00 48 89 7c 24 20 48 8d 15 ?? ?? ?? ?? 33 c9 ff 15}  //weight: 10, accuracy: Low
+        $x_1_2 = "\\ClipperDropper.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
