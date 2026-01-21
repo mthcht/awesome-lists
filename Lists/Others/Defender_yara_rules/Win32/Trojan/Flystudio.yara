@@ -298,3 +298,33 @@ rule Trojan_Win32_Flystudio_DB_2147939992_0
         )
 }
 
+rule Trojan_Win32_Flystudio_RR_2147961498_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Flystudio.RR!MTB"
+        threat_id = "2147961498"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Flystudio"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "122"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {68 74 74 70 73 3a 2f 2f 63 6d 64 2e 63 6e 2d 6e 62 31 2e 72 61 69 6e 73 33 2e 63 6f 6d 2f [0-15] 2e 65 78 65}  //weight: 100, accuracy: Low
+        $x_100_2 = {68 74 74 70 73 3a 2f 2f 76 69 70 2e 31 32 33 70 61 6e 2e 63 6e 2f [0-15] 2f 43 6d 64 2f [0-15] 2e 65 78 65}  //weight: 100, accuracy: Low
+        $x_10_3 = {68 74 74 70 73 3a 2f 2f 38 38 2d 31 33 34 33 31 33 32 36 33 36 2e 63 6f 73 2e 61 70 2d 6e 61 6e 6a 69 6e 67 2e 6d 79 71 63 6c 6f 75 64 2e 63 6f 6d 2f [0-15] 2e 65 78 65}  //weight: 10, accuracy: Low
+        $x_10_4 = "\\cmd123.exe" ascii //weight: 10
+        $x_1_5 = "kwmusic.exe" ascii //weight: 1
+        $x_1_6 = "KwService.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+

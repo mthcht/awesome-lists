@@ -2529,3 +2529,26 @@ rule Trojan_Win64_ShellcodeRunner_KLX_2147961057_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_ARR_2147961505_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.ARR!MTB"
+        threat_id = "2147961505"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "InjectShellcodeRemoteProcess failed: %d" ascii //weight: 10
+        $x_6_2 = "Shellcode decrypted and written to 0x%p" ascii //weight: 6
+        $x_4_3 = "Mod33-ProcEnumShellcodeInjection.pdb" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

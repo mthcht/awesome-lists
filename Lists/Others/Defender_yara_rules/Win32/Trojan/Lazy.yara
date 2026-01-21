@@ -2745,3 +2745,24 @@ rule Trojan_Win32_Lazy_AHR_2147961488_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_ARL_2147961506_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.ARL!MTB"
+        threat_id = "2147961506"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 02 33 c8 8b 02 8d 96 ?? ?? ?? ?? 89 4c 24 ?? 0f b6 08 8b 44 24 ?? 03 c1 83 3a ?? 89 44 24}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
