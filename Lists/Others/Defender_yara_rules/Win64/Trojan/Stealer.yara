@@ -869,3 +869,26 @@ rule Trojan_Win64_Stealer_SXF_2147961236_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_AHD_2147961486_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.AHD!MTB"
+        threat_id = "2147961486"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "WshShell.Run \"cmd /c %PROGRAMDATA%\\\", 0, False" ascii //weight: 30
+        $x_20_2 = "tempMalformed size_hint" ascii //weight: 20
+        $x_10_3 = "tasklistavgsvc.exeavastui.exeavastsvc.exesrc\\main.rs" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

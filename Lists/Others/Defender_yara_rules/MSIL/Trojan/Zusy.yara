@@ -4399,3 +4399,25 @@ rule Trojan_MSIL_Zusy_SWQR_2147960829_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_AHC_2147961490_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AHC!MTB"
+        threat_id = "2147961490"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0a 11 0b 6f ?? ?? ?? 0a 6f ?? ?? ?? 0a 13 0e 11 0e 28 ?? ?? ?? 06 13 0f 11 0f 1f 09 28 ?? ?? ?? 06 13 10 11 10 28 ?? ?? ?? 06 13 11 28 ?? ?? ?? 0a 11 11 6f ?? ?? ?? 0a 13 12 11 12 8e 69 28 ?? ?? ?? 0a 13 13 7e ?? ?? ?? 0a 2c 07 11 13}  //weight: 30, accuracy: Low
+        $x_20_2 = "25$bcD0987yuio25" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

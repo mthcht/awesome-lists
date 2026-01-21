@@ -2722,3 +2722,26 @@ rule Trojan_Win32_Lazy_SXI_2147960936_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AHR_2147961488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AHR!MTB"
+        threat_id = "2147961488"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "\\AppData|\\Boot|\\PerfLogs|\\Program Files|\\Temporary" ascii //weight: 10
+        $x_30_2 = {33 c1 8b 55 d0 8b 4d dc 2b 4a 14 8b 55 d0 8b 52 0c 88 04 0a c7 45 fc ?? ?? ?? ?? eb}  //weight: 30, accuracy: Low
+        $x_20_3 = {8b 55 c8 33 04 8a 8b 4d 08 8b 11 8b 4d 08 8b 09 8b 75 a8 2b 71 14 8b 52 0c 88 04 32}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

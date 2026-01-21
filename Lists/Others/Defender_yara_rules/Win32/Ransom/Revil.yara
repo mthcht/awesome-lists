@@ -224,3 +224,27 @@ rule Ransom_Win32_Revil_AK_2147913417_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Revil_PA_2147961481_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Revil.PA!MTB"
+        threat_id = "2147961481"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Revil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".FIXT" wide //weight: 1
+        $x_1_2 = "readme.hta" wide //weight: 1
+        $x_1_3 = "startb.bat" wide //weight: 1
+        $x_3_4 = "YOUR_FILES_ARE_ENCRYPTED.TXT" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
