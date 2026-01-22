@@ -4895,3 +4895,49 @@ rule Trojan_Win64_Lazy_GVM_2147961391_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LMO_2147961622_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LMO!MTB"
+        threat_id = "2147961622"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {4c 89 c8 31 d2 49 f7 f2 48 69 c0 7c ff ff ff 4c 01 d8 41 8a 04 01 42 30 04 09 49 ff c1 4d 39 c8}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_LMP_2147961625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LMP!MTB"
+        threat_id = "2147961625"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%04d%02d%02d%02d%02d%02d%03d%01d%02d%01d" ascii //weight: 1
+        $x_2_2 = "C:\\Users\\Public" ascii //weight: 2
+        $x_3_3 = "http://googleq.s3.ap-southeast-1.amazonaws.com/7217.zip" ascii //weight: 3
+        $x_4_4 = "C:\\Users\\Public\\nDtrT5614565.dat" ascii //weight: 4
+        $x_5_5 = "C:\\Users\\Public\\iApple\\iAppleSetup.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -509,3 +509,24 @@ rule Trojan_Win64_Farfli_ARR_2147961322_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_LMC_2147961623_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.LMC!MTB"
+        threat_id = "2147961623"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 0f b6 0c 29 4c 8b 43 10 49 ff c1 b8 ?? ?? ?? ?? f7 e9 03 d1 c1 fa 08 8b c2 c1 e8 1f 03 d0 b8 ?? ?? ?? ?? 69 d2 c8 01 00 00 2b ca 41 f7 e2 80 c1 36 43 30 0c 03 c1 ea 03 8d 0c 92 03 c9 44 3b d1 4d 0f 44 cf 41 ff c2 49 ff c3 44 3b d7}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

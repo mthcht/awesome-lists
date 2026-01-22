@@ -741,3 +741,26 @@ rule TrojanDownloader_MSIL_Heracles_RAP_2147954489_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Heracles_PAHE_2147961619_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Heracles.PAHE!MTB"
+        threat_id = "2147961619"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "bobrik.ps1" wide //weight: 1
+        $x_1_2 = "Remove-Item C:\\* -Recurse -Force" ascii //weight: 1
+        $x_2_3 = {49 6e 76 6f 6b 65 2d 52 65 73 74 4d 65 74 68 6f 64 20 2d 55 72 69 20 22 68 74 74 [0-2] 3a 2f 2f 77 74 74 72 2e 69 6e 2f 24 43 69 74 79}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -736,3 +736,29 @@ rule Trojan_MSIL_Bobik_SAV_2147931432_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bobik_GMT_2147961632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bobik.GMT!MTB"
+        threat_id = "2147961632"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "AAH2UWtHaUU0i_3OmxK7mzmRLTK8MfsWzSk" ascii //weight: 1
+        $x_1_2 = "api.telegram.org/bot" ascii //weight: 1
+        $x_1_3 = "WindowsFormsApp1.pdb" ascii //weight: 1
+        $x_1_4 = "TelegramWorker" ascii //weight: 1
+        $x_1_5 = "SendToTelegram" ascii //weight: 1
+        $x_1_6 = "/sendDocument" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -62,3 +62,40 @@ rule Trojan_Win64_Razy_AVE_2147943969_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Razy_LMA_2147961626_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Razy.LMA!MTB"
+        threat_id = "2147961626"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "153"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[DEBUG] Current:" ascii //weight: 1
+        $x_2_2 = "[DEBUG] Download URL:" ascii //weight: 2
+        $x_3_3 = "[DEBUG] Downloading to:" ascii //weight: 3
+        $x_4_4 = "downloadUrl" ascii //weight: 4
+        $x_5_5 = "[ERROR] File too small, probably not valid" ascii //weight: 5
+        $x_6_6 = "[ERROR] Failed to create new file" ascii //weight: 6
+        $x_7_7 = "[SUCCESS] Downloaded" ascii //weight: 7
+        $x_8_8 = "[DEBUG] Deleting old backup..." ascii //weight: 8
+        $x_9_9 = "[DEBUG] Renaming current to .old..." ascii //weight: 9
+        $x_10_10 = "[ERROR] Failed to rename current file" ascii //weight: 10
+        $x_11_11 = "[DEBUG] Moving new file to current..." ascii //weight: 11
+        $x_12_12 = "[ERROR] Failed to move new file" ascii //weight: 12
+        $x_13_13 = "[DEBUG] Launching new process..." ascii //weight: 13
+        $x_14_14 = "c timeout 3 >nul" ascii //weight: 14
+        $x_15_15 = "AUTHENTICATION_SUCCESSFUL" ascii //weight: 15
+        $x_16_16 = "[SUCCESS] New process started" ascii //weight: 16
+        $x_17_17 = "[ERROR] Failed to launch new process" ascii //weight: 17
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

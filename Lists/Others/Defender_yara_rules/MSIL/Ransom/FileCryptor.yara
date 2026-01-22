@@ -898,3 +898,27 @@ rule Ransom_MSIL_FileCryptor_AYC_2147960011_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCryptor_PAHF_2147961620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.PAHF!MTB"
+        threat_id = "2147961620"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".0xHunter" wide //weight: 1
+        $x_2_2 = "The key is correct, Your files have been decrypted" wide //weight: 2
+        $x_1_3 = "ClsEncryptDecryptFiles" ascii //weight: 1
+        $x_1_4 = "add_Shutdown" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

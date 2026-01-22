@@ -3408,3 +3408,67 @@ rule Trojan_Win64_Tedy_MKF_2147961572_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LMO_2147961621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LMO!MTB"
+        threat_id = "2147961621"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "chgwszumatqedvykjpnbrx" ascii //weight: 1
+        $x_2_2 = "dcxsuqgjarmtevpnzkfwhb" ascii //weight: 2
+        $x_3_3 = "dhvukjrqeacmypbngtwfsz" ascii //weight: 3
+        $x_4_4 = "dkybgwpzvsnumxhrtafqjc" ascii //weight: 4
+        $x_5_5 = "pvksgxtznurcbahemfqjwy" ascii //weight: 5
+        $x_6_6 = "tvdgcpskhqyrmezbjnwaxu" ascii //weight: 6
+        $x_7_7 = "vjatfyekwgnqburdspxzhm" ascii //weight: 7
+        $x_8_8 = "wzkbqxgepyrhtcvnaufmjd" ascii //weight: 8
+        $x_9_9 = "ykeadpbunrxczqvgwshjmt" ascii //weight: 9
+        $x_10_10 = "ywtdskfnqaxergujmpvcbh" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_LMP_2147961627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LMP!MTB"
+        threat_id = "2147961627"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "105"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C A Sui wallet" ascii //weight: 1
+        $x_2_2 = "Braavos: Bitcoin" ascii //weight: 2
+        $x_3_3 = "Coinbase Wallet extension" ascii //weight: 3
+        $x_4_4 = "Leap Wallet" ascii //weight: 4
+        $x_5_5 = "Compass Wallet for Sei" ascii //weight: 5
+        $x_6_6 = "Fractal Wallet" ascii //weight: 6
+        $x_7_7 = "Station Wallet" ascii //weight: 7
+        $x_8_8 = "D:\\Program Files\\Monero GUI Wallet" ascii //weight: 8
+        $x_9_9 = "C:\\Program Files\\Monero GUI Wallet" ascii //weight: 9
+        $x_10_10 = "] 360 Sandbox detected" ascii //weight: 10
+        $x_11_11 = "[+] Clipboard content set successfully." ascii //weight: 11
+        $x_12_12 = "[-] Failed to set clipboard content." ascii //weight: 12
+        $x_13_13 = "[+] RunShellcode" ascii //weight: 13
+        $x_14_14 = "[+] MainloopCommand_BlueScreen" ascii //weight: 14
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
