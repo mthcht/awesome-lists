@@ -348,3 +348,30 @@ rule Trojan_Win64_DonutLoader_PGDO_2147960285_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_MK_2147961570_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.MK!MTB"
+        threat_id = "2147961570"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "[ Shellcode     : \"%s\"" ascii //weight: 20
+        $x_20_2 = "[ Decoy path    : %s" ascii //weight: 20
+        $x_20_3 = "[ Target CPU    : %s" ascii //weight: 20
+        $x_15_4 = "[ AMSI/WDLP/ETW : %s" ascii //weight: 15
+        $x_15_5 = "Donut shellcode" ascii //weight: 15
+        $x_10_6 = "Random names + Encryption" ascii //weight: 10
+        $x_10_7 = "Only the finest artisanal donuts are made of shells." ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

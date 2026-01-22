@@ -3518,3 +3518,27 @@ rule Trojan_Win32_Fragtor_ULX_2147961500_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_MKD_2147961569_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.MKD!MTB"
+        threat_id = "2147961569"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {e0 2e 72 73 72 63 00 00 00 00 20 00 00 00 e0 93}  //weight: 20, accuracy: High
+        $x_15_2 = {40 00 00 e0 2e 64 61 74 61 00 00 00 00 a0 0e 00 00 00 bd}  //weight: 15, accuracy: High
+        $x_10_3 = {cf 73 94 f7 83 49 49 1b 78 06 00 45 4b e5 8f e8}  //weight: 10, accuracy: High
+        $x_5_4 = {72 53 9f 00 6e 40 f1 f1 96 36 65 a6 be 12 fb 14}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -143,3 +143,27 @@ rule Trojan_Win64_Sdum_CF_2147955236_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Sdum_AHC_2147961568_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Sdum.AHC!MTB"
+        threat_id = "2147961568"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Sdum"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Windows Component Update Service" ascii //weight: 10
+        $x_20_2 = "Windows Software Foundation" ascii //weight: 20
+        $x_30_3 = "powershell -WindowStyle Hidden -Command \"$WS = New-Object -ComObject WScript.Shell; $SC = $WS.CreateShortcut(" ascii //weight: 30
+        $x_40_4 = "MicrosoftEdgeUpdate.lnk" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

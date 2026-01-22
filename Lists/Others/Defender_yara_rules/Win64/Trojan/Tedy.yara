@@ -3360,3 +3360,51 @@ rule Trojan_Win64_Tedy_KKB_2147961196_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AHM_2147961566_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHM!MTB"
+        threat_id = "2147961566"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {02 d2 41 0f b6 c0 2a c2 04 ?? 43 32 84 29 ?? ?? ?? ?? ?? 88 04 09 41 ff c0 4d 8d 49 ?? 41 83 f8 ?? 72}  //weight: 30, accuracy: Low
+        $x_20_2 = {48 0f 47 45 c0 c6 40 08 65 48 8d 45 c0 48 83 7d d8 0f 48 0f 47 45 c0 c6 40 09 65 48 8d 45 c0 48 83 7d d8 0f}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_MKF_2147961572_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MKF!MTB"
+        threat_id = "2147961572"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "naccessKeyname.dll" ascii //weight: 20
+        $x_15_2 = "User.txtClipboard.txtProcesses.txtPID" ascii //weight: 15
+        $x_10_3 = "Bookmarks.txtDownloads.txt" ascii //weight: 10
+        $x_5_4 = "dscreenshotlogfile" ascii //weight: 5
+        $x_3_5 = "Victim: <code>" ascii //weight: 3
+        $x_2_6 = "\\outputshadowsniff0123456789" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

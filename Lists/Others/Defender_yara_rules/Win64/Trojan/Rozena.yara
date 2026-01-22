@@ -1929,3 +1929,32 @@ rule Trojan_Win64_Rozena_SXC_2147961546_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_MKA_2147961573_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.MKA!MTB"
+        threat_id = "2147961573"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "ZQA_SHELLCODE" ascii //weight: 20
+        $x_15_2 = "APC_inject" ascii //weight: 15
+        $x_10_3 = "Injectprocess_by_threadHijacked" ascii //weight: 10
+        $x_5_4 = "[*] Inject DLL:" ascii //weight: 5
+        $x_3_5 = "[*] Injecting to PID:" ascii //weight: 3
+        $x_3_6 = "[*] CreateThread Hooked" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_5_*) and 2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
