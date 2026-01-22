@@ -734,6 +734,45 @@ rule Backdoor_MSIL_AsyncRAT_PAGL_2147937778_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_AsyncRAT_ARP_2147959581_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/AsyncRAT.ARP!AMTB"
+        threat_id = "2147959581"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "eClient.pdb" ascii //weight: 15
+        $x_15_2 = "eRelease.pdb" ascii //weight: 15
+        $x_15_3 = "equantri.pdb" ascii //weight: 15
+        $x_5_4 = "SendAsync" ascii //weight: 5
+        $x_5_5 = "IAsyncStateMachine" ascii //weight: 5
+        $x_5_6 = "AsyncStateMachineAttribute" ascii //weight: 5
+        $x_5_7 = "AsyncCallback" ascii //weight: 5
+        $x_5_8 = "AsyncTaskMethodBuilder" ascii //weight: 5
+        $x_5_9 = "IAsyncResult" ascii //weight: 5
+        $x_5_10 = "Activator" ascii //weight: 5
+        $x_5_11 = "Monitor" ascii //weight: 5
+        $x_5_12 = "set_Credentials" ascii //weight: 5
+        $x_5_13 = "1DB2A1F9902B35F8F880EF1692CE9947A193D5A698D8F568BDA721658ED4C58B" ascii //weight: 5
+        $x_5_14 = "87639126EA77B358F26532367DBA67C5310EF50A8D9888ED070CD40E1F605A8F" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 11 of ($x_5_*))) or
+            ((2 of ($x_15_*) and 8 of ($x_5_*))) or
+            ((3 of ($x_15_*) and 5 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Backdoor_MSIL_AsyncRAT_KK_2147961193_0
 {
     meta:

@@ -5291,3 +5291,24 @@ rule Trojan_Win32_CobaltStrike_DND_2147961056_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CobaltStrike_JKM_2147961557_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CobaltStrike.JKM!MTB"
+        threat_id = "2147961557"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8a 14 02 88 54 24 ?? bf ?? ?? ?? ?? 31 d2 f7 f7 8b 04 24 89 d7 8a 54 24 ?? 32 14 3e 88 14 ?? 83 c0 ?? 31 d2 81 ea ?? ?? ?? ?? 31 c9 81 e9 ?? ?? ?? ?? 83 f8 ?? 0f 44 ca 89 4c 24 ?? 89 44 24 ?? e9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
