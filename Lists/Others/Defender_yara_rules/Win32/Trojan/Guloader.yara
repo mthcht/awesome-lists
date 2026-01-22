@@ -8332,3 +8332,28 @@ rule Trojan_Win32_Guloader_KV_2147961504_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SWGI_2147961599_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SWGI!MTB"
+        threat_id = "2147961599"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "forbiddenness\\Uninstall\\urbanismen\\ekskrementale" ascii //weight: 2
+        $x_1_2 = "Arktiske\\Uninstall\\bortrationalisere\\sti" ascii //weight: 1
+        $x_1_3 = "Inappreciatively\\untackled" ascii //weight: 1
+        $x_1_4 = "oysterbird\\gipped.gif" ascii //weight: 1
+        $x_1_5 = "Latinamerikas53.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
