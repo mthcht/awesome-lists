@@ -6770,3 +6770,24 @@ rule Trojan_MSIL_Taskun_ZWH_2147961246_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Taskun_ZFJ_2147961596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.ZFJ!MTB"
+        threat_id = "2147961596"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 08 09 6f ?? 00 00 0a 13 08 11 08 28 ?? 00 00 06 13 09 11 08 28 ?? 00 00 06 13 0a 11 08 28 ?? 00 00 06 13 0b 11 09 11 04 28 ?? 00 00 06 13 09 11 0a 11 04 17 58}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
