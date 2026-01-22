@@ -1902,3 +1902,30 @@ rule Trojan_Win64_Rozena_SXB_2147960344_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_SXC_2147961546_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SXC!MTB"
+        threat_id = "2147961546"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "44"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Inject DLL" ascii //weight: 10
+        $x_10_2 = "Injectprocess_by_threadHijacked" ascii //weight: 10
+        $x_10_3 = "APC_inject" ascii //weight: 10
+        $x_5_4 = "run_shellcode" ascii //weight: 5
+        $x_5_5 = "execute_with_NtTestAlert" ascii //weight: 5
+        $x_2_6 = "EarlyBirdInject" ascii //weight: 2
+        $x_2_7 = "Execute Success" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
