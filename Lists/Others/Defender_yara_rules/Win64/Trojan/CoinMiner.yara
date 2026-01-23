@@ -896,6 +896,28 @@ rule Trojan_Win64_CoinMiner_KK_2147943866_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {32 ca 41 32 c8 41 32 ca 41 88 4f ff 6b c8 ?? 41 8a c3 c0 e8 ?? 45 02 db 0f b6 c0 41 32 c9 41 32 0f 41 32 ca 41 88 0f 6b c8 ?? 41 32 cb 41 32 4f 01 41 32 ca 41 88 4f 01 4d 03 fc 48 83 ed}  //weight: 20, accuracy: Low
+        $x_10_2 = "70cd1c29-ef2d-4d01-be40-0811c554bf41" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoinMiner_KK_2147943866_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.KK!MTB"
+        threat_id = "2147943866"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
