@@ -66,3 +66,27 @@ rule Ransom_MSIL_Encoder_PE_2147961313_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Encoder_C_2147961641_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Encoder.C!AMTB"
+        threat_id = "2147961641"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Encoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bleedingfuck.pdb" ascii //weight: 1
+        $x_1_2 = "*bleedingfuck.background+<SetWallpaper>" ascii //weight: 1
+        $x_1_3 = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\ActiveDesktop" ascii //weight: 1
+        $x_1_4 = "https://wimg.rule34.xxx//samples/588/sample_166325862862961dc417a7092587f7674a276be6.jpg?15011123" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

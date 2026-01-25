@@ -2497,6 +2497,28 @@ rule Trojan_Win64_ShellcodeRunner_ARR_2147961505_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {44 8a 04 13 41 80 f0 ?? 44 88 04 01 48 ff c0 48 ff c2 48 39 d7}  //weight: 8, accuracy: Low
+        $x_12_2 = {48 ff c7 48 33 ce e8 ?? ?? ?? ?? ?? ?? ?? 49 0f af f5 48 ff cb}  //weight: 12, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_ARR_2147961505_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.ARR!MTB"
+        threat_id = "2147961505"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_10_1 = "InjectShellcodeRemoteProcess failed: %d" ascii //weight: 10
@@ -2524,6 +2546,30 @@ rule Trojan_Win64_ShellcodeRunner_NSG_2147961601_0
     strings:
         $x_2_1 = {48 b8 60 17 74 50 71 78 53 ac ?? ?? ?? ?? ?? ?? ?? 48 b8 58 22 60 3f 98 c8 78 35}  //weight: 2, accuracy: Low
         $x_1_2 = {48 b8 e9 53 14 6a 34 70 a0 c0 ?? ?? ?? ?? ?? ?? ?? 48 b8 b0 fc e9 1c c3 c6 57 c6}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AHI_2147961655_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AHI!MTB"
+        threat_id = "2147961655"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Global\\MainProgramMutex" ascii //weight: 10
+        $x_20_2 = "Global\\GuardianMutex" ascii //weight: 20
+        $x_30_3 = "ExecuteShellcode" ascii //weight: 30
+        $x_40_4 = "schtasks /Create /TN \"SystemService\" /TR \"\\\"%s\\\"\" /SC ONLOGON /RL HIGHEST /RU \"%s\" /F" ascii //weight: 40
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -69,3 +69,24 @@ rule Trojan_Win64_SalatStealer_ABS_2147960464_0
         )
 }
 
+rule Trojan_Win64_SalatStealer_ASL_2147961689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.ASL!MTB"
+        threat_id = "2147961689"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 14 01 83 f2 55 88 14 08 48 ff c1 48 39 cb 7f ee 48 89 d9 48 89 c3 31 c0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -326,3 +326,29 @@ rule Trojan_Win32_Dapato_BAC_2147947007_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dapato_C_2147961700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dapato.C!MTB"
+        threat_id = "2147961700"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "xeim_server_info" ascii //weight: 2
+        $x_2_2 = "username" ascii //weight: 2
+        $x_2_3 = "password" ascii //weight: 2
+        $x_2_4 = "SELECT * FROM userinfo WHERE uid='%s'" ascii //weight: 2
+        $x_2_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+        $x_2_6 = "C:\\Users\\%s\\AppData\\Local\\%s" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6776,3 +6776,47 @@ rule Trojan_MSIL_AsyncRAT_GTV_2147960558_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_ARR_2147961667_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.ARR!MTB"
+        threat_id = "2147961667"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_12_1 = {0b 0d 0a 09 05 08 12 1d 0a 1e 01 02 0c 0d 0b 0f 07 05 1e 00 14 1e 00 01 00 00 1e 01 1e 01 09 06}  //weight: 12, accuracy: High
+        $x_8_2 = {09 04 0a 02 05 08 13 07 05 14 1e 00 01 00 00 14 1e 00 01 00 00 1e 01 1e 00 09 0d 07 04 14 1e 00}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_SXA_2147961697_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.SXA!MTB"
+        threat_id = "2147961697"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {14 0a 03 8e 69 0b 16 0c 07 20 ff 00 00 00 3d 1c 00 00 00 20 c4 00 00 00 0c 02 08 6f c7 00 00 0a 07 d2 0c 02 08 6f c7 00 00 0a 38 59 00 00 00 07 20 ff ff 00 00 3d 2a 00 00 00 20 c5 00 00 00 0c 02 08 6f c7 00 00 0a 07 68 28 c8 00 00 0a 28 4c 00 00 06 0a 02 06 16 06 8e 69 6f 4f 00 00 0a 38 24 00 00 00 20 c6 00 00 00 0c 02 08 6f c7 00 00 0a 07 28 4d 00 00 0a 28 4c 00 00 06 0a 02 06 16 06 8e 69 6f 4f 00 00 0a 02 03 16 03 8e 69 6f 4f 00 00 0a 2a}  //weight: 20, accuracy: High
+        $x_10_2 = "Qed8mky7MKqH2Vcf1Cw.S0CU3xyggx4TI5TgSR6+MOv2HaZ6FC59VYoJ8aR+Sw5ZcIZBJ24eXw1yUKJ" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

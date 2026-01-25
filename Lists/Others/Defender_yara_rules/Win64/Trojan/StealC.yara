@@ -667,3 +667,26 @@ rule Trojan_Win64_StealC_GTV_2147961542_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_KB_2147961675_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.KB!MTB"
+        threat_id = "2147961675"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {44 0f b6 1c 16 45 31 d9 44 88 0c 0b 48 ff c1 48 89 d8 4c 89 d2 49 39 c8 7e 26}  //weight: 5, accuracy: High
+        $x_1_2 = "encrypted_data.lzma" ascii //weight: 1
+        $x_1_3 = "key.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

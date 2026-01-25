@@ -3394,7 +3394,7 @@ rule Trojan_Win64_Tedy_MKF_2147961572_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "55"
+        threshold = "53"
         strings_accuracy = "High"
     strings:
         $x_20_1 = "naccessKeyname.dll" ascii //weight: 20
@@ -3402,7 +3402,6 @@ rule Trojan_Win64_Tedy_MKF_2147961572_0
         $x_10_3 = "Bookmarks.txtDownloads.txt" ascii //weight: 10
         $x_5_4 = "dscreenshotlogfile" ascii //weight: 5
         $x_3_5 = "Victim: <code>" ascii //weight: 3
-        $x_2_6 = "\\outputshadowsniff0123456789" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))
