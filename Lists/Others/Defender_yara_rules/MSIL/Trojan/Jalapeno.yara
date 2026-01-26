@@ -3607,3 +3607,47 @@ rule Trojan_MSIL_Jalapeno_ZBJ_2147961376_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_BAM_2147961734_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.BAM!MTB"
+        threat_id = "2147961734"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 09 11 0b ?? ?? 00 00 0a 17 73 10 00 00 0a 13 08 38 00 00 00 00 00 11 08 02 16 02 8e 69 ?? ?? 00 00 0a 20 01 00 00 00 7e 2e 00 00 04 7b 10 00 00 04 3a 1d 00 00 00 26 20 00 00 00 00 38 12 00 00 00 38 09 00 00 00 20 00 00 00 00 fe 0e 0a 00 fe 0c 0a 00 45 01 00 00 00 21 00 00 00 fe 0c 0a 00 20 dc 03 00 00 3b e5 ff ff ff 38 0e 00 00 00 11 09 ?? ?? 00 00 0a 13 05 38 0c 00 00 00 11 08 ?? ?? 00 00 0a 38 e6 ff ff ff dd 77 01 00 00}  //weight: 2, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Jalapeno_BAN_2147961735_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.BAN!MTB"
+        threat_id = "2147961735"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 06 11 07 ?? ?? 00 00 0a 17 73 11 00 00 0a 13 04 38 00 00 00 00 00 11 04 02 16 02 8e 69 ?? ?? 00 00 0a 38 2e 00 00 00 38 09 00 00 00 20 00 00 00 00 fe 0e 0b 00 fe 0c 0b 00 45 01 00 00 00 39 00 00 00 fe 0c 0b 00 20 dc 03 00 00 3b e5 ff ff ff 38 26 00 00 00 11 04 ?? ?? 00 00 0a 20 00 00 00 00 7e 53 00 00 04 7b 30 00 00 04 3a c9 ff ff ff 26 20 06 00 00 00 38 be ff ff ff 11 06 ?? ?? 00 00 0a 13 05 38 00 00 00 00 dd 5f 01 00 00}  //weight: 2, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

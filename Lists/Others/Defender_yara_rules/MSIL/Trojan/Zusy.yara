@@ -3538,6 +3538,29 @@ rule Trojan_MSIL_Zusy_BAD_2147944547_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_BAD_2147944547_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.BAD!MTB"
+        threat_id = "2147944547"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {02 73 28 00 00 0a 0c 08 07 16 73 29 00 00 0a 0d 73 1e 00 00 0a 13 04 09 11 04 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 05 de 34 11 04 2c 07 11 04 6f ?? 00 00 0a dc 09 2c 06 09 6f ?? 00 00 0a dc 08 2c 06 08 6f ?? 00 00 0a dc}  //weight: 3, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_3 = "GetExecutingAssembly" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zusy_SLF_2147944919_0
 {
     meta:
@@ -3599,6 +3622,27 @@ rule Trojan_MSIL_Zusy_GAF_2147945554_0
         $x_1_2 = "R2xvYmFsXFxXaW5FeHBsb3JlclN5bmM=" ascii //weight: 1
         $x_1_3 = "U29mdHdhcmVcXE1pY3Jvc29mdFxcV2luZG93c1xcQ3VycmVudFZlcnNpb25cXFJ1bg==" ascii //weight: 1
         $x_1_4 = "RXhwbG9yZXJTZXJ2aWNl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_BAE_2147946317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.BAE!MTB"
+        threat_id = "2147946317"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {38 91 00 00 00 00 06 09 08 ?? ?? 00 00 0a 13 04 12 04 ?? ?? 00 00 0a 2d 15 12 04 ?? ?? 00 00 0a 2d 0c 12 04 ?? ?? 00 00 0a 16 fe 01 2b 01 16 13 05 11 05 2c 02 2b 71 12 04 ?? ?? 00 00 0a 16 fe 03 13 06 11 06 2c 0e 07 12 04 ?? ?? 00 00 0a ?? ?? 00 00 0a 00 12 04 ?? ?? 00 00 0a 16 fe 03 13 07 11 07 2c 0e 07 12 04 ?? ?? 00 00 0a ?? ?? 00 00 0a 00 12 04 ?? ?? 00 00 0a 16 fe 03 13 08 11 08 2c 0e 07 12 04 ?? ?? 00 00 0a ?? ?? 00 00 0a 00 00 09 17 58 0d 09 06 ?? ?? 00 00 0a fe 04 13 09 11 09}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
