@@ -104,3 +104,26 @@ rule Trojan_Win32_Korplug_GZF_2147954224_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Korplug_AEPB_2147961729_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Korplug.AEPB!MTB"
+        threat_id = "2147961729"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Korplug"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f 42 c3 66 33 84 3f ?? ?? ?? ?? 66 89 44 7c 38 47 eb ?? f2 0f 10 05 ?? ?? ?? ?? 31 ?? f2 0f 11 84 24 74 02 00 00 39 ?? 74 10 0f b7 ?? ?? 6c 66 89 ?? ?? 7c 02 00 00}  //weight: 5, accuracy: Low
+        $x_2_2 = {c7 06 18 00 00 00 83 66 04 00 89 46 08 c7 46 0c 40 00 00 00 83 66 10 00 83 66 14 00 66 89 08 66 89 48 02 8d 8c 24 74 02 00 00 89 48 04}  //weight: 2, accuracy: High
+        $x_2_3 = {6a 00 6a 00 6a 60 6a 01 6a 03 68 80 00 00 00 6a 00 51 56 68 89 00 12 00 52 ff d0 35 34}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
