@@ -448,3 +448,24 @@ rule Trojan_MSIL_NanoBot_ATFA_2147928025_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NanoBot_ABW_2147961719_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoBot.ABW!MTB"
+        threat_id = "2147961719"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 06 8f 0b 00 00 01 25 47 03 06 03 6f ?? 00 00 0a 5d 6f ?? 00 00 0a d2 61 d2 52 00 06 17 58 0a 06 02 8e 69 fe 04 0b 07 2d d5}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
