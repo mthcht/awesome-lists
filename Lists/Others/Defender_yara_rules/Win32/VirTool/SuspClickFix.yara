@@ -140,3 +140,23 @@ rule VirTool_Win32_SuspClickFix_P_2147959459_0
         (2 of ($x*))
 }
 
+rule VirTool_Win32_SuspClickFix_M2_2147961780_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/SuspClickFix.M2"
+        threat_id = "2147961780"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {5c 00 66 00 69 00 6e 00 67 00 65 00 72 00 2e 00 65 00 78 00 65 00 20 00 [0-32] 40 00 [0-64] 2e 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
