@@ -3427,6 +3427,28 @@ rule Trojan_Win32_CoinMiner_KK_2147958067_0
         strings_accuracy = "Low"
     strings:
         $x_40_1 = "C:\\AppCache\\x86\\svchost.exe" ascii //weight: 40
+        $x_10_2 = {5c 41 70 70 43 61 63 68 65 5c 78 38 36 5c 73 76 63 68 6f 73 74 2e 65 78 65 20 2d 61 20 63 72 79 70 74 6f 6e 69 67 68 74 20 2d 6f 20 73 74 72 61 74 75 6d 2b 74 63 70 3a 2f 2f [0-25] 20 2d 75 20 34 35 39 61 35 35 4b 51 31 5a 74 63 7a 48 52 58 74 64 56 63 6d 54 5a 56 66 39 35 4e 37 71 53 46 57 65 57 51 71 35 62 76 50 75 41 32 58 4a 32 4e 42 67 6a 61 6b 45 66 6a 65 71 76 37 54 39 37 59 44 6d 67 69 33 4b 45 68 44 66 48 54 70 32 36 66 4d 75 72 44 6e 57 76 36 48 51 67 59 34 4d 66 20 2d 70 20 78 20 2d 2d 64 6f 6e 61 74 65 2d 6c 65 76 65 6c 3d 31 20 2d 42 20 2d 2d 6d 61 78 2d 63 70 75 2d 75 73 61 67 65 3d 31 30 30}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_CoinMiner_KK_2147958067_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinMiner.KK!MTB"
+        threat_id = "2147958067"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_40_1 = "C:\\AppCache\\x86\\svchost.exe" ascii //weight: 40
         $x_10_2 = {2f 43 20 43 3a 5c 41 70 70 43 61 63 68 65 5c 78 38 36 5c 73 76 63 68 6f 73 74 2e 65 78 65 20 2d 6f 20 73 74 72 61 74 75 6d 2b 74 63 70 3a 2f 2f [0-48] 20 2d 75 20 61 6e 6f 6e 77 6f 72 6b 65 72 2e 25 52 41 4e 44 4f 4d 25 20 2d 70 20 78}  //weight: 10, accuracy: Low
         $x_10_3 = {2f 43 20 43 3a 5c 41 70 70 43 61 63 68 65 5c 78 38 36 5c 73 76 63 68 6f 73 74 2e 65 78 65 20 2d 61 20 63 72 79 70 74 6f 6e 69 67 68 74 20 2d 6f 20 73 74 72 61 74 75 6d 2b 74 63 70 3a 2f 2f [0-48] 20 2d 75 20 34 32 4a 44 36 5a 4e 6b 4d 51 54 48 4d 44 74 53 4e 68 77 45 74 7a 63 41 70 55 74 6a 7a 4a 72 77 37 47 36 4a 55 68 75 71 38 48 6d 48 43 4c 51 5a 35 41 48 37 62 47 73 47 70 39 64 34 35 37 55 54 7a 5a 62 63 42 59 72 5a 78 79 54 51 71 46 59 33 74 67 4a 69 4a 6e 36 45 44 62 5a 65 57 51 39 20 2d 70 20 78}  //weight: 10, accuracy: Low
         $x_10_4 = {2d 61 20 6d 37 20 2d 6f 20 73 74 72 61 74 75 6d 2b 74 63 70 3a 2f 2f [0-48] 20 2d 75 20 43 4a 4a 6b 56 7a 6a 78 38 47 4e 74 58 34 7a 33 39 35 62 44 59 34 47 46 57 4c 36 45 68 64 66 38 6b 4a 2e 25 52 41 4e 44 4f 4d 25 20 2d 70 20 78}  //weight: 10, accuracy: Low
