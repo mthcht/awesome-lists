@@ -4188,6 +4188,29 @@ rule Trojan_MSIL_AsyncRAT_NB_2147902551_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {11 05 11 07 09 11 07 91 11 04 11 07 11 04 8e 69 5d 91 61 d2 9c 11 07 17 58 13 07 11 07 09 8e 69 32 de}  //weight: 4, accuracy: High
+        $x_3_2 = {13 0b 12 0b 28 ?? 00 00 0a 11 0c 6a 58 73 10 00 00 0a 11 0e 11 0e 8e 69 12 0f 28 ?? 00 00 06 26 11 04 17 58 13 04 11 07 7b 1a 00 00 04 1a 5f 1a 2e 26 11 07 7b 15 00 00 04 11 07 7b 18 00 00 04 13 0b 12 0b 28 ?? 00 00 0a 11 07 7b 1a 00 00 04 12 0d 28 ?? 00 00 06 26 11 0c 17 58 13 0c}  //weight: 3, accuracy: Low
+        $x_2_3 = "encrypted_exec" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_NB_2147902551_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.NB!MTB"
+        threat_id = "2147902551"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "AsyncRAT | Disbale Defender" ascii //weight: 1
