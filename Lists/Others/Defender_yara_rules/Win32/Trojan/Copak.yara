@@ -3633,6 +3633,27 @@ rule Trojan_Win32_Copak_BAK_2147961745_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 03 29 ff 09 f7 88 02 09 ff 42 89 ff 01 fe 09 ff 81 c3 02 00 00 00 89 f7 01 f6 39 cb 7e}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Copak_BAK_2147961745_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Copak.BAK!MTB"
+        threat_id = "2147961745"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Copak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {8d 34 32 21 f8 8b 36 bf ?? ?? ?? ?? 48 89 ff 81 e6 ff 00 00 00 89 f8 42 89 c0 01 f8 81 c7 01 00 00 00 81 fa f4 01 00 00 75}  //weight: 2, accuracy: Low

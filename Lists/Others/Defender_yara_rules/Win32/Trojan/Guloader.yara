@@ -8357,3 +8357,28 @@ rule Trojan_Win32_Guloader_SWGI_2147961599_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SQI_2147961803_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SQI!MTB"
+        threat_id = "2147961803"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "blomsterhandlere.pod" ascii //weight: 2
+        $x_1_2 = "Morforldres40.eng" ascii //weight: 1
+        $x_1_3 = "Honshu\\unmarring" ascii //weight: 1
+        $x_1_4 = "Encellede132\\Reentered53" ascii //weight: 1
+        $x_1_5 = "bachelorizes\\forudbestem" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
