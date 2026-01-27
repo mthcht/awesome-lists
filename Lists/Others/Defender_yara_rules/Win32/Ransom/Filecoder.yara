@@ -2983,3 +2983,30 @@ rule Ransom_Win32_Filecoder_LM_2147961321_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PGD_2147961754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PGD!MTB"
+        threat_id = "2147961754"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "do you want to kill me?" ascii //weight: 1
+        $x_1_2 = "Big.exe" ascii //weight: 1
+        $x_1_3 = "You are read the mail" ascii //weight: 1
+        $x_1_4 = "Hi, you won" ascii //weight: 1
+        $x_1_5 = "\\Software\\Microsoft\\Outlook" ascii //weight: 1
+        $x_1_6 = "Warn on Mapi Send" ascii //weight: 1
+        $x_1_7 = "War by [WarGame,#eof] ( **** ti amo anche se tu non mi ricambi )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

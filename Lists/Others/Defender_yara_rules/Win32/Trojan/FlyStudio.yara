@@ -786,3 +786,33 @@ rule Trojan_Win32_FlyStudio_NFA_2147927970_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FlyStudio_PGC_2147961753_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FlyStudio.PGC!MTB"
+        threat_id = "2147961753"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FlyStudio"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WScript.Shell" ascii //weight: 1
+        $x_1_2 = "copy.dat" ascii //weight: 1
+        $x_1_3 = "Script.ini" ascii //weight: 1
+        $x_1_4 = "League of Legends.exe" ascii //weight: 1
+        $x_1_5 = "180.101.75.58" ascii //weight: 1
+        $x_1_6 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_7 = "CreateShortcut" ascii //weight: 1
+        $x_1_8 = "\\XO.dll" ascii //weight: 1
+        $x_1_9 = "data.dat" ascii //weight: 1
+        $x_1_10 = {61 63 63 6f 75 6e 74 00 4c 6f 67 69 6e 00 70 61 73 73 77 6f 72 64}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
