@@ -13200,3 +13200,28 @@ rule Trojan_Win32_ClickFix_IJ_2147961460_0
         )
 }
 
+rule Trojan_Win32_ClickFix_GMXN_2147961746_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GMXN!MTB"
+        threat_id = "2147961746"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "env:programdata\\v.proj" wide //weight: 1
+        $x_1_3 = "msbuild.exe" wide //weight: 1
+        $x_1_4 = "2fa-bns.com" wide //weight: 1
+        $x_1_5 = "iwr" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
