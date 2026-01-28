@@ -1080,3 +1080,24 @@ rule Trojan_Win32_Tedy_KK_2147961790_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_LMH_2147961882_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.LMH!MTB"
+        threat_id = "2147961882"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 45 14 0f b6 04 06 8b 57 08 8d 3c 11 99 bb c8 01 00 00 f7 fb b8 ?? ?? ?? ?? 46 80 c2 36 30 17 f7 e1 c1 ea 03 8d 14 92 03 d2 8b c1 2b c2 f7 d8 1b c0 23 f0 8b 45 0c 41 3b c8}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

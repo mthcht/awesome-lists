@@ -505,6 +505,27 @@ rule Trojan_MSIL_Razy_BAA_2147955940_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 06 07 02 07 91 7e 01 00 00 04 07 7e 01 00 00 04 8e 69 5d 91 61 d2 9c 00 07 17 58 0b 07 02 8e 69 fe 04 0d 09 2d d9}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Razy_BAA_2147955940_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.BAA!MTB"
+        threat_id = "2147955940"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
