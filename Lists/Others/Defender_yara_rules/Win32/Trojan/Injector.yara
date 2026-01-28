@@ -2491,3 +2491,25 @@ rule Trojan_Win32_Injector_AHL_2147959011_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_AHB_2147961826_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.AHB!MTB"
+        threat_id = "2147961826"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 45 b8 03 45 a8 2d ?? ?? ?? ?? 2b c7 03 45 9c 31 03 83 c6 ?? 83 c3 ?? 3b 75 d0 72}  //weight: 30, accuracy: Low
+        $x_20_2 = {03 45 d4 2b c2 83 c0 ?? 89 45 ec ff 75 fc b9 ?? ?? ?? ?? ff 75 f8}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
