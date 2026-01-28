@@ -80,3 +80,29 @@ rule Trojan_Win64_BypassUAC_SX_2147956728_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BypassUAC_MK_2147961849_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.MK!MTB"
+        threat_id = "2147961849"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "85"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Injection successful:" ascii //weight: 10
+        $x_20_2 = "botkiller_scan" ascii //weight: 20
+        $x_15_3 = "Form Grabber started" ascii //weight: 15
+        $x_20_4 = "CommandLineEventConsumer.Name=\"BotnetConsumer_" ascii //weight: 20
+        $x_10_5 = "persistence" ascii //weight: 10
+        $x_10_6 = "Process hidden:" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

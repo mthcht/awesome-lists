@@ -253,3 +253,52 @@ rule Trojan_MSIL_SpyAgent_CAZ_2147948420_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyAgent_AMTB_2147961855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyAgent!AMTB"
+        threat_id = "2147961855"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyAgent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "https://verysypname.com/auth" ascii //weight: 1
+        $x_1_2 = "makePost" ascii //weight: 1
+        $x_1_3 = "GetUsersInfo" ascii //weight: 1
+        $x_1_4 = "ProcessStartInfo" ascii //weight: 1
+        $x_1_5 = "SELECT * FROM Win32_UserAccount WHERE Status='OK'" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SpyAgent_A_2147961856_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyAgent.A!AMTB"
+        threat_id = "2147961856"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "https://throwfree.com/auth" ascii //weight: 1
+        $x_1_2 = "makePost" ascii //weight: 1
+        $x_1_3 = "GetUsersInfo" ascii //weight: 1
+        $x_1_4 = "ProcessStartInfo" ascii //weight: 1
+        $x_1_5 = "SELECT * FROM Win32_UserAccount WHERE Status='OK'" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

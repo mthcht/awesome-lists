@@ -3518,3 +3518,35 @@ rule Trojan_Win64_Tedy_AHD_2147961827_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_MKG_2147961852_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MKG!MTB"
+        threat_id = "2147961852"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "schtasks /Delete /TN \"Acc\" /F >nul 2>&1" ascii //weight: 20
+        $x_15_2 = "schtasks /Create /TN \"Acc\" /SC ONLOGON /RU \"INTERACTIVE\" /RL HIGHEST /TR \"C:\\Acc.exe\" /F >nul 2>&1" ascii //weight: 15
+        $x_15_3 = "schtasks /Create /TN \"Acc\" /SC ONSTART /RU SYSTEM /RL HIGHEST /TR \"C:\\Acc.exe\" /F >nul 2>&1" ascii //weight: 15
+        $x_10_4 = "sc delete Acc >nul 2>&1" ascii //weight: 10
+        $x_10_5 = "sc delete acc >nul 2>&1" ascii //weight: 10
+        $x_5_6 = "1NVHDA001" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_15_*) and 2 of ($x_10_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_15_*) and 2 of ($x_10_*))) or
+            ((1 of ($x_20_*) and 2 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+
