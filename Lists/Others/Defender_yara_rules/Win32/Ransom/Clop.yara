@@ -242,6 +242,27 @@ rule Ransom_Win32_Clop_PC_2147750927_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {81 e9 00 f0 ff 00 89 4d ?? 8b 95 ?? ?? ?? ?? 33 55 ?? 89 95 ?? ?? ?? ?? 8b 45 ?? 05 00 a0 ba 0b 89 45 ?? c1 85 ?? ?? ?? ?? 09 8b 4d ?? 81 e9 ab 5a 05 00 89 4d ?? 8b 95 ?? ?? ?? ?? 33 55 ?? 89 95 ?? ?? ?? ?? 8b 45 c8 05 ab 5a 15 00 89 45 ?? 8b 8d ?? ?? ?? ?? 2b 4d ?? 89 8d ?? ?? ?? ?? 8b 55 ?? 81 ea 00 f0 ff 0f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Clop_PC_2147750927_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Clop.PC!MTB"
+        threat_id = "2147750927"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Clop"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
         strings_accuracy = "Low"
     strings:
