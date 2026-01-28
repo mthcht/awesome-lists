@@ -325,3 +325,33 @@ rule Trojan_Win64_Filecoder_AHE_2147961248_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_SXH_2147961819_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.SXH!MTB"
+        threat_id = "2147961819"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "43"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 b9 00 30 00 00 4c 8b c6 33 d2 48 8b cb ff 15 ?? ?? ?? ?? 4c 8b f0 48 85 c0 0f 84 ?? ?? ?? ?? 48 8d 45 ?? 48 89 44 24 ?? 4c 8b ce 4d 8b c7 49 8b d6 48 8b cb ff 15 ?? ?? ?? ?? ?? ?? ?? ?? 48 8d 45 ?? 48 89 44 24 ?? 41 b9 40 00 00 00 4c 8b c6 49 8b d6 48 8b cb ff 15}  //weight: 30, accuracy: Low
+        $x_10_2 = {3d 3d 3d 0c c7 44 24 ?? 11 13 21 30 c7 44 24 ?? 21 31 1f 31 c7 44 24 ?? 34 31 20 13 c7 44 24 ?? 31 2c 2b 2c c7 44 24 ?? 3d 13 21 2f}  //weight: 10, accuracy: Low
+        $x_10_3 = {85 c0 74 37 44 8b c8 4c 8d 85 40 01 00 00 48 8b 54 24 58 48 8d 4c 24 50 e8 ?? ?? ?? ?? 4c 8d 4d 90 41 b8 00 10 00 00 48 8d 95 40 01 00 00 48 8b cb ff 15 ?? ?? ?? ?? 85 c0 75 c2}  //weight: 10, accuracy: Low
+        $x_1_4 = "svchost.exe" ascii //weight: 1
+        $x_1_5 = "taskhostw.exe" ascii //weight: 1
+        $x_1_6 = "audiodg.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_10_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_30_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
