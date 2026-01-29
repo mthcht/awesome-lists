@@ -678,6 +678,30 @@ rule Trojan_Win64_Convagent_ARAX_2147945733_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_ARAX_2147945733_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.ARAX!MTB"
+        threat_id = "2147945733"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "schtasks /delete /tn \"WindowsUpdate\" /f >nul 2>&1" ascii //weight: 2
+        $x_2_2 = "-DisableRealtimeMonitoring" ascii //weight: 2
+        $x_2_3 = "-DisableScriptScanning" ascii //weight: 2
+        $x_2_4 = "-DisablePrivacyMode" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Convagent_MX_2147947636_0
 {
     meta:

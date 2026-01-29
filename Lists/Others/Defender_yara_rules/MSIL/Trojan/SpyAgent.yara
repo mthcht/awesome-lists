@@ -302,3 +302,25 @@ rule Trojan_MSIL_SpyAgent_A_2147961856_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyAgent_B_2147961936_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyAgent.B!AMTB"
+        threat_id = "2147961936"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "apikokoapi.com" ascii //weight: 3
+        $x_3_2 = "77.105.166.229" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

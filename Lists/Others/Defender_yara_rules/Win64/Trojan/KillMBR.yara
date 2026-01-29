@@ -165,3 +165,30 @@ rule Trojan_Win64_KillMBR_NM_2147917704_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillMBR_ARAC_2147961932_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillMBR.ARAC!MTB"
+        threat_id = "2147961932"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {ff 15 42 4b 00 00 25 ff 00 00 80 7d 09 ff c8 0d 00 ff ff ff ff c0 88 84 1c 90 00 00 00 48 ff c3 48 81 fb 00 10 00 00 75 d7}  //weight: 3, accuracy: High
+        $x_2_2 = "\\\\.\\PhysicalDrive" wide //weight: 2
+        $x_1_3 = "vssadmin delete shadows" ascii //weight: 1
+        $x_1_4 = "recoveryenabled No" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

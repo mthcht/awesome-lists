@@ -39,3 +39,31 @@ rule TrojanDropper_Win32_Zbot_2147637812_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win32_Zbot_ARA_2147961935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win32/Zbot.ARA!MTB"
+        threat_id = "2147961935"
+        type = "TrojanDropper"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {86 88 14 08 40 3b c7 72 f2}  //weight: 2, accuracy: High
+        $x_2_2 = {86 88 0c 30 40 3b c7 72 f2}  //weight: 2, accuracy: High
+        $x_3_3 = {80 f3 19 88 1c 32 42 3b d1 72 ef}  //weight: 3, accuracy: High
+        $x_3_4 = {80 34 18 19 40 3b c1 72 f7}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
