@@ -41,6 +41,34 @@ rule Ransom_Win64_BQTLock_PA_2147952432_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Temp\\bqt_payload.exe" ascii //weight: 5
+        $x_1_2 = "Temp\\bqt_wallpaper.bmp" ascii //weight: 1
+        $x_1_3 = "Temp\\bqt_screenshot" ascii //weight: 1
+        $x_1_4 = "BQTLock Payload started" ascii //weight: 1
+        $x_1_5 = "A new system has been infected!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Ransom_Win64_BQTLock_PA_2147952432_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/BQTLock.PA!MTB"
+        threat_id = "2147952432"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BQTLock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "9"
         strings_accuracy = "High"
     strings:

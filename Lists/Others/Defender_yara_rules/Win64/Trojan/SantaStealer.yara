@@ -76,3 +76,25 @@ rule Trojan_Win64_SantaStealer_PS_2147960283_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SantaStealer_ABSS_2147961962_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SantaStealer.ABSS!MTB"
+        threat_id = "2147961962"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SantaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {33 ca 45 33 c1 41 89 4c 9b ?? 48 8d 53 06 41 8b c0 24 ?? f6 d8 1b c9 81 e1 ?? ?? ?? ?? 41 33 8c 9b ?? ?? ?? ?? 48 8b da 41 d1 e8 41 33 c8 41 89 0c 93 48 81 fa}  //weight: 3, accuracy: Low
+        $x_2_2 = "powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -Command " ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
