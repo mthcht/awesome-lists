@@ -23,6 +23,7 @@ rule Trojan_Win32_MasqProcessLaunchLolbins_B_2147778155_0
         $n_10_8 = "schtasks.exe /delete" wide //weight: -10
         $n_10_9 = "\\iCloud\\" wide //weight: -10
         $n_10_10 = "iCloudMigrate.exe" wide //weight: -10
+        $n_10_11 = "LvfInstallService" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

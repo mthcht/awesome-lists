@@ -150,3 +150,47 @@ rule Trojan_Win64_XLoader_LMA_2147958468_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XLoader_AHB_2147961919_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XLoader.AHB!MTB"
+        threat_id = "2147961919"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {44 2b c2 41 03 c8 8b d1 89 50 ?? 8b 44 24 64 99 f7 f9 8d b0 ?? ?? ?? ?? e9}  //weight: 30, accuracy: Low
+        $x_20_2 = {8b c2 f7 ef 03 fa 8b d7 c1 ea ?? c1 ff ?? 03 fa 33 f9 e9}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_XLoader_AHC_2147961920_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XLoader.AHC!MTB"
+        threat_id = "2147961920"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {14 45 2b 50 10 41 8b c2 41 89 40 ?? 8b c7 99 41 f7 fa 8d b8 ?? ?? ?? ?? e9}  //weight: 30, accuracy: Low
+        $x_20_2 = {8b c2 41 f7 ee 44 8b f2 41 c1 ee ?? c1 fa ?? 44 03 f2 44 33 f1 e9}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
