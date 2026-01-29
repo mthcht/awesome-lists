@@ -3022,3 +3022,35 @@ rule Trojan_Win64_Zusy_AHP_2147960661_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_ABZS_2147961968_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ABZS!MTB"
+        threat_id = "2147961968"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DisableAntiSpyware" ascii //weight: 1
+        $x_1_2 = "DisableAntiVirus" ascii //weight: 1
+        $x_1_3 = "DisableTaskMgr" ascii //weight: 1
+        $x_1_4 = "Fuck you, asshole." ascii //weight: 1
+        $x_1_5 = "If you don't know what you're doing, delete the virus or click" ascii //weight: 1
+        $x_1_6 = "ill make a lot of noise and delete your boot and system files" ascii //weight: 1
+        $x_1_7 = "Please confirm your behavior. This is your last chance" ascii //weight: 1
+        $x_1_8 = "Hahaha, idiot, your computer was destroyed, right?" ascii //weight: 1
+        $x_1_9 = "This virus will cause you great trouble" ascii //weight: 1
+        $x_1_10 = "hahaha,Say goodbye to your computer" ascii //weight: 1
+        $x_1_11 = "DisableRegistryTools" ascii //weight: 1
+        $x_1_12 = "Release\\PC Simulator3.0.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
