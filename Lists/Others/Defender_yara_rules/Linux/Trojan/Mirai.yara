@@ -844,3 +844,76 @@ rule Trojan_Linux_Mirai_HAG_2147961245_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_HAK_2147961977_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAK!MTB"
+        threat_id = "2147961977"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "exec -a '%s' %s" ascii //weight: 10
+        $x_20_2 = "[+] Attack started" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_HAN_2147961978_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAN!MTB"
+        threat_id = "2147961978"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%hhu.%hhu.%hhu.%hhu" ascii //weight: 1
+        $x_10_2 = {00 65 78 70 6c 6f 69 74 00}  //weight: 10, accuracy: High
+        $x_20_3 = "rrrrrrss/bin/sh" ascii //weight: 20
+        $x_20_4 = {2e 6d 6f 6f 6f 2e 63 6f 6d 00 00 00 08 08 08 08 08 08 04 04 01 01 01 01 01 00 00 01 d0 43 de de d0 43 dc dc 72 72 72 72 72 72 73 73 2e}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Linux_Mirai_HAQ_2147961979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAQ!MTB"
+        threat_id = "2147961979"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "/root/cnc/bot/c.go" ascii //weight: 20
+        $x_2_2 = "runtime.main.func2" ascii //weight: 2
+        $x_3_3 = "goLookupIP" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

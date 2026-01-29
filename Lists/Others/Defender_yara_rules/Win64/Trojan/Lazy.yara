@@ -4689,6 +4689,28 @@ rule Trojan_Win64_Lazy_MKG_2147959466_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_RR_2147959743_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.RR!MTB"
+        threat_id = "2147959743"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 f0 35 20 03 00 00 89 f9 81 f1 58 02 00 00 09 c1 0f 84 [0-5] 89 f0 35 00 04 00 00 89 f9 81 f1 00 03 00 00 09 c1 0f 84 [0-5] 81 f6 80 04 00 00 81 f7 60 03 00 00 09 f7}  //weight: 1, accuracy: Low
+        $x_1_2 = {45 30 cb 45 0f b6 cb 49 01 f1 45 89 d3 41 c0 fb 07 45 30 d3 45 0f b6 d3 44 0f b6 5c 11 02 44 89 de 40 c0 fe 07 44 30 de 44 0f b6 de 4d 01 d3 4d 01 cb 44 0f b6 4c 11 03 45 89 ca 41 c0 fa 07 45 30 ca 41 0f b6 f2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_AHN_2147960121_0
 {
     meta:
@@ -4958,6 +4980,28 @@ rule Trojan_Win64_Lazy_LMP_2147961625_0
         $x_3_3 = "http://googleq.s3.ap-southeast-1.amazonaws.com/7217.zip" ascii //weight: 3
         $x_4_4 = "C:\\Users\\Public\\nDtrT5614565.dat" ascii //weight: 4
         $x_5_5 = "C:\\Users\\Public\\iApple\\iAppleSetup.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_SXK_2147961987_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXK!MTB"
+        threat_id = "2147961987"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {66 03 d2 66 8b 8c 45 ae fe ff ff 8b 45 8c 66 2b ca 66 03 [0-5] 66 89 8c 45 ae fe ff ff 8b 45 8c 40 89 45 8c 83 7d 8c}  //weight: 30, accuracy: Low
+        $x_10_2 = {8d 85 f0 fd ff ff c7 85 bc fd ff ff 00 00 00 00 89 85 c4 fd ff ff 8d 85 b4 fd ff ff c7 85 d0 fd ff ff 01 00 00 00 50 ff 15 ?? ?? ?? ?? 85 c0 75 2a}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

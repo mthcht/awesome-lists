@@ -710,3 +710,25 @@ rule Trojan_Win64_Midie_GVL_2147960423_0
         )
 }
 
+rule Trojan_Win64_Midie_SXD_2147961986_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXD!MTB"
+        threat_id = "2147961986"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {f3 0f 6f 04 10 48 8d 49 ?? 66 0f 6f ce 66 0f fc c8 f3 0f 7f 0c 10 f3 0f 6f 41 ?? 66 0f 6f ce 66 0f fc c6 f3 0f 7f 44 10 ?? f3 0f 6f 44 10 ?? 66 0f fc c8 f3 0f 7f 4c 10 ?? f3 0f 6f 44 10 ?? 66 0f 6f ce 66 0f fc c8 f3 0f 7f 4c 10}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 8d 55 c0 c7 45 c0 10 00 00 00 48 8b c8 48 8b d8 ff 15 ?? ?? ?? ?? 48 8b cb e8 ?? ?? ?? ?? 48 8d 4d d8 ff 15 ?? ?? ?? ?? 4c 8d 4d d8 4c 8d 45 c8 48 8d 55 d0 48 8d 0d ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 4c 8d 4d d8 4c 8d 45 c8 48 8d 55 d0}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
