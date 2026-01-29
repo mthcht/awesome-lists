@@ -1695,3 +1695,24 @@ rule Trojan_Win32_GCleaner_WBM_2147961810_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_RRM_2147961907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.RRM!MTB"
+        threat_id = "2147961907"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {6a 00 e8 2d 40 fa ff 6a 00 e8 26 40 fa ff 8b 55 b8 03 55 a8 81 ea 0d e0 00 00 2b d7 03 55 9c 2b d0 31 13 83 c6 04 83 c3 04 3b 75 d0 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

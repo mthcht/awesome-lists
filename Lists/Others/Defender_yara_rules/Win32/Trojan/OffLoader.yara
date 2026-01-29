@@ -6285,3 +6285,26 @@ rule Trojan_Win32_OffLoader_AHPB_2147961770_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ZQJ_2147961909_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZQJ!MTB"
+        threat_id = "2147961909"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://cobwebtable.xyz/" ascii //weight: 4
+        $x_4_2 = "://bonerailway.info/" ascii //weight: 4
+        $x_1_3 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

