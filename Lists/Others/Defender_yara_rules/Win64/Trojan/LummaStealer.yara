@@ -2618,3 +2618,26 @@ rule Trojan_Win64_LummaStealer_YBG_2147960337_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_AHB_2147961993_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.AHB!MTB"
+        threat_id = "2147961993"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f b6 04 10 48 8b 94 24 c0 00 00 00 32 04 0a 48 8b 94 24 00 01 00 00 88 04 0a 48 83 c1 ?? 48 8b 84 24 c8 00 00 00}  //weight: 30, accuracy: Low
+        $x_20_2 = "Downloads\\gg.txt" ascii //weight: 20
+        $x_10_3 = "antidetect\"\\s*:\\s*\\{([" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
