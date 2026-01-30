@@ -13225,3 +13225,27 @@ rule Trojan_Win32_ClickFix_GMXN_2147961746_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DJG_2147961996_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJG!MTB"
+        threat_id = "2147961996"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {43 00 72 00 65 00 61 00 74 00 65 00 4f 00 62 00 6a 00 65 00 63 00 74 00 28 00 [0-6] 57 00 69 00 6e 00 48 00 74 00 74 00 70 00 2e 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {2e 00 4f 00 70 00 65 00 6e 00 20 00 [0-6] 47 00 45 00 54 00}  //weight: 1, accuracy: Low
+        $x_1_3 = ".Send:Execute" wide //weight: 1
+        $x_1_4 = {2e 00 52 00 65 00 73 00 70 00 6f 00 6e 00 73 00 65 00 54 00 65 00 78 00 74 00 20 00 3e 00 20 00 [0-6] 25 00 74 00 65 00 6d 00 70 00 25 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
