@@ -160,3 +160,29 @@ rule VirTool_Win32_SuspClickFix_M2_2147961780_0
         (all of ($x*))
 }
 
+rule VirTool_Win32_SuspClickFix_M3_2147962014_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/SuspClickFix.M3"
+        threat_id = "2147962014"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 5, accuracy: High
+        $x_5_2 = " /c start /min " wide //weight: 5
+        $x_1_3 = {63 00 6d 00 64 00 [0-8] 20 00 2f 00 63 00 20 00 66 00 69 00 6e 00 67 00 65 00 72 00 [0-8] 20 00 [0-32] 40 00 [0-64] 2e 00 [0-32] 7c 00 [0-4] 43 00 3a 00 5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {63 00 6d 00 64 00 [0-8] 20 00 2f 00 63 00 20 00 66 00 69 00 6e 00 67 00 65 00 72 00 [0-8] 20 00 [0-32] 40 00 [0-64] 2e 00 [0-32] 7c 00 [0-4] 63 00 6d 00 64 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

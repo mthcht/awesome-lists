@@ -2893,6 +2893,28 @@ rule Trojan_Win64_Tedy_ARR_2147957105_2
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_16_1 = {48 2b c8 0f b6 44 0c 30 43 32 04 10 41 88 00 4c 3b ce}  //weight: 16, accuracy: High
+        $x_4_2 = "bypass\\bypass-agent_2\\workspace\\ssvagent_multi_xor_" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_ARR_2147957105_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ARR!MTB"
+        threat_id = "2147957105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {01 d0 0f be 51 ?? 01 d0 41 31 c0 4c 39 c9}  //weight: 2, accuracy: Low

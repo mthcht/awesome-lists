@@ -228,3 +228,29 @@ rule Trojan_MacOS_SuspAmosExec_G_2147961292_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_SuspAmosExec_J_2147962084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SuspAmosExec.J"
+        threat_id = "2147962084"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SuspAmosExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "osascript -e" wide //weight: 3
+        $x_3_2 = "run script" wide //weight: 3
+        $x_3_3 = "/api/v1/bot/joinsystem/" wide //weight: 3
+        $x_3_4 = "grep -" wide //weight: 3
+        $x_1_5 = {6f 00 70 00 65 00 6e 00 20 00 66 00 6f 00 72 00 20 00 61 00 63 00 63 00 65 00 73 00 73 00 [0-96] 77 00 72 00 69 00 74 00 65 00 20 00 70 00 65 00 72 00 6d 00 69 00 73 00 73 00 69 00 6f 00 6e 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {77 00 72 00 69 00 74 00 65 00 20 00 [0-64] 20 00 74 00 6f 00 20 00 [0-64] 20 00 73 00 74 00 61 00 72 00 74 00 69 00 6e 00 67 00 20 00 61 00 74 00 20 00 65 00 6f 00 66 00 [0-4] 20 00 26 00 20 00 72 00 65 00 74 00 75 00 72 00 6e 00 20 00 26 00 20 00 [0-4] 63 00 6c 00 6f 00 73 00 65 00 20 00 61 00 63 00 63 00 65 00 73 00 73 00}  //weight: 1, accuracy: Low
+        $x_1_7 = "curl -s" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4512,3 +4512,29 @@ rule Trojan_Win64_CryptInject_RR_2147959763_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_CL_2147962083_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.CL!MTB"
+        threat_id = "2147962083"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Release\\Injector.pdb" ascii //weight: 2
+        $x_2_2 = "Injected successfully" ascii //weight: 2
+        $x_2_3 = "Successfully injected!" ascii //weight: 2
+        $x_2_4 = "Can't write shellcode" ascii //weight: 2
+        $x_2_5 = "can't release shell code memory" ascii //weight: 2
+        $x_2_6 = "can't release mapping data memory" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

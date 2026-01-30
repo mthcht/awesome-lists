@@ -3054,3 +3054,26 @@ rule Trojan_Win64_Zusy_ABZS_2147961968_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_KKD_2147962098_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKD!MTB"
+        threat_id = "2147962098"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {80 f2 41 41 88 10 4d 8d 40 01 41 0f b6 10 84 d2}  //weight: 20, accuracy: High
+        $x_10_2 = {44 8b c8 41 c1 e9 1e 44 33 c8 41 69 c1 65 89 07 6c 41 03 c0 42 89 44 84 24 49 ff c0 49 81 f8 70 02 00 00 72 db}  //weight: 10, accuracy: High
+        $x_5_3 = "cmd.exe /c ping -n 2 127.0.0.1>nul" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
