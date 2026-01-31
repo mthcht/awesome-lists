@@ -1,12 +1,12 @@
-rule Ransom_Win64_GEHENNA_YBG_2147961862_0
+rule Ransom_Win64_Gehenna_YBG_2147961862_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win64/GEHENNA.YBG!MTB"
+        detection_name = "Ransom:Win64/Gehenna.YBG!MTB"
         threat_id = "2147961862"
         type = "Ransom"
         platform = "Win64: Windows 64-bit platform"
-        family = "GEHENNA"
+        family = "Gehenna"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"

@@ -4782,3 +4782,25 @@ rule Trojan_MSIL_Bladabindi_ZSH_2147961161_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_MCQ_2147962106_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.MCQ!MTB"
+        threat_id = "2147962106"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {79 00 70 00 6f [0-59] 74 00 6e 00 69 00 00 09 72 00 74 00 6e 00 45}  //weight: 1, accuracy: Low
+        $x_1_2 = "disiudsuiodsioudsuiouiodsiuodsiuodsiuodsou" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
