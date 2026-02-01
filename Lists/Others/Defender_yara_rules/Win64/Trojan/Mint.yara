@@ -140,3 +140,26 @@ rule Trojan_Win64_Mint_SXB_2147961200_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mint_AHC_2147962123_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mint.AHC!MTB"
+        threat_id = "2147962123"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 31 ef 41 c1 c7 ?? 43 8d 2c bf 81 c5 ?? ?? ?? ?? 45 0f b6 3c 1e 48 83 c3 ?? 45 84 ff 75}  //weight: 30, accuracy: Low
+        $x_20_2 = "Data transfer complete. [" ascii //weight: 20
+        $x_10_3 = "Executing scheduled tasks..." ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

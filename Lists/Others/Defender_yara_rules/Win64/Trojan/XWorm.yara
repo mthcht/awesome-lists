@@ -344,3 +344,25 @@ rule Trojan_Win64_XWorm_AMTB_2147960592_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_AHB_2147962124_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.AHB!MTB"
+        threat_id = "2147962124"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {4c 8d 0c 52 4d 01 c1 49 ff c0 4d 89 ca 49 d1 ea 4c 89 ca 48 31 c2 41 f6 c1 ?? 49 0f 44 d2 48 89 55 20 49 81 f8 ?? ?? ?? ?? 75}  //weight: 30, accuracy: Low
+        $x_20_2 = "PROTECT_V2_PAYLOAD" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
