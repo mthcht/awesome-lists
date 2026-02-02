@@ -1349,3 +1349,26 @@ rule Trojan_MSIL_Mardom_ABM_2147961177_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_SX_2147962136_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.SX!MTB"
+        threat_id = "2147962136"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {73 25 00 00 0a 0a 28 26 00 00 0a 0b 16 0c 2b 47 07 08 9a 6f 27 00 00 0a 6f 28 00 00 0a 6f 29 00 00 0a 0d 2b 1a 09 6f 2a 00 00 0a 13 04 06 11 04 6f 2b 00 00 0a 6f 2c 00 00 0a 6f 2d 00 00 0a 09 6f 2e 00 00 0a 2d de de 0a 09 2c 06 09 6f 2f 00 00 0a dc 08 17 58 0c 08 07 8e 69 32 b3 06 2a}  //weight: 20, accuracy: High
+        $x_10_2 = {73 75 00 00 06 0a 06 03 7d 45 00 00 04 02 7b 09 00 00 04 06 7b 45 00 00 04 6f 5d 00 00 0a 06 7b 45 00 00 04 06 fe 06 76 00 00 06 73 5e 00 00 0a 6f 5f 00 00 0a 26 2a}  //weight: 10, accuracy: High
+        $x_30_3 = "Athena" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

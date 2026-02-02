@@ -192,3 +192,25 @@ rule Trojan_Win64_KillMBR_ARAC_2147961932_0
         )
 }
 
+rule Trojan_Win64_KillMBR_SX_2147962138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillMBR.SX!MTB"
+        threat_id = "2147962138"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c1 e8 0b 41 0f af c8 c1 e9 08 0a c8 41 8b c0 c1 e8 09 22 c8 41 0f be c0 80 e1 12 0f be d1 b9 40 00 00 00 0f af d0 41 8b c0 c1 e8 04 2a c8 41 8b c0 41 ff c0 0a d1}  //weight: 20, accuracy: High
+        $x_10_2 = {45 03 c0 b8 01 01 00 00 41 f7 e0 41 8b c0 2b c2 d1 e8 03 c2 c1 e8 17 69 c0 ff ff ff 00 44 2b c0 45 89 01 3b cb 7c}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

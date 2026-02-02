@@ -5008,3 +5008,29 @@ rule Trojan_Win64_Lazy_AHB_2147962122_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SXL_2147962137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXL!MTB"
+        threat_id = "2147962137"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "44"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {ba 10 20 00 80 48 8b cb 48 89 7c 24 ?? 89 44 24 ?? ff 15 ?? ?? ?? ?? 48 89 7c 24 ?? 4c 8d 44 24 ?? 48 89 7c 24 ?? 41 b9 04 00 00 00 89 7c 24 ?? ba 48 20 00 80 48 8b cb 48 89 7c 24}  //weight: 30, accuracy: Low
+        $x_10_2 = "vally3dka" ascii //weight: 10
+        $x_1_3 = "Disasm" ascii //weight: 1
+        $x_1_4 = "360Tary.exe" ascii //weight: 1
+        $x_1_5 = "360Safe.exe" ascii //weight: 1
+        $x_1_6 = "360Tray.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
