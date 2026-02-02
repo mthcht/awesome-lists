@@ -103,12 +103,12 @@ rule _PseudoThreat_c000081d_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c0000859_0
+rule _PseudoThreat_c0000858_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000859"
-        threat_id = "3221227609"
+        detection_name = "!PseudoThreat_c0000858"
+        threat_id = "3221227608"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
@@ -137,12 +137,12 @@ rule _PseudoThreat_c0000859_0
         )
 }
 
-rule _PseudoThreat_c000085a_0
+rule _PseudoThreat_c0000859_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c000085a"
-        threat_id = "3221227610"
+        detection_name = "!PseudoThreat_c0000859"
+        threat_id = "3221227609"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
@@ -217,12 +217,12 @@ rule _PseudoThreat_c000085a_0
         )
 }
 
-rule _PseudoThreat_c00008aa_0
+rule _PseudoThreat_c00008a9_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008aa"
-        threat_id = "3221227690"
+        detection_name = "!PseudoThreat_c00008a9"
+        threat_id = "3221227689"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "402"
@@ -239,12 +239,12 @@ rule _PseudoThreat_c00008aa_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c00008ab_0
+rule _PseudoThreat_c00008aa_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008ab"
-        threat_id = "3221227691"
+        detection_name = "!PseudoThreat_c00008aa"
+        threat_id = "3221227690"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "9"
@@ -261,12 +261,12 @@ rule _PseudoThreat_c00008ab_0
         (3 of ($x*))
 }
 
-rule _PseudoThreat_c00008ad_0
+rule _PseudoThreat_c00008ac_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008ad"
-        threat_id = "3221227693"
+        detection_name = "!PseudoThreat_c00008ac"
+        threat_id = "3221227692"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "25"
@@ -295,12 +295,12 @@ rule _PseudoThreat_c00008ad_0
         )
 }
 
-rule _PseudoThreat_c00008ae_0
+rule _PseudoThreat_c00008ad_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008ae"
-        threat_id = "3221227694"
+        detection_name = "!PseudoThreat_c00008ad"
+        threat_id = "3221227693"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
@@ -319,12 +319,12 @@ rule _PseudoThreat_c00008ae_0
         (5 of ($x*))
 }
 
-rule _PseudoThreat_c00008af_0
+rule _PseudoThreat_c00008ae_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008af"
-        threat_id = "3221227695"
+        detection_name = "!PseudoThreat_c00008ae"
+        threat_id = "3221227694"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
@@ -374,12 +374,12 @@ rule _PseudoThreat_c00008af_0
         )
 }
 
-rule _PseudoThreat_c00008b1_0
+rule _PseudoThreat_c00008b0_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b1"
-        threat_id = "3221227697"
+        detection_name = "!PseudoThreat_c00008b0"
+        threat_id = "3221227696"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "68"
@@ -406,12 +406,12 @@ rule _PseudoThreat_c00008b1_0
         )
 }
 
-rule _PseudoThreat_c00008b2_0
+rule _PseudoThreat_c00008b1_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b2"
-        threat_id = "3221227698"
+        detection_name = "!PseudoThreat_c00008b1"
+        threat_id = "3221227697"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "215"
@@ -432,12 +432,12 @@ rule _PseudoThreat_c00008b2_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c00008b3_0
+rule _PseudoThreat_c00008b2_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b3"
-        threat_id = "3221227699"
+        detection_name = "!PseudoThreat_c00008b2"
+        threat_id = "3221227698"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
@@ -455,12 +455,12 @@ rule _PseudoThreat_c00008b3_0
         (6 of ($x*))
 }
 
-rule _PseudoThreat_c00008b4_0
+rule _PseudoThreat_c00008b3_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b4"
-        threat_id = "3221227700"
+        detection_name = "!PseudoThreat_c00008b3"
+        threat_id = "3221227699"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "31"
@@ -475,12 +475,12 @@ rule _PseudoThreat_c00008b4_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c00008b5_0
+rule _PseudoThreat_c00008b4_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b5"
-        threat_id = "3221227701"
+        detection_name = "!PseudoThreat_c00008b4"
+        threat_id = "3221227700"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "8"
@@ -499,12 +499,12 @@ rule _PseudoThreat_c00008b5_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c00008b6_0
+rule _PseudoThreat_c00008b5_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b6"
-        threat_id = "3221227702"
+        detection_name = "!PseudoThreat_c00008b5"
+        threat_id = "3221227701"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "41"
@@ -520,12 +520,12 @@ rule _PseudoThreat_c00008b6_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c00008b7_0
+rule _PseudoThreat_c00008b6_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b7"
-        threat_id = "3221227703"
+        detection_name = "!PseudoThreat_c00008b6"
+        threat_id = "3221227702"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
@@ -542,12 +542,12 @@ rule _PseudoThreat_c00008b7_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c00008b8_0
+rule _PseudoThreat_c00008b7_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b8"
-        threat_id = "3221227704"
+        detection_name = "!PseudoThreat_c00008b7"
+        threat_id = "3221227703"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "26"
@@ -571,12 +571,12 @@ rule _PseudoThreat_c00008b8_0
         )
 }
 
-rule _PseudoThreat_c00008b9_0
+rule _PseudoThreat_c00008b8_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00008b9"
-        threat_id = "3221227705"
+        detection_name = "!PseudoThreat_c00008b8"
+        threat_id = "3221227704"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "33"
@@ -597,12 +597,12 @@ rule _PseudoThreat_c00008b9_0
         )
 }
 
-rule _PseudoThreat_c0000979_0
+rule _PseudoThreat_c0000978_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000979"
-        threat_id = "3221227897"
+        detection_name = "!PseudoThreat_c0000978"
+        threat_id = "3221227896"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -614,12 +614,12 @@ rule _PseudoThreat_c0000979_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c000099e_0
+rule _PseudoThreat_c000099d_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c000099e"
-        threat_id = "3221227934"
+        detection_name = "!PseudoThreat_c000099d"
+        threat_id = "3221227933"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -631,12 +631,12 @@ rule _PseudoThreat_c000099e_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c0000a36_0
+rule _PseudoThreat_c0000a35_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000a36"
-        threat_id = "3221228086"
+        detection_name = "!PseudoThreat_c0000a35"
+        threat_id = "3221228085"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -648,12 +648,12 @@ rule _PseudoThreat_c0000a36_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c0000a54_0
+rule _PseudoThreat_c0000a53_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000a54"
-        threat_id = "3221228116"
+        detection_name = "!PseudoThreat_c0000a53"
+        threat_id = "3221228115"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
         threshold = "9"
@@ -675,12 +675,12 @@ rule _PseudoThreat_c0000a54_0
         (9 of ($x*))
 }
 
-rule _PseudoThreat_c0000a57_0
+rule _PseudoThreat_c0000a56_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000a57"
-        threat_id = "3221228119"
+        detection_name = "!PseudoThreat_c0000a56"
+        threat_id = "3221228118"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
