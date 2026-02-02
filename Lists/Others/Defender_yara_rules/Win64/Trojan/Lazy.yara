@@ -4735,6 +4735,31 @@ rule Trojan_Win64_Lazy_ABL_2147960249_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_ABL_2147960249_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ABL!MTB"
+        threat_id = "2147960249"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell.exe -WindowStyle Hidden -Command " ascii //weight: 1
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Sandboxie" ascii //weight: 1
+        $x_1_3 = "SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\Processes" ascii //weight: 1
+        $x_1_4 = "Installing persistence" ascii //weight: 1
+        $x_1_5 = "\\payload.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_AHO_2147960427_0
 {
     meta:

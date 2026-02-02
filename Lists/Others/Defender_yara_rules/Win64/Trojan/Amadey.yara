@@ -819,3 +819,25 @@ rule Trojan_Win64_Amadey_PGAM_2147960709_0
         (2 of ($x*))
 }
 
+rule Trojan_Win64_Amadey_AMY_2147962156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.AMY!MTB"
+        threat_id = "2147962156"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {31 c0 48 8d 7c 24 38 b9 1a 00 00 00 c7 44 24 30 70 00 00 00 f3 ab 48 8d 05 7b 8c 00 00 c7 44 24 60 05 00 00 00 48 8d 4c 24 30 48 89 44 24 40 48 8d 05 68 8c 00 00 48 89 44 24 48 48 8d 05 6b 8c 00 00 48 89 44 24 50 c7 44 24 34 40}  //weight: 2, accuracy: High
+        $x_1_2 = "StormDLL_Mutex123" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
