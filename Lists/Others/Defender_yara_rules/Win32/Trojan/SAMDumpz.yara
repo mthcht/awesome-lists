@@ -21,3 +21,70 @@ rule Trojan_Win32_SAMDumpz_DA_2147958173_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_SAMDumpz_DB_2147962217_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SAMDumpz.DB!MTB"
+        threat_id = "2147962217"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SAMDumpz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {63 00 6f 00 70 00 79 00 [0-5] 5c 00 5c 00 3f 00 5c 00 67 00 6c 00 6f 00 62 00 61 00 6c 00 72 00 6f 00 6f 00 74 00 5c 00 [0-150] 5c 00 68 00 61 00 72 00 64 00 64 00 69 00 73 00 6b 00 76 00 6f 00 6c 00 75 00 6d 00 65 00 73 00 68 00 61 00 64 00 6f 00 77 00 63 00 6f 00 70 00 79 00 [0-5] 5c 00 77 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6f 00 6e 00 66 00 69 00 67 00 5c 00 73 00 61 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {63 00 6f 00 70 00 79 00 [0-5] 5c 00 5c 00 3f 00 5c 00 67 00 6c 00 6f 00 62 00 61 00 6c 00 72 00 6f 00 6f 00 74 00 5c 00 [0-150] 5c 00 68 00 61 00 72 00 64 00 64 00 69 00 73 00 6b 00 76 00 6f 00 6c 00 75 00 6d 00 65 00 73 00 68 00 61 00 64 00 6f 00 77 00 63 00 6f 00 70 00 79 00 [0-5] 5c 00 77 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6f 00 6e 00 66 00 69 00 67 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {63 00 6f 00 70 00 79 00 [0-5] 5c 00 5c 00 3f 00 5c 00 67 00 6c 00 6f 00 62 00 61 00 6c 00 72 00 6f 00 6f 00 74 00 5c 00 [0-150] 5c 00 68 00 61 00 72 00 64 00 64 00 69 00 73 00 6b 00 76 00 6f 00 6c 00 75 00 6d 00 65 00 73 00 68 00 61 00 64 00 6f 00 77 00 63 00 6f 00 70 00 79 00 [0-5] 5c 00 77 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6f 00 6e 00 66 00 69 00 67 00 5c 00 73 00 65 00 63 00 75 00 72 00 69 00 74 00 79 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_SAMDumpz_DC_2147962218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SAMDumpz.DC!MTB"
+        threat_id = "2147962218"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SAMDumpz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {63 00 6f 00 70 00 79 00 [0-5] 5c 00 5c 00 3f 00 5c 00 67 00 6c 00 6f 00 62 00 61 00 6c 00 72 00 6f 00 6f 00 74 00 5c 00 [0-150] 5c 00 68 00 61 00 72 00 64 00 64 00 69 00 73 00 6b 00 76 00 6f 00 6c 00 75 00 6d 00 65 00 73 00 68 00 61 00 64 00 6f 00 77 00 63 00 6f 00 70 00 79 00 [0-5] 5c 00 77 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6f 00 6e 00 66 00 69 00 67 00 5c 00 73 00 61 00 6d 00 [0-5] 63 00 3a 00 5c 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 5c 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {63 00 6f 00 70 00 79 00 [0-5] 5c 00 5c 00 3f 00 5c 00 67 00 6c 00 6f 00 62 00 61 00 6c 00 72 00 6f 00 6f 00 74 00 5c 00 [0-150] 5c 00 68 00 61 00 72 00 64 00 64 00 69 00 73 00 6b 00 76 00 6f 00 6c 00 75 00 6d 00 65 00 73 00 68 00 61 00 64 00 6f 00 77 00 63 00 6f 00 70 00 79 00 [0-5] 5c 00 77 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6f 00 6e 00 66 00 69 00 67 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 [0-5] 63 00 3a 00 5c 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 5c 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {63 00 6f 00 70 00 79 00 [0-5] 5c 00 5c 00 3f 00 5c 00 67 00 6c 00 6f 00 62 00 61 00 6c 00 72 00 6f 00 6f 00 74 00 5c 00 [0-150] 5c 00 68 00 61 00 72 00 64 00 64 00 69 00 73 00 6b 00 76 00 6f 00 6c 00 75 00 6d 00 65 00 73 00 68 00 61 00 64 00 6f 00 77 00 63 00 6f 00 70 00 79 00 [0-5] 5c 00 77 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6f 00 6e 00 66 00 69 00 67 00 5c 00 73 00 65 00 63 00 75 00 72 00 69 00 74 00 79 00 [0-5] 63 00 3a 00 5c 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 5c 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_SAMDumpz_DD_2147962219_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SAMDumpz.DD!MTB"
+        threat_id = "2147962219"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SAMDumpz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {63 00 6f 00 70 00 79 00 [0-5] 5c 00 5c 00 3f 00 5c 00 67 00 6c 00 6f 00 62 00 61 00 6c 00 72 00 6f 00 6f 00 74 00 5c 00 [0-150] 5c 00 68 00 61 00 72 00 64 00 64 00 69 00 73 00 6b 00 76 00 6f 00 6c 00 75 00 6d 00 65 00 73 00 68 00 61 00 64 00 6f 00 77 00 63 00 6f 00 70 00 79 00 [0-5] 5c 00 77 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 6e 00 74 00 64 00 73 00 5c 00 [0-60] 63 00 3a 00 5c 00 70 00 72 00 6f 00 67 00 72 00 61 00 6d 00 64 00 61 00 74 00 61 00 5c 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

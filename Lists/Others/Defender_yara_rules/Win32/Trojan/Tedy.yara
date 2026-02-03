@@ -1023,6 +1023,27 @@ rule Trojan_Win32_Tedy_RR_2147960968_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {88 d6 80 c6 9f 80 fe 1a 0f 92 c6 43 40 c0 e6 05 30 d6 88 31 41 4f}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_RR_2147960968_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.RR!MTB"
+        threat_id = "2147960968"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -1035,7 +1056,7 @@ rule Trojan_Win32_Tedy_RR_2147960968_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_RR_2147960968_1
+rule Trojan_Win32_Tedy_RR_2147960968_2
 {
     meta:
         author = "defender2yara"

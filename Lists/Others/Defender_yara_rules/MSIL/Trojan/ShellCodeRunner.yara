@@ -212,3 +212,24 @@ rule Trojan_MSIL_ShellCodeRunner_GTF_2147955504_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellCodeRunner_GPAX_2147962216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellCodeRunner.GPAX!MTB"
+        threat_id = "2147962216"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {02 72 01 00 00 70 72 05 00 00 70 6f 05 00 00 0a 72 07 00 00 70 72 05 00 00 70 6f 05 00 00 0a 72 0b 00 00 70 72 05 00 00 70 6f 05 00 00 0a 72 0f 00 00 70 72 05 00 00 70 6f 05 00 00 0a 6f 06 00 00 0a}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

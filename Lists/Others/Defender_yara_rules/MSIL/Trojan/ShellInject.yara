@@ -72,3 +72,28 @@ rule Trojan_MSIL_ShellInject_DA_2147941682_0
         )
 }
 
+rule Trojan_MSIL_ShellInject_DE_2147962223_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellInject.DE!MTB"
+        threat_id = "2147962223"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "$979eb1c0-7f92-488a-ba4a-ea20f58b1c38" ascii //weight: 10
+        $x_1_2 = "/v3/upload?uuid={0}&index={1}&parent={2}&uploadKey={3}&hash={4}" ascii //weight: 1
+        $x_1_3 = "/delete/permanent" ascii //weight: 1
+        $x_1_4 = "{\"name\":\"" ascii //weight: 1
+        $x_1_5 = "EncryptedMessage" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
