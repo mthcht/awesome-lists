@@ -3061,3 +3061,23 @@ rule Trojan_Win32_Agent_WTK_2147847400_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Agent_AMTB_2147934373_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Agent!AMTB"
+        threat_id = "2147934373"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Agent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "curl -s -o nul -H \"X-Key: 92cDopp3jth499sda2nn4ajnsd\" -H \"X-User" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

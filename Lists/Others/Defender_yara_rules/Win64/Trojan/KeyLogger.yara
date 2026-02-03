@@ -139,3 +139,31 @@ rule Trojan_Win64_KeyLogger_MFF_2147960605_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KeyLogger_AR_2147962178_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.AR!AMTB"
+        threat_id = "2147962178"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {5c 44 6f 77 6e 6c 6f 61 64 73 5c 54 65 6c 65 67 72 61 6d 20 44 65 73 6b 74 6f 70 5c 42 65 61 73 74 [0-2] 5c 78 36 34 5c 52 65 6c 65 61 73 65 5c 42 65 61 73 74 2e 70 64 62}  //weight: 1, accuracy: Low
+        $x_1_2 = "\\AppData\\Roaming\\Exodus\\exodus.wallet" wide //weight: 1
+        $x_1_3 = "\\AppData\\Local\\filecount.txt" wide //weight: 1
+        $x_1_4 = "Launching applications and unsafe files: DISABLED." wide //weight: 1
+        $x_1_5 = "??0_Lockit@std@@QEAA@H@Z" ascii //weight: 1
+        $x_1_6 = "_lock_file" ascii //weight: 1
+        $x_1_7 = ".?AVCBeastApp@@" ascii //weight: 1
+        $x_1_8 = "KillTimer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

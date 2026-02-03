@@ -8382,3 +8382,32 @@ rule Trojan_Win32_Guloader_SQI_2147961803_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SJ_2147962188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SJ!MTB"
+        threat_id = "2147962188"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "punctures storstders micromho" ascii //weight: 1
+        $x_1_2 = "banedrifts\\vietcongers" ascii //weight: 1
+        $x_1_3 = "urtilstandes sporicide.exe" ascii //weight: 1
+        $x_1_4 = "tyndedes.gua" ascii //weight: 1
+        $x_1_5 = "squinty.mis" ascii //weight: 1
+        $x_1_6 = "skismatiker.unc" ascii //weight: 1
+        $x_1_7 = "fortrydelsesparagrafferne.ass" ascii //weight: 1
+        $x_1_8 = "interesseomraade.nip" ascii //weight: 1
+        $x_1_9 = "komikeres.pre" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -10,14 +10,17 @@ rule Trojan_Win32_Shodi_YBG_2147961688_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
+        threshold = "5"
         strings_accuracy = "High"
     strings:
         $x_1_1 = {56 59 e8 90 ff ff ff 83 f8 01 0f 8e be 00 00 00 56 59 e8 96 ff ff ff 83 f8 05 0f 84 90 00 00 00 56 59 e8 44 ff ff ff 83 f8 06 75 0c 56 59 e8 64 ff ff ff 83 f8 0a 74}  //weight: 1, accuracy: High
         $x_1_2 = "UsaShohdi" ascii //weight: 1
         $x_1_3 = "Even America is not a free world" ascii //weight: 1
+        $x_1_4 = "Iraq and what is happened there" ascii //weight: 1
+        $x_1_5 = "no one say anything about Israel" ascii //weight: 1
+        $x_1_6 = "Fuck you" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (5 of ($x*))
 }
 

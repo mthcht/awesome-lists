@@ -5059,3 +5059,50 @@ rule Trojan_Win64_Lazy_SXL_2147962137_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SJ_2147962170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SJ!MTB"
+        threat_id = "2147962170"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {ff c2 44 0f b6 d2 42 8a 84 14 f0 0a 00 00 41 00 c0 45 0f b6 c8 42 8a 94 0c f0 0a 00 00 42 88 94 14 f0 0a 00 00 42 88 84 0c f0 0a 00 00 42 02 84 14 f0 0a 00 00 0f b6 c0 8a 84 04 f0 0a 00 00 30 04 0e 48 ff c1 b0 c3 49 89 cb e9 bd fe ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_SXM_2147962181_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXM!MTB"
+        threat_id = "2147962181"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "56"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8b 45 18 4c 8d 4d 08 48 83 7d 20 0f 4c 0f 47 4d 08 48 8d 55 e8 48 83 7d 00 07 48 0f 47 55 e8 4c 89 64 24 30 89 44 24 28 89 44 24 20}  //weight: 10, accuracy: High
+        $x_20_2 = "cmd /c timeout /t 2 >nul & del /f /q " ascii //weight: 20
+        $x_20_3 = "cmd /c java -version >nul 2>&1" ascii //weight: 20
+        $x_2_4 = "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Expand-Archive -Path '" ascii //weight: 2
+        $x_2_5 = "\\a.txt" ascii //weight: 2
+        $x_2_6 = "powercat.dog" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

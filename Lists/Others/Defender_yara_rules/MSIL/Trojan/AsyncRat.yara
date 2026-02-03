@@ -4244,3 +4244,33 @@ rule Trojan_MSIL_AsyncRat_ARM_2147961393_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRat_AVPB_2147962198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRat.AVPB!MTB"
+        threat_id = "2147962198"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0a 06 03 6f ?? 00 00 0a 06 04 6f ?? 00 00 0a 06 18 6f ?? 00 00 0a 06 06 6f ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 0b 02 73 ?? 00 00 0a 0c 08 07 16 73 ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 09 11 04 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 05 de 2a}  //weight: 5, accuracy: Low
+        $x_5_2 = {0a 0a 06 03 28 ?? 00 00 0a 6f ?? 00 00 0a 06 04 28 ?? 00 00 0a 6f ?? 00 00 0a 06 18 6f ?? 00 00 0a 06 17 6f ?? 00 00 0a 06 6f ?? 00 00 0a 0b 02 28 ?? 00 00 0a 73 ?? 00 00 0a 0c 08 07 16 73 ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 09 11 04 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 05 de 2a}  //weight: 5, accuracy: Low
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+        $x_1_5 = "vboxservice" ascii //weight: 1
+        $x_1_6 = "vmtoolsd" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

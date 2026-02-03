@@ -47,3 +47,27 @@ rule TrojanDownloader_Win64_Lazy_E_2147926183_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Lazy_SX_2147962180_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Lazy.SX!MTB"
+        threat_id = "2147962180"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {3a 2f 2f 00 c7 45 ?? 34 35 2e 39 c7 45 ?? 33 2e 32 30 c7 45 ?? 2e 36 31 00 c7 44 24 ?? 3a 35 34 36}  //weight: 30, accuracy: Low
+        $x_10_2 = "schtasks /Create /TN \"MicrosoftEdgeUpdateTaskMachineCore\" /XML \"" ascii //weight: 10
+        $x_5_3 = "lodik_task.xml" ascii //weight: 5
+        $x_5_4 = "powershell.exe -WindowStyle Hidden -Command \"Start-Process '" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2575,3 +2575,47 @@ rule Trojan_Win64_ShellcodeRunner_AHI_2147961655_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_AHE_2147962202_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AHE!MTB"
+        threat_id = "2147962202"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "xor_data.dat" ascii //weight: 20
+        $x_30_2 = {4d 8d 04 39 49 8b ?? 49 [0-6] 49 [0-6] 49 [0-10] 48 ?? ?? ?? 48 ?? ?? ?? 48 2b c8 [0-3] 0f b6 [0-3] 43 32 04 ?? 41 88 00 4c 3b}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AHJ_2147962203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AHJ!MTB"
+        threat_id = "2147962203"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {73 73 76 61 67 65 6e 74 5f [0-10] 5f 78 6f 72}  //weight: 20, accuracy: Low
+        $x_30_2 = {8d 04 19 49 8b [0-8] f7 e1 ?? ?? ?? 48 ?? ?? ?? 48 [0-6] 48 ?? ?? 48 2b ?? 0f b6 44 ?? 30 43 32 04 ?? 41 88 00}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

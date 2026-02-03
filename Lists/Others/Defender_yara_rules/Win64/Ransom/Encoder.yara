@@ -236,3 +236,30 @@ rule Ransom_Win64_Encoder_PF_2147960382_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_NG_2147962193_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.NG!MTB"
+        threat_id = "2147962193"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 42 10 48 8b 0d ea 70 0f 00 8b 45 fc 48 63 d0 48 89 d0 48 c1 e0 02 48 01 d0 48 c1 e0 03 48 01 c8 49 89 c0 48 8b 55 d8 48 8b 45 c0 8b 4d f8 4d 89 c1 41 89 c8 48 89 c1 48 8b 05 b5 89 0f 00 ff d0}  //weight: 2, accuracy: High
+        $x_1_2 = "!!!_READ_ME_IMPORTANT_!!!.txt" ascii //weight: 1
+        $x_1_3 = "ALPHA_ENCRYPTED" ascii //weight: 1
+        $x_1_4 = "taskkill /f /im explorer.exe" ascii //weight: 1
+        $x_1_5 = "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableAntiSpyware" ascii //weight: 1
+        $x_1_6 = "DisableRegistryTools" ascii //weight: 1
+        $x_1_7 = "CYBER SECURITY LOCKDOWN" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
