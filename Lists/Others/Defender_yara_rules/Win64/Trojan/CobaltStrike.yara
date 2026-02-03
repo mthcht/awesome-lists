@@ -18345,3 +18345,33 @@ rule Trojan_Win64_CobaltStrike_AHE_2147960879_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_NTA_2147962263_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.NTA!MTB"
+        threat_id = "2147962263"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {5c 00 69 00 6e 00 63 00 65 00 70 00 74 00 6f 00 72 00 5c 00 69 00 6e 00 63 00 65 00 70 00 74 00 6f 00 72 00 5c 00 74 00 65 00 6d 00 70 00 5c 00 [0-80] 2e 00 70 00 64 00 62 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {5c 69 6e 63 65 70 74 6f 72 5c 69 6e 63 65 70 74 6f 72 5c 74 65 6d 70 5c [0-80] 2e 70 64 62}  //weight: 3, accuracy: Low
+        $x_1_3 = "[+] The shellcode finished with a return value: %08X" ascii //weight: 1
+        $x_1_4 = "[*] Allocating %d bytes of memory" ascii //weight: 1
+        $x_1_5 = "VirtualAlloc" ascii //weight: 1
+        $x_1_6 = "[*] Executing" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

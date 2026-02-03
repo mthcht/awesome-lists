@@ -423,3 +423,26 @@ rule Trojan_MSIL_DllInject_JB_2147895549_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DllInject_ARR_2147962266_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DllInject.ARR!MTB"
+        threat_id = "2147962266"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DllInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {07 17 58 0b 07 02 8e 32 e8 2b 03 17 13 04}  //weight: 6, accuracy: High
+        $x_4_2 = {12 07 1e 58 4a 16 33 03 16 2b 01 17 d2 2d 02 de 0e}  //weight: 4, accuracy: High
+        $x_10_3 = "R3nzSkin_Injector.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
