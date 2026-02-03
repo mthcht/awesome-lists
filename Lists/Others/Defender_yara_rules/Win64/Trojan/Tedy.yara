@@ -723,6 +723,30 @@ rule Trojan_Win64_Tedy_ATY_2147911512_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {39 c6 76 1a 69 d2 0d 66 19 00 81 c2 5f f3 6e 3c 89 d1 c1 e9 18 41 30 0c 04 48 ff c0}  //weight: 4, accuracy: High
+        $x_3_2 = {8a 14 06 89 d1 83 e2 0f c0 e9 04 41 8a 14 10 0f b6 c9 41 8a 0c 08 88 54 43 01 88 0c 43 48 ff c0 48 83 f8 20}  //weight: 3, accuracy: High
+        $x_2_3 = "loginusers.vdf" ascii //weight: 2
+        $x_1_4 = "del.bat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_ATY_2147911512_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ATY!MTB"
+        threat_id = "2147911512"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
@@ -733,7 +757,7 @@ rule Trojan_Win64_Tedy_ATY_2147911512_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_ATY_2147911512_4
+rule Trojan_Win64_Tedy_ATY_2147911512_5
 {
     meta:
         author = "defender2yara"

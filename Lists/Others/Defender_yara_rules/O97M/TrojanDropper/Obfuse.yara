@@ -1967,6 +1967,32 @@ rule TrojanDropper_O97M_Obfuse_SI_2147948761_0
         (all of ($x*))
 }
 
+rule TrojanDropper_O97M_Obfuse_SI_2147948761_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:O97M/Obfuse.SI!MTB"
+        threat_id = "2147948761"
+        type = "TrojanDropper"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Obfuse"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "If fso.FileExists(dfo & \"\\\" & prot & \"\\\" & dna) = True Then" ascii //weight: 1
+        $x_1_2 = "If (src(i) = &H4D) And (src(i + 1) = &H5A) And (src(i + 2) = &H78) Then" ascii //weight: 1
+        $x_1_3 = "file_handle = WiCrFl(StrPtr(file_path), GWq, FSRq, createFile_kas, CAq, FANq, ByVal 0&)" ascii //weight: 1
+        $x_1_4 = "If (src(offset_start) <> &H4D Or src(offset_start + 1) <> &H5A Or src(offset_start + 2) <> &H90 Or src(offset_start + 3) <> &H0 Or src(offset_start + 4) <> &H3) Then" ascii //weight: 1
+        $x_1_5 = "rg = VBA.StrReverse(\"exe.23rvsger\")" ascii //weight: 1
+        $x_1_6 = "fname = tf & \"\\\" & \"~\" & ThisWorkbook.Name & mp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule TrojanDropper_O97M_Obfuse_ABA_2147952409_0
 {
     meta:

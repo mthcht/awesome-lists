@@ -2674,3 +2674,25 @@ rule Trojan_Win32_Meterpreter_SZ_2147921608_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Meterpreter_SX_2147962306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Meterpreter.SX!MTB"
+        threat_id = "2147962306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8d 04 b3 8b d3 89 45 ?? 83 c4 0c 89 55 ?? 2b c2 c7 45 ?? 00 00 00 00 6a 40 8b f0 89 45 ?? 68 00 30 00 00 c1 fe 02 83 ec 0c}  //weight: 20, accuracy: Low
+        $x_10_2 = {f3 a5 8d 95 ?? ?? ?? ?? 0f 57 c0 8d 4d ?? 66 0f d6 45 ?? 2b ca 33 db 8b f1 89 5d ?? 33 c0 c1 fe 02 33 ff}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

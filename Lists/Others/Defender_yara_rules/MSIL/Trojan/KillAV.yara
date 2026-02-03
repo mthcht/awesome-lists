@@ -45,3 +45,25 @@ rule Trojan_MSIL_KillAV_H_2147958354_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillAV_MKA_2147962311_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillAV.MKA!MTB"
+        threat_id = "2147962311"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {28 1c 00 00 0a 72 4b 01 00 70 6f 1d 00 00 0a 0a 28 1c 00 00 0a 72 5d 01 00 70 6f 1d 00 00 0a 0b 28 1c 00 00 0a 06 6f 1e 00 00 0a 28 02 00 00 06 0c 08 7e 10 00 00 0a 28 11 00 00 0a 2c 05 16 13 06 de 77}  //weight: 20, accuracy: High
+        $x_15_2 = {18 72 1f 00 00 70 a2 11 08 19 72 31 00 00 70 a2 11 08 1a 72 43 00 00 70 a2 11 08 1b 72 53 00 00 70 a2 11 08 1c 72 6b 00 00 70 a2 11 08 1d 72 81 00 00 70}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

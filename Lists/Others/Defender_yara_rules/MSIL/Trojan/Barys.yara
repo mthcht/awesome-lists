@@ -1210,3 +1210,25 @@ rule Trojan_MSIL_Barys_PCP_2147960053_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_SX_2147962307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SX!MTB"
+        threat_id = "2147962307"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {05 00 70 13 04 de 60 06 16 9a 6f 46 00 00 0a 0b 06 8e 69 17 30 07 7e 47 00 00 0a 2b 03 06 17 9a 0c 02 7b 08 00 00 04 07 12 03 6f 48 00 00 0a 2c 0b}  //weight: 20, accuracy: High
+        $x_10_2 = "RAT Client" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

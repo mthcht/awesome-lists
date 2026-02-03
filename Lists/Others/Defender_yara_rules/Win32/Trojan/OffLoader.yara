@@ -6331,3 +6331,30 @@ rule Trojan_Win32_OffLoader_ZVJ_2147962131_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_PGON_2147962304_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGON!MTB"
+        threat_id = "2147962304"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {67 00 65 00 74 00 00 00 31 00 30 00 32 00 33 00 [0-255] 2e 00 65 00 78 00 65 00 [0-31] 2e 00 65 00 78 00 65 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {67 65 74 00 00 31 30 32 33 [0-255] 2e 65 78 65 [0-31] 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

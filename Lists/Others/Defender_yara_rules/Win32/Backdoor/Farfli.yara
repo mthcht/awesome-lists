@@ -2390,3 +2390,24 @@ rule Backdoor_Win32_Farfli_GNK_2147917815_0
         (all of ($x*))
 }
 
+rule Backdoor_Win32_Farfli_MK_2147962309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/Farfli.MK!MTB"
+        threat_id = "2147962309"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_35_1 = {0f b7 44 51 08 8b e8 81 e5 ?? ?? 00 00 81 fd ?? ?? 00 00 75 10 25 ff 0f 00 00 03 01 8b ee 2b 6b ?? 03 c6 01 28}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -562,6 +562,27 @@ rule Backdoor_MSIL_AsyncRAT_MK_2147840303_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {28 13 00 00 06 00 28 06 00 00 06 17 73 2f 00 00 0a 16 14 fe 06 1d 00 00 06 73 30 00 00 0a 73 31 00 00 0a 28 09 00 00 06 00 28 08 00 00 06 28 06 00 00 06 6f 32 00 00 0a}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_MSIL_AsyncRAT_MK_2147840303_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/AsyncRAT.MK!MTB"
+        threat_id = "2147840303"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:

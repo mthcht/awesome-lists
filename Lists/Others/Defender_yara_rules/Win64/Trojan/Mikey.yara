@@ -1796,3 +1796,26 @@ rule Trojan_Win64_Mikey_PAA_2147962093_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_SXE_2147962305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.SXE!MTB"
+        threat_id = "2147962305"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b c1 48 c1 e8 06 83 e0 0f 0f b6 44 04 40 88 05 ?? ?? ?? ?? 8b c1 48 c1 e8 08 83 e0 0f}  //weight: 20, accuracy: Low
+        $x_10_2 = "/static/bootstrap.css" ascii //weight: 10
+        $x_10_3 = "/assets/jquery-3.6.0.min.js" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

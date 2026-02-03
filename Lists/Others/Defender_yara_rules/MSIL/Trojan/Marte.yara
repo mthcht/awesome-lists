@@ -45,3 +45,25 @@ rule Trojan_MSIL_Marte_AB_2147951421_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Marte_MK_2147962308_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marte.MK!MTB"
+        threat_id = "2147962308"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marte"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {25 19 63 0a 1d 5f 2c 04 06 17 58 0a 06 8d 8d 00 00 01 0b 06 19 5f 0c 08 2d 02 1a 0c 16 0d 02 7b 01 00 00 04}  //weight: 25, accuracy: High
+        $x_10_2 = {06 17 59 8f 8b 00 00 01 25 4b 09 60 54 15 1f 20 07 59 1f 1f 5f 64 0d 02 7b 02 00 00 04}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

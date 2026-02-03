@@ -2619,3 +2619,26 @@ rule Trojan_Win64_ShellcodeRunner_AHJ_2147962203_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_GPP_2147962296_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.GPP!MTB"
+        threat_id = "2147962296"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "//thegioiphongthuythanhlien.com/wp-content/plugins" ascii //weight: 1
+        $x_1_2 = "\\shellcode64\\x64\\Release\\shellcode64.pdb" ascii //weight: 1
+        $x_1_3 = "C:\\INTERNAL\\REMOTE.EXE" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -21,3 +21,25 @@ rule Trojan_Win64_Aotera_KK_2147962258_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Aotera_GVF_2147962303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Aotera.GVF!MTB"
+        threat_id = "2147962303"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Aotera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f 4e d0 8b c1 f7 d8 44 8b c0 41 83 c8 01 45 0f bd d0 f3 45 0f bd c0 41 83 f0 1f f7 05 8a 5e 11 00 00 10 00 00 45 0f 45 d0 45 8b c2 49 c1 e0 03 4c 8d 15 80 7b 0d 00 4d 03 c2 49 03 00 48 c1 f8 20 3b d0 0f 4d c2 03 c6 41 3b 41 08 0f 8f f9 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = "gSXHUr3OcH98GNkXZyjGlRa" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
