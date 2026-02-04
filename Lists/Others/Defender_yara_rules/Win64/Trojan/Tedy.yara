@@ -3661,3 +3661,29 @@ rule Trojan_Win64_Tedy_GHT_2147962214_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LMA_2147962359_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LMA!MTB"
+        threat_id = "2147962359"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {49 8b 0f 48 ff c6 49 8b 47 08 48 2b c1 48 c1 f8 03 48 0f af c2 48 3b f0}  //weight: 10, accuracy: High
+        $x_1_2 = "Your computer is corrupted. Click OK to continue..." ascii //weight: 1
+        $x_2_3 = "HAPPY NEW YEAR 2026... or is it" ascii //weight: 2
+        $x_3_4 = "Virus detected. Formatting C:\\ in progress..." ascii //weight: 3
+        $x_4_5 = "Your soul belongs to us now. OK" ascii //weight: 4
+        $x_5_6 = "Your PC is dying. OK = accept fate" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

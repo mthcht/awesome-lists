@@ -2766,3 +2766,29 @@ rule Trojan_Win32_Lazy_ARL_2147961506_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_LMR_2147962361_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.LMR!MTB"
+        threat_id = "2147962361"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8b 4d 10 02 c2 0f b6 c0 8a 84 05 00 ff ff ff 32 04 39 88 07 47 83 6d 14 01}  //weight: 10, accuracy: High
+        $x_1_2 = "SELECT * FROM Win32_PingStatus Where Address =" ascii //weight: 1
+        $x_2_3 = "c:\\888.exe" ascii //weight: 2
+        $x_3_4 = "myChromePath:%s not found,start GetInstallPathAnsiFromReg" ascii //weight: 3
+        $x_5_5 = "StartHiddenDesktop:Host:%s Port:%d Connid:%d DesktopName:%s" ascii //weight: 5
+        $x_6_6 = "[chrome.txt] scucessful" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

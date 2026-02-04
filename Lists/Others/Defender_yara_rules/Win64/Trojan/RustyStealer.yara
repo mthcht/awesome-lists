@@ -239,3 +239,33 @@ rule Trojan_Win64_RustyStealer_NSA_2147961155_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_A_2147962353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.A!AMTB"
+        threat_id = "2147962353"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "src\\modules\\persist.rs" ascii //weight: 2
+        $x_2_2 = "src\\modules\\interface.rs" ascii //weight: 2
+        $x_1_3 = "src\\modules\\detect_av.rsh" ascii //weight: 1
+        $x_1_4 = "No detections found" ascii //weight: 1
+        $x_1_5 = "stable-x86_64-pc-windows-msvc" ascii //weight: 1
+        $x_1_6 = "ESETESET SecurityESET\\ESET SecurityESET\\ESET Endpoint Security" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

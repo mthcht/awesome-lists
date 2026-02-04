@@ -62,6 +62,31 @@ rule Trojan_MSIL_Cryptor_LMB_2147961122_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Release\\cryptor.pdb" ascii //weight: 20
+        $x_10_2 = "ExecuteShellcode" ascii //weight: 10
+        $x_5_3 = "[+] Decrypting %u bytes" ascii //weight: 5
+        $x_3_4 = "[+] Executing Donut Shellcode..." ascii //weight: 3
+        $x_2_5 = "[+] Successfully decrypted %u bytes" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Cryptor_LMB_2147961122_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cryptor.LMB!MTB"
+        threat_id = "2147961122"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:

@@ -1081,3 +1081,25 @@ rule Trojan_Win32_Midie_AMI_2147961550_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Midie_LMD_2147962357_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.LMD!MTB"
+        threat_id = "2147962357"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 85 c4 fd ff ff b8 05 40 00 80 89 95 c8 fd ff ff 8d 79 02 66 8b 31 83 c1 02 66 85 f6 75 ?? 2b cf d1 f9 83 f9 40 0f ?? ?? ?? ?? ?? b9 24 00 00 00 8d 85 d0 fd ff ff}  //weight: 20, accuracy: Low
+        $x_10_2 = {88 10 40 49 75 ?? c7 85 d0 fd ff ff 24 00 00 00 c7 85 e4 fd ff ff 04 00 00 00 33 c0}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

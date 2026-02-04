@@ -5883,3 +5883,29 @@ rule Trojan_Win32_Farfli_SXF_2147961338_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_LMD_2147962364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.LMD!MTB"
+        threat_id = "2147962364"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "33"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {0f bf 44 24 04 d1 c2 c1 f8 3e 42 89 04 04 66 c1 e0 0e 58}  //weight: 10, accuracy: High
+        $x_2_2 = "music.tq.jinchanghr.vip.ios" ascii //weight: 2
+        $x_3_3 = "upload/t_sound_recommendEffectBase/3461407.png" ascii //weight: 3
+        $x_5_4 = "ss2/audioeffectIco/listIcon/RecommendIcon13.png" ascii //weight: 5
+        $x_6_5 = "irs\\36af30f920f0e3f00232ff24b1b7847b2c006198.enc" ascii //weight: 6
+        $x_7_6 = "clntupate/ss2/audioeffectIco/listIcon" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

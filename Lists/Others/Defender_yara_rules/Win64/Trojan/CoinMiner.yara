@@ -1044,3 +1044,30 @@ rule Trojan_Win64_CoinMiner_CBK_2147958286_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_LM_2147962362_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.LM!MTB"
+        threat_id = "2147962362"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "((Get-MpPreference).ExclusionPath -contains 'C:\\Windows" ascii //weight: 1
+        $x_2_2 = "((Get-MpPreference).ExclusionExtension -contains 'exe')" ascii //weight: 2
+        $x_3_3 = "{70393261-50D1-48FC-8282-192AA771E808}.txt" ascii //weight: 3
+        $x_4_4 = "System Security Purview" ascii //weight: 4
+        $x_5_5 = "miner_log.txt" ascii //weight: 5
+        $x_6_6 = "secretkey123" ascii //weight: 6
+        $x_7_7 = "WALLET" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

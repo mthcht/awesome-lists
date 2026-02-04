@@ -153,3 +153,35 @@ rule Ransom_MSIL_LockScreen_H_2147713071_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_LockScreen_A_2147962352_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/LockScreen.A!AMTB"
+        threat_id = "2147962352"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "YOU ARE HACKED!" ascii //weight: 1
+        $x_1_2 = "Your files are encrypted" ascii //weight: 1
+        $x_1_3 = "taskkill.exe /im Explorer.exe /f" ascii //weight: 1
+        $x_1_4 = "Cryptor [Runtime]" ascii //weight: 1
+        $x_1_5 = {53 00 65 00 72 00 76 00 69 00 63 00 65 00 20 00 [0-80] 20 00 73 00 74 00 61 00 72 00 74 00 65 00 64 00 2e 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {53 65 72 76 69 63 65 20 [0-80] 20 73 74 61 72 74 65 64 2e}  //weight: 1, accuracy: Low
+        $x_2_7 = "& del info-Locker.txt /q /s" ascii //weight: 2
+        $x_2_8 = "Memory section at address 0x0424* is locked" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
