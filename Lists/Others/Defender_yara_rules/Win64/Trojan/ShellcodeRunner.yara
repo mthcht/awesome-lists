@@ -1723,29 +1723,6 @@ rule Trojan_Win64_ShellcodeRunner_HF_2147954627_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ShellcodeRunner_NPD_2147954695_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/ShellcodeRunner.NPD!MTB"
-        threat_id = "2147954695"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "ShellcodeRunner"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {48 b8 ff c9 89 4c 24 1c 0f b6}  //weight: 2, accuracy: High
-        $x_1_2 = {48 b8 29 c8 c1 f8 05 8d 04 02}  //weight: 1, accuracy: High
-        $x_1_3 = {48 b8 4f 01 d3 e0 48 8b 4c 24}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_ShellcodeRunner_HB_2147954728_0
 {
     meta:
@@ -2637,6 +2614,28 @@ rule Trojan_Win64_ShellcodeRunner_GPP_2147962296_0
         $x_1_1 = "//thegioiphongthuythanhlien.com/wp-content/plugins" ascii //weight: 1
         $x_1_2 = "\\shellcode64\\x64\\Release\\shellcode64.pdb" ascii //weight: 1
         $x_1_3 = "C:\\INTERNAL\\REMOTE.EXE" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_NTB_2147962391_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.NTB!MTB"
+        threat_id = "2147962391"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 b8 3f b5 31 5b c4 f3 68 17 48 89 87 e7 ae 03 00 48 b8 91 bf 74 0f 42 5b bb 36 48 89 87 ef ae 03 00}  //weight: 2, accuracy: High
+        $x_1_2 = {48 b8 21 c7 a1 7a 6d f2 16 dc 48 89 87 1f af 03 00 48 b8 0f 01 bb a6 91 48 47 cc 48 89 87 27 af 03 00 48 b8 e2 95 3f 8e e5 40 a5 99}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

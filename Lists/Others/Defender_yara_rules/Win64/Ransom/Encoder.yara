@@ -236,6 +236,34 @@ rule Ransom_Win64_Encoder_PF_2147960382_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_PF_2147960382_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.PF!MTB"
+        threat_id = "2147960382"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "### TH3 GR33N BL00D GR0UP  ###" ascii //weight: 3
+        $x_1_2 = "ALL YOUR FILES HAVE BEEN ENCRYPTED!" ascii //weight: 1
+        $x_1_3 = {46 69 6c 65 73 20 65 6e 63 72 79 70 74 65 64 3a 20 [0-16] 20 65 78 74 65 6e 73 69 6f 6e}  //weight: 1, accuracy: Low
+        $x_1_4 = "YOUR DATA IS NOW HELD FOR RANSOM" ascii //weight: 1
+        $x_1_5 = "your network have been encrypted and penetrated by THE-GREEN-BLOOD-GROUP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Ransom_Win64_Encoder_NG_2147962193_0
 {
     meta:
