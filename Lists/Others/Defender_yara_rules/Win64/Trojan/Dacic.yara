@@ -693,3 +693,26 @@ rule Trojan_Win64_Dacic_SXA_2147961237_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_AHC_2147962336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.AHC!MTB"
+        threat_id = "2147962336"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "DLL Proxy Error" ascii //weight: 20
+        $x_30_2 = "Failed to get address of curl_easy_setopt" ascii //weight: 30
+        $x_50_3 = {48 89 55 e0 48 8b 00 48 89 45 e8 48 8b 4d e8 8b 55 18 48 8b 45 10 4c 8b 4d f0 49 89 c8 48 89 c1 41 ff d1}  //weight: 50, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

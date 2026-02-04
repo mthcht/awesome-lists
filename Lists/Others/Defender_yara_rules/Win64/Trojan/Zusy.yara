@@ -3077,3 +3077,25 @@ rule Trojan_Win64_Zusy_KKD_2147962098_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_AHB_2147962335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHB!MTB"
+        threat_id = "2147962335"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f 57 c8 f3 0f 7f 4c 0f ?? f3 0f 6f 44 0f ?? 66 0f 6f ca 0f 57 c8 f3 0f 7f 4c 0f ?? 48 83 c1 ?? 48 3b c8 72}  //weight: 30, accuracy: Low
+        $x_20_2 = "LoadRealLibcurl: SUCCESS - DLL loaded" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

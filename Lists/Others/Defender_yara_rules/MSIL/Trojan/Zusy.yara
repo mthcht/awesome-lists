@@ -4530,3 +4530,31 @@ rule Trojan_MSIL_Zusy_MCQ_2147962105_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_XN_2147962338_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.XN!MTB"
+        threat_id = "2147962338"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {72 2b 02 00 70 0a 06 17 8d ?? 00 00 01 0c 08 16 1f 2c 9d 08 6f ?? 00 00 0a 7e ?? 00 00 04 2d 11 14 fe 06 18 00 00 06}  //weight: 2, accuracy: Low
+        $x_2_2 = "Global\\MasonServiceInstance" ascii //weight: 2
+        $x_1_3 = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\Windows Error Reporting" ascii //weight: 1
+        $x_1_4 = "WER_FAULT_REPORTING" ascii //weight: 1
+        $x_1_5 = "DisableWer" ascii //weight: 1
+        $x_1_6 = "LoadShellcode" ascii //weight: 1
+        $x_1_7 = "VirtualAlloc" ascii //weight: 1
+        $x_1_8 = "CreateThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
