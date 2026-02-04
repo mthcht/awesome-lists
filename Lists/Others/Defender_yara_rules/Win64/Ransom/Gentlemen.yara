@@ -22,3 +22,28 @@ rule Ransom_Win64_Gentlemen_A_2147954278_0
         (4 of ($x*))
 }
 
+rule Ransom_Win64_Gentlemen_B_2147962326_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Gentlemen.B"
+        threat_id = "2147962326"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Gentlemen"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "README-GENTLEMEN.txt" ascii //weight: 1
+        $x_1_2 = "Error: --shares and --system cannot be used together." ascii //weight: 1
+        $x_1_3 = "Lateral movement: domain/user:password (optional)" ascii //weight: 1
+        $x_1_4 = "[+] Encryption started. Going background..." ascii //weight: 1
+        $x_1_5 = "gentlemen.bmp" ascii //weight: 1
+        $x_1_6 = "gentlemen_system" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
