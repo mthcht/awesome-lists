@@ -922,3 +922,28 @@ rule Ransom_MSIL_FileCryptor_PAHF_2147961620_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCryptor_AYD_2147962412_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.AYD!MTB"
+        threat_id = "2147962412"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {11 06 6f 34 00 00 0a 13 07 73 35 00 00 0a 13 08 00 11 08 11 07 17 73 36 00 00 0a 13 09 00 11 09 07 16 07 8e 69 6f 37 00 00 0a 00 11 09 6f 38 00 00 0a 00 00 de 0d 11 09 2c 08 11 09 6f 15 00 00 0a 00 dc 11 08 6f 39 00 00 0a 0c 00 de 0d}  //weight: 7, accuracy: High
+        $x_2_2 = "$bc1362c9-20bc-4a29-970a-852dbe700dcd" ascii //weight: 2
+        $x_1_3 = "Ransom.pdb" ascii //weight: 1
+        $x_1_4 = "ALL FILES ENCRYPTED MOTHER FUCKER!" wide //weight: 1
+        $x_1_5 = "EVERY DIRECTORY EVERY FILE .encrypted" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -173,3 +173,26 @@ rule Ransom_Win64_Lockbit_YBG_2147961404_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Lockbit_G_2147962413_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Lockbit.G!MTB"
+        threat_id = "2147962413"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your data are stolen and encrypted" ascii //weight: 1
+        $x_1_2 = "LockBit 5.0 the world's fastest ransomware" ascii //weight: 1
+        $x_1_3 = "//twitter.com/hashtag/lockbit" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

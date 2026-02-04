@@ -24,3 +24,26 @@ rule Ransom_Win64_DelShad_SG_2147894742_0
         )
 }
 
+rule Ransom_Win64_DelShad_PA_2147962411_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/DelShad.PA!MTB"
+        threat_id = "2147962411"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DelShad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "System integrity destroyed" ascii //weight: 1
+        $x_1_2 = "taskkill /f /im explorer.exe" ascii //weight: 1
+        $x_3_3 = "cmd /c vssadmin delete shadows /all /quiet" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
