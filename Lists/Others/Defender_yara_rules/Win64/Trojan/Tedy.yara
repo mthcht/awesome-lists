@@ -2896,6 +2896,28 @@ rule Trojan_Win64_Tedy_ARR_2147957105_1
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_15_1 = {8b c7 ff c7 48 8d 49 ?? 83 e0 07 0f b6 04 10 30 41 ff 41 3b f9 72}  //weight: 15, accuracy: Low
+        $x_5_2 = "3AD05575-8857-4850-9277-11B85BDB8E09" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_ARR_2147957105_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ARR!MTB"
+        threat_id = "2147957105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {4c 0f af f2 49 31 de c4 c3 fb f0 c5 ?? 48 0f af c2 4c 01 f7}  //weight: 10, accuracy: Low
         $x_2_2 = {41 8b 44 24 ?? 89 df 48 01 f7 83 c3}  //weight: 2, accuracy: Low
         $x_8_3 = {41 0f b7 4d 14 48 8d 04 0f 8b 54 0f ?? 39 da 77}  //weight: 8, accuracy: Low
@@ -2904,7 +2926,7 @@ rule Trojan_Win64_Tedy_ARR_2147957105_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_ARR_2147957105_2
+rule Trojan_Win64_Tedy_ARR_2147957105_3
 {
     meta:
         author = "defender2yara"
@@ -2926,7 +2948,7 @@ rule Trojan_Win64_Tedy_ARR_2147957105_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_ARR_2147957105_3
+rule Trojan_Win64_Tedy_ARR_2147957105_4
 {
     meta:
         author = "defender2yara"
@@ -3682,6 +3704,96 @@ rule Trojan_Win64_Tedy_LMA_2147962359_0
         $x_3_4 = "Virus detected. Formatting C:\\ in progress..." ascii //weight: 3
         $x_4_5 = "Your soul belongs to us now. OK" ascii //weight: 4
         $x_5_6 = "Your PC is dying. OK = accept fate" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_ATT_2147962371_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ATT!MTB"
+        threat_id = "2147962371"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {40 53 48 83 ec 20 48 8d 0d eb d6 16 00 ff 15 ?? ?? ?? ?? 48 8b c8 48 8d 15 53 a9 18 00 48 8b d8 ff 15 ?? ?? ?? ?? 48 8d 15 eb d6 16 00 48 8b cb}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SJ_2147962377_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SJ!MTB"
+        threat_id = "2147962377"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 44 24 54 41 8d 4e 01 41 b8 70 02 00 00 8b c2 c1 e8 1e 33 c2 69 d0 ?? ?? ?? ?? 03 d1 89 54 8c 54 48 ff c1 49 3b c8 72 e5}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AHB_2147962381_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHB!MTB"
+        threat_id = "2147962381"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "WUDFCompanionHoste.exe" ascii //weight: 20
+        $x_30_2 = "StartMenuExperienceHostker.exe" ascii //weight: 30
+        $x_50_3 = {48 2b c8 0f b6 44 0c 70 41 30 40 ?? 49 83 c0 ?? 4b 8d 04 01 48 3d ?? ?? ?? ?? 0f}  //weight: 50, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SXH_2147962383_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXH!MTB"
+        threat_id = "2147962383"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {ff c7 48 83 c6 08 3b f9 7d 0a 48 8b 06 48 85 c0 48 0f 45 d8 ff c7 48 83 c6 08 3b f9 7c cc}  //weight: 20, accuracy: High
+        $x_2_2 = "disable Execution Policy enforcement" ascii //weight: 2
+        $x_2_3 = "disable AMSI" ascii //weight: 2
+        $x_2_4 = "disable ETW Provider" ascii //weight: 2
+        $x_1_5 = "POWERSHELL INFORMATION STREAM" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

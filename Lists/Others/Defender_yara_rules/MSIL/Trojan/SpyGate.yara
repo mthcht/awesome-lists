@@ -23,3 +23,26 @@ rule Trojan_MSIL_SpyGate_RG_2147893188_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyGate_AA_2147962380_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyGate.AA!AMTB"
+        threat_id = "2147962380"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyGate"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "H21 (h21@exploit.im)" ascii //weight: 1
+        $x_1_2 = "h21rdphvnc.pdb" ascii //weight: 1
+        $x_1_3 = "5.8.88.233" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

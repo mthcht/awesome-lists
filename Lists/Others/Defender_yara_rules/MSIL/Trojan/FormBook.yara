@@ -17158,3 +17158,26 @@ rule Trojan_MSIL_FormBook_PAD_2147962293_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVW_2147962378_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVW!MTB"
+        threat_id = "2147962378"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 9f b6 2b 09 1e 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 ?? 00 00 00 ?? 00 00 00 ?? 00 00 00 ?? 01 00 00 ab 00 00 00 04 00 00 00 b4 01 00 00 09 00 00 00 ?? 01 00 00 05 00 00 00 ?? 00 00 00 01 00 00 00 03 00 00 00 07 00 00 00 23 00 00 00 44 00 00 00 08 00 00 00 1c 00 00 00 05 00 00 00 01 00 00 00 ?? 00 00 00 ?? 00 00 00 c6 00 00 00 ab}  //weight: 2, accuracy: Low
+        $x_1_2 = "70719d26-b742-4ca0-87c8-0fc2ea044be3" ascii //weight: 1
+        $x_1_3 = "DesktopSearchEnhancer.Properties" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
