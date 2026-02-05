@@ -1119,6 +1119,28 @@ rule Trojan_Win32_Convagent_ZK_2147905465_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_ACV_2147905718_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ACV!MTB"
+        threat_id = "2147905718"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 9c ab 41 00 53 e8 ?? ?? ?? ?? a3 24 37 44 00 68 b0 ab 41 00 53 e8 ?? ?? ?? ?? a3 28 37 44 00 68 c4 ab 41 00 53 e8 ?? ?? ?? ?? a3 1c 37 44 00 68 dc ab 41 00 53 e8 ?? ?? ?? ?? a3 20 37 44 00 68 f4 ab 41 00 53}  //weight: 1, accuracy: Low
+        $x_2_2 = {68 98 99 42 00 a1 f0 26 44 00 50 e8 ?? ?? ?? ?? a3 88 37 44 00 68 a8 99 42 00 a1 f0 26 44 00 50 e8 ?? ?? ?? ?? a3 8c 37 44 00 68 bc 99 42 00 a1 f0 26 44 00 50 e8}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Convagent_SPDD_2147908241_0
 {
     meta:

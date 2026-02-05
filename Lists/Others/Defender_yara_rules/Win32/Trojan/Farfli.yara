@@ -5909,3 +5909,28 @@ rule Trojan_Win32_Farfli_LMD_2147962364_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_MK_2147962471_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.MK!MTB"
+        threat_id = "2147962471"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "75"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {8b d0 c1 ea 1d 8b f8 c1 ef 1e 83 e2 01 83 e7 01 8d 14 57 8b f8 c1 ef 1f 8d 14 57 8b 14 95 a4 9d 43}  //weight: 25, accuracy: High
+        $x_20_2 = "[s1crolllo1ck]" ascii //weight: 20
+        $x_15_3 = "SeShutdownPrivilege" ascii //weight: 15
+        $x_10_4 = "ApateDNS" ascii //weight: 10
+        $x_5_5 = "TCPEye" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
