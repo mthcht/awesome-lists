@@ -69,3 +69,30 @@ rule Trojan_Win32_SuspShadowAccess_D_2147817277_0
         )
 }
 
+rule Trojan_Win32_SuspShadowAccess_DA_2147962441_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspShadowAccess.DA"
+        threat_id = "2147962441"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspShadowAccess"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "120"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {6e 00 74 00 64 00 73 00 75 00 74 00 69 00 6c 00 [0-32] 61 00 63 00 [0-22] 20 00 69 00 [0-24] 20 00 6e 00 74 00 64 00 73 00}  //weight: 100, accuracy: Low
+        $x_100_2 = {64 00 73 00 64 00 62 00 75 00 74 00 69 00 6c 00 [0-32] 61 00 63 00 [0-22] 20 00 69 00 [0-24] 20 00 6e 00 74 00 64 00 73 00}  //weight: 100, accuracy: Low
+        $x_10_3 = "ifm" wide //weight: 10
+        $x_10_4 = {63 00 72 00 [0-8] 20 00 66 00 75 00 [0-4] 20 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 2 of ($x_10_*))) or
+            ((2 of ($x_100_*))) or
+            (all of ($x*))
+        )
+}
+
