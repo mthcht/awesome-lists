@@ -135,6 +135,32 @@ rule Trojan_Win64_LummaStealer_NL_2147897386_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_NL_2147897386_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.NL!MTB"
+        threat_id = "2147897386"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 11 49 89 d6 48 8b 62 38 48 89 fa 48 8b 3f ff d7 48 8b 0d 00 ff 40 00 65 48 8b 09 48 8b 01 48 8b 58 30 48 8b 83 90 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = {45 0f 57 ff 4c 8b 35 0a 42 44 00 65 4d 8b 36 4d 8b 36 0f b6 44 24 1f 84 c0 74 12}  //weight: 1, accuracy: High
+        $x_1_3 = "Write_ProcessMemory" ascii //weight: 1
+        $x_1_4 = "Virtual_AllocEx" ascii //weight: 1
+        $x_1_5 = "GetRemotePebAddr" ascii //weight: 1
+        $x_1_6 = "RedirectToPayload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_LummaStealer_CCHG_2147901937_0
 {
     meta:
