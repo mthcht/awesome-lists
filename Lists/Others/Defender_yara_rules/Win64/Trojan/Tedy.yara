@@ -3799,3 +3799,25 @@ rule Trojan_Win64_Tedy_SXH_2147962383_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_MCC_2147962459_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MCC!MTB"
+        threat_id = "2147962459"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4c 8b c3 8b c1 ff c1 99 41 f7 f9 48 63 c2 8a 04 38 41 30 00 49 ff c0 3b ce 7c e8}  //weight: 5, accuracy: High
+        $x_4_2 = {4c 2b c8 4c 8b c0 8b c2 ff c2 83 e0 03 42 8a 04 28 43 32 04 01 41 88 00 49 ff c0 81 fa f0 04 00 00 7c e3}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
