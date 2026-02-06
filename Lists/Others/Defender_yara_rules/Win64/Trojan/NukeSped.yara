@@ -196,3 +196,26 @@ rule Trojan_Win64_NukeSped_AKLB_2147957810_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_NukeSped_GP_2147962578_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NukeSped.GP!MTB"
+        threat_id = "2147962578"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NukeSped"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "dstvdtt.co.za/wp-content/plugins" ascii //weight: 5
+        $x_1_2 = "cmasedu.com/wp-content/plugins" ascii //weight: 1
+        $x_1_3 = "bmtpakistan.com/solution/wp-content/plugins" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

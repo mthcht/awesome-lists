@@ -6933,3 +6933,29 @@ rule Trojan_MSIL_AsyncRAT_PRJ_2147962558_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_PDJ_2147962579_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.PDJ!MTB"
+        threat_id = "2147962579"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {00 00 0a 72 6c fb 01 70 6f ?? 00 00 0a 6f ?? 00 00 0a 06 1f 10 8d 0f 00 00 01 6f ?? 00 00 0a 06 6f ?? 00 00 0a 0b 02 73 ?? 00 00 0a 0c 08 07 16 73 ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 09 11 04 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 05 de 34}  //weight: 6, accuracy: Low
+        $x_1_2 = "fiddler" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+        $x_1_4 = "FromBase64String" ascii //weight: 1
+        $x_1_5 = "vboxservice" ascii //weight: 1
+        $x_1_6 = "vmtoolsd" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

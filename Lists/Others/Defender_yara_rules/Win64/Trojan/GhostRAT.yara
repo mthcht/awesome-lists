@@ -67,3 +67,25 @@ rule Trojan_Win64_GhostRAT_ARA_2147946569_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_GhostRAT_ARAC_2147962574_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GhostRAT.ARAC!MTB"
+        threat_id = "2147962574"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GhostRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 14 02 30 91 50 ac 00 10 46 81 e6 ff 00 00 80 79 08}  //weight: 2, accuracy: High
+        $x_2_2 = "\\Release\\ddd.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

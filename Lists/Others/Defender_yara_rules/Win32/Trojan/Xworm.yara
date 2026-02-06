@@ -56,3 +56,25 @@ rule Trojan_Win32_Xworm_MK_2147957890_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Xworm_PGXS_2147962588_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Xworm.PGXS!MTB"
+        threat_id = "2147962588"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {74 74 70 73 3a 2f 2f 74 72 75 73 74 6e 61 76 69 76 69 65 77 2e 63 6f 6d 2f [0-31] 2e 62 69 6e}  //weight: 3, accuracy: Low
+        $x_2_2 = "C:\\system\\windows service.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
