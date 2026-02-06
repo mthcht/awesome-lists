@@ -263,3 +263,26 @@ rule Trojan_Win32_SuspClickFix_K_2147947871_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SuspClickFix_Q_2147962549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.Q"
+        threat_id = "2147962549"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {20 00 26 00 20 00 63 00 75 00 72 00 6c 00 [0-32] 20 00 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {20 00 3e 00 20 00 [0-32] 2e 00 74 00 61 00 72 00 20 00}  //weight: 1, accuracy: Low
+        $x_1_3 = " & tar" wide //weight: 1
+        $x_1_4 = " & start python" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

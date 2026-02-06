@@ -26,3 +26,31 @@ rule Trojan_MacOS_SuspMacSyncExfil_A_2147961107_0
         )
 }
 
+rule Trojan_MacOS_SuspMacSyncExfil_B_2147962556_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SuspMacSyncExfil.B"
+        threat_id = "2147962556"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SuspMacSyncExfil"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "curl " wide //weight: 4
+        $x_4_2 = "-X PUT --data-binary" wide //weight: 4
+        $x_1_3 = "--max-time" wide //weight: 1
+        $x_1_4 = "api-key:" wide //weight: 1
+        $x_1_5 = "-o /dev/null -w %{http_code} http" wide //weight: 1
+        $x_1_6 = "?buildtxd=" wide //weight: 1
+        $x_1_7 = "upload_id=" wide //weight: 1
+        $x_1_8 = "&chunk_index=" wide //weight: 1
+        $x_1_9 = "&total_chunks=" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

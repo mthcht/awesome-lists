@@ -170,3 +170,26 @@ rule Worm_Win32_Bundpil_AHB_2147960877_0
         (all of ($x*))
 }
 
+rule Worm_Win32_Bundpil_AHC_2147962552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Bundpil.AHC!MTB"
+        threat_id = "2147962552"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bundpil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {32 d8 88 1d ?? ?? ?? ?? e8 ?? ?? ?? ?? b1 ?? f6 e9 4e a2 ?? ?? ?? ?? 75}  //weight: 30, accuracy: Low
+        $x_20_2 = "kIiCcAayXrVRdsDmuhqnmldmsU" ascii //weight: 20
+        $x_10_3 = "cxaqUjdqmdk21|OrMmmHhBe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6447,6 +6447,27 @@ rule Trojan_Win32_Zbot_BAM_2147945619_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zbot_BAM_2147945619_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zbot.BAM!MTB"
+        threat_id = "2147945619"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f fd dc 57 0f 62 c5 0f d5 f2 66 0f 74 fa 0f e9 c4 31 37 66 0f dc cc 0f 74 f2 0f dd f5 83 c7 04 0f 65 fe 0f fd e8 0f 76 da}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zbot_MR_2147949982_0
 {
     meta:
