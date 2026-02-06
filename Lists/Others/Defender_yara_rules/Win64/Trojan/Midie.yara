@@ -759,3 +759,25 @@ rule Trojan_Win64_Midie_ARA_2147962153_0
         )
 }
 
+rule Trojan_Win64_Midie_ARR_2147962504_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.ARR!MTB"
+        threat_id = "2147962504"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {03 c1 0f b6 c0 8a 0c 04 30 0e 48 ff c6 48 83 ef}  //weight: 12, accuracy: High
+        $x_8_2 = {33 d0 8b c5 83 e0 ?? 03 d7 41 8b 0c 86 03 cd 33 d1 44 2b c2}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -7942,6 +7942,27 @@ rule Trojan_Win32_LummaStealer_KK_2147956940_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_KK_2147956940_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.KK!MTB"
+        threat_id = "2147956940"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {c8 09 00 00 89 ?? 81 ?? fe ff ff 7f 09 ?? 89 ?? 83 e7 01 f7 df 81 e7 df b0 08 99 33 bc ?? f8 0f 00 00 d1 ?? 31 ?? 89 bc ?? 84 13 00 00 83 c0 04}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_SPRC_2147957149_0
 {
     meta:
