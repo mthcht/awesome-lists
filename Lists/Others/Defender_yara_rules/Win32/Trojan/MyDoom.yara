@@ -42,3 +42,34 @@ rule Trojan_Win32_MyDoom_AMD_2147956643_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_MyDoom_AMD_2147956643_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/MyDoom.AMD!MTB"
+        threat_id = "2147956643"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "MyDoom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "NetDy_Mutex_Psycho" ascii //weight: 1
+        $x_1_2 = "NetDy: We have rewritten NetSky" ascii //weight: 1
+        $x_1_3 = "NetDy: Thats a good tactic to detroy the bagle and mydoom worms" ascii //weight: 1
+        $x_1_4 = "NetDy: Our group will continue the war" ascii //weight: 1
+        $x_1_5 = "NetDy: Malware writers 'End' comes true" ascii //weight: 1
+        $x_1_6 = "NetDy: Our Social Engineering is the best" ascii //weight: 1
+        $x_1_7 = "NetDy: We are greeting all russia people!" ascii //weight: 1
+        $x_1_8 = "USA SUCKS!!! AFGHAN SUCKS 2!!! BURN, SADDAM! BURN IN HELL! AND YOU, OSAMA BIN LADEN," ascii //weight: 1
+        $x_1_9 = "BURN IN THE DEVILS FIRE 2!!!" ascii //weight: 1
+        $x_1_10 = "SHAME ON YOU MR. BUSH!!!" ascii //weight: 1
+        $x_1_11 = "THIS IS A MESSAGE FROM: Skynet.cz-FANATICON" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
