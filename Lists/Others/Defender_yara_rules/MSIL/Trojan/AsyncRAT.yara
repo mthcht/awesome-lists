@@ -6908,3 +6908,28 @@ rule Trojan_MSIL_AsyncRAT_BGK_2147962155_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_PRJ_2147962558_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.PRJ!MTB"
+        threat_id = "2147962558"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {11 0b 11 0c 11 0a 11 0c 91 11 09 11 0c 1f 20 5d 91 61 d2 9c 11 0c 17 58 13 0c 11 0c 11 0a 8e 69 32 de}  //weight: 5, accuracy: High
+        $x_3_2 = {11 07 17 58 20 00 01 00 00 5d 13 07 11 08 06 11 07 94 58 20 00 01 00 00 5d 13 08 06 11 07 94 13 0a 06 11 07 06 11 08 94 9e 06 11 08 11 0a 9e 11 06 11 09 02 11 09 91 06 06 11 07 94 06 11 08 94 58 20 00 01 00 00 5d 94 61 d2 9c 11 09 17 58 13 09 11 09 02 8e 69}  //weight: 3, accuracy: High
+        $x_2_3 = "encrypted.exe" ascii //weight: 2
+        $x_1_4 = "fiddler" wide //weight: 1
+        $x_1_5 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
