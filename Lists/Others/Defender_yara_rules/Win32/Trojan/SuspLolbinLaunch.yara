@@ -145,6 +145,7 @@ rule Trojan_Win32_SuspLolbinLaunch_A_2147768661_0
         $x_2_2 = {73 00 63 00 2e 00 65 00 78 00 65 00 [0-80] 63 00 72 00 65 00 61 00 74 00 65 00 [0-80] 62 00 69 00 6e 00 70 00 61 00 74 00 68 00 3d 00}  //weight: 2, accuracy: Low
         $n_10_3 = "query" wide //weight: -10
         $n_10_4 = "sense" wide //weight: -10
+        $n_10_5 = "\\Program Files\\Guardz Agent\\" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -350,6 +351,7 @@ rule Trojan_Win32_SuspLolbinLaunch_B_2147769387_0
         $n_10_3 = "query" wide //weight: -10
         $n_10_4 = "airlock" wide //weight: -10
         $n_10_5 = "ADSync" wide //weight: -10
+        $n_10_6 = "\\Program Files\\Guardz Agent\\" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
