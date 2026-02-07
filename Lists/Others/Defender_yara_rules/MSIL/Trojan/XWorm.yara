@@ -4106,3 +4106,24 @@ rule Trojan_MSIL_XWorm_BAN_2147962393_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AHQB_2147962596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AHQB!MTB"
+        threat_id = "2147962596"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 8e 69 18 da 0b 73 ?? ?? 00 0a 0c 73 ?? ?? 00 0a 0d 07 13 04 16 13 05 2b 1e 03 11 05 9a 28 ?? ?? 00 0a 1f 7c da b4 13 06 09 11 06 6f ?? ?? 00 0a 00 11 05 17 d6 13 05 11 05 11 04 31 dc 08 09 6f ?? ?? 00 0a 00 08 6f ?? ?? 00 0a 0a 2b 00 06 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

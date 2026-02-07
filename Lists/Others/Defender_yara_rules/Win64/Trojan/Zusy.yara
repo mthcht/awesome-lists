@@ -2128,6 +2128,35 @@ rule Trojan_Win64_Zusy_KK_2147946085_3
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_KK_2147946085_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KK!MTB"
+        threat_id = "2147946085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "xor_data.dat" ascii //weight: 10
+        $x_4_2 = "bypass\\bypass-agent_2\\workspace\\ssvagent_multi_xor_" ascii //weight: 4
+        $x_4_3 = "bypass\\bypass-agent_2\\workspace\\ssvagent_module_overload_xor_" ascii //weight: 4
+        $x_4_4 = "bypass\\bypass-agent\\workspace\\ssvagent_multi_xor" ascii //weight: 4
+        $x_4_5 = "bypass\\bypass-agent\\workspace\\ssvagent_classic_xor_" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_4_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Zusy_SXC_2147947640_0
 {
     meta:
@@ -3115,6 +3144,29 @@ rule Trojan_Win64_Zusy_AHB_2147962335_0
     strings:
         $x_30_1 = {0f 57 c8 f3 0f 7f 4c 0f ?? f3 0f 6f 44 0f ?? 66 0f 6f ca 0f 57 c8 f3 0f 7f 4c 0f ?? 48 83 c1 ?? 48 3b c8 72}  //weight: 30, accuracy: Low
         $x_20_2 = "LoadRealLibcurl: SUCCESS - DLL loaded" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KKA_2147962592_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKA!MTB"
+        threat_id = "2147962592"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c0 e2 04 44 00 da 88 14 06 48 ff c0 83 c1 03 49 39 c0}  //weight: 20, accuracy: High
+        $x_10_2 = "payload_temp.dll" ascii //weight: 10
+        $x_5_3 = "_payload_init" ascii //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))
