@@ -45,10 +45,11 @@ rule Trojan_AIGen_ClawHavoc_B_2147962521_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = "Setup-Wizard" wide //weight: 1
-        $x_1_2 = {65 00 63 00 68 00 6f 00 90 00 02 00 ff 00 62 00 61 00 73 00 65 00 36 00 34 00 20 00 2d 00 44 00 90 00 00 00}  //weight: 1, accuracy: High
-        $x_1_3 = "bash" wide //weight: 1
+        $x_1_2 = "Installer-Package" wide //weight: 1
+        $x_1_3 = {65 00 63 00 68 00 6f 00 90 00 02 00 ff 00 62 00 61 00 73 00 65 00 36 00 34 00 20 00 2d 00 44 00 90 00 00 00}  //weight: 1, accuracy: High
+        $x_1_4 = "bash" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (3 of ($x*))
 }
 
