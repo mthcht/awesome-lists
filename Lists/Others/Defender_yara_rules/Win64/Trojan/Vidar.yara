@@ -1322,3 +1322,26 @@ rule Trojan_Win64_Vidar_MCQ_2147962557_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_CL_2147962602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.CL!MTB"
+        threat_id = "2147962602"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 8d 57 01 44 0f af d7 41 83 e2 01 83 fe ?? 7c}  //weight: 5, accuracy: Low
+        $x_2_2 = "Loader Tasks" ascii //weight: 2
+        $x_2_3 = "Grabber Rules" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

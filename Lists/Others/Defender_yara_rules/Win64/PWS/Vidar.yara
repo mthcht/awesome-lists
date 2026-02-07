@@ -56,3 +56,30 @@ rule PWS_Win64_Vidar_CH_2147957248_0
         (all of ($x*))
 }
 
+rule PWS_Win64_Vidar_CM_2147962603_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "PWS:Win64/Vidar.CM!MTB"
+        threat_id = "2147962603"
+        type = "PWS"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Browser List" ascii //weight: 2
+        $x_2_2 = "Chromium Plugins" ascii //weight: 2
+        $x_2_3 = "Firefox Plugins" ascii //weight: 2
+        $x_2_4 = "Wallet Rules" ascii //weight: 2
+        $x_2_5 = "Loader Tasks" ascii //weight: 2
+        $x_2_6 = "File Grabber Rules" ascii //weight: 2
+        $x_2_7 = ".me/H" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
