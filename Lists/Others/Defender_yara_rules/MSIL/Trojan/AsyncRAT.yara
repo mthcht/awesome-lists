@@ -5299,6 +5299,36 @@ rule Trojan_MSIL_AsyncRAT_ARAX_2147923129_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_ARAX_2147923129_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.ARAX!MTB"
+        threat_id = "2147923129"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 09 11 02 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 04 38 00 00 00 00 00 11 04 02 16 02 8e 69 6f ?? 00 00 0a}  //weight: 5, accuracy: Low
+        $x_5_2 = {11 0a 11 02 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 09 38 00 00 00 00 00 11 09 02 16 02 8e 69 6f ?? 00 00 0a}  //weight: 5, accuracy: Low
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+        $x_1_4 = "FromBase64String" ascii //weight: 1
+        $x_1_5 = "ToArray" ascii //weight: 1
+        $x_1_6 = "get_Assembly" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_MSIL_AsyncRAT_KAZ_2147923514_0
 {
     meta:

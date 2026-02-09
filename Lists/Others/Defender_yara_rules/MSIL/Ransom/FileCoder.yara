@@ -1988,3 +1988,27 @@ rule Ransom_MSIL_FileCoder_AYT_2147949880_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_B_2147962642_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.B!AMTB"
+        threat_id = "2147962642"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "you became a victim of serial ransomware!" ascii //weight: 1
+        $x_1_2 = "all of your files are encrypted by a very strong key!" ascii //weight: 1
+        $x_1_3 = "only way to get your data is to pay 68$ woth of bitcoin!" ascii //weight: 1
+        $x_1_4 = "ARE YOU SURE ABOUT YOU NEED TO BRICK THIS PC?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

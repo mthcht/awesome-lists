@@ -3842,3 +3842,28 @@ rule Trojan_Win64_Tedy_RR_2147962573_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_ABMT_2147962645_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ABMT!MTB"
+        threat_id = "2147962645"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "cmd.exe /C powercfg /hibernate off" ascii //weight: 1
+        $x_1_2 = "cmd.exe /C powercfg /change monitor-timeout-ac 0" ascii //weight: 1
+        $x_1_3 = {3a 2f 2f 63 79 76 6f 72 61 2e 6e 65 74 [0-10] 2e 74 78 74}  //weight: 1, accuracy: Low
+        $x_1_4 = {3a 2f 2f 65 63 68 6f 6c 69 6e 6b 72 2e 63 6f 6d [0-10] 2e 74 78 74}  //weight: 1, accuracy: Low
+        $x_1_5 = "Loader.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

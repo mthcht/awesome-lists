@@ -17150,10 +17150,14 @@ rule Trojan_MSIL_FormBook_PAC_2147962151_0
     strings:
         $x_3_1 = {25 16 07 7e ?? 00 00 04 25 2d 17 26 7e ?? 00 00 04}  //weight: 3, accuracy: Low
         $x_1_2 = {20 00 46 01 00 0a 03 2c}  //weight: 1, accuracy: High
-        $x_1_3 = "GetPixel" ascii //weight: 1
+        $x_1_3 = {20 00 56 01 00 14 14 16}  //weight: 1, accuracy: High
+        $x_1_4 = "GetPixel" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_MSIL_FormBook_PAD_2147962293_0
