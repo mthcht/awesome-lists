@@ -4663,3 +4663,31 @@ rule Trojan_MSIL_ClipBanker_SX_2147961988_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_AYB_2147962665_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.AYB!MTB"
+        threat_id = "2147962665"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 07 19 11 07 19 95 09 19 95 61 9e 11 07 1a 11 07 1a 95 09 1a 95 61 9e 11 0d 20 ee f7 c0 8c 5a 20 57 4b 50 4b 61}  //weight: 10, accuracy: High
+        $x_10_2 = {11 07 1d 11 07 1d 95 09 1d 95 61 9e 11 07 1e 11 07 1e 95 09 1e 95 61 9e 11 0d 20 76 a6 03 bb 5a 20 73 f8 68 0d 61}  //weight: 10, accuracy: High
+        $x_1_3 = "$dbfd36cd-ea8c-416d-9a59-b32a0c23e5e9" ascii //weight: 1
+        $x_1_4 = "yudbtmudwh.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

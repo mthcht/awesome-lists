@@ -2719,3 +2719,27 @@ rule Trojan_MSIL_DCRat_SLWH_2147960318_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DCRat_AYA_2147962667_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.AYA!MTB"
+        threat_id = "2147962667"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {1f 10 8d 42 00 00 01 0d 07 09 16 1f 10 6f 3f 00 00 0a 26 08 09 6f 8a 00 00 0a 00 07 08 6f 8b 00 00 0a 16 73 82 00 00 0a 13 08 00 07 6f 8c 00 00 0a 1f 10 6a 59 17 6a 58 d4 8d 42 00 00 01 13 09 11 08 11 09 16 11 09 8e 69 6f 3f 00 00 0a 8d 42 00 00 01 13 0a 11 09 16 11 0a 16 11 0a 8e 69 28 8d 00 00 0a 00 11 0a 13 0b de 23}  //weight: 7, accuracy: High
+        $x_2_2 = "Encode2Bytes" ascii //weight: 2
+        $x_1_3 = "CreateEncryptor" ascii //weight: 1
+        $x_1_4 = "DecodeFromBytes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -306,3 +306,26 @@ rule Trojan_MSIL_CrimsonRat_AB_2147944980_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CrimsonRat_AIQB_2147962668_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CrimsonRat.AIQB!MTB"
+        threat_id = "2147962668"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CrimsonRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 03 1f 64 5a 06 6f ?? 00 00 0a 5b 5a 1f 64 5b 0b 03 03 1f 64 5a 06 6f ?? 00 00 0a 5b 03 5a 1f 64 5b 58 1f 64 58 0c 06 08 07 73 ?? 00 00 0a 73 ?? 00 00 0a 13 05 2b 00 11 05 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {03 8e 69 28 ?? 00 00 0a 0d 03 8e 69 0b 1f 0a 0c 00 06 8e 69 28 ?? 00 00 0a 13 04 08 06 8e 69 58 07 58 8d ?? 00 00 01 13 05 11 04 11 05 16 6f ?? 00 00 0a 00 06 11 05 1b 6f ?? 00 00 0a 00 03 14 fe 03 13 0b 11 0b 2c 1f 00 09 11 05 1b 06 8e 69 58 6f ?? 00 00 0a 00 03 11 05 1f 0a 06 8e 69 58}  //weight: 2, accuracy: Low
+        $x_2_3 = {16 0a 1b 8d ?? 00 00 01 0b 02 02 7b ?? 00 00 04 07 16 1b 6f ?? 00 00 0a 7d ?? 00 00 04 07 16 28 ?? 00 00 0a 0c 08 8d ?? 00 00 01 0d 08 13 04 2b 4c 00 11 04 02 7b ?? 00 00 04 30 04 11 04 2b 06 02 7b ?? 00 00 04 13 05 02 02 7b ?? 00 00 04 09 06 11 05 6f ?? 00 00 0a 7d ?? 00 00 04 06 02 7b ?? 00 00 04 58 0a 11 04 02 7b ?? 00 00 04 59 13 04 02}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

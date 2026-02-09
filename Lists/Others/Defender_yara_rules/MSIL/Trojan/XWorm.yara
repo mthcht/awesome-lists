@@ -4127,3 +4127,27 @@ rule Trojan_MSIL_XWorm_AHQB_2147962596_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AYC_2147962666_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AYC!MTB"
+        threat_id = "2147962666"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {16 0b 2b 11 06 07 02 07 6f ?? 00 00 0a 03 61 d1 9d 07 17 58 0b 07 02 6f ?? 00 00 0a 32 e6 06 73 ?? 00 00 0a 2a}  //weight: 7, accuracy: Low
+        $x_3_2 = "DEEDSHGFHC.Resources" ascii //weight: 3
+        $x_1_3 = "aaa.exe" wide //weight: 1
+        $x_1_4 = "File Google.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -230,3 +230,24 @@ rule Ransom_Win32_Lockbit_NIT_2147932224_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Lockbit_MMK_2147962669_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Lockbit.MMK!MTB"
+        threat_id = "2147962669"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {31 d1 89 ef 31 f1 30 0c 03 c1 e7 0b 31 ef 89 fa c1 ea 08 31 fa 89 cf c1 ef 13 31 ca 31 fa 89 df 30 54 03 01 89 f5 8b 74 24 04 83 c0 02 39 04 24 75 b5}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
