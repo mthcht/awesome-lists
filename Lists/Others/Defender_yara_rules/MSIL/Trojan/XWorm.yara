@@ -4151,3 +4151,25 @@ rule Trojan_MSIL_XWorm_AYC_2147962666_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_GHT_2147962675_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.GHT!MTB"
+        threat_id = "2147962675"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {13 04 02 28 ?? 00 00 0a 0b 1a 13 09 38 ?? fe ff ff 11 04 75 ?? 00 00 01 07 75 ?? 00 00 1b 16 07 75 ?? 00 00 1b 8e b7 6f ?? 01 00 0a 28}  //weight: 10, accuracy: Low
+        $x_1_2 = "RijndaelManaged" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
