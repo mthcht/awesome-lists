@@ -41,3 +41,27 @@ rule Trojan_MSIL_PsDownloader_PSWL_2147889430_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PsDownloader_MK_2147962660_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PsDownloader.MK!MTB"
+        threat_id = "2147962660"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PsDownloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789-WindowStyle Hidden -EncodedCommand" ascii //weight: 20
+        $x_15_2 = "try { Add-MpPreference -ExclusionPath 'C:\\' -ErrorAction SilentlyContinue } catch { }" ascii //weight: 15
+        $x_10_3 = "exclude_c_drive.ps1" ascii //weight: 10
+        $x_5_4 = "/c start \"\" \"" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
