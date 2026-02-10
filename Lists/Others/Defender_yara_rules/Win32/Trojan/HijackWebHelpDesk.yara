@@ -19,11 +19,10 @@ rule Trojan_Win32_HijackWebHelpDesk_A_2147962607_0
         $x_10_5 = "\\net1.exe" wide //weight: 10
         $x_10_6 = "\\bitsadmin.exe" wide //weight: 10
         $x_10_7 = "\\wmic.exe" wide //weight: 10
-        $x_10_8 = "\\rundll32.exe" wide //weight: 10
-        $n_50_9 = "mysqldump" wide //weight: -50
-        $n_50_10 = ".bat" wide //weight: -50
-        $n_50_11 = "sql92" wide //weight: -50
-        $n_50_12 = "frontbase4" wide //weight: -50
+        $n_50_8 = "mysqldump" wide //weight: -50
+        $n_50_9 = ".bat" wide //weight: -50
+        $n_50_10 = "sql92" wide //weight: -50
+        $n_50_11 = "frontbase4" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
