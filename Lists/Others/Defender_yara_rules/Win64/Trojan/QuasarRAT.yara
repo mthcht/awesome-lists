@@ -184,3 +184,27 @@ rule Trojan_Win64_QuasarRAT_AAD_2147955161_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_QuasarRAT_PAHK_2147962770_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.PAHK!MTB"
+        threat_id = "2147962770"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {55 48 89 e5 48 83 ec 20 e8 ?? ?? ?? ?? 48 8d 0d ?? ?? ?? ?? e8 af 15 00 00 b8 00 00 00 00 48 83 c4 20 5d c3}  //weight: 2, accuracy: Low
+        $x_2_2 = "owershell -w h -enc UwBUAEEAUgBUACAAUABPAFcARQBSAFMASABFAEwATAAgAC0AVwBpAG4AZABvAHcAUwB0" ascii //weight: 2
+        $x_1_3 = "AHkAbABlACAASABpAGQAZABlAG4AIAAtAEEAIAAnAEEAZABkAC0ATQBwAFAAcgBlAGYAZQByAGU" ascii //weight: 1
+        $x_1_4 = "AbgBjAGUAIAAtAEUAeABjAGwAdQBzAGkAbwBuAFAAYQB0AGgA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

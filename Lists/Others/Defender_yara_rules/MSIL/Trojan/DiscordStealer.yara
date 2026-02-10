@@ -224,3 +224,28 @@ rule Trojan_MSIL_DiscordStealer_PAHH_2147961189_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DiscordStealer_PAHJ_2147962769_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DiscordStealer.PAHJ!MTB"
+        threat_id = "2147962769"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Google\\Chrome\\User Data\\Default\\Local Storage\\leveldb" wide //weight: 2
+        $x_1_2 = "discord.com/api/v9/users/@me" wide //weight: 1
+        $x_2_3 = "ScanBrowsers" ascii //weight: 2
+        $x_1_4 = "GetUserInformation" ascii //weight: 1
+        $x_1_5 = "GetBillingInfo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

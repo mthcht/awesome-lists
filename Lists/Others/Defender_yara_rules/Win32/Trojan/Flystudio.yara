@@ -328,3 +328,27 @@ rule Trojan_Win32_Flystudio_RR_2147961498_0
         )
 }
 
+rule Trojan_Win32_Flystudio_RR_2147961498_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Flystudio.RR!MTB"
+        threat_id = "2147961498"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Flystudio"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "datatemp\\aria2c.exe" ascii //weight: 1
+        $x_1_2 = "--enable-rpc=true --rpc-allow-origin-all=true --disable-ipv6=false --rpc-secret=" ascii //weight: 1
+        $x_1_3 = "--rpc-listen-port=" ascii //weight: 1
+        $x_1_4 = {00 61 72 69 61 32 63 2e 65 78 65 00 61 72 69 61 32 2e 63 6f 6e 66 00 61 72 69 61 32 2e 73 65 73 73 69 6f 6e 00 64 68 74 2e 64 61 74 00 64 68 74 36 2e 64 61 74 00 37 30 32 32 00 37 30 35 35 00 37 30 33 33 00 31 32 33 00 54 72 61 6e 73 6d 69 73 73 69 6f 6e 2f 33 2e 30 30 00 2d 54 52 33 30 30 30 2d 00 20 2d 2d 73 74 6f 70 2d 77 69 74 68 2d 70 72 6f 63 65 73 73 3d 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

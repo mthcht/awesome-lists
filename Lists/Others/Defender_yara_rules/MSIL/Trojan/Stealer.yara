@@ -3501,3 +3501,29 @@ rule Trojan_MSIL_Stealer_Q_2147957962_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_RR_2147962758_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.RR!MTB"
+        threat_id = "2147962758"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$ip = \"192.168.8.1\"" ascii //weight: 1
+        $x_1_2 = "$payload = \"GET / HTTP/1.1`r`nHost: $ip`r`nConnection: close`r`n`r`n\"" ascii //weight: 1
+        $x_1_3 = "$client = New-Object System.Net.Sockets.TcpClient" ascii //weight: 1
+        $x_1_4 = "$bytes = [Text.Encoding]::ASCII.GetBytes($payload)" ascii //weight: 1
+        $x_1_5 = "$stream.Write($bytes, 0, $bytes.Length)" ascii //weight: 1
+        $x_1_6 = "Start-Sleep -Seconds 4" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
