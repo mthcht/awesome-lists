@@ -2641,3 +2641,25 @@ rule Trojan_Win64_ShellcodeRunner_NTB_2147962391_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_AHK_2147962734_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AHK!MTB"
+        threat_id = "2147962734"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {62 79 70 61 73 73 2d 61 67 65 6e 74 5f 32 5c 77 6f 72 6b 73 70 61 63 65 5c 73 73 76 61 67 65 6e 74 5f [0-28] 5f 78 6f 72 5f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 5c 64 65 70 6c 6f 79}  //weight: 30, accuracy: Low
+        $x_20_2 = "xor_data.dat" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

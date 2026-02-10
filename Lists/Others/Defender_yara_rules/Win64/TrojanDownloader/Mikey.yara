@@ -40,3 +40,26 @@ rule TrojanDownloader_Win64_Mikey_ARA_2147923023_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Mikey_SX_2147962751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Mikey.SX!MTB"
+        threat_id = "2147962751"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b d0 48 8b cb ff 15 ?? ?? ?? ?? 48 89 74 24 ?? 4c 8b cf 89 74 24 ?? 45 33 c0 33 d2 48 89 74 24 ?? 48 8b cb ff 15}  //weight: 20, accuracy: Low
+        $x_10_2 = "Global\\SystemHealthMonitor" ascii //weight: 10
+        $x_5_3 = "gate.php" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

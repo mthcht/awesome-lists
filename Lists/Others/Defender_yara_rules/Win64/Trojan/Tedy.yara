@@ -3450,6 +3450,28 @@ rule Trojan_Win64_Tedy_KKB_2147961196_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_BAD_2147961312_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BAD!MTB"
+        threat_id = "2147961312"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {88 44 24 26 0f b6 44 24 27 c1 e0 04 0f b6 4c 24 26 09 c8 48 8b 4c 24 40 8b 54 24 28 88 04 11 8b 44 24 28 83 c0 01 89 44 24 28 eb}  //weight: 4, accuracy: High
+        $x_1_2 = "_payload_init" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_AHM_2147961566_0
 {
     meta:
@@ -3905,6 +3927,27 @@ rule Trojan_Win64_Tedy_LMU_2147962692_0
     strings:
         $x_20_1 = {48 89 44 24 60 33 d2 48 8b 4c 24 60 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 33 d2 b9 b8 ?? ?? ?? f7 f1 8b c2 05 e8 03 00 00 8b c8 ?? ?? ?? ?? ?? ?? c7 44 24 20 00 00 00 00 45 33 c9 45 33 c0 33 d2 48 8d 0d a3 8e 01}  //weight: 20, accuracy: Low
         $x_15_2 = "shellcode.dat" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_PAA_2147962746_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PAA!MTB"
+        threat_id = "2147962746"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {3d 54 5f 25 25 22 0d 0a 25 65 5a 74 4e 79 48 47 73 52 49 7a 45 50 76 6b 25 25 65 4f 70 53 4e 59 69 6e 4e 69 6f 4c 53 73 7a 25}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

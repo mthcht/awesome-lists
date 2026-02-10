@@ -781,3 +781,35 @@ rule Trojan_Win64_Midie_ARR_2147962504_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_SXE_2147962750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXE!MTB"
+        threat_id = "2147962750"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[+] Injection Complete" ascii //weight: 30
+        $x_10_2 = "[i] Credit Cards" ascii //weight: 10
+        $x_10_3 = "[+] Created Chrome.exe Process" ascii //weight: 10
+        $x_1_4 = "[i] History" ascii //weight: 1
+        $x_1_5 = "[i] Cookies" ascii //weight: 1
+        $x_1_6 = "[i] Autofill" ascii //weight: 1
+        $x_1_7 = "[i] Tokens" ascii //weight: 1
+        $x_1_8 = "[+] Extraction Complete" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_10_*) and 5 of ($x_1_*))) or
+            ((1 of ($x_30_*) and 2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
