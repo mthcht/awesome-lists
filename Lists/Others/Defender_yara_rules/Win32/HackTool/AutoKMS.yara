@@ -359,3 +359,29 @@ rule HackTool_Win32_AutoKMS_HNB_2147929004_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_AutoKMS_DA_2147962706_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/AutoKMS.DA!MTB"
+        threat_id = "2147962706"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoKMS"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "C:\\\\vlmcsd.kmd" ascii //weight: 10
+        $x_1_2 = "Restarting vlmcsd service =>" ascii //weight: 1
+        $x_1_3 = "vlmcsd %s started successfully" ascii //weight: 1
+        $x_1_4 = "vlmcsd %s was shutdown" ascii //weight: 1
+        $x_1_5 = "vlmcsd %s %i-bit" ascii //weight: 1
+        $x_1_6 = "vlmcsd flags:%s" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
