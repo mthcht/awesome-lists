@@ -3888,3 +3888,25 @@ rule Trojan_Win64_Tedy_ABMT_2147962645_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LMU_2147962692_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LMU!MTB"
+        threat_id = "2147962692"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 89 44 24 60 33 d2 48 8b 4c 24 60 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 33 d2 b9 b8 ?? ?? ?? f7 f1 8b c2 05 e8 03 00 00 8b c8 ?? ?? ?? ?? ?? ?? c7 44 24 20 00 00 00 00 45 33 c9 45 33 c0 33 d2 48 8d 0d a3 8e 01}  //weight: 20, accuracy: Low
+        $x_15_2 = "shellcode.dat" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

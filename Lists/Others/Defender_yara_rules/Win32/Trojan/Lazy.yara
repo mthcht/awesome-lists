@@ -2792,3 +2792,28 @@ rule Trojan_Win32_Lazy_LMR_2147962361_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_LMS_2147962690_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.LMS!MTB"
+        threat_id = "2147962690"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 45 a0 00 01 00 00 89 45 9c 83 c4 0c 83 7e 14 07 8d 85 88 f5 ff ff 89 45 b8 c7 45 bc 00 04 00 00 76}  //weight: 20, accuracy: High
+        $x_1_2 = "dongfang01" ascii //weight: 1
+        $x_2_3 = "gMicrosoft Update Client" ascii //weight: 2
+        $x_3_4 = "\\BridgeHost.exe" ascii //weight: 3
+        $x_4_5 = "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

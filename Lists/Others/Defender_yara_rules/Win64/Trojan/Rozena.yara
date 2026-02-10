@@ -1980,3 +1980,28 @@ rule Trojan_Win64_Rozena_MKB_2147962472_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_LMA_2147962691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.LMA!MTB"
+        threat_id = "2147962691"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[Loader] Fetching bootstrapper..." ascii //weight: 1
+        $x_2_2 = "[Loader] Failed to download payload from URL." ascii //weight: 2
+        $x_3_3 = "[Loader] Mapping failed" ascii //weight: 3
+        $x_4_4 = "[Loader] Payload mapped." ascii //weight: 4
+        $x_5_5 = "\\runpe\\x64\\Release\\runpe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
