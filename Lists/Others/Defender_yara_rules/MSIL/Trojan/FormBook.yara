@@ -17228,24 +17228,3 @@ rule Trojan_MSIL_FormBook_RVX_2147962467_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_BAK_2147962834_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/FormBook.BAK!MTB"
-        threat_id = "2147962834"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "FormBook"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {11 2c 11 2d 91 11 30 11 32 1a 5a 11 2f 5d 91 61 d2 13 33 11 2c 11 2d 17 58 91 11 30 11 32 1a 5a 17 58 11 2f 5d 91 61 d2 13 34 11 2c 11 2d 18 58 91 11 30 11 32 1a 5a 18 58 11 2f 5d 91 61 d2 13 35 11 2c 11 2d 19 58 91 11 30 11 32 1a 5a 19 58 11 2f 5d 91 61 d2 13 36 11 31 11 32 11 33 11 34 1e 62 60 11 35 1f 10 62 60 11 36 1f 18 62 60 9e 11 2d 1a 58 13 2d 11 32 17 58 13 32 11 32 11 2e 3f 7b ff ff ff}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
