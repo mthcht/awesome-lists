@@ -202,6 +202,28 @@ rule Trojan_Win32_Graftor_AMBG_2147899777_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Graftor_AGF_2147899901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Graftor.AGF!MTB"
+        threat_id = "2147899901"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {50 6a 22 55 ff 15 ?? ?? ?? ?? 8b 54 24 3c 8d 4c 24 60 51 52 ff 15 ?? ?? ?? ?? 8d 44 24 60 8d 4c 24 20 50 e8 ?? ?? ?? ?? 68 c8 d9 40 00 8d 4c 24 24}  //weight: 2, accuracy: Low
+        $x_1_2 = {2a c1 8d 4c 24 08 fe c0 88 44 24 0c 8b 44 24 0c 50 56 e8 ?? ?? ?? ?? 8b 44 24 28 46 4f 3b 70 f8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Graftor_A_2147903172_0
 {
     meta:
