@@ -3618,3 +3618,25 @@ rule Trojan_MSIL_Lazy_BAB_2147961555_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_AMTB_2147962845_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy!AMTB"
+        threat_id = "2147962845"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rat_temp_" ascii //weight: 1
+        $x_1_2 = "[INFO] RAT client is working!" ascii //weight: 1
+        $x_1_3 = "AcheronX_Client" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
