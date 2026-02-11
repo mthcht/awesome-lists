@@ -66,3 +66,33 @@ rule Trojan_Win64_Splinter_MS2_2147961765_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Splinter_MS3_2147962786_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Splinter.MS3!dha"
+        threat_id = "2147962786"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Splinter"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Failed to initialize implant" ascii //weight: 10
+        $x_10_2 = "implant_exe.pdb" ascii //weight: 10
+        $x_5_3 = "loader.dll" ascii //weight: 5
+        $x_5_4 = "shellcode" ascii //weight: 5
+        $x_5_5 = "UUID parsing failed:" ascii //weight: 5
+        $x_5_6 = "Config with" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 3 of ($x_5_*))) or
+            ((2 of ($x_10_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
