@@ -36,10 +36,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 597427,de,EU,Europa,LT,Litauen,1
 607072,de,EU,Europa,SJ,"Spitzbergen und Jan Mayen",0
 614540,de,AS,Asien,GE,Georgien,0
-617790,de,EU,Europa,MD,"Republik Moldau",0
+617790,de,EU,Europa,MD,Moldau,0
 630336,de,EU,Europa,BY,Belarus,0
 660013,de,EU,Europa,FI,Finnland,1
-661882,de,EU,Europa,AX,Ålandinseln,1
+661882,de,EU,Europa,AX,Åland,1
 690791,de,EU,Europa,UA,Ukraine,0
 718075,de,EU,Europa,MK,Nordmazedonien,0
 719819,de,EU,Europa,HU,Ungarn,1
@@ -96,13 +96,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1861060,de,AS,Asien,JP,Japan,0
 1873107,de,AS,Asien,KP,Nordkorea,0
 1880251,de,AS,Asien,SG,Singapur,0
-1899402,de,OC,Ozeanien,CK,Cookinseln,0
+1899402,de,OC,Ozeanien,CK,Cook-Inseln,0
 1966436,de,OC,Ozeanien,TL,Timor-Leste,0
 2017370,de,EU,Europa,RU,Russland,0
 2029969,de,AS,Asien,MN,Mongolei,0
 2077456,de,OC,Ozeanien,AU,Australien,0
 2078138,de,OC,Ozeanien,CX,Weihnachtsinsel,0
-2080185,de,OC,Ozeanien,MH,Marshallinseln,0
+2080185,de,OC,Ozeanien,MH,Marshall-Inseln,0
 2081918,de,OC,Ozeanien,FM,Mikronesien,0
 2088628,de,OC,Ozeanien,PG,Papua-Neuguinea,0
 2103350,de,OC,Ozeanien,SB,Salomonen,0
@@ -116,7 +116,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2215636,de,AF,Afrika,LY,Libyen,0
 2233387,de,AF,Afrika,CM,Kamerun,0
 2245662,de,AF,Afrika,SN,Senegal,0
-2260494,de,AF,Afrika,CG,"Kongo (Republik Kongo)",0
+2260494,de,AF,Afrika,CG,Kongo,0
 2264397,de,EU,Europa,PT,Portugal,1
 2275384,de,AF,Afrika,LR,Liberia,0
 2287781,de,AF,Afrika,CI,Elfenbeinküste,0
@@ -160,7 +160,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3041565,de,EU,Europa,AD,Andorra,0
 3042058,de,EU,Europa,LI,Liechtenstein,0
 3042142,de,EU,Europa,JE,Jersey,0
-3042225,de,EU,Europa,IM,"Isle of Man",0
+3042225,de,EU,Europa,IM,"Insel Man",0
 3042362,de,EU,Europa,GG,Guernsey,0
 3057568,de,EU,Europa,SK,Slowakei,1
 3077311,de,EU,Europa,CZ,Tschechien,1
@@ -177,7 +177,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3370751,de,AF,Afrika,SH,"St. Helena",0
 3371123,de,AN,Antarktis,BV,Bouvetinsel,0
 3374084,de,NA,Nordamerika,BB,Barbados,0
-3374766,de,AF,Afrika,CV,Kapverden,0
+3374766,de,AF,Afrika,CV,"Kap Verde",0
 3378535,de,SA,Südamerika,GY,Guyana,0
 3381670,de,SA,Südamerika,GF,Französisch-Guayana,1
 3382998,de,SA,Südamerika,SR,Suriname,0
@@ -186,7 +186,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3437598,de,SA,Südamerika,PY,Paraguay,0
 3439705,de,SA,Südamerika,UY,Uruguay,0
 3469034,de,SA,Südamerika,BR,Brasilien,0
-3474414,de,SA,Südamerika,FK,Falklandinseln,0
+3474414,de,SA,Südamerika,FK,Falkland-Inseln,0
 3474415,de,AN,Antarktis,GS,"Südgeorgien und die Südlichen Sandwichinseln",0
 3489940,de,NA,Nordamerika,JM,Jamaika,0
 3508796,de,NA,Nordamerika,DO,"Dom. Republik",0
@@ -199,7 +199,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3575174,de,NA,Nordamerika,KN,"St. Kitts und Nevis",0
 3575830,de,NA,Nordamerika,DM,Dominica,0
 3576396,de,NA,Nordamerika,AG,"Antigua und Barbuda",0
-3576468,de,NA,Nordamerika,LC,"St. Lucia",0
+3576468,de,NA,Nordamerika,LC,"Saint Lucia",0
 3576916,de,NA,Nordamerika,TC,"Turks- und Caicosinseln",0
 3577279,de,NA,Nordamerika,AW,Aruba,0
 3577718,de,NA,Nordamerika,VG,"Britische Jungferninseln",0
@@ -249,5 +249,5 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6697173,de,AN,Antarktis,AQ,Antarktis,0
 7609695,de,NA,Nordamerika,SX,"Sint Maarten",0
 7626836,de,NA,Nordamerika,CW,Curaçao,0
-7626844,de,NA,Nordamerika,BQ,"Karibische Niederlande",0
+7626844,de,NA,Nordamerika,BQ,"Bonaire, Sint Eustatius und Saba",0
 7909807,de,AF,Afrika,SS,Südsudan,0
