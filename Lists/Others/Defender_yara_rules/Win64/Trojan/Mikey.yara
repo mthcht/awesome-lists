@@ -1840,3 +1840,50 @@ rule Trojan_Win64_Mikey_GHT_2147962601_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_AH_2147962859_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AH!MTB"
+        threat_id = "2147962859"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 03 c8 48 8b c1 0f be 00 83 f0 ?? 48 8b 0c 24 48 8b 54 24 20 48 03 d1 48 8b ca 88 01 eb}  //weight: 30, accuracy: Low
+        $x_20_2 = {48 8d 84 04 48 1f 00 00 b9 ?? 00 00 00 48 6b c9 ?? c6 04 08 ?? b8 ?? 00 00 00 48 6b c0 ?? 48 8d 84 04 48 1f 00 00}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_BAI_2147962865_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.BAI!MTB"
+        threat_id = "2147962865"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {2e 74 65 78 74 00 00 00 7e 4a 11 00 00 10}  //weight: 10, accuracy: High
+        $x_10_2 = {2e 72 64 61 74 61 00 00 00 d4 3c 00 00 60 11}  //weight: 10, accuracy: High
+        $x_10_3 = {2e 64 61 74 61 00 00 00 c8 cd 06 00 00 40 4e}  //weight: 10, accuracy: High
+        $x_10_4 = {2e 76 6d 70 30 00 00 00 ?? ?? ?? 01 00 10 55}  //weight: 10, accuracy: Low
+        $x_10_5 = {2e 76 6d 70 31 00 00 00 9c 0a 00 00 00 ?? ?? 01 00 10 00 00 00 10}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

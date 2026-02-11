@@ -330,3 +330,27 @@ rule TrojanDownloader_MSIL_Agent_SPQ_2147838222_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Agent_A_2147962844_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Agent.A!AMTB"
+        threat_id = "2147962844"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Hack Free shop" ascii //weight: 1
+        $x_1_2 = "Sv dr v0.5.pdb" ascii //weight: 1
+        $x_1_3 = "http://kichhoatkey.online/" ascii //weight: 1
+        $x_1_4 = "http://dangkynick.online/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

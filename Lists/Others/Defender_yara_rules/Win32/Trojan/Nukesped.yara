@@ -26,3 +26,25 @@ rule Trojan_Win32_Nukesped_PA_2147742749_0
         )
 }
 
+rule Trojan_Win32_Nukesped_MK_2147962835_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nukesped.MK!MTB"
+        threat_id = "2147962835"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nukesped"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_25_1 = {49 03 c0 48 35 50 5e 00 00 48 89 45 40 48 8b 45 40 48 8b 4d 40 a8 01 ?? ?? 48 8b 45 58 48 33 c8 49 8b c3 48 f7 e1 48 d1 ea 48 8d 04 52 48 3b c8 48 8b 4d 40}  //weight: 25, accuracy: Low
+        $x_10_2 = {48 8b 45 50 48 0b c8 48 8b c3 48 f7 e1 48 c1 ea 02 48 8d 04 92 48 2b c8 48 83 f9 01 48 8b 4d 40 48 8b 45 a8 ?? ?? 32 c8 80 e1 0f 80 f9 02}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

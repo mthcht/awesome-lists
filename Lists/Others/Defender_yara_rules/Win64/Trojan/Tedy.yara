@@ -3997,3 +3997,25 @@ rule Trojan_Win64_Tedy_PAA_2147962746_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AHN_2147962858_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHN"
+        threat_id = "2147962858"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {52 00 53 00 49 00 4f 00 4e 00 5f 00 49 00 4e 00 46 00 4f 00 00 00 00 00 bd 04 ef fe 00 00 01 00}  //weight: 10, accuracy: High
+        $x_20_2 = "payload_temp.dll" ascii //weight: 20
+        $x_30_3 = "_payload_init" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

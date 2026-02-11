@@ -2321,3 +2321,27 @@ rule Trojan_MSIL_Tedy_LME_2147959064_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_PRJ_2147962864_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.PRJ!MTB"
+        threat_id = "2147962864"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 07 17 6f ?? 00 00 0a 07 07 6f ?? 00 00 0a 07 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 08 06 16 06 8e 69 6f ?? 00 00 0a 0d de 1e 08 2c 06 08}  //weight: 5, accuracy: Low
+        $x_3_2 = "ENC_PAYLOAD" ascii //weight: 3
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
