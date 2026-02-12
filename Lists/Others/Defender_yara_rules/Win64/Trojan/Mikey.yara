@@ -1887,3 +1887,26 @@ rule Trojan_Win64_Mikey_BAI_2147962865_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_SXF_2147962890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.SXF!MTB"
+        threat_id = "2147962890"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {83 7c 24 44 02 75 1d b9 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8d 54 24 40 48 8b cb ff 15 ?? ?? ?? ?? 85 c0 75 dc}  //weight: 20, accuracy: Low
+        $x_10_2 = "C:\\Users\\Public\\Music\\atl.ini" ascii //weight: 10
+        $x_2_3 = "CExecSvc.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
