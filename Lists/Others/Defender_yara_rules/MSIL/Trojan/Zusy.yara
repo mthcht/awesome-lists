@@ -4604,3 +4604,28 @@ rule Trojan_MSIL_Zusy_RR_2147962783_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_VD_2147962906_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.VD!MTB"
+        threat_id = "2147962906"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Sub SearchContact" ascii //weight: 2
+        $x_2_2 = "cscript.exe" ascii //weight: 2
+        $x_2_3 = "//B //Nologo //E:VBScript " ascii //weight: 2
+        $x_2_4 = "TempValue = Right(\"invfisible\", 3)" ascii //weight: 2
+        $x_2_5 = "StrReverse(\"ecdsfho\")" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

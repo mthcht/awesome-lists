@@ -4194,3 +4194,59 @@ rule Trojan_MSIL_XWorm_WSA_2147962748_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_DX_2147962907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.DX!MTB"
+        threat_id = "2147962907"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ActivatePong" ascii //weight: 1
+        $x_1_2 = "isDisconnected" ascii //weight: 1
+        $x_1_3 = "RunAntiAnalysis" ascii //weight: 1
+        $x_1_4 = "USBNM" ascii //weight: 1
+        $x_1_5 = "Spread" ascii //weight: 1
+        $x_1_6 = "ConnectServer" ascii //weight: 1
+        $x_1_7 = "DDos" ascii //weight: 1
+        $x_1_8 = "INDATE" ascii //weight: 1
+        $x_1_9 = "BeginConnect" ascii //weight: 1
+        $x_1_10 = "capGetDriverDescriptionA" ascii //weight: 1
+        $x_1_11 = "capCreateCaptureWindowA" ascii //weight: 1
+        $x_1_12 = "SetCurrentProcessIsCritical" ascii //weight: 1
+        $x_1_13 = "CriticalProcesses_Disable" ascii //weight: 1
+        $x_1_14 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_SXB_2147962913_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.SXB!MTB"
+        threat_id = "2147962913"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0a 0d 08 02 7b 0c 00 00 04 20 00 01 00 00 14 09 28 ?? 00 00 0a 02 7b 0d 00 00 04 6f ?? 00 00 0a 26 11 05 17 d6 13 05 11 05 11 06 8e b7 32 9c}  //weight: 20, accuracy: Low
+        $x_10_2 = {16 33 09 02 14 7d ?? 00 00 04 de 36 02 03 28 ?? 00 00 0a 7d ?? 00 00 04 02 7b ?? 00 00 04 2d 0b}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

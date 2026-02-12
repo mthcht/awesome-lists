@@ -8411,6 +8411,34 @@ rule Trojan_Win32_Guloader_SJ_2147962188_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SJ_2147962188_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SJ!MTB"
+        threat_id = "2147962188"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Guidelines200.flo" ascii //weight: 1
+        $x_1_2 = "ballelssers.dro" ascii //weight: 1
+        $x_1_3 = "frastdt\\orthotone\\sturdiest" ascii //weight: 1
+        $x_1_4 = "\\kapitlbaand\\Ultrareligious1.lnk" ascii //weight: 1
+        $x_1_5 = "summarist\\byrge\\Suggestives117" ascii //weight: 1
+        $x_1_6 = "recordedly\\parkgsters\\savvy" ascii //weight: 1
+        $x_1_7 = "\\durativisk.zip" ascii //weight: 1
+        $x_1_8 = "cognacglassene\\strygerullernes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_KW_2147962733_0
 {
     meta:

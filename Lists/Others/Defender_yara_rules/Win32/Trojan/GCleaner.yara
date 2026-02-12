@@ -1737,6 +1737,27 @@ rule Trojan_Win32_GCleaner_QWE_2147962130_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_ZXC_2147962262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.ZXC!MTB"
+        threat_id = "2147962262"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 d0 03 55 9c 52 6a 00 e8 ?? ?? ?? ?? 5a 2b d0 52 6a 00 e8 ?? ?? ?? ?? 5a 03 d0 31 13 83 c6 04 83 c3 04 3b 75 d0 0f 82}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_GCleaner_PGCG_2147962439_0
 {
     meta:
@@ -1774,6 +1795,27 @@ rule Trojan_Win32_GCleaner_AXF_2147962630_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {2b d7 03 55 98 03 55 94 81 ea 2b fd 07 00 2b d0 52 6a 00 e8 ?? ?? ?? ?? 5a 2b d0 31 13 83 c6 04 83 c3 04 3b 75 cc 0f 82}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GCleaner_ISL_2147962901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.ISL!MTB"
+        threat_id = "2147962901"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {03 fa 03 fe 03 f8 6a 00 e8 2e c1 f8 ff 50 8b c7 5a 2b c2 31 03 83 c6 04 83 c3 04 3b 75 cc 72 d4}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
