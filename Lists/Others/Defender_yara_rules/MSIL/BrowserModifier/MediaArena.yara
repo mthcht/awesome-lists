@@ -113,6 +113,36 @@ rule BrowserModifier_MSIL_MediaArena_363871_4
         family = "MediaArena"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "PdfMagicApp.pdb" ascii //weight: 2
+        $x_2_2 = "searchmagiconline" ascii //weight: 2
+        $x_1_3 = "PDFmagic" ascii //weight: 1
+        $x_1_4 = "Opera" ascii //weight: 1
+        $x_1_5 = "edge://settings/defaultBrowser" ascii //weight: 1
+        $n_100_6 = "Uninst.exe" ascii //weight: -100
+        $n_100_7 = "Uninstall.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule BrowserModifier_MSIL_MediaArena_363871_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "BrowserModifier:MSIL/MediaArena"
+        threat_id = "363871"
+        type = "BrowserModifier"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MediaArena"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "9"
         strings_accuracy = "High"
     strings:
@@ -130,7 +160,7 @@ rule BrowserModifier_MSIL_MediaArena_363871_4
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_5
+rule BrowserModifier_MSIL_MediaArena_363871_6
 {
     meta:
         author = "defender2yara"
@@ -159,7 +189,7 @@ rule BrowserModifier_MSIL_MediaArena_363871_5
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_6
+rule BrowserModifier_MSIL_MediaArena_363871_7
 {
     meta:
         author = "defender2yara"
@@ -188,7 +218,7 @@ rule BrowserModifier_MSIL_MediaArena_363871_6
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_7
+rule BrowserModifier_MSIL_MediaArena_363871_8
 {
     meta:
         author = "defender2yara"
@@ -215,7 +245,7 @@ rule BrowserModifier_MSIL_MediaArena_363871_7
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_8
+rule BrowserModifier_MSIL_MediaArena_363871_9
 {
     meta:
         author = "defender2yara"
@@ -246,7 +276,7 @@ rule BrowserModifier_MSIL_MediaArena_363871_8
         (all of ($x*))
 }
 
-rule BrowserModifier_MSIL_MediaArena_363871_9
+rule BrowserModifier_MSIL_MediaArena_363871_10
 {
     meta:
         author = "defender2yara"

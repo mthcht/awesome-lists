@@ -24,3 +24,27 @@ rule Trojan_Win32_Shodi_YBG_2147961688_0
         (5 of ($x*))
 }
 
+rule Trojan_Win32_Shodi_AMTB_2147962923_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Shodi!AMTB"
+        threat_id = "2147962923"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Shodi"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "UsaShohdi" ascii //weight: 1
+        $x_1_2 = "ccRegVfy.exe" ascii //weight: 1
+        $x_1_3 = "ccApp.exe" ascii //weight: 1
+        $x_1_4 = "\\*.exe" ascii //weight: 1
+        $x_1_5 = "Fuck you president of USA , Fuck you  \"bush the son\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
