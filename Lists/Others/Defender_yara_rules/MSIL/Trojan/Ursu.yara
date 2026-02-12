@@ -221,3 +221,25 @@ rule Trojan_MSIL_Ursu_SWA_2147931287_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Ursu_MK_2147962948_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Ursu.MK!MTB"
+        threat_id = "2147962948"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Ursu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {72 01 00 00 70 a2 25 17 72 13 00 00 70 a2 25 18 72 29 00 00 70 a2 25 19 72 3f 00 00 70 a2 25 1a 72 51 00 00 70 a2 25 1b 72 69 00 00 70}  //weight: 25, accuracy: High
+        $x_10_2 = {28 0f 00 00 0a 0a 06 72 05 01 00 70 6f 10 00 00 0a 0b 07 72 53 01 00 70 1f 28}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

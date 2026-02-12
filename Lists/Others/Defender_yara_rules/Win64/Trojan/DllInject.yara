@@ -656,3 +656,25 @@ rule Trojan_Win64_DllInject_AHB_2147960410_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllInject_NTA_2147962946_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllInject.NTA!MTB"
+        threat_id = "2147962946"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {41 80 e3 20 41 80 fb 01 66 44 11 d1 48 83 c2 02 49 83 c1 30 49 39 d0}  //weight: 3, accuracy: High
+        $x_2_2 = {48 8d 14 52 0f b6 54 d0 12 80 e2 20 80 fa 01 66 83 d1 00 48 89 da 48 c1 e2 10 48 c1 fa 10 48 8d 14 52}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
