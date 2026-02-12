@@ -51,3 +51,28 @@ rule TrojanDropper_O97M_ZooFlip_C_2147956895_0
         (all of ($x*))
 }
 
+rule TrojanDropper_O97M_ZooFlip_B_2147962887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:O97M/ZooFlip.B!dha"
+        threat_id = "2147962887"
+        type = "TrojanDropper"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "ZooFlip"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {77 69 6e 36 34 [0-7] 77 69 6e 33 32 [0-7] 76 62 61 37}  //weight: 1, accuracy: Low
+        $x_1_2 = {74 79 70 65 70 69 68 70 61 73 6c 6f 6e 67 [0-3] 68 74 61 73 6c 6f 6e 67 [0-3] 64 70 69 61 73 6c 6f 6e 67 [0-3] 64 74 69 61 73 6c 6f 6e 67 [0-3] 65 6e 64 74 79 70 65}  //weight: 1, accuracy: Low
+        $x_1_3 = {74 79 70 65 73 69 63 62 61 73 6c 6f 6e 67 [0-3] 6c 72 61 73 6c 6f 6e 67 [0-3] 6c 64 61 73 6c 6f 6e 67 [0-3] 6c 74 61 73 6c 6f 6e 67}  //weight: 1, accuracy: Low
+        $x_1_4 = "dxaslongdyaslongdxsaslongdysaslongdxccaslongdyccaslongdfaaslongdfaslongwswasintegercr2asintegerlr2asbytehsiaslong" ascii //weight: 1
+        $x_1_5 = {63 72 65 61 74 65 70 72 6f 63 65 73 73 77 22 28 5f 62 79 76 61 6c 6c 61 6e 61 73 6c 6f 6e 67 [0-3] 2c 5f 62 79 76 61 6c 6c 63 6c 61 73 6c 6f 6e 67 [0-3] 2c 5f 62 79 76 61 6c 6c 70 61 73 61 73 6c 6f 6e 67 [0-3] 2c 5f 62 79 76 61 6c 6c 74 61 73 61 73 6c 6f 6e 67 [0-3] 2c 5f 62 79 76 61 6c 62 69 68 73 61 73 6c 6f 6e 67 [0-3] 2c 5f 62 79 76 61 6c 64 63 66 73 61 73 6c 6f 6e 67 [0-3] 2c 5f 62 79 76 61 6c 6c 65 61 73 6c 6f 6e 67}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

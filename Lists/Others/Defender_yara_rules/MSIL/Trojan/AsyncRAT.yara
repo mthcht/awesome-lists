@@ -7011,3 +7011,28 @@ rule Trojan_MSIL_AsyncRAT_PDJ_2147962579_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_PMD_2147962888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.PMD!MTB"
+        threat_id = "2147962888"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {28 27 00 00 0a 13 04 11 04 7e ?? 00 00 04 6f ?? 00 00 0a 11 04 07 6f ?? 00 00 0a 11 04 17 6f ?? 00 00 0a 11 04 18 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 05 11 05 08 16 08 8e 69 6f ?? 00 00 0a 13 06 28 24 00 00 0a 11 06 6f ?? 00 00 0a 0d}  //weight: 4, accuracy: Low
+        $x_3_2 = {08 09 02 09 91 07 09 07 8e 69 5d 91 61 d2 9c 08 09 91 2d 0b 08 09 09 20 ff 00 00 00 5d d2 9c 09 17 58 0d 09 1f 20}  //weight: 3, accuracy: High
+        $x_2_3 = {06 03 16 03 8e 69 6f 2d 00 00 0a 0b de 0a 06 2c 06 06 6f 2e 00 00 0a dc}  //weight: 2, accuracy: High
+        $x_1_4 = "FromBase64String" ascii //weight: 1
+        $x_1_5 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
