@@ -4274,3 +4274,24 @@ rule Trojan_MSIL_AsyncRat_AVPB_2147962198_0
         )
 }
 
+rule Trojan_MSIL_AsyncRat_AOQB_2147962929_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRat.AOQB!MTB"
+        threat_id = "2147962929"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 11 0b 9a 13 0c 11 0c 28 ?? ?? 00 0a 13 0e 11 0e 2c 02 2b 40 00 11 0c 12 0d 28 ?? ?? 00 0a 13 0f 11 0f 2c 2f 11 0d 11 07 da 13 10 11 10 16 32 0e 11 10 20 ff 00 00 00 fe 02 16 fe 01 2b 01 16 13 11 11 11 2c 0c 11 04 11 10 b4 6f ?? ?? 00 0a 00 00 00 00 00 11 0b 17 d6 13 0b 11 0b 11 0a 31 9f 11 04 6f ?? ?? 00 0a 13 08 11 04 6f ?? ?? 00 0a 0a 2b 00 06 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

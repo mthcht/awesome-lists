@@ -233,6 +233,30 @@ rule Trojan_Win64_Dacic_RR_2147910292_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_AH_2147915096_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.AH!MTB"
+        threat_id = "2147915096"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "exec(compile(code,'payload_main.py','exec'), {'__name__':'__main__'})" ascii //weight: 10
+        $x_20_2 = "code = zipfile.ZipFile(t).read('payload_main.py')" ascii //weight: 20
+        $x_30_3 = "if 'payload_main.py' in names:" ascii //weight: 30
+        $x_40_4 = "if _is_dir_main(t): return _try_file(os.path.join(t,'payload_main.py'))" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Dacic_AMAK_2147915536_0
 {
     meta:

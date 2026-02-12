@@ -359,6 +359,31 @@ rule HackTool_Win32_AutoKMS_HNB_2147929004_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_AutoKMS_AMTB_2147932276_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/AutoKMS!AMTB"
+        threat_id = "2147932276"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoKMS"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "WARNING: Size of RPC payload (KMS Message) should be %u but is %u." ascii //weight: 2
+        $x_2_2 = "vlmcsd %s started successfully" ascii //weight: 2
+        $x_2_3 = "<<< Incoming KMS request" ascii //weight: 2
+        $x_2_4 = "KMS v%i.%i request from %s for %s" ascii //weight: 2
+        $x_2_5 = "KMS host current active clients : %u" ascii //weight: 2
+        $x_1_6 = "-k <KmsGUID> Use custom KMS GUID" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule HackTool_Win32_AutoKMS_DA_2147962706_0
 {
     meta:
