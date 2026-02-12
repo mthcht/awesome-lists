@@ -139,3 +139,24 @@ rule Trojan_Win64_Keylogger_ARR_2147961378_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Keylogger_BMD_2147962966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Keylogger.BMD!MTB"
+        threat_id = "2147962966"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C:\\per_main_25\\MicrosoftMigration\\handycafeInstaller\\brserver\\x64\\Release\\KY.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

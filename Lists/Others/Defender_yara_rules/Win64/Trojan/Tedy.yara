@@ -3951,6 +3951,32 @@ rule Trojan_Win64_Tedy_RR_2147962573_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_RR_2147962573_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.RR!MTB"
+        threat_id = "2147962573"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {08 a8 a7 31 bf 13 0f 52 f2 ec 32 6c 81 0f}  //weight: 1, accuracy: High
+        $x_1_2 = "msiexec.exe" wide //weight: 1
+        $x_1_3 = "rpoedcamusv" wide //weight: 1
+        $x_1_4 = "mewuifsoarpcvxgh!" wide //weight: 1
+        $x_1_5 = "RUVEH?IJDqXFAtPYZlgmnc" wide //weight: 1
+        $x_1_6 = "Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\RunOnceEntries" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_ABMT_2147962645_0
 {
     meta:

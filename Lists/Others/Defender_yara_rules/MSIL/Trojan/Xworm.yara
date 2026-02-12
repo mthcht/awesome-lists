@@ -372,3 +372,25 @@ rule Trojan_MSIL_Xworm_MK_2147961029_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xworm_PGXA_2147962964_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PGXA!MTB"
+        threat_id = "2147962964"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {02 8e b7 1f 50 da 17 da 17 d6 8d 02 00 00 01 0c 16 08 8e b7 17 da 13 13 13 09 2b 1c 08 11 09 02 11 09 1f 50 d6 91 11 07 11 09 11 07 8e b7 5d 91 61 9c 11 09 17 d6 13 09 11 09 11 13 31 de}  //weight: 5, accuracy: High
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
