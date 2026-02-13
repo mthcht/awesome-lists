@@ -13300,3 +13300,56 @@ rule Trojan_Win32_ClickFix_IK_2147962708_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_IM_2147962981_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IM!MTB"
+        threat_id = "2147962981"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "copy %windir%\\system32\\finger.exe " wide //weight: 10
+        $x_10_2 = "copy c:\\windows\\system32\\finger.exe " wide //weight: 10
+        $x_10_3 = {20 00 66 00 69 00 6e 00 67 00 65 00 72 00 20 00 [0-18] 40 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 7c 00 63 00 6d 00 64 00}  //weight: 10, accuracy: Low
+        $x_10_4 = {20 00 66 00 69 00 6e 00 67 00 65 00 72 00 20 00 [0-18] 40 00 23 15 15 06 61 2d 7a 30 2d 39 2e 00 23 03 03 06 61 2d 7a 30 2d 39 7c 00 63 00 6d 00 64 00}  //weight: 10, accuracy: Low
+        $x_1_5 = "|cmd" wide //weight: 1
+        $x_1_6 = "| cmd" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_IQ_2147962982_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IQ!MTB"
+        threat_id = "2147962982"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "111"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {3d 00 5b 00 63 00 68 00 61 00 72 00 5d 00 28 00 5b 00 63 00 6f 00 6e 00 76 00 65 00 72 00 74 00 5d 00 3a 00 3a 00 74 00 6f 00 62 00 79 00 74 00 65 00 28 00 24 00 [0-4] 2e 00 53 00 75 00 62 00 73 00 74 00 72 00 69 00 6e 00 67 00 28 00 24 00 [0-4] 2c 00 32 00 29 00 2c 00 31 00 36 00 29 00 [0-4] 2d 00 62 00 78 00 6f 00 72 00 [0-8] 24 00 [0-4] 29 00}  //weight: 100, accuracy: Low
+        $x_10_2 = {69 00 65 00 78 00 [0-4] 28 00 [0-4] 69 00 72 00 6d 00 20 00 24 00}  //weight: 10, accuracy: Low
+        $x_1_3 = "='';" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

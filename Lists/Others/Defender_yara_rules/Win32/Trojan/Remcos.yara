@@ -1348,6 +1348,30 @@ rule Trojan_Win32_Remcos_ET_2147784160_0
         )
 }
 
+rule Trojan_Win32_Remcos_RVA_2147787459_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.RVA!MTB"
+        threat_id = "2147787459"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\raffinaderiers\\sjlemesses.ini" ascii //weight: 1
+        $x_1_2 = "chinkle igneoaqueous" ascii //weight: 1
+        $x_1_3 = "saettemaskinen erkendtlighed edition" ascii //weight: 1
+        $x_1_4 = "selvforgudelses.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Remcos_AUT_2147788931_0
 {
     meta:
