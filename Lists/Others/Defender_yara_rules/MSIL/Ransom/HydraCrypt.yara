@@ -95,3 +95,29 @@ rule Ransom_MSIL_HydraCrypt_PA_2147808421_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HydraCrypt_AP_2147962992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HydraCrypt.AP!AMTB"
+        threat_id = "2147962992"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HydraCrypt"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Attempting AMSI bypass" ascii //weight: 1
+        $x_1_2 = "Attempting ETW patching" ascii //weight: 1
+        $x_1_3 = "Dropping ransom note at" ascii //weight: 1
+        $x_1_4 = "README_DECRYPT.txt" ascii //weight: 1
+        $x_1_5 = "RDP connections with stolen credentials" ascii //weight: 1
+        $x_1_6 = "Ransom note not written" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
