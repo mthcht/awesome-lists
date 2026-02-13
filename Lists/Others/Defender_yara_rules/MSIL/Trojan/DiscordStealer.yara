@@ -249,3 +249,32 @@ rule Trojan_MSIL_DiscordStealer_PAHJ_2147962769_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DiscordStealer_VD_2147963022_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DiscordStealer.VD!MTB"
+        threat_id = "2147963022"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "DiscordTokenGrabber.dll" ascii //weight: 5
+        $x_1_2 = "get_Token" ascii //weight: 1
+        $x_5_3 = "https://discord.com/api/webhooks/" wide //weight: 5
+        $x_1_4 = "\\discord\\Local Storage\\leveldb" wide //weight: 1
+        $x_1_5 = "complete_system_data.txt" wide //weight: 1
+        $x_1_6 = "mfa\\.[\\w-]{80,90}" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

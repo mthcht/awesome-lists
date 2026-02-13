@@ -314,3 +314,32 @@ rule Trojan_MSIL_LockScreen_AYA_2147949879_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LockScreen_VD_2147963021_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LockScreen.VD!MTB"
+        threat_id = "2147963021"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "VM_Detected" ascii //weight: 1
+        $x_2_2 = "locker_debug.txt" wide //weight: 2
+        $x_1_3 = "telegram" wide //weight: 1
+        $x_1_4 = "DisableTaskMgr" wide //weight: 1
+        $x_1_5 = "ux-cryptor.exe" wide //weight: 1
+        $x_1_6 = {d0 00 9e 00 d0 00 b9 00 21 00 20 00 d0 00 92 00 d0 00 b0 00 d1 00 88 00 d0 00 b8 00 20 00 d1 00 84 00 d0 00 b0 00 d0 00 b9 00 d0 00 bb 00 d1 00 8b 00 20 00 d0 00 b7 00 d0 00 b0 00 d1 00 88 00 d0 00 b8 00 d1 00 84 00 d1 00 80 00 d0 00 be 00 d0 00 b2 00 d0 00 b0 00 d0 00 bd 00 d1 00 8b 00 21 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 4 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

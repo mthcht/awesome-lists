@@ -20,3 +20,25 @@ rule Trojan_Win64_Zapchast_LM_2147962365_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zapchast_ARR_2147963020_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zapchast.ARR!MTB"
+        threat_id = "2147963020"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zapchast"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_14_1 = {48 89 c2 83 e2 ?? 0f b6 54 14 5c 41 32 14 04 88 14 03 48 83 c0 ?? 48 39 c6 75}  //weight: 14, accuracy: Low
+        $x_6_2 = {31 d2 4c 8d 05 ?? ?? ?? ?? 48 89 d9 66 89 50}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -389,3 +389,25 @@ rule Trojan_Win64_Ulise_ARR_2147961961_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_SX_2147963019_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.SX!MTB"
+        threat_id = "2147963019"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {33 d2 48 8d 4c 24 ?? ff d3 48 8b 9c 24 ?? ?? ?? ?? b8 01 00 00 00 99 f7 ff 48 8b bc 24 ?? ?? ?? ?? 48 8b 8c 24 ?? ?? ?? ?? 48 33 cc e8}  //weight: 10, accuracy: Low
+        $x_40_2 = "schtasks /create /tn \"update-systask\" /tr \"\\\"cmd.exe\\\" \\\"/c powershell -EncodedCommand" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
