@@ -175,3 +175,24 @@ rule Trojan_Win64_Injuke_PGIN_2147959660_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injuke_GHM_2147963046_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injuke.GHM!MTB"
+        threat_id = "2147963046"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 44 24 08 48 ff c0 48 89 44 24 08 48 8b 44 24 28 48 39 44 24 08 ?? ?? 33 d2 48 8b 44 24 08 48 f7 74 24 38 48 8b c2 48 8b 4c 24 30 0f b6 04 01 48 8b 4c 24 08 48 8b 54 24 20 48 03 d1 48 8b ca 0f b6 09 33 c8 8b c1 48 8b 4c 24 08 48 8b 54 24 20 48 03 d1 48 8b ca 88 01}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
