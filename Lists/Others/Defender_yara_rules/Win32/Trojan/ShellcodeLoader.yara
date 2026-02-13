@@ -64,3 +64,25 @@ rule Trojan_Win32_ShellcodeLoader_AHD_2147959478_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeLoader_AH_2147963037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeLoader.AH!MTB"
+        threat_id = "2147963037"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {31 fe c1 c6 ?? 89 f0 c1 e8 ?? 01 f0 8d 3c 70 42 89 d0 31 d2 f7 f1 0f b6 03 43 84 c0 75}  //weight: 30, accuracy: Low
+        $x_20_2 = "schtasks.exe /run /tn \"WinSafe" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

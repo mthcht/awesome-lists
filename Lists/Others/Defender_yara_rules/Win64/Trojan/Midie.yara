@@ -839,3 +839,25 @@ rule Trojan_Win64_Midie_SXF_2147962896_0
         )
 }
 
+rule Trojan_Win64_Midie_AH_2147963038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.AH!MTB"
+        threat_id = "2147963038"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {f3 0f e6 c0 66 0f 6e c8 f3 0f e6 c9 41 6b c2 ?? f2 0f 58 c0 41 03 c3 f2 0f 5c c8 f2 0f 59 ca f2 0f 11 4c 24 68}  //weight: 30, accuracy: Low
+        $x_20_2 = {23 cf 03 c9 8b 54 83 ?? 48 63 84 24 a0 00 00 00 2b d1 03 94 24 b0 00 00 00 89 54 83}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

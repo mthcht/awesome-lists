@@ -411,3 +411,31 @@ rule Trojan_Win64_Ulise_SX_2147963019_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_AH_2147963036_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.AH!MTB"
+        threat_id = "2147963036"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 8b c8 33 d2 48 63 c5 ff c5 48 f7 f1 42 8a 04 32 30 06 48 ff c6 8b 05 ?? ?? ?? ?? 3b e8 72}  //weight: 30, accuracy: Low
+        $x_30_2 = {48 2b c8 0f b6 84 19 ?? ?? ?? ?? 41 30 00 41 ff c1 4d 8d 40 ?? 8b 0d ?? ?? ?? ?? 44 3b c9 72}  //weight: 30, accuracy: Low
+        $x_20_3 = "%LOCALAPPDATA%\\resources\\upd.asar" ascii //weight: 20
+        $x_10_4 = "5.6.4p4r7181.wd_241230_730667480723" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -1232,3 +1232,25 @@ rule Trojan_MSIL_Barys_SX_2147962307_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_AQQB_2147963034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.AQQB!MTB"
+        threat_id = "2147963034"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {14 13 04 73 ?? 00 00 0a 0c 73 ?? 00 00 0a 0a 06 20 00 01 00 00 6f ?? 00 00 0a 06 20 80 00 00 00 6f ?? 00 00 0a 03 7e ?? 00 00 04 20 e8 03 00 00 73 ?? 00 00 0a 13 05 06 11 05 06 6f ?? 00 00 0a 1e 5b 6f ?? 00 00 0a 6f ?? 00 00 0a 06 11 05 06 6f ?? 00 00 0a 1e 5b 6f ?? 00 00 0a 6f ?? 00 00 0a 06 17 6f ?? 00 00 0a 08 06 6f ?? 00 00 0a 17 73 ?? 00 00 0a 0d 09 02 16 02 8e 69 6f ?? 00 00 0a 09 6f ?? 00 00 0a de 0f 09 14 fe 01 0b 07 2d 06 09 6f ?? 00 00 0a dc 08 6f ?? 00 00 0a 13 04 de 0f}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

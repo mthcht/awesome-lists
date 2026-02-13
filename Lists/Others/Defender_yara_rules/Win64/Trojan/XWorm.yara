@@ -389,3 +389,25 @@ rule Trojan_Win64_XWorm_ARR_2147962419_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_GHM_2147963033_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.GHM!MTB"
+        threat_id = "2147963033"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8d 45 b0 48 89 c1 e8 ?? ?? ?? ?? 48 85 c0 ?? ?? 48 8d 15 ?? ?? ?? ?? 48 8d 45 b0 48 89 c1 e8 ?? ?? ?? ?? 48 85 c0 ?? ?? 48 8d 15 ?? ?? ?? ?? 48 8d 45 b0 48 89 c1 e8}  //weight: 5, accuracy: Low
+        $x_5_2 = {48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 b9 ?? ?? ?? ?? 48 8b 05 ?? ?? ?? ?? ff d0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
