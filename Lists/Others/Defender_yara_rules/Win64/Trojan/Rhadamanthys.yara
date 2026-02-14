@@ -611,6 +611,27 @@ rule Trojan_Win64_Rhadamanthys_RR_2147957705_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 f7 f1 48 8d [0-5] 0f b6 0c 02 48 8b 55 f0 48 8b 45 f8 48 01 d0 44 89 c2 31 ca 88 10 4d 8d 36}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rhadamanthys_RR_2147957705_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.RR!MTB"
+        threat_id = "2147957705"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "Low"
     strings:
@@ -620,7 +641,7 @@ rule Trojan_Win64_Rhadamanthys_RR_2147957705_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rhadamanthys_RR_2147957705_2
+rule Trojan_Win64_Rhadamanthys_RR_2147957705_3
 {
     meta:
         author = "defender2yara"
@@ -641,7 +662,7 @@ rule Trojan_Win64_Rhadamanthys_RR_2147957705_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rhadamanthys_RR_2147957705_3
+rule Trojan_Win64_Rhadamanthys_RR_2147957705_4
 {
     meta:
         author = "defender2yara"
@@ -1425,6 +1446,27 @@ rule Trojan_Win64_Rhadamanthys_NTM_2147962749_0
     strings:
         $x_2_1 = {0f b6 04 02 31 c1 48 8b 44 24 ?? 48 63 54 24 ?? 88 0c 10 8b 44 24}  //weight: 2, accuracy: Low
         $x_3_2 = {48 83 ec 28 89 ce 31 c9 31 d2 45 31 c0 45 31 c9}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rhadamanthys_RRI_2147963058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.RRI!MTB"
+        threat_id = "2147963058"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {c6 02 b8 48 c1 e9 25 6b c9 64 29 c8 8d 4c 05 64 83 c0 64 89 0f}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
