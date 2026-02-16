@@ -8465,3 +8465,30 @@ rule Trojan_Win32_Guloader_KW_2147962733_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_SI_2147963090_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SI!MTB"
+        threat_id = "2147963090"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Brndingerne.aff" ascii //weight: 1
+        $x_1_2 = "postanvisningers.fib" ascii //weight: 1
+        $x_1_3 = "subjektsprdikaters.tes" ascii //weight: 1
+        $x_1_4 = "kostplaner\\Uninstall\\gipspladers" ascii //weight: 1
+        $x_1_5 = "Punctate\\gnistredes" ascii //weight: 1
+        $x_1_6 = "curiousness forureningsbegrebets" ascii //weight: 1
+        $x_1_7 = "\\indazine.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

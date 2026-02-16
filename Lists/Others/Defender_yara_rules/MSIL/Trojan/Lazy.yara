@@ -3661,3 +3661,25 @@ rule Trojan_MSIL_Lazy_LGN_2147962967_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_PGAB_2147963089_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.PGAB!MTB"
+        threat_id = "2147963089"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_9_1 = {11 09 11 0b 58 20 ?? ?? ?? ?? 5d 13 0c 06 11 0c 06 11 0c 91 07 11 0c 11 09 58 20 ?? ?? ?? ?? 5d 91 61 7e ?? ?? 00 04 11 0b [0-5] 5d 91 61 d2 9c 11 0b 17 58 13 0b 11 0b 1f 10}  //weight: 9, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

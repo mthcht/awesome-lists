@@ -3536,24 +3536,3 @@ rule Trojan_MSIL_CryptInject_MCJ_2147955825_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_CryptInject_CV_2147962774_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/CryptInject.CV!MTB"
-        threat_id = "2147962774"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "CryptInject"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = {06 07 03 07 91 04 07 04 8e 69 5d 91 61 d2 9c 00 07 17 58 0b 07 03 8e 69 fe 04 0c 08 2d e1}  //weight: 5, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
