@@ -4067,3 +4067,29 @@ rule Trojan_Win64_Tedy_AHN_2147962858_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_ALAB_2147963136_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ALAB!MTB"
+        threat_id = "2147963136"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Clipboard replacer: started" ascii //weight: 1
+        $x_1_2 = "AMSI: bypassed" ascii //weight: 1
+        $x_1_3 = "CoreMain: sandbox check passed" ascii //weight: 1
+        $x_1_4 = "ntdll unhooked (clean copy)" ascii //weight: 1
+        $x_1_5 = "evasion init done" ascii //weight: 1
+        $x_1_6 = "Collecting Telegram data (main thread)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -18440,3 +18440,24 @@ rule Trojan_Win64_CobaltStrike_NTA_2147962263_0
         )
 }
 
+rule Trojan_Win64_CobaltStrike_ALAB_2147963137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.ALAB!MTB"
+        threat_id = "2147963137"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {3b cf 73 09 80 34 0b ?? 41 3b cf 72 f7 ff d3}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

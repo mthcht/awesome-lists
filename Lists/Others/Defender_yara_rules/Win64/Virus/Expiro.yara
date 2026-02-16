@@ -587,6 +587,28 @@ rule Virus_Win64_Expiro_RR_2147962979_0
         threshold = "2"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = {33 ca 41 8b d1 44 33 d1 8b 4c 24 74 45 88 57 fc 45 88 1f 4d 8d 7f 08 41 c1 ca 08 45 88 57 f3 41 c1 cb 08 45 88 5f f7}  //weight: 1, accuracy: High
+        $x_1_2 = "AppVClient.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Virus_Win64_Expiro_RR_2147962979_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win64/Expiro.RR!MTB"
+        threat_id = "2147962979"
+        type = "Virus"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Expiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = {33 45 48 c1 c9 1e 8b f8 c1 ca 1c 0f af 55 08 c1 e7 18 44 89 4d 48 33 d1 44 33 c2 45 33 c4 45 8b e2 45 88 46 fc 41 8b d0 41 88 06}  //weight: 1, accuracy: High
         $x_1_2 = "AppVClient.pdb" ascii //weight: 1
     condition:
