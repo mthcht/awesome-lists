@@ -85,3 +85,26 @@ rule Trojan_Win64_Aotera_RR_2147962990_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Aotera_AH_2147963108_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Aotera.AH!MTB"
+        threat_id = "2147963108"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Aotera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "fwI5CYY8elcXi9rOF3iD4stGKMMZe0BstM8GZDIO3xWgXICM8R5XqXHuJYw" ascii //weight: 10
+        $x_20_2 = "fgUgHIQ7f1AezJfhCkfW89FNBMwbNFRup5scYzkywRmsXZbftA5dpW+0Ys21wE7" ascii //weight: 20
+        $x_30_3 = "ew0jE8ckfkwcjZ6gEUyF8tRaBY0WehJgud4dfz08wR/jSp+atAYYqnWvew=" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

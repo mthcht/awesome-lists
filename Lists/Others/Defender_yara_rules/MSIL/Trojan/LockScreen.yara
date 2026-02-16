@@ -343,3 +343,28 @@ rule Trojan_MSIL_LockScreen_VD_2147963021_0
         )
 }
 
+rule Trojan_MSIL_LockScreen_MK_2147963112_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LockScreen.MK!MTB"
+        threat_id = "2147963112"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "75"
+        strings_accuracy = "Low"
+    strings:
+        $x_25_1 = {08 07 28 86 00 00 0a 73 28 00 00 0a 25 72 ?? 0f 00 70 6f 2e 00 00 0a 25 72 ?? 0f 00 70 08 72 ?? 00 00 70 28 2f 00 00 0a 6f 30 00 00 0a 25 17 6f 2b 00 00 0a 25 17 6f 2c 00 00 0a 25 16 6f 29 00 00 0a 25 17 6f 2a 00 00 0a 25 72}  //weight: 25, accuracy: Low
+        $x_20_2 = "DefenderExclusion_{0}.ps1" ascii //weight: 20
+        $x_15_3 = "DisableTaskMgr" ascii //weight: 15
+        $x_10_4 = "DisableRegistryTools" ascii //weight: 10
+        $x_5_5 = "/c schtasks /create /f /sc onlogon /delay 0000:00 /tn \"" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

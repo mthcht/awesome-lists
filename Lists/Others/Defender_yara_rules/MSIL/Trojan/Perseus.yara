@@ -565,3 +565,28 @@ rule Trojan_MSIL_Perseus_SLDH_2147957174_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Perseus_MK_2147963110_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Perseus.MK!MTB"
+        threat_id = "2147963110"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Perseus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "CPUZ141.sys failed to load" ascii //weight: 15
+        $x_15_2 = "DankInjectionForm" ascii //weight: 15
+        $x_10_3 = "Injecting (RAW) -> {0}/{1}" ascii //weight: 10
+        $x_10_4 = "Hijack Thread" ascii //weight: 10
+        $x_5_5 = "comboInjectionMethod" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

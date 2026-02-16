@@ -4086,6 +4086,27 @@ rule Trojan_Win64_Lazy_MK_2147954929_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {8b c8 ba 00 10 00 00 81 e1 ff 0f 00 00 2b d1 48 8b 4f 10 3b d6 0f 4c f2 48 83 64 24 48 00 80 7f 20 00 4c 63 c6}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_MK_2147954929_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MK!MTB"
+        threat_id = "2147954929"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {48 8b 44 24 38 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 01 c8 48 89 44 24 40 c7 44 24 30 be 18}  //weight: 5, accuracy: Low

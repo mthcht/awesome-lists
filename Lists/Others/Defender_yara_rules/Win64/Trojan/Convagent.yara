@@ -1142,3 +1142,24 @@ rule Trojan_Win64_Convagent_SXF_2147962947_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_MKC_2147963111_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.MKC!MTB"
+        threat_id = "2147963111"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {45 8b fe 41 8b f6 45 8b ee 41 83 fc 03 41 b8 ff 7f 00 00 0f 94 c0 41 d1 ef c1 ee 02 33 d2 41 c1 ee 03 41 83 e7 01 83 e6 01 89 44 24 74 41 83 e6 01 41 83 e5 01}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
