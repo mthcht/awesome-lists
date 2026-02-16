@@ -270,3 +270,30 @@ rule Trojan_Win64_ReverseShell_SXC_2147962613_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_SXD_2147963080_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.SXD!MTB"
+        threat_id = "2147963080"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b 00 ff d0 66 89 84 24 ?? ?? ?? ?? 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 8b 00 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? ff d0 89 84 24 ?? ?? ?? ?? 48 8b 8c 24 ?? ?? ?? ?? 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 8b 00 48 8d 94 24 ?? ?? ?? ?? 41 b8 10 00 00 00 ff d0}  //weight: 20, accuracy: Low
+        $x_20_2 = {31 c0 41 89 c1 48 8d 15 ?? ?? ?? ?? 4c 8d 54 24 ?? 48 8d 44 24 ?? 4c 89 c9 4d 89 c8 c7 44 24 ?? 01 00 00 00 c7 44 24 ?? ?? ?? ?? 08 48 c7 44 24 ?? ?? ?? ?? 00 48 c7 44 24 ?? ?? ?? ?? 00 4c 89 54 24 ?? 48 89 44 24 ?? ff 15}  //weight: 20, accuracy: Low
+        $x_10_3 = "[ERROR] WSASturtup failed" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
