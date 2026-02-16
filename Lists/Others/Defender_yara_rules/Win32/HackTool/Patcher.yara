@@ -345,3 +345,27 @@ rule HackTool_Win32_Patcher_D_2147961235_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_Patcher_E_2147963099_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher.E!AMTB"
+        threat_id = "2147963099"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "KEYHACKEDBYSVENSKTEAMPHROZENHELL" ascii //weight: 1
+        $x_1_2 = "SvensK [tEaM pHrOzEn HeLL]" ascii //weight: 1
+        $x_1_3 = "HKEY_LOCAL_MACHINE\\SOFTWARE\\VanDyke\\SecureCRT\\License" ascii //weight: 1
+        $x_1_4 = "Apply patch and enjoy." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

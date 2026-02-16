@@ -90,3 +90,24 @@ rule Ransom_MSIL_Encoder_C_2147961641_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Encoder_SX_2147963101_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Encoder.SX!MTB"
+        threat_id = "2147963101"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {11 04 11 05 8f 0a 00 00 01 25 71 0a 00 00 01 08 11 05 08 6f ?? 00 00 0a 5d 6f ?? 00 00 0a d2 61 d2 81 0a 00 00 01 11 05 17 58 13 05 11 05 11 04 8e 69 32 cc 09 72 ?? ?? 00 70 28 ?? 00 00 0a 11 04 28 ?? 00 00 0a 09}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -302,11 +302,12 @@ rule Trojan_Win32_SuspClickFix_R_2147962996_0
     strings:
         $x_5_1 = "nslookup" wide //weight: 5
         $x_1_2 = " | findstr ^Name:" wide //weight: 1
-        $x_1_3 = " | for /f" wide //weight: 1
-        $x_1_4 = "tokens=" wide //weight: 1
-        $x_1_5 = "delims=" wide //weight: 1
-        $x_1_6 = " | cmd" wide //weight: 1
-        $x_1_7 = " | C:\\Windows\\System32\\cmd.exe" wide //weight: 1
+        $x_1_3 = " | findstr powershell" wide //weight: 1
+        $x_1_4 = " | for /f" wide //weight: 1
+        $x_1_5 = "tokens=" wide //weight: 1
+        $x_1_6 = "delims=" wide //weight: 1
+        $x_1_7 = " | cmd" wide //weight: 1
+        $x_1_8 = " | C:\\Windows\\System32\\cmd.exe" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (

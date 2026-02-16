@@ -195,3 +195,26 @@ rule Trojan_Win64_Rootkit_LM_2147960483_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rootkit_SX_2147963103_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rootkit.SX!MTB"
+        threat_id = "2147963103"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rootkit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {42 0f b7 44 4f ?? 0f b7 f0 0f b7 c8 66 c1 e8 0c 66 83 f8 0a 75 ?? 49 23 f3 4c 01 04 16 eb}  //weight: 20, accuracy: Low
+        $x_10_2 = {0f b7 c6 0f b7 fe 48 8d 14 80 0f b7 c1 45 8b 4c d4 ?? 41 2b c6 3b f8 75 ?? 8b 7b 50 eb}  //weight: 10, accuracy: Low
+        $x_5_3 = {41 0f b7 c0 66 45 03 c1 48 8d 14 80 41 8b 74 d4 ?? 41 8b 7c d4 ?? 49 03 f6 41 8b 4c d4 ?? 48 03 fd f3 a4 66 44 3b 43}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
