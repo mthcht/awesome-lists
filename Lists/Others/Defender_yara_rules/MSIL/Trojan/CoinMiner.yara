@@ -3051,3 +3051,25 @@ rule Trojan_MSIL_CoinMiner_SX_2147963017_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CoinMiner_MKB_2147963197_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CoinMiner.MKB!MTB"
+        threat_id = "2147963197"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {03 11 06 6f 2b 00 00 0a 06 06 11 04 94 06 08 94 58 20 00 01 00 00 5d 94 61 d1 6f 2d 00 00 0a 26 00 11 06 17 58 13 06 11 06 03 6f 2a 00 00 0a fe 04 13 08 11 08 2d 9d}  //weight: 25, accuracy: High
+        $x_10_2 = {08 06 07 94 58 02 07 02 6f 2a 00 00 0a 5d 6f 2b 00 00 0a 58 20 00 01 00 00 5d 0c 06 07 94 0d 06 07 06 08 94 9e 06 08 09 9e}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

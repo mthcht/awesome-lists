@@ -8207,3 +8207,28 @@ rule Trojan_Win32_GuLoader_SWI_2147961149_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REH_2147963195_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REH!MTB"
+        threat_id = "2147963195"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "glemmebger\\beltless" ascii //weight: 1
+        $x_1_2 = "unmeasurableness\\affable\\wiatt" ascii //weight: 1
+        $x_1_3 = "\\sevillian\\asterixis.ini" ascii //weight: 1
+        $x_1_4 = "\\ultramaximal\\smldets.dll" ascii //weight: 1
+        $x_1_5 = "%sitarens%\\dioramic" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
