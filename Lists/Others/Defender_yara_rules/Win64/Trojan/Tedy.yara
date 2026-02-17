@@ -3963,6 +3963,27 @@ rule Trojan_Win64_Tedy_RR_2147962573_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 80 30 84 41 80 70 01 85 41 80 70 02 86 41 80 70 03 87 41 80 70 04 88 41 80 70 05 89 41 80 70 06 8a 41 80 70 07 8b 41 80 70 08 8c 41 80 70 09 8d 41 80 70 0a 8e 41 88 78 0c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_RR_2147962573_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.RR!MTB"
+        threat_id = "2147962573"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

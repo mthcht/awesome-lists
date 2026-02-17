@@ -2684,3 +2684,29 @@ rule Trojan_Win64_ShellcodeRunner_AHK_2147962734_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_LMU_2147963161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.LMU!MTB"
+        threat_id = "2147963161"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] sysZwAllocateVirtualMemory executed" ascii //weight: 1
+        $x_2_2 = "[+] sysNtProtectVirtualMemory executed" ascii //weight: 2
+        $x_3_3 = "[+] sysNtCreateThreadEx executed" ascii //weight: 3
+        $x_4_4 = "] Failed in sysNtWaitForSingleObject (%u)" ascii //weight: 4
+        $x_5_5 = "[+] sysNtWaitForSingleObject executed" ascii //weight: 5
+        $x_6_6 = "[+] Finished" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

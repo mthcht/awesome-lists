@@ -47,3 +47,28 @@ rule Ransom_Win64_Devman_D_2147961078_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Devman_AB_2147963159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Devman.AB!MTB"
+        threat_id = "2147963159"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Devman"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 1
+        $x_1_2 = "DEVMAN 3.0" ascii //weight: 1
+        $x_1_3 = "1. Find !!!_READ_ME_!!!.txt on your desktop" ascii //weight: 1
+        $x_1_4 = "schtasks /create /s $pc /u $u /p $p /tn $tn /tr \"C:\\ProgramData\\$name\" /sc once /st 00:00 /ru SYSTEM /f 2>$null" ascii //weight: 1
+        $x_1_5 = "and backups have been locked" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

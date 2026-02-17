@@ -1071,3 +1071,34 @@ rule Trojan_Win64_CoinMiner_LM_2147962362_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_LMU_2147963160_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.LMU!MTB"
+        threat_id = "2147963160"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Resuming, PID" ascii //weight: 1
+        $x_2_2 = "[-] Failed to load XMRig from resources:" ascii //weight: 2
+        $x_3_3 = "[-] Failed to load GMiner from resources:" ascii //weight: 3
+        $x_4_4 = "[+] Connected to Bnet Tor Service (9050)" ascii //weight: 4
+        $x_5_5 = "[*] CPU mining disabled, skipping XMRig injection" ascii //weight: 5
+        $x_6_6 = "[IDLE_CHECK] Idle time:" ascii //weight: 6
+        $x_7_7 = "[*] Checking if device is idle (threshold:" ascii //weight: 7
+        $x_8_8 = "] CPU miner CRASHED, restarting..." ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

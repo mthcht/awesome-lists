@@ -3172,3 +3172,56 @@ rule Trojan_Win64_Zusy_KKA_2147962592_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_KKB_2147963162_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKB!MTB"
+        threat_id = "2147963162"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "SELECT DisplayName, Direction, Action, Enabled, Profile, ApplicationName, LocalPort, RemotePort FROM MSFT_NetFirewallRule" ascii //weight: 10
+        $x_5_2 = "\\Microsoft\\Edge\\User Data\\Default\\History" ascii //weight: 5
+        $x_3_3 = "\\Google\\Chrome\\User Data\\Default\\History" ascii //weight: 3
+        $x_1_4 = "\\Mozilla\\Firefox\\Profiles\\*" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KKC_2147963163_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKC!MTB"
+        threat_id = "2147963163"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "xor_data.dat" ascii //weight: 10
+        $x_10_2 = "custom_stream_data.dat" ascii //weight: 10
+        $x_4_3 = "bypass\\bypass-agent\\workspace\\ssvagent_multi_custom_stream" ascii //weight: 4
+        $x_4_4 = "bypass\\bypass-agent_2\\workspace\\ssvagent_threadless_xor_" ascii //weight: 4
+        $x_4_5 = "bypass\\bypass-agent\\workspace\\ssvagent_remote_thread_hijack_xor_" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_4_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

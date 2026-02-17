@@ -54,3 +54,27 @@ rule Ransom_Win64_FileCrypter_NC_2147925077_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCrypter_GHM_2147963158_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCrypter.GHM!MTB"
+        threat_id = "2147963158"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "api.valentinesforever.thm" ascii //weight: 1
+        $x_1_2 = "1L0v3Y0uF0r3v3r4ndEv3r2024xoxo" ascii //weight: 1
+        $x_1_3 = "Your data has been exfiltrated" ascii //weight: 1
+        $x_1_4 = "YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
