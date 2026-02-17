@@ -112,3 +112,30 @@ rule Ransom_Win64_BQTLock_MG_2147954859_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_BQTLock_AMTB_2147963201_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/BQTLock!AMTB"
+        threat_id = "2147963201"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BQTLock"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "{ \"username\": \"BQTLock Bot\", \"embeds\": [{ \"title\": \"Infection Report\", \"description\": \"A new system has been infected" ascii //weight: 2
+        $x_2_2 = "username\": \"BQTLock Bot\", \"embeds\": [{ \"title\": \"Encryption Complete" ascii //weight: 2
+        $x_2_3 = "BQTLock Payload finished initial execution. Entering persistent C2" ascii //weight: 2
+        $x_2_4 = "\\C$\\Windows\\Temp\\bqt_payload.exe" ascii //weight: 2
+        $x_1_5 = "defender.exe" ascii //weight: 1
+        $x_1_6 = "kaspersky.exe" ascii //weight: 1
+        $x_1_7 = "mcafee.exe" ascii //weight: 1
+        $x_1_8 = "sophos.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
