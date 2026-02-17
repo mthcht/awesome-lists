@@ -2714,6 +2714,27 @@ rule Trojan_Win32_Remcos_AMR_2147924103_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_AMR_2147924103_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.AMR!MTB"
+        threat_id = "2147924103"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {52 68 04 01 00 00 ff 15 ?? ?? ?? ?? 68 60 32 27 09 8d 85 e4 f9 ff ff 50 ff 15 ?? ?? ?? ?? c7 85 d8 f7 ff ff b0 32 27 09 c7 85 d0 f7 ff ff dc 32 27 09 c7 85 d4 f7 ff ff f0 32 27 09 68 04 01 00 00 8d 8d dc f7 ff ff 51 6a 00 ff 15 ?? ?? ?? ?? 8b 95 cc f7 ff ff 52 8d 85 f4 fd ff ff 50}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Remcos_NR_2147928598_0
 {
     meta:

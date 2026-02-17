@@ -20,3 +20,27 @@ rule TrojanDropper_Win32_Zusy_NITA_2147929288_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win32_Zusy_AH_2147963182_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win32/Zusy.AH!MTB"
+        threat_id = "2147963182"
+        type = "TrojanDropper"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "if exist audio\\pwrun.vbs cd audio" ascii //weight: 10
+        $x_20_2 = "ren app64.dkc app64.bat" ascii //weight: 20
+        $x_30_3 = "start /b /wait app64.bat" ascii //weight: 30
+        $x_40_4 = "if exist App64\\admin\\app64.bat cd App64\\admin" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

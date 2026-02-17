@@ -3944,6 +3944,7 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         $n_600_27 = "pwceur.sharepoint.com" wide //weight: -600
         $n_600_28 = "pwcinternal.com" wide //weight: -600
         $n_600_29 = "-win32" wide //weight: -600
+        $n_600_30 = ".asia.corp.com" wide //weight: -600
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

@@ -42,3 +42,25 @@ rule Trojan_Win64_ArkeiStealer_ABAR_2147961516_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ArkeiStealer_ABSA_2147963183_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ArkeiStealer.ABSA!MTB"
+        threat_id = "2147963183"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ArkeiStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 01 fb 45 31 dd 41 c1 c5 ?? 45 01 e8 44 31 c7 c1 c7 0c 41 01 fb 45 31 dd 41 c1 c5 ?? 45 01 e8 44 31 c7 c1 c7 07 ff 4c 24 34}  //weight: 5, accuracy: Low
+        $x_5_2 = {8d 48 ff 83 e1 1e 0f b6 4c 0d d0 30 4c 03 ff 89 c1 83 e1 1f 0f b6 4c 0d d0 30 0c 03 48 83 c0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
