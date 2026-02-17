@@ -19,6 +19,27 @@ rule Trojan_Win32_ModiLoader_AMI_2147853253_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ModiLoader_AMI_2147853253_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ModiLoader.AMI!MTB"
+        threat_id = "2147853253"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ModiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {68 7c 86 46 00 68 74 86 46 00 e8 ?? e5 f9 ff 50 e8 ?? e5 f9 ff a3 60 d6 56 00 c6 44 24 10 b8 c6 44 24 11 c0 c6 44 24 12 40 c6 44 24 13 ?? c6 44 24 14 ?? c6 44 24 15 c3 8d 44 24 04 50 6a 06 8d 44 24 18 50 56 8b 44 24 10 50}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ModiLoader_AML_2147888189_0
 {
     meta:

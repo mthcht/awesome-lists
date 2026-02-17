@@ -6899,3 +6899,49 @@ rule Trojan_MSIL_DarkTortilla_ATQB_2147963143_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_MCR_2147963169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.MCR!MTB"
+        threat_id = "2147963169"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 00 20 00 6f 00 20 00 61 00 20 00 64}  //weight: 1, accuracy: High
+        $x_1_2 = {46 00 6f 00 63 00 75 00 73 00 46 00 6c 00 6f 00 77}  //weight: 1, accuracy: High
+        $x_1_3 = {75 00 73 00 65 00 72 00 2e 00 63 00 6f 00 6e 00 66 00 69 00 67}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DarkTortilla_MCS_2147963170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.MCS!MTB"
+        threat_id = "2147963170"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "RijndaelManaged" ascii //weight: 1
+        $x_1_2 = "abiser.dll" ascii //weight: 1
+        $x_2_3 = "Bogarinabiser.My.Resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
