@@ -849,6 +849,30 @@ rule Trojan_MSIL_QuasarRAT_BAB_2147963002_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 06 0b 07 ?? ?? 00 00 0a ?? ?? 00 00 0a 0c ?? ?? 00 00 0a 08 ?? ?? 00 00 0a 0d 09 ?? ?? 00 00 0a 14 14 ?? ?? 00 00 0a 26 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "StrReverse" ascii //weight: 1
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_QuasarRAT_BAB_2147963002_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRAT.BAB!MTB"
+        threat_id = "2147963002"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -860,7 +884,7 @@ rule Trojan_MSIL_QuasarRAT_BAB_2147963002_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_QuasarRAT_BAB_2147963002_1
+rule Trojan_MSIL_QuasarRAT_BAB_2147963002_2
 {
     meta:
         author = "defender2yara"

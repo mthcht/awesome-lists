@@ -398,3 +398,25 @@ rule Trojan_Win64_DonutLoader_SJY_2147963211_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_ADL_2147963235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.ADL!MTB"
+        threat_id = "2147963235"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b c8 ff 15 ?? ?? ?? ?? 48 8b f0 48 8d 0d ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 48 8b c8 ff 15 ?? ?? ?? ?? 48 8b e8 48 8d 0d ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 48 8b c8 ff 15 ?? ?? ?? ?? 48 8b f8 48 8b 54 24 48 48 2b 54 24 40 33 c9 41 b9 04 00 00 00 41 b8 00 10 00 00 ff d6}  //weight: 2, accuracy: Low
+        $x_1_2 = {4c 8b c1 33 d2 b9 e9 fd 00 00 ff 15 ?? ?? ?? ?? 4c 89 74 24 28 44 89 74 24 20 41 b9 04 01 00 00 4c 8d 44 24 ?? 48 8d 94 24 ?? 02 00 00 33 c9 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
