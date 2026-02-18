@@ -6957,14 +6957,18 @@ rule Trojan_MSIL_DarkTortilla_RVA_2147963210_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
+        threshold = "11"
+        strings_accuracy = "Low"
     strings:
         $x_1_1 = {57 9f a2 2b 09 1f 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 03 01 00 00 77 00 00 00 6f 02 00 00 55 06 00 00 8a 03 00 00 08 00 00 00 76 03 00 00 3e 00 00 00 1e 06 00 00 03 00 00 00 d1 00 00 00 30 00 00 00 55 01 00 00 8e 02 00 00 09 00 00 00 b6 00 00 00 04 00 00 00 01 00 00 00 07 00 00 00 04 00 00 00 5d 00 00 00 1d 00 00 00 7e}  //weight: 1, accuracy: High
-        $x_1_2 = {6f 00 74 00 62 00 69 00 76 00 61 00 00 00 00 00 72 00 65 00 73 00 6f 00 75 00 72 00 63 00 65 00 73 00 00 00 00 00 00 00 01 02 03 04 05 06 07 08 2e 00 6a 00 73 00 6f 00 6e}  //weight: 1, accuracy: High
-        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+        $x_1_2 = {57 9f a2 2b 09 1f 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 ?? 00 00 00 83 00 00 00 0f 02 00 00 58 03 00 00 02 00 00 00 08 00 00 00 0e 02 00 00 02 00 00 00 43 00 00 00 0e 00 00 00 ?? 00 00 00 04 00 00 00 09 00 00 00 0a 00 00 00 09 00 00 00 45 00 00 00 0f 00 00 00 01 00 00 00 07 00 00 00 04 00 00 00 ?? 00 00 00 1d 00 00 00 14}  //weight: 1, accuracy: Low
+        $x_5_3 = {6f 00 74 00 62 00 69 00 76 00 61 00 00 00 00 00 72 00 65 00 73 00 6f 00 75 00 72 00 63 00 65 00 73 00 00 00 00 00 00 00 01 02 03 04 05 06 07 08 2e 00 6a 00 73 00 6f 00 6e}  //weight: 5, accuracy: High
+        $x_5_4 = "CreateDecryptor" ascii //weight: 5
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
