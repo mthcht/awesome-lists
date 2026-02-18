@@ -148,3 +148,24 @@ rule Trojan_Win64_Shelma_PGSH_2147958887_1
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Shelma_MK_2147963262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Shelma.MK!MTB"
+        threat_id = "2147963262"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Shelma"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {3a 69 24 02 53 8b 2a 1c de 33 58 24 dc 1f 55}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

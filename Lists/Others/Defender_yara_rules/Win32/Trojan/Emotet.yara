@@ -22066,3 +22066,25 @@ rule Trojan_Win32_Emotet_LMB_2147957710_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Emotet_LMC_2147963272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Emotet.LMC!MTB"
+        threat_id = "2147963272"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Emotet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 84 24 94 02 00 00 ff ff ff ff c7 84 24 90 02 00 00 d1 d6 a4 b0 8b 84 24 88 02 00 00 8b 8c 24 8c 02 00 00 35 0a a7 d8 13 8d 54 24 68 89 54 24 64 f2 0f 10 44 24 78}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 54 24 58 69 f2 7c 11 ea 32 89 b4 24 9c 02 00 00 83 c1 04 89 8c 24 80 02 00 00 8b 4c 24 70 8b 74 24 74 81 e9 a8 35 2c 0c}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
