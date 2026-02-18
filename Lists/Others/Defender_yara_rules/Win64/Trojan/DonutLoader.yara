@@ -375,3 +375,26 @@ rule Trojan_Win64_DonutLoader_MK_2147961570_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_SJY_2147963211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.SJY!MTB"
+        threat_id = "2147963211"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "svchost.exe" ascii //weight: 1
+        $x_1_2 = "Loader" ascii //weight: 1
+        $x_1_3 = "http://94.154.35.115/user_profiles_photo/cptchbuild.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

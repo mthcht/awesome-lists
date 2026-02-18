@@ -3984,6 +3984,31 @@ rule Trojan_Win64_Tedy_RR_2147962573_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 33 c2 c1 ea 08 0f b6 c8 0f b6 46 05 41 33 94 [0-6] 48 33 c2 c1 ea 08 0f b6 c8 0f b6 46 06 41 33 94 [0-6] 48 33 c2 c1 ea 08 0f b6 c8 0f b6 46 07 48 83 c6 08 41 33 94 [0-6] 48 33 c2 c1 ea 08 0f b6 c8 41 33 94 [0-6] 8b ca 49 83 e8 01}  //weight: 1, accuracy: Low
+        $x_1_2 = "bdata_pack\\jobfs_b.js" ascii //weight: 1
+        $x_1_3 = "bdata_pack\\jobfs_n.js" ascii //weight: 1
+        $x_1_4 = "bdata_pack\\jpack.js" ascii //weight: 1
+        $x_1_5 = "bdata_pack\\ugate.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_RR_2147962573_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.RR!MTB"
+        threat_id = "2147962573"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

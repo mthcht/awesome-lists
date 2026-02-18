@@ -6945,3 +6945,26 @@ rule Trojan_MSIL_DarkTortilla_MCS_2147963170_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_RVA_2147963210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.RVA!MTB"
+        threat_id = "2147963210"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 9f a2 2b 09 1f 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 03 01 00 00 77 00 00 00 6f 02 00 00 55 06 00 00 8a 03 00 00 08 00 00 00 76 03 00 00 3e 00 00 00 1e 06 00 00 03 00 00 00 d1 00 00 00 30 00 00 00 55 01 00 00 8e 02 00 00 09 00 00 00 b6 00 00 00 04 00 00 00 01 00 00 00 07 00 00 00 04 00 00 00 5d 00 00 00 1d 00 00 00 7e}  //weight: 1, accuracy: High
+        $x_1_2 = {6f 00 74 00 62 00 69 00 76 00 61 00 00 00 00 00 72 00 65 00 73 00 6f 00 75 00 72 00 63 00 65 00 73 00 00 00 00 00 00 00 01 02 03 04 05 06 07 08 2e 00 6a 00 73 00 6f 00 6e}  //weight: 1, accuracy: High
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
