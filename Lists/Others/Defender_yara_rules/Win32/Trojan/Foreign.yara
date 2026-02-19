@@ -40,3 +40,25 @@ rule Trojan_Win32_Foreign_AFR_2147850636_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Foreign_GVA_2147963306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Foreign.GVA!MTB"
+        threat_id = "2147963306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Foreign"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 c2 04 03 80 f2 1b 88 94 0c 5a 01 00 00 41 83 f9 1e 74 18 0f b6 94 0c 5a 01 00 00 89 ce 83 e6 03 74 dd 83 fe 02 75 dc 28 c2 eb d8}  //weight: 2, accuracy: High
+        $x_1_2 = {00 df 0f b6 c7 0f b6 84 04 78 01 00 00 30 44 2f 40 45 74 b7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

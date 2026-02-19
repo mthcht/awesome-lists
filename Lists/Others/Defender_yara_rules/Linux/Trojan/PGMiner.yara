@@ -28,3 +28,26 @@ rule Trojan_Linux_PGMiner_A_2147771160_0
         )
 }
 
+rule Trojan_Linux_PGMiner_B_2147963320_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/PGMiner.B"
+        threat_id = "2147963320"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "PGMiner"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "user=postgres" ascii //weight: 1
+        $x_1_2 = "COPY " ascii //weight: 1
+        $x_1_3 = " FROM PROGRAM " ascii //weight: 1
+        $x_5_4 = "/tmp/.ICE-unix" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

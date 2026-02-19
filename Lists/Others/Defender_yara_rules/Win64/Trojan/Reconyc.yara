@@ -70,3 +70,34 @@ rule Trojan_Win64_Reconyc_NR_2147958048_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Reconyc_GVC_2147963305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Reconyc.GVC!MTB"
+        threat_id = "2147963305"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Reconyc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "33"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "570015700256001netsh" ascii //weight: 1
+        $x_1_2 = "Payload decrypted:" ascii //weight: 1
+        $x_1_3 = "advfirewallfirewalladdruledir=inaction=allowprotocol=TCP" ascii //weight: 1
+        $x_15_4 = "Registry Run KeyGhost Scheduled TaskWinlogon UserinitCOM HijackingGlobal\\StealthPackerMutex_9A8B7C" ascii //weight: 15
+        $x_15_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\RunSOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\WinlogonUserinit" ascii //weight: 15
+        $x_15_6 = "schtasks/Create/F/SCONLOGON/TN/TR/RLHIGHEST" ascii //weight: 15
+        $x_15_7 = "schtasks/Delete/F/TN/Create/SCONLOGON/TR/RLHIGHESTE" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_15_*) and 3 of ($x_1_*))) or
+            ((3 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+

