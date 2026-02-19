@@ -111,3 +111,25 @@ rule Trojan_Win64_SalatStealer_SS_2147961906_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_ASLT_2147963355_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.ASLT!MTB"
+        threat_id = "2147963355"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {01 d0 0f b6 c0 89 85 b0 00 00 00 8b 85 bc 00 00 00 48 63 d0 48 8b 85 e0 00 00 00 48 01 d0 44 0f b6 00 8b 85 b0 00 00 00 48 98 0f b6 4c 05 a0 8b 85 bc 00 00 00 48 63 d0 48 8b 85 e0 00 00 00 48 01 d0 44 89 c2 31 ca 88 10}  //weight: 2, accuracy: High
+        $x_1_2 = {48 89 42 38 48 8b 85 d0 03 00 00 4c 8b 40 28 48 8b 85 d0 03 00 00 48 8b 00 48 8d 15 ?? ?? ?? ?? 48 89 c1 41 ff d0 48 8b 95 d0 03 00 00 48 89 42 40 48 8b 85 d0 03 00 00 4c 8b 40 28 48 8b 85 d0 03 00 00 48 8b 00 48 8d 15 ?? ?? ?? ?? 48 89 c1 41 ff d0 48 8b 95 d0 03 00 00 48 89 42 48 48 8b 85 d0 03 00 00 4c 8b 40 28 48 8b 85 d0 03 00 00 48 8b 00 48 8d 15 ?? ?? ?? ?? 48 89 c1 41 ff d0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
