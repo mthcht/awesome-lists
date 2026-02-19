@@ -1459,3 +1459,25 @@ rule Trojan_Win64_Vidar_MCR_2147963168_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_ABVW_2147963331_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ABVW!MTB"
+        threat_id = "2147963331"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 33 e1 41 c1 cc ?? 41 03 c4 03 d8 44 33 d3 89 5c 24 ?? 41 c1 ca ?? 48 83 6d}  //weight: 5, accuracy: Low
+        $x_5_2 = {41 0f b6 0c 01 30 08 48 8d 40 01 48 83 ea 01 75 ef}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

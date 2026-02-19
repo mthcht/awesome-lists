@@ -26,3 +26,28 @@ rule Ransom_Win64_Petya_MKV_2147947762_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Petya_YBG_2147963336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Petya.YBG!MTB"
+        threat_id = "2147963336"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Petya"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Petya MBR encryption" ascii //weight: 1
+        $x_1_2 = "deleting encrypted files" ascii //weight: 1
+        $x_1_3 = "README" ascii //weight: 1
+        $x_1_4 = "files have been encrypted" ascii //weight: 1
+        $x_1_5 = "encrypted MBR" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
