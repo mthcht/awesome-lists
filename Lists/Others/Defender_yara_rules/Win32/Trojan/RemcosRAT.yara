@@ -464,3 +464,29 @@ rule Trojan_Win32_RemcosRAT_BSA_2147940933_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_RemcosRAT_RVA_2147963364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemcosRAT.RVA!MTB"
+        threat_id = "2147963364"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "africanthropus versificeringen" ascii //weight: 1
+        $x_1_2 = "gastroptosia" ascii //weight: 1
+        $x_1_3 = "trskestes rustrde" ascii //weight: 1
+        $x_1_4 = "landgreven loimology" ascii //weight: 1
+        $x_1_5 = "sessility pilsners" ascii //weight: 1
+        $x_1_6 = "undershot.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
