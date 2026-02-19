@@ -9290,3 +9290,26 @@ rule Trojan_MSIL_Heracles_LGN_2147962965_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_BAM_2147963347_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.BAM!MTB"
+        threat_id = "2147963347"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {08 09 08 09 91 1f 0d 59 20 00 01 00 00 58 20 00 01 00 00 5d d2 9c 09 17 58 0d 09 08 8e 69 32 e0 16 13 04 2b 11 08 11 04 08 11 04 91 07 61 d2 9c 11 04 17 58 13 04 11 04 08 8e 69 32 e8}  //weight: 2, accuracy: High
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
