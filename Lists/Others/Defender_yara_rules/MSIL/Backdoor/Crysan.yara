@@ -2124,3 +2124,25 @@ rule Backdoor_MSIL_Crysan_AMQB_2147962881_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Crysan_AVQB_2147963379_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Crysan.AVQB!MTB"
+        threat_id = "2147963379"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {16 13 05 2b 25 08 11 05 8f ?? 00 00 01 25 71 ?? 00 00 01 11 04 11 05 11 04 8e 69 5d 91 61 d2 81 ?? 00 00 01 11 05 17 58 13 05 11 05 08 8e 69 fe 04 13 15 11 15 2d ce}  //weight: 4, accuracy: Low
+        $x_2_2 = {0a 13 09 11 09 11 06 6f ?? 00 00 0a 00 11 09 11 07 6f ?? 00 00 0a 00 11 09 17 6f ?? 00 00 0a 00 11 09 18 6f ?? 00 00 0a 00 11 09 6f ?? 00 00 0a 11 08 16 11 08 8e 69 6f ?? 00 00 0a 13 0a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
