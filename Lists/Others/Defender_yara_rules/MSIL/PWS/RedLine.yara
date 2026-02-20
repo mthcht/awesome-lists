@@ -402,45 +402,6 @@ rule PWS_MSIL_RedLine_GG_2147772078_11
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "26"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "Telegram" ascii //weight: 10
-        $x_10_2 = "IClientChannel" ascii //weight: 10
-        $x_1_3 = "OpenVPN" ascii //weight: 1
-        $x_1_4 = "NordVPN" ascii //weight: 1
-        $x_1_5 = "Download" ascii //weight: 1
-        $x_1_6 = "Discord" ascii //weight: 1
-        $x_1_7 = "Scan" ascii //weight: 1
-        $x_1_8 = "Password" ascii //weight: 1
-        $x_1_9 = "wallet" ascii //weight: 1
-        $x_1_10 = "*ssfn*" ascii //weight: 1
-        $x_1_11 = "SELECT * FROM" ascii //weight: 1
-        $x_1_12 = "Browser" ascii //weight: 1
-        $x_1_13 = "<PreStageAction" ascii //weight: 1
-        $x_1_14 = "<PassedPath" ascii //weight: 1
-        $x_1_15 = "<encrypt" ascii //weight: 1
-        $x_1_16 = "api.ip.sb/ip" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((2 of ($x_10_*) and 6 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule PWS_MSIL_RedLine_GG_2147772078_12
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "PWS:MSIL/RedLine.GG!MTB"
-        threat_id = "2147772078"
-        type = "PWS"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RedLine"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "76"
         strings_accuracy = "High"
     strings:
@@ -469,7 +430,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_12
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_13
+rule PWS_MSIL_RedLine_GG_2147772078_12
 {
     meta:
         author = "defender2yara"
@@ -508,7 +469,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_13
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_14
+rule PWS_MSIL_RedLine_GG_2147772078_13
 {
     meta:
         author = "defender2yara"
@@ -548,7 +509,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_14
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_15
+rule PWS_MSIL_RedLine_GG_2147772078_14
 {
     meta:
         author = "defender2yara"
@@ -586,7 +547,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_15
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_16
+rule PWS_MSIL_RedLine_GG_2147772078_15
 {
     meta:
         author = "defender2yara"
@@ -625,7 +586,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_16
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_17
+rule PWS_MSIL_RedLine_GG_2147772078_16
 {
     meta:
         author = "defender2yara"
@@ -664,7 +625,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_17
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_18
+rule PWS_MSIL_RedLine_GG_2147772078_17
 {
     meta:
         author = "defender2yara"
@@ -703,7 +664,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_18
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_19
+rule PWS_MSIL_RedLine_GG_2147772078_18
 {
     meta:
         author = "defender2yara"
@@ -743,7 +704,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_19
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_20
+rule PWS_MSIL_RedLine_GG_2147772078_19
 {
     meta:
         author = "defender2yara"
@@ -783,7 +744,7 @@ rule PWS_MSIL_RedLine_GG_2147772078_20
         )
 }
 
-rule PWS_MSIL_RedLine_GG_2147772078_21
+rule PWS_MSIL_RedLine_GG_2147772078_20
 {
     meta:
         author = "defender2yara"
