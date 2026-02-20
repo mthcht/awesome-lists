@@ -39,39 +39,35 @@ rule Trojan_Linux_Miners_A_2147773956_0
         $x_10_25 = "/xmrigMiner" wide //weight: 10
         $x_10_26 = "/apaceha" wide //weight: 10
         $x_10_27 = "/mixnerdx" wide //weight: 10
-        $x_10_28 = "/bashx" wide //weight: 10
-        $x_10_29 = "/bashg" wide //weight: 10
-        $x_10_30 = "/bashe" wide //weight: 10
-        $x_10_31 = "/bashf" wide //weight: 10
-        $x_10_32 = "/bashh" wide //weight: 10
-        $x_10_33 = "/XbashY" wide //weight: 10
-        $x_10_34 = "/crypto-pool" wide //weight: 10
-        $x_10_35 = "/minexmr" wide //weight: 10
-        $x_10_36 = "/XJnRj" wide //weight: 10
-        $x_10_37 = "/NXLAi" wide //weight: 10
-        $x_10_38 = "/BI5zj" wide //weight: 10
-        $x_10_39 = "/askdljlqw" wide //weight: 10
-        $x_10_40 = "/ysaydh" wide //weight: 10
-        $x_10_41 = "/bonns" wide //weight: 10
-        $x_10_42 = "/donns" wide //weight: 10
-        $x_10_43 = "/kxjd" wide //weight: 10
-        $x_10_44 = "/Duck.sh" wide //weight: 10
-        $x_10_45 = "/bonn.sh" wide //weight: 10
-        $x_10_46 = "/kworker34" wide //weight: 10
-        $x_10_47 = "/irqbalanc1" wide //weight: 10
-        $x_10_48 = "/ddg.2011" wide //weight: 10
-        $x_10_49 = "/wnTKYg" wide //weight: 10
-        $x_10_50 = "/deamon" wide //weight: 10
-        $x_10_51 = "/JnKihGjn" wide //weight: 10
-        $x_10_52 = "/irqba2anc1" wide //weight: 10
-        $x_10_53 = "/irqba5xnc1" wide //weight: 10
-        $x_10_54 = "/irqbnc1" wide //weight: 10
-        $x_10_55 = "/ir29xc1" wide //weight: 10
-        $x_10_56 = "/xig" wide //weight: 10
-        $x_10_57 = "/cranberry" wide //weight: 10
-        $x_10_58 = "/.gpg-agent" wide //weight: 10
+        $x_10_28 = "/XbashY" wide //weight: 10
+        $x_10_29 = "/crypto-pool" wide //weight: 10
+        $x_10_30 = "/minexmr" wide //weight: 10
+        $x_10_31 = "/XJnRj" wide //weight: 10
+        $x_10_32 = "/NXLAi" wide //weight: 10
+        $x_10_33 = "/BI5zj" wide //weight: 10
+        $x_10_34 = "/askdljlqw" wide //weight: 10
+        $x_10_35 = "/ysaydh" wide //weight: 10
+        $x_10_36 = "/bonns" wide //weight: 10
+        $x_10_37 = "/donns" wide //weight: 10
+        $x_10_38 = "/kxjd" wide //weight: 10
+        $x_10_39 = "/Duck.sh" wide //weight: 10
+        $x_10_40 = "/bonn.sh" wide //weight: 10
+        $x_10_41 = "/kworker34" wide //weight: 10
+        $x_10_42 = "/irqbalanc1" wide //weight: 10
+        $x_10_43 = "/ddg.2011" wide //weight: 10
+        $x_10_44 = "/wnTKYg" wide //weight: 10
+        $x_10_45 = "/JnKihGjn" wide //weight: 10
+        $x_10_46 = "/irqba2anc1" wide //weight: 10
+        $x_10_47 = "/irqba5xnc1" wide //weight: 10
+        $x_10_48 = "/irqbnc1" wide //weight: 10
+        $x_10_49 = "/ir29xc1" wide //weight: 10
+        $x_10_50 = "/xig" wide //weight: 10
+        $x_10_51 = "/cranberry" wide //weight: 10
+        $x_10_52 = "/.gpg-agent" wide //weight: 10
+        $n_100_53 = "/stratum/" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (50 of ($x*))
 }
 

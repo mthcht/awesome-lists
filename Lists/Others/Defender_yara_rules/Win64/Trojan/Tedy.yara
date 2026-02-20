@@ -4161,3 +4161,24 @@ rule Trojan_Win64_Tedy_ISL_2147963432_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_PGTE_2147963457_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PGTE!MTB"
+        threat_id = "2147963457"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 74 74 70 3a 2f 2f 38 33 2e 32 31 37 2e 32 30 39 2e 31 36 39 3a 35 35 35 33 2f 66 69 6c 65 73 2f [0-15] 2e [0-10] 76 65 63 74 6f 72 20 74 6f 6f 20 6c 6f 6e 67}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
