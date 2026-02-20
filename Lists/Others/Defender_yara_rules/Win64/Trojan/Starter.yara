@@ -19,3 +19,26 @@ rule Trojan_Win64_Starter_ASA_2147953213_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Starter_ASR_2147963430_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Starter.ASR!MTB"
+        threat_id = "2147963430"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Starter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b f8 33 c0 b9 08 02 00 00 f3 aa 4c 8d 4d 30 4c 8d 05 dd 97 00 00 ba 04 01 00 00 48 8d 8d 60 02 00 00}  //weight: 1, accuracy: High
+        $x_2_2 = {48 8b f8 33 c0 b9 00 fa 00 00 f3 aa 4c 8d 8d 60 02 00 00 4c 8d 05 ca 97 00 00 ba 00 7d 00 00 48 8d 8d 90 04 00 00}  //weight: 2, accuracy: High
+        $x_3_3 = {48 8b f8 33 c0 b9 fc 7f 00 00 f3 aa 4c 8d 05 6e 9c 00 00 ba fe 3f 00 00 48 8d 8d b0 fe 00 00}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
