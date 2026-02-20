@@ -8211,3 +8211,28 @@ rule Trojan_Win32_GuLoader_REH_2147963195_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REI_2147963460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REI!MTB"
+        threat_id = "2147963460"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\kondemnationerne\\endodontically\\papoula" ascii //weight: 1
+        $x_1_2 = "abutters gauleiter togawise" ascii //weight: 1
+        $x_1_3 = "hovedsaetning" ascii //weight: 1
+        $x_1_4 = "equicontinuous" ascii //weight: 1
+        $x_1_5 = "\\Karts\\autosomatognosis.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

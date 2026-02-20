@@ -64,3 +64,25 @@ rule Trojan_Win64_Bobik_AHB_2147960340_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Bobik_CM_2147963461_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bobik.CM!MTB"
+        threat_id = "2147963461"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 89 45 a8 0f 57 45 a0 48 89 b4 24 a0 00 00 00 66 0f 7f 45 c0 4c 89 b4 24 b0}  //weight: 2, accuracy: High
+        $x_2_2 = {33 c9 89 4c 24 20 0f 57 c0 0f 11 03 48 89 0b 48 89 4b 08 48 89 4b 10 c7 44 24 20 01 00 00 00 41 b8 00 de 17 00 48 8d 15 ?? ?? ?? ?? 48 8b cb e8}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
