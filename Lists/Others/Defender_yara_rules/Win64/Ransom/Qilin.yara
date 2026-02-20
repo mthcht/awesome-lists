@@ -76,3 +76,28 @@ rule Ransom_Win64_Qilin_MXL_2147963016_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Qilin_FXL_2147963433_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Qilin.FXL!MTB"
+        threat_id = "2147963433"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Qilin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 3
+        $x_3_2 = "All your documents, photos, databases" ascii //weight: 3
+        $x_1_3 = "and backups have been locked" ascii //weight: 1
+        $x_1_4 = "Find !!!_READ_ME_!!!.txt on your desktop" ascii //weight: 1
+        $x_2_5 = "Do NOT delete or modify encrypted files" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

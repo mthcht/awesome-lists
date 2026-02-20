@@ -4269,3 +4269,27 @@ rule Trojan_MSIL_PureLogStealer_RVD_2147963126_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_RVE_2147963439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.RVE!MTB"
+        threat_id = "2147963439"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {57 9d a3 3d 09 1f 00 00 00 00 00 00 00 00 00 00 01 00 00 00 84 00 00 00 6c 01 00 00 ?? 02 00 00 fa 07 00 00 4f 03 00 00 ?? 01 00 00 05 00 00 00 2f 00 00 00 0b 00 00 00 0e 00 00 00 ?? 00 00 00 01 00 00 00 03 00 00 00 04 00 00 00 01 00 00 00 1f 00 00 00 02 00 00 00 0e 00 00 00 01 00 00 00 03 00 00 00 05 00 00 00 48 00 00 00 09 00 00 00 02}  //weight: 1, accuracy: Low
+        $x_1_2 = {66 00 69 00 6c 00 65 00 3a 00 2f 00 2f 00 2f 00 00 11 4c 00 6f 00 63 00 61 00 74 00 69 00 6f 00 6e 00 00 0b 46 00 69 00 6e 00 64 00 20 00 00 13 52 00 65 00 73 00 6f 00 75 00 72 00 63 00 65 00 41 00 00 11 56 00 69 00 72 00 74 00 75 00 61 00 6c 00 20 00 00 0b 41 00 6c 00 6c 00 6f 00 63 00 00 0d 57 00 72 00 69 00 74 00 65}  //weight: 1, accuracy: High
+        $x_1_3 = ".g.resources" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

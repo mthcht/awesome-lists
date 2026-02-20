@@ -79,3 +79,30 @@ rule Trojan_MacOS_SuspDownloadExec_G_2147949992_0
         )
 }
 
+rule Trojan_MacOS_SuspDownloadExec_SA_2147963443_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SuspDownloadExec.SA"
+        threat_id = "2147963443"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SuspDownloadExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "51"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "curl " wide //weight: 50
+        $x_1_2 = "-s https://kenaikoda.com/api/mn/" wide //weight: 1
+        $x_1_3 = "-s https://zoom.uso5web.us/api/mn/" wide //weight: 1
+        $x_1_4 = "-s https://uw04webzoom.us/developer/sdk/fix" wide //weight: 1
+        $x_1_5 = "-s https://uw04webzoom.us/fix/mac/update/status/" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_50_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

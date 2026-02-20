@@ -1596,3 +1596,25 @@ rule Trojan_MSIL_Injector_RR_2147962417_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_AH_2147963440_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.AH!MTB"
+        threat_id = "2147963440"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Cant Create Process..!" ascii //weight: 30
+        $x_20_2 = "$f38280cb-0519-42c2-a283-4775453cabcc" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

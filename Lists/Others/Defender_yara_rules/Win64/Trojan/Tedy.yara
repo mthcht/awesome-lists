@@ -4139,3 +4139,25 @@ rule Trojan_Win64_Tedy_ALAB_2147963136_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_ISL_2147963432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ISL!MTB"
+        threat_id = "2147963432"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 8b c1 49 f7 f2 42 0f b6 04 1a 41 30 04 09 48 ff c1 49 3b c8 72 e7}  //weight: 5, accuracy: High
+        $x_4_2 = {0f b6 04 0a 41 32 04 08 88 01 48 8d 49 01 48 83 ee 01 75 ec}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -711,3 +711,25 @@ rule Trojan_Win64_StealC_ABSC_2147962473_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_AH_2147963441_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.AH!MTB"
+        threat_id = "2147963441"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {45 03 c2 41 c1 cb ?? 41 c1 ?? 13 45 33 d9 45 33 d0 41 33 d3 03 d0 33 da 44 03 c3 c1 cb ?? 41 33 d8}  //weight: 30, accuracy: Low
+        $x_20_2 = {41 8b c0 41 c1 c8 ?? 2b c3 03 c8 43 8d 04 11 44 33 c1 41 c1 c9 ?? 44 33 c8 41 03 c0 41 c1 c8}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
