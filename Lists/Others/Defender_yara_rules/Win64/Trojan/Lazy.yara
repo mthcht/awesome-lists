@@ -5171,3 +5171,25 @@ rule Trojan_Win64_Lazy_LMU_2147962904_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_ARS_2147963401_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ARS!MTB"
+        threat_id = "2147963401"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0f b6 0c 0a ff c2 41 30 48 ?? 48 8b cf 8b c2 48 3b 05 ?? ?? ?? ?? 0f 44 d6 48 83 3d}  //weight: 6, accuracy: Low
+        $x_14_2 = "Executing the payload with VEH ASM decryption... This may take a while depending on the efficiency of the shellcode..." ascii //weight: 14
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
