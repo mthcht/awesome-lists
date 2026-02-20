@@ -298,27 +298,6 @@ rule Trojan_Win32_GuLoader_RPF_2147798382_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_RPF_2147798382_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/GuLoader.RPF!MTB"
-        threat_id = "2147798382"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "GuLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {81 34 24 02 5c 4a ba [0-16] [0-16] [0-16] 8f 04 30 [0-16] [0-16] [0-16] [0-16] 83 de 28 [0-16] [0-16] 83 d6 24}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_GuLoader_RPA_2147799546_0
 {
     meta:

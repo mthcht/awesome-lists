@@ -358,33 +358,6 @@ rule Trojan_Win32_PonyStealer_VB_2147751355_12
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {89 f9 81 ff [0-64] [0-64] [0-64] [0-64] 8b 09 [0-64] [0-64] 31 3c 24 [0-64] [0-64] [0-64] 8f 04 10}  //weight: 1, accuracy: Low
-        $x_1_2 = {89 f9 81 fa [0-64] [0-64] [0-64] [0-64] 8b 09 [0-64] [0-64] 31 3c 24 [0-64] [0-64] [0-64] 8f 04 10}  //weight: 1, accuracy: Low
-        $x_1_3 = {89 f9 81 fb [0-64] [0-64] [0-64] [0-64] 8b 09 [0-64] [0-64] 31 3c 24 [0-64] [0-64] [0-64] 8f 04 10}  //weight: 1, accuracy: Low
-        $x_1_4 = {89 f9 3d ea [0-64] [0-64] [0-64] [0-64] 8b 09 [0-64] [0-64] 31 3c 24 [0-64] [0-64] [0-64] 8f 04 10}  //weight: 1, accuracy: Low
-        $x_1_5 = {89 f9 3d 6e [0-64] [0-64] [0-64] [0-64] 8b 09 [0-64] [0-64] 31 3c 24 [0-64] [0-64] [0-64] 8f 04 10}  //weight: 1, accuracy: Low
-        $x_1_6 = {8b 09 81 fb [0-64] [0-64] 31 3c 24 [0-64] [0-64] [0-64] 8f 04 10}  //weight: 1, accuracy: Low
-        $x_1_7 = {8b 09 81 fa [0-64] [0-64] 31 3c 24 [0-64] [0-64] [0-64] 8f 04 10}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
-rule Trojan_Win32_PonyStealer_VB_2147751355_13
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/PonyStealer.VB!MTB"
-        threat_id = "2147751355"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "PonyStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -405,7 +378,7 @@ rule Trojan_Win32_PonyStealer_VB_2147751355_13
         )
 }
 
-rule Trojan_Win32_PonyStealer_VB_2147751355_14
+rule Trojan_Win32_PonyStealer_VB_2147751355_13
 {
     meta:
         author = "defender2yara"
@@ -432,7 +405,7 @@ rule Trojan_Win32_PonyStealer_VB_2147751355_14
         (all of ($x*))
 }
 
-rule Trojan_Win32_PonyStealer_VB_2147751355_15
+rule Trojan_Win32_PonyStealer_VB_2147751355_14
 {
     meta:
         author = "defender2yara"

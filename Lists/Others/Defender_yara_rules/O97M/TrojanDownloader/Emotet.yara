@@ -200,55 +200,6 @@ rule TrojanDownloader_O97M_Emotet_OD_2147743859_0
         (all of ($x*))
 }
 
-rule TrojanDownloader_O97M_Emotet_OF_2147743890_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/Emotet.OF!MTB"
-        threat_id = "2147743890"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {4f 62 6a 65 63 74 28 [0-69] 28 [0-85] 22 [0-53] 77 [0-53] 69 [0-53] 6e [0-53] 65 [0-53] 6d [0-53] 67 [0-53] 65 [0-53] 6d [0-53] 74 [0-53] 65 [0-53] 73 [0-53] 3a}  //weight: 1, accuracy: Low
-        $x_1_2 = {2e 43 72 65 61 74 65 28 [0-69] 2c 20 [0-69] 2c}  //weight: 1, accuracy: Low
-        $x_1_3 = {3d 20 52 65 70 6c 61 63 65 28 [0-69] 2c 20 [0-69] 2c 20 22 22 29}  //weight: 1, accuracy: Low
-        $x_1_4 = {4f 62 6a 65 63 74 28 [0-21] 28 [0-21] 28 [0-21] 2e [0-21] 2e 43 61 70 74 69 6f 6e 29 29 29}  //weight: 1, accuracy: Low
-        $x_1_5 = ", MSForms," ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_Emotet_OG_2147743904_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/Emotet.OG!MTB"
-        threat_id = "2147743904"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {4f 62 6a 65 63 74 28 [0-69] 28 [0-85] 22 [0-53] 77 [0-53] 69 [0-53] 6e [0-53] 6d [0-53] 67 [0-53] 6d [0-53] 74 [0-53] 73 [0-53] 3a}  //weight: 1, accuracy: Low
-        $x_1_2 = {2e 43 72 65 61 74 65 28 [0-69] 2c 20 [0-69] 2c}  //weight: 1, accuracy: Low
-        $x_1_3 = {3d 20 52 65 70 6c 61 63 65 28 [0-69] 2c 20 [0-69] 2c 20 22 22 29}  //weight: 1, accuracy: Low
-        $x_1_4 = {3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 [0-16] 28 [0-16] 28 [0-21] 2e [0-21] 2e 43 61 70 74 69 6f 6e 29 29 29}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule TrojanDownloader_O97M_Emotet_OH_2147743908_0
 {
     meta:
@@ -265,31 +216,6 @@ rule TrojanDownloader_O97M_Emotet_OH_2147743908_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 [0-69] 28 [0-69] 22 [0-53] 77 [0-53] 69 [0-96] 6d [0-53] 67 [0-53] 6d [0-53] 74 [0-53] 73 3a}  //weight: 1, accuracy: Low
-        $x_1_2 = {43 72 65 61 74 65 28 [0-69] 2c 20 [0-69] 2c}  //weight: 1, accuracy: Low
-        $x_1_3 = {3d 20 52 65 70 6c 61 63 65 28 [0-69] 2c 20 [0-69] 2c 20 22 22 29}  //weight: 1, accuracy: Low
-        $x_1_4 = {53 75 62 20 61 75 74 6f 6f 70 65 6e 28 29 [0-2] 4f 6e 20 45 72 72 6f 72 20 52 65 73 75 6d 65 20 4e 65 78 74}  //weight: 1, accuracy: Low
-        $x_1_5 = ".ShowWindow = False" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_Emotet_OI_2147743923_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/Emotet.OI!MTB"
-        threat_id = "2147743923"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 [0-69] 28 [0-85] 22 [0-53] 77 [0-53] 69 [0-53] 6e [0-53] 6d [0-53] 67 [0-53] 6d [0-53] 74 [0-53] 73 [0-53] 3a}  //weight: 1, accuracy: Low
         $x_1_2 = {43 72 65 61 74 65 28 [0-69] 2c 20 [0-69] 2c}  //weight: 1, accuracy: Low
         $x_1_3 = {3d 20 52 65 70 6c 61 63 65 28 [0-69] 2c 20 [0-69] 2c 20 22 22 29}  //weight: 1, accuracy: Low
         $x_1_4 = {53 75 62 20 61 75 74 6f 6f 70 65 6e 28 29 [0-2] 4f 6e 20 45 72 72 6f 72 20 52 65 73 75 6d 65 20 4e 65 78 74}  //weight: 1, accuracy: Low
@@ -364,30 +290,6 @@ rule TrojanDownloader_O97M_Emotet_OK_2147743946_0
     strings:
         $x_1_1 = {67 6d 74 73 [0-32] 3a 57 [0-32] 69 [0-32] 6e [0-37] 5f [0-32] 50 [0-32] 72 [0-32] 6f [0-16] 63 [0-37] 65 [0-37] 73 [0-37] 73 [0-37] 22 29 29}  //weight: 1, accuracy: Low
         $x_1_2 = {3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 [0-69] 28 [0-53] 2e [0-53] 2e 43 61 70 74 69 6f 6e 29 29 29}  //weight: 1, accuracy: Low
-        $x_1_3 = {43 72 65 61 74 65 28 [0-69] 2c 20 [0-69] 2c}  //weight: 1, accuracy: Low
-        $x_1_4 = {3d 20 52 65 70 6c 61 63 65 28 [0-69] 2c 20 [0-69] 2c 20 22 22 29}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_Emotet_OM_2147743953_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/Emotet.OM!MTB"
-        threat_id = "2147743953"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {3d 20 53 79 73 74 65 6d 28 22 [0-32] 77 [0-32] 69 [0-32] 6e [0-32] 6d [0-32] 67 [0-32] 6d [0-32] 74 [0-32] 73 [0-32] 3a [0-32] 57 [0-32] 69 [0-32] [0-32] 33 [0-32] 32 5f [0-32] 50 [0-32] 72 [0-32] [0-32] 6f [0-32] 63 [0-32] 65 [0-32] 73 [0-32] [0-32] 73 [0-32] 22 29}  //weight: 1, accuracy: Low
-        $x_1_2 = {53 79 73 74 65 6d 28 [0-53] 2e [0-53] 2e 43 61 70 74 69 6f 6e 29}  //weight: 1, accuracy: Low
         $x_1_3 = {43 72 65 61 74 65 28 [0-69] 2c 20 [0-69] 2c}  //weight: 1, accuracy: Low
         $x_1_4 = {3d 20 52 65 70 6c 61 63 65 28 [0-69] 2c 20 [0-69] 2c 20 22 22 29}  //weight: 1, accuracy: Low
     condition:
