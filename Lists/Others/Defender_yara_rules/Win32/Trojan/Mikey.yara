@@ -500,3 +500,32 @@ rule Trojan_Win32_Mikey_AD_2147960942_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_LMN_2147963470_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.LMN!MTB"
+        threat_id = "2147963470"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "REST IN PISS, FOREVER MISS!" ascii //weight: 1
+        $x_2_2 = "WARNING: Getting rid of Bonzi will also" ascii //weight: 2
+        $x_3_3 = "Prepare to meet your biggest enemy again" ascii //weight: 3
+        $x_4_4 = "Ok I'll" ascii //weight: 4
+        $x_5_5 = "LET'S FIGHT!" ascii //weight: 5
+        $x_6_6 = "rekt.exe" ascii //weight: 6
+        $x_7_7 = "END MY PAIN!" ascii //weight: 7
+        $x_8_8 = "VineMEMZ" ascii //weight: 8
+        $x_9_9 = "BonziBDY_35.EXE" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

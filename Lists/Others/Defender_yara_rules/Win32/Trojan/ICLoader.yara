@@ -2383,3 +2383,24 @@ rule Trojan_Win32_ICLoader_AHB_2147959958_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_RR_2147963465_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.RR!MTB"
+        threat_id = "2147963465"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {33 c2 88 5e 08 25 ff 00 00 00 33 d8 89 5d e4 8b 0e 8b 45 dc 8b 56 04 89 06 8b 45 e0 89 4d dc 89 46 04 8b 4e 08 8b 46 08 c1 e1 17 33 c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
