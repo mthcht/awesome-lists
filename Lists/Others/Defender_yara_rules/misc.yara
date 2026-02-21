@@ -597,12 +597,12 @@ rule _PseudoThreat_c00008af_0
         )
 }
 
-rule _PseudoThreat_c0000969_0
+rule _PseudoThreat_c000096a_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000969"
-        threat_id = "3221227881"
+        detection_name = "!PseudoThreat_c000096a"
+        threat_id = "3221227882"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -614,12 +614,12 @@ rule _PseudoThreat_c0000969_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c000098d_0
+rule _PseudoThreat_c000098e_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c000098d"
-        threat_id = "3221227917"
+        detection_name = "!PseudoThreat_c000098e"
+        threat_id = "3221227918"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -631,12 +631,12 @@ rule _PseudoThreat_c000098d_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c0000a24_0
+rule _PseudoThreat_c0000a25_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000a24"
-        threat_id = "3221228068"
+        detection_name = "!PseudoThreat_c0000a25"
+        threat_id = "3221228069"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -648,12 +648,12 @@ rule _PseudoThreat_c0000a24_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c0000a42_0
+rule _PseudoThreat_c0000a43_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000a42"
-        threat_id = "3221228098"
+        detection_name = "!PseudoThreat_c0000a43"
+        threat_id = "3221228099"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
         threshold = "9"
@@ -675,12 +675,12 @@ rule _PseudoThreat_c0000a42_0
         (9 of ($x*))
 }
 
-rule _PseudoThreat_c0000a45_0
+rule _PseudoThreat_c0000a46_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000a45"
-        threat_id = "3221228101"
+        detection_name = "!PseudoThreat_c0000a46"
+        threat_id = "3221228102"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
