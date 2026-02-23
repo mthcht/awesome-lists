@@ -104,3 +104,25 @@ rule Trojan_Win64_Stealc_ZZ_2147960628_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealc_YGB_2147963515_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealc.YGB!MTB"
+        threat_id = "2147963515"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SJUF4I8aggQmguiC9f5d/wXGSw7mctXYuKTq1G54R/47I7tJq74HM2UOAYln6b/Ed7q78e9o6ZuXJ0CTlkH" ascii //weight: 1
+        $x_1_2 = "Go build ID:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

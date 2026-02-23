@@ -40,3 +40,27 @@ rule Trojan_Win64_Raccoon_CBVV_2147851987_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Raccoon_PAHQ_2147963518_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Raccoon.PAHQ!MTB"
+        threat_id = "2147963518"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Raccoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "desktop_screenshot.png" ascii //weight: 1
+        $x_2_2 = "XOR_INJECTOR+ABE+DPAPI+WALLETS+MESSENGERS+FTP+SCREENSHOT" ascii //weight: 2
+        $x_1_3 = "system_info.json" ascii //weight: 1
+        $x_2_4 = "Injected-Header: Evil" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

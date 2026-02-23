@@ -4186,6 +4186,28 @@ rule Trojan_Win32_Zusy_AZS_2147899084_2
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_AZS_2147899084_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AZS!MTB"
+        threat_id = "2147899084"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {ff 35 bc f3 40 00 e8 ?? ?? ?? ?? a3 88 f3 40 00 68 39 c3 40 00 ff 35 bc f3 40 00 e8 ?? ?? ?? ?? a3 8c f3 40 00 68 4c c3 40 00 ff 35 bc f3 40 00 e8 ?? ?? ?? ?? a3 98 f3 40 00 68 5f c3 40 00 ff 35 bc f3 40 00 e8 ?? ?? ?? ?? a3 9c f3 40 00 68 74 c3 40 00 ff 35 bc f3 40 00}  //weight: 2, accuracy: Low
+        $x_1_2 = {ba 75 c0 40 00 8d 4d 04 e8 ?? ?? ?? ?? ba 88 c0 40 00 8d 4d 08 e8 ?? ?? ?? ?? ba 9c c0 40 00 8d 4d 0c e8 ?? ?? ?? ?? ba ad c0 40 00 8d 4d 10 e8 ?? ?? ?? ?? ba bf c0 40 00 8d 4d 14 e8 ?? ?? ?? ?? ba d4 c0 40 00 8d 4d 18 e8 ?? ?? ?? ?? ba e4 c0 40 00 8d 4d 1c e8 ?? ?? ?? ?? ba f4 c0 40 00 8d 4d 20 e8 ?? ?? ?? ?? ba 08 c1 40 00 8d 4d 24 e8 ?? ?? ?? ?? ba 1e c1 40 00 8d 4d 28 e8 ?? ?? ?? ?? ba 2d c1 40 00 8d 4d 50}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_GAF_2147899455_0
 {
     meta:
