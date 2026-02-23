@@ -48,3 +48,24 @@ rule Ransom_Win32_FileEncoder_A_2147756883_1
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileEncoder_YBE_2147963545_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileEncoder.YBE!MTB"
+        threat_id = "2147963545"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileEncoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 fa 01 ca 70 17 8a 5c 0d a8 30 1c 16 41}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

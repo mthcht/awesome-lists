@@ -4295,3 +4295,46 @@ rule Trojan_MSIL_XWorm_SXB_2147962913_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AXQB_2147963546_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AXQB!MTB"
+        threat_id = "2147963546"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 04 2b 23 08 11 04 02 11 04 91 07 11 04 07 28 ?? ?? 00 06 25 26 69 5d 91 61 9c 11 04 1f 1c 28 ?? 00 00 06 d6 13 04 11 04 09 31 d8}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_AARB_2147963547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AARB!MTB"
+        threat_id = "2147963547"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 07 08 8f ?? 00 00 01 25 71 ?? 00 00 01 06 08 11 04 59 91 20 ae 00 00 00 61 d2 61 d2 81 ?? 00 00 01 1c 13 09 38 ?? ff ff ff d0 ?? ?? 00 06 26 08 11 05 32 cb}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

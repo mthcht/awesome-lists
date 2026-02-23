@@ -1178,3 +1178,28 @@ rule Ransom_MSIL_HiddenTear_ATH_2147961021_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_AYA_2147963533_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.AYA!MTB"
+        threat_id = "2147963533"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "you became a victim of covid-32 ransomware!" ascii //weight: 5
+        $x_2_2 = "ALL YOUR DATA ARE ENCRYPTED" wide //weight: 2
+        $x_2_3 = "Decrypt And check payment" wide //weight: 2
+        $x_1_4 = "$1922e933-7944-424c-ab20-10b3b5af5f49" ascii //weight: 1
+        $x_1_5 = "Covid_32.Properties.Resources" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

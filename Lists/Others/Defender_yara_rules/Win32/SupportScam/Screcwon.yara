@@ -115,7 +115,7 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_52 = ".helpm6.top" ascii //weight: 30
         $x_30_53 = ".bcjhelp.top" wide //weight: 30
         $x_30_54 = "dwssa.top" ascii //weight: 30
-        $x_30_55 = "download.ssafile-notifications.com" ascii //weight: 30
+        $x_30_55 = "download.ssafile-notifications.com" wide //weight: 30
         $x_30_56 = "sup2.bkdx308.ru" ascii //weight: 30
         $x_30_57 = "sgsc.hamkaransystem.ir" ascii //weight: 30
         $x_30_58 = "smallmartdirectintense.com" ascii //weight: 30

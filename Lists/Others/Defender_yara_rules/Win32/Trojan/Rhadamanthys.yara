@@ -893,3 +893,24 @@ rule Trojan_Win32_Rhadamanthys_AMTB_2147956302_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rhadamanthys_GMH_2147963558_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rhadamanthys.GMH!MTB"
+        threat_id = "2147963558"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {40 00 40 ff ff ff ff 20 b5 d5 00 70 b5 d5 00 10 3a 3a 01 1c 3a 3a 01 28 3a 3a 01 30 3a 3a 01 f0 b5 d5 00 ff}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
