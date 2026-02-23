@@ -1932,3 +1932,28 @@ rule Trojan_Win64_Mikey_AXC_2147963448_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_SXG_2147963498_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.SXG!MTB"
+        threat_id = "2147963498"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {49 83 c7 01 48 63 c8 48 89 c8 48 f7 e3 48 c1 ea 05 48 8d 04 d2 48 c1 e0 02 48 29 c1 0f b6 44 0c ?? 41 88 47 ff 49 39 f7 75}  //weight: 10, accuracy: Low
+        $x_2_2 = "schtasks.exe /RUN /TN \"\\Microsoft\\Windows\\DiskCleanup\\SilentCleanup\" /I" ascii //weight: 2
+        $x_1_3 = "[-] ShellExecuteEx" ascii //weight: 1
+        $x_1_4 = "[+] Running embedded 1.exe" ascii //weight: 1
+        $x_1_5 = "[+] Administrator privilege detected" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

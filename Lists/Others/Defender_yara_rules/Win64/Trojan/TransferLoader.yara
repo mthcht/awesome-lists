@@ -41,3 +41,24 @@ rule Trojan_Win64_TransferLoader_GVB_2147961503_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_TransferLoader_CM_2147963497_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/TransferLoader.CM!MTB"
+        threat_id = "2147963497"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "TransferLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {c1 e1 03 48 8b 54 24 ?? 48 d3 ea 48 8b ca 0f b6 c9 33 c1 48 63 4c 24 ?? 88 84 0c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
