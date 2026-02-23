@@ -3683,3 +3683,25 @@ rule Trojan_MSIL_Lazy_PGAB_2147963089_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_BAC_2147963512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.BAC!MTB"
+        threat_id = "2147963512"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 08 02 16 02 8e 69 ?? ?? 00 00 0a 00 08 ?? ?? 00 00 0a 00 07 ?? ?? 00 00 0a 0d de 36 08 14 fe 01 13 04 11 04 2d 07 08 ?? ?? 00 00 0a 00 dc 07 14 fe 01 13 04 11 04 2d 07 07 ?? ?? 00 00 0a 00 dc 06 14 fe 01 13 04 11 04 2d 07 06}  //weight: 2, accuracy: Low
+        $x_1_2 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
