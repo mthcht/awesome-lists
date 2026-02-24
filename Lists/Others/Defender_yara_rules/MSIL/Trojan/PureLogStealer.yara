@@ -2928,6 +2928,29 @@ rule Trojan_MSIL_PureLogStealer_NP_2147940070_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {5f fe 0e 31 00 fe 0c 30 00 1a 64 fe 0c 31 00 1a 62 60 fe 0c 28 00 61 fe 0e 30 00 fe 0c 29 00 1d 62 fe 0c 29 00 1f 19 64 60 fe 0e 29 00 fe 0c 2a 00 76 6c}  //weight: 2, accuracy: High
+        $x_1_2 = {fe 0c 2a 00 76 6c 5b fe 0c 2a 00 76 6c 58 6d fe 0e 32 00 20 37 ff ff ff 6a fe 0c 28 00 6e 59 6d fe 0c 32 00 58 6e 20 37 ff ff ff 6a 58 6d fe 0e 2a 00}  //weight: 1, accuracy: High
+        $x_1_3 = "Setpt26&" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_PureLogStealer_NP_2147940070_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.NP!MTB"
+        threat_id = "2147940070"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

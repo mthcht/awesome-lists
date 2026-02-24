@@ -14478,3 +14478,28 @@ rule Trojan_MSIL_Remcos_WGA_2147963283_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_NP_2147963599_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.NP!MTB"
+        threat_id = "2147963599"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {07 14 72 da 01 00 70 19 8d ?? 00 00 01 13 06 11 06 16 09 a2 11 06 17 16 8c ?? 00 00 01 a2 11 06 18 1a 8c ?? 00 00 01 a2 11 06 13 07 11 07 14 14 19 8d ?? 00 00 01 13 08 11 08 16 17 9c 11 08 17 16 9c 11 08 18 16 9c 11 08 17}  //weight: 2, accuracy: Low
+        $x_1_2 = "Mutex" ascii //weight: 1
+        $x_1_3 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_4 = "ExecutionPolicy Bypass Add-MpPreference -ExclusionPath" wide //weight: 1
+        $x_1_5 = "defender.exe|True|True|False|%AppData%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -789,3 +789,25 @@ rule Trojan_MSIL_Dcstl_AQLB_2147958015_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dcstl_ND_2147963598_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dcstl.ND!MTB"
+        threat_id = "2147963598"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dcstl"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {09 2d 75 1b 8d a1 00 00 01 25 16 72 99 1b 00 70 07 28 59 00 00 0a a2 25 17 72 c1 1b 00 70 07 28 59 00 00 0a a2 25 18 07 a2 25 19 72 d7 1b 00 70 07 28 59 00 00 0a a2 25 1a 07 25 2d 06 26 72 eb 1b 00 70 a2 13 0b 16 13 0c 2b 25 11 0b 11 0c 9a 13 0e 11 09 11 0e 6f c3 00 00 0a}  //weight: 2, accuracy: High
+        $x_1_2 = "Test-Bot.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
