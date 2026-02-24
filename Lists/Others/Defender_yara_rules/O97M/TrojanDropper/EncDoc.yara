@@ -161,3 +161,26 @@ rule TrojanDropper_O97M_EncDoc_PDA_2147831345_0
         (all of ($x*))
 }
 
+rule TrojanDropper_O97M_EncDoc_PAA_2147963592_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:O97M/EncDoc.PAA!MTB"
+        threat_id = "2147963592"
+        type = "TrojanDropper"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {37 35 65 22 22 22 [0-255] 25 75 73 65 72 70 72 6f 66 69 6c 65 25 5c 64 6f 77 6e 6c 6f 61 64 73 5c 2a 2e 63 72 64 6f 77 6e 6c 6f 61 64}  //weight: 1, accuracy: Low
+        $x_1_2 = "ne\"<!doctypehtml><html><bodyonload='document.forms[0].submit()'><formaction='https://webhook.site/5744c020-a8d9-4755-abfb-cde6ccd450af'method='po" ascii //weight: 1
+        $x_1_3 = "mentsetdoc=activedocumentwithdoc.content.font.color=wdcolorblackendw" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
