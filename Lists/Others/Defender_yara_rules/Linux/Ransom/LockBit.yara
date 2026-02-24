@@ -209,3 +209,29 @@ rule Ransom_Linux_LockBit_H_2147956018_0
         )
 }
 
+rule Ransom_Linux_LockBit_J_2147963614_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/LockBit.J!MSR"
+        threat_id = "2147963614"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[INFO] VM %s (ID: %d) in bypass list, skipping" ascii //weight: 1
+        $x_1_2 = "/bin/vim-cmd vmsvc/power.off %d" ascii //weight: 1
+        $x_1_3 = "/bin/vim-cmd vmsvc/power.getstate %d" ascii //weight: 1
+        $x_1_4 = "Encrypt 50%% of each file, skip /tmp and /var/log" ascii //weight: 1
+        $x_1_5 = "/bin/vim-cmd vmsvc/getallvms" ascii //weight: 1
+        $x_1_6 = "LINUX Locker v1.07" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
