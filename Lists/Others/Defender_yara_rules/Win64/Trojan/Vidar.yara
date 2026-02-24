@@ -1568,3 +1568,24 @@ rule Trojan_Win64_Vidar_BAA_2147963520_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GHF_2147963584_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GHF!MTB"
+        threat_id = "2147963584"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {32 32 4d 69 4a ?? 51 67 71 6b 32 32 4d 69 4a ?? 51 67 71 6b 32 32 4d 69 4a ?? 51 67 71 6b 32 32 4d 69 4a ?? 51 67 71 6b 32 32 4d 69 4a ?? 51 67 71 6b 32 32 4d 69 4a ?? 51 67 71 6b}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
