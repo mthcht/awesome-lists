@@ -208,6 +208,32 @@ rule HackTool_Win32_Patcher_AMTB_2147934306_3
         (all of ($x*))
 }
 
+rule HackTool_Win32_Patcher_AMTB_2147934306_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher!AMTB"
+        threat_id = "2147934306"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\progwrp.ini" ascii //weight: 2
+        $x_2_2 = "PROGWRP Patcher" ascii //weight: 2
+        $x_2_3 = "c:\\Users\\win32\\Documents\\progwrp_patcher\\Widevine Patch\\widevine_patch.pdb" ascii //weight: 2
+        $n_100_4 = "Uninst.exe" ascii //weight: -100
+        $n_100_5 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_6 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
 rule HackTool_Win32_Patcher_SGA_2147959661_0
 {
     meta:

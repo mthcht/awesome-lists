@@ -357,3 +357,56 @@ rule Trojan_Win64_Injector_AHM_2147961742_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_PGAD_2147963583_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.PGAD!MTB"
+        threat_id = "2147963583"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "\\injector.dll" ascii //weight: 1
+        $x_1_2 = "//10.148.0.8:8000/injector.bin" ascii //weight: 1
+        $x_1_3 = "win_update_service.exe" ascii //weight: 1
+        $x_1_4 = "cmd.exe /c curl -s -L \"" ascii //weight: 1
+        $x_1_5 = {44 4c 4c 20 49 4e 4a 45 43 54 49 4f 4e 20 53 55 43 43 45 53 53 46 [0-3] 4c 4c 59 21}  //weight: 1, accuracy: Low
+        $x_1_6 = "log.txt" ascii //weight: 1
+        $x_1_7 = "notepad.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Injector_PGAD_2147963583_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.PGAD!MTB"
+        threat_id = "2147963583"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\\\Boot\\memtest.exe" ascii //weight: 1
+        $x_1_2 = "Full Delphi Virus/Worm made By FuTuRaX" ascii //weight: 1
+        $x_1_3 = "C:\\\\Bat00100.bat" ascii //weight: 1
+        $x_1_4 = "FACEHACKER" ascii //weight: 1
+        $x_1_5 = "software\\microsoft\\windows\\currentversion\\run" ascii //weight: 1
+        $x_1_6 = "C:\\\\WINDOWS\\ServicePackFiles\\i386\\lang\\tintsetp.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
