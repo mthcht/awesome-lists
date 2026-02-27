@@ -44,3 +44,28 @@ rule Trojan_Linux_ReverseShell_B_2147929991_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_ReverseShell_HAB_2147963865_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/ReverseShell.HAB!MTB"
+        threat_id = "2147963865"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "$StreamWriter.Write($String + 'SHELL> ')" ascii //weight: 20
+        $x_5_2 = "function WriteToStream ($String) {[byte[]]$script:Buffer = 0..$TCPClient.ReceiveBufferSize" ascii //weight: 5
+        $x_5_3 = "$client = New-Object System.Net.Sockets.TCPClient('{{HOST}}',{{PORT}})" ascii //weight: 5
+        $x_1_4 = "$Output = try {Invoke-Expression $Command 2>" ascii //weight: 1
+        $x_1_5 = "Out-String} catch {$_" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -91,3 +91,24 @@ rule Trojan_MSIL_Redlinestealer_SL_2147905076_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Redlinestealer_ZEH_2147963871_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Redlinestealer.ZEH!MTB"
+        threat_id = "2147963871"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Redlinestealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {06 16 1f 10 ?? cd 00 00 0a 7e ?? 00 00 04 25 2d 17 26 7e ?? 00 00 04 fe ?? 3d 01 00 06 73 ?? 00 00 0a 25 80 ?? 00 00 04 28 ?? 00 00 2b 28 ?? 00 00 2b 7d ?? 00 00 04 06 16 1f 20}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

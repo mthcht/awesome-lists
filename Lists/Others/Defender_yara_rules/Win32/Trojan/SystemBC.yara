@@ -594,3 +594,24 @@ rule Trojan_Win32_SystemBC_BW_2147939904_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SystemBC_SEPC_2147963870_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SystemBC.SEPC!MTB"
+        threat_id = "2147963870"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SystemBC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2e 69 64 61 74 61 20 20 00 10 00 00 00 80 00 00 00 02 00 00 00 28 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
