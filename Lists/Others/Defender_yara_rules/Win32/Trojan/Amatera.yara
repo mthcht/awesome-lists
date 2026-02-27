@@ -40,3 +40,25 @@ rule Trojan_Win32_Amatera_MKS_2147962629_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amatera_AME_2147963874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amatera.AME!MTB"
+        threat_id = "2147963874"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amatera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {89 1c 24 89 c6 8d 44 24 1c c7 44 24 08 40 00 00 00 89 74 24 04 89 44 24 0c ff d7 83 ec 10 89 74 24 08 89 6c 24 04 89 1c 24 e8 ?? ?? ?? ?? 8d 44 24 18 89 74 24 04 89 44 24 0c 8b 44 24 1c 89 1c 24 89 44 24 08 ff d7}  //weight: 3, accuracy: Low
+        $x_2_2 = "iorlzupoahui" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

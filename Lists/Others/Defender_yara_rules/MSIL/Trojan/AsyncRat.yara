@@ -3466,27 +3466,6 @@ rule Trojan_MSIL_AsyncRat_CCJN_2147925086_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AsyncRat_ASN_2147926343_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/AsyncRat.ASN!MTB"
-        threat_id = "2147926343"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "AsyncRat"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = {0b 16 0c 2b 19 00 06 08 8f 0f 00 00 01 25 47 07 08 07 8e 69 5d 91 61 d2 52 00 08 17 58 0c 08 06 8e 69 fe 04 0d}  //weight: 5, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_AsyncRat_AMCY_2147929652_0
 {
     meta:
