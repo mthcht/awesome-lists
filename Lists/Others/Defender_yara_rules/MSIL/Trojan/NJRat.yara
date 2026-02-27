@@ -206,3 +206,25 @@ rule Trojan_MSIL_NJRat_CBK_2147958284_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NJRat_LVN_2147963827_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NJRat.LVN!MTB"
+        threat_id = "2147963827"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NJRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {01 13 04 08 28 ?? 00 00 0a 03 6f ?? 00 00 0a 6f ?? 00 00 0a 13 05 11 05 16 11 04 16 1f 10 28 ?? 00 00 0a 00 11 05 16 11 04 1f 0f 1f 10 28 ?? 00 00 0a 00 07 11 04 6f ?? 00 00 0a 00 07 18 6f ?? 00 00 0a 00 07 6f ?? 00 00 0a 13 06 02 28 ?? 00 00 0a 13 07 28 ?? 00 00 0a 11 06 11 07 16 11 07 8e 69 6f ?? 00 00 0a 6f ?? 00 00 0a 0d 09 0a de}  //weight: 2, accuracy: Low
+        $x_2_2 = {72 5a 9e 02 70 28 ?? 00 00 0a 72 6a 9e 02 70 28 ?? 00 00 0a 72 6e 9e 02 70 28 ?? 00 00 0a 28 ?? 00 00 0a 0c 08 2c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1039,3 +1039,26 @@ rule Trojan_Win32_KillMBR_PAFV_2147949535_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillMBR_BVL_2147963823_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillMBR.BVL!MTB"
+        threat_id = "2147963823"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "DrPepsi\\obj\\Debug\\DrPepsi.pdb" ascii //weight: 2
+        $x_2_2 = "malware" ascii //weight: 2
+        $x_2_3 = "trojan" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

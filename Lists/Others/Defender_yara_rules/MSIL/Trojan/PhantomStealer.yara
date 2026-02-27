@@ -139,3 +139,25 @@ rule Trojan_MSIL_PhantomStealer_ABP_2147963506_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PhantomStealer_AIRB_2147963743_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PhantomStealer.AIRB!MTB"
+        threat_id = "2147963743"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PhantomStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 09 11 09 06 6f ?? ?? 00 0a 6f ?? ?? 00 0a 00 11 09 06 6f ?? ?? 00 0a 6f ?? ?? 00 0a 00 7e ?? ?? 00 04 2c 07 7e ?? ?? 00 04 2b 16 7e ?? ?? 00 04 fe ?? ?? ?? 00 06 73 ?? ?? 00 0a 25 80 ?? ?? 00 04 13 0a 00 11 09 6f ?? ?? 00 0a 13 0b 02 11 0a 07 6f ?? ?? 00 0a 11 0b 6f ?? ?? 00 0a 6f ?? ?? 00 0a 00 de 0e}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

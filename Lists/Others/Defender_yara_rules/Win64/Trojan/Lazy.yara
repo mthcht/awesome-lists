@@ -5193,3 +5193,52 @@ rule Trojan_Win64_Lazy_ARS_2147963401_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LMX_2147963745_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LMX!MTB"
+        threat_id = "2147963745"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {4c 31 0c c3 48 ff c0 48 3b c1 72 ?? 83 e2 07 76 ?? 49 8d 0c ce 4c 8d 85 b0 08 00 00 4c 2b c1}  //weight: 20, accuracy: Low
+        $x_10_2 = {83 e2 07 76 20 49 8d 0c ce 4c 8d 85 b0 08 00 00 4c 2b c1 90 41 0f b6 04 08 30 01 48 8d 49 01 48 83 ea 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_SXN_2147963803_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXN!MTB"
+        threat_id = "2147963803"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "34"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "schtasks /Create /TN \"MicrosoftEdgeUpdateTaskMachineCore\" /XML " ascii //weight: 10
+        $x_10_2 = "schtasks /Create /TN \"WindowsSecurityHealthService\" /XML " ascii //weight: 10
+        $x_5_3 = "if ($_.Exception.Response.StatusCode -eq 404) { exit 44 } else { exit 1 }" ascii //weight: 5
+        $x_5_4 = "client_task_system.xml" ascii //weight: 5
+        $x_2_5 = "$_.Exception.Message | Out-File -FilePath '" ascii //weight: 2
+        $x_1_6 = "powershell.exe -WindowStyle Hidden -Command \"Start-Process '" ascii //weight: 1
+        $x_1_7 = "download_log.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

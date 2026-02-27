@@ -41,3 +41,27 @@ rule Trojan_Win64_Staser_LMA_2147962515_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Staser_SX_2147963620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Staser.SX!MTB"
+        threat_id = "2147963620"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Staser"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 ff ca 48 89 54 24 ?? 48 f7 da 48 c1 fa 3f 83 e2 10 48 8b 74 24 ?? 48 01 f2 48 89 54 24}  //weight: 30, accuracy: Low
+        $x_10_2 = "X0 *main.IPCServer" ascii //weight: 10
+        $x_10_3 = "X1 *main.Config" ascii //weight: 10
+        $x_5_4 = "json:\"discovery_domain" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

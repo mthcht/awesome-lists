@@ -2911,3 +2911,26 @@ rule Trojan_MSIL_Crysan_MKA_2147962310_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_MKB_2147963709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.MKB!MTB"
+        threat_id = "2147963709"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {73 34 00 00 0a 0b 07 73 2b 00 00 0a 0c 08 72 b9 01 00 70 6f 2c 00 00 0a 08 72 cf 01 00 70 6f 30 00 00 0a 08 17 6f 2e 00 00 0a 08 17 6f 3b 00 00 0a 08 6f 39 00 00 0a}  //weight: 20, accuracy: High
+        $x_10_2 = "Set-MpPreference -ExclusionExtension exe,bat,dll,ps1;exit" ascii //weight: 10
+        $x_5_3 = "/AsAdmin\" /ST 00:01 /IT /F /RL HIGHEST" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

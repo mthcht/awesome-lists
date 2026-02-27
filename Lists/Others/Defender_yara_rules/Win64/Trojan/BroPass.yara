@@ -118,3 +118,26 @@ rule Trojan_Win64_BroPass_MK_2147960488_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BroPass_AH_2147963678_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BroPass.AH!MTB"
+        threat_id = "2147963678"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BroPass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "WhatsApp Session Hijack - Instructions" ascii //weight: 10
+        $x_20_2 = "[+] Clipboard data stolen (Unicode, %d chars)" ascii //weight: 20
+        $x_30_3 = "{\"secret\":\"%s\",\"action\":\"%s\",\"filename\":\"%s\",\"progress\":%lu,\"bytes_sent\":%lu,\"total_bytes\":%lu,\"customer_id\":\"%s\"}" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

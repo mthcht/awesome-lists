@@ -2260,6 +2260,35 @@ rule Trojan_Win32_Injector_EAVX_2147935742_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_AMTB_2147936217_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector!AMTB"
+        threat_id = "2147936217"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "COMSPEC=C:\\WINDOWS\\system32\\cmd.exe" ascii //weight: 1
+        $x_1_2 = "X:\\D BACKUP 29032014\\Projects\\ali\\proj\\Mini rat\\TMS Component Pack 2\\TMS Component Pack\\ACXPVS.pas" ascii //weight: 1
+        $x_1_3 = "X:\\D BACKUP 29032014\\Projects\\ali\\proj\\Mini rat\\TMS Component Pack 2\\TMS Component Pack\\ACLdd.pas" ascii //weight: 1
+        $x_1_4 = "X:\\D BACKUP 29032014\\Projects\\almdev.BusinessSkin v9 (latest)\\bsf960\\bsf960\\bsf960\\bsEffects.pas" ascii //weight: 1
+        $x_1_5 = "X:\\D BACKUP 29032014\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\common\\JclStrings.pas" ascii //weight: 1
+        $x_1_6 = "CreateThread|C:\\windows\\syswow64\\iexpress.exe" ascii //weight: 1
+        $n_100_7 = "Uninst.exe" ascii //weight: -100
+        $n_100_8 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_9 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Injector_PAQD_2147939603_0
 {
     meta:
@@ -2508,6 +2537,31 @@ rule Trojan_Win32_Injector_AHB_2147961826_0
     strings:
         $x_30_1 = {8b 45 b8 03 45 a8 2d ?? ?? ?? ?? 2b c7 03 45 9c 31 03 83 c6 ?? 83 c3 ?? 3b 75 d0 72}  //weight: 30, accuracy: Low
         $x_20_2 = {03 45 d4 2b c2 83 c0 ?? 89 45 ec ff 75 fc b9 ?? ?? ?? ?? ff 75 f8}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Injector_LMC_2147963746_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.LMC!MTB"
+        threat_id = "2147963746"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /c \"%ls\"" ascii //weight: 1
+        $x_2_2 = "ZwTerminateProcess" ascii //weight: 2
+        $x_3_3 = "CryptDecrypt" ascii //weight: 3
+        $x_4_4 = "Bills wife buys him a present" ascii //weight: 4
+        $x_5_5 = "Those photographers save him a piece of pie" ascii //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -5934,3 +5934,51 @@ rule Trojan_Win32_Farfli_MK_2147962471_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_LMF_2147963747_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.LMF!MTB"
+        threat_id = "2147963747"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%4d.%2d.%2d-%2d:%2d:%2d" ascii //weight: 1
+        $x_2_2 = "\\DisplaySessionContainers.log" ascii //weight: 2
+        $x_2_3 = "\\SessionContainers.log" ascii //weight: 2
+        $x_3_4 = "unable to connect to %s:%s" ascii //weight: 3
+        $x_3_5 = "connection aborted" ascii //weight: 3
+        $x_4_6 = "succeed to connect to %s:%s" ascii //weight: 4
+        $x_4_7 = "connection already in progress" ascii //weight: 4
+        $x_5_8 = "MSIE 6.0" ascii //weight: 5
+        $x_6_9 = "Console" ascii //weight: 6
+        $x_7_10 = "WinSta0\\Default" ascii //weight: 7
+        $x_8_11 = "onlyloadinmyself" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_4_*) and 2 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_4_*) and 2 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_4_*) and 2 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_5_*) and 2 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_5_*) and 2 of ($x_4_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 2 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 2 of ($x_4_*) and 2 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 2 of ($x_4_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_3_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_4_*) and 1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

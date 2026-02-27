@@ -2345,3 +2345,27 @@ rule Trojan_MSIL_Tedy_PRJ_2147962864_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_ARS_2147963756_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARS!MTB"
+        threat_id = "2147963756"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_11_1 = "Ensure Hyper-V hypervisor starts on boot" ascii //weight: 11
+        $x_9_2 = "Inject QRes.exe to VM" ascii //weight: 9
+        $x_6_3 = "Write-Log \"Autounattend.xml injected into Panther directory\"" ascii //weight: 6
+        $x_4_4 = "Inject unattend.xml to root for first boot" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

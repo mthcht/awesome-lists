@@ -64,3 +64,24 @@ rule Trojan_Win64_Agentb_MK_2147963538_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Agentb_BMD_2147963726_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Agentb.BMD!MTB"
+        threat_id = "2147963726"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Agentb"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {44 89 c8 99 41 f7 fb 48 63 d2 8a 44 14 ?? 42 32 04 09 43 88 04 0a 49 ff c1 45 39 c8 7f}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -978,43 +978,46 @@ rule Trojan_Win32_ClickFix_DV_2147935276_0
     strings:
         $x_10_1 = "powershell" wide //weight: 10
         $x_1_2 = "http" wide //weight: 1
-        $x_100_3 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_4 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_5 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_6 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
-        $x_100_7 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: Low
-        $x_100_8 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
-        $x_100_9 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
-        $x_100_10 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
-        $x_100_11 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
-        $x_100_12 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
-        $x_100_13 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
-        $x_100_14 = {72 00 0b 20 6f 00 62 00 6f 00 0d 20 74 00}  //weight: 100, accuracy: High
-        $x_100_15 = {56 00 65 00 72 00 56 04 66 00 56 04 63 00 30 04 74 00 56 04 bf 03 78 05}  //weight: 100, accuracy: High
-        $x_100_16 = {43 00 41 00 a1 03 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: High
-        $x_100_17 = {72 00 6f 00 84 01 6f 00 74 00}  //weight: 100, accuracy: High
-        $x_100_18 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 100, accuracy: High
-        $x_100_19 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
-        $x_100_20 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
-        $x_100_21 = {56 00 35 04 72 00 56 04 66 00}  //weight: 100, accuracy: High
-        $x_100_22 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 100, accuracy: High
-        $x_100_23 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
-        $x_100_24 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
-        $x_100_25 = {9d 03 bf 03 6e 00 2d 00 62 00 bf 03 74 00}  //weight: 100, accuracy: High
-        $x_100_26 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
-        $x_100_27 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
-        $x_100_28 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
-        $x_100_29 = {7e 02 80 05 62 00 80 05 1f 1d}  //weight: 100, accuracy: High
-        $x_100_30 = {33 04 bf 03 62 00 3e 04 74 00}  //weight: 100, accuracy: High
-        $x_100_31 = {1d 04 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
-        $x_100_32 = {21 04 10 04 20 04 22 04 43 00 97 03 41 00}  //weight: 100, accuracy: High
-        $x_100_33 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
-        $x_100_34 = {21 04 10 04 20 04 22 04 43 00 48 00 41 00}  //weight: 100, accuracy: High
-        $x_100_35 = {56 00 35 04 72 00 69 00 66 00}  //weight: 100, accuracy: High
-        $x_100_36 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
-        $x_100_37 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $n_1000_3 = "OneDrive" wide //weight: -1000
+        $n_1000_4 = ".xls" wide //weight: -1000
+        $x_100_5 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_6 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_7 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_8 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 100, accuracy: High
+        $x_100_9 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: Low
+        $x_100_10 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 100, accuracy: High
+        $x_100_11 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_12 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_13 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_14 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 100, accuracy: High
+        $x_100_15 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_16 = {72 00 0b 20 6f 00 62 00 6f 00 0d 20 74 00}  //weight: 100, accuracy: High
+        $x_100_17 = {56 00 65 00 72 00 56 04 66 00 56 04 63 00 30 04 74 00 56 04 bf 03 78 05}  //weight: 100, accuracy: High
+        $x_100_18 = {43 00 41 00 a1 03 54 00 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_19 = {72 00 6f 00 84 01 6f 00 74 00}  //weight: 100, accuracy: High
+        $x_100_20 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 100, accuracy: High
+        $x_100_21 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 100, accuracy: High
+        $x_100_22 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 100, accuracy: High
+        $x_100_23 = {56 00 35 04 72 00 56 04 66 00}  //weight: 100, accuracy: High
+        $x_100_24 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 100, accuracy: High
+        $x_100_25 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 100, accuracy: High
+        $x_100_26 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
+        $x_100_27 = {9d 03 bf 03 6e 00 2d 00 62 00 bf 03 74 00}  //weight: 100, accuracy: High
+        $x_100_28 = {68 00 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_29 = {35 04 72 00 56 04 66 00 56 04 35 04 64 00}  //weight: 100, accuracy: High
+        $x_100_30 = {21 04 6c 00 3e 04 75 00 64 00}  //weight: 100, accuracy: High
+        $x_100_31 = {7e 02 80 05 62 00 80 05 1f 1d}  //weight: 100, accuracy: High
+        $x_100_32 = {33 04 bf 03 62 00 3e 04 74 00}  //weight: 100, accuracy: High
+        $x_100_33 = {1d 04 75 00 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_34 = {21 04 10 04 20 04 22 04 43 00 97 03 41 00}  //weight: 100, accuracy: High
+        $x_100_35 = {21 04 10 04 50 00 54 00 43 00 97 03 41 00}  //weight: 100, accuracy: High
+        $x_100_36 = {21 04 10 04 20 04 22 04 43 00 48 00 41 00}  //weight: 100, accuracy: High
+        $x_100_37 = {56 00 35 04 72 00 69 00 66 00}  //weight: 100, accuracy: High
+        $x_100_38 = {1d 04 c5 03 6d 00 30 04 6e 00}  //weight: 100, accuracy: High
+        $x_100_39 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
             ((2 of ($x_100_*))) or
@@ -3290,6 +3293,9 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_77 = {66 00 69 00 6e 00 67 00 65 00 72 00 [0-48] 40 00 66 00 69 00 6e 00 67 00 65 00 72 00 73 00 74 00 2e 00 73 00 68 00 61 00 72 00 65 00 69 00 74 00 64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 2e 00 6e 00 65 00 74 00}  //weight: 1, accuracy: Low
         $x_1_78 = {66 00 69 00 6e 00 67 00 65 00 72 00 [0-48] 40 00 66 00 69 00 6e 00 67 00 65 00 72 00 2e 00 69 00 74 00 68 00 65 00 65 00 64 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
         $x_1_79 = {6c 00 61 00 6e 00 64 00 65 00 72 00 73 00 61 00 72 00 65 00 6e 00 61 00 2e 00 63 00 6f 00 6d 00 2f 00 [0-255] 2f 00 66 00 69 00 6c 00 65 00 2e 00 6d 00 73 00 69 00}  //weight: 1, accuracy: Low
+        $x_1_80 = "jsvue.digital/downforce" wide //weight: 1
+        $x_1_81 = "xpertlearninghub.com" wide //weight: 1
+        $x_1_82 = "myraisedfloor.it/challenge/cf" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -3440,13 +3446,14 @@ rule Trojan_Win32_ClickFix_SEZ_2147940391_0
         $x_10_78 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 77 00 6d 00 61 00}  //weight: 10, accuracy: Low
         $x_10_79 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 6d 00 6b 00 76 00}  //weight: 10, accuracy: Low
         $x_10_80 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 61 00 72 00}  //weight: 10, accuracy: Low
-        $x_10_81 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 30 00 78 00 [0-16] 2e 00 63 00}  //weight: 10, accuracy: Low
-        $x_10_82 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 30 00 78 00 [0-16] 2e 00 6c 00 6f 00}  //weight: 10, accuracy: Low
-        $x_10_83 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 30 00 78 00 [0-16] 2e 00 6d 00 73 00 69 00 78 00}  //weight: 10, accuracy: Low
-        $x_10_84 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 [0-16] 2e 00 63 00 68 00 65 00 63 00 6b 00 3f 00 74 00 3d 00}  //weight: 10, accuracy: Low
-        $x_10_85 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 [0-16] 2e 00 67 00 6f 00 6f 00 67 00 6c 00 65 00 3f 00 74 00 3d 00}  //weight: 10, accuracy: Low
-        $n_500_86 = ".ps1" wide //weight: -500
-        $n_500_87 = ".hta" wide //weight: -500
+        $x_10_81 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 66 00 75 00 6d 00}  //weight: 10, accuracy: Low
+        $x_10_82 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 30 00 78 00 [0-16] 2e 00 63 00}  //weight: 10, accuracy: Low
+        $x_10_83 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 30 00 78 00 [0-16] 2e 00 6c 00 6f 00}  //weight: 10, accuracy: Low
+        $x_10_84 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 30 00 78 00 [0-16] 2e 00 6d 00 73 00 69 00 78 00}  //weight: 10, accuracy: Low
+        $x_10_85 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 [0-16] 2e 00 63 00 68 00 65 00 63 00 6b 00 3f 00 74 00 3d 00}  //weight: 10, accuracy: Low
+        $x_10_86 = {6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 [0-32] 68 00 74 00 74 00 70 00 [0-48] 2e 00 72 00 75 00 [0-16] 2e 00 67 00 6f 00 6f 00 67 00 6c 00 65 00 3f 00 74 00 3d 00}  //weight: 10, accuracy: Low
+        $n_500_87 = ".ps1" wide //weight: -500
+        $n_500_88 = ".hta" wide //weight: -500
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -3946,7 +3953,7 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         $n_600_27 = "pwceur.sharepoint.com" wide //weight: -600
         $n_600_28 = "pwcinternal.com" wide //weight: -600
         $n_600_29 = "-win32" wide //weight: -600
-        $n_600_30 = ".asia.corp.com" wide //weight: -600
+        $n_600_30 = ".asia.corp.anz.com" wide //weight: -600
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

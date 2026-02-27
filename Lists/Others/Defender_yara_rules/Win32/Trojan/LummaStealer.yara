@@ -8348,3 +8348,45 @@ rule Trojan_Win32_LummaStealer_KKE_2147962265_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_PAA_2147963742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.PAA!MTB"
+        threat_id = "2147963742"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 44 24 24 8b ac 24 80 00 00 00 32 0c 07 8b 44 24 18 32 0c 07 32 0b 32 4c 24 12 8b 44 24 74 88 0b 8b 4c 24 6c 3b 54 24 78}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_NKI_2147963841_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.NKI!MTB"
+        threat_id = "2147963841"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 00 89 c1 8b 45 ?? ba ?? ?? ?? ?? f7 75 ?? 8b 45 ?? 01 d0 0f b6 00 31 c1 8b 55 ?? 8b 45 ?? 01 d0 89 ca 88 10 83 45 ?? ?? 8b 45 ?? 3b 45 ?? 72}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

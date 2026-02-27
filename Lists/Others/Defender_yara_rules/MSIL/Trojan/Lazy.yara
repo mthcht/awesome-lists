@@ -3705,3 +3705,47 @@ rule Trojan_MSIL_Lazy_BAC_2147963512_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_KA_2147963812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.KA.AMR!MTB"
+        threat_id = "2147963812"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "AMR: an internal category used to refer to some threats"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 06 11 09 8f ?? ?? ?? ?? 25 47 03 11 09 03 8e 69 5d 91 61 d2 52 11 09 17 58 13 09}  //weight: 5, accuracy: Low
+        $x_1_2 = "UnhookNtdll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lazy_TVN_2147963826_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.TVN!MTB"
+        threat_id = "2147963826"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 02 02 7b ?? 00 00 04 7d ?? 00 00 04 7e ?? 00 00 0a 72 ?? ?? ?? ?? 6f ?? 00 00 0a 0b 07 2c ?? 07 6f ?? 00 00 0a 02 7b ?? 00 00 04 28 ?? 00 00 2b 2c ?? 02 17 7d ?? 00 00 04 de}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

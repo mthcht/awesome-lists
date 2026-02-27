@@ -8965,3 +8965,28 @@ rule Trojan_Win32_Zusy_LMZ_2147961491_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_LRB_2147963748_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LRB!MTB"
+        threat_id = "2147963748"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8a 0c 30 80 e9 42 32 ca 88 0c 30 40 3b c7}  //weight: 10, accuracy: High
+        $x_1_2 = "http:////a.deltaheavy.ru//a" ascii //weight: 1
+        $x_2_3 = "Worm65.DLL.dll" ascii //weight: 2
+        $x_3_4 = "WORM64@@YAXXZ" ascii //weight: 3
+        $x_4_5 = "WORM32" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

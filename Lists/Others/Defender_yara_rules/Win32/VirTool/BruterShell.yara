@@ -149,6 +149,53 @@ rule VirTool_Win32_BruterShell_A_2147899112_6
         family = "BruterShell"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f b6 50 02}  //weight: 1, accuracy: Low
+        $x_1_2 = {83 c0 01 39 c2 74 ?? 80 38 0f 75 ?? 80 78 01 34 75 ?? 80 78 02 c3 75}  //weight: 1, accuracy: Low
+        $x_1_3 = {bd 33 32 00 00 c7 44 24 08 00 00 00 00 c7 44 24 04 00 00 00 00 89 3c 24 c7 44 24 ?? 77 73 32 5f 66 89 6c 24 ?? c6 44 24 ?? 00 e8}  //weight: 1, accuracy: Low
+        $x_1_4 = {89 3c 24 c7 84 24 ?? ?? ?? ?? 61 64 76 61 c7 84 24 ?? ?? ?? ?? 70 69 33 32 c6 84 24 ?? ?? ?? ?? 00 e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule VirTool_Win32_BruterShell_A_2147899112_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/BruterShell.A"
+        threat_id = "2147899112"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BruterShell"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 b8 61 64 76 61 70 69 33 32 4c 89 e9 48 89 44 24 ?? e8}  //weight: 1, accuracy: Low
+        $x_1_2 = {41 b9 33 32 00 00 45 31 c0 31 d2 4c 89 e9 c7 44 24 ?? 77 73 32 5f 66 44 89 ?? ?? ?? c6 44 24 ?? 00 e8}  //weight: 1, accuracy: Low
+        $x_1_3 = {41 81 f8 e8 00 00 00 74 ?? 0f b6 41 01 89 c2 41 81 f8 ff 00 00 00 75 ?? 3c 15 74 ?? 83 e2 fd 80 fa d0 75}  //weight: 1, accuracy: Low
+        $x_1_4 = {80 79 01 8b 75 ?? 80 79 02 d1 75 ?? 41 80 f8 b8 75 ?? 80 79 06 00 75}  //weight: 1, accuracy: Low
+        $x_1_5 = {48 83 c1 01 48 39 c8 74 ?? 80 39 0f 75 ?? 80 79 01 05 75 ?? 80 79 02 c3 75}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule VirTool_Win32_BruterShell_A_2147899112_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/BruterShell.A"
+        threat_id = "2147899112"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BruterShell"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:

@@ -508,3 +508,26 @@ rule Trojan_MSIL_Convagent_MKA_2147962370_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_ARS_2147963754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.ARS!MTB"
+        threat_id = "2147963754"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_13_1 = {2d 08 03 28 ?? ?? ?? ?? 2b 01 16 0a de 05}  //weight: 13, accuracy: Low
+        $x_2_2 = "tempcache.exe" ascii //weight: 2
+        $x_5_3 = "Syntex%20Spoofer.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

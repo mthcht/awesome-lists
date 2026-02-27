@@ -2487,3 +2487,24 @@ rule Trojan_MSIL_Vidar_ACH_2147944104_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Vidar_AGRB_2147963706_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Vidar.AGRB!MTB"
+        threat_id = "2147963706"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 04 11 05 07 6f ?? 00 00 0a 06 11 05 06 8e 69 5d 91 61 d2 9c 11 05 17 58 13 05 00 11 0a 17 58 13 0a 11 0a 08 19 5a fe 04 13 0b 11 0b 2d d0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
