@@ -233,3 +233,46 @@ rule Trojan_MSIL_ShellCodeRunner_GPAX_2147962216_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellCodeRunner_GPSA_2147963909_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellCodeRunner.GPSA!MTB"
+        threat_id = "2147963909"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {25 26 5d 28 ?? 00 00 0a 25 26 0c 08 61 0d 06 09 d1 6f ?? 00 00 0a 25 26 26 07 18 58 0b 07 02}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ShellCodeRunner_GPSB_2147963910_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellCodeRunner.GPSB!MTB"
+        threat_id = "2147963910"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {11 0d 11 0e 11 0f 11 0a 5a 11 10 58 11 0b 61 d2 9c 11 0e 17 58 13 0e 11 0e 11 0c}  //weight: 7, accuracy: High
+        $x_1_2 = {67 65 74 5f 49 73 56 61 6c 75 65 54 79 70 65 00 41 63 74 69 76 61 74 6f 72 00 43 72 65 61 74 65 49 6e 73 74 61 6e 63 65 00 67 65 74 5f 49 73 41 72 72 61 79 00 41 72 72 61 79 00 49 6e 76 6f 6b 65 00 53 79 73 74 65 6d 2e 54 68 72 65 61 64 69 6e 67 2e 54 61 73 6b 73 00 54 61 73 6b 00 54 61 73 6b 41 77 61 69 74 65 72 00 47 65 74 41 77 61 69 74 65 72 00 47 65 74 52 65 73 75 6c 74}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
