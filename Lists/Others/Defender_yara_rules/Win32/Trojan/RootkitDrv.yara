@@ -41,3 +41,31 @@ rule Trojan_Win32_RootkitDrv_ARA_2147896747_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RootkitDrv_AMTB_2147948143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RootkitDrv!AMTB"
+        threat_id = "2147948143"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RootkitDrv"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\r77-x64.pdb" ascii //weight: 1
+        $x_1_2 = "SOFTWARE\\MasonWizNon" ascii //weight: 1
+        $x_1_3 = "-rootkit-master" ascii //weight: 1
+        $x_1_4 = "\\n3r-" ascii //weight: 1
+        $x_1_5 = "r77-x64.dll" ascii //weight: 1
+        $n_100_6 = "Uninst.exe" ascii //weight: -100
+        $n_100_7 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_8 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
