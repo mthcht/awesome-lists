@@ -1639,3 +1639,35 @@ rule Trojan_MSIL_Injector_AH_2147963440_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_SX_2147963885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.SX!MTB"
+        threat_id = "2147963885"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "95"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "= Get-Process -Name (\"rerolpxe\"[-1..-8] -join \"\") -ErrorAction SilentlyContinue" ascii //weight: 30
+        $x_20_2 = "$SHOULDERElection, $SHOULDERElection.Length," ascii //weight: 20
+        $x_20_3 = "$SHOULDERElection = $combinedData" ascii //weight: 20
+        $x_15_4 = "$mutex = New-Object System.Threading.Mutex($false, $mutexName)" ascii //weight: 15
+        $x_8_5 = "$result = [WinAPI]::WriteProcessMemory($hProcess, $allocAddr, $SHOULDERElection, $SHOULDERElection.Length" ascii //weight: 8
+        $x_2_6 = "$expProc = Get-Process -Id $O1MdVYI -ErrorAction SilentlyContinue" ascii //weight: 2
+        $x_8_7 = "Re-inject into new explorer.exe process" ascii //weight: 8
+        $x_2_8 = "Create remote thread to execute shellcode" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 2 of ($x_20_*) and 1 of ($x_15_*) and 1 of ($x_8_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_30_*) and 2 of ($x_20_*) and 1 of ($x_15_*) and 2 of ($x_8_*))) or
+            (all of ($x*))
+        )
+}
+
