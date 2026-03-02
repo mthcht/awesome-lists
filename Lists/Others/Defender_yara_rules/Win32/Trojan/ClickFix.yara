@@ -6856,8 +6856,10 @@ rule Trojan_Win32_ClickFix_CCA_2147944690_0
         $x_1_7 = "'iw'+'r'" wide //weight: 1
         $x_1_8 = "'i'+'wr'" wide //weight: 1
         $x_1_9 = "'i' + 'e' + 'x'" wide //weight: 1
+        $n_500_10 = "msedgewebview2.exe" wide //weight: -500
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
