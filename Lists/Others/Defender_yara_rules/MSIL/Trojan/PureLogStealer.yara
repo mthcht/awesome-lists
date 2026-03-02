@@ -4339,3 +4339,27 @@ rule Trojan_MSIL_PureLogStealer_ABRB_2147963559_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_AKRB_2147963953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.AKRB!MTB"
+        threat_id = "2147963953"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0a 0d 2b 00 2b 00 09 07 28 ?? ?? 00 06 00 00 09 6f ?? ?? 00 0a 13 04 2b 00 11 04 02 28 ?? ?? 00 06 0a dd}  //weight: 4, accuracy: Low
+        $x_2_2 = {11 0e 11 1e 94 11 0f 11 1e 94 d6 11 0d da 13 1f 2b 00 11 11 11 1f 28 ?? 00 00 0a 6f ?? 00 00 0a 26 11 1e 17 d6 13 1e 11 1e 11 1d 31 d3}  //weight: 2, accuracy: Low
+        $x_2_3 = {02 03 16 03 8e 69 6f ?? ?? 00 0a 0b 07 28}  //weight: 2, accuracy: Low
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

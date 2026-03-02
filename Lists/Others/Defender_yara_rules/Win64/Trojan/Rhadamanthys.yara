@@ -1652,3 +1652,46 @@ rule Trojan_Win64_Rhadamanthys_CP_2147963928_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rhadamanthys_NSY_2147963956_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.NSY!MTB"
+        threat_id = "2147963956"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 0f 43 c2 45 89 c0 45 0f b6 04 08 44 30 44 04 ?? 48 8d 04 ?? 48 ff c0 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rhadamanthys_NTS_2147963957_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.NTS!MTB"
+        threat_id = "2147963957"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 b9 cf f7 53 e3 a5 9b c4 20 48 f7 e9 48 89 d6 48 89 d0 48 c1 e8 3f 48 c1 fe 07 48 01 c6 48 03 74 24}  //weight: 2, accuracy: High
+        $x_3_2 = {48 83 ec 28 89 ce 31 c9 ba 01 00 00 00 45 31 c0 45 31 c9}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
