@@ -3749,3 +3749,30 @@ rule Trojan_MSIL_Lazy_TVN_2147963826_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_KKA_2147963970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.KKA!MTB"
+        threat_id = "2147963970"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "`NIGER." ascii //weight: 20
+        $x_6_2 = "load_app_data" ascii //weight: 6
+        $x_5_3 = "load_user_data" ascii //weight: 5
+        $x_4_4 = "get_DiscordId" ascii //weight: 4
+        $x_3_5 = "get_DiscordUsername" ascii //weight: 3
+        $x_2_6 = "LinkDiscordManually" ascii //weight: 2
+        $x_1_7 = "CredentialsFile" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

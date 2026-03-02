@@ -74,3 +74,32 @@ rule Trojan_Win64_InfoStealer_PAA_2147960281_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_P_2147963568_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.P!MTB"
+        threat_id = "2147963568"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "AmsiBypass..." wide //weight: 1
+        $x_1_2 = "DisableETW..." wide //weight: 1
+        $x_1_3 = "CallStackSpoof::Initialize..." wide //weight: 1
+        $x_1_4 = "SleepObfuscation::Initialize..." wide //weight: 1
+        $x_1_5 = "NtdllUnhook::RestoreNtdll..." wide //weight: 1
+        $x_1_6 = "Metamorphic::MorphTextSection..." wide //weight: 1
+        $x_1_7 = "polymorphic_init..." wide //weight: 1
+        $x_1_8 = "[SANDBOX] VM/sandbox detected" wide //weight: 1
+        $x_1_9 = "[T] wallets done" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

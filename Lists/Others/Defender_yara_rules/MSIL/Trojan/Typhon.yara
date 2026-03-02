@@ -44,3 +44,30 @@ rule Trojan_MSIL_Typhon_PVA_2147960499_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Typhon_KK_2147963971_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Typhon.KK!MTB"
+        threat_id = "2147963971"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Typhon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FirefoxLoginEntry" ascii //weight: 1
+        $x_2_2 = "<CollectBrowserData>" ascii //weight: 2
+        $x_3_3 = "<CollectFirefoxPasswords>" ascii //weight: 3
+        $x_4_4 = "<CollectLoginData>" ascii //weight: 4
+        $x_5_5 = "<CollectWallets>" ascii //weight: 5
+        $x_6_6 = "<CollectWebData>" ascii //weight: 6
+        $x_7_7 = "<DoInject>" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

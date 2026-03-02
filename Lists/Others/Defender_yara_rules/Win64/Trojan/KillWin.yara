@@ -25,3 +25,26 @@ rule Trojan_Win64_KillWin_SX_2147959665_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillWin_AMTB_2147963981_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillWin!AMTB"
+        threat_id = "2147963981"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillWin"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your computer has been infected with the Cute Cat virus!" ascii //weight: 1
+        $x_1_2 = "del C:\\Windows\\System32\\*.* /f /s /q" ascii //weight: 1
+        $x_1_3 = "My App Startup Shortcut" ascii //weight: 1
+        $x_1_4 = "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Keyboard Layout\" /v \"Scancode Map\" /t REG_BINARY /d" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

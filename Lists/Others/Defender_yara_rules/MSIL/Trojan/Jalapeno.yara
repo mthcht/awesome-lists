@@ -3347,6 +3347,27 @@ rule Trojan_MSIL_Jalapeno_AMTB_2147958515_0
         family = "Jalapeno"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "http://155.117.40.221/" ascii //weight: 2
+        $x_2_2 = "xhsqigb4.iop.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Jalapeno_AMTB_2147958515_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno!AMTB"
+        threat_id = "2147958515"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "14"
         strings_accuracy = "High"
     strings:

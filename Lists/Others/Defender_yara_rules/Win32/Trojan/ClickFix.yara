@@ -9049,6 +9049,7 @@ rule Trojan_Win32_ClickFix_AAAG_2147946512_0
         $x_1_3 = "&& ftp" wide //weight: 1
         $x_1_4 = "http" wide //weight: 1
         $n_100_5 = "awpdc.com" wide //weight: -100
+        $n_500_6 = "msedgewebview2.exe" wide //weight: -500
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
