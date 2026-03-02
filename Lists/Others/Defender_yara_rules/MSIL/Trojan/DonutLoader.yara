@@ -40,3 +40,28 @@ rule Trojan_MSIL_DonutLoader_ZGL_2147955953_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DonutLoader_SJZ_2147963926_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DonutLoader.SJZ!MTB"
+        threat_id = "2147963926"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DecryptShellcode" ascii //weight: 1
+        $x_1_2 = "BlandRootkit" ascii //weight: 1
+        $x_1_3 = "Global\\BlandRootkitInstance" ascii //weight: 1
+        $x_1_4 = "WinSecUpdate" ascii //weight: 1
+        $x_1_5 = "sc.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

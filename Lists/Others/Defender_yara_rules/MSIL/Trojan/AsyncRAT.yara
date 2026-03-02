@@ -6927,6 +6927,27 @@ rule Trojan_MSIL_AsyncRAT_BGK_2147962155_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0b 07 14 fe 01 13 06 11 06 2c 02 2b 35 07 ?? ?? 00 00 0a 0c 08 ?? ?? 00 00 0a 0d 09 ?? ?? 00 00 0a 8e 2d 03 14 2b 0f 17 8d 10 00 00 01 25 16 16 8d 24 00 00 01 a2 13 04 09 14 11 04 ?? ?? 00 00 0a 26}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_BGK_2147962155_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.BGK!MTB"
+        threat_id = "2147962155"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:

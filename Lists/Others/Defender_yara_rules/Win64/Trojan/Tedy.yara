@@ -1673,6 +1673,35 @@ rule Trojan_Win64_Tedy_NOP_2147930766_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CG_2147932206_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CG!MTB"
+        threat_id = "2147932206"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {c7 44 24 48 01 00 00 00 ?? 89 ?? 24 30 c7 44 24 28 10 00 00 00 48 89 44 24 20 ff 15}  //weight: 5, accuracy: Low
+        $x_5_2 = {c7 44 24 48 01 00 00 00 44 89 64 24 38 48 89 5c 24 30 c7 44 24 28 10 00 00 00 48 89 44 24 20 ff 15}  //weight: 5, accuracy: High
+        $x_1_3 = "ChainingModeCBC" wide //weight: 1
+        $x_1_4 = "AES" wide //weight: 1
+        $x_1_5 = "ObjectLength" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Tedy_PYZ_2147933401_0
 {
     meta:

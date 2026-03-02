@@ -83,3 +83,24 @@ rule PWS_Win64_Vidar_CM_2147962603_0
         (all of ($x*))
 }
 
+rule PWS_Win64_Vidar_CG_2147963930_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "PWS:Win64/Vidar.CG!MTB"
+        threat_id = "2147963930"
+        type = "PWS"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 88 0c 19 48 ff ca 4c 89 c3 48 85 d2 7c ?? 4c 8d 43 01 44 0f b6 0c 10 4c 39 c6 73}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

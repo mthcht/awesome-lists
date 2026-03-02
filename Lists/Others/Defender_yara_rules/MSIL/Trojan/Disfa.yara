@@ -124,3 +124,26 @@ rule Trojan_MSIL_Disfa_ZJAA_2147923419_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disfa_AJRB_2147963927_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disfa.AJRB!MTB"
+        threat_id = "2147963927"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disfa"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 05 11 05 16 11 04 16 1f 10 28 ?? 00 00 0a 11 05 16 11 04 1f 0f 1f 10 28 ?? 00 00 0a 06 11 04 6f ?? 00 00 0a 06 18 6f ?? 00 00 0a 06 6f ?? 00 00 0a 13 06 02 28 ?? 00 00 0a 13 07 28 ?? 00 00 0a 11 06 11 07 16 11 07 8e b7 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 08 0d de 0f}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
