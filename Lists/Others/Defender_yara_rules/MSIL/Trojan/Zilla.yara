@@ -2319,3 +2319,25 @@ rule Trojan_MSIL_Zilla_RR_2147963602_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_RR_2147963602_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.RR!MTB"
+        threat_id = "2147963602"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {06 07 9a 0c 00 08 03 6f fc 06 00 0a 6f 05 07 00 0a 0d 09 2c 0c 00 7e 7b 0d 00 04 13 04 2b 4f}  //weight: 1, accuracy: High
+        $x_1_2 = "wowerClient.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
