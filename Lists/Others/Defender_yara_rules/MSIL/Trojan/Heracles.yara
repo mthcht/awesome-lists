@@ -9358,3 +9358,26 @@ rule Trojan_MSIL_Heracles_BAN_2147963968_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_BAN_2147963968_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.BAN!MTB"
+        threat_id = "2147963968"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 02 73 0c 00 00 0a 0b 07 06 ?? ?? 00 00 0a 16 73 0e 00 00 0a 0c 73 0f 00 00 0a 0d 08 09 ?? ?? 00 00 0a 09 ?? ?? 00 00 0a 13 04 de 28 09 2c 06 09 ?? ?? 00 00 0a dc 08 2c 06 08 ?? ?? 00 00 0a dc}  //weight: 2, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

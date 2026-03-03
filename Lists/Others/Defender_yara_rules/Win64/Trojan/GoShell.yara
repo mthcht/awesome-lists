@@ -40,3 +40,31 @@ rule Trojan_Win64_GoShell_GA_2147933441_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_GoShell_CM_2147964042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GoShell.CM!MTB"
+        threat_id = "2147964042"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GoShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "DeleteSelf" ascii //weight: 2
+        $x_2_2 = "SpawnAndInjectDll" ascii //weight: 2
+        $x_2_3 = "injectSelf" ascii //weight: 2
+        $x_2_4 = "execAsmInject" ascii //weight: 2
+        $x_2_5 = "parseCommandShell" ascii //weight: 2
+        $x_2_6 = "GetNetworkInformation" ascii //weight: 2
+        $x_2_7 = "StealToken" ascii //weight: 2
+        $x_2_8 = "KillProcess" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
