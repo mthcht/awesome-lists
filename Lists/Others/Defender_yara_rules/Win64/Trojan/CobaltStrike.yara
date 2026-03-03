@@ -18677,3 +18677,25 @@ rule Trojan_Win64_CobaltStrike_GKI_2147963843_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_FK_2147964004_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.FK!MTB"
+        threat_id = "2147964004"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b d6 4c 8d 0d ?? ?? ?? ?? 0f 1f 40 00 0f 1f 84 00 00 00 00 00 48 8d 41 05 ff c1 83 e0 1f 48 8d 52 01 42 0f b6 04 08 30 42 ff 48 63 c1 48 3b c7 72}  //weight: 10, accuracy: Low
+        $x_1_2 = "RQVwlToEMOyk1QqOWICpqSesrfomtmIR" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
