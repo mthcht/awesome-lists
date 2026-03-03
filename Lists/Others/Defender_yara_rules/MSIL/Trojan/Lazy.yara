@@ -3776,3 +3776,29 @@ rule Trojan_MSIL_Lazy_KKA_2147963970_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_ARR_2147964018_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ARR!MTB"
+        threat_id = "2147964018"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "*HubLauncher.MainWindow+<DownloadFile>d__64" ascii //weight: 10
+        $x_9_2 = "NIGER." ascii //weight: 9
+        $x_5_3 = "1=1D1K1R1X1^1c1j1q1w1|1" ascii //weight: 5
+        $x_2_4 = "B469vyfneZla1QxLwodB9MFxKeQeqMl4cWg6gU3IOUE0tL3ua8VjumXfdU/+smGP9Xw41T+f9gtocSD" ascii //weight: 2
+        $x_1_5 = "TklHRVIu5rWp6Ziz5rKI6bKB5ZKM5bKb5oiQ5ruo6YO95q2m" ascii //weight: 1
+        $x_3_6 = "SaveCredentials" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4232,3 +4232,50 @@ rule Trojan_Win64_Tedy_PGTE_2147963457_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LMV_2147964016_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LMV!MTB"
+        threat_id = "2147964016"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ReflectiveLoader@@YA_KPEAX@Z" ascii //weight: 1
+        $x_2_2 = "[ENV] Search string length: %zu characters" ascii //weight: 2
+        $x_3_3 = "CRITICAL EXCEPTION: Hook installation failed" ascii //weight: 3
+        $x_4_4 = "HVNCInjection.x64" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_PAB_2147964021_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PAB!MTB"
+        threat_id = "2147964021"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {75 53 48 8d 15 e6 2f 00 00 48 8d 8c 24 80 02 00 00 ff 15 78 2c 00 00 48 85 c0 75 39 48 8d 15 dc 2f 00 00 48 8d 8c 24 80 02 00 00 ff 15 5e 2c 00 00 48 85 c0 75 1f 48 8d 15 d2 2f 00 00 48 8d 8c 24 80 02 00 00 ff 15 44 2c 00 00 48 f7 d8}  //weight: 3, accuracy: High
+        $x_1_2 = "[ERR] Inject failed (%d). Run as Admin." ascii //weight: 1
+        $x_1_3 = "InternetOpenUrlA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

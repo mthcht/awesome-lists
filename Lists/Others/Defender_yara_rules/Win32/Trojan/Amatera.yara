@@ -62,3 +62,25 @@ rule Trojan_Win32_Amatera_AME_2147963874_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amatera_LM_2147964015_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amatera.LM!MTB"
+        threat_id = "2147964015"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amatera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 45 b4 18 00 00 00 c7 45 b8 00 00 00 00 8d 55 cc 89 55 bc c7 45 c0 40 00 00 00 c7 45 e4 00 00 00 00 c6 45 f8 4e c6 45 f9 74 c6 45 fa 00 c6 45 d4 4f c6 45 d5 70 c6 45 d6 65 c6 45 d7 6e c6 45 d8 00 c6 45 f4 4b c6 45 f5 65 c6 45 f6 79 c6 45 f7 00 8d 45 d4}  //weight: 20, accuracy: High
+        $x_10_2 = {83 c4 0c c6 45 fc 4e c6 45 fd 74 c6 45 fe 00 c6 45 d0 44 c6 45 d1 65 c6 45 d2 76 c6 45 d3 69 c6 45 d4 63 c6 45 d5 65 c6 45 d6 00 c6 45 f8 49 c6 45 f9 6f c6 45 fa 00 c6 45 c8 43 c6 45 c9 6f c6 45 ca 6e c6 45 cb 74 c6 45 cc 72 c6 45 cd 6f c6 45 ce 6c c6 45 cf 00 c6 45 d8 46 c6 45 d9 69 c6 45 da 6c c6 45 db 65 c6 45 dc 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

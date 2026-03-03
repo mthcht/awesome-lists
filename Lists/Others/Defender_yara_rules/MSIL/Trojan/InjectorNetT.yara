@@ -154,3 +154,26 @@ rule Trojan_MSIL_InjectorNetT_ARLB_2147958037_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_InjectorNetT_ALRB_2147964022_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/InjectorNetT.ALRB!MTB"
+        threat_id = "2147964022"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "InjectorNetT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0a 13 05 00 11 05 11 04 6f ?? 00 00 0a 00 11 05 07 6f ?? 00 00 0a 00 73 ?? 00 00 0a 13 06 00 11 06 11 05 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 07 00 11 07 08 16 08 8e 69 6f ?? 00 00 0a 00 11 07 6f ?? 00 00 0a 00 00 de 0d 11 07 2c 08 11 07 6f ?? 00 00 0a 00 dc 11 06 6f ?? 00 00 0a 13 08 de 25}  //weight: 4, accuracy: Low
+        $x_2_2 = {01 0b 02 8e 69 7e ?? ?? 00 04 59 7e ?? ?? 00 04 59 8d ?? 00 00 01 0c 02 16 06 16 7e ?? ?? 00 04 28 ?? 00 00 0a 00 02 7e ?? ?? 00 04 07 16 7e ?? ?? 00 04 28 ?? 00 00 0a 00 02 7e ?? ?? 00 04 18 5a 08 16 08 8e 69}  //weight: 2, accuracy: Low
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
