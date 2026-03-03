@@ -7036,3 +7036,26 @@ rule Trojan_MSIL_DarkTortilla_MCT_2147963965_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_AMRB_2147964032_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.AMRB!MTB"
+        threat_id = "2147964032"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {11 0f 07 6f ?? ?? 00 0a 00 11 0f 07 6f ?? ?? 00 0a 00 11 0f 17 6f ?? ?? 00 0a 1b 13 3a 2b c0 00 11 0f 18 6f ?? ?? 00 0a 00 00 11 0f 6f ?? ?? 00 0a 13 10}  //weight: 4, accuracy: Low
+        $x_2_2 = {04 11 08 11 10 28 ?? ?? 00 06 28 ?? 00 00 2b 6f ?? ?? 00 0a 00 de 45}  //weight: 2, accuracy: Low
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

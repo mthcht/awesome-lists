@@ -477,3 +477,24 @@ rule Trojan_Win32_DarkComet_AMT_2147959236_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkComet_AMD_2147964034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkComet.AMD!MTB"
+        threat_id = "2147964034"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkComet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {57 ff d3 6a 0a 6a 64 6a 00 ff d0 68 ?? 8d 41 00 57 89 46 7c ff d3 8b 4e 7c 51 6a 00 ff d0 68 ?? 8d 41 00 57 89 86 ?? ?? ?? ?? ff d3 8b 56 7c 52 6a 00 ff d0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
