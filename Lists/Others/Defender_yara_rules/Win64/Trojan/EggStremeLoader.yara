@@ -177,3 +177,26 @@ rule Trojan_Win64_EggStremeLoader_L_2147958692_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_EggStremeLoader_N_2147964071_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/EggStremeLoader.N!dha"
+        threat_id = "2147964071"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "EggStremeLoader"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {b9 48 b9 00 00 66 89 8c 24 ?? 00 00 00 [0-16] b9 48 ba 00 00 [0-22] b8 41 b8 00 00 [0-22] b8 49 b9 00 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {66 c7 84 24 ?? 00 00 00 48 ba [0-16] 66 c7 84 24 ?? 00 00 00 41 b8 [0-16] c7 84 24 ?? 00 00 00 6b 0c ad 4a 66 [0-16] c7 84 24 ?? 00 00 00 49 b9}  //weight: 1, accuracy: Low
+        $x_1_3 = {41 8a 00 34 55 c0 c8 04 0f b6 c8 6b c2 0d 83 c0 1d 41 23 c3 7d 07 ff c8 41 0b c2 ff c0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
