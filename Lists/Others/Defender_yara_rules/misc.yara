@@ -597,12 +597,12 @@ rule _PseudoThreat_c00008a4_0
         )
 }
 
-rule _PseudoThreat_c0000960_0
+rule _PseudoThreat_c000095f_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000960"
-        threat_id = "3221227872"
+        detection_name = "!PseudoThreat_c000095f"
+        threat_id = "3221227871"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
