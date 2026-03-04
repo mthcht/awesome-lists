@@ -216,6 +216,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 150.222.234.52/31,us-west-1,AMAZON,us-west-1
 150.222.234.68/31,us-west-1,AMAZON,us-west-1
 180.163.57.128/26,GLOBAL,AMAZON,GLOBAL
+15.129.34.0/23,us-west-1,AMAZON,us-west-1
 15.193.11.0/24,ap-northeast-3,AMAZON,ap-northeast-3
 15.230.68.192/26,eu-north-1,AMAZON,eu-north-1
 18.200.0.0/16,eu-west-1,AMAZON,eu-west-1
@@ -1998,6 +1999,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 150.222.152.71/32,eu-central-1,AMAZON,eu-central-1
 155.146.160.0/20,us-west-2,AMAZON,us-west-2-wl1-phx-wlz-1
 13.248.121.0/24,eu-west-1,AMAZON,eu-west-1
+15.129.32.0/23,us-east-1,AMAZON,us-east-1
 15.230.15.70/31,eu-central-1,AMAZON,eu-central-1
 15.230.39.166/31,us-east-2,AMAZON,us-east-2
 52.93.53.1/32,us-west-1,AMAZON,us-west-1
@@ -6407,6 +6409,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 35.71.99.0/24,me-south-1,EC2,me-south-1
 54.148.0.0/15,us-west-2,EC2,us-west-2
 99.77.130.0/24,us-west-2,EC2,us-west-2
+15.129.34.0/23,us-west-1,EC2,us-west-1
 15.193.11.0/24,ap-northeast-3,EC2,ap-northeast-3
 18.200.0.0/16,eu-west-1,EC2,eu-west-1
 54.206.0.0/16,ap-southeast-2,EC2,ap-southeast-2
@@ -7038,6 +7041,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 35.96.4.0/24,us-west-2,EC2,us-west-2
 139.56.26.0/23,us-east-1,EC2,us-east-1-wl1-iah-wlz-1
 155.146.160.0/20,us-west-2,EC2,us-west-2-wl1-phx-wlz-1
+15.129.32.0/23,us-east-1,EC2,us-east-1
 52.95.249.0/24,ap-south-1,EC2,ap-south-1
 54.244.0.0/16,us-west-2,EC2,us-west-2
 64.252.87.0/24,eu-central-1,EC2,eu-central-1
@@ -8771,6 +8775,9 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 3.255.16.0/22,eu-west-1,API_GATEWAY,eu-west-1
 13.40.202.0/23,eu-west-2,API_GATEWAY,eu-west-2
 13.40.204.0/22,eu-west-2,API_GATEWAY,eu-west-2
+16.60.222.0/23,eu-west-2,API_GATEWAY,eu-west-2
+16.60.224.0/22,eu-west-2,API_GATEWAY,eu-west-2
+16.60.228.0/25,eu-west-2,API_GATEWAY,eu-west-2
 18.168.133.0/24,eu-west-2,API_GATEWAY,eu-west-2
 3.10.17.0/25,eu-west-2,API_GATEWAY,eu-west-2
 3.9.94.0/24,eu-west-2,API_GATEWAY,eu-west-2
