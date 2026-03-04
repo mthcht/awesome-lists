@@ -276,3 +276,52 @@ rule Trojan_MSIL_ShellCodeRunner_GPSB_2147963910_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellCodeRunner_GPSC_2147964114_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellCodeRunner.GPSC!MTB"
+        threat_id = "2147964114"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {16 1f 47 8c 11 00 00 01 a2 11 1d 17 1f 65 8c 11 00 00 01 a2 11 1d 18 1f 6e 8c 11 00 00 01 a2 11 1d 19 1f 65 8c 11 00 00 01 a2 11 1d 1a 1f 72 8c 11 00 00 01 a2 11 1d 1b 1f 61}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ShellCodeRunner_GPSD_2147964115_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellCodeRunner.GPSD!MTB"
+        threat_id = "2147964115"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cachedShellcodeData" ascii //weight: 1
+        $x_1_2 = "cachedStage2Data" ascii //weight: 1
+        $x_1_3 = "NoiseHttpMethod" ascii //weight: 1
+        $x_1_4 = "DebuggerBrowsableState" ascii //weight: 1
+        $x_1_5 = "get_TickCount" ascii //weight: 1
+        $x_1_6 = "TransformFinalBlock" ascii //weight: 1
+        $x_1_7 = "encryptedAssemblyJson" ascii //weight: 1
+        $x_1_8 = "RandomNumberGenerator" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
