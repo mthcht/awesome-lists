@@ -965,3 +965,25 @@ rule Trojan_Win32_Doina_ABD_2147963680_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_AH_2147964074_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.AH!MTB"
+        threat_id = "2147964074"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "Local\\TransmogCoalesceHook_player" ascii //weight: 20
+        $x_30_2 = {f6 f1 0f b6 cc 0f b6 c0 80 c9 ?? 0f b6 c9 c1 e1 ?? 8d 44 01 ?? 66 89 44 3d c2 83 c7 ?? eb}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

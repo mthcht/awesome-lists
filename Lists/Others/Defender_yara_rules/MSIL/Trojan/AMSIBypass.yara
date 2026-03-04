@@ -70,3 +70,24 @@ rule Trojan_MSIL_AMSIBypass_KK_2147963585_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AMSIBypass_AH_2147964075_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AMSIBypass.AH!MTB"
+        threat_id = "2147964075"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AMSIBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {06 08 9a 12 03 28 ?? ?? ?? 0a 2c 16 07 08 09 28 ?? ?? ?? 0a 03 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 9c 2b 13 72 ?? ?? ?? 70 06 08 9a 28 ?? ?? ?? 0a 73 ?? ?? ?? 0a 7a 08 17 58 0c 08 06 8e 69 32 c1}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
