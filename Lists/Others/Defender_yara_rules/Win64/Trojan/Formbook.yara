@@ -68,3 +68,25 @@ rule Trojan_Win64_Formbook_RR_2147960191_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Formbook_PGFB_2147964085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Formbook.PGFB!MTB"
+        threat_id = "2147964085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {83 ea 01 72 2a 49 01 ed 48 c1 c5 1f 4c 31 ed 4d 01 c4 49 c1 c0 1d 4d 31 e0 4d 01 c5 49 c1 c0 17 4d 31 e8 49 01 ec 48 c1 c5 11 4c 31 e5 eb d1}  //weight: 5, accuracy: High
+        $x_5_2 = {48 39 d7 74 14 4c 8b 06 4d 01 d8 44 8a 4c 14 30 46 30 0c 02 48 ff c2 eb e7}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

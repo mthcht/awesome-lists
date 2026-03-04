@@ -332,3 +332,25 @@ rule Trojan_MSIL_Disco_MK_2147961465_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disco_MKA_2147964088_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disco.MKA!MTB"
+        threat_id = "2147964088"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {25 11 11 6f 70 01 00 06 25 11 17 6f 72 01 00 06 25 11 12 6f 74 01 00 06 25 11 13 6f 76 01 00 06 25 11 14 6f 7a 01 00 06 25 11 16 6f 78 01 00 06}  //weight: 20, accuracy: High
+        $x_15_2 = {0b 07 6f d1 01 00 0a 16 31 0c 06 72 b6 2a 00 70 07 6f d2 01 00 0a}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

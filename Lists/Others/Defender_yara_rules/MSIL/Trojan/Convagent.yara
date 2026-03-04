@@ -531,3 +531,28 @@ rule Trojan_MSIL_Convagent_ARS_2147963754_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_MKB_2147964086_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.MKB!MTB"
+        threat_id = "2147964086"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_12_1 = "$execDir = $documentsPath + \"\\.__config_" ascii //weight: 12
+        $x_8_2 = "Set-ItemProperty -Path $execDir -Name attributes -Value ([System.IO.FileAttributes]::Hidden)" ascii //weight: 8
+        $x_5_3 = "Add-MpPreference -ExclusionPath $execDir" ascii //weight: 5
+        $x_3_4 = "Decrypt the data" ascii //weight: 3
+        $x_2_5 = "Run the payload" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
