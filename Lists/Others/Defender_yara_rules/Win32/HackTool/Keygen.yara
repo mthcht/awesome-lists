@@ -781,6 +781,31 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_3
         threshold = "6"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "Fake Keygen.exe" ascii //weight: 1
+        $x_1_2 = "keygen" ascii //weight: 1
+        $x_1_3 = "Serial Key Generator" ascii //weight: 1
+        $x_1_4 = "Missing d4dx.dll! Please run Setup.exe to install" ascii //weight: 1
+        $x_1_5 = "pirateZ" ascii //weight: 1
+        $x_1_6 = "TEAM AWT" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_AMTB_2147931343_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!AMTB"
+        threat_id = "2147931343"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "DI_KeygenUtils" ascii //weight: 1
         $x_1_2 = "The file(s) has been patched successfully!" ascii //weight: 1
         $x_1_3 = "Patching in progress..." ascii //weight: 1
@@ -792,7 +817,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_3
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_4
+rule HackTool_Win32_Keygen_AMTB_2147931343_5
 {
     meta:
         author = "defender2yara"

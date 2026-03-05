@@ -278,3 +278,27 @@ rule Trojan_MSIL_DiscordStealer_VD_2147963022_0
         )
 }
 
+rule Trojan_MSIL_DiscordStealer_SN_2147964161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DiscordStealer.SN!MTB"
+        threat_id = "2147964161"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {73 1e 00 00 06 13 04 11 04 09 6f 1f 00 00 0a 74 19 00 00 01 7d 0c 00 00 04 03 11 04 fe 06 1f 00 00 06 73 20 00 00 0a 28 02 00 00 2b 2d 1d 03 73 1d 00 00 06 25 11 04 7b 0c 00 00 04 6f 22 00 00 0a 6f 0c 00 00 06 6f 23 00 00 0a 09 6f 24 00 00 0a 2d ad}  //weight: 4, accuracy: High
+        $x_2_2 = "\\stealer\\DiscordTokenGrabber\\DiscordTokenGrabber\\obj\\Release\\net8.0\\win-x64\\" ascii //weight: 2
+        $x_1_3 = "DiscordTokenGrabber.dll" wide //weight: 1
+        $x_1_4 = "mfa\\.[\\w-]{84}" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
