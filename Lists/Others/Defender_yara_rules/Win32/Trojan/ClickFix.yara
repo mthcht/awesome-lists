@@ -13367,3 +13367,26 @@ rule Trojan_Win32_ClickFix_IQ_2147962982_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_ABE_2147964127_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ABE!MTB"
+        threat_id = "2147964127"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "curl -kfSLs" wide //weight: 1
+        $x_1_2 = "--compressed https://" wide //weight: 1
+        $x_1_3 = "| zsh" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
