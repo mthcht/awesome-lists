@@ -163,3 +163,24 @@ rule Trojan_Win32_Salgorea_BJ_2147786251_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Salgorea_SLWO_2147964177_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Salgorea.SLWO!MTB"
+        threat_id = "2147964177"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Salgorea"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {a1 84 c4 46 00 89 35 48 a5 46 00 3b c3 74 07 8b f8 66 39 18 75 02 cc fe 8d 45 fc 50 53 8d 5d f8 33 c9 8b c7}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

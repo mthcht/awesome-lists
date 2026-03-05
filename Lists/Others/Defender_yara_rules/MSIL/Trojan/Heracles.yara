@@ -9402,3 +9402,24 @@ rule Trojan_MSIL_Heracles_GPSE_2147964143_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_BAO_2147964178_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.BAO!MTB"
+        threat_id = "2147964178"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 06 17 58 20 00 01 00 00 5d 13 06 11 07 06 11 06 91 58 20 00 01 00 00 5d 13 07 06 11 06 91 13 09 06 11 06 06 11 07 91 9c 06 11 07 11 09 9c 11 05 11 08 02 11 08 91 06 06 11 06 91 06 11 07 91 58 20 00 01 00 00 5d 91 61 d2 9c 11 08 17 58 13 08 11 08 02 8e 69 32 a8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

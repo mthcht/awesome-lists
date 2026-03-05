@@ -324,3 +324,32 @@ rule Trojan_MSIL_SpyAgent_B_2147961936_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyAgent_E_2147964175_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyAgent.E!AMTB"
+        threat_id = "2147964175"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "noobsaibotRAT.HVNC.dll" ascii //weight: 1
+        $x_2_2 = "AgentCore.Core.TaskProcessor+<ExecuteStealData>" ascii //weight: 2
+        $x_1_3 = "StealerCoordinator] " ascii //weight: 1
+        $x_2_4 = "noobsaibotRAT_Stealer" ascii //weight: 2
+        $x_1_5 = "BrowserCreditCardStealer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
