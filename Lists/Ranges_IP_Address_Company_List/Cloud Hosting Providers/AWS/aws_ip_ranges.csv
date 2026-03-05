@@ -1352,6 +1352,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 99.151.190.0/23,us-east-1,AMAZON,us-east-1
 104.255.59.134/32,ap-southeast-4,AMAZON,ap-southeast-4
 150.222.213.0/24,eu-central-1,AMAZON,eu-central-1
+1.179.14.0/23,GLOBAL,AMAZON,GLOBAL
 3.4.12.58/32,sa-west-1,AMAZON,sa-west-1
 15.159.0.0/16,me-central-1,AMAZON,me-central-1
 15.197.8.0/22,GLOBAL,AMAZON,GLOBAL
@@ -3568,6 +3569,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 69.107.7.96/29,us-east-1,AMAZON,us-east-1
 76.223.170.0/28,ca-west-1,AMAZON,ca-west-1
 150.222.102.0/24,us-west-2,AMAZON,us-west-2
+1.178.172.0/23,GLOBAL,AMAZON,GLOBAL
 3.4.12.2/32,ap-southeast-2,AMAZON,ap-southeast-2
 3.4.12.5/32,us-east-1,AMAZON,us-east-1
 15.230.10.0/24,me-south-1,AMAZON,me-south-1
@@ -3793,6 +3795,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 207.171.160.0/20,us-east-1,AMAZON,us-east-1
 1.178.8.0/24,us-east-2,AMAZON,us-east-2
 1.178.24.0/24,ap-southeast-4,AMAZON,ap-southeast-4
+1.179.60.0/23,GLOBAL,AMAZON,GLOBAL
 3.172.64.0/18,GLOBAL,AMAZON,GLOBAL
 15.230.39.8/31,us-east-2,AMAZON,us-east-2
 16.12.78.0/23,ap-east-2,AMAZON,ap-east-2
@@ -8359,6 +8362,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 99.82.173.0/24,ap-southeast-1,GLOBALACCELERATOR,ap-southeast-1
 99.82.166.0/24,us-east-1,GLOBALACCELERATOR,us-east-1
 13.248.97.0/24,eu-central-1,GLOBALACCELERATOR,eu-central-1
+1.179.14.0/23,GLOBAL,GLOBALACCELERATOR,GLOBAL
 15.197.8.0/22,GLOBAL,GLOBALACCELERATOR,GLOBAL
 3.2.49.0/24,sa-east-1,GLOBALACCELERATOR,sa-east-1
 15.197.18.0/23,GLOBAL,GLOBALACCELERATOR,GLOBAL
@@ -8410,10 +8414,12 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 13.248.112.0/24,us-west-2,GLOBALACCELERATOR,us-west-2
 15.197.2.0/24,GLOBAL,GLOBALACCELERATOR,GLOBAL
 3.2.52.0/24,us-east-1,GLOBALACCELERATOR,us-east-1
+1.178.172.0/23,GLOBAL,GLOBALACCELERATOR,GLOBAL
 3.2.48.0/24,eu-west-2,GLOBALACCELERATOR,eu-west-2
 3.2.50.0/24,us-east-1,GLOBALACCELERATOR,us-east-1
 99.83.128.0/17,GLOBAL,GLOBALACCELERATOR,GLOBAL
 13.248.123.0/24,eu-central-1,GLOBALACCELERATOR,eu-central-1
+1.179.60.0/23,GLOBAL,GLOBALACCELERATOR,GLOBAL
 3.2.59.0/24,eu-west-1,GLOBALACCELERATOR,eu-west-1
 99.82.162.0/24,eu-west-1,GLOBALACCELERATOR,eu-west-1
 13.248.125.0/24,ap-southeast-1,GLOBALACCELERATOR,ap-southeast-1
