@@ -1182,6 +1182,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 150.222.152.97/32,eu-central-1,AMAZON,eu-central-1
 150.222.234.1/32,us-west-1,AMAZON,us-west-1
 15.248.144.0/21,ap-southeast-6,AMAZON,ap-southeast-6
+23.228.214.0/24,us-east-1,AMAZON,us-east-1
 35.97.193.0/24,eu-central-1,AMAZON,eu-central-1
 52.93.148.128/26,ap-south-1,AMAZON,ap-south-1
 52.93.178.130/32,us-west-1,AMAZON,us-west-1
@@ -1235,6 +1236,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.39.30/31,us-east-2,AMAZON,us-east-2
 15.251.0.28/32,il-central-1,AMAZON,il-central-1
 18.184.0.0/15,eu-central-1,AMAZON,eu-central-1
+23.228.213.0/24,us-east-1,AMAZON,us-east-1
 32.192.0.0/13,us-east-1,AMAZON,us-east-1
 35.55.26.0/24,sa-east-1,AMAZON,sa-east-1
 40.168.226.0/24,GLOBAL,AMAZON,GLOBAL
@@ -4176,6 +4178,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.15.210/31,eu-central-1,AMAZON,eu-central-1
 15.230.39.156/31,us-east-2,AMAZON,us-east-2
 15.230.77.192/26,ap-southeast-1,AMAZON,ap-southeast-1
+23.228.212.0/24,GLOBAL,AMAZON,GLOBAL
 35.26.0.0/15,ap-east-1,AMAZON,ap-east-1
 52.93.84.160/32,us-east-1,AMAZON,us-east-1
 52.93.91.103/32,us-east-1,AMAZON,us-east-1
@@ -6742,6 +6745,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 35.96.7.0/24,us-west-2,EC2,us-west-2
 35.96.34.0/24,eu-west-1,EC2,eu-west-1
 99.77.55.32/32,eu-south-2,EC2,eu-south-2
+23.228.214.0/24,us-east-1,EC2,us-east-1
 99.77.235.0/24,af-south-1,EC2,af-south-1
 3.96.0.0/15,ca-central-1,EC2,ca-central-1
 15.220.48.0/21,eu-central-1,EC2,eu-central-1-waw-1
@@ -6763,6 +6767,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 13.56.0.0/16,us-west-1,EC2,us-west-1
 15.220.184.0/21,us-east-1,EC2,us-east-1-qro-1
 18.184.0.0/15,eu-central-1,EC2,eu-central-1
+23.228.213.0/24,us-east-1,EC2,us-east-1
 32.192.0.0/13,us-east-1,EC2,us-east-1
 35.55.26.0/24,sa-east-1,EC2,sa-east-1
 40.168.226.0/24,GLOBAL,EC2,GLOBAL
@@ -8210,6 +8215,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 205.251.204.0/23,GLOBAL,CLOUDFRONT,GLOBAL
 130.176.192.0/19,GLOBAL,CLOUDFRONT,GLOBAL
 23.228.223.0/24,GLOBAL,CLOUDFRONT,GLOBAL
+23.228.212.0/24,GLOBAL,CLOUDFRONT,GLOBAL
 52.124.128.0/17,GLOBAL,CLOUDFRONT,GLOBAL
 204.246.164.0/22,GLOBAL,CLOUDFRONT,GLOBAL
 13.35.0.0/16,GLOBAL,CLOUDFRONT,GLOBAL
