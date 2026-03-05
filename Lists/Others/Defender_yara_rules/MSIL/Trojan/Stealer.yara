@@ -3527,3 +3527,27 @@ rule Trojan_MSIL_Stealer_RR_2147962758_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_ARR_2147964170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.ARR!MTB"
+        threat_id = "2147964170"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0c 07 17 58 0b 02 7b ?? ?? ?? ?? 07 1f 64 5a 02}  //weight: 10, accuracy: Low
+        $x_9_2 = "/create /tn \"{0}\" /tr \"\\\"{1}\\\" -auto\" /sc weekly /d {2} /st {3} /rl highest /f" ascii //weight: 9
+        $x_5_3 = "_path_info.txt" ascii //weight: 5
+        $x_6_4 = {0a 06 16 72 ?? ?? ?? ?? a2 06 17 02 a2 06 18 04 a2 06 19 03 a2 06}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2145,3 +2145,25 @@ rule Trojan_Win32_Convagent_KKA_2147962097_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_ART_2147964169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ART!MTB"
+        threat_id = "2147964169"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_19_1 = {48 89 c2 83 e2 ?? 41 0f b6 54 15 ?? 41 32 14 04 88 14 03 48 83 c0 ?? 48 39 c6 75}  //weight: 19, accuracy: Low
+        $x_1_2 = "libcurl.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
