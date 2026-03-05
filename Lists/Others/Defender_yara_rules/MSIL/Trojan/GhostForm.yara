@@ -20,3 +20,28 @@ rule Trojan_MSIL_GhostForm_DA_2147964134_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_GhostForm_DB_2147964139_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/GhostForm.DB!MTB"
+        threat_id = "2147964139"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "GhostForm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "104"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Enter password" ascii //weight: 1
+        $x_1_2 = "The download did not complete successfully" ascii //weight: 1
+        $x_1_3 = "c:\\programData" ascii //weight: 1
+        $x_100_4 = "PolGuid" ascii //weight: 100
+        $x_1_5 = "\\VLC\\VLC.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

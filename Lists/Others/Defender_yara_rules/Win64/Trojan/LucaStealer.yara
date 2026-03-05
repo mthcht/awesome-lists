@@ -68,3 +68,25 @@ rule Trojan_Win64_LucaStealer_AB_2147953617_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LucaStealer_PGLS_2147964138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LucaStealer.PGLS!MTB"
+        threat_id = "2147964138"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LucaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 36 00 32 00 2e 00 36 00 30 00 2e 00 32 00 32 00 36 00 2e 00 39 00 37 00 3a 00 35 00 35 00 35 00 33 00 2f 00 [0-31] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {68 74 00 74 00 70 3a 2f 2f 36 32 2e 36 30 2e 32 32 36 2e 39 37 3a 35 35 35 33 2f [0-31] 2e 65 78 65}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
