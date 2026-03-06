@@ -435,3 +435,28 @@ rule Trojan_Win32_XWorm_AB_2147960944_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_SLWP_2147964252_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.SLWP!MTB"
+        threat_id = "2147964252"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$alertsFolder = \"C:\\send\\alerts\"" ascii //weight: 2
+        $x_2_2 = "if (-not (Test-Path $alertsFolder)) { New-Item -ItemType Directory -Path $alertsFolder }" ascii //weight: 2
+        $x_2_3 = "-WindowStyle Hidden  -ExecutionPolicy Bypass -file \"C:\\TEMP\\ps2890.tmp.ps1\"" wide //weight: 2
+        $x_2_4 = "Are You sure you want to run this?" wide //weight: 2
+        $x_2_5 = "Add-Alert -hostname $parts[0] -ip $parts[1] -message $parts[2] -status $parts[3]" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

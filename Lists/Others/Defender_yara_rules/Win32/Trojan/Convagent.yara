@@ -2102,6 +2102,27 @@ rule Trojan_Win32_Convagent_BAF_2147961318_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_BAF_2147961318_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.BAF!MTB"
+        threat_id = "2147961318"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {6a 40 68 00 30 00 00 ff 77 50 6a 00 ff 15 ?? ?? ?? ?? 8b d0 89 55 fc 85 d2 0f 84 ?? ?? ?? ?? 0f b7 4f 06 56 0f b7 77 14 83 c6 18 8d 04 89 03 f7 c1 e0 03 2b c3 03 c6 50 53 52}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Convagent_TON_2147961501_0
 {
     meta:

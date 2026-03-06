@@ -2377,6 +2377,29 @@ rule Trojan_MSIL_XWorm_AC_2147945981_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AC_2147945981_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AC!MTB"
+        threat_id = "2147945981"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {0b 07 1f 20 8d 1e 00 00 01 25 d0 5a 00 00 04 28 32 00 00 0a 6f 91 00 00 0a 07 1f 10 8d 1e 00 00 01 25 d0 60 00 00 04 28 32 00 00 0a 6f 92 00 00 0a 06 07 6f 93 00 00 0a 17 73 6c 00 00 0a 25 02 16 02 8e 69 6f 94 00 00 0a 6f 95 00 00 0a 06 28 7a 00 00 06 28 ca 00 00 06 2a}  //weight: 6, accuracy: High
+        $x_2_2 = "ProcessHollowing" ascii //weight: 2
+        $x_2_3 = "victimProcessPath" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_AD_2147945984_0
 {
     meta:
