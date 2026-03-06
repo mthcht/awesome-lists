@@ -3009,3 +3009,26 @@ rule TrojanDownloader_Win32_Small_ASM_2147927959_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Small_CM_2147964190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Small.CM!MTB"
+        threat_id = "2147964190"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {33 cb f7 d1 03 cb 03 0a 89 08 8b c2 3b 45 f4}  //weight: 2, accuracy: High
+        $x_1_2 = "http://%s:%d/%s/%s" ascii //weight: 1
+        $x_1_3 = "URLDownloadToFileA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
