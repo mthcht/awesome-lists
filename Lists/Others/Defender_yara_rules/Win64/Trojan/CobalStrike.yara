@@ -19,3 +19,26 @@ rule Trojan_Win64_CobalStrike_ARAX_2147944891_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobalStrike_ARA_2147964200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobalStrike.ARA!MTB"
+        threat_id = "2147964200"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobalStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 d9 48 89 f7 83 e1 03 48 c1 e1 03 48 d3 ff 31 f8 88 44 1a 08 48 ff c3 e9}  //weight: 2, accuracy: High
+        $x_2_2 = {4c 89 c1 83 e1 03 48 c1 e1 03 49 d3 fe 44 31 f0 42 88 44 02 08 49 ff c0 e9}  //weight: 2, accuracy: High
+        $x_2_3 = {83 e1 03 48 c1 e1 03 49 d3 f9 48 8d 4c 24 50 44 31 c8 42 88 44 3a 08}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
