@@ -1318,3 +1318,27 @@ rule Ransom_Win64_FileCoder_AMR_2147963744_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_CQ_2147964267_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.CQ!MTB"
+        threat_id = "2147964267"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Starting Heuristic/Static AV Test (100%% Harmless)" ascii //weight: 1
+        $x_1_2 = "Your files have been encrypted!" ascii //weight: 1
+        $x_1_3 = "Suspicious strings are loaded." ascii //weight: 1
+        $x_1_4 = "[+] Dropped EICAR test file to disk." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
