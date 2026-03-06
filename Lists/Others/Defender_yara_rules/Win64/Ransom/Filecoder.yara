@@ -1876,3 +1876,28 @@ rule Ransom_Win64_Filecoder_PAY_2147961213_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_A_2147964242_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.A!MSR"
+        threat_id = "2147964242"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".encrypted" ascii //weight: 1
+        $x_1_2 = "main.runEncrypt" ascii //weight: 1
+        $x_1_3 = "main.paintRansom" ascii //weight: 1
+        $x_1_4 = "main.dropRansomNote" ascii //weight: 1
+        $x_1_5 = "READ_ME_NOW.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
