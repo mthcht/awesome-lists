@@ -7830,3 +7830,48 @@ rule Trojan_Win64_AbuseCommBack_MR_2147963258_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_AbuseCommBack_MS_2147964273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.MS"
+        threat_id = "2147964273"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>2F7747EADDFBC5507A0CF1B54985739D3F5C9288232395F198B409D590E7203E</p>" wide //weight: 1
+        $x_1_2 = {32 46 37 37 34 37 45 41 44 44 46 42 43 35 35 30 37 41 30 43 46 31 42 35 34 39 38 35 37 33 39 44 33 46 35 43 39 32 38 38 32 33 32 33 39 35 46 31 39 38 42 34 30 39 44 35 39 30 45 37 32 30 33 45 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableid2F7747EADDFBC5507A0CF1B54985739D3F5C9288232395F198B409D590E7203Eid" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_AbuseCommBack_2147964277_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.MT"
+        threat_id = "2147964277"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        info = "MT: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>2D946F0828972F81D2C85C5D9C9C7D94FE54A5492764A58A9390F0CD783B7620</p>" wide //weight: 1
+        $x_1_2 = {32 44 39 34 36 46 30 38 32 38 39 37 32 46 38 31 44 32 43 38 35 43 35 44 39 43 39 43 37 44 39 34 46 45 35 34 41 35 34 39 32 37 36 34 41 35 38 41 39 33 39 30 46 30 43 44 37 38 33 42 37 36 32 30 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableid2D946F0828972F81D2C85C5D9C9C7D94FE54A5492764A58A9390F0CD783B7620id" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

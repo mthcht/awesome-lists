@@ -70,3 +70,31 @@ rule Trojan_Win64_EvelynStealer_GVD_2147962722_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_EvelynStealer_KX_2147963711_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/EvelynStealer.KX!MTB"
+        threat_id = "2147963711"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "EvelynStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Evelyn/1.0" ascii //weight: 1
+        $x_1_2 = "abe_decrypt.dll" ascii //weight: 1
+        $x_1_3 = "\\abe_decrypt_no_config_error.txt" ascii //weight: 1
+        $x_1_4 = "Evelyn folder: %s" ascii //weight: 1
+        $x_1_5 = "Copying wallets to Evelyn\\Wallets..." ascii //weight: 1
+        $x_1_6 = "Stealing WhatsApp session..." ascii //weight: 1
+        $x_1_7 = "Stealing Telegram session..." ascii //weight: 1
+        $x_1_8 = "Edge injection successful" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
