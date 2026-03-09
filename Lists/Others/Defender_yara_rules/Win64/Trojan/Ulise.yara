@@ -439,3 +439,24 @@ rule Trojan_Win64_Ulise_AH_2147963036_0
         )
 }
 
+rule Trojan_Win64_Ulise_SXA_2147964318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.SXA!MTB"
+        threat_id = "2147964318"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c0 4c 8d 05 ?? ?? ff ff 48 89 44 24 28 ?? ?? ?? 33 d2 89 44 24 20 33 c9 ff 15 ?? ?? ?? ?? 48 85 c0 74 ?? 48 8b c8 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

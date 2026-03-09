@@ -1975,6 +1975,36 @@ rule Trojan_Win64_LummaStealer_PLS_2147949621_0
         )
 }
 
+rule Trojan_Win64_LummaStealer_PAA_2147949981_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PAA!MTB"
+        threat_id = "2147949981"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] LummaC2 Stealer started" ascii //weight: 1
+        $x_1_2 = "lumma_debug.log" ascii //weight: 1
+        $x_1_3 = "7974692675:AAHfYAzaQBAD9lOO3hzvTgCJKr4Qf51SmsA" ascii //weight: 1
+        $x_1_4 = "SELECT host_key, name, path, encrypted_value, expires_utc FROM cookies" ascii //weight: 1
+        $x_1_5 = "SELECT name_on_card, expiration_month, expiration_year, card_number_encrypted FROM credit_cards" ascii //weight: 1
+        $x_1_6 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 1
+        $x_1_7 = "afbcbjpbpfadlkmhmclhkeeodmamcflc" ascii //weight: 1
+        $x_1_8 = "hpglfhgfnhbgpjdenjgmdgoeiappafln" ascii //weight: 1
+        $x_1_9 = "logins.json" ascii //weight: 1
+        $x_1_10 = "\\key3.db" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_LummaStealer_GAPA_2147950170_0
 {
     meta:

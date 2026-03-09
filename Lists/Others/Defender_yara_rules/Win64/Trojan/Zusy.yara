@@ -2881,6 +2881,28 @@ rule Trojan_Win64_Zusy_ARR_2147956891_1
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_11_1 = {0f b6 44 24 60 32 c8 88 8c 15 ?? ?? ?? ?? 48 ff c2 48 83 fa}  //weight: 11, accuracy: Low
+        $x_9_2 = {0f b6 54 24 30 0f b6 4c 24 31 32 d1 88 54 04 3c 48 ff c0 48 83 f8}  //weight: 9, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_ARR_2147956891_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ARR!MTB"
+        threat_id = "2147956891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_5_1 = {66 0f 46 c8 41 c1 e0 ?? 66 41 89 09 4d 8d 49 ?? 49 ff ca 75}  //weight: 5, accuracy: Low
         $x_15_2 = {0f b6 c8 41 8b 00 d3 c8 41 33 c3 2b c2 41 89 00 4d 8d 40}  //weight: 15, accuracy: High
     condition:
@@ -2888,7 +2910,7 @@ rule Trojan_Win64_Zusy_ARR_2147956891_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_ARR_2147956891_2
+rule Trojan_Win64_Zusy_ARR_2147956891_3
 {
     meta:
         author = "defender2yara"

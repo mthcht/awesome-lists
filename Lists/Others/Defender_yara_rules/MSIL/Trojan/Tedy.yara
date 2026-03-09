@@ -2287,6 +2287,29 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {07 2d 09 16 8d ?? ?? ?? ?? 0d de 24 07 08 6f}  //weight: 4, accuracy: Low
+        $x_10_2 = {07 02 16 02 8e 69 6f ?? ?? ?? ?? 0c 08 8e 69 1f 10 59 8d ?? ?? ?? ?? 0d 08 1f 10 09 16 09 8e 69}  //weight: 10, accuracy: Low
+        $x_6_3 = "tmp_stub.exe" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_ARR_2147957141_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARR!MTB"
+        threat_id = "2147957141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "40"
         strings_accuracy = "High"
     strings:

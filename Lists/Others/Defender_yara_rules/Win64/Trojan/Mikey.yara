@@ -1877,6 +1877,28 @@ rule Trojan_Win64_Mikey_AH_2147962859_1
         threshold = "50"
         strings_accuracy = "Low"
     strings:
+        $x_30_1 = {41 0f b6 c6 32 04 0b 88 04 0e 45 02 f7 48 ff c1 48 3b cf 72}  //weight: 30, accuracy: High
+        $x_20_2 = {0f b6 02 8b c8 c1 e9 ?? c0 e0 ?? 0a c8 88 0a 48 8d 52 ?? 48 83 ef ?? 75}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_AH_2147962859_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AH!MTB"
+        threat_id = "2147962859"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
         $x_30_1 = {48 03 c8 48 8b c1 0f be 00 83 f0 ?? 48 8b 0c 24 48 8b 54 24 20 48 03 d1 48 8b ca 88 01 eb}  //weight: 30, accuracy: Low
         $x_20_2 = {48 8d 84 04 48 1f 00 00 b9 ?? 00 00 00 48 6b c9 ?? c6 04 08 ?? b8 ?? 00 00 00 48 6b c0 ?? 48 8d 84 04 48 1f 00 00}  //weight: 20, accuracy: Low
     condition:
@@ -1974,6 +1996,34 @@ rule Trojan_Win64_Mikey_SXG_2147963498_0
         $x_1_3 = "[-] ShellExecuteEx" ascii //weight: 1
         $x_1_4 = "[+] Running embedded 1.exe" ascii //weight: 1
         $x_1_5 = "[+] Administrator privilege detected" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_SXI_2147964319_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.SXI!MTB"
+        threat_id = "2147964319"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "This loader has been disabled by admin" ascii //weight: 10
+        $x_10_2 = "taskkill /f /im obsidian_services.exe >nul 2>" ascii //weight: 10
+        $x_5_3 = "versetweaks_update.bat" ascii //weight: 5
+        $x_5_4 = "if exist \"%s\" (timeout /t 2 /nobreak >nul" ascii //weight: 5
+        $x_5_5 = "event=re_tools_terminated" ascii //weight: 5
+        $x_2_6 = "api.obsidianoptimzer.com" ascii //weight: 2
+        $x_2_7 = "ObsidianUpdater/1.0" ascii //weight: 2
+        $x_1_8 = "gui\\bin\\avatar_%s.png" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
