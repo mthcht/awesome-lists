@@ -3871,3 +3871,31 @@ rule Trojan_MSIL_NjRat_AZQB_2147963473_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_AVRB_2147964341_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.AVRB!MTB"
+        threat_id = "2147964341"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0a 0d 09 07 6f ?? 00 00 0a 00 09 18 6f ?? 00 00 0a 00 09 18 6f ?? 00 00 0a 00 09 6f ?? 00 00 0a 02 16 02 8e 69 6f ?? 00 00 0a 0a de 0c}  //weight: 4, accuracy: Low
+        $x_2_2 = {08 11 05 02 09 18 6f ?? 00 00 0a 20 c3 77 01 00 20 d3 77 01 00 61 28 ?? 00 00 0a 9c 09 18 d6 0d 11 05 17 d6 13 05 11 05 11 04 31 d4}  //weight: 2, accuracy: Low
+        $x_2_3 = {08 11 05 02 09 18 6f ?? 00 00 0a 1f 10 28 ?? 00 00 0a 9c 09 18 d6 0d 11 05 17 d6 13 05 11 05 11 04 31 dd}  //weight: 2, accuracy: Low
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

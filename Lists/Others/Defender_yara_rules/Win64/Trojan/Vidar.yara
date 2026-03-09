@@ -1610,3 +1610,28 @@ rule Trojan_Win64_Vidar_ET_2147963954_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_NK_2147964343_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NK!MTB"
+        threat_id = "2147964343"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8d 0c 40 48 c1 e1 04 48 8b 8c 0c 90 01 00 00 48 85 c9 74 e2 31 c9 e9 0e 02 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8d 0c 40 48 c1 e1 04 48 8b 94 0c 00 01 00 00 48 8b 8c 0c f8 00 00 00 66 90 48 83 fa 09 75 17}  //weight: 1, accuracy: High
+        $x_1_3 = "ImpersonateSelf" ascii //weight: 1
+        $x_1_4 = "remoteremote" ascii //weight: 1
+        $x_1_5 = "Go build" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

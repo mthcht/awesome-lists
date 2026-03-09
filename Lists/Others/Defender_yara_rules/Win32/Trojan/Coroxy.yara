@@ -109,29 +109,6 @@ rule Trojan_Win32_Coroxy_MA_2147839828_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Coroxy_BL_2147840747_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Coroxy.BL!MTB"
-        threat_id = "2147840747"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Coroxy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
-        $x_1_2 = "socks5" ascii //weight: 1
-        $x_1_3 = "powershell.exe -windowstyle hidden -Command" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Coroxy_MK_2147841134_0
 {
     meta:

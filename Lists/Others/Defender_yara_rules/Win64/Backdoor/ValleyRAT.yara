@@ -41,3 +41,30 @@ rule Backdoor_Win64_ValleyRAT_GHT_2147963758_0
         (all of ($x*))
 }
 
+rule Backdoor_Win64_ValleyRAT_GFH_2147964336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/ValleyRAT.GFH!MTB"
+        threat_id = "2147964336"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%ProgramData%\\Venlnk" ascii //weight: 1
+        $x_1_2 = "\\venSuccess.ini" ascii //weight: 1
+        $x_1_3 = "\\venwin.lock" ascii //weight: 1
+        $x_1_4 = "USDT hijack started" ascii //weight: 1
+        $x_1_5 = "shutdown /s /f /t 0" ascii //weight: 1
+        $x_1_6 = "\\DisplaySessionContainers.log" ascii //weight: 1
+        $x_1_7 = "EnableOfflineKeyboard" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -402,6 +402,29 @@ rule Trojan_MSIL_KeyLogger_NK_2147928809_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 1f 6c 5a 28 2a 00 00 0a 13 31 1b 8d 0e 00 00 01 25 16 12 1f 28 4e 00 00 0a a2 25 17 72 ae 0a 00 70 a2 25 18 12 31 28 50 00 00 0a a2 25 19 72 ae 0a 00 70 a2 25 1a 11 1e 7b 02 00 00 04 6f 4f 00 00 0a a2 28 61 00 00 0a 28 05 00 00 0a 11 11 14 28 62 00 00 0a 26 11 1d 17 58 13 1d}  //weight: 2, accuracy: High
+        $x_1_2 = "C:\\windows\\exPloRER.exE" wide //weight: 1
+        $x_1_3 = "junk.txt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_KeyLogger_NK_2147928809_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.NK!MTB"
+        threat_id = "2147928809"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
