@@ -20,3 +20,28 @@ rule Trojan_Win32_Minix_NLA_2147896863_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Minix_SI_2147964367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Minix.SI!MTB"
+        threat_id = "2147964367"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Minix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Unpleasantly\\Uninstall\\tandklinikken\\unrig" ascii //weight: 2
+        $x_1_2 = "sknskrifts\\tmmerproduktionerne\\plankevrket" ascii //weight: 1
+        $x_1_3 = "Reinvestigating73\\Uninstall\\kursusforlbs" ascii //weight: 1
+        $x_1_4 = "brankningernes" ascii //weight: 1
+        $x_1_5 = "chamottelers.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

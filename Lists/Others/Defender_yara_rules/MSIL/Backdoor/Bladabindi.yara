@@ -4416,3 +4416,26 @@ rule Backdoor_MSIL_Bladabindi_AXPB_2147962200_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Bladabindi_AWRB_2147964363_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Bladabindi.AWRB!MTB"
+        threat_id = "2147964363"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 11 04 16 09 16 1f 10 28 ?? 00 00 0a 00 11 04 16 09 1f 10 1f 10 28 ?? 00 00 0a 00 07 09 6f ?? 00 00 0a 00 07 18 6f ?? 00 00 0a 00 07 18 6f ?? 00 00 0a 00 07 6f ?? 00 00 0a 13 05 02 28 ?? 00 00 0a 13 06 28 ?? 00 00 0a 11 05 11 06 16 11 06 8e 69 6f ?? 00 00 0a 6f ?? 00 00 0a 0a 2b 00 06 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

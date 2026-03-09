@@ -4701,10 +4701,11 @@ rule Trojan_Win64_Lazy_RR_2147959743_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "2"
         strings_accuracy = "High"
     strings:
         $x_1_1 = {41 31 f6 41 c1 c6 08 45 01 f5 44 31 e8 c1 c0 07 45 01 d1 45 31 cf 41 c1 c7 10 44 01 ff 41 31 fa 41 c1 c2 0c 45 01 d1 44 89 4c 24 28}  //weight: 1, accuracy: High
+        $x_1_2 = "codeccert844.dll" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -5301,6 +5302,28 @@ rule Trojan_Win64_Lazy_SXO_2147964064_0
     strings:
         $x_30_1 = {99 b9 61 00 00 00 f7 f9 8b c2 89 44 24 ?? eb ?? 6b 44 24 ?? 0a 03 44 24 ?? 99 b9 61 00 00 00 f7 f9 8b c2 89 44}  //weight: 30, accuracy: Low
         $x_10_2 = {b8 04 00 00 00 48 6b c0 00 8b 44 04 ?? 89 04 24 8b 04 24 c1 e8 08 83 e0 0f 89 44 24 ?? 8b 04 24 c1 e8 10 83 e0 0f}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_CQ_2147964364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.CQ!MTB"
+        threat_id = "2147964364"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 c7 c0 60 00 00 00 65 48 8b 38 48 8b 7f 18 48 8b 7f 20 48 8b 7f 20 48 8b 83 13 01 00 00 48 01 f8 ff d0 48 89 83 13 01 00 00 48 8b 83 1b 01 00 00 48 01 f8 ff d0}  //weight: 1, accuracy: High
+        $x_1_2 = "PyImport_ImportModule" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

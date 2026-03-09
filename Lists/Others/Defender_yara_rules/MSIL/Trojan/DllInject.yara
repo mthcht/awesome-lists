@@ -446,3 +446,25 @@ rule Trojan_MSIL_DllInject_ARR_2147962266_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DllInject_RRI_2147964354_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DllInject.RRI!MTB"
+        threat_id = "2147964354"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DllInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {09 12 04 28 [0-4] 0a 7e 39 00 00 04 06 6f [0-4] 0a 2c 05 14 13 05 de 71 de 0b}  //weight: 1, accuracy: Low
+        $x_1_2 = {73 dd 00 00 0a 0d 08 09 28 [0-4] 06 09 16 6a 6f [0-4] 0a 09 13 04 de 1c}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
