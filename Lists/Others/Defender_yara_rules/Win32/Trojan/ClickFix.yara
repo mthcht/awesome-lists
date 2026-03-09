@@ -13390,3 +13390,28 @@ rule Trojan_Win32_ClickFix_ABE_2147964127_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_MJB_2147964373_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MJB!MTB"
+        threat_id = "2147964373"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6e 00 65 00 74 00 75 00 73 00 65 00 [0-10] 3a 00 2f 00 64 00 65 00 6c 00 65 00 74 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 [0-10] 2f 00 77 00 65 00 62 00 64 00 61 00 76 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "persistent:no&&" wide //weight: 1
+        $x_1_4 = "update.cmd" wide //weight: 1
+        $x_1_5 = "/delete" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2882,6 +2882,50 @@ rule Trojan_Win64_Tedy_AHI_2147956203_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_PGTA_2147956681_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PGTA!MTB"
+        threat_id = "2147956681"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {33 ca 45 33 c1 42 89 4c 9b 14 49 8d 53 06 41 8b c0 24 01 f6 d8 1b c9 81 e1 df b0 08 99 42 33 8c 9b 8c fc ff ff 4c 8b da 41 d1 e8 41 33 c8 89 0c 93 48 81 fa e0 04 00 00 0f 82}  //weight: 5, accuracy: High
+        $x_10_2 = {4e 45 58 2d 53 48 41 44 4f 57 2d 50 52 4f 54 00 4d 55 54 41 54 45 44 2d 49 44 45 4e 54 49 54 59}  //weight: 10, accuracy: High
+        $x_4_3 = "cmd.exe /c \"timeout /t 1 && del /f /q \"" ascii //weight: 4
+        $x_2_4 = "httpdebuggerui.exe" ascii //weight: 2
+        $x_2_5 = "wireshark.exe" ascii //weight: 2
+        $x_3_6 = "ollydbg.exe" ascii //weight: 3
+        $x_3_7 = "ida.exe" ascii //weight: 3
+        $x_3_8 = "x64dbg.exe" ascii //weight: 3
+        $x_1_9 = "procmon.exe" ascii //weight: 1
+        $x_1_10 = "fiddler.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 3 of ($x_3_*) and 2 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_4_*) and 2 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_4_*) and 3 of ($x_3_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_4_*) and 3 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 2 of ($x_3_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 2 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 3 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 3 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Tedy_ATR_2147956867_0
 {
     meta:
