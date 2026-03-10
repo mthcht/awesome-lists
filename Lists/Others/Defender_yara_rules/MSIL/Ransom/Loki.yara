@@ -68,3 +68,25 @@ rule Ransom_MSIL_Loki_MBIS_2147890350_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Loki_MX_2147964443_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Loki.MX!MTB"
+        threat_id = "2147964443"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Loki"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7e c6 00 00 04 28 a3 02 00 06 11 01 7e c9 00 00 04 28 ab 02 00 06 13 02 20 00 00 00 00 28 be 00 00 06 39 7d ff ff ff}  //weight: 1, accuracy: High
+        $x_1_2 = "Loki.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

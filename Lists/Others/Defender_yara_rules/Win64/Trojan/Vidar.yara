@@ -1664,3 +1664,32 @@ rule Trojan_Win64_Vidar_SJ_2147964361_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_BAB_2147964419_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.BAB!MTB"
+        threat_id = "2147964419"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main._ctl_parser" ascii //weight: 1
+        $x_1_2 = "main._nl_expand_alias" ascii //weight: 1
+        $x_1_3 = "main._nl_msg_cat_cntr" ascii //weight: 1
+        $x_1_4 = "main.libintl_set_relocation_prefix" ascii //weight: 1
+        $x_1_5 = "main.bind_textdomain_codeset" ascii //weight: 1
+        $x_1_6 = "main.libintl_bind_textdomain_codeset" ascii //weight: 1
+        $x_1_7 = "main.ngettext" ascii //weight: 1
+        $x_1_8 = "main.textdomain" ascii //weight: 1
+        $x_1_9 = "main.bindtextdomain" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -388,3 +388,30 @@ rule Trojan_Win64_Redcap_ARPA_2147959608_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Redcap_SXA_2147964414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.SXA!MTB"
+        threat_id = "2147964414"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "NexLoader UI Class" ascii //weight: 20
+        $x_20_2 = "NexLoader_Main" ascii //weight: 20
+        $x_10_3 = "cmd.exe /c \"timeout /t 1 && del /f /q " ascii //weight: 10
+        $x_4_4 = "--mutated" ascii //weight: 4
+        $x_2_5 = "Launch Client" ascii //weight: 2
+        $x_2_6 = "Inject Internal" ascii //weight: 2
+        $x_2_7 = "Spoof Hardware" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

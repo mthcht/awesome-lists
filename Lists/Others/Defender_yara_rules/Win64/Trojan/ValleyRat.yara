@@ -336,3 +336,30 @@ rule Trojan_Win64_ValleyRat_YAH_2147963064_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_XWB_2147964357_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.XWB!MTB"
+        threat_id = "2147964357"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C:\\Users\\Public\\venwin.lock" ascii //weight: 2
+        $x_2_2 = "USDT hijack thread" ascii //weight: 2
+        $x_1_3 = "\\venSuccess.ini" ascii //weight: 1
+        $x_1_4 = "%ProgramData%\\Venlnk" ascii //weight: 1
+        $x_1_5 = "BTC target address" ascii //weight: 1
+        $x_1_6 = "ETH target address" ascii //weight: 1
+        $x_2_7 = "EnableOfflineKeyboard" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

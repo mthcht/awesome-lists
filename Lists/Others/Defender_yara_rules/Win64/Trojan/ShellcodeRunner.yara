@@ -2907,3 +2907,74 @@ rule Trojan_Win64_ShellcodeRunner_SXI_2147964119_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_PAHO_2147964428_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.PAHO!MTB"
+        threat_id = "2147964428"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "BCryptDecrypt[1] Failed With Error: 0x%0.8X" ascii //weight: 1
+        $x_1_2 = "VirtualAllocEx failed" ascii //weight: 1
+        $x_5_3 = "Shellcode size after decryption" ascii //weight: 5
+        $x_5_4 = "Executing shellcode" ascii //weight: 5
+        $x_2_5 = {48 8b 45 10 48 89 45 e0 8b 45 18 89 45 e8 48 8b 45 20 48 89 45 f0 48 8b 45 28 48 89 45 f8 48 8d 45 d0 48 89 c1 e8 ?? ?? ?? ?? 85 c0 75 07}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_ShellcodeRunner_PAHP_2147964429_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.PAHP!MTB"
+        threat_id = "2147964429"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {0f be 04 17 48 ff c2 03 c3 69 c8 01 01 00 00 8b d9 c1 eb 06 33 d9 49 3b d0 75}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_PAB_2147964436_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.PAB!MTB"
+        threat_id = "2147964436"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {c7 45 18 a4 94 42 1b c7 45 1c 8f bd 39 bc c7 45 20 bc e5 d1 7e c7 45 24 ae 38 c4 49 c7 45 28 3e 94 26 b4 c7 45 2c 78 c1 e2 ef c7 45 30 c0 b2 35 4a c7 45 34 13 e0 18 2d c7 45 38 4d 9c c6 0e c7 45 3c e2 ca 2e ef c7 45 40 3e 5e 2a b0 c7 45 44 76 c8 02 02 48 8d 4c 24 30 [0-255] 41 b8 40 00 00 00 ff 15 e8 1c 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

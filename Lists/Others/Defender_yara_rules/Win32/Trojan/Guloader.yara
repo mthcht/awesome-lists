@@ -3267,6 +3267,52 @@ rule Trojan_Win32_Guloader_RR_2147833669_7
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Limberer@sitdownstrejkes.For1" ascii //weight: 1
+        $x_1_2 = "Coparcener Restaureringsarbejdes Sammenhftnings 1" ascii //weight: 1
+        $x_1_3 = "gollub1907" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RR_2147833669_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RR!MTB"
+        threat_id = "2147833669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Forlydenderne@Hemispherical36.No1" ascii //weight: 1
+        $x_1_2 = "Detaljeprojekts1" ascii //weight: 1
+        $x_1_3 = "%Brainstormingerne Frittet Monarchism 1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_RR_2147833669_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.RR!MTB"
+        threat_id = "2147833669"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
@@ -3279,7 +3325,7 @@ rule Trojan_Win32_Guloader_RR_2147833669_7
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_RR_2147833669_8
+rule Trojan_Win32_Guloader_RR_2147833669_10
 {
     meta:
         author = "defender2yara"
@@ -3307,7 +3353,7 @@ rule Trojan_Win32_Guloader_RR_2147833669_8
         (all of ($x*))
 }
 
-rule Trojan_Win32_Guloader_RR_2147833669_9
+rule Trojan_Win32_Guloader_RR_2147833669_11
 {
     meta:
         author = "defender2yara"

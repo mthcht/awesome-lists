@@ -291,3 +291,55 @@ rule Ransom_Win64_Encoder_NG_2147962193_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_BMX_2147964438_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.BMX!MTB"
+        threat_id = "2147964438"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$windows.~bt" ascii //weight: 1
+        $x_1_2 = "DisableRealtimeMonitoring" wide //weight: 1
+        $x_1_3 = "vssadmin" ascii //weight: 1
+        $x_1_4 = "shadows" ascii //weight: 1
+        $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_6 = "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon" ascii //weight: 1
+        $x_1_7 = ".blackout" ascii //weight: 1
+        $x_1_8 = "Global\\BlackoutMutex" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Encoder_CMX_2147964439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.CMX!MTB"
+        threat_id = "2147964439"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 1
+        $x_1_2 = "Windows Defender\" /v \"DisableAntiSpyware" ascii //weight: 1
+        $x_1_3 = "delete_self.vbs" ascii //weight: 1
+        $x_1_4 = "use of data recovery" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

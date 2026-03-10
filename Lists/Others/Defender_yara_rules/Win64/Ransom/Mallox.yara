@@ -160,3 +160,27 @@ rule Ransom_Win64_Mallox_SX_2147960176_0
         )
 }
 
+rule Ransom_Win64_Mallox_MX_2147964437_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Mallox.MX!MTB"
+        threat_id = "2147964437"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mallox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your files has been encrypted" ascii //weight: 1
+        $x_1_2 = "free decyrption" ascii //weight: 1
+        $x_1_3 = "To recover" ascii //weight: 1
+        $x_1_4 = "$windows.~bt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

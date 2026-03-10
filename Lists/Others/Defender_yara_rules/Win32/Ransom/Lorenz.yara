@@ -96,3 +96,26 @@ rule Ransom_Win32_Lorenz_YAA_2147915965_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Lorenz_PGLR_2147964432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Lorenz.PGLR!MTB"
+        threat_id = "2147964432"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lorenz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {49 00 41 00 34 00 5a 00 42 00 51 00 34 00 48 00 57 00 46 00 6c 00 46 00 44 00 77 00 63 00 48 00 ?? ?? ?? ?? 4c 00 77 00 34 00 48 00 44 00 68 00 38 00 4f 00 4c 00 51 00 49 00 48 00 44 00 69 00 6f 00 3d 00 ?? ?? ?? ?? 4b 00 42 00 6b 00 53 00 47 00 78 00 38 00 69 00 42 00 68 00 73 00 45 00 47 00 52 00 38 00 37 00 48 00 67 00 6b 00 48 00 41 00 67 00 67 00 67 00 44 00 68 00 49 00 69 00 42 00 51 00 30 00 45 00 ?? ?? ?? ?? 4b 00 42 00 6b 00 53 00 47 00 78 00 38 00 75 00 42 00 51 00 67 00 5a 00 45 00 68 00 73 00 66 00 ?? ?? ?? ?? 4b 00 42 00 6b 00 53 00 47 00 78 00 38 00 34 00 48 00 78 00 6b 00 43 00 42 00 51 00 77 00 2f 00 42 00 43 00 6b 00 43 00 42 00 51 00 6f 00 5a 00 45 00 69 00 6f 00 3d 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {49 41 34 5a 42 51 34 48 57 46 6c 46 44 77 63 48 ?? ?? ?? ?? 4c 77 34 48 44 68 38 4f 4c 51 49 48 44 69 6f 3d ?? ?? ?? ?? 4b 42 6b 53 47 78 38 69 42 68 73 45 47 52 38 37 48 67 6b 48 41 67 67 67 44 68 49 69 42 51 30 45 ?? ?? ?? ?? 4b 42 6b 53 47 78 38 75 42 51 67 5a 45 68 73 66 ?? ?? ?? ?? 4b 42 6b 53 47 78 38 34 48 78 6b 43 42 51 77 2f 42 43 6b 43 42 51 6f 5a 45 69 6f 3d}  //weight: 5, accuracy: Low
+        $x_5_3 = "JgIIGQQYBA0fSy4FAwoFCA4PSygZEhsfBAwZChsDAghLOxkEHQIPDhlLHVpFWw==" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

@@ -2209,3 +2209,27 @@ rule Trojan_Win32_Convagent_ART_2147964169_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_SXH_2147964412_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.SXH!MTB"
+        threat_id = "2147964412"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8d 85 e8 f7 ff ff 50 68 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 03 c0 50 68 ?? ?? ?? ?? 57 ff 15}  //weight: 20, accuracy: Low
+        $x_10_2 = {99 b9 9f 86 01 00 f7 f9 8d 85 f4 fd ff ff 52}  //weight: 10, accuracy: High
+        $x_5_3 = "%s\\macOSx" ascii //weight: 5
+        $x_5_4 = "d.wsf" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

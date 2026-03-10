@@ -65,3 +65,26 @@ rule Ransom_MSIL_Chaos_ACH_2147946600_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Chaos_MX_2147964440_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Chaos.MX!MTB"
+        threat_id = "2147964440"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Chaos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {03 28 0c 00 00 06 0b 1f 0c 8d ?? 00 00 01 0c 73 1b 00 00 0a 13 05 11 05 08 6f 1c 00 00 0a de 0c}  //weight: 2, accuracy: Low
+        $x_1_2 = "WinLockerCoder" ascii //weight: 1
+        $x_1_3 = "DisableTaskMgr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

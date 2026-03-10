@@ -5982,3 +5982,24 @@ rule Trojan_Win32_Farfli_LMF_2147963747_0
         )
 }
 
+rule Trojan_Win32_Farfli_BAC_2147964418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.BAC!MTB"
+        threat_id = "2147964418"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {83 65 f8 00 83 45 f8 06 8a 45 14 8b 4d fc 8a d0 d2 e2 8b 4d 08 80 e2 c0 08 11}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -46,3 +46,27 @@ rule HackTool_Win64_Inject_SXA_2147960711_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_Inject_SXB_2147964413_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Inject.SXB!MTB"
+        threat_id = "2147964413"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Inject"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "46"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 89 44 24 28 e8 ?? ?? ?? ?? 84 c0 74 ?? 48 8b 15 ?? ?? ?? ?? 4c 8d 44 24 20 48 8b 0d 59 20 06 00 41 b9 06 00 00 00 c7 44 24 20 b8 01 00 00 66 c7 44 24 24 c0 c3 e8}  //weight: 30, accuracy: Low
+        $x_5_2 = {48 8d 44 24 30 41 b9 06 00 00 00 4c 8d 05 ?? ?? ?? ?? 48 89 44 24 20 ff 15 ?? ?? ?? ?? 85 c0 0f 95 c0 48 8b 4c 24 38 48 33 cc}  //weight: 5, accuracy: Low
+        $x_10_3 = "SysMain" ascii //weight: 10
+        $x_1_4 = "ntdll.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
