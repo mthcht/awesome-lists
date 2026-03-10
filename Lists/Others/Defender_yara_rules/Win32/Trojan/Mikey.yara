@@ -529,3 +529,25 @@ rule Trojan_Win32_Mikey_LMN_2147963470_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_PGMY_2147964393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.PGMY!MTB"
+        threat_id = "2147964393"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "http://178.16.54.109/xmrig.exe" ascii //weight: 5
+        $x_5_2 = "/c %s -o 178.16.54.109:6060 -u 83h9mBvy1LL2qW6c2HeWczYVJQsFDF7RfVqDnaiSfFBdDcxfyJfWhRnZqZkY5chb5b6tmKZ1PPhuQbNgXggCdwTrMYWN8hi" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
