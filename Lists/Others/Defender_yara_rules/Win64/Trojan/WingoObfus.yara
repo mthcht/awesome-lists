@@ -64,24 +64,3 @@ rule Trojan_Win64_WingoObfus_NH_2147962190_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_WingoObfus_CQ_2147964366_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/WingoObfus.CQ!MTB"
-        threat_id = "2147964366"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "WingoObfus"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {0f b6 34 0b 0f b6 3c 13 31 fe 40 88 34 19 48 ff c3 48 39 d8 7f ea}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
