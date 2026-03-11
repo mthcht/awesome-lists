@@ -53,6 +53,38 @@ rule Trojan_Win64_Lummastealer_RR_2147960385_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ADMQCMD" wide //weight: 1
+        $x_1_2 = "CABINET" wide //weight: 1
+        $x_1_3 = "EXTRACTOPT" wide //weight: 1
+        $x_1_4 = "PACKINSTSPACE" wide //weight: 1
+        $x_1_5 = "POSTRUNPROGRAM" wide //weight: 1
+        $x_1_6 = "REBOOT" wide //weight: 1
+        $x_1_7 = "RUNPROGRAM" wide //weight: 1
+        $x_1_8 = "SHOWWINDOW" wide //weight: 1
+        $x_1_9 = "UPROMPT" wide //weight: 1
+        $x_1_10 = "USRQCMD" wide //weight: 1
+        $x_1_11 = "sc.exe" ascii //weight: 1
+        $x_1_12 = {63 6d 64 20 2f 76 20 2f 63 20 53 65 74 20 [0-7] 3d 63 6d 64 20 26 20 21 00 21 20 3c}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lummastealer_RR_2147960385_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lummastealer.RR!MTB"
+        threat_id = "2147960385"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lummastealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:

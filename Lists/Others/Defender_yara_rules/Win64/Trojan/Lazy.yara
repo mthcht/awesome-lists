@@ -4724,6 +4724,27 @@ rule Trojan_Win64_Lazy_RR_2147959743_1
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {45 30 cb 45 0f b6 cb 49 01 f1 45 89 d3 41 c0 fb 07 45 30 d3 45 0f b6 d3 44 0f b6 5c 11 02 44 89 de 40 c0 fe 07 44 30 de 44 0f b6 de 4d 01 d3 4d 01 cb 44 0f b6 4c 11 03 45 89 ca 41 c0 fa 07 45 30 ca}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_RR_2147959743_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.RR!MTB"
+        threat_id = "2147959743"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {89 f0 35 20 03 00 00 89 f9 81 f1 58 02 00 00 09 c1 0f 84 [0-5] 89 f0 35 00 04 00 00 89 f9 81 f1 00 03 00 00 09 c1 0f 84 [0-5] 81 f6 80 04 00 00 81 f7 60 03 00 00 09 f7}  //weight: 1, accuracy: Low
@@ -5349,5 +5370,32 @@ rule Trojan_Win64_Lazy_LR_2147964502_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_NUA_2147964504_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.NUA!MTB"
+        threat_id = "2147964504"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "start /min cmd.exe /c powershell -WindowStyle Hidden -Command \"& { iwr -Uri 'https://vcc-library.uk/Stb/Retev.php" ascii //weight: 1
+        $x_2_2 = {4f 00 75 00 74 00 46 00 69 00 6c 00 65 00 20 00 24 00 65 00 6e 00 76 00 3a 00 54 00 45 00 4d 00 50 00 5c 00 [0-48] 2e 00 65 00 78 00 65 00 3b 00 20 00 53 00 74 00 61 00 72 00 74 00 2d 00 50 00 72 00 6f 00 63 00 65 00 73 00 73 00 20 00 2d 00 46 00 69 00 6c 00 65 00 50 00 61 00 74 00 68 00 20 00 24 00 65 00 6e 00 76 00 3a 00 54 00 45 00 4d 00 50 00 5c 00 [0-48] 2e 00 65 00 78 00 65 00 20 00 2d 00 57 00 69 00 6e 00 64 00 6f 00 77 00 53 00 74 00 79 00 6c 00 65 00 20 00 48 00 69 00 64 00 64 00 65 00 6e 00}  //weight: 2, accuracy: Low
+        $x_2_3 = {4f 75 74 46 69 6c 65 20 24 65 6e 76 3a 54 45 4d 50 5c [0-48] 2e 65 78 65 3b 20 53 74 61 72 74 2d 50 72 6f 63 65 73 73 20 2d 46 69 6c 65 50 61 74 68 20 24 65 6e 76 3a 54 45 4d 50 5c [0-48] 2e 65 78 65 20 2d 57 69 6e 64 6f 77 53 74 79 6c 65 20 48 69 64 64 65 6e}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

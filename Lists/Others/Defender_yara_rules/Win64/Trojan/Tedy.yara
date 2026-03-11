@@ -4130,6 +4130,30 @@ rule Trojan_Win64_Tedy_RR_2147962573_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "discord_game_sdk.dll" ascii //weight: 1
+        $x_1_2 = "DiscordCreate" ascii //weight: 1
+        $x_1_3 = "api-ms-win-crt-locale-l1-1-0.dll" ascii //weight: 1
+        $x_1_4 = "6ooPbAPT" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_RR_2147962573_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.RR!MTB"
+        threat_id = "2147962573"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
@@ -4143,7 +4167,7 @@ rule Trojan_Win64_Tedy_RR_2147962573_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_RR_2147962573_3
+rule Trojan_Win64_Tedy_RR_2147962573_4
 {
     meta:
         author = "defender2yara"

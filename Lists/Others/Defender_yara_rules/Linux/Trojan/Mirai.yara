@@ -917,3 +917,45 @@ rule Trojan_Linux_Mirai_HAQ_2147961979_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_HAV_2147964512_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAV!MTB"
+        threat_id = "2147964512"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {76 71 4d 57 50 41 47 02 67 4c 45 4b 4c 47 02 73 57 47 50 5b 22 00 00 00 51 4a 47 4e 4e 22 00 00 47 4c 43 40}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_HAW_2147964513_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAW!MTB"
+        threat_id = "2147964513"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {00 41 45 50 4e 22 00 00 00 47 41 4a 4d 22 00 00 00 4f 4d 55 4c 56 22 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
