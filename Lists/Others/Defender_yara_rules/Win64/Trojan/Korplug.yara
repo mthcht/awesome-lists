@@ -21,3 +21,24 @@ rule Trojan_Win64_Korplug_AT_2147920333_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Korplug_GVN_2147964475_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Korplug.GVN!MTB"
+        threat_id = "2147964475"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Korplug"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f af c2 83 e0 01 83 f8 00 0f 94 c0 83 f9 0a 0f 9c c1 88 c2 20 ca 30 c8 08 c2 b8 89 cf 75 d8 b9 90 f7 6a cd f6 c2 01 0f 45 c1 89 45 ac e9 e1 03 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

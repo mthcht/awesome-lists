@@ -315,3 +315,26 @@ rule Trojan_Win32_Zegost_ARA_2147920778_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zegost_SX_2147964478_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zegost.SX!MTB"
+        threat_id = "2147964478"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zegost"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c6 45 e0 43 c6 45 e1 6f c6 45 e2 6e c6 45 e3 6e c6 45 e4 65 c6 45 e5 63 c6 45 e6 74 c6 45 e7 47 c6 45 e8 72 c6 45 e9 6f c6 45 ea 75 c6 45 eb 70}  //weight: 20, accuracy: High
+        $x_10_2 = "%ProgramFiles%\\Rumno Qrstuv" ascii //weight: 10
+        $x_5_3 = "telrt.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

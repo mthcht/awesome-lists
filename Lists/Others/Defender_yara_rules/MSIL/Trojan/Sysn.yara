@@ -20,3 +20,28 @@ rule Trojan_MSIL_Sysn_NS_2147896737_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Sysn_MK_2147964481_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Sysn.MK!MTB"
+        threat_id = "2147964481"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Sysn"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "PowerShellAir.Transport.TcpTransport+<ConnectAsync>d" ascii //weight: 15
+        $x_10_2 = "PowerShellAir.Transport.WebSocketTransport+<SendAsync>d" ascii //weight: 10
+        $x_5_3 = "APowerShellAir.Transport.WebSocketTransport+<DisconnectAsync>d" ascii //weight: 5
+        $x_3_4 = "CPowerShellAir.Transport.WebSocketTransport+<TryReconnectAsync>d" ascii //weight: 3
+        $x_2_5 = "DPowerShellAir.Transport.WebSocketTransport+<ReceiveStringAsync>d" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

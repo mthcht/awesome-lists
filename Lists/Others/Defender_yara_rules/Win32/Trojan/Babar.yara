@@ -852,3 +852,26 @@ rule Trojan_Win32_Babar_HZN_2147959719_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Babar_SX_2147964479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Babar.SX!MTB"
+        threat_id = "2147964479"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Babar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {83 c4 10 8a 06 04 5c 0f b6 c0 83 c0 03 24 fc}  //weight: 15, accuracy: High
+        $x_10_2 = {0f af c1 8b 4c 24 ?? a3 ?? ?? ?? ?? 8b 44 24 04 8b d0 03 c1 23 d1 66 a3}  //weight: 10, accuracy: Low
+        $x_5_3 = {8b 74 24 1c a3 ?? ?? ?? ?? 8b 5c 24 18 33 c9 8a 06 04 5c 38 0d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

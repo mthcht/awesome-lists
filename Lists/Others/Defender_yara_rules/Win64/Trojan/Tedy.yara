@@ -3589,6 +3589,32 @@ rule Trojan_Win64_Tedy_BAC_2147960976_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CN_2147961053_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CN!MTB"
+        threat_id = "2147961053"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 33 c4 48 89 85 ?? ?? ?? ?? 48 8d 4d ?? ff 15 ?? ?? ?? ?? c7 45 ?? 40 00 00 00 48 8d 4d ?? ff 15 ?? ?? ?? ?? 33 d2 48 8d 4d ?? ff 15 ?? ?? ?? ?? 4c 8d 05 ?? ?? ?? ?? ba 01 00 00 00 33 c9 ff 15}  //weight: 5, accuracy: Low
+        $x_5_2 = {40 04 00 00 48 8d 05 ?? ?? ?? ?? 48 89 45 ?? 48 8d 85 ?? ?? ?? ?? 48 89 45 ?? 48 89 75 ?? c7 45 ?? 01 00 00 00 48 8d 4d ?? ff 15}  //weight: 5, accuracy: Low
+        $x_1_3 = "runas" wide //weight: 1
+        $x_1_4 = "msiexec.exe" wide //weight: 1
+        $x_1_5 = "Global\\{" wide //weight: 1
+        $x_1_6 = "C:\\Windows\\SYSTEM32\\*" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_ABR_2147961076_0
 {
     meta:
