@@ -42,3 +42,26 @@ rule TrojanDropper_Win64_Lazy_MK_2147954243_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win64_Lazy_AH_2147964488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/Lazy.AH!MTB"
+        threat_id = "2147964488"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "ProgramData\\Roning\\trustinstaller.bin" ascii //weight: 10
+        $x_20_2 = "t^a^s^k^l^i^s^t     /fi    \"PID  eq" ascii //weight: 20
+        $x_30_3 = "Microsoft1Edge2Elevation3Service4" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
