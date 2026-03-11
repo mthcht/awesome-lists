@@ -3073,3 +3073,28 @@ rule Trojan_MSIL_CoinMiner_MKB_2147963197_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CoinMiner_VD_2147964543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CoinMiner.VD!MTB"
+        threat_id = "2147964543"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Supreme.Resource1.resources" ascii //weight: 1
+        $x_1_2 = "Antimalware service executable" ascii //weight: 1
+        $x_1_3 = "appdata = CurDir + \"/hostdl.exe\"" ascii //weight: 1
+        $x_1_4 = "string copy = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @\"\\History\"" ascii //weight: 1
+        $x_1_5 = "miner.Start()" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

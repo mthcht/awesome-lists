@@ -203,3 +203,27 @@ rule Backdoor_MSIL_XWorm_AQRA_2147939722_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_XWorm_SL_2147964537_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/XWorm.SL!MTB"
+        threat_id = "2147964537"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "xworm6.g.resources" ascii //weight: 1
+        $x_1_2 = "$c58f6ff2-e914-436f-acf3-47cd9a109b43" ascii //weight: 1
+        $x_1_3 = "xworm6.exe" ascii //weight: 1
+        $x_1_4 = "LEICA Geo Office" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

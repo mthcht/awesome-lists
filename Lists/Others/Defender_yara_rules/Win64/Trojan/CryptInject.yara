@@ -1139,6 +1139,33 @@ rule Trojan_Win64_CryptInject_CM_2147895740_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_CM_2147895740_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.CM!MTB"
+        threat_id = "2147895740"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "dbseckey=" ascii //weight: 1
+        $x_1_2 = "login.aspx" ascii //weight: 1
+        $x_1_3 = "USERNAME" ascii //weight: 1
+        $x_1_4 = "COMPUTERNAME" ascii //weight: 1
+        $x_1_5 = "action=ping&mod=" ascii //weight: 1
+        $x_1_6 = "User-Agent:" ascii //weight: 1
+        $x_1_7 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CryptInject_LLA_2147895821_0
 {
     meta:

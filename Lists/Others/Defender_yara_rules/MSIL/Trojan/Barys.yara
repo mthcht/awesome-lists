@@ -1275,3 +1275,26 @@ rule Trojan_MSIL_Barys_SLWR_2147964356_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_VD_2147964542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.VD!MTB"
+        threat_id = "2147964542"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "server.Resources.resources" ascii //weight: 5
+        $x_5_2 = "SkiDzEX : https://discord.gg/tHxvYvWZV8" ascii //weight: 5
+        $x_5_3 = "cc8fad03-816e-432c-9b92-001f2d819471" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
