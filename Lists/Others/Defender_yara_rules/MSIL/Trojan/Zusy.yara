@@ -4717,3 +4717,29 @@ rule Trojan_MSIL_Zusy_MKD_2147964155_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_LRC_2147964501_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.LRC!MTB"
+        threat_id = "2147964501"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "{08d887d8-ebb3-437b-a4ca-5ce6446ce9d3}" ascii //weight: 20
+        $x_15_2 = "MemberRefsProxy" ascii //weight: 15
+        $x_10_3 = "CreateMemberRefsDelegates" ascii //weight: 10
+        $x_8_4 = "GetILGenerator" ascii //weight: 8
+        $x_5_5 = "OpenClipboard" ascii //weight: 5
+        $x_2_6 = "GlobalLock" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
