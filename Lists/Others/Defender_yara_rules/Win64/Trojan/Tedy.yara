@@ -2974,6 +2974,33 @@ rule Trojan_Win64_Tedy_BAB_2147956902_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_BAB_2147956902_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BAB!MTB"
+        threat_id = "2147956902"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.runSilent" ascii //weight: 1
+        $x_1_2 = "main.xd" ascii //weight: 1
+        $x_1_3 = "CreateKeyExW" ascii //weight: 1
+        $x_1_4 = "RegDeleteValueW" ascii //weight: 1
+        $x_1_5 = "-ExecutionPolicyexe" ascii //weight: 1
+        $x_1_6 = "GetTempPath" ascii //weight: 1
+        $x_1_7 = "powershell.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_MKE_2147957103_0
 {
     meta:
