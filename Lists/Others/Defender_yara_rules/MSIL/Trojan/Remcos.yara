@@ -14547,3 +14547,24 @@ rule Trojan_MSIL_Remcos_ZUH_2147964533_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_AMTB_2147964578_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos!AMTB"
+        threat_id = "2147964578"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://hirosguide.hu/ti/" ascii //weight: 2
+        $x_2_2 = "C:\\ProgramData\\UHhHuU.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

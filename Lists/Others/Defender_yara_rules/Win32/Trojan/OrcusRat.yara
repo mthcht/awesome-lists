@@ -20,3 +20,28 @@ rule Trojan_Win32_OrcusRat_MBXQ_2147918550_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OrcusRat_A_2147964576_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OrcusRat.A!AMTB"
+        threat_id = "2147964576"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OrcusRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Wave Key Loader" ascii //weight: 1
+        $x_1_2 = "Have you disabled Tamper Protection" ascii //weight: 1
+        $x_1_3 = "Generating fake key hash" ascii //weight: 1
+        $x_1_4 = "Initializing bypass sequence" ascii //weight: 1
+        $x_1_5 = "discord.gg/water" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

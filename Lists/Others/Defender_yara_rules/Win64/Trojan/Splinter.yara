@@ -96,3 +96,24 @@ rule Trojan_Win64_Splinter_MS3_2147962786_0
         )
 }
 
+rule Trojan_Win64_Splinter_MS_2147964590_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Splinter.MS!dha"
+        threat_id = "2147964590"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Splinter"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {56 57 53 48 81 ec f0 00 00 00 48 89 ce b9 01 02 00 00 48 8d 05 ?? ?? ?? ?? 0f 1f 80 00 00 00 00 80 7c 01 fe 7d 74 ?? 80 7c 01 fd 7d 74 ?? 48 83 f9 03 74 ?? 48 8d 51 fd 80 7c 01 fc 7d 48 89 d1 75}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

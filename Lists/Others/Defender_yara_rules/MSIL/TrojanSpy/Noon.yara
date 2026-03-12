@@ -926,3 +926,25 @@ rule TrojanSpy_MSIL_Noon_SUK_2147948634_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Noon_AMTB_2147964577_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon!AMTB"
+        threat_id = "2147964577"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "http://185.246.220.121/vik" ascii //weight: 1
+        $x_1_2 = "HAWK.HAWK" ascii //weight: 1
+        $x_1_3 = "Runhawk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
