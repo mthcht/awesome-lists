@@ -3899,3 +3899,27 @@ rule Trojan_MSIL_NjRat_AVRB_2147964341_0
         )
 }
 
+rule Trojan_MSIL_NjRat_AYB_2147964623_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.AYB!MTB"
+        threat_id = "2147964623"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "STOCHOLM\\obj\\x86\\Release\\STOCHOLM.pdb" ascii //weight: 5
+        $x_2_2 = "STOCHOLM.Form1.resources" ascii //weight: 2
+        $x_2_3 = "$573ac649-bc08-4531-8e95-e13ada056011" ascii //weight: 2
+        $x_1_4 = "STOCHOLM.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

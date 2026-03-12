@@ -889,3 +889,25 @@ rule Trojan_Win64_Midie_LMF_2147963647_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_MK_2147964612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.MK!MTB"
+        threat_id = "2147964612"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 63 ca 8b c2 48 c1 e1 05 4e 39 1c 11 41 0f 45 c0 ff c2 44 8b c0 41 3b d1}  //weight: 20, accuracy: High
+        $x_15_2 = {c7 45 cc 65 6c 33 32 c7 45 d0 2e 64 6c 6c c6 45 d4 00 c7 45 e8 6e 45 6e 74 66 c7 45 ec 72 79 c6 45 ee}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

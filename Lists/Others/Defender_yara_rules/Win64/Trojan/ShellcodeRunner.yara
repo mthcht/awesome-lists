@@ -2978,3 +2978,46 @@ rule Trojan_Win64_ShellcodeRunner_PAB_2147964436_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_AVD_2147964605_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AVD!MTB"
+        threat_id = "2147964605"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {69 c9 3f 00 01 00 48 8d 52 ?? 0f b6 c0 03 c8 0f b6 02 84 c0 75}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_SXJ_2147964608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.SXJ!MTB"
+        threat_id = "2147964608"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {4c 89 f0 49 f7 e5 48 d1 ea 8d 04 52 44 89 f2 29 c2 4c 89 f9 e8 ?? ?? ?? ?? 0f b6 00 42 30 04 33 49 ff c6 4c 39 f6 75}  //weight: 20, accuracy: Low
+        $x_10_2 = {4c 31 ca 49 0f af d4 0f b6 f7 48 31 d6 49 0f af f4 44 0f b6 f0 49 31 f6 4d 0f af f4 49 31 ce 4d 0f af f4 48 8b 85 ?? ?? ?? ?? 4c 21 f0 48 8d 34 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

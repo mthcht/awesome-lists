@@ -43,3 +43,28 @@ rule Trojan_Win64_BadJoke_ARR_2147958505_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BadJoke_GPB_2147964631_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BadJoke.GPB!MTB"
+        threat_id = "2147964631"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_cleanup%d" ascii //weight: 1
+        $x_1_2 = "rundll32.exe %s,InstallHinfSection %s 128 %s" ascii //weight: 1
+        $x_1_3 = "Command.com /c %s" ascii //weight: 1
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce" ascii //weight: 1
+        $x_1_5 = "cmd /c \"dangerous.bat\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

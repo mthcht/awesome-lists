@@ -84,3 +84,24 @@ rule Trojan_Win32_Amatera_LM_2147964015_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amatera_GVM_2147964635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amatera.GVM!MTB"
+        threat_id = "2147964635"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amatera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {f7 f6 0f b6 92 ?? ?? ?? ?? 33 ca 8b 45 f8 03 45 fc 88 08 eb}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

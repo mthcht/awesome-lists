@@ -1145,3 +1145,26 @@ rule Trojan_Win32_Tedy_ABTD_2147962384_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_SXJ_2147964609_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.SXJ!MTB"
+        threat_id = "2147964609"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {50 8d 55 b8 8d 4d a0 e8 45 e8 ?? ?? ?? ?? 04 68 88 13 00 00 c6 45 fc 02 ff 15 ?? ?? ?? ?? 8d 8d 64 ff ff ff e8 ?? ?? ?? ?? 51 8b d0 c6 45 fc 03 8d 8d 7c ff ff ff}  //weight: 20, accuracy: Low
+        $x_10_2 = "\\Shell\\Manage\\command" ascii //weight: 10
+        $x_5_3 = "setup.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

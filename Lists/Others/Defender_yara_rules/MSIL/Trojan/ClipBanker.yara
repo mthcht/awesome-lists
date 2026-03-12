@@ -4678,6 +4678,30 @@ rule Trojan_MSIL_ClipBanker_AYB_2147962665_0
         threshold = "12"
         strings_accuracy = "High"
     strings:
+        $x_8_1 = {02 07 8f 48 00 00 01 25 47 06 07 06 8e 69 5d 91 61 d2 52 07 17 58 0b 07 02 8e 69 32 e3}  //weight: 8, accuracy: High
+        $x_2_2 = "stub.pdb" ascii //weight: 2
+        $x_1_3 = "XorEncryptMyKey" ascii //weight: 1
+        $x_1_4 = "GetRandomLegitimateTaskName" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ClipBanker_AYB_2147962665_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.AYB!MTB"
+        threat_id = "2147962665"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
         $x_10_1 = {11 07 19 11 07 19 95 09 19 95 61 9e 11 07 1a 11 07 1a 95 09 1a 95 61 9e 11 0d 20 ee f7 c0 8c 5a 20 57 4b 50 4b 61}  //weight: 10, accuracy: High
         $x_10_2 = {11 07 1d 11 07 1d 95 09 1d 95 61 9e 11 07 1e 11 07 1e 95 09 1e 95 61 9e 11 0d 20 76 a6 03 bb 5a 20 73 f8 68 0d 61}  //weight: 10, accuracy: High
         $x_1_3 = "$dbfd36cd-ea8c-416d-9a59-b32a0c23e5e9" ascii //weight: 1

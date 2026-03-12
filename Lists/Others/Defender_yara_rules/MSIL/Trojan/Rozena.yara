@@ -3001,3 +3001,50 @@ rule Trojan_MSIL_Rozena_GPSF_2147964255_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_AYA_2147964620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.AYA!MTB"
+        threat_id = "2147964620"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {06 07 02 07 91 03 1e 5d 1f 1f 5f 63 02 07 91 1e 03 1e 5d 59 1f 1f 5f 62 60 d2 9c 06 07 8f 01 00 00 01 25 47 04 07 20 00 01 00 00 5d 61 d2 61 d2 52 06 07 06 07 91 07 20 80 00 00 00 5d 59 20 ff 00 00 00 5f d2 9c 07 17 58 0b 07 02 8e 69 3f ad ff ff ff}  //weight: 7, accuracy: High
+        $x_2_2 = "NoAnalysis" ascii //weight: 2
+        $x_1_3 = "stealth.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_AYB_2147964622_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.AYB!MTB"
+        threat_id = "2147964622"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {4a 3e 97 94 9f 1a dd a9 e7 82 99 66 f6 db e8 7a a0 2c 00 93 f5 dc a9 ff 69 3b fb 07 a8 f0 ce dc ca eb 68 b7 21 1a 06 5a af 46 6a 0a d6 f3 0d 90 84 44 de 39 90 91 3a 61 79 72 df 45 0a d6 95 8b f8 fa 2a 8e d1 8a d1 24 97 63 56 d4 11 18 64 47 69 47 17 11 cc 01 44 65 a5 99 51 83 b2 71 ad 85 39 be 16 dc be 44 20 ae 7c 6a 0b 21 cd b0 e3 67 7f 35 6d e8}  //weight: 7, accuracy: High
+        $x_2_2 = "Crypted.pdb" ascii //weight: 2
+        $x_2_3 = "payload" ascii //weight: 2
+        $x_1_4 = "Crypted.g.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

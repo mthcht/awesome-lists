@@ -4514,3 +4514,26 @@ rule Trojan_MSIL_XWorm_AURB_2147964340_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AYD_2147964621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AYD!MTB"
+        threat_id = "2147964621"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {11 10 11 11 94 13 0b 16 13 0c 2b 14 11 08 11 0c 11 08 11 0c 91 11 0b 61 d2 9c 11 0c 17 58 13 0c 11 0c 11 08 8e 69 32 e4 11 11 17 58 13 11 11 11 11 10 8e 69 32 ca}  //weight: 7, accuracy: High
+        $x_2_2 = {11 08 11 09 11 07 11 09 18 5a 18 6f 19 00 00 0a 1f 10 28 1a 00 00 0a 9c 11 09 17 58 13 09 11 09 11 08 8e 69 32 da}  //weight: 2, accuracy: High
+        $x_1_3 = "Add-MpPreference -ExclusionPath 'C:\\Users','C:\\ProgramData'" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

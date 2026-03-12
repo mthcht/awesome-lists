@@ -121,3 +121,25 @@ rule Trojan_MSIL_Startun_NR_2147934127_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Startun_HLN_2147964633_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Startun.HLN!MTB"
+        threat_id = "2147964633"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Startun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {06 07 8f 05 00 00 01 25 71 05 00 00 01 7e 01 00 00 04 07 7e 01 00 00 04 8e 69 5d 91 61 d2 81 05 00 00 01 07 17 58 0b 07 06 8e 69 32 d3}  //weight: 2, accuracy: High
+        $x_2_2 = "powershell -C \"try { Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

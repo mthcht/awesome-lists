@@ -7145,3 +7145,26 @@ rule Trojan_MSIL_DarkTortilla_AXP_2147964532_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_RVB_2147964602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.RVB!MTB"
+        threat_id = "2147964602"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 9d b6 29 09 1f 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 f1 00 00 00 6e 00 00 00 f7 03 00 00 6e 07 00 00 8f 04 00 00 e0 02 00 00 84 00 00 00 88 0b 00 00 02 00 00 00 cb 00 00 00 01 00 00 00 04 00 00 00 3d 00 00 00 a5 02 00 00 44 05 00 00 87 00 00 00 03 00 00 00 01 00 00 00 07 00 00 00 03 00 00 00 51 00 00 00 07 00 00 00 72}  //weight: 2, accuracy: High
+        $x_1_2 = "Sonicalora.53536511.bat" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
