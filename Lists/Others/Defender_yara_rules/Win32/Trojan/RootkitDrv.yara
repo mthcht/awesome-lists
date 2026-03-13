@@ -69,3 +69,31 @@ rule Trojan_Win32_RootkitDrv_AMTB_2147948143_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RootkitDrv_AMTB_2147948143_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RootkitDrv!AMTB"
+        threat_id = "2147948143"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RootkitDrv"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "listh.dat" ascii //weight: 1
+        $x_1_2 = "\\DosDevices\\XGreenX" ascii //weight: 1
+        $x_1_3 = "t.\\Device\\PowerChange" ascii //weight: 1
+        $x_1_4 = "C:\\BAT.RAR" ascii //weight: 1
+        $x_1_5 = "i:\\project\\wg\\code\\drivers\\driverc\\windows_mod\\objfre_wxp_x86\\i386\\UpdataCWinXPx86.pdb" ascii //weight: 1
+        $n_100_6 = "Uninst.exe" ascii //weight: -100
+        $n_100_7 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_8 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

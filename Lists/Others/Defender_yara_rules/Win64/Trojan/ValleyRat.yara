@@ -315,6 +315,33 @@ rule Trojan_Win64_ValleyRat_AD_2147961499_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_AR_2147962925_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AR!AMTB"
+        threat_id = "2147962925"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Downloader" ascii //weight: 1
+        $x_1_2 = "C:\\Users\\Public\\venwin.lock" ascii //weight: 1
+        $x_1_3 = "[CmdHandler] monitor progress started." ascii //weight: 1
+        $x_1_4 = "[CmdHandler] USDT hijack started successfully" ascii //weight: 1
+        $x_1_5 = "[KeyboardRecord] Failed to enable offline keyboard" ascii //weight: 1
+        $x_1_6 = "EnableOfflineKeyboard" ascii //weight: 1
+        $x_1_7 = ".?AVKeyboardRecord@@" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_ValleyRat_YAH_2147963064_0
 {
     meta:

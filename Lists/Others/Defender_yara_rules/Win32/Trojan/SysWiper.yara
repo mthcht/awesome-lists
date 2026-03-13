@@ -216,3 +216,36 @@ rule Trojan_Win32_SysWiper_GK_2147964690_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SysWiper_DE_2147964699_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SysWiper.DE!MTB"
+        threat_id = "2147964699"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SysWiper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "89"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {48 89 4d b0 48 c7 45 b8 03 00 00 00 4c 8d 45 b0 8b d0 48 8d 4c 24 50 e8 ?? ?? ?? ?? ?? e8 ?? ?? ?? ?? 48 8d 0d c7 5a 00 00 48 89 4d b0 48 c7 45 b8 03 00 00 00 4c 8d 45 b0 8b d0 48 8d 4c 24 70 e8 ?? ?? ?? ?? ?? e8 ?? ?? ?? ?? 48 8d 0d a2 5a 00 00 48 89 4d b0 48 c7 45 b8 03 00 00 00 4c 8d 45 b0 8b d0 48 8d 4d}  //weight: 50, accuracy: Low
+        $x_10_2 = "Not running with admin privileges." ascii //weight: 10
+        $x_10_3 = "Running with admin privileges." ascii //weight: 10
+        $x_1_4 = "directory_iterator::operator++" ascii //weight: 1
+        $x_1_5 = "recursive_directory_iterator::recursive_directory_iterator" ascii //weight: 1
+        $x_1_6 = "MultiByteToWideChar" ascii //weight: 1
+        $x_1_7 = "WideCharToMultiByte" ascii //weight: 1
+        $x_1_8 = "memmove" ascii //weight: 1
+        $x_1_9 = "memcpy" ascii //weight: 1
+        $x_10_10 = "CreateFile2" ascii //weight: 10
+        $x_1_11 = "Sleep" ascii //weight: 1
+        $x_1_12 = "remove" ascii //weight: 1
+        $x_1_13 = "status" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

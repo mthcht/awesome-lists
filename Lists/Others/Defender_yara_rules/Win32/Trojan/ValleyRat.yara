@@ -396,3 +396,27 @@ rule Trojan_Win32_ValleyRat_CQ_2147964038_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRat_ARP_2147964707_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.ARP!AMTB"
+        threat_id = "2147964707"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "http://45.203.220.135:8080/output_86.bin" ascii //weight: 1
+        $x_1_2 = "[+] Downloaded and encrypted %d bytes" ascii //weight: 1
+        $x_1_3 = "[*] Starting encrypted download loader" ascii //weight: 1
+        $x_1_4 = "runas" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

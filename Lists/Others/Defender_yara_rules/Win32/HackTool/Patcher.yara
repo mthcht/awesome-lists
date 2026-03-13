@@ -395,3 +395,25 @@ rule HackTool_Win32_Patcher_E_2147963099_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_Patcher_RLZ_2147964711_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher.RLZ!AMTB"
+        threat_id = "2147964711"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {8b 5d f8 8a 5c 0b ff 3a 18 74 07 e8 e3 c3 ff ff eb 2e 41 40 4a 75 e9}  //weight: 6, accuracy: High
+        $x_1_2 = "RLzer Patcher" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
