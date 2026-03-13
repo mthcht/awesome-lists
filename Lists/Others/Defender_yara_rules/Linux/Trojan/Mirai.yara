@@ -959,3 +959,29 @@ rule Trojan_Linux_Mirai_HAW_2147964513_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_A_2147964684_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.A!AMTB"
+        threat_id = "2147964684"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$(ls -l \"$pid/exe\")\" in *\"(deleted)\"*|*\"/.\"*) kill -9 \"${pid##*/}" ascii //weight: 1
+        $x_1_2 = "/bin/busybox wget http://" ascii //weight: 1
+        $x_1_3 = "/wget.sh -O -> wget;chmod 777 wget;./wget" ascii //weight: 1
+        $x_1_4 = "tftp.sh -l -> tftp;chmod 777 tftp;./tftp" ascii //weight: 1
+        $x_1_5 = "curl http://" ascii //weight: 1
+        $x_1_6 = "/curl.sh -o -> curl;chmod 777 curl;./curl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

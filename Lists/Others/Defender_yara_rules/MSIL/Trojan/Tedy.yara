@@ -2190,6 +2190,31 @@ rule Trojan_MSIL_Tedy_EAMI_2147934428_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_AMTB_2147938034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy!AMTB"
+        threat_id = "2147938034"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Start-Process cmd.exe -ArgumentList '/c taskkill /IM RegAsm.exe /F & taskkill" ascii //weight: 1
+        $x_1_2 = "/IM Vbc.exe /F & taskkill /IM MsBuild.exe /F' -WindowStyle Hidden -Wait" ascii //weight: 1
+        $x_1_3 = "-WindowStyle Hidden if ((Get-Location).Path -ne" ascii //weight: 1
+        $x_1_4 = "Get-ChildItem *.vbs | Sort-Object CreationTime -Descending | Select-Object -First 1) | Copy-Item -Destination" ascii //weight: 1
+        $x_1_5 = "Force" ascii //weight: 1
+        $x_1_6 = "wrffite.bat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Tedy_PGTK_2147939661_0
 {
     meta:
