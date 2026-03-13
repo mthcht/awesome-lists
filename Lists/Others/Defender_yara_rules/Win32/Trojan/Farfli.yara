@@ -6003,3 +6003,25 @@ rule Trojan_Win32_Farfli_BAC_2147964418_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_SXG_2147964691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.SXG!MTB"
+        threat_id = "2147964691"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {c6 45 bd 70 c6 45 be 70 c6 45 bf 6c c6 45 c0 69 c6 45 c1 63 c6 45 c2 61 c6 45 c3 74 c6 45 c4 69 c6 45 c5 6f c6 45 c6 6e c6 45 c7 73}  //weight: 30, accuracy: High
+        $x_10_2 = {c6 45 ed 69 c6 45 ee 6e c6 45 ef 53 c6 45 f0 74 c6 45 f1 61 c6 45 f2 30 c6 45 f3 5c c6 45 f4 44 c6 45 f5 65 c6 45 f6 66 c6 45 f7 61 c6 45 f8 75 c6 45 f9 6c c6 45 fa 74 88 5d fb}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

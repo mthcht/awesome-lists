@@ -836,6 +836,29 @@ rule Trojan_Win64_ClipBanker_AZ_2147906965_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_NC_2147912886_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NC!MTB"
+        threat_id = "2147912886"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 08 48 8b 8c 24 b8 00 00 00 48 89 48 08 48 c7 40 10 00 00 00 00 48 c7 40 18 3f 00 0f 00 48 8b 8c 24 b0 00 00 00 48 89 48 20 48 8b 0d 2b bb 0a 00 48 89 c3 bf 05 00 00 00 48 89 c8 48 89 f9}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8b 8c 24 c0 00 00 00 48 8b 11 48 89 10 48 8b 94 24 a8 00 00 00 48 89 50 08 48 c7 40 10 00 00 00 00 48 c7 40 18 01 00 00 00 48 8b 94 24 a0 00 00 00 48 89 50 20 48 8b 54 24 38 48 c1 e2 03 48 89 50 28 48 8b 15 a4 ba 0a 00}  //weight: 1, accuracy: High
+        $x_1_3 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_ClipBanker_AY_2147913349_0
 {
     meta:

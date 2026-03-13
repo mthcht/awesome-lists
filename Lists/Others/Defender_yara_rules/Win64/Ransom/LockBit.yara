@@ -343,3 +343,30 @@ rule Ransom_Win64_LockBit_PJ_2147961302_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockBit_PK_2147964644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.PK!MTB"
+        threat_id = "2147964644"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ChuongDong Locke" ascii //weight: 1
+        $x_3_2 = "ReadMeForDecryptqr" wide //weight: 3
+        $x_1_3 = "\\defrag.\\svchost" wide //weight: 1
+        $x_1_4 = "XXXXXXXHHBBFFBBNNBBLLLL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

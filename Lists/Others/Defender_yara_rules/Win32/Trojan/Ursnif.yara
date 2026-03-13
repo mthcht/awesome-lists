@@ -6670,3 +6670,28 @@ rule Trojan_Win32_Ursnif_NU_2147956621_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Ursnif_NF_2147964653_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Ursnif.NF!MTB"
+        threat_id = "2147964653"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Ursnif"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c7 85 e0 fe ff ff 00 00 00 00 8b 95 60 ff ff ff 89 95 08 ff ff ff 8d 85 6c ff ff ff 50 8b 8d 08 ff ff ff 8b 11 8b 85 08 ff ff ff 50 ff 52 50}  //weight: 2, accuracy: High
+        $x_1_2 = {c7 85 dc fe ff ff 00 00 00 00 8b 85 6c ff ff ff 89 85 ec fe ff ff c7 85 6c ff ff ff 00 00 00 00 8b 8d ec fe ff ff 89 8d 58 ff ff ff c7 85 50 ff ff ff 08 00 00 00 8d 95 50 ff ff ff 8d 4d d0}  //weight: 1, accuracy: High
+        $x_1_3 = "URLDownloadToFileA" ascii //weight: 1
+        $x_1_4 = "taskkill /f /im" wide //weight: 1
+        $x_1_5 = "/c del" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

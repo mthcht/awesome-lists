@@ -445,3 +445,25 @@ rule Trojan_Win64_PoolInject_AHE_2147961247_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PoolInject_SXE_2147964692_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PoolInject.SXE!MTB"
+        threat_id = "2147964692"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PoolInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {48 8b c2 48 c1 e8 3e 48 33 d0 49 0f af d0 48 03 d1 48 89 94 cc c0 00 00 00 48 ff c1 48 81 f9 38 01 00 00 72 db}  //weight: 30, accuracy: High
+        $x_10_2 = {4c 8b 75 c8 49 c1 e6 04 4d 03 f0 48 ff 45 c8 41 0f b6 06 ff c8 83 f8 0f}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -276,3 +276,26 @@ rule Trojan_Win64_KillAV_CM_2147963035_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_WD_2147964680_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.WD!MTB"
+        threat_id = "2147964680"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "schtasks /create /tn \"%s_2\" /tr \"%s\" /sc DAILY /mo 1 /f >nul 2>&1" ascii //weight: 1
+        $x_1_2 = "powershell -Command \"Set-MpPreference -DisableBehaviorMonitoring $true\" >nul 2>&1" ascii //weight: 1
+        $x_1_3 = "Global\\HITMAN_MUTEX" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

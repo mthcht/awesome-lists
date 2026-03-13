@@ -112,3 +112,107 @@ rule Trojan_Win32_SysWiper_DD_2147964596_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SysWiper_GX_2147964687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SysWiper.GX!MTB"
+        threat_id = "2147964687"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SysWiper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "FileEnc.pdb" ascii //weight: 10
+        $x_10_2 = "\\GLOBALROOT" wide //weight: 10
+        $x_10_3 = "C:\\path\\to\\file.txt" ascii //weight: 10
+        $x_10_4 = "File overwritten and deleted successfully" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SysWiper_GY_2147964688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SysWiper.GY!MTB"
+        threat_id = "2147964688"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SysWiper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Error opening drive. Code:" ascii //weight: 10
+        $x_10_2 = "Drive handle opened successfully" ascii //weight: 10
+        $x_10_3 = "Successfully read first sector" ascii //weight: 10
+        $x_10_4 = "Checking privileges..." ascii //weight: 10
+        $x_10_5 = "Program is NOT running as Administrator." ascii //weight: 10
+        $x_10_6 = "Program running with Administrator privileges" ascii //weight: 10
+        $x_10_7 = "Program finished safely." ascii //weight: 10
+        $x_10_8 = "Stack around the variable" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SysWiper_GZ_2147964689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SysWiper.GZ!MTB"
+        threat_id = "2147964689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SysWiper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "_Wiper.pdb" ascii //weight: 10
+        $x_10_2 = ".\\PhysicalDrive" wide //weight: 10
+        $x_10_3 = "Unable to display RTC Message." wide //weight: 10
+        $x_10_4 = "Physical drive(e.g. 0):" wide //weight: 10
+        $x_10_5 = "Path:" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SysWiper_GK_2147964690_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SysWiper.GK!MTB"
+        threat_id = "2147964690"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SysWiper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Not running with admin privileges." ascii //weight: 10
+        $x_10_2 = "Running with admin privileges." ascii //weight: 10
+        $x_10_3 = "Stack memory was corrupted" ascii //weight: 10
+        $x_10_4 = "A local variable was used before it was initialized" ascii //weight: 10
+        $x_10_5 = "causing loss of data" ascii //weight: 10
+        $x_10_6 = "\\GLOBALROOT" wide //weight: 10
+        $x_10_7 = "Unable to display RTC Message" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

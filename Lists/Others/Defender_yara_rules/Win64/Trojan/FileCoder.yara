@@ -171,3 +171,49 @@ rule Trojan_Win64_FileCoder_ARAZ_2147933262_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_FileCoder_CK_2147964661_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.CK!MTB"
+        threat_id = "2147964661"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 01 d0 0f b6 00 89 c1 8b 85 dc 20 00 00 99 f7 bd b8 20 00 00 89 d0 48 98 48 8d 15 f1 9b 00 00 0f b6 04 10 31 c8 89 c1}  //weight: 1, accuracy: High
+        $x_1_2 = "RansomwareClass" ascii //weight: 1
+        $x_1_3 = ".locked" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_FileCoder_SB_2147964662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.SB!MTB"
+        threat_id = "2147964662"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 14 0f 32 54 3d 70 48 ff c7 0f b6 44 24 70 0a d0 88 54 24 70 48 83 ff 20 7c e4}  //weight: 2, accuracy: High
+        $x_1_2 = "BabLock / Rorschach Decryptor v2.0" ascii //weight: 1
+        $x_1_3 = "Undo ransomware changes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

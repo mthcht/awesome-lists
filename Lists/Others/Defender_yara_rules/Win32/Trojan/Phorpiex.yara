@@ -780,6 +780,28 @@ rule Trojan_Win32_Phorpiex_APX_2147924417_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {53 8d 45 e8 50 ff 75 f8 8d 85 d0 e9 ff ff 50 ff 75 f0 ff 15 ?? ?? ?? ?? 8d 45 f8 50 68 ff 0f 00 00 8d 85 d0 e9 ff ff 50 ff 75 f4}  //weight: 1, accuracy: Low
+        $x_2_2 = "178.16.54.109" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Phorpiex_APX_2147924417_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Phorpiex.APX!MTB"
+        threat_id = "2147924417"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "Low"
     strings:
@@ -792,6 +814,27 @@ rule Trojan_Win32_Phorpiex_APX_2147924417_1
 }
 
 rule Trojan_Win32_Phorpiex_APE_2147924425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Phorpiex.APE!MTB"
+        threat_id = "2147924425"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6a 00 8d 85 00 fe ff ff 50 e8 ?? ?? ?? ?? 83 c4 0c 68 00 21 40 00 8d 8d 00 fe ff ff 51 ff 15 ?? ?? ?? ?? 83 c4 08 6a 00 6a 00 6a 00 6a 00 68 20 21 40 00 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Phorpiex_APE_2147924425_1
 {
     meta:
         author = "defender2yara"

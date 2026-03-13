@@ -6953,3 +6953,31 @@ rule Trojan_Win32_Vidar_MCQ_2147961259_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_SJ_2147964678_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.SJ!MTB"
+        threat_id = "2147964678"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 2c 0b 0f b6 34 13 31 f5 95 88 04 19 95 43}  //weight: 1, accuracy: High
+        $x_1_2 = "main.Brilliant" ascii //weight: 1
+        $x_1_3 = "main.Discussing" ascii //weight: 1
+        $x_1_4 = "main.Converted" ascii //weight: 1
+        $x_1_5 = "main.Guarantees" ascii //weight: 1
+        $x_1_6 = "main.Wondering" ascii //weight: 1
+        $x_1_7 = "main.Translated" ascii //weight: 1
+        $x_1_8 = "main.Frederick" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

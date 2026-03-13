@@ -60,3 +60,24 @@ rule Backdoor_Win64_Supper_D_2147927457_0
         (all of ($x*))
 }
 
+rule Backdoor_Win64_Supper_CM_2147964654_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/Supper.CM!MTB"
+        threat_id = "2147964654"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Supper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4c 39 d1 49 0f 44 c9 48 0f b6 01 30 02 48 83 c2 01 48 83 c1 01 4c 39 c2 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
