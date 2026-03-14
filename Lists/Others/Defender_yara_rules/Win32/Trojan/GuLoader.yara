@@ -8285,3 +8285,26 @@ rule Trojan_Win32_GuLoader_REK_2147964630_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REL_2147964732_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REL!MTB"
+        threat_id = "2147964732"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "returbilletten" ascii //weight: 1
+        $x_1_2 = "kattejernes outtrump" ascii //weight: 1
+        $x_1_3 = "programflader kompilere" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

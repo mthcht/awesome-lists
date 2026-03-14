@@ -353,3 +353,26 @@ rule Trojan_MSIL_SpyAgent_E_2147964175_0
         )
 }
 
+rule Trojan_MSIL_SpyAgent_F_2147964798_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyAgent.F!AMTB"
+        threat_id = "2147964798"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Global\\RAT_HiddenClient_v4" ascii //weight: 1
+        $x_1_2 = "Connection lost during upload" ascii //weight: 1
+        $x_1_3 = "Lost during wallpaper" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -575,6 +575,28 @@ rule Trojan_Win64_Barys_MK_2147959877_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {49 8d 42 01 44 0f b6 d0 42 0f b6 4c 15 40 49 8d 04 09 44 0f b6 c8 42 0f b6 44 0d 40 42 88 44 15 40 42 88 4c 0d 40 42 0f b6 44 15 40 48 03 c1 0f b6 c0 0f b6 4c 05 40 41 30 0c 10 48 ff c2 49 3b d6}  //weight: 20, accuracy: High
+        $x_15_2 = "\\access_token.txt" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Barys_MK_2147959877_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.MK!MTB"
+        threat_id = "2147959877"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "50"
         strings_accuracy = "High"
     strings:

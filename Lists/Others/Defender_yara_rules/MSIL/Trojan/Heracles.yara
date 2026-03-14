@@ -9487,3 +9487,25 @@ rule Trojan_MSIL_Heracles_GPSI_2147964664_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_ZAJ_2147964777_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.ZAJ!MTB"
+        threat_id = "2147964777"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {04 02 9a 28 ?? 00 00 0a 0a 06 8e 69 8d ?? 00 00 01 0b 16 0c 2b 1b 07 ?? 06 08 91 7e ?? 00 00 04 08 7e 01 00 00 04 8e 69 5d 91 61 d2 9c 08 17 58 0c 08 06 8e 69 fe 04 13 04 11 04 2d d9 28 ?? 00 00 0a 07 6f ?? 00 00 0a 0d 2b 00 09 2a}  //weight: 10, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

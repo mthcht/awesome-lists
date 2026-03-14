@@ -8340,6 +8340,33 @@ rule Trojan_Win32_Guloader_BAA_2147960270_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guloader_BAA_2147960270_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.BAA!MTB"
+        threat_id = "2147960270"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Frekventerende@Stencils.una1" ascii //weight: 1
+        $x_1_2 = "Tandskive1" ascii //weight: 1
+        $x_1_3 = "Clomb Uhrtes Spreadation" ascii //weight: 1
+        $x_1_4 = "Tandskive" ascii //weight: 1
+        $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion" ascii //weight: 1
+        $x_1_6 = "fibrinolysis indiscrete isindazole" ascii //weight: 1
+        $x_1_7 = "syzett damans" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Guloader_SQD_2147960422_0
 {
     meta:

@@ -299,3 +299,25 @@ rule Trojan_MSIL_Donut_GPSF_2147963723_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Donut_MK_2147964741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Donut.MK!MTB"
+        threat_id = "2147964741"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {11 00 70 7e 2e 00 00 04 28 25 00 00 0a 7e 34 00 00 04 7e 2e 00 00 04 28 25 00 00 0a 28 08 00 00 06 2c 09 02 17}  //weight: 20, accuracy: High
+        $x_15_2 = {02 7b 35 00 00 04 72 ?? 12 00 70 28 25 00 00 0a 6f ca 00 00 0a 02 7b 38 00 00 04 6f c9 00 00 0a 02 7b 35 00 00 04 6f cb 00 00 0a}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

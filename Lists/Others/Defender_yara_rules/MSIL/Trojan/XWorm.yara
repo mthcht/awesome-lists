@@ -3540,6 +3540,28 @@ rule Trojan_MSIL_XWorm_MCP_2147956107_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AMTB_2147956303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm!AMTB"
+        threat_id = "2147956303"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<GalaxyRAT>" ascii //weight: 1
+        $x_1_2 = "MyComputer|..|Back" ascii //weight: 1
+        $x_1_3 = "MyComputer|MyComputer|Current" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_AGJB_2147956315_0
 {
     meta:
@@ -4532,6 +4554,27 @@ rule Trojan_MSIL_XWorm_AYD_2147964621_0
         $x_7_1 = {11 10 11 11 94 13 0b 16 13 0c 2b 14 11 08 11 0c 11 08 11 0c 91 11 0b 61 d2 9c 11 0c 17 58 13 0c 11 0c 11 08 8e 69 32 e4 11 11 17 58 13 11 11 11 11 10 8e 69 32 ca}  //weight: 7, accuracy: High
         $x_2_2 = {11 08 11 09 11 07 11 09 18 5a 18 6f 19 00 00 0a 1f 10 28 1a 00 00 0a 9c 11 09 17 58 13 09 11 09 11 08 8e 69 32 da}  //weight: 2, accuracy: High
         $x_1_3 = "Add-MpPreference -ExclusionPath 'C:\\Users','C:\\ProgramData'" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_VXP_2147964762_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.VXP!MTB"
+        threat_id = "2147964762"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {2c 05 17 13 23 2b 8e 19 2b f9 7e ff 02 00 04 2b 16 7e e1 02 00 04 fe 06 c3 05 00 06 73 06 02 00 0a 25 80 ff 02 00 04 13 0a 00 11 09 6f ?? 02 00 0a 13 0b 2b 00 2b 00 17 13 25 11 25}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

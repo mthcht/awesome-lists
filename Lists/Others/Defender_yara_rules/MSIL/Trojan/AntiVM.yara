@@ -63,3 +63,33 @@ rule Trojan_MSIL_AntiVM_SWA_2147940760_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AntiVM_NUA_2147964763_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AntiVM.NUA!MTB"
+        threat_id = "2147964763"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AntiVM"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "DownloadFileAsync" ascii //weight: 1
+        $x_1_2 = "vmwaretray" ascii //weight: 1
+        $x_1_3 = "HARDWARE\\DESCRIPTION\\System\\BIOS" ascii //weight: 1
+        $x_1_4 = "virtualbox" ascii //weight: 1
+        $x_1_5 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 20 00 53 00 74 00 61 00 72 00 74 00 2d 00 50 00 72 00 6f 00 63 00 65 00 73 00 73 00 20 00 43 00 3a 00 5c 00 [0-48] 5c 00 70 00 75 00 62 00 6c 00 69 00 63 00 5c 00 64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 73 00 5c 00 [0-48] 2e 00 65 00 78 00 65 00 20 00 2d 00 57 00 69 00 6e 00 64 00 6f 00 77 00 53 00 74 00 79 00 6c 00 65 00 20 00 48 00 69 00 64 00 64 00 65 00 6e 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {70 6f 77 65 72 73 68 65 6c 6c 2e 65 78 65 20 53 74 61 72 74 2d 50 72 6f 63 65 73 73 20 43 3a 5c [0-48] 5c 70 75 62 6c 69 63 5c 64 6f 63 75 6d 65 6e 74 73 5c [0-48] 2e 65 78 65 20 2d 57 69 6e 64 6f 77 53 74 79 6c 65 20 48 69 64 64 65 6e}  //weight: 1, accuracy: Low
+        $x_2_7 = "https://endpoint1-b0ecetbuabcdg9cp.z01.azurefd.net/download.php" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 5 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

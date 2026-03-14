@@ -316,3 +316,27 @@ rule Ransom_Win32_Petya_PTC_2147949001_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Petya_AMTB_2147964794_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Petya!AMTB"
+        threat_id = "2147964794"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Petya"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SAVEASSKY: Your drive is locked. Send BTC to unlock." ascii //weight: 1
+        $x_1_2 = "SAVEASSKY RANSOM" ascii //weight: 1
+        $x_1_3 = "You became victim of the SAVEASSKY RANSOMWARE" ascii //weight: 1
+        $x_1_4 = "There is no way to restore your data without a special key." ascii //weight: 1
+        $x_1_5 = "http://petya3jxfp2t7g3i.onion/ON1z7z" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

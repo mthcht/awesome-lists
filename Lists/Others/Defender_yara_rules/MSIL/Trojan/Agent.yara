@@ -255,3 +255,24 @@ rule Trojan_MSIL_Agent_SPQZ_2147840561_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agent_G_2147964795_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agent.G!AMTB"
+        threat_id = "2147964795"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "65.109.115.25" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
