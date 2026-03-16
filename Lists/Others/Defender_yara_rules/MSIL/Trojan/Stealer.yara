@@ -3551,3 +3551,26 @@ rule Trojan_MSIL_Stealer_ARR_2147964170_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_VD_2147964831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.VD!MTB"
+        threat_id = "2147964831"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "[\\w-]{24}\\.[\\w-]{6}\\.[\\w-]{27}|mfa\\.[\\w-]{84}" wide //weight: 5
+        $x_5_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 5
+        $x_5_3 = "76561\\d{12})\\|\\|(eyJ[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

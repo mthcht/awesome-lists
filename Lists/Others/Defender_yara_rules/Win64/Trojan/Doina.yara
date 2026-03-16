@@ -320,3 +320,29 @@ rule Trojan_Win64_Doina_SXA_2147959003_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_PGAK_2147964827_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.PGAK!MTB"
+        threat_id = "2147964827"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell.exe -windowstyle Hidden -command \"%s\"" ascii //weight: 1
+        $x_1_2 = ":\\Pro'+'gramData\\Micr'+'osoft\\" ascii //weight: 1
+        $x_1_3 = "Set-Item Variable:4 'Net.WebClient'" ascii //weight: 1
+        $x_1_4 = "Item Variable:/dT).Value|Member)|Where-Object{$_.Name-like'*nl*g'}).Name" ascii //weight: 1
+        $x_1_5 = {49 74 65 6d 20 56 61 72 69 61 62 6c 65 3a 2f 64 54 29 2e 56 61 6c 75 65 2e 28 28 4c 53 20 56 61 72 69 61 62 6c 65 3a [0-3] 29 2e 56 61 6c 75 65 29 2e 49 6e 76 6f 6b 65 28 28 56 61 72 69 61 62 6c 65 20 [0-5] 20 2d 56 61 6c 75 65 4f 29 29 7c 49 45 58}  //weight: 1, accuracy: Low
+        $x_1_6 = {47 65 74 2d 56 61 72 69 61 62 6c 65 20 45 2a 78 74 29 2e 56 61 6c 75 65 7c 4d 65 6d 62 65 72 29 5b [0-2] 5d 2e 4e 61 6d 65 29 7c 4d 65 6d 62 65 72 7c 57 68 65 72 65 2d 4f 62 6a 65 63 74 7b 24 5f 2e 4e 61 6d 65 2d 6c 69 6b 65 27 2a 43 6f 6d 2a 65 27}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

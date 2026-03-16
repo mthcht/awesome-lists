@@ -9509,3 +9509,29 @@ rule Trojan_MSIL_Heracles_ZAJ_2147964777_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_VD_2147964829_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.VD!MTB"
+        threat_id = "2147964829"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {72 71 00 00 70 02 72 75 00 00 70 28 ?? 00 00 0a 03 28 ?? 00 00 0a 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "xxxx.TXT" wide //weight: 1
+        $x_1_3 = "Temporary Projects\\WindowsFormsApplication1\\obj\\x86\\Release\\WindowsFormsApplication1.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
