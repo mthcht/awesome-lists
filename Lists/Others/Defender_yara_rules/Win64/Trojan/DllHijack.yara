@@ -634,3 +634,28 @@ rule Trojan_Win64_DllHijack_WD_2147964749_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_LR_2147964863_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.LR!MTB"
+        threat_id = "2147964863"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8d 4c 24 20 4c 3b ca 66 89 7c 24 20 f3 0f 7f 44 24 30 49 0f 42 d1 48 83 7c 24 58 08 4c 8d 4c 24 40 4c 0f 43 4c 24 40 48 83 fa 07 77 ?? 48 8d 1c 12 48 89 54 24 30 4c 8b c3 49 8b d1}  //weight: 10, accuracy: Low
+        $x_1_2 = "%%SystemRoot%%\\System32\\svchost.exe -k \"%s\"" ascii //weight: 1
+        $x_2_3 = "C:\\Users\\Public\\Music\\Service.dll" ascii //weight: 2
+        $x_3_4 = "C:\\Users\\Public\\Music\\atl.ini" ascii //weight: 3
+        $x_4_5 = "ServiceDll" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

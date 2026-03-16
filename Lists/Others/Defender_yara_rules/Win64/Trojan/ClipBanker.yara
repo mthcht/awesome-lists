@@ -1396,3 +1396,30 @@ rule Trojan_Win64_ClipBanker_A_2147959492_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_PAB_2147964859_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.PAB!MTB"
+        threat_id = "2147964859"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Build Clipper" ascii //weight: 1
+        $x_1_2 = "Config copied to clipboard!" ascii //weight: 1
+        $x_2_3 = "https://t.me/arcenusclipper" ascii //weight: 2
+        $x_2_4 = "Pastebin Raw URL:" ascii //weight: 2
+        $x_1_5 = "/sendMessage?chat_id=" ascii //weight: 1
+        $x_2_6 = "/C ping 127.0.0.1 -n 3 > nul & del" ascii //weight: 2
+        $x_1_7 = "wallcom.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

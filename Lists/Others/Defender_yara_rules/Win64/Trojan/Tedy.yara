@@ -4470,3 +4470,51 @@ rule Trojan_Win64_Tedy_AVD_2147964606_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LR_2147964862_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LR!MTB"
+        threat_id = "2147964862"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "shared_log.txt" ascii //weight: 1
+        $x_2_2 = "FindResourceW failed:" ascii //weight: 2
+        $x_3_3 = "LoadResource failed:" ascii //weight: 3
+        $x_4_4 = "LockResource failed:" ascii //weight: 4
+        $x_5_5 = "Resource loaded:" ascii //weight: 5
+        $x_6_6 = "payloadData mem alloc failed:" ascii //weight: 6
+        $x_7_7 = "9bc3728e826ac940a9ef2c6a4d960ff095a07c21cde6be9578b4a59cd2e41ef4f2cf517075e582c184c7c08f570ababd" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_LRA_2147964866_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LRA!MTB"
+        threat_id = "2147964866"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f b6 84 0c e8 00 00 00 34 7a 88 84 0c d0 01 00 00 48 8d 49 01 49 83 e8 01 75 ?? 40 88 b4 24 d9 01 00 00 33 d2 41 b8 00 04 00 00 48 8d 8c 24 40 02 00 00}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -9037,3 +9037,71 @@ rule Trojan_Win32_Zusy_LRA_2147964561_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_LR_2147964864_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LR!MTB"
+        threat_id = "2147964864"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 4d 08 03 8d 9c f3 ff ff 0f be 11 85 d2 74 ?? 8b 45 08 03 85 9c f3 ff ff 0f be 08 83 f9 5c 74 ?? 8b 55 08 03 95 9c f3 ff ff 0f be 02 83 f8 2f}  //weight: 10, accuracy: Low
+        $x_1_2 = "%s\\_cleanup.bat" ascii //weight: 1
+        $x_2_3 = "Set wmi=GetObject(\"winmgmts:{impersonationLevel=impersonate}" ascii //weight: 2
+        $x_3_4 = "If wmi.ExecQuery(\"SELECT * FROM Win32_Process WHERE Name='\"" ascii //weight: 3
+        $x_4_5 = "Sihyut.exe" ascii //weight: 4
+        $x_5_6 = "wscript.exe /B \"%s\"" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_LMY_2147964868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LMY!MTB"
+        threat_id = "2147964868"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {33 db 83 f8 08 0f 45 d8 0f b6 44 1d e4 30 04 3a 8a 04 3a 8b 4e 10 8b 56 14 88 45 e0 3b ca}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_DLH_2147964869_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.DLH!MTB"
+        threat_id = "2147964869"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {66 81 ed ed cc 66 81 f5 20 9c 66 c1 fd 07 f9 83 c4 24 54 45 f8 66 89 c5 50 66 31 c5}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
