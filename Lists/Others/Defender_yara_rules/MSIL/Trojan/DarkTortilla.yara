@@ -7168,3 +7168,26 @@ rule Trojan_MSIL_DarkTortilla_RVB_2147964602_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_RVC_2147964839_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.RVC!MTB"
+        threat_id = "2147964839"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 9f a2 2b 09 1f 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 ?? 01 00 00 ?? 00 00 00 2b 03 00 00 73 06 00 00 02 00 00 00 01 00 00 00 23 03 00 00 02 00 00 00 4c 00 00 00 08 00 00 00 ?? 00 00 00 04 00 00 00 09 00 00 00 0a 00 00 00 01 00 00 00 6f 00 00 00 09 00 00 00 01 00 00 00 07 00 00 00 04 00 00 00 ?? 00 00 00 21 00 00 00 42}  //weight: 2, accuracy: Low
+        $x_1_2 = "kelaioxa.batresources" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
