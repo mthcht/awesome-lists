@@ -9535,3 +9535,24 @@ rule Trojan_MSIL_Heracles_VD_2147964829_0
         )
 }
 
+rule Trojan_MSIL_Heracles_SLWU_2147964897_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SLWU!MTB"
+        threat_id = "2147964897"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 04 02 28 69 00 00 0a 0b 1d 13 09 38 bc fe ff ff 11 04 75 9d 00 00 01 07 74 03 00 00 1b 16 07 75 03 00 00 1b 8e b7 6f 1a 01 00 0a 28 a1 01 00 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
