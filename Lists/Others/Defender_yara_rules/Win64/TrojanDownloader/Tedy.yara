@@ -66,3 +66,27 @@ rule TrojanDownloader_Win64_Tedy_AHB_2147961992_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Tedy_CQ_2147964881_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Tedy.CQ!MTB"
+        threat_id = "2147964881"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "Desactivado Internet!" ascii //weight: 2
+        $x_2_2 = "Activado Internet!" ascii //weight: 2
+        $x_2_3 = {6e 65 74 73 68 20 61 64 76 66 69 72 65 77 61 6c 6c 20 66 69 72 65 77 61 6c 6c 20 61 64 64 20 72 75 6c 65 20 6e 61 6d 65 3d 22 [0-15] 22 20 64 69 72 3d 69 6e 20 61 63 74 69 6f 6e 3d 62 6c 6f 63 6b 20 70 72 6f 67 72 61 6d 3d}  //weight: 2, accuracy: Low
+        $x_2_4 = "netsh advfirewall firewall delete rule name=" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

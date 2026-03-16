@@ -3766,3 +3766,25 @@ rule TrojanDownloader_MSIL_AgentTesla_PMZ_2147947038_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_AgentTesla_CA_2147964883_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/AgentTesla.CA!MTB"
+        threat_id = "2147964883"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 91 06 61 20 ?? ?? ?? ?? 61 d2 9c 06 17 58 0a 06 7e ?? ?? ?? ?? 8e 69 fe 04 2d d9}  //weight: 5, accuracy: Low
+        $x_5_2 = {06 07 06 07 91 1f ?? 61 d2 9c 07 17 58 0b 07 06 8e 69 32 ec}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
