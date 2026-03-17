@@ -17406,3 +17406,26 @@ rule Trojan_MSIL_FormBook_PAE_2147964891_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RSA_2147964967_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RSA!MTB"
+        threat_id = "2147964967"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 df a2 29 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 8a 00 00 00 22 00 00 00 7e 00 00 00 aa 00 00 00 6f 00 00 00 06 00 00 00 ec 00 00 00 03 00 00 00 4c 00 00 00 01 00 00 00 02 00 00 00 24 00 00 00 0f 00 00 00 1f 00 00 00 29 00 00 00 11 00 00 00 02 00 00 00 01 00 00 00 07 00 00 00 07 00 00 00 10 00 00 00 05}  //weight: 1, accuracy: High
+        $x_1_2 = "E9C6A8F4-7D3B-4A5E-9F2C-8B1A7D6E4F5C" ascii //weight: 1
+        $x_1_3 = "WindowsFormsDemo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
