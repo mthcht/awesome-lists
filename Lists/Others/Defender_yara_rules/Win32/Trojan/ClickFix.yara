@@ -13415,3 +13415,26 @@ rule Trojan_Win32_ClickFix_MJB_2147964373_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_SLFA_2147964913_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SLFA!MTB"
+        threat_id = "2147964913"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = {2d 00 45 00 50 00 20 00 [0-4] 20 00 2d 00 63 00 20 00 69 00 65 00 78 00 28 00 69 00 72 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_3 = ".pdf" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

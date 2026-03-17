@@ -114,3 +114,25 @@ rule Trojan_Win32_Donut_PAA_2147964372_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Donut_ARA_2147964926_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Donut.ARA!MTB"
+        threat_id = "2147964926"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {b8 81 80 80 80 f7 e1 c1 ea 07 02 d1 32 d1 80 f2 aa 88 14 31 41 81 f9 00 10 00 00 7c e3}  //weight: 2, accuracy: High
+        $x_2_2 = "/sc onstart /rl highest /f /ru SYSTEM" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

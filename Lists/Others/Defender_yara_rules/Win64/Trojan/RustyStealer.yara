@@ -269,3 +269,26 @@ rule Trojan_Win64_RustyStealer_A_2147962353_0
         )
 }
 
+rule Trojan_Win64_RustyStealer_AH_2147964911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.AH!MTB"
+        threat_id = "2147964911"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Simple stub started at" ascii //weight: 10
+        $x_20_2 = "Payload read successfully, size:" ascii //weight: 20
+        $x_30_3 = "C:\\temp\\debug_simple.txt" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
