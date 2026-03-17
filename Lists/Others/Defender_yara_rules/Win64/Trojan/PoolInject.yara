@@ -467,3 +467,47 @@ rule Trojan_Win64_PoolInject_SXE_2147964692_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PoolInject_LR_2147965010_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PoolInject.LR!MTB"
+        threat_id = "2147965010"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PoolInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8b 00 48 83 c0 20 48 89 84 24 d0 00 00 00 48 8b 84 24 d0 00 00 00 8b 00 ff c0 48 8b 8c 24 d0 00 00 00 89 01 33 c0 85 c0}  //weight: 20, accuracy: High
+        $x_10_2 = {33 c9 48 6b c9 08 48 03 48 08 48 8b c1 48 89 84 24 88 00 00 00 48 8b 84 24 88 00 00 00 48 8b 00 48 89 84 24 c8 00 00 00 33 d2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_PoolInject_AA_2147965022_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PoolInject.AA!MTB"
+        threat_id = "2147965022"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PoolInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f 28 84 24 80 00 00 00 0f 28 4c 24 30 66 0f ef c8 0f 29 4c 24 30 48 8d 44 24 30 48 89 84 24 c0}  //weight: 30, accuracy: High
+        $x_20_2 = {48 31 d1 48 ba ?? ?? ?? ?? ?? ?? ?? ?? 48 31 d1 48 ba ?? ?? ?? ?? ?? ?? ?? ?? 48 01 d1 48 89 c2 48 01 ca 48 89 54 24 28}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

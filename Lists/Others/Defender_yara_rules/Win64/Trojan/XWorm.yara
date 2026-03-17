@@ -432,3 +432,24 @@ rule Trojan_Win64_XWorm_A_2147964176_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_SLWV_2147965008_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.SLWV!MTB"
+        threat_id = "2147965008"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 8c 24 b8 00 00 00 89 4c 24 20 48 8b 8c 24 c0 00 00 00 4c 8b c9 44 8b c0 48 8b 54 24 60 48 8b 4c 24 58 ff 15 fd 50 01 00 48 8b 4c 24 58}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

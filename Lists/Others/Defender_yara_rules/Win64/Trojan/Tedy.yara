@@ -4562,3 +4562,27 @@ rule Trojan_Win64_Tedy_MKI_2147964952_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AA_2147965021_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AA!MTB"
+        threat_id = "2147965021"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "DEBUG: What do you think you're doing user" ascii //weight: 10
+        $x_20_2 = "shutdown /s /t 60 /c \"Windows will shutdown in a minute" ascii //weight: 20
+        $x_30_3 = "cmd /c start /min powershell -Command Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine = '" ascii //weight: 30
+        $x_40_4 = "Windows Executable Helper Module Task" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

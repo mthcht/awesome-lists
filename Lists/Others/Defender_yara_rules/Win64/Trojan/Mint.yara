@@ -185,3 +185,26 @@ rule Trojan_Win64_Mint_AH_2147963686_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mint_MK_2147965026_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mint.MK!MTB"
+        threat_id = "2147965026"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 89 c8 0f b6 0a 84 c9 ?? ?? 48 ff c2 0f 1f 00 88 08 48 ff c0 0f b6 0a 48 ff c2}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 89 c8 48 89 d1 48 89 74 24 f8 48 89 7c 24 f0 4d 89 c2 4c 89 ca 4c 8b 44 24 28 4c 8b 4c 24 30 48 83 e9 04}  //weight: 10, accuracy: High
+        $x_5_3 = "REMUS LOG" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -119,3 +119,27 @@ rule Trojan_Win64_ShellLoader_SX_2147964803_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellLoader_SXA_2147965023_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellLoader.SXA!MTB"
+        threat_id = "2147965023"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Shellcode Loader Started" ascii //weight: 10
+        $x_10_2 = "schtasks /create /tn \"%s\" /tr \"\"%s\"\" /sc minute /mo 1 /st 00:00 /f" ascii //weight: 10
+        $x_5_3 = "Shellcode execution completed" ascii //weight: 5
+        $x_2_4 = "Downloading shellcode" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

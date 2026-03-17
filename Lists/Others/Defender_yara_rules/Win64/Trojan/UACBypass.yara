@@ -65,3 +65,29 @@ rule Trojan_Win64_UACBypass_HS_2147959021_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_UACBypass_CM_2147965007_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/UACBypass.CM!MTB"
+        threat_id = "2147965007"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "UACBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "main.Persist" ascii //weight: 2
+        $x_2_2 = "main.Bypass" ascii //weight: 2
+        $x_2_3 = "main.CreateRegKey" ascii //weight: 2
+        $x_2_4 = "main.RunAsAdmin" ascii //weight: 2
+        $x_2_5 = "main.IsElevated" ascii //weight: 2
+        $x_2_6 = "DelegateExecute" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

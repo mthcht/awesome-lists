@@ -144,3 +144,27 @@ rule Trojan_Win64_DiscordStealer_AHE_2147961740_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_MK_2147965028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.MK!MTB"
+        threat_id = "2147965028"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Capturing clipboard content..." ascii //weight: 20
+        $x_15_2 = "cmd.exe /c schtasks /create /tn \"MicrosoftEdgeUpdateTaskMachine\" /tr \"\\\"" ascii //weight: 15
+        $x_10_3 = "Task not found, using UAC bypass to create..." ascii //weight: 10
+        $x_5_4 = "HTML data captured" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
