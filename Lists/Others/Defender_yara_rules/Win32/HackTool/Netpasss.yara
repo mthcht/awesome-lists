@@ -18,8 +18,10 @@ rule HackTool_Win32_Netpasss_AB_2147817179_0
         $x_1_3 = "Export Raw Passwords Data" ascii //weight: 1
         $x_1_4 = "Network Password Recovery" ascii //weight: 1
         $x_1_5 = "Network Passwords List" ascii //weight: 1
+        $n_10_6 = "Network Password Recovery v1.57" ascii //weight: -10
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
