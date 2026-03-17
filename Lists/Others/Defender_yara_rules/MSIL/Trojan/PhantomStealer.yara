@@ -161,3 +161,28 @@ rule Trojan_MSIL_PhantomStealer_AIRB_2147963743_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PhantomStealer_P_2147964961_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PhantomStealer.P!MTB"
+        threat_id = "2147964961"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PhantomStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Clipboard.jpg" ascii //weight: 1
+        $x_1_2 = "RDP_Passwords.txt" ascii //weight: 1
+        $x_1_3 = "wallet.dat" ascii //weight: 1
+        $x_1_4 = "AnyDesk_ID.txt" ascii //weight: 1
+        $x_1_5 = "Phantom Stealer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -410,3 +410,27 @@ rule Trojan_Win64_Injector_PGAD_2147963583_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXF_2147964948_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXF!MTB"
+        threat_id = "2147964948"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 83 c2 70 45 33 ed 4c 89 6c 24 20 41 b9 08 00 00 00 4c 8d 85 b8 00 00 00 48 8b 0d ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 48 c1 eb 20 48 89 9d}  //weight: 20, accuracy: Low
+        $x_5_2 = "Injected" ascii //weight: 5
+        $x_1_3 = "RobloxPlayerBeta.exe" ascii //weight: 1
+        $x_1_4 = "Waiting for hook" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

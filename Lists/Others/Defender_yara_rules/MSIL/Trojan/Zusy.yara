@@ -4743,3 +4743,30 @@ rule Trojan_MSIL_Zusy_LRC_2147964501_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SXB_2147964945_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SXB!MTB"
+        threat_id = "2147964945"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell -C \"try { Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform" ascii //weight: 10
+        $x_5_2 = "WMIC /Node:localhost /Namespace:\\\\root\\SecurityCenter2 Path AntivirusProduct Get displayName /value" ascii //weight: 5
+        $x_5_3 = "powershell Get-Clipboard" ascii //weight: 5
+        $x_3_4 = "api.telegram.org/bot" ascii //weight: 3
+        $x_1_5 = "getmac /FO LIST" ascii //weight: 1
+        $x_1_6 = "wmic diskdrive get size /value" ascii //weight: 1
+        $x_1_7 = "wmic computersystem get totalphysicalmemory /value" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
