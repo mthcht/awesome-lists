@@ -71,3 +71,25 @@ rule Trojan_Win64_Disco_MX_2147955785_0
         )
 }
 
+rule Trojan_Win64_Disco_MX_2147955785_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Disco.MX!MTB"
+        threat_id = "2147955785"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b d0 48 8d 8c 24 a0 02 00 00 e8 ?? ?? ?? ?? 48 8b d8 48 8d 94 24 e0 02 00 00 48 8d 8c 24 c0 02 00 00}  //weight: 1, accuracy: Low
+        $x_1_2 = "SELECT guid, value_encrypted FROM local_stored_cvc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
