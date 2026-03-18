@@ -282,3 +282,33 @@ rule Trojan_Win64_ValleyRAT_ABMV_2147964912_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_ABWV_2147965105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.ABWV!MTB"
+        threat_id = "2147965105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 89 d1 48 89 d0 83 e0 1f 83 e1 0f 41 8a 0c 08 41 32 0c 01 89 d0 41 32 0c 12 41 0f af c3 83 c0 0d 31 c8 88 04 16 48 ff c2 eb d0}  //weight: 5, accuracy: High
+        $x_2_2 = {73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00 20 00 2f 00 43 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 46 00 20 00 2f 00 54 00 4e 00 20 00 22 00 [0-11] 22 00 20 00 2f 00 54 00 52 00 20 00 22 00 22 00 25 00 73 00 22 00 22 00 20 00 2f 00 53 00 43 00 20 00 4f 00 4e 00 4c 00 4f 00 47 00 4f 00 4e 00 20 00 2f 00 52 00 4c 00 20 00 48 00 49 00 47 00 48 00 45 00 53 00 54 00}  //weight: 2, accuracy: Low
+        $x_2_3 = {73 63 68 74 61 73 6b 73 20 2f 43 72 65 61 74 65 20 2f 46 20 2f 54 4e 20 22 [0-11] 22 20 2f 54 52 20 22 22 25 73 22 22 20 2f 53 43 20 4f 4e 4c 4f 47 4f 4e 20 2f 52 4c 20 48 49 47 48 45 53 54}  //weight: 2, accuracy: Low
+        $x_1_4 = "Debugger detected" ascii //weight: 1
+        $x_1_5 = "Task persistence added" ascii //weight: 1
+        $x_1_6 = "XOR Decrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

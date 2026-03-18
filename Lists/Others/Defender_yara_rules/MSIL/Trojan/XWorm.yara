@@ -4580,3 +4580,45 @@ rule Trojan_MSIL_XWorm_VXP_2147964762_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ZHG_2147965103_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ZHG!MTB"
+        threat_id = "2147965103"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {06 08 02 08 91 03 08 07 5d 91 61 08 1d 5a 20 ff 00 00 00 5f 61 d2 9c 08 20 10 27 00 00 5d 2d 06 16 28 ?? 00 00 0a 08 17 58 0c 08 02 8e 69 32 d0}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_BAO_2147965104_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAO!MTB"
+        threat_id = "2147965104"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0c 00 73 86 01 00 0a 0d 00 09 08 17 73 87 01 00 0a 13 05 11 05 02 16 02 8e 69 ?? ?? ?? 00 0a 00 11 05 ?? ?? ?? 00 0a 00 de 0e 00 11 05 2c 08 11 05 ?? ?? 00 00 0a 00 dc 09 13 04 11 04 0a de 0c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
