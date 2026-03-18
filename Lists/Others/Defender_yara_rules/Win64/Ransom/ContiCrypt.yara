@@ -89,3 +89,28 @@ rule Ransom_Win64_ContiCrypt_SL_2147834448_0
         (4 of ($x*))
 }
 
+rule Ransom_Win64_ContiCrypt_PAHU_2147965035_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/ContiCrypt.PAHU!MTB"
+        threat_id = "2147965035"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ContiCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SELECT * FROM Win32_ShadowCopy" wide //weight: 2
+        $x_1_2 = "cmd.exe /c vssadmin delete shadows /all /quiet" wide //weight: 1
+        $x_2_3 = "cmd.exe /c wbadmin DELETE BACKUP" wide //weight: 2
+        $x_1_4 = "encrypt" wide //weight: 1
+        $x_2_5 = "CONTI_LOG.txt" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

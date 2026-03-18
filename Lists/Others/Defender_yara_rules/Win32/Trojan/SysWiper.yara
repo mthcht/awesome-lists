@@ -249,3 +249,62 @@ rule Trojan_Win32_SysWiper_DE_2147964699_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SysWiper_GA_2147965036_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SysWiper.GA!MTB"
+        threat_id = "2147965036"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SysWiper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.wipe_server" ascii //weight: 1
+        $x_1_2 = "main.srv_handler" ascii //weight: 1
+        $x_1_3 = "go:textfipsstart" ascii //weight: 1
+        $x_1_4 = "Wiping server.." ascii //weight: 1
+        $x_1_5 = "wipe.StopServer" ascii //weight: 1
+        $x_1_6 = "wipe.KillServer" ascii //weight: 1
+        $x_1_7 = "wipe.StartServer" ascii //weight: 1
+        $x_1_8 = "Print out config and exit" ascii //weight: 1
+        $x_1_9 = "Print out version and exit" ascii //weight: 1
+        $x_1_10 = "The path to the Rust Auto Wipe config file." ascii //weight: 1
+        $x_1_11 = "-cfg= --cfg -cfg <path> > Path to config file override." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SysWiper_GB_2147965037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SysWiper.GB!MTB"
+        threat_id = "2147965037"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SysWiper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /e:ON /v:OFF /d /c \"batch file arguments are invalid" ascii //weight: 1
+        $x_1_2 = "Windows file names may not contain `\"`" ascii //weight: 1
+        $x_1_3 = "Traversalwiper-walk-dispatcher" ascii //weight: 1
+        $x_1_4 = "wiper.pdb" ascii //weight: 1
+        $x_1_5 = "WiperError" ascii //weight: 1
+        $x_1_6 = "description() is deprecated; use Display" ascii //weight: 1
+        $x_1_7 = "crossterm::cursor::Hide" ascii //weight: 1
+        $x_1_8 = "/Enter/Backspace - navigatesrc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
