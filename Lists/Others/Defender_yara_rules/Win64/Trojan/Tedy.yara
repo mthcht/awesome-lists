@@ -828,6 +828,34 @@ rule Trojan_Win64_Tedy_ATE_2147912968_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_ATE_2147912968_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ATE!MTB"
+        threat_id = "2147912968"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "ezstat.ru" wide //weight: 5
+        $x_1_2 = "Opening connection" wide //weight: 1
+        $x_1_3 = "Installing" wide //weight: 1
+        $x_1_4 = "Loader" wide //weight: 1
+        $x_1_5 = "64 Service Installer" wide //weight: 1
+        $x_1_6 = "Cannot get system directory" wide //weight: 1
+        $x_1_7 = "Loader might be down, check Discord" wide //weight: 1
+        $x_1_8 = "Payload downloaded" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_ZQ_2147913604_0
 {
     meta:

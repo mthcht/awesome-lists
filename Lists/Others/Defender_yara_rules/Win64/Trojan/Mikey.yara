@@ -2075,3 +2075,24 @@ rule Trojan_Win64_Mikey_LR_2147964559_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_WD_2147965129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.WD!MTB"
+        threat_id = "2147965129"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {80 34 11 f9 48 ff c1 48 8b 5d a0 48 8b c3 48 8b 55 98 48 2b c2 48 3b c8 72 e6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
