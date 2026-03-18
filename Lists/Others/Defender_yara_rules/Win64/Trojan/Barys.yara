@@ -659,3 +659,31 @@ rule Trojan_Win64_Barys_GVN_2147963846_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_NUC_2147965095_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.NUC!MTB"
+        threat_id = "2147965095"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "LICKEY:TOK-22B643D3-C050BF7F-D6976417-0A2AADC1XXXXXXXXXXXXXXXXXXXXXXXXX" ascii //weight: 1
+        $x_1_2 = "CLIPPER:{\"BTC\":\"bc1q4h2crpegxcw4dyvkcy9y0kjpfdrpydcrkqq233\",\"DOGE\":\"DLn3icUyL6U11mfaNmpUXxVEsug7Tkw9C2" ascii //weight: 1
+        $x_1_3 = "\"XRP\":\"rsEuqNBA7SxBnKPkMjqgq2KjBxcdmAWc6R" ascii //weight: 1
+        $x_2_4 = "ANTIVM:1XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ascii //weight: 2
+        $x_1_5 = "screenshots" ascii //weight: 1
+        $x_1_6 = "VMware (with VmwareHardenedLoader" ascii //weight: 1
+        $x_1_7 = "virtualbox" ascii //weight: 1
+        $x_1_8 = "JfR9z1!XMKjs#Ln0PqWe48@k2dFm7Yvz" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

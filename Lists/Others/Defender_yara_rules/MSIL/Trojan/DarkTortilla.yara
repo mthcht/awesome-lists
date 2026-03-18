@@ -7191,3 +7191,24 @@ rule Trojan_MSIL_DarkTortilla_RVC_2147964839_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_VDP_2147965094_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.VDP!MTB"
+        threat_id = "2147965094"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0b 07 03 1f 20 6f ?? 01 00 0a 6f ?? 01 00 0a 00 07 03 1f 10 6f ?? 01 00 0a 6f ?? 01 00 0a 00 07 07 6f ?? 01 00 0a 07 6f ?? 01 00 0a 6f ?? 01 00 0a 0c 00 73 86 01 00 0a 0d 00 09 08 17 73 87 01 00 0a 13 05 11 05 02 16 02 8e 69 6f ?? 01 00 0a 00 11 05 6f ?? 01 00 0a 00 de 0e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
