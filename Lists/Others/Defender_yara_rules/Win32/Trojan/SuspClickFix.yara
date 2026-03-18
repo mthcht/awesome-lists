@@ -448,6 +448,29 @@ rule Trojan_Win32_SuspClickFix_U_2147964735_0
         $x_1_2 = ").content" wide //weight: 1
         $x_1_3 = "| for /f " wide //weight: 1
         $x_1_4 = " | %" wide //weight: 1
+        $x_1_5 = ".exe') do %" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_V_2147965059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.V"
+        threat_id = "2147965059"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {5c 00 63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
+        $x_1_2 = "--headless" wide //weight: 1
+        $x_1_3 = " /c start /min " wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
