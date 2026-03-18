@@ -3788,6 +3788,34 @@ rule Trojan_MSIL_Lazy_ARR_2147964018_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {70 00 61 00 73 00 74 00 65 00 66 00 79 00 2e 00 61 00 70 00 70 00 2f 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2f 00 72 00 61 00 77 00 20 00 2d 00 55 00 73 00 65 00 42 00 61 00 73 00 69 00 63 00 50 00 61 00 72 00 73 00 69 00 6e 00 67 00}  //weight: 15, accuracy: Low
+        $x_15_2 = {70 61 73 74 65 66 79 2e 61 70 70 2f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2f 72 61 77 20 2d 55 73 65 42 61 73 69 63 50 61 72 73 69 6e 67}  //weight: 15, accuracy: Low
+        $x_5_3 = {64 00 61 00 79 00 64 00 65 00 6f 00 6e 00 63 00 68 00 61 00 75 00 6f 00 69 00 5f 00 [0-2] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {64 61 79 64 65 6f 6e 63 68 61 75 6f 69 5f [0-2] 2e 65 78 65}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_5_*))) or
+            ((2 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_Lazy_ARR_2147964018_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ARR!MTB"
+        threat_id = "2147964018"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:

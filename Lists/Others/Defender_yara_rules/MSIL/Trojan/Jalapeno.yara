@@ -3799,6 +3799,28 @@ rule Trojan_MSIL_Jalapeno_ARR_2147962418_1
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {0d 08 09 6f ?? ?? ?? ?? 00 07 8e 69 09 8e 69 58 8d ?? ?? ?? ?? 13 04 07 16 11 04 16 07 8e 69}  //weight: 12, accuracy: Low
+        $x_8_2 = {09 16 11 04 07 8e 69 09 8e 69 28}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Jalapeno_ARR_2147962418_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.ARR!MTB"
+        threat_id = "2147962418"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_8_1 = "$c79af1c9-239c-47d4-b33f-552ec0db3c65" ascii //weight: 8
