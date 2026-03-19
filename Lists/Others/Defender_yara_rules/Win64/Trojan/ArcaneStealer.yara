@@ -56,3 +56,28 @@ rule Trojan_Win64_ArcaneStealer_ATC_2147964565_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ArcaneStealer_MX_2147965167_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ArcaneStealer.MX!MTB"
+        threat_id = "2147965167"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ArcaneStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "arcanepanel.cc" ascii //weight: 1
+        $x_1_2 = "ArcaneUploader/1.0" wide //weight: 1
+        $x_1_3 = "Cookies:" ascii //weight: 1
+        $x_1_4 = "xWin32_DiskDrive" wide //weight: 1
+        $x_1_5 = "Brute.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

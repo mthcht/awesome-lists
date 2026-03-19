@@ -5465,3 +5465,28 @@ rule Trojan_Win64_Lazy_LRA_2147964867_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_BXS_2147965177_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.BXS!MTB"
+        threat_id = "2147965177"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "created by Moixd stealer" ascii //weight: 1
+        $x_1_2 = "moixd-" ascii //weight: 1
+        $x_1_3 = "File marker @atony83866" ascii //weight: 1
+        $x_1_4 = "\\google\\chrome beta" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\Clients\\StartMenuInternet\\Google Chrome Beta\\shell\\open\\command" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

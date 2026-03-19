@@ -2861,3 +2861,30 @@ rule Trojan_Win32_Lazy_AA_2147965154_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_LR_2147965174_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.LR!MTB"
+        threat_id = "2147965174"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%s\\_cleanup.bat" ascii //weight: 1
+        $x_2_2 = "%s.old" ascii //weight: 2
+        $x_3_3 = "wscript.exe /B \"%s\"" ascii //weight: 3
+        $x_4_4 = "del \"%s\" >nul 2>" ascii //weight: 4
+        $x_5_5 = "If wmi.ExecQuery(\"SELECT * FROM Win32_Process WHERE Name='\"" ascii //weight: 5
+        $x_6_6 = "Set wmi=GetObject(\"winmgmts:{impersonationLevel=impersonate}" ascii //weight: 6
+        $x_7_7 = "Nekohl Srevies" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -911,3 +911,26 @@ rule Trojan_Win64_Midie_MK_2147964612_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_MX_2147965168_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.MX!MTB"
+        threat_id = "2147965168"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {74 48 48 89 c7 48 8d 0d 7c 01 00 00 ba 01 00 00 00 49 c7 c0 24 00 00 00 49 89 f9 48 83 ec 08 50 48 8d 05 0c 00 00 00 48 89 44 24 08 58 ff 25 80 09 00 00 48 89 f9 ff 15 6f 09 00 00 4c 8d 0d 45 01 00 00 49 c7 c2 24 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = "CreateMutex" ascii //weight: 1
+        $x_1_3 = "Axolotl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
