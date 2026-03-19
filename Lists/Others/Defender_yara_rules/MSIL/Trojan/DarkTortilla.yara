@@ -7212,3 +7212,26 @@ rule Trojan_MSIL_DarkTortilla_VDP_2147965094_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_RVD_2147965159_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.RVD!MTB"
+        threat_id = "2147965159"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 9d a2 29 09 1f 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 1a 01 00 00 57 00 00 00 87 03 00 00 fb 04 00 00 7a 03 00 00 67 03 00 00 c7 00 00 00 b2 07 00 00 01 00 00 00 b8 00 00 00 1f 00 00 00 b5 01 00 00 60 03 00 00 86 00 00 00 01 00 00 00 01 00 00 00 07 00 00 00 03 00 00 00 4a 00 00 00 09 00 00 00 55}  //weight: 2, accuracy: High
+        $x_1_2 = "Kezada.jeydaseba.bat" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
