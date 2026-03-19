@@ -354,3 +354,28 @@ rule Trojan_MSIL_Disco_MKA_2147964088_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disco_MKB_2147965150_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disco.MKB!MTB"
+        threat_id = "2147965150"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "[*] Stealing Telegram sessions..." ascii //weight: 15
+        $x_10_2 = "Akachu Stealer - Discord Found" ascii //weight: 10
+        $x_5_3 = "DiscordStealer" ascii //weight: 5
+        $x_3_4 = "StealSteam" ascii //weight: 3
+        $x_2_5 = "StealTelegram" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

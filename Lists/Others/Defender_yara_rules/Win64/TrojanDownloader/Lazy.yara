@@ -71,3 +71,25 @@ rule TrojanDownloader_Win64_Lazy_SX_2147962180_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Lazy_SXA_2147965139_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Lazy.SXA!MTB"
+        threat_id = "2147965139"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {f3 41 0f 6f 00 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 08 f3 41 0f 6f 40 ?? 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 48 ?? f3 41 0f 6f 40 ?? 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 48 ?? f3 41 0f 6f 40 ?? 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 48 ?? 49 83 c0 40 48 83 c2 40 48 3b d1}  //weight: 20, accuracy: Low
+        $x_5_2 = "\\Screenshot album" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

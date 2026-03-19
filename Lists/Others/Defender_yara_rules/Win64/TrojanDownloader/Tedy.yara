@@ -90,3 +90,26 @@ rule TrojanDownloader_Win64_Tedy_CQ_2147964881_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Tedy_SX_2147965140_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Tedy.SX!MTB"
+        threat_id = "2147965140"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f 29 84 24 90 00 00 00 33 c0 c7 84 24 a4 00 00 00 00 00 00 00 0f 10 06 0f 11 84 24 90 00 00 00 f3 0f 7e 46 10 66 0f d6 84 24 a0 00 00 00 c7 46 10 00 00 00 00 c7 46 14 07 00 00 00 66 89 06}  //weight: 20, accuracy: High
+        $x_5_2 = "\\ZhiMaSkin360.exe" ascii //weight: 5
+        $x_5_3 = "ZhiMaUpdate.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

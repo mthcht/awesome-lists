@@ -1010,3 +1010,26 @@ rule Ransom_Win32_GandCrab_AGN_2147940398_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_GandCrab_SX_2147965138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/GandCrab.SX!MTB"
+        threat_id = "2147965138"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GandCrab"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "GandCrab Decryptor" ascii //weight: 10
+        $x_5_2 = "decryption_log_utf16.txt" ascii //weight: 5
+        $x_2_3 = "Key has been decoded" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
