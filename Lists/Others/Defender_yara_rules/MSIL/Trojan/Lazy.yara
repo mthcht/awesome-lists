@@ -3789,6 +3789,28 @@ rule Trojan_MSIL_Lazy_ARR_2147964018_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_9_1 = {0b 07 2d 04 16 0a 2b 6e 07 02 7b}  //weight: 9, accuracy: High
+        $x_11_2 = {2d 04 16 0a 2b 47 02 07 02 7b}  //weight: 11, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lazy_ARR_2147964018_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ARR!MTB"
+        threat_id = "2147964018"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "Low"
     strings:
         $x_15_1 = {70 00 61 00 73 00 74 00 65 00 66 00 79 00 2e 00 61 00 70 00 70 00 2f 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2f 00 72 00 61 00 77 00 20 00 2d 00 55 00 73 00 65 00 42 00 61 00 73 00 69 00 63 00 50 00 61 00 72 00 73 00 69 00 6e 00 67 00}  //weight: 15, accuracy: Low
@@ -3804,7 +3826,7 @@ rule Trojan_MSIL_Lazy_ARR_2147964018_0
         )
 }
 
-rule Trojan_MSIL_Lazy_ARR_2147964018_1
+rule Trojan_MSIL_Lazy_ARR_2147964018_2
 {
     meta:
         author = "defender2yara"

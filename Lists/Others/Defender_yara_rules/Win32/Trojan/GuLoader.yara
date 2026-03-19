@@ -8308,3 +8308,28 @@ rule Trojan_Win32_GuLoader_REL_2147964732_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REM_2147965152_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REM!MTB"
+        threat_id = "2147965152"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "goyazite abortmodstandere andelsvirksomheden" ascii //weight: 1
+        $x_1_2 = "cougar torskefiskeriers akupunktren" ascii //weight: 1
+        $x_1_3 = "bifiguren" ascii //weight: 1
+        $x_1_4 = "undseeligstes" ascii //weight: 1
+        $x_1_5 = "afhopperens occamite.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
