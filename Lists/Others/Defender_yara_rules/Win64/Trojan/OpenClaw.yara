@@ -9,18 +9,14 @@ rule Trojan_Win64_OpenClaw_GY_2147964927_0
         family = "OpenClaw"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "Fetching archive password from server." ascii //weight: 1
-        $x_1_2 = "Trying primary URL" ascii //weight: 1
-        $x_1_3 = "Virtual GPU detected:" ascii //weight: 1
-        $x_1_4 = "Bot farm hostname pattern '' matches " ascii //weight: 1
-        $x_1_5 = "Suspicious: Blacklisted BIOS serial detected:" ascii //weight: 1
-        $x_1_6 = "powershell.exe-NoProfile-NonInteractive-WindowStyleHidden-ExecutionPolicyBypass-EncodedCommandWMI" ascii //weight: 1
-        $x_1_7 = "SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\PathsRegistry access denied:" ascii //weight: 1
-        $x_1_8 = "Automatic hardware driver update tool" wide //weight: 1
+        $x_1_1 = "TradeAI.exe" wide //weight: 1
+        $x_1_2 = "Automatic hardware driver update tool" wide //weight: 1
+        $x_1_3 = "Real-time AI analysis and predictive modeling toolkit" wide //weight: 1
+        $x_1_4 = "TradeAI nofilabs" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

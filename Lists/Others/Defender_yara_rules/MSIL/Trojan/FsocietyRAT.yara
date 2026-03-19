@@ -10,15 +10,17 @@ rule Trojan_MSIL_FsocietyRAT_AMTB_2147964799_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = "FsocietyRAT_Client.FsocietyAgent+<StealPasswords>" ascii //weight: 1
-        $x_1_2 = "FsocietyRAT_Client.FsocietyAgent+<DestroySystem>" ascii //weight: 1
-        $x_1_3 = "Diego Fsociety RAT.pdb" ascii //weight: 1
-        $x_1_4 = "FsocietyRAT_Server" ascii //weight: 1
-        $x_1_5 = "FSOCIETY WAS HERE" ascii //weight: 1
+        $x_2_1 = {46 73 6f 63 69 65 74 79 52 41 54 5f 43 6c 69 65 6e 74 2e 46 73 6f 63 69 65 74 79 41 67 65 6e 74 2b 3c [0-31] 3e}  //weight: 2, accuracy: Low
+        $x_1_2 = "Diego Fsociety RAT.pdb" ascii //weight: 1
+        $x_1_3 = "Cookie stealing requires additional libraries" ascii //weight: 1
+        $x_2_4 = "FSOCIETY WAS HERE" ascii //weight: 2
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

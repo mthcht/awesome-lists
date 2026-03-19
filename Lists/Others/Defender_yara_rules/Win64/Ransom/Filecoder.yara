@@ -802,6 +802,31 @@ rule Ransom_Win64_Filecoder_NITD_2147931302_2
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_AMTB_2147931874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder!AMTB"
+        threat_id = "2147931874"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C:\\Users\\hustler\\DocumentsHello, world!" ascii //weight: 2
+        $x_1_2 = "cryptencrypted successfully" ascii //weight: 1
+        $x_2_3 = "moneylocker.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Ransom_Win64_Filecoder_NITC_2147932226_0
 {
     meta:

@@ -391,3 +391,23 @@ rule TrojanDownloader_Win32_Carberp_BW_2147724979_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Carberp_AMTB_2147965198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Carberp!AMTB"
+        threat_id = "2147965198"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Carberp"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "http://62.60.226.159/geter/index.php?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

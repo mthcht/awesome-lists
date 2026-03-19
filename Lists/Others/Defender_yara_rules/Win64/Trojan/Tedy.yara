@@ -3186,6 +3186,31 @@ rule Trojan_Win64_Tedy_ARR_2147957105_5
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_ARR_2147957105_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ARR!MTB"
+        threat_id = "2147957105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Falha ao baixar payload do SquareWeb" ascii //weight: 4
+        $x_6_2 = "[*] Baixando payload bin" ascii //weight: 6
+        $x_10_3 = "[+] Process Hollowing conclu" ascii //weight: 10
+        $x_8_4 = "ria no processo alvo..." ascii //weight: 8
+        $x_2_5 = "[*] Payload baixado: %zu bytes" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_AHJ_2147957501_0
 {
     meta:
