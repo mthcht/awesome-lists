@@ -1825,3 +1825,27 @@ rule Trojan_Win64_Vidar_ABVM_2147965071_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_ZZ_2147965143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ZZ"
+        threat_id = "2147965143"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {10 04 00 00 e9 0c 00 31 c0 41 80 [0-2] 31 0f 94 c0 89}  //weight: 10, accuracy: Low
+        $x_10_3 = {14 04 00 00 e9 0c 00 31 c0 41 80 [0-2] 31 0f 94 c0 89}  //weight: 10, accuracy: Low
+        $x_10_4 = {18 04 00 00 e9 0c 00 31 c0 41 80 [0-2] 31 0f 94 c0 89}  //weight: 10, accuracy: Low
+        $x_10_5 = {20 04 00 00 e9 0c 00 31 c0 41 80 [0-2] 31 0f 94 c0 89}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
