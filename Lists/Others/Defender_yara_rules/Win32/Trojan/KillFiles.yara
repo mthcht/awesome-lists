@@ -116,3 +116,34 @@ rule Trojan_Win32_KillFiles_SX_2147947641_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillFiles_GV_2147965201_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillFiles.GV!MTB"
+        threat_id = "2147965201"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillFiles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "HideWindow" wide //weight: 1
+        $x_1_2 = "Rename:" wide //weight: 1
+        $x_1_3 = "SeShutdownPrivilege" wide //weight: 1
+        $x_1_4 = "ExecShell: success" wide //weight: 1
+        $x_1_5 = "CopyFiles" wide //weight: 1
+        $x_1_6 = "CreateShortCut:" wide //weight: 1
+        $x_1_7 = "HKEY_PERFORMANCE_DATA" wide //weight: 1
+        $x_1_8 = "HKEY_CLASSES_ROOT" wide //weight: 1
+        $x_1_9 = "RMDir: RemoveDirectory(\"%s\")" wide //weight: 1
+        $x_1_10 = "Delete: DeleteFile on Reboot" wide //weight: 1
+        $x_1_11 = "CrowdStrike Updater.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
