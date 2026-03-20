@@ -2263,28 +2263,6 @@ rule Trojan_MSIL_Rozena_KAF_2147919568_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Rozena_KAG_2147919569_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Rozena.KAG!MTB"
-        threat_id = "2147919569"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Rozena"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = {06 07 02 07 91 03 61 d2 9c 07 17 58 0b 07 02 8e 69 32 ed}  //weight: 5, accuracy: High
-        $x_1_2 = "XORDecrypt" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Rozena_NN_2147920282_0
 {
     meta:
