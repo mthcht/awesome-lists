@@ -96,3 +96,27 @@ rule Trojan_MSIL_ShellcodeInject_AD_2147963536_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeInject_AC_2147965238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeInject.AC!MTB"
+        threat_id = "2147965238"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 8e 69 8d 1c 00 00 01 0a 16 0b 2b 15 00 06 07 03 07 91 04 07 04 8e 69 5d 91 61 d2 9c 00 07 17 58 0b 07 03 8e 69 fe 04 0d 09 2d e1 06}  //weight: 5, accuracy: High
+        $x_2_2 = {5f 75 70 6c 6f 61 64 5f 69 6d 61 67 65 5f 32 30 32 35 ?? ?? (30|2d|39) (30|2d|39) 5f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? (30|2d|39) (30|2d|39) 5f 61 73 70 78}  //weight: 2, accuracy: Low
+        $x_1_3 = "svchost.exe" ascii //weight: 1
+        $x_1_4 = "WriteProcessMemory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1814,6 +1814,31 @@ rule Trojan_Win64_Tedy_AB_2147936820_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AB_2147936820_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AB!MTB"
+        threat_id = "2147936820"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "22"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {41 b8 04 01 00 00 48 8d 95 b0 02 00 00 33 c9 ff 15 c9 3b 00 00 85 c0 74 7c c7 44 24 60 70 00 00 00 0f 57 c0 33 c0 0f 11 44 24 64 0f 11 44 24 74 0f 11 45 84 0f 11 45 94 0f 11 45 a4 0f 11 45 b4 48 89 45 c4 89 45 cc c7 44 24 64 40 04 00 00 48 8d 05 48 64 00 00 48 89 44 24 70 48 8d 85 b0 02 00 00 48 89 44 24 78 c7 45 90 01 00 00 00 48 8d 4c 24 60 ff 15 2d 3c 00 00 85 c0 74 18 48 8b 4d c8 48 85 c9}  //weight: 6, accuracy: High
+        $x_6_2 = {c7 44 24 60 70 00 00 00 0f 57 c0 33 c0 0f 11 44 24 64 0f 11 44 24 74 0f 11 45 84 0f 11 45 94 0f 11 45 a4 0f 11 45 b4 48 89 45 c4 89 45 cc c7 44 24 64 40 00 00 00 48 8d 05 ab 66 00 00 48 89 44 24 70 48 8d 05 af 66 00 00 48 89 44 24 78 48 8d 4d 20 e8 81 07 00 00 48 89 45 80 48 8d 4d 00 e8 74 07 00 00 48 89 45 88 c7 45 90 01 00 00 00 48 8d 4c 24 60 ff 15 16 3e 00 00 85 c0}  //weight: 6, accuracy: High
+        $x_6_3 = "ScreenConnect" ascii //weight: 6
+        $x_2_4 = "\" /qb" ascii //weight: 2
+        $x_2_5 = "install.res.1033" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_GPP_2147938483_0
 {
     meta:

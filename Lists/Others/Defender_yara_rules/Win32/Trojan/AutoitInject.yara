@@ -5930,3 +5930,32 @@ rule Trojan_Win32_AutoitInject_PS_2147960261_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AutoitInject_AB_2147965242_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.AB!MTB"
+        threat_id = "2147965242"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GLOBAL $GSDEFAULTSERVER = \"65.21.154.31\"" ascii //weight: 1
+        $x_1_2 = "GLOBAL $CMD_START = \"cmd\"" ascii //weight: 1
+        $x_1_3 = "GLOBAL $CMD_DOWNLOAD = \"download\"" ascii //weight: 1
+        $x_1_4 = "GLOBAL $CMD_EXECUTE = \"run\"" ascii //weight: 1
+        $x_1_5 = "GLOBAL $GNPORT = 443" ascii //weight: 1
+        $x_1_6 = "$IPID = SHELLEXECUTE ( $SOBJ , \"\" , \"\" , $SHEX_OPEN , @SW_HIDE )" ascii //weight: 1
+        $x_1_7 = "DLLCALL ( \"ws2_32.dll\" , \"int\" , \"closesocket\" , \"ptr\" , $G_SOCKET )" ascii //weight: 1
+        $x_1_8 = "SLEEP ( 10000 )" ascii //weight: 1
+        $x_1_9 = "DLLCALL ( \"ws2_32.dll\" , \"int\" , \"WSACleanup\" )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
