@@ -6381,3 +6381,26 @@ rule Trojan_Win32_OffLoader_ZJG_2147965263_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_PGOG_2147965288_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOG!MTB"
+        threat_id = "2147965288"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "//housesice.space" ascii //weight: 5
+        $x_5_2 = "//coalsubstance.cfd" ascii //weight: 5
+        $x_5_3 = {5c 00 73 00 74 00 61 00 72 00 74 00 65 00 72 00 2e 00 65 00 78 00 65 00 00 00 67 00 65 00 74 00 00 00 22 00 03 00 9a 80 5c 00 73 00 74 00 61 00 72 00 74 00 65 00 72 00 2e 00 65 00 78 00 65 00 22}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
