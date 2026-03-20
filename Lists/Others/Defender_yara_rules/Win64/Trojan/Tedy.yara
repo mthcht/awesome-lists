@@ -4627,6 +4627,29 @@ rule Trojan_Win64_Tedy_AA_2147965021_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "\\\\.\\pipe\\PayloadPipe_%lu" ascii //weight: 30
+        $x_20_2 = "config_get_browser_config" ascii //weight: 20
+        $x_10_3 = "{\"domain\":\"%s\",\"name\":\"%s\",\"value\":\"%s\",\"path\":\"%s\",\"expires\":%lld,\"secure\":%s,\"httpOnly\":%s,\"sameSite\":\"%s\"}" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AA_2147965021_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AA!MTB"
+        threat_id = "2147965021"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "100"
         strings_accuracy = "High"
     strings:

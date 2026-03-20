@@ -219,6 +219,33 @@ rule Trojan_Win32_Lazy_AB_2147849152_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {01 ce 89 f0 c1 e0 ?? 01 f0 89 c1 c1 e9 ?? 31 c1 0f b7 44 5a ?? 43 66 85 c0 75}  //weight: 30, accuracy: Low
+        $x_30_2 = {1f 40 00 83 cb ?? 0f b6 db 69 f6 ?? ?? ?? ?? 01 de 0f b7 5c 4f ?? 41 66 85 db 75}  //weight: 30, accuracy: Low
+        $x_20_3 = {01 00 00 0f b6 5c 02 ?? 88 9c 04 ?? 01 00 00 0f b6 54 02 ?? 88 94 04 ?? 01 00 00}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Lazy_AB_2147849152_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AB!MTB"
+        threat_id = "2147849152"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "High"
     strings:

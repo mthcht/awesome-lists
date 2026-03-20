@@ -423,3 +423,24 @@ rule Trojan_Win32_SalatStealer_MK_2147964610_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_MKA_2147965217_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.MKA!MTB"
+        threat_id = "2147965217"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_35_1 = {0f 28 ca 0f 57 c8 0f 11 49 ?? 0f 28 ca 0f 10 41 ?? 0f 57 c2 0f 11 41 ?? 0f 10 41 ?? 0f 57 c2 0f 11 41 ?? 0f 10 41 ?? 0f 57 c8 0f 11 49 ?? 3b 85 dc fc ff ff}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
