@@ -227,3 +227,27 @@ rule Backdoor_MSIL_XWorm_SL_2147964537_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_XWorm_PAHU_2147965297_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/XWorm.PAHU!MTB"
+        threat_id = "2147965297"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 19 11 11 11 18 91 13 1a 11 11 11 18 11 11 11 19 91 9c 11 11 11 19 11 1a 9c 11 16 11 17 11 10 11 17 91 11 11 11 11 11 18 91 11 11 11 19 91 58 20 ff 00 00 00 5f 91 61 d2 9c 11 17}  //weight: 2, accuracy: High
+        $x_1_2 = "vboxservice" wide //weight: 1
+        $x_1_3 = "wireshark" wide //weight: 1
+        $x_1_4 = "procmon" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
