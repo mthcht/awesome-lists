@@ -3997,3 +3997,29 @@ rule Ransom_MSIL_Filecoder_J_2147957402_0
         )
 }
 
+rule Ransom_MSIL_Filecoder_DE_2147965299_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.DE!MTB"
+        threat_id = "2147965299"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "All files in this folder have been encrypted" ascii //weight: 1
+        $x_1_2 = {70 00 6c 00 65 00 61 00 73 00 65 00 20 00 70 00 61 00 79 00 [0-15] 42 00 54 00 43 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {70 6c 65 61 73 65 20 70 61 79 [0-15] 42 54 43}  //weight: 1, accuracy: Low
+        $x_1_4 = "get your files back" ascii //weight: 1
+        $x_1_5 = "Encrypted file" ascii //weight: 1
+        $x_1_6 = ".crypto" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
