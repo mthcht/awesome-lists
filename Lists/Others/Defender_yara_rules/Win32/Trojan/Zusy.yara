@@ -9105,3 +9105,27 @@ rule Trojan_Win32_Zusy_DLH_2147964869_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_PGAQ_2147965390_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.PGAQ!MTB"
+        threat_id = "2147965390"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "(?:^4[0-9AB][1-9A-HJ-NP-Za-km-z]{93}$)" ascii //weight: 2
+        $x_2_2 = "(?:^X[1-9A-HJ-NP-Za-km-z]{33}$)" ascii //weight: 2
+        $x_2_3 = "((bitcoincash:)?(q|p)[a-z0-9]{41})" ascii //weight: 2
+        $x_2_4 = "(UQ|EQ)[a-zA-Z0-9_-]{46}$" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
