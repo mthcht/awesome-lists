@@ -114,3 +114,26 @@ rule Trojan_MSIL_Cassandra_SB_2147960301_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_WE_2147965367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.WE!MTB"
+        threat_id = "2147965367"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 04 11 05 6f ?? 00 00 0a 13 06 12 06 28 ?? 00 00 0a 28 ?? 00 00 0a 16 07 08 1a 28 ?? 00 00 0a 08 1a 58 0c 11 05 17 58 13 05 11 05 06}  //weight: 5, accuracy: Low
+        $x_2_2 = {02 11 04 09 6f ?? 00 00 0a 13 05 08 11 04 09 11 05 6f ?? 00 00 0a 16}  //weight: 2, accuracy: Low
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

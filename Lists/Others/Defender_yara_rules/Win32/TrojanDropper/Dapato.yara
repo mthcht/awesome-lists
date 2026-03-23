@@ -112,3 +112,30 @@ rule TrojanDropper_Win32_Dapato_GNX_2147903161_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win32_Dapato_GTD_2147965361_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win32/Dapato.GTD!MTB"
+        threat_id = "2147965361"
+        type = "TrojanDropper"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "cmd.exe /C powe\"\"r\"\"s\"\"h\"\"ell.exe -Ex\"\"ec\"\"uti\"\"o\"\"nPol\"\"ic\"\"y By\"\"pa\"\"s\"\"s -C\"\"om\"\"ma\"\"n\"\"d" ascii //weight: 5
+        $x_1_2 = "Ad\"\"d\"\"-M\"\"pPr\"\"ef\"\"ere\"\"nce -Ex\"\"cl\"\"usion\"\"Path" ascii //weight: 1
+        $x_1_3 = "cmd.exe /C   \"start  rundll32.exe" ascii //weight: 1
+        $x_1_4 = "ioSpecial.ini" ascii //weight: 1
+        $x_1_5 = "\\telegrom.exe" ascii //weight: 1
+        $x_1_6 = "\\telegrom.lnk" ascii //weight: 1
+        $x_1_7 = "\\Auto.dat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

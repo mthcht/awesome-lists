@@ -1102,3 +1102,26 @@ rule Trojan_Win64_CoinMiner_LMU_2147963160_0
         )
 }
 
+rule Trojan_Win64_CoinMiner_LR_2147965372_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.LR!MTB"
+        threat_id = "2147965372"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "CorvusMiner/1.0" ascii //weight: 1
+        $x_2_2 = "corvus.exe" ascii //weight: 2
+        $x_10_3 = {48 8b c2 83 e0 3f 42 0f b6 44 00 10 41 30 04 11 48 ff c2 49 3b d2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

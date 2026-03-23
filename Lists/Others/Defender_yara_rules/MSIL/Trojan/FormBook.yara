@@ -17450,3 +17450,26 @@ rule Trojan_MSIL_FormBook_RSA_2147964967_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RSB_2147965363_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RSB!MTB"
+        threat_id = "2147965363"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {57 9d a2 29 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 c9 00 00 00 52 00 00 00 ?? 01 00 00 df 01 00 00 3d 01 00 00 76 02 00 00 04 00 00 00 cc 00 00 00 0c 00 00 00 74 00 00 00 0f 00 00 00 2c 00 00 00 33 00 00 00 84 00 00 00 0f 00 00 00 02 00 00 00 07 00 00 00 06 00 00 00 37 00 00 00 21 00 00 00 3e}  //weight: 1, accuracy: Low
+        $x_1_2 = "MagneticVisualizer.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "get_TM" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

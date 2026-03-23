@@ -4709,3 +4709,29 @@ rule Trojan_Win64_Tedy_LRB_2147965175_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LRC_2147965376_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LRC!MTB"
+        threat_id = "2147965376"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+]Executing shellcode...." ascii //weight: 1
+        $x_2_2 = "Release\\MYFIRSTMALWARE" ascii //weight: 2
+        $x_3_3 = "[*] All chunks written." ascii //weight: 3
+        $x_4_4 = "[*] Wrote" ascii //weight: 4
+        $x_5_5 = "[*] Allocated memory at:" ascii //weight: 5
+        $x_6_6 = "secret" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

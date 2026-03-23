@@ -3205,3 +3205,30 @@ rule Trojan_Win32_Remcos_ACM_2147959783_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_SNB_2147965365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.SNB!MTB"
+        threat_id = "2147965365"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\tremmestolene\\fugemasses" ascii //weight: 1
+        $x_1_2 = "\\isthm\\supersphenoid\\barged.ini" ascii //weight: 1
+        $x_1_3 = "\\paleogeologic\\formstof\\moskkhernes\\*.bin" ascii //weight: 1
+        $x_1_4 = "\\guls\\torsions\\Justitsministeriers.gif" ascii //weight: 1
+        $x_1_5 = "\\vgavisen\\interceptable\\epacridaceous.dll" ascii //weight: 1
+        $x_1_6 = "\\kanaanisk\\Kampenes\\thwarts.gif" ascii //weight: 1
+        $x_1_7 = "Lampadedromy.dde" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

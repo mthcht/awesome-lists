@@ -3333,3 +3333,29 @@ rule Trojan_Win64_Zusy_CM_2147965191_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_LRC_2147965375_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LRC!MTB"
+        threat_id = "2147965375"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] PE data : 0x%p" ascii //weight: 1
+        $x_2_2 = "[-] Not a PE file" ascii //weight: 2
+        $x_3_3 = "Failed in Relocating Image" ascii //weight: 3
+        $x_4_4 = "[+] mimi decrypted" ascii //weight: 4
+        $x_5_5 = "[-] Local Main Hollowing Failed" ascii //weight: 5
+        $x_6_6 = "[+] mainThread suspended" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
