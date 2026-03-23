@@ -2968,3 +2968,29 @@ rule Trojan_Win32_ClipBanker_ARR_2147955240_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_PGAP_2147965333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.PGAP!MTB"
+        threat_id = "2147965333"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "schtasks /create /f /sc ONLOGON /RL HIGHEST /tn MSASCui /tr \"'" ascii //weight: 2
+        $x_2_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run\\" ascii //weight: 2
+        $x_2_3 = {68 00 74 00 74 00 70 00 [0-4] 2f 00 2f 00 74 00 2e 00 6d 00 65 00 2f 00 4c 00 65 00 78 00 69 00 43 00 6f 00 64 00 65 00 72 00}  //weight: 2, accuracy: Low
+        $x_2_4 = {68 74 74 70 [0-4] 2f 2f 74 2e 6d 65 2f 4c 65 78 69 43 6f 64 65 72}  //weight: 2, accuracy: Low
+        $x_2_5 = {68 00 74 00 74 00 70 00 [0-4] 2f 00 2f 00 69 00 70 00 6c 00 6f 00 67 00 67 00 65 00 72 00 2e 00 6f 00 72 00 67 00 2f 00 [0-32] 2e 00 67 00 69 00 66 00}  //weight: 2, accuracy: Low
+        $x_2_6 = {68 74 74 70 [0-4] 2f 2f 69 70 6c 6f 67 67 65 72 2e 6f 72 67 2f [0-32] 2e 67 69 66}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
