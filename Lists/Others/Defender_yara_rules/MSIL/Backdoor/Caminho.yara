@@ -28,3 +28,37 @@ rule Backdoor_MSIL_Caminho_AR_2147964113_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_Caminho_ARP_2147965352_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Caminho.ARP!AMTB"
+        threat_id = "2147965352"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Caminho"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "22"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "caminho" ascii //weight: 15
+        $x_1_2 = "payloadBuffer" ascii //weight: 1
+        $x_1_3 = "uacPayloadUrl" ascii //weight: 1
+        $x_1_4 = "encodedPayloadUrl" ascii //weight: 1
+        $x_1_5 = "encodedUrlPayload" ascii //weight: 1
+        $x_1_6 = "DsCrackNames" ascii //weight: 1
+        $x_1_7 = "AllowingStartOnRemoteAppSession" ascii //weight: 1
+        $x_1_8 = "set_LogonType" ascii //weight: 1
+        $x_1_9 = "set_UserPassword" ascii //weight: 1
+        $x_1_10 = "set_UserAccountDomain" ascii //weight: 1
+        $x_1_11 = "Microsoft.Win32.TaskScheduler.Trigger>.Add" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 7 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

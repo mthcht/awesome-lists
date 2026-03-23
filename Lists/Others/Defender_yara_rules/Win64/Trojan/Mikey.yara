@@ -2118,3 +2118,28 @@ rule Trojan_Win64_Mikey_LMM_2147965172_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_AMTB_2147965349_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey!AMTB"
+        threat_id = "2147965349"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "hzjtajjklr.bat" ascii //weight: 2
+        $x_2_2 = "Z:\\PROJECTS\\WindowsCodecs\\x64\\Release\\WindowsCodecs.pdb" ascii //weight: 2
+        $n_100_3 = "Uninst.exe" ascii //weight: -100
+        $n_100_4 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_5 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
