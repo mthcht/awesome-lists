@@ -4399,3 +4399,25 @@ rule Trojan_Win32_StealC_AMSC_2147960596_0
         )
 }
 
+rule Trojan_Win32_StealC_GMH_2147965462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.GMH!MTB"
+        threat_id = "2147965462"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {88 04 0e 81 fa 8d 00 00 00 75 ?? c7 05 ?? ?? ?? ?? bc 17 00 00 41 3b ca 72}  //weight: 5, accuracy: Low
+        $x_5_2 = {33 c0 33 d2 8d 4c 24 ?? 51 66 89 54 24 ?? 66 89 44 24 ?? 8b 54 24 ?? 52 50 50 50 ff d6 83 eb 01}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
