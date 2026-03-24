@@ -818,6 +818,41 @@ rule Trojan_MSIL_Lazy_ALY_2147846326_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_ALY_2147846326_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ALY!MTB"
+        threat_id = "2147846326"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "AMID4325661-98E5-85C5-3736-9088EBFB2B01" ascii //weight: 1
+        $x_1_2 = "[DYNPROPS] instance of Win32_BIOS" ascii //weight: 1
+        $x_1_3 = "Remove-Item $mofPath -Force" ascii //weight: 1
+        $x_1_4 = "Self-delete EXE after completion" ascii //weight: 1
+        $x_1_5 = "DO_NOT_PERSIST" ascii //weight: 1
+        $x_1_6 = "REQUEST_ADMINISTRATOR" ascii //weight: 1
+        $x_1_7 = "EXCLUDE_CERTIFICATES" ascii //weight: 1
+        $x_1_8 = "REQUIRE_CERTIFICATE" ascii //weight: 1
+        $x_1_9 = "SHOW_SAVE_CHECK_BOX" ascii //weight: 1
+        $x_1_10 = "REQUIRE_SMARTCARD" ascii //weight: 1
+        $x_1_11 = "VALIDATE_USERNAME" ascii //weight: 1
+        $x_1_12 = "COMPLETE_USERNAME" ascii //weight: 1
+        $x_1_13 = "network.ps1" wide //weight: 1
+        $x_1_14 = "Click OK to exit" wide //weight: 1
+        $x_3_15 = "rajkumar(rj).exe" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_SPH_2147846379_0
 {
     meta:

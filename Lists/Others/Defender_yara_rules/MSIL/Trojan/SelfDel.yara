@@ -111,3 +111,28 @@ rule Trojan_MSIL_SelfDel_GTN_2147935811_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SelfDel_MK_2147965415_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SelfDel.MK!MTB"
+        threat_id = "2147965415"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SelfDel"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "pragma namespace (\"\\\\\\\\.\\\\root\\\\CIMv2\")" ascii //weight: 15
+        $x_10_2 = "mofcomp $mofPath" ascii //weight: 10
+        $x_5_3 = "Start-Process cmd.exe -ArgumentList \"/c timeout 3 > nul" ascii //weight: 5
+        $x_3_4 = "Self-delete EXE after completion" ascii //weight: 3
+        $x_2_5 = "$exePath = [System.Diagnostics.Process]::GetCurrentProcess().MainModule.FileName" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
