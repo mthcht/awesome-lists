@@ -13466,3 +13466,26 @@ rule Trojan_Win32_ClickFix_MXX_2147965401_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DJI_2147965431_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJI!MTB"
+        threat_id = "2147965431"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DavSetCookie" wide //weight: 1
+        $x_1_2 = ".in.net@80 http://" wide //weight: 1
+        $x_1_3 = ".in.net/verification.google" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
