@@ -4271,6 +4271,27 @@ rule Trojan_MSIL_SnakeKeylogger_ABSM_2147845966_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 11 1c 11 1d 6f ?? 00 00 0a 13 24 11 0c 11 1e 12 24 28 ?? 00 00 0a 6f ?? 00 00 0a 12 24 28 ?? 00 00 0a 13 25 12 24 28 ?? 00 00 0a 13 26 12 24 28 ?? 00 00 0a 13 27 11 25 11 26 58 11 27 58 13 28 11 28 1f 1f 61}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SnakeKeylogger_ABSM_2147845966_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.ABSM!MTB"
+        threat_id = "2147845966"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:

@@ -2630,6 +2630,31 @@ rule Trojan_Win64_Lazy_AB_2147939489_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AB_2147939489_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AB!MTB"
+        threat_id = "2147939489"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FATAL: Payload not found anywhere!" ascii //weight: 1
+        $x_1_2 = "STAGE 5: Decrypt Payload" ascii //weight: 1
+        $x_1_3 = "FATAL: Analysis environment detected! Confidence: %u%%" ascii //weight: 1
+        $x_1_4 = "[MONITOR] --- Process Injection ---" ascii //weight: 1
+        $x_1_5 = "Indirect syscalls initialized (ETW/AMSI/hooks bypassed)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_AC_2147939494_0
 {
     meta:
