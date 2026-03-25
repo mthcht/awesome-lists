@@ -5511,3 +5511,27 @@ rule Trojan_Win64_Lazy_LRB_2147965463_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SXP_2147965501_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXP!MTB"
+        threat_id = "2147965501"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {66 83 f8 2e ?? ?? 66 83 f8 3a ?? ?? 66 c7 01 5f 00 0f b7 41 02 48 83 c1 02 66 85 c0}  //weight: 10, accuracy: Low
+        $x_20_2 = "%sinstaller_name.dat" ascii //weight: 20
+        $x_20_3 = "%s\\secondary_disabled.dat" ascii //weight: 20
+        $x_5_4 = "%s\\client_uuid.dat" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

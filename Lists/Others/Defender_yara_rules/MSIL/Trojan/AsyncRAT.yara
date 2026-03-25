@@ -7100,3 +7100,26 @@ rule Trojan_MSIL_AsyncRAT_VD_2147964541_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_KK_2147965481_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.KK!MTB"
+        threat_id = "2147965481"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {20 e8 03 00 00 28 22 00 00 0a fe 0c 00 00 20 01 00 00 00 58 fe 0e 00 00 fe 0c 00 00 7e 1b 00 00 04 28 23 00 00 0a 3f d5 ff ff ff}  //weight: 5, accuracy: High
+        $x_20_2 = "C:PSKLAP\\WindowPSKLAPs\\System32\\uPSKLAPserinitPSKLAP.exe," ascii //weight: 20
+        $x_10_3 = "ogmFtware\\CgmLaSgmSegms\\mSgm-sEtgmTinGsgm\\SHgmell\\OPgmen\\coMMgmand" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

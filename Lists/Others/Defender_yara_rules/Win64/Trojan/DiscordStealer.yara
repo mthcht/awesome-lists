@@ -168,3 +168,28 @@ rule Trojan_Win64_DiscordStealer_MK_2147965028_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_SX_2147965502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.SX!MTB"
+        threat_id = "2147965502"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "SilenceLoader/1.0" ascii //weight: 10
+        $x_10_2 = "Silence Dll" ascii //weight: 10
+        $x_5_3 = "\\Core\\MilitaryCrypto.hpp" ascii //weight: 5
+        $x_5_4 = "no_license_bsod" ascii //weight: 5
+        $x_2_5 = "/z6v2b9t4" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1187,3 +1187,26 @@ rule Trojan_MSIL_KillMBR_MK_2147964951_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_KK_2147965479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.KK!MTB"
+        threat_id = "2147965479"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {06 07 02 07 ?? ?? ?? ?? ?? 20 ff 00 00 00 5f d2 9c 00 07 17 58 0b 07 20 6a 77 78 00 fe 04 0d 09 2d dd}  //weight: 20, accuracy: Low
+        $x_10_2 = "/k reg delete HKCR /f" ascii //weight: 10
+        $x_5_3 = "\\\\\\\\.\\\\PhysicalDrive0" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

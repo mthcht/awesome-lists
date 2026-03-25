@@ -4735,3 +4735,50 @@ rule Trojan_Win64_Tedy_LRC_2147965376_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_KKC_2147965480_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KKC!MTB"
+        threat_id = "2147965480"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 4c 24 2c 48 63 c9 8b 54 24 2c 69 d2 ?? ?? ?? ?? 81 c2 ?? ?? ?? ?? 66 33 54 4c 30 8b 4c 24 2c 48 63 c9 66 89 54 4c 30 ff 44 24 2c 8b 4c 24 2c 83 f9 0c}  //weight: 20, accuracy: Low
+        $x_10_2 = "REMUS LOG" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_KKD_2147965482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KKD!MTB"
+        threat_id = "2147965482"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Global\\AntigravityRAT_SingleInstance_Mutex" ascii //weight: 5
+        $x_4_2 = "taskkill /F /IM chrome.exe /T > NUL 2>&1" ascii //weight: 4
+        $x_3_3 = "taskkill /F /IM msedge.exe /T > NUL 2>&1" ascii //weight: 3
+        $x_2_4 = "\\Mozilla\\Firefox\\Profiles\\*" ascii //weight: 2
+        $x_1_5 = "[*] Stealing: " ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

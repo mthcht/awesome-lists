@@ -1059,6 +1059,28 @@ rule Trojan_Win32_Remcos_ACH_2147763919_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_ARK_2147766352_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.ARK!MTB"
+        threat_id = "2147766352"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {50 ff d6 bb a4 10 41 00 68 94 10 41 00 53 a3 34 59 41 00 ff d7 50 ff d6 68 80 10 41 00 53 a3 94 5b 41 00 ff d7 50 ff d6 68 70 10 41 00 68 68 10 41 00 a3 98 5b 41 00 ff d7 50 ff d6 68 54 10 41 00 53}  //weight: 2, accuracy: High
+        $x_1_2 = {56 57 68 0c 11 41 00 68 00 11 41 00 ff d3 8b 35 44 01 41 00 50 ff d6 8b 3d ?? 01 41 00 a3 2c 59 41 00 85 c0 75 14 68 0c 11 41 00 68 f0 10 41 00 ff d7 50}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Remcos_DD_2147772209_0
 {
     meta:

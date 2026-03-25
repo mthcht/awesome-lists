@@ -26,3 +26,25 @@ rule TrojanDropper_Win64_Tedy_ARA_2147963821_0
         )
 }
 
+rule TrojanDropper_Win64_Tedy_KKB_2147965478_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/Tedy.KKB!MTB"
+        threat_id = "2147965478"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8b 95 98 00 00 00 48 8b 45 48 48 01 d0 0f b6 00 83 f0 c4 89 c2 48 8b 4d 30 48 8b 45 48 48 01 c8 88 10 48 83 45 48 01}  //weight: 20, accuracy: High
+        $x_5_2 = "\\Microsoft\\Windows\\mspf.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

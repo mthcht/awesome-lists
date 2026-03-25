@@ -1693,3 +1693,27 @@ rule Trojan_MSIL_Injector_SX_2147963885_0
         )
 }
 
+rule Trojan_MSIL_Injector_KKA_2147965483_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.KKA!MTB"
+        threat_id = "2147965483"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "ism.puteStneilC.tcennoCneercS\\pmeT\\:C i/' exe.cexeism ssecorP-tratS ;'ism.puteStneilC.tcennoCneercS\\pmeT\\:C' o-" ascii //weight: 20
+        $x_15_2 = "L- exe.lruc ;lluN-tuO | ecroF- 'pmeT\\:C' htaP- yrotceriD epyTmetI" ascii //weight: 15
+        $x_10_3 = "metI-weN;8 sdnoceS- peelS-tratS;ecroF- s$ noisnetxEnoisulcxE- )erutcurtSataDetercnoC$" ascii //weight: 10
+        $x_5_4 = ":wen!rotartsinimdA:noitavelE" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
