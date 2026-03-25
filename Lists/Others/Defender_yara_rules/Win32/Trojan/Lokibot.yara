@@ -3225,3 +3225,24 @@ rule Trojan_Win32_Lokibot_AKL_2147958803_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lokibot_ALI_2147965591_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lokibot.ALI!MTB"
+        threat_id = "2147965591"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 c4 08 8a 08 89 db 8b c3 33 d2 52 50 8b 06 99 03 04 24 13 54 24 04 71 05 e8 ?? ?? ?? ?? 83 c4 08 32 0d ?? ?? ?? ?? 88 08 89 c9 89 db ff 06}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4710,3 +4710,24 @@ rule Trojan_MSIL_XWorm_BAP_2147965196_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_SVPO_2147965590_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.SVPO!MTB"
+        threat_id = "2147965590"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {09 28 15 00 00 2b 28 16 00 00 2b 73 88 01 00 0a 0d 11 0d 17 d6 13 0d 11 0d 20 10 27 00 00 31 09}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
