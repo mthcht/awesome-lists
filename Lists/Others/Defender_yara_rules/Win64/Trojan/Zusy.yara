@@ -3359,3 +3359,26 @@ rule Trojan_Win64_Zusy_LRC_2147965375_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_AHC_2147965511_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHC!MTB"
+        threat_id = "2147965511"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[v] Attempting To Steal Opened File Handles..." ascii //weight: 30
+        $x_10_2 = "Failed To Generate Fake Command Line" ascii //weight: 10
+        $x_20_3 = "[v] Caching %lu Browser Data Files..." ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

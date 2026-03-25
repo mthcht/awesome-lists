@@ -29,3 +29,57 @@ rule Backdoor_Win32_SuspNtdsAccess_B_2147961712_0
         )
 }
 
+rule Backdoor_Win32_SuspNtdsAccess_C_2147965547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/SuspNtdsAccess.C!hva"
+        threat_id = "2147965547"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspNtdsAccess"
+        severity = "Critical"
+        info = "hva: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\esentutl.exe" wide //weight: 10
+        $x_10_2 = "/vss" wide //weight: 10
+        $x_10_3 = "/y " wide //weight: 10
+        $x_10_4 = "c:\\windows\\ntds" wide //weight: 10
+        $x_10_5 = "/d c:\\" wide //weight: 10
+        $n_100_6 = ":\\ifm" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Backdoor_Win32_SuspNtdsAccess_C_2147965548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/SuspNtdsAccess.C!genA"
+        threat_id = "2147965548"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspNtdsAccess"
+        severity = "Critical"
+        info = "genA: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\esentutl.exe" wide //weight: 10
+        $x_10_2 = "/vss" wide //weight: 10
+        $x_10_3 = "/y " wide //weight: 10
+        $x_10_4 = "c:\\windows\\ntds" wide //weight: 10
+        $x_10_5 = "/d c:\\" wide //weight: 10
+        $n_200_6 = ":\\ifm" wide //weight: -200
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

@@ -2087,6 +2087,28 @@ rule Trojan_Win64_LummaStealer_AHC_2147951082_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {48 87 db 48 8d 1b 90 4d 8d 12 90 4d 87 d2 90 e9}  //weight: 30, accuracy: High
+        $x_20_2 = {41 5a 48 89 c9 4d 89 c0 4d 89 c9 41 51 4d 87 c9 41 59}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_AHC_2147951082_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.AHC!MTB"
+        threat_id = "2147951082"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:

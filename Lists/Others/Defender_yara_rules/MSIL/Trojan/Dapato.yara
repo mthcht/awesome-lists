@@ -273,3 +273,26 @@ rule Trojan_MSIL_Dapato_AB_2147959514_0
         )
 }
 
+rule Trojan_MSIL_Dapato_ABDM_2147965563_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dapato.ABDM!MTB"
+        threat_id = "2147965563"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {25 16 02 7c ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 25 17 02 7c ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 25 18 02 7c ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 06 fe ?? 5f 00 00 06 73 ?? 00 00 0a 28 ?? 00 00 2b 7e ?? 00 00 04 25 2d 17 26}  //weight: 5, accuracy: Low
+        $x_4_2 = {25 2d 17 26 7e ?? 00 00 04 fe ?? 45 00 00 06 73 ?? 00 00 0a 25 80 ?? 00 00 04 7d ?? 00 00 04 06 7e ?? 00 00 04 25 2d 17 26}  //weight: 4, accuracy: Low
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
