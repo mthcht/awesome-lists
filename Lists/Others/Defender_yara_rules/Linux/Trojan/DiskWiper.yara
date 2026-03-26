@@ -18,6 +18,7 @@ rule Trojan_Linux_DiskWiper_A_2147794563_0
         $n_5_4 = "u-boot.imx" wide //weight: -5
         $n_5_5 = ".iso" wide //weight: -5
         $n_5_6 = ".img" wide //weight: -5
+        $n_5_7 = "if=kontron" wide //weight: -5
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
