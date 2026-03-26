@@ -68,3 +68,25 @@ rule Trojan_Win64_BadJoke_GPB_2147964631_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BadJoke_MK_2147965661_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BadJoke.MK!MTB"
+        threat_id = "2147965661"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b6 85 04 01 00 00 0f b6 8d 24 01 00 00 c1 e1 08 0b c1 0f b6 8d 44 01 00 00 c1 e1 10 0b c1 44 8b c0 ba 05}  //weight: 20, accuracy: High
+        $x_15_2 = {8b 85 64 01 00 00 ff c0 89 85 64 01 00 00 8b 85 64 01 00 00 8b 8d 08 01 00 00 2b c8 8b c1 b9 08 00 00 00 48 6b c9 00 89 84 0d 38 01}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8158,6 +8158,28 @@ rule Trojan_Win32_Zusy_MK_2147951922_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_MK_2147951922_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.MK!MTB"
+        threat_id = "2147951922"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 4c 24 04 8b 44 24 04 81 c1 d4 14 fa af 8a 84 04 3a 01 00 00 0f b6 d0 8b c2 23 c1 03 c0 2b d0 8b 44 24 04 03 d1 80 c2 34 88 94 04 3a 01 00 00 8b 44 24 04 40 89 44 24 04 83 7c 24 04 16}  //weight: 20, accuracy: High
+        $x_15_2 = {c7 84 24 20 04 00 00 a2 9a bd b4 c7 84 24 24 04 00 00 a0 9d b4 ac c7 84 24 28 04 00 00 a7 be b5 b8 c7 84 24 2c 04 00 00 b2 95 bb ba 66 c7 84 24 30 04 00 00 b9 ac c6 84 24 32 04 00 00 20}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_LMB_2147952202_0
 {
     meta:
@@ -9155,5 +9177,30 @@ rule Trojan_Win32_Zusy_PGAQ_2147965390_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_MKC_2147965659_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.MKC!MTB"
+        threat_id = "2147965659"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f b7 44 56 08 66 85 c0 ?? ?? 25 ff 0f 00 00 8b cb 03 06 2b 4c 24 28 01 0c 28 42 3b d7}  //weight: 20, accuracy: Low
+        $x_15_2 = "WindowsResilienceServiceMutex" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_15_*))) or
+            (all of ($x*))
+        )
 }
 
