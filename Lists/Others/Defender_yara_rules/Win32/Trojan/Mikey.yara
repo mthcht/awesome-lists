@@ -600,3 +600,27 @@ rule Trojan_Win32_Mikey_LRD_2147965689_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_AHB_2147965715_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.AHB!MTB"
+        threat_id = "2147965715"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "PlumEnCryptFileExtractFromMemoryExA" ascii //weight: 40
+        $x_30_2 = "PlumUnPackOneFileStoreInMemoryA" ascii //weight: 30
+        $x_20_3 = "PlumCatEnCryptMACByPath" ascii //weight: 20
+        $x_10_4 = "EnCipher@CPlumCipherA" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

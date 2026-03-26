@@ -478,3 +478,27 @@ rule Trojan_Win64_Injector_SXG_2147965214_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXH_2147965730_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXH!MTB"
+        threat_id = "2147965730"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {c7 44 24 20 40 00 00 00 44 8b 46 50 48 8b 56 30 ff 15 ?? ?? ?? ?? 4c 8b f8 48 85 c0 75 07 33 ff ?? ?? ?? ?? ?? 44 8b 4e 54 45 33 ed 48 8b 4c 24 50 4c 8b c3 49 8b d7 4c 89 6c 24 20 ff 15 ?? ?? ?? ?? 85 c0}  //weight: 10, accuracy: Low
+        $x_5_2 = "Target process is 32-bit: %s" ascii //weight: 5
+        $x_20_3 = "C:\\Users\\%s\\AppData\\Local\\Temp\\scoped_dir" ascii //weight: 20
+        $x_5_4 = "Source32: %s, Target32: %s" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

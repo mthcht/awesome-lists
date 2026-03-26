@@ -8632,6 +8632,56 @@ rule Trojan_Win32_Zusy_ARR_2147956041_3
         )
 }
 
+rule Trojan_Win32_Zusy_ARR_2147956041_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.ARR!MTB"
+        threat_id = "2147956041"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 8b d0 48 8b cb ff 15 ?? ?? ?? ?? 4c 89 64 24 30 44 89 64 24 28 4c 89 64 24 20 4c 8b cf 45 33 c0 33 d2 48 8b cb}  //weight: 3, accuracy: Low
+        $x_7_2 = "taskkill /IM taskmgr.exe /F" ascii //weight: 7
+        $x_10_3 = "del /s /q \"C:\\Windows\\System32" ascii //weight: 10
+        $x_6_4 = "rickroll.jpg" ascii //weight: 6
+        $x_4_5 = "IDR_RICKROLL_JPG" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_ARR_2147956041_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.ARR!MTB"
+        threat_id = "2147956041"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "22"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {33 c0 8b ca f0 0f b1 0e 85 c0}  //weight: 3, accuracy: High
+        $x_7_2 = "cmd.exe /c vssadmin delete shadows /all /quiet" ascii //weight: 7
+        $x_6_3 = "cmd.exe /c wbadmin delete catalog -quiet" ascii //weight: 6
+        $x_5_4 = "cmd.exe /c bcdedit /set {default} recoveryenabled No" ascii //weight: 5
+        $x_1_5 = "cipher /e /s:C:\\Users" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_HAF_2147956064_0
 {
     meta:

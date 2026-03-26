@@ -1717,3 +1717,29 @@ rule Trojan_MSIL_Injector_KKA_2147965483_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_ARR_2147965720_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.ARR!MTB"
+        threat_id = "2147965720"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "$pnp = Get-PnpDevice -InstanceId (\"PCI\\\" + $pciShort + \"*\") -ErrorAction SilentlyContinue" ascii //weight: 7
+        $x_3_2 = ".exe /F \"$target\" /R /D Y 2>$null" ascii //weight: 3
+        $x_8_3 = "while (($vm.State -ne 'Off') -and ($waited -lt $maxWaitShutdown))" ascii //weight: 8
+        $x_4_4 = "$friendlyName = if ($pnp) { $pnp.FriendlyName } else { $gpu.Name }" ascii //weight: 4
+        $x_6_5 = "Write-Log (\"[$($VMName)] Copying $($Source) -> $($target) ($($FileMask))\")" ascii //weight: 6
+        $x_2_6 = "Inject Drivers" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -13490,3 +13490,26 @@ rule Trojan_Win32_ClickFix_DJI_2147965431_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_PAA_2147965731_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PAA!MTB"
+        threat_id = "2147965731"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "='http://" wide //weight: 4
+        $x_3_2 = "iex(irm" wide //weight: 3
+        $x_3_3 = "'curl.exe' -s -L" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

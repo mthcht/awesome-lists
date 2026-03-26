@@ -131,3 +131,25 @@ rule Trojan_Win64_XMRig_GDZ_2147959472_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XMRig_AHB_2147965718_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XMRig.AHB!MTB"
+        threat_id = "2147965718"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 8b 4c 24 48 48 81 e1 ?? ?? ?? ?? 0f b6 c9 33 c1 48 8b 4c 24 28 48 8b 54 24 30 48 03 d1 48 8b ca 88 01 e9}  //weight: 30, accuracy: Low
+        $x_20_2 = "xmr_miner_dll_start" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

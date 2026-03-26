@@ -8826,6 +8826,28 @@ rule Trojan_MSIL_Heracles_ARR_2147957416_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {08 17 9c 1f 11 28 ?? ?? ?? ?? 2c 15 1f 43 28 ?? ?? ?? ?? 2d 09 1f 58}  //weight: 11, accuracy: Low
+        $x_9_2 = {0a 2c 08 7e ?? ?? ?? ?? 0d de 42 07 28 ?? ?? ?? 06 0c 08 7e}  //weight: 9, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_ARR_2147957416_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.ARR!MTB"
+        threat_id = "2147957416"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:
@@ -9660,6 +9682,27 @@ rule Trojan_MSIL_Heracles_PAHT_2147965701_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {02 08 69 02 08 69 91 06 08 03 6f ?? 00 00 0a 6a 5d 69 91 61 9c 08}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_SXD_2147965727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SXD!MTB"
+        threat_id = "2147965727"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {1f 0f 8d 07 00 00 01 25 d0 01 00 00 04 28 ?? 00 00 0a 0d 07 09 8e 69 6a 28 ?? 00 00 0a 1f 40 12 02 28 ?? 00 00 06 26 09 16 07 09 8e 69 28 ?? 00 00 0a 07 09 8e 69 6a}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
