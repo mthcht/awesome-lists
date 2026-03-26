@@ -18829,6 +18829,26 @@ rule __PUA_Block_Softcnapp_0
         threat_id = "1879048199"
         severity = "94"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ott.newtab123.com" ascii //weight: 2
+        $x_1_2 = "jto.newtab123.com" ascii //weight: 1
+        $x_1_3 = "u96bi7dq" ascii //weight: 1
+        $x_1_4 = "subzip" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule __PUA_Block_Softcnapp_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "!#PUA:Block:Softcnapp"
+        threat_id = "1879048199"
+        severity = "94"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "1"
         strings_accuracy = "High"
     strings:
@@ -18839,7 +18859,7 @@ rule __PUA_Block_Softcnapp_0
         (1 of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_1
+rule __PUA_Block_Softcnapp_2
 {
     meta:
         author = "defender2yara"
@@ -18860,7 +18880,7 @@ rule __PUA_Block_Softcnapp_1
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_2
+rule __PUA_Block_Softcnapp_3
 {
     meta:
         author = "defender2yara"
@@ -18879,7 +18899,7 @@ rule __PUA_Block_Softcnapp_2
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_3
+rule __PUA_Block_Softcnapp_4
 {
     meta:
         author = "defender2yara"
@@ -18900,7 +18920,7 @@ rule __PUA_Block_Softcnapp_3
         (4 of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_4
+rule __PUA_Block_Softcnapp_5
 {
     meta:
         author = "defender2yara"
@@ -18920,7 +18940,7 @@ rule __PUA_Block_Softcnapp_4
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_5
+rule __PUA_Block_Softcnapp_6
 {
     meta:
         author = "defender2yara"
@@ -18939,7 +18959,7 @@ rule __PUA_Block_Softcnapp_5
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_6
+rule __PUA_Block_Softcnapp_7
 {
     meta:
         author = "defender2yara"
@@ -18959,7 +18979,7 @@ rule __PUA_Block_Softcnapp_6
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_7
+rule __PUA_Block_Softcnapp_8
 {
     meta:
         author = "defender2yara"
@@ -18979,7 +18999,7 @@ rule __PUA_Block_Softcnapp_7
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_8
+rule __PUA_Block_Softcnapp_9
 {
     meta:
         author = "defender2yara"
@@ -18998,7 +19018,7 @@ rule __PUA_Block_Softcnapp_8
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_9
+rule __PUA_Block_Softcnapp_10
 {
     meta:
         author = "defender2yara"
@@ -19018,7 +19038,7 @@ rule __PUA_Block_Softcnapp_9
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_10
+rule __PUA_Block_Softcnapp_11
 {
     meta:
         author = "defender2yara"
@@ -19038,7 +19058,7 @@ rule __PUA_Block_Softcnapp_10
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_11
+rule __PUA_Block_Softcnapp_12
 {
     meta:
         author = "defender2yara"
@@ -19058,7 +19078,7 @@ rule __PUA_Block_Softcnapp_11
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_12
+rule __PUA_Block_Softcnapp_13
 {
     meta:
         author = "defender2yara"
@@ -19077,7 +19097,7 @@ rule __PUA_Block_Softcnapp_12
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_13
+rule __PUA_Block_Softcnapp_14
 {
     meta:
         author = "defender2yara"
@@ -19097,7 +19117,7 @@ rule __PUA_Block_Softcnapp_13
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_14
+rule __PUA_Block_Softcnapp_15
 {
     meta:
         author = "defender2yara"
@@ -19118,7 +19138,7 @@ rule __PUA_Block_Softcnapp_14
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_15
+rule __PUA_Block_Softcnapp_16
 {
     meta:
         author = "defender2yara"
@@ -19139,7 +19159,7 @@ rule __PUA_Block_Softcnapp_15
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_16
+rule __PUA_Block_Softcnapp_17
 {
     meta:
         author = "defender2yara"
@@ -19159,7 +19179,7 @@ rule __PUA_Block_Softcnapp_16
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_17
+rule __PUA_Block_Softcnapp_18
 {
     meta:
         author = "defender2yara"
@@ -19179,7 +19199,7 @@ rule __PUA_Block_Softcnapp_17
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_18
+rule __PUA_Block_Softcnapp_19
 {
     meta:
         author = "defender2yara"
@@ -19200,7 +19220,7 @@ rule __PUA_Block_Softcnapp_18
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_19
+rule __PUA_Block_Softcnapp_20
 {
     meta:
         author = "defender2yara"
@@ -19221,7 +19241,7 @@ rule __PUA_Block_Softcnapp_19
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_20
+rule __PUA_Block_Softcnapp_21
 {
     meta:
         author = "defender2yara"
@@ -19242,7 +19262,7 @@ rule __PUA_Block_Softcnapp_20
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_21
+rule __PUA_Block_Softcnapp_22
 {
     meta:
         author = "defender2yara"
@@ -19262,7 +19282,7 @@ rule __PUA_Block_Softcnapp_21
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_22
+rule __PUA_Block_Softcnapp_23
 {
     meta:
         author = "defender2yara"
@@ -19286,7 +19306,7 @@ rule __PUA_Block_Softcnapp_22
         )
 }
 
-rule __PUA_Block_Softcnapp_23
+rule __PUA_Block_Softcnapp_24
 {
     meta:
         author = "defender2yara"
@@ -19310,7 +19330,7 @@ rule __PUA_Block_Softcnapp_23
         )
 }
 
-rule __PUA_Block_Softcnapp_24
+rule __PUA_Block_Softcnapp_25
 {
     meta:
         author = "defender2yara"
@@ -19333,7 +19353,7 @@ rule __PUA_Block_Softcnapp_24
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_25
+rule __PUA_Block_Softcnapp_26
 {
     meta:
         author = "defender2yara"
@@ -19356,7 +19376,7 @@ rule __PUA_Block_Softcnapp_25
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_26
+rule __PUA_Block_Softcnapp_27
 {
     meta:
         author = "defender2yara"
@@ -19379,7 +19399,7 @@ rule __PUA_Block_Softcnapp_26
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_27
+rule __PUA_Block_Softcnapp_28
 {
     meta:
         author = "defender2yara"
@@ -19402,7 +19422,7 @@ rule __PUA_Block_Softcnapp_27
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_28
+rule __PUA_Block_Softcnapp_29
 {
     meta:
         author = "defender2yara"
@@ -19424,7 +19444,7 @@ rule __PUA_Block_Softcnapp_28
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_29
+rule __PUA_Block_Softcnapp_30
 {
     meta:
         author = "defender2yara"
@@ -19450,7 +19470,7 @@ rule __PUA_Block_Softcnapp_29
         )
 }
 
-rule __PUA_Block_Softcnapp_30
+rule __PUA_Block_Softcnapp_31
 {
     meta:
         author = "defender2yara"
@@ -19472,7 +19492,7 @@ rule __PUA_Block_Softcnapp_30
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_31
+rule __PUA_Block_Softcnapp_32
 {
     meta:
         author = "defender2yara"
@@ -19493,7 +19513,7 @@ rule __PUA_Block_Softcnapp_31
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_32
+rule __PUA_Block_Softcnapp_33
 {
     meta:
         author = "defender2yara"
@@ -19516,7 +19536,7 @@ rule __PUA_Block_Softcnapp_32
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_33
+rule __PUA_Block_Softcnapp_34
 {
     meta:
         author = "defender2yara"
@@ -19545,7 +19565,7 @@ rule __PUA_Block_Softcnapp_33
         )
 }
 
-rule __PUA_Block_Softcnapp_34
+rule __PUA_Block_Softcnapp_35
 {
     meta:
         author = "defender2yara"
@@ -19565,7 +19585,7 @@ rule __PUA_Block_Softcnapp_34
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_35
+rule __PUA_Block_Softcnapp_36
 {
     meta:
         author = "defender2yara"
@@ -19586,7 +19606,7 @@ rule __PUA_Block_Softcnapp_35
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_36
+rule __PUA_Block_Softcnapp_37
 {
     meta:
         author = "defender2yara"
@@ -19615,7 +19635,7 @@ rule __PUA_Block_Softcnapp_36
         )
 }
 
-rule __PUA_Block_Softcnapp_37
+rule __PUA_Block_Softcnapp_38
 {
     meta:
         author = "defender2yara"
@@ -19642,7 +19662,7 @@ rule __PUA_Block_Softcnapp_37
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_38
+rule __PUA_Block_Softcnapp_39
 {
     meta:
         author = "defender2yara"
@@ -19664,7 +19684,7 @@ rule __PUA_Block_Softcnapp_38
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_39
+rule __PUA_Block_Softcnapp_40
 {
     meta:
         author = "defender2yara"
@@ -19687,7 +19707,7 @@ rule __PUA_Block_Softcnapp_39
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_40
+rule __PUA_Block_Softcnapp_41
 {
     meta:
         author = "defender2yara"
@@ -19713,7 +19733,7 @@ rule __PUA_Block_Softcnapp_40
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_41
+rule __PUA_Block_Softcnapp_42
 {
     meta:
         author = "defender2yara"
@@ -19741,7 +19761,7 @@ rule __PUA_Block_Softcnapp_41
         (3 of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_42
+rule __PUA_Block_Softcnapp_43
 {
     meta:
         author = "defender2yara"
@@ -19770,7 +19790,7 @@ rule __PUA_Block_Softcnapp_42
         (3 of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_43
+rule __PUA_Block_Softcnapp_44
 {
     meta:
         author = "defender2yara"
@@ -19792,7 +19812,7 @@ rule __PUA_Block_Softcnapp_43
         (all of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_44
+rule __PUA_Block_Softcnapp_45
 {
     meta:
         author = "defender2yara"
@@ -19814,7 +19834,7 @@ rule __PUA_Block_Softcnapp_44
         (4 of ($x*))
 }
 
-rule __PUA_Block_Softcnapp_45
+rule __PUA_Block_Softcnapp_46
 {
     meta:
         author = "defender2yara"

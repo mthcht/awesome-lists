@@ -773,3 +773,24 @@ rule Trojan_MSIL_NanoCore_AMTB_2147958955_0
         )
 }
 
+rule Trojan_MSIL_NanoCore_PGNC_2147965688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore.PGNC!MTB"
+        threat_id = "2147965688"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 0a 11 0b 6f ?? 00 00 0a 13 0d 12 0d 28 ?? 00 00 0a 06 07 6f ?? 00 00 0a 59 13 0f 25 1f 10 63 20 ff 00 00 00 5f d2 13 13 25 1e 63 20 ff 00 00 00 5f d2 13 14 16 63}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
