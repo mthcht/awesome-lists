@@ -114,3 +114,28 @@ rule Ransom_Win64_ContiCrypt_PAHU_2147965035_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_ContiCrypt_PAHR_2147965698_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/ContiCrypt.PAHR!MTB"
+        threat_id = "2147965698"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ContiCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Crittografia completata" ascii //weight: 2
+        $x_2_2 = "Inizio scansione e criptazione" ascii //weight: 2
+        $x_1_3 = "creazione thread shellcode" ascii //weight: 1
+        $x_1_4 = "Errore nell'aggiustare i privilegi" ascii //weight: 1
+        $x_1_5 = "Errore durante la creazione dello snapshot di processo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

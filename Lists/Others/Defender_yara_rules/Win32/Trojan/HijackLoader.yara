@@ -65,3 +65,26 @@ rule Trojan_Win32_HijackLoader_GXU_2147952328_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_HijackLoader_MCD_2147965704_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/HijackLoader.MCD!MTB"
+        threat_id = "2147965704"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "HijackLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {88 11 8d 49 ?? 8a 14 08 46 3a d3 75}  //weight: 2, accuracy: Low
+        $x_2_2 = {8a 16 8b f9 8b e9 32 10 40 88 16 83 ef 01 75 f6}  //weight: 2, accuracy: High
+        $x_1_3 = "checkin:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

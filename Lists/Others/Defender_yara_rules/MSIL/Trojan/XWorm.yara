@@ -4754,3 +4754,25 @@ rule Trojan_MSIL_XWorm_SVPO_2147965590_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BAQ_2147965703_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAQ!MTB"
+        threat_id = "2147965703"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {08 11 10 11 10 1f 5a 61 1f 5a 61 d2 9c 09 11 10 11 10 66 66 d2 9c 11 04 11 10 11 10 1a 62 11 10 1a 63 60 d2 9c 11 10 17 58 13 10 11 10 20 00 01 00 00 fe 04 2d ca}  //weight: 2, accuracy: High
+        $x_1_2 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

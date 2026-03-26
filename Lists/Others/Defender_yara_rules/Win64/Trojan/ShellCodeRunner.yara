@@ -128,6 +128,28 @@ rule Trojan_Win64_ShellCodeRunner_AB_2147921615_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeRunner_AB_2147921615_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeRunner.AB!MTB"
+        threat_id = "2147921615"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {66 89 44 24 7c c6 84 24 80 05 00 00 d7 c6 84 24 81 05 00 00 03 c6 84 24 82 05 00 00 c2 c6 84 24 83 05 00 00 bd c6 84 24 84 05 00 00 2b c6 84 24 85 05 00 00 f8 c6 84 24 86 05 00 00 5f c6 84 24 87 05 00 00 c1 c6 84 24 88 05 00 00 25 c6 84 24 89 05 00 00 07 c6 84 24 8a 05 00 00 63 c6 84 24 8b 05 00 00 b9 c6 84 24 8c 05 00 00 ec c7 84 24 74 06 00 00 03 00 00 00 c7 84 24 e8 01 00 00 70 0b 00 00 c7 84 24 20 07 00 00 00 00 00 00 8b 84 24 74 06 00 00 89 84 24 ec 08 00 00 8b 84 24 74 06 00 00 ff c8}  //weight: 6, accuracy: High
+        $x_6_2 = {89 84 24 74 06 00 00 83 bc 24 ec 08 00 00 00 7e 50 8b 84 24 e8 01 00 00 6b c0 0b 25 14 b2 00 00 89 84 24 20 07 00 00 8b 84 24 e8 01 00 00 d1 e8 8b 8c 24 20 07 00 00 33 c1 89 84 24 e8 01 00 00 8b 84 24 e8 01 00 00 83 e0 78 85 c0 75 11 8b 84 24 e8 01 00 00 83 c8 7c 89 84 24 e8 01 00 00 eb 88}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_ShellCodeRunner_AMG_2147922441_0
 {
     meta:
