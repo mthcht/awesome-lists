@@ -75,6 +75,28 @@ rule Trojan_Win64_Injector_KK_2147948308_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a 94 04 8e 00 00 00 89 d7 40 f6 df 19 c9 83 e1 44 31 ca 41 88 14 02 48 ff c0 48 83 f8 12}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b7 c0 49 ff c3 31 d0 c1 ea 10 69 c0 3b 9f 5d 04 31 c2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Injector_KK_2147948308_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.KK!MTB"
+        threat_id = "2147948308"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "Low"
     strings:

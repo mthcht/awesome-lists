@@ -1193,6 +1193,30 @@ rule Trojan_Win64_Lazy_RO_2147909169_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AH_2147909902_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AH!MTB"
+        threat_id = "2147909902"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "cmd.exe /c ping 127.0.0.1 -n 3 >nul && del /f /q " ascii //weight: 40
+        $x_30_2 = "inject_helper_x64.exe" ascii //weight: 30
+        $x_20_3 = "extract_keys_x64.dll" ascii //weight: 20
+        $x_10_4 = "[V20_NO_KEY]" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_RS_2147910167_0
 {
     meta:

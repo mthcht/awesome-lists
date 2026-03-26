@@ -578,3 +578,25 @@ rule Trojan_Win64_Farfli_ARAC_2147961933_0
         )
 }
 
+rule Trojan_Win64_Farfli_AHD_2147965619_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.AHD!MTB"
+        threat_id = "2147965619"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {f7 e9 03 d1 c1 fa ?? 8b c2 c1 e8 ?? 03 d0 69 d2 ?? 00 00 00 2b ca 81 c1 ?? ?? 00 00 69 c9 ?? ?? 00 00 ff 15}  //weight: 30, accuracy: Low
+        $x_20_2 = "new big loop connect %s %d ,sleep %d" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

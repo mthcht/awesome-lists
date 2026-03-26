@@ -3072,3 +3072,25 @@ rule Trojan_MSIL_Lokibot_PAA_2147964908_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lokibot_PAB_2147965609_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lokibot.PAB!MTB"
+        threat_id = "2147965609"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lokibot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {07 11 04 11 05 28 08 03 00 06 13 06 08 12 06 28 cf 00 00 0a 8c 93 00 00 01 28 09 03 00 06 26 00 11 05 17 58 13 05 11 05 07 28 0a 03 00 06 fe 04 13 07 11 07 2d c9}  //weight: 4, accuracy: High
+        $x_1_2 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

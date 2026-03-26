@@ -7106,6 +7106,34 @@ rule Trojan_Win32_Zusy_KK_2147944060_5
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_KK_2147944060_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KK!MTB"
+        threat_id = "2147944060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_2_2 = "%26\\Windows\\driver.exe x -r -ep2 -hplimpid2903392 @$" ascii //weight: 2
+        $x_3_3 = "%26\\Windows\\pas.rar blat.exe @$" ascii //weight: 3
+        $x_4_4 = "%26\\Windows\\pas.rar AnyDesk.exe @$" ascii //weight: 4
+        $x_5_5 = "%26\\Windows\\find.cmd netsh advfirewall set allprofiles state off" ascii //weight: 5
+        $x_6_6 = "%26\\Windows\\find.cmd sc stop WinDefend" ascii //weight: 6
+        $x_7_7 = "%26\\Windows\\find.cmd sc delete MpsSvc" ascii //weight: 7
+        $x_8_8 = "%26\\Windows\\find.cmd AnyDesk.exe --install @$" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_BAC_2147944114_0
 {
     meta:

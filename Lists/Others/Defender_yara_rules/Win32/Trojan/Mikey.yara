@@ -551,3 +551,25 @@ rule Trojan_Win32_Mikey_PGMY_2147964393_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_KK_2147965600_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.KK!MTB"
+        threat_id = "2147965600"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {50 6a 00 6a 00 6a 00 6a 00 6a 00 8d 44 24 2c 50 ff 15}  //weight: 20, accuracy: High
+        $x_10_2 = "\\doenerium-main\\electron\\node_modules\\boukiapi\\build\\Release\\qzescmomzywn.pdb" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

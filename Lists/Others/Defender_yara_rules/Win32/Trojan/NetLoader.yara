@@ -260,3 +260,25 @@ rule Trojan_Win32_NetLoader_YBG_2147949122_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_NetLoader_AHB_2147965620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/NetLoader.AHB!MTB"
+        threat_id = "2147965620"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "NetLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {2b ca d2 e0 8a ca 0f b6 f8 ba ?? ?? ?? ?? 0f b6 c3 d3 e8 8b ce 83 e1}  //weight: 30, accuracy: Low
+        $x_20_2 = "Defender exclusion: UAC asked for %s" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

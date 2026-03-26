@@ -1342,3 +1342,30 @@ rule Ransom_Win64_FileCoder_CQ_2147964267_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_PAA_2147965597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.PAA!MTB"
+        threat_id = "2147965597"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "main.dropNote" ascii //weight: 2
+        $x_1_2 = "main.exfilPrivateKey.deferwrap1" ascii //weight: 1
+        $x_1_3 = "main.encryptAESKey" ascii //weight: 1
+        $x_1_4 = "Go build ID:" ascii //weight: 1
+        $x_2_5 = "files on this computer are locked with strong encryption (RSA-4096 + AES-256)." ascii //weight: 2
+        $x_1_6 = "- Payment window: 48 hours at $100. After that price doubles to" ascii //weight: 1
+        $x_2_7 = ".locked" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

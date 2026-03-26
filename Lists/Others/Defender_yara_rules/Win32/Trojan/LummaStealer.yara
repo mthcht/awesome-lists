@@ -8342,6 +8342,27 @@ rule Trojan_Win32_LummaStealer_KKD_2147962096_0
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_20_1 = {0f b6 4c 04 04 89 c2 81 f2 ?? ?? ?? ?? 89 14 24 8b 14 24 01 ca 8b 34 24 21 ce [0-20] 24 0c 8b 54 24 0c 8b 34 24 21 ce 29 f2 89 54 24 08 8b 4c 24 08 [0-20] 88 4c 04 04 40 83 f8 04}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_KKD_2147962096_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.KKD!MTB"
+        threat_id = "2147962096"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_20_1 = {8b 04 24 8b 4c 24 18 0f b6 0c 01 35 ?? ?? ?? ?? 89 44 24 04 8b 44 24 04 21 c8 89 44 24 10 8b 44 24 04 21 c8 89 44 24 0c 8b 44 24 04 01 c8 8b 4c 24 10 8b 54 24 0c 01 d1 29 c8 89 44 24 08 8b 44 24 08 04 ?? 8b 4c 24 18 8b 14 24 88 04 11 8b 04 24 2d 55 4e 0a ac 83 c0 ?? 05 55 4e 0a ac 89 04 24 eb 93}  //weight: 20, accuracy: Low
     condition:
         (filesize < 20MB) and

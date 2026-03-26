@@ -1190,3 +1190,25 @@ rule Trojan_Win32_Tedy_PGTU_2147965000_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Tedy_AHB_2147965621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.AHB!MTB"
+        threat_id = "2147965621"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {2b d0 8b 44 24 04 03 d1 80 c2 ?? 88 94 04 07 06 00 00 8b 44 24 04 40 89 44 24 04 83 7c 24 04 ?? 72}  //weight: 20, accuracy: Low
+        $x_30_2 = {c7 84 24 44 05 00 00 34 3f 33 3a 66 c7 84 24 48 05 00 00 2a a5 0f 11 84 24 4a 05 00 00 c7 44 24 04 00 00 00 00}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -20,3 +20,25 @@ rule TrojanDownloader_MSIL_Zilla_AR_2147957570_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Zilla_SX_2147965613_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Zilla.SX!MTB"
+        threat_id = "2147965613"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {11 04 11 05 9a 13 06 11 06 72 ?? ?? 00 70 6f ?? 00 00 0a 2c 04 17 0c 2b 4d 08 2c 4a 11 06 6f ?? 00 00 0a 6f ?? 00 00 0a 16 31 3b 11 06 17 8d 72 00 00 01 25 16}  //weight: 30, accuracy: Low
+        $x_10_2 = "DownloadAndExecutePay2PayloadAsync" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
