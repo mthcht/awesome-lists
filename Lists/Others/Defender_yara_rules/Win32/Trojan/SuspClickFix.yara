@@ -450,9 +450,14 @@ rule Trojan_Win32_SuspClickFix_U_2147964735_0
         $x_1_3 = "| for /f " wide //weight: 1
         $x_1_4 = " | %" wide //weight: 1
         $x_1_5 = ".exe') do %" wide //weight: 1
+        $x_2_6 = {63 00 75 00 72 00 6c 00 20 00 [0-32] 68 00 74 00 74 00 70 00}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (4 of ($x*))
+        (
+            ((4 of ($x_1_*))) or
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_SuspClickFix_V_2147965059_0
