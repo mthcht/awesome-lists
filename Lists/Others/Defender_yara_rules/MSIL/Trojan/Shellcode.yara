@@ -40,3 +40,25 @@ rule Trojan_MSIL_Shellcode_BAA_2147957859_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Shellcode_ARR_2147965798_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Shellcode.ARR!MTB"
+        threat_id = "2147965798"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Shellcode"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {16 06 8e 69 20 ?? ?? ?? 00 1f 40 6f ?? ?? ?? ?? 0b 06 16 07 06 8e 69 28}  //weight: 11, accuracy: Low
+        $x_9_2 = {16 16 07 09 16 12 04 6f}  //weight: 9, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2619,6 +2619,29 @@ rule Trojan_Win64_Zusy_PGZI_2147953959_0
         )
 }
 
+rule Trojan_Win64_Zusy_PGZI_2147953959_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGZI!MTB"
+        threat_id = "2147953959"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0b 02 0e 32 00 38 00 00 00 4c 00 00 00 00 00 00 2c 3b 00 00 00 10 00 00 00 00 00 40 01 00 00 00 00 10 00 00 00 02 00 00 06 00 00 00 00 00 00 00 06 00 00 00 00 00 00 00 00 e0 00 00 00 04 00 00 00 00 00 00 03 00 60 81}  //weight: 5, accuracy: High
+        $x_5_2 = {2e 74 65 78 74 00 00 00 02 36 00 00 00 10 00 00 00 38 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 72 64 61 74 61 00 00 0c 40 00 00 00 50 00 00 00 42 00 00 00 3c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61}  //weight: 5, accuracy: High
+        $x_5_3 = {57 45 4c 43 00 00 00 00 59 4f 55 20 41 52 45 20 57 45 4c 43 4f 4d 45 2c 20 59 4f 55 52 20 43 4f 4d 50 55 54 45 52 20 49 53 20 44 4f 4e 45 20 46 4f 52 2e 20 47 4f 4f 44 42 59 45 2e 00 00 00 00 6e 6f 74 65 70 61 64 2e 65 78 65 00 6f 70 65 6e}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_MKB_2147954292_0
 {
     meta:

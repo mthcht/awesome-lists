@@ -21,3 +21,42 @@ rule Trojan_MacOS_AmosStealer_PA_2147920372_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_AmosStealer_GAV_2147965805_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.GAV!MTB"
+        threat_id = "2147965805"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_14_1 = {48 8b 95 38 ff ff ff 48 ff c1 48 39 d1 73 24 4c 89 fa a8 01 75 07 48 8b 95 40 ff ff ff 30 1c 0a 0f b6 95 30 ff ff ff f6 c2 01 0f 94 c0 75 d1}  //weight: 14, accuracy: High
+        $x_1_2 = "_usleep" ascii //weight: 1
+        $x_1_3 = "_waitpid" ascii //weight: 1
+        $x_1_4 = "_write" ascii //weight: 1
+        $x_1_5 = "dyld_stub_binder" ascii //weight: 1
+        $x_1_6 = "radr://5614542" ascii //weight: 1
+        $x_1_7 = "execl" ascii //weight: 1
+        $x_1_8 = "execvp" ascii //weight: 1
+        $x_1_9 = "fork" ascii //weight: 1
+        $x_1_10 = "memcpy" ascii //weight: 1
+        $x_1_11 = "memmove" ascii //weight: 1
+        $x_1_12 = "-iLd" ascii //weight: 1
+        $x_1_13 = "?W5/=\\" ascii //weight: 1
+        $x_1_14 = "/+ub-%" ascii //weight: 1
+        $x_1_15 = "/bin/zsh" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((14 of ($x_1_*))) or
+            ((1 of ($x_14_*))) or
+            (all of ($x*))
+        )
+}
+
