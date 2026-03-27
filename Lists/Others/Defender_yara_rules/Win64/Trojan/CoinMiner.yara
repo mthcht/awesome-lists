@@ -1151,3 +1151,27 @@ rule Trojan_Win64_CoinMiner_GVA_2147965499_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_MKB_2147965735_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.MKB!MTB"
+        threat_id = "2147965735"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "CorvusMiner/1.0" ascii //weight: 15
+        $x_10_2 = "[-] XMRig injection failed" ascii //weight: 10
+        $x_3_3 = "[-] GMiner injection failed" ascii //weight: 3
+        $x_2_4 = "[*] CPU mining disabled, skipping XMRig injection" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
