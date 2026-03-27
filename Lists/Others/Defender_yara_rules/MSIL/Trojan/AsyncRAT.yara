@@ -7123,3 +7123,29 @@ rule Trojan_MSIL_AsyncRAT_KK_2147965481_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_KKA_2147965821_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.KKA!MTB"
+        threat_id = "2147965821"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "/C ATTRIB +H \"" ascii //weight: 6
+        $x_5_2 = "EtwEventWrite" ascii //weight: 5
+        $x_4_3 = "Register-ScheduledTask -TaskName 'RuntimeBroker_startup_" ascii //weight: 4
+        $x_3_4 = "_str' -Trigger (New-ScheduledTaskTrigger -AtLogon) -Action (New-ScheduledTaskAction -Execute '" ascii //weight: 3
+        $x_2_5 = "') -Settings (New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -Hidden -ExecutionTimeLimit 0) -RunLevel Highest -Force" ascii //weight: 2
+        $x_1_6 = "CreateObject(Replace(\"WScript.Shell\",\"SubChar\",\"\")).Run \"\"\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

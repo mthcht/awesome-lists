@@ -2928,6 +2928,32 @@ rule Trojan_Win64_Lazy_KK_2147944057_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 85 ec 00 00 00 48 8d 15 ?? ?? 00 00 0f b6 04 10 83 f0 ?? 89 c1 8b 85 ec 00 00 00 48 8d 15 ?? ?? 00 00 88 0c 10 83 85 ec 00 00 00 01}  //weight: 30, accuracy: Low
+        $x_5_2 = "C:\\WindoH" ascii //weight: 5
+        $x_4_3 = "ws\\SysteH" ascii //weight: 4
+        $x_3_4 = "m32\\RuntH" ascii //weight: 3
+        $x_2_5 = "imeBrokeH" ascii //weight: 2
+        $x_1_6 = "ker.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_KK_2147944057_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KK!MTB"
+        threat_id = "2147944057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
         strings_accuracy = "Low"
     strings:
@@ -2939,7 +2965,7 @@ rule Trojan_Win64_Lazy_KK_2147944057_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_KK_2147944057_1
+rule Trojan_Win64_Lazy_KK_2147944057_2
 {
     meta:
         author = "defender2yara"

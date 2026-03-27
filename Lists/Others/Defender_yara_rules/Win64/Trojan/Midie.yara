@@ -479,6 +479,28 @@ rule Trojan_Win64_Midie_MDD_2147947499_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_KK_2147948776_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.KK!MTB"
+        threat_id = "2147948776"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 84 24 bc 00 00 00 89 84 24 84 00 00 00 65 48 8b 04 25 ?? 00 00 00 48 8b 40 18 48 89 c1 48 83 c1 10 48 89 8c 24 88 00 00 00 48 8b 40 10 48 39 c8 48 89 84 24 90 00 00 00}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 8b 94 24 38 01 00 00 8b 8c 24 34 01 00 00 44 8a 84 24 33 01 00 00 48 89 d0 48 83 c0 01 45 0f b6 c0 44 31 c1 69 c9 93 01 00 01 8a 52 01 80 fa 00 88 94 24 33 01 00 00 89 8c 24 34 01 00 00 48 89 84 24 38 01 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Midie_GVA_2147949149_0
 {
     meta:
@@ -951,6 +973,27 @@ rule Trojan_Win64_Midie_MX_2147965168_0
         $x_1_1 = {74 48 48 89 c7 48 8d 0d 7c 01 00 00 ba 01 00 00 00 49 c7 c0 24 00 00 00 49 89 f9 48 83 ec 08 50 48 8d 05 0c 00 00 00 48 89 44 24 08 58 ff 25 80 09 00 00 48 89 f9 ff 15 6f 09 00 00 4c 8d 0d 45 01 00 00 49 c7 c2 24 00 00 00}  //weight: 1, accuracy: High
         $x_1_2 = "CreateMutex" ascii //weight: 1
         $x_1_3 = "Axolotl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Midie_KKA_2147965820_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.KKA!MTB"
+        threat_id = "2147965820"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b 45 f0 8b 4d ec 48 8b 55 f8 4c 63 c9 49 b8 ?? ?? ?? ?? ?? 00 00 00 47 8a 0c 08 41 89 c8 41 ba ab aa aa aa 4d 0f af c2 49 c1 e8 23 45 89 c2 41 c1 e2 02 45 89 d0 47 8d 04 40 41 89 ca 45 29 c2 45 89 d3 49 b8 ?? ?? ?? ?? ?? 00 00 00 4d 01 d8 4d 63 d2 45 32 08 4c 63 c1 46 88 0c 02 83 c1 01 89 08}  //weight: 20, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

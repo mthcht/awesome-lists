@@ -1164,3 +1164,28 @@ rule Trojan_MSIL_Keylogger_CSI_2147953334_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Keylogger_KK_2147965819_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.KK!MTB"
+        threat_id = "2147965819"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "screenshotTriggerWord" ascii //weight: 1
+        $x_2_2 = "processSteal_Tick" ascii //weight: 2
+        $x_3_3 = "clipboardLogger_Tick" ascii //weight: 3
+        $x_4_4 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 4
+        $x_5_5 = "FTP Log.txt" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
