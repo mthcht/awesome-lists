@@ -56,7 +56,7 @@ jobs:
             exit 0
           fi
 
-          TOTAL=$(python3 -c "import json; print(json.load(open("Lists/TOR/tor_nodes_history.json"))["total_ips"])")
+          TOTAL=$(python3 -c 'import json; print(json.load(open("Lists/TOR/tor_nodes_history.json"))["total_ips"])')
           git commit -m "tor history: ${TOTAL} unique IPs [skip ci]"
 
           for i in 1 2 3 4 5 6 7 8 9 10; do
