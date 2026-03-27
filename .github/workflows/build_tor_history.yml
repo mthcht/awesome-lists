@@ -15,6 +15,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: tor-history-push
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,11 +47,28 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add Lists/TOR/tor_nodes_history.json
           if git diff --cached --quiet; then
             echo "No changes"
-          else
-            TOTAL=$(python3 -c "import json; print(json.load(open('Lists/TOR/tor_nodes_history.json'))['total_ips'])")
-            git commit -m "tor history: ${TOTAL} unique IPs [skip ci]"
-            git push
+            exit 0
           fi
+
+          TOTAL=$(python3 -c "import json; print(json.load(open('Lists/TOR/tor_nodes_history.json'))['total_ips'])")
+          git commit -m "tor history: ${TOTAL} unique IPs [skip ci]"
+
+          # No other action touches tor_nodes_history.json so rebase
+          # will never conflict â€” it just replays our commit on top of
+          # whatever the hourly updater pushed while we were building.
+          for i in $(seq 1 10); do
+            git pull --rebase origin main
+            if git push origin main; then
+              echo "âœ… Pushed on attempt $i"
+              exit 0
+            fi
+            echo "â³ Attempt $i failed, retrying in 5s..."
+            sleep 5
+          done
+
+          echo "âŒ Failed after 10 attempts"
+          exit 1
