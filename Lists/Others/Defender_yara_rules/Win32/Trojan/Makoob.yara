@@ -285,3 +285,29 @@ rule Trojan_Win32_Makoob_SCE_2147944918_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Makoob_GVC_2147965777_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Makoob.GVC!MTB"
+        threat_id = "2147965777"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Makoob"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SeShutdownPrivilege" wide //weight: 1
+        $x_1_2 = "Please wait while Setup is loading..." wide //weight: 1
+        $x_1_3 = "survivorships.exe" wide //weight: 1
+        $x_1_4 = "hieromnemon tanagridae sarkofag" wide //weight: 1
+        $x_1_5 = "blackgum" wide //weight: 1
+        $x_1_6 = "incomplete download and damaged media" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

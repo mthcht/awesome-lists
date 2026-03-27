@@ -54,3 +54,24 @@ rule Trojan_Win64_Petwosel_B_2147941674_0
         )
 }
 
+rule Trojan_Win64_Petwosel_DA_2147965776_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Petwosel.DA!MTB"
+        threat_id = "2147965776"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Petwosel"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {46 0f be 14 0a 45 8d 5a bf 44 89 d7 83 cf 20 41 80 fb 1a 41 0f 43 fa 44 31 c7 44 69 c7 8d 05 b4 00 49 83 c1 02 4c 39 c9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
