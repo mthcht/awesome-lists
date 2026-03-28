@@ -1,0 +1,73 @@
+name: Build TOR Node History
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      full_rebuild:
+        description: Force full rebuild from scratch
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tor-history-push
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout with FULL history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build history
+        run: |
+          ARGS="--output Lists/TOR/tor_nodes_history.json --state Lists/TOR/.tor_history_state.json"
+          if [ "${{ inputs.full_rebuild }}" = "true" ]; then
+            ARGS="$ARGS --full"
+          fi
+          python Lists/TOR/build_tor_history.py $ARGS
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add Lists/TOR/tor_nodes_history.json Lists/TOR/.tor_history_state.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          TOTAL=$(python3 -c 'import json; print(json.load(open("Lists/TOR/tor_nodes_history.json"))["total_ips"])')
+          git commit -m "tor history: ${TOTAL} unique IPs [skip ci]"
+
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --rebase origin main
+            if git push origin main; then
+              echo "Pushed on attempt $i"
+              exit 0
+            fi
+            echo "Attempt $i failed, retrying in 5s..."
+            sleep 5
+          done
+
+          echo "Failed after 10 attempts"
+          exit 1
