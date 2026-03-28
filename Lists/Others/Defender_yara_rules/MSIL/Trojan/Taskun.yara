@@ -247,6 +247,27 @@ rule Trojan_MSIL_Taskun_ABTK_2147846318_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 11 11 11 12 6f ?? 00 00 0a 13 13 11 0b 03 fe 04 13 14 11 14 2c 17 00 11 08 12 13 28 ?? 00 00 0a 6f ?? 00 00 0a 00 11 0b 17 58 13 0b}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Taskun_ABTK_2147846318_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Taskun.ABTK!MTB"
+        threat_id = "2147846318"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Taskun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:

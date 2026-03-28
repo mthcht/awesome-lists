@@ -126,3 +126,24 @@ rule Trojan_Win64_Stealc_YGB_2147963515_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealc_ZY_2147965833_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealc.ZY"
+        threat_id = "2147965833"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealc"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {48 8d 54 24 28 48 8d 4d 98 e8 ?? ?? ?? ?? ff 15 ?? ?? ?? ?? 0f b7 c8 81 e9 19 04 00 00 74 14 83 e9 09 74 0f 83 e9 01 74 0a 83 e9 1c 74 05 83 f9 04 75 08 33 c9 ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
