@@ -93,3 +93,26 @@ rule Trojan_MSIL_AntiVM_NUA_2147964763_0
         )
 }
 
+rule Trojan_MSIL_AntiVM_SX_2147965832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AntiVM.SX!MTB"
+        threat_id = "2147965832"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AntiVM"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Exclusions\\Paths\" /v \"C:\\Windows\\System32" ascii //weight: 20
+        $x_10_2 = "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\PhishingFilter\" /v EnabledV9" ascii //weight: 10
+        $x_5_3 = "cd /d C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18* && MpCmdRun.exe -AddExclusion -Path C:\\Windows" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
