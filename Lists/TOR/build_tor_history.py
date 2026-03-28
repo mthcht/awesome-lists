@@ -1,18 +1,11 @@
 #!/usr/bin/env python3
 """
-build_tor_history.py
+build_tor_history.py — runs inside the repo, uses git log/show only.
 
-Runs INSIDE the mthcht/awesome-lists repo via GitHub Actions.
-Uses `git log` + `git show` — no API, no token needed for reading.
+First run: all commits sampled 1/day. Next runs: incremental.
 
-Columns in TOR_nodes_list.csv:
-  metadata_nickname, metadata_fingerprint, metadata_last_seen, metadata_first_seen,
-  metadata_running, metadata_country, metadata_country_name, metadata_as, metadata_as_name,
-  metadata_contact, metadata_guard_probability, metadata_exit_probability,
-  metadata_middle_probability, dest_ip, dest_port, metadata_dest_role, dest_nt_host
-
-First run  → all commits sampled 1/day
-Next runs  → only new commits since last_commit_sha
+Now stores guard/exit/middle probability and infers role from
+probabilities when metadata_dest_role is unknown/empty.
 """
 
 import argparse
@@ -26,7 +19,6 @@ from pathlib import Path
 
 FILE_PATH = "Lists/TOR/TOR_nodes_list.csv"
 
-# Exact column names
 COL_IP         = "dest_ip"
 COL_FIRST_SEEN = "metadata_first_seen"
 COL_LAST_SEEN  = "metadata_last_seen"
@@ -45,10 +37,6 @@ COL_GUARD_P    = "metadata_guard_probability"
 COL_EXIT_P     = "metadata_exit_probability"
 COL_MID_P      = "metadata_middle_probability"
 
-
-# ---------------------------------------------------------------------------
-# Git (local CLI only)
-# ---------------------------------------------------------------------------
 
 def git(args):
     r = subprocess.run(["git"] + args, capture_output=True, text=True, check=True)
@@ -78,16 +66,10 @@ def get_file_at(sha):
     return git(["show", f"{sha}:{FILE_PATH}"])
 
 
-# ---------------------------------------------------------------------------
-# CSV parsing
-# ---------------------------------------------------------------------------
-
 def parse_csv(text):
-    """Parse the CSV. Returns list of dicts with normalized keys."""
     reader = csv.DictReader(io.StringIO(text))
     if not reader.fieldnames:
         return []
-
     rows = []
     for row in reader:
         ip = (row.get(COL_IP) or "").strip()
@@ -101,7 +83,6 @@ def norm_date(d):
     if not d or not d.strip():
         return ""
     d = d.strip()
-    # Handle "1970-01-01 00:00:00" as missing
     if d.startswith("1970-01-01"):
         return ""
     for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%d"):
@@ -131,10 +112,6 @@ def merge_periods(periods):
     return merged
 
 
-# ---------------------------------------------------------------------------
-# Sample: pick 1 commit per N hours, always include last
-# ---------------------------------------------------------------------------
-
 def sample(commits, hours):
     if not commits:
         return []
@@ -152,33 +129,72 @@ def sample(commits, hours):
     return out
 
 
-# ---------------------------------------------------------------------------
-# Build metadata dict (compact)
-# ---------------------------------------------------------------------------
+def safe_float(v):
+    """Parse a float, return 0 on failure."""
+    try:
+        f = float(v)
+        return f if f == f else 0  # NaN check
+    except (ValueError, TypeError):
+        return 0
+
+
+def infer_role(row):
+    """
+    Return (role, gp, ep, mp).
+    If metadata_dest_role is known (exit/guard/middle), use it.
+    Otherwise infer from probabilities.
+    """
+    role_raw = (row.get(COL_ROLE) or "").strip().lower()
+    gp = safe_float(row.get(COL_GUARD_P, ""))
+    ep = safe_float(row.get(COL_EXIT_P, ""))
+    mp = safe_float(row.get(COL_MID_P, ""))
+
+    if role_raw in ("exit", "guard", "middle"):
+        return role_raw, gp, ep, mp
+
+    # Infer from probabilities
+    if gp == 0 and ep == 0 and mp == 0:
+        return "unknown", gp, ep, mp
+
+    # Pick the highest probability
+    best = max(("guard", gp), ("exit", ep), ("middle", mp), key=lambda x: x[1])
+    return best[0], gp, ep, mp
+
 
 def build_meta(row):
-    """Extract compact metadata from a CSV row."""
     m = {}
     for csv_col, key in [
         (COL_NICKNAME, "nick"),
         (COL_FP,       "fp"),
         (COL_COUNTRY,  "cc"),
-        (COL_COUNTRY_N,"cn"),
+        (COL_COUNTRY_N, "cn"),
         (COL_AS,       "as"),
         (COL_AS_NAME,  "asn"),
-        (COL_ROLE,     "role"),
         (COL_PORT,     "port"),
         (COL_HOST,     "host"),
     ]:
         v = (row.get(csv_col) or "").strip()
         if v:
             m[key] = v
+
+    role, gp, ep, mp = infer_role(row)
+    m["role"] = role
+
+    # Store probabilities if any are > 0
+    if gp > 0:
+        m["gp"] = round(gp, 8)
+    if ep > 0:
+        m["ep"] = round(ep, 8)
+    if mp > 0:
+        m["mp"] = round(mp, 8)
+
+    # Store original role if we inferred a different one
+    role_raw = (row.get(COL_ROLE) or "").strip().lower()
+    if role_raw and role_raw != role:
+        m["orig_role"] = role_raw
+
     return m
 
-
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
 
 def main():
     ap = argparse.ArgumentParser()
@@ -187,55 +203,49 @@ def main():
     args = ap.parse_args()
     output = Path(args.output)
 
-    # ── Load existing ────────────────────────────────────────────────────
     existing = {}
     if output.exists() and not args.full:
-        print("📂 Loading existing history…")
+        print("Loading existing history...")
         with open(output) as f:
             existing = json.load(f)
-        print(f"   {existing.get('total_ips',0):,} IPs | last: {existing.get('last_commit_sha','?')[:7]}")
+        print(f"   {existing.get('total_ips', 0):,} IPs | last: {existing.get('last_commit_sha', '?')[:7]}")
 
-    ip_db      = existing.get("ips", {})
-    last_sha   = existing.get("last_commit_sha") if not args.full else None
+    ip_db = existing.get("ips", {})
+    last_sha = existing.get("last_commit_sha") if not args.full else None
     prev_count = existing.get("commits_processed", 0) if not args.full else 0
 
-    # ── Get commits ──────────────────────────────────────────────────────
     if last_sha:
-        print(f"🔍 New commits after {last_sha[:7]}…")
+        print(f"New commits after {last_sha[:7]}...")
         commits = get_commits(since_sha=last_sha)
         print(f"   {len(commits)} new")
         if not commits:
-            print("✅ Up to date"); return
+            print("Up to date")
+            return
         sampled = sample(commits, hours=3)
     else:
-        print("🔍 First run — scanning all commits…")
+        print("First run - all commits...")
         commits = get_commits()
         print(f"   {len(commits)} total")
         if not commits:
-            print("❌ No commits found — did you checkout with fetch-depth: 0 ?")
+            print("No commits found")
             sys.exit(1)
         sampled = sample(commits, hours=24)
 
-    print(f"📊 Processing {len(sampled)} commits…\n")
+    print(f"Processing {len(sampled)} commits...\n")
 
-    # ── Process ──────────────────────────────────────────────────────────
     errors = 0
     for i, c in enumerate(sampled):
         sha, cdate = c["sha"], c["date"]
         pct = int((i + 1) / len(sampled) * 100)
         print(f"  [{pct:3d}%] {sha[:7]} ({cdate[:10]})", end=" ", flush=True)
-
         try:
             text = get_file_at(sha)
             rows = parse_csv(text)
             new = 0
-
             for row in rows:
                 ip = row[COL_IP].strip()
                 fs = norm_date(row.get(COL_FIRST_SEEN, ""))
                 ls = norm_date(row.get(COL_LAST_SEEN, ""))
-
-                # fallback to commit date if dates are empty
                 cd = cdate[:10]
                 if not fs and not ls:
                     fs = ls = cd
@@ -249,47 +259,41 @@ def main():
                     new += 1
 
                 ip_db[ip]["p"].append([fs, ls])
-
-                # always update metadata with latest snapshot
                 meta = build_meta(row)
                 if meta:
                     ip_db[ip]["m"] = meta
 
-            print(f"→ {len(rows)} rows ({new} new IPs)")
-
+            print(f"-> {len(rows)} rows ({new} new)")
         except Exception as e:
             errors += 1
             print(f"ERROR: {e}")
 
-    # ── Merge periods ────────────────────────────────────────────────────
-    print("\n🔗 Merging periods…")
+    print("\nMerging periods...")
     for ip in ip_db:
         ip_db[ip]["p"] = merge_periods(ip_db[ip]["p"])
 
-    # ── Stats ────────────────────────────────────────────────────────────
     firsts, lasts = [], []
     for d in ip_db.values():
         for p in d["p"]:
-            if p[0]: firsts.append(p[0])
-            if p[1]: lasts.append(p[1])
+            if p[0]:
+                firsts.append(p[0])
+            if p[1]:
+                lasts.append(p[1])
 
-    # ── Count by role (for stats) ────────────────────────────────────────
+    # Role counts (using inferred roles)
     role_counts = {}
     for d in ip_db.values():
         role = d.get("m", {}).get("role", "unknown")
         role_counts[role] = role_counts.get(role, 0) + 1
 
-    # ── Country counts ───────────────────────────────────────────────────
     country_counts = {}
     for d in ip_db.values():
         cc = d.get("m", {}).get("cc", "")
         if cc:
             country_counts[cc] = country_counts.get(cc, 0) + 1
 
-    # sort top 30 countries
     top_countries = dict(sorted(country_counts.items(), key=lambda x: -x[1])[:30])
 
-    # ── Write ────────────────────────────────────────────────────────────
     result = {
         "updated": datetime.now(timezone.utc).isoformat(),
         "source": f"https://github.com/mthcht/awesome-lists/blob/main/{FILE_PATH}",
@@ -309,8 +313,8 @@ def main():
         json.dump(result, f, separators=(",", ":"))
 
     mb = output.stat().st_size / 1048576
-    print(f"\n✅ {output} ({mb:.1f} MB)")
-    print(f"   {len(ip_db):,} unique IPs | {result['range'][0]} → {result['range'][1]}")
+    print(f"\n Done: {output} ({mb:.1f} MB)")
+    print(f"   {len(ip_db):,} IPs | {result['range'][0]} -> {result['range'][1]}")
     print(f"   Roles: {role_counts}")
     print(f"   {len(sampled)} commits this run ({prev_count + len(sampled)} total)")
 
