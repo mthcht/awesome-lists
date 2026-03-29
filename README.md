@@ -489,6 +489,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Defender Resource](https://defenderresourcehub.info/)
 - [awesome-threat-detection](https://github.com/0x4D31/awesome-threat-detection)
 - [LOLOLFarm](https://lolol.farm/)
+- [InnerWarden](https://github.com/InnerWarden/innerwarden) - Autonomous Linux security agent with 38 eBPF hooks, 48 detectors, and real-time threat response
 
 </details>
 
