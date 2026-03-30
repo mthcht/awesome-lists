@@ -4825,3 +4825,25 @@ rule Trojan_Win64_Tedy_WD_2147965665_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AHA_2147965874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHA!MTB"
+        threat_id = "2147965874"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {45 f0 80 f1 ?? 48 83 7d 08 0f 48 0f 47 45 f0 42 88 0c 08 49 ff c1 48 8b 4d 00 4c 3b c9 72}  //weight: 30, accuracy: Low
+        $x_20_2 = "Global\\WidgetsPlatformMutex" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

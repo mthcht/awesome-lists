@@ -8381,3 +8381,28 @@ rule Trojan_Win32_GuLoader_REO_2147965795_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REP_2147965864_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REP!MTB"
+        threat_id = "2147965864"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\henfrte\\isodulcite\\Indekskontrakternes128" ascii //weight: 1
+        $x_1_2 = "\\slikporrens\\sonanternes\\laesehastigheden.ini" ascii //weight: 1
+        $x_1_3 = "\\karitta\\amerika\\unsanctioned.jpg" ascii //weight: 1
+        $x_1_4 = "%onymy%\\snowworm\\rundesangenes" ascii //weight: 1
+        $x_1_5 = "\\Faciest156\\Superexcitement.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -85,3 +85,26 @@ rule TrojanDownloader_Win64_Zusy_AUZ_2147952322_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Zusy_AHB_2147965875_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Zusy.AHB!MTB"
+        threat_id = "2147965875"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[*] Killing Processes and Deleting Files.." ascii //weight: 30
+        $x_10_2 = "i05 exist. Sleeping 5s then exiting..." ascii //weight: 10
+        $x_20_3 = "[+] Downloaded encrypted JSON (%lu bytes)" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

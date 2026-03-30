@@ -292,3 +292,28 @@ rule Trojan_Win64_RustyStealer_AH_2147964911_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_GXH_2147965873_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.GXH!MTB"
+        threat_id = "2147965873"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {40 8a 2c 1f 40 30 f5 48 3b bc 24 ?? ?? ?? ?? ?? ?? 4c 89 e9 e8 ?? ?? ?? ?? 48 8b 84 24 ?? ?? ?? ?? 40 88 2c 38 48 ff c7 48 89 bc 24 ?? ?? ?? ?? 40 0f b6 c6 6b f0 9d 40 80 c6 32 48 83 ff 0f}  //weight: 10, accuracy: Low
+        $x_1_2 = "ClipboardServer.exe" ascii //weight: 1
+        $x_1_3 = "AmsiScanBuffer" ascii //weight: 1
+        $x_1_4 = "cmd.exe /e:ON /v:OFF /d /c \"batch file arguments are invalid" ascii //weight: 1
+        $x_1_5 = "KillTimer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
