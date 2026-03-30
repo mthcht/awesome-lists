@@ -2046,3 +2046,39 @@ rule Trojan_MSIL_Quasar_VQP_2147965292_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_DAB_2147965909_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.DAB!MTB"
+        threat_id = "2147965909"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "GetKeyloggerLogsDirectory" ascii //weight: 2
+        $x_2_2 = "GetPasswordsResponse" ascii //weight: 2
+        $x_2_3 = "GetStealerLogs" ascii //weight: 2
+        $x_2_4 = "ConnectReverseProxy" ascii //weight: 2
+        $x_2_5 = "ChromiumPasswordExtension" ascii //weight: 2
+        $x_2_6 = "PasteClientClipboard" ascii //weight: 2
+        $x_2_7 = "SendToTargetServer" ascii //weight: 2
+        $x_2_8 = "GetReverseProxyByConnectionId" ascii //weight: 2
+        $x_2_9 = "SendHvncLog" ascii //weight: 2
+        $x_2_10 = "GetPasswordExtensionsString" ascii //weight: 2
+        $x_2_11 = "GetKeyloggerLogsDirectoryResponse" ascii //weight: 2
+        $x_2_12 = "masterKey can not be null" wide //weight: 2
+        $x_1_13 = "DoMouseEvent" ascii //weight: 1
+        $x_1_14 = "DoShutdownAction" ascii //weight: 1
+        $x_1_15 = "DoShellExecute" ascii //weight: 1
+        $x_1_16 = "set_chromiumBrowserOptions" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
