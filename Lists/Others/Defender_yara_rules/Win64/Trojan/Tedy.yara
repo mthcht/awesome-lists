@@ -3382,6 +3382,28 @@ rule Trojan_Win64_Tedy_KKA_2147959407_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 54 24 20 8b 54 24 20 69 d2 ?? ?? ?? ?? 44 8b 44 24 20 ff 44 24 20 81 c2 ?? ?? ?? ?? 31 d1 8b 54 24 20 85 d2}  //weight: 20, accuracy: Low
+        $x_10_2 = "REMUS LOG" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_KKA_2147959407_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KKA!MTB"
+        threat_id = "2147959407"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "25"
         strings_accuracy = "High"
     strings:
@@ -4842,6 +4864,28 @@ rule Trojan_Win64_Tedy_AHA_2147965874_0
     strings:
         $x_30_1 = {45 f0 80 f1 ?? 48 83 7d 08 0f 48 0f 47 45 f0 42 88 0c 08 49 ff c1 48 8b 4d 00 4c 3b c9 72}  //weight: 30, accuracy: Low
         $x_20_2 = "Global\\WidgetsPlatformMutex" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_KKF_2147965902_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KKF!MTB"
+        threat_id = "2147965902"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {89 c2 c1 e2 05 01 d0 41 0f b6 14 0a 31 d0 88 04 0b 48 83 c1 01 48 83 f9 20}  //weight: 20, accuracy: High
+        $x_10_2 = {45 0f b6 04 01 45 30 04 06 48 83 c0 01 48 39 d0 75 ee}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

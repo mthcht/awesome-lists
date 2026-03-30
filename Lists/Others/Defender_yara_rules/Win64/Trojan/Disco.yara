@@ -118,3 +118,30 @@ rule Trojan_Win64_Disco_SX_2147965024_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Disco_GXH_2147965890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Disco.GXH!MTB"
+        threat_id = "2147965890"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Vboxguest.syssandboxvirusmalwareGlobalMemoryStatusExGetSystemInfouser32.dllGetSystemMetricsiphlpapi.dllGetAdaptersInfo" ascii //weight: 1
+        $x_1_2 = "robloxsteamdiscordfacebookinstagramtwitterx" ascii //weight: 1
+        $x_1_3 = "Scredit_cards.txt" ascii //weight: 1
+        $x_1_4 = "rust_stealer.pdb" ascii //weight: 1
+        $x_1_5 = "src\\discord.rs" ascii //weight: 1
+        $x_1_6 = "application/jsonTelegram" ascii //weight: 1
+        $x_1_7 = "\\stealth.rs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

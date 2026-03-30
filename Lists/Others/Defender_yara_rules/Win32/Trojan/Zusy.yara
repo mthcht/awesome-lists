@@ -7121,6 +7121,31 @@ rule Trojan_Win32_Zusy_KK_2147944060_6
         threshold = "36"
         strings_accuracy = "High"
     strings:
+        $x_20_1 = {89 90 14 fb ff ff 4a 89 10 c7 80 ec 04 00 00 01 00 00 00 8b 98 d8 09 00 00 43 89 98 d4 09 00 00 83 e8 04 83 fa 01}  //weight: 20, accuracy: High
+        $x_10_2 = "reg.exe delete HKLM\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot\\Network\\{4D36E967-E325-11CE-BFC1-08002BE10318} /f" ascii //weight: 10
+        $x_3_3 = "SV0H0ST.EXE" ascii //weight: 3
+        $x_2_4 = "IEXP1ORER.EXE" ascii //weight: 2
+        $x_1_5 = "SVCH05T.EXE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_KK_2147944060_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KK!MTB"
+        threat_id = "2147944060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
         $x_2_2 = "%26\\Windows\\driver.exe x -r -ep2 -hplimpid2903392 @$" ascii //weight: 2
         $x_3_3 = "%26\\Windows\\pas.rar blat.exe @$" ascii //weight: 3

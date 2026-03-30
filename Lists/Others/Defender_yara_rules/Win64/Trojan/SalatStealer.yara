@@ -133,3 +133,25 @@ rule Trojan_Win64_SalatStealer_ASLT_2147963355_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_ABST_2147965895_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.ABST!MTB"
+        threat_id = "2147965895"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 ff c5 45 32 14 08 41 8d 40 01 44 8d 0c b5 ?? ?? ?? ?? ff c6 45 88 14 09 44 32 1c 08 41 8d 41 01 44 88 1c 08 41 8d 40 02 32 1c 08 41 8d 41 02 88 1c 08 41 8d 40 03 40 32 3c 08 41 8d 41 03 40 88 3c 08 83 fe}  //weight: 3, accuracy: Low
+        $x_2_2 = "cmd.exe /c powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -Command \"Add-MpPreference -ExclusionPath '%s' -Force -ErrorAction SilentlyContinue" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

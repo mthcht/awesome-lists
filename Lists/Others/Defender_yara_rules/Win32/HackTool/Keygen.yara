@@ -7,7 +7,7 @@ rule HackTool_Win32_Keygen_2147593794_0
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "4"
         strings_accuracy = "High"
@@ -32,7 +32,7 @@ rule HackTool_Win32_Keygen_2147593794_1
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "5"
         strings_accuracy = "High"
@@ -58,7 +58,7 @@ rule HackTool_Win32_Keygen_2147593794_2
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "5"
         strings_accuracy = "High"
@@ -82,7 +82,7 @@ rule HackTool_Win32_Keygen_2147593794_3
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "5"
         strings_accuracy = "High"
@@ -106,7 +106,7 @@ rule HackTool_Win32_Keygen_2147593794_4
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
@@ -128,7 +128,7 @@ rule HackTool_Win32_Keygen_2147593794_5
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
@@ -150,7 +150,7 @@ rule HackTool_Win32_Keygen_2147593794_6
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
@@ -174,7 +174,7 @@ rule HackTool_Win32_Keygen_2147593794_7
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
@@ -201,7 +201,7 @@ rule HackTool_Win32_Keygen_2147593794_8
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
@@ -225,7 +225,7 @@ rule HackTool_Win32_Keygen_2147593794_9
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
@@ -250,7 +250,7 @@ rule HackTool_Win32_Keygen_2147593794_10
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
@@ -276,7 +276,7 @@ rule HackTool_Win32_Keygen_2147593794_11
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
@@ -304,7 +304,7 @@ rule HackTool_Win32_Keygen_2147593794_12
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Keygen"
-        severity = "242"
+        severity = "238"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
@@ -774,6 +774,30 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_2
         family = "Keygen"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "ldr_keygen" ascii //weight: 3
+        $x_3_2 = "Why so serious?!" ascii //weight: 3
+        $x_3_3 = "LineZer0" ascii //weight: 3
+        $x_3_4 = "Lz0 2oo9" ascii //weight: 3
+        $x_3_5 = "A Product by Lz0" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_AMTB_2147931343_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!AMTB"
+        threat_id = "2147931343"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -791,7 +815,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_2
         )
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_3
+rule HackTool_Win32_Keygen_AMTB_2147931343_4
 {
     meta:
         author = "defender2yara"
@@ -814,7 +838,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_3
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_4
+rule HackTool_Win32_Keygen_AMTB_2147931343_5
 {
     meta:
         author = "defender2yara"
@@ -839,7 +863,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_4
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_5
+rule HackTool_Win32_Keygen_AMTB_2147931343_6
 {
     meta:
         author = "defender2yara"
@@ -864,7 +888,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_5
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_6
+rule HackTool_Win32_Keygen_AMTB_2147931343_7
 {
     meta:
         author = "defender2yara"
@@ -882,6 +906,28 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_6
         $x_1_2 = {43 72 61 63 6b 65 72 20 3a 20 4e 2d 47 65 6e [0-4] 50 72 6f 74 65 63 74 69 6f 6e 20 3a 20 43 72 61 70 70 79 20 56 42 20 21 21 21 [0-4] 54 68 6b 73 20 3a 20 4e 2d 47 65 6e 20 63 72 65 77 20 3b 29 [0-4] 4d 41 59 20 54 48 45 20 4c 55 4d 49 4e 4f 55 20 42 45 20 57 49 54 48 20 59 4f 55 20 21 21 [0-150] 45 78 74 65 6e 64 65 64 20 4d 6f 64 75 6c 65 3a}  //weight: 1, accuracy: Low
         $x_1_3 = {56 65 72 73 69 6f 6e 20 4d 6f 6e 6f 70 6f 73 74 65 [0-5] 56 65 72 73 69 6f 6e 20 52 65 73 65 61 75 [0-10] 50 6f 73 74 65 73 [0-5] 56 65 72 73 69 6f 6e 20 52 65 73 65 61 75 [0-10] 50 6f 73 74 65 73 [0-5] 56 65 72 73 69 6f 6e 20 52 65 73 65 61 75 [0-10] 50 6f 73 74 65 73}  //weight: 1, accuracy: Low
         $x_1_4 = "-------www.cerror.tk--" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_RB_2147959766_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen.RB!AMTB"
+        threat_id = "2147959766"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {50 e8 5c 0e 00 00 68 f2 50 40 00 6a 65 ff 75 08 e8 59 0e 00 00 68 e9 03 00 00 ff 35 44 50 40 00}  //weight: 1, accuracy: High
+        $x_1_2 = {50 6a 00 68 80 00 00 00 ff 75 08 e8 2d 0e 00 00 68 b9 50 40 00 ff 75 08 e8 3e 0e 00 00 6a 6a ff 75 08}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

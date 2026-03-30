@@ -346,3 +346,26 @@ rule Trojan_Win64_Doina_PGAK_2147964827_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_KK_2147965900_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.KK!MTB"
+        threat_id = "2147965900"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {42 0f b6 4c 05 30 b8 4f ec c4 4e f7 e9 c1 fa 03 8b c2 c1 e8 1f 03 d0 6b d2 1a 2b ca 80 c1 61 42 88 4c 05 38 4c 03 c6 49 83 f8 05}  //weight: 20, accuracy: High
+        $x_10_2 = {41 8a 04 0e 40 32 c5 88 01 48 ff c1 48 ff ca}  //weight: 10, accuracy: High
+        $x_5_3 = {8a 04 16 41 32 c6 88 02 48 ff c2 49 ff c8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
