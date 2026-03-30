@@ -519,6 +519,30 @@ rule HackTool_Win32_Keygen_2147751727_5
         (4 of ($x*))
 }
 
+rule HackTool_Win32_Keygen_2147751727_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Symbian Installation File" ascii //weight: 1
+        $x_1_2 = "Unknown security failure detected" ascii //weight: 1
+        $x_1_3 = "E32USER-CBase" ascii //weight: 1
+        $x_1_4 = "Bad Number in IMEI" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule HackTool_Win32_Keygen_R_2147755645_0
 {
     meta:
