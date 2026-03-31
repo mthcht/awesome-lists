@@ -1445,3 +1445,32 @@ rule Trojan_Win64_ClipBanker_PAB_2147964859_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_ARA_2147965958_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.ARA!MTB"
+        threat_id = "2147965958"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "\\TrustWalletElectrumWallet.exe" ascii //weight: 5
+        $x_5_2 = "\\clipboardService.exe" ascii //weight: 5
+        $x_2_3 = "Executable copied to Startup folder" ascii //weight: 2
+        $x_2_4 = "rf5vPy1HcJ227BfLqiZeKXqxyERtyQXZzW" ascii //weight: 2
+        $x_2_5 = "DQ98T2gjmVMUvh3cGgaYiXm1Xv2R7mR6eD" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 3 of ($x_2_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -3815,3 +3815,34 @@ rule Trojan_Win32_Startpage_2147731966_0
         )
 }
 
+rule Trojan_Win32_Startpage_AMTB_2147949351_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Startpage!AMTB"
+        threat_id = "2147949351"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Startpage"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "taskkill.exe /im KSafeTray.exe /f" ascii //weight: 2
+        $x_4_2 = "C:\\Program Files\\Internet Explorer\\iexplore.exe http://www.ymtuku.com/xg/?tan" ascii //weight: 4
+        $x_1_3 = "C:\\WINDOWS\\system32\\ie.bat" ascii //weight: 1
+        $x_1_4 = "C:\\WINDOWS\\system32\\qx.bat" ascii //weight: 1
+        $x_1_5 = "C:\\WINDOWS\\system32\\360.bat" ascii //weight: 1
+        $x_1_6 = "C:\\WINDOWS\\system32\\tt.bat" ascii //weight: 1
+        $x_1_7 = "C:\\WINDOWS\\system32\\aoyou.bat" ascii //weight: 1
+        $x_1_8 = "C:\\WINDOWS\\system32\\google.bat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 6 of ($x_1_*))) or
+            ((1 of ($x_4_*) and 1 of ($x_2_*) and 4 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

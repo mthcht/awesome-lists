@@ -87,3 +87,24 @@ rule Trojan_Linux_Xmrigminer_C_2147772461_0
         (1 of ($x*))
 }
 
+rule Trojan_Linux_Xmrigminer_D_2147965997_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Xmrigminer.D"
+        threat_id = "2147965997"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Xmrigminer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "pool.hashvault.pro" wide //weight: 10
+        $x_10_2 = "monero.herominers.com" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

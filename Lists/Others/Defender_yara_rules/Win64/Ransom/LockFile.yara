@@ -346,3 +346,26 @@ rule Ransom_Win64_LockFile_ARR_2147960058_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_MKZ_2147965991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.MKZ!MTB"
+        threat_id = "2147965991"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 89 da 41 8d 43 15 48 d3 ea 44 89 c1 31 d0 48 89 da 48 d3 ea 83 f0 aa 44 31 da c1 e0 08 41 83 c3 2a 83 f2 aa 0f b6 d2 09 d0 66 43 33 04 02 66 43 89 04 01 49 83 c0 02 41 80 fb 13 75 be}  //weight: 5, accuracy: High
+        $x_1_2 = "ENCRYPTED" wide //weight: 1
+        $x_1_3 = "RECOVERY" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

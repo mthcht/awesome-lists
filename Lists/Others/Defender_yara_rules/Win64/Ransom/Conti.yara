@@ -161,3 +161,24 @@ rule Ransom_Win64_Conti_GTV_2147958038_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Conti_RS_2147965967_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Conti.RS!MTB"
+        threat_id = "2147965967"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 0f b6 11 4d 8d 49 01 b8 ?? ?? ?? ?? 2b c2 8d 0c 40 b8 ?? ?? ?? ?? c1 e1 03 f7 e9 03 d1 c1 fa 06 8b c2 c1 e8 1f 03 d0 6b c2 7f 2b c8 b8 ?? ?? ?? ?? 83 c1 7f f7 e9 03 d1 c1 fa 06 8b c2 c1 e8 1f 03 d0 6b c2 7f 2b c8 41 88 49 ff 49 83 ea 01 75 ae}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

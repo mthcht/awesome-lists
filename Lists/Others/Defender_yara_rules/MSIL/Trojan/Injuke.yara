@@ -3668,3 +3668,27 @@ rule Trojan_MSIL_Injuke_BAA_2147959385_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_ABTB_2147965966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.ABTB!MTB"
+        threat_id = "2147965966"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0a 06 18 6f ?? 00 00 0a 00 06 18 6f ?? 00 00 0a 00 06 72 01 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 00 02 06 6f ?? 00 00 0a 7d 03 00 00 04 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {6b 00 59 00 4d 00 64 00 47 00 43 00 44 00 63 00 66 00 62 00 51 00 79 00 43 00 35 00 46 00 31 00 53 00 4f 00 37 00 4e 00 59 00 72 00 58 00 66 00 44 00 36 00 71 00 76 00 69 00 33 00 39 00 74 00 52 00 54 00 32 00 58 00 69 00 44 00 62 00 32 00 6e 00 59 00 38 00 3d}  //weight: 2, accuracy: High
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

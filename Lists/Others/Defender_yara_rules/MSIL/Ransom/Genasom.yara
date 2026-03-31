@@ -370,3 +370,28 @@ rule Ransom_MSIL_Genasom_R_2147745829_0
         )
 }
 
+rule Ransom_MSIL_Genasom_GXH_2147965979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Genasom.GXH!MTB"
+        threat_id = "2147965979"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Genasom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {25 72 62 01 00 70 6f ?? 00 00 0a 25 72 7c 01 00 70 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a}  //weight: 5, accuracy: Low
+        $x_1_2 = "get_encryption_key" ascii //weight: 1
+        $x_1_3 = "CreateRansomNote" ascii //weight: 1
+        $x_1_4 = "DisableRecovery" ascii //weight: 1
+        $x_1_5 = "EncryptDirectory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

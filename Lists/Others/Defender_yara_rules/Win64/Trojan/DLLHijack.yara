@@ -219,3 +219,31 @@ rule Trojan_Win64_DLLHijack_AKSB_2147965090_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_NUK_2147965968_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.NUK!MTB"
+        threat_id = "2147965968"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "4i2XrnKVQy3dn5ZvfZOcW9RHaQE" ascii //weight: 1
+        $x_1_2 = "9K8XRsCvR3mb59FV5F4Ygf" ascii //weight: 1
+        $x_1_3 = "GWFSo8GYt8xjgqPb29LhQ21yh" ascii //weight: 1
+        $x_1_4 = "jM961zeu4EKs8eDo3JnnV2Xg3m5N" ascii //weight: 1
+        $x_2_5 = "9XN5Pkfvh23isxmLES4" ascii //weight: 2
+        $x_1_6 = "2344uOF5778Ku4lb1b5hZl4mE" ascii //weight: 1
+        $x_1_7 = "Encrypted" ascii //weight: 1
+        $x_1_8 = "K1Xa6uShOyfaoPF6XD1MSVSt5tU5" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1651,6 +1651,30 @@ rule Trojan_Win64_Rozena_AB_2147952698_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_AB_2147952698_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.AB!MTB"
+        threat_id = "2147952698"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {33 ed 89 6c 24 20 45 33 c9 45 33 c0 ba 01 00 00 00 48 8d 0d f6 66 03 00 ff 15 ?? 92 02 00 48 8b f8 48 85 c0 75 3c 48 8d 15 49 67 03 00 48 8d 0d 22 d5 03 00 e8 8d 09 00 00 48 8b d8 ff 15 [0-2] 02 00 8b d0 48 8b cb e8 9a 10 00 00 48 8b c8 48 8d 15 1c 67 03 00 e8 6b 09 00 00 b0 01 e9 f0 07 00 00 48 89 6c 24 28 c7 44 24 20 00 00 00 04 45 33 c9 45 33 c0 48 8d 15 aa 66 03 00 48 8b cf ff 15 ?? 92 02 00 48 8b d8 48 85 c0 75 45}  //weight: 6, accuracy: Low
+        $x_6_2 = {e9 8e 06 00 00 48 63 71 3c 48 03 f1 48 89 b4 24 c8 10 00 00 8b 56 50 33 c9 41 b9 04 00 00 00 41 b8 00 30 00 00 ff 15 [0-2] 02 00 4c 8b f8 48 85 c0 75 21 40 32 ff 48 8d 05 96 d3 03 00 48 8d 2d 07 66 03 00 48 8b d5 48 8b c8}  //weight: 6, accuracy: Low
+        $x_2_3 = "[INFO] Loading PE in memory..." ascii //weight: 2
+        $x_2_4 = "[-] Failed to download data." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Rozena_SPZP_2147953392_0
 {
     meta:

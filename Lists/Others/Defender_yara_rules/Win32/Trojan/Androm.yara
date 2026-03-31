@@ -1647,7 +1647,7 @@ rule Trojan_Win32_Androm_BAP_2147964420_0
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {ba 00 10 00 00 b8 80 ?? ?? 00 03 45 ?? 2b c2 83 c0 04 89 45 ?? ff 75 ?? b9}  //weight: 2, accuracy: Low
+        $x_2_1 = {81 ef 66 18 00 00 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 31 3e 83 c3 04 83 c6 04 3b 5d ?? 0f 82}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -1668,7 +1668,7 @@ rule Trojan_Win32_Androm_BAP_2147964420_1
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {81 ef 66 18 00 00 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 31 3e 83 c3 04 83 c6 04 3b 5d ?? 0f 82}  //weight: 2, accuracy: Low
+        $x_2_1 = {03 c2 8b f8 6a 00 e8 ?? ?? ?? ?? 03 7d a4 81 ef 84 66 00 00 2b f8 6a 00 e8 ?? ?? ?? ?? 03 f8 6a 00 e8 ?? ?? ?? ?? 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 31 3e 6a 00 e8 ?? ?? ?? ?? bf 04 00 00 00 2b f8}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -1689,10 +1689,11 @@ rule Trojan_Win32_Androm_BAP_2147964420_2
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {03 c2 8b f8 6a 00 e8 ?? ?? ?? ?? 03 7d a4 81 ef 84 66 00 00 2b f8 6a 00 e8 ?? ?? ?? ?? 03 f8 6a 00 e8 ?? ?? ?? ?? 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 6a 00 e8 ?? ?? ?? ?? 2b f8 31 3e 6a 00 e8 ?? ?? ?? ?? bf 04 00 00 00 2b f8}  //weight: 2, accuracy: Low
+        $x_2_1 = {ba 00 10 00 00 b8 80 ?? ?? 00 03 45 ?? 2b c2 83 c0 04 89 45 ?? ff 75 ?? b9}  //weight: 2, accuracy: Low
+        $x_2_2 = {ba 00 10 00 00 b8 80 ?? ?? 00 03 45 ?? 2b c2 83 c0 04 89 45 ?? ff 75 [0-5] ba}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 
 rule Trojan_Win32_Androm_BAQ_2147964898_0
@@ -1738,6 +1739,27 @@ rule Trojan_Win32_Androm_BAQ_2147964898_1
 }
 
 rule Trojan_Win32_Androm_BAR_2147965467_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.BAR!MTB"
+        threat_id = "2147965467"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {2b d0 52 6a 00 e8 ?? ?? ?? ?? 5a 2b d0 31 16 83 c3 04 83 c6 04 3b 5d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Androm_BAR_2147965467_1
 {
     meta:
         author = "defender2yara"

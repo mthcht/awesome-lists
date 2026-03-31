@@ -162,3 +162,25 @@ rule Trojan_Win64_SantaStealer_BAA_2147964656_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SantaStealer_ASA_2147965983_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SantaStealer.ASA!MTB"
+        threat_id = "2147965983"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SantaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 83 7c 24 68 07 4c 8d 44 24 50 48 8d 55 f0 4c 89 74 24 20 4c 0f 47 44 24 50 48 83 7d 08 07 48 0f 47 55 f0 45 33 c9 33 c9 ff 15}  //weight: 1, accuracy: High
+        $x_5_2 = "62.60.226.97" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

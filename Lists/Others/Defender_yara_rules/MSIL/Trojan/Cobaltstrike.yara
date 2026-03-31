@@ -213,3 +213,34 @@ rule Trojan_MSIL_Cobaltstrike_AFR_2147924450_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cobaltstrike_RR_2147965990_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cobaltstrike.RR!MTB"
+        threat_id = "2147965990"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cobaltstrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "FastObjectFactory_app_web_" ascii //weight: 1
+        $x_1_2 = "__ASP" ascii //weight: 1
+        $x_1_3 = "__Render__control1" ascii //weight: 1
+        $x_1_4 = {43 72 65 61 74 65 5f 41 53 50 5f 64 6f 77 6e 6c 6f 61 64 5f [0-31] 5f 61 73 70 78}  //weight: 1, accuracy: Low
+        $x_1_5 = {7e 00 2f 00 64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 2f 00 [0-31] 2e 00 61 00 73 00 70 00 78 00}  //weight: 1, accuracy: Low
+        $x_1_6 = "9140b295db229bbd" wide //weight: 1
+        $x_1_7 = "DecryptAndLoad" wide //weight: 1
+        $x_1_8 = "CreateDecryptor" wide //weight: 1
+        $x_1_9 = "TransformFinalBlock" wide //weight: 1
+        $x_1_10 = "CreateInstance" wide //weight: 1
+        $x_1_11 = "Equals" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

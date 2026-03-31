@@ -10,7 +10,7 @@ rule TrojanDropper_Win64_RustyStealer_CX_2147965714_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "25"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_5_1 = "\\app_shell.rs" ascii //weight: 5
@@ -18,8 +18,14 @@ rule TrojanDropper_Win64_RustyStealer_CX_2147965714_0
         $x_5_3 = "\\vcruntime140.dll" ascii //weight: 5
         $x_5_4 = "user32.dllshell32.dll" ascii //weight: 5
         $x_5_5 = "cmd.exe ping -n 3 127.0.0.1 >nul & del" ascii //weight: 5
+        $x_5_6 = "BLOCKED by anti-vm" ascii //weight: 5
+        $x_5_7 = "stego decoded:" ascii //weight: 5
+        $x_5_8 = "decrypted pe:" ascii //weight: 5
+        $x_5_9 = "sleeping before Ghost" ascii //weight: 5
+        $x_5_10 = "Ghost fallback" ascii //weight: 5
+        $x_5_11 = "sandbox" ascii //weight: 5
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (4 of ($x*))
 }
 
