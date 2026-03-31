@@ -13513,3 +13513,30 @@ rule Trojan_Win32_ClickFix_PAA_2147965731_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DJJ_2147965921_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJJ!MTB"
+        threat_id = "2147965921"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "mshta" wide //weight: 10
+        $x_1_2 = {64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 2d 00 76 00 65 00 72 00 73 00 69 00 6f 00 6e 00 2e 00 [0-6] 2d 00 [0-6] 2d 00 [0-6] 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 2d 00 76 00 65 00 72 00 73 00 69 00 6f 00 6e 00 2e 00 [0-6] 5f 00 [0-6] 5f 00 [0-6] 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 2d 00 76 00 65 00 72 00 73 00 69 00 6f 00 6e 00 2e 00 [0-6] 2e 00 [0-6] 2e 00 [0-6] 2e 00 63 00 6f 00 6d 00 2f 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
