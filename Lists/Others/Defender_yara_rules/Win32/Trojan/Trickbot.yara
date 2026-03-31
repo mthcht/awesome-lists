@@ -5485,6 +5485,29 @@ rule Trojan_Win32_Trickbot_PSB_2147760438_0
         )
 }
 
+rule Trojan_Win32_Trickbot_MK_2147760448_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Trickbot.MK!MTB"
+        threat_id = "2147760448"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Trickbot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {f0 6e 00 74 00 c7 45 ?? 64 00 6c 00 c7 45 ?? 6c 00 00 00 c7 45 ?? 6b 00 65 00 c7 45 ?? 72 00 6e 00 c7 45 ?? 65 00 6c 00 c7 45 ?? 33 00 32 00 66 89}  //weight: 20, accuracy: Low
+        $x_10_2 = "201ef99a-7fa0-444c-9399-19ba84f12a1a" ascii //weight: 10
+        $x_5_3 = "%wscomputerdefaults.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Trickbot_DHR_2147760665_0
 {
     meta:
