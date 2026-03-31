@@ -2847,6 +2847,35 @@ rule Trojan_MSIL_Zusy_SL_2147931780_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SL_2147931780_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SL!MTB"
+        threat_id = "2147931780"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FRPWrapper.myapp.dll.encrypted" ascii //weight: 1
+        $x_1_2 = "e_res2e" ascii //weight: 1
+        $x_1_3 = "LoadEmbeddedResource" ascii //weight: 1
+        $x_1_4 = "LoadAndDecryptEmbeddedResource" ascii //weight: 1
+        $x_1_5 = "FromBase64String" ascii //weight: 1
+        $x_1_6 = "FRPWrapper.Properties.Resources.resources" ascii //weight: 1
+        $x_1_7 = "$0f87de82-0266-48c3-aed8-1eb562889053" ascii //weight: 1
+        $x_1_8 = "DLLFromMemory" ascii //weight: 1
+        $x_1_9 = "C:\\ProgramData\\frp\\frpc.toml" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zusy_NITA_2147932225_0
 {
     meta:
@@ -4690,6 +4719,28 @@ rule Trojan_MSIL_Zusy_SJ_2147963446_0
     strings:
         $x_1_1 = {11 09 11 0a 25 17 58 13 0a 07 11 0b 91 9c 11 0b 17 58 13 0b 11 0b 11 04 11 08 58 32 e3 11 08 8d 06 00 00 01 13 0c 06 73 24 00 00 0a 13 0d 11 0d 11 0c 6f 25 00 00 0a 16 13 0e 2b 21}  //weight: 1, accuracy: High
         $x_1_2 = "$774b9253-a0b3-44df-941b-4e8c238e3787" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_SJ_2147963446_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SJ!MTB"
+        threat_id = "2147963446"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {00 28 4c 00 00 0a 0a 00 06 03 28 4d 00 00 0a 6f 4e 00 00 0a 00 06 04 28 4d 00 00 0a 6f 4f 00 00 0a 00 06 17 6f 50 00 00 0a 00 06 18 6f 51 00 00 0a 00 [0-255] 07 2c 07 07 6f 10 00 00 0a 00 dc 06 2c 07 06 6f 10 00 00 0a 00 dc 08 2a}  //weight: 1, accuracy: Low
+        $x_1_2 = "$0f87de82-0266-48c3-aed8-1eb562889053" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

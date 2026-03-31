@@ -48,3 +48,26 @@ rule Trojan_Win64_KillWin_AMTB_2147963981_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillWin_SXC_2147965918_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillWin.SXC!MTB"
+        threat_id = "2147965918"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillWin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "del /f /s /q C:\\Windows\\System32\\* >nul 2>" ascii //weight: 30
+        $x_20_2 = "Spamming ransom on" ascii //weight: 20
+        $x_10_3 = "\\YOUR_FILES_ARE_ENCRYPTED.txt" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

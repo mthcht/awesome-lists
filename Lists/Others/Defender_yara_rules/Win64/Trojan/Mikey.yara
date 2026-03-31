@@ -2186,3 +2186,30 @@ rule Trojan_Win64_Mikey_KKA_2147965899_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_LRD_2147965915_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.LRD!MTB"
+        threat_id = "2147965915"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {62 6c 3d 51 54 75 56 6c 30 50 43 73 65 47 4c 61 66 75 6e 73 5a 50 52 45 30 30 38 2e 74 78 74 27 20 2d 4f 75 74 46 69 6c 65 20 24 65 6e 76 3a 54 45 4d 50 5c ?? ?? ?? ?? ?? ?? ?? ?? 2e 65 78 65}  //weight: 1, accuracy: Low
+        $x_2_2 = {53 74 61 72 74 2d 50 72 6f 63 65 73 73 20 2d 46 69 6c 65 50 61 74 68 20 24 65 6e 76 3a 54 45 4d 50 5c ?? ?? ?? ?? ?? ?? ?? ?? 2e 65 78 65 20 2d 57 69 6e 64 6f 77 53 74 79 6c 65 20 48 69 64 64 65 6e 20 7d 22}  //weight: 2, accuracy: Low
+        $x_3_3 = "cmd.exe /b /c powershell -WindowStyle Hidden -Command \"$f =" ascii //weight: 3
+        $x_4_4 = "Join-Path $env:APPDATA (([System.IO.Path]::GetRandomFileName()) + '.exe')" ascii //weight: 4
+        $x_5_5 = "Invoke-WebRequest -Uri $u -OutFile $f" ascii //weight: 5
+        $x_6_6 = "fast-ssdeep.node" ascii //weight: 6
+        $x_7_7 = "accesskey=UDLOGGERJAOJEO" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4891,3 +4891,26 @@ rule Trojan_Win64_Tedy_KKF_2147965902_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CZ_2147965920_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CZ!MTB"
+        threat_id = "2147965920"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 31 e5 48 83 c3 01 40 88 2c 30 48 8b 84 24}  //weight: 5, accuracy: High
+        $x_5_2 = {48 89 c8 0f b6 09 4c 8d 40 ?? 48 83 c0 01 29 c1 8d 14 01 30 10 48 83 c0 01 4c 39 c0 75}  //weight: 5, accuracy: Low
+        $x_1_3 = "--no-antivm" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
