@@ -6496,3 +6496,26 @@ rule Trojan_Win32_OffLoader_ZVG_2147965837_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_AATB_2147965942_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AATB!MTB"
+        threat_id = "2147965942"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "://deerwire.cfd/" ascii //weight: 4
+        $x_4_2 = "://bitecelery.xyz/" ascii //weight: 4
+        $x_1_3 = "Do you want to reboot now?" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
