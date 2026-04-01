@@ -23,3 +23,28 @@ rule HackTool_Win32_WinActivator_2147787064_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_WinActivator_2147787064_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/WinActivator!MTB"
+        threat_id = "2147787064"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "WinActivator"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Create Windows reactivation task" ascii //weight: 1
+        $x_1_2 = "Create Office reactivation task" ascii //weight: 1
+        $x_1_3 = "Install GVLK Key" ascii //weight: 1
+        $x_1_4 = "AAct_files\\KMSSS.exe" wide //weight: 1
+        $x_1_5 = "Install Windows Product Key" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

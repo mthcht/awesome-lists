@@ -4958,3 +4958,29 @@ rule Trojan_Win64_Tedy_CS_2147966000_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AHO_2147966055_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHO!MTB"
+        threat_id = "2147966055"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "180"
+        strings_accuracy = "High"
+    strings:
+        $x_60_1 = "DecryptGcmV10 failed: blobLen=%d, payloadLen=%d, ctLen=%d, status=0x%08X" ascii //weight: 60
+        $x_50_2 = "%s\\%s\\Local State" ascii //weight: 50
+        $x_40_3 = "\\output\\gcm_v10_debug.txt" ascii //weight: 40
+        $x_15_4 = "BraveSoftware\\Brave-Browser\\User Data" ascii //weight: 15
+        $x_10_5 = "Google\\Chrome\\User Data" ascii //weight: 10
+        $x_5_6 = "Microsoft\\Edge\\User Data" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

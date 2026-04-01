@@ -41,3 +41,26 @@ rule TrojanDropper_Win64_Convagent_MK_2147957471_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win64_Convagent_AHB_2147966054_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/Convagent.AHB!MTB"
+        threat_id = "2147966054"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 89 85 e8 fd ff ff 48 c1 e0 ?? 48 8d 8d f8 fd ff ff 48 01 c1 0f b7 01 83 f8 ?? 0f}  //weight: 30, accuracy: Low
+        $x_20_2 = "WinMainPayload" ascii //weight: 20
+        $x_10_3 = "osdmnus_uni_source.c" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

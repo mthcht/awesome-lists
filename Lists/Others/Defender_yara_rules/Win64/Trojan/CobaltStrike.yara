@@ -18807,3 +18807,25 @@ rule Trojan_Win64_CobaltStrike_SND_2147965965_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_AHA_2147966056_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.AHA!MTB"
+        threat_id = "2147966056"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {49 89 c8 b9 ?? 00 00 00 f3 a4 48 39 d0 74 ?? 48 89 c1 83 e1 1f 8a 4c 0c 0f 41 30 0c 00 48 ff c0 eb}  //weight: 30, accuracy: Low
+        $x_20_2 = "start /min \"\" regsvr32 /s \"%s" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
