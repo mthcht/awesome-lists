@@ -999,3 +999,26 @@ rule Trojan_Win64_Midie_KKA_2147965820_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_SXG_2147966028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXG!MTB"
+        threat_id = "2147966028"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[i] Found %lu Running Browser Processes" ascii //weight: 10
+        $x_30_2 = "[v] Attempting To Steal Opened File Handles..." ascii //weight: 30
+        $x_10_3 = "[v] Successfully Copied File Via Duplicated Handle" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

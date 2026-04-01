@@ -337,3 +337,24 @@ rule Trojan_MSIL_Exnet_MKB_2147963055_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Exnet_MKC_2147966030_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Exnet.MKC!MTB"
+        threat_id = "2147966030"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Exnet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {62 11 05 11 0c 17 58 91 1f 10 62 60 11 05 11 0c 18 58 91 1e 62 60 11 05 11 0c 19 58 91 60 13 0d 11 0c 1a 58 13 0e 11 0e 11 0d 58 11 05 8e}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2213,3 +2213,27 @@ rule Trojan_Win64_Mikey_LRD_2147965915_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_MKC_2147966031_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.MKC!MTB"
+        threat_id = "2147966031"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "CreditCards.txtJ" ascii //weight: 10
+        $x_5_2 = "Bookmarks.txtDownloads.txtPasswords.txt" ascii //weight: 5
+        $x_3_3 = "Screenshot.pngSystemInfo.txt" ascii //weight: 3
+        $x_2_4 = "naccessKeyname.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
