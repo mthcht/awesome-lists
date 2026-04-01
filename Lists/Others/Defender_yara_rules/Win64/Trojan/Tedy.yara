@@ -4984,3 +4984,50 @@ rule Trojan_Win64_Tedy_AHO_2147966055_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SXL_2147966102_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXL!MTB"
+        threat_id = "2147966102"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "\\shellcode\\ams2" ascii //weight: 20
+        $x_15_2 = "Vm0wd2QyVkZNVWRXV0doVFYwZG9WMWx0ZEhkVE1WcHpXa2M1V0ZKdGVIbFdNalZyVmxVeFYyTkVRbUZXVjFKSVdWWlZlRll4VG5OWGJGcHBWa1ZhU1ZadE1UUlRNazE0V2toT2" ascii //weight: 15
+        $x_10_3 = "Vm0wd2VFMUdSWGROVldSWFYwZG9WbGxVUW1GV1ZsbDNXa1JTVjAxWGVEQlpNM0JIWVd4S2MxZHFRbFZXYlUweFZteFZlRll5U2tsYVJtUnBWMFpLYjFac1ZtRldNVnBXVFZWV2FHVnFRVGs9" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SXM_2147966104_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXM!MTB"
+        threat_id = "2147966104"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[HOOK] Raw Intercepted Data:" ascii //weight: 30
+        $x_20_2 = "[HOOK] Intercepted plaintext:" ascii //weight: 20
+        $x_10_3 = "[PATCH] Persistent scan replaced at:" ascii //weight: 10
+        $x_5_4 = "HookDLL" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

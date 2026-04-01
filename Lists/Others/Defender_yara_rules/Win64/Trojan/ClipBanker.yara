@@ -1253,6 +1253,32 @@ rule Trojan_Win64_ClipBanker_MX_2147954635_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_MX_2147954635_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.MX!MTB"
+        threat_id = "2147954635"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "xv-clipper" ascii //weight: 1
+        $x_1_2 = "main.getClipAddresses" ascii //weight: 1
+        $x_1_3 = "$GetClipboardData" ascii //weight: 1
+        $x_1_4 = "runMutexCheck" ascii //weight: 1
+        $x_1_5 = "TelegramPayload" ascii //weight: 1
+        $x_1_6 = "SendSeedNotification" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_ClipBanker_NR_2147956163_0
 {
     meta:

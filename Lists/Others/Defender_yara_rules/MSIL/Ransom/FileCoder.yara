@@ -2012,3 +2012,25 @@ rule Ransom_MSIL_FileCoder_B_2147962642_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_AMTB_2147966086_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder!AMTB"
+        threat_id = "2147966086"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "XXXXXXXXXXXX.MELANCHOLIA Music Box Sad, creepy song.mp3" ascii //weight: 1
+        $x_1_2 = "Hello_V2.TotalBrick+<NukeEverything>" ascii //weight: 1
+        $x_1_3 = "XXXXXXXXXXXX.XD.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

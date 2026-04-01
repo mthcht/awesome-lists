@@ -433,3 +433,28 @@ rule Trojan_Win64_ValleyRat_ABVR_2147964647_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_AVY_2147966107_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AVY!MTB"
+        threat_id = "2147966107"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {33 c0 48 8d 15 5c 18 00 00 48 89 44 24 60 45 33 c9 48 8d 44 24 50 45 33 c0 48 89 44 24 48 33 c9 48 8d 45 a0 48 89 44 24 40 4c 89 74 24 38 4c 89 74 24 30}  //weight: 3, accuracy: High
+        $x_2_2 = {4c 8d 8d 60 05 00 00 44 88 30 4c 8d 05 19 17 00 00 ba 04 01 00 00 48 8d 8d b0 0b 00 00 e8 ?? ?? ?? ?? 45 33 c9 c7 44 24 28 04 00 00 00 4c 8d 85 b0 0b 00 00 4c 89 74 24 20 48 8d 15 fe 16 00 00 33 c9}  //weight: 2, accuracy: Low
+        $x_1_3 = "JavaLauncher" ascii //weight: 1
+        $x_1_4 = "_Log.tmp" ascii //weight: 1
+        $x_4_5 = "Microsoft\\Windows\\Start Menu\\Programs\\Startup\\conf1.lnk" wide //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

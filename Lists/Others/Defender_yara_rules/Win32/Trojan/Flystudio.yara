@@ -269,6 +269,30 @@ rule Trojan_Win32_Flystudio_AB_2147936814_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Flystudio_AB_2147936814_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Flystudio.AB!MTB"
+        threat_id = "2147936814"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Flystudio"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {49 8b 34 8b 01 ee b8 47 65 74 50 39 06 75 f1 b8 72 6f 63 41 39 46 04 75 e7 8b 5a 24 01 eb 66 8b 0c 4b 8b 5a 1c 01 eb 8b 04 8b 01 e8 5d 5e 5a 59 5b 89 85 70 ff ff ff b1 72 b2 61 b0 65 30 db c6 85 74 ff ff ff 56 c6 85 75 ff ff ff 69 88 8d 76 ff ff ff c6 85 77 ff ff ff 74 c6 85 78 ff ff ff 75 88 95 79 ff ff ff c6 85 7a ff ff ff 6c c6 85 7b ff ff ff 50 88 8d 7c ff ff ff c6 85 7d ff ff ff 6f c6 85 7e ff ff ff 74 88 85 7f ff ff ff c6 45 80 63 c6 45 81 74 88 5d 82 c6 45 b4 4c c6 45 b5 6f 88 55 b6 c6 45 b7 64 c6 45 b8 4c c6 45 b9 69 c6 45 ba 62}  //weight: 6, accuracy: High
+        $x_2_2 = "ezdcloud.dll" ascii //weight: 2
+        $x_2_3 = "mailto:" ascii //weight: 2
+        $x_2_4 = "\\shell\\open\\command" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Flystudio_DB_2147939992_0
 {
     meta:
