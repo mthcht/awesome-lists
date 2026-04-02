@@ -3089,3 +3089,24 @@ rule Trojan_MSIL_Rozena_GPAS_2147966090_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_BGN_2147966145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.BGN!MTB"
+        threat_id = "2147966145"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {25 8e 69 0a 7e 11 00 00 0a 20 00 10 00 00 20 00 30 00 00 1f 40 28 ?? 00 00 06 0b 16 07 06 28 ?? 00 00 0a 7e 11 00 00 0a 16 07 7e 11 00 00 0a 16 7e 11 00 00 0a 28 ?? 00 00 06 15 28 ?? 00 00 06 26 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

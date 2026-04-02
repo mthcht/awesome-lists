@@ -1451,3 +1451,26 @@ rule Trojan_MSIL_SnakeLogger_ELDK_2147951571_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeLogger_ACTB_2147966129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeLogger.ACTB!MTB"
+        threat_id = "2147966129"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 11 04 28 ?? 00 00 0a 04 6f ?? 00 00 0a 6f ?? 00 00 0a 11 04 28 ?? 00 00 0a 03 6f ?? 00 00 0a 6f ?? 00 00 0a 11 04 17 6f ?? 00 00 0a 11 04 18 6f ?? 00 00 0a 11 04 13 05 11 05 6f ?? 00 00 0a 13 06 11 06 08 16 08 8e 69 6f ?? 00 00 0a 13 07 28 ?? 00 00 0a 11 07 6f ?? 00 00 0a 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

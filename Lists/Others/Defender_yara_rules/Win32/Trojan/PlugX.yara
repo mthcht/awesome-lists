@@ -150,3 +150,27 @@ rule Trojan_Win32_PlugX_KK_2147957307_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PlugX_AB_2147966120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PlugX.AB!MTB"
+        threat_id = "2147966120"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PlugX"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {8b 44 24 04 80 78 ?? 00 0f 95 c0 c3 53 b8 ?? 00 00 00 8b 4c 24 0c 8b 54 24 08 66 ?? 0f b6 5c 01 ?? 31 c3 88 5c 02 ?? 40 83 f8 ?? 75 ef 5b c3}  //weight: 6, accuracy: Low
+        $x_2_2 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion" ascii //weight: 2
+        $x_2_3 = "dlcore.dll" ascii //weight: 2
+        $x_2_4 = "1, 9, 656, 401" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -9321,3 +9321,25 @@ rule Trojan_Win32_Zusy_PGZM_2147965982_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_GPKF_2147966134_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.GPKF!MTB"
+        threat_id = "2147966134"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {30 18 40 80 38 00 75 f8}  //weight: 5, accuracy: High
+        $x_2_2 = "_ReflectiveLoader@4" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

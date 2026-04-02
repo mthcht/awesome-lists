@@ -1730,6 +1730,34 @@ rule Trojan_Win64_Tedy_CG_2147932206_0
         )
 }
 
+rule Trojan_Win64_Tedy_CJ_2147932209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CJ!MTB"
+        threat_id = "2147932209"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "AppData\\Local\\Steam" ascii //weight: 5
+        $x_5_2 = "powershell" ascii //weight: 5
+        $x_5_3 = "-NoProfile" ascii //weight: 5
+        $x_5_4 = "-WindowStyle Hidden" ascii //weight: 5
+        $x_5_5 = "Expand-Archive -Path" ascii //weight: 5
+        $x_5_6 = "cmd /c rmdir" ascii //weight: 5
+        $x_5_7 = "discord.gg/" ascii //weight: 5
+        $x_5_8 = "Verifique sua conexao com a internet" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_PYZ_2147933401_0
 {
     meta:

@@ -19,3 +19,29 @@ rule Trojan_Win64_Loader_EC_2147903537_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Loader_P_2147966121_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Loader.P!MTB"
+        threat_id = "2147966121"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Loader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[-] Failed to open payload DLL at path:" ascii //weight: 1
+        $x_1_2 = "[*] Step 1: Opening sacrificial system DLL (windows.storage.dll) via NtOpenFile..." ascii //weight: 1
+        $x_1_3 = "[*] Step 2: Reading payload DLL from disk..." ascii //weight: 1
+        $x_1_4 = "[*] Monitoring payload execution status..." ascii //weight: 1
+        $x_1_5 = "[+] Injection sequence completed successfully." ascii //weight: 1
+        $x_1_6 = "[+] Contact: Stealth Loader started." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

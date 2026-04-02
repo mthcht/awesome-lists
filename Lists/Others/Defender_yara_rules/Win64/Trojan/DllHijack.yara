@@ -696,6 +696,28 @@ rule Trojan_Win64_DllHijack_GPKG_2147965710_0
         threshold = "7"
         strings_accuracy = "Low"
     strings:
+        $x_5_1 = {89 44 24 24 8b 44 24 24 35 ef be ad de 89 44 24 28 8b 44 24 28 83 c0 ?? 89 44 24 20 8b 44 24 20 c1 e0 ?? 89 44 24 24 8b 44 24 24}  //weight: 5, accuracy: Low
+        $x_2_2 = "sideload" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_GPKG_2147965710_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.GPKG!MTB"
+        threat_id = "2147965710"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
         $x_5_1 = {75 2d ff 15 ?? ?? ?? 00 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 44 24 ?? c7 44 24 ?? 2e 64 6c 6c c6 44 24 ?? 00 48 8d 4c 24 ?? ff 15 ?? ?? ?? 00 b8 01 00 00 00 48 83 c4}  //weight: 5, accuracy: Low
         $x_2_2 = "DisableThreadLibraryCalls" ascii //weight: 2
     condition:
