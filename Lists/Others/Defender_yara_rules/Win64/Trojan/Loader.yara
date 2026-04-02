@@ -45,3 +45,28 @@ rule Trojan_Win64_Loader_P_2147966121_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Loader_PA_2147966213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Loader.PA!MTB"
+        threat_id = "2147966213"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Loader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "drop_and_execute: calling UacBypass" ascii //weight: 1
+        $x_1_2 = "payload_main: persistence=%d, result=%d" ascii //weight: 1
+        $x_1_3 = "payload_main: drop_and_execute returned %" ascii //weight: 1
+        $x_1_4 = "payload_main: decrypting payload (hex len=%" ascii //weight: 1
+        $x_1_5 = "payload_main: anti_vm passed (enabled=%" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

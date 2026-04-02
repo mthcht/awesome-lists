@@ -182,3 +182,24 @@ rule Trojan_Win32_AntiAV_EAUH_2147932053_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AntiAV_GPAK_2147966212_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AntiAV.GPAK!MTB"
+        threat_id = "2147966212"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AntiAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 b8 da 49 00 95 71 3a 00 00 58 35 00 cc 61 6d 4a 85 45 3a}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

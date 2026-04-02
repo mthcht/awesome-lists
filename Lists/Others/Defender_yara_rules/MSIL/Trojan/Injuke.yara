@@ -3692,3 +3692,26 @@ rule Trojan_MSIL_Injuke_ABTB_2147965966_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_RS_2147966210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.RS!MTB"
+        threat_id = "2147966210"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "System.Logistics.dll" ascii //weight: 1
+        $x_1_2 = "Core logistics framework and operations library" ascii //weight: 1
+        $x_1_3 = "PublicKeyToken=b77a5c561934e08" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

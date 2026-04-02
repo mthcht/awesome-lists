@@ -2915,3 +2915,25 @@ rule Trojan_Win32_Lazy_LR_2147965174_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_K_2147966215_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.K!AMTB"
+        threat_id = "2147966215"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {f3 41 0f 6f 00 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 08 f3 41 0f 6f 40 10 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 48 10 f3 41 0f 6f 40 20 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 48 20 f3 41 0f 6f 40 30 66 0f 6f ca 0f 57 c8 f3 41 0f 7f 48 30 49 83 c0 40 48 83 c2 40 48 3b d1 75 a9}  //weight: 5, accuracy: High
+        $x_1_2 = "ario.koltigin.xyz" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
