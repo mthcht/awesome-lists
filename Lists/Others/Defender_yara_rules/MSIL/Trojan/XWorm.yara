@@ -4818,3 +4818,24 @@ rule Trojan_MSIL_XWorm_ABTK_2147965970_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ABX_2147966167_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ABX!MTB"
+        threat_id = "2147966167"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 14 17 58 20 00 01 00 00 5d 13 14 11 15 11 0f 11 14 94 58 20 00 01 00 00 5d 13 15 11 0f 11 14 94 13 17 11 0f 11 14 11 0f 11 15 94 9e 11 0f 11 15 11 17 9e 11 0b 11 16 11 0b 11 16 91 11 0f 11 0f 11 14 94 11 0f 11 15 94 58 20 00 01 00 00 5d 94 d2 61 d2 9c 11 16 17 58 13 16 11 16 11 0b 8e 69 32 9d}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

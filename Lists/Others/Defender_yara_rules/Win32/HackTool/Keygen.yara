@@ -555,6 +555,29 @@ rule HackTool_Win32_Keygen_2147751727_7
         severity = "High"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Press generate or paste serial" ascii //weight: 1
+        $x_1_2 = "Paste request code here" ascii //weight: 1
+        $x_1_3 = "Invalid request code" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_2147751727_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -567,7 +590,7 @@ rule HackTool_Win32_Keygen_2147751727_7
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_2147751727_8
+rule HackTool_Win32_Keygen_2147751727_9
 {
     meta:
         author = "defender2yara"

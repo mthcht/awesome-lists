@@ -5059,3 +5059,24 @@ rule Trojan_Win64_Tedy_SXM_2147966104_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_PAC_2147966170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PAC!MTB"
+        threat_id = "2147966170"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {33 d2 0f b6 06 48 83 c6 02 41 88 04 10 48 8d 88 00 01 00 00 48 c1 e1 08 48 03 ca 48 ff c2 42 88 3c 11 48 81 fa 00 01 00 00 7c d7 ff c7 49 81 c0 00 01 00 00 81 ff 00 01 00 00 7c c4}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
