@@ -2976,3 +2976,26 @@ rule Trojan_MSIL_Crysan_PGAH_2147964928_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_BAC_2147966179_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.BAC!MTB"
+        threat_id = "2147966179"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 01 20 00 00 00 00 7e 5a 00 00 04 7b 56 00 00 04 3a c3 ff ff ff 26 20 00 00 00 00 38 b8 ff ff ff 11 09 72 01 00 00 70 ?? ?? 00 00 0a ?? ?? 00 00 0a 20 01 00 00 00 7e 5a 00 00 04 7b 0e 00 00 04 39 93 ff ff ff 26 20 01 00 00 00 38 88 ff ff ff 11 09 72 5b 00 00 70 ?? ?? 00 00 0a ?? ?? 00 00 0a 38 84 ff ff ff 73 09 00 00 0a 13 0c 38 00 00 00 00 00 20 30 a5 04 00 8d 07 00 00 01 25 d0 06 00 00 04}  //weight: 2, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

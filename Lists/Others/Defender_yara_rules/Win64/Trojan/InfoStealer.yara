@@ -103,3 +103,33 @@ rule Trojan_Win64_InfoStealer_P_2147963568_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_PAB_2147966176_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.PAB!MTB"
+        threat_id = "2147966176"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[A2] Done collecting," ascii //weight: 1
+        $x_1_2 = "\\Exodus\\exodus.wallet" ascii //weight: 1
+        $x_1_3 = "\\Coinomi\\Coinomi\\wallets" ascii //weight: 1
+        $x_1_4 = "\\Microsoft\\Edge\\User Data" ascii //weight: 1
+        $x_1_5 = "\\BitPay\\Local Storage\\leveldb" ascii //weight: 1
+        $x_1_6 = "\\Google\\Chrome\\User Data" ascii //weight: 1
+        $x_1_7 = "Waterfox\\ProfilesThunderbird\\Profileslogins.jsonkey4.dbkey3.dbcookies.sqliteformhistory.sqliteplaces.sqlite" ascii //weight: 1
+        $x_1_8 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 1
+        $x_1_9 = "Cookies-walSELECT host_key, name, encrypted_value, path, expires_utc, is_secure, is_httponly FROM cookies" ascii //weight: 1
+        $x_1_10 = "once_lock.rs" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
