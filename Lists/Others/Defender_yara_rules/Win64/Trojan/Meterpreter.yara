@@ -762,3 +762,25 @@ rule Trojan_Win64_Meterpreter_GTD_2147959701_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_AHF_2147966187_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.AHF!MTB"
+        threat_id = "2147966187"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {01 d0 89 85 ?? ?? 00 00 0f b7 85 ?? ?? 00 00 89 c1 8b 85 ?? ?? 00 00 89 c2 0f b6 c1 f6 f2 0f b6 c4 88 85 ?? ?? 00 00}  //weight: 20, accuracy: Low
+        $x_20_2 = {66 f7 f1 66 89 85 ?? ?? 00 00 8b 85 ?? ?? 00 00 89 c2 0f b6 85 ?? ?? 00 00 31 d0 88 85 ?? ?? 00 00}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
