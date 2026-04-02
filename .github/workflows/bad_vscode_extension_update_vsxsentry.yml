@@ -1,0 +1,45 @@
+name: hourly VSXSentry Feed Update
+
+on:
+  schedule:
+    - cron: '17 */1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Run VSXSentry feed builder
+        run: |
+          cd "Lists/VSCODE Extensions"
+          python build_vscode_extensions_feed.py
+
+      - name: List files
+        run: ls -la
+
+      - name: List files in the VSCode Extensions directory
+        run: ls -la "Lists/VSCODE Extensions"
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull
+          git add "Lists/VSCODE Extensions/feeds"
+          git commit -m "Update VSXSentry feed" --allow-empty
+          git push
