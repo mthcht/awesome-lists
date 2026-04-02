@@ -54,4 +54,4 @@ python3 build_vscode_extensions_feed.py \
 
 ## Site
 
-Check out the site vsxsentry.github.io 
+Check out the site https://vsxsentry.github.io 
