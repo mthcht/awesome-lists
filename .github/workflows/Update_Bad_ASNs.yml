@@ -2,7 +2,7 @@ name: weekly Bad ASN Update
 
 on:
   schedule:
-    - cron: '0 0 * * 0'  # Runs every week
+    - cron: '0 0 */1 * *'
   workflow_dispatch:
 
 jobs:
