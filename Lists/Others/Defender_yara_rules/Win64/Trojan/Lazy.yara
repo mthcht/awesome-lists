@@ -2828,6 +2828,30 @@ rule Trojan_Win64_Lazy_MBZ_2147942168_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MKK_2147942274_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKK!MTB"
+        threat_id = "2147942274"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "load malware" ascii //weight: 10
+        $x_5_2 = "all malware patches should be now visible" ascii //weight: 5
+        $x_3_3 = "load windows without malware" ascii //weight: 3
+        $x_2_4 = "dump target process modules to disk" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_SFD_2147942779_0
 {
     meta:
@@ -3872,6 +3896,31 @@ rule Trojan_Win64_Lazy_MKC_2147953087_0
     strings:
         $x_15_1 = {48 8b 05 d1 87 01 00 48 89 87 b8 00 00 00 48 8b 05 c3 87 01 00 48 89 44 24 30 f0 83 00 01 48 8b 5c 24 30 b9 0d}  //weight: 15, accuracy: High
         $x_10_2 = {c7 81 c8 00 00 00 01 00 00 00 c6 81 74 01 00 00 43 c6 81 f7 01 00 00 43 48 8d 05 24 7a 01 00 48 89 81 b8 00 00 00 b9 0d}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_MKC_2147953087_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKC!MTB"
+        threat_id = "2147953087"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "[\\w-]{24,27}\\.[\\w-]{6,7}\\.[\\w-]{25,110}" ascii //weight: 15
+        $x_10_2 = "dQw4w9WgXcQ:" ascii //weight: 10
+        $x_5_3 = "discordbackupyedek" ascii //weight: 5
+        $x_3_4 = ".ROBLOSECURITY=" ascii //weight: 3
+        $x_2_5 = "WARNING:-DO-NOT-SHARE-THIS" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

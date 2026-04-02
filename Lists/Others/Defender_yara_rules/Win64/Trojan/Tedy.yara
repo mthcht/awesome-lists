@@ -4576,6 +4576,30 @@ rule Trojan_Win64_Tedy_PAB_2147964021_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CQ_2147964031_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CQ!MTB"
+        threat_id = "2147964031"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 c7 44 24 ?? ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 4c 8d 0d ?? ?? ?? ?? 48 8d 74 24 ?? 41 b8 ?? ?? ?? ?? 48 89 f1 ff d0}  //weight: 5, accuracy: Low
+        $x_5_2 = {48 89 f8 48 03 05 ?? ?? ?? ?? 48 83 c4 ?? 5f 5e 48 ff e0}  //weight: 5, accuracy: Low
+        $x_1_3 = "[+] hello wold!" ascii //weight: 1
+        $x_1_4 = "crypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_SXI_2147964063_0
 {
     meta:
