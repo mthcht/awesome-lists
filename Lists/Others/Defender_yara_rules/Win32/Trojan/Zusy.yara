@@ -9343,3 +9343,25 @@ rule Trojan_Win32_Zusy_GPKF_2147966134_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_LRE_2147966161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LRE!MTB"
+        threat_id = "2147966161"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a 54 04 18 88 d5 f6 d5 88 c6 80 c6 28 20 ee 20 ca 08 f2 88 d5 f6 d5 80 e5 1f 80 e2 e0 08 ea 80 f2 37 88 54 04 18 40 fe c9 83 f8 0b}  //weight: 20, accuracy: High
+        $x_10_2 = {88 cd 80 e5 37 88 c6 80 c6 28 80 e6 c8 08 ee 30 d6 88 f2 f6 d2 80 e2 7b 80 e6 84 08 d6}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
