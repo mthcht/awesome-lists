@@ -4,4 +4,4 @@ You will find a list of extension IDs and their respective names and links for r
 
 If you know of any additional sensitive browser extensions that should be included in this list, please feel free to open an issue or submit a pull request.
 
-check out the project extsentry.github.io for more feed options and remediation suggestions
+check out the project https://extsentry.github.io for more feed options and remediation suggestions
