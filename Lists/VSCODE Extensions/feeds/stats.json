@@ -1,13 +1,42 @@
 {
-  "generated_utc": "2026-04-03T07:42:56+00:00",
-  "total_records": 931,
+  "generated_utc": "2026-04-03T08:13:49+00:00",
+  "total_records": 1003,
+  "total_malicious": 931,
+  "total_risky": 72,
   "severity_counts": {
     "critical": 313,
-    "high": 533,
-    "low": 15,
-    "medium": 70
+    "high": 547,
+    "low": 22,
+    "medium": 121
   },
   "category_counts": {
+    "copyright-violation": 15,
+    "deprecated": 2,
+    "expired-domain": 1,
+    "impersonation": 531,
+    "impersonation-malware": 5,
+    "malware": 313,
+    "owner-request": 5,
+    "potentially-malicious": 1,
+    "publisher-requested": 3,
+    "risky-ai-code-access": 9,
+    "risky-api-client": 3,
+    "risky-cloud-access": 9,
+    "risky-code-execution": 4,
+    "risky-collaboration": 1,
+    "risky-credential-access": 5,
+    "risky-database-access": 8,
+    "risky-file-transfer": 7,
+    "risky-git-access": 2,
+    "risky-infrastructure": 4,
+    "risky-remote-access": 15,
+    "risky-tunnel": 5,
+    "spam": 4,
+    "spam-malware": 5,
+    "typo-squatting": 1,
+    "untrustworthy": 45
+  },
+  "malicious_category_counts": {
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
@@ -22,7 +51,21 @@
     "typo-squatting": 1,
     "untrustworthy": 45
   },
-  "total_publishers": 717,
+  "risky_category_counts": {
+    "risky-ai-code-access": 9,
+    "risky-api-client": 3,
+    "risky-cloud-access": 9,
+    "risky-code-execution": 4,
+    "risky-collaboration": 1,
+    "risky-credential-access": 5,
+    "risky-database-access": 8,
+    "risky-file-transfer": 7,
+    "risky-git-access": 2,
+    "risky-infrastructure": 4,
+    "risky-remote-access": 15,
+    "risky-tunnel": 5
+  },
+  "total_publishers": 772,
   "top_publishers": [
     [
       "pit00",
@@ -89,7 +132,19 @@
       5
     ],
     [
+      "ms-vscode-remote",
+      5
+    ],
+    [
+      "ms-vscode",
+      5
+    ],
+    [
       "DevelopmentInc",
+      5
+    ],
+    [
+      "ms-azuretools",
       5
     ],
     [
@@ -111,18 +166,6 @@
     [
       "embedd-team",
       4
-    ],
-    [
-      "SoulFriends",
-      4
-    ],
-    [
-      "498-00",
-      3
-    ],
-    [
-      "ab-498",
-      3
     ]
   ]
 }
