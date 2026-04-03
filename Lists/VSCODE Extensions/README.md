@@ -1,3 +1,7 @@
+# VSXSentry Project
+
+[github.com/vsxsentry](https://github.com/vsxsentry)
+
 # VSXSentry feed builder
 
 ## What it does
