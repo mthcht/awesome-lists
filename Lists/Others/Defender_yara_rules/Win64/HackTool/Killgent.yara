@@ -108,3 +108,26 @@ rule HackTool_Win64_Killgent_DC_2147935088_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_Killgent_DD_2147966250_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Killgent.DD!MTB"
+        threat_id = "2147966250"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Killgent"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Kill EDR Successfully" ascii //weight: 1
+        $x_1_2 = "Please start with administrator" ascii //weight: 1
+        $x_1_3 = "Driver loaded successfully" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

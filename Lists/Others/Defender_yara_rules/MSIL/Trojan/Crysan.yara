@@ -2999,3 +2999,24 @@ rule Trojan_MSIL_Crysan_BAC_2147966179_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_BAD_2147966268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.BAD!MTB"
+        threat_id = "2147966268"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 05 11 05 2d 0c 02 72 97 00 00 70 28 0b 00 00 0a 0d 09 28 24 00 00 0a 16 fe 01 13 05 11 05 2d 5d 00 73 25 00 00 0a 13 04 11 04 72 ad 00 00 70 ?? ?? 00 00 0a 00 11 04 72 bd 00 00 70 09 72 c7 00 00 70 28 10 00 00 0a ?? ?? 00 00 0a 00 11 04 17 ?? ?? 00 00 0a 00 11 04 17 ?? ?? 00 00 0a 00 11 04 16 ?? ?? 00 00 0a 00 11 04 0b}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

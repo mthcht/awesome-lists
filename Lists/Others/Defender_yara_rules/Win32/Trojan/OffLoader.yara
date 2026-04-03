@@ -6519,3 +6519,26 @@ rule Trojan_Win32_OffLoader_AATB_2147965942_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ABVS_2147966289_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ABVS!MTB"
+        threat_id = "2147966289"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://bitecelery.xyz/" ascii //weight: 3
+        $x_3_2 = "://boyhair.space/" ascii //weight: 3
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

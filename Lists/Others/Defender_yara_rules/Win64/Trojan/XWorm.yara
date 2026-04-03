@@ -475,3 +475,26 @@ rule Trojan_Win64_XWorm_AB_2147965082_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_AHA_2147966284_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.AHA!MTB"
+        threat_id = "2147966284"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[*] Console mode active" ascii //weight: 10
+        $x_30_2 = "[-] UAC refused. Retrying in 2 sec..." ascii //weight: 30
+        $x_20_3 = "[*] Running as Administrator" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

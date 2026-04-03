@@ -70,3 +70,24 @@ rule Trojan_Win64_Loader_PA_2147966213_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Loader_AHB_2147966285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Loader.AHB!MTB"
+        threat_id = "2147966285"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Loader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f b6 cb 0f be c3 80 e1 ?? 41 b9 ?? ?? ?? ?? c0 e1 ?? 41 d3 e9 44 32 4c 1c 40 6b c8 ?? 44 32 c9 49 3b d0 73}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

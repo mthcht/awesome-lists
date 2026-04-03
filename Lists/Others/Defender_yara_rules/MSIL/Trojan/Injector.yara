@@ -1765,3 +1765,25 @@ rule Trojan_MSIL_Injector_SXA_2147966189_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_SXB_2147966287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.SXB!MTB"
+        threat_id = "2147966287"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {02 7b 3d 00 00 0a 6f ?? 00 00 0a 03 02 28 ?? 00 00 0a 6f ?? 00 00 0a 13 04 11 04 04 6f ?? 00 00 0a 0a 00 de 08}  //weight: 30, accuracy: Low
+        $x_10_2 = {16 0a 02 28 ?? 00 00 0a 7e ?? 00 00 0a 28 ?? 00 00 0a 0b 07 2c 05 00 06 0c 2b 42 02 28 ?? 00 00 0a 0d 09 2c 05}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

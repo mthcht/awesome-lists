@@ -20,3 +20,28 @@ rule Trojan_MSIL_Spoofer_MX_2147962959_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Spoofer_SX_2147966286_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Spoofer.SX!MTB"
+        threat_id = "2147966286"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Spoofer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "spoofer.exe" ascii //weight: 20
+        $x_15_2 = "del /y c:\\windows\\cookies" ascii //weight: 15
+        $x_10_3 = "[4] Unlink Discord" ascii //weight: 10
+        $x_10_4 = "REG DELETE HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\MSLicensing\\HardwareID /f" ascii //weight: 10
+        $x_5_5 = "taskkill /f /im Steam.exe /t" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
