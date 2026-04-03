@@ -2,13 +2,20 @@
 """
 Build the VSXSentry feed from Microsoft's RemovedPackages markdown and a local static CSV.
 
-Outputs:
-- feeds/vsxsentry_feed.csv
-- feeds/vsxsentry_feed.json
-- feeds/ioc_all_extension_ids.txt
-- feeds/ioc_high_risk_extension_ids.txt
-- feeds/ioc_block_publishers.txt
-- feeds/stats.json
+Outputs (all in --output-dir):
+  Combined (malicious + risky):
+    vsxsentry_feed.csv / .json          — full merged feed
+    stats.json                           — aggregated statistics
+
+  Malicious only (categories without risky- prefix):
+    vsxsentry_malicious_feed.csv / .json
+    ioc_all_extension_ids.txt
+    ioc_high_risk_extension_ids.txt
+    ioc_block_publishers.txt
+
+  Risky only (categories with risky- prefix):
+    vsxsentry_risky_feed.csv / .json
+    risky_extension_ids.txt
 """
 
 from __future__ import annotations
@@ -48,6 +55,12 @@ SEVERITY_RANK = {
 
 EXTENSION_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*\.[A-Za-z0-9][A-Za-z0-9._-]*$")
 
+RISKY_PREFIX = "risky-"
+
+
+# ---------------------------------------------------------------------------
+# Data model
+# ---------------------------------------------------------------------------
 
 @dataclass
 class Entry:
@@ -68,6 +81,13 @@ class Entry:
     def key(self) -> str:
         return self.extension_id.lower()
 
+    def is_risky(self) -> bool:
+        return self.metadata_category.lower().startswith(RISKY_PREFIX)
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
 
 def now_utc() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -110,9 +130,15 @@ def slugify(value: str) -> str:
 
 
 def infer_name_from_id(extension_id: str) -> tuple[str, str]:
-    publisher, name = extension_id.split(".", 1)
-    return publisher, name
+    parts = extension_id.split(".", 1)
+    if len(parts) == 2:
+        return parts[0], parts[1]
+    return "", extension_id
 
+
+# ---------------------------------------------------------------------------
+# Parsers
+# ---------------------------------------------------------------------------
 
 def parse_markdown_table(text: str) -> List[dict]:
     rows: List[dict] = []
@@ -190,15 +216,21 @@ def load_static_csv(path: Path) -> List[dict]:
                     "metadata_comment": (row.get("metadata_comment") or "").strip(),
                     "metadata_severity": (row.get("metadata_severity") or "medium").strip().lower(),
                     "metadata_category": (row.get("metadata_category") or "other").strip().lower(),
+                    "metadata_reference": (row.get("metadata_reference") or "").strip(),
                 }
             )
     return rows
 
 
+# ---------------------------------------------------------------------------
+# Merge
+# ---------------------------------------------------------------------------
+
 def merge_entries(removed_rows: List[dict], static_rows: List[dict], reference_url: str) -> List[Entry]:
     current_ts = now_utc()
     merged: Dict[str, Entry] = {}
 
+    # 1. Microsoft RemovedPackages (baseline)
     for row in removed_rows:
         extension_id = row["extension_id"]
         publisher_id, extension_name = infer_name_from_id(extension_id)
@@ -221,14 +253,19 @@ def merge_entries(removed_rows: List[dict], static_rows: List[dict], reference_u
         )
         merged[entry.key()] = entry
 
+    # 2. Static CSV (analyst-curated: malicious + risky)
     for row in static_rows:
         extension_id = row["extension_id"]
         publisher_id, extension_name = infer_name_from_id(extension_id)
+        ref = row.get("metadata_reference") or "local_static_csv"
         existing = merged.get(extension_id.lower())
         if existing:
+            # Static overrides comment/severity/category on collision
             existing.metadata_comment = row["metadata_comment"] or existing.metadata_comment
             existing.metadata_severity = row["metadata_severity"] or existing.metadata_severity
             existing.metadata_category = row["metadata_category"] or existing.metadata_category
+            if ref and ref != "local_static_csv":
+                existing.metadata_reference = ref
             existing.metadata_source = "microsoft_removed_packages,static_list"
             existing.metadata_status = "removed_marketplace,listed_static"
             existing.merged_sources = "microsoft_removed_packages,static_list"
@@ -242,7 +279,7 @@ def merge_entries(removed_rows: List[dict], static_rows: List[dict], reference_u
                 metadata_severity=row["metadata_severity"],
                 metadata_category=row["metadata_category"],
                 metadata_source="static_list",
-                metadata_reference="local_static_csv",
+                metadata_reference=ref,
                 metadata_status="listed_static",
                 removal_date="",
                 source_reason="",
@@ -260,34 +297,41 @@ def merge_entries(removed_rows: List[dict], static_rows: List[dict], reference_u
     )
 
 
-def write_csv(path: Path, rows: Iterable[Entry]) -> None:
-    rows = list(rows)
-    fieldnames = list(asdict(rows[0]).keys()) if rows else [
-        "extension_id",
-        "publisher_id",
-        "extension_name",
-        "metadata_comment",
-        "metadata_severity",
-        "metadata_category",
-        "metadata_source",
-        "metadata_reference",
-        "metadata_status",
-        "removal_date",
-        "source_reason",
-        "last_updated_utc",
-        "merged_sources",
-    ]
+# ---------------------------------------------------------------------------
+# Writers
+# ---------------------------------------------------------------------------
+
+FIELDNAMES = [
+    "extension_id",
+    "publisher_id",
+    "extension_name",
+    "metadata_comment",
+    "metadata_severity",
+    "metadata_category",
+    "metadata_source",
+    "metadata_reference",
+    "metadata_status",
+    "removal_date",
+    "source_reason",
+    "last_updated_utc",
+    "merged_sources",
+]
+
+
+def write_csv(path: Path, rows: List[Entry]) -> None:
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=FIELDNAMES)
         writer.writeheader()
         for row in rows:
             writer.writerow(asdict(row))
 
 
-def write_json(path: Path, rows: Iterable[Entry]) -> None:
+def write_json(path: Path, rows: List[Entry], *, feed_type: str = "all") -> None:
     payload = {
         "generated_utc": now_utc(),
         "project": "VSXSentry",
+        "feed_type": feed_type,
+        "total_records": len(rows),
         "records": [asdict(row) for row in rows],
     }
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -298,46 +342,87 @@ def write_txt(path: Path, lines: Iterable[str]) -> None:
     path.write_text(content + ("\n" if content else ""), encoding="utf-8")
 
 
-def write_stats(path: Path, rows: List[Entry]) -> None:
-    severity_counts = Counter(row.metadata_severity for row in rows)
-    category_counts = Counter(row.metadata_category for row in rows)
-    publisher_counts = Counter(row.publisher_id for row in rows)
+def write_stats(path: Path, all_rows: List[Entry], malicious: List[Entry], risky: List[Entry]) -> None:
+    severity_counts = Counter(row.metadata_severity for row in all_rows)
+    category_counts = Counter(row.metadata_category for row in all_rows)
+    publisher_counts = Counter(row.publisher_id for row in all_rows)
+
+    malicious_cats = Counter(row.metadata_category for row in malicious)
+    risky_cats = Counter(row.metadata_category for row in risky)
+
     payload = {
         "generated_utc": now_utc(),
-        "total_records": len(rows),
+        "total_records": len(all_rows),
+        "total_malicious": len(malicious),
+        "total_risky": len(risky),
         "severity_counts": dict(sorted(severity_counts.items())),
         "category_counts": dict(sorted(category_counts.items())),
+        "malicious_category_counts": dict(sorted(malicious_cats.items())),
+        "risky_category_counts": dict(sorted(risky_cats.items())),
         "total_publishers": len(publisher_counts),
         "top_publishers": publisher_counts.most_common(25),
     }
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+# ---------------------------------------------------------------------------
+# Build
+# ---------------------------------------------------------------------------
+
 def build(args: argparse.Namespace) -> int:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # --- Parse sources ---
     removed_text = http_get_text(args.removed_url)
     removed_rows = parse_removed_packages(removed_text)
     static_rows = load_static_csv(Path(args.static_csv))
-    merged_rows = merge_entries(removed_rows, static_rows, args.reference_url)
+    all_rows = merge_entries(removed_rows, static_rows, args.reference_url)
 
-    write_csv(output_dir / "vsxsentry_feed.csv", merged_rows)
-    write_json(output_dir / "vsxsentry_feed.json", merged_rows)
-    write_txt(output_dir / "ioc_all_extension_ids.txt", [row.extension_id for row in merged_rows])
+    # --- Split by risky- prefix ---
+    malicious_rows = [r for r in all_rows if not r.is_risky()]
+    risky_rows = [r for r in all_rows if r.is_risky()]
+
+    # --- Combined feed (malicious + risky) ---
+    write_csv(output_dir / "vsxsentry_feed.csv", all_rows)
+    write_json(output_dir / "vsxsentry_feed.json", all_rows, feed_type="all")
+
+    # --- Malicious-only feed ---
+    write_csv(output_dir / "vsxsentry_malicious_feed.csv", malicious_rows)
+    write_json(output_dir / "vsxsentry_malicious_feed.json", malicious_rows, feed_type="malicious")
+
+    # --- Risky-only feed ---
+    write_csv(output_dir / "vsxsentry_risky_feed.csv", risky_rows)
+    write_json(output_dir / "vsxsentry_risky_feed.json", risky_rows, feed_type="risky")
+
+    # --- IOC text files (malicious only — risky are legitimate extensions) ---
+    write_txt(
+        output_dir / "ioc_all_extension_ids.txt",
+        [row.extension_id for row in malicious_rows],
+    )
     write_txt(
         output_dir / "ioc_high_risk_extension_ids.txt",
-        [row.extension_id for row in merged_rows if SEVERITY_RANK.get(row.metadata_severity, 0) >= 3],
+        [row.extension_id for row in malicious_rows if SEVERITY_RANK.get(row.metadata_severity, 0) >= 3],
     )
     write_txt(
         output_dir / "ioc_block_publishers.txt",
-        [row.publisher_id for row in merged_rows if SEVERITY_RANK.get(row.metadata_severity, 0) >= 3],
+        [row.publisher_id for row in malicious_rows if SEVERITY_RANK.get(row.metadata_severity, 0) >= 3],
     )
-    write_stats(output_dir / "stats.json", merged_rows)
 
+    # --- Risky extension IDs (separate, not IOCs) ---
+    write_txt(
+        output_dir / "risky_extension_ids.txt",
+        [row.extension_id for row in risky_rows],
+    )
+
+    # --- Stats ---
+    write_stats(output_dir / "stats.json", all_rows, malicious_rows, risky_rows)
+
+    # --- Summary ---
     print(f"[+] Parsed {len(removed_rows)} Microsoft removed-package rows")
     print(f"[+] Parsed {len(static_rows)} static rows")
-    print(f"[+] Wrote {len(merged_rows)} merged records to {output_dir}")
+    print(f"[+] Merged: {len(all_rows)} total = {len(malicious_rows)} malicious + {len(risky_rows)} risky")
+    print(f"[+] Outputs written to {output_dir}/")
     return 0
 
 
