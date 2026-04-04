@@ -20,3 +20,25 @@ rule Trojan_Win32_Gulpix_AHB_2147957565_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Gulpix_ARR_2147966307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Gulpix.ARR!MTB"
+        threat_id = "2147966307"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Gulpix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_14_1 = {66 3b d7 74 ?? 0f b7 94 4d ?? ?? ?? ?? 41 66 3b d6 75}  //weight: 14, accuracy: Low
+        $x_6_2 = {0f 94 c0 33 f6 8d 7c 00 ?? 33 c0 40 8b c8 66 39 b5}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

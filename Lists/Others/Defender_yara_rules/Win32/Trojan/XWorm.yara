@@ -460,3 +460,27 @@ rule Trojan_Win32_XWorm_SLWP_2147964252_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_A_2147966306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.A!AMTB"
+        threat_id = "2147966306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ExecutionPolicy Bypass Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_2 = "Urlhide" ascii //weight: 1
+        $x_1_3 = "PCShutdown" ascii //weight: 1
+        $x_2_4 = "shutdown.exe /f /s /t 0" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
