@@ -5147,3 +5147,29 @@ rule Trojan_Win64_Tedy_MKJ_2147966288_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LRE_2147966303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LRE!MTB"
+        threat_id = "2147966303"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f b6 c8 49 8b d1 80 e1 07 c0 e1 03 48 d3 ea 41 30 14 00 48 ff c0 48 83 f8 02}  //weight: 20, accuracy: High
+        $x_10_2 = {80 79 07 00 74 ?? 80 31 99 80 71 01 ad 80 71 02 29 80 71 03 5d 80 71 04 15 80 71 05 03 80 71 06 65 c6 41 07 00}  //weight: 10, accuracy: Low
+        $x_5_3 = {80 79 05 00 74 ?? 80 31 3d 80 71 01 fb 80 71 02 4d 80 71 03 09 80 71 04 af c6 41 05 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

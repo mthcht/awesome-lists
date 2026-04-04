@@ -68,3 +68,27 @@ rule Trojan_Win64_BlipSlide_AA_2147958601_0
         )
 }
 
+rule Trojan_Win64_BlipSlide_AC_2147966301_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BlipSlide.AC!dha"
+        threat_id = "2147966301"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BlipSlide"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "PwrshlInvoker" ascii //weight: 1
+        $x_1_2 = "WinHttpWrapper" ascii //weight: 1
+        $x_1_3 = "execute_command" ascii //weight: 1
+        $x_1_4 = "QEAUCommand" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
