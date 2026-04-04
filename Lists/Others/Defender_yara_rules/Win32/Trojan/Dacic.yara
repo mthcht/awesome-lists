@@ -282,3 +282,27 @@ rule Trojan_Win32_Dacic_SX_2147955086_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dacic_PGAV_2147966317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dacic.PGAV!MTB"
+        threat_id = "2147966317"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "uploader" ascii //weight: 2
+        $x_2_2 = "application/x-msdownload" ascii //weight: 2
+        $x_2_3 = "Windows\\System32\\aswcmdasw.exe" ascii //weight: 2
+        $x_2_4 = "/START" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
