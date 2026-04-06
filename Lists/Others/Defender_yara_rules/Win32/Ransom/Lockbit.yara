@@ -251,3 +251,25 @@ rule Ransom_Win32_Lockbit_MMK_2147962669_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Lockbit_AMTB_2147966331_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Lockbit!AMTB"
+        threat_id = "2147966331"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lockbit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$filePath.lockbit" ascii //weight: 1
+        $x_1_2 = "Encrypt.ps1" ascii //weight: 1
+        $x_1_3 = "Write the encrypted data to a new file with a .encr extension" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
