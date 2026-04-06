@@ -1353,3 +1353,34 @@ rule TrojanSpy_AndroidOS_Banker_AR_2147946730_0
         (2 of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_Banker_K_2147966337_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/Banker.K!AMTB"
+        threat_id = "2147966337"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "com/asf/dsfaee" ascii //weight: 6
+        $x_6_2 = "com/asdfee/lokik" ascii //weight: 6
+        $x_2_3 = "SimSlot0" ascii //weight: 2
+        $x_1_4 = "Please enter valid atm" ascii //weight: 1
+        $x_2_5 = "C0826a40" ascii //weight: 2
+        $x_1_6 = "receiveSms" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_6_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_2_*))) or
+            ((2 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+

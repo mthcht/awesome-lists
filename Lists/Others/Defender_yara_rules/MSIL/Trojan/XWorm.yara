@@ -4766,6 +4766,27 @@ rule Trojan_MSIL_XWorm_BAQ_2147965703_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {11 04 11 0e 11 04 8e 69 5d 91 11 0d 61 d2 13 0f 11 0c 11 0e 11 0a 11 0e 91 11 0f 61 d2 9c 11 0a 11 0e 91 11 0e 20 ff 00 00 00 5f d2 61 d2 13 0d 11 0e 17 58 13 0e 11 0e 11 0a 8e 69 32 c2}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_BAQ_2147965703_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAQ!MTB"
+        threat_id = "2147965703"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:
