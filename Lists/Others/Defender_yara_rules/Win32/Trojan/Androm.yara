@@ -1774,7 +1774,7 @@ rule Trojan_Win32_Androm_BAR_2147965467_1
         threshold = "2"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {ba 00 10 00 00 b8 80 de 03 00 03 45 ?? 2b c2 83 c0 04 89 45 ?? ff 75}  //weight: 2, accuracy: Low
+        $x_2_1 = {83 c3 04 83 c6 04 3b 5d ?? 0f 82 ?? ?? ?? ?? ba 00 10 00 00 b8 80 de 03 00 03 45 ?? 2b c2 83 c0 04 89 45}  //weight: 2, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

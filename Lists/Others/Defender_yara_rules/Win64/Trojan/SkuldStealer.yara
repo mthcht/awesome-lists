@@ -19,3 +19,28 @@ rule Trojan_Win64_SkuldStealer_ASD_2147960048_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SkuldStealer_MX_2147966364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SkuldStealer.MX!MTB"
+        threat_id = "2147966364"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SkuldStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "hackirby/skuld" ascii //weight: 1
+        $x_1_2 = "ChromiumSteal" ascii //weight: 1
+        $x_1_3 = "browsers.GeckoSteal" ascii //weight: 1
+        $x_1_4 = "browsers.(*Chromium).GetCreditCards" ascii //weight: 1
+        $x_1_5 = "browsers.History" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

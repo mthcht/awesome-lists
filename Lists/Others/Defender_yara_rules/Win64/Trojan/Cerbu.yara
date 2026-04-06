@@ -347,3 +347,26 @@ rule Trojan_Win64_Cerbu_SXB_2147964787_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AHF_2147966358_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHF!MTB"
+        threat_id = "2147966358"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "--- CRYPTO WALLETS ---" ascii //weight: 10
+        $x_20_2 = "[%02d:%02d:%02d] [FORENSIC]   Extracting Steam tokens from LevelDB..." ascii //weight: 20
+        $x_30_3 = "[%02d:%02d:%02d] [FORENSIC]   VSS snapshot deleted" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

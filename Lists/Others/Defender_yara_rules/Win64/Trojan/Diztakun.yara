@@ -19,3 +19,29 @@ rule Trojan_Win64_Diztakun_MKV_2147906806_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Diztakun_MX_2147966365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Diztakun.MX!MTB"
+        threat_id = "2147966365"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Diztakun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "osamabinladenclient" ascii //weight: 1
+        $x_1_2 = "startup/actions.deletebackups" ascii //weight: 1
+        $x_1_3 = "addExclusions" ascii //weight: 1
+        $x_1_4 = "actions.disableRecovery" ascii //weight: 1
+        $x_1_5 = "actions.PersistVbs" ascii //weight: 1
+        $x_1_6 = "actions.disableUAC" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
