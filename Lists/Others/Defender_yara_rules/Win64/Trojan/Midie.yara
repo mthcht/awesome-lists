@@ -1022,3 +1022,25 @@ rule Trojan_Win64_Midie_SXG_2147966028_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_SXH_2147966386_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXH!MTB"
+        threat_id = "2147966386"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f b6 04 17 48 ff c2 03 c3 8d 0c c0 8b d9 c1 eb 06 33 d9 49 3b d0 75 e8}  //weight: 30, accuracy: High
+        $x_20_2 = {49 8b c0 83 e0 0f 0f b6 0c 08 49 03 c9 48 03 ca 44 0f b6 c9 42 8a 44 0c ?? 42 88 44 04 ?? 4c 03 c3 42 88 54 0c ?? 4c 3b c5 72 c8}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

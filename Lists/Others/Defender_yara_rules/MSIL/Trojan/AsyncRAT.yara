@@ -7149,3 +7149,26 @@ rule Trojan_MSIL_AsyncRAT_KKA_2147965821_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_SXB_2147966383_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.SXB!MTB"
+        threat_id = "2147966383"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Save payload to .config folder" ascii //weight: 20
+        $x_10_2 = "[System.IO.File]::WriteAllBytes($execPath, $decryptedBytes)" ascii //weight: 10
+        $x_5_3 = "New-Item -Path $execDir -ItemType Directory > $null" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

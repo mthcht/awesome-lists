@@ -9752,3 +9752,26 @@ rule Trojan_MSIL_Heracles_GXH_2147966280_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_SXC_2147966382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SXC!MTB"
+        threat_id = "2147966382"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$MyBigFatCriticalPoint=[char]65+[char]100+[char]100+[char]45+[char]77+[char]112+[char]80+[char]114" ascii //weight: 1
+        $x_1_2 = "[char]101+[char]102+[char]101+[char]114+[char]101+[char]110+[char]99+[char]101;" ascii //weight: 1
+        $x_1_3 = "$s=[char](23+23)+[char]101+[char]120+[char]101;&($MyBigFatCriticalPoint) -ExclusionExtension $s -Force" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

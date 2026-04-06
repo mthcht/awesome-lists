@@ -1488,3 +1488,26 @@ rule Trojan_MSIL_DarkCloud_RVA_2147965952_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_RVB_2147966372_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.RVB!MTB"
+        threat_id = "2147966372"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {57 9d a2 29 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 ?? 00 00 00 22 00 00 00 ?? 01 00 00 bf 00 00 00 73 00 00 00 e9 00 00 00 03 00 00 00 29 00 00 00 0b 00 00 00 28 00 00 00 04 00 00 00 0a 00 00 00 0b 00 00 00 11 00 00 00 0e 00 00 00 02 00 00 00 08 00 00 00 04 00 00 00 13 00 00 00 02 00 00 00 08}  //weight: 1, accuracy: Low
+        $x_1_2 = "LaserCalculator" ascii //weight: 1
+        $x_1_3 = "get_finn" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

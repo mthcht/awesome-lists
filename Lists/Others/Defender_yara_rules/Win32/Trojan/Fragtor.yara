@@ -3801,3 +3801,26 @@ rule Trojan_Win32_Fragtor_LR_2147966160_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_SXE_2147966381_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SXE!MTB"
+        threat_id = "2147966381"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 00 8b 58 18 89 9d 54 fe ff ff 8b 00 8b 40 18 89 85 50 fe ff ff 0f 28 05 ?? ?? ?? ?? 8d 45 e8 50 ff b5 54 fe ff ff 0f 11 45 e8 c7 45 f8 65 61 64 00 ff 15}  //weight: 20, accuracy: Low
+        $x_30_2 = "EtwpCreateEtwThr(j" ascii //weight: 30
+        $x_10_3 = {8b f0 c7 45 f4 47 45 54 47 6a 07 8d 45 f4 66 c7 45 f8 4f 44 50 ff 35 ?? ?? ?? ?? c6 45 fa 00 ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
