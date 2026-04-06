@@ -13313,6 +13313,31 @@ rule TrojanDownloader_O97M_Powdow_RVCM_2147927943_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_O97M_Powdow_RVCM_2147927943_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/Powdow.RVCM!MTB"
+        threat_id = "2147927943"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Powdow"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "= CreateObject(\"WScript.Shell\")" ascii //weight: 1
+        $x_1_2 = {2e 4f 70 65 6e 20 22 67 65 74 22 2c 20 [0-100] 28 22 68 ?? ?? ?? ?? 3a 2f 2f 6a ?? 2d 68 ?? ?? 6c ?? ?? 67 2e ?? ?? 6d 2f}  //weight: 1, accuracy: Low
+        $x_1_3 = {49 6e 53 74 72 28 [0-100] 2c 20 4d 69 64 28 [0-100] 2c 20 69 2c 20 31 29 29}  //weight: 1, accuracy: Low
+        $x_1_4 = "= Chr(50) + Chr(48) + Chr(48)" ascii //weight: 1
+        $x_1_5 = "Range(\"A1\").Value = \"Please wait\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule TrojanDownloader_O97M_Powdow_RSA_2147949236_0
 {
     meta:

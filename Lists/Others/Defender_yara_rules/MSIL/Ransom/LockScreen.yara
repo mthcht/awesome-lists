@@ -185,3 +185,28 @@ rule Ransom_MSIL_LockScreen_A_2147962352_0
         )
 }
 
+rule Ransom_MSIL_LockScreen_AYA_2147966392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/LockScreen.AYA!MTB"
+        threat_id = "2147966392"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Ransomwareluckystaatros.pdb" ascii //weight: 5
+        $x_2_2 = "Ransomwareluckystaatros.Form1.resources" ascii //weight: 2
+        $x_2_3 = "sent me 200$ to this address to recover your files" wide //weight: 2
+        $x_1_4 = "$6b93d134-2627-40d4-a85c-eb7fc8a3cf75" ascii //weight: 1
+        $x_1_5 = "IsRunningAsAdministrator" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -89,3 +89,25 @@ rule Ransom_Win32_Play_ZA_2147904412_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Play_GPA_2147966393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Play.GPA!MTB"
+        threat_id = "2147966393"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Play"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {f7 f1 0f be 54 15 ?? 8b 45 ?? 03 45 ?? 0f be 08 33 ca 8b 55 01 03 55 02 88 0a eb c9 6a 40 68 00 30 00 00 8b 45 ?? 50 6a 00 ff 55}  //weight: 4, accuracy: Low
+        $x_3_2 = "LoadLibrary" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
