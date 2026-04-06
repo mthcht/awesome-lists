@@ -1,11 +1,11 @@
 {
-  "generated_utc": "2026-04-06T15:33:29+00:00",
-  "total_records": 1003,
-  "total_malicious": 931,
+  "generated_utc": "2026-04-06T16:32:10+00:00",
+  "total_records": 1019,
+  "total_malicious": 947,
   "total_risky": 72,
   "severity_counts": {
     "critical": 313,
-    "high": 547,
+    "high": 563,
     "low": 22,
     "medium": 121
   },
@@ -13,7 +13,7 @@
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 531,
+    "impersonation": 547,
     "impersonation-malware": 5,
     "malware": 313,
     "owner-request": 5,
@@ -40,7 +40,7 @@
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 531,
+    "impersonation": 547,
     "impersonation-malware": 5,
     "malware": 313,
     "owner-request": 5,
@@ -65,7 +65,7 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 772,
+  "total_publishers": 779,
   "top_publishers": [
     [
       "pit00",
@@ -77,6 +77,10 @@
     ],
     [
       "Puglight",
+      10
+    ],
+    [
+      "cryptninjaswap",
       10
     ],
     [
@@ -161,10 +165,6 @@
     ],
     [
       "11011",
-      4
-    ],
-    [
-      "embedd-team",
       4
     ]
   ]
