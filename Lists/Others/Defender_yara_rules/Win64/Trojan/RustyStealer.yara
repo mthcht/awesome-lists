@@ -317,3 +317,24 @@ rule Trojan_Win64_RustyStealer_GXH_2147965873_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_ABRS_2147966530_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.ABRS!MTB"
+        threat_id = "2147966530"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {31 d2 41 f7 f5 8d 42 01 41 0f b6 04 01 30 04 0b 48 83 c1 01 44 39 c1 89 c8 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

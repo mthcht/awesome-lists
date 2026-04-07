@@ -1233,3 +1233,27 @@ rule Trojan_Win32_Tedy_SKP_2147966442_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_AHA_2147966522_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.AHA!MTB"
+        threat_id = "2147966522"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[*] Starting encrypted download loader" ascii //weight: 10
+        $x_20_2 = "[+] Downloaded and encrypted %d bytes" ascii //weight: 20
+        $x_30_3 = "Failed to restart as admin: %d" ascii //weight: 30
+        $x_40_4 = "if (-not (Test-Path $regPath)) { New-Item -Path $regPath -Force }" ascii //weight: 40
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

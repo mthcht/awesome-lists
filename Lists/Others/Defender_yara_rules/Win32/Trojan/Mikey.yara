@@ -624,3 +624,24 @@ rule Trojan_Win32_Mikey_AHB_2147965715_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_PGME_2147966529_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.PGME!MTB"
+        threat_id = "2147966529"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8a 81 00 80 42 00 c0 c8 03 32 83 ?? ?? ?? ?? 88 81 00 80 42 00 8d 43 01 99 41 f7 fe 8b da 81 f9 ?? ?? ?? ?? 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

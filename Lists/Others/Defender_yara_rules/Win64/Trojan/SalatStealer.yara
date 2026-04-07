@@ -155,3 +155,24 @@ rule Trojan_Win64_SalatStealer_ABST_2147965895_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_GXH_2147966520_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.GXH!MTB"
+        threat_id = "2147966520"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {01 d0 0f b6 c0 29 d0 4c 63 d0 42 0f b6 54 14 ?? 89 d1 44 01 da 41 89 d0 41 c1 f8 ?? 41 c1 e8 ?? 44 01 c2 0f b6 d2 44 29 c2 41 89 d3 48 63 d2 44 0f b6 44 14 ?? 46 88 44 14 ?? 88 4c 14 ?? 42 02 4c 14 ?? 0f b6 c9 0f b6 54 0c ?? 30 13 48 83 c3 ?? 49 39 d9}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

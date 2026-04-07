@@ -94,3 +94,31 @@ rule Trojan_Win64_NetLoader_MK_2147959470_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NetLoader_ARA_2147966521_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NetLoader.ARA!MTB"
+        threat_id = "2147966521"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NetLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "schtasks /create /tn \"MicrosoftEdgeUpdateSecurityCores\" /tr" ascii //weight: 2
+        $x_3_2 = "/sc minute /mo 1 /ru \"SYSTEM\" /F" ascii //weight: 3
+        $x_3_3 = "/sc minute /mo 1 /RL HIGHEST" ascii //weight: 3
+        $x_2_4 = "\\WindowSecurityUpdates\\" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
