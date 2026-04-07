@@ -30,6 +30,28 @@ rule VirTool_Win64_Shelesz_A_2147957266_1
         family = "Shelesz"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b 4d 88 48 8b 01 ff ?? ?? 48 8b 4c 24 70 ?? ?? ?? ?? 48 8b 01 ff ?? ?? 48 8b 45 80 b9 18 00 00 00 4c 8b 30 e8 ?? ?? ?? ?? 48 8b d8 48 85 c0}  //weight: 1, accuracy: Low
+        $x_1_2 = {b8 01 00 00 00 ?? ?? ?? ?? ?? 33 d2 33 c9 ff ?? ?? ?? ?? ?? 85 c0}  //weight: 1, accuracy: Low
+        $x_1_3 = {48 8b 56 20 48 8b 01 ff ?? ?? 48 8b 4d ?? 48 8b 01 ff ?? ?? 48 8b 4d b0 48 8b 01 ff ?? ?? 48 8b 4d b8 48 8b 01 ff}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule VirTool_Win64_Shelesz_A_2147957266_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Shelesz.A"
+        threat_id = "2147957266"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Shelesz"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
