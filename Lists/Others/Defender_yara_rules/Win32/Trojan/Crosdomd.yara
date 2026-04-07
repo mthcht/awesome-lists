@@ -1,12 +1,12 @@
-rule Trojan_Win32_RATLoader_MKV_2147966008_0
+rule Trojan_Win32_Crosdomd_MKV_2147966414_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win32/RATLoader.MKV!MTB"
-        threat_id = "2147966008"
+        detection_name = "Trojan:Win32/Crosdomd.MKV!MTB"
+        threat_id = "2147966414"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
-        family = "RATLoader"
+        family = "Crosdomd"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"

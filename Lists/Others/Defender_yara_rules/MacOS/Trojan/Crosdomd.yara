@@ -1,12 +1,12 @@
-rule Trojan_MacOS_RATLoader_A_2147966009_0
+rule Trojan_MacOS_Crosdomd_A_2147966415_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MacOS/RATLoader.A!MTB"
-        threat_id = "2147966009"
+        detection_name = "Trojan:MacOS/Crosdomd.A!MTB"
+        threat_id = "2147966415"
         type = "Trojan"
         platform = "MacOS: "
-        family = "RATLoader"
+        family = "Crosdomd"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
