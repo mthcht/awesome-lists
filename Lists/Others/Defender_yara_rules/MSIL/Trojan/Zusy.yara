@@ -4437,6 +4437,27 @@ rule Trojan_MSIL_Zusy_AZY_2147960351_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0a 0b 16 0c 2b 1a 06 08 8f ?? 00 00 01 25 71 ?? 00 00 01 1f 16 61 d2 81 ?? 00 00 01 08 17 58 0c 08 06 8e 69 32 e0 07 06 28 ?? 00 00 0a 07 28}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_AZY_2147960351_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AZY!MTB"
+        threat_id = "2147960351"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "9"
         strings_accuracy = "Low"
     strings:
@@ -4880,6 +4901,27 @@ rule Trojan_MSIL_Zusy_SPRO_2147965980_0
         strings_accuracy = "Low"
     strings:
         $x_6_1 = {2b 14 07 6f ?? ?? ?? 0a 0c 00 06 08 1b 5d 17 58 5a 1f 61 5d 0a 00 07 6f ?? 00 00 0a 2d e4}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_GPS_2147966504_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.GPS!MTB"
+        threat_id = "2147966504"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {02 50 07 02 50 8e 69 5d 02 50 07 02 50 8e 69 5d 91 06 07 06 8e 69 5d 91 61 28 ?? 00 00 0a 02 50 07 17 58 02 50 8e 69 5d 91 28 ?? 00 00 0a 59 20 00 01 00 00 58 20 00 01 00 00 5d 28 ?? 00 00 0a 9c 07 17 58 0b 07 02 50 8e 69 17 59}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -13332,7 +13332,7 @@ rule TrojanDownloader_O97M_Powdow_RVCM_2147927943_1
         $x_1_2 = {2e 4f 70 65 6e 20 22 67 65 74 22 2c 20 [0-100] 28 22 68 ?? ?? ?? ?? 3a 2f 2f 6a ?? 2d 68 ?? ?? 6c ?? ?? 67 2e ?? ?? 6d 2f}  //weight: 1, accuracy: Low
         $x_1_3 = {49 6e 53 74 72 28 [0-100] 2c 20 4d 69 64 28 [0-100] 2c 20 69 2c 20 31 29 29}  //weight: 1, accuracy: Low
         $x_1_4 = "= Chr(50) + Chr(48) + Chr(48)" ascii //weight: 1
-        $x_1_5 = "Range(\"A1\").Value = \"Please wait\"" ascii //weight: 1
+        $x_1_5 = " = \"Please wait\"" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

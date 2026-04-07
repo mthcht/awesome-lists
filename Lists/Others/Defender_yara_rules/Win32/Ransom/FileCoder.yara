@@ -1571,6 +1571,30 @@ rule Ransom_Win32_FileCoder_AMTB_2147957163_1
         family = "FileCoder"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = ".limbo" ascii //weight: 2
+        $x_2_2 = "Your All Files Encrypted With High level Cryptography Algorithm" ascii //weight: 2
+        $x_1_3 = "NC1uvgGcMaKLyjfWTx9H" ascii //weight: 1
+        $x_1_4 = "asmodeusasmodeus" ascii //weight: 1
+        $x_1_5 = "Pay For Decryption" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_FileCoder_AMTB_2147957163_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder!AMTB"
+        threat_id = "2147957163"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

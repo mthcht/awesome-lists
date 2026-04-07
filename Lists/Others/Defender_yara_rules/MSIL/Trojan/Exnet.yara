@@ -358,3 +358,32 @@ rule Trojan_MSIL_Exnet_MKC_2147966030_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Exnet_K_2147966475_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Exnet.K!AMTB"
+        threat_id = "2147966475"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Exnet"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WJkMDYwMGQ1ZWM1NDNhZTQ4MTkwNmFmOTJlYjBmNjk0" ascii //weight: 1
+        $x_1_2 = "TU5YzUwZjc3NDU5ZDVjMTA4ODc3ZmQxMzBhMTYxZDE2OWZmMmYxNDNkZmZlOTE0ZGQxMmJhYzcxMzY0YWZmNjU" ascii //weight: 1
+        $x_1_3 = "injected  successfully" ascii //weight: 1
+        $x_1_4 = "ngrok installed" ascii //weight: 1
+        $x_1_5 = "Cyrex_victim" ascii //weight: 1
+        $x_1_6 = "Get passwords stared" ascii //weight: 1
+        $x_1_7 = "remove AV Started" ascii //weight: 1
+        $x_1_8 = "restart victim PC" ascii //weight: 1
+        $x_1_9 = "AnyDesk Passwords" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (8 of ($x*))
+}
+

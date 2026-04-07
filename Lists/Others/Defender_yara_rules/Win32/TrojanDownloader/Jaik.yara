@@ -86,3 +86,30 @@ rule TrojanDownloader_Win32_Jaik_ARA_2147948752_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Jaik_AMTB_2147966476_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Jaik!AMTB"
+        threat_id = "2147966476"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {83 7d e8 0f 8d 34 01 8d 4d d4 0f 47 ca 33 d2 f7 75 e4 8a 14 0a 32 16 8b 4f 10 8b 77 14 88 55 c4 3b ce 73 19 8d 41 01 89 47 10 8b c7 83 fe 0f 76 02 8b 07}  //weight: 5, accuracy: High
+        $x_1_2 = "vmware" ascii //weight: 1
+        $x_1_3 = "virtualbox" ascii //weight: 1
+        $x_1_4 = "procmon" ascii //weight: 1
+        $x_1_5 = "wireshark" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

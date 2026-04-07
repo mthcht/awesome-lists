@@ -341,3 +341,70 @@ rule Trojan_Win64_ReverseShell_KKA_2147964212_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_VGZ_2147966469_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.VGZ!MTB"
+        threat_id = "2147966469"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "37.1.212.44" ascii //weight: 10
+        $x_10_2 = "192.168.174.142" ascii //weight: 10
+        $x_1_3 = "svc_log.txt" ascii //weight: 1
+        $x_10_4 = "inet_addr" ascii //weight: 10
+        $x_1_5 = "closesocket" ascii //weight: 1
+        $x_1_6 = "encryptedUsername" ascii //weight: 1
+        $x_1_7 = "encryptedPassword" ascii //weight: 1
+        $x_10_8 = "CreateProcessA" ascii //weight: 10
+        $x_10_9 = "WaitForSingleObject" ascii //weight: 10
+        $x_5_10 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 5
+        $x_1_11 = "[FX Cookie] %s: %s" ascii //weight: 1
+        $x_1_12 = "[FX Bookmark] %s: %s" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_10_*) and 5 of ($x_1_*))) or
+            ((4 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((5 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_ReverseShell_VGY_2147966470_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.VGY!MTB"
+        threat_id = "2147966470"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "KeySend" ascii //weight: 1
+        $x_1_2 = "192.168.85.173" ascii //weight: 1
+        $x_1_3 = "%s\\scr.bmp" ascii //weight: 1
+        $x_1_4 = "ScrSend" ascii //weight: 1
+        $x_1_5 = "/screenshot" ascii //weight: 1
+        $x_1_6 = "\\Google\\Chrome\\User Data\\Default\\Login Data" ascii //weight: 1
+        $x_1_7 = "\\Microsoft\\Edge\\User Data\\Default\\Login Data" ascii //weight: 1
+        $x_1_8 = "CredSend" ascii //weight: 1
+        $x_1_9 = "browser=%s&url=%s&username=%s&password=%s" ascii //weight: 1
+        $x_1_10 = "/creds" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

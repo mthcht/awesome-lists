@@ -88,3 +88,25 @@ rule Trojan_Win64_Phave_MK_2147965658_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Phave_VGY_2147966471_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Phave.VGY!MTB"
+        threat_id = "2147966471"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Phave"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 c2 83 e2 0f 0f b6 14 11 41 30 14 04 48 83 c0 01 48 39 c7 75 e9}  //weight: 2, accuracy: High
+        $x_1_2 = {89 c2 83 c0 01 41 0f b6 0c 14 41 88 4c 15 00 39 46 54 77 ec}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

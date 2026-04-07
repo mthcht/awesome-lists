@@ -2927,6 +2927,29 @@ rule Trojan_Win32_Lazy_K_2147966215_0
         severity = "Critical"
         info = "AMTB: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {c1 f9 06 83 e2 3f 6b d2 38 8b 0c 8d 08 51 02 10 88 44 11 29 8b 0b 8b c1 83 e1 3f c1 f8 06 6b f1 38 8b 4d 14 c1 e9 10 8b 14 85 08 51 02 10 32 4c 32 2d 80 e1 01 30 4c 32 2d f6 45 f4 48 75 1f}  //weight: 5, accuracy: High
+        $x_1_2 = "schtasks /run /tn" ascii //weight: 1
+        $x_1_3 = "TaskMonitor_Mutex" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Lazy_K_2147966215_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.K!AMTB"
+        threat_id = "2147966215"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
@@ -2953,6 +2976,27 @@ rule Trojan_Win32_Lazy_VGZ_2147966256_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {85 c9 74 25 fe c0 0f b6 c0 0f b6 1c 07 00 da 0f b6 d2 8a 3c 17 88 3c 07 88 1c 17 00 fb 0f b6 db 8a 1c 1f 30 1e 46 49 eb d7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Lazy_GPAK_2147966503_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.GPAK!MTB"
+        threat_id = "2147966503"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {74 01 ea 31 ?? ?? ?? 81 c6 04 00 00 00 39 ce 75 ed}  //weight: 4, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
