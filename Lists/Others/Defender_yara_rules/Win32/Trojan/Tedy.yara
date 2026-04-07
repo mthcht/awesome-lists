@@ -1212,3 +1212,24 @@ rule Trojan_Win32_Tedy_AHB_2147965621_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_SKP_2147966442_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.SKP!MTB"
+        threat_id = "2147966442"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {45 88 14 09 44 32 1c 08 41 8d 41 01 44 88 1c 08 41 8d 40 02 32 1c 08 41 8d 41 02 88 1c 08 41 8d 40 03 40 32 3c 08 41 8d 41 03 40 88 3c 08 83 fe 3c 0f}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
