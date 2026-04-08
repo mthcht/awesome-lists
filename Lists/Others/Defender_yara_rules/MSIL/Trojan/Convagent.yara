@@ -579,3 +579,26 @@ rule Trojan_MSIL_Convagent_ARA_2147966544_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_MKC_2147966560_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.MKC!MTB"
+        threat_id = "2147966560"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {07 6f 14 00 00 0a 28 15 00 00 0a 6f 16 00 00 0a 28 17 00 00 0a 28 02 00 00 06}  //weight: 20, accuracy: High
+        $x_10_2 = "schtasks.exe /create /TN 'ProgramsUpdate\\UpdateSecurity'" ascii //weight: 10
+        $x_5_3 = "/SC minute /mo 4 /tr C:\\Users\\Public\\Libraries\\libupdate.com /f;" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
