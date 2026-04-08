@@ -2970,6 +2970,28 @@ rule Trojan_Win64_Zusy_ARR_2147956891_3
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_15_1 = {0b 07 2c 11 07 8e 2c 0d 16 0a 08 07 28 ?? ?? ?? ?? 14 0b 2b 19 06 1b 2f 04 06 17 58 0a 1f 0f 06 5a 6c}  //weight: 15, accuracy: Low
+        $x_5_2 = {2b 07 08 07 28 ?? ?? ?? ?? de 18 26 de 15}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_ARR_2147956891_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ARR!MTB"
+        threat_id = "2147956891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_13_1 = {45 89 c2 41 c0 e2 ?? 48 ff c2 45 89 c8 45 08 d0 f6 c1 01 b1}  //weight: 13, accuracy: Low
         $x_5_2 = {49 01 d8 48 01 da 4c 89 f9 4d 89 e9 e8 ?? ?? ?? ?? 4c 89 f9 4c 89 f2 49 89 f8 4d 89 e9}  //weight: 5, accuracy: Low
         $x_2_3 = "$Trigger_var = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Minutes 2);" ascii //weight: 2

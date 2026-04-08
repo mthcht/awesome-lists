@@ -55,3 +55,25 @@ rule Trojan_Win64_Tinukebot_AMDG_2147932736_0
         )
 }
 
+rule Trojan_Win64_Tinukebot_LR_2147966549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tinukebot.LR!MTB"
+        threat_id = "2147966549"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tinukebot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {33 d2 48 8d 7f 01 44 8b c8 8b c3 ff c3 41 f7 f1 0f b6 04 32 30 47 ff 3b dd}  //weight: 20, accuracy: High
+        $x_10_2 = {44 30 01 48 8d 49 01 48 ff ca}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

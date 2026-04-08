@@ -2002,3 +2002,26 @@ rule Trojan_Win64_Vidar_GXH_2147966186_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_LRB_2147966548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.LRB!MTB"
+        threat_id = "2147966548"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {89 44 24 20 6b 44 24 20 07 89 44 24 24 8b 44 24 20 83 c0 2a 89 44 24 28 8b 44 24 24 8b 4c 24 28 33 c1 89 44 24 2c 8b 44 24 2c 89 44 24 30 48 83 c4 48}  //weight: 20, accuracy: High
+        $x_10_2 = {48 63 44 24 04 48 8b 4c 24 10 0f be 04 01 85 c0 74 19 6b 04 24 1f 48 63 4c 24 04 48 8b 54 24 10 0f b6 0c 0a 03 c1 89 04 24}  //weight: 10, accuracy: High
+        $x_5_3 = "C:\\tgbotsideloading\\sideload\\x64\\Ad" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
