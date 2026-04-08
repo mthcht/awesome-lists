@@ -4756,3 +4756,26 @@ rule Trojan_Win32_Amadey_A_2147960479_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_A_2147960479_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.A!AMTB"
+        threat_id = "2147960479"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Monero-storage\\wallets\\" ascii //weight: 4
+        $x_3_2 = "\\TorBrowser\\Data\\Browser\\profile.default" ascii //weight: 3
+        $x_3_3 = "monero-wallet-gui" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

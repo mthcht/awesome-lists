@@ -6565,3 +6565,26 @@ rule Trojan_Win32_OffLoader_ZHG_2147966330_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ABVW_2147966552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ABVW!MTB"
+        threat_id = "2147966552"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "://chalkice.xyz/" ascii //weight: 2
+        $x_2_2 = "://potatokey.xyz/" ascii //weight: 2
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
