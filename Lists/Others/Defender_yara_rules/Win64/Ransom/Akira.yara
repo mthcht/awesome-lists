@@ -349,3 +349,27 @@ rule Ransom_Win64_Akira_I_2147959474_0
         )
 }
 
+rule Ransom_Win64_Akira_MK_2147966583_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Akira.MK!MTB"
+        threat_id = "2147966583"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Read encrypt info from file failed" ascii //weight: 10
+        $x_10_2 = "(Part) Decrypt exception:" ascii //weight: 10
+        $x_10_3 = "Number of threads to decrypt =" ascii //weight: 10
+        $x_10_4 = "file rename failed. System error:" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

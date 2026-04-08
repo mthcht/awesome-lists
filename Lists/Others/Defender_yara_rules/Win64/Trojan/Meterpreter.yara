@@ -784,3 +784,30 @@ rule Trojan_Win64_Meterpreter_AHF_2147966187_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_AHA_2147966579_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.AHA!MTB"
+        threat_id = "2147966579"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "90"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "Run keylog_start to (re)start with enhanced output." ascii //weight: 40
+        $x_30_2 = "clip_hijack_start" ascii //weight: 30
+        $x_20_3 = "jinx_agent" ascii //weight: 20
+        $x_10_4 = "exfil_https_file" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_40_*) and 1 of ($x_30_*) and 1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

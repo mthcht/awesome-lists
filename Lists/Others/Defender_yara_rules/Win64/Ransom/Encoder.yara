@@ -343,3 +343,27 @@ rule Ransom_Win64_Encoder_CMX_2147964439_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Encoder_MK_2147966585_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Encoder.MK!MTB"
+        threat_id = "2147966585"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Your files remain encrypted." ascii //weight: 10
+        $x_5_2 = "All  of your files have been encrypted with" ascii //weight: 5
+        $x_3_3 = "Enter the decryption key from your ." ascii //weight: 3
+        $x_2_4 = "-nospread--nospreadUSERPROFILEDesktop" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

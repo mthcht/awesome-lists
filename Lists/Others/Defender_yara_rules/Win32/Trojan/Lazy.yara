@@ -3002,3 +3002,26 @@ rule Trojan_Win32_Lazy_GPAK_2147966503_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_MKG_2147966584_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.MKG!MTB"
+        threat_id = "2147966584"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 4d fc 83 c4 20 8b 55 08 33 04 0a 33 c3 8b 5d f4 89 04 0b 83 c1 04 89 4d fc 8d 41 04 83 f8 08}  //weight: 20, accuracy: High
+        $x_10_2 = {8a c2 c1 ea 08 32 04 0e 88 04 0b 41 83 f9 08}  //weight: 10, accuracy: High
+        $x_5_3 = "ACR3.0.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
