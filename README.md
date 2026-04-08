@@ -790,7 +790,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [The Art of Memory Forensics: Detecting Malware and Threats in Windows, Linux, and Mac Memory](https://www.amazon.com/Art-Memory-Forensics-Detecting-Malware/dp/1118825098)
   - [Applied Incident Response](https://www.amazon.com/Applied-Incident-Response-Steve-Anson/dp/1119560268)
   - [SANS FOR500 / FOR508 book](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/)
-  - [Blue Team Handbook: Incident Response Edition](https://www.amazon.com/Blue-Team-Handbook-condensed-Responder/dp/1500734756)
+  - [Blue Team Handbook: Incident Response Edition](https://www.amazon.com/dp/B0G4KS5JXK)
   - [Practical Malware Analysis: The Hands-On Guide to Dissecting Malicious Software](https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting/dp/1593272901)
   - [Placing the Suspect Behind the Keyboard: DFIR Investigative Mindset](https://www.amazon.com/Placing-Suspect-Behind-Keyboard-Investigative/dp/B0CZPJF23Q)
   - [Crafting the InfoSec Playbook: Security Monitoring and Incident](https://www.amazon.com/Crafting-InfoSec-Playbook-Security-Monitoring/dp/1491949406)
