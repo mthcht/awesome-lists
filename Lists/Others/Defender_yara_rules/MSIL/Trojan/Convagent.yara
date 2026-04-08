@@ -556,3 +556,26 @@ rule Trojan_MSIL_Convagent_MKB_2147964086_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_ARA_2147966544_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.ARA!MTB"
+        threat_id = "2147966544"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "://newyorktlimes.life/api/values/id" ascii //weight: 2
+        $x_2_2 = "\\work.ua.pdb" ascii //weight: 2
+        $x_2_3 = "$c96be0a4-c391-421e-917e-3fe484d4c2e4" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
