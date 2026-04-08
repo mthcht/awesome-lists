@@ -370,3 +370,28 @@ rule Trojan_Win64_Cerbu_AHF_2147966358_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_SLWZ_2147966568_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.SLWZ!MTB"
+        threat_id = "2147966568"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "--window-position=0,0 --no-sandbox --allow-no-sandbox-job --disable-gpu" ascii //weight: 2
+        $x_2_2 = "Shellcode running (timeout, still active)" ascii //weight: 2
+        $x_2_3 = "OK: Shellcode injected (CreateRemoteThread)" ascii //weight: 2
+        $x_2_4 = "OK: PE injected and executed" ascii //weight: 2
+        $x_2_5 = "cmd.exe /C \"netsh advfirewall firewall set rule name=\"\"%s\"\" %s\"" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3010,3 +3010,27 @@ rule Ransom_Win32_Filecoder_PGD_2147961754_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_PAHX_2147966567_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.PAHX!MTB"
+        threat_id = "2147966567"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "YOUR FILES ARE ENCRYPTED" ascii //weight: 2
+        $x_1_2 = "Discovered a serious vulnerability in your network security" ascii //weight: 1
+        $x_1_3 = "Do not attempt to remove the program or run the anti-virus tools" ascii //weight: 1
+        $x_2_4 = "Attempts to self-decrypting files will result in the loss of your data" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
