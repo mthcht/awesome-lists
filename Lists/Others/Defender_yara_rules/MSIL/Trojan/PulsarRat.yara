@@ -20,3 +20,26 @@ rule Trojan_MSIL_PulsarRat_AMTB_2147966340_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PulsarRat_GDB_2147966591_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PulsarRat.GDB!MTB"
+        threat_id = "2147966591"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PulsarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Pulsar.Common.dll" ascii //weight: 1
+        $x_1_2 = "Messages.Administration.ReverseProxy" ascii //weight: 1
+        $x_1_3 = "UserSupport.RemoteChat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -66,3 +66,24 @@ rule Trojan_Win64_ShellCodeLoader_NQA_2147957581_0
         (2 of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeLoader_GDB_2147966592_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeLoader.GDB!MTB"
+        threat_id = "2147966592"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 4d 10 e8 42 67 02 00 48 39 45 f8 0f 92 c0 84 c0 74 22 48 8b 45 f8 48 89 c2 48 8b 4d 10 e8 97 bc 08 00 48 89 c2 0f b6 02 32 45 18 88 02 48 83 45 f8 01 eb ca}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -267,3 +267,28 @@ rule Trojan_MSIL_Zapchast_MK_2147957826_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zapchast_SX_2147966595_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zapchast.SX!MTB"
+        threat_id = "2147966595"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zapchast"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Process Hollowing" ascii //weight: 20
+        $x_10_2 = "[ENI][HOLLOW] Spawning regasm" ascii //weight: 10
+        $x_5_3 = "[ENI][PAYLOAD]" ascii //weight: 5
+        $x_5_4 = "[ENI][AMSI] blind" ascii //weight: 5
+        $x_1_5 = "[ENI][IAT] Resolved" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

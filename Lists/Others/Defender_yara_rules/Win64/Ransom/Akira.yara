@@ -373,3 +373,30 @@ rule Ransom_Win64_Akira_MK_2147966583_0
         (4 of ($x*))
 }
 
+rule Ransom_Win64_Akira_NVA_2147966594_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Akira.NVA!MTB"
+        threat_id = "2147966594"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pkcs7-signedAndEnvelopedData" ascii //weight: 1
+        $x_1_2 = "pkcs7-encryptedData" ascii //weight: 1
+        $x_1_3 = "HEHEKEY" ascii //weight: 1
+        $x_1_4 = "Desktop\\README_RECOVERY.txt" ascii //weight: 1
+        $x_1_5 = "recovery_support@protonmail" ascii //weight: 1
+        $x_1_6 = "UNIQUE_ID_123456" ascii //weight: 1
+        $x_2_7 = {86 55 20 43 e1 bb a6 41 20 42 e1 ba a0 4e 20 c4 90 c3 83 20 42 e1 bb 8a 20 4d c3 83 20 48 c3 93 41 20 21 21 21 0a 00 00 54 e1 ba a5 74 20 63 e1 ba a3 20 63 c3 a1 63 20 74 e1 bb 87 70 20 71 75 61 6e 20 74 72 e1 bb 8d 6e 67 20 63 e1 bb a7 61 20 62}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -165,3 +165,28 @@ rule Trojan_Win64_ShellLoader_SXB_2147965206_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellLoader_SXC_2147966596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellLoader.SXC!MTB"
+        threat_id = "2147966596"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "powershell -command \"$action = New-ScheduledTaskAction -Execute 'wscript.exe' -Argument '\\\"%s\\\"';" ascii //weight: 20
+        $x_20_2 = "$trigger = New-ScheduledTaskTrigger -AtLogOn;" ascii //weight: 20
+        $x_15_3 = "powershell -command \"if(Get-ScheduledTask -TaskName '%s' -ErrorAction SilentlyContinue) { exit 0 } else { exit 1 }" ascii //weight: 15
+        $x_10_4 = "payload" ascii //weight: 10
+        $x_5_5 = "Disable-NetAdapter -Name '%s' -Confirm:$false;" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
