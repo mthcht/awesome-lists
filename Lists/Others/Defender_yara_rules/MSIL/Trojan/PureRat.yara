@@ -255,3 +255,46 @@ rule Trojan_MSIL_PureRat_AJ_2147966092_0
         )
 }
 
+rule Trojan_MSIL_PureRat_AK_2147966607_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureRat.AK!MTB"
+        threat_id = "2147966607"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {28 01 00 00 06 2a 00 ae 7e}  //weight: 6, accuracy: High
+        $x_6_2 = {28 24 0b 00 06 28 01 00 00 06 2a}  //weight: 6, accuracy: High
+        $x_5_3 = "m8DD" ascii //weight: 5
+        $x_5_4 = "m8DE" ascii //weight: 5
+        $x_5_5 = "PureHVNC_Lib." ascii //weight: 5
+        $x_2_6 = "CreateDecryptor" ascii //weight: 2
+        $x_2_7 = "GZipStream" ascii //weight: 2
+        $x_2_8 = "System.Net.Sockets" ascii //weight: 2
+        $x_2_9 = "ProtoBuf.Serializers.IProtoSerializer.Write" ascii //weight: 2
+        $x_2_10 = "ProtoBuf.Serializers.IProtoTypeSerializer.HasCallbacks" ascii //weight: 2
+        $x_2_11 = "FromBase64String" ascii //weight: 2
+        $x_2_12 = "Microsoft.CodeAnalysis" ascii //weight: 2
+        $x_2_13 = "WritePacked" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_5_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 8 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_5_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 3 of ($x_5_*) and 3 of ($x_2_*))) or
+            ((2 of ($x_6_*) and 8 of ($x_2_*))) or
+            ((2 of ($x_6_*) and 1 of ($x_5_*) and 5 of ($x_2_*))) or
+            ((2 of ($x_6_*) and 2 of ($x_5_*) and 3 of ($x_2_*))) or
+            ((2 of ($x_6_*) and 3 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

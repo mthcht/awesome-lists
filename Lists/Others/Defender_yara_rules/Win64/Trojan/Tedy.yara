@@ -4377,6 +4377,34 @@ rule Trojan_Win64_Tedy_RR_2147962573_6
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 03 d1 48 8b ca 0f b6 09 33 c8 8b c1 48 8b 8c 24 [0-5] 48 8b 94 24 [0-5] 48 03 d1 48 8b ca 88 01}  //weight: 1, accuracy: Low
+        $x_1_2 = "keyword-on.net" ascii //weight: 1
+        $x_1_3 = "servehalflife.com" ascii //weight: 1
+        $x_1_4 = "matsukawa.nagano.jp" ascii //weight: 1
+        $x_1_5 = "higashihiroshima.hiroshima.jp" ascii //weight: 1
+        $x_1_6 = "kochi.kochi.jp" ascii //weight: 1
+        $x_1_7 = "kaneyama.fukushima.jp" ascii //weight: 1
+        $x_1_8 = "rag-cloud.hosteur.com" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_RR_2147962573_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.RR!MTB"
+        threat_id = "2147962573"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

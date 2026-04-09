@@ -807,6 +807,27 @@ rule Trojan_Win32_Vidar_DD_2147827629_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 3c 11 31 f7 31 cf 40 88 3c 0a 48 ff c1 48 39 c8 7f ec}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_DD_2147827629_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.DD!MTB"
+        threat_id = "2147827629"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {01 10 6a 00 e8 ?? ?? ?? ?? 8b 5d c8 03 5d a0 2b d8 6a 00 e8 ?? ?? ?? ?? 03 d8 8b 45 d8 31 18 83 45 ec 04 83 45 d8 04 8b 45 ec 3b 45 d4 0f 82}  //weight: 1, accuracy: Low
@@ -815,7 +836,7 @@ rule Trojan_Win32_Vidar_DD_2147827629_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Vidar_DD_2147827629_1
+rule Trojan_Win32_Vidar_DD_2147827629_2
 {
     meta:
         author = "defender2yara"
