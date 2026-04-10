@@ -1,13 +1,13 @@
 {
-  "generated_utc": "2026-04-10T15:34:34+00:00",
-  "total_records": 1038,
-  "total_malicious": 966,
+  "generated_utc": "2026-04-10T16:35:21+00:00",
+  "total_records": 1070,
+  "total_malicious": 998,
   "total_risky": 72,
   "severity_counts": {
-    "critical": 314,
+    "critical": 313,
     "high": 574,
     "low": 22,
-    "medium": 128
+    "medium": 161
   },
   "category_counts": {
     "copyright-violation": 15,
@@ -15,7 +15,7 @@
     "expired-domain": 1,
     "impersonation": 555,
     "impersonation-malware": 5,
-    "malware": 314,
+    "malware": 313,
     "owner-request": 5,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -31,7 +31,7 @@
     "risky-infrastructure": 4,
     "risky-remote-access": 15,
     "risky-tunnel": 5,
-    "spam": 7,
+    "spam": 40,
     "spam-malware": 5,
     "typo-squatting": 1,
     "untrustworthy": 49
@@ -42,11 +42,11 @@
     "expired-domain": 1,
     "impersonation": 555,
     "impersonation-malware": 5,
-    "malware": 314,
+    "malware": 313,
     "owner-request": 5,
     "potentially-malicious": 4,
     "publisher-requested": 3,
-    "spam": 7,
+    "spam": 40,
     "spam-malware": 5,
     "typo-squatting": 1,
     "untrustworthy": 49
@@ -65,8 +65,12 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 795,
+  "total_publishers": 800,
   "top_publishers": [
+    [
+      "SlashMark",
+      25
+    ],
     [
       "pit00",
       18
@@ -161,10 +165,6 @@
     ],
     [
       "OzzyDev777",
-      4
-    ],
-    [
-      "11011",
       4
     ]
   ]
