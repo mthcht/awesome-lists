@@ -72,3 +72,33 @@ rule Trojan_Win64_UACBypassExp_AYA_2147929766_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_UACBypassExp_NU_2147966730_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/UACBypassExp.NU!MTB"
+        threat_id = "2147966730"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "UACBypassExp"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ActivatePEBHiding" ascii //weight: 2
+        $x_2_2 = "handleUACBypass" ascii //weight: 2
+        $x_1_3 = "Keylogger" ascii //weight: 1
+        $x_1_4 = "handleKeylogDump" ascii //weight: 1
+        $x_1_5 = "ExecuteCMD" ascii //weight: 1
+        $x_1_6 = "GetActiveHooks" ascii //weight: 1
+        $x_1_7 = "tokenDuplicationAttack" ascii //weight: 1
+        $x_1_8 = "scheduleTaskAttack" ascii //weight: 1
+        $x_1_9 = "EnsurePersistence" ascii //weight: 1
+        $x_1_10 = "ImpersonateSelf" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
