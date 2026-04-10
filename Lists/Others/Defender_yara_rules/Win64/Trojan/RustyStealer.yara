@@ -380,3 +380,45 @@ rule Trojan_Win64_RustyStealer_ABRS_2147966530_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_PGRS_2147966699_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.PGRS!MTB"
+        threat_id = "2147966699"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {89 c8 73 13 31 d2 f7 f6 8d 42 01 8a 04 03 41 30 04 0e 48 ff c1 eb}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_RustyStealer_ZOF_2147966780_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.ZOF!MTB"
+        threat_id = "2147966780"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {31 d2 f7 f7 8d 42 01 41 0f b6 44 05 00 41 30 04 08 48 83 c1 01 44 39 c9 89 c8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
