@@ -4949,3 +4949,24 @@ rule Trojan_MSIL_Zusy_GPS_2147966504_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_BGN_2147966808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.BGN!MTB"
+        threat_id = "2147966808"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 06 11 07 6f ?? 00 00 0a 0d 00 09 28 ?? 00 00 0a 16 fe 01 13 08 11 08 2d 4f 00 09 28 ?? 00 00 0a 16 fe 01 13 08 11 08 2d 1f 00 09 1f 61 59 07 59 1f 1a 58 1f 1a 5d 1f 61 58 d1 13 04 08 11 04 6f ?? 00 00 0a 26 00 2b 1d 00 09 1f 41 59 07 59 1f 1a 58 1f 1a 5d 1f 41 58 d1 13 04 08 11 04 6f ?? 00 00 0a 26 00 00 2b 0a 00 08 09 6f ?? 00 00 0a 26 00 00 11 07 17 58 13 07 11 07 11 06 6f ?? 00 00 0a fe 04 13 08 11 08 3a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

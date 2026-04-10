@@ -415,3 +415,27 @@ rule Trojan_MSIL_Xworm_PGXO_2147965686_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xworm_GBVL_2147966801_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.GBVL!MTB"
+        threat_id = "2147966801"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "XWormClient" ascii //weight: 2
+        $x_2_2 = "CopyPixelOperation" ascii //weight: 2
+        $x_2_3 = "CreateDecryptor" ascii //weight: 2
+        $x_2_4 = "ToBase64String" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

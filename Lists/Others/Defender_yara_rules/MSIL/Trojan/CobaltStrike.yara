@@ -966,3 +966,29 @@ rule Trojan_MSIL_CobaltStrike_GVA_2147946060_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CobaltStrike_AVN_2147966802_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CobaltStrike.AVN!MTB"
+        threat_id = "2147966802"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {06 0b 07 02 28 ?? 00 00 06 00 2a}  //weight: 3, accuracy: Low
+        $x_1_2 = {0a 06 72 27 00 00 70 28}  //weight: 1, accuracy: High
+        $x_1_3 = "Hadoken" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

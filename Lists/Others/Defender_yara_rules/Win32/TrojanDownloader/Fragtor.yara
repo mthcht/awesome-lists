@@ -19,3 +19,24 @@ rule TrojanDownloader_Win32_Fragtor_ARAZ_2147936192_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Fragtor_BMD_2147966806_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Fragtor.BMD!MTB"
+        threat_id = "2147966806"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f be 04 17 99 bb ?? ?? ?? ?? f7 fb 8b c1 47 33 db 80 c2 ?? 30 14 0e 99 f7 7d}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

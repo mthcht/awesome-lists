@@ -46,3 +46,26 @@ rule Trojan_Win32_Killwin_D_2147638048_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Killwin_ABK_2147956686_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Killwin.ABK!MTB"
+        threat_id = "2147956686"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Killwin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "malware" ascii //weight: 2
+        $x_2_2 = "not a joke" ascii //weight: 2
+        $x_2_3 = "OSMurder" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

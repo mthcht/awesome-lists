@@ -279,3 +279,25 @@ rule Trojan_Win32_Mint_MK_2147958295_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mint_MCD_2147966811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.MCD!MTB"
+        threat_id = "2147966811"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b d0 03 d2 8b 4c 24 ?? 8d 54 d1 ?? 89 54 24 ?? 8b 54 24 ?? 8b 0b 89 0a 8b 54 24 ?? 89 13 40 83 f8 ?? 75}  //weight: 2, accuracy: Low
+        $x_2_2 = "\\Google\\Chrome\\User Data\\Default\\Login Data" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

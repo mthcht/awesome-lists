@@ -2533,3 +2533,50 @@ rule Trojan_MSIL_Zilla_SXC_2147965835_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_AVN_2147966804_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.AVN!MTB"
+        threat_id = "2147966804"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Niggers Inc" ascii //weight: 2
+        $x_2_2 = "DownloadFile" ascii //weight: 2
+        $x_2_3 = "MOUSEEVENTF_" ascii //weight: 2
+        $x_2_4 = "RenameDirectoryOrFile" ascii //weight: 2
+        $x_2_5 = "SendRemoteDesktopPicture" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zilla_BLN_2147966810_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.BLN!MTB"
+        threat_id = "2147966810"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 0a 1f 10 8d ?? 00 00 01 0b 06 07 6f ?? 00 00 0a 07 0c de 0a 06 2c 06 06 6f ?? 00 00 0a dc 08 2a}  //weight: 2, accuracy: Low
+        $x_2_2 = "C:\\ProgramData\\USOShared" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
