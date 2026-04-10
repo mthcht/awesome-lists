@@ -42,3 +42,26 @@ rule Trojan_Win64_AgentB_AHB_2147966719_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentB_AHC_2147966743_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.AHC!MTB"
+        threat_id = "2147966743"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "[DataSender] TelegramSender::SendFile returned:" ascii //weight: 20
+        $x_10_2 = "[Startup] Failed to add to startup" ascii //weight: 10
+        $x_30_3 = "\\Packages\\38053Unigram.Unigram_8wekyb3d8bbwe\\LocalState\\tdata" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

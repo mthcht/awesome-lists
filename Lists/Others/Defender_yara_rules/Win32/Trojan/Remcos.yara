@@ -3254,3 +3254,30 @@ rule Trojan_Win32_Remcos_SNB_2147965365_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_SNE_2147966742_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.SNE!MTB"
+        threat_id = "2147966742"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\triste\\maldivian.ini" ascii //weight: 1
+        $x_1_2 = "\\slethvars\\jimmy" ascii //weight: 1
+        $x_1_3 = "\\konspirations\\dyreforsgene.gif" ascii //weight: 1
+        $x_1_4 = "\\fokusets\\temperaturstrukturfunktioner.ini" ascii //weight: 1
+        $x_1_5 = "Datamatisk.sto" ascii //weight: 1
+        $x_1_6 = "excellences.acc" ascii //weight: 1
+        $x_1_7 = "\\sexfirma.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

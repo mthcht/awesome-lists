@@ -2233,3 +2233,25 @@ rule Trojan_Win32_Convagent_SXH_2147964412_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_MKC_2147966746_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.MKC!MTB"
+        threat_id = "2147966746"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 c1 ba 08 00 00 00 8d 74 26 00 0f b6 c2 66 33 84 12 ?? ?? ?? ?? 83 ea 01 83 c1 02 34 b7 66 89 41 fe 83 fa ff}  //weight: 20, accuracy: Low
+        $x_15_2 = {89 f1 ba 03 00 00 00 0f b6 c2 66 33 84 12 ?? ?? ?? ?? 83 ea 01 83 c1 02 34 f7 66 89 41 fe 83 fa ff}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

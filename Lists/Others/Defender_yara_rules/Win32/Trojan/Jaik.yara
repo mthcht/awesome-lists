@@ -591,6 +591,29 @@ rule Trojan_Win32_Jaik_MK_2147959467_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_MK_2147959467_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.MK!MTB"
+        threat_id = "2147959467"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "GuiControl, KeyRemapSettings:, ToggleScreenshot, % (enabledScreenshot" ascii //weight: 5
+        $x_3_2 = "GuiControl, KeyRemapSettings:%state%, CaptureKeyScreenshot" ascii //weight: 3
+        $x_2_3 = "GuiControl, KeyRemapSettings:%state%, CaptureKeyBadge" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Jaik_SCPC_2147960626_0
 {
     meta:
