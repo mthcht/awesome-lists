@@ -133,3 +133,45 @@ rule Trojan_Win64_InfoStealer_PAB_2147966176_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_PAC_2147966715_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.PAC!MTB"
+        threat_id = "2147966715"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {31 d2 f7 f7 8d 42 01 41 0f b6 04 04 41 30 04 08 48 83 c1 01 44 39 c9 89 c8}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_InfoStealer_PAD_2147966716_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.PAD!MTB"
+        threat_id = "2147966716"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {3b 4c 24 78 89 c8 73 14 31 d2 f7 f6 8d 42 01 8a 04 03 41 30 44 0d 00 48 ff c1 eb e4}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

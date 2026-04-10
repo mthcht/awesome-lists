@@ -820,3 +820,27 @@ rule Trojan_Win64_StealC_LDG_2147966673_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_AHE_2147966720_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.AHE!MTB"
+        threat_id = "2147966720"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Starting history data extraction..." ascii //weight: 30
+        $x_40_2 = "SELECT urls.url, urls.title, urls.last_visit_time FROM urls ORDER BY urls.last_visit_time DESC" ascii //weight: 40
+        $x_20_3 = "History data extraction completed" ascii //weight: 20
+        $x_10_4 = "SELECT url, title, visit_time FROM history ORDER BY visit_time DESC" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
