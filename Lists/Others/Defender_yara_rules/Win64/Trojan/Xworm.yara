@@ -31,6 +31,27 @@ rule Trojan_Win64_Xworm_AXW_2147952319_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 69 c1 65 89 07 6c 41 81 f0 b9 79 37 9e 41 c1 c8 13 44 03 c0 41 8b c0 c1 e8 10 42 32 44 09 04 42 88 04 0a 49 ff c1 49 83 f9 13}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Xworm_AXW_2147952319_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Xworm.AXW!MTB"
+        threat_id = "2147952319"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:

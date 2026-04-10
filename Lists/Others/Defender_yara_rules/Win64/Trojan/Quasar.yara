@@ -109,3 +109,27 @@ rule Trojan_Win64_Quasar_AQS_2147953088_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Quasar_BJ_2147966670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Quasar.BJ!MTB"
+        threat_id = "2147966670"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /c" ascii //weight: 1
+        $x_1_2 = "solid-journey/raw/main/Frozen.exe" ascii //weight: 1
+        $x_1_3 = "SpooferLoader" ascii //weight: 1
+        $x_1_4 = "curl -L -o legit.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

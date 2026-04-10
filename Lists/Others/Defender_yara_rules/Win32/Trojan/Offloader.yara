@@ -1445,3 +1445,24 @@ rule Trojan_Win32_Offloader_PGIN_2147960951_0
         )
 }
 
+rule Trojan_Win32_Offloader_SV_2147966642_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Offloader.SV!MTB"
+        threat_id = "2147966642"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Offloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 4d f0 0f b6 0c 01 32 0d 91 3a c7 00 8b 5d fc 88 0c 03 40 4a 75 e9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

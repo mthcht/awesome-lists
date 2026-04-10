@@ -2786,3 +2786,122 @@ rule Trojan_Win64_LummaStealer_GMH_2147964407_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_ITU_2147966633_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.ITU!MTB"
+        threat_id = "2147966633"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 39 c2 75 eb 4d 89 c2 48 89 c2 49 29 c2 41 83 e2 ?? 74 ?? 48 8d 50 ?? 41 80 71 ?? ?? 4c 39 c2 74}  //weight: 1, accuracy: Low
+        $x_1_2 = {80 32 3d 80 72 ?? ?? 48 83 c2 ?? 4c 39 c2 75}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_JT_2147966645_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.JT!MTB"
+        threat_id = "2147966645"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Starting Secure Loader.." ascii //weight: 1
+        $x_1_2 = "Download failed." ascii //weight: 1
+        $x_1_3 = "Payload downloaded" ascii //weight: 1
+        $x_1_4 = "Decrypted." ascii //weight: 1
+        $x_1_5 = "Executing via Thread Pool.." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_LK_2147966655_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.LK!MTB"
+        threat_id = "2147966655"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 08 c0 c9 02}  //weight: 1, accuracy: High
+        $x_1_2 = {4d 8d 12 88 08}  //weight: 1, accuracy: High
+        $x_1_3 = {48 83 c0 01 4c 39 c0 75 da}  //weight: 1, accuracy: High
+        $x_1_4 = {48 83 c0 01 4c 39 c0 75 ef}  //weight: 1, accuracy: High
+        $x_1_5 = {80 32 92 50 51}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_JDT_2147966656_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.JDT!MTB"
+        threat_id = "2147966656"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 ca 4c 89 c8 4c 29 ca 83 e2 01 74 1d 49 8d 41 ?? 41 80 73 ?? ?? 48 39 c8 74}  //weight: 1, accuracy: Low
+        $x_1_2 = {80 30 8f 80 70 01 8f 48 83 c0 02 48 39 c8 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_DEB_2147966660_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.DEB!MTB"
+        threat_id = "2147966660"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell -Command" wide //weight: 1
+        $x_1_2 = "voover.exe" wide //weight: 1
+        $x_1_3 = "update_package.exe" wide //weight: 1
+        $x_1_4 = "test_process.exe" wide //weight: 1
+        $x_1_5 = "Release\\macosos.pdb" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

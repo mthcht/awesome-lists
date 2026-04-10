@@ -20,3 +20,24 @@ rule Trojan_Win32_LummaSrealer_KPR_2147966604_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaSrealer_KG_2147966672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaSrealer.KG!MTB"
+        threat_id = "2147966672"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaSrealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 b4 2c ?? ?? ?? ?? 8d bc 04 ?? ?? ?? ?? 0f b6 7c 3d ?? 0f b6 94 2c ?? ?? ?? ?? 31 fa 31 d6 96 88 84 2c ?? ?? ?? ?? 96 45 8b 94 24 ?? ?? ?? ?? 83 fd ?? 7c}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

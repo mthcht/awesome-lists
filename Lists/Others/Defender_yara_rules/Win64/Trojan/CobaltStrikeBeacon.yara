@@ -83,3 +83,24 @@ rule Trojan_Win64_CobaltStrikeBeacon_EM_2147898410_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrikeBeacon_KGT_2147966652_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrikeBeacon.KGT!MTB"
+        threat_id = "2147966652"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrikeBeacon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 eb ff 15 ?? ?? ?? ?? 48 8d 0c 2e 41 b8 ?? ?? ?? ?? 48 89 c7 4c 8d 0c 28 85 db 74 ?? ff cb 48 ff c9 49 ff c9 89 d8 ?? 41 f7 f8 48 63 d2 41 8a 04 14 32 01 41 88 01 eb}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

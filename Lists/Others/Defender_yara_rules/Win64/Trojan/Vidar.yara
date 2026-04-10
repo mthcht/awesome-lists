@@ -2025,3 +2025,67 @@ rule Trojan_Win64_Vidar_LRB_2147966548_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_JTR_2147966635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.JTR!MTB"
+        threat_id = "2147966635"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 c3 83 e3 ?? 41 8a 1c 18 30 1c 01 bb ?? ?? ?? ?? eb ?? 81 fb ?? ?? ?? ?? 0f 84 ?? ?? ?? ?? 81 fb ?? ?? ?? ?? 75 ?? 8b 1d ?? ?? ?? ?? 8d 6b ?? 0f af eb 40 f6 c5 ?? bb}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_IOY_2147966637_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.IOY!MTB"
+        threat_id = "2147966637"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {42 88 2c 30 49 ff c6 4c 89 74 24 ?? 4c 39 f6 74 ?? 4c 89 e9 49 8d 55 ?? 45 31 ed 48 83 fa ?? 41 0f 94 c5 48 83 f9 ?? 4c 0f 42 ea 42 0f b6 2c 33 42 32 2c 21 4c 3b 74 24 ?? 75 ?? 41 b8 ?? ?? ?? ?? 4c 89 f9 4c 89 f2 e8 ?? ?? ?? ?? 48 8b 44 24 ?? eb}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_VGY_2147966706_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.VGY!MTB"
+        threat_id = "2147966706"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {ff c0 0f b6 d0 48 89 95 a0 06 00 00 02 8c 15 a0 05 00 00 44 0f b6 c1 4c 89 85 a8 06 00 00 4c 89 f9 4d 89 f1}  //weight: 2, accuracy: High
+        $x_1_2 = {8a 94 0d a0 05 00 00 02 94 05 a0 05 00 00 0f b6 d2 8a 94 15 a0 05 00 00 30 14 3e 48 ff c7 eb 8b}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

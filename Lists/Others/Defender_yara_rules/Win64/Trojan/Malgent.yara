@@ -72,3 +72,25 @@ rule Trojan_Win64_Malgent_NM_2147900462_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Malgent_DE_2147966661_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Malgent.DE!MTB"
+        threat_id = "2147966661"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f bf c3 99 33 c2 2b c2 8d 4f 01 03 c8 3b c8}  //weight: 1, accuracy: High
+        $x_1_2 = {49 0f 44 c9 48 0f b6 01 30 02 48 83 c2 01 48 83 c1 01 4c 39 c2 72 e6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -63,3 +63,29 @@ rule Ransom_Win32_Beast_F_2147942415_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Beast_KA_2147966657_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Beast.KA!MTB"
+        threat_id = "2147966657"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Beast"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Percent of encryption" ascii //weight: 1
+        $x_1_2 = "beast" ascii //weight: 1
+        $x_1_3 = "externalnote.txt" ascii //weight: 1
+        $x_1_4 = "crypto/rsa: decryption" ascii //weight: 1
+        $x_1_5 = "DeleteFile" ascii //weight: 1
+        $x_1_6 = "DeleteService" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

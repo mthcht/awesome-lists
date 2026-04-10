@@ -98,3 +98,25 @@ rule Ransom_Win64_Henasome_BH_2147965275_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Henasome_BG_2147966668_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Henasome.BG!MTB"
+        threat_id = "2147966668"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Henasome"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 00 88 85 ?? ?? ?? ?? 0f b6 85 ?? ?? ?? ?? 83 f0 ?? 0f be d0 48 8d 45 ?? 48 89 c1 e8 ?? ?? ?? ?? 48 8b 45 ?? 48 83 c0 ?? 48 89 45}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 8b 10 48 8d 45 ?? 48 89 85 ?? ?? ?? ?? 48 8b 85 ?? ?? ?? ?? 48 8b 00 48 39 c2 0f 95 c0 84 c0 75}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -83,3 +83,24 @@ rule Trojan_Win64_Shellcode_LDG_2147966282_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Shellcode_GB_2147966654_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Shellcode.GB!MTB"
+        threat_id = "2147966654"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Shellcode"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 44 24 ?? 33 d2 48 8b 44 24 ?? 48 8b 4c 24 ?? 48 f7 f1 48 8b c2 48 8b d0 48 8d 8c 24 ?? ?? ?? ?? e8 ?? ?? ?? ?? 0f b6 00 8b 4c 24 ?? 33 c8 8b c1 89 44 24 ?? 48 8b 54 24 ?? 48 8d 8c 24 ?? ?? ?? ?? e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

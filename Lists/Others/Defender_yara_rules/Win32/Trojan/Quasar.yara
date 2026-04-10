@@ -167,3 +167,24 @@ rule Trojan_Win32_Quasar_MX_2147927896_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Quasar_SW_2147966641_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Quasar.SW!MTB"
+        threat_id = "2147966641"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 00 84 c0 74 ?? 8b 55 ?? 8b 45 ?? 01 d0 0f b6 00 32 45 ?? 0f be c0 89 04 24 8b 4d ?? e8 ?? ?? ?? ?? 83 ec ?? 83 45 ?? ?? eb}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

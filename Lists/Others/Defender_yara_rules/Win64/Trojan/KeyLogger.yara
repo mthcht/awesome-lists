@@ -167,28 +167,3 @@ rule Trojan_Win64_KeyLogger_AR_2147962178_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_KeyLogger_AB_2147965229_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/KeyLogger.AB!MTB"
-        threat_id = "2147965229"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "KeyLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "kenz_mutex" ascii //weight: 1
-        $x_1_2 = "C2 thread started." ascii //weight: 1
-        $x_1_3 = "Keylogger started." ascii //weight: 1
-        $x_1_4 = "netsh advfirewall firewall set rule group=\"remote desktop\" new enable=Yes > nul" ascii //weight: 1
-        $x_1_5 = "Check failed: VMware Tools registry key found." ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

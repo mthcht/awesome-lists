@@ -2144,6 +2144,31 @@ rule Trojan_Win64_Tedy_PGL_2147940784_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AC_2147941745_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AC!MTB"
+        threat_id = "2147941745"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Example: hollow-edge.exe \"C:\\Windows\\notepad.exe\" \"hidden.png\"" ascii //weight: 1
+        $x_1_2 = "No zTXt chunk with keyword 'embedded_exe' found in the PNG" ascii //weight: 1
+        $x_1_3 = "Base64 decode failed:" ascii //weight: 1
+        $x_1_4 = "[*] PNG image: " ascii //weight: 1
+        $x_1_5 = "Failed to extract executable from hidden.png[+] Successfully extracted payload ( bytes)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_KK_2147943868_0
 {
     meta:

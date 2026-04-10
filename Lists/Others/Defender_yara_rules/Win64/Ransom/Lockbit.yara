@@ -196,3 +196,47 @@ rule Ransom_Win64_Lockbit_G_2147962413_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Lockbit_SH_2147966634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Lockbit.SH!MTB"
+        threat_id = "2147966634"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {30 c8 88 44 24 07 32 4c 24 07 88 4c 24 06 0f b6 44 24 06 48 83 c4 10 c3 cc}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Lockbit_GH_2147966653_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Lockbit.GH!MTB"
+        threat_id = "2147966653"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 c4 0c 8b 45 ?? 8b 55 ?? 83 c7 ?? 40 83 c2 ?? 83 fb ?? 74}  //weight: 1, accuracy: Low
+        $x_1_2 = {f3 0f 7e 84 9d ?? ?? ?? ?? f3 0f 7e 8c 9d ?? ?? ?? ?? 83 7d ?? ?? 66 0f 76 d2 66 0f ef c2 66 0f ef ca 66 0f d6 84 9d ?? ?? ?? ?? 66 0f d6 8c 9d ?? ?? ?? ?? 0f 83 ?? ?? ?? ?? 80 77 ?? ?? e9}  //weight: 1, accuracy: Low
+        $x_1_3 = "\\Documents\\1.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

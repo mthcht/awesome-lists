@@ -4565,3 +4565,24 @@ rule Trojan_Win64_CryptInject_CL_2147962083_0
         (5 of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_CQ_2147966676_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.CQ!MTB"
+        threat_id = "2147966676"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 c2 8b 15 ?? ?? ?? ?? 31 02 83 05 ?? ?? ?? ?? 04 6a 00 e8}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

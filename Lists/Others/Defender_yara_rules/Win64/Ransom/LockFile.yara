@@ -396,3 +396,29 @@ rule Ransom_Win64_LockFile_NVA_2147966197_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_NKI_2147966650_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.NKI!MTB"
+        threat_id = "2147966650"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "where \"name  like" ascii //weight: 1
+        $x_1_2 = "vbox" ascii //weight: 1
+        $x_1_3 = "call terminate" ascii //weight: 1
+        $x_1_4 = "requested size would cause integer overflow" ascii //weight: 1
+        $x_1_5 = "RareFryEnCrypt.exe" ascii //weight: 1
+        $x_1_6 = "SeDebugPrivilege" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

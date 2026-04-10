@@ -811,3 +811,24 @@ rule Trojan_Win64_Meterpreter_AHA_2147966579_0
         )
 }
 
+rule Trojan_Win64_Meterpreter_LP_2147966675_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.LP!MTB"
+        threat_id = "2147966675"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {31 c9 48 8d 15 ?? ?? ?? ?? 8a 04 0a 83 f0 ?? 41 88 04 0c 48 ff c1 48 81 f9 ?? ?? ?? ?? 75 ?? 48 8b 05 ?? ?? ?? ?? 48 85 c0 74}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

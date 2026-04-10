@@ -576,6 +576,27 @@ rule Trojan_MSIL_Agenttesla_PGAT_2147945221_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_PGAT_2147945221_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.PGAT!MTB"
+        threat_id = "2147945221"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 7b a3 00 00 04 7b 9e 00 00 04 02 7b a2 00 00 04 03 6f ?? ?? 00 0a 17 28 ?? ?? 00 2b 02 7b a3 00 00 04 7b a0 00 00 04 25 2d 20 26 02 7b a3 00 00 04 02 7b a3 00 00 04 fe 06 7e 00 00 06 73 77 01 00 0a 25 0a 7d a0 00 00 04 06 28 ?? ?? 00 2b 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Agenttesla_PGAC_2147948463_0
 {
     meta:

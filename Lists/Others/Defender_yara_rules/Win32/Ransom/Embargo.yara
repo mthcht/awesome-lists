@@ -110,3 +110,25 @@ rule Ransom_Win32_Embargo_GVA_2147936708_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Embargo_HA_2147966658_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Embargo.HA!MTB"
+        threat_id = "2147966658"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Embargo"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {f3 0f 7e 04 17 f3 0f 7e 0c 10 66 0f ef c8 66 0f d6 0c 17 83 c2 ?? 39 d1 75 ?? 89 f2 eb}  //weight: 1, accuracy: Low
+        $x_1_2 = {0f b6 14 08 30 14 0f 89 f2 41 39 ce 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8429,3 +8429,26 @@ rule Trojan_Win32_GuLoader_REQ_2147966205_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RER_2147966632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RER!MTB"
+        threat_id = "2147966632"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "athodyds kommunisternes" ascii //weight: 1
+        $x_1_2 = "atomanlg tunisian" ascii //weight: 1
+        $x_1_3 = "tvebakkerne postgenial.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
