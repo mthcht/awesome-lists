@@ -23,3 +23,29 @@ rule Ransom_MSIL_LockFile_PDZ_2147943903_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_LockFile_AMTB_2147966847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/LockFile!AMTB"
+        threat_id = "2147966847"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockFile"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "NyanWare.Properties.Resources" ascii //weight: 2
+        $x_2_2 = "NyanWare.pdb" ascii //weight: 2
+        $x_1_3 = "get_bitcoin" ascii //weight: 1
+        $x_1_4 = " OOPS! ALL YOUR FILES ARE ENCRYPTED!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
