@@ -5226,3 +5226,24 @@ rule Trojan_Win64_Tedy_LRE_2147966303_0
         )
 }
 
+rule Trojan_Win64_Tedy_DC_2147966832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.DC!MTB"
+        threat_id = "2147966832"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 8d 4d ff 8b cf 42 8b 14 8b 44 8d 04 bd 00 00 00 00 8b c2 c1 e9 03 c1 e8 05 44 33 c0 8b c2 c1 e0 04 33 c8 8b c5 83 e0 03 44 03 c1 49 33 c3 41 8b e9 41 33 14 84 41 8b c2 33 c7 03 d0 44 33 c2 45 29 07 41 8b 3f 4d 8d 7f fc 45 85 c9 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
