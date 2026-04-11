@@ -103,6 +103,28 @@ rule Trojan_Win64_DLLHijack_ARR_2147956040_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {44 8b c0 8b d8 4c 8b 0c 0f 49 8b cd e8 ?? ?? ?? ?? 48 8b c8 48 8d 7f f8 8b 45 f0 33 01 89 5d f0 48 83 ee}  //weight: 8, accuracy: Low
+        $x_12_2 = {49 8b cd e8 ?? ?? ?? ?? 48 8b c8 48 8d 7f ?? 8b 45 f0 33 01 89 5d f0 48 83 ee}  //weight: 12, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_ARR_2147956040_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.ARR!MTB"
+        threat_id = "2147956040"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:

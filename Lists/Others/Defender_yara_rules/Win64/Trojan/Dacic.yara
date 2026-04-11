@@ -762,3 +762,27 @@ rule Trojan_Win64_Dacic_MK_2147966029_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_SXB_2147966825_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.SXB!MTB"
+        threat_id = "2147966825"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "75"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[+] Token stolen from PID %d: Successful" ascii //weight: 30
+        $x_20_2 = "[*] Thread is now impersonating target user" ascii //weight: 20
+        $x_15_3 = "Usage: steal_token <pid> [access_mask] [store]" ascii //weight: 15
+        $x_10_4 = "[*] Use 'keylog dump' to view captured keys" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
