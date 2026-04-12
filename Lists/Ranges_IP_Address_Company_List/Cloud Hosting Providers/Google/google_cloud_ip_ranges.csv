@@ -12,11 +12,17 @@ src_ip,service,scope,metadata_reference
 8.228.128.0/18,Google Cloud,asia-northeast3,https://www.gstatic.com/ipranges/cloud.json
 8.228.192.0/19,Google Cloud,me-central2,https://www.gstatic.com/ipranges/cloud.json
 8.228.224.0/20,Google Cloud,global,https://www.gstatic.com/ipranges/cloud.json
+8.228.240.0/21,Google Cloud,us-west3,https://www.gstatic.com/ipranges/cloud.json
+8.228.248.0/21,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 8.229.0.0/16,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 8.230.0.0/19,Google Cloud,asia-northeast3,https://www.gstatic.com/ipranges/cloud.json
 8.230.32.0/19,Google Cloud,me-west1,https://www.gstatic.com/ipranges/cloud.json
 8.230.64.0/19,Google Cloud,me-central2,https://www.gstatic.com/ipranges/cloud.json
 8.230.96.0/19,Google Cloud,us-south1,https://www.gstatic.com/ipranges/cloud.json
+8.231.32.0/20,Google Cloud,us-east5,https://www.gstatic.com/ipranges/cloud.json
+8.231.48.0/20,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
+8.231.64.0/18,Google Cloud,asia-south1,https://www.gstatic.com/ipranges/cloud.json
+8.231.128.0/17,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 23.236.48.0/20,Google Cloud,us-central1,https://www.gstatic.com/ipranges/cloud.json
 23.251.128.0/20,Google Cloud,europe-west1,https://www.gstatic.com/ipranges/cloud.json
 23.251.144.0/20,Google Cloud,us-central1,https://www.gstatic.com/ipranges/cloud.json
@@ -65,6 +71,7 @@ src_ip,service,scope,metadata_reference
 34.4.80.0/20,Google Cloud,europe-west4,https://www.gstatic.com/ipranges/cloud.json
 34.4.96.0/22,Google Cloud,us-central1,https://www.gstatic.com/ipranges/cloud.json
 34.4.102.0/23,Google Cloud,us-east5,https://www.gstatic.com/ipranges/cloud.json
+34.4.104.0/21,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 34.4.128.0/18,Google Cloud,asia-northeast3,https://www.gstatic.com/ipranges/cloud.json
 34.6.0.0/15,Google Cloud,europe-west4,https://www.gstatic.com/ipranges/cloud.json
 34.8.0.0/16,Google Cloud,global,https://www.gstatic.com/ipranges/cloud.json
@@ -309,6 +316,7 @@ src_ip,service,scope,metadata_reference
 34.141.128.0/17,Google Cloud,europe-west4,https://www.gstatic.com/ipranges/cloud.json
 34.142.0.0/17,Google Cloud,europe-west2,https://www.gstatic.com/ipranges/cloud.json
 34.142.128.0/17,Google Cloud,asia-southeast1,https://www.gstatic.com/ipranges/cloud.json
+34.143.64.0/21,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 34.143.128.0/17,Google Cloud,asia-southeast1,https://www.gstatic.com/ipranges/cloud.json
 34.144.176.0/20,Google Cloud,us-east5,https://www.gstatic.com/ipranges/cloud.json
 34.144.192.0/18,Google Cloud,global,https://www.gstatic.com/ipranges/cloud.json
@@ -437,12 +445,14 @@ src_ip,service,scope,metadata_reference
 34.157.252.0/23,Google Cloud,me-central1,https://www.gstatic.com/ipranges/cloud.json
 34.157.254.0/24,Google Cloud,asia-southeast2,https://www.gstatic.com/ipranges/cloud.json
 34.157.255.0/24,Google Cloud,northamerica-northeast2,https://www.gstatic.com/ipranges/cloud.json
+34.158.8.0/21,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 34.158.16.0/20,Google Cloud,europe-west6,https://www.gstatic.com/ipranges/cloud.json
 34.158.32.0/19,Google Cloud,asia-southeast1,https://www.gstatic.com/ipranges/cloud.json
 34.158.64.0/18,Google Cloud,europe-west4,https://www.gstatic.com/ipranges/cloud.json
 34.158.128.0/18,Google Cloud,europe-west4,https://www.gstatic.com/ipranges/cloud.json
 34.158.192.0/19,Google Cloud,asia-northeast3,https://www.gstatic.com/ipranges/cloud.json
 34.158.224.0/20,Google Cloud,europe-central2,https://www.gstatic.com/ipranges/cloud.json
+34.158.240.0/21,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 34.159.0.0/16,Google Cloud,europe-west3,https://www.gstatic.com/ipranges/cloud.json
 34.160.0.0/16,Google Cloud,global,https://www.gstatic.com/ipranges/cloud.json
 34.161.0.0/16,Google Cloud,us-east7,https://www.gstatic.com/ipranges/cloud.json
@@ -479,6 +489,7 @@ src_ip,service,scope,metadata_reference
 34.177.79.0/24,Google Cloud,us-west3,https://www.gstatic.com/ipranges/cloud.json
 34.177.80.0/20,Google Cloud,asia-southeast1,https://www.gstatic.com/ipranges/cloud.json
 34.177.96.0/20,Google Cloud,asia-southeast1,https://www.gstatic.com/ipranges/cloud.json
+34.177.112.0/21,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 34.178.0.0/16,Google Cloud,europe-west4,https://www.gstatic.com/ipranges/cloud.json
 34.179.0.0/16,Google Cloud,europe-west3,https://www.gstatic.com/ipranges/cloud.json
 34.180.0.0/18,Google Cloud,asia-south1,https://www.gstatic.com/ipranges/cloud.json
@@ -757,6 +768,8 @@ src_ip,service,scope,metadata_reference
 35.247.192.0/18,Google Cloud,southamerica-east1,https://www.gstatic.com/ipranges/cloud.json
 35.252.0.0/19,Google Cloud,me-west1,https://www.gstatic.com/ipranges/cloud.json
 35.252.32.0/19,Google Cloud,me-central2,https://www.gstatic.com/ipranges/cloud.json
+35.252.64.0/18,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
+35.252.128.0/17,Google Cloud,us-west1,https://www.gstatic.com/ipranges/cloud.json
 35.253.0.0/16,Google Cloud,us-central1,https://www.gstatic.com/ipranges/cloud.json
 35.254.0.0/15,Google Cloud,us-central1,https://www.gstatic.com/ipranges/cloud.json
 104.154.16.0/20,Google Cloud,us-central1,https://www.gstatic.com/ipranges/cloud.json
