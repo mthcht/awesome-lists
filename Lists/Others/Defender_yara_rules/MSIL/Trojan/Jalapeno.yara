@@ -4049,3 +4049,25 @@ rule Trojan_MSIL_Jalapeno_MCT_2147966328_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_MCT_2147966328_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.MCT!MTB"
+        threat_id = "2147966328"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 d0 07 00 00 28 01 00 00 06 18 28 14 00 00 06 12 01 7b 14 00 00 04 28 08 00 00 06 13 04 11 04 15 33 2a 12 01 7b 13 00 00 04 17}  //weight: 1, accuracy: High
+        $x_1_2 = {12 01 7b 19 00 00 04 20 30 75 00 00 28 09 00 00 06 26 12 01 7b 1a 00 00 04 28 04 00 00 06 26 12 01 7b 19 00 00 04 28 04 00 00 06 26 17 2a 1e 02 28 16 00 00 0a 2a 00 00 42 53 4a 42}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

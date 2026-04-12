@@ -2765,3 +2765,46 @@ rule Trojan_MSIL_DCRat_BAR_2147966574_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DCRat_MCU_2147966857_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.MCU!MTB"
+        threat_id = "2147966857"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "A6JqrckjIN3jOck3UPJ" ascii //weight: 1
+        $x_1_2 = "5bqeUqvinAFijQ5NdI" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DCRat_MCV_2147966858_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.MCV!MTB"
+        threat_id = "2147966858"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "iICxDKAe4m2b93oRdfANzhnaqSxFXJTKz8pqFeS" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

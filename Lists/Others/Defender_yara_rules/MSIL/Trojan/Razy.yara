@@ -626,3 +626,24 @@ rule Trojan_MSIL_Razy_BAB_2147963513_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Razy_MCW_2147966859_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Razy.MCW!MTB"
+        threat_id = "2147966859"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "94-76-A6-C1-CE-82-FC-90-FD-7C-93-7D-55-6E" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
