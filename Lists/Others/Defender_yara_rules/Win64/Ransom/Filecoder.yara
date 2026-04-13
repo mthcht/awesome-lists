@@ -1926,3 +1926,26 @@ rule Ransom_Win64_Filecoder_A_2147964242_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PGAU_2147966868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PGAU!MTB"
+        threat_id = "2147966868"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "Created suspicious mutex: Global\\WindowsSystemUpdateMutex" ascii //weight: 2
+        $x_2_2 = {68 74 74 70 [0-2] 2f 2f 6d 61 6c 69 63 69 6f 75 73 2d 73 69 74 65 2e 63 6f 6d 2f 70 61 79 6c 6f 61 64 2e 65 78 65}  //weight: 2, accuracy: Low
+        $x_2_3 = "To decrypt your files, send 0.1 BTC to:" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
