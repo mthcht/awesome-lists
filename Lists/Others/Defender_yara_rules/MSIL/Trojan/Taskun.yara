@@ -7020,7 +7020,7 @@ rule Trojan_MSIL_Taskun_ZQF_2147966883_0
         threshold = "12"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = {0a 06 02 7d ?? 00 00 04 06 03 7d ?? 00 00 04 16 02 7b ?? 00 00 04 6f ?? 01 00 0a 28 ?? 00 00 0a 06 fe ?? b1 00 00 06 73 41 00 00 0a 28 ?? 00 00 2b 2a}  //weight: 10, accuracy: Low
+        $x_10_1 = {0a 06 02 7d ?? 00 00 04 06 03 7d ?? 00 00 04 16 02 7b ?? 00 00 04 6f ?? ?? 00 0a 28 ?? 00 00 0a 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 28 ?? 00 00 2b 2a}  //weight: 10, accuracy: Low
         $x_2_2 = "GetPixel" ascii //weight: 2
     condition:
         (filesize < 20MB) and

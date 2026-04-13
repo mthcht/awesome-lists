@@ -9888,3 +9888,24 @@ rule Trojan_MSIL_Heracles_CSG_2147966902_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_ZTF_2147966912_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.ZTF!MTB"
+        threat_id = "2147966912"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 6c 17 58 d2 13 6c 11 69 11 67 11 6c 91 58 d2 13 69 11 67 11 6c 91 13 6a 11 67 11 6c 11 67 11 69 91 9c 11 67 11 69 11 6a 9c 11 63 11 6d 8f ?? 00 00 01 25 71 ?? 00 00 01 11 67 11 67 11 6c 91 11 67 11 69 91 58 20 00 01 00 00 5d 91 61 d2 81 ?? 00 00 01 11 6d 17 58 13 6d 11 6d 11 63 8e 69 32 9e}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

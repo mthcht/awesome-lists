@@ -602,3 +602,29 @@ rule Trojan_MSIL_Convagent_MKC_2147966560_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_MCU_2147966910_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.MCU!MTB"
+        threat_id = "2147966910"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 21 00 40 00 40 00 40 00 40 00 40 00 40}  //weight: 1, accuracy: High
+        $x_1_2 = "gs2BH1fj.Resources.resource" ascii //weight: 1
+        $x_10_3 = "Invoke" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -994,3 +994,26 @@ rule Trojan_MSIL_QuasarRAT_ZFG_2147965009_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRAT_ZSF_2147966911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRAT.ZSF!MTB"
+        threat_id = "2147966911"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0a 13 08 00 11 08 09 6f ?? 00 00 0a 00 11 08 11 04 6f ?? 00 00 0a 00 11 08 17 6f ?? 00 00 0a 00 11 07 11 08 6f ?? 00 00 0a 16 73 ?? 00 00 0a 13 09 73 ?? 00 00 0a 13 0a 00 11 09 11 0a 6f ?? 00 00 0a 00 11 0a 6f ?? 00 00 0a 13 06 00 de 14}  //weight: 6, accuracy: Low
+        $x_4_2 = {0c 06 16 07 16 1f 20 28 ?? 00 00 0a 00 06 1f 20 08 16 08 8e 69 28 ?? 00 00 0a 00 72 01 00 00 70 07}  //weight: 4, accuracy: Low
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

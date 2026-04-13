@@ -350,3 +350,29 @@ rule Trojan_Win32_Blackmoon_SRA_2147940710_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Blackmoon_P_2147966920_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Blackmoon.P!MTB"
+        threat_id = "2147966920"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Blackmoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "45.120.101.152" ascii //weight: 1
+        $x_1_2 = "Delta Force Hawkps" ascii //weight: 1
+        $x_1_3 = ".nsp0" ascii //weight: 1
+        $x_1_4 = "\\....\\TemporaryFile" ascii //weight: 1
+        $x_1_5 = "VMProtect end" ascii //weight: 1
+        $x_1_6 = "blackmoon" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
