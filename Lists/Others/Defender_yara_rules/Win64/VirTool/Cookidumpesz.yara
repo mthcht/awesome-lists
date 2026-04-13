@@ -42,3 +42,25 @@ rule VirTool_Win64_Cookidumpesz_B_2147924964_0
         (all of ($x*))
 }
 
+rule VirTool_Win64_Cookidumpesz_D_2147966877_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Cookidumpesz.D"
+        threat_id = "2147966877"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cookidumpesz"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b f0 4c 89 64 24 70 48 85 c0 ?? ?? ?? ?? ?? ?? ?? 48 89 44 24 20 4c 8b ce 41 b8 98 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? e8 ?? ?? ?? ?? 85 c0 ?? ?? 48 8b 54 24 70}  //weight: 1, accuracy: Low
+        $x_1_2 = {49 8b fc 4c 39 64 24 70 ?? ?? 48 8b 1c fe 48 85 db [0-19] e8 ?? ?? ?? ?? 45 8b c5 ?? ?? ?? ?? ?? ?? ?? ?? e8 ?? ?? ?? ?? 48 ff c7 48 3b 7c 24 70}  //weight: 1, accuracy: Low
+        $x_1_3 = {48 8b 54 24 68 84 d2 ?? ?? ?? ?? ?? ?? ?? e8 ?? ?? ?? ?? 48 85 db [0-17] 48 8b d3 ?? ?? ?? ?? ?? ?? ?? e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

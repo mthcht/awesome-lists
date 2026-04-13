@@ -45,3 +45,25 @@ rule VirTool_Win64_Cookitesz_B_2147924963_0
         (all of ($x*))
 }
 
+rule VirTool_Win64_Cookitesz_D_2147966876_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Cookitesz.D"
+        threat_id = "2147966876"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cookitesz"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b 74 24 40 b9 98 00 00 00 4c 8b e0 e8 [0-17] 48 8b d8 ?? ?? ?? ?? ?? ?? ?? 48 3b c1 ?? ?? 4c 3b cd ?? ?? 4c 8b c5 48 8b c8 4c 2b c0 ba 98 00 00 00 ?? ?? ?? 42 0f b6 04 01 88 01}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 8b 4d e0 e8 ?? ?? ?? ?? 48 8b 55 00 48 85 d2 ?? ?? 48 83 7d 08 00 ?? ?? 48 89 74 24 20 41 b9 40 00 00 00 ?? ?? ?? ?? ?? ?? ?? 48 8b 4d d8 ff}  //weight: 1, accuracy: Low
+        $x_1_3 = {0f b6 08 80 f9 aa ?? ?? 38 0c 02 ?? ?? 48 ff c0 48 8b c8 48 2b cb 48 81 f9 98 00 00 00 ?? ?? 48 8b 0f 48 81 f9 e8 03 00 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
