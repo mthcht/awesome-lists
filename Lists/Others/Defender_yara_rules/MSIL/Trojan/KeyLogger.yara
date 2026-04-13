@@ -481,3 +481,29 @@ rule Trojan_MSIL_KeyLogger_SEDA_2147935236_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KeyLogger_GXH_2147966935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.GXH!MTB"
+        threat_id = "2147966935"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Crc DesckVB Rat" ascii //weight: 1
+        $x_1_2 = "Keylogger.dll" ascii //weight: 1
+        $x_1_3 = "oempnbrcketsa" ascii //weight: 1
+        $x_1_4 = "keyloggeronlineadesativar" ascii //weight: 1
+        $x_1_5 = "Keylogger Run Sucess" ascii //weight: 1
+        $x_1_6 = "KeyloggerHookApiWindows" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

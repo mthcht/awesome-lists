@@ -302,3 +302,27 @@ rule Trojan_MSIL_DiscordStealer_SN_2147964161_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DiscordStealer_SX_2147966922_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DiscordStealer.SX!MTB"
+        threat_id = "2147966922"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[*] Discord Stealer token" ascii //weight: 30
+        $x_20_2 = "ElyStealerBoundary" ascii //weight: 20
+        $x_10_3 = "[+] Master Key" ascii //weight: 10
+        $x_5_4 = "\\Google\\Chrome\\User Data" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

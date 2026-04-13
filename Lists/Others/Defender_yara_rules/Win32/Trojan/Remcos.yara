@@ -3281,3 +3281,30 @@ rule Trojan_Win32_Remcos_SNE_2147966742_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_SNF_2147966929_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.SNF!MTB"
+        threat_id = "2147966929"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\umuliggrelse\\Volkswagens146.ini" ascii //weight: 1
+        $x_1_2 = "\\macromerite\\ugerapporters" ascii //weight: 1
+        $x_1_3 = "\\forstbotanik.zip" ascii //weight: 1
+        $x_1_4 = "\\broaches\\Reincarnationist.jpg" ascii //weight: 1
+        $x_1_5 = "\\Elektrofreres3\\blandsds.ini" ascii //weight: 1
+        $x_1_6 = "\\tripyrenous\\pakkepostens.jpg" ascii //weight: 1
+        $x_1_7 = "\\falholdtes\\Sovseskeerne.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
