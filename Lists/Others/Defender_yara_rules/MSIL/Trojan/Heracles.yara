@@ -9862,3 +9862,29 @@ rule Trojan_MSIL_Heracles_LVN_2147966807_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_CSG_2147966902_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.CSG!MTB"
+        threat_id = "2147966902"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "InjectDLL" ascii //weight: 2
+        $x_2_2 = "cheat.dll" ascii //weight: 2
+        $x_2_3 = "RestoreHook" ascii //weight: 2
+        $x_2_4 = "BypassCSGOHook" ascii //weight: 2
+        $x_2_5 = "RestoreCSGOHook" ascii //weight: 2
+        $x_2_6 = "C:\\Windows\\Web\\dll.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

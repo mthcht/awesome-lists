@@ -657,3 +657,27 @@ rule Trojan_Win32_Jaik_SX_2147960938_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_MKA_2147966892_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.MKA!MTB"
+        threat_id = "2147966892"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "sCB.cards.%u.txt" ascii //weight: 10
+        $x_5_2 = "Credentials.%u.txt" ascii //weight: 5
+        $x_3_3 = "CB.cookies.%u.txt" ascii //weight: 3
+        $x_2_4 = "prosto_stealer" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

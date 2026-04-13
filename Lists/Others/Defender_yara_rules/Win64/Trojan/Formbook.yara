@@ -111,3 +111,24 @@ rule Trojan_Win64_Formbook_NX_2147964445_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Formbook_KTV_2147966901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Formbook.KTV!MTB"
+        threat_id = "2147966901"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {41 0f b6 00 8b ca 49 ff c0 c1 e9 ?? 41 ff c1 4c 89 83 ?? ?? ?? ?? 33 c8 8b c2 c1 e0 ?? 0f b6 c9 8b}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -301,3 +301,26 @@ rule Trojan_Win32_Mint_MCD_2147966811_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mint_MKA_2147966894_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.MKA!MTB"
+        threat_id = "2147966894"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {83 c4 0c 66 c7 85 00 e0 ff ff ?? ?? 33 c0 66 90 8a c8 80 f1 ?? 88 8c 05 00 e0 ff ff 40 3d}  //weight: 30, accuracy: Low
+        $x_3_2 = "AmsiScanString" ascii //weight: 3
+        $x_2_3 = "EtwEventWrite" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
