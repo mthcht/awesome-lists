@@ -747,3 +747,27 @@ rule Trojan_Win64_DllHijack_AHA_2147965717_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_LRE_2147966961_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.LRE!MTB"
+        threat_id = "2147966961"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 04 11 4c 8d ?? ?? ?? ?? ?? 42 8a 04 00 88 04 11 48 ff c1 48 83 f9 0c}  //weight: 10, accuracy: Low
+        $x_1_2 = "Setup.banner.png" ascii //weight: 1
+        $x_2_3 = "Wondershare Filmora Activator" ascii //weight: 2
+        $x_3_4 = "CLRCreateInstance" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

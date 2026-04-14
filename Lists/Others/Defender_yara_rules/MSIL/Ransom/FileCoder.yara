@@ -2023,6 +2023,32 @@ rule Ransom_MSIL_FileCoder_AMTB_2147966086_0
         family = "FileCoder"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "\\NothingRun\\obj\\Debug\\NothingRun.pdb" ascii //weight: 4
+        $x_1_2 = "tripleattack{0}" ascii //weight: 1
+        $x_1_3 = ".mrsmajor" ascii //weight: 1
+        $x_1_4 = "[MRS MAJOR 2.0 ENCRYPTED]" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Ransom_MSIL_FileCoder_AMTB_2147966086_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder!AMTB"
+        threat_id = "2147966086"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:

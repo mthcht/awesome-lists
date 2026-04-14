@@ -968,3 +968,26 @@ rule TrojanSpy_MSIL_Noon_AMTB_2147964577_1
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Noon_A_2147966959_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Noon.A!AMTB"
+        threat_id = "2147966959"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Desktop\\2023CryptsDone\\hosh genetic\\obj\\Debug\\Toslan.pdb" ascii //weight: 2
+        $x_2_2 = "http://104.243.47.142/db/1037" ascii //weight: 2
+        $x_1_3 = "Toslan.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

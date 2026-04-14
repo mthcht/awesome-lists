@@ -3174,3 +3174,25 @@ rule Trojan_MSIL_LummaStealer_CQ_2147964189_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LummaStealer_AMTB_2147966960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer!AMTB"
+        threat_id = "2147966960"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\TEMP\\SillyNationwide_2.exe" ascii //weight: 1
+        $x_2_2 = "https://piavpn.net/PeriodGirlfriend_nopump.exe" ascii //weight: 2
+        $x_1_3 = "\\repos\\Lodak\\Lodak\\obj\\Release\\Lodak.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
