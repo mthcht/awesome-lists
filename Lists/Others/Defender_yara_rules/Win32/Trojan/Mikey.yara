@@ -645,3 +645,50 @@ rule Trojan_Win32_Mikey_PGME_2147966529_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_ABVT_2147966971_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.ABVT!MTB"
+        threat_id = "2147966971"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {34 33 2e 31 36 30 2e 32 31 31 2e 32 31 2f 63 68 66 73 2f 73 68 61 72 65 64 2f [0-15] 2e 62 69 6e}  //weight: 3, accuracy: Low
+        $x_2_2 = "schtasks /create" ascii //weight: 2
+        $x_1_3 = "sc onlogon /rl highest /f" ascii //weight: 1
+        $x_1_4 = "CreatePersistentTask called" ascii //weight: 1
+        $x_1_5 = "Executing shellcode" ascii //weight: 1
+        $x_1_6 = "Delaying execution" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mikey_ABMK_2147966992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.ABMK!MTB"
+        threat_id = "2147966992"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {83 f8 11 74 ?? 8a 0c 07 89 c2 83 e2 07 ?? c1 [0-1] 32 8c 16 ?? ?? ?? ?? 88 0c 07 40 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

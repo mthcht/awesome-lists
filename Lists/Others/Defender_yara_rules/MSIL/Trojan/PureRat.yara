@@ -298,3 +298,41 @@ rule Trojan_MSIL_PureRat_AK_2147966607_0
         )
 }
 
+rule Trojan_MSIL_PureRat_AL_2147966990_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureRat.AL!MTB"
+        threat_id = "2147966990"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {04 00 04 28 ?? 0a 00 06 7e ?? 04 00 04 28 ?? 0a 00 06 7e ?? 04 00 04 28 ?? 0a 00 06 0a 06 7e ?? 04 00 04 28 ?? 0a 00 06 1f 24 28 ?? 00 00 0a 7e ?? 04 00 04 28 ?? 0a 00 06 7e ?? 04 00 04 28 ?? 0a 00 06 39 05 00 00 00 dd 4b 00 00 00 73 10 00 00 0a 25 17 7e}  //weight: 6, accuracy: Low
+        $x_5_2 = "m8DD" ascii //weight: 5
+        $x_5_3 = "m8DE" ascii //weight: 5
+        $x_5_4 = "PureHVNC_Lib." ascii //weight: 5
+        $x_2_5 = "CreateDecryptor" ascii //weight: 2
+        $x_2_6 = "GZipStream" ascii //weight: 2
+        $x_2_7 = "System.Net.Sockets" ascii //weight: 2
+        $x_2_8 = "ProtoBuf.Serializers.IProtoSerializer.Write" ascii //weight: 2
+        $x_2_9 = "ProtoBuf.Serializers.IProtoTypeSerializer.HasCallbacks" ascii //weight: 2
+        $x_2_10 = "FromBase64String" ascii //weight: 2
+        $x_2_11 = "Microsoft.CodeAnalysis" ascii //weight: 2
+        $x_2_12 = "WritePacked" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_5_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 8 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_5_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 3 of ($x_5_*) and 3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

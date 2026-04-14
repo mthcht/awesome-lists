@@ -65,3 +65,25 @@ rule TrojanDropper_Win64_Lazy_AH_2147964488_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win64_Lazy_AHA_2147966981_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/Lazy.AHA!MTB"
+        threat_id = "2147966981"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {66 31 04 4a 0f b7 44 24 ?? 48 8d 54 24 ?? 66 31 04 4a 0f b7 44 24 ?? 48 8d 54 24 ?? 66 31 04 4a}  //weight: 30, accuracy: Low
+        $x_20_2 = {66 41 31 14 48 0f b7 44 24 ?? 66 31 44 4c ?? 0f b7 44 24 ?? 66 41 31 04 49 0f b7 44 24 ?? 66 41 31 04 4a}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
