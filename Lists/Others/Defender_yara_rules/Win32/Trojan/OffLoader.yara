@@ -6634,3 +6634,26 @@ rule Trojan_Win32_OffLoader_ZUF_2147966953_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_PGOH_2147967007_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOH!MTB"
+        threat_id = "2147967007"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "://chalkice.xyz/" ascii //weight: 5
+        $x_5_2 = "://throatsnow.cfd/" ascii //weight: 5
+        $x_5_3 = "Do you want to reboot now?" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -23,6 +23,7 @@ rule Trojan_Linux_SuspTrapExec_MP14_2147960310_0
         $n_100_9 = "DigitalOcean" wide //weight: -100
         $n_100_10 = "snapshooter" wide //weight: -100
         $n_100_11 = "strap" wide //weight: -100
+        $n_100_12 = "antigravity" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

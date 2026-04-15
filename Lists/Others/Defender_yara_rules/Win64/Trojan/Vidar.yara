@@ -2111,3 +2111,29 @@ rule Trojan_Win64_Vidar_MCT_2147966861_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_ZY_2147967012_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ZY"
+        threat_id = "2147967012"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {f1 d5 00 fa 4c 62 cc f4 0f 0b}  //weight: 1, accuracy: High
+        $x_10_2 = {4c 05 00 00 4c 8d ?? ac 05 00 00 ba 40 00 00 00 4c 89 ?? (49|4d) 89 ?? e8 ?? ?? ?? ?? 48 89 ?? e8 ?? ?? ?? ?? 4c 89 ?? e8 16 00 4c 8d}  //weight: 10, accuracy: Low
+        $x_10_3 = {4c 05 00 00 ba 40 00 00 00 4d 89 ?? e8 ?? ?? ?? ?? 48 89 ?? e8 ?? ?? ?? ?? 48 8d ?? ac 05 00 00 e8 03 00 48 8d}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

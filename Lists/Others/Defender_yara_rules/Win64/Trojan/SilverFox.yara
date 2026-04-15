@@ -21,3 +21,24 @@ rule Trojan_Win64_SilverFox_AHB_2147959959_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SilverFox_AKP_2147967006_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SilverFox.AKP!MTB"
+        threat_id = "2147967006"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SilverFox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 b8 70 d0 91 b7 ef 3f 0e 80 48 89 44 24 78 48 b8 fc 5e f3 a2 07 ee 15 3e}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
