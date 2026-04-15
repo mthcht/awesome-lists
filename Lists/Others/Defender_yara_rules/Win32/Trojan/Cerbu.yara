@@ -215,3 +215,24 @@ rule Trojan_Win32_Cerbu_BAB_2147959918_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Cerbu_ARA_2147966999_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Cerbu.ARA!MTB"
+        threat_id = "2147966999"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8d 44 18 ff 50 8b c3 48 b9 ?? 00 00 00 99 f7 f9 8a 82 ?? ?? 01 00 8b 17 8a 54 1a ff 32 c2 5a 88 02 43 4e 75 d4}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

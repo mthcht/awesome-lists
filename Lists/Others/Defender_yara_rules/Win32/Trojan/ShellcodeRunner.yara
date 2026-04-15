@@ -772,3 +772,25 @@ rule Trojan_Win32_ShellcodeRunner_LM_2147960484_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_ARA_2147967000_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.ARA!MTB"
+        threat_id = "2147967000"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b c1 33 d2 f7 f7 8a 82 e0 fe ?? ?? 32 81 f8 e7 ?? ?? 88 04 0e 41 81 f9 e5 16 00 00 72 e2}  //weight: 2, accuracy: Low
+        $x_2_2 = {f7 f7 0f b6 82 ?? ?? ?? 10 32 81 ?? ?? 02 10 88 44 0e 03 83 c1 04 81 f9 ?? ?? ?? ?? 72 97}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
