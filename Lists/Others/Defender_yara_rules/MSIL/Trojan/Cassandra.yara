@@ -137,3 +137,26 @@ rule Trojan_MSIL_Cassandra_WE_2147965367_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_AKP_2147966995_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.AKP!MTB"
+        threat_id = "2147966995"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Calc.dll" ascii //weight: 1
+        $x_1_2 = "Real-time system health and performance metrics analyzer" ascii //weight: 1
+        $x_1_3 = "SystemStatus Calculator" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
