@@ -265,28 +265,6 @@ rule Trojan_Win32_AveMaria_GA_2147758513_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_AveMaria_MR_2147770502_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/AveMaria.MR!MTB"
-        threat_id = "2147770502"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "AveMaria"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {33 c8 8b 55 [0-2] 03 [0-5] 88 [0-5] eb 40 00 83 [0-3] 89 [0-5] 8b [0-5] 3b [0-5] 7d [0-2] 8b [0-5] 99 f7 [0-5] 89 [0-5] 8b [0-3] 03 [0-5] 0f [0-3] 8b [0-5] 0f}  //weight: 1, accuracy: Low
-        $x_1_2 = {83 c0 01 89 85 [0-4] 8b [0-5] 3b [0-5] 7d [0-2] 8b [0-5] 99 f7 [0-5] 89 [0-5] 8b [0-3] 03 [0-5] 0f [0-3] 8b [0-5] 0f [0-4] 33 [0-3] 8b [0-3] 03 [0-5] 88 [0-5] eb}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
 rule Trojan_Win32_AveMaria_MS_2147775278_0
 {
     meta:

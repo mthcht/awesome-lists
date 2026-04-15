@@ -24,3 +24,31 @@ rule Trojan_MSIL_Alien_MK_2147962011_0
         )
 }
 
+rule Trojan_MSIL_Alien_SL_2147967073_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Alien.SL!MTB"
+        threat_id = "2147967073"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Alien"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "$436BD42B-CCCF-4E06-BBDA-CC7D49E3A618" ascii //weight: 4
+        $x_4_2 = "exe.renaelCCC/sj/or.mor-ilec//:sptth" ascii //weight: 4
+        $x_1_3 = "NtAllocateVirtualMemory" ascii //weight: 1
+        $x_1_4 = ":wen!rotartsinimdA:noitavelE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
