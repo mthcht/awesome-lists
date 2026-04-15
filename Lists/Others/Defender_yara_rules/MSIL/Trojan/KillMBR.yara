@@ -1210,3 +1210,28 @@ rule Trojan_MSIL_KillMBR_KK_2147965479_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_SK_2147967038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.SK!MTB"
+        threat_id = "2147967038"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/c schtasks /Create /TN \"WinUpdateSvc\" /TR" ascii //weight: 1
+        $x_1_2 = "/SC ONLOGON /RL HIGHEST /F" ascii //weight: 1
+        $x_1_3 = "ab5924hj99orbitatet" ascii //weight: 1
+        $x_1_4 = "ALL DATA ENCRYPTED. MBR DESTROYED. DO NOT RESTART" ascii //weight: 1
+        $x_1_5 = "c bcdedit /delete {current} /f & del /f /s /q C:\\Windows\\System32\\*.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

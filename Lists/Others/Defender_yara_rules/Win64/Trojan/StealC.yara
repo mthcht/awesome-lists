@@ -844,3 +844,24 @@ rule Trojan_Win64_StealC_AHE_2147966720_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_SKPA_2147967040_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.SKPA!MTB"
+        threat_id = "2147967040"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {c7 44 24 20 ?? ?? ?? ?? ff 15 59 ab 00 00 4c 8b f0 48 85 c0 0f 84 ?? ?? ?? ?? 48 8d 44 24 58 33 db 4c 8b cd 4d 8b c7 49 8b d6 48 8b ce 48 89 44 24 20 48 89 5c 24 58 ff 15 ?? ?? ?? ?? 85 c0 0f 84}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
