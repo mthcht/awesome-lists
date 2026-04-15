@@ -611,3 +611,28 @@ rule Trojan_Win64_ShellCodeRunner_GVD_2147961346_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeRunner_VGX_2147967060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeRunner.VGX!MTB"
+        threat_id = "2147967060"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "connecttest.txt" ascii //weight: 1
+        $x_1_2 = "PrintDialog.exe" wide //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_4 = "WindowsPrintManager" wide //weight: 1
+        $x_1_5 = ".exe /c schtasks /create /f /rl highest /sc onlogon /tn \"\\Microsoft\\Windows\\Management\\Autopilot\\PrintHandler\" /tr" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

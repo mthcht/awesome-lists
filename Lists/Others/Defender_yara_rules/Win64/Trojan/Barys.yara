@@ -687,3 +687,43 @@ rule Trojan_Win64_Barys_NUC_2147965095_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_VGX_2147967059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.VGX!MTB"
+        threat_id = "2147967059"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "mysupersecretkey" ascii //weight: 1
+        $x_1_2 = "/prod/api/update" ascii //weight: 1
+        $x_1_3 = "agent_id" ascii //weight: 1
+        $x_1_4 = "/api/pe-data/" ascii //weight: 1
+        $x_1_5 = "User-Agent: c2-agent" ascii //weight: 1
+        $x_1_6 = "File uploaded successfully:" ascii //weight: 1
+        $x_1_7 = "ly7kb13xza.execute-api" ascii //weight: 1
+        $x_1_8 = "fake_PE_name" ascii //weight: 1
+        $x_1_9 = "[loader] Patching PEB to add args" ascii //weight: 1
+        $x_1_10 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_11 = "virtual" ascii //weight: 1
+        $x_1_12 = "qemu" ascii //weight: 1
+        $x_1_13 = "vmware" ascii //weight: 1
+        $x_1_14 = "oracle" ascii //weight: 1
+        $x_1_15 = "innotek" ascii //weight: 1
+        $x_1_16 = "vbox" ascii //weight: 1
+        $x_1_17 = "virtualbox" ascii //weight: 1
+        $x_1_18 = "hyper-v" ascii //weight: 1
+        $x_1_19 = "AuthenticAMD" ascii //weight: 1
+        $x_1_20 = "GenuineIntel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

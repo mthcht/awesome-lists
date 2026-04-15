@@ -182,3 +182,26 @@ rule Ransom_Win64_Conti_RS_2147965967_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Conti_AHB_2147967064_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Conti.AHB!MTB"
+        threat_id = "2147967064"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "- %APPDATA%\\Telegram*, Kotatogram*, 64Gram*, Unigram* (mask)" ascii //weight: 30
+        $x_10_2 = "--remove-persistence" ascii //weight: 10
+        $x_20_3 = "- Other user profiles (C:\\Users\\*\\AppData\\Roaming\\...)" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
