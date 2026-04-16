@@ -3537,3 +3537,50 @@ rule Trojan_Win64_Zusy_ABRZ_2147967154_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SXR_2147967181_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXR!MTB"
+        threat_id = "2147967181"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {66 41 83 fa ?? 41 0f 42 c1 41 89 d1 49 83 c0 ?? 41 c1 e1 ?? 0f b6 c0 44 01 ca 01 c2 41 0f b7 00 66 85 c0 75 d3}  //weight: 20, accuracy: Low
+        $x_5_2 = {41 89 d0 48 83 c1 ?? 41 c1 e0 ?? 44 01 c2 01 c2 0f b6 01 84 c0 75 e9}  //weight: 5, accuracy: Low
+        $x_25_3 = "Global\\MtxA_" ascii //weight: 25
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AHR_2147967193_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHR!MTB"
+        threat_id = "2147967193"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "{\"processes\":%s,\"av_detected\":%s,\"installed_software\":%s}" ascii //weight: 40
+        $x_30_2 = "{\"browser\":\"%s\",\"path\":\"%s\",\"data_b64\":\"%s\"}" ascii //weight: 30
+        $x_20_3 = "decrypt_chrome_aes_key" ascii //weight: 20
+        $x_10_4 = "collect_browser_creds" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

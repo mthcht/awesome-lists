@@ -113,3 +113,26 @@ rule TrojanDownloader_Win64_Tedy_SX_2147965140_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Tedy_AHA_2147967192_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Tedy.AHA!MTB"
+        threat_id = "2147967192"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command \"Add-MpPreference -ExclusionPath" ascii //weight: 30
+        $x_20_2 = "Collects Crypto Airdrops." ascii //weight: 20
+        $x_10_3 = "Brute Force of Forgotten" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
