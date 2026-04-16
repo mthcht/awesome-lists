@@ -987,3 +987,29 @@ rule Trojan_Win64_Stealer_NVA_2147967102_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NVB_2147967171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NVB!MTB"
+        threat_id = "2147967171"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "REMUS" ascii //weight: 1
+        $x_1_2 = "GetClientRect" ascii //weight: 1
+        $x_1_3 = "GetClipboardData" ascii //weight: 1
+        $x_1_4 = "OpenClipboard" ascii //weight: 1
+        $x_1_5 = "GetComputerNameA" ascii //weight: 1
+        $x_2_6 = {41 81 e0 b1 79 37 9e 0d b1 79 37 9e 41 0f af c0 41 81 f0 b1 79 37 1e 44 0f af c2}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

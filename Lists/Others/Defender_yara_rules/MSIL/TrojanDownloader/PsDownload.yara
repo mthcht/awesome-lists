@@ -145,3 +145,26 @@ rule TrojanDownloader_MSIL_PsDownload_PAK_2147929194_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_PsDownload_MK_2147967173_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/PsDownload.MK!MTB"
+        threat_id = "2147967173"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PsDownload"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {0a 0c 08 72 ?? ?? 00 70 6f ?? 00 00 0a 08 72 ?? ?? 00 70 06 28 ?? 00 00 0a 6f ?? 00 00 0a 08 16 6f ?? 00 00 0a 08 17 6f ?? 00 00 0a 08 0b 07 28 ?? 00 00 0a}  //weight: 15, accuracy: Low
+        $x_10_2 = "cABvAHcAZQByAHMAaABlAGwAbAAgAC0ARQB4AGUAYwB1AHQAaQBvAG4AUABvAGwAaQBjAHkAIABCAHkAcABhAHMAcwAg" ascii //weight: 10
+        $x_5_3 = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -EncodedCommand" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

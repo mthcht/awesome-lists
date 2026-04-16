@@ -2919,3 +2919,32 @@ rule Trojan_MSIL_SpyNoon_ZRG_2147965667_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyNoon_PAHX_2147967161_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyNoon.PAHX!MTB"
+        threat_id = "2147967161"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyNoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "attachScreenPasswd" ascii //weight: 2
+        $x_1_2 = "attachScreenContent" ascii //weight: 1
+        $x_2_3 = "/exec/InfectionInfo" wide //weight: 2
+        $x_1_4 = "VolumeSerialNumber" wide //weight: 1
+        $x_1_5 = "SELECT * FROM Win32_OperatingSystem" wide //weight: 1
+        $x_1_6 = "/exec/LeakFile" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

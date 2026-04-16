@@ -5723,3 +5723,25 @@ rule Trojan_Win64_Lazy_PDB_2147966616_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MKM_2147967174_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKM!MTB"
+        threat_id = "2147967174"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8d 0c d2 89 c2 01 c9 29 ca 48 63 d2 41 0f b6 14 12 41 32 14 01 41 88 14 00 48 83 c0 01 49 39 c3}  //weight: 20, accuracy: High
+        $x_15_2 = {49 01 c0 0f b6 01 41 89 d3 83 f0 0f 49 89 c9 41 88 00 4c 89 db b8 01 00 00 00 66 0f 1f 44 00 00 89 c2}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
