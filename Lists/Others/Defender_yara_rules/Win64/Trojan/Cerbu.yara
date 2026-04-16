@@ -395,3 +395,24 @@ rule Trojan_Win64_Cerbu_SLWZ_2147966568_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_PGCE_2147967112_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.PGCE!MTB"
+        threat_id = "2147967112"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {88 04 19 8d 42 02 8b c8 83 e0 07 42 0f b6 84 00 ?? ?? ?? ?? 42 32 84 01 ?? ?? ?? ?? 88 04 19 8d 42 03 8b c8 83 c2 ?? 83 e0 ?? 42 0f b6 84 00 ?? ?? ?? ?? 42 32 84 01 ?? ?? ?? ?? 88 04 19 81 fa ?? ?? ?? ?? 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
