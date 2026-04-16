@@ -43,3 +43,29 @@ rule Ransom_Win64_Prince_YAC_2147939973_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Prince_AMTB_2147967201_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Prince!AMTB"
+        threat_id = "2147967201"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Prince"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = ".......... SHADOWBYT3S Ransomware .........." ascii //weight: 4
+        $x_1_2 = "Your files have been encrypted using SHADOWBYT3S Ransomware!" ascii //weight: 1
+        $x_1_3 = "C://Users//met//Desktop//ransomware//$HADOWBYT3$ RANSOMWARE MAIN FULL LEAK//$HADOWBYT3$ RANSOMWARE" ascii //weight: 1
+        $x_1_4 = ".SHADOWBYT3S" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
