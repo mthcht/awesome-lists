@@ -210,3 +210,32 @@ rule Trojan_Win64_Keylogger_AB_2147965229_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Keylogger_LRD_2147967097_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Keylogger.LRD!MTB"
+        threat_id = "2147967097"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 45 70 72 61 6c 50 f3 0f 7f 4d 60 c7 45 74 72 6f 63 65 c7 45 78 73 73 6f 72 66 c7 45 7c 5c 30 c7 44 24 30 04 00 00 00 c7 44 24 34 04 00 00 00}  //weight: 20, accuracy: High
+        $x_1_2 = "CreateMutexA" ascii //weight: 1
+        $x_2_3 = "DuplicateTokenEx" ascii //weight: 2
+        $x_3_4 = "CreateProcessAsUserA" ascii //weight: 3
+        $x_4_5 = "checkip.amazonaws" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

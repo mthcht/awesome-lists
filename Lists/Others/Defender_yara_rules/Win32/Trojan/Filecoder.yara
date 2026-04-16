@@ -548,3 +548,25 @@ rule Trojan_Win32_Filecoder_ZZA_2147951836_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Filecoder_LRA_2147967095_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.LRA!MTB"
+        threat_id = "2147967095"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8a 10 40 84 d2 75 ?? 2b c1 8d 74 46 0b 89 33 8b 07 85 c0}  //weight: 20, accuracy: Low
+        $x_10_2 = {8a 08 40 84 c9 75 ?? 2b c2 8d 74 06 02 83 45 fc 04 89 33}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

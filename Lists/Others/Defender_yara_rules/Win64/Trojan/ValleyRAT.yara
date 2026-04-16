@@ -336,3 +336,49 @@ rule Trojan_Win64_ValleyRAT_ABVS_2147966047_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_LR_2147967096_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.LR!MTB"
+        threat_id = "2147967096"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {4c 89 b4 24 e8 04 00 00 4c 89 bc 24 e0 04 00 00 c7 85 70 02 00 00 68 00 74 00 c7 85 74 02 00 00 74 00 70 00 c7 85 78 02 00 00 3a 00 2f 00 c7 85 7c 02 00 00 2f 00 32 00 c7 85 80 02 00 00 33 00 2e 00 c7 85 84 02 00 00 32 00 32 00 c7 85 88 02 00 00 36 00 2e 00 c7 85 8c 02 00 00 35 00 37 00 c7 85 90 02 00 00 2e 00 36 00 c7 85 94 02 00 00 39 00 3a 00 c7 85 98 02 00 00 37 00 37 00 c7 85 9c 02 00 00 38 00 39 00 c7 85 a0 02 00 00 2f 00 70 00 c7 85 a4 02 00 00 6f 00 63 00 c7 85 a8 02 00 00 6b 00 65 00}  //weight: 20, accuracy: High
+        $x_1_2 = "URLDownloadToFileW" ascii //weight: 1
+        $x_2_3 = "IsDebuggerPresent" ascii //weight: 2
+        $x_4_4 = "CreateToolhelp32Snapshot" ascii //weight: 4
+        $x_5_5 = "SetUnhandledExceptionFilter" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRAT_LRA_2147967100_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.LRA!MTB"
+        threat_id = "2147967100"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 45 64 6f 00 63 00 c7 45 68 6b 00 65 00 c7 45 6c 74 00 2e 00 c7 45 70 65 00 78 00 c7 45 74 65 00 00 00 c7 85 80 00 00 00 43 00 3a 00 c7 85 84 00 00 00 2f 00 55 00 c7 85 88 00 00 00 73 00 65 00 c7 85 8c 00 00 00 72 00 73 00 c7 85 90 00 00 00 2f 00 50 00 c7 85 94 00 00 00 75 00 62 00 c7 85 98 00 00 00 6c 00 69 00 c7 85 9c 00 00 00 63 00 2f 00 c7 85 a0 00 00 00 44 00 6f 00 c7 85 a4 00 00 00 77 00 6e 00 c7 85 a8 00 00 00 6c 00 6f 00 c7 85 ac 00 00 00 61 00 64 00 c7 85 b0 00 00 00 73 00 2f 00}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -112,3 +112,29 @@ rule Trojan_MSIL_OrcusRat_A_2147958934_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_OrcusRat_CM_2147967094_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/OrcusRat.CM!MTB"
+        threat_id = "2147967094"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "OrcusRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "/launchClientAndExit" wide //weight: 2
+        $x_2_2 = "/launchSelfAndExit" wide //weight: 2
+        $x_2_3 = "/watchProcess" wide //weight: 2
+        $x_2_4 = "/keepAlive" wide //weight: 2
+        $x_2_5 = "/protectFile" wide //weight: 2
+        $x_2_6 = "Orcus." wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

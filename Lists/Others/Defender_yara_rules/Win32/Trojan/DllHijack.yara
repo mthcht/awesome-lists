@@ -237,3 +237,24 @@ rule Trojan_Win32_DllHijack_LRC_2147965690_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DllHijack_LRD_2147967099_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllHijack.LRD!MTB"
+        threat_id = "2147967099"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {88 4d f0 8a ca c0 e9 02 80 e1 0f c0 e0 04 c0 e2 06 02 c8 02 55 ef 4e 88 4d f1 88 55 f2 85 f6 7e 13 0f b6 ?? ?? ?? 8b 4d dc 50 e8 ?? ?? ?? ?? 43 3b de}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

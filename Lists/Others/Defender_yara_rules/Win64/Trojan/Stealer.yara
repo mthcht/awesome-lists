@@ -965,3 +965,25 @@ rule Trojan_Win64_Stealer_SLWK_2147961908_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NVA_2147967102_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NVA!MTB"
+        threat_id = "2147967102"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "REMUS" ascii //weight: 1
+        $x_2_2 = {81 e1 b1 79 37 9e 89 c2 0d b1 79 37 9e 0f af c1 81 f1 b1 79 37 1e 81 e2 4e 86 c8 61 0f af d1 01 d0 c1 e8 14}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
