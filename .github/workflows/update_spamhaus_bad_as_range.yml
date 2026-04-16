@@ -1,0 +1,39 @@
+name: Resolve Spamhaus ASN Ranges
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  resolve-spamhaus-asn-ranges:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Run resolver script
+        run: |
+          cd Lists/ASNs
+          python resolve_spamhaus_asn_ranges.py
+
+      - name: List files
+        run: ls -la Lists/ASNs
+
+      - name: Commit and Push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Lists/ASNs/spamhaus_asn_list_resolved.csv
+          git add Lists/ASNs/spamhaus_asn_list_resolved_only_ip_ranges.csv
+          git commit -m "Update Spamhaus ASN resolved ranges" --allow-empty
+          git push
