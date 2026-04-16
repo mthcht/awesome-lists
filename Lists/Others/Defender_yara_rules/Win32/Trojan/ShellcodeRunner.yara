@@ -1,3 +1,25 @@
+rule Trojan_Win32_ShellcodeRunner_AB_2147900825_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.AB!MTB"
+        threat_id = "2147900825"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {8a 04 17 8a 0c 37 88 04 37 46 88 0c 17 4a 3b f2 7c ee 85 db 74 26 ba 05 00 00 00 8b cf 2b d7 8d 04 0a 25 1f 00 00 80 79 05 48 83 c8 e0 40 8a 80 64 2e [0-2] 30 01 41 83 eb 01 75 e3}  //weight: 6, accuracy: Low
+        $x_6_2 = "Qby2RSGkGIHumNrDlbt1OEHV3y2dVh5b" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ShellcodeRunner_CCIA_2147906086_0
 {
     meta:
