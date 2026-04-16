@@ -24,7 +24,7 @@ jobs:
       - name: Run resolver script
         run: |
           cd Lists/ASNs
-          python resolve_spamhaus_asn_ranges.py
+          python resolve_spamhaus_ranges.py
 
       - name: List files
         run: ls -la Lists/ASNs
