@@ -406,27 +406,6 @@ rule Trojan_Win32_Qbot_MR_2147744040_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Qbot_MS_2147744041_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Qbot.MS!MTB"
-        threat_id = "2147744041"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Qbot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {33 c2 8b c8 8b d1 89 15 ?? ?? ?? ?? a1 ?? ?? ?? ?? 8b 0d ?? ?? ?? ?? 89 08 5f 5d c3 06 00 8b 15}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Qbot_2147744042_0
 {
     meta:

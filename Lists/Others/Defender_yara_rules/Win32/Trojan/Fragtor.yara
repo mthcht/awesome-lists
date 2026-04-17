@@ -3824,3 +3824,25 @@ rule Trojan_Win32_Fragtor_SXE_2147966381_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_PGFE_2147967273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.PGFE!MTB"
+        threat_id = "2147967273"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {89 f9 32 0c 16 88 0c 10 83 c2 01 39 d3 75 f1}  //weight: 5, accuracy: High
+        $x_5_2 = {0f b6 42 e0 32 01 88 02 83 c2 01 83 c1 01 8d 85 ?? ?? ?? ?? 39 c1 75 e8}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

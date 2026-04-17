@@ -5745,3 +5745,26 @@ rule Trojan_Win64_Lazy_MKM_2147967174_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SXQ_2147967264_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXQ!MTB"
+        threat_id = "2147967264"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 32 c5 80 fc 9e 66 0f be c2 4f 8d 04 10 34 19 41 23 c0 13 c2 41 0f b6 c0 22 c2 66 81 fa b0 d2}  //weight: 20, accuracy: High
+        $x_10_2 = {41 bc 00 01 00 00 45 3a ec 45 8b c4 49 0f b7 cd b1 3c 48 c1 c1 2a 2b d2 0f 9f c1 86 e9 48 8d 8d 80 00 00 00 e8 68 fb fd ff}  //weight: 10, accuracy: High
+        $x_5_3 = "Web.dat" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

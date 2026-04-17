@@ -3954,6 +3954,7 @@ rule Trojan_Win32_ClickFix_ZGA_2147941490_0
         $n_600_28 = "pwcinternal.com" wide //weight: -600
         $n_600_29 = "-win32" wide //weight: -600
         $n_600_30 = ".asia.corp.anz.com" wide //weight: -600
+        $n_600_31 = "\\PowerShell7AndAzCmdlets\\PowerShell-7.5.4-win-x64.msi" wide //weight: -600
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

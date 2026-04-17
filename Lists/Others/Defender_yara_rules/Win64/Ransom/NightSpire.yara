@@ -48,3 +48,28 @@ rule Ransom_Win64_NightSpire_YAF_2147945133_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_NightSpire_A_2147967278_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/NightSpire.A"
+        threat_id = "2147967278"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NightSpire"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Method of creating readme file." ascii //weight: 1
+        $x_1_2 = "You can't set thread count when time sleep function enabled" ascii //weight: 1
+        $x_1_3 = "failed to extract icon: %w" ascii //weight: 1
+        $x_1_4 = "Explorer will be restarted." ascii //weight: 1
+        $x_1_5 = "NightSpire" ascii //weight: 1
+        $x_1_6 = "File icon set using embedded icon" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
