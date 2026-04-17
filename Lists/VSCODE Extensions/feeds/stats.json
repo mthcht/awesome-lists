@@ -1,21 +1,21 @@
 {
-  "generated_utc": "2026-04-17T07:55:53+00:00",
-  "total_records": 1154,
-  "total_malicious": 1082,
+  "generated_utc": "2026-04-17T08:52:21+00:00",
+  "total_records": 1194,
+  "total_malicious": 1122,
   "total_risky": 72,
   "severity_counts": {
-    "critical": 386,
-    "high": 584,
+    "critical": 387,
+    "high": 619,
     "low": 22,
-    "medium": 162
+    "medium": 166
   },
   "category_counts": {
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 565,
+    "impersonation": 600,
     "impersonation-malware": 5,
-    "malware": 386,
+    "malware": 387,
     "owner-request": 5,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -31,25 +31,25 @@
     "risky-infrastructure": 4,
     "risky-remote-access": 15,
     "risky-tunnel": 5,
-    "spam": 41,
+    "spam": 42,
     "spam-malware": 5,
     "typo-squatting": 1,
-    "untrustworthy": 49
+    "untrustworthy": 52
   },
   "malicious_category_counts": {
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 565,
+    "impersonation": 600,
     "impersonation-malware": 5,
-    "malware": 386,
+    "malware": 387,
     "owner-request": 5,
     "potentially-malicious": 4,
     "publisher-requested": 3,
-    "spam": 41,
+    "spam": 42,
     "spam-malware": 5,
     "typo-squatting": 1,
-    "untrustworthy": 49
+    "untrustworthy": 52
   },
   "risky_category_counts": {
     "risky-ai-code-access": 9,
@@ -65,8 +65,12 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 880,
+  "total_publishers": 894,
   "top_publishers": [
+    [
+      "gtfish1988",
+      25
+    ],
     [
       "SlashMark",
       25
@@ -161,10 +165,6 @@
     ],
     [
       "BlockchainIndustries",
-      4
-    ],
-    [
-      "OzzyDev777",
       4
     ]
   ]
