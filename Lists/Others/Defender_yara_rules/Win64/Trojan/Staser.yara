@@ -65,3 +65,27 @@ rule Trojan_Win64_Staser_SX_2147963620_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Staser_VGA_2147967214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Staser.VGA!MTB"
+        threat_id = "2147967214"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Staser"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {56 8b 74 24 08 85 f6 74 13 57 8b f9 2b fa 8b ff 8a 02 88 04 17 8d 52 01 4e 75 f5}  //weight: 2, accuracy: High
+        $x_1_2 = {0f b7 0a 8d 41 bf 83 f8 19 77 03 83 c1 20 0f b7 17 8d 42 bf 83 f8 19 77 03}  //weight: 1, accuracy: High
+        $x_1_3 = "C:\\USERBASE1.DAT" ascii //weight: 1
+        $x_1_4 = "\\TemporaryFile" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

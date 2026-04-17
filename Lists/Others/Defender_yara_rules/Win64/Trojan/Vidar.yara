@@ -2137,3 +2137,30 @@ rule Trojan_Win64_Vidar_ZY_2147967012_0
         )
 }
 
+rule Trojan_Win64_Vidar_VGA_2147967213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.VGA!MTB"
+        threat_id = "2147967213"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rRefgisrehdfgddfffffdhgjg211" ascii //weight: 1
+        $x_1_2 = "LCase(\"WhfdPfeR\")" ascii //weight: 1
+        $x_1_3 = "Len(\"phdffom\")" ascii //weight: 1
+        $x_1_4 = "Len(\"pdfddddhfom\")" ascii //weight: 1
+        $x_1_5 = "StrReverse(\"ecafho\")" ascii //weight: 1
+        $x_1_6 = "invfisible" ascii //weight: 1
+        $x_1_7 = "Trim(\"Fdffgond\")" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
