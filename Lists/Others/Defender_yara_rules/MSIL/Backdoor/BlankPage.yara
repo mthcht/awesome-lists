@@ -25,3 +25,24 @@ rule Backdoor_MSIL_BlankPage_A_2147963060_0
         (5 of ($x*))
 }
 
+rule Backdoor_MSIL_BlankPage_E_2147967230_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/BlankPage.E!dha"
+        threat_id = "2147967230"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BlankPage"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {29 01 00 00 11 7e ?? 00 00 04 29 01 00 00 11 7e ?? 00 00 04 29 01 00 00 11}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
