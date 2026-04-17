@@ -19150,3 +19150,30 @@ rule Trojan_Win64_CobaltStrike_FBK_2147966805_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_CQ_2147967218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.CQ!MTB"
+        threat_id = "2147967218"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {b8 80 c3 ff ff 4c 8b 15 ?? ?? ?? ?? 48 89 4c 24 ?? 4c 89 4c 24 ?? 41 b8 40 00 00 00 ba 06 00 00 00 4c 89 54 24 ?? c7 44 24 ?? b8 57 00 07 66 89 44 24 ?? 41 ff d2}  //weight: 5, accuracy: Low
+        $x_3_2 = {ba 01 00 00 00 4c 8b 15 ?? ?? ?? ?? 4c 89 4c 24 ?? 41 b8 40 00 00 00 4c 89 54 24 ?? 41 ff d2}  //weight: 3, accuracy: Low
+        $x_2_3 = {c6 01 c3 ba 01 00 00 00 44 8b 44 24 ?? 41 ff d2}  //weight: 2, accuracy: Low
+        $x_2_4 = {c6 01 c3 44 8b 44 24 ?? ba 01 00 00 00 41 ff d2}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
