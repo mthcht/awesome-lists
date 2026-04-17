@@ -445,6 +445,29 @@ rule Trojan_Win64_ValleyRat_AVY_2147966107_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 84 24 b0 02 00 00 c6 44 24 20 57 c6 44 24 21 73 c6 44 24 22 32 c6 44 24 23 5f c6 44 24 24 33 c6 44 24 25 32 c6 44 24 26 2e c6 44 24 27 64 c6 44 24 28 6c c6 44 24 29 6c c6 44 24 2a 00 48 8d 4c 24 20 ff 94 24}  //weight: 2, accuracy: High
+        $x_3_2 = "baidubai" ascii //weight: 3
+        $x_4_3 = "111.170.150.47" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_AVY_2147966107_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AVY!MTB"
+        threat_id = "2147966107"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "Low"
     strings:

@@ -348,6 +348,29 @@ rule Trojan_Win32_SuspClickFix_Q2_2147963694_0
         family = "SuspClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = "=mshta&set " wide //weight: 1
+        $x_1_3 = "&call !" wide //weight: 1
+        $x_1_4 = "&ping " wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_Q2_2147963694_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.Q2"
+        threat_id = "2147963694"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -542,6 +565,52 @@ rule Trojan_Win32_SuspClickFix_Q3_2147967020_1
         $x_3_1 = {63 00 75 00 72 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
         $x_1_2 = {43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 [0-48] 5c 00 41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00}  //weight: 1, accuracy: Low
         $x_1_3 = ".pdf" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_W_2147967257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.W"
+        threat_id = "2147967257"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = "|ssh " wide //weight: 2
+        $x_2_3 = "|cmd" wide //weight: 2
+        $x_1_4 = " -o StrictHostKeyChecking=no" wide //weight: 1
+        $x_1_5 = {20 00 2d 00 6f 00 20 00 55 00 73 00 65 00 72 00 4b 00 6e 00 6f 00 77 00 6e 00 48 00 6f 00 73 00 74 00 73 00 46 00 69 00 6c 00 65 00 3d 00 4e 00 55 00 4c 00 [0-32] 40 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_W2_2147967258_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.W2"
+        threat_id = "2147967258"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = "& echo " wide //weight: 1
+        $x_1_3 = {20 00 7c 00 20 00 63 00 75 00 72 00 6c 00 20 00 2d 00 58 00 20 00 50 00 4f 00 53 00 54 00 20 00 2d 00 46 00 20 00 [0-16] 3d 00 40 00 2d 00 20 00 68 00 74 00 74 00 70 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
