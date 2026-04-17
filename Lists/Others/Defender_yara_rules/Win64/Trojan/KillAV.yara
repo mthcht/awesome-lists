@@ -299,3 +299,31 @@ rule Trojan_Win64_KillAV_WD_2147964680_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_AKP_2147967221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.AKP!MTB"
+        threat_id = "2147967221"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "find windows defender installation path" ascii //weight: 1
+        $x_1_2 = "\\Backup\\mpavbase.vdm" ascii //weight: 1
+        $x_1_3 = "create MRT killer thread" ascii //weight: 1
+        $x_1_4 = "update directory" ascii //weight: 1
+        $x_1_5 = "Windows Defender isn't running, exiting..." ascii //weight: 1
+        $x_1_6 = "open service manager, error :" ascii //weight: 1
+        $x_1_7 = "WinDefend" ascii //weight: 1
+        $x_1_8 = "\\Signature Updates" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
