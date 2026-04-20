@@ -63,3 +63,25 @@ rule TrojanDownloader_Win64_Mikey_SX_2147962751_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Mikey_SXA_2147967333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Mikey.SXA!MTB"
+        threat_id = "2147967333"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 01 d0 0f b6 00 32 45 ?? 89 c1 8b 05 ?? ?? ?? ?? 48 98 48 8d 14 c5 00 00 00 00 48 8d 05 ?? ?? ?? ?? 48 8b 14 02 8b 45 ?? 48 98 48 01 d0 89 ca 88 10 83 45}  //weight: 20, accuracy: Low
+        $x_10_2 = "Global\\WinSvc_Mutex_30" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

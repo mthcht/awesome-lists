@@ -727,3 +727,28 @@ rule Trojan_Win64_Barys_VGX_2147967059_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_SX_2147967330_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.SX!MTB"
+        threat_id = "2147967330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "Register-ScheduledTask -Force -TaskName '\\Microsoft\\Windows\\Maintenance\\%s' -Action $a -Trigger $t -Settings $s" ascii //weight: 50
+        $x_20_2 = "$s=New-ScheduledTaskSettingsSet -Hidden -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit 0" ascii //weight: 20
+        $x_20_3 = "$t=New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Minutes 2)" ascii //weight: 20
+        $x_5_4 = "WiFi Passwords" ascii //weight: 5
+        $x_5_5 = "Discord Tokens" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

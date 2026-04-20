@@ -808,3 +808,25 @@ rule Trojan_Win64_Dacic_AHA_2147967062_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_AHD_2147967321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.AHD!MTB"
+        threat_id = "2147967321"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "MASTER-KEY-SECRET-12345abcde" ascii //weight: 20
+        $x_30_2 = {48 bf cb 8d c9 ce d0 d5 d4 00 49 bf c3 cc c9 d0 d0 c5 d2 00 48 bd 2e 6b 65 79 6c 6f 67 2d 49 bc 8e cb c5 d9 cc cf c7 8d}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

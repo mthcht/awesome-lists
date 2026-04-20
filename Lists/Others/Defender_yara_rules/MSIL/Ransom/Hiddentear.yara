@@ -73,3 +73,28 @@ rule Ransom_MSIL_Hiddentear_SK_2147960168_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Hiddentear_SL_2147967328_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Hiddentear.SL!MTB"
+        threat_id = "2147967328"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Hiddentear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "HAPPY RETIREMENT!" ascii //weight: 1
+        $x_1_2 = "All data files are being encrypted by user uinta/mafessler" ascii //weight: 1
+        $x_1_3 = "From Russia With Love - Ransomware" ascii //weight: 1
+        $x_1_4 = "ALL DATA FILES ENCRYPTED FOR RANSOM" ascii //weight: 1
+        $x_1_5 = "\\UPDATEWYCATS.bat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

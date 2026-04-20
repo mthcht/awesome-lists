@@ -408,3 +408,26 @@ rule Trojan_Win64_ReverseShell_VGY_2147966470_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_AHB_2147967319_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.AHB!MTB"
+        threat_id = "2147967319"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "DownloadExecute__nimloader_" ascii //weight: 10
+        $x_20_2 = "/home/kali/nimloader.nim" ascii //weight: 20
+        $x_30_3 = {0f b6 85 27 02 00 00 85 c0 0f 95 c0 83 f0 ?? 0f b6 c0 88 85 56 02 00 00 80 a5 56 02 00 00 ?? eb}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

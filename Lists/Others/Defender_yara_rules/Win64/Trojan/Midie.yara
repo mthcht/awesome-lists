@@ -1066,3 +1066,27 @@ rule Trojan_Win64_Midie_SXI_2147966463_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_SXK_2147967332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXK!MTB"
+        threat_id = "2147967332"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "34"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "/goonen/bypass.php" ascii //weight: 20
+        $x_10_2 = "/goonen/login-check-new-private.php" ascii //weight: 10
+        $x_2_3 = "\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data\\Default\\cookies" ascii //weight: 2
+        $x_2_4 = "\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\zvvln8t9.default\\signons.sqlite" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

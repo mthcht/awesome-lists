@@ -43,3 +43,27 @@ rule Trojan_Win64_Greedy_MX_2147966100_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Greedy_AHA_2147967322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Greedy.AHA!MTB"
+        threat_id = "2147967322"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Greedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Global\\Preset_Mon_mutex" ascii //weight: 30
+        $x_10_2 = "\\chrome_elf.dat" ascii //weight: 10
+        $x_40_3 = "schtasks /create /tn \"WindowsPresetMonitorTask\" /tr " ascii //weight: 40
+        $x_20_4 = "=== Credential Manager (RDP) ===" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

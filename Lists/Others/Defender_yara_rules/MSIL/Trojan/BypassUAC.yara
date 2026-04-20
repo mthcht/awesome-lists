@@ -190,3 +190,25 @@ rule Trojan_MSIL_BypassUAC_PAHI_2147961190_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_MK_2147967336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.MK!MTB"
+        threat_id = "2147967336"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {26 11 04 72 ?? ?? 00 70 28 ?? 00 00 0a 25 09 28 ?? 00 00 0a 11 04 28 ?? 00 00 0a 11 04 72 ?? ?? 00 70 28 ?? 00 00 0a 13 05 11 05 28 ?? 00 00 0a 2c 0c 11 05 28 1a 00 00 0a 6f 1b 00 00 0a 11 04 72 ?? ?? 00 70 28 ?? 00 00 0a 13 06 11 06}  //weight: 30, accuracy: Low
+        $x_5_2 = "payload.zip" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

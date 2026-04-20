@@ -3885,6 +3885,27 @@ rule Trojan_Win64_Tedy_BAD_2147961312_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_BAD_2147961312_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BAD!MTB"
+        threat_id = "2147961312"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {e8 d9 00 00 00 48 8d 58 fb 51 52 41 50 41 51 48 83 ec 28 48 c7 c0 60 00 00 00 65 48 8b 38 48 8b 7f 18 48 8b 7f 20 48 8b 7f 20 48 8b 83 13 01 00 00 48 01 f8 ff d0 48 89 83 13 01 00 00 48 8b 83 1b 01 00 00 48 01 f8 ff d0 48 89 83 1b 01 00 00 48 8b 8b eb 00 00 00 48 01 f9 48 89 ca 48 8b 83 fb 00 00 00 48 01 f8 ff d0 4c 8b 83 1b 01 00 00 48 8b 93 13 01 00 00 48 8b 8b eb 00 00 00 48 01 f9 48 8b 83 03 01 00 00 48 01 f8 ff d0 48 31 d2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_AHM_2147961566_0
 {
     meta:
