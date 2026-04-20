@@ -6680,3 +6680,26 @@ rule Trojan_Win32_OffLoader_ZYF_2147967145_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_PGOI_2147967306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOI!MTB"
+        threat_id = "2147967306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "https://goldpie.cfd/" ascii //weight: 5
+        $x_5_2 = "https://chalkice.xyz/" ascii //weight: 5
+        $x_5_3 = "Do you want to reboot now?" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
