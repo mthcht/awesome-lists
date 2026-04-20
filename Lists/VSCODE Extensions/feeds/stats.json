@@ -1,11 +1,11 @@
 {
-  "generated_utc": "2026-04-20T14:55:44+00:00",
-  "total_records": 1200,
-  "total_malicious": 1128,
+  "generated_utc": "2026-04-20T15:47:03+00:00",
+  "total_records": 1222,
+  "total_malicious": 1150,
   "total_risky": 72,
   "severity_counts": {
-    "critical": 387,
-    "high": 625,
+    "critical": 393,
+    "high": 641,
     "low": 22,
     "medium": 166
   },
@@ -13,9 +13,9 @@
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 606,
+    "impersonation": 622,
     "impersonation-malware": 5,
-    "malware": 387,
+    "malware": 393,
     "owner-request": 5,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -40,9 +40,9 @@
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 606,
+    "impersonation": 622,
     "impersonation-malware": 5,
-    "malware": 387,
+    "malware": 393,
     "owner-request": 5,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -65,7 +65,7 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 900,
+  "total_publishers": 915,
   "top_publishers": [
     [
       "gtfish1988",
@@ -140,6 +140,10 @@
       5
     ],
     [
+      "fsiovn",
+      5
+    ],
+    [
       "kodawari",
       5
     ],
@@ -162,10 +166,6 @@
     [
       "sanchuan",
       5
-    ],
-    [
-      "BlockchainIndustries",
-      4
     ]
   ]
 }
