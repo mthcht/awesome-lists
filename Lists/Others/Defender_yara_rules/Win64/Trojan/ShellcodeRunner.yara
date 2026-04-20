@@ -3043,3 +3043,26 @@ rule Trojan_Win64_ShellcodeRunner_SXK_2147965213_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_NVA_2147967342_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.NVA!MTB"
+        threat_id = "2147967342"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 f0 71 66 89 84 24}  //weight: 1, accuracy: High
+        $x_1_2 = {83 f0 44 66 89 84 24}  //weight: 1, accuracy: High
+        $x_2_3 = {35 c0 00 00 00 66 89 44 24 ?? 8b 44 24 2c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

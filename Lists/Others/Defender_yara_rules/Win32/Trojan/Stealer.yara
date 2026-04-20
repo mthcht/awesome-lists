@@ -1642,3 +1642,25 @@ rule Trojan_Win32_Stealer_KK_2147959873_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_HAB_2147967341_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.HAB!MTB"
+        threat_id = "2147967341"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "CopyBrowserData: [OK] prefs.js -> Extensions/" ascii //weight: 20
+        $x_20_2 = "Payload DLL: DecryptData FAILED, hr=0x%08X, COM_lastErr=%lu, GetLastErr=%lu" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

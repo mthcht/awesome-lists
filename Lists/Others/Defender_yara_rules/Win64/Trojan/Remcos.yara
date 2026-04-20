@@ -224,3 +224,30 @@ rule Trojan_Win64_Remcos_ART_2147967312_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remcos_VGZ_2147967348_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.VGZ!MTB"
+        threat_id = "2147967348"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "\\Sources\\Add\\adistot\\x64\\Release\\adistot.pdb" ascii //weight: 1
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = {68 74 74 70 3a 2f 2f [0-64] 2e 65 78 65}  //weight: 1, accuracy: Low
+        $x_1_4 = "powershell -NoProfile -ExecutionPolicy Bypass -Command" ascii //weight: 1
+        $x_1_5 = "system_cache_log.txt" ascii //weight: 1
+        $x_1_6 = "math_tasks_log.txt" ascii //weight: 1
+        $x_1_7 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
