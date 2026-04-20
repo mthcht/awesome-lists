@@ -5333,3 +5333,25 @@ rule Trojan_Win64_Tedy_SXJ_2147967065_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_ZGE_2147967356_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ZGE!MTB"
+        threat_id = "2147967356"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f 57 c0 f2 0f 5a c2 f3 0f 11 44 24 ?? 66 4c 0f 7e c2 48 83 c4 58}  //weight: 5, accuracy: Low
+        $x_5_2 = {f3 0f 10 e3 0f c6 e4 39 66 0f 6f d0 66 0f 6c d1 48 89 c9 66 0f 6d cf 30 44 37 ff 0f 57 e4 f2 0f 5a e0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
