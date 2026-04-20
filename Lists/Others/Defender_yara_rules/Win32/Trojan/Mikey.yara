@@ -692,3 +692,32 @@ rule Trojan_Win32_Mikey_ABMK_2147966992_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_LRE_2147967298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.LRE!MTB"
+        threat_id = "2147967298"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Failed to copy file to temporary folder." ascii //weight: 1
+        $x_2_2 = "tempApp.exe" ascii //weight: 2
+        $x_3_3 = "Failed to delete shellcode file." ascii //weight: 3
+        $x_4_4 = "Failed to allocate memory for shellcode." ascii //weight: 4
+        $x_5_5 = "Failed to read shellcode from file." ascii //weight: 5
+        $x_6_6 = "Failed to open shellcode file." ascii //weight: 6
+        $x_7_7 = "Failed to download shellcode." ascii //weight: 7
+        $x_8_8 = "shellcode.bin" ascii //weight: 8
+        $x_9_9 = "Hello from MFC!" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1009,3 +1009,26 @@ rule Trojan_Win32_Doina_ARR_2147966954_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_LR_2147967297_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.LR!MTB"
+        threat_id = "2147967297"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 85 ec fd ff ff 03 c1 83 c1 37 89 85 ec fd ff ff 81 f9 26 02 00 00 7c ?? 8b 85 ec fd ff ff 35 ad de 00 00 33 c9 89 85 e8 fd ff ff 0f 1f 40 00}  //weight: 20, accuracy: Low
+        $x_2_2 = "powershell -Command \"Add-MpPreference -ExclusionPath '" ascii //weight: 2
+        $x_3_3 = "powershell -Command \"Add-MpPreference -ExclusionProcess '" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
