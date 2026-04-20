@@ -201,3 +201,26 @@ rule Trojan_Win64_Remcos_AKRE_2147965416_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remcos_ART_2147967312_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.ART!MTB"
+        threat_id = "2147967312"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 b8 06 00 00 00 48 8d 15 84 a0 03 00 48 8d 4c 24 40 e8 ?? ?? ?? ?? 0f 57 c0 0f 11 45 a8 4c 89 7d b8 4c 89 7d c0 0f 10 00 0f 11 45 a8 0f 10 48 10 0f 11 4d b8 4c 89 78 10 48 c7 40 18 0f}  //weight: 1, accuracy: Low
+        $x_2_2 = {66 89 47 0c 48 8d 4f 0e 4d 8b c6 49 8b d4 e8 ?? ?? ?? ?? 42 c6 04 3f 00 41 b8 04 00 00 00 48 8d 15 e4 9b 03 00 48 8d 4d 87 e8 ?? ?? ?? ?? 0f 10 00 0f 11 45 07 0f 10 48 10 0f 11 4d 17 4c 89 68 10 48 c7 40 18 0f}  //weight: 2, accuracy: Low
+        $x_3_3 = "132.243.225.43" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
