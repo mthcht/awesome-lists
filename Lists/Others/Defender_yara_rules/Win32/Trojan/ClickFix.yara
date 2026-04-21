@@ -2689,8 +2689,10 @@ rule Trojan_Win32_ClickFix_ZE_2147939086_0
         $x_1_1 = "mshta" wide //weight: 1
         $x_1_2 = "http" wide //weight: 1
         $x_1_3 = "2no.co/" wide //weight: 1
+        $n_100_4 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
