@@ -46,27 +46,6 @@ rule Trojan_MSIL_MSILZilla_RDC_2147841239_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_MSILZilla_CXI_2147842131_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/MSILZilla.CXI!MTB"
-        threat_id = "2147842131"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "MSILZilla"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {08 09 18 5b 06 09 18 6f ?? ?? ?? ?? 1f 10 28 1c ?? ?? ?? 9c 09 18 58 0d 09 07 32}  //weight: 5, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_MSILZilla_PSPM_2147848882_0
 {
     meta:
