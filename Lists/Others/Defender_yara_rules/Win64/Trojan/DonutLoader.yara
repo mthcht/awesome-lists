@@ -420,3 +420,29 @@ rule Trojan_Win64_DonutLoader_ADL_2147963235_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_AHA_2147967424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.AHA!MTB"
+        threat_id = "2147967424"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "storage/v1/object/public/files/newsetupuniversal/dc.bin" ascii //weight: 30
+        $x_20_2 = "e[x] Locked:" ascii //weight: 20
+        $x_5_3 = "SilverFox" ascii //weight: 5
+        $x_5_4 = "meterpreter" ascii //weight: 5
+        $x_5_5 = "beacon" ascii //weight: 5
+        $x_5_6 = "shellcode" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

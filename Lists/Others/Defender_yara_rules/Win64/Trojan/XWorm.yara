@@ -567,3 +567,25 @@ rule Trojan_Win64_XWorm_VGX_2147967399_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_SXB_2147967425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.SXB!MTB"
+        threat_id = "2147967425"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {4e 8d 04 17 4d 8d 4a 01 41 83 e2 ?? 49 8b c1 83 e0 ?? 0f b6 04 08 41 28 00 41 0f b6 00 41 32 04 0a 4d 8b d1 41 88 00 4c 3b cb}  //weight: 15, accuracy: Low
+        $x_5_2 = "schtasks.exe /create /tn \"MicrosoftEdgeUpdateCore\" /tr \"rundll32.exe \\\"%s\\\",get_hostfxr_path\" /sc onlogon /rl highest /f" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

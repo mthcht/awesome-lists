@@ -5355,3 +5355,47 @@ rule Trojan_Win64_Tedy_ZGE_2147967356_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AHP_2147967422_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHP!MTB"
+        threat_id = "2147967422"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "Low"
+    strings:
+        $x_40_1 = {48 89 c8 31 d2 49 f7 f0 48 8d 05 ?? ?? ?? ?? 0f b7 04 50 [0-5] 30 04 ?? 48 83 c1 ?? 49 39 cd 75}  //weight: 40, accuracy: Low
+        $x_2_2 = "update.dat" ascii //weight: 2
+        $x_3_3 = "-Command \"try{Add-MpPreference -ExclusionPath '%s' -Force" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AHQ_2147967423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHQ!MTB"
+        threat_id = "2147967423"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {c4 c1 f9 6e c6 c4 c1 f9 6e cd c5 f1 6c c0 c4 e1 f9 6e c8 c5 fa 7e 54 24 70 c5 f1 6c ca c4 e3 7d 38 c1 ?? c4 e1 f9 6e ce c5 fa 7e 54 24 78 c5 e9 6c c9 c5 fa 7e 54 24 60}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

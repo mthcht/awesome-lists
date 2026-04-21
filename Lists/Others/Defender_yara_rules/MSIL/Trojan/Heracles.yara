@@ -9953,3 +9953,26 @@ rule Trojan_MSIL_Heracles_GPSJ_2147967386_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_MKF_2147967432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.MKF!MTB"
+        threat_id = "2147967432"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {a2 11 09 28 ?? 00 00 0a 16 8c 13 00 00 01 17 8d ?? 00 00 01 13 0a 11 0a 16 72 ?? ?? 00 70 a2 11 0a 6f ?? 00 00 0a 74 07 00 00 01 a2 11 08 a2 11 07 18 72 ?? ?? 00 70 a2 11 07 0c d0 07 00 00 01 28 ?? 00 00 0a 72 ?? ?? 00 70 17 8d 07 00 00 01 13 0b 11 0b 16}  //weight: 20, accuracy: Low
+        $x_10_2 = "RTL_USER_PROCESS_PARAMETERS_NORMALIZED" ascii //weight: 10
+        $x_5_3 = "MasqueradePEB" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

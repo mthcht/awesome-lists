@@ -482,3 +482,26 @@ rule Trojan_Win64_Ulise_SXB_2147965500_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_SXC_2147967426_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.SXC!MTB"
+        threat_id = "2147967426"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {41 b9 40 00 00 00 41 b8 00 30 00 00 8b d6 33 c9 41 ff d5 48 8b d8 48 85 c0}  //weight: 30, accuracy: High
+        $x_5_2 = {f7 e9 c1 fa 0a 8b c2 c1 e8 1f 03 d0 69 c2 58 1b 00 00 2b c8 81 c1 b8 0b 00 00}  //weight: 5, accuracy: High
+        $x_10_3 = "MyLoader" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
