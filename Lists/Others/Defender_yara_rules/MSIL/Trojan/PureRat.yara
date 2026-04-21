@@ -380,3 +380,25 @@ rule Trojan_MSIL_PureRat_AN_2147967269_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureRat_AO_2147967447_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureRat.AO!MTB"
+        threat_id = "2147967447"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {7e 06 00 00 04 39 10 00 00 00 7e 06 00 00 04 6f ?? 00 00 0a 39 01 00 00 00 2a 7e f1 02 00 04 25 3a 17 00 00 00 26 7e ef 02 00 04 fe 06 8e 06 00 06 73 11 00 00 0a 25 80 f1 02 00 04 73 12 00 00 0a 80 06 00 00 04 7e 06 00 00 04 17 6f ?? 00 00 0a 7e 06 00 00 04 6f ?? 00 00 0a 2a}  //weight: 6, accuracy: Low
+        $x_2_2 = "Steam Blocker Client for PureRAT" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

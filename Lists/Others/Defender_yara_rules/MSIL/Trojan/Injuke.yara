@@ -3715,3 +3715,26 @@ rule Trojan_MSIL_Injuke_RS_2147966210_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_MX_2147967443_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.MX!MTB"
+        threat_id = "2147967443"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {c7 44 24 28 08 00 00 08 c7 44 24 20 00 00 00 00 41 b9 00 00 00 00 41 b8 00 00 00 00 48 89 c2 b9 00 00 00 00 48 8b 05 a3 69 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = "CurrentVersion\\Winlogon" ascii //weight: 1
+        $x_1_3 = "Api.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
