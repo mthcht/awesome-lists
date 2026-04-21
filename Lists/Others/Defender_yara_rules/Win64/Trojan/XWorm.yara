@@ -498,3 +498,72 @@ rule Trojan_Win64_XWorm_AHA_2147966284_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_VGY_2147967397_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.VGY!MTB"
+        threat_id = "2147967397"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4e 8d 04 17 4d 8d 4a 01 41 83 e2 1f 49 8b c1 83 e0 1f 0f b6 04 08 41 28 00 41 0f b6 00 41 32 04 0a 4d 8b d1 41 88 00 4c 3b cb 72 d4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_XWorm_VGZ_2147967398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.VGZ!MTB"
+        threat_id = "2147967398"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 54 04 58 80 f2 70 88 54 05 98 48 ff c0 48 83 f8 24 75 eb}  //weight: 1, accuracy: High
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "InternetOpenUrlA" ascii //weight: 1
+        $x_1_4 = "processhacker" ascii //weight: 1
+        $x_1_5 = "ollydbg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_XWorm_VGX_2147967399_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.VGX!MTB"
+        threat_id = "2147967399"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {83 f0 11 48 83 c2 01 88 42 ff 0f b6 02 84 c0 75 ef}  //weight: 1, accuracy: High
+        $x_1_2 = "box.moe" ascii //weight: 1
+        $x_1_3 = "InternetOpenUrlA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

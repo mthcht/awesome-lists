@@ -8,6 +8,27 @@ rule BrowserModifier_Win32_MediaArena_362962_0
         platform = "Win32: Windows 32-bit platform"
         family = "MediaArena"
         severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "NotAWordSetup.payload.zip" wide //weight: 1
+        $x_1_2 = "NotAWord.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule BrowserModifier_Win32_MediaArena_362962_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "BrowserModifier:Win32/MediaArena"
+        threat_id = "362962"
+        type = "BrowserModifier"
+        platform = "Win32: Windows 32-bit platform"
+        family = "MediaArena"
+        severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
@@ -20,7 +41,7 @@ rule BrowserModifier_Win32_MediaArena_362962_0
         (all of ($x*))
 }
 
-rule BrowserModifier_Win32_MediaArena_362962_1
+rule BrowserModifier_Win32_MediaArena_362962_2
 {
     meta:
         author = "defender2yara"
@@ -43,7 +64,7 @@ rule BrowserModifier_Win32_MediaArena_362962_1
         (all of ($x*))
 }
 
-rule BrowserModifier_Win32_MediaArena_362962_2
+rule BrowserModifier_Win32_MediaArena_362962_3
 {
     meta:
         author = "defender2yara"

@@ -9358,3 +9358,25 @@ rule Trojan_Win32_Zusy_NCD_2147966833_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_BAI_2147967413_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.BAI!MTB"
+        threat_id = "2147967413"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 54 24 2c 29 d0 8b 54 24 30 8d 0c 10 89 e0 89 da ff d1}  //weight: 5, accuracy: High
+        $x_1_2 = "://pastebin.com/raw/AqndxJKK" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
