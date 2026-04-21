@@ -251,3 +251,24 @@ rule Trojan_Win64_Remcos_VGZ_2147967348_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remcos_PGRE_2147967389_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.PGRE!MTB"
+        threat_id = "2147967389"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {73 74 61 72 74 20 2f 6d 69 6e 20 70 6f 77 65 72 73 68 65 6c 6c 20 2d 77 20 68 20 2d 65 00 40 65 63 68 6f 20 6f 66 66 0d 0a 25 73 20 25 73 00 77 62 00 72 78 6a 65 6d 66 6a 70 6f 78 63 74 79 66 2e 65 78 65}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

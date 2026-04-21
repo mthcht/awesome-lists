@@ -5987,3 +5987,25 @@ rule Trojan_Win32_AutoitInject_GB_2147966088_0
         )
 }
 
+rule Trojan_Win32_AutoitInject_GPW_2147967387_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoitInject.GPW!MTB"
+        threat_id = "2147967387"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoitInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = " &= CHR ( BITXOR ( ASC (" ascii //weight: 5
+        $x_2_2 = "_CRYPTODRAGON_CRYPT" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

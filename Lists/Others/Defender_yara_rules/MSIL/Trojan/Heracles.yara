@@ -9931,3 +9931,25 @@ rule Trojan_MSIL_Heracles_ZTF_2147966912_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_GPSJ_2147967386_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.GPSJ!MTB"
+        threat_id = "2147967386"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a a2 11 09 28 ?? 00 00 0a 16 8c 14 00 00 01 17 8d 01 00 00 01 13}  //weight: 5, accuracy: Low
+        $x_2_2 = "System.Reflection.Assembly" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
