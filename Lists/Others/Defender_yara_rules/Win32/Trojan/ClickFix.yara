@@ -9492,8 +9492,10 @@ rule Trojan_Win32_ClickFix_FFK_2147947105_0
     strings:
         $x_1_1 = "m*ta.*e" wide //weight: 1
         $x_1_2 = "| iEX" wide //weight: 1
+        $n_500_3 = "msedgewebview2.exe" wide //weight: -500
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
