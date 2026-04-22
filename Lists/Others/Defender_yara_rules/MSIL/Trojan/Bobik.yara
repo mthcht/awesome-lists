@@ -715,6 +715,34 @@ rule Trojan_MSIL_Bobik_NB_2147914403_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bobik_NB_2147914403_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bobik.NB!MTB"
+        threat_id = "2147914403"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "ALL YOUR FILES HAVE BEEN ENCRYPTED" wide //weight: 3
+        $x_3_2 = "YOUR PERSONAL DATA HAS BEEN EXFILTRATED" wide //weight: 3
+        $x_1_3 = "DO NOT ATTEMPT TO RESTORE FILES" wide //weight: 1
+        $x_1_4 = "DO NOT TURN OFF YOUR COMPUTER" wide //weight: 1
+        $x_1_5 = "You have been warned" wide //weight: 1
+        $x_1_6 = "sys_alert_wallpaper" wide //weight: 1
+        $x_1_7 = "README_IMPORTANT.txt" wide //weight: 1
+        $x_1_8 = "AppData\\Roaming" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Bobik_SAV_2147931432_0
 {
     meta:
