@@ -14826,3 +14826,24 @@ rule Trojan_MSIL_Remcos_ABZ_2147967428_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_GPSJ_2147967482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.GPSJ!MTB"
+        threat_id = "2147967482"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {02 08 91 03 06 91 0d 05 61 09 61 13}  //weight: 7, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
