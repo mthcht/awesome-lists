@@ -1021,6 +1021,31 @@ rule Trojan_Win32_Doina_LR_2147967297_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b c2 03 c9 83 e0 01 0b c8 42 89 8d ?? ?? ff ff 83 fa 08 7c e5 8b 85 ?? ?? ff ff 33 c9}  //weight: 20, accuracy: Low
+        $x_10_2 = {03 c1 83 c1 37 89 85 ?? ?? ?? ?? 81 f9 26 02 00 00 7c e7 8b 85 ?? ?? ff ff 35 ad de 00 00 33 c9}  //weight: 10, accuracy: Low
+        $x_1_3 = "-ExclusionPath '" ascii //weight: 1
+        $x_2_4 = "-Command \"" ascii //weight: 2
+        $x_3_5 = "-ExclusionProcess '" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Doina_LR_2147967297_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.LR!MTB"
+        threat_id = "2147967297"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "25"
         strings_accuracy = "Low"
     strings:
