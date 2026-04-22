@@ -865,3 +865,25 @@ rule Trojan_Win64_StealC_SKPA_2147967040_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_GXI_2147967525_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.GXI!MTB"
+        threat_id = "2147967525"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {45 32 c1 99 45 88 02 41 f7 fd 48 63 c2}  //weight: 5, accuracy: High
+        $x_5_2 = {83 c9 e0 ff c1 48 63 c1 41 ff c1 42 0f b6 8c 18 ?? ?? ?? ?? c0 e9 02 32 d1 41 88 12 49 ff c2}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

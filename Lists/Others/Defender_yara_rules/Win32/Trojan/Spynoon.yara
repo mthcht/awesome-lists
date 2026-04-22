@@ -280,6 +280,27 @@ rule Trojan_Win32_Spynoon_MFP_2147781040_1
         )
 }
 
+rule Trojan_Win32_Spynoon_PAA_2147796237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Spynoon.PAA!MTB"
+        threat_id = "2147796237"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b c2 3b d3 7d 14 8a 8c 95 08 ff ff ff 8d 49 00 30 0c 38 83 c0 31 3b c3 7c f6 42 83 fa 31 72 e0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Spynoon_RTA_2147811334_0
 {
     meta:

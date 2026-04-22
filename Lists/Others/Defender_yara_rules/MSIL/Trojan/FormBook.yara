@@ -17757,3 +17757,28 @@ rule Trojan_MSIL_FormBook_PGFD_2147966997_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_MCV_2147967524_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.MCV!MTB"
+        threat_id = "2147967524"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "EnzymeEvolutionSimulator" wide //weight: 10
+        $x_1_2 = "Load" wide //weight: 1
+        $x_1_3 = "GetPixel" ascii //weight: 1
+        $x_1_4 = "GetExportedTypes" ascii //weight: 1
+        $x_1_5 = "Split" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

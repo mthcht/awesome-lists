@@ -41,3 +41,28 @@ rule Trojan_Win64_NjRat_AB_2147965797_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NjRat_ARR_2147967500_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NjRat.ARR!MTB"
+        threat_id = "2147967500"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "reg add 'HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Spynet' /v DisableBlockAtFirstSeen /t REG_DWORD /d 1 /f" ascii //weight: 4
+        $x_8_2 = "reg add 'HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Spynet' /v SpynetReporting /t REG_DWORD /d 0 /f" ascii //weight: 8
+        $x_5_3 = "reg add 'HKCU\\Software\\Policies\\Microsoft\\Windows\\Explorer' /v DisableNotificationCenter /t REG_DWORD /d 1 /f" ascii //weight: 5
+        $x_3_4 = "reg add 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\PushNotifications' /v ToastEnabled /t REG_DWORD /d 0 /f" ascii //weight: 3
+        $x_10_5 = "powershell.exe -Command \"Set-MpPreference -DisableRealtimeMonitoring $true" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

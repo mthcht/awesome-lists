@@ -1083,3 +1083,24 @@ rule Trojan_Win32_KillMBR_GBVL_2147966694_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillMBR_PAA_2147967517_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillMBR.PAA!MTB"
+        threat_id = "2147967517"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b f7 99 f7 f9 b8 cd cc cc cc 8d 4b 01 80 c2 4f 33 db 30 97 8c e0 ?? ?? f7 e7 47 c1 ea 02 8d 04 92 3b f0 0f 45 d9 b9 d9 06 00 00 3b bd 40 fb ff ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

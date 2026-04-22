@@ -602,6 +602,34 @@ rule HackTool_Win32_Keygen_2147751727_9
         severity = "High"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Generic JamCrackerPro tune" ascii //weight: 5
+        $x_5_2 = "Generic FC tune" ascii //weight: 5
+        $x_2_3 = "fc13_14" ascii //weight: 2
+        $x_2_4 = "sndh_ice" ascii //weight: 2
+        $x_5_5 = "Activation :" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_5_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule HackTool_Win32_Keygen_2147751727_10
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -614,7 +642,7 @@ rule HackTool_Win32_Keygen_2147751727_9
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_2147751727_10
+rule HackTool_Win32_Keygen_2147751727_11
 {
     meta:
         author = "defender2yara"
