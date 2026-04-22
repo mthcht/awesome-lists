@@ -616,3 +616,26 @@ rule Trojan_Win32_SuspClickFix_W2_2147967258_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SuspClickFix_V2_2147967489_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.V2"
+        threat_id = "2147967489"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {5c 00 63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
+        $x_1_2 = " --headless" wide //weight: 1
+        $x_1_3 = "curl " wide //weight: 1
+        $x_1_4 = "| cmd" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
