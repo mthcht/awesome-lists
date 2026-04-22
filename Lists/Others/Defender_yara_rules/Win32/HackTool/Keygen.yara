@@ -1080,3 +1080,27 @@ rule HackTool_Win32_Keygen_TNO_2147964712_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_Keygen_CRE_2147967464_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen.CRE!AMTB"
+        threat_id = "2147967464"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C.O.R.E." ascii //weight: 2
+        $x_2_2 = "/CORE" ascii //weight: 2
+        $x_2_3 = "Keymaker" ascii //weight: 2
+        $x_2_4 = "finditpro" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
