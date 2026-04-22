@@ -1354,3 +1354,25 @@ rule Trojan_Win32_Cridex_TTZ_2147931447_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Cridex_MK_2147967548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Cridex.MK!MTB"
+        threat_id = "2147967548"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Cridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 44 24 10 6b d1 2c 8b 4c 24 14 8d 04 48 03 d7 05 56 33 00 00 03 c5 81 3d 00 d9 01 10 aa 14 00 00 66 a3 f8 d8 01 10}  //weight: 20, accuracy: High
+        $x_15_2 = {b9 ab 19 00 00 6b c7 2c 66 03 cb 8b 5c 24 18 66 03 c9 66 03 ce 66 03 cb 03 c1 66 89 0d f8 d8 01 10 0f b7 f0 2b d6 83 c2 06}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

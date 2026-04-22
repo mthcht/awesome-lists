@@ -5661,3 +5661,25 @@ rule Trojan_MSIL_Seraph_AAUB_2147967460_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Seraph_VD_2147967558_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Seraph.VD!MTB"
+        threat_id = "2147967558"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Seraph"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 69 00 00 06 20 19 de e8 19 28 1e 00 00 06 7e 42 00 00 04 6f 91 00 00 0a 74 21 00 00 1b 2a}  //weight: 2, accuracy: High
+        $x_1_2 = "$2c2da2d7-ccfb-48fa-b674-5e694221ec64" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -91,3 +91,30 @@ rule Trojan_Win64_Loader_AHB_2147966285_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Loader_AHA_2147967544_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Loader.AHA!MTB"
+        threat_id = "2147967544"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Loader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "$result_var = Register-ScheduledTask -Action $Action_var -Trigger @($Trigger_var, $StartupTrigger_var) -Principal $Principal_var -Settings" ascii //weight: 30
+        $x_20_2 = "$TaskName_var -TaskPath $selectedTaskPath_var -Description $selectedTaskDescription_var -Force" ascii //weight: 20
+        $x_10_3 = "$StartupTrigger_var = New-ScheduledTaskTrigger -AtStartup" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((1 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

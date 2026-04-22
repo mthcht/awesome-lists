@@ -762,3 +762,27 @@ rule Trojan_MSIL_Bobik_GMT_2147961632_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bobik_VD_2147967556_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bobik.VD!MTB"
+        threat_id = "2147967556"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$606e6451-a181-4a70-b859-bbf6302c0a9e" ascii //weight: 1
+        $x_1_2 = "pc rat\\ScreenClientApp\\ScreenClientApp\\obj\\Release\\Microsoft Edge No.pdb" ascii //weight: 1
+        $x_1_3 = "powershell.exe -ExecutionPolicy Bypass -File \"C:\\Windows\\Temp\\disable.ps1\"" wide //weight: 1
+        $x_1_4 = "UAC detected - sending last good frame ({0}/{1})" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

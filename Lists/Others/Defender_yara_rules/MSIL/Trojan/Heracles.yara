@@ -9997,3 +9997,48 @@ rule Trojan_MSIL_Heracles_SPRO_2147967445_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_VDB_2147967551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.VDB!MTB"
+        threat_id = "2147967551"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0c 08 72 20 02 00 70 6f ?? 00 00 0a 0d 09 2c 55 09 6f ?? 00 00 0a d4 8d 0e 00 00 01 13 04 09 11 04 16 09 6f ?? 00 00 0a 69 6f ?? 00 00 0a 26 1f 1c 28 ?? 00 00 0a 72 26 02 00 70 28 ?? 00 00 0a 13 05 11 05 28 ?? 00 00 0a 28 ?? 00 00 0a 26 11 05 11 04 28 ?? 00 00 06 28 ?? 00 00 0a 11 05}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_VDD_2147967552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.VDD!MTB"
+        threat_id = "2147967552"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Elizabeth.My.Resources" ascii //weight: 1
+        $x_1_2 = "Y9552CJP64xymS27l0NG8t1Z0x7SUfB6IpaeptxKf706C3A76ooxfhKJ01D2yNBLx8n78Pqx4cVw2NXnZfi1CJHtjvaVxDlxPqIPlBc53XVD77V6jK91Zz2IN" ascii //weight: 1
+        $x_1_3 = "Elizabeth.exe" ascii //weight: 1
+        $x_1_4 = "$92784b72-540b-4813-8d7b-0c2668ef72e8" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

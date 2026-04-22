@@ -2417,3 +2417,27 @@ rule Trojan_MSIL_Tedy_ARS_2147963756_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_VDB_2147967554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.VDB!MTB"
+        threat_id = "2147967554"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Passwords.txt" wide //weight: 1
+        $x_1_2 = "card_number_encrypted" wide //weight: 1
+        $x_1_3 = "AntarctidaStealerStub" wide //weight: 1
+        $x_1_4 = "$97e7cdf9-8238-4559-b648-1c5107a99c6f" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

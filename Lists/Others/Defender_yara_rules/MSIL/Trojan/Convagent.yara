@@ -628,3 +628,24 @@ rule Trojan_MSIL_Convagent_MCU_2147966910_0
         )
 }
 
+rule Trojan_MSIL_Convagent_VD_2147967550_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.VD!MTB"
+        threat_id = "2147967550"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {00 14 fe 06 02 00 00 06 73 07 00 00 0a 73 08 00 00 0a 0b 07 06 6f 09 00 00 0a 6f 0a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

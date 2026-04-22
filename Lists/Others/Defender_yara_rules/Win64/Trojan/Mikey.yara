@@ -2302,3 +2302,28 @@ rule Trojan_Win64_Mikey_SXJ_2147967179_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_SXK_2147967546_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.SXK!MTB"
+        threat_id = "2147967546"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {66 42 89 44 2e 10 0f b6 05 ?? ?? ?? ?? 42 88 44 2e 12 42 c6 04 3e 00 c7 44 24 34 01 00 00 00 4d 8b cc 4c 8d 44 24 70 0f b6 54 24 30 48 8d 4d 10}  //weight: 20, accuracy: Low
+        $x_10_2 = "[+] Present vtable hooked (0x%p -> 0x%p)" ascii //weight: 10
+        $x_5_3 = "[+] Present vtable restored" ascii //weight: 5
+        $x_5_4 = "[+] Hook installed. Waiting..." ascii //weight: 5
+        $x_5_5 = "] Dummy D3D11 failed: 0x%lX" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

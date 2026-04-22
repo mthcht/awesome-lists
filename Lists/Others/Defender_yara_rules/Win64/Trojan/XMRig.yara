@@ -180,3 +180,28 @@ rule Trojan_Win64_XMRig_AHB_2147965718_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XMRig_AHA_2147967542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XMRig.AHA!MTB"
+        threat_id = "2147967542"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "85"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "decrypt: fl=%d kl=%d data_sz=%lu orig=%lu mask=0x%02X" ascii //weight: 40
+        $x_30_2 = "XPRESS err: 0x%lX sz=%lu" ascii //weight: 30
+        $x_5_3 = "xmrig.exe" ascii //weight: 5
+        $x_5_4 = "miner.exe" ascii //weight: 5
+        $x_5_5 = "cmd.exe /c ping -n 5 127.0.0.1 >nul 2>" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

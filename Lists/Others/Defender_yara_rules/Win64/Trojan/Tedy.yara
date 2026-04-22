@@ -3332,6 +3332,28 @@ rule Trojan_Win64_Tedy_OKQ_2147957694_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_MK_2147957822_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MK!MTB"
+        threat_id = "2147957822"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {ba 00 00 00 00 48 8d 05 ?? ?? ?? ?? 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 b9 00 00 00 00 48 8b 05}  //weight: 20, accuracy: Low
+        $x_15_2 = "C:\\Windows \\System32\\KDECO.bat" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_ABT_2147958401_0
 {
     meta:

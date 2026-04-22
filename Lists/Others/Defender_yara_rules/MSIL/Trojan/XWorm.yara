@@ -5072,3 +5072,25 @@ rule Trojan_MSIL_XWorm_ZCE_2147967268_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_VDA_2147967557_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.VDA!MTB"
+        threat_id = "2147967557"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {28 71 00 00 06 2a d0 72 00 00 06 26 2a}  //weight: 5, accuracy: High
+        $x_1_2 = "RijndaelManaged" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

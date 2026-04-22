@@ -567,6 +567,28 @@ rule Trojan_MSIL_Injector_MK_2147771659_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {12 1b 12 1c 6f ?? 00 00 06 13 1d 11 1d 2c 13 12 1c 7b ?? 00 00 04 7e ?? 00 00 0a 28 ?? 00 00 0a 2c 01 2a 7e ?? 00 00 04 12 1c 7b ?? 00 00 04 7e ?? 00 00 0a 03 8e 69}  //weight: 20, accuracy: Low
+        $x_15_2 = {69 12 1f 6f ?? 00 00 06 2c 0e 11 1f 7e ?? 00 00 0a 28 ?? 00 00 0a 2c 08 11 1c 28 ?? 00 00 06 2a 7e ?? 00 00 04 12 1c 7b ?? 00 00 04 7e ?? 00 00 0a 16 11 1e 7e ?? 00 00 0a 16 12 20 6f ?? 00 00 06 13 21 11 21}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_MK_2147771659_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.MK!MTB"
+        threat_id = "2147771659"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "18"
         strings_accuracy = "High"
     strings:

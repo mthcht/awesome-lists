@@ -1235,3 +1235,28 @@ rule Trojan_MSIL_KillMBR_SK_2147967038_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_VDA_2147967553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.VDA!MTB"
+        threat_id = "2147967553"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/c rmdir /q /s C:\\" wide //weight: 1
+        $x_1_2 = "Medida.Properties.Resources" wide //weight: 1
+        $x_1_3 = "/c net user userfucked{0} bitchassnopeword{1} /add" wide //weight: 1
+        $x_1_4 = "THIS MALWARE IS NOT A JOKE" wide //weight: 1
+        $x_1_5 = "Medida\\Medida\\obj\\Release\\Medida.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
