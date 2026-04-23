@@ -205,6 +205,27 @@ rule Trojan_Win64_FormBook_AKF_2147963540_0
         threshold = "1"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = {8b 4d 24 89 ca 83 e2 01 83 f1 01 8d 0c 51 89 ca 83 e2 72 41 89 c8 83 c9 72 0f af ca 83 f2 72 41 81 e0 8d 00 00 00 44 0f af c2 44 01 c1 41 32 0c 01 8b 45 24 48 98 41 88 0c 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_FormBook_AKF_2147963540_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FormBook.AKF!MTB"
+        threat_id = "2147963540"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = {c6 44 24 65 17 c6 44 24 64 96 c6 44 24 63 7b c6 44 24 62 75 c6 44 24 61 74 c6 44 24 60 70 c6 44 24 5f 7d c6 44 24 5e 7d c6 44 24 5d 78 c6 44 24 5c 9d c6 44 24 5b 6e c6 44 24 5a 7f c6 44 24 59 7d c6 44 24 58 99 c6 44 24 57 7a c6 44 24 56 74 c6 44 24 55 50 c6 44 24 54 89 c6 44 24 53 76 c6 44 24 52 77 c6 44 24 51 6f c6 44 24 50 63 48 8d 4c 24 4c 48 8d 54 24 6a e8}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and

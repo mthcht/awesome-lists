@@ -5094,3 +5094,48 @@ rule Trojan_MSIL_XWorm_VDA_2147967557_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_DAE_2147967596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.DAE!MTB"
+        threat_id = "2147967596"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {00 08 11 09 84 95 13 08 08 11 09 84 08 11 07 84 95 9e 08 11 07 84 11 08 9e 09 11 0b 02 11 0b 91 08 08 11 09 84 95 08 11 07 84 95 d7 6e 20 ff 00 00 00 6a 5f 84 95 61 86 9c 11 0b 17 d6 13 0b 2b 88 11 0d}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_PWE_2147967597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.PWE!MTB"
+        threat_id = "2147967597"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "-NoProfile -NonInteractive -WindowStyle Hidden -Command \"Add-MpPreference -ExclusionPath \"C:\\\"" wide //weight: 5
+        $x_3_2 = "CrypterStub\\Stub\\Stub\\obj\\x86\\Release\\Stub.pdb" ascii //weight: 3
+        $x_2_3 = "Is the payload actually a compiled .NET .dll / .exe?" wide //weight: 2
+        $x_1_4 = "XorDecrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

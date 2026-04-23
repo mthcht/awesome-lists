@@ -208,3 +208,28 @@ rule Trojan_Win64_Mint_MK_2147965026_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mint_AHA_2147967599_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mint.AHA!MTB"
+        threat_id = "2147967599"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 8b c8 83 e1 ?? 0f b6 4c 0c 68 30 0c 02 48 ff c0 48 8b 17 48 8b 4f ?? 48 2b ca 48 3b c1 72}  //weight: 30, accuracy: Low
+        $x_20_2 = {0f b6 ca 32 8c 1a ?? ?? ?? ?? 80 f1 ?? 48 8d 44 24 50 4c 3b cf 48 0f 47 44 24 50 88 0c 10 48 ff c2 48 3b 54 24 60 73}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

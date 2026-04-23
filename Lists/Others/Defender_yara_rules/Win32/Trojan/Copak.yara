@@ -3747,3 +3747,24 @@ rule Trojan_Win32_Copak_GPAE_2147962679_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Copak_PGCA_2147967598_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Copak.PGCA!MTB"
+        threat_id = "2147967598"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Copak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {68 20 e7 64 00 c3 [0-31] ec 09 71 00 [0-15] e8 ?? 00 00 00 [0-15] 31 [0-15] 81 ?? 01 00 00 00 [0-15] 39 ?? 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1320,3 +1320,25 @@ rule Trojan_MSIL_Barys_ZVF_2147966964_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_DAD_2147967595_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.DAD!MTB"
+        threat_id = "2147967595"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "go fuck yourself mother fucker" wide //weight: 5
+        $x_3_2 = "$ae72d0e8-a009-4e95-978a-4382be87074e" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

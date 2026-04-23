@@ -887,3 +887,24 @@ rule Trojan_Win64_StealC_GXI_2147967525_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_AHF_2147967600_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.AHF!MTB"
+        threat_id = "2147967600"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {48 8b 4d 10 48 8b 45 08 48 23 c8 48 8b 45 00 48 33 c1 48 89 45 00 48 8b 45 10 48 89 45 10 48 8b 4d 10 48 8b 45 00 48 33 c8 48 89 4d 00 eb}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -54,6 +54,28 @@ rule Trojan_Win64_AgentB_AHC_2147966743_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 8d 50 ed 49 ff c0 66 41 23 d1 66 33 51 e4 66 89 11 48 8d 49 ?? 49 83 f8 ?? 72}  //weight: 30, accuracy: Low
+        $x_20_2 = {41 0f b6 c0 6b d0 ?? 80 ea ?? 32 94 3d ?? ?? ?? ?? 43 30 14 01 49 ff c0 4d 3b c2 72}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_AgentB_AHC_2147966743_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.AHC!MTB"
+        threat_id = "2147966743"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "60"
         strings_accuracy = "High"
     strings:

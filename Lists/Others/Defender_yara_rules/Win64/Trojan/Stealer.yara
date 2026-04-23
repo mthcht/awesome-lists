@@ -1060,3 +1060,25 @@ rule Trojan_Win64_Stealer_NVE_2147967461_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NVG_2147967592_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NVG!MTB"
+        threat_id = "2147967592"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 89 c1 45 21 c1 44 01 c0 45 01 c9 41 89 c0 45 29 c8 41 d1 e8 83 e0 01 f7 d8 21 d0}  //weight: 1, accuracy: High
+        $x_2_2 = {69 d2 12 5e 00 00 81 c2 12 5e 00 00 66 33 54 4c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
