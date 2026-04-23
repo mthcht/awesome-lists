@@ -292,26 +292,3 @@ rule Trojan_Win64_DLLHijack_DO_2147966831_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_NVB_2147967591_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/DLLHijack.NVB!MTB"
-        threat_id = "2147967591"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "DLLHijack"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "_sqlite_" ascii //weight: 1
-        $x_1_2 = {49 c1 c0 28 4d 21 c8 49 09 d0 48 89 f9 4c 31 d1 49 31 ce 48 31 cb 4c 31 c3}  //weight: 1, accuracy: High
-        $x_2_3 = {49 89 c2 49 c1 c2 30 49 89 c9 49 c1 c1 30 4c 89 c2 48 c1 c2 30 4d 31 fd 49 31 dc 4c 31 df 49 31 c2 49 31 c9 4c 31 c2 4c 31 eb 48 31 f8}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

@@ -3628,3 +3628,34 @@ rule Trojan_Win64_Zusy_SXS_2147967427_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SXT_2147967625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXT!MTB"
+        threat_id = "2147967625"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "75"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "chrome_get_key_abe_inject" ascii //weight: 30
+        $x_25_2 = "do_forkbomb" ascii //weight: 25
+        $x_20_3 = "drop_and_persist" ascii //weight: 20
+        $x_15_4 = "do_start_keylog" ascii //weight: 15
+        $x_5_5 = "grab_chromium_collect" ascii //weight: 5
+        $x_5_6 = "grab_discord_collect" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*) and 1 of ($x_15_*) and 2 of ($x_5_*))) or
+            ((1 of ($x_30_*) and 1 of ($x_25_*) and 1 of ($x_15_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_30_*) and 1 of ($x_25_*) and 1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -1772,6 +1772,27 @@ rule Trojan_Win32_Androm_BAR_2147965467_1
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {01 1e ba 8a a5 08 00 03 55 c8 03 d3 03 c2 31 06 83 c3 04 83 c6 04 3b 5d cc 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Androm_BAR_2147965467_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.BAR!MTB"
+        threat_id = "2147965467"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {83 c3 04 83 c6 04 3b 5d ?? 0f 82 ?? ?? ?? ?? ba 00 10 00 00 b8 80 de 03 00 03 45 ?? 2b c2 83 c0 04 89 45}  //weight: 2, accuracy: Low
