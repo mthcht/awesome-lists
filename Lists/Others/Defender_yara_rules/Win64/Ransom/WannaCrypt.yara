@@ -44,3 +44,27 @@ rule Ransom_Win64_WannaCrypt_PAGV_2147956638_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_WannaCrypt_PAHY_2147967632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/WannaCrypt.PAHY!MTB"
+        threat_id = "2147967632"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "WannaCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Your files are encrypted" ascii //weight: 2
+        $x_1_2 = "wmic shadowcopy delete" ascii //weight: 1
+        $x_1_3 = "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -enc" ascii //weight: 1
+        $x_2_4 = ".WNCRY" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

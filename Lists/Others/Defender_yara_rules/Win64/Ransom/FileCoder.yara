@@ -1393,3 +1393,26 @@ rule Ransom_Win64_FileCoder_RS_2147965804_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_MKA_2147967633_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.MKA!MTB"
+        threat_id = "2147967633"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "vssadmin.exe delete shadows /all /quiet" ascii //weight: 15
+        $x_10_2 = "C:\\wannacry.exe" ascii //weight: 10
+        $x_5_3 = "bcdedit /set {default} recoveryenabled No" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
