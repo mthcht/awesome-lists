@@ -46,3 +46,24 @@ rule Trojan_Win64_Cometer_AM_2147786448_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cometer_PGCO_2147967570_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cometer.PGCO!MTB"
+        threat_id = "2147967570"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cometer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 39 d9 89 c8 73 ?? 31 d2 41 f7 f1 41 8a 04 10 41 30 04 0a 48 ff c1 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
