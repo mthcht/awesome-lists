@@ -20,3 +20,31 @@ rule Trojan_Win32_RootkitRevealer_SJ_2147965388_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_RootkitRevealer_SL_2147967721_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RootkitRevealer.SL!MTB"
+        threat_id = "2147967721"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RootkitRevealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Error copying image to random service image file" ascii //weight: 1
+        $x_1_2 = "cmd.exe /c chcp 65001 && set DIRCMD= && \"cmd /c dir /4 /a /s %s\\ > %s" ascii //weight: 1
+        $x_1_3 = "Save RootkitRevealer Output" ascii //weight: 1
+        $x_1_4 = "Software\\Sysinternals\\RootkitRevealer" ascii //weight: 1
+        $x_1_5 = "Unable to install RootkitRevealer service" ascii //weight: 1
+        $x_1_6 = "RootkitRevealer must be run from the console" ascii //weight: 1
+        $x_1_7 = "RootkitRevealer v1.7" ascii //weight: 1
+        $x_1_8 = "You may not redistribute RootkitRevealer without express written permission" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

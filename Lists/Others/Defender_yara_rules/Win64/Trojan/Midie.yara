@@ -1090,3 +1090,27 @@ rule Trojan_Win64_Midie_SXK_2147967332_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_SXJ_2147967724_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXJ!MTB"
+        threat_id = "2147967724"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "SOFTWARE\\Classes\\CLSID\\{7C3A5D49-E8B2-4F1C-A6D0-3E7F8B9C2D1A}" ascii //weight: 10
+        $x_10_2 = "SOFTWARE\\Classes\\CLSID\\{7C3A5D49-E8B2-4F1C-A6D0-3E7F8B9C2D1A}\\InprocServer32" ascii //weight: 10
+        $x_5_3 = "wuaupdt.dat" ascii //weight: 5
+        $x_5_4 = "wuaupdt.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

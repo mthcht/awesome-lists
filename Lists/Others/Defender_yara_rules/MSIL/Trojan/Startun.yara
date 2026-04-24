@@ -143,3 +143,26 @@ rule Trojan_MSIL_Startun_HLN_2147964633_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Startun_SX_2147967728_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Startun.SX!MTB"
+        threat_id = "2147967728"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Startun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {26 06 06 fe 06 d9 00 00 06 73 92 00 00 0a 25 0c 7d 88 00 00 04 08 73 93 00 00 0a 0b 07 6f 94 00 00 0a 00 07}  //weight: 30, accuracy: High
+        $x_10_2 = "PAYLOAD INICIADO" ascii //weight: 10
+        $x_10_3 = "[MAIN] Kill switch ativo" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

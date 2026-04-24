@@ -1876,3 +1876,26 @@ rule Trojan_MSIL_Injector_SXE_2147967331_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_PWE_2147967723_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.PWE!MTB"
+        threat_id = "2147967723"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {06 17 58 d2 0a 07 09 06 91 58 d2 0b 09 06 91 0c 09 06 09 07 91 9c 09 07 08 9c 02 11 05 8f ?? ?? 00 01 25 47 09 09 06 91 09 07 91 58 [0-16] 28 ?? 00 00 06 5d 91 61 d2 52 11 05 17 58 13 05 11 05 02 8e 69}  //weight: 8, accuracy: Low
+        $x_1_2 = "HotPatchHookDel" ascii //weight: 1
+        $x_1_3 = "XATHookEAT" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

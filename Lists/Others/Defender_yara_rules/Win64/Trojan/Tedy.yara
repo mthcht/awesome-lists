@@ -5290,6 +5290,27 @@ rule Trojan_Win64_Tedy_LRE_2147966303_0
         )
 }
 
+rule Trojan_Win64_Tedy_SM_2147966785_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SM!MTB"
+        threat_id = "2147966785"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 d7 f7 ea c1 fa 05 89 f8 c1 ff 1f 29 fa 6b d2 61 89 c7 29 d0 31 e8 89 da c1 e3 05 29 d3 31 c3 88 1c 11}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_DC_2147966832_0
 {
     meta:
@@ -5416,6 +5437,27 @@ rule Trojan_Win64_Tedy_AHQ_2147967423_0
         strings_accuracy = "Low"
     strings:
         $x_30_1 = {c4 c1 f9 6e c6 c4 c1 f9 6e cd c5 f1 6c c0 c4 e1 f9 6e c8 c5 fa 7e 54 24 70 c5 f1 6c ca c4 e3 7d 38 c1 ?? c4 e1 f9 6e ce c5 fa 7e 54 24 78 c5 e9 6c c9 c5 fa 7e 54 24 60}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SO_2147967722_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SO!MTB"
+        threat_id = "2147967722"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {ff 15 a7 f1 00 00 48 8b d8 48 85 c0 74 56 48 89 74 24 28 48 8d 15 db f2 00 00 45 33 c9 c7 44 24 20 00 00 00 80 45 33 c0 48 8b c8 ff 15 6c f1 00 00 48 8b f8 48 85 c0 74 22 4c 8d 4c 24 40 41 b8 00 10 00 00 48 8d 54 24 60 48 8b c8 ff 15 43 f1 00 00 48 8b cf ff 15 4a f1 00 00 48 8b cb ff 15 41 f1 00 00 b9 10 27 00 00 ff 15 ce ee 00 00 e9}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

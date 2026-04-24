@@ -263,3 +263,25 @@ rule Trojan_Win64_Havoc_GTV_2147960706_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havoc_SX_2147967727_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.SX!MTB"
+        threat_id = "2147967727"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {c7 45 1f 4d 69 61 63 41 b8 01 00 00 00 c7 45 23 72 6f 6d 65 48 8d 4d 1f c7 45 27 2e 64 6c 6c}  //weight: 30, accuracy: High
+        $x_20_2 = {49 ba 37 6a fb 46 10 cb 8b 85 4d 39 10 4d 8d 40 ?? 8b c1 0f 45 c2 ff c1 8b d0 41 3b c9 72 eb}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
