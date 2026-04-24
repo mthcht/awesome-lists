@@ -6288,7 +6288,7 @@ rule Trojan_Win32_Smokeloader_VD_2147967559_0
         family = "Smokeloader"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
