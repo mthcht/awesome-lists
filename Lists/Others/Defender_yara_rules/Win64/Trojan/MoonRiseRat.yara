@@ -19,3 +19,24 @@ rule Trojan_Win64_MoonRiseRat_AMOON_2147965721_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_MoonRiseRat_AMRI_2147967696_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MoonRiseRat.AMRI!MTB"
+        threat_id = "2147967696"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MoonRiseRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 5c 24 68 48 89 44 24 60 48 c7 44 24 78 10 00 00 00 48 8d 15 43 e0 0f 00 48 89 54 24 70 48 c7 84 24 ?? ?? ?? ?? ?? ?? ?? ?? 48 8d 15 f7 92 0f 00 48 89 94 24}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

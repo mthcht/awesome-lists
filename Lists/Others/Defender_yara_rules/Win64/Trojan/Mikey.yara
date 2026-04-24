@@ -2327,3 +2327,24 @@ rule Trojan_Win64_Mikey_SXK_2147967546_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_VGX_2147967691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.VGX!MTB"
+        threat_id = "2147967691"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 44 24 44 ff c0 89 44 24 44 8b 05 ?? ?? ?? ?? 39 44 24 44 73 5f 8b 44 24 44 48 8d 0d ?? ?? ?? ?? 0f b6 04 01 89 44 24 4c 33 d2 8b 44 24 44 b9 10 00 00 00 f7 f1 8b c2 8b c0 48 8d 0d ?? ?? ?? ?? 0f b6 04 01 8b 4c 24 4c 33 c8 8b c1 0f b6 4c 24 40 33 c1 8b 4c 24 44 48 8b 54 24 58 88 04 0a 8b 44 24 44 48 8d 0d ?? ?? ?? ?? 0f b6 04 01 88 44 24 40 eb 8b}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

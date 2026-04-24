@@ -1203,3 +1203,32 @@ rule Ransom_MSIL_HiddenTear_AYA_2147963533_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_D_2147967694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.D!AMTB"
+        threat_id = "2147967694"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = ".limeline" ascii //weight: 2
+        $x_2_2 = "LimeLineDecryptor" ascii //weight: 2
+        $x_1_3 = "LimeLine Encrypted File" ascii //weight: 1
+        $x_1_4 = "LimeLine.pdb" ascii //weight: 1
+        $x_1_5 = "lockedfile.ico" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
