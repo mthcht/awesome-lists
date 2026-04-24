@@ -631,12 +631,12 @@ rule _PseudoThreat_c000095d_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c00009e9_0
+rule _PseudoThreat_c00009ea_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c00009e9"
-        threat_id = "3221228009"
+        detection_name = "!PseudoThreat_c00009ea"
+        threat_id = "3221228010"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
@@ -648,12 +648,12 @@ rule _PseudoThreat_c00009e9_0
         (all of ($x*))
 }
 
-rule _PseudoThreat_c0000a08_0
+rule _PseudoThreat_c0000a09_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000a08"
-        threat_id = "3221228040"
+        detection_name = "!PseudoThreat_c0000a09"
+        threat_id = "3221228041"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
         threshold = "9"
@@ -675,12 +675,12 @@ rule _PseudoThreat_c0000a08_0
         (9 of ($x*))
 }
 
-rule _PseudoThreat_c0000a0b_0
+rule _PseudoThreat_c0000a0c_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000a0b"
-        threat_id = "3221228043"
+        detection_name = "!PseudoThreat_c0000a0c"
+        threat_id = "3221228044"
         severity = "6"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
@@ -37425,6 +37425,22 @@ rule __do_exhaustivehstr_64bit_rescan_30
         detection_name = "!#do_exhaustivehstr_64bit_rescan"
         threat_id = "1879049400"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\Windows\\System32\\sspicli.dll.AcceptSecurityContext" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule __do_exhaustivehstr_64bit_rescan_31
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "!#do_exhaustivehstr_64bit_rescan"
+        threat_id = "1879049400"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:
@@ -37436,7 +37452,7 @@ rule __do_exhaustivehstr_64bit_rescan_30
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_31
+rule __do_exhaustivehstr_64bit_rescan_32
 {
     meta:
         author = "defender2yara"
@@ -37452,7 +37468,7 @@ rule __do_exhaustivehstr_64bit_rescan_31
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_32
+rule __do_exhaustivehstr_64bit_rescan_33
 {
     meta:
         author = "defender2yara"
@@ -37469,7 +37485,7 @@ rule __do_exhaustivehstr_64bit_rescan_32
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_33
+rule __do_exhaustivehstr_64bit_rescan_34
 {
     meta:
         author = "defender2yara"
@@ -37486,7 +37502,7 @@ rule __do_exhaustivehstr_64bit_rescan_33
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_34
+rule __do_exhaustivehstr_64bit_rescan_35
 {
     meta:
         author = "defender2yara"
@@ -37503,7 +37519,7 @@ rule __do_exhaustivehstr_64bit_rescan_34
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_35
+rule __do_exhaustivehstr_64bit_rescan_36
 {
     meta:
         author = "defender2yara"
@@ -37521,7 +37537,7 @@ rule __do_exhaustivehstr_64bit_rescan_35
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_36
+rule __do_exhaustivehstr_64bit_rescan_37
 {
     meta:
         author = "defender2yara"
@@ -37540,7 +37556,7 @@ rule __do_exhaustivehstr_64bit_rescan_36
         (3 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_37
+rule __do_exhaustivehstr_64bit_rescan_38
 {
     meta:
         author = "defender2yara"
@@ -37557,7 +37573,7 @@ rule __do_exhaustivehstr_64bit_rescan_37
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_38
+rule __do_exhaustivehstr_64bit_rescan_39
 {
     meta:
         author = "defender2yara"
@@ -37579,7 +37595,7 @@ rule __do_exhaustivehstr_64bit_rescan_38
         )
 }
 
-rule __do_exhaustivehstr_64bit_rescan_39
+rule __do_exhaustivehstr_64bit_rescan_40
 {
     meta:
         author = "defender2yara"
@@ -37595,7 +37611,7 @@ rule __do_exhaustivehstr_64bit_rescan_39
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_40
+rule __do_exhaustivehstr_64bit_rescan_41
 {
     meta:
         author = "defender2yara"
@@ -37614,7 +37630,7 @@ rule __do_exhaustivehstr_64bit_rescan_40
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_41
+rule __do_exhaustivehstr_64bit_rescan_42
 {
     meta:
         author = "defender2yara"
@@ -37631,7 +37647,7 @@ rule __do_exhaustivehstr_64bit_rescan_41
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_42
+rule __do_exhaustivehstr_64bit_rescan_43
 {
     meta:
         author = "defender2yara"
@@ -37649,7 +37665,7 @@ rule __do_exhaustivehstr_64bit_rescan_42
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_43
+rule __do_exhaustivehstr_64bit_rescan_44
 {
     meta:
         author = "defender2yara"
@@ -37665,7 +37681,7 @@ rule __do_exhaustivehstr_64bit_rescan_43
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_44
+rule __do_exhaustivehstr_64bit_rescan_45
 {
     meta:
         author = "defender2yara"
@@ -37684,7 +37700,7 @@ rule __do_exhaustivehstr_64bit_rescan_44
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_45
+rule __do_exhaustivehstr_64bit_rescan_46
 {
     meta:
         author = "defender2yara"
@@ -37701,7 +37717,7 @@ rule __do_exhaustivehstr_64bit_rescan_45
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_46
+rule __do_exhaustivehstr_64bit_rescan_47
 {
     meta:
         author = "defender2yara"
@@ -37720,7 +37736,7 @@ rule __do_exhaustivehstr_64bit_rescan_46
         (3 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_47
+rule __do_exhaustivehstr_64bit_rescan_48
 {
     meta:
         author = "defender2yara"
@@ -37737,7 +37753,7 @@ rule __do_exhaustivehstr_64bit_rescan_47
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_48
+rule __do_exhaustivehstr_64bit_rescan_49
 {
     meta:
         author = "defender2yara"
@@ -37755,7 +37771,7 @@ rule __do_exhaustivehstr_64bit_rescan_48
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_49
+rule __do_exhaustivehstr_64bit_rescan_50
 {
     meta:
         author = "defender2yara"
@@ -37771,7 +37787,7 @@ rule __do_exhaustivehstr_64bit_rescan_49
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_50
+rule __do_exhaustivehstr_64bit_rescan_51
 {
     meta:
         author = "defender2yara"
@@ -37789,7 +37805,7 @@ rule __do_exhaustivehstr_64bit_rescan_50
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_51
+rule __do_exhaustivehstr_64bit_rescan_52
 {
     meta:
         author = "defender2yara"
@@ -37812,7 +37828,7 @@ rule __do_exhaustivehstr_64bit_rescan_51
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_52
+rule __do_exhaustivehstr_64bit_rescan_53
 {
     meta:
         author = "defender2yara"
@@ -37829,7 +37845,7 @@ rule __do_exhaustivehstr_64bit_rescan_52
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_53
+rule __do_exhaustivehstr_64bit_rescan_54
 {
     meta:
         author = "defender2yara"
@@ -37848,7 +37864,7 @@ rule __do_exhaustivehstr_64bit_rescan_53
         (3 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_54
+rule __do_exhaustivehstr_64bit_rescan_55
 {
     meta:
         author = "defender2yara"
@@ -37867,7 +37883,7 @@ rule __do_exhaustivehstr_64bit_rescan_54
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_55
+rule __do_exhaustivehstr_64bit_rescan_56
 {
     meta:
         author = "defender2yara"
@@ -37883,7 +37899,7 @@ rule __do_exhaustivehstr_64bit_rescan_55
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_56
+rule __do_exhaustivehstr_64bit_rescan_57
 {
     meta:
         author = "defender2yara"
@@ -37901,7 +37917,7 @@ rule __do_exhaustivehstr_64bit_rescan_56
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_57
+rule __do_exhaustivehstr_64bit_rescan_58
 {
     meta:
         author = "defender2yara"
@@ -37922,7 +37938,7 @@ rule __do_exhaustivehstr_64bit_rescan_57
         (3 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_58
+rule __do_exhaustivehstr_64bit_rescan_59
 {
     meta:
         author = "defender2yara"
@@ -37943,7 +37959,7 @@ rule __do_exhaustivehstr_64bit_rescan_58
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_59
+rule __do_exhaustivehstr_64bit_rescan_60
 {
     meta:
         author = "defender2yara"
@@ -37980,7 +37996,7 @@ rule __do_exhaustivehstr_64bit_rescan_59
         )
 }
 
-rule __do_exhaustivehstr_64bit_rescan_60
+rule __do_exhaustivehstr_64bit_rescan_61
 {
     meta:
         author = "defender2yara"
