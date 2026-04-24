@@ -371,6 +371,31 @@ rule Trojan_Win32_SuspClickFix_Q2_2147963694_1
         family = "SuspClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = "=msiexec" wide //weight: 1
+        $x_1_3 = "&& call %" wide //weight: 1
+        $x_1_4 = " http" wide //weight: 1
+        $x_1_5 = " /i " wide //weight: 1
+        $x_1_6 = " /q" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_Q2_2147963694_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.Q2"
+        threat_id = "2147963694"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -637,5 +662,110 @@ rule Trojan_Win32_SuspClickFix_V2_2147967489_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_R4_2147967685_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.R4"
+        threat_id = "2147967685"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
+        $x_1_2 = " do call %" wide //weight: 1
+        $x_1_3 = "& exit" wide //weight: 1
+        $x_1_4 = "&& echo " wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_R5_2147967686_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.R5"
+        threat_id = "2147967686"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
+        $x_1_2 = " do curl" wide //weight: 1
+        $x_1_3 = "for /f " wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_X_2147967687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.X"
+        threat_id = "2147967687"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
+        $x_2_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-48] 2e 00 [0-16] 40 00 38 00 30 00 5c 00}  //weight: 2, accuracy: Low
+        $x_1_3 = ".verify" wide //weight: 1
+        $x_1_4 = ".google,#1" wide //weight: 1
+        $x_1_5 = ".google,Verif" wide //weight: 1
+        $x_1_6 = ".cloudflare,#1" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_SuspClickFix_X_2147967687_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.X"
+        threat_id = "2147967687"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
+        $x_2_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-16] 5c 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2d 00 ?? ?? ?? ?? ?? ?? ?? ?? 2d 00}  //weight: 2, accuracy: Low
+        $x_1_3 = ".verify" wide //weight: 1
+        $x_1_4 = ".google,#1" wide //weight: 1
+        $x_1_5 = ".google,Verif" wide //weight: 1
+        $x_1_6 = ".cloudflare,#1" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

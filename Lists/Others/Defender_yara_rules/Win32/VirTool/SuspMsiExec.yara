@@ -52,3 +52,36 @@ rule VirTool_Win32_SuspMsiExec_B_2147965230_0
         )
 }
 
+rule VirTool_Win32_SuspMsiExec_C_2147967684_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/SuspMsiExec.C"
+        threat_id = "2147967684"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspMsiExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 5, accuracy: High
+        $x_5_2 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-4] 50 00}  //weight: 5, accuracy: Low
+        $x_2_3 = {20 00 68 00 74 00 74 00 70 00 [0-2] 3a 00 2f 00 2f 00}  //weight: 2, accuracy: Low
+        $x_2_4 = {20 00 68 00 74 00 74 00 70 00 [0-2] 3a 00 5c 00 5c 00}  //weight: 2, accuracy: Low
+        $x_1_5 = {5c 00 2e 00 2e 00 5c 00 [0-32] 2f 00 2e 00 2e 00 [0-2] 2f 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {2f 00 2e 00 2e 00 2f 00 [0-32] 2f 00 2e 00 2e 00 [0-2] 2f 00}  //weight: 1, accuracy: Low
+        $x_1_7 = {2f 00 2e 00 2e 00 5c 00 [0-32] 2f 00 2e 00 2e 00 [0-2] 2f 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {5c 00 2e 00 2e 00 2f 00 [0-32] 5c 00 2e 00 2e 00 [0-2] 2f 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 2 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
