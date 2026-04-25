@@ -647,28 +647,6 @@ rule Trojan_Win32_IcedId_DBF_2147761528_0
         )
 }
 
-rule Trojan_Win32_IcedId_DBG_2147761612_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/IcedId.DBG!MTB"
-        threat_id = "2147761612"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "IcedId"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {6a 00 6a 01 6a 00 6a 00 8d 55 ?? 52 ff 15 ?? ?? ?? ?? 85 c0 75 3f 6a 08 6a 01 6a 00 6a 00 8d 45 00 50 ff 15 01 85 c0}  //weight: 1, accuracy: Low
-        $x_1_2 = "jH9{P|nWKBpPP%J" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (1 of ($x*))
-}
-
 rule Trojan_Win32_IcedId_DBH_2147761927_0
 {
     meta:
