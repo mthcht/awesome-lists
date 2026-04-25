@@ -136,3 +136,25 @@ rule TrojanDownloader_Win64_Tedy_AHA_2147967192_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Tedy_KK_2147967752_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Tedy.KK!MTB"
+        threat_id = "2147967752"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8b 48 20 0f 10 00 0f 10 48 10 48 c7 c0 ff ff ff ff 0f 11 02 0f 11 4a 10 48 89 4a 20 48 8d 4c 24 40}  //weight: 20, accuracy: High
+        $x_10_2 = "//45.64.52.242:1111/.woff" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

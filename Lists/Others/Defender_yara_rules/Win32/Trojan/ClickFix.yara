@@ -13566,3 +13566,27 @@ rule Trojan_Win32_ClickFix_SSSA_2147967668_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_GMXH_2147967753_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GMXH!MTB"
+        threat_id = "2147967753"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /v:on /c" wide //weight: 1
+        $x_1_2 = "ycyyruyly" wide //weight: 1
+        $x_1_3 = ".hta" wide //weight: 1
+        $x_1_4 = "^m^s^h^t^a^" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

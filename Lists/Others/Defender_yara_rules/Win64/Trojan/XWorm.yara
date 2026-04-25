@@ -589,3 +589,25 @@ rule Trojan_Win64_XWorm_SXB_2147967425_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_BI_2147967751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.BI!MTB"
+        threat_id = "2147967751"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Go build ID:" ascii //weight: 1
+        $x_1_2 = "_o_Xmdn7ra6sNn9w0KCI/l1gQkku7GBBI0G7BK4_X/dvjhxMLBF4cJzM6ZxA6B/7epFXzwUqnh4G0Om2Yiu" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
