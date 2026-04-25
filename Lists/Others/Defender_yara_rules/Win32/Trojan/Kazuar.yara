@@ -108,3 +108,24 @@ rule Trojan_Win32_Kazuar_M_2147950859_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Kazuar_OA_2147967758_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Kazuar.OA!dha"
+        threat_id = "2147967758"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Kazuar"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {85 c0 75 0f 50 e8 00 00 00 00 58 a3 ?? ?? ?? ?? 58 eb 3a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
