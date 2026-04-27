@@ -205,3 +205,27 @@ rule Trojan_Win64_XMRig_AHA_2147967542_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XMRig_AHC_2147967842_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XMRig.AHC!MTB"
+        threat_id = "2147967842"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "ScsService-D/ScsService/raw/refs/heads/main/xmrig.exe" ascii //weight: 40
+        $x_30_2 = "ScsService-D/ScsService/raw/refs/heads/main/WinRing0x64.sys" ascii //weight: 30
+        $x_20_3 = "taskkill /IM xmrig.exe /F" ascii //weight: 20
+        $x_10_4 = "ScsService.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

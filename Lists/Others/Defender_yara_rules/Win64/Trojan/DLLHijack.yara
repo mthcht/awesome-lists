@@ -292,3 +292,50 @@ rule Trojan_Win64_DLLHijack_DO_2147966831_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_NVB_2147967591_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.NVB!MTB"
+        threat_id = "2147967591"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_sqlite_" ascii //weight: 1
+        $x_1_2 = {49 c1 c0 28 4d 21 c8 49 09 d0 48 89 f9 4c 31 d1 49 31 ce 48 31 cb 4c 31 c3}  //weight: 1, accuracy: High
+        $x_2_3 = {49 89 c2 49 c1 c2 30 49 89 c9 49 c1 c1 30 4c 89 c2 48 c1 c2 30 4d 31 fd 49 31 dc 4c 31 df 49 31 c2 49 31 c9 4c 31 c2 4c 31 eb 48 31 f8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_NVD_2147967835_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.NVD!MTB"
+        threat_id = "2147967835"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_sqlite_" ascii //weight: 1
+        $x_1_2 = {48 8b 85 90 07 00 00 48 33 07 48 8b 8d 98 07 00 00 48 33 4f 08 48 09 c1}  //weight: 1, accuracy: High
+        $x_1_3 = {48 d3 e0 48 83 c2 04 48 89 d7 48 89 95 90 16 00 00 49 09 c7 83 c9 20}  //weight: 1, accuracy: High
+        $x_2_4 = {4c 39 c1 0f 93 c1 4d 89 cb 49 f7 db 49 39 c3 41 0f 92 c3 41 20 cb 41 80 fb 01}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -150,3 +150,29 @@ rule Trojan_Win64_ACRStealer_VGX_2147966891_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ACRStealer_VGA_2147967839_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ACRStealer.VGA!MTB"
+        threat_id = "2147967839"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ACRStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {31 da 89 d3 c1 e3 ?? 31 da 0f b6 1c ?? 89 d6 c1 ee 10 31 f3 88 1c 08 48 ff c1 48 83 f9 ?? 7c}  //weight: 2, accuracy: Low
+        $x_1_2 = {0f b6 14 08 0f b6 74 0c 10 31 f2 c0 c2 04 88 14 08 48 ff c1 48 83 f9 28 7c e6}  //weight: 1, accuracy: High
+        $x_1_3 = {0f b6 14 01 0f b6 5c 0c 2a f7 d3 31 d3 88 1c 08 48 ff c1 48 83 f9 10 7c e7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

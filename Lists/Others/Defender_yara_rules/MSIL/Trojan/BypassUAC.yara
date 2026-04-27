@@ -212,3 +212,26 @@ rule Trojan_MSIL_BypassUAC_MK_2147967336_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_MKA_2147967847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.MKA!MTB"
+        threat_id = "2147967847"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {a2 25 1c 72 ?? ?? ?? 70 a2 28 ?? 00 00 0a 6f ?? 00 00 0a 08 17 6f ?? 00 00 0a 08 17 6f ?? 00 00 0a 08 28 ?? 00 00 0a 26 03 80 6c 00 00 04 05 80 6e 00 00 04 04 80 6d 00 00 04 0e 04 28 ?? 00 00 06 2a}  //weight: 20, accuracy: Low
+        $x_10_2 = "-NoProfile -ExecutionPolicy Bypass -Command \"(Invoke-WebRequest -Uri '" ascii //weight: 10
+        $x_5_3 = "/Run /TN \\Microsoft\\Windows\\DiskCleanup\\SilentCleanup /I" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

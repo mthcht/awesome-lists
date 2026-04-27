@@ -1103,3 +1103,33 @@ rule Trojan_Win32_Midie_LMD_2147962357_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Midie_AHA_2147967840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Midie.AHA!MTB"
+        threat_id = "2147967840"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "[>] Scanning for Discord Tokens..." ascii //weight: 40
+        $x_30_2 = "[>] Scanning for Steam Tokens..." ascii //weight: 30
+        $x_20_3 = "[*] Found Local State. Decrypting key..." ascii //weight: 20
+        $x_10_4 = "SELECT value FROM meta WHERE key = 'local_encryptor_data'" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((1 of ($x_40_*) and 1 of ($x_10_*))) or
+            ((1 of ($x_40_*) and 1 of ($x_20_*))) or
+            ((1 of ($x_40_*) and 1 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

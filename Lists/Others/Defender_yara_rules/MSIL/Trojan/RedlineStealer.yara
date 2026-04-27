@@ -738,3 +738,24 @@ rule Trojan_MSIL_RedlineStealer_RVA_2147965654_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RedlineStealer_ARZ_2147967836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedlineStealer.ARZ!MTB"
+        threat_id = "2147967836"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 06 02 7d ?? 00 00 04 06 03 7d ?? 00 00 04 02 7b ?? 00 00 04 02 7b ?? 00 00 04 6f ?? 00 00 0a 28 ?? 00 00 0a 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 28 ?? 00 00 2b 2a}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
