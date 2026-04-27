@@ -1899,3 +1899,26 @@ rule Trojan_MSIL_Injector_PWE_2147967723_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_MKA_2147967808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.MKA!MTB"
+        threat_id = "2147967808"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {28 14 00 00 06 2d 07 28 ?? 00 00 06 2c 02 2b 07 28 ?? 00 00 06 2c 02 2b 07 28 ?? 00 00 06 2c 02 2b 07 28 ?? 00 00 06 2c 06 14 28 ?? 00 00 0a}  //weight: 20, accuracy: Low
+        $x_10_2 = "DetectSandboxie" ascii //weight: 10
+        $x_5_3 = "RunAntiAnalysis" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
