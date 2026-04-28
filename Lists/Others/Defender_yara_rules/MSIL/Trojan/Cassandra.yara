@@ -160,3 +160,26 @@ rule Trojan_MSIL_Cassandra_AKP_2147966995_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_GN_2147967863_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.GN!MTB"
+        threat_id = "2147967863"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Gebocinal" ascii //weight: 1
+        $x_1_2 = "Part inventories, paint mixing ratios via color math" ascii //weight: 1
+        $x_1_3 = "Habnira" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

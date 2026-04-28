@@ -991,6 +991,27 @@ rule Trojan_Win64_Convagent_ARR_2147957637_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {44 0f b6 c9 42 0f b6 14 0c 42 8d 0c 12 44 0f b6 d1 42 0f b6 0c 14 42 88 0c 0c 42 88 14 14 42 0f b6 0c 0c 03 d1 0f b6 ca 0f b6 14 0c 30 14 28 ff c0 3b c3}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Convagent_ARR_2147957637_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.ARR!MTB"
+        threat_id = "2147957637"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "Low"
     strings:
         $x_15_1 = {f7 e7 c1 ea ?? 0f b7 c2 6b c8 ?? 0f b7 c7 41 03 fc 66 2b c1 66 83 c0 ?? 66 31 06 48 8d 76 02}  //weight: 15, accuracy: Low
@@ -1000,7 +1021,7 @@ rule Trojan_Win64_Convagent_ARR_2147957637_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Convagent_ARR_2147957637_1
+rule Trojan_Win64_Convagent_ARR_2147957637_2
 {
     meta:
         author = "defender2yara"
@@ -1024,7 +1045,7 @@ rule Trojan_Win64_Convagent_ARR_2147957637_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Convagent_ARR_2147957637_2
+rule Trojan_Win64_Convagent_ARR_2147957637_3
 {
     meta:
         author = "defender2yara"

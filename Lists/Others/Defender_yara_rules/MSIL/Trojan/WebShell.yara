@@ -691,3 +691,25 @@ rule Trojan_MSIL_WebShell_AZKB_2147957541_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_ARR_2147967870_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.ARR!MTB"
+        threat_id = "2147967870"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {13 09 11 09 16 d0 ?? 00 00 1b 28 ?? ?? ?? ?? a2 11 09 28 ?? ?? ?? ?? 14 17 8d ?? ?? ?? ?? 13 0a 11 0a 16 09 a2 11 0a}  //weight: 15, accuracy: Low
+        $x_5_2 = {09 16 09 8e 69 6f ?? 00 00 0a 0d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -9803,8 +9803,10 @@ rule Trojan_Win32_ClickFix_AAAAG_2147947350_0
         $x_1_2 = ".log &&" wide //weight: 1
         $x_1_3 = "&& ftp" wide //weight: 1
         $x_1_4 = "http" wide //weight: 1
+        $n_100_5 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

@@ -4400,6 +4400,53 @@ rule Trojan_MSIL_Zusy_ARR_2147959550_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_ARR_2147959550_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.ARR!MTB"
+        threat_id = "2147959550"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0c 06 08 16 08 8e 69 6f ?? ?? ?? ?? 00 06 07 16 07 8e 69}  //weight: 10, accuracy: Low
+        $x_6_2 = {0d 02 13 04 09 11 04 16 11 04 8e 69 6f ?? ?? ?? ?? 0a de 1e 25}  //weight: 6, accuracy: Low
+        $x_4_3 = {17 6a da b7 17 d6 8d ?? 00 00 01 80 ?? 00 00 04 00 2b 14}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_ARR_2147959550_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.ARR!MTB"
+        threat_id = "2147959550"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_14_1 = "PROCESS_INJECTION_ACCESS" ascii //weight: 14
+        $x_3_2 = "PAGE_EXECUTE_READWRITE" ascii //weight: 3
+        $x_2_3 = "*BSJB" ascii //weight: 2
+        $x_1_4 = "MEMORY_BASIC_INFORMATION" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zusy_AYF_2147960076_0
 {
     meta:

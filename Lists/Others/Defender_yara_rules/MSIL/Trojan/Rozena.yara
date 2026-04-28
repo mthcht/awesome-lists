@@ -3110,3 +3110,25 @@ rule Trojan_MSIL_Rozena_BGN_2147966145_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_ARR_2147967868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.ARR!MTB"
+        threat_id = "2147967868"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {44 6c 6c 49 6d 70 6f 72 74 41 74 74 72 69 62 75 74 65 00 6b 65 72 6e 65 6c 33 32 00 4f 70 65 6e 50 72 6f 63 65 73 73 00 56 69 72 74 75 61 6c 41 6c 6c 6f 63 45 78 00 57 72 69 74 65 50 72 6f 63 65 73 73 4d 65 6d 6f 72 79 00 43 72 65 61 74 65 52 65 6d 6f 74 65 54 68 72 65 61 64 00 56 69 72 74 75 61 6c 50 72 6f 74 65 63 74 45 78 00 00 00 00}  //weight: 11, accuracy: High
+        $x_9_2 = {49 00 6e 00 74 00 65 00 72 00 6e 00 61 00 6c 00 4e 00 61 00 6d 00 65 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2e 00 64 00 6c 00 6c}  //weight: 9, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

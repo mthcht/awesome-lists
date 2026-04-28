@@ -4707,6 +4707,30 @@ rule Trojan_MSIL_XWorm_ARR_2147965155_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ARR_2147965155_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ARR!MTB"
+        threat_id = "2147965155"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {25 26 0c 11 06 08 16 08}  //weight: 1, accuracy: High
+        $x_5_2 = "fox\\fox\\obj\\Debug\\fox.pdb" ascii //weight: 5
+        $x_10_3 = "$cb4d0575-3bdd-4d59-a1f5-46bbcdd5701d" ascii //weight: 10
+        $x_4_4 = "fox.exe" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_BAP_2147965196_0
 {
     meta:
