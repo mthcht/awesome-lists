@@ -8604,3 +8604,29 @@ rule Trojan_Win32_LummaStealer_ABK_2147966803_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_LR_2147967901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.LR!MTB"
+        threat_id = "2147967901"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DiscordTokens.txt" ascii //weight: 1
+        $x_2_2 = "BrowserData/BrowserPasswords.txt" ascii //weight: 2
+        $x_3_3 = "TelegramData/tdata.zip" ascii //weight: 3
+        $x_4_4 = "SELECT name_on_card, expiration_month, expiration_year, card_number_encrypted FROM credit_cards" ascii //weight: 4
+        $x_5_5 = "BrowserData/CreditCards.txt" ascii //weight: 5
+        $x_6_6 = "SELECT action_url, username_value, password_value FROM logins" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

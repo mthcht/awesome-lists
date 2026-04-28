@@ -251,3 +251,27 @@ rule Backdoor_MSIL_XWorm_PAHU_2147965297_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_XWorm_SK_2147967908_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/XWorm.SK!MTB"
+        threat_id = "2147967908"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Resilience configuration successfully" ascii //weight: 1
+        $x_1_2 = ".rmaconfig" ascii //weight: 1
+        $x_1_3 = "# RMA Configuration File - Generated" ascii //weight: 1
+        $x_1_4 = "AppConfig.dat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
