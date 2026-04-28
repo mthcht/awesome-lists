@@ -46,6 +46,7 @@ rule Trojan_Win32_WebShellTerminal_B_2147829110_0
         $n_50_6 = "WARP" wide //weight: -50
         $n_50_7 = "msedgewebview2.exe" wide //weight: -50
         $n_50_8 = {26 00 26 00 65 00 63 00 68 00 6f 00 [0-60] 26 00 26 00 63 00 64 00 26 00 26 00 65 00 63 00 68 00 6f 00 [0-60] 32 00 3e 00 26 00 31 00}  //weight: -50, accuracy: Low
+        $n_50_9 = "\\Microsoft Intune Management Extension\\Content\\DetectionScripts" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
