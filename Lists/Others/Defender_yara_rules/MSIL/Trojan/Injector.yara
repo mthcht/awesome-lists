@@ -1353,6 +1353,29 @@ rule Trojan_MSIL_Injector_AYA_2147930964_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_AYA_2147930964_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.AYA!MTB"
+        threat_id = "2147930964"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {06 07 28 05 00 00 06 0c 7e 0b 00 00 0a 08 8e 69 20 00 30 00 00 1f 40 28 01 00 00 06 0d 09 7e 0b 00 00 0a 28 0c 00 00 0a 16 fe 01 13 05 11 05 2d 30 00 08 16 09 08 8e 69 28 0d 00 00 0a 00 7e 0b 00 00 0a 16 09 7e 0b 00 00 0a 16 7e 0b 00 00 0a 28 02 00 00 06 13 04 11 04 15 28 03 00 00 06 26}  //weight: 8, accuracy: High
+        $x_1_2 = "ZeroDayInjector" ascii //weight: 1
+        $x_1_3 = "InjectAndRun" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Injector_CDC_2147934833_0
 {
     meta:

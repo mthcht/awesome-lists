@@ -2905,3 +2905,30 @@ rule Trojan_Win64_LummaStealer_DEB_2147966660_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_VGA_2147967924_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.VGA!MTB"
+        threat_id = "2147967924"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "name = InputBox(\"Enter contact name:\", \"Add Contact\")" ascii //weight: 1
+        $x_1_2 = "phone = InputBox(\"Enter phone number:\", \"Add Contact\")" ascii //weight: 1
+        $x_1_3 = {66 69 6e 61 6c 44 65 73 74 20 3d 20 74 61 72 67 65 74 46 6f 6c 64 65 72 20 26 20 22 5c [0-32] 2e 76 62 73}  //weight: 1, accuracy: Low
+        $x_1_4 = "Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup" ascii //weight: 1
+        $x_1_5 = "Set lastCheckTime = CreateObject(\"WScript.Shell\")" ascii //weight: 1
+        $x_1_6 = "Set updateHandler = CreateObject(\"Scripting.FileSystemObject\")" ascii //weight: 1
+        $x_1_7 = "ReverseCmd = StrReverse(\"ecdsfho\")" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

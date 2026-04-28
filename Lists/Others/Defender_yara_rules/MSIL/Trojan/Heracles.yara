@@ -10064,3 +10064,100 @@ rule Trojan_MSIL_Heracles_VDD_2147967552_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_AYG_2147967935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AYG!MTB"
+        threat_id = "2147967935"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {06 6f 11 00 00 0a 13 04 02 1f 20 02 8e 69 1f 20 59 73 12 00 00 0a 13 05 11 05 11 04 16 73 13 00 00 0a 13 06 73 14 00 00 0a 13 07 00 11 06 11 07 6f 15 00 00 0a 00 11 07 6f 16 00 00 0a 13 08 de 62}  //weight: 8, accuracy: High
+        $x_1_2 = "SelfDecryptingStub" ascii //weight: 1
+        $x_1_3 = "Stub.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AYG_2147967935_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AYG!MTB"
+        threat_id = "2147967935"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Crypter\\obj\\Debug\\Crypter.pdb" ascii //weight: 5
+        $x_2_2 = "$482ce6f9-ee6e-40dc-8ad8-c6660c9bed59" ascii //weight: 2
+        $x_2_3 = "ObfuscatedDecrypt" ascii //weight: 2
+        $x_1_4 = "CreateStubWithPayload" ascii //weight: 1
+        $x_1_5 = "VortexInject" ascii //weight: 1
+        $x_1_6 = "Encrypt payload" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AYH_2147967936_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AYH!MTB"
+        threat_id = "2147967936"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {09 11 05 09 11 05 91 07 11 05 07 8e 69 5d 91 61 9c 11 05 17 d6 13 05 11 05 11 04 31 e3}  //weight: 7, accuracy: High
+        $x_2_2 = "$164d51cf-d38e-4619-881e-1165a1802536" ascii //weight: 2
+        $x_1_3 = "GhostDecrypt" ascii //weight: 1
+        $x_1_4 = "ULTRA_GHOST_PAYLOAD" wide //weight: 1
+        $x_1_5 = "MyStub\\obj\\Debug\\MyStub.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AYI_2147967937_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AYI!MTB"
+        threat_id = "2147967937"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {28 11 00 00 0a 06 08 9a 6f 13 00 00 0a 0d 09 8e 69 8d 10 00 00 01 13 04 16 13 05 2b 17 11 04 11 05 09 11 05 91 08 17 58 19 5a d2 61 d2 9c 11 05 17 58 13 05 11 05 09 8e 69 32 e2 07 08 11 04 28 22 00 00 0a a2 08 17 58 0c 08 06 8e 69 32 b1}  //weight: 7, accuracy: High
+        $x_2_2 = "CheckRemoteDebuggerPresent" ascii //weight: 2
+        $x_1_3 = "IsUserAnAdmin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

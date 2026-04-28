@@ -262,3 +262,25 @@ rule Trojan_Win64_Rootkit_LR_2147964865_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rootkit_AMTB_2147967914_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rootkit!AMTB"
+        threat_id = "2147967914"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rootkit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\ok\\kernelyk\\bin\\i386\\NtHook.pdb" ascii //weight: 1
+        $x_1_2 = "www.xxooxxooxxoo.com" ascii //weight: 1
+        $x_1_3 = "HTTP/1.1 302 Redirect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -17669,6 +17669,30 @@ rule Trojan_MSIL_FormBook_AKT_2147966122_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_AKT_2147966122_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.AKT!MTB"
+        threat_id = "2147966122"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "r2dr4pCr5R3dzYoDlFhnkuFD6An3JUZPeFztrNER5rhTa+T4WOwr29rQMv8Vs1aLlGWtjqaoLy4SqCmOGUCnb5TQX4CQVG/iVLLxgMxmUgFUUnuXWfantV6apMXNdhHa" ascii //weight: 1
+        $x_2_2 = "PEATPQlYF/Bq4W5UGG34Vw/XiMM+ugHMJeGBBG6b3tzpjKSx2N4U9tgfymRQSzxaRpwi2BRran90kB7qOWcokGqeoIndlGIhT3E/0wijTS+nyCC10gVOfrup2RCmabex" ascii //weight: 2
+        $x_3_3 = "fA33M0whCu+wMRL9tOkpl0/Te/QQT35HfnlfieRFHbObjVraT72QHUojbxv/QhFAnw1ZTJJLcma1+JqWjPys+Bir1hzOq0tbc9uzbzqWj9wxvS/enSOVFTlcT6RfLvca" ascii //weight: 3
+        $x_4_4 = "Zl9ojde7IgVPT2umm3ZMoCPV6WTGTTEkMw4hN9kiIYU2L/LUEm3vxYjMaXdkGyZkwvr5sxERUYCC8bChN4H2zmJOJRRGzyXK60dQ3gqJBKzepKZZrLQnMnuoACUCEpf9" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_PAI_2147966338_0
 {
     meta:

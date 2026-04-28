@@ -2095,3 +2095,26 @@ rule Trojan_Win64_Rozena_MCD_2147966146_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_SXD_2147967928_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SXD!MTB"
+        threat_id = "2147967928"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {48 b8 62 6c 6f 67 2e 72 65 73 48 ba 74 6b 68 7a 2e 63 6f 6d}  //weight: 30, accuracy: High
+        $x_20_2 = {48 89 55 c8 48 8b 85 90 01 00 00 48 83 c0 10 48 89 85 10 01 00 00 8b 85 98 01 00 00 83 e8 15}  //weight: 20, accuracy: High
+        $x_10_3 = {48 8b 95 30 01 00 00 48 8b 45 d8 48 89 c1 ff d2 48 8b 95 28 01 00 00 48 8b 45 e0 48 89 c1 ff d2 4c 8b 85 20 01 00 00 48 8b 45 e8 ba 00 00 00 00 48 89 c1 41 ff d0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

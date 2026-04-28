@@ -3089,3 +3089,26 @@ rule Trojan_Win64_ShellcodeRunner_NVC_2147967420_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_SXM_2147967929_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.SXM!MTB"
+        threat_id = "2147967929"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {49 8b d4 48 8b ce ff 15 ?? ?? ?? ?? 48 8b 05 ?? ?? ?? ?? 41 b9 00 10 00 00 48 89 44 24 40 4d 8b c6 48 8b 05 ?? ?? ?? ?? 49 8b d4 48 89 45 87 48 8b ce 48 8b 05 ?? ?? ?? ?? 48 89 45 8f 4c 89 6d 9f 48 c7 45 a7 01 00 00 00 48 c7 45 b7 01 00 00 00 4c 89 65 97 4c 89 6d af 4c 89 6c 24 20 ff 15}  //weight: 20, accuracy: Low
+        $x_10_2 = "Usage: dll_path [process_name]" ascii //weight: 10
+        $x_5_3 = "Injector-x64" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

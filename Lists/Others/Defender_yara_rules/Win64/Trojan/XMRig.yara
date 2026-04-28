@@ -229,3 +229,27 @@ rule Trojan_Win64_XMRig_AHC_2147967842_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XMRig_AMTB_2147967913_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XMRig!AMTB"
+        threat_id = "2147967913"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XMRig"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "XMRIG_EXE" ascii //weight: 1
+        $x_1_2 = "C:\\Windows\\Temp\\Speech.txt" ascii //weight: 1
+        $x_1_3 = "C:\\Windows\\Temp\\slim.txt" ascii //weight: 1
+        $x_1_4 = "82Wq8pZX8heGxSXn9YnvzcWSicCkboxZkdARQZWSkBUfAgRWGwRh6NzSZp6tq4aFDqMHciMm3SmMuge5P9Hu7VGCCcZk2VM" ascii //weight: 1
+        $x_1_5 = "87SnpXbDpmA9EoEJLZ9R4hfz9KhWkbcnrETtZBJb5K5R4fsG3LdSxgwMBZYKwBVVHjEjrdgLyVpsfQhW8djpnXaG8CyH1nf" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

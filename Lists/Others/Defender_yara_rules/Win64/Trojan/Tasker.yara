@@ -109,3 +109,27 @@ rule Trojan_Win64_Tasker_AH_2147963685_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tasker_MK_2147967915_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tasker.MK!MTB"
+        threat_id = "2147967915"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tasker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "RAT Client: ConnectedConnected to server. Performing encryption handshake..." ascii //weight: 10
+        $x_5_2 = "RAT Client: Connecting..." ascii //weight: 5
+        $x_3_3 = "reg add \"HKCU\\Control Panel\\Mouse\" /v SwapMouseButtons /t REG_SZ /d  /f" ascii //weight: 3
+        $x_2_4 = "schtasks /create /f /sc onlogon /rl highest /tn \"\" /tr '\"\"'" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

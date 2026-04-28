@@ -462,3 +462,28 @@ rule Trojan_Win64_Cerbu_AHH_2147967843_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AHA_2147967926_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHA!MTB"
+        threat_id = "2147967926"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "Cookies folder placeholder" ascii //weight: 50
+        $x_40_2 = "koffi_testeisolado_get_base" ascii //weight: 40
+        $x_30_3 = "koffi_extract_chromium" ascii //weight: 30
+        $x_20_4 = "Iridium\\User Data" ascii //weight: 20
+        $x_10_5 = "CentBrowser\\User Data" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

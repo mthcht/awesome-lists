@@ -602,3 +602,26 @@ rule Trojan_Win32_Virlock_NK_2147966732_0
         )
 }
 
+rule Trojan_Win32_Virlock_VOMX_2147967938_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.VOMX!MTB"
+        threat_id = "2147967938"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 06 32 c2 90 88 07 42 90 46 90}  //weight: 5, accuracy: High
+        $x_5_2 = {8a 06 90 32 c2 88 07 90 42 46 90 47 49 83 f9 00}  //weight: 5, accuracy: High
+        $x_5_3 = {8a 06 90 32 c2 90 88 07 46 90 47 90 49 90}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

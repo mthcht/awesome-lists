@@ -4336,6 +4336,30 @@ rule Trojan_MSIL_Bladabindi_AYA_2147926817_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {09 11 0b 02 11 0b 91 08 08 11 09 84 95 08 11 07 84 95 d7 6e 20 ff 00 00 00 6a 5f 84 95 61 86 9c 11 0b 17 d6 13 0b}  //weight: 7, accuracy: High
+        $x_5_2 = "$de3c79c1-31fb-4cf1-ad4a-f149a6f68912" ascii //weight: 5
+        $x_2_3 = "\\TB666\\TB666\\obj\\x64\\Debug\\SBlo.pdb" ascii //weight: 2
+        $x_1_4 = "xcopy.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bladabindi_AYA_2147926817_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.AYA!MTB"
+        threat_id = "2147926817"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

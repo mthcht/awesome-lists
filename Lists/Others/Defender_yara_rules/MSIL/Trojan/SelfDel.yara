@@ -124,6 +124,29 @@ rule Trojan_MSIL_SelfDel_MK_2147965415_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {26 73 0c 00 00 0a 0d 09 72 ?? ?? 00 70 6f ?? 00 00 0a 00 09 72 ?? ?? 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 72 ?? ?? 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 00 09 17 6f ?? 00 00 0a 00 09 17 6f ?? 00 00 0a 00 09 28 ?? 00 00 0a 26}  //weight: 20, accuracy: Low
+        $x_10_2 = "/C timeout 3 & del \"" ascii //weight: 10
+        $x_5_3 = "/WIPE:\"" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_SelfDel_MK_2147965415_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SelfDel.MK!MTB"
+        threat_id = "2147965415"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SelfDel"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
         strings_accuracy = "High"
     strings:
         $x_15_1 = "pragma namespace (\"\\\\\\\\.\\\\root\\\\CIMv2\")" ascii //weight: 15

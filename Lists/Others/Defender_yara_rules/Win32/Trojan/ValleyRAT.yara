@@ -177,3 +177,27 @@ rule Trojan_Win32_ValleyRAT_PGVR_2147962707_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRAT_AHA_2147967925_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.AHA!MTB"
+        threat_id = "2147967925"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "e5b6ebe2bd1f6b7045bc74f32a72e14bb78b" ascii //weight: 40
+        $x_30_2 = "bdbc1e81bf8b79b6dcd496e814853965" ascii //weight: 30
+        $x_20_3 = "nThumbnailExtractionHost.exe" ascii //weight: 20
+        $x_10_4 = "ZhiMaUpdate.dll" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

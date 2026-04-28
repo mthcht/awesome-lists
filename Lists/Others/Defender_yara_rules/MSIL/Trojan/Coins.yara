@@ -106,3 +106,28 @@ rule Trojan_MSIL_Coins_MKV_2147958335_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Coins_MK_2147967916_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Coins.MK!MTB"
+        threat_id = "2147967916"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Coins"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "') -Trigger (New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Minutes 5))" ascii //weight: 15
+        $x_10_2 = " -User $env:UserName -Settings (New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Seconds 0)" ascii //weight: 10
+        $x_5_3 = "-AllowStartIfOnBatteries -DontStopIfGoingOnBatteries) -Force" ascii //weight: 5
+        $x_3_4 = "' -Action (New-ScheduledTaskAction -Execute '" ascii //weight: 3
+        $x_2_5 = "SELECT * FROM Win32_PnPEntity WHERE (PNPClass = 'Image' OR PNPClass = 'Camera')" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

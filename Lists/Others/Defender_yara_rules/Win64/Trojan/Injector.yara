@@ -614,3 +614,28 @@ rule Trojan_Win64_Injector_SXK_2147967725_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXL_2147967930_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXL!MTB"
+        threat_id = "2147967930"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "56"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Succsesfully injected" ascii //weight: 30
+        $x_15_2 = "[-] DLL not placed. Exiting loader..." ascii //weight: 15
+        $x_5_3 = "sideloadingdll" ascii //weight: 5
+        $x_5_4 = "eac injector" ascii //weight: 5
+        $x_1_5 = "CLSID\\{4B770032-31CA-43B1-AB0D-32C5FE2F82FA}" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

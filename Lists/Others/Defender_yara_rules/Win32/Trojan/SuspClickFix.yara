@@ -724,15 +724,21 @@ rule Trojan_Win32_SuspClickFix_X_2147967687_0
         family = "SuspClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "6"
+        threshold = "8"
         strings_accuracy = "Low"
     strings:
-        $x_3_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
+        $x_5_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 5, accuracy: High
         $x_2_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 69 00 6e 00 2e 00 6e 00 65 00 74 00 5c 00}  //weight: 2, accuracy: Low
-        $x_1_3 = ",#1" wide //weight: 1
+        $x_2_3 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 67 00 61 00 72 00 64 00 65 00 6e 00 5c 00}  //weight: 2, accuracy: Low
+        $x_1_4 = ",#1" wide //weight: 1
+        $x_1_5 = ".chk,#" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_SuspClickFix_X_2147967687_1
