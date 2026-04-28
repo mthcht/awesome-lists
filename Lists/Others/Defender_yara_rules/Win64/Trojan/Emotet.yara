@@ -4659,3 +4659,26 @@ rule Trojan_Win64_Emotet_GB_2147926385_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Emotet_VGA_2147967891_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Emotet.VGA!MTB"
+        threat_id = "2147967891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Emotet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "://adamrat.st/rem" ascii //weight: 1
+        $x_1_2 = "ADAMRATLDR01" ascii //weight: 1
+        $x_1_3 = "Needs to remove its temporary files" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
