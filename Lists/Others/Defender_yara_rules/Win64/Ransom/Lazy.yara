@@ -28,3 +28,29 @@ rule Ransom_Win64_Lazy_LRI_2147967773_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Lazy_LRJ_2147967951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Lazy.LRJ!MTB"
+        threat_id = "2147967951"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".encrypt" ascii //weight: 1
+        $x_2_2 = "Your files have been encrypted and your personal information has been collected." ascii //weight: 2
+        $x_3_3 = "stealer-go" ascii //weight: 3
+        $x_4_4 = ".del_system32" ascii //weight: 4
+        $x_5_5 = ".overwrite_user_data" ascii //weight: 5
+        $x_6_6 = ".corrupt_registry" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

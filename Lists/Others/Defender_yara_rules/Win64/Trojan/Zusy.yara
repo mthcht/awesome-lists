@@ -3260,6 +3260,31 @@ rule Trojan_Win64_Zusy_KKD_2147962098_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_KKD_2147962098_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKD!MTB"
+        threat_id = "2147962098"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "PongBot" ascii //weight: 5
+        $x_4_2 = "C:\\Users\\%USERNAME%\\victim_id.txt" ascii //weight: 4
+        $x_3_3 = "/api/v9/channels/%s/messages" ascii //weight: 3
+        $x_2_4 = "Authorization: Bot %s" ascii //weight: 2
+        $x_1_5 = "1496188990619914370" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_AHB_2147962335_0
 {
     meta:

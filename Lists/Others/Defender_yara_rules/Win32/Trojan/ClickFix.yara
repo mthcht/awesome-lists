@@ -13592,3 +13592,28 @@ rule Trojan_Win32_ClickFix_GMXH_2147967753_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_PJ_2147967953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PJ!MTB"
+        threat_id = "2147967953"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "| iex" wide //weight: 1
+        $x_1_2 = "irm " wide //weight: 1
+        $x_1_3 = "tag=" wide //weight: 1
+        $x_1_4 = ".xyz/script?" wide //weight: 1
+        $x_1_5 = "UtcNow.ToUnixTimeSeconds" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

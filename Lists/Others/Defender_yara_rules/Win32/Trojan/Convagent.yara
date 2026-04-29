@@ -2255,3 +2255,26 @@ rule Trojan_Win32_Convagent_MKC_2147966746_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_LRC_2147967950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.LRC!MTB"
+        threat_id = "2147967950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {33 c9 80 b1 a4 88 2e 74 37 8b 85 ec fd ff ff 30 81 a4 88 2e 74 8b 85 ec fd ff ff 30 81 a4 88 2e 74 41 83 f9 0b}  //weight: 20, accuracy: High
+        $x_3_2 = "powershell -Command \"Add-MpPreference -ExclusionPath '" ascii //weight: 3
+        $x_2_3 = "powershell -Command \"Add-MpPreference -ExclusionProcess '" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
