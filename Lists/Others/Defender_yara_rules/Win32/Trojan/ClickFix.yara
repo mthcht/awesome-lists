@@ -13563,9 +13563,10 @@ rule Trojan_Win32_ClickFix_SSSA_2147967668_0
         strings_accuracy = "Low"
     strings:
         $x_3_1 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-16] 20 00 5c 00 5c 00 [0-255] 5c 00 [0-255] 5c 00 [0-255] 2e 00 67 00 6f 00 6f 00 67 00 6c 00 65 00 2c 00 23 00 31 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-16] 20 00 5c 00 5c 00 [0-255] 5c 00 [0-255] 5c 00 [0-255] 2e 00 63 00 68 00 6b 00 2c 00 23 00 31 00}  //weight: 3, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 
 rule Trojan_Win32_ClickFix_GMXH_2147967753_0

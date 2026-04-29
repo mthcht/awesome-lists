@@ -2086,3 +2086,24 @@ rule Trojan_MSIL_Androm_ZTE_2147967923_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_ZUE_2147967979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.ZUE!MTB"
+        threat_id = "2147967979"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {13 04 11 04 28 ?? 00 00 0a 0c 08 72 c1 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 13 06 11 06 28 ?? 00 00 0a 28 ?? 00 00 0a 0b 11 06 72 d5 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 0d 73 ?? 00 00 0a 13 05 11 05 02}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
