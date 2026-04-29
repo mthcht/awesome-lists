@@ -8502,3 +8502,28 @@ rule Trojan_Win32_GuLoader_RET_2147967838_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REU_2147968006_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REU!MTB"
+        threat_id = "2147968006"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\stuffer\\Fagbger\\offerlammets" ascii //weight: 1
+        $x_1_2 = "overstrew\\indsyes\\vrighederne" ascii //weight: 1
+        $x_1_3 = "brevskriveren dmonologi wooziest" ascii //weight: 1
+        $x_1_4 = "bagvejens" ascii //weight: 1
+        $x_1_5 = "loquently forelskelse.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

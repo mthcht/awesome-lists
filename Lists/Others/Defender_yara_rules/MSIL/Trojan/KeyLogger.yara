@@ -507,3 +507,31 @@ rule Trojan_MSIL_KeyLogger_GXH_2147966935_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KeyLogger_AAB_2147968037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.AAB!AMTB"
+        threat_id = "2147968037"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\d_i_r._t_x_t" wide //weight: 1
+        $x_1_2 = "KeyboardMonitor" ascii //weight: 1
+        $x_1_3 = "mouse_event" ascii //weight: 1
+        $x_1_4 = "SalvarLog" ascii //weight: 1
+        $x_1_5 = "\\Prcss_Respawner.exe" wide //weight: 1
+        $x_1_6 = "[logar]<'''>Loading Remote Desktop...<'''>" wide //weight: 1
+        $x_1_7 = "Capturando... conectando ao oAT8XsQdgdpl" wide //weight: 1
+        $x_1_8 = "[getscreen]" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

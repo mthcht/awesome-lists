@@ -443,3 +443,24 @@ rule Trojan_Win64_RustyStealer_VGX_2147967400_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_VGK_2147967988_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.VGK!MTB"
+        threat_id = "2147967988"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 83 ff 0b 77 29 48 8d 0c 3e e8 [0-4] 0f b6 0c 1f 0f b7 54 1f 01 c1 e2 08 01 d1 81 c1 [0-4] 31 c1 89 4c 3c 40 48 83 c7 04 eb d1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

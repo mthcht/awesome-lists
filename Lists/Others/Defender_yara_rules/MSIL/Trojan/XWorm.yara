@@ -5184,3 +5184,28 @@ rule Trojan_MSIL_XWorm_SLXB_2147967682_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AAC_2147968041_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AAC!AMTB"
+        threat_id = "2147968041"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "C:\\Users\\k\\source\\repos\\fox\\fox\\obj\\Debug\\fox.pdb" ascii //weight: 15
+        $x_2_2 = "fox.exe" ascii //weight: 2
+        $x_2_3 = "fox&&" ascii //weight: 2
+        $x_2_4 = "fox.My" ascii //weight: 2
+        $x_2_5 = "CreateInstance" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

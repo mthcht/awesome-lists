@@ -527,3 +527,26 @@ rule Trojan_Win32_ValleyRat_ORB_2147966937_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRat_APR_2147968029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.APR!AMTB"
+        threat_id = "2147968029"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "D:\\vs2012\\project\\myf\\Release\\myf.pdb" ascii //weight: 15
+        $x_3_2 = "ocuments and Settings\\All Users\\Documents\\xqowmwew.exe" ascii //weight: 3
+        $x_2_3 = "/c timeout /t 4 /nobreak && del /f /q \"%s\"" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

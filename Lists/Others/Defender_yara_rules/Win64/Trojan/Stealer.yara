@@ -238,34 +238,6 @@ rule Trojan_Win64_Stealer_MX_2147936682_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Stealer_MX_2147936682_3
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/Stealer.MX!MTB"
-        threat_id = "2147936682"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "Stealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = "STEALER RAPOR" ascii //weight: 5
-        $x_1_2 = "Telegram Web oturumu bulundu" ascii //weight: 1
-        $x_1_3 = "ExtractAllBrowserCookies" ascii //weight: 1
-        $x_1_4 = "discord.com/api/webhooks" ascii //weight: 1
-        $x_1_5 = "baslatildi" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win64_Stealer_NS_2147940059_0
 {
     meta:

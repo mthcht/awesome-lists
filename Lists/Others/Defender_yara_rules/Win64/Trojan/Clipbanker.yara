@@ -108,3 +108,26 @@ rule Trojan_Win64_Clipbanker_ARR_2147962420_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Clipbanker_AHA_2147968042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Clipbanker.AHA!MTB"
+        threat_id = "2147968042"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Clipbanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "payload\\src\\persist.rs" ascii //weight: 30
+        $x_20_2 = "payload\\src\\scanner.rs" ascii //weight: 20
+        $x_10_3 = {48 89 d8 48 c1 e0 04 4c 89 2c 06 48 89 7c 06 08 48 ff c3 48 89 9d d0 00 00 00 4c 89 f2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

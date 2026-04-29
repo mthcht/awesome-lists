@@ -8381,3 +8381,28 @@ rule Trojan_MSIL_SnakeKeylogger_AFZ_2147967683_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_AAA_2147968032_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.AAA!AMTB"
+        threat_id = "2147968032"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "http://192.227.162.28/tu/Tsbbnoxoksq.dat" wide //weight: 10
+        $x_1_2 = "loggerConfiguration" wide //weight: 1
+        $x_1_3 = "configureLogger" wide //weight: 1
+        $x_1_4 = "Gysgbwz.Gfkqes" wide //weight: 1
+        $x_1_5 = "Gbtmkuawhgzh" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

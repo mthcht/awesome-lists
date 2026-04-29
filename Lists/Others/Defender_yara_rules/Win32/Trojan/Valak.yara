@@ -66,3 +66,32 @@ rule Trojan_Win32_Valak_DEB_2147755953_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Valak_AA_2147968038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Valak.AA!AMTB"
+        threat_id = "2147968038"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Valak"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {43 3a 5c 55 73 65 72 73 5c 50 75 62 6c 69 63 5c [0-10] 2e}  //weight: 1, accuracy: Low
+        $x_1_2 = "PRIMARY_C2 : ['http://" ascii //weight: 1
+        $x_1_3 = "TASK_CREATE : \"schtasks /Create /F /TN \\\"%name%\\\" /TR \\\"%command%\\\" /SC Once /ST %time%\"," ascii //weight: 1
+        $x_1_4 = "TASK_LOOP_CREATE : \"schtasks /Create /F /TN \\\"%name%\\\" /TR \\\"%command%\\\" /SC Minute /MO %timeout%\"," ascii //weight: 1
+        $x_1_5 = "PERSIST_COMMAND : \"explorer.exe C:\\\\Users\\\\Public\\\\Disk0.js\"," ascii //weight: 1
+        $x_1_6 = "PERSIST_COMMAND : \"explorer.exe C:\\\\Users\\\\Public\\\\explorer.js\"," ascii //weight: 1
+        $x_1_7 = "var request = [Loader.USERNAME, Loader.PCNAME, Loader.DOMAIN, Loader.MachineType, uid, config.SOFT_SIG, config.SOFT_VERSION, Loader.Uptime];" ascii //weight: 1
+        $x_1_8 = "WScript.Sleep(config.C2_REQUEST_SLEEP * 1000);" ascii //weight: 1
+        $x_1_9 = {77 73 63 72 69 70 74 2e 65 78 65 20 2f 2f 45 3a 6a 73 63 72 69 70 74 20 22 43 3a 5c 55 73 65 72 73 5c 50 75 62 6c 69 63 5c [0-10] 2e}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (8 of ($x*))
+}
+

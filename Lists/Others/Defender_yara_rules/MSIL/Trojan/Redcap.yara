@@ -668,3 +668,27 @@ rule Trojan_MSIL_Redcap_NR_2147940057_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Redcap_NR_2147940057_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Redcap.NR!MTB"
+        threat_id = "2147940057"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 36 00 00 06 13 04 11 04 2c 14 11 04 28 37 00 00 06 13 05 07 11 05 28 f1 00 00 0a 0d de 15 de 0c}  //weight: 2, accuracy: High
+        $x_1_2 = {03 06 16 07 6f 09 00 00 0a 02 06 16 06 8e 69 6f e8 00 00 0a 25 0b 2d e8}  //weight: 1, accuracy: High
+        $x_1_3 = "ImpersonateSandbox" ascii //weight: 1
+        $x_1_4 = "Exfiltration successful" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

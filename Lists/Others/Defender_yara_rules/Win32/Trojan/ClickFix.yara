@@ -13618,3 +13618,54 @@ rule Trojan_Win32_ClickFix_PJ_2147967953_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_SFAB_2147968017_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SFAB"
+        threat_id = "2147968017"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {5c 00 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = {5c 00 6d 00 73 00 68 00 74 00 61 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_10_4 = "Verify you are human" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_SFAC1_2147968018_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SFAC1"
+        threat_id = "2147968018"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {5c 00 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_10_3 = {66 00 69 00 6e 00 67 00 65 00 72 00 2e 00 65 00 78 00 65 00 20 00 [0-255] 40 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

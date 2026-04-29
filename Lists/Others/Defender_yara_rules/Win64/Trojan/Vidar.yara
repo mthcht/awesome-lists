@@ -1779,6 +1779,31 @@ rule Trojan_Win64_Vidar_GY_2147964667_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_NR_2147964861_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NR!MTB"
+        threat_id = "2147964861"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {49 f7 e8 48 8d 14 7a 48 c1 fa 06 4c 89 c7 49 c1 f8 3f 4c 29 c2 48 6b d2 64 48 29 d7 48 89 3c cb eb b2}  //weight: 2, accuracy: High
+        $x_1_2 = {48 83 f9 08 7d ef 0f b6 3c 0e 4c 8d 41 01 44 31 c7 40 88 3c 08 eb de}  //weight: 1, accuracy: High
+        $x_1_3 = "Go build" ascii //weight: 1
+        $x_1_4 = "remoteremote" ascii //weight: 1
+        $x_1_5 = "clearAllpSnapshot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_MKE_2147965027_0
 {
     meta:
@@ -2159,6 +2184,27 @@ rule Trojan_Win64_Vidar_VGA_2147967213_0
         $x_1_5 = "StrReverse(\"ecafho\")" ascii //weight: 1
         $x_1_6 = "invfisible" ascii //weight: 1
         $x_1_7 = "Trim(\"Fdffgond\")" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_GN_2147968059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GN!MTB"
+        threat_id = "2147968059"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 bb 4b b0 38 9c f9 d5 1c 3f 48 89 9c 24 ?? ?? ?? ?? 48 bb 0a d7 a3 70 3d 0a b7 3f}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

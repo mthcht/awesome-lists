@@ -362,3 +362,28 @@ rule Trojan_MSIL_ShellcodeRunner_SX_2147966678_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeRunner_SXO_2147968044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.SXO!MTB"
+        threat_id = "2147968044"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "75"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[*] Writing shellcode..." ascii //weight: 30
+        $x_10_2 = "[*] Creating shellcode thread..." ascii //weight: 10
+        $x_10_3 = "[+] Shellcode thread created and running" ascii //weight: 10
+        $x_5_4 = "[!] Main thread kept SUSPENDED to keep process alive" ascii //weight: 5
+        $x_20_5 = "[!] Process will stay alive until shellcode completes" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

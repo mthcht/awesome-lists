@@ -809,3 +809,28 @@ rule Trojan_MSIL_QuasarRat_RVA_2147963613_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRat_AAC_2147968040_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.AAC!AMTB"
+        threat_id = "2147968040"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DownloadAndDecryptPayload" ascii //weight: 1
+        $x_5_2 = "www.apiut.fit/rrrjj/Client-built.bin" wide //weight: 5
+        $x_5_3 = "\\ConsoleApp2\\obj\\x64\\Release\\App2.pdb" ascii //weight: 5
+        $x_1_4 = "XorKey" ascii //weight: 1
+        $x_1_5 = "<DownloadAndDecryptPayload>d__" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

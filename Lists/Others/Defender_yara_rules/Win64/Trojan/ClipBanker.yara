@@ -1525,3 +1525,52 @@ rule Trojan_Win64_ClipBanker_BMX_2147967442_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_NB_2147968010_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NB!MTB"
+        threat_id = "2147968010"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {ff c9 83 c9 fc ff c1 c1 e1 03 b8 05 81 5c 12 d3 e8 41 30 00 ff c2 49 ff c0 83 fa 2b 7c d8 48 8d 45 80 48 c7 c3 ff ff ff ff 48 ff c3 80 3c 18 00 75 f7}  //weight: 2, accuracy: High
+        $x_1_2 = {d3 e8 41 30 00 ff c2 49 ff c0 83 fa 2b 7c d8 e9 9e 09 00 00 83 f8 02}  //weight: 1, accuracy: High
+        $x_1_3 = "CryptoClipper" ascii //weight: 1
+        $x_1_4 = "neute" ascii //weight: 1
+        $x_1_5 = "GetClipboardData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_NP_2147968011_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NP!MTB"
+        threat_id = "2147968011"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 ff c9 4a 8d 04 8b 42 8b 14 10 49 03 d2 41 b8 c5 9d 1c 81 0f b6 02 48 ff c2 84 c0 74 23 66 90 0f be c0 41 33 c0 44 69 c0 93 01 00 01}  //weight: 2, accuracy: High
+        $x_1_2 = {41 81 f8 b9 ea b1 41 74 0a 45 85 c9 75 ba 48 8b 09 eb 85 8b 4f 1c 49 03 ca 8b 47 24}  //weight: 1, accuracy: High
+        $x_1_3 = "(https:\\/\\/.*) (\\d{1})" ascii //weight: 1
+        $x_1_4 = "Apache Friends" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

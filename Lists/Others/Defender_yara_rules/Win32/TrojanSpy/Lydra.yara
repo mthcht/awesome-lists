@@ -121,3 +121,31 @@ rule TrojanSpy_Win32_Lydra_C_2147594471_0
         )
 }
 
+rule TrojanSpy_Win32_Lydra_AAB_2147968030_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:Win32/Lydra.AAB!AMTB"
+        threat_id = "2147968030"
+        type = "TrojanSpy"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lydra"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "LHydra" ascii //weight: 10
+        $x_1_2 = "silent.txt" ascii //weight: 1
+        $x_1_3 = "RegMonitorHydra" ascii //weight: 1
+        $x_1_4 = "killself" ascii //weight: 1
+        $x_1_5 = "keybd_event" ascii //weight: 1
+        $x_1_6 = "GetKeyboardLayoutList" ascii //weight: 1
+        $x_1_7 = "smtp.mail.ru" ascii //weight: 1
+        $x_1_8 = "GetKeyboardType" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
