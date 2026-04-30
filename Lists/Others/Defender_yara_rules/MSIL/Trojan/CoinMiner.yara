@@ -720,6 +720,30 @@ rule Trojan_MSIL_CoinMiner_KSH_2147769241_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CoinMiner_A_2147780772_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CoinMiner.A!MSR"
+        threat_id = "2147780772"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\SimpleRunPE\\obj\\Release\\SimpleRunPE.pdb" ascii //weight: 1
+        $x_1_2 = "EnsureMinerDownloaded" ascii //weight: 1
+        $x_1_3 = "get_IncludeMinerPayloadPath" ascii //weight: 1
+        $x_1_4 = "/MinerClient.ProtocolClient+<SendPingAsync>" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_CoinMiner_ATM_2147781337_0
 {
     meta:
