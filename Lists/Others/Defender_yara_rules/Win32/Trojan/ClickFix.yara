@@ -13669,3 +13669,25 @@ rule Trojan_Win32_ClickFix_SFAC1_2147968018_0
         )
 }
 
+rule Trojan_Win32_ClickFix_DJQ_2147968137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJQ!MTB"
+        threat_id = "2147968137"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6d 00 73 00 68 00 74 00 61 00 [0-60] 68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 34 00 35 00 2e 00 31 00 35 00 35 00 2e 00 36 00 39 00 2e 00 31 00 35 00 37 00 2f 00 70 00 32 00 2f 00 61 00 62 00 73 00 74 00 72 00 61 00 63 00 74 00 61 00 62 00 73 00 75 00 72 00 64 00 2f 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {77 00 73 00 63 00 72 00 69 00 70 00 74 00 2e 00 65 00 78 00 65 00 [0-255] 5c 00 6c 00 6f 00 61 00 64 00 69 00 6e 00 66 00 6f 00 2e 00 70 00 64 00 66 00 2e 00 6a 00 73 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

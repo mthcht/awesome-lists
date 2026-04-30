@@ -2508,3 +2508,27 @@ rule Trojan_MSIL_Vidar_AGRB_2147963706_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Vidar_DC_2147968076_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Vidar.DC!MTB"
+        threat_id = "2147968076"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "tasklist /fi \"ImageName eq " ascii //weight: 1
+        $x_1_2 = ".exe\" /fo csv 2>NUL | find /I" ascii //weight: 1
+        $x_1_3 = "set /a count=%count%+1" ascii //weight: 1
+        $x_1_4 = "RegAsm.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

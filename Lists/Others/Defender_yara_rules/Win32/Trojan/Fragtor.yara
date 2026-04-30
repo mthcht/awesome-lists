@@ -415,6 +415,27 @@ rule Trojan_Win32_Fragtor_ARA_2147893463_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_ARA_2147893463_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.ARA!MTB"
+        threat_id = "2147893463"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b c2 3b d3 7d 14 8a 8c 95 08 ff ff ff 8d 49 00 30 0c 38 83 c0 31 3b c3 7c f6 42 83 fa 31 72 e0}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_RG_2147893746_0
 {
     meta:

@@ -62,3 +62,26 @@ rule Trojan_Win64_GlassWorm_AGW_2147967902_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_GlassWorm_DA_2147968075_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GlassWorm.DA!MTB"
+        threat_id = "2147968075"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GlassWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "BjVeAjPrSKFiingBn4vZvghsGj9KCE8AJVtbc9S8o8SC" ascii //weight: 20
+        $x_5_2 = "n4vZvghsGj9KCE8AJVtbc9S8o8SC" ascii //weight: 5
+        $x_5_3 = "CE8AJVtbc9S8o8SC" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
