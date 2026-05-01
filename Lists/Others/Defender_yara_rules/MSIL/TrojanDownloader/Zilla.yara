@@ -42,3 +42,29 @@ rule TrojanDownloader_MSIL_Zilla_SX_2147965613_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Zilla_AMTB_2147968265_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Zilla!AMTB"
+        threat_id = "2147968265"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {7d 0f 00 00 04 12 00 15 7d 0e 00 00 04 12 00 7c 0f 00 00 04 12 00 28 01 00 00 2b 12 00 7c 0f 00 00 04 28 44 00 00 0a 2a}  //weight: 2, accuracy: High
+        $x_2_2 = {28 42 00 00 0a 7d 0f 00 00 04 12 00 15 7d 0e 00 00 04 12 00 7c 0f 00 00 04 12 00 28 01 00 00 2b 12 00 7c 0f 00 00 04}  //weight: 2, accuracy: High
+        $x_4_3 = {28 16 00 00 06 2c 07 28 19 00 00 06 2b 05 28 18 00 00 06 28 1a 00 00 06 6f 3e 00 00 0a}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*))) or
+            ((1 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+

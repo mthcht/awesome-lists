@@ -10098,6 +10098,29 @@ rule Trojan_MSIL_FormBook_BAY_2147839809_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RSD_2147840129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RSD!MTB"
+        threat_id = "2147840129"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 1d a2 09 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 87 00 00 00 16 00 00 00 78 00 00 00 83 00 00 00 67 00 00 00 3c 01 00 00 01 00 00 00 2c 00 00 00 28 00 00 00 04 00 00 00 0b 00 00 00 0c 00 00 00 38 00 00 00 01 00 00 00 09 00 00 00 05 00 00 00 0a 00 00 00 03 00 00 00 2c}  //weight: 1, accuracy: High
+        $x_1_2 = "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d" ascii //weight: 1
+        $x_1_3 = "YahtzeeMini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_ABKY_2147841103_0
 {
     meta:
