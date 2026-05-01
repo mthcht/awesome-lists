@@ -64,3 +64,25 @@ rule Backdoor_Win64_AdaptixC2_MKB_2147967807_0
         (all of ($x*))
 }
 
+rule Backdoor_Win64_AdaptixC2_KK_2147968228_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/AdaptixC2.KK!MTB"
+        threat_id = "2147968228"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AdaptixC2"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {33 d2 48 8d 49 01 8b c7 ff c7 41 f7 f0 42 0f b6 04 0a 30 41 ff 3b fe}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b7 c2 48 83 c6 04 89 43 02 c7 43 fe 4c 8b d1 b8 66 c7 43 06 49 bb 48 89 7b 08 66 c7 43 10 41 ff c6 43 12 e3 48 83 c3 15 49 3b f5}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

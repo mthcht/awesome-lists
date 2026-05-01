@@ -131,3 +131,26 @@ rule Trojan_Win32_Bobik_KK_2147963649_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Bobik_KK_2147963649_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bobik.KK!MTB"
+        threat_id = "2147963649"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {33 45 08 25 ff 00 00 00 8b 4d 08 c1 e9 08 33 0c 85 ?? ?? ?? ?? 89 4d e0 8b 45 0c 40 89 45 0c 8b 45 e0 89 45 08 8b 45 10 83 e8 08 89 45 10}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b 45 0c 0f b6 00 33 45 08 25 ff 00 00 00 8b 4d 08 c1 e9 08 33 0c 85 ?? ?? ?? ?? 89 4d dc 8b 45 0c 40 89 45 0c 8b 45 dc 89 45 08 8b 45 10 48 89 45 10}  //weight: 10, accuracy: Low
+        $x_5_3 = "063a491057cdb3ff.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

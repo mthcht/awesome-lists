@@ -2117,6 +2117,28 @@ rule Trojan_Win64_Zusy_KK_2147946085_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c6 84 24 20 01 00 00 4d c6 84 24 21 01 00 00 69 c6 84 24 22 01 00 00 61 c6 84 24 23 01 00 00 63 c6 84 24 24 01 00 00 72 c6 84 24 25 01 00 00 6f c6 84 24 26 01 00 00 6d c6 84 24 27 01 00 00 65 c6 84 24 28 01 00 00 2e c6 84 24 29 01 00 00 64 c6 84 24 2a 01 00 00 6c c6 84 24 2b 01 00 00 6c}  //weight: 20, accuracy: High
+        $x_10_2 = {b8 01 00 00 00 48 6b c0 00 48 8d 0d 36 70 02 00 0f b6 04 01 33 44 24 48 0f b6 0d 23 70 02 00 3b c1}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KK_2147946085_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KK!MTB"
+        threat_id = "2147946085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "High"
     strings:
@@ -2128,7 +2150,7 @@ rule Trojan_Win64_Zusy_KK_2147946085_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_KK_2147946085_4
+rule Trojan_Win64_Zusy_KK_2147946085_5
 {
     meta:
         author = "defender2yara"
@@ -3342,6 +3364,30 @@ rule Trojan_Win64_Zusy_KKB_2147963162_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {31 c1 48 8b 55 e0 48 8b 45 f0 48 01 d0 89 ca 88 10 8b 45 fc d1 f8 89 c2 8b 45 fc c1 e0 1f 09 d0 89 45 fc 48 83 45 f0 01}  //weight: 20, accuracy: High
+        $x_3_2 = "_Z14DecryptPayloadPhyPKc" ascii //weight: 3
+        $x_2_3 = "_Z12CopyMemoryExPvS_y" ascii //weight: 2
+        $x_1_4 = "TpAllocInjection.cpp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KKB_2147963162_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKB!MTB"
+        threat_id = "2147963162"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "19"
         strings_accuracy = "High"
     strings:
@@ -3704,5 +3750,27 @@ rule Trojan_Win64_Zusy_SXT_2147967625_0
             ((1 of ($x_30_*) and 1 of ($x_25_*) and 1 of ($x_20_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win64_Zusy_KKE_2147968227_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKE!MTB"
+        threat_id = "2147968227"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {1f 42 0f b6 [0-25] c1 e2 05 29 ca 83 c2 11 42 88}  //weight: 20, accuracy: Low
+        $x_5_2 = {0b 02 02 2a 00 18 00 00 00 ?? 00 00 00 02 00 00 fd 12}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

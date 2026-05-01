@@ -183,3 +183,25 @@ rule Trojan_MSIL_Cassandra_GN_2147967863_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_TC_2147968218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.TC!MTB"
+        threat_id = "2147968218"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Sebrizango.dll" ascii //weight: 1
+        $x_1_2 = "demographic datasets, cross-tabulation via pivot logic" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6047,3 +6047,26 @@ rule Trojan_Win32_Farfli_ARR_2147966826_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_KKA_2147968221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.KKA!MTB"
+        threat_id = "2147968221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c6 44 24 10 4d c6 44 24 11 6f c6 44 24 12 7a c6 44 24 13 69 c6 44 24 14 6c c6 44 24 15 6c c6 44 24 16 61 c6 44 24 17 2f c6 44 24 18 35 88 54 24 19 c6 44 24 1a 30 88 44 24 1b c6 44 24 1c 28 c6 44 24 1d 4d c6 44 24 1e 61 c6 44 24 1f 63 c6 44 24 20 69 c6 44 24 22 74 c6 44 24 23 6f c6 44 24 24 73 c6 44 24 25 68 c6 44 24 26 3b}  //weight: 20, accuracy: High
+        $x_10_2 = "UC Login Data.18" ascii //weight: 10
+        $x_5_3 = "\\Google\\Chrome\\User Data\\Default" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

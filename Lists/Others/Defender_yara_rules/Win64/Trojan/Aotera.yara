@@ -242,3 +242,28 @@ rule Trojan_Win64_Aotera_GVN_2147964383_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Aotera_NA_2147968220_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Aotera.NA!MTB"
+        threat_id = "2147968220"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Aotera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b ce ba 28 00 00 00 e8 7b fc ff ff 4c 33 e0 41 3b ed 0f 8e e5 00 00 00 49 b8 3b a7 ca 84 85 ae 67 bb 4d 33 c4 49 8b f4 48 f7 d6 48 b9 2b f8 94 fe 72 f3 6e 3c 48 33 f1 33 c9 48 85 ff 0f 84 ce 00 00 00 83 7f 08 2c 0f 8c c4 00 00 00 48 8d 4f 10}  //weight: 2, accuracy: High
+        $x_2_2 = {49 8b c0 48 d1 c0 4d 8b d0 49 c1 c2 05 49 23 c2 48 33 c6 49 8b f0 49 c1 c0 02 4c 33 c0 4c 33 01 48 83 c1 08 ff ca 75 d8}  //weight: 2, accuracy: High
+        $x_1_3 = "Attempted to read or write protected memory" wide //weight: 1
+        $x_1_4 = "AllowFileWrites" wide //weight: 1
+        $x_1_5 = "VirtualAllocExNuma" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

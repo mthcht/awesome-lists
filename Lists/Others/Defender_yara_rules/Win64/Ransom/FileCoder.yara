@@ -1416,3 +1416,26 @@ rule Ransom_Win64_FileCoder_MKA_2147967633_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_KKA_2147968230_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.KKA!MTB"
+        threat_id = "2147968230"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8d 1c 47 41 b9 07 00 00 00 4c 8d 05 ?? ?? 00 00 48 8b d3 48 8b cf e8 ?? ?? 00 00 4c 8b c0 48 3b c3}  //weight: 20, accuracy: Low
+        $x_10_2 = "SystemDiagnosticTool.pdb" ascii //weight: 10
+        $x_5_3 = ".locked" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1138,6 +1138,35 @@ rule Trojan_Win64_Vidar_NV_2147960324_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_NV_2147960324_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NV!MTB"
+        threat_id = "2147960324"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 14 08 48 8d 34 49 48 8d 34 71 31 f2 88 14 0c 48 ff c1 0f 1f 40 00 48 39 cb 7e 06 48 83 f9 20 7c dd}  //weight: 2, accuracy: High
+        $x_2_2 = {0f b7 54 24 42 66 c1 c2 08 66 89 50 0b 48 8b 9c 24 d0 00 00 00 48 8d 53 0d 4c 8b 84 24 c8 00 00 00 48 39 d1 73 2f 4c 89 84 24 a0 00 00 00 48 89 5c 24 50 48 89 df}  //weight: 2, accuracy: High
+        $x_1_3 = "persistentalloc" ascii //weight: 1
+        $x_1_4 = "targetpc" ascii //weight: 1
+        $x_1_5 = "payload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Vidar_MCP_2147960534_0
 {
     meta:
