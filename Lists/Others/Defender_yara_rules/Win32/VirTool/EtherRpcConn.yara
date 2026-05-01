@@ -18,8 +18,12 @@ rule VirTool_Win32_EtherRpcConn_A_2147963485_0
         $x_1_4 = {6c 74 63 31 71 00}  //weight: 1, accuracy: High
         $x_1_5 = {63 6f 73 6d 6f 73 31 00}  //weight: 1, accuracy: High
         $x_1_6 = ".binance.org" ascii //weight: 1
+        $x_1_7 = {2e 62 6e 62 63 68 61 69 6e 2e 6f 72 67 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_5_*) and 5 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
