@@ -176,3 +176,24 @@ rule Trojan_Win64_ACRStealer_VGA_2147967839_0
         )
 }
 
+rule Trojan_Win64_ACRStealer_ACR_2147968190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ACRStealer.ACR!MTB"
+        threat_id = "2147968190"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ACRStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {45 0f b6 1c 11 45 31 d3 45 88 1c 38 48 ff c7 49 8b c0 41 51 5a 66 ?? 48 39 fe 7e 26 44 0f b6 14 3b 48 85 c9 0f 84 9a ?? ?? ?? 49 89 c0 48 8b c7 52 41 59 48 99 48 f7}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

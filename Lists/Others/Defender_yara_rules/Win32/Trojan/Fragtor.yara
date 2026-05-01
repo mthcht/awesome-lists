@@ -1859,6 +1859,29 @@ rule Trojan_Win32_Fragtor_DA_2147919033_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_SX_2147920209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SX!MTB"
+        threat_id = "2147920209"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {83 e0 01 f7 d8 21 d0 31 c6 8d 04 12 89 c7 83 f7 ?? 84 d2 0f 48 c7 89 c2 d0 e9 83 eb 01 75 df}  //weight: 2, accuracy: Low
+        $x_2_2 = "Log=C:\\Temp\\broker.log" ascii //weight: 2
+        $x_2_3 = "hello world" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Fragtor_DB_2147921438_0
 {
     meta:

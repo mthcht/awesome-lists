@@ -5357,6 +5357,31 @@ rule Trojan_Win64_Tedy_LRE_2147966303_0
         )
 }
 
+rule Trojan_Win64_Tedy_KGX_2147966334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KGX!MTB"
+        threat_id = "2147966334"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "heiDll3.dll" ascii //weight: 2
+        $x_2_2 = "WavesUpdate" ascii //weight: 2
+        $x_2_3 = "vmtoolsd.exe" ascii //weight: 2
+        $x_2_4 = "%s\\Microsoft\\MMC\\chgport.exe" ascii //weight: 2
+        $x_2_5 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_SM_2147966785_0
 {
     meta:

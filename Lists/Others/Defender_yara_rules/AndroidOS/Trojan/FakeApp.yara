@@ -599,3 +599,26 @@ rule Trojan_AndroidOS_FakeApp_AA_2147950255_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_FakeApp_AMTB_2147968208_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/FakeApp!AMTB"
+        threat_id = "2147968208"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "FakeApp"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "se visit www.andro" ascii //weight: 1
+        $x_1_2 = "mes for Android - pl" ascii //weight: 1
+        $x_1_3 = "www.androeed.ru!" ascii //weight: 1
+        $x_1_4 = "proper modded g" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

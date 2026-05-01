@@ -484,3 +484,26 @@ rule Trojan_MSIL_PureRat_AQ_2147967858_0
         )
 }
 
+rule Trojan_MSIL_PureRat_AR_2147968184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureRat.AR!MTB"
+        threat_id = "2147968184"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {72 59 00 00 70 28 14 00 00 0a 0b 72 9b 00 00 70 28 14 00 00 0a 0c 28 15 00 00 0a 13 06 11 06 07 6f 16 00 00 0a 11 06 08 6f 17 00 00 0a 11 06 17 6f 18 00 00 0a 11 06 18 6f 19 00 00 0a 11 06 6f 1a 00 00 0a 13 07 11 07 06 16 06 8e 69 6f 1b 00 00 0a 0d de 18}  //weight: 6, accuracy: High
+        $x_5_2 = "PayloadSource.zip" ascii //weight: 5
+        $x_1_3 = "GZipStream" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

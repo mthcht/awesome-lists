@@ -487,3 +487,26 @@ rule Trojan_Win64_Cerbu_AHA_2147967926_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AHI_2147968186_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHI!MTB"
+        threat_id = "2147968186"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Simulate real keyboard typing" ascii //weight: 30
+        $x_20_2 = "Update the bot to a new version" ascii //weight: 20
+        $x_10_3 = "Steal saved browser/Discord tokens" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2932,3 +2932,35 @@ rule Trojan_Win64_LummaStealer_VGA_2147967924_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_NVD_2147968183_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.NVD!MTB"
+        threat_id = "2147968183"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BLOCKCHAIN_CONTRACT_ADDRESS" ascii //weight: 1
+        $x_1_2 = "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -EncodedCommand" ascii //weight: 1
+        $x_1_3 = "Binance Wallet" ascii //weight: 1
+        $x_1_4 = "Coinbase Wallet" ascii //weight: 1
+        $x_1_5 = "kaspersky" ascii //weight: 1
+        $x_1_6 = "bitdefender" ascii //weight: 1
+        $x_1_7 = "Sophos Endpoint Defense Service" ascii //weight: 1
+        $x_1_8 = "Google\\Chrome\\User Data" ascii //weight: 1
+        $x_1_9 = "Microsoft\\Edge\\User Data" ascii //weight: 1
+        $x_1_10 = "mcohilncbfahbmgdjkbpemcciiolgcge" ascii //weight: 1
+        $x_2_11 = "bhhhlbepdkbapadjdnnojkbgioiodbic" ascii //weight: 2
+        $x_1_12 = "hmeobnfnfcmdkdcmlblgagmfpfboieaf" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

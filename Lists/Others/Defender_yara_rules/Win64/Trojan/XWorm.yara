@@ -611,3 +611,27 @@ rule Trojan_Win64_XWorm_BI_2147967751_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_NI_2147968205_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.NI!MTB"
+        threat_id = "2147968205"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 0f b6 01 84 c0 74 39 88 14 24 88 44 24 01 8d 4a bf 80 f9 19 77 06 80 c2 20 88 14 24}  //weight: 2, accuracy: High
+        $x_1_2 = {49 ff c0 4c 89 44 24 08 49 ff c1 4c 89 4c 24 10 eb b7 84 d2 75 0a 41 80 39 00 75 04 33 c0 eb 05 b8 01 00 00 00 85 c0 75 0d 42 0f b7 0c 57}  //weight: 1, accuracy: High
+        $x_1_3 = "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce\" /v \"%s\" /t REG_SZ /d" ascii //weight: 1
+        $x_1_4 = "APPDATA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

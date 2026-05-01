@@ -49,3 +49,27 @@ rule Ransom_MSIL_LockFile_AMTB_2147966847_0
         )
 }
 
+rule Ransom_MSIL_LockFile_SX_2147968170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/LockFile.SX!MTB"
+        threat_id = "2147968170"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Ransomware.exe" ascii //weight: 30
+        $x_20_2 = "your important files are encrypted!" ascii //weight: 20
+        $x_10_3 = "Send {0} USD in Bitcoin" ascii //weight: 10
+        $x_10_4 = "Key accepted. Decrypting files" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
