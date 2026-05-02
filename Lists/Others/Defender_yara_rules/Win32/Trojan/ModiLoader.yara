@@ -269,6 +269,29 @@ rule Trojan_Win32_ModiLoader_ARA_2147909536_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ModiLoader_KK_2147933617_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ModiLoader.KK!MTB"
+        threat_id = "2147933617"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ModiLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "svchost.pif" ascii //weight: 10
+        $x_2_2 = "-WindowStyle hidden -Command \"Add-MpPreference -ExclusionPath C:\\\"" ascii //weight: 2
+        $x_1_3 = "HKCU\\Software\\Classes\\ms-settings\\shell\\open\\command" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ModiLoader_BAA_2147935613_0
 {
     meta:

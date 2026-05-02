@@ -858,3 +858,25 @@ rule Trojan_Win32_ShellcodeRunner_KKB_2147968226_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_MKB_2147968297_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.MKB!MTB"
+        threat_id = "2147968297"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {6b 4d fc 37 8b 45 f4 03 c1 89 45 f4 8b 45 fc 40 89 45 fc}  //weight: 20, accuracy: High
+        $x_15_2 = {8b 4d fc 8b 45 f4 83 e1 01 03 c0 0b c1 89 45 f4 8b 45 fc 40 89 45 fc}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

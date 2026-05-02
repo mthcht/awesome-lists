@@ -106,6 +106,30 @@ rule Trojan_Win64_Injector_KK_2147948308_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_KK_2147948308_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.KK!MTB"
+        threat_id = "2147948308"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Bot Automated Stealer V20" ascii //weight: 4
+        $x_3_2 = "C:\\Users\\Public\\done.tmp" ascii //weight: 3
+        $x_2_3 = "Payload.dll" ascii //weight: 2
+        $x_1_4 = "\" --headless=new --disable-gpu --remote-debugging-port=0" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Injector_NM_2147951188_0
 {
     meta:

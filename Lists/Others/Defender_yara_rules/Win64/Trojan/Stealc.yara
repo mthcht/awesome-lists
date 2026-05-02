@@ -168,3 +168,25 @@ rule Trojan_Win64_Stealc_EM_2147967978_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealc_MK_2147968298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealc.MK!MTB"
+        threat_id = "2147968298"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {43 8b 84 ee 14 01 00 00 45 8b c1 49 03 c0 42 8a 04 20 43 88 04 39 41 ff c1 41 8b c1 48 3b c6}  //weight: 20, accuracy: High
+        $x_15_2 = {8b c1 ff c1 80 34 18 42 41 3b cf}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

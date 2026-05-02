@@ -235,3 +235,28 @@ rule Trojan_MSIL_BypassUAC_MKA_2147967847_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_KKA_2147968285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.KKA!MTB"
+        threat_id = "2147968285"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "GHOST BOT | HELP MENU" ascii //weight: 5
+        $x_4_2 = "Wallpaper updated! Message: Ghost has taken over your desktop." ascii //weight: 4
+        $x_3_3 = "GrabRecentTokensFromAllBrowsers" ascii //weight: 3
+        $x_2_4 = "SetupDiscordC2" ascii //weight: 2
+        $x_1_5 = "ExecuteGhostCommand" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

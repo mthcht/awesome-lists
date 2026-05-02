@@ -102,3 +102,27 @@ rule Trojan_Win32_Runner_HAB_2147960716_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Runner_KK_2147968286_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Runner.KK!MTB"
+        threat_id = "2147968286"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Runner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 4d fc ff 45 fc 88 44 0d cc 39 75 fc}  //weight: 20, accuracy: High
+        $x_3_2 = "%s\\_md5helper_%u.exe" ascii //weight: 3
+        $x_2_3 = "%s\\_cleanup.bat" ascii //weight: 2
+        $x_1_4 = "Nekohl Srevies" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

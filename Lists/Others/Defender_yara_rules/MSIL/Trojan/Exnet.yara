@@ -409,3 +409,28 @@ rule Trojan_MSIL_Exnet_K_2147966475_0
         (8 of ($x*))
 }
 
+rule Trojan_MSIL_Exnet_KK_2147968283_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Exnet.KK!MTB"
+        threat_id = "2147968283"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Exnet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Cyrex_victim" ascii //weight: 5
+        $x_4_2 = "CyRex.v1" ascii //weight: 4
+        $x_3_3 = "CyrexMC!" ascii //weight: 3
+        $x_2_4 = "GetTermsrvPath" ascii //weight: 2
+        $x_1_5 = "C:\\ProgramData\\termsrv.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

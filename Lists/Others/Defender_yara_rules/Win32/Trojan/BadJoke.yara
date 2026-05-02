@@ -537,3 +537,26 @@ rule Trojan_Win32_BadJoke_KAB_2147948349_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BadJoke_KK_2147968287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.KK!MTB"
+        threat_id = "2147968287"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0a d8 8b 7d f8 8b ce 33 d2 81 e1 ff 3f 00 00 b8 00 00 04 00 41 f7 f1 24 80 0a d8 88 1c 3e 46 89 75 fc 81 fe 00 a6 0e 00}  //weight: 20, accuracy: High
+        $x_10_2 = "reg delete hkcu /f" ascii //weight: 10
+        $x_5_3 = "Run Malware?" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

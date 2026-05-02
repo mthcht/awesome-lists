@@ -2060,3 +2060,28 @@ rule Ransom_MSIL_FileCoder_AMTB_2147966086_1
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_KK_2147968288_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.KK!MTB"
+        threat_id = "2147968288"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "EncryptAllFiles" ascii //weight: 5
+        $x_4_2 = "TelegramStealer" ascii //weight: 4
+        $x_3_3 = "EnsureAllPersistence" ascii //weight: 3
+        $x_2_4 = "TargetExtensions" ascii //weight: 2
+        $x_1_5 = "RunPayload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
