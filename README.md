@@ -981,3 +981,11 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 - ⭐ Bookmarks with all my lists to import in your browser (updated automatically) [UPDATE Bookmarks](https://github.com/mthcht/awesome-lists/blob/main/_utils/bookmarks.html)
 
+
+#### AI Agent Marketplace Index And Router | [API Doc](https://www.deepnlp.org/doc/ai_agent_marketplace)
+[![AI Agent Marketplace and Router Badge](https://www.deepnlp.org/api/ai_agent_marketplace/svg?name=mthcht/awesome-lists&badge_type=review)](https://www.deepnlp.org/store/ai-agent/ai-agent/pub-mthcht/awesome-lists)
+
+```
+curl 'https://www.deepnlp.org/api/ai_agent_marketplace/v2?id=mthcht/awesome-lists'
+```
+    
