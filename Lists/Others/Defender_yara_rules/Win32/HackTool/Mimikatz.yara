@@ -917,33 +917,13 @@ rule HackTool_Win32_Mimikatz_NPTT_2147787347_0
         threshold = "1"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {6b 65 72 62 65 72 6f 73 3a 3a 70 74 74 20 90 02 40 40}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule HackTool_Win32_Mimikatz_NPTT_2147787347_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Win32/Mimikatz.NPTT"
-        threat_id = "2147787347"
-        type = "HackTool"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Mimikatz"
-        severity = "High"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
         $x_1_1 = "sekurlsa::tickets /export" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule HackTool_Win32_Mimikatz_NPTT_2147787347_2
+rule HackTool_Win32_Mimikatz_NPTT_2147787347_1
 {
     meta:
         author = "defender2yara"
@@ -968,7 +948,7 @@ rule HackTool_Win32_Mimikatz_NPTT_2147787347_2
         )
 }
 
-rule HackTool_Win32_Mimikatz_NPTT_2147787347_3
+rule HackTool_Win32_Mimikatz_NPTT_2147787347_2
 {
     meta:
         author = "defender2yara"
@@ -991,6 +971,28 @@ rule HackTool_Win32_Mimikatz_NPTT_2147787347_3
             ((1 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
+}
+
+rule HackTool_Win32_Mimikatz_NPTT_2147787347_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Mimikatz.NPTT"
+        threat_id = "2147787347"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mimikatz"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $n_10_1 = "Licensed for Wiz customers" ascii //weight: -10
+        $x_1_2 = {6b 65 72 62 65 72 6f 73 3a 3a 70 74 74 20 90 02 40 40}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
 }
 
 rule HackTool_Win32_Mimikatz_NPTT_2147787347_4
