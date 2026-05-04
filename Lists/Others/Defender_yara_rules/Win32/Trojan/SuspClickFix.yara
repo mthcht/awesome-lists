@@ -860,15 +860,19 @@ rule Trojan_Win32_SuspClickFix_X_2147968173_0
         severity = "Critical"
         info = "gen: malware that is detected using a generic signature"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "3"
+        threshold = "7"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
-        $x_1_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-16] 5c 00}  //weight: 1, accuracy: Low
+        $x_3_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
+        $x_3_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-16] 5c 00}  //weight: 3, accuracy: Low
         $x_1_3 = ",#" wide //weight: 1
+        $x_1_4 = ",run" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_SuspClickFix_Z_2147968174_0
