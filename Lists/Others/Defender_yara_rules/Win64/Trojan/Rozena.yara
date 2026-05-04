@@ -2141,3 +2141,24 @@ rule Trojan_Win64_Rozena_KKA_2147968225_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_ARA_2147968348_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.ARA!MTB"
+        threat_id = "2147968348"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {89 c1 ff c0 83 e1 07 41 8a 0c 08 30 0a 48 ff c2 3d 6c 05 00 00 75 e9}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

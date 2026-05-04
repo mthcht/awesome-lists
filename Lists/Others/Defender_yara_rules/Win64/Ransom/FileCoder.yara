@@ -1439,3 +1439,35 @@ rule Ransom_Win64_FileCoder_KKA_2147968230_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_ARAC_2147968349_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.ARAC!MTB"
+        threat_id = "2147968349"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\README_LOCKED.txt" ascii //weight: 2
+        $x_2_2 = ".locked" ascii //weight: 2
+        $x_2_3 = "Your files have been encrypted!" ascii //weight: 2
+        $x_2_4 = "Files encrypted!" ascii //weight: 2
+        $x_2_5 = "SYSTEM LOCKED" ascii //weight: 2
+        $x_3_6 = "WARNING: Closing will encrypt files!" ascii //weight: 3
+        $x_3_7 = "WARNING: Closing encrypts files!" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((5 of ($x_2_*))) or
+            ((1 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((2 of ($x_3_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
