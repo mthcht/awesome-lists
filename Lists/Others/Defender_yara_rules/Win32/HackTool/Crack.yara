@@ -90,6 +90,32 @@ rule HackTool_Win32_Crack_AMTB_2147933412_0
         family = "Crack"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SpotifyCracker" ascii //weight: 2
+        $x_2_2 = "AnimuCracku" ascii //weight: 2
+        $x_2_3 = "SpotifyCracker by AnimuCracku / HSlave / xMiroSlave" ascii //weight: 2
+        $n_100_4 = "Uninst.exe" ascii //weight: -100
+        $n_100_5 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_6 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (2 of ($x*))
+}
+
+rule HackTool_Win32_Crack_AMTB_2147933412_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Crack!AMTB"
+        threat_id = "2147933412"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crack"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "Low"
     strings:

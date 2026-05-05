@@ -2201,3 +2201,24 @@ rule Trojan_Win32_GCleaner_PGGN_2147965651_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_IVZ_2147968450_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.IVZ!MTB"
+        threat_id = "2147968450"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {33 c0 01 1e ba 8a a5 08 00 8b 7d c8 03 fa 03 fb 03 f8 6a 00 e8 ?? ?? ?? ?? 03 f8 31 3e 83 c3 04 83 c6 04 3b 5d cc 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

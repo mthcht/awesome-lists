@@ -9149,27 +9149,6 @@ rule Trojan_Win32_Emotet_DHM_2147745350_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Emotet_DHP_2147745352_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Emotet.DHP!MTB"
-        threat_id = "2147745352"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {33 c9 ff 45 f8 8a 55 ?? 8a 4d ?? c1 f9 ?? c1 e2 ?? 0a d1 8b 4d f8 88 11 ff 45 f8}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Emotet_DHR_2147745353_0
 {
     meta:

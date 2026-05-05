@@ -48,3 +48,25 @@ rule Trojan_Win32_Stealz_ZCT_2147943076_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealz_CA_2147968451_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealz.CA!MTB"
+        threat_id = "2147968451"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {66 0f 7e c0 66 0f 6e 44 0c ?? 66 0f 6e c8 0f 57 c8 66 0f 7e 89}  //weight: 10, accuracy: Low
+        $x_10_2 = {8a c1 c0 e0 05 2a c1 04 07 02 c2 32 44 0c ?? 88 81}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
