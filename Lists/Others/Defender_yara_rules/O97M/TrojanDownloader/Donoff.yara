@@ -2661,6 +2661,27 @@ rule TrojanDownloader_O97M_Donoff_2147689064_118
         family = "Donoff"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {20 4a 6f 69 6e 28 10 00 2c 20 22 22 29 ff 03 0d 0a 00 20 3d 20 41 72 72 61 79 28 01 00 08 00 2c 20 01 00 08 00 2c 20 01 00 08 00 2c 20 01 00 08 00 2c 20 [0-255] 29}  //weight: 1, accuracy: Low
+        $x_1_2 = {53 75 62 20 44 6f 63 75 6d 65 6e 74 5f 4f 70 65 6e 28 29 0d 0a 01 00 10 00 [0-80] 20 3d 20 41 72 72 61 79 28 22 ?? [0-8] 22 2c 20 22 ?? [0-8] 22 2c 20}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_O97M_Donoff_2147689064_119
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/Donoff"
+        threat_id = "2147689064"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Donoff"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -2673,7 +2694,7 @@ rule TrojanDownloader_O97M_Donoff_2147689064_118
         (all of ($x*))
 }
 
-rule TrojanDownloader_O97M_Donoff_2147689064_119
+rule TrojanDownloader_O97M_Donoff_2147689064_120
 {
     meta:
         author = "defender2yara"
@@ -2694,7 +2715,7 @@ rule TrojanDownloader_O97M_Donoff_2147689064_119
         (all of ($x*))
 }
 
-rule TrojanDownloader_O97M_Donoff_2147689064_120
+rule TrojanDownloader_O97M_Donoff_2147689064_121
 {
     meta:
         author = "defender2yara"
@@ -2716,7 +2737,7 @@ rule TrojanDownloader_O97M_Donoff_2147689064_120
         (all of ($x*))
 }
 
-rule TrojanDownloader_O97M_Donoff_2147689064_121
+rule TrojanDownloader_O97M_Donoff_2147689064_122
 {
     meta:
         author = "defender2yara"
@@ -2736,7 +2757,7 @@ rule TrojanDownloader_O97M_Donoff_2147689064_121
         (all of ($x*))
 }
 
-rule TrojanDownloader_O97M_Donoff_2147689064_122
+rule TrojanDownloader_O97M_Donoff_2147689064_123
 {
     meta:
         author = "defender2yara"
@@ -2754,27 +2775,6 @@ rule TrojanDownloader_O97M_Donoff_2147689064_122
         $x_1_2 = "\"sbk/mpsuopd\"" ascii //weight: 1
         $x_1_3 = "Lib \"shell32.dll\" Alias \"ShellExecuteA\" (ByVal" ascii //weight: 1
         $x_1_4 = "Lib \"urlmon\" Alias \"URLDownloadToFileA\" (ByVal" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule TrojanDownloader_O97M_Donoff_2147689064_123
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "TrojanDownloader:O97M/Donoff"
-        threat_id = "2147689064"
-        type = "TrojanDownloader"
-        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
-        family = "Donoff"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {20 4a 6f 69 6e 28 10 00 2c 20 22 22 29 ff 03 0d 0a 00 20 3d 20 41 72 72 61 79 28 01 00 08 00 2c 20 01 00 08 00 2c 20 01 00 08 00 2c 20 01 00 08 00 2c 20 [0-255] [0-255] [0-255] 29}  //weight: 1, accuracy: Low
-        $x_1_2 = {53 75 62 20 44 6f 63 75 6d 65 6e 74 5f 4f 70 65 6e 28 29 0d 0a 01 00 10 00 [0-80] 20 3d 20 41 72 72 61 79 28 22 ?? [0-8] 22 2c 20 22 ?? [0-8] 22 2c 20}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

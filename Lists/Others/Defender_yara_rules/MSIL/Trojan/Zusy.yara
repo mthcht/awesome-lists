@@ -2515,8 +2515,8 @@ rule Trojan_MSIL_Zusy_HNO_2147926687_0
         $x_5_4 = {00 4b 69 6c 6c 00}  //weight: 5, accuracy: High
         $x_5_5 = {00 4d 61 70 56 69 65 77 4f 66 46 69 6c 65 00}  //weight: 5, accuracy: High
         $x_5_6 = {12 6d 1c 05 20 01 08 12 69 06 20 02 02 18 1d 08}  //weight: 5, accuracy: High
-        $x_1_7 = {00 43 6f 70 79 4d 65 6d 6f 72 79 00 [0-255] [0-255] 00 65 6e 74 72 79 00}  //weight: 1, accuracy: Low
-        $x_1_8 = {00 65 6e 74 72 79 00 [0-255] [0-255] 00 43 6f 70 79 4d 65 6d 6f 72 79 00}  //weight: 1, accuracy: Low
+        $x_1_7 = {00 43 6f 70 79 4d 65 6d 6f 72 79 00 [0-255] 00 65 6e 74 72 79 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {00 65 6e 74 72 79 00 [0-255] 00 43 6f 70 79 4d 65 6d 6f 72 79 00}  //weight: 1, accuracy: Low
         $x_1_9 = {00 43 6f 70 79 4d 65 6d 6f 72 79 00 65 6e 74 72 79 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and

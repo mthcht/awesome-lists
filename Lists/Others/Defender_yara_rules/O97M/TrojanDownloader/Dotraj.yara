@@ -354,7 +354,7 @@ rule TrojanDownloader_O97M_Dotraj_P_2147735756_0
         $x_1_1 = "CreateObject(\"MSXML2.ServerXMLHTTP" ascii //weight: 1
         $x_1_2 = "CreateObject(\"WScript.Shell" ascii //weight: 1
         $x_1_3 = {57 72 69 74 65 20 [0-16] 2e 52 65 73 70 6f 6e 73 65 42 6f 64 79}  //weight: 1, accuracy: Low
-        $x_10_4 = {50 75 62 6c 69 63 20 53 75 62 20 41 75 74 6f 5f 4f 70 65 6e 28 29 [0-255] [0-255] [0-255] 2e 65 78 65 63 20 28 22 [0-16] 2e 65 78 65 22 29}  //weight: 10, accuracy: Low
+        $x_10_4 = {50 75 62 6c 69 63 20 53 75 62 20 41 75 74 6f 5f 4f 70 65 6e 28 29 [0-255] 2e 65 78 65 63 20 28 22 [0-16] 2e 65 78 65 22 29}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (

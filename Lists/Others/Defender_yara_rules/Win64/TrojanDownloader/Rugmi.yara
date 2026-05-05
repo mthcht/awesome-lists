@@ -477,8 +477,8 @@ rule TrojanDownloader_Win64_Rugmi_HNAD_2147925223_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {90 55 48 83 ec 30 48 8d 6c 24 20 48 89 4d 20 48 89 55 28 44 89 45 30 48 8b 45 20 48 89 45 08 8b 45 30 89 45 00 6a ff 58 03 45 30 89 45 30 8b 45 00 85 c0 74 25 48 8b 45 28 48 8b 55 20 0f be 00 88 02 6a 01 58 48 03 45 20 48 89 45 20 6a 01 58 48 03 45 28 48 89 45 28 eb c5}  //weight: 10, accuracy: High
-        $x_1_2 = {33 c0 33 d2 48 [0-255] [0-255] ff d0 [0-255] [0-255] 63 ?? 3c}  //weight: 1, accuracy: Low
-        $x_1_3 = {33 c0 33 d2 48 [0-255] [0-255] 63 ?? 3c [0-255] [0-255] ff d0}  //weight: 1, accuracy: Low
+        $x_1_2 = {33 c0 33 d2 48 [0-255] ff d0 [0-255] 63 ?? 3c}  //weight: 1, accuracy: Low
+        $x_1_3 = {33 c0 33 d2 48 [0-255] 63 ?? 3c [0-255] ff d0}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
