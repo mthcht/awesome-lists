@@ -8874,6 +8874,28 @@ rule Trojan_MSIL_Heracles_ARR_2147957416_1
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_16_1 = {88 02 70 28 ?? ?? ?? ?? 59 7e ?? 00 00 04 61 d1 2a}  //weight: 16, accuracy: Low
+        $x_4_2 = {0a 06 16 7e ?? ?? ?? ?? a2 06 17 7e ?? ?? ?? ?? a2 06 18 7e}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_ARR_2147957416_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.ARR!MTB"
+        threat_id = "2147957416"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_11_1 = {08 17 9c 1f 11 28 ?? ?? ?? ?? 2c 15 1f 43 28 ?? ?? ?? ?? 2d 09 1f 58}  //weight: 11, accuracy: Low
         $x_9_2 = {0a 2c 08 7e ?? ?? ?? ?? 0d de 42 07 28 ?? ?? ?? 06 0c 08 7e}  //weight: 9, accuracy: Low
     condition:
@@ -8881,7 +8903,7 @@ rule Trojan_MSIL_Heracles_ARR_2147957416_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_ARR_2147957416_2
+rule Trojan_MSIL_Heracles_ARR_2147957416_3
 {
     meta:
         author = "defender2yara"
@@ -8903,7 +8925,7 @@ rule Trojan_MSIL_Heracles_ARR_2147957416_2
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_ARR_2147957416_3
+rule Trojan_MSIL_Heracles_ARR_2147957416_4
 {
     meta:
         author = "defender2yara"
@@ -8925,7 +8947,7 @@ rule Trojan_MSIL_Heracles_ARR_2147957416_3
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_ARR_2147957416_4
+rule Trojan_MSIL_Heracles_ARR_2147957416_5
 {
     meta:
         author = "defender2yara"
@@ -8949,7 +8971,7 @@ rule Trojan_MSIL_Heracles_ARR_2147957416_4
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_ARR_2147957416_5
+rule Trojan_MSIL_Heracles_ARR_2147957416_6
 {
     meta:
         author = "defender2yara"

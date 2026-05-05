@@ -1257,3 +1257,28 @@ rule Trojan_Win32_Tedy_AHA_2147966522_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_LRH_2147968423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.LRH!MTB"
+        threat_id = "2147968423"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "echo taskkill /im explorer.exe /f>>C:\\Windows\\BD\\BOSS.bat" ascii //weight: 1
+        $x_2_2 = "BOSS.bat" ascii //weight: 2
+        $x_3_3 = "echo start C:\\b\\win.js>C:\\Windows\\BD\\Error.bat" ascii //weight: 3
+        $x_4_4 = "taskkill /im HipsMain.exe /f" ascii //weight: 4
+        $x_5_5 = "taskkill /im regedit.exe /f" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -94,3 +94,30 @@ rule Trojan_Win32_Minix_SNC_2147965574_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Minix_SNG_2147968418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Minix.SNG!MTB"
+        threat_id = "2147968418"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Minix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Afmytologiseringers" ascii //weight: 1
+        $x_1_2 = "\\Bulter\\sanseverdeners.ini" ascii //weight: 1
+        $x_1_3 = "\\dagtyve\\reserveret.exe" ascii //weight: 1
+        $x_1_4 = "\\postevandet\\butteris.exe" ascii //weight: 1
+        $x_1_5 = "\\Decimalvrdiernes249.zip" ascii //weight: 1
+        $x_1_6 = "\\udgiftsfres.ini" ascii //weight: 1
+        $x_1_7 = "Enneagynous.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

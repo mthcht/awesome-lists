@@ -5604,3 +5604,29 @@ rule Trojan_Win64_Tedy_BAE_2147968386_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LRK_2147968426_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LRK!MTB"
+        threat_id = "2147968426"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 fe c1 45 0f b6 c1 42 8a 54 04 30 44 02 d2 41 0f b6 ca 8a 44 0c 30 42 88 44 04 30 88 54 0c 30 42 02 54 04 30 0f b6 c2 8a 0b 2a 4c 04 30 41 88 0b 48 ff c3 49 ff c3 48 83 ef 01}  //weight: 20, accuracy: High
+        $x_2_2 = "Calling entrypoint of test dll" ascii //weight: 2
+        $x_3_3 = "decrypted test dll" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

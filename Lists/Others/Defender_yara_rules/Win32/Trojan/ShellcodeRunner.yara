@@ -880,3 +880,27 @@ rule Trojan_Win32_ShellcodeRunner_MKB_2147968297_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_LRC_2147968424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.LRC!MTB"
+        threat_id = "2147968424"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a 08 32 ca 02 ca 32 ca 88 08 40 4e}  //weight: 20, accuracy: High
+        $x_1_2 = "AheadLib" ascii //weight: 1
+        $x_2_3 = "MyUniqueAppMutexx" ascii //weight: 2
+        $x_3_4 = "zlib1Org" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1364,3 +1364,29 @@ rule Trojan_MSIL_Barys_ARR_2147967869_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_ARR_2147967869_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.ARR!MTB"
+        threat_id = "2147967869"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_14_1 = {06 08 06 08 91 07 08 07 8e 69 5d 91 61 d2 9c 08 17 58 0c 08 06 8e 69 fe 04 13 06 11 06 2d e1}  //weight: 14, accuracy: High
+        $x_6_2 = {54 00 65 00 73 00 74 00 5f 00 ?? ?? ?? ?? ?? ?? ?? ?? 2e 00 65 00 78 00 65 00}  //weight: 6, accuracy: Low
+        $x_6_3 = {54 65 73 74 5f ?? ?? ?? ?? ?? ?? ?? ?? 2e 65 78 65}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_14_*) and 1 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+

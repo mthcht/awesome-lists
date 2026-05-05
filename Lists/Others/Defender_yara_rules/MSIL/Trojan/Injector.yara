@@ -1774,6 +1774,28 @@ rule Trojan_MSIL_Injector_ARR_2147965720_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_16_1 = {07 09 02 09 91 06 09 06 8e b7 5d 91 61 9c 09 17 d6 0d 09 11 04 31 e9}  //weight: 16, accuracy: High
+        $x_4_2 = {0a 02 8e b7 17 da 17 d6 8d ?? ?? ?? ?? 0b 16 02 8e b7 17 da 13 04 0d 2b 12}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_ARR_2147965720_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.ARR!MTB"
+        threat_id = "2147965720"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:

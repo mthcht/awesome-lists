@@ -622,3 +622,29 @@ rule Trojan_Win64_Farfli_SXH_2147966824_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_LR_2147968427_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.LR!MTB"
+        threat_id = "2147968427"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 8b c1 48 c1 f8 02 48 89 44 24 38 48 8d 54 24 38 48 8b 4c 24 60 ?? ?? ?? ?? ?? ?? 48 8b 4c 24 40 48 33 cc}  //weight: 20, accuracy: Low
+        $x_1_2 = "?CLIENT64@@YA_KXZ" ascii //weight: 1
+        $x_2_3 = "CreateFileTransactedW" ascii //weight: 2
+        $x_3_4 = "CTcpPackClientT<class CTcpClient>::CheckParams" ascii //weight: 3
+        $x_4_5 = "bad allocation" ascii //weight: 4
+        $x_5_6 = "%s --> Error: %d, EC: %d" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
