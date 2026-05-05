@@ -1,13 +1,13 @@
 {
-  "generated_utc": "2026-05-05T13:56:54+00:00",
-  "total_records": 1346,
-  "total_malicious": 1274,
+  "generated_utc": "2026-05-05T15:56:03+00:00",
+  "total_records": 1365,
+  "total_malicious": 1293,
   "total_risky": 72,
   "severity_counts": {
     "critical": 469,
     "high": 681,
     "low": 22,
-    "medium": 174
+    "medium": 193
   },
   "category_counts": {
     "copyright-violation": 15,
@@ -31,7 +31,7 @@
     "risky-infrastructure": 4,
     "risky-remote-access": 15,
     "risky-tunnel": 5,
-    "spam": 42,
+    "spam": 61,
     "spam-malware": 5,
     "typo-squatting": 1,
     "untrustworthy": 59
@@ -46,7 +46,7 @@
     "owner-request": 6,
     "potentially-malicious": 4,
     "publisher-requested": 3,
-    "spam": 42,
+    "spam": 61,
     "spam-malware": 5,
     "typo-squatting": 1,
     "untrustworthy": 59
@@ -65,7 +65,7 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 1034,
+  "total_publishers": 1035,
   "top_publishers": [
     [
       "gtfish1988",
@@ -74,6 +74,10 @@
     [
       "SlashMark",
       25
+    ],
+    [
+      "gh555com",
+      19
     ],
     [
       "pit00",
@@ -161,10 +165,6 @@
     ],
     [
       "ms-azuretools",
-      5
-    ],
-    [
-      "sanchuan",
       5
     ]
   ]
