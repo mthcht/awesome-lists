@@ -3069,3 +3069,25 @@ rule Trojan_Win32_Lazy_SXQ_2147967927_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_MKI_2147968410_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.MKI!MTB"
+        threat_id = "2147968410"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {2e 8d b4 26 00 00 00 00 8d b4 26 00 00 00 00 83 f0 ab 83 c2 01 88 42 ff 0f b6 02 84 c0}  //weight: 20, accuracy: High
+        $x_15_2 = {83 f0 b7 83 c2 01 88 42 ff 0f b6 02 84 c0}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

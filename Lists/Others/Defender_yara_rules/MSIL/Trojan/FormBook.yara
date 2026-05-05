@@ -17829,3 +17829,25 @@ rule Trojan_MSIL_FormBook_MCV_2147967524_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RSE_2147968411_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RSE!MTB"
+        threat_id = "2147968411"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 1d b6 09 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 9d 00 00 00 14 00 00 00 58 00 00 00 9c 00 00 00 77 00 00 00 45 01 00 00 01 00 00 00 b8 00 00 00 32 00 00 00 01 00 00 00 04 00 00 00 07 00 00 00 16 00 00 00 26 00 00 00 18 00 00 00 01 00 00 00 08 00 00 00 05 00 00 00 0a 00 00 00 1c}  //weight: 2, accuracy: High
+        $x_1_2 = "WordScramble" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

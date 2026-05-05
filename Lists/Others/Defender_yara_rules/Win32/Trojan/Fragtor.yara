@@ -3934,3 +3934,29 @@ rule Trojan_Win32_Fragtor_LRC_2147967900_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_SXF_2147968409_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.SXF!MTB"
+        threat_id = "2147968409"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "94"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "sCB.passwords.%u.txt" ascii //weight: 30
+        $x_30_2 = "Credentials.%u.txt" ascii //weight: 30
+        $x_20_3 = "sCB.cards.%u.txt" ascii //weight: 20
+        $x_10_4 = "CB.cookies.%u.txt" ascii //weight: 10
+        $x_2_5 = "\\webcam.bmp" ascii //weight: 2
+        $x_2_6 = "bitcoin" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
