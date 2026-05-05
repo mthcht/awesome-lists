@@ -104,3 +104,26 @@ rule Trojan_Win64_Xworm_PGXR_2147966996_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Xworm_AZZ_2147968495_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Xworm.AZZ!MTB"
+        threat_id = "2147968495"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {c6 84 24 ff 0d 00 00 44 c6 84 24 00 0e 00 00 24 c6 84 24 01 0e 00 00 50 c6 84 24 02 0e 00 00 48 c6 84 24 03 0e 00 00 89 c6 84 24 04 0e 00 00 44 c6 84 24 05 0e 00 00 24 c6 84 24 06 0e 00 00 40 c6 84 24 07 0e 00 00 48 c6 84 24 08 0e 00 00 8d c6 84 24 09 0e 00 00 45 c6 84 24 0a 0e 00 00 f0 c6 84 24 0b 0e 00 00 48 c6 84 24 0c 0e 00 00 89 c6 84 24 0d 0e 00 00 44 c6 84 24 0e 0e 00 00 24 c6 84 24 0f 0e 00 00 48}  //weight: 3, accuracy: High
+        $x_1_2 = "C:\\OSD\\XR\\cmd.exe" ascii //weight: 1
+        $x_1_3 = "UAC BYPASS DEBUGGER STARTING" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

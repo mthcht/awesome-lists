@@ -305,3 +305,25 @@ rule Trojan_MSIL_Shelm_ASB_2147958019_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Shelm_VGK_2147968504_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Shelm.VGK!MTB"
+        threat_id = "2147968504"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Shelm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {91 13 08 06 11 06 06 08 91 9c 06 08 11 08 9c 11 05 11 07 02 11 07 91 06 06 11 06 91 06 08 91}  //weight: 1, accuracy: High
+        $x_1_2 = "C:\\payload.bin" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2318,6 +2318,27 @@ rule Trojan_Win32_Delf_OKP_2147937533_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b ce b2 14 8a 03 e8 ?? ?? ?? ?? 46 ff 45 fc 43 81 7d fc bd 5c 00 00 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Delf_OKP_2147937533_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Delf.OKP!MTB"
+        threat_id = "2147937533"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Delf"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:

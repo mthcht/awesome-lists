@@ -77,3 +77,30 @@ rule Ransom_Win32_Qilin_AQI_2147957795_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Qilin_AMTB_2147968462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Qilin!AMTB"
+        threat_id = "2147968462"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Qilin"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "=== SILENT ENCRYPTOR WITH WPROTECT STARTED ===" ascii //weight: 2
+        $x_2_2 = "Keywords matched: pass, passwords, login, logins, cred, credentials, secret, key" ascii //weight: 2
+        $x_2_3 = "Scanning for sensitive files (passwords, logins, etc.)..." ascii //weight: 2
+        $x_2_4 = "Sensitive files package uploaded: {0} ({1} bytes)" ascii //weight: 2
+        $x_2_5 = "Scanning for wallet files..." ascii //weight: 2
+        $x_2_6 = "Wallet package uploaded: {0} ({1} bytes)" ascii //weight: 2
+        $x_2_7 = "Desktop encryption finished. Encrypted {0} files." ascii //weight: 2
+        $x_2_8 = "Full encryption completed. Total files encrypted: {0}" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

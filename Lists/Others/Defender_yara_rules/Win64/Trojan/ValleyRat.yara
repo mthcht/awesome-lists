@@ -481,3 +481,24 @@ rule Trojan_Win64_ValleyRat_AVY_2147966107_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_SPKA_2147968503_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.SPKA!MTB"
+        threat_id = "2147968503"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 45 f8 48 01 c8 44 31 c2 88 10 8b 45 28 01 45 20 8b 45 20 3b 45 30 7e}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

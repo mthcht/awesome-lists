@@ -217,3 +217,24 @@ rule Trojan_Win64_InfoStealer_PAF_2147967249_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_PAG_2147968499_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.PAG!MTB"
+        threat_id = "2147968499"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4c 89 d0 83 e0 1f 0f b6 84 04 c0 00 00 00 43 32 04 11 43 88 04 13 49 83 c2 01 4d 39 d0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
