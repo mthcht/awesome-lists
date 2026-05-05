@@ -172,6 +172,27 @@ rule Trojan_Win64_Mikey_AMI_2147907010_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {30 4c 24 62 30 4c 24 63 30 4c 24 64 30 4c 24 65 30 4c 24 66 30 4c 24 67 30 4c 24 68 30 4c 24 69 30 4c 24 6a 30 4c 24 6b 30 4c 24 6c 30 4c 24 6d 30 4c 24 6e 66 0f 73 d8 01 66 0f 7e c0 32 c1 49 8b c8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_AMI_2147907010_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AMI!MTB"
+        threat_id = "2147907010"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

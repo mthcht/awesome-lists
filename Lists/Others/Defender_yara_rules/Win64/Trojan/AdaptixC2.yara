@@ -42,3 +42,25 @@ rule Trojan_Win64_AdaptixC2_SXA_2147961638_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AdaptixC2_MX_2147968384_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AdaptixC2.MX!MTB"
+        threat_id = "2147968384"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AdaptixC2"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {75 20 83 b8 84 00 00 00 0e 76 17 44 8b 88 f8 00 00 00 31 c9 45 85 c9 0f 95 c1 0f 1f 84 00 00 00 00 00 48 8b 05 f9 be 0e 00}  //weight: 1, accuracy: High
+        $x_1_2 = {74 42 48 8d 15 cd f2 ff ff b9 01 00 00 00 ff d0 48 89 05 b7 40 0f 00 48 83 c4 38 c3 66 2e 0f 1f 84 00 00 00 00 00 48 8b 0d a1 40 0f 00 48 85 c9 0f 84 d1 fe ff ff 48 8b 05 81 40 0f 00 48 85 c0 74 02 ff d0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

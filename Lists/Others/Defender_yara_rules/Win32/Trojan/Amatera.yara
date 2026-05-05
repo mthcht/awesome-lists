@@ -126,3 +126,24 @@ rule Trojan_Win32_Amatera_SDX_2147965178_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amatera_FX_2147968390_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amatera.FX!MTB"
+        threat_id = "2147968390"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amatera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {c7 45 f8 ef be ad de 8b 45 08 35 91 7e 3c 5a 89 45 fc 8b 4d fc 81 f1 91 7e 3c 5a 89 4d f4 33 c0 8b 4d f8 33 c9 8b 55 f4 03 ca}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

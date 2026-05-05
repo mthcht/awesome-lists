@@ -33,6 +33,30 @@ rule Trojan_MacOS_AmosStealer_GAV_2147965805_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "Low"
+    strings:
+        $x_14_1 = {29 f7 40 88 3c 11 48 ff c2 48 83 c0 0c 48 83 fa 0c 0f 84 13 01 00 00 8b 70 fc 8d 3c 76 33 78 f8 0f b6 08 d3 ff f6 85 [0-5] 4c 89 e9 74 cf}  //weight: 14, accuracy: Low
+        $x_1_2 = "curl -s -X POST -H 'Content-Type: application/json' -d @- '" ascii //weight: 1
+        $x_1_3 = "> /dev/null 2>&1" ascii //weight: 1
+        $x_1_4 = "curl -s -m 30 '" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_AmosStealer_GAV_2147965805_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.GAV!MTB"
+        threat_id = "2147965805"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
         threshold = "14"
         strings_accuracy = "High"
     strings:
@@ -58,5 +82,30 @@ rule Trojan_MacOS_AmosStealer_GAV_2147965805_0
             ((1 of ($x_14_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_MacOS_AmosStealer_DA_2147968389_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.DA!MTB"
+        threat_id = "2147968389"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Shell terminated" ascii //weight: 1
+        $x_1_2 = "/ws/terminal/bot?session_id=" ascii //weight: 1
+        $x_1_3 = "curl -s -X POST -H 'Content-Type: application/json' -d @-" ascii //weight: 1
+        $x_1_4 = "> /dev/null 2>&1" ascii //weight: 1
+        $x_1_5 = "curl -s -m 30" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

@@ -182,6 +182,27 @@ rule Trojan_Win64_Vidar_ARA_2147952226_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 34 03 31 ce 31 de 40 88 34 18 48 ff c3 48 39 da 7f ec}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_ARA_2147952226_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ARA!MTB"
+        threat_id = "2147952226"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {45 32 04 16 ?? 88 44 ?? ff 44 0f b6 04 ?? 48 89 ?? 48 09 ?? 48 c1 e8 20 75 a2}  //weight: 2, accuracy: Low
@@ -190,7 +211,7 @@ rule Trojan_Win64_Vidar_ARA_2147952226_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_ARA_2147952226_1
+rule Trojan_Win64_Vidar_ARA_2147952226_2
 {
     meta:
         author = "defender2yara"
