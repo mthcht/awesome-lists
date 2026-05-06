@@ -9401,3 +9401,26 @@ rule Trojan_Win32_Zusy_IFZ_2147968502_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_KKF_2147968513_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KKF!MTB"
+        threat_id = "2147968513"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 c5 83 e0 01 f7 d8 d1 ed 25 20 83 b8 ed 31 e8 83 ea 01}  //weight: 20, accuracy: High
+        $x_10_2 = {84 c0 74 10 83 f0 ?? 83 c2 01 88 42 ff 0f b6 02 84 c0}  //weight: 10, accuracy: Low
+        $x_5_3 = {0f b7 4c 55 00 0f b6 9a ?? ?? ?? ?? 8d 71 bf 8d 41 20 66 83 fe 1a 8d 73 20 0f 42 c8 8d 43 bf 3c 1a 0f 42 de 38 cb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

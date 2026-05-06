@@ -3091,3 +3091,28 @@ rule Trojan_Win32_Lazy_MKI_2147968410_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_KKA_2147968514_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.KKA!MTB"
+        threat_id = "2147968514"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "SELECT username_value, password_value FROM logins where origin_url LIKE" ascii //weight: 5
+        $x_4_2 = "\\Google\\Chrome\\User Data\\Local State" ascii //weight: 4
+        $x_3_3 = "fb_dtsg" ascii //weight: 3
+        $x_2_4 = "[*] Firing up SOCKS server" ascii //weight: 2
+        $x_1_5 = "[+] SOCKS DoConnection UDP ASSOCIATE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

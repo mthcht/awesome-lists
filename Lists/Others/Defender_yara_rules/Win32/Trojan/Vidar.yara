@@ -7024,3 +7024,25 @@ rule Trojan_Win32_Vidar_GVF_2147965809_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_AZVZ_2147968535_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.AZVZ!MTB"
+        threat_id = "2147968535"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b c8 33 4d ?? c1 c9 ?? 03 d1 44 33 c2 41 c1 c8 ?? 42 8d 3c 00 89 7d 83 33 f9 c1 cf ?? 44 8d 24 17 41 8b f4 41 33 f0 c1 ce ?? 48 83 6d}  //weight: 5, accuracy: Low
+        $x_5_2 = {33 c9 48 3b df 7d ?? 8a 44 0c 50 48 ff c3 32 04 2a 48 ff c1 88 02 48 ff c2 48 83 f9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

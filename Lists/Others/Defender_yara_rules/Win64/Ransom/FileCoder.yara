@@ -1471,3 +1471,26 @@ rule Ransom_Win64_FileCoder_ARAC_2147968349_0
         )
 }
 
+rule Ransom_Win64_FileCoder_KKB_2147968515_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.KKB!MTB"
+        threat_id = "2147968515"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {33 d2 49 8b c0 49 f7 75 10 43 8d 04 01 32 04 0a 43 32 04 01 04 07 43 88 04 01 49 ff c0 48 8b 45 08 4c 8b 4d 00 49 2b c1 4c 3b c0}  //weight: 20, accuracy: High
+        $x_10_2 = "SystemDiagnosticTool.pdb" ascii //weight: 10
+        $x_5_3 = ".locked" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
