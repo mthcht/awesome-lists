@@ -510,3 +510,25 @@ rule Trojan_Win64_Cerbu_AHI_2147968186_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AHJ_2147968552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHJ!MTB"
+        threat_id = "2147968552"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 45 f4 f7 d0 23 45 fc 83 e0 ?? 89 45 ec 8b 45 fc f7 d0 23 45 f4 83 e0 ?? 89 45 e8}  //weight: 30, accuracy: Low
+        $x_20_2 = "{\"%s\":\"%s\",\"%s\":\"%s\",\"%s\":true}" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

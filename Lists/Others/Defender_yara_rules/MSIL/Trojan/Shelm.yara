@@ -327,3 +327,27 @@ rule Trojan_MSIL_Shelm_VGK_2147968504_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Shelm_AKUB_2147968564_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Shelm.AKUB!MTB"
+        threat_id = "2147968564"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Shelm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 05 00 11 05 1f 20 6f ?? 00 00 0a 13 06 73 ?? 00 00 0a 13 07 00 11 07 20 00 01 00 00 6f ?? 00 00 0a 00 11 07 17 6f ?? 00 00 0a 00 11 07 18 6f ?? 00 00 0a 00 11 07 11 06 09 6f ?? 00 00 0a 13 08 00 11 04 73 ?? 00 00 0a 13 09 00 11 09 11 08 16 73 ?? 00 00 0a 13 0a 11 0a 28 ?? 00 00 0a 73 ?? 00 00 0a 13 0b 00 11 0b 6f ?? 00 00 0a 13 0c de 4e}  //weight: 5, accuracy: Low
+        $x_2_2 = {07 08 18 5b 02 08 18 6f ?? 00 00 0a 1f 10 28 ?? 00 00 0a 9c 08 18 58 0c 08 06 fe 04 0d 09 2d e0}  //weight: 2, accuracy: Low
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

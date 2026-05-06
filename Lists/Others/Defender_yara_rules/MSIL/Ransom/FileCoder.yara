@@ -2085,3 +2085,27 @@ rule Ransom_MSIL_FileCoder_KK_2147968288_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_MKA_2147968553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.MKA!MTB"
+        threat_id = "2147968553"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "_totalEncryptedForScreenshot" ascii //weight: 10
+        $x_5_2 = "Encryption command received! Proceeding to RunEncryption()" ascii //weight: 5
+        $x_3_3 = "Local\\SilentEncryptor_" ascii //weight: 3
+        $x_2_4 = "encryption_debug.log" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

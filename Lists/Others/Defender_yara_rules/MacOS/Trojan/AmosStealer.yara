@@ -109,3 +109,28 @@ rule Trojan_MacOS_AmosStealer_DA_2147968389_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_AmosStealer_MU_2147968567_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.MU!MTB"
+        threat_id = "2147968567"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Shell terminated" ascii //weight: 1
+        $x_1_2 = "/ws/terminal/bot" ascii //weight: 1
+        $x_1_3 = "curl -s -X POST -H 'Content-Type: application/js" ascii //weight: 1
+        $x_1_4 = "/dev/null 2>" ascii //weight: 1
+        $x_1_5 = "curl -s -m 30" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

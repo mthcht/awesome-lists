@@ -53,16 +53,21 @@ rule Trojan_MSIL_CloudZRAT_DC_2147968541_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "22"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "<Module>{16c0d3f9-d3ce-4316-a1ea-fabcc3854b4f}" ascii //weight: 1
-        $x_1_2 = "<Module>{3D240462-E823-4AF4-8325-AEF0BFEB5D19}" ascii //weight: 1
-        $x_1_3 = "DebuggableAttribute" ascii //weight: 1
-        $x_1_4 = "DebuggingModes" ascii //weight: 1
-        $x_1_5 = "Microsoft.CodeAnalysis" ascii //weight: 1
+        $x_10_1 = "<Module>{16c0d3f9-d3ce-4316-a1ea-fabcc3854b4f}" ascii //weight: 10
+        $x_10_2 = "<Module>{3D240462-E823-4AF4-8325-AEF0BFEB5D19}" ascii //weight: 10
+        $x_10_3 = "<Module>{35249F5B-F77E-42F8-BC3D-E5C1C5E9124F}" ascii //weight: 10
+        $x_10_4 = "<Module>{ee12803f-11d6-474e-aa66-fff21ee88c6e}" ascii //weight: 10
+        $x_1_5 = "DebuggableAttribute" ascii //weight: 1
+        $x_1_6 = "DebuggingModes" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_10_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
