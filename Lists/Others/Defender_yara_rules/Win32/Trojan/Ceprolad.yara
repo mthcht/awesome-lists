@@ -78,6 +78,8 @@ rule Trojan_Win32_Ceprolad_A_2147726914_1
         $n_50_26 = "https://trix.au.ing.net" wide //weight: -50
         $n_50_27 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 [0-255] 2e 00 70 00 6f 00 77 00 65 00 72 00 62 00 69 00 2e 00 63 00 6f 00 6d 00 2f 00 68 00 6f 00 6d 00 65 00}  //weight: -50, accuracy: Low
         $n_50_28 = "http://10.254.106.53" wide //weight: -50
+        $n_50_29 = "http://localhost/briarootca.crl" wide //weight: -50
+        $n_50_30 = "http://localhost/BRIndustrialAutomationCodeSigningCA.crl" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -133,6 +135,8 @@ rule Trojan_Win32_Ceprolad_A_2147726914_2
         $n_50_29 = "https://DYN-DM-biabtrix01.biab.au.ing.net" wide //weight: -50
         $n_50_30 = "https://trix.au.ing.net" wide //weight: -50
         $n_50_31 = "http://10.254.106.53" wide //weight: -50
+        $n_50_32 = "http://localhost/briarootca.crl" wide //weight: -50
+        $n_50_33 = "http://localhost/BRIndustrialAutomationCodeSigningCA.crl" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

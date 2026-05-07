@@ -3574,3 +3574,30 @@ rule Trojan_MSIL_Stealer_VD_2147964831_0
         (2 of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_NWB_2147968750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.NWB!MTB"
+        threat_id = "2147968750"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {91 58 03 11 06 03 8e 69 5d 91 58}  //weight: 2, accuracy: High
+        $x_2_2 = {5f 91 61 d2 9c 11 08 17 58 13 08 11 08 02 8e 69}  //weight: 2, accuracy: High
+        $x_1_3 = "Software\\Classes\\CLSID\\{0F87369F-A4E5-4CFC-BD3E-73E6154572DD}" ascii //weight: 1
+        $x_1_4 = "WalletWasabi" ascii //weight: 1
+        $x_1_5 = "VirtualBox" ascii //weight: 1
+        $x_1_6 = "SOFTWARE\\VMware, Inc.\\VMware VGAuth" ascii //weight: 1
+        $x_1_7 = "AntiVm" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
