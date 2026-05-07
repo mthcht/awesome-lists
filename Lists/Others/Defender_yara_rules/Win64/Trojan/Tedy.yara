@@ -5672,3 +5672,25 @@ rule Trojan_Win64_Tedy_VGL_2147968692_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CAD_2147968737_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CAD!MTB"
+        threat_id = "2147968737"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {30 08 48 8d 0c 02 83 e1 ?? 42 0f b6 0c 11 30 48 ?? 48 83 c0 04 49 8d 0c 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {0f b6 04 38 30 41 ?? 49 8d 04 0b 83 e0 ?? 0f b6 04 38 30 41}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
