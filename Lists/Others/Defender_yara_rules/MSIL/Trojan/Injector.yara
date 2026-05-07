@@ -1967,3 +1967,36 @@ rule Trojan_MSIL_Injector_MKA_2147967808_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_NWA_2147968602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.NWA!MTB"
+        threat_id = "2147968602"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "39f61d1e-ec4f-415c-8d02-7f6d64400e34" ascii //weight: 2
+        $x_2_2 = "Self-Inject" ascii //weight: 2
+        $x_1_3 = "STRAZNJICA.GRUBUTT" ascii //weight: 1
+        $x_1_4 = "SELECT * FROM Win32_ComputerSystem" ascii //weight: 1
+        $x_1_5 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_6 = "NtQueryVirtualMemory" ascii //weight: 1
+        $x_1_7 = "GetExecutingAssembly" ascii //weight: 1
+        $x_1_8 = "ToBase64String" ascii //weight: 1
+        $x_1_9 = "virtualbox" ascii //weight: 1
+        $x_1_10 = "ollydbg" ascii //weight: 1
+        $x_1_11 = "immunity debugger" ascii //weight: 1
+        $x_1_12 = "wireshark" ascii //weight: 1
+        $x_1_13 = "processhacker" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

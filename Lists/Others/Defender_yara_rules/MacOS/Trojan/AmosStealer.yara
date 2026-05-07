@@ -96,14 +96,13 @@ rule Trojan_MacOS_AmosStealer_DA_2147968389_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
-        threshold = "5"
+        threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "Shell terminated" ascii //weight: 1
-        $x_1_2 = "/ws/terminal/bot?session_id=" ascii //weight: 1
-        $x_1_3 = "curl -s -X POST -H 'Content-Type: application/json' -d @-" ascii //weight: 1
-        $x_1_4 = "> /dev/null 2>&1" ascii //weight: 1
-        $x_1_5 = "curl -s -m 30" ascii //weight: 1
+        $x_1_1 = "/ws/terminal/bot" ascii //weight: 1
+        $x_1_2 = "curl -s -X POST -H 'Content-Type: application/js" ascii //weight: 1
+        $x_1_3 = "/dev/null 2>" ascii //weight: 1
+        $x_1_4 = "curl -s -m 30" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

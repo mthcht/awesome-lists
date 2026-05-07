@@ -369,3 +369,24 @@ rule Trojan_Win64_Doina_KK_2147965900_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_PAHZ_2147967945_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.PAHZ!MTB"
+        threat_id = "2147967945"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {40 22 c7 f6 d8 8b 44 24 ?? 1b c9 d1 e8 81 e1 20 83 b8 ed 33 c1 89 44 24 ?? 8b 4c 24 ?? 8b 44 24 ?? 03 c8 89 4c 24 ?? 2b d7 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

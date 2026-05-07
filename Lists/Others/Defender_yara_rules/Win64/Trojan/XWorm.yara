@@ -660,3 +660,26 @@ rule Trojan_Win64_XWorm_PAHV_2147968263_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_AMX_2147968693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.AMX!MTB"
+        threat_id = "2147968693"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 74 74 70 3a 2f 2f 38 30 2e 32 35 33 2e 32 34 39 2e 31 36 39 3a 35 30 30 30 2f [0-15] 2e 65 78 65}  //weight: 3, accuracy: Low
+        $x_1_2 = "Local Settings\\Application Data\\Service.exe" ascii //weight: 1
+        $x_1_3 = "powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -Command \"Add-MpPreference -ExclusionPath 'C:\\Users" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

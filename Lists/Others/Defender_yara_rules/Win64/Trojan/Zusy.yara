@@ -3774,3 +3774,24 @@ rule Trojan_Win64_Zusy_KKE_2147968227_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_PGZB_2147968610_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PGZB!MTB"
+        threat_id = "2147968610"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "http://80.253.249.169:5000/terua.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

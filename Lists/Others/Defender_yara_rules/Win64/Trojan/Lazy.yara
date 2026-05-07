@@ -5856,3 +5856,26 @@ rule Trojan_Win64_Lazy_LRK_2147968425_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHA_2147968634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHA!MTB"
+        threat_id = "2147968634"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[-] RevertToSelf failed: %u" ascii //weight: 30
+        $x_20_2 = "[*] No keystrokes captured" ascii //weight: 20
+        $x_10_3 = "[-] Failed to execute cmdkey" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

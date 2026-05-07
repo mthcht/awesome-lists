@@ -431,3 +431,24 @@ rule Trojan_Win64_ReverseShell_AHB_2147967319_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_ARSH_2147968612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.ARSH!MTB"
+        threat_id = "2147968612"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b 40 18 48 8b 00 8b 00 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 48 89 c2 48 8d 05 ?? ?? ?? ?? 49 89 d0 ba 10 00 00 00 48 89 c1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

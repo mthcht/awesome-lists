@@ -10227,6 +10227,27 @@ rule Trojan_MSIL_Heracles_BAQ_2147968015_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_BAQ_2147968015_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.BAQ!MTB"
+        threat_id = "2147968015"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {09 11 04 09 11 04 91 6e 05 6a 59 20 ff 00 00 00 6a 5f d2 9c 11 04 17 58 13 04 11 04 09 8e 69 32 df 03 04 ?? ?? 00 00 0a 13 05 09 16 11 05 09 8e 69 ?? ?? 00 00 0a 07 08 59 0b 04 08 58 10 02 07 16 30 9f}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_MKG_2147968296_0
 {
     meta:
@@ -10245,6 +10266,28 @@ rule Trojan_MSIL_Heracles_MKG_2147968296_0
         $x_20_1 = {69 1f 20 12 03 28 ?? 00 00 06 2d 0b 28 ?? 00 00 0a 73 ?? 00 00 0a 7a 7e ?? 00 00 0a 13 04 7e ?? 00 00 0a 16 06 7e 08 00 00 0a 16 12 04 28 ?? 00 00 06 13 05 11 05 7e ?? 00 00 0a 28 ?? 00 00 0a 2c 0b 28 ?? 00 00 0a 73 ?? 00 00 0a 7a}  //weight: 20, accuracy: Low
         $x_10_2 = "SelfInjection" ascii //weight: 10
         $x_5_3 = "shellcode" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_MKH_2147968639_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.MKH!MTB"
+        threat_id = "2147968639"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {11 07 17 6f ?? 00 00 0a 11 07 17 6f ?? 00 00 0a 11 07 16 6f ?? 00 00 0a 11 07 28 ?? 00 00 0a 26 de 03}  //weight: 20, accuracy: Low
+        $x_15_2 = "/c timeout /t 3 /nobreak > nul & \"" ascii //weight: 15
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -20,3 +20,25 @@ rule Trojan_Win32_Bundpil_BQ_2147783318_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Bundpil_AHA_2147968635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bundpil.AHA!MTB"
+        threat_id = "2147968635"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bundpil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "rootart total better degree letchancebrother" ascii //weight: 20
+        $x_30_2 = {2b d0 89 15 ?? ?? ?? ?? 8b 4d e8 83 c1 ?? 89 4d e8 8b 55 e4 83 ea ?? 89 55 e4 e9}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
