@@ -269,29 +269,6 @@ rule Trojan_Win64_DLLHijack_NUK_2147965968_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DO_2147966831_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/DLLHijack.DO!MTB"
-        threat_id = "2147966831"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "DLLHijack"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {48 89 c8 31 d2 49 f7 f1 0f b6 d2 48 89 c1 89 d0 41 f6 f2 0f b6 d4 80 ca 30 0f b6 d2 c1 e2 08 0f b6 c0 01 d0 83 c0 30 66 42 89 44 05 b3}  //weight: 1, accuracy: High
-        $n_100_2 = "</CustomerOrderNumber>" ascii //weight: -100
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_DLLHijack_NVB_2147967591_0
 {
     meta:

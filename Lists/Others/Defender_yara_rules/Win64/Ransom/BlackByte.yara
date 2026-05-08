@@ -106,25 +106,3 @@ rule Ransom_Win64_BlackByte_SZ_2147961064_0
         (all of ($x*))
 }
 
-rule Ransom_Win64_BlackByte_SH_2147966647_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win64/BlackByte.SH!MTB"
-        threat_id = "2147966647"
-        type = "Ransom"
-        platform = "Win64: Windows 64-bit platform"
-        family = "BlackByte"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {48 29 d7 48 89 7c 24 ?? 48 f7 df 48 c1 ff ?? 48 21 d7 4c 8b 84 24 ?? ?? ?? ?? 45 8b 48 ?? 41 69 d9 ?? ?? ?? ?? 41 33 18 48 29 d1 48 89 4c 24 ?? 48 8d 0c 3e 48 89 8c 24 ?? ?? ?? ?? e8}  //weight: 1, accuracy: Low
-        $x_1_2 = "gentlemen.bmp" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

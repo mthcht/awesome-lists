@@ -33,7 +33,7 @@ rule Trojan_Linux_Kagentz_Z_2147967757_0
         family = "Kagentz"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:

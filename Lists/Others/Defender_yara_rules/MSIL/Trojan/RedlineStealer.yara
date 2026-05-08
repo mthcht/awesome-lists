@@ -771,13 +771,17 @@ rule Trojan_MSIL_RedlineStealer_RVB_2147968736_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
+        threshold = "6"
+        strings_accuracy = "Low"
     strings:
-        $x_2_1 = {57 1d a2 09 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 94 00 00 00 2e 00 00 00 ef 00 00 00 05 01 00 00 ab 00 00 00 62 01 00 00 10 00 00 00 ed 00 00 00 35 00 00 00 0f 00 00 00 45 00 00 00 65 00 00 00 3b 00 00 00 01 00 00 00 08 00 00 00 02 00 00 00 11 00 00 00 21 00 00 00 1d}  //weight: 2, accuracy: High
-        $x_1_2 = "C9E8A7F6-5D4B-4A3E-9F2C-8B1A7D6E5F4C" ascii //weight: 1
+        $x_1_1 = {57 1d a2 09 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 94 00 00 00 2e 00 00 00 ef 00 00 00 05 01 00 00 ab 00 00 00 62 01 00 00 10 00 00 00 ed 00 00 00 35 00 00 00 0f 00 00 00 45 00 00 00 65 00 00 00 3b 00 00 00 01 00 00 00 08 00 00 00 02 00 00 00 11 00 00 00 21 00 00 00 1d}  //weight: 1, accuracy: High
+        $x_1_2 = {57 9d a2 29 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 a5 00 00 00 3f 00 00 00 99 01 00 00 69 01 00 00 b3 00 00 00 70 01 00 00 10 00 00 00 ef 00 00 00 0b 00 00 00 ?? 00 00 00 0c 00 00 00 35 00 00 00 47 00 00 00 3b 00 00 00 0e 00 00 00 02 00 00 00 08 00 00 00 04 00 00 00 1d 00 00 00 21 00 00 00 1d}  //weight: 1, accuracy: Low
+        $x_5_3 = "C9E8A7F6-5D4B-4A3E-9F2C-8B1A7D6E5F4C" ascii //weight: 5
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

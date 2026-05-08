@@ -170,3 +170,30 @@ rule Trojan_Win32_Korplug_SX_2147967845_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Korplug_AHA_2147968832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Korplug.AHA!MTB"
+        threat_id = "2147968832"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Korplug"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {31 db 83 ff ?? 0f 94 c3 c1 e3 ?? 81 cb ?? 00 00 00 66 33 9f ?? ?? ?? ?? 66 89 5c 3c 30 83 c7 ?? eb}  //weight: 30, accuracy: Low
+        $x_30_2 = {58 0f 44 c3 66 33 87 ?? ?? ?? ?? 66 89 44 3c 30 83 c7 ?? eb}  //weight: 30, accuracy: Low
+        $x_20_3 = {cb 89 f8 b9 ?? ?? ?? ?? 89 55 ec 69 f6 ?? ?? ?? ?? f7 e1 69 cf ?? ?? ?? ?? 01 ce 89 c7 01 d6}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((2 of ($x_30_*))) or
+            (all of ($x*))
+        )
+}
+

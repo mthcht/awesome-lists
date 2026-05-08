@@ -62,3 +62,29 @@ rule Backdoor_MSIL_Caminho_ARP_2147965352_0
         )
 }
 
+rule Backdoor_MSIL_Caminho_K_2147968840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/Caminho.K!AMTB"
+        threat_id = "2147968840"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Caminho"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ExecutarMetodoVAI" ascii //weight: 1
+        $x_1_2 = "VirtualMachineDetector" ascii //weight: 1
+        $x_1_3 = "caminhovbs" ascii //weight: 1
+        $x_1_4 = "payloadBuffer" ascii //weight: 1
+        $x_1_5 = "nomedoarquivo" ascii //weight: 1
+        $x_1_6 = {65 78 74 65 6e c3 a7 61 6f 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

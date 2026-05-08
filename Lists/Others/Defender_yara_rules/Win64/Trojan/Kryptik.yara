@@ -49,3 +49,24 @@ rule Trojan_Win64_Kryptik_PGK_2147938072_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Kryptik_K_2147968841_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Kryptik.K!AMTB"
+        threat_id = "2147968841"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Kryptik"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {44 0f b6 04 30 49 89 f9 48 c1 ff 3f 48 89 c1 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 d3 49 f7 e9 4c 01 ca 48 c1 fa 06 48 29 fa 48 6b d2 61 4c 89 cf 49 29 d1 45 31 c1 48 89 ca 48 c1 e1 05 48 29 d1 44 31 c9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
