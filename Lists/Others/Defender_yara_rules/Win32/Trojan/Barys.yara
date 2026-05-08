@@ -427,3 +427,24 @@ rule Trojan_Win32_Barys_ZPF_2147966781_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Barys_PGBA_2147968851_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Barys.PGBA!MTB"
+        threat_id = "2147968851"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 17 49 41 81 e2 ?? ?? ?? ?? be ?? ?? ?? ?? 43 01 cb 31 10 21 f3 81 c1 ?? ?? ?? ?? 40 89 f1 f7 d1 47 01 de 29 de 46 81 f8 ?? ?? ?? ?? 0f 8c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

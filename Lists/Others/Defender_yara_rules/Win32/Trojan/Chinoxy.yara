@@ -69,3 +69,23 @@ rule Trojan_Win32_Chinoxy_PA_2147751943_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Chinoxy_C_2147968852_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Chinoxy.C"
+        threat_id = "2147968852"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Chinoxy"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {25 d8 00 00 00 [0-20] 81 e2 d8 00 00 00 [0-20] 83 ?? 27 [0-20] 83 ?? 27 [0-80] 33 d2 b9 0c 00 00 00 f7 f1 [0-20] 33 d2 b9 0c 00 00 00 f7 f1}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -62,3 +62,24 @@ rule Trojan_Win64_HijackLoader_ARAD_2147968350_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_HijackLoader_ARAE_2147968849_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/HijackLoader.ARAE!MTB"
+        threat_id = "2147968849"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "HijackLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 05 d5 df 0b 00 48 8d 52 01 41 ff c0 0f be 4c 10 ff 66 41 89 4c 54 fe 48 8b 05 bc df 0b 00 44 38 14 10 75 da}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
