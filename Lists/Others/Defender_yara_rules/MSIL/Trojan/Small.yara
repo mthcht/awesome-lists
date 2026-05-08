@@ -543,3 +543,31 @@ rule Trojan_MSIL_Small_SK_2147918468_0
         (3 of ($x*))
 }
 
+rule Trojan_MSIL_Small_ZJD_2147968867_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Small.ZJD!MTB"
+        threat_id = "2147968867"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "xAI_GhostRAT_2026_SuperSecret_Key!!!" ascii //weight: 3
+        $x_1_2 = "keyloggerRunning" ascii //weight: 1
+        $x_1_3 = "StartKeylogger" ascii //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_5 = "KillProcess" ascii //weight: 1
+        $x_1_6 = "KeyloggerLoop" ascii //weight: 1
+        $x_1_7 = "IsVirtualMachine" ascii //weight: 1
+        $x_1_8 = "IsHighlySandboxed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
