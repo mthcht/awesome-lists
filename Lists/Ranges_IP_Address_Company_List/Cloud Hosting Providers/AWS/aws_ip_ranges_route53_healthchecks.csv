@@ -1,6 +1,7 @@
 dest_ip,metadata_region,metadata_service,metadata_network_border_group
 51.0.252.0/24,eusc-de-east-1,ROUTE53_HEALTHCHECKS,eusc-de-east-1
 15.177.0.0/18,GLOBAL,ROUTE53_HEALTHCHECKS,GLOBAL
+15.177.108.0/24,us-south-1,ROUTE53_HEALTHCHECKS,us-south-1
 52.80.197.0/25,cn-north-1,ROUTE53_HEALTHCHECKS,cn-north-1
 52.80.197.128/25,cn-north-1,ROUTE53_HEALTHCHECKS,cn-north-1
 52.80.198.0/25,cn-north-1,ROUTE53_HEALTHCHECKS,cn-north-1
