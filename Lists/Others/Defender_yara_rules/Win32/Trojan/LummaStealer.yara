@@ -7894,7 +7894,7 @@ rule Trojan_Win32_LummaStealer_KK_2147956940_0
         threshold = "20"
         strings_accuracy = "Low"
     strings:
-        $x_20_1 = {8b 04 24 8b 4c 24 10 0f b6 0c 01 35 ?? ?? ?? ?? 89 44 24 04 8b 44 24 04 09 c8 8b 54 24 04 21 ca 31 c2 89 54 24 08 8b 44 24 08 04 70 8b 4c 24 10 8b 14 24 88 04 11 8b 04 24 83 c0 01 89 04 24}  //weight: 20, accuracy: Low
+        $x_20_1 = {8b 74 24 04 89 ca c1 ea ?? 31 ca 89 d7 f7 d7 21 f7 89 f1 f7 d1 21 d1 0f af cf 89 f3 21 d3 31 f2 01 f2 29 fa 0f af d3 01 c1 01 d1 8b 15 ?? ?? ?? ?? 89 4c 82 04 40 3d}  //weight: 20, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -7915,13 +7915,34 @@ rule Trojan_Win32_LummaStealer_KK_2147956940_1
         threshold = "20"
         strings_accuracy = "Low"
     strings:
-        $x_20_1 = {8b 04 24 8b 4c 24 10 0f b6 0c 01 35 ?? ?? ?? ?? 89 44 24 04 8b 44 24 04 09 c8 8b 54 24 04 21 ca 31 c2 89 54 24 08 8b 44 24 08 04 ?? 8b 4c 24 10 8b 14 24 88 04 11 8b 04 24 83 c0 01 89 04 24}  //weight: 20, accuracy: Low
+        $x_20_1 = {8b 04 24 8b 4c 24 10 0f b6 0c 01 35 ?? ?? ?? ?? 89 44 24 04 8b 44 24 04 09 c8 8b 54 24 04 21 ca 31 c2 89 54 24 08 8b 44 24 08 04 70 8b 4c 24 10 8b 14 24 88 04 11 8b 04 24 83 c0 01 89 04 24}  //weight: 20, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_Win32_LummaStealer_KK_2147956940_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.KK!MTB"
+        threat_id = "2147956940"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 04 24 8b 4c 24 10 0f b6 0c 01 35 ?? ?? ?? ?? 89 44 24 04 8b 44 24 04 09 c8 8b 54 24 04 21 ca 31 c2 89 54 24 08 8b 44 24 08 04 ?? 8b 4c 24 10 8b 14 24 88 04 11 8b 04 24 83 c0 01 89 04 24}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_KK_2147956940_3
 {
     meta:
         author = "defender2yara"

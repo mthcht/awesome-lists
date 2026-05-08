@@ -929,3 +929,32 @@ rule Trojan_Win64_StealC_GDM_2147968860_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_GDK_2147968882_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.GDK!MTB"
+        threat_id = "2147968882"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {f2 0f 58 f5 f2 41 0f 58 f2 f2 41 0f 58 f4 f2 0f 58 f5 f2 44 0f 58 ce f2 0f 10 35 36 ab 0a 00 f2 44 0f 58 ce f2 0f 10 35 ?? ?? ?? ?? f2 44 0f 58 ce f2 44 0f 10 05 ?? ?? ?? ?? f2 45 0f 58 c8 f2 45 0f 58 cb f2 41 0f 58 d1 f2 0f 58 d3 f2 0f 10 1d ?? ?? ?? ?? f2 0f 58 d3 f2 0f 58 d4 0f 57 e4 66 0f 2e d4 ?? 76 ?? 84 c9 76 ?? 48 8b 8c 24 ?? ?? ?? ?? 48 85 c9 74 ?? c6 84 24 ?? ?? ?? ?? 01 48 8b 8c 24 ?? ?? ?? ?? 48 85 c9}  //weight: 10, accuracy: Low
+        $x_10_2 = {f2 0f 58 f5 f2 44 0f 58 ce f2 0f 10 35 ?? ?? ?? ?? f2 44 0f 58 ce f2 0f 10 35 ?? ?? ?? ?? f2 44 0f 58 ce f2 44 0f 10 05 ?? ?? ?? ?? f2 45 0f 58 c8 f2 45 0f 58 cb f2 41 0f 58 d1 f2 0f 58 d3 f2 0f 10 1d be aa 0a 00 f2 0f 58 d3 f2 0f 58 d4 0f 57 e4 66 0f 2e d4 76 ?? 84 c9 76 ?? 48 8b 8c 24 ?? ?? ?? ?? 48 85 c9 74 ?? c6 84 24 ?? ?? ?? ?? 01 48 8b 8c 24 ?? ?? ?? ?? 0f 1f 40 ?? 48 85 c9}  //weight: 10, accuracy: Low
+        $x_1_3 = "TOXIC_GAS_REACTORHYDRAULIC_RUPTUREICE_MARGINAL_ZONETRAINING" ascii //weight: 1
+        $x_1_4 = "malformed GOMEMLIMIT" ascii //weight: 1
+        $x_1_5 = "SuspendThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

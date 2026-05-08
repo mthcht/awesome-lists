@@ -170,3 +170,28 @@ rule Backdoor_Win32_IRCBot_GAB_2147898380_0
         (all of ($x*))
 }
 
+rule Backdoor_Win32_IRCBot_KK_2147968884_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/IRCBot.KK!MTB"
+        threat_id = "2147968884"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "IRCBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Litmus 2.04" ascii //weight: 5
+        $x_4_2 = "VERSION %s (C)2001 The Litmus Group :%s" ascii //weight: 4
+        $x_3_3 = "Microsoft Virii Downloader" ascii //weight: 3
+        $x_2_4 = "TOPIC %s :Eddie lives somwhere in time" ascii //weight: 2
+        $x_1_5 = "NOTICE %s :Try .killchat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

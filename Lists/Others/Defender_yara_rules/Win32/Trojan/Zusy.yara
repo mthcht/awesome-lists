@@ -5737,6 +5737,32 @@ rule Trojan_Win32_Zusy_KKA_2147929325_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {31 d1 88 08 83 c0 01 0f b6 08 84 c9}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 54 24 0c 89 c1 ?? ?? ?? 29 ca 89 54 24 0c 83 c0 01 83 f8}  //weight: 10, accuracy: Low
+        $x_10_3 = {8b 44 24 0c 8b 4c 24 0c d1 f8 [0-5] 31 c8 89 44 24 0c 83 ea 01}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_Zusy_KKA_2147929325_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KKA!MTB"
+        threat_id = "2147929325"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "Low"
     strings:
@@ -6987,6 +7013,28 @@ rule Trojan_Win32_Zusy_KK_2147944060_0
         threshold = "30"
         strings_accuracy = "High"
     strings:
+        $x_20_1 = {31 ca 83 c0 01 88 50 ff 0f b6 10 84 d2}  //weight: 20, accuracy: High
+        $x_10_2 = {31 d1 83 c0 02 66 89 48 fe 0f b7 08 66 85 c9}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Zusy_KK_2147944060_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.KK!MTB"
+        threat_id = "2147944060"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
         $x_20_1 = {50 6a 01 6a 02 83 ec 0c 8b 44 24 14 83 c0 3c 8b 00 03 44 24 14 83 c0 78 85 c0 0f 84 aa 00 00 00}  //weight: 20, accuracy: High
         $x_10_2 = {b6 12 00 d6 b6 12 00 e6 b6 12 00 fc b6 12}  //weight: 10, accuracy: High
     condition:
@@ -6994,7 +7042,7 @@ rule Trojan_Win32_Zusy_KK_2147944060_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_KK_2147944060_1
+rule Trojan_Win32_Zusy_KK_2147944060_2
 {
     meta:
         author = "defender2yara"
@@ -7017,7 +7065,7 @@ rule Trojan_Win32_Zusy_KK_2147944060_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_KK_2147944060_2
+rule Trojan_Win32_Zusy_KK_2147944060_3
 {
     meta:
         author = "defender2yara"
@@ -7039,7 +7087,7 @@ rule Trojan_Win32_Zusy_KK_2147944060_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_KK_2147944060_3
+rule Trojan_Win32_Zusy_KK_2147944060_4
 {
     meta:
         author = "defender2yara"
@@ -7060,7 +7108,7 @@ rule Trojan_Win32_Zusy_KK_2147944060_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_KK_2147944060_4
+rule Trojan_Win32_Zusy_KK_2147944060_5
 {
     meta:
         author = "defender2yara"
@@ -7083,7 +7131,7 @@ rule Trojan_Win32_Zusy_KK_2147944060_4
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_KK_2147944060_5
+rule Trojan_Win32_Zusy_KK_2147944060_6
 {
     meta:
         author = "defender2yara"
@@ -7106,7 +7154,7 @@ rule Trojan_Win32_Zusy_KK_2147944060_5
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_KK_2147944060_6
+rule Trojan_Win32_Zusy_KK_2147944060_7
 {
     meta:
         author = "defender2yara"
@@ -7131,7 +7179,7 @@ rule Trojan_Win32_Zusy_KK_2147944060_6
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_KK_2147944060_7
+rule Trojan_Win32_Zusy_KK_2147944060_8
 {
     meta:
         author = "defender2yara"
