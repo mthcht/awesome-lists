@@ -195,6 +195,7 @@ rule Trojan_Win32_ClickFix_DB_2147932129_0
         $x_1_5 = "- ray" wide //weight: 1
         $n_1000_6 = "msedgewebview2.exe" wide //weight: -1000
         $n_1000_7 = "if false == false echo" wide //weight: -1000
+        $n_500_8 = "msedge.exe" wide //weight: -500
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -13906,6 +13907,61 @@ rule Trojan_Win32_ClickFix_DJS_2147968527_0
         $x_1_3 = "Wscript.Shell" wide //weight: 1
         $x_1_4 = "powershell" wide //weight: 1
         $x_1_5 = "Start-Sleep" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DMZ_2147968797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DMZ!MTB"
+        threat_id = "2147968797"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "51"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_10_2 = "start" wide //weight: 10
+        $x_10_3 = "iex" wide //weight: 10
+        $x_10_4 = "jhtjztps" wide //weight: 10
+        $x_10_5 = "wgejt" wide //weight: 10
+        $x_1_6 = ".trim" wide //weight: 1
+        $x_1_7 = ".replace" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((5 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_ABG_2147968804_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ABG!MTB"
+        threat_id = "2147968804"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_6_2 = "://verriffy.com" wide //weight: 6
+        $x_1_3 = "loadString(" wide //weight: 1
+        $x_1_4 = ".Down" wide //weight: 1
+        $x_1_5 = ")|IEX" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
