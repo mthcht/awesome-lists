@@ -2602,3 +2602,27 @@ rule Trojan_MSIL_Zilla_SXD_2147968518_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_SXE_2147968806_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SXE!MTB"
+        threat_id = "2147968806"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "90"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[ComHijack] ThreadingModel: Apartment | Both | Free | Neutral" ascii //weight: 30
+        $x_30_2 = "[ComHijack] TryRemoveClsidUserOverride:" ascii //weight: 30
+        $x_20_3 = "[DllProxy] WriteProcessMemory err=" ascii //weight: 20
+        $x_10_4 = "[HVNC] JPEG Stream" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

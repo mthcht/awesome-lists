@@ -1574,3 +1574,26 @@ rule Trojan_Win64_ClipBanker_NP_2147968011_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_SXB_2147968807_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.SXB!MTB"
+        threat_id = "2147968807"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 83 fe 0f 48 0f 47 55 d7 4c 8d 43 01 48 8b c8 e8 ?? ?? ?? ?? 48 8b cf ff 15 ?? ?? ?? ?? 41 8b de 0f 1f 40 00 33 c9 ff 15 ?? ?? ?? ?? 85 c0 75 17 b9 0a 00 00 00 ff 15 ?? ?? ?? ?? ff c3 83 fb 05 7c e2}  //weight: 30, accuracy: Low
+        $x_20_2 = {4c 8d 84 24 70 02 00 00 48 8d 15 ?? ?? ?? ?? 48 8d 4c 24 40 ff 15 ?? ?? ?? ?? 83 f8 ff 0f 84 f5 00 00 00 45 33 c0 48 8d 54 24 40 48 8d 8c 24 80 04 00 00 ff 15 ?? ?? ?? ?? 85 c0 0f 84 d7 00 00 00 48 8d 4c 24 40 ff 15 ?? ?? ?? ?? 83 f8 ff 74 10 83 c8 06 48 8d 4c 24 40 8b d0 ff 15}  //weight: 20, accuracy: Low
+        $x_10_3 = "ReflectiveLoader" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

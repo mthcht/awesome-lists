@@ -65,8 +65,10 @@ rule Trojan_Win32_ClickFix_D_2147924939_0
         $x_1_2 = {68 00 74 00 74 00 70 00 [0-2] 3a 00 2f 00 2f 00}  //weight: 1, accuracy: Low
         $x_1_3 = "recaptcha" wide //weight: 1
         $x_1_4 = "verif" wide //weight: 1
+        $n_100_5 = "https://www.google.com/recaptcha/api/siteverify" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
