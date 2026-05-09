@@ -21,3 +21,25 @@ rule Ransom_MSIL_Lazy_SN_2147964160_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Lazy_SNA_2147968907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Lazy.SNA!MTB"
+        threat_id = "2147968907"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {73 1d 00 00 0a 25 72 0d 00 00 70 6f 20 00 00 0a 25 72 1d 00 00 70 6f 2c 00 00 0a 25 17 6f 21 00 00 0a 25 72 01 00 00 70 6f 22 00 00 0a 25 17 6f 2d 00 00 0a 28 ?? 00 00 0a 26 de 03}  //weight: 4, accuracy: Low
+        $x_2_2 = "$f35dc6cd-26df-457e-9d61-9d6d24c5375c" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

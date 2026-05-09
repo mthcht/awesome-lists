@@ -76,3 +76,24 @@ rule Trojan_Win32_LotusLite_RH_2147968070_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LotusLite_DA_2147968928_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LotusLite.DA!MTB"
+        threat_id = "2147968928"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LotusLite"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {ff 75 14 68 ?? ?? ?? ?? 6a 01 68 ?? ?? ?? ?? 68 ?? ?? ?? ?? 68 01 00 00 80 ff d0 8b 4d fc 33 cd e8 ?? ?? ?? ?? 8b e5 5d c3}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

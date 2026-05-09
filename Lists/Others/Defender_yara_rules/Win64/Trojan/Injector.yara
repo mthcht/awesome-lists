@@ -663,3 +663,28 @@ rule Trojan_Win64_Injector_SXL_2147967930_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXM_2147968904_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXM!MTB"
+        threat_id = "2147968904"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Injecting payload..." ascii //weight: 30
+        $x_20_2 = "[+] Payload is already valid PE (no decryption needed)" ascii //weight: 20
+        $x_20_3 = "[+] Payload loaded from file (" ascii //weight: 20
+        $x_5_4 = "Killing browser processes..." ascii //weight: 5
+        $x_5_5 = "Creating suspended process:" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
