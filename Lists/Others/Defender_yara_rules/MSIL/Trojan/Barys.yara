@@ -1357,6 +1357,28 @@ rule Trojan_MSIL_Barys_ARR_2147967869_0
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_15_1 = {08 09 91 0b 06 07 61 0a 09 17 58 0d 09 08 8e 69 32 ee}  //weight: 15, accuracy: High
+        $x_5_2 = {26 12 01 7b ?? 00 00 04 08 03 03 8e 69 12 03}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_ARR_2147967869_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.ARR!MTB"
+        threat_id = "2147967869"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_11_1 = {13 0c 11 0c 8e 16 fe 01 13 0d 11 0d 2c 0c 11 0a 14 14}  //weight: 11, accuracy: High
         $x_9_2 = {11 06 17 58 13 06 11 06 20 ?? ?? ?? ?? fe 04 13 07 11 07 2d e9}  //weight: 9, accuracy: Low
     condition:
@@ -1364,7 +1386,7 @@ rule Trojan_MSIL_Barys_ARR_2147967869_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Barys_ARR_2147967869_1
+rule Trojan_MSIL_Barys_ARR_2147967869_2
 {
     meta:
         author = "defender2yara"
@@ -1388,5 +1410,27 @@ rule Trojan_MSIL_Barys_ARR_2147967869_1
             ((1 of ($x_14_*) and 1 of ($x_6_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_MSIL_Barys_SO_2147968890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SO!MTB"
+        threat_id = "2147968890"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {16 13 16 38 23 00 00 00 11 0d 6f 85 00 00 06 13 17 11 0d 6f 85 00 00 06 13 18 11 04 11 17 11 18 6f 35 00 00 0a 11 16 17 58 13 16 11 16 11 0c 3f d4 ff ff ff 11 0d 6f 86 00 00 06}  //weight: 1, accuracy: High
+        $x_1_2 = {28 66 00 00 0a 03 6f 8c 00 00 0a 28 36 00 00 06 0c 73 12 00 00 0a 28 34 00 00 06 0d 09 07 6f 7f 00 00 0a 09 08 6f 80 00 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

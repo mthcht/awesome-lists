@@ -42,3 +42,25 @@ rule Trojan_Win64_Phorpiex_SX_2147950175_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Phorpiex_APO_2147968888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Phorpiex.APO!MTB"
+        threat_id = "2147968888"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {b8 36 00 00 00 66 89 84 24 30 07 00 00 b8 2f 00 00 00 66 89 84 24 32 07 00 00 b8 70 00 00 00 66 89 84 24 34 07 00 00 b8 65 00 00 00 66 89 84 24 36 07 00 00 b8 69 00 00 00 66 89 84 24 38 07 00 00 b8 2e 00 00 00 66 89 84 24 3a 07 00 00 b8 65 00 00 00 66 89 84 24 3c 07 00 00 b8 78 00 00 00 66 89 84 24 3e 07 00 00 b8 65 00 00 00 66 89 84 24 40 07 00 00 33 c0 66 89 84 24 42 07 00 00 48 c7 44 24 20 00 00 00 00 45 33 c9 4c 8d 84 24 c0 02 00 00 48 8d 94 24 08 07 00 00 33 c9}  //weight: 2, accuracy: High
+        $x_1_2 = {c6 84 24 80 02 00 00 75 c6 84 24 81 02 00 00 73 c6 84 24 82 02 00 00 65 c6 84 24 83 02 00 00 72 c6 84 24 84 02 00 00 33 c6 84 24 85 02 00 00 32 c6 84 24 86 02 00 00 2e c6 84 24 87 02 00 00 64 c6 84 24 88 02 00 00 6c c6 84 24 89 02 00 00 6c c6 84 24 8a 02 00 00 00 45 33 c0 33 d2 48 8d 8c 24 80 02 00 00 ff 94 24 20 08 00 00 48 89 84 24 f0 06 00 00 48 83 bc 24 f0 06}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

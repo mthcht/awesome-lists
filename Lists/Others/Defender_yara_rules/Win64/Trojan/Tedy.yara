@@ -5716,3 +5716,25 @@ rule Trojan_Win64_Tedy_AHH_2147968833_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CAE_2147968887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CAE!MTB"
+        threat_id = "2147968887"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {4c 89 c0 31 d2 49 f7 f2 89 c8 83 e0 1f 44 30 cb 40 30 eb 44 30 f7 40 30 df}  //weight: 1, accuracy: High
+        $x_1_2 = {41 0f b6 1c 10 48 d3 e3 48 09 de 48 ff c2 48 83 c1 ?? 48 39 d7 75}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

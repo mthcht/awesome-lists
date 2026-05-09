@@ -14,8 +14,10 @@ rule Trojan_Win32_rundll32Url_A_2147967968_0
     strings:
         $x_5_1 = "rundll32 \\\\" wide //weight: 5
         $x_5_2 = "rundll32.exe \\\\" wide //weight: 5
+        $n_5_3 = "vmware-dem-fta-stub.dll" wide //weight: -5
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
