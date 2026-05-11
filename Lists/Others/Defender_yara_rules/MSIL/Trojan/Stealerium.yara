@@ -88,3 +88,24 @@ rule Trojan_MSIL_Stealerium_AYA_2147959119_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealerium_SK_2147968974_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealerium.SK!MTB"
+        threat_id = "2147968974"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealerium"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 07 11 06 16 11 06 8e 69 6f ?? ?? ?? 0a 13 07 11 07 16 fe 02 16 fe 01 13 08 11 08 2c 02 2b 10 11 05 11 06 16 11 07 6f ?? ?? ?? 0a 00 00 2b d0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
