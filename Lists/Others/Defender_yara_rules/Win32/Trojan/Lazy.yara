@@ -3116,3 +3116,24 @@ rule Trojan_Win32_Lazy_KKA_2147968514_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_MKJ_2147968945_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.MKJ!MTB"
+        threat_id = "2147968945"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_35_1 = {c1 e2 00 81 f2 ?? ?? ?? ?? 31 c9 29 d1 8b 04 08 8b 0d 94 14 02 10 6b 35 90 14 02 10 00 81 f6 ?? ?? ?? ?? 31 d2 29 f2 8b 14 11 81 f2 ?? ?? ?? ?? 31 c9 29 d1 01 c8}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
