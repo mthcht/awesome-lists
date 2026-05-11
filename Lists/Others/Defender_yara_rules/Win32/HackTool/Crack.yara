@@ -136,3 +136,38 @@ rule HackTool_Win32_Crack_AMTB_2147933412_1
         (7 of ($x*))
 }
 
+rule HackTool_Win32_Crack_RA_2147962761_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Crack.RA!AMTB"
+        threat_id = "2147962761"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crack"
+        severity = "High"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/DebugSpawnServer" ascii //weight: 1
+        $x_1_2 = "repack by elchupacabra" ascii //weight: 1
+        $x_1_3 = "LRepacks" ascii //weight: 1
+        $x_1_4 = "lrepacks.ru" ascii //weight: 1
+        $x_1_5 = "Http://lrepack.com" ascii //weight: 1
+        $x_1_6 = "CheckSerial" ascii //weight: 1
+        $x_1_7 = "LREPACKSSITECLICK" ascii //weight: 1
+        $x_1_8 = "Master PDF Editor Setup" ascii //weight: 1
+        $n_100_9 = "Uninst.exe" ascii //weight: -100
+        $n_100_10 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_11 = "Uninstal.exe" ascii //weight: -100
+        $n_100_12 = "unins001.exe" ascii //weight: -100
+        $n_100_13 = "unins000.exe" ascii //weight: -100
+        $n_100_14 = {90 02 34 2e 74 6d 70}  //weight: -100, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
