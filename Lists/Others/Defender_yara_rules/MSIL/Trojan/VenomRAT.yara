@@ -198,3 +198,24 @@ rule Trojan_MSIL_VenomRAT_EHLH_2147951131_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VenomRAT_ZMD_2147968965_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VenomRAT.ZMD!MTB"
+        threat_id = "2147968965"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VenomRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {69 58 02 7b ?? 00 00 04 7b ?? 00 00 04 69 59 6f ?? ?? 00 0a 02 7b ?? 00 00 04 7b ?? 00 00 04 02 7b ?? 00 00 04 7b ?? 00 00 04 5b 28 ?? 00 00 2b 02 7b ?? 00 00 04 7b ?? 00 00 04 25 2d 20}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
