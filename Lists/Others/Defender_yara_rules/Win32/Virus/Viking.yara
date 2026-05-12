@@ -245,3 +245,31 @@ rule Virus_Win32_Viking_AVK_2147922892_0
         (all of ($x*))
 }
 
+rule Virus_Win32_Viking_YBM_2147969111_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win32/Viking.YBM!MTB"
+        threat_id = "2147969111"
+        type = "Virus"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Viking"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "EGHOST.EXE" ascii //weight: 1
+        $x_1_2 = "MAILMON.EXE" ascii //weight: 1
+        $x_1_3 = "KAVPFW.EXE" ascii //weight: 1
+        $x_1_4 = "IPARMOR.EXE" ascii //weight: 1
+        $x_1_5 = "PasswordGuard.exe" ascii //weight: 1
+        $x_1_6 = "Software\\Soft\\DownloadWWW\\" ascii //weight: 1
+        $x_1_7 = "SendMail" ascii //weight: 1
+        $x_1_8 = "virus.dpr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
