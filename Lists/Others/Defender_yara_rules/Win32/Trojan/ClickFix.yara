@@ -13969,3 +13969,85 @@ rule Trojan_Win32_ClickFix_ABG_2147968804_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_TMZ_2147969129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.TMZ!MTB"
+        threat_id = "2147969129"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "s^t^a^r^t" wide //weight: 1
+        $x_1_2 = "^c^u^r^l^" wide //weight: 1
+        $x_1_3 = "^m^s^h^t^a^" wide //weight: 1
+        $x_1_4 = ".pdf" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_AMZ_2147969130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AMZ!MTB"
+        threat_id = "2147969130"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "start-process" wide //weight: 1
+        $x_1_3 = "-ep Bypass -c" wide //weight: 1
+        $x_1_4 = "iwr" wide //weight: 1
+        $x_1_5 = "$env:TEMP" wide //weight: 1
+        $x_1_6 = ".ps1" wide //weight: 1
+        $x_1_7 = "UseBasicParsing" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_CMZ_2147969131_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CMZ!MTB"
+        threat_id = "2147969131"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "24"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "rundll32.exe" wide //weight: 10
+        $x_10_2 = ".surf" wide //weight: 10
+        $x_10_3 = ".lat" wide //weight: 10
+        $x_4_4 = ".google" wide //weight: 4
+        $x_2_5 = "-verif" wide //weight: 2
+        $x_2_6 = "confirm" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_10_*) and 2 of ($x_2_*))) or
+            ((2 of ($x_10_*) and 1 of ($x_4_*))) or
+            ((3 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
