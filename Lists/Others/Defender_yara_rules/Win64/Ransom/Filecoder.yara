@@ -1949,3 +1949,27 @@ rule Ransom_Win64_Filecoder_PGAU_2147966868_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PGBC_2147969032_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PGBC!MTB"
+        threat_id = "2147969032"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {52 45 41 44 4d 45 5f 42 4c 58 2e 74 78 74 [0-2] 59 6f 75 72 20 66 69 6c 65 73 20 68 61 76 65 20 62 65 65 6e 20 65 6e 63 72 79 70 74 65 64 20 74 6f 20 2e 62 6c 78}  //weight: 2, accuracy: Low
+        $x_2_2 = "Victim ID:" ascii //weight: 2
+        $x_2_3 = "Contact the administrator with this ID to obtain the decryption key" ascii //weight: 2
+        $x_2_4 = "blx-decryptor.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

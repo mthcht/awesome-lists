@@ -132,3 +132,24 @@ rule Trojan_Win64_Formbook_KTV_2147966901_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Formbook_KAE_2147969033_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Formbook.KAE!MTB"
+        threat_id = "2147969033"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {42 0f b6 04 0a 49 ff c1 41 32 c0 48 ff c9 41 88 41 ff 75 ?? 33 c0 48 83 c4 28}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

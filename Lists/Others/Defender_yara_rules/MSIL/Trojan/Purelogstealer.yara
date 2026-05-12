@@ -89,3 +89,24 @@ rule Trojan_MSIL_Purelogstealer_PGPL_2147954907_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_Purelogstealer_SLXC_2147969030_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Purelogstealer.SLXC!MTB"
+        threat_id = "2147969030"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Purelogstealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 6c 01 00 06 11 08 8d 23 00 00 01 13 0a 7e 43 00 00 04 02 1a 58 11 0a 16 11 08 28 52 00 00 0a 28 ac 00 00 0a 11 0a 16 11 0a 8e 69 6f ad 00 00 0a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -326,3 +326,31 @@ rule Trojan_MSIL_DiscordStealer_SX_2147966922_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DiscordStealer_KRX_2147969034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DiscordStealer.KRX!MTB"
+        threat_id = "2147969034"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "CookieStealer.Stealer" ascii //weight: 1
+        $x_1_2 = "PasswordStealer.Stealer" ascii //weight: 1
+        $x_1_3 = "!grabtokens" ascii //weight: 1
+        $x_1_4 = "!webcampic" ascii //weight: 1
+        $x_1_5 = "!uacbypass" ascii //weight: 1
+        $x_1_6 = "Token_grabber.grabber" ascii //weight: 1
+        $x_1_7 = "!disabletaskmgr" ascii //weight: 1
+        $x_1_8 = "!rootkit" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

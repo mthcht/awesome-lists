@@ -752,3 +752,68 @@ rule Trojan_Win64_Barys_SX_2147967330_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_LVG_2147969042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.LVG!MTB"
+        threat_id = "2147969042"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {89 c1 80 c1 ?? 30 4c 04 1d 40 75 f4}  //weight: 5, accuracy: Low
+        $x_1_2 = "loader.relocloader.iatloader.perm" ascii //weight: 1
+        $x_1_3 = "loader.startloader.apis.ok" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Barys_LVK_2147969043_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.LVK!MTB"
+        threat_id = "2147969043"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 41 04 47 88 1c 30 46 39 7d e4 89 71 08 0f 84 5c ff ff ff 0f b6 5c 3d d8 8b 45 e8 32 1c 38 c0 c3 04 3b 31 75 da}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Barys_LVM_2147969044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.LVM!MTB"
+        threat_id = "2147969044"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 04 37 89 f2 83 e2 07 d0 c0 88 04 37 32 04 13 88 04 37 46 39 f5 75 e8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
