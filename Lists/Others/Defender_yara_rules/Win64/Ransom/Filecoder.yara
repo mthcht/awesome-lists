@@ -827,6 +827,34 @@ rule Ransom_Win64_Filecoder_AMTB_2147931874_0
         )
 }
 
+rule Ransom_Win64_Filecoder_AMTB_2147931874_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder!AMTB"
+        threat_id = "2147931874"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "ollyice.exe ProcessHacker.exe tcpview.exe autoruns.exe autorunsc.exe filemon.exe procmon.exe" ascii //weight: 2
+        $x_6_2 = "Your Files Has Been Encrypted" ascii //weight: 6
+        $x_6_3 = "58add3b1ecdd2a00d7f5f40fe04e46dff4beff64fa127f6a6b045d6788d58c1dd19675241841b5b15e4095ce39a01387609572d83acc5def7" ascii //weight: 6
+        $x_2_4 = "To get info (decrypt your files) contact us at smukx@protonmail.com" ascii //weight: 2
+        $x_2_5 = "All files on each host have been encrypted with a strong algorithm" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*))) or
+            ((1 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Ransom_Win64_Filecoder_NITC_2147932226_0
 {
     meta:
