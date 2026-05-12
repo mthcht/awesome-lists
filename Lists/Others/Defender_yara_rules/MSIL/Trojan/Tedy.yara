@@ -2486,3 +2486,27 @@ rule Trojan_MSIL_Tedy_AHA_2147968187_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_AHB_2147969074_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.AHB!MTB"
+        threat_id = "2147969074"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "<SendComponentPayloadAsMultipartUploadAsync" ascii //weight: 30
+        $x_20_2 = "<TryParseDiscordMessageIdFromUploadResponse" ascii //weight: 20
+        $x_10_3 = "<FirefoxSteal>" ascii //weight: 10
+        $x_5_4 = "<BuildOrderedBadges>" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

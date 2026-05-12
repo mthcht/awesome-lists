@@ -5738,3 +5738,25 @@ rule Trojan_Win64_Tedy_CAE_2147968887_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_MKL_2147969076_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MKL!MTB"
+        threat_id = "2147969076"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "inject_dll_nt" ascii //weight: 20
+        $x_15_2 = "abe_helper.dll" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

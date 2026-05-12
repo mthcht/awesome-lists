@@ -2345,3 +2345,27 @@ rule Trojan_Win64_Vidar_PAHY_2147968625_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_AHA_2147969073_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AHA!MTB"
+        threat_id = "2147969073"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "main.MpClientUtilExportFunctions" ascii //weight: 30
+        $x_20_2 = "main.MpConfigRegisterForNotifications" ascii //weight: 20
+        $x_10_3 = "main.MpConfigUnregisterNotifications" ascii //weight: 10
+        $x_5_4 = "C:\\Users\\Administrator\\Desktop\\FBox\\temp" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
