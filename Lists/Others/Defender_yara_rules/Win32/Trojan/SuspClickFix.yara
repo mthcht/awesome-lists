@@ -683,15 +683,20 @@ rule Trojan_Win32_SuspClickFix_R4_2147967685_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "6"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_3_1 = {5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
         $x_1_2 = " do call %" wide //weight: 1
         $x_1_3 = "& exit" wide //weight: 1
         $x_1_4 = "&& echo " wide //weight: 1
+        $x_3_5 = {20 00 64 00 6f 00 20 00 25 00 [0-4] 20 00 26 00 20 00 65 00 63 00 68 00 6f 00 20 00}  //weight: 3, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_3_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_SuspClickFix_R5_2147967686_0

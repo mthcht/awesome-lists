@@ -15387,6 +15387,29 @@ rule Trojan_MSIL_FormBook_RVG_2147935758_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RVG_2147935758_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RVG!MTB"
+        threat_id = "2147935758"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {01 0b 02 7b ?? 00 00 04 06 07 6f ?? 00 00 0a 0c 02 7b ?? 00 00 04 72 83 04 00 70 12 02 28 ?? 00 00 0a 8c ?? 00 00 01 6f ?? 00 00 0a 00 02 7b ?? 00 00 04 72 87 04 00 70 12 02 28 ?? 00 00 0a 8c ?? 00 00 01 6f ?? 00 00 0a 00 02 7b ?? 00 00 04 72 8b 04 00 70 12 02 28 ?? 00 00 0a 8c ?? 00 00 01 6f ?? 00 00 0a 00}  //weight: 5, accuracy: Low
+        $x_1_2 = "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d" ascii //weight: 1
+        $x_1_3 = "PinballMini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_RVH_2147936513_0
 {
     meta:

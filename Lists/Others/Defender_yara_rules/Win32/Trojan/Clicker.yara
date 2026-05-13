@@ -69,3 +69,32 @@ rule Trojan_Win32_Clicker_PADL_2147913609_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Clicker_AMTB_2147969172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Clicker!AMTB"
+        threat_id = "2147969172"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Clicker"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "(New-Object Net.WebClient).DownloadFile" ascii //weight: 2
+        $x_2_2 = "todesk.ltd" ascii //weight: 2
+        $x_2_3 = "yukaidi.top" ascii //weight: 2
+        $x_4_4 = "huorong_runner_20240317.ps1" ascii //weight: 4
+        $x_4_5 = "huorong.bat" ascii //weight: 4
+        $x_2_6 = "CredUIPromptForCredentials" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 3 of ($x_2_*))) or
+            ((2 of ($x_4_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

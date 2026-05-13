@@ -252,3 +252,32 @@ rule Trojan_MSIL_PhantomStealer_APS_2147969101_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PhantomStealer_C_2147969152_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PhantomStealer.C!MTB"
+        threat_id = "2147969152"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PhantomStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Phantom stealer" ascii //weight: 10
+        $x_1_2 = "app_bound_encrypted_key" ascii //weight: 1
+        $x_1_3 = "AntiAnalysis:" ascii //weight: 1
+        $x_1_4 = "Starting clipboard" ascii //weight: 1
+        $x_1_5 = "Starting keylogger" ascii //weight: 1
+        $x_1_6 = "Screenshot capture" ascii //weight: 1
+        $x_1_7 = "ENCRYPTED:" ascii //weight: 1
+        $x_1_8 = "SELECT * FROM win32_operatingsystem" ascii //weight: 1
+        $x_1_9 = "Select * from AntivirusProduct" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
