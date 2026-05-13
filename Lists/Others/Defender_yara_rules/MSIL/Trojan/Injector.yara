@@ -2000,3 +2000,24 @@ rule Trojan_MSIL_Injector_NWA_2147968602_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_YDM_2147969181_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.YDM!MTB"
+        threat_id = "2147969181"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {7e 0e 00 00 04 25 2d 17 26 7e 0d 00 00 04 fe 06 29 00 00 06 73 5a 00 00 0a 25 80 0e 00 00 04 03 6f 5b 00 00 0a 03 17 63 59 2a}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
