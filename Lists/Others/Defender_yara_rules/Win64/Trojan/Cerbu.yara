@@ -532,3 +532,27 @@ rule Trojan_Win64_Cerbu_AHJ_2147968552_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AHK_2147969191_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHK!MTB"
+        threat_id = "2147969191"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "src\\wallet\\browser_extensions.rs" ascii //weight: 40
+        $x_30_2 = "src\\proc\\browser\\bloader.rs" ascii //weight: 30
+        $x_20_3 = "src\\docs\\system_docs.rs" ascii //weight: 20
+        $x_10_4 = "src\\fingerprint.rs" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

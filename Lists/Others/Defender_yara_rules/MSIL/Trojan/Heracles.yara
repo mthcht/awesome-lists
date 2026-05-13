@@ -8983,6 +8983,30 @@ rule Trojan_MSIL_Heracles_ARR_2147957416_6
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {16 13 0d 38 ?? ?? 00 00 07 28 ?? ?? ?? ?? 13 04 08 28 ?? ?? ?? ?? 13 05 09 28 ?? ?? ?? ?? 13 06 11 04 8e 69 1f 20 fe 01 13 0e 11 0e 2d 20}  //weight: 6, accuracy: Low
+        $x_4_2 = {16 13 0d 38 ?? 01 00 00 11 05 8e 69 1f 10 fe 01 13 0e 11 0e 2d 20}  //weight: 4, accuracy: Low
+        $x_11_3 = "DecryptAndRunShellcode" ascii //weight: 11
+        $x_9_4 = "payload_encrypted.bin" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_ARR_2147957416_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.ARR!MTB"
+        threat_id = "2147957416"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "Low"
     strings:

@@ -66,3 +66,24 @@ rule Worm_Win32_Allaple_EM_2147949830_0
         (all of ($x*))
 }
 
+rule Worm_Win32_Allaple_KK_2147969208_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Allaple.KK!MTB"
+        threat_id = "2147969208"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Allaple"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {66 0b d0 0f b6 da 33 d2 b2 04 01 54 24 ac 0f b6 da 8b 5c 24 ac 81 03 ?? ?? ?? ?? 23 df 33 db b3 04 01 5c 24 ac 8d 91 ?? ?? ?? ?? 8b 5c 24 ac 81 03 ?? ?? ?? ?? c1 d7 02 33 c0 b0 04 01 44 24 ac 2b c5 8b 44 24 ac c7 00}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

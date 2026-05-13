@@ -119,6 +119,7 @@ rule SupportScam_Win32_Screcwon_MD_2147947634_0
         $x_30_56 = "sup2.bkdx308.ru" ascii //weight: 30
         $x_30_57 = "sgsc.hamkaransystem.ir" ascii //weight: 30
         $x_30_58 = "smallmartdirectintense.com" ascii //weight: 30
+        $x_30_59 = "greatmosts.top" ascii //weight: 30
     condition:
         (filesize < 20MB) and
         (

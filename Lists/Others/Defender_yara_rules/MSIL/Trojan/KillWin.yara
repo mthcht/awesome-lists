@@ -123,3 +123,31 @@ rule Trojan_MSIL_KillWin_SWS_2147935871_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillWin_ARR_2147969211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillWin.ARR!MTB"
+        threat_id = "2147969211"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillWin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableAntiSpyware /t REG_DWORD /d 1 /f" ascii //weight: 6
+        $x_4_2 = "add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableTaskMgr /t REG_DWORD /d 1 /f" ascii //weight: 4
+        $x_5_3 = "add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableRegistryTools /t REG_DWORD /d 1 /f" ascii //weight: 5
+        $x_15_4 = "Malware_Destructive.Properties.Resources" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_15_*) and 1 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+

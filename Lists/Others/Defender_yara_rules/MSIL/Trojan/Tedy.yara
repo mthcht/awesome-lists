@@ -2391,6 +2391,30 @@ rule Trojan_MSIL_Tedy_LME_2147959064_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_KK_2147959878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.KK!MTB"
+        threat_id = "2147959878"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "NofaceClient/2.0 (+https://l874ca.xyz)" ascii //weight: 4
+        $x_3_2 = "-# Art x Canxrdv24 Project" ascii //weight: 3
+        $x_2_3 = "[\\w-]{24,27}\\.[\\w-]{6,7}\\.[\\w-]{25,110}" ascii //weight: 2
+        $x_1_4 = "SendZipToWebhook" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Tedy_PRJ_2147962864_0
 {
     meta:

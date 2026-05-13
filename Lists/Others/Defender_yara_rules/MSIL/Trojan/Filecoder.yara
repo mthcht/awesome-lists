@@ -414,3 +414,29 @@ rule Trojan_MSIL_Filecoder_ZXI_2147963505_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Filecoder_ZVD_2147969190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Filecoder.ZVD!MTB"
+        threat_id = "2147969190"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vssadmin.exe delete shadows /all /quiet" ascii //weight: 1
+        $x_1_2 = "reagentc.exe /disable" ascii //weight: 1
+        $x_1_3 = "bcdedit /set {default} bootstatuspolicy ignoreallfailures & bcdedit /set {default} recoveryenabled no" ascii //weight: 1
+        $x_1_4 = "wbadmin delete catalog -quiet" ascii //weight: 1
+        $x_1_5 = "powershell -Command \"Set-Service -Name WerSvc -StartupType Disabled" ascii //weight: 1
+        $x_1_6 = "bcdedit /deletevalue {current} safeboot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

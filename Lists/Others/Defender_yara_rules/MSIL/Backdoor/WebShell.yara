@@ -569,3 +569,29 @@ rule Backdoor_MSIL_WebShell_AEOB_2147960414_0
         (1 of ($x*))
 }
 
+rule Backdoor_MSIL_WebShell_KK_2147969210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/WebShell.KK!MTB"
+        threat_id = "2147969210"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "SystemProcess.FilterService" ascii //weight: 6
+        $x_5_2 = "SaveDllFromBase64" ascii //weight: 5
+        $x_4_3 = "ModifyWebConfigByString" ascii //weight: 4
+        $x_3_4 = "SelfDeleteWithBatch" ascii //weight: 3
+        $x_2_5 = "InstallModule" ascii //weight: 2
+        $x_1_6 = "SystemProcess.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

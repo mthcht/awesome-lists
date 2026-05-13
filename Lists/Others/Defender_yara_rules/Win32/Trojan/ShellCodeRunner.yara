@@ -122,6 +122,29 @@ rule Trojan_Win32_ShellCodeRunner_KK_2147943867_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b6 c8 8d 14 30 6b c9 0d 40 80 c1 5a 32 0c 17 88 0a 83 f8 20}  //weight: 20, accuracy: High
+        $x_10_2 = {8a 04 0f 8d 49 01 34 a7 88 41 ff 83 ea 01}  //weight: 10, accuracy: High
+        $x_5_3 = "\\NtLoaderConsole\\Win32\\ReleaseDll\\GGLoader.pdb" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ShellCodeRunner_KK_2147943867_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellCodeRunner.KK!MTB"
+        threat_id = "2147943867"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "Low"
     strings:

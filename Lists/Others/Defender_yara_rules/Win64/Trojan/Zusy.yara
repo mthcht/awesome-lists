@@ -3364,6 +3364,27 @@ rule Trojan_Win64_Zusy_KKB_2147963162_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 4c 24 24 [0-5] 4c 24 24 69 c9 [0-20] 31 c8 8b 4c 24 24 85 c9}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KKB_2147963162_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKB!MTB"
+        threat_id = "2147963162"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "26"
         strings_accuracy = "High"
     strings:
@@ -3376,7 +3397,7 @@ rule Trojan_Win64_Zusy_KKB_2147963162_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_KKB_2147963162_1
+rule Trojan_Win64_Zusy_KKB_2147963162_2
 {
     meta:
         author = "defender2yara"

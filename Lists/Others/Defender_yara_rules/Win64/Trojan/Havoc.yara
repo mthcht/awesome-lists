@@ -306,3 +306,27 @@ rule Trojan_Win64_Havoc_MZZ_2147967832_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havoc_KK_2147969209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.KK!MTB"
+        threat_id = "2147969209"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 89 c8 49 f7 e0 48 c1 ea 03 48 89 d0 48 c1 e0 04 48 29 d0 48 89 ca 48 29 c2 41 0f b6 04 12 30 04 0e 48 83 c1 01 49 39 c9}  //weight: 20, accuracy: High
+        $x_3_2 = "HermesSec2025CS" ascii //weight: 3
+        $x_2_3 = "cs_beacon_holl" ascii //weight: 2
+        $x_1_4 = "\\beacon.dat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
