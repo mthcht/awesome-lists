@@ -571,3 +571,24 @@ rule Trojan_Win32_AsyncRAT_SKIP_2147967039_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AsyncRAT_ARA_2147969299_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRAT.ARA!MTB"
+        threat_id = "2147969299"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {39 de 89 c1 1b 4c 24 1c 73 25 8d 0c f5 00 00 00 00 8b 7c 24 20 0f ad d7 f6 c1 20 c4 e2 73 f7 ca 0f 44 cf 30 4c 35 00 83 c6 01 83 d0 00 eb d1}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

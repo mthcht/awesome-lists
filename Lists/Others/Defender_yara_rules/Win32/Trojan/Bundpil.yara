@@ -42,3 +42,32 @@ rule Trojan_Win32_Bundpil_AHA_2147968635_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Bundpil_ARA_2147969300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bundpil.ARA!MTB"
+        threat_id = "2147969300"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bundpil"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a 0c 30 80 e9 42 32 ca 88 0c 30 40 3b c7 72 f0}  //weight: 10, accuracy: High
+        $x_10_2 = {32 d1 80 c2 ?? 88 14 ?? 38 40 3b 85 ac dd ff ff 72 ec}  //weight: 10, accuracy: Low
+        $x_10_3 = {8a 0c 1e 32 c8 80 c1 41 88 0c 1e 46 3b b5 9c d9 ff ff 72 ec}  //weight: 10, accuracy: High
+        $x_1_4 = "WORM64" ascii //weight: 1
+        $x_1_5 = "WORM32" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

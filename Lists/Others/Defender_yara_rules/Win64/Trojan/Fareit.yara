@@ -21,3 +21,24 @@ rule Trojan_Win64_Fareit_MK_2147964611_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Fareit_ARA_2147969301_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Fareit.ARA!MTB"
+        threat_id = "2147969301"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Fareit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {49 83 fa 10 41 bb 00 00 00 00 4d 0f 45 da 41 f6 c1 01 45 89 da 44 0f 44 d0 46 32 14 0a 46 32 54 19 18 46 88 14 0a 49 ff c1 49 ff c3 4d 89 da 4d 39 c8 75 cc}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

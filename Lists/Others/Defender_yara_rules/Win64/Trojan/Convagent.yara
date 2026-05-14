@@ -1271,3 +1271,33 @@ rule Trojan_Win64_Convagent_AHA_2147968043_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_CPI_2147969308_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.CPI!MTB"
+        threat_id = "2147969308"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "myprofessionalconvert.com" ascii //weight: 1
+        $x_1_2 = "appsetuppdf.com" ascii //weight: 1
+        $x_1_3 = "conv.doceditorinc.com" ascii //weight: 1
+        $x_1_4 = "tools.documentmanagementsetup.com" ascii //weight: 1
+        $x_1_5 = "tool.securedocumentinstaller.com" ascii //weight: 1
+        $x_10_6 = "Are you sure you want to quit" ascii //weight: 10
+        $x_10_7 = "Do you want to reboot now?" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

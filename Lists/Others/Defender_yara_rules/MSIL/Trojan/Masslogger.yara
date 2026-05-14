@@ -434,3 +434,24 @@ rule Trojan_MSIL_Masslogger_AMS_2147969185_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Masslogger_AMS_2147969295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Masslogger.AMS!MTW"
+        threat_id = "2147969295"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Masslogger"
+        severity = "Critical"
+        info = "MTW: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 11 0b 11 0f 6f ?? ?? 00 0a 13 10 07 08 6f ?? ?? 00 0a 59 13 11 11 06 11 05 11 10 6f ?? ?? 00 0a 11 11 6f ?? ?? 00 0a 13 12 16 13 13 00 11 12}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
