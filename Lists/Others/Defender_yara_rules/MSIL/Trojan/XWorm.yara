@@ -5295,3 +5295,24 @@ rule Trojan_MSIL_XWorm_ZOD_2147968989_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_LVM_2147969240_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.LVM!MTB"
+        threat_id = "2147969240"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 04 75 a7 00 00 01 11 05 11 0a 75 49 00 00 1b 11 0c 11 07 58 11 09 59 93 61 11 0b 74 49 00 00 1b 11 09 11 0c 58 1f 11 58 11 08 5d 93 61 d1 6f 2f 01 00 0a 26 18 13 0e 38 61 fe ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
