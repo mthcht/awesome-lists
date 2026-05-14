@@ -340,3 +340,24 @@ rule Ransom_Win32_Petya_AMTB_2147964794_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Petya_APE_2147969232_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Petya.APE!MTB"
+        threat_id = "2147969232"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Petya"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {68 18 01 01 10 53 89 7d fc ff d6 57 8d 45 fc 50 6a 4c 68 c8 00 01 10 53 ff d6 57 8d 45 fc 50 68 8e 00 00 00 68 38 00 01 10 53 ff d6 57 8d 45 fc 50 6a 38 68 fc ff 00 10 53 ff d6 57 8d 45 fc 50 6a 48 68 b0 ff 00 10 53 ff d6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5084,3 +5084,27 @@ rule Trojan_MSIL_Zusy_ZHD_2147968747_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SXD_2147969231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SXD!MTB"
+        threat_id = "2147969231"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "LxClient.RMR.ClDataColumn" ascii //weight: 40
+        $x_15_2 = "oOrE9UUjBESCowkIOcdUNGAB2HOXFsbejSsP4oDLHQe/p3J7b6NIh622ZQLY/awWt28nHsMA+N7Jpenmj0aA2dYEqIudNb4IIrLTEo" ascii //weight: 15
+        $x_15_3 = "6O0es65UK2OU1JKcWYRnYA==" ascii //weight: 15
+        $x_10_4 = "payloadCopy" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -85,3 +85,25 @@ rule Trojan_MSIL_Meterpreter_RP_2147913494_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Meterpreter_SX_2147969228_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Meterpreter.SX!MTB"
+        threat_id = "2147969228"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {7e 16 00 00 0a 11 07 8e 69 20 00 10 00 00 1f 40 28 01 00 00 06 13 0a 11 0a 7e 16 00 00 0a 28 17 00 00 0a 16 fe 01 13 0e 11 0e 2d 1d}  //weight: 20, accuracy: High
+        $x_30_2 = {8e 69 28 18 00 00 0a 00 7e 16 00 00 0a 16 11 0a 7e 16 00 00 0a 16 12 0b 28 02 00 00 06 13 0c 11 0c 7e 16 00 00 0a 28 17 00 00 0a 16 fe 01 13 0e 11 0e 2d 1d}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
