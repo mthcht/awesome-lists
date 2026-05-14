@@ -9495,3 +9495,25 @@ rule Trojan_Win32_Zusy_LRK_2147968619_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_AHA_2147969272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.AHA!MTB"
+        threat_id = "2147969272"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f b6 00 83 f0 ?? 89 c1 8b 55 fc 8b 45 08 01 d0 89 ca 88 10 83 45 fc}  //weight: 30, accuracy: Low
+        $x_20_2 = {0f b6 8c 05 78 fe ff ff 8b 55 b0 8b 45 e4 01 d0 31 cb 89 da 88 10 83 45 e4}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
