@@ -129,3 +129,24 @@ rule Trojan_Win32_Xmrig_ARAX_2147956835_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Xmrig_SWPC_2147969316_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Xmrig.SWPC!MTB"
+        threat_id = "2147969316"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Xmrig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {20 20 20 20 20 20 20 20 ac a5 01 00 00 a0 39 00 7a 03 01 00 00 f8 19 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 42 2e 69 6d 70 6f 72 74 73 00 10 00 00 00 50 3b 00 00 04 00 00 00 fc 1a 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 74 6c 73 00 00 00 00 00 10 00 00 00 60 3b 00 00 02 00 00 00 00 1b 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 c0 2e 74 68 65 6d 69 64}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

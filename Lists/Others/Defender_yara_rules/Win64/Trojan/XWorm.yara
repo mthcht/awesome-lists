@@ -683,3 +683,26 @@ rule Trojan_Win64_XWorm_AMX_2147968693_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_KK_2147969320_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.KK!MTB"
+        threat_id = "2147969320"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8d 4c 24 60 48 83 ff 0f 49 0f 47 ce 33 d2 49 8b c0 48 f7 f3 0f b6 04 0a 42 30 04 06 49 ff c0 49 8b c5 48 2b c6 4c 3b c0}  //weight: 20, accuracy: High
+        $x_10_2 = ".xworm" ascii //weight: 10
+        $x_5_3 = "HVNC.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

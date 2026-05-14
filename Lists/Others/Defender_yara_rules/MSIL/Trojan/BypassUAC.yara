@@ -285,3 +285,30 @@ rule Trojan_MSIL_BypassUAC_MKB_2147968947_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_KK_2147969319_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.KK!MTB"
+        threat_id = "2147969319"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "JavaRAT_Client" ascii //weight: 7
+        $x_6_2 = "ANTI_KILL" ascii //weight: 6
+        $x_5_3 = "FAKE_ERROR_TITLE" ascii //weight: 5
+        $x_4_4 = "FAKE_ERROR_TEXT" ascii //weight: 4
+        $x_3_5 = "UAC_BYPASS" ascii //weight: 3
+        $x_2_6 = "{\"cmd\":\"download\",\"name\":\"" ascii //weight: 2
+        $x_1_7 = "{\"cmd\":\"uploaded\",\"msg\":\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
