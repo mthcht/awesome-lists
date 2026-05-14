@@ -897,11 +897,12 @@ rule Trojan_Win32_SuspClickFix_X_2147968173_1
     strings:
         $x_1_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-16] 5c 00}  //weight: 1, accuracy: Low
-        $n_10_3 = "{88fc37e1-14f4-4d83-9d8e-382d3bf2c340}" wide //weight: -10
+        $x_1_3 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-16] 40 00 [0-8] 5c 00}  //weight: 1, accuracy: Low
+        $n_10_4 = "{88fc37e1-14f4-4d83-9d8e-382d3bf2c340}" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
-        (all of ($x*))
+        (2 of ($x*))
 }
 
 rule Trojan_Win32_SuspClickFix_Z_2147968174_0
