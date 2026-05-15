@@ -8625,3 +8625,27 @@ rule Trojan_Win32_GuLoader_REY_2147969179_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_REZ_2147969375_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.REZ!MTB"
+        threat_id = "2147969375"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "trske lnintervallers echinocereus" ascii //weight: 1
+        $x_1_2 = "prehemiplegic" ascii //weight: 1
+        $x_1_3 = "brunsttid linningens" ascii //weight: 1
+        $x_1_4 = "udsmidninger.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
