@@ -211,3 +211,26 @@ rule Trojan_AndroidOS_Hiddad_H_2147923946_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Hiddad_AMTB_2147969382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Hiddad!AMTB"
+        threat_id = "2147969382"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Hiddad"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "http://blabla.mobengine.xyz" ascii //weight: 1
+        $x_1_2 = "http://adre.adrefelt.com" ascii //weight: 1
+        $x_1_3 = "lock_enable_ad" ascii //weight: 1
+        $x_1_4 = "INTENT_AD_SHOW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
