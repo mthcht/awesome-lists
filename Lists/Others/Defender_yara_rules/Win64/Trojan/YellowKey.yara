@@ -10,17 +10,13 @@ rule Trojan_Win64_YellowKey_DA_2147969247_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "11"
+        threshold = "10"
         strings_accuracy = "High"
     strings:
-        $x_10_1 = "95F62703B343F111A92A005056975458" ascii //weight: 10
-        $x_1_2 = "FsTxKtmLog" ascii //weight: 1
-        $x_1_3 = "FsTxLog" ascii //weight: 1
+        $x_10_1 = "C:\\System Volume Information\\FsTx\\95F62703B343F111A92A005056975458\\FsTxLogs\\FsTxLog.blf" ascii //weight: 10
+        $x_10_2 = "C:\\System Volume Information\\FsTx\\95F62703B343F111A92A005056975458\\FsTxLogs\\FsTxKtmLog.blf" ascii //weight: 10
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
+        (1 of ($x*))
 }
 
