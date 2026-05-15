@@ -312,3 +312,25 @@ rule Trojan_MSIL_BypassUAC_KK_2147969319_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_SX_2147969340_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.SX!MTB"
+        threat_id = "2147969340"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0a 0d 09 72 ?? 00 00 70 6f ?? 00 00 0a 09 17 6f ?? 00 00 0a 09 17 6f ?? 00 00 0a 09 17 6f ?? 00 00 0a 09 28 ?? 00 00 0a 26}  //weight: 30, accuracy: Low
+        $x_20_2 = {0a 0c 08 72 ?? 00 00 70 72 ?? 00 00 70 06 72 ?? 00 00 70 28 ?? 00 00 0a 6f ?? 00 00 0a 08 72 ?? 00 00 70 72 ?? 00 00 70 6f ?? 00 00 0a dd 0d 00 00 00}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

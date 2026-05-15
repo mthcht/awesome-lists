@@ -649,3 +649,30 @@ rule Trojan_MSIL_Convagent_VD_2147967550_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_ARR_2147969342_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.ARR!MTB"
+        threat_id = "2147969342"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_18_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 20 00 2d 00 43 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 20 00 22 00 69 00 72 00 6d 00 20 00 68 00 [0-4] 70 00 73 00 3a 00 2f 00 2f 00 70 00 61 00 73 00 74 00 65 00 66 00 79 00 2e 00 61 00 70 00 70 00 2f 00 [0-16] 2f 00 72 00 61 00 77 00 20 00 7c 00 20 00 69 00 65 00 78 00 22 00}  //weight: 18, accuracy: Low
+        $x_18_2 = {70 6f 77 65 72 73 68 65 6c 6c 20 2d 43 6f 6d 6d 61 6e 64 20 22 69 72 6d 20 68 [0-4] 70 73 3a 2f 2f 70 61 73 74 65 66 79 2e 61 70 70 2f [0-16] 2f 72 61 77 20 7c 20 69 65 78 22}  //weight: 18, accuracy: Low
+        $x_2_3 = {26 07 0c de 09 28 ?? 00 00 0a 14 0c de 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_18_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_18_*))) or
+            (all of ($x*))
+        )
+}
+
