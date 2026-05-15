@@ -10,6 +10,29 @@ rule Trojan_Win64_GreedyBear_NG_2147962192_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 f2 e8 f4 5c 21 00 48 85 c0 0f 84 19 2f 00 00 48 89 c6 eb 05 be 01 00 00 00 48 89 f1 48 8b 95 98 0e 00 00 4c 8b b5 90 0e 00 00 4d 89 f0 e8 4d 8e 3e 00 4c 89 b5 d0 0d 00 00 48 89 b5 d8 0d 00 00 4c 89 b5 e0 0d 00 00 c6 85 e8 0d 00 00 00 41 b8 0b 00 00 00 4c 89 e1 48 8d 15 4a 16 40 00 e8 77 a5 21 00 48 8b 85 d0 0d 00 00 48 89 85 c0 0c 00 00}  //weight: 2, accuracy: High
+        $x_1_2 = {48 8d 48 ff 48 89 8d 78 0e 00 00 48 8b 48 ff 48 89 8d 98 0e 00 00 48 8b 40 07 48 89 85 90 0e 00 00 48 8b 00 48 85 c0 74 09 48 8b 8d 98 0e 00 00 ff d0 48 8b b5 98 0e 00 00 48 8b 85 90 0e 00 00 48 83 78 08 00 74 1f 48 83 78 10 11}  //weight: 1, accuracy: High
+        $x_1_3 = "dazer.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_GreedyBear_NG_2147962192_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GreedyBear.NG!MTB"
+        threat_id = "2147962192"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GreedyBear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

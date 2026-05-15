@@ -142,9 +142,10 @@ rule Trojan_Win64_Xworm_PGXM_2147969381_0
         threshold = "5"
         strings_accuracy = "Low"
     strings:
-        $x_5_1 = {0f b6 d0 8a 94 14 ?? ?? ?? ?? 30 54 05 00 48 ff c0 44 39 f0 72 ea 48 8b 7c 24 50}  //weight: 5, accuracy: Low
+        $x_5_1 = {0f b6 d0 8a 94 14 10 01 00 00 30 [0-3] 48 ff c0 44 39 f0 72}  //weight: 5, accuracy: Low
+        $x_5_2 = {0f b6 d0 8a 94 14 28 07 00 00 30 [0-3] 48 ff c0 3b 44 24 [0-4] 72}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 

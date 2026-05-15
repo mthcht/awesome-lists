@@ -8478,8 +8478,10 @@ rule Trojan_Win32_ClickFix_EEH_2147945700_1
         $x_100_2 = "'invoke-expression';&$" wide //weight: 100
         $x_1_3 = "Invoke-WebRequest';$" wide //weight: 1
         $x_1_4 = "iwr';$" wide //weight: 1
+        $n_500_5 = "msedgewebview2.exe" wide //weight: -500
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 1 of ($x_1_*))) or
             ((2 of ($x_100_*))) or

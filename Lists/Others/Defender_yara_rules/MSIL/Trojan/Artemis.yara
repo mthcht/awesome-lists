@@ -64,3 +64,26 @@ rule Trojan_MSIL_Artemis_AWB_2147832871_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Artemis_SNB_2147969406_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Artemis.SNB!MTB"
+        threat_id = "2147969406"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Artemis"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Encrypted: " wide //weight: 2
+        $x_2_2 = "NEW VICTIM INFECTE" wide //weight: 2
+        $x_2_3 = "https://discord.com/api/webhooks/1490635101527216221/KWTCwDD3uDHnyTqfbgjIIOpQ4Tr8SUZl2TO1yCmLS6nnDWw1WJN2hcjKshC919XhPkBF" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

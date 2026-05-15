@@ -422,3 +422,46 @@ rule Ransom_Win64_LockFile_NKI_2147966650_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_PAHZ_2147969416_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.PAHZ!MTB"
+        threat_id = "2147969416"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {49 8b c2 49 f7 e0 48 c1 ea 04 48 6b c2 11 49 8b c8 48 2b c8 42 0f b6}  //weight: 3, accuracy: High
+        $x_2_2 = {43 30 04 01 49 ff c0 48 8b 44 24 ?? 4c 8b 4c 24 ?? 49 2b c1 4c 3b c0}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_LockFile_PAIA_2147969417_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.PAIA!MTB"
+        threat_id = "2147969417"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {46 88 34 38 4b 8d 0c 3c 48 ff c1 49 ff c7 4c 89 7c 24 38 4c 39 e9 74 ?? 48 89 d9 48 ff c3 48 39 fb 48 0f 43 de 47 0f b6 34 3c 44 32 74 0d 00 4c 3b 7c 24}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

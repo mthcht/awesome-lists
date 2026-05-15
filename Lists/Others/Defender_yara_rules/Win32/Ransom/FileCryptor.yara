@@ -647,3 +647,26 @@ rule Ransom_Win32_FileCryptor_PAHG_2147960561_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCryptor_SN_2147969409_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCryptor.SN!MTB"
+        threat_id = "2147969409"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "WARNING: FILE ENCRYPTION MALWARE" ascii //weight: 2
+        $x_2_2 = "This action will encrypt all your files" ascii //weight: 2
+        $x_2_3 = "Self-destruct enabled. Setting up executable removal..." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

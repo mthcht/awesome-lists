@@ -3158,3 +3158,47 @@ rule Trojan_Win64_ShellcodeRunner_SXM_2147967929_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_AHH_2147969393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AHH!MTB"
+        threat_id = "2147969393"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {31 c0 48 39 c2 74 ?? 44 8a 0c 01 41 80 f1 7a 45 88 0c 00 48 ff c0 eb}  //weight: 30, accuracy: Low
+        $x_20_2 = "xml_loader.dll" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_ASRU_2147969395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.ASRU!MTB"
+        threat_id = "2147969395"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 44 24 60 ff c0 89 44 24 60 83 7c 24 60 25 7d 27 48 63 44 24 60 8b 4c 24 60 83 c1 07 6b c9 0b 0f be 84 04 ?? ?? ?? ?? 33 c1 48 63 4c 24 60}  //weight: 5, accuracy: Low
+        $x_5_2 = {8b 04 24 0f b6 c8 8b 04 24 d3 e0 89 44 24 04 8b 04 24 0f b6 c8 8b 44 24 04 d3 e0 89 44 24 08 8b 44 24 04 8b 4c 24 08 03 c8 8b c1 89 44 24 0c 8b 44 24 0c 48 83 c4 18}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

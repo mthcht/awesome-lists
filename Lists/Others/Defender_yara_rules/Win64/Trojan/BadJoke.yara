@@ -90,3 +90,28 @@ rule Trojan_Win64_BadJoke_MK_2147965661_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BadJoke_ND_2147969426_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BadJoke.ND!MTB"
+        threat_id = "2147969426"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 85 c9 0f 84 9d 00 00 00 e8 a7 fe ff ff 48 85 db be 16 00 00 00 74 16 48 8b 0b 48 85 c9 74 0e 48 83 f9 ff 74 32 81 39 ed f0 b1 ba 74 1b 48 8b 0d 98 91 08 00 48 85 c9}  //weight: 2, accuracy: High
+        $x_1_2 = "rd /s" ascii //weight: 1
+        $x_1_3 = "/q C:\\" ascii //weight: 1
+        $x_1_4 = "gcc-shmeH" ascii //weight: 1
+        $x_1_5 = "start qwq.bat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

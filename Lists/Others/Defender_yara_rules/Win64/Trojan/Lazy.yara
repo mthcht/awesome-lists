@@ -5944,3 +5944,67 @@ rule Trojan_Win64_Lazy_LRL_2147969318_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHH_2147969394_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHH!MTB"
+        threat_id = "2147969394"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {44 01 d2 31 d1 01 c7 44 01 de c1 c1 ?? 41 31 f8 41 01 cc 41 c1 c0 ?? 45 31 e2 45 01 c7 41 c1 c2 ?? 44 31 f8 44 01 d2}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_CPIM_2147969400_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.CPIM!MTB"
+        threat_id = "2147969400"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 cc 39 45 fc 73 29 48 8b 4d c0 8b 45 fc 89 c2 83 ea 01 48 63 d2 44 8a 04 11 48 63 d0 44 32 04 11 48 63 d0 44 88 04 11 83 c0 01 89 45 fc eb cf}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_MKO_2147969423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKO!MTB"
+        threat_id = "2147969423"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b6 03 48 8d 5b ff 0f b6 0a 88 02 48 8d 52 01 88 4b 01 4a 8d 04 03 4a 8d 0c 02 48 3b c8}  //weight: 20, accuracy: High
+        $x_15_2 = {c7 05 21 8a 02 00 05 27 30 25 c6 05 12 8a 02 00 06 c6 05 e6 89 02 00 07 66 c7 05 f5 89 02 00 19 08 66 c7 05 d6 89 02 00 21 09}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -159,3 +159,26 @@ rule Ransom_Win32_RagnarLocker_C_2147892048_0
         (3 of ($x*))
 }
 
+rule Ransom_Win32_RagnarLocker_SN_2147969411_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/RagnarLocker.SN!MTB"
+        threat_id = "2147969411"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RagnarLocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "YOUR SYSTEMS HAVE BEEN COMPROMISED" ascii //weight: 2
+        $x_2_2 = "Your systems are encrypted." ascii //weight: 2
+        $x_2_3 = "Your sensitive data has been exfiltrated." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

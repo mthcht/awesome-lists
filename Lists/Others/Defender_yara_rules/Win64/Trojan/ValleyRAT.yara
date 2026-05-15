@@ -446,3 +446,28 @@ rule Trojan_Win64_ValleyRAT_ABRS_2147967643_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_NV_2147969427_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.NV!MTB"
+        threat_id = "2147969427"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b 12 48 89 c1 ff d2 84 c0 74 35 48 8b 45 10 48 83 c0 08 48 89 c1 e8 65 6a 00 00 84 c0 74 55 48 8b 45 10 48 83 c0 08 48 89 c1 e8 81 6a 00 00 48 8b 10 48 83 c2 10 48 8b 12 48 89 c1 ff d2 eb 34 48 8b 45 10 48 83 c0 10 48 89 c1}  //weight: 2, accuracy: High
+        $x_2_2 = {48 89 10 c7 45 fc ?? 01 00 00 8b 4d fc 48 8b 45 10 48 8b 40 08 48 8b 55 10 48 8b 52 08 8b 12 31 ca 89 10 b8 00 00 00 00 85 c0 74 0a 48 8b 4d 10 e8 84 a5 03 00}  //weight: 2, accuracy: Low
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "Application Data\\Microsoft\\EdgeUpdate" ascii //weight: 1
+        $x_1_5 = "index_jisu_1.0.json" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

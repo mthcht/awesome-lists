@@ -20,3 +20,25 @@ rule Trojan_Win64_RShell_AHB_2147946221_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RShell_AHA_2147969392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RShell.AHA!MTB"
+        threat_id = "2147969392"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "\\\\.\\pipe\\rshell_handover_%s" ascii //weight: 20
+        $x_30_2 = {89 ca c1 e2 ?? 29 ca 29 d0 89 c1 89 c8 0f b6 c0 c1 e0 ?? 09 c6 41 89 f1 8b 85 e0}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

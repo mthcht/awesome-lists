@@ -318,6 +318,29 @@ rule Trojan_Win64_Havoc_KK_2147969209_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 63 d0 ff c0 8a 54 14 30 30 16 48 ff c6 e9}  //weight: 20, accuracy: High
+        $x_10_2 = {45 8a 1c 0a 48 ff c1 45 30 19 49 ff c1 48 83 f9 04}  //weight: 10, accuracy: High
+        $x_5_3 = "C:\\Windows\\System32\\notepad.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Havoc_KK_2147969209_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.KK!MTB"
+        threat_id = "2147969209"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "26"
         strings_accuracy = "High"
     strings:
