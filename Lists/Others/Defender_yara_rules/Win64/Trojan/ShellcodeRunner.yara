@@ -3202,3 +3202,25 @@ rule Trojan_Win64_ShellcodeRunner_ASRU_2147969395_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_SXO_2147969441_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.SXO!MTB"
+        threat_id = "2147969441"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {47 0f b7 2c 7b 41 8d 7d bf 44 89 eb 83 cb 20 66 83 ff 1a 41 0f 43 dd 89 ef c1 e7 05 01 ef 44 0f b6 eb 41 01 fd 0f b6 ef 44 01 ed 41 c1 e5 05 44 01 ed 49 ff c7 4d 39 fe}  //weight: 30, accuracy: High
+        $x_20_2 = {49 89 cc 49 c1 fc 20 48 c1 f9 1f 31 d2 41 89 d9 41 83 e9 01 44 0f 42 ca 48 01 e1 48 81 c1 e0 05 00 00 41 01 c0 b8 f7 07 00 00 44 29 c0 41 39 c1 41 0f 42 c1 4c 8d 04 45 02 00 00 00}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

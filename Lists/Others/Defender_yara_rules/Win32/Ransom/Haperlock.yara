@@ -45,27 +45,3 @@ rule Ransom_Win32_Haperlock_RT_2147810705_0
         (all of ($x*))
 }
 
-rule Ransom_Win32_Haperlock_SN_2147969404_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win32/Haperlock.SN!MTB"
-        threat_id = "2147969404"
-        type = "Ransom"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Haperlock"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "readion.deaftone.com" ascii //weight: 2
-        $x_2_2 = "youhappenes.flnet.org" ascii //weight: 2
-        $x_2_3 = "we fucked ourself on url" ascii //weight: 2
-        $x_2_4 = "dJoin_the_Dark_Side_We_Have_Cookies" wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

@@ -2046,3 +2046,30 @@ rule Trojan_MSIL_Injector_AB_2147969269_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_PAA_2147969436_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.PAA!MTB"
+        threat_id = "2147969436"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {16 13 0b 2b 25 11 09 11 0b 11 09 11 0b 91 11 0a 11 0b 11 0a 8e 69 5d 91 61 11 0b 20 ff 00 00 00 5f 61 d2 9c 11 0b 17 58 13 0b 11 0b 11 09 8e 69 fe 04 13 0c 11 0c 2d cd}  //weight: 3, accuracy: High
+        $x_3_2 = {13 0b 2b 27 00 11 09 11 0b 11 09 11 0b 91 11 0a 11 0b 11 0a 8e 69 5d 91 61 11 0b 20 ff 00 00 00 5f 61 d2 9c 00 11 0b 17 58 13 0b 11 0b 11 09 8e 69 fe 04 13 0c 11 0c 2d cb 11 09 13 07 de 0d}  //weight: 3, accuracy: High
+        $x_2_3 = "K9#f2Lp!mQ9xZ7aR3tWv5yB8nE1sU4dQ" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

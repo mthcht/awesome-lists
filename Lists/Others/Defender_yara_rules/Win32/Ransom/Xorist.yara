@@ -25,26 +25,3 @@ rule Ransom_Win32_Xorist_SU_2147769516_0
         (6 of ($x*))
 }
 
-rule Ransom_Win32_Xorist_SN_2147969405_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win32/Xorist.SN!MTB"
-        threat_id = "2147969405"
-        type = "Ransom"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Xorist"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "0p3nSOurc3 X0r157, motherfucker!" ascii //weight: 2
-        $x_2_2 = "All your files were encrypted!" ascii //weight: 2
-        $x_2_3 = "To decrypt files, please enter correct password!" ascii //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

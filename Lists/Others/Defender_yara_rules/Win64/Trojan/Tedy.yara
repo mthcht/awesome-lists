@@ -5966,3 +5966,25 @@ rule Trojan_Win64_Tedy_PGTB_2147969422_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AHR_2147969437_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHR!MTB"
+        threat_id = "2147969437"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {c7 44 24 68 65 00 55 00 c7 44 24 6c 70 00 64 00 c7 44 24 70 61 00 74 00 c7 44 24 74 65 00 00 00}  //weight: 20, accuracy: High
+        $x_30_2 = {48 8b c2 48 8d 49 ?? 83 e0 ?? 48 ff c2 0f b6 44 04 40 30 41 ff 48 83 ef ?? 75}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -86,27 +86,3 @@ rule Trojan_Win32_Nekark_MBV_2147938050_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Nekark_SNA_2147969407_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Nekark.SNA!MTB"
-        threat_id = "2147969407"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Nekark"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "You are about to run a potentially harmful program to your computer, that can cause the deletion of your files." wide //weight: 2
-        $x_2_2 = "The creator Potappl3 will not be responsible for any damages that may happen. " wide //weight: 2
-        $x_2_3 = "This malware has been created for educational purposes only." wide //weight: 2
-        $x_2_4 = "This is your **FINAL** warning, close the program if you are not in a virtual machine or do not know what you are doing." wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
