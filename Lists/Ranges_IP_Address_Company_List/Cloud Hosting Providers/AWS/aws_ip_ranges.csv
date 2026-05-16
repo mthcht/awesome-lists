@@ -2383,6 +2383,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 205.251.254.0/24,GLOBAL,AMAZON,GLOBAL
 216.198.224.0/22,us-east-1,AMAZON,us-east-1
 13.232.0.0/14,ap-south-1,AMAZON,ap-south-1
+13.248.82.0/24,us-south-1,AMAZON,us-south-1
 15.220.0.0/20,us-west-2,AMAZON,us-west-2-pdx-1
 15.248.16.0/22,eu-west-3,AMAZON,eu-west-3
 16.29.0.0/16,af-south-1,AMAZON,af-south-1
@@ -10211,6 +10212,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 52.94.30.0/24,af-south-1,DYNAMODB,af-south-1
 35.71.110.0/24,ap-northeast-3,DYNAMODB,ap-northeast-3
 52.94.19.0/24,ap-northeast-3,DYNAMODB,ap-northeast-3
+13.248.82.0/24,us-south-1,DYNAMODB,us-south-1
 35.71.100.0/24,ap-south-1,DYNAMODB,ap-south-1
 52.94.20.0/24,ap-south-1,DYNAMODB,ap-south-1
 52.94.9.0/24,us-gov-west-1,DYNAMODB,us-gov-west-1
