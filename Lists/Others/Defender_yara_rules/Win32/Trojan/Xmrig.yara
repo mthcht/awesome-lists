@@ -129,6 +129,30 @@ rule Trojan_Win32_Xmrig_ARAX_2147956835_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Xmrig_AMTB_2147968433_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Xmrig!AMTB"
+        threat_id = "2147968433"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Xmrig"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "pool.usxmrpool.com" ascii //weight: 2
+        $x_2_2 = "xmr-asia1.nanopool.org" ascii //weight: 2
+        $x_2_3 = "mine.ppxxmr.com" ascii //weight: 2
+        $x_2_4 = "supportxmr.com" ascii //weight: 2
+        $x_2_5 = "pool.minexmr.com" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Xmrig_SWPC_2147969316_0
 {
     meta:
