@@ -17,24 +17,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout only C2IntelFeed folder
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2
+          sparse-checkout: |
+            Lists/Domains/C2IntelFeed
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-
-      - name: Sync latest branch before changes
-        run: |
-          set -euo pipefail
-
-          BRANCH="${GITHUB_REF_NAME}"
-
-          git fetch origin "$BRANCH"
-          git pull --rebase origin "$BRANCH"
 
       - name: Execute feed fetcher
         working-directory: Lists/Domains/C2IntelFeed
@@ -58,27 +51,18 @@ jobs:
 
           git commit -m "Update C2IntelFeed CSV feeds"
 
-          echo "Rebasing on latest remote branch before push..."
-          git fetch origin "$BRANCH"
-
-          if ! git rebase "origin/$BRANCH"; then
-            echo "Rebase conflict detected. Aborting rebase."
-            git rebase --abort
-            exit 1
-          fi
-
-          echo "Pushing changes..."
           if git push origin "HEAD:$BRANCH"; then
             echo "Push successful."
             exit 0
           fi
 
-          echo "Push failed, probably due to a race condition. Retrying once..."
-          git fetch origin "$BRANCH"
+          echo "Push failed because remote branch changed. Rebasing once..."
 
-          if ! git rebase "origin/$BRANCH"; then
-            echo "Rebase conflict detected during retry. Aborting rebase."
-            git rebase --abort
+          git fetch --deepen=50 origin "$BRANCH"
+
+          if ! git pull --rebase origin "$BRANCH"; then
+            echo "Rebase conflict detected. Aborting."
+            git rebase --abort || true
             exit 1
           fi
 
