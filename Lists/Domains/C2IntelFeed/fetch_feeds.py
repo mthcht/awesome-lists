@@ -112,25 +112,88 @@ def http_download(url: str) -> bytes:
     return data
 
 
-def is_valid_csv(data: bytes, source_name: str) -> bool:
+def normalize_header_name(header: str) -> str:
+    """
+    Header normalization:
+      #domain -> domain
+      ioc     -> metadata_comment
+
+    Also removes every # character from header names.
+    """
+    normalized = header.replace("\ufeff", "").replace("#", "").strip()
+
+    if normalized.lower() == "ioc":
+        normalized = "metadata_comment"
+
+    return normalized or "unnamed_column"
+
+
+def deduplicate_headers(headers: list[str]) -> list[str]:
+    seen = {}
+    result = []
+
+    for header in headers:
+        base = header
+        count = seen.get(base, 0)
+
+        if count == 0:
+            result.append(base)
+        else:
+            result.append(f"{base}_{count + 1}")
+
+        seen[base] = count + 1
+
+    return result
+
+
+def normalize_csv_headers(data: bytes, source_name: str) -> bytes | None:
+    """
+    Validates CSV and rewrites only the header row.
+
+    - Removes # from all header names
+    - Renames ioc header to metadata_comment
+    - Keeps all data rows unchanged
+    """
     try:
         text = data.decode("utf-8-sig", errors="strict")
     except UnicodeDecodeError:
         log(f"Skipping non UTF-8 CSV: {source_name}")
-        return False
+        return None
+
+    if not text.strip():
+        log(f"Skipping empty CSV: {source_name}")
+        return None
+
+    sample = text[:4096]
 
     try:
-        reader = csv.reader(io.StringIO(text))
-        first_row = next(reader, None)
+        dialect = csv.Sniffer().sniff(sample)
+    except csv.Error:
+        dialect = csv.excel
+
+    try:
+        reader = csv.reader(io.StringIO(text), dialect)
+        rows = list(reader)
     except csv.Error:
         log(f"Skipping invalid CSV: {source_name}")
-        return False
+        return None
 
-    if first_row is None:
+    if not rows:
         log(f"Skipping empty CSV: {source_name}")
-        return False
+        return None
 
-    return True
+    original_headers = rows[0]
+    normalized_headers = deduplicate_headers(
+        [normalize_header_name(header) for header in original_headers]
+    )
+
+    rows[0] = normalized_headers
+
+    output = io.StringIO()
+    writer = csv.writer(output, dialect=dialect, lineterminator="\n")
+    writer.writerows(rows)
+
+    return output.getvalue().encode("utf-8")
 
 
 def sha256_hex(data: bytes) -> str:
@@ -212,27 +275,35 @@ def extract_csvs(zip_data: bytes) -> dict:
             relative_path = inner_path.removeprefix(f"{SOURCE_DIR}/")
             output_path = safe_output_path(relative_path)
 
-            data = zf.read(member)
+            source_data = zf.read(member)
 
-            if len(data) > MAX_CSV_SIZE:
+            if len(source_data) > MAX_CSV_SIZE:
                 log(f"Skipping oversized CSV after read: {inner_path}")
                 continue
 
-            if not is_valid_csv(data, inner_path):
+            output_data = normalize_csv_headers(source_data, inner_path)
+            if output_data is None:
                 continue
 
-            file_changed = atomic_write(output_path, data)
+            file_changed = atomic_write(output_path, output_data)
             downloaded += 1
 
-            status = "updated" if file_changed else "unchanged"
+            if file_changed:
+                changed += 1
+                status = "updated"
+            else:
+                status = "unchanged"
+
             saved_as = str(output_path.relative_to(OUTPUT_DIR))
 
             manifest["files"].append(
                 {
                     "source_path": inner_path,
                     "saved_as": saved_as,
-                    "size_bytes": len(data),
-                    "sha256": sha256_hex(data),
+                    "source_size_bytes": len(source_data),
+                    "saved_size_bytes": len(output_data),
+                    "source_sha256": sha256_hex(source_data),
+                    "saved_sha256": sha256_hex(output_data),
                     "status": status,
                 }
             )
@@ -240,12 +311,6 @@ def extract_csvs(zip_data: bytes) -> dict:
             log(f"{status}: {saved_as}")
 
     manifest["downloaded_files"] = downloaded
-    manifest["changed_files"] = changed
-
-    for entry in manifest["files"]:
-        if entry["status"] == "updated":
-            changed += 1
-
     manifest["changed_files"] = changed
 
     atomic_write(
