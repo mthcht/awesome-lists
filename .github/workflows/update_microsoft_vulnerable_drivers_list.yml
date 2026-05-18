@@ -1,0 +1,64 @@
+name: Update Microsoft Vulnerable Drivers List
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-microsoft-vulnerable-drivers-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update-microsoft-vulnerable-drivers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout only Drivers folder
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          sparse-checkout: |
+            Lists/Drivers
+
+      - name: Execute Microsoft vulnerable drivers fetcher
+        working-directory: Lists/Drivers
+        run: python3 get_microsoft_vulnerable_drivers_list.py
+
+      - name: Commit and push updated driver list
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add Lists/Drivers
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update Microsoft vulnerable drivers list"
+
+          if git push origin "HEAD:$BRANCH"; then
+            echo "Push successful."
+            exit 0
+          fi
+
+          echo "Push failed because remote branch changed. Rebasing once..."
+
+          git fetch --deepen=50 origin "$BRANCH"
+
+          if ! git pull --rebase origin "$BRANCH"; then
+            echo "Rebase conflict detected. Aborting."
+            git rebase --abort || true
+            exit 1
+          fi
+
+          git push origin "HEAD:$BRANCH"
