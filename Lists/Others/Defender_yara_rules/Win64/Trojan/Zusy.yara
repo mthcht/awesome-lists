@@ -3816,3 +3816,26 @@ rule Trojan_Win64_Zusy_PGZB_2147968610_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_MQR_2147969482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MQR!MTB"
+        threat_id = "2147969482"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 8d 8c 24 ?? 00 00 00 8d 55 ?? 44 8d 45 ?? 48 8b c8 48 89 44 24 ?? ff 15 ?? ?? ?? ?? 48 89 6c 24 ?? 44 8d 45 ?? 48 8d 0d ?? ?? ?? ?? 45 33 c9 ba 00 00 00 80 c7 44 24 28 80 00 00 00 c7 44 24 20 03 00 00 00 ff 15}  //weight: 5, accuracy: Low
+        $x_3_2 = {44 8b 44 24 ?? 41 8d 50 ff 45 8d 48 ff 49 8d 48 ff 44 03 4d ?? f7 d2 48 03 cb 4c 23 ca 48 23 ca 4c 3b c9 74 20 b9 c1 00 00 00 ff 15 ?? ?? ?? ?? 48 8b 6c 24 ?? 4c 8b bc 24 ?? 00 00 00 33 c0 48 83 c4 ?? 5b c3 48 8b 4d ?? 49 8d 99 ?? ?? ?? ?? 41 b8 00 ?? ?? ?? 41 b9 ?? 00 00 00 48 8b d3 48 89 74 24 ?? ff 15 ?? ?? ?? ?? 48 8b f0 48 85 c0 75 ?? 44 8d 48 ?? 41 b8 00 ?? ?? ?? 48 8b d3 33 c9 ff 15 c4 d8 00 00 48 8b f0}  //weight: 3, accuracy: Low
+        $x_1_3 = "\\Registry\\User\\%s\\Software\\%s" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2073,3 +2073,33 @@ rule Trojan_MSIL_Injector_PAA_2147969436_0
         )
 }
 
+rule Trojan_MSIL_Injector_MQR_2147969483_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.MQR!MTB"
+        threat_id = "2147969483"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {73 0d 00 00 06 13 04 11 04 02 7e 07 00 00 0a 7e 08 00 00 0a 7e 08 00 00 0a 16 20 04 00 00 08 7e 08 00 00 0a 14 12 02 12 03 6f 0e}  //weight: 2, accuracy: High
+        $x_2_2 = {fe 06 06 00 00 06 73 21 00 00 06 13 11 11 11 12 03 7b 01 00 00 04 11 06 11 0e 20 00 30 00 00 1f 40 6f 22}  //weight: 2, accuracy: High
+        $x_2_3 = {fe 06 01 00 00 06 73 29 00 00 06 13 1f 11 1f 12 03 7b 02 00 00 04 6f 2a}  //weight: 2, accuracy: High
+        $x_2_4 = {7a 14 fe 06 01 00 00 06 73 29 00 00 06 13 1f 11 1f 12 03 7b 02 00 00 04 6f 2a}  //weight: 2, accuracy: High
+        $x_1_5 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_6 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_7 = "CreateProcessA" ascii //weight: 1
+        $x_1_8 = "ZwUnmapViewOfSection" ascii //weight: 1
+        $x_1_9 = "ResumeThread" ascii //weight: 1
+        $x_1_10 = "TargetPath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
