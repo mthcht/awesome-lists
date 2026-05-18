@@ -1,4 +1,4 @@
-name: weekly Bad TLDs Update
+name: weekly Bad TLDs and valid tlds Update
 
 on:
   schedule:
@@ -26,7 +26,8 @@ jobs:
         run: |
           cd Lists/TLDs
           python fetch_cybercrimeinfocenter_phishing_tlds_stats.py
-    
+          python fetch_valid_tlds.py
+          
       - name: List files
         run: ls -la
 
