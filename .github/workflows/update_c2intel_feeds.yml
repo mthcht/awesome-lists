@@ -1,0 +1,85 @@
+name: Update C2IntelFeed CSVs
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-c2intel-feeds-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update-c2intel-feeds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Sync latest branch before changes
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"
+
+          git fetch origin "$BRANCH"
+          git pull --rebase origin "$BRANCH"
+
+      - name: Execute feed fetcher
+        working-directory: Lists/Domains/C2IntelFeed
+        run: python3 fetch_feeds.py
+
+      - name: Commit and push updated feeds
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add Lists/Domains/C2IntelFeed
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update C2IntelFeed CSV feeds"
+
+          echo "Rebasing on latest remote branch before push..."
+          git fetch origin "$BRANCH"
+
+          if ! git rebase "origin/$BRANCH"; then
+            echo "Rebase conflict detected. Aborting rebase."
+            git rebase --abort
+            exit 1
+          fi
+
+          echo "Pushing changes..."
+          if git push origin "HEAD:$BRANCH"; then
+            echo "Push successful."
+            exit 0
+          fi
+
+          echo "Push failed, probably due to a race condition. Retrying once..."
+          git fetch origin "$BRANCH"
+
+          if ! git rebase "origin/$BRANCH"; then
+            echo "Rebase conflict detected during retry. Aborting rebase."
+            git rebase --abort
+            exit 1
+          fi
+
+          git push origin "HEAD:$BRANCH"
