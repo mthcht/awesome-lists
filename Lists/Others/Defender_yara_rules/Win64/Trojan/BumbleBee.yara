@@ -2445,6 +2445,28 @@ rule Trojan_Win64_BumbleBee_CA_2147951936_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_BumbleBee_K_2147966325_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BumbleBee.K!AMTB"
+        threat_id = "2147966325"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BumbleBee"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {49 81 e5 a4 58 74 47 4d 1b a7 c9 31 1c 00 48 bf e0 79 59 09 00 00 00 00 4d 1b 9f 8c 30 1c 00 41 80 87 77 30 1c 00 f4 48 c7 44 24 40 c2 75 cb ca 49 bd 62 7c f0 65 64 3a 9e 55 4d 8b b7 0c 31 1c 00 48 c7 44 24 44 08 00 00 00 4c 8b db}  //weight: 3, accuracy: High
+        $x_3_2 = {49 89 bf 05 32 1c 00 4d 03 9f 94 31 1c 00 48 81 c7 e6 e3 ad 02 49 81 dc 06 f0 b5 56 48 81 6c 24 40 01 00 00 00 0f 85 d5 ff ff ff}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_BumbleBee_KG_2147966671_0
 {
     meta:

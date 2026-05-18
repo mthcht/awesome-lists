@@ -104,12 +104,12 @@ rule Trojan_Win64_HijackLoader_ARAE_2147968849_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_HijackLoader_ARAF_2147969501_0
+rule Trojan_Win64_HijackLoader_ARAF_2147969502_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/HijackLoader.ARAF!MTB"
-        threat_id = "2147969501"
+        threat_id = "2147969502"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "HijackLoader"
