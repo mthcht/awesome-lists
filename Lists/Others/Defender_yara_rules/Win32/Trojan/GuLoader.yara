@@ -8649,3 +8649,27 @@ rule Trojan_Win32_GuLoader_REZ_2147969375_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RFA_2147969496_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFA!MTB"
+        threat_id = "2147969496"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "anatifer offsettrykkeris uomtvisteligheds" ascii //weight: 1
+        $x_1_2 = "undo subbase" ascii //weight: 1
+        $x_1_3 = "pounder autotypies" ascii //weight: 1
+        $x_1_4 = "whitest haspes.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
