@@ -638,6 +638,28 @@ rule Trojan_MSIL_Lazy_ALZ_2147844265_5
         threshold = "3"
         strings_accuracy = "Low"
     strings:
+        $x_1_1 = {2b 34 00 11 08 11 07 8e 69 fe 04 13 10 11 10 2c 18 11 07 11 08 11 04 6f ?? 00 00 0a 11 0b 11 08 07 8e 69 5d 58 47 61 d2 9c 11 08 17 58 13 08 00 11 0f 17 58 13 0f 11}  //weight: 1, accuracy: Low
+        $x_2_2 = {02 11 04 1f 54 58 28 ?? 00 00 0a 12 09 28 ?? 00 00 06 26 02 11 04 1c 58 28 ?? 00 00 0a 13 0a 11 04 1f 18 58 02 11 04 1f 14 58 28 ?? 00 00 0a 58 13 0b 16 13 0d 2b 7f 00 11 0b 11 0d 1f 28 5a 58 13 0e 02 11 0e 1f 0c 58 28 ?? 00 00 0a 13 0f 02 11 0e 1f 10 58 28}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lazy_ALZ_2147844265_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ALZ!MTB"
+        threat_id = "2147844265"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
         $x_2_1 = {16 13 04 2b 71 00 06 19 11 04 5a 6f ?? ?? ?? 0a 13 05 11 05 1f 39 fe 02 13 07 11 07 2c 0d 11 05 1f 41 59 1f 0a 58 d1 13 05 2b 08 11 05 1f 30 59 d1 13 05 06 19 11 04 5a 17 58 6f ?? ?? ?? 0a 13 06 11 06 1f 39 fe 02 13 08 11 08 2c 0d 11 06 1f 41 59 1f 0a 58 d1 13 06 2b 08 11 06 1f 30 59 d1 13 06 08 11 04 1f 10 11 05 5a 11 06 58 d2 9c 00 11 04 17 58 13 04 11 04 07 fe 04 13 09 11 09 2d 84}  //weight: 2, accuracy: Low
         $x_1_2 = "PelayoSNonograms" wide //weight: 1
     condition:
@@ -645,7 +667,7 @@ rule Trojan_MSIL_Lazy_ALZ_2147844265_5
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Lazy_ALZ_2147844265_6
+rule Trojan_MSIL_Lazy_ALZ_2147844265_7
 {
     meta:
         author = "defender2yara"

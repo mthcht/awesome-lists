@@ -14043,8 +14043,10 @@ rule Trojan_Win32_ClickFix_CMZ_2147969131_0
         $x_4_4 = ".google" wide //weight: 4
         $x_2_5 = "-verif" wide //weight: 2
         $x_2_6 = "confirm" wide //weight: 2
+        $n_30_7 = "msedgewebview2.exe" wide //weight: -30
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((2 of ($x_10_*) and 2 of ($x_2_*))) or
             ((2 of ($x_10_*) and 1 of ($x_4_*))) or
