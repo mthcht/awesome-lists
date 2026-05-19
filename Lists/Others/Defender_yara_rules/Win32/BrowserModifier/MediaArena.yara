@@ -75,6 +75,30 @@ rule BrowserModifier_Win32_MediaArena_362962_3
         family = "MediaArena"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "www.flashtestapp.com" wide //weight: 1
+        $x_1_2 = "https://colropl.com/" wide //weight: 1
+        $x_1_3 = "FlashTestInstaller" ascii //weight: 1
+        $x_1_4 = "InstallProgressBar" ascii //weight: 1
+        $x_1_5 = "cis.txt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule BrowserModifier_Win32_MediaArena_362962_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "BrowserModifier:Win32/MediaArena"
+        threat_id = "362962"
+        type = "BrowserModifier"
+        platform = "Win32: Windows 32-bit platform"
+        family = "MediaArena"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:

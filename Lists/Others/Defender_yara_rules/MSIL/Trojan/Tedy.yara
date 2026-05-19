@@ -2534,3 +2534,25 @@ rule Trojan_MSIL_Tedy_AHB_2147969074_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_PGRT_2147969678_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.PGRT!MTB"
+        threat_id = "2147969678"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {15 04 21 04 1b 04 18 04 20 00 12 04 2b 04 20 00 1d 04 15 04 20 00 1e 04 1f 04 1b 04 10 04 22 04 18 04 22 04 15 04 20 00 12 04 20 00 22 04 15 04 27 04 15 04 1d 04 18 04 15 04 20 00 34 00 20 00 27 04 10 04 21 04 1e 04 12 04}  //weight: 5, accuracy: High
+        $x_5_2 = {12 04 10 04 28 04 20 00 49 00 50 00 20 00 18 04 20 00 1b 04 18 04 27 04 1d 04 2b 04 15 04 20 00 14 04 10 04 1d 04 1d 04 2b 04 15 04 20 00 11 04 23 04 14 04 23 04 22 04 20 00 1e 04 1f 04 23 04 11 04 1b 04 18 04 1a 04 1e 04 12 04 10 04 1d 04 2b 04 0a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
