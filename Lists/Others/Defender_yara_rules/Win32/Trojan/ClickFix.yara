@@ -14078,3 +14078,52 @@ rule Trojan_Win32_ClickFix_IMZ_2147969344_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_FMZ_2147969641_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.FMZ!MTB"
+        threat_id = "2147969641"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "&pushd" wide //weight: 5
+        $x_5_2 = "&curl" wide //weight: 5
+        $x_5_3 = "d&tar xf" wide //weight: 5
+        $x_5_4 = "t&del" wide //weight: 5
+        $x_10_5 = "bagokd5x9ix.com" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_GMZ_2147969642_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GMZ!MTB"
+        threat_id = "2147969642"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "-W Hidden" wide //weight: 1
+        $x_1_3 = "hackable" wide //weight: 1
+        $x_1_4 = "click-fix" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
