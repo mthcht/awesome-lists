@@ -659,3 +659,39 @@ rule Trojan_MSIL_PureRat_AV_2147969171_0
         )
 }
 
+rule Trojan_MSIL_PureRat_AW_2147969688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureRat.AW!MTB"
+        threat_id = "2147969688"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {02 00 04 28 ?? 06 00 06 6f ?? 00 00 0a 20}  //weight: 6, accuracy: Low
+        $x_5_2 = "m8DD" ascii //weight: 5
+        $x_5_3 = "m8DE" ascii //weight: 5
+        $x_5_4 = "m8DC" ascii //weight: 5
+        $x_2_5 = "protobuf-net" ascii //weight: 2
+        $x_2_6 = "CreateDecryptor" ascii //weight: 2
+        $x_2_7 = "GZipStream" ascii //weight: 2
+        $x_2_8 = "System.Net.Sockets" ascii //weight: 2
+        $x_2_9 = "FromBase64String" ascii //weight: 2
+        $x_2_10 = "set_UseShellExecute" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_5_*) and 4 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_5_*) and 4 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 3 of ($x_5_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
