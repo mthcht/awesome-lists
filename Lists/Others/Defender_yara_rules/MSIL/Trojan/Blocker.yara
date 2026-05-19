@@ -298,3 +298,25 @@ rule Trojan_MSIL_Blocker_SOZA_2147928389_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Blocker_VD_2147969646_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Blocker.VD!MTB"
+        threat_id = "2147969646"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Blocker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {08 1f 47 5a 20 7a 5b f9 5b 20 5f 1d 5d 3f 59 20 4d 74 fd f0 20 fc 40 21 5f 58 58 20 45 68 62 a1 20 93 35 33 39 59 20 e3 e2 3c 13 59 20 2e 64 06 23 20 71 c8 04 8c 20 b6 01 36 57 59 61 58 59 5d d2 0c 1d 13 05 38 41 ff ff ff}  //weight: 5, accuracy: High
+        $x_1_2 = "$cfefd6f2-f8aa-45fa-bab9-3522be66bf82" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -346,6 +346,29 @@ rule Ransom_Win64_LockFile_ARR_2147960058_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_ARR_2147960058_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.ARR!MTB"
+        threat_id = "2147960058"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "ALL YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 8
+        $x_5_2 = "Your documents, photos, databases and all other important files" ascii //weight: 5
+        $x_7_3 = "SEND PAYMENT TO THIS ADDRESS" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win64_LockFile_MKZ_2147965991_0
 {
     meta:

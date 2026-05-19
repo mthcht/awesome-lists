@@ -882,3 +882,28 @@ rule Trojan_Win64_Meterpreter_MK_2147968837_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_VD_2147969647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.VD!MTB"
+        threat_id = "2147969647"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "temp_del_%lu.bat" ascii //weight: 1
+        $x_1_2 = "TCP Payload Attack completed" ascii //weight: 1
+        $x_1_3 = "Bot-Curl/1.0" ascii //weight: 1
+        $x_1_4 = "TCP 3-way handshake attack" ascii //weight: 1
+        $x_1_5 = "exclusion added successfully" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
