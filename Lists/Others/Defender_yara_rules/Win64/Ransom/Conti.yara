@@ -205,3 +205,25 @@ rule Ransom_Win64_Conti_AHB_2147967064_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Conti_ARA_2147969518_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Conti.ARA!MTB"
+        threat_id = "2147969518"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Conti"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {30 06 c0 c0 03 48 ff c6 48 ff c9 75 f3}  //weight: 10, accuracy: High
+        $x_2_2 = "All your files have been encrypted" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

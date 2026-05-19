@@ -714,3 +714,28 @@ rule Trojan_Win64_Injector_NWB_2147969007_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXO_2147969523_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXO!MTB"
+        threat_id = "2147969523"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "120"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {4c 8b f1 4c 2b f2 4c 8b 45 d8 49 8b c0 48 2b c2 4c 3b f0 77 2c 48 89 4d d0 48 8d 7d c0 49 83 f8 0f 48 0f 47 7d c0 48 03 fa 4d 8b c6 33 d2 48 8b cf e8 ?? ?? ?? ?? 42 c6 04 37 00}  //weight: 10, accuracy: Low
+        $x_50_2 = "_signer.bat" ascii //weight: 50
+        $x_30_3 = "-CertStoreLocation Cert:\\CurrentUser\\My -NotAfter (Get-Date).AddYears(1)" ascii //weight: 30
+        $x_20_4 = "$certPath = $env:TEMP + '\\temp_cert.cer'" ascii //weight: 20
+        $x_10_5 = "VALORANT-Win64-Shipping.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

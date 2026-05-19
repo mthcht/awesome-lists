@@ -2082,6 +2082,42 @@ rule Trojan_MSIL_Quasar_DAB_2147965909_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_DAB_2147965909_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.DAB!MTB"
+        threat_id = "2147965909"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "24"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "BrowserKeyDecryptor" ascii //weight: 2
+        $x_2_2 = "CollectBrowserDataZip" ascii //weight: 2
+        $x_2_3 = "GetAllBrowsers" ascii //weight: 2
+        $x_2_4 = "KillBrowserProcess" ascii //weight: 2
+        $x_2_5 = "CollectAndSendDocuments" ascii //weight: 2
+        $x_2_6 = "ExtractWallets" ascii //weight: 2
+        $x_2_7 = "PK11SDR_Decrypt" wide //weight: 2
+        $x_2_8 = "app_bound_encrypted_key" wide //weight: 2
+        $x_1_9 = "DoInject" ascii //weight: 1
+        $x_1_10 = "SOFTWARE\\Classes\\TypeLib" wide //weight: 1
+        $x_1_11 = "Google\\Chrome Beta\\User Data" wide //weight: 1
+        $x_1_12 = "AVG\\Browser\\User Data" wide //weight: 1
+        $x_1_13 = "Comodo\\Dragon\\User Data" wide //weight: 1
+        $x_1_14 = "encrypted_key" wide //weight: 1
+        $x_1_15 = "logins.json" wide //weight: 1
+        $x_1_16 = "IElevatorChrome" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Quasar_ZDF_2147966199_0
 {
     meta:

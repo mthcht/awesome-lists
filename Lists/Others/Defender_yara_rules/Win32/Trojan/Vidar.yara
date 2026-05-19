@@ -7002,6 +7002,40 @@ rule Trojan_Win32_Vidar_SJ_2147964678_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_SJ_2147964678_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.SJ!MTB"
+        threat_id = "2147964678"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.aesDecryptCBC" ascii //weight: 1
+        $x_1_2 = "main.decompress.deferwrap1" ascii //weight: 1
+        $x_1_3 = "main.hexDecode" ascii //weight: 1
+        $x_1_4 = "main.markerMatch" ascii //weight: 1
+        $x_1_5 = "main.RunLoader.deferwrap1" ascii //weight: 1
+        $x_1_6 = "main.getAesKeyInfo" ascii //weight: 1
+        $x_1_7 = "main.getAesIvInfo" ascii //weight: 1
+        $x_1_8 = "main.getEncSizeInfo" ascii //weight: 1
+        $x_1_9 = "main.getDataInfo" ascii //weight: 1
+        $x_1_10 = "main.getOverlaySize" ascii //weight: 1
+        $x_1_11 = "main.getOverlayBinarySize" ascii //weight: 1
+        $x_1_12 = "main.getOverlayPadBefore" ascii //weight: 1
+        $x_1_13 = "main.getExtPayloadExt" ascii //weight: 1
+        $x_1_14 = "main.isVirtualMachine" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Vidar_GVF_2147965809_0
 {
     meta:
