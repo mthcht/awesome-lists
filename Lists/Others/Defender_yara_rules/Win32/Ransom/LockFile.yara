@@ -93,3 +93,26 @@ rule Ransom_Win32_LockFile_AP_2147958235_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_LockFile_PAHJ_2147969638_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockFile.PAHJ!MTB"
+        threat_id = "2147969638"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".locked" ascii //weight: 1
+        $x_2_2 = "Your files have been encrypted" ascii //weight: 2
+        $x_1_3 = "All your documents, photos, videos and important files are now locked" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
