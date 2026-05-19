@@ -8179,6 +8179,28 @@ rule Trojan_Win32_LummaStealer_KKA_2147959985_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_KKA_2147959985_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.KKA!MTB"
+        threat_id = "2147959985"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {c7 44 24 10 8b 18 8f 1a c7 44 24 14 f9 1c f3 1e c7 44 24 18 fd 10 c1 12 c7 44 24 1c f1 14 fb 16 c7 44 24 20 e5 08 0b 0a}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 7c 24 04 8b 4c 24 08 89 ce c1 ee ?? 31 ce 8d 1c 3f f7 d3 01 fb 21 f3 8d 14 36 f7 d2}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LummaStealer_CL_2147960135_0
 {
     meta:
@@ -8297,6 +8319,28 @@ rule Trojan_Win32_LummaStealer_KKB_2147961197_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {d1 ea 33 94 06 f8 0f 00 00 31 fa 89 94 06 84 13 00 00 83 c0 04}  //weight: 20, accuracy: High
+        $x_10_2 = {89 ca c1 ea 1e 31 ca 89 f1 f7 d1 21 d1 89 d7 f7 d7 21 f7 0f af f9 89 f1 21 d1 09 f2 0f af d1 01 fa 89 d1 21 c1 31 c2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_LummaStealer_KKB_2147961197_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.KKB!MTB"
+        threat_id = "2147961197"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "Low"
     strings:
@@ -8306,7 +8350,7 @@ rule Trojan_Win32_LummaStealer_KKB_2147961197_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_KKB_2147961197_1
+rule Trojan_Win32_LummaStealer_KKB_2147961197_2
 {
     meta:
         author = "defender2yara"

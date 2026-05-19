@@ -67,3 +67,29 @@ rule Trojan_Win64_Greedy_AHA_2147967322_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Greedy_KK_2147969666_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Greedy.KK!MTB"
+        threat_id = "2147969666"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Greedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\"encrypted_key\":APPDATA" ascii //weight: 10
+        $x_5_2 = "encrypted_value" ascii //weight: 5
+        $x_4_3 = "grab_tokens" ascii //weight: 4
+        $x_3_4 = "token_count" ascii //weight: 3
+        $x_2_5 = "roblox_cookies" ascii //weight: 2
+        $x_1_6 = "net_post_webhook" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

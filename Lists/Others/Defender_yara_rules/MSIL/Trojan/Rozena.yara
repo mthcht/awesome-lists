@@ -3166,6 +3166,27 @@ rule Trojan_MSIL_Rozena_KK_2147968224_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {09 11 06 09 11 06 91 11 04 61 d2 9c 11 06 17 58 13 06 11 06 09 8e 69 32}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Rozena_KK_2147968224_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.KK!MTB"
+        threat_id = "2147968224"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:

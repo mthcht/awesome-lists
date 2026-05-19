@@ -6009,3 +6009,25 @@ rule Trojan_Win64_Tedy_PAD_2147969637_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AHS_2147969664_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHS!MTB"
+        threat_id = "2147969664"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {c6 44 24 70 ?? 0f b6 44 24 70 48 89 c1 48 83 f1 ?? 48 83 f0 ?? 65 48 8b 11 48 8b 1c 02 48 85 db 0f}  //weight: 30, accuracy: Low
+        $x_20_2 = "LOADUST_BLOAT_ARMmini_loader_core.rs" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
