@@ -167,3 +167,29 @@ rule Trojan_Win64_KeyLogger_AR_2147962178_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KeyLogger_LRE_2147969753_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.LRE!MTB"
+        threat_id = "2147969753"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 bb 25 23 22 84 e4 9c f2 cb 48 8b 52 10 33 c9 48 85 d2}  //weight: 20, accuracy: High
+        $x_1_2 = "File succefuly sended" ascii //weight: 1
+        $x_2_3 = "Start collect information to the folder:" ascii //weight: 2
+        $x_3_4 = "All information collected to the folder:" ascii //weight: 3
+        $x_4_5 = "\"encrypted_key\":\"(.*" ascii //weight: 4
+        $x_5_6 = "\\AppData\\Roaming\\Telegram Desktop\\tdata\\D877F783D5D3EF8C*" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -7079,3 +7079,24 @@ rule Trojan_Win32_Vidar_LVM_2147969339_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_LVK_2147969749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.LVK!MTB"
+        threat_id = "2147969749"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 89 f8 4c 39 c3 7e 0e 46 0f b6 0c 00 45 84 c9 75 ec 0f 1f 40 00 4c 39 c1 72 34 49 39 f0 72 24 48 89 f2 48 29 ce 49 29 d0 48 c1 fe 3f 48 21 f2 48 8d 1c 10 31 c0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

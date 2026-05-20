@@ -112,6 +112,37 @@ rule Trojan_Win64_LucaStealer_LR_2147964558_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LucaStealer_LR_2147964558_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LucaStealer.LR!MTB"
+        threat_id = "2147964558"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LucaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "66"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Extracting comprehensive fingerprint..." ascii //weight: 1
+        $x_2_2 = "\"executable_path\": \"" ascii //weight: 2
+        $x_3_3 = "\"extraction_complete\": true" ascii //weight: 3
+        $x_4_4 = "fingerprint.json" ascii //weight: 4
+        $x_5_5 = "Fingerprint saved to" ascii //weight: 5
+        $x_6_6 = "Login Data For Account" ascii //weight: 6
+        $x_7_7 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 7
+        $x_8_8 = "NO_ABE:Browser uses legacy DPAPI encryption (App-Bound Encryption not enabled)" ascii //weight: 8
+        $x_9_9 = "COOKIES:" ascii //weight: 9
+        $x_10_10 = "PASSWORDS:" ascii //weight: 10
+        $x_11_11 = "SELECT guid, value_encrypted FROM local_stored_cvc" ascii //weight: 11
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_LucaStealer_AHA_2147966581_0
 {
     meta:

@@ -68,3 +68,25 @@ rule Trojan_MSIL_Midie_MCW_2147968631_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Midie_SXB_2147969755_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Midie.SXB!MTB"
+        threat_id = "2147969755"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {28 6e 00 00 06 0d 09 28 61 00 00 0a 2d 0f 09 28 62 00 00 0a 2c 07 09 28 63 00 00 0a 26 de 03 26 de 00 28 5f 00 00 0a 6f 60 00 00 0a 2a}  //weight: 30, accuracy: High
+        $x_10_2 = {28 73 00 00 0a 6f 3d 00 00 0a 28 4a 00 00 06 6f 37 00 00 06 6f bb 00 00 0a 26 20 e8 03 00 00 28 bc 00 00 0a 12 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -451,6 +451,7 @@ rule Trojan_Win32_ClickFix_L_2147932742_0
         $x_1_4 = "verif" wide //weight: 1
         $n_100_5 = "msedgewebview2.exe" wide //weight: -100
         $n_1000_6 = "if false == false echo" wide //weight: -1000
+        $n_10000_7 = "https://www.google.com/recaptcha/api/siteverify" wide //weight: -10000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -14122,6 +14123,108 @@ rule Trojan_Win32_ClickFix_GMZ_2147969642_0
         $x_1_2 = "-W Hidden" wide //weight: 1
         $x_1_3 = "hackable" wide //weight: 1
         $x_1_4 = "click-fix" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_PK_2147969757_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PK!MTB"
+        threat_id = "2147969757"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "=recaptcha" wide //weight: 5
+        $x_1_2 = ".php?" wide //weight: 1
+        $x_1_3 = "SilentlyContinue" wide //weight: 1
+        $x_1_4 = "Invoke-WebRequest" wide //weight: 1
+        $x_1_5 = "-WindowStyle Hidden" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_PL_2147969758_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PL!MTB"
+        threat_id = "2147969758"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "/c net use " wide //weight: 5
+        $x_1_2 = ".cmd" wide //weight: 1
+        $x_1_3 = "http" wide //weight: 1
+        $x_1_4 = "/delete" wide //weight: 1
+        $x_1_5 = "/persistent:no" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_PM_2147969759_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PM!MTB"
+        threat_id = "2147969759"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "powershell" wide //weight: 5
+        $x_1_2 = ".zip" wide //weight: 1
+        $x_1_3 = "LOCALAPPDATA" wide //weight: 1
+        $x_1_4 = "Expand-Archive" wide //weight: 1
+        $x_1_5 = "Start-Process" wide //weight: 1
+        $x_1_6 = "Invoke-WebRequest" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_PN_2147969760_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PN!MTB"
+        threat_id = "2147969760"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "powershell" wide //weight: 5
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = ".php" wide //weight: 1
+        $x_1_4 = "Invoke-Expression" wide //weight: 1
+        $x_1_5 = ".Content" wide //weight: 1
+        $x_1_6 = "Invoke-WebRequest -UseBasicParsing" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
