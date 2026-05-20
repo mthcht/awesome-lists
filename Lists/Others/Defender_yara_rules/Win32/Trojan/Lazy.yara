@@ -3158,3 +3158,27 @@ rule Trojan_Win32_Lazy_MKJ_2147968945_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_MKL_2147969830_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.MKL!MTB"
+        threat_id = "2147969830"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[+] Driver load successfully!" ascii //weight: 10
+        $x_5_2 = "[+] Service created successfully!" ascii //weight: 5
+        $x_3_3 = "[-] StartService failed %lu!" ascii //weight: 3
+        $x_2_4 = "[-] You must run this with administartor privileges" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

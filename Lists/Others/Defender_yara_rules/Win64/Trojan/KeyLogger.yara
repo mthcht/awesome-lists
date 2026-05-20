@@ -187,7 +187,7 @@ rule Trojan_Win64_KeyLogger_LRE_2147969753_0
         $x_2_3 = "Start collect information to the folder:" ascii //weight: 2
         $x_3_4 = "All information collected to the folder:" ascii //weight: 3
         $x_4_5 = "\"encrypted_key\":\"(.*" ascii //weight: 4
-        $x_5_6 = "\\AppData\\Roaming\\Telegram Desktop\\tdata\\D877F783D5D3EF8C*" ascii //weight: 5
+        $x_5_6 = "\\AppData\\Roaming\\Telegram Desktop\\tdata" ascii //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))

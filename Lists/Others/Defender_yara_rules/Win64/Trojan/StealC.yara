@@ -958,3 +958,24 @@ rule Trojan_Win64_StealC_GDK_2147968882_0
         )
 }
 
+rule Trojan_Win64_StealC_MKA_2147969832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.MKA!MTB"
+        threat_id = "2147969832"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_35_1 = {8b 4c 24 2c 48 63 c9 ff 44 24 2c 8b 54 24 2c 69 ?? ?? ?? ?? ?? 66 33 54 4c 30 66 89 54 4c 30 8b 4c 24 2c 83 f9 0c}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
