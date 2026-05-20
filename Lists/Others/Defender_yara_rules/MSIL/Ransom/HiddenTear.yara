@@ -1232,3 +1232,56 @@ rule Ransom_MSIL_HiddenTear_D_2147967694_0
         )
 }
 
+rule Ransom_MSIL_HiddenTear_AXB_2147969730_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.AXB!MTB"
+        threat_id = "2147969730"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "READ_IT.txt" wide //weight: 1
+        $x_1_2 = "Files have been encrypted :(" wide //weight: 1
+        $x_1_3 = "DM me on Telegram so we can negotiate" wide //weight: 1
+        $x_1_4 = "alpacino.exe" wide //weight: 1
+        $x_1_5 = "$98326592-b282-428c-90e3-3fc8070fae73" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_HiddenTear_AXD_2147969732_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.AXD!MTB"
+        threat_id = "2147969732"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<1>__KeyboardHookProc" ascii //weight: 1
+        $x_1_2 = "DrawRansomInterface" ascii //weight: 1
+        $x_1_3 = "InstallPersistence" ascii //weight: 1
+        $x_1_4 = "ShowRansomNote" ascii //weight: 1
+        $x_1_5 = "spawnedProcesses" ascii //weight: 1
+        $x_1_6 = "RansomLock2024" wide //weight: 1
+        $x_1_7 = "/create /tn \"WindowsDefenderService\" /tr \"" wide //weight: 1
+        $x_1_8 = "sc onlogon /ru SYSTEM /rl highest /f" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

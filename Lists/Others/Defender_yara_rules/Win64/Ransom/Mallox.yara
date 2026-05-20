@@ -184,3 +184,30 @@ rule Ransom_Win64_Mallox_MX_2147964437_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Mallox_AXD_2147969733_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Mallox.AXD!MTB"
+        threat_id = "2147969733"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mallox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "delete shadows /all /quiet" wide //weight: 5
+        $x_2_2 = "\\sysnative\\vssadmin.exe" wide //weight: 2
+        $x_1_3 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\vssadmin.exe" wide //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\wmic.exe" wide //weight: 1
+        $x_1_5 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\wbadmin.exe" wide //weight: 1
+        $x_1_6 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bcdedit.exe" wide //weight: 1
+        $x_1_7 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\powershell.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

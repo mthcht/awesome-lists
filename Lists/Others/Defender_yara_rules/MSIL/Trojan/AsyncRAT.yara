@@ -7172,3 +7172,26 @@ rule Trojan_MSIL_AsyncRAT_SXB_2147966383_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_JXA_2147969729_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.JXA!MTB"
+        threat_id = "2147969729"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 02 72 fb 00 00 70 6f 27 00 00 0a 0a 72 0f 01 00 70 0b 06 28 28 00 00 0a 0c 1f 0b 28 23 00 00 0a 00 7e 2a 00 00 04 2c 02 2b 3e 20 00 01 00 00 72 29 01 00 70 14 d0 05 00 00 02 28 1d 00 00 0a 18 8d 3c 00 00 01 25 16 16 14 28 29 00 00 0a a2 25 17 17 14 28 29 00 00 0a a2 28 2a 00 00 0a 28 2b 00 00 0a 80 2a 00 00 04 7e 2a 00 00 04 7b 2c 00 00 0a 7e 2a 00 00 04 08 7e 06 00 00 04 6f 2d 00 00 0a 00 2a}  //weight: 2, accuracy: High
+        $x_2_2 = {6f 72 00 00 06 0b 07 72 49 00 00 70 28 22 00 00 0a 2d 1f 07 72 51 00 00 70 28 22 00 00 0a 2d 18 07 72 5d 00 00 70 28 22 00 00 0a 2d 79 38 a8 00 00 00 00 38 a2 00 00 00 00 00 06 72 71 00 00 70 6f 66 00 00 06 6f 72 00 00 06 14 fe 03 0c 08 2c 4b}  //weight: 2, accuracy: High
+        $x_2_3 = {73 7b 00 00 06 0d 09 72 3b 00 00 70 6f 66 00 00 06 72 7f 00 00 70 6f 68 00 00 06 00 09 72 8d 00 00 70 6f 66 00 00 06 06 72 71 00 00 70 6f 66 00 00 06 6f 72 00 00 06 6f 68 00 00 06 00 09 6f 70 00 00 06 28 1e 00 00 06 00 00 00 de 05 13 04 00 de 3e 2b 34 00 06 72 71 00 00 70 6f 66 00 00 06 6f 72 00 00 06 14 fe 03 13 05 11 05 2c 18 00 06 72 71 00 00 70 6f 66 00 00 06 6f 61 00 00 06 28 2e 00 00 06 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
