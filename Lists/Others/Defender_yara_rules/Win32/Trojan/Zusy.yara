@@ -9517,3 +9517,24 @@ rule Trojan_Win32_Zusy_AHA_2147969272_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_HAV_2147969809_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.HAV!MTB"
+        threat_id = "2147969809"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2b c8 8b c1 8b 4c 24 30 03 0c c2 89 4c 24 30 8b 44 24 30 48 83 c4 28 c3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

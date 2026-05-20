@@ -145,41 +145,6 @@ rule Backdoor_MSIL_Nanocore_2147740145_5
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "11"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "PROCESS_INFORMATION" ascii //weight: 1
-        $x_1_2 = "STARTUP_INFORMATION" ascii //weight: 1
-        $x_1_3 = "SetThread" ascii //weight: 1
-        $x_1_4 = "FileAccess" ascii //weight: 1
-        $x_1_5 = "IWshShell" ascii //weight: 1
-        $x_1_6 = "Convert" ascii //weight: 1
-        $x_1_7 = "FromBase64String" ascii //weight: 1
-        $x_1_8 = "set_CreateNoWindow" ascii //weight: 1
-        $x_1_9 = "set_UseShellExecute" ascii //weight: 1
-        $x_3_10 = "CheckRemoteDebuggerPresent" ascii //weight: 3
-        $x_3_11 = "VirtualMachineDetector" ascii //weight: 3
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_3_*) and 8 of ($x_1_*))) or
-            ((2 of ($x_3_*) and 5 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Backdoor_MSIL_Nanocore_2147740145_6
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Backdoor:MSIL/Nanocore!MTB"
-        threat_id = "2147740145"
-        type = "Backdoor"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Nanocore"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "High"
     strings:

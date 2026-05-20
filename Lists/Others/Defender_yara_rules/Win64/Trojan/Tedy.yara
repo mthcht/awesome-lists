@@ -6031,3 +6031,31 @@ rule Trojan_Win64_Tedy_AHS_2147969664_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GCV_2147969811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GCV!MTB"
+        threat_id = "2147969811"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_signer.bat" ascii //weight: 1
+        $x_1_2 = "\\temp_cert.cer" ascii //weight: 1
+        $x_1_3 = "SetWindowsHookExW" ascii //weight: 1
+        $x_1_4 = "hook - cheatglobal.com" ascii //weight: 1
+        $x_1_5 = "VALORANT-Win64-Shipping.exe" ascii //weight: 1
+        $x_1_6 = "Set-AuthenticodeSignature -FilePath" ascii //weight: 1
+        $x_1_7 = "powershell -ExecutionPolicy Bypass -Command" ascii //weight: 1
+        $x_1_8 = "New-SelfSignedCertificate -Type CodeSigningCert -Subject" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

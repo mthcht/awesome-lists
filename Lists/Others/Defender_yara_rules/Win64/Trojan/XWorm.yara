@@ -706,3 +706,27 @@ rule Trojan_Win64_XWorm_KK_2147969320_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_DNU_2147969810_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.DNU!MTB"
+        threat_id = "2147969810"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {89 c8 31 d2 41 f7 f1 41 0f b6 04 10 41 30 04 0a 48 83 c1 01 49 39 cb}  //weight: 7, accuracy: High
+        $x_1_2 = "C:\\Windows\\Temp\\update.dat" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "GetTickCount" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

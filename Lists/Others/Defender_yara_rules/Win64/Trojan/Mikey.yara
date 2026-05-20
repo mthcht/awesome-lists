@@ -2390,3 +2390,24 @@ rule Trojan_Win64_Mikey_AMK_2147968445_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_AMK_2147968445_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.AMK!MTB"
+        threat_id = "2147968445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {41 b9 40 00 00 00 4c 8b c6 48 8b d7 49 8b cf ff 15 ?? ?? ?? ?? 85 c0 74 3e 48 c7 44 24 20 00 00 00 00 4c 8b ce 4c 8b 43 08 48 8b d7 49 8b cf ff 15 ?? ?? ?? ?? 48 8d 85 b4 02 00 00 48 89 44 24 20 44 8b 8d b4 02 00 00 4c 8b c6 48 8b d7 49 8b cf}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
