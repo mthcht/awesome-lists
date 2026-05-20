@@ -82,3 +82,27 @@ rule HackTool_Win64_PSWDump_GMX_2147967873_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_PSWDump_PA_2147969798_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/PSWDump.PA!MTB"
+        threat_id = "2147969798"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWDump"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Avast Secure Browser\\shell\\open\\command" ascii //weight: 1
+        $x_1_2 = "Bootstrap entry point resolved" ascii //weight: 1
+        $x_1_3 = "Payload decrypted " ascii //weight: 1
+        $x_1_4 = "Solution: Use chromelevator" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

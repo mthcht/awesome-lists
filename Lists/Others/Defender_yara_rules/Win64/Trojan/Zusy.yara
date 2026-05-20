@@ -3863,3 +3863,27 @@ rule Trojan_Win64_Zusy_MQR_2147969482_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_NWD_2147969800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.NWD!MTB"
+        threat_id = "2147969800"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C:\\test\\mssip32\\x64\\Release\\mssip32.pdb" ascii //weight: 2
+        $x_1_2 = "mkdir \"C:\\test\" >nul 2>&1 & cd /d \"%s\" >nul 2>&1 & copy /Y \"1277444444.cmd\"" ascii //weight: 1
+        $x_1_3 = "powershell -Command \"Unblock-File -Path '1.cmd'\" >nul 2>&1 & del /F /Q" ascii //weight: 1
+        $x_1_4 = "powershell -NoProfile -WindowStyle Hidden -Command \"Start-Process -FilePath '1.cmd' -Verb RunAs -WindowStyle Hidden\" >nul 2>&1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5316,3 +5316,30 @@ rule Trojan_MSIL_XWorm_LVM_2147969240_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_V_2147969802_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.V!AMTB"
+        threat_id = "2147969802"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Defobal.kerlaixo.odt" ascii //weight: 2
+        $x_2_2 = "set_AddExtension" ascii //weight: 2
+        $x_2_3 = "get_DarkOrange" ascii //weight: 2
+        $n_100_4 = "Uninst.exe" ascii //weight: -100
+        $n_100_5 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_6 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

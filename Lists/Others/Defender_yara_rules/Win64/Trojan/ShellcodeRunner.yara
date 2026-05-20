@@ -3224,3 +3224,26 @@ rule Trojan_Win64_ShellcodeRunner_SXO_2147969441_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_AD_2147969801_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AD!MTB"
+        threat_id = "2147969801"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {f3 0f 6f 04 01 66 0f 6f ce 0f 57 c8 f3 0f 7f 0c 01 f3 0f 6f 44 01 10 66 0f 6f ce 0f 57 c8 f3 0f 7f 4c 01 10 f3 0f 6f 44 01 20 66 0f 6f ce 0f 57 c8 f3 0f 7f 4c 01 20 f3 0f 6f 44 01 30 0f 57 c6 f3 0f 7f 44 01 30 48 83 c1 40 48 81 f9 00 b8 04 00 7c ad 48 8d 0d 4e 1e 00 00}  //weight: 6, accuracy: High
+        $x_2_2 = "[+] Decrypted" ascii //weight: 2
+        $x_2_3 = "[INFO] Initialize All Syscalls Structure" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
