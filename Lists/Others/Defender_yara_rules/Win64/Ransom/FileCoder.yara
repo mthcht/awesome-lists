@@ -1494,3 +1494,28 @@ rule Ransom_Win64_FileCoder_KKB_2147968515_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_ATP_2147969879_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.ATP!MSR"
+        threat_id = "2147969879"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\Users\\oscar\\source\\repos\\Ransom\\x64\\Debug\\Ransom.pdb" ascii //weight: 1
+        $x_1_2 = "C:\\Users\\oscar\\Downloads\\Ransomware.wav" ascii //weight: 1
+        $x_1_3 = "Oops, your files are encrypted!" ascii //weight: 1
+        $x_1_4 = "This PC has been locked by Oscar" ascii //weight: 1
+        $x_1_5 = "Your files have been encrypted by Oscar" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

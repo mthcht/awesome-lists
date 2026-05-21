@@ -196,3 +196,24 @@ rule Trojan_Win64_Injuke_GHM_2147963046_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injuke_LVK_2147969878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injuke.LVK!MTB"
+        threat_id = "2147969878"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {b9 d8 85 40 00 ?? ?? ?? ?? ?? 81 c7 5d 13 3c 25 bf c9 54 66 51 31 0e 81 c7 e2 c3 da bf 81 ef 37 b8 36 dd 81 c6 01 00 00 00 81 ef 01 00 00 00 68 48 d7 a5 49 58 39 d6 75 c7}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
