@@ -6111,3 +6111,24 @@ rule Trojan_Win64_Tedy_GPYA_2147969836_0
         )
 }
 
+rule Trojan_Win64_Tedy_MKM_2147969897_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MKM!MTB"
+        threat_id = "2147969897"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8b c5 48 f7 e3 48 8b c3 48 2b c2 48 d1 e8 48 03 c2 48 c1 e8 02 0f be c0 6b c8 07 44 0f b6 cb 44 2a c9}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

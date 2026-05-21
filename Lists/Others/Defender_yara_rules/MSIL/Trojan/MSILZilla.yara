@@ -225,3 +225,24 @@ rule Trojan_MSIL_MSILZilla_MK_2147963260_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MSILZilla_LVK_2147969896_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MSILZilla.LVK!MTB"
+        threat_id = "2147969896"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MSILZilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {09 11 08 6f e4 00 00 0a d2 11 06 61 20 ff 00 00 00 5f d2 13 09 11 08 08 31 10 11 09 11 05 11 08 08 59 11 04 58 91 61 d2 13 09 11 09 07 61 20 ff 00 00 00 5f d2 13 06 11 05 11 08 11 04 58 11 09 9c 11 08 17 58 13 08 11 08 09 6f 37 00 00 0a 32 af}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
