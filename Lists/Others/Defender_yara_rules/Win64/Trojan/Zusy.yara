@@ -3090,6 +3090,31 @@ rule Trojan_Win64_Zusy_ARR_2147956891_6
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_ARR_2147956891_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ARR!MTB"
+        threat_id = "2147956891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8b c2 46 31 04 08 83 c2 04 4c 8b 4c 24 40 3b d1 72}  //weight: 10, accuracy: High
+        $x_6_2 = "[INIT] Self-delete scheduled. Exiting." ascii //weight: 6
+        $x_4_3 = "[NET] CMD_RE_DETECT_BROWSERS received." ascii //weight: 4
+        $x_7_4 = "[VNC] WindowCapturer: init OK (%dx%d), HWND=%p." ascii //weight: 7
+        $x_3_5 = "[VNC] Ghost appeared" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_GMT_2147956898_0
 {
     meta:

@@ -6082,3 +6082,32 @@ rule Trojan_Win64_Tedy_GCV_2147969811_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GPYA_2147969836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GPYA!MTB"
+        threat_id = "2147969836"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {30 14 07 48 83 c0 01 48 39 e8 72 e9}  //weight: 4, accuracy: High
+        $x_4_2 = {30 14 07 48 83 c0 01 4c 39 f0 72 e8}  //weight: 4, accuracy: High
+        $x_1_3 = "ChainingModeGCM" ascii //weight: 1
+        $x_1_4 = "ChainingMode" ascii //weight: 1
+        $x_1_5 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+

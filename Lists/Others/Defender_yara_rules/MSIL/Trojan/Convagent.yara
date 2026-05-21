@@ -676,3 +676,27 @@ rule Trojan_MSIL_Convagent_ARR_2147969342_0
         )
 }
 
+rule Trojan_MSIL_Convagent_ARR_2147969342_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.ARR!MTB"
+        threat_id = "2147969342"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "$secureToken = ConvertTo-SecureString $telegramBotToken -AsPlainText -Force" ascii //weight: 6
+        $x_4_2 = "$wc.UploadString(\"$JAMSKIE_DB_URL/activityLog.json\", \"POST\", $payload)" ascii //weight: 4
+        $x_7_3 = "Initialize-SecureCredentials -telegramBotToken $result.Token -telegramChatId $result.ChatId" ascii //weight: 7
+        $x_3_4 = "$success = Send-TelegramPhoto -imageStream $global:capturedImageStream -camera $global:currentCamera" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
