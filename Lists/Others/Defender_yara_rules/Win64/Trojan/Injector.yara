@@ -739,3 +739,26 @@ rule Trojan_Win64_Injector_SXO_2147969523_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_AH_2147969950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.AH!MTB"
+        threat_id = "2147969950"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[+] Shellcode injected into self" ascii //weight: 30
+        $x_20_2 = "[-] Shellcode injection failed" ascii //weight: 20
+        $x_10_3 = "[-] API missing" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
