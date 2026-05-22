@@ -869,13 +869,15 @@ rule Trojan_Win32_SuspClickFix_X_2147968173_0
         strings_accuracy = "Low"
     strings:
         $x_3_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
-        $x_3_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-16] 5c 00}  //weight: 3, accuracy: Low
-        $x_1_3 = ",#" wide //weight: 1
-        $x_1_4 = ",run" wide //weight: 1
+        $x_3_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 5c 00}  //weight: 3, accuracy: Low
+        $x_3_3 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 40 00 [0-8] 5c 00}  //weight: 3, accuracy: Low
+        $x_1_4 = ",#" wide //weight: 1
+        $x_1_5 = ",run" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
             ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_3_*))) or
             (all of ($x*))
         )
 }
@@ -896,8 +898,8 @@ rule Trojan_Win32_SuspClickFix_X_2147968173_1
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {5c 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
-        $x_1_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-16] 5c 00}  //weight: 1, accuracy: Low
-        $x_1_3 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-16] 40 00 [0-8] 5c 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 5c 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 40 00 [0-8] 5c 00}  //weight: 1, accuracy: Low
         $n_10_4 = "{88fc37e1-14f4-4d83-9d8e-382d3bf2c340}" wide //weight: -10
     condition:
         (filesize < 20MB) and

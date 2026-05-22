@@ -18002,3 +18002,26 @@ rule Trojan_MSIL_FormBook_ASBF_2147969834_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_RSF_2147969968_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RSF!MTB"
+        threat_id = "2147969968"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {00 01 25 16 0f 01 28 ?? ?? 00 0a 9c 25 17 0f 01 28 ?? ?? 00 0a 9c 25 18 0f 01 28 ?? ?? 00 0a 9c 2a}  //weight: 5, accuracy: Low
+        $x_1_2 = "Gravitron.Properties" ascii //weight: 1
+        $x_1_3 = "get_CKT" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
