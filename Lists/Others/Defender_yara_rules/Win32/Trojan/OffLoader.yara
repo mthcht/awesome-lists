@@ -6910,3 +6910,26 @@ rule Trojan_Win32_OffLoader_ZZD_2147969476_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_PGOP_2147969936_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOP!MTB"
+        threat_id = "2147969936"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "https://berryjump.space/" ascii //weight: 5
+        $x_5_2 = "https://selectionaftermath.xyz/" ascii //weight: 5
+        $x_5_3 = "Do you want to reboot now?" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

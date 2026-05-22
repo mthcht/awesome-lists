@@ -1822,3 +1822,25 @@ rule Trojan_Win32_Androm_BAH_2147968014_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Androm_ARA_2147969923_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.ARA!MTB"
+        threat_id = "2147969923"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {f7 75 e8 8b 45 0c 0f be 14 10 33 ca 88 4d fe 8d 45 fe 50 8b 4d 10 e8 ?? ?? ?? ?? eb b9}  //weight: 2, accuracy: Low
+        $x_2_2 = ":\\Users\\Public\\UnityStub.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

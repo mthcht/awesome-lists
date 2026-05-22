@@ -4906,6 +4906,29 @@ rule Trojan_MSIL_XWorm_BAQ_2147965703_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BAQ_2147965703_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAQ!MTB"
+        threat_id = "2147965703"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 06 11 05 16 73 0f 00 00 0a 13 07 00 07 8e 69 8d 15 00 00 01 13 08 11 07 11 08 16 11 08 8e 69 ?? ?? 00 00 0a 13 09 12 08 11 09 ?? ?? 00 00 2b 00 11 08 ?? ?? 00 00 0a 13 0a 11 0a ?? ?? 00 00 0a 13 0b 11 0b 14 ?? ?? 00 00 0a 13 0c 11 0c 2c 2d 00}  //weight: 2, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_ABTK_2147965970_0
 {
     meta:
