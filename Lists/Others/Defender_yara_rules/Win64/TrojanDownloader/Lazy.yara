@@ -93,3 +93,28 @@ rule TrojanDownloader_Win64_Lazy_SXA_2147965139_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Lazy_MK_2147969956_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Lazy.MK!MTB"
+        threat_id = "2147969956"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "'cmd.exe /k powershell -ep bypass -file \"' + ps1path + '\"', \"REG_SZ\")" ascii //weight: 15
+        $x_10_2 = "var ps1path = temp + \"\\\\\" + fso.GetTempName().replace(\".tmp\", \".ps1\");" ascii //weight: 10
+        $x_5_3 = "shell.RegWrite(\"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\SmartScreenEnabled\", \"Off\", \"REG_SZ\");" ascii //weight: 5
+        $x_3_4 = "shell.RegWrite(\"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\\\\\" + regname," ascii //weight: 3
+        $x_2_5 = "var regname = \"Update Drivers NVIDEO_\" + suffix" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

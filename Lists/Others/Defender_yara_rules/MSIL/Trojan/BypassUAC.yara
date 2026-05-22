@@ -334,3 +334,28 @@ rule Trojan_MSIL_BypassUAC_SX_2147969340_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_MKC_2147969957_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.MKC!MTB"
+        threat_id = "2147969957"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "<RATClient.Exploits.ExploitHandler+<BrowserCredDumpAsync>d__5" ascii //weight: 15
+        $x_10_2 = "RATClient.Modules.SystemActionHandler+<SendScreenshotAsync>d__6" ascii //weight: 10
+        $x_5_3 = ">RATClient.Modules.SystemActionHandler+<SendClipboardAsync>d__4" ascii //weight: 5
+        $x_3_4 = "6RATClient.Exploits.ExploitHandler+<UacBypassAsync>d__1" ascii //weight: 3
+        $x_2_5 = "9RATClient.Modules.KeyloggerHandler+<SenderLoopAsync>d__17" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
