@@ -452,3 +452,26 @@ rule Trojan_Win64_ReverseShell_ARSH_2147968612_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ReverseShell_ARR_2147970034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.ARR!MTB"
+        threat_id = "2147970034"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Start a reverse shell with the default shell (cmd):" ascii //weight: 10
+        $x_8_2 = "RustPotato.exe <cmdline> OR -h <host> -p <port> [-c <cmd>]" ascii //weight: 8
+        $x_2_3 = "[+] RPC HOOK - START" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

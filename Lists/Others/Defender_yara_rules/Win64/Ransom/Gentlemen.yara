@@ -69,3 +69,50 @@ rule Ransom_Win64_Gentlemen_SH_2147968830_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Gentlemen_SZ_2147969991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Gentlemen.SZ!MTB"
+        threat_id = "2147969991"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Gentlemen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Gentlemen, your network has been encrypted" ascii //weight: 1
+        $x_1_2 = "modification of encrypted files will make recovery impossible" ascii //weight: 1
+        $x_1_3 = "We have exfiltrated all your confidential and business data" ascii //weight: 1
+        $x_1_4 = "Only we can decrypt your data" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win64_Gentlemen_SN_2147969992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Gentlemen.SN!MTB"
+        threat_id = "2147969992"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Gentlemen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "exfiltrated all your confidential and business data" ascii //weight: 1
+        $x_1_2 = "gentlemen.bmp" ascii //weight: 1
+        $x_1_3 = "RECOVER YOUR FILES" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

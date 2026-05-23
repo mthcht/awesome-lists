@@ -14071,6 +14071,29 @@ rule Trojan_Win32_ClickFix_IMZ_2147969344_0
         threshold = "30"
         strings_accuracy = "High"
     strings:
+        $x_10_1 = "rundll32.exe \\\\" wide //weight: 10
+        $x_10_2 = "@ssl\\" wide //weight: 10
+        $x_10_3 = ",#1 " wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IMZ_2147969344_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IMZ!MTB"
+        threat_id = "2147969344"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
         $x_10_1 = "rundll32.exe" wide //weight: 10
         $x_10_2 = "cacherenderframeslot.pro" wide //weight: 10
         $x_10_3 = ".cloudflare,#1" wide //weight: 10
@@ -14225,6 +14248,29 @@ rule Trojan_Win32_ClickFix_PN_2147969760_0
         $x_1_4 = "Invoke-Expression" wide //weight: 1
         $x_1_5 = ".Content" wide //weight: 1
         $x_1_6 = "Invoke-WebRequest -UseBasicParsing" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HMZ_2147970009_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HMZ!MTB"
+        threat_id = "2147970009"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "rundll32.exe \\\\" wide //weight: 10
+        $x_10_2 = {5c 00 67 00 6f 00 6f 00 67 00 6c 00 65 00 2e 00 63 00 ?? ?? 2c 00 23 00}  //weight: 10, accuracy: Low
+        $x_10_3 = "@ssl\\" wide //weight: 10
     condition:
         (filesize < 20MB) and
         (all of ($x*))

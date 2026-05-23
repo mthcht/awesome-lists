@@ -250,3 +250,24 @@ rule Trojan_Win64_QuasarRAT_ABQR_2147965866_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_QuasarRAT_PAA_2147970029_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.PAA!MTB"
+        threat_id = "2147970029"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {44 0f b6 01 89 d0 83 e0 1f 44 89 c7 41 02 3c 03 89 f8 44 01 c8 44 0f b6 c8 0f b6 c0 44 0f b6 54 04 60 44 88 11 44 88 44 04 60 83 c2 01 48 83 c1 01 81 fa 00 01 00 00 75 c7}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

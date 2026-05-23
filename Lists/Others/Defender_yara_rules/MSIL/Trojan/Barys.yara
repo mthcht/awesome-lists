@@ -556,6 +556,28 @@ rule Trojan_MSIL_Barys_SG_2147901488_0
         family = "Barys"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {16 13 16 38 23 00 00 00 11 0d 6f 91 00 00 06 13 17 11 0d 6f 91 00 00 06 13 18 11 04 11 17 11 18 6f 33 00 00 0a 11 16 17 58 13 16 11 16 11 0c 3f d4 ff ff ff 11 0d 6f 92 00 00 06 11 04}  //weight: 1, accuracy: High
+        $x_1_2 = {03 6f 8a 00 00 0a 28 42 00 00 06 0c 73 10 00 00 0a 28 40 00 00 06 0d 09 07 6f 7d 00 00 0a 09 08 6f 7e 00 00 0a 25 09 6f 8b 00 00 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Barys_SG_2147901488_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.SG!MTB"
+        threat_id = "2147901488"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"

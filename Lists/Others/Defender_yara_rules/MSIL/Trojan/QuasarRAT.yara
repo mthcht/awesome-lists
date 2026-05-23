@@ -837,6 +837,29 @@ rule Trojan_MSIL_QuasarRAT_BAK_2147962640_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRAT_BAK_2147962640_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRAT.BAK!MTB"
+        threat_id = "2147962640"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {1f 20 8d 28 00 00 01 13 05 08 ?? ?? 00 00 0a 03 ?? ?? 00 00 0a ?? ?? 00 00 0a 13 07 11 07 16 11 05 16 1f 10 ?? ?? 00 00 0a 11 07 16 11 05 1f 0f 1f 10 ?? ?? 00 00 0a 07 11 05 ?? ?? 00 00 0a 07 18 ?? ?? 00 00 0a 07 ?? ?? 00 00 0a 13 04 02 ?? ?? 00 00 0a 13 06 ?? ?? 00 00 0a 11 04 11 06 16 11 06 8e b7 ?? ?? 00 00 0a ?? ?? 00 00 0a 0a 06 0d de 0f}  //weight: 2, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_QuasarRAT_BAB_2147963002_0
 {
     meta:

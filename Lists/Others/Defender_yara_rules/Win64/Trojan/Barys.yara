@@ -817,3 +817,25 @@ rule Trojan_Win64_Barys_LVM_2147969044_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_AHB_2147970008_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.AHB!MTB"
+        threat_id = "2147970008"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f b6 c9 8a 44 04 70 0f b6 c0 33 c1 b9 ?? 00 00 00 48 6b c9 ?? 88 44 0c 70}  //weight: 30, accuracy: Low
+        $x_20_2 = {fe c0 0f b6 c9 88 44 24 40 33 f9 81 f7 ?? ?? ?? ?? 66 44 39 13 75}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

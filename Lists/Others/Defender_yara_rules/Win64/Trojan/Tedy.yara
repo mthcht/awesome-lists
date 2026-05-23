@@ -4935,6 +4935,28 @@ rule Trojan_Win64_Tedy_SXK_2147964949_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {4c 39 ca 74 19 41 89 c2 41 80 e2 38 c4 42 ab f7 d0 46 30 14 09 49 ff c1 48 83 c0 08 eb e2}  //weight: 30, accuracy: High
+        $x_10_2 = {48 89 84 24 b8 00 00 00 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 84 24 07 01 00 00 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 84 24 00 01 00 00 41 80}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SXK_2147964949_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXK!MTB"
+        threat_id = "2147964949"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:
@@ -6127,6 +6149,28 @@ rule Trojan_Win64_Tedy_MKM_2147969897_0
         strings_accuracy = "High"
     strings:
         $x_20_1 = {48 8b c5 48 f7 e3 48 8b c3 48 2b c2 48 d1 e8 48 03 c2 48 c1 e8 02 0f be c0 6b c8 07 44 0f b6 cb 44 2a c9}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AZD_2147970042_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AZD!MTB"
+        threat_id = "2147970042"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 d0 0f b6 94 14 ?? ?? ?? ?? 30 54 05 00 48 83 c0 01 4c 39 e0 72}  //weight: 5, accuracy: Low
+        $x_5_2 = {56 b5 e5 25 33 dd 3d 39 4b 94 a5 b2 35 7d 50 5e 6f 85 8b 95 ae 03 e5 4d d3 cb eb e9 08 a7 0e 68 ca bb 60 e0 4d 42 81}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

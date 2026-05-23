@@ -8745,6 +8745,33 @@ rule Trojan_Win32_Guloader_SI_2147963090_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "glasrrets.imp" ascii //weight: 1
+        $x_1_2 = "Harborward251.ini" ascii //weight: 1
+        $x_1_3 = "erkyndige\\apparattyper" ascii //weight: 1
+        $x_1_4 = "\\aabningstalens\\proclaims.gif" ascii //weight: 1
+        $x_1_5 = "Upwith.txt" ascii //weight: 1
+        $x_1_6 = "Software\\Microsoft\\Windows\\CurrentVersion\\organistship\\neuropathist" ascii //weight: 1
+        $x_1_7 = "Software\\Access\\Disabled" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Guloader_SI_2147963090_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guloader.SI!MTB"
+        threat_id = "2147963090"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:

@@ -318,6 +318,30 @@ rule Trojan_Win64_Amadey_AMD_2147954412_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "89.125.188.171" wide //weight: 5
+        $x_4_2 = "nah11/file.exe" wide //weight: 4
+        $x_3_3 = "Lak2oes" ascii //weight: 3
+        $x_2_4 = "IsWow64Process" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Amadey_AMD_2147954412_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.AMD!MTB"
+        threat_id = "2147954412"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:
@@ -328,7 +352,7 @@ rule Trojan_Win64_Amadey_AMD_2147954412_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Amadey_AMD_2147954412_1
+rule Trojan_Win64_Amadey_AMD_2147954412_2
 {
     meta:
         author = "defender2yara"
@@ -349,7 +373,7 @@ rule Trojan_Win64_Amadey_AMD_2147954412_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Amadey_AMD_2147954412_2
+rule Trojan_Win64_Amadey_AMD_2147954412_3
 {
     meta:
         author = "defender2yara"

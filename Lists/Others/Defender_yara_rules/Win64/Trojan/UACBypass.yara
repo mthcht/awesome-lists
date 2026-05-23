@@ -91,3 +91,26 @@ rule Trojan_Win64_UACBypass_CM_2147965007_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_UACBypass_AHB_2147970007_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/UACBypass.AHB!MTB"
+        threat_id = "2147970007"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "UACBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[PHASE 1] Stealing Debug Object from winver..." ascii //weight: 30
+        $x_20_2 = "[PHASE 2] Launching Elevated Parent (ComputerDefaults)..." ascii //weight: 20
+        $x_10_3 = "[PHASE 3] Final Detach and Clean..." ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
