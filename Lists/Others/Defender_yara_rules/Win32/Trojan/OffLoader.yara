@@ -6927,9 +6927,10 @@ rule Trojan_Win32_OffLoader_PGOP_2147969936_0
     strings:
         $x_5_1 = "https://berryjump.space/" ascii //weight: 5
         $x_5_2 = "https://selectionaftermath.xyz/" ascii //weight: 5
-        $x_5_3 = "Do you want to reboot now?" ascii //weight: 5
+        $x_5_3 = "https://lettuceletters.xyz/" ascii //weight: 5
+        $x_5_4 = "Do you want to reboot now?" ascii //weight: 5
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (3 of ($x*))
 }
 

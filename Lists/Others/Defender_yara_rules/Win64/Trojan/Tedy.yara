@@ -5326,6 +5326,30 @@ rule Trojan_Win64_Tedy_SXL_2147966102_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[+] Exfiltration complete." ascii //weight: 30
+        $x_20_2 = "[*] Harvesting browser data..." ascii //weight: 20
+        $x_5_3 = "WiFiPasswords.txt" ascii //weight: 5
+        $x_5_4 = "CreditCards.txt" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SXL_2147966102_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXL!MTB"
+        threat_id = "2147966102"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "45"
         strings_accuracy = "High"
     strings:
