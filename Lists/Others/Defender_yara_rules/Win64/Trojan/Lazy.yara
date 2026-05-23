@@ -6109,3 +6109,28 @@ rule Trojan_Win64_Lazy_LRG_2147969993_0
         )
 }
 
+rule Trojan_Win64_Lazy_MKP_2147970055_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MKP!MTB"
+        threat_id = "2147970055"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "[IFT] Insert: Set PAGE_READWRITE ret 0x%08X" ascii //weight: 15
+        $x_10_2 = "VirtualAllocEx(shellcode)" ascii //weight: 10
+        $x_5_3 = "WriteProcessMemory(shellcode)" ascii //weight: 5
+        $x_3_4 = "Demo_ift.log" ascii //weight: 3
+        $x_2_5 = "N1n3_S3rv3r_K3y_2026" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
