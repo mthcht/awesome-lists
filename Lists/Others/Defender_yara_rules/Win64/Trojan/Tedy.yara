@@ -3966,6 +3966,28 @@ rule Trojan_Win64_Tedy_KKB_2147961196_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 4c 24 2c 48 63 c9 ff 44 24 2c 8b 54 24 2c 69 d2 b1 ec ff ff 66 33 54 4c 30 66 89 54 4c 30 8b 4c 24 2c 83 f9 0c}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 44 24 30 ff 44 24 30 8b 44 24 30 69 c0 b6 7d 6d dc 31 c2 8b 44 24 30 85 c0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_KKB_2147961196_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KKB!MTB"
+        threat_id = "2147961196"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "50"
         strings_accuracy = "High"
     strings:
@@ -3973,6 +3995,32 @@ rule Trojan_Win64_Tedy_KKB_2147961196_0
         $x_15_2 = {4c 8d 04 b6 4e 8d 84 c4 90 04 00 00 4c 8d 0c 80 4e 8d 0c 48 49 01 f9 4d 89 0c c0 48 ff c0}  //weight: 15, accuracy: High
         $x_10_3 = {41 83 f2 55 44 88 14 18 66 90}  //weight: 10, accuracy: High
         $x_5_4 = "grow.com0" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_KKB_2147961196_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KKB!MTB"
+        threat_id = "2147961196"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "\"title\":\"Sofia Stealer V3 - New Victim\"," ascii //weight: 6
+        $x_5_2 = "sofia_debug.log" ascii //weight: 5
+        $x_4_3 = "DiscordTokens.txt" ascii //weight: 4
+        $x_3_4 = "RobloxCookies.txt" ascii //weight: 3
+        $x_2_5 = "CreditCards.txt" ascii //weight: 2
+        $x_1_6 = "[*] Attempting UAC Bypass via fodhelper..." ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -2426,13 +2426,13 @@ rule Trojan_Win64_Mikey_LRK_2147970064_0
         threshold = "28"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "YOU ARE WELCOME, YOUR COMPUTER IS DONE FOR. GOODBYE." ascii //weight: 1
+        $x_7_1 = "YOU ARE WELCOME, YOUR COMPUTER IS DONE FOR. GOODBYE." ascii //weight: 7
         $x_2_2 = "notepad.exe" ascii //weight: 2
         $x_3_3 = "\\*.exe" ascii //weight: 3
         $x_4_4 = "Warning" ascii //weight: 4
         $x_5_5 = "Failed to request administrator privileges." ascii //weight: 5
         $x_6_6 = "Infections may be limited." ascii //weight: 6
-        $x_7_7 = "Failed to read own executable." ascii //weight: 7
+        $x_1_7 = "Failed to read own executable." ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -2147,3 +2147,30 @@ rule Trojan_MSIL_Injector_AQ_2147969728_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_LRH_2147970112_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.LRH!MTB"
+        threat_id = "2147970112"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {02 28 14 00 00 06 0a 18 8d 0d 00 00 01 13 04 11 04 16 72 61 00 00 70 a2 11 04 17 72 a5 00 00 70 a2 11 04 0b 07 13 05 16 13 06 2b 19 11 05 11 06 9a 0c 08 06 28 16 00 00 06 2c 04 17 0d de 10 11 06 17 58 13 06 11 06 11 05 8e 69 32 df 16 2a 09 2a}  //weight: 20, accuracy: High
+        $x_6_2 = "ExecuteMemoryOperation" ascii //weight: 6
+        $x_1_3 = "ParameterFirst" ascii //weight: 1
+        $x_2_4 = "ParameterSecond" ascii //weight: 2
+        $x_3_5 = "ParametersSeventh" ascii //weight: 3
+        $x_4_6 = "ParametersFirth" ascii //weight: 4
+        $x_5_7 = "QueueUserAPC" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -260,6 +260,31 @@ rule Trojan_MSIL_BypassUAC_KKA_2147968285_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_KKA_2147968285_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.KKA!MTB"
+        threat_id = "2147968285"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "*RATClient.Program+<RunClientLoopAsync>d__4" ascii //weight: 5
+        $x_4_2 = "BrowserCredDumpAsync" ascii //weight: 4
+        $x_3_3 = "KeyloggerHandler" ascii //weight: 3
+        $x_2_4 = "Software\\Classes\\ms-settings\\shell\\open\\command" ascii //weight: 2
+        $x_1_5 = "UAC DISABLED! Already admin!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_BypassUAC_MKB_2147968947_0
 {
     meta:

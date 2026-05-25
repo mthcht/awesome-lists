@@ -1500,3 +1500,25 @@ rule Trojan_MSIL_Barys_ZKC_2147970100_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_ARS_2147970113_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.ARS!MTB"
+        threat_id = "2147970113"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {08 09 91 0b 06 07 61 0a 09 17 58 0d 09 08 8e 69 32 ee}  //weight: 15, accuracy: High
+        $x_5_2 = {11 05 11 06 9a 0c 08 28 ?? ?? ?? ?? 2d 23 08 6f ?? ?? ?? ?? 18 30 03 08 2b 08 08 16 18 6f ?? ?? ?? ?? 0d 07 09 1f 10}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
