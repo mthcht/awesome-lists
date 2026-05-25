@@ -18024,3 +18024,28 @@ rule Trojan_MSIL_FormBook_RSF_2147969968_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_AMTB_2147970085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook!AMTB"
+        threat_id = "2147970085"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://download.virka.tech/" ascii //weight: 2
+        $x_1_2 = "\\Desktop\\Crypted\\webmoneygay.pdb" ascii //weight: 1
+        $x_2_3 = "uterhuw.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

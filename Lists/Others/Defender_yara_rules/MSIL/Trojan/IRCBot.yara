@@ -48,3 +48,27 @@ rule Trojan_MSIL_IRCBot_MK_2147961202_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_IRCBot_AMTB_2147970088_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/IRCBot!AMTB"
+        threat_id = "2147970088"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "IRCBot"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "d3pl0y.pdb" ascii //weight: 2
+        $x_1_2 = "Stealer" ascii //weight: 1
+        $x_1_3 = "[DEBUG] mClient not connected - retrying" ascii //weight: 1
+        $x_1_4 = "#SorrowHouse" ascii //weight: 1
+        $x_1_5 = "ircSetup" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
