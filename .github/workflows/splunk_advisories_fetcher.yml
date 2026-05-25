@@ -1,0 +1,124 @@
+name: Update Splunk Vulnerability Lookups
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every day at 06:30 UTC
+    - cron: "30 6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-write-lock-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update-splunk-vuln-lookups:
+    runs-on: ubuntu-latest
+
+    env:
+      SCRIPT_PATH: Lists/Others/splunk/splunk_vuln_check.py
+      OUTPUT_DIR: Lists/Others/splunk
+
+    steps:
+      - name: Sparse checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+          # Avoid downloading all blobs
+          filter: blob:none
+
+          # Only checkout the script and the output folder.
+          sparse-checkout: |
+            Lists/Others/splunk/splunk_vuln_check.py
+            Lists/Others/splunk
+
+          # Needed because we checkout one specific file + one folder.
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Configure git
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config pull.rebase true
+
+      - name: Rebase sparse checkout before generating files
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"
+
+          # This updates the current sparse checkout without pulling the full repo.
+          git fetch --depth=1 origin "$BRANCH"
+          git pull --rebase --autostash origin "$BRANCH"
+
+      - name: Create output directory
+        run: |
+          mkdir -p "$OUTPUT_DIR"
+
+      - name: Run Splunk vulnerability lookup generator
+        run: |
+          set -euo pipefail
+
+          python3 "$SCRIPT_PATH" \
+            --ranges-output "$OUTPUT_DIR/splunk_vuln_ranges.csv" \
+            --expanded-output "$OUTPUT_DIR/splunk_vuln_lookup_expanded.csv" \
+            --cache "$OUTPUT_DIR/splunk_advisories_cache.json"
+
+      - name: Show generated files
+        run: |
+          ls -lah "$OUTPUT_DIR"
+
+          echo ""
+          echo "Ranges preview:"
+          head -n 5 "$OUTPUT_DIR/splunk_vuln_ranges.csv" || true
+
+          echo ""
+          echo "Expanded lookup preview:"
+          head -n 5 "$OUTPUT_DIR/splunk_vuln_lookup_expanded.csv" || true
+
+      - name: Commit and push changes safely
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"
+
+          git add "$OUTPUT_DIR/splunk_vuln_ranges.csv"
+          git add "$OUTPUT_DIR/splunk_vuln_lookup_expanded.csv"
+          git add "$OUTPUT_DIR/splunk_advisories_cache.json"
+
+          if git diff --cached --quiet; then
+            echo "No Splunk vulnerability lookup changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update Splunk vulnerability lookups"
+
+          for attempt in 1 2 3 4 5; do
+            echo "Push attempt $attempt..."
+
+            if git push origin "HEAD:$BRANCH"; then
+              echo "Push successful."
+              exit 0
+            fi
+
+            echo "Push failed. Rebasing sparse checkout on latest origin/$BRANCH..."
+
+            git fetch --depth=1 origin "$BRANCH"
+            git pull --rebase --autostash origin "$BRANCH"
+
+            sleep $((attempt * 5))
+          done
+
+          echo "Failed to push after multiple attempts."
+          exit 1
