@@ -488,3 +488,29 @@ rule Ransom_Win64_LockFile_PAIA_2147969417_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockFile_RV_2147970107_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockFile.RV!MTB"
+        threat_id = "2147970107"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\clup.bat" ascii //weight: 1
+        $x_1_2 = "User-Agent: amaldo-agent/1.0" ascii //weight: 1
+        $x_1_3 = "\\Desktop\\README_LQTOREG.txt" ascii //weight: 1
+        $x_1_4 = "sdclt.exe /KickOffElev" ascii //weight: 1
+        $x_1_5 = "=== LQTOREQ RECOVERY PORTAL ===" ascii //weight: 1
+        $x_1_6 = "del /f /q \"%s\\Desktop\\*.lqtoreq\" >nul 2>&1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
