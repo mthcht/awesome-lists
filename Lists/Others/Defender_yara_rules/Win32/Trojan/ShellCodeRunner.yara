@@ -179,3 +179,24 @@ rule Trojan_Win32_ShellCodeRunner_GTD_2147965362_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellCodeRunner_GDK_2147970078_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellCodeRunner.GDK!MTB"
+        threat_id = "2147970078"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b f0 8d 8d ?? ?? ?? ?? e8 ?? ?? ?? ?? 8b c8 8b 85 ?? ?? ?? ?? 33 d2 f7 f1 0f be 14 16 8b 85 ?? ?? ?? ?? 03 85 ?? ?? ?? ?? 0f be 08 33 ca 8b 95 ?? ?? ?? ?? 03 95 ?? ?? ?? ?? 88 0a eb}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
