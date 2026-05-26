@@ -14276,3 +14276,75 @@ rule Trojan_Win32_ClickFix_HMZ_2147970009_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_JMZ_2147970117_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JMZ!MTB"
+        threat_id = "2147970117"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "^m^s^h^t^a^" wide //weight: 10
+        $x_10_2 = "^h^t^t^p^s^:^" wide //weight: 10
+        $x_10_3 = ".^c^o^m^" wide //weight: 10
+        $x_10_4 = ".^h^t^a^" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_KMZ_2147970118_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.KMZ!MTB"
+        threat_id = "2147970118"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "c^u^r^l^" wide //weight: 10
+        $x_10_2 = "h^t^t^p^s^:^" wide //weight: 10
+        $x_10_3 = "^p^o^w^e^r^s^h^e^l^l" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_MMZ_2147970119_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MMZ!MTB"
+        threat_id = "2147970119"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "# Verif" wide //weight: 1
+        $x_1_2 = "[char](([convert]::ToInt32($" wide //weight: 1
+        $x_1_3 = ".Substring($" wide //weight: 1
+        $x_1_4 = "-bxor[int][char]$" wide //weight: 1
+        $x_1_5 = "iex $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
