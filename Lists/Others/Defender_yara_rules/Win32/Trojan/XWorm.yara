@@ -484,3 +484,73 @@ rule Trojan_Win32_XWorm_A_2147966306_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_RC_2147970192_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.RC!AMTB"
+        threat_id = "2147970192"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 02 15 7d 97 02 00 04 2a d0 32 05 00 06 26 2a}  //weight: 2, accuracy: High
+        $x_2_2 = {02 6f 3f 04 00 06 6f 3d 02 00 0a 00 02 6f 41 04 00 06 16 6f 06 02 00 0a}  //weight: 2, accuracy: High
+        $x_2_3 = {00 25 06 6f 68 05 00 06 6f a2 05 00 06}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_Win32_XWorm_RA_2147970207_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.RA!AMTB"
+        threat_id = "2147970207"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 02 28 3e 00 00 0a 00 02 7e 0b 01 00 0a 7d 2c 01 00 04 02 16 7d 2d 01 00 04 2b 00 02}  //weight: 2, accuracy: High
+        $x_2_2 = {02 7e b4 00 00 0a 7d 32 01 00 04 02 73 32 04 00 06 7d 33 01 00 04 02 20 e0 93 04 00 7d 34 01 00 04 02}  //weight: 2, accuracy: High
+        $x_2_3 = {6f 10 01 00 0a 6f 11 01 00 0a 16 6f 12 01 00 0a 7d 37 01 00 04 2b 00}  //weight: 2, accuracy: High
+        $x_2_4 = {02 16 7d 42 01 00 04 02 28 de 00 00 06 00 02 28 d7 01 00 06 00 02 28 d8 01 00 06 2b 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_XWorm_RD_2147970208_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.RD!AMTB"
+        threat_id = "2147970208"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {74 0b 00 00 1b 7d 7a 00 00 04 02 28 30 01 00 06 00}  //weight: 1, accuracy: High
+        $x_1_2 = {02 7b 7a 00 00 04 7e dc 00 00 04 2c 07 7e dc 00 00 04 2b 16}  //weight: 1, accuracy: High
+        $x_1_3 = {7e d7 00 00 04 fe 06 d2 01 00 06 73 70 01 00 0a 25 80 dc 00 00 04}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

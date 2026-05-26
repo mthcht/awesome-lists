@@ -350,3 +350,26 @@ rule Trojan_Win64_AsyncRAT_PGAR_2147955111_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AsyncRAT_ARAE_2147970188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRAT.ARAE!MTB"
+        threat_id = "2147970188"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 0f b6 14 02 32 11 48 83 c1 01 41 88 14 01 48 83 c0 01 49 39 c0 75 e8}  //weight: 2, accuracy: High
+        $x_2_2 = "SilentRiftSalt1234" ascii //weight: 2
+        $x_2_3 = "NonceSalt1234" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
