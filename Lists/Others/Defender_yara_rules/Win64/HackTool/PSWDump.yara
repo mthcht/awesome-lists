@@ -10,6 +10,33 @@ rule HackTool_Win64_PSWDump_MX_2147956415_0
         severity = "High"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "chromelevator.exe [options] <chrome|chrome-beta|edge|brave|all>" wide //weight: 10
+        $x_5_2 = "Use chromelevator_" ascii //weight: 5
+        $x_5_3 = "App-Bound Encryption Key" ascii //weight: 5
+        $x_5_4 = "ExtractBrowserData" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule HackTool_Win64_PSWDump_MX_2147956415_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/PSWDump.MX!MTB"
+        threat_id = "2147956415"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWDump"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "65"
         strings_accuracy = "High"
     strings:

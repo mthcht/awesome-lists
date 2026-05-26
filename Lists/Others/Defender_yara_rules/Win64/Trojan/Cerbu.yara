@@ -62,6 +62,32 @@ rule Trojan_Win64_Cerbu_AB_2147951435_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AB_2147951435_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AB!MTB"
+        threat_id = "2147951435"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Kill all browser processes before extraction" ascii //weight: 1
+        $x_1_2 = "--kill" ascii //weight: 1
+        $x_1_3 = "[+] Payload connected" ascii //weight: 1
+        $x_1_4 = "[+] Payload decrypted" ascii //weight: 1
+        $x_1_5 = "Deriving runtime decryption keys..." ascii //weight: 1
+        $x_1_6 = "AvastBrowser.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Cerbu_AHB_2147952331_0
 {
     meta:

@@ -10470,3 +10470,27 @@ rule Trojan_MSIL_Heracles_BAZ_2147970047_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_SXF_2147970137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SXF!MTB"
+        threat_id = "2147970137"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "', $f); Start-Process $f -WindowStyle Hidden\" & start \"\" \"%1\" %%) else (start \"\" \"%1\" %%)" ascii //weight: 30
+        $x_10_2 = "'; (New-Object Net.WebClient).DownloadFile('" ascii //weight: 10
+        $x_10_3 = "cmd /c if /i not \"%~n1\"==\"powershell\" if /i not \"%~n1\"==\"cmd\"" ascii //weight: 10
+        $x_5_4 = "(start /b powershell -WindowStyle Hidden -ExecutionPolicy Bypass -Command \"$f = Join-Path $env:TEMP '" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
