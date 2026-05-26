@@ -3626,3 +3626,28 @@ rule Trojan_MSIL_Stealer_BL_2147969099_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_C_2147970135_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.C!AMTB"
+        threat_id = "2147970135"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_stealerTriggered" ascii //weight: 1
+        $x_1_2 = "[Stealer] Sent." ascii //weight: 1
+        $x_1_3 = "RunStealerPacket" ascii //weight: 1
+        $x_1_4 = "HandleRunStealer" ascii //weight: 1
+        $x_1_5 = "[Stealer] Starting collection" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
