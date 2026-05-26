@@ -374,3 +374,28 @@ rule Trojan_Win64_BruteRatel_JZP_2147932923_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BruteRatel_MK_2147970149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BruteRatel.MK!!BruteRatel.MK!ems"
+        threat_id = "2147970149"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BruteRatel"
+        severity = "Critical"
+        info = "BruteRatel: an internal category used to refer to some threats"
+        info = "MK: an internal category used to refer to some threats"
+        info = "ems: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ARHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {4c 8b d1 b8 ?? 00 00 00 34 5a}  //weight: 3, accuracy: Low
+        $x_1_2 = {31 c0 41 80 f9 4c 75 2f 80 79 01 8b 75 29 80 79 02 d1 75 21 41 80 f8 b8 75 1b 80 79 06 00 75 17 0f b6 41 05 c1 e0 08 41 89 c0 0f b6 41 04 44 09 c0 01 d0 eb 02 31 c0 c3}  //weight: 1, accuracy: High
+        $x_1_3 = {80 79 ff cc 74 58 45 85 c0 75 04 48 83 e9 20 44 8a 09 41 80 f9 e9 74 0a 44 8a 41 03 41 80 f8 e9 75 07 ff c2 45 31 c0 eb d7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
