@@ -46,3 +46,27 @@ rule Trojan_Win64_Dapato_SX_2147964062_0
         )
 }
 
+rule Trojan_Win64_Dapato_ARR_2147970348_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dapato.ARR!MTB"
+        threat_id = "2147970348"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {45 0f b7 c3 41 2a c9 c0 e1 ?? 66 41 d3 e8 41 80 e0 0f 41 80 f8 0a 1a c0 41 ff c1 24 ?? 04 ?? 41 02 c0 41 88 02 49 ff c2}  //weight: 10, accuracy: Low
+        $x_5_2 = "sr_deploy.log" ascii //weight: 5
+        $x_3_3 = "XOR done, MZ=%c%c size=%u" ascii //weight: 3
+        $x_2_4 = "Run() isMemory=%d ip=%s port=%d startup=%d" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
