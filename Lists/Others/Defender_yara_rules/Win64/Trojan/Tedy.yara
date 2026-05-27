@@ -6319,3 +6319,24 @@ rule Trojan_Win64_Tedy_LVK_2147970228_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_PGCH_2147970313_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PGCH!MTB"
+        threat_id = "2147970313"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 8b c9 45 8b c1 b8 ?? ?? ?? ?? 41 f7 e1 41 8b c1 41 ff c1 2b c2 d1 e8 03 c2 c1 e8 ?? 6b c0 ?? 2b c8 42 0f b6 04 21 41 30 04 18 44 3b cf 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

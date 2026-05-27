@@ -1575,3 +1575,25 @@ rule Trojan_MSIL_DarkCloud_RVD_2147969481_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_RVE_2147970298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.RVE!MTB"
+        threat_id = "2147970298"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 1f b6 0b 09 1f 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 16 01 00 00 8c 00 00 00 74 04 00 00 01 08 00 00 62 05 00 00 04 00 00 00 a1 03 00 00 ad 00 00 00 fe 0c 00 00 dc 00 00 00 02 00 00 00 08 00 00 00 43 00 00 00 f6 02 00 00 d9 05 00 00 04 00 00 00 b9 00 00 00 01 00 00 00 07 00 00 00 04 00 00 00 73 00 00 00 3e 00 00 00 79}  //weight: 2, accuracy: High
+        $x_1_2 = "resources/dnamibaf.ptcr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
