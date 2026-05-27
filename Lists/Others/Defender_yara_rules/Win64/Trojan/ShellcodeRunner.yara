@@ -3269,3 +3269,27 @@ rule Trojan_Win64_ShellcodeRunner_AD_2147969801_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_SXL_2147970229_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.SXL!MTB"
+        threat_id = "2147970229"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "54"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {81 c2 f4 ad bb 7d 81 f2 6c 00 43 42 89 d0 c1 e8 12 31 d0 05 14 58 00 00 0f b7 c0 48 01 c8}  //weight: 30, accuracy: High
+        $x_20_2 = {81 f1 d6 fd 60 d3 44 0f b6 48 0c 8a 50 0d 8a 40 0e 80 f2 2c 0f b6 d2 c1 e2 08 41 81 f1 db 00 00 00}  //weight: 20, accuracy: High
+        $x_2_3 = "update_loader" ascii //weight: 2
+        $x_2_4 = "update.dat" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

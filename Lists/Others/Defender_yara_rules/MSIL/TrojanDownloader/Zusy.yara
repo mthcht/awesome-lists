@@ -64,3 +64,24 @@ rule TrojanDownloader_MSIL_Zusy_MK_2147961851_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Zusy_SX_2147970231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Zusy.SX!MTB"
+        threat_id = "2147970231"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {9a 06 07 6f 1f 00 00 0a 6f 20 00 00 0a 25 6f 21 00 00 0a 26 6f 22 00 00 0a 6f 23 00 00 0a 6f 24 00 00 0a 0c 08 28 25 00 00 0a 16 28 26 00 00 0a de 49}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -14348,3 +14348,126 @@ rule Trojan_Win32_ClickFix_MMZ_2147970119_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_LMZ_2147970234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.LMZ!MTB"
+        threat_id = "2147970234"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "rundll32" wide //weight: 10
+        $x_10_2 = "No soy un robot - ID" wide //weight: 10
+        $x_10_3 = ",Verificar # " wide //weight: 10
+        $x_10_4 = "reCAPTCHA:" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_MNZ_2147970235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MNZ!MTB"
+        threat_id = "2147970235"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "for($" wide //weight: 1
+        $x_1_2 = "::ToInt32($" wide //weight: 1
+        $x_1_3 = ".Substring($" wide //weight: 1
+        $x_1_4 = "-bxor" wide //weight: 1
+        $x_1_5 = "iex $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DJV_2147970242_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJV!MTB"
+        threat_id = "2147970242"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MsIExec" wide //weight: 1
+        $x_1_2 = "/pACkAgE" wide //weight: 1
+        $x_1_3 = "http:\\" wide //weight: 1
+        $x_1_4 = "YourSystemidentyID:" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DJW_2147970243_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJW!MTB"
+        threat_id = "2147970243"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "Write-Host" wide //weight: 1
+        $x_1_3 = {69 00 65 00 78 00 28 00 69 00 72 00 6d 00 28 00 28 00 28 00 27 00 [0-8] 2e 00 27 00 2b 00 27 00 [0-8] 27 00 29 00 2b 00 28 00 27 00 2e 00 [0-8] 2e 00 27 00 2b 00 27 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DJZ_2147970244_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DJZ!MTB"
+        threat_id = "2147970244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_10_2 = {69 00 65 00 78 00 28 00 69 00 77 00 72 00 20 00 [0-60] 2e 00 [0-8] 20 00 2d 00 55 00 73 00 65 00 42 00 61 00 73 00 69 00 63 00 50 00 61 00 72 00 73 00 69 00 6e 00 67 00 29 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {69 00 65 00 78 00 28 00 69 00 72 00 6d 00 20 00 [0-8] 2e 00 [0-8] 2e 00 [0-8] 2e 00 [0-8] 20 00 2d 00 55 00 73 00 65 00 42 00 61 00 73 00 69 00 63 00 50 00 61 00 72 00 73 00 69 00 6e 00 67 00 29 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

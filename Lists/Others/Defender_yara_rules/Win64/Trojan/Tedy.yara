@@ -6292,3 +6292,30 @@ rule Trojan_Win64_Tedy_AZD_2147970042_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LVK_2147970228_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LVK!MTB"
+        threat_id = "2147970228"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/run /tn \"Real\\Launch" wide //weight: 1
+        $x_1_2 = "PendingDeepLink" wide //weight: 1
+        $x_1_3 = ".lnk" wide //weight: 1
+        $x_1_4 = "Microsoft\\Internet Explorer\\Quick Launch\\User Pinned\\TaskBar\\Real.lnk" wide //weight: 1
+        $x_1_5 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_6 = "Removing startup entries" wide //weight: 1
+        $x_1_7 = "://download.projectreal.net/verify" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

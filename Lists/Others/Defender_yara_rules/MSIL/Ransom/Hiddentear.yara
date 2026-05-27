@@ -98,3 +98,32 @@ rule Ransom_MSIL_Hiddentear_SL_2147967328_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Hiddentear_AHX_2147970233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Hiddentear.AHX!MTB"
+        threat_id = "2147970233"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Hiddentear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "YOUR FILES HAVE BEEN ENCRYPTED" wide //weight: 5
+        $x_5_2 = "All your important files have been encrypted with AES-256 + RSA-2048" wide //weight: 5
+        $x_5_3 = "Your MBR is already fucked up, restarting your computer is useless now. Just enjoy the show" wide //weight: 5
+        $x_1_4 = "payload.remote_path" wide //weight: 1
+        $x_1_5 = "AddPersistence" ascii //weight: 1
+        $x_1_6 = "vmware" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

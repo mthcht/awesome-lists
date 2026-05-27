@@ -5154,3 +5154,25 @@ rule Trojan_MSIL_Zusy_GPKE_2147969475_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_ZPC_2147970227_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.ZPC!MTB"
+        threat_id = "2147970227"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "powershell -c \"& $env:LOCALAPPDATA\\Microsoft\\vdh.exe" ascii //weight: 3
+        $x_3_2 = "https://winserviceguard.center:8443/gqeqwww.exe" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
