@@ -1301,3 +1301,25 @@ rule Trojan_Win64_Convagent_CPI_2147969308_0
         )
 }
 
+rule Trojan_Win64_Convagent_AHD_2147970290_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.AHD!MTB"
+        threat_id = "2147970290"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {66 0f fc c8 66 0f ?? ?? ?? ?? ?? ?? 66 0f ef d0 66 0f ?? ?? ?? ?? ?? ?? 66 0f ?? ?? ?? ?? ?? ?? 66 0f ?? ?? ?? ?? ?? ?? 66 0f db cb}  //weight: 30, accuracy: Low
+        $x_20_2 = {0f b6 c0 66 0f 6e c0 66 0f 60 c0 f2 0f 70 c0 ?? 66 0f 6f c8 66 0f fc ce 66 0f ?? ?? ?? ?? ?? ?? 66 0f}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

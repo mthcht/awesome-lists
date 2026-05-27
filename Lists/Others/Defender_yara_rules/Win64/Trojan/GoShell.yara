@@ -68,3 +68,26 @@ rule Trojan_Win64_GoShell_CM_2147964042_0
         (5 of ($x*))
 }
 
+rule Trojan_Win64_GoShell_AHB_2147970289_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GoShell.AHB!MTB"
+        threat_id = "2147970289"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GoShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "main.mainensureSingleInstance" ascii //weight: 30
+        $x_20_2 = "main.CreateUserTask" ascii //weight: 20
+        $x_10_3 = "main.CopySelf" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
