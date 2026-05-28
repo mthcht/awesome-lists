@@ -6362,3 +6362,24 @@ rule Trojan_Win64_Tedy_PGCH_2147970313_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CAI_2147970387_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CAI!MTB"
+        threat_id = "2147970387"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 0f b6 08 48 03 ca 0f b6 c1 0f b6 4c 04 ?? 41 30 49 ff 48 83 eb}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
