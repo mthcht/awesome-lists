@@ -64,3 +64,24 @@ rule Trojan_Win64_SilverFox_ASF_2147969403_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SilverFox_AFS_2147970437_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SilverFox.AFS!MTB"
+        threat_id = "2147970437"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SilverFox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {41 58 5a 59 41 5b 41 ff d3 0f b6 c0 8b 4d e8 31 c1 0f b6 c9 88 4d d7 48 8b 45 f8 48 8b 4d 18 48 01 c1 48 89 4d e8 0f b6 09 0f b6 45 d7 31 c1 48 8b 45 e8 88 08 48 8b 45 10 48 8b 4d 10 8b 09 c1 e1 03 48 8b 55 10 8b 12 c1 ea 1d 09 d1 8b 55 e4 31 d1 89 08}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
