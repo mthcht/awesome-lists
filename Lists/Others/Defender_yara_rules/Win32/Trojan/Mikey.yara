@@ -764,3 +764,28 @@ rule Trojan_Win32_Mikey_LRJ_2147968792_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_ABMX_2147970362_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.ABMX!MTB"
+        threat_id = "2147970362"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Connecting to host" ascii //weight: 1
+        $x_1_2 = {68 74 74 70 3a 2f 2f 31 30 33 2e 37 33 2e 31 36 31 2e 32 33 38 2f 63 68 66 73 2f 73 68 61 72 65 64 2f [0-15] 2e 62 69 6e}  //weight: 1, accuracy: Low
+        $x_1_3 = "CreatePersistentTask called (using registry)" ascii //weight: 1
+        $x_1_4 = "Shellcode Loader Started" ascii //weight: 1
+        $x_1_5 = "Copying shellcode to executable memory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
