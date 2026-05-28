@@ -3874,6 +3874,28 @@ rule Trojan_Win64_Tedy_GVM_2147960549_0
         threshold = "2"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = {0f b6 14 0a 41 88 14 08 01 c6 81 fe ff 00 00 00 0f 8e}  //weight: 1, accuracy: High
+        $x_1_2 = {31 c0 0f b6 d0 0f b6 94 14 00 01 00 00 41 30 14 06 48 83 c0 01 4c 39 f8 72 e8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_GVM_2147960549_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GVM!MTB"
+        threat_id = "2147960549"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = {8d 48 04 83 e1 07 41 0f b6 0c 0b 32 4c 06 04 41 88 0c 01 48 83 c0 01 4c 39 c0 75 e4}  //weight: 2, accuracy: High
         $x_2_2 = {73 f5 e4 f3 9d 42 ec 6f e8 b4 86 54 7b 81 85 17 60 61 63 d8 f6 bd 9c 66 86 60 c0 8e ba 73 fe e4 9f 65 b2 87 85 b4 31 48 7d 10 75 d9 56 ab 3c 52}  //weight: 2, accuracy: High
     condition:
