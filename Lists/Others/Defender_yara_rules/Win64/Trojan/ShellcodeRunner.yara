@@ -3293,3 +3293,26 @@ rule Trojan_Win64_ShellcodeRunner_SXL_2147970229_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_PAHK_2147970460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.PAHK!MTB"
+        threat_id = "2147970460"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {43 8d 4c 09 07 44 0f b6 c9 01 d1 30 0c 06 48 ff c0 4c 39 c0 72}  //weight: 5, accuracy: High
+        $x_1_2 = "PrintCookie" ascii //weight: 1
+        $x_1_3 = "on_decrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
