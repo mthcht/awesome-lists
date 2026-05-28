@@ -2502,6 +2502,29 @@ rule Trojan_MSIL_Tedy_AHA_2147968187_0
         threshold = "60"
         strings_accuracy = "High"
     strings:
+        $x_30_1 = "<ExtractAllSecrets>b_" ascii //weight: 30
+        $x_20_2 = "<ScanWordlistFuzzy>b__" ascii //weight: 20
+        $x_10_3 = "<ReadTelegramAccountInfo>b" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_AHA_2147968187_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.AHA!MTB"
+        threat_id = "2147968187"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
         $x_30_1 = "<EnumerateChromiumProfiles>d__" ascii //weight: 30
         $x_20_2 = "(stealth WMI + traditional methods applied with evasion)" ascii //weight: 20
         $x_10_3 = "gROZ-keylog-hook" ascii //weight: 10

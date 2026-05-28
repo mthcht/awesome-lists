@@ -133,3 +133,32 @@ rule HackTool_Win64_PSWDump_PA_2147969798_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_PSWDump_PMX_2147970420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/PSWDump.PMX!MTB"
+        threat_id = "2147970420"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWDump"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "[+] No running processes found" ascii //weight: 5
+        $x_5_2 = "Creating suspended process:" ascii //weight: 5
+        $x_5_3 = "[+] Process created (PID:" ascii //weight: 5
+        $x_5_4 = "[+] IPC pipe established:" ascii //weight: 5
+        $x_5_5 = "[+] Payload connected" ascii //weight: 5
+        $x_30_6 = "google\\chrome" wide //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 4 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

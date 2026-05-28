@@ -66,3 +66,25 @@ rule Trojan_Win32_Strictor_NT_2147958657_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Strictor_MX_2147970418_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Strictor.MX!MTB"
+        threat_id = "2147970418"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Strictor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {eb 1c 80 7e 2e 00 8b ce 74 0b ff 74 24 08 e8 55 fc ff ff eb 05 e8 78 fd ff ff 85 c0 75 0d 8b 4e 28 8b 46 18}  //weight: 1, accuracy: High
+        $x_1_2 = "YCleanner" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

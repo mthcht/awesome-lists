@@ -1323,3 +1323,26 @@ rule Trojan_Win64_Convagent_AHD_2147970290_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_AHE_2147970409_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.AHE!MTB"
+        threat_id = "2147970409"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "screen_startscreen_stopwebcam_startwebcam_stopsrc\\services\\media.rs" ascii //weight: 30
+        $x_20_2 = "userpass[ENCRYPTED]commandsrc\\handlers\\command.rs" ascii //weight: 20
+        $x_10_3 = "spqWindowsUpdateManagersvchost.exeInvoice_Update.pdfsrc\\handlers\\interaction.rs" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

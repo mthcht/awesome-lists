@@ -1663,6 +1663,29 @@ rule Trojan_Win64_Rozena_AB_2147952698_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[*] Step 1: Using embedded encrypted shellcode (hex array)" ascii //weight: 1
+        $x_1_2 = "[*] Step 12: Writing shellcode to explorer.exe memory" ascii //weight: 1
+        $x_1_3 = "INJECTION SUCCESSFUL - SHELLCODE EXECUTING" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rozena_AB_2147952698_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.AB!MTB"
+        threat_id = "2147952698"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "16"
         strings_accuracy = "Low"
     strings:

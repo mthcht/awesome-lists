@@ -2994,3 +2994,26 @@ rule Trojan_Win32_ClipBanker_PGAP_2147965333_0
         (4 of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_AHB_2147970408_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.AHB!MTB"
+        threat_id = "2147970408"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "New BTC Method_Wallet Fix 2026 Leak" ascii //weight: 30
+        $x_20_2 = "SystemSecurityManager_Mutex" ascii //weight: 20
+        $x_10_3 = "307861353537666462316339373733316163653334353965646164343861376637383563343230366236" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

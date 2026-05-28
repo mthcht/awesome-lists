@@ -176,3 +176,26 @@ rule Trojan_Win64_SalatStealer_GXH_2147966520_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_NMX_2147970421_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.NMX!MTB"
+        threat_id = "2147970421"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "main.disableTamperProtection" ascii //weight: 5
+        $x_5_2 = "main.stopDefenderService" ascii //weight: 5
+        $x_5_3 = "main.disableDefenderViaReg" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

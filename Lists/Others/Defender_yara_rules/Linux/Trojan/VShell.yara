@@ -42,3 +42,30 @@ rule Trojan_Linux_VShell_B_2147943670_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_VShell_AMTB_2147970422_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/VShell!AMTB"
+        threat_id = "2147970422"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "VShell"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "s(BADINDEX).localhost.wmlscript/dev/stdin/etc/group/etc/hosts/etc/init//setgroups01234567891220703125127.0.0.1:6103515625" ascii //weight: 3
+        $x_3_2 = "STREAMERROR://%sEventX: %dEventY: %dFocusOut {Format: %dGOMAXPROCSGOMEMLIMITGlagoliticHTTPHeaderHTTP_PROXYHeight: %dHost: %s" ascii //weight: 3
+        $x_1_3 = "{{if .ReloadSignal}}ExecReload=/bin/kill -{{.ReloadSignal}} \"$MAINPID\"{{end}}" ascii //weight: 1
+        $x_1_4 = "{{if .HasKillStanza}}kill signal INT{{end}}" ascii //weight: 1
+        $x_1_5 = "kill $(get_pid)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
