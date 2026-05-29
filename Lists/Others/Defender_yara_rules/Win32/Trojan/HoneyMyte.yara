@@ -46,3 +46,29 @@ rule Trojan_Win32_HoneyMyte_AO_2147941837_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_HoneyMyte_AHM_2147970554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/HoneyMyte.AHM!MTB"
+        threat_id = "2147970554"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "HoneyMyte"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "select origin_url, username_value, password_value from logins" ascii //weight: 6
+        $x_5_2 = "chromeTmp" ascii //weight: 5
+        $x_4_3 = "Login Data" ascii //weight: 4
+        $x_3_4 = "AppData\\Local\\Microsoft\\Edge\\User Data" ascii //weight: 3
+        $x_2_5 = "Local State" ascii //weight: 2
+        $x_1_6 = "CREATE TEMP TABLE sqlite_temp_master" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

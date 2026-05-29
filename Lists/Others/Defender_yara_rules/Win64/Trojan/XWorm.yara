@@ -730,3 +730,28 @@ rule Trojan_Win64_XWorm_DNU_2147969810_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_B_2147970551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.B!AMTB"
+        threat_id = "2147970551"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ze_msg.vbs" ascii //weight: 1
+        $x_1_2 = "<Xwormmm>" ascii //weight: 1
+        $x_1_3 = "@@ZEROXK2_PLACEHOLDER@@" ascii //weight: 1
+        $x_1_4 = "Set f=s.GetFolder(\"%s\")" ascii //weight: 1
+        $x_1_5 = "StartHRDP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

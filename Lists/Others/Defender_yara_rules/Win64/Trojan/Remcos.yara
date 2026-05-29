@@ -272,3 +272,50 @@ rule Trojan_Win64_Remcos_ARS_2147969303_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remcos_A_2147970552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.A!AMTB"
+        threat_id = "2147970552"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Sources\\Add\\certpert\\x64\\Release\\certpert.pdb" ascii //weight: 2
+        $x_2_2 = "http://80.253.249.169:5000/sperm.exe" ascii //weight: 2
+        $x_1_3 = "ALPC message sent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Remcos_B_2147970553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.B!AMTB"
+        threat_id = "2147970553"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Sources\\Add\\macosos\\x64\\Release\\macosos.pdb" ascii //weight: 1
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\TempOptimizer_" ascii //weight: 1
+        $x_1_3 = "http://83.217.209.169:5553/files/nooow.exe" ascii //weight: 1
+        $x_1_4 = "\\upers.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
