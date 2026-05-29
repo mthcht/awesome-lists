@@ -259,3 +259,28 @@ rule Trojan_MSIL_Strictor_MCF_2147948644_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Strictor_ASI_2147970569_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Strictor.ASI!MTB"
+        threat_id = "2147970569"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Strictor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "BT-MOBBTMOBH1N1X4lrC" ascii //weight: 6
+        $x_5_2 = "BTMOB" ascii //weight: 5
+        $x_4_3 = "BTMOB.Clipboard" ascii //weight: 4
+        $x_3_4 = "BTMOB.BotsManager" ascii //weight: 3
+        $x_2_5 = "BTMOB.LiveKeylogger" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
