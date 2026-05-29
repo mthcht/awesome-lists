@@ -700,3 +700,26 @@ rule Trojan_MSIL_Convagent_ARR_2147969342_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_SX_2147970478_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.SX!MTB"
+        threat_id = "2147970478"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "($existingState.PSObject.Properties.Name -contains \"previous_codex_lb_api_key\")) { $existingState.previous_codex_lb_api_key } else { [Environment]::GetEnvironmentVariable(\"CODEX_LB_API_KEY\", \"User\") }" ascii //weight: 30
+        $x_20_2 = "[Environment]::SetEnvironmentVariable(\"CODEX_LB_API_KEY\", $ApiKey, \"User\")" ascii //weight: 20
+        $x_10_3 = "$env:CODEX_LB_API_KEY = $ApiKey" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

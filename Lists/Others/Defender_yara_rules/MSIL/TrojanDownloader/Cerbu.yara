@@ -21,3 +21,26 @@ rule TrojanDownloader_MSIL_Cerbu_SX_2147968045_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Cerbu_ARR_2147970482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Cerbu.ARR!MTB"
+        threat_id = "2147970482"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0c 08 16 7e ?? 00 00 04 28 ?? ?? ?? ?? a2 00 08 17 7e ?? 00 00 04 28 ?? ?? ?? ?? a2 00 08 0d 09 14 14 18}  //weight: 10, accuracy: Low
+        $x_6_2 = "$9f39354f-4e0b-46b4-817b-e1d0efe04162" ascii //weight: 6
+        $x_4_3 = "Class.exe" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

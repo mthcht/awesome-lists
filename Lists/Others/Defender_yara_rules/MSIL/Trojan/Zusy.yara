@@ -4392,6 +4392,51 @@ rule Trojan_MSIL_Zusy_ARR_2147959550_0
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_12_1 = {16 13 10 2b e0 03 17 7d ?? 00 00 04 17 13 10 2b d4 02 02 7b ?? 00 00 04 6f}  //weight: 12, accuracy: Low
+        $x_8_2 = {25 16 02 a2 25 17 03 a2 25 18 04 a2 25 19 05 a2 25 1a 0e 04 a2 25 1b 0e 05 a2 0a}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_ARR_2147959550_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.ARR!MTB"
+        threat_id = "2147959550"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {07 16 fe 01 2b 01 16 13 05 11 05}  //weight: 10, accuracy: High
+        $x_6_2 = "$8b56d6dd-a49d-45f0-ab1b-04fe8df337bc" ascii //weight: 6
+        $x_4_3 = "MEN.dll" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_ARR_2147959550_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.ARR!MTB"
+        threat_id = "2147959550"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {16 fe 01 2b 01 17 0b 07 2c 0a 00 16 80 ?? ?? ?? ?? 00 2b 10 00 02 16 9a}  //weight: 10, accuracy: Low
         $x_6_2 = {02 03 04 05 59 18 59 28 ?? ?? ?? ?? 00 00 2b 77 02}  //weight: 6, accuracy: Low
         $x_4_3 = "<MainThread>b__510_10" ascii //weight: 4
@@ -4400,7 +4445,7 @@ rule Trojan_MSIL_Zusy_ARR_2147959550_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Zusy_ARR_2147959550_1
+rule Trojan_MSIL_Zusy_ARR_2147959550_3
 {
     meta:
         author = "defender2yara"
@@ -4423,7 +4468,7 @@ rule Trojan_MSIL_Zusy_ARR_2147959550_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Zusy_ARR_2147959550_2
+rule Trojan_MSIL_Zusy_ARR_2147959550_4
 {
     meta:
         author = "defender2yara"

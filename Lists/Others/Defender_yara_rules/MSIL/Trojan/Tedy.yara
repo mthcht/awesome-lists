@@ -2313,6 +2313,50 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_1
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {07 11 05 11 06 9a 6f ?? ?? ?? ?? 26 11 06 11 05 8e 69 17 59 3b}  //weight: 12, accuracy: Low
+        $x_8_2 = {06 91 06 20 ?? 00 00 00 5a 20 ?? 00 00 00 58 61 d2 9c 06 17 58 0a}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_ARR_2147957141_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARR!MTB"
+        threat_id = "2147957141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {16 0a 06 17 d6 0a 17 0c 08 1b d6 1b d6 18 d6 0c 1f 0a 28 ?? ?? ?? ?? 08 08 06 d6 1b da d6 0c}  //weight: 15, accuracy: Low
+        $x_5_2 = {08 08 07 d6 1b da d6 0c 07 17 d6 0b 08 1b d6 1b d6 18 d6 0c 1f 0a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_ARR_2147957141_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARR!MTB"
+        threat_id = "2147957141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_15_1 = {5d 58 61 d2 9c 08 17 58 0c 08 06 8e 69 fe 04 0d 09 2d dd}  //weight: 15, accuracy: High
@@ -2322,7 +2366,7 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_ARR_2147957141_2
+rule Trojan_MSIL_Tedy_ARR_2147957141_4
 {
     meta:
         author = "defender2yara"
@@ -2345,7 +2389,7 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_2
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_ARR_2147957141_3
+rule Trojan_MSIL_Tedy_ARR_2147957141_5
 {
     meta:
         author = "defender2yara"

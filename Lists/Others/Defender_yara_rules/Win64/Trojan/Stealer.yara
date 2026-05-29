@@ -1075,3 +1075,25 @@ rule Trojan_Win64_Stealer_NVH_2147967833_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_ARR_2147970481_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.ARR!MTB"
+        threat_id = "2147970481"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 01 d8 9d ff e0 9c 48 8d 05}  //weight: 5, accuracy: High
+        $x_15_2 = {4c 29 d8 49 bb ?? ?? ?? ?? ?? ?? ?? 00 41 81 f3 ?? ?? ?? ?? 4c 01 d8 9d ff e0 9c 48 8d 05}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

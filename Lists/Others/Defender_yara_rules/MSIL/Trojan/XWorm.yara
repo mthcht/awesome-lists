@@ -4743,6 +4743,28 @@ rule Trojan_MSIL_XWorm_ARR_2147965155_2
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {6a 5a 07 58 20 ?? ?? ?? ?? 6a 5d 0a 07 1f 0d 6a 5a}  //weight: 12, accuracy: Low
+        $x_8_2 = "K9mXvP2qR7tYbN3wE5uH8jL4zA6cF1vX" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_ARR_2147965155_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ARR!MTB"
+        threat_id = "2147965155"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_1_1 = {25 26 0c 11 06 08 16 08}  //weight: 1, accuracy: High

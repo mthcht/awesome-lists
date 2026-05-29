@@ -1980,6 +1980,28 @@ rule Trojan_Win32_Convagent_ARR_2147956042_1
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_15_1 = {8b cb 8a 81 ?? ?? ?? ?? 34 ?? 88 44 0d 90 41 83 f9}  //weight: 15, accuracy: Low
+        $x_5_2 = {88 45 dc a1 ?? ?? ?? ?? 33 c9 41 3b c1 0f 84}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_ARR_2147956042_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_15_1 = {83 f0 01 48 8b 4c 24 18 48 8b 5c 24 20 89 c2 48 8b 44 24 68}  //weight: 15, accuracy: High
         $x_5_2 = {48 8b 72 18 48 83 c6 fe 48 83 fe 0b 0f 87 ?? ?? ?? ?? 4c 8b 42 ?? 48 8d 05}  //weight: 5, accuracy: Low
     condition:
@@ -1987,7 +2009,7 @@ rule Trojan_Win32_Convagent_ARR_2147956042_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_Convagent_ARR_2147956042_2
+rule Trojan_Win32_Convagent_ARR_2147956042_3
 {
     meta:
         author = "defender2yara"
@@ -2010,7 +2032,7 @@ rule Trojan_Win32_Convagent_ARR_2147956042_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_Convagent_ARR_2147956042_3
+rule Trojan_Win32_Convagent_ARR_2147956042_4
 {
     meta:
         author = "defender2yara"

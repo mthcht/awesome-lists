@@ -41,3 +41,25 @@ rule Trojan_MSIL_Runner_GPSG_2147965284_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Runner_SX_2147970477_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Runner.SX!MTB"
+        threat_id = "2147970477"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Runner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {09 28 0c 00 00 0a a2 11 04 17 16 8c 0c 00 00 01 a2 11 04 18 16 8c 0d 00 00 01 a2 11 04 6f 0d 00 00 0a 26 07 28 0e 00 00 0a 26}  //weight: 30, accuracy: High
+        $x_10_2 = "$env:MSEDGE_SKIP_UAC='1';IEX(gc '" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

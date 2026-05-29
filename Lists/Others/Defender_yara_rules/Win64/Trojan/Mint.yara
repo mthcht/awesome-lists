@@ -233,3 +233,26 @@ rule Trojan_Win64_Mint_AHA_2147967599_0
         )
 }
 
+rule Trojan_Win64_Mint_MKB_2147970479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mint.MKB!MTB"
+        threat_id = "2147970479"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {8b 44 24 78 8b 54 24 7c 8b 4d f8 48 c1 e2 20 48 0b d0 48 c1 e1 20 8b 45 f4 48 0b c8 48 2b d1 48 81 fa 00 d2 49 6b}  //weight: 15, accuracy: High
+        $x_10_2 = {0f b6 84 32 00 12 00 00 0f b6 4c 24 60 32 c8 88 4c 15 90 48 ff c2 48 83 fa 09}  //weight: 10, accuracy: High
+        $x_5_3 = "%sgyaoqbdjm.pid" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

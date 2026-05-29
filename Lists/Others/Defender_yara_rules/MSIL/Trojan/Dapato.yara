@@ -317,3 +317,26 @@ rule Trojan_MSIL_Dapato_SX_2147968517_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dapato_ARR_2147970484_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dapato.ARR!MTB"
+        threat_id = "2147970484"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "$fd84944c-1cf8-4138-ab92-984fef7e6a44" ascii //weight: 10
+        $x_6_2 = "ALMOSHKIL_V24232.My.Resources" ascii //weight: 6
+        $x_4_3 = "HELLOWORD.exe" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
