@@ -21,3 +21,25 @@ rule Trojan_MSIL_DllHijack_GTD_2147958632_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DllHijack_GDK_2147970508_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DllHijack.GDK!MTB"
+        threat_id = "2147970508"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0b 02 06 07 28 ?? 00 00 06 0c 16 28 ?? 00 00 0a 26 28 ?? 00 00 06 7e ?? 00 00 04 72 ?? 00 00 70 28 ?? 00 00 0a 08 28 ?? 00 00 0a 2a}  //weight: 10, accuracy: Low
+        $x_1_2 = "TOTP Guard" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
