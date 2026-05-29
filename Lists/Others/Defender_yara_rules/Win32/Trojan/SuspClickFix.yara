@@ -846,11 +846,12 @@ rule Trojan_Win32_SuspClickFix_Q5_2147968172_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00 43 00 3a 00 5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 20 00 2f 00 63 00 20 00 73 00 65 00 74 00 20 00}  //weight: 1, accuracy: High
-        $x_1_2 = "& call set " wide //weight: 1
-        $x_1_3 = "& set " wide //weight: 1
+        $x_1_2 = {5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00 43 00 3a 00 5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 73 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 20 00 2f 00 63 00 20 00 63 00 64 00 20 00}  //weight: 1, accuracy: High
+        $x_1_3 = "& call set " wide //weight: 1
+        $x_1_4 = "& set " wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (3 of ($x*))
 }
 
 rule Trojan_Win32_SuspClickFix_X_2147968173_0
@@ -995,43 +996,14 @@ rule Trojan_Win32_SuspClickFix_Z2_2147970080_0
         strings_accuracy = "Low"
     strings:
         $x_3_1 = {5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
-        $x_2_2 = {70 00 75 00 73 00 68 00 64 00 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 5c 00}  //weight: 2, accuracy: Low
-        $x_2_3 = {70 00 75 00 73 00 68 00 64 00 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 40 00 [0-8] 5c 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {70 00 75 00 73 00 68 00 64 00 [0-64] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 5c 00}  //weight: 2, accuracy: Low
+        $x_2_3 = {70 00 75 00 73 00 68 00 64 00 [0-64] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 40 00 [0-8] 5c 00}  //weight: 2, accuracy: Low
         $x_1_4 = {26 00 20 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 [0-32] 2c 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
             ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
             ((1 of ($x_3_*) and 2 of ($x_2_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_Win32_SuspClickFix_Z2_2147970080_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/SuspClickFix.Z2"
-        threat_id = "2147970080"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "SuspClickFix"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "Low"
-    strings:
-        $x_3_1 = {5c 00 57 00 69 00 6e 00 64 00 6f 00 77 00 73 00 5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
-        $x_2_2 = {25 00 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 5c 00}  //weight: 2, accuracy: Low
-        $x_2_3 = {25 00 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 40 00 [0-8] 5c 00}  //weight: 2, accuracy: Low
-        $x_1_4 = {26 00 20 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 [0-32] 2c 00}  //weight: 1, accuracy: Low
-        $x_1_5 = "=pushd" wide //weight: 1
-        $x_1_6 = "& call %" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_3_*) and 1 of ($x_2_*) and 3 of ($x_1_*))) or
-            ((1 of ($x_3_*) and 2 of ($x_2_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }
