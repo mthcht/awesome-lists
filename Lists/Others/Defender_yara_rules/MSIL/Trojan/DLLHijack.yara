@@ -19,3 +19,28 @@ rule Trojan_MSIL_DLLHijack_BAA_2147956593_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DLLHijack_DR_2147970596_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DLLHijack.DR!MTB"
+        threat_id = "2147970596"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "://d565e3f03d0b1a7c8935d7ff94237316@o4511335034847232.ingest.de.sentry.io/4511337546317904" ascii //weight: 10
+        $x_1_2 = "cliend_id:" ascii //weight: 1
+        $x_1_3 = "pass:" ascii //weight: 1
+        $x_1_4 = "oleto:" ascii //weight: 1
+        $x_1_5 = "pfxPassword" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
