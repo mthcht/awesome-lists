@@ -219,3 +219,31 @@ rule Trojan_Win64_Disco_KK_2147968222_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Disco_LR_2147970612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Disco.LR!MTB"
+        threat_id = "2147970612"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "48"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b7 8c 95 d0 03 00 00 41 03 d3 0f b6 c1 44 01 9c 85 50 08 00 00 8b c1 c1 e8 08 05 00 01 00 00 44 01 9c 85 50 08 00 00 3b d7}  //weight: 20, accuracy: High
+        $x_1_2 = "Nyx Injector" ascii //weight: 1
+        $x_2_3 = "Nyx Browser Injector" ascii //weight: 2
+        $x_3_4 = "Nyx Wallet Inject" ascii //weight: 3
+        $x_4_5 = "Exodus Wallet Grabbed" ascii //weight: 4
+        $x_5_6 = "Discord/Unvalidated_Tokens.txt" ascii //weight: 5
+        $x_6_7 = "Browsers/Passwords.txt" ascii //weight: 6
+        $x_7_8 = "Browsers/CreditCards.txt" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

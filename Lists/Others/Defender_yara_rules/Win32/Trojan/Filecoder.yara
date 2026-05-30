@@ -570,3 +570,30 @@ rule Trojan_Win32_Filecoder_LRA_2147967095_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Filecoder_LR_2147970611_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Filecoder.LR!MTB"
+        threat_id = "2147970611"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "NoBunnyNoMoney" ascii //weight: 2
+        $x_3_2 = "wbadmin.exe DELETE SYSTEMSTATEBACKUP" ascii //weight: 3
+        $x_4_3 = "bcdedit.exe /set {default} recoveryenabled no" ascii //weight: 4
+        $x_5_4 = "SELECT * FROM Win32_ShadowCopy" ascii //weight: 5
+        $x_6_5 = "wbadmin.exe delete catalog -quiet" ascii //weight: 6
+        $x_7_6 = "rd /q /s \"%s\"" ascii //weight: 7
+        $x_8_7 = "p2kfile" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

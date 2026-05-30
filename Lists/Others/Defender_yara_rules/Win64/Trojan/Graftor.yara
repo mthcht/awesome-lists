@@ -83,3 +83,34 @@ rule Trojan_Win64_Graftor_E_2147919932_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Graftor_LR_2147970610_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Graftor.LR!MTB"
+        threat_id = "2147970610"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Graftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "66"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] Step 1: Locating payload section..." ascii //weight: 1
+        $x_2_2 = "[+] Step 2: Decrypting full payload..." ascii //weight: 2
+        $x_3_3 = "[+] Step 3: Mapping PE..." ascii //weight: 3
+        $x_4_4 = "[MAP] Applying protections" ascii //weight: 4
+        $x_5_5 = "[+] Step 4: Resolving imports..." ascii //weight: 5
+        $x_6_6 = "[+] Step 5: TLS callbacks..." ascii //weight: 6
+        $x_7_7 = "[+] Setting up Memory Guard..." ascii //weight: 7
+        $x_8_8 = "[+] Setting up API Wrapping..." ascii //weight: 8
+        $x_9_9 = "[-] Debugger detected" ascii //weight: 9
+        $x_10_10 = "[-] Emulator detected" ascii //weight: 10
+        $x_11_11 = "[-] Dumping detected" ascii //weight: 11
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

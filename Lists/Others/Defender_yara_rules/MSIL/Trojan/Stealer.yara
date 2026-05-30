@@ -3651,3 +3651,28 @@ rule Trojan_MSIL_Stealer_C_2147970135_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_KK_2147970613_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.KK!MTB"
+        threat_id = "2147970613"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "INFO.txt" ascii //weight: 5
+        $x_4_2 = "Discord_Tokens.txt" ascii //weight: 4
+        $x_3_3 = "\\discord\\Local Storage\\leveldb" ascii //weight: 3
+        $x_2_4 = "[\\w-]{24,28}\\.[\\w-]{6,7}\\.[\\w-]{27,50}" ascii //weight: 2
+        $x_1_5 = "GrabPasswords" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
