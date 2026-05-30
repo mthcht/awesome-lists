@@ -85,3 +85,26 @@ rule Trojan_Win64_SilverFox_AFS_2147970437_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SilverFox_SX_2147970589_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SilverFox.SX!MTB"
+        threat_id = "2147970589"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SilverFox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {4c 89 7c 24 50 48 8d 15 ?? ?? ?? ?? 4c 89 7c 24 48 41 b9 ff 01 0f 00 4c 89 7c 24 40 48 8b cb 48 89 44 24 38 c7 44 24 30 01 00 00 00 c7 44 24 28 02 00 00 00 c7 44 24 20 10 00 00 00 ff 15 ?? ?? ?? ?? 48 8b f8 41 8b ef 48 85 c0 ?? ?? ?? ?? ?? ?? 4c 8d 44 24 70 4c 89 64 24 70 ba 01 00 00 00 48 8b c8 ff 15}  //weight: 30, accuracy: Low
+        $x_10_2 = {05 00 00 4c 8d 05 ?? ?? ?? ?? 48 8b c8 48 8b d3 48 8d 44 24 48 48 89 44 24 20 ff 15 ?? ?? ?? ?? 45 33 c9 48 c7 44 24 28 00 00 00 00 4c 8b c3 c7 44 24 20 00 00 00 00 33 d2 33 c9 ff 15}  //weight: 10, accuracy: Low
+        $x_30_3 = "Tiprundll" ascii //weight: 30
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

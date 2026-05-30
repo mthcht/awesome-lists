@@ -3267,3 +3267,26 @@ rule Trojan_MSIL_Rozena_SPO_2147969838_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_CAT_2147970593_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.CAT!MTB"
+        threat_id = "2147970593"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Sleep timer bypassed!" wide //weight: 2
+        $x_2_2 = "Emulation done!" wide //weight: 2
+        $x_2_3 = "Cipher decrypted!" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
