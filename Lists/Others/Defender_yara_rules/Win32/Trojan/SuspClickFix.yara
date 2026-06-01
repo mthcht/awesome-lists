@@ -999,9 +999,11 @@ rule Trojan_Win32_SuspClickFix_Z2_2147970080_0
         $x_2_2 = {70 00 75 00 73 00 68 00 64 00 [0-64] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 5c 00}  //weight: 2, accuracy: Low
         $x_2_3 = {70 00 75 00 73 00 68 00 64 00 [0-64] 20 00 5c 00 5c 00 [0-96] 2e 00 [0-21] 40 00 [0-8] 5c 00}  //weight: 2, accuracy: Low
         $x_1_4 = {26 00 20 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-8] 20 00 [0-32] 2c 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {3d 00 72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-16] 26 00 [0-2] 63 00 61 00 6c 00 6c 00 20 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
+            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
             ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
             ((1 of ($x_3_*) and 2 of ($x_2_*))) or
             (all of ($x*))

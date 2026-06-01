@@ -2727,6 +2727,27 @@ rule Trojan_MSIL_XWorm_AXC_2147948424_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AXC_2147948424_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AXC!MTB"
+        threat_id = "2147948424"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 7b 9c 00 00 04 02 7b ?? 00 00 04 02 7b ?? 00 00 04 6f ?? 01 00 0a 7d ?? 00 00 04 02 02 7b ?? 00 00 04 02 7b ?? 00 00 04 6f ?? ?? 00 0a 59 7d ?? 00 00 04 72 ?? 08 00 70 0a 2b 00 06 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_ATW_2147948426_0
 {
     meta:
@@ -5456,5 +5477,27 @@ rule Trojan_MSIL_XWorm_AZC_2147970561_0
             ((1 of ($x_5_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_MSIL_XWorm_ZTC_2147970640_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ZTC!MTB"
+        threat_id = "2147970640"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {25 16 03 6f ?? 01 00 0a 0a 12 00 28 ?? 01 00 0a 9c 25 17 03 6f ?? 01 00 0a 0a 12 00 28 ?? 01 00 0a 9c 25 18 03 6f ?? 01 00 0a 0a 12 00}  //weight: 6, accuracy: Low
+        $x_4_2 = {25 2d 17 26 7e ?? 00 00 04 fe ?? a8 00 00 06 73 ?? 00 00 0a 25 80 ?? 00 00 04 28 ?? 00 00 2b 06 fe ?? ad 00 00 06 73 ?? 00 00 0a 28 ?? 00 00 2b 7e ?? 00 00 04 25 2d 17}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
