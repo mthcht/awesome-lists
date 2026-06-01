@@ -336,6 +336,31 @@ rule HackTool_Win32_AutoKMS_NK_2147744620_0
         (all of ($x*))
 }
 
+rule HackTool_Win32_AutoKMS_2147766452_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/AutoKMS!MTB"
+        threat_id = "2147766452"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoKMS"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/K ECHO === Install Office Key" wide //weight: 1
+        $x_1_2 = "== Office OEM" wide //weight: 1
+        $x_1_3 = "== Office MAK" wide //weight: 1
+        $x_1_4 = "Office ALL" wide //weight: 1
+        $x_1_5 = "Block key:" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule HackTool_Win32_AutoKMS_HNB_2147929004_0
 {
     meta:

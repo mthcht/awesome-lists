@@ -4481,6 +4481,28 @@ rule Trojan_MSIL_Zusy_ARR_2147959550_4
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {2b 1e 00 11 ?? 11 ?? 11 ?? 11 ?? 91 11 ?? 11 ?? 11 ?? 8e 69 5d 91 61 d2 9c 00 11 ?? 17 58 13 ?? 11 ?? 11 ?? 8e 69 fe 04 13 ?? 11 ?? 2d d4}  //weight: 15, accuracy: Low
+        $x_5_2 = {fe 01 16 fe 01 0d 09 2c 08 16 13 04}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_ARR_2147959550_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.ARR!MTB"
+        threat_id = "2147959550"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_14_1 = "PROCESS_INJECTION_ACCESS" ascii //weight: 14

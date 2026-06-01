@@ -14917,3 +14917,24 @@ rule Trojan_MSIL_Remcos_AQUB_2147968972_0
         )
 }
 
+rule Trojan_MSIL_Remcos_ARZ_2147970663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.ARZ!MTB"
+        threat_id = "2147970663"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 11 72 36 0e 00 70 06 fe ?? 00 03 00 06 73 ?? 00 00 0a 6f ?? 00 00 0a 00 11 11 72 66 0e 00 70 06 fe ?? ?? 03 00 06 73 ?? 00 00 0a 6f ?? 00 00 0a 00 11 11 72 7e ?? 00 70 06 fe ?? ?? 03 00 06 73 ?? 00 00 0a 6f ?? 00 00 0a 00 11 11 72 ?? 0e 00 70 06}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

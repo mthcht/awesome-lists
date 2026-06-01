@@ -87,3 +87,29 @@ rule Trojan_Win64_SpyLoader_NS_2147898389_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SpyLoader_A_2147970678_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SpyLoader.A!AMTB"
+        threat_id = "2147970678"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SpyLoader"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "MemoryLoadLibrary CRASHED!" ascii //weight: 2
+        $x_2_2 = "MemoryLoadLibrary=%p err=%d" ascii //weight: 2
+        $x_2_3 = "embedded MemDLL ok" ascii //weight: 2
+        $x_2_4 = "XOR done, MZ=" ascii //weight: 2
+        $x_1_5 = "Software\\CONF" ascii //weight: 1
+        $x_1_6 = "apprt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
