@@ -104,3 +104,26 @@ rule TrojanDownloader_Win32_Zusy_AZS_2147935782_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Zusy_KK_2147970711_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Zusy.KK!MTB"
+        threat_id = "2147970711"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {6a 00 8d 8d d8 d9 ff ff 51 50 8d 85 f4 d9 ff ff 50 57 ff 15 ?? ?? ?? ?? 8d 85 ec d9 ff ff 50 68 00 20 00 00 8d 85 f4 d9 ff ff 50 56 ff 15}  //weight: 20, accuracy: Low
+        $x_10_2 = "%s\\Microsoft\\Windows\\Start Menu\\Programs\\Startup" ascii //weight: 10
+        $x_5_3 = "@update_log.txt" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

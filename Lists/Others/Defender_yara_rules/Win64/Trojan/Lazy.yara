@@ -6180,3 +6180,29 @@ rule Trojan_Win64_Lazy_SXR_2147970586_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LRH_2147970710_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LRH!MTB"
+        threat_id = "2147970710"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "EneTmp.tNTIOLibXRTCore64\\\\.\\GLCK" ascii //weight: 1
+        $x_2_2 = "stub_loader_hr.pdb" ascii //weight: 2
+        $x_3_3 = "stub_loader_hr.dll" ascii //weight: 3
+        $x_4_4 = "POWRPROF.dll" ascii //weight: 4
+        $x_5_5 = "StartPayload" ascii //weight: 5
+        $x_6_6 = "cmd.exe /c powershell.exe -ep bypass -w hidden -c \"Add-MpPreference -ExclusionPath '" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

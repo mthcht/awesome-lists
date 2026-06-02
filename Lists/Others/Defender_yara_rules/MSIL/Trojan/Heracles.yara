@@ -10537,3 +10537,26 @@ rule Trojan_MSIL_Heracles_BAT_2147970662_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_SXH_2147970713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SXH!MTB"
+        threat_id = "2147970713"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {00 09 11 04 6f ?? 00 00 0a 00 02 7b 13 00 00 04 11 04 6f ?? 00 00 0a 28 ?? 00 00 0a 00 00 de 1f}  //weight: 30, accuracy: Low
+        $x_20_2 = "Decrypting secure payload..." ascii //weight: 20
+        $x_10_3 = "Removing temporary files..." ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3953,6 +3953,37 @@ rule Trojan_MSIL_Lazy_LRJ_2147968990_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_LRJ_2147968990_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.LRJ!MTB"
+        threat_id = "2147968990"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {28 03 00 00 06 0a 7e 05 00 00 04 16 9a 28 02 00 00 06 0b 06 28 11 00 00 0a 2d 08 07 28 11 00 00 0a 2c 08 14 13 04 dd e9 00 00 00 06 07 02 28 3f 00 00 0a 28 18 00 00 0a 0c 28 40 00 00 0a 72 65 05 00 70 02 72 89 05 00 70 28 2d 00 00 0a 28 41 00 00 0a 0d 72 93 05 00 70 08 28 18 00 00 0a 28 01 00 00 06 73 1a 00 00 0a 13 05 11 05 08 6f 36 00 00 0a 6f 37 00 00 0a 72 c7 05 00 70 72 cb 05 00 70 6f 42 00 00 0a 72 cd 05 00 70 72 cb 05 00 70 6f 42 00 00 0a 6f 38 00 00 0a 28 14 00 00 0a 13 06 09 11 06 28 43}  //weight: 20, accuracy: High
+        $x_1_2 = "MyUpdaterApp_upd_" ascii //weight: 1
+        $x_2_3 = "Downloading payload from" ascii //weight: 2
+        $x_3_4 = "Downloaded & decoded:" ascii //weight: 3
+        $x_4_5 = "Launching new version (old keeps running)" ascii //weight: 4
+        $x_5_6 = "EncodedServer" ascii //weight: 5
+        $x_6_7 = "EncDownloadPatterns" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_MSIL_Lazy_SVPO_2147969839_0
 {
     meta:

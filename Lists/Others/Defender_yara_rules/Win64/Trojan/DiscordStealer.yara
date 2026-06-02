@@ -217,3 +217,27 @@ rule Trojan_Win64_DiscordStealer_AHD_2147966357_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_SXA_2147970714_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.SXA!MTB"
+        threat_id = "2147970714"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Token-Disc.pdb" ascii //weight: 30
+        $x_20_2 = "Discord-Token-Grabber-master" ascii //weight: 20
+        $x_5_3 = "\\Google\\Chrome\\User Data\\Default" ascii //weight: 5
+        $x_5_4 = "\\discordcanary" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -45,3 +45,26 @@ rule Trojan_Win64_DiskWriter_AHB_2147959012_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiskWriter_KK_2147970712_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiskWriter.KK!MTB"
+        threat_id = "2147970712"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiskWriter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {49 8b c8 49 8b c0 83 e1 0f 83 e0 1f 41 0f b6 14 0b 41 32 14 02 41 32 14 30 41 88 14 38 49 ff c0 49 81 f8 00 c8 00 00}  //weight: 20, accuracy: High
+        $x_10_2 = "PETYA RANSOMWARE" ascii //weight: 10
+        $x_5_3 = "C:\\YOUR_KEY.txt" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

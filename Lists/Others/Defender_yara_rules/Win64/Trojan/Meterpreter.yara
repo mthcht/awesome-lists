@@ -907,3 +907,27 @@ rule Trojan_Win64_Meterpreter_VD_2147969647_0
         (4 of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_AB_2147970709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.AB!MTB"
+        threat_id = "2147970709"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 48 81 ec f0 02 00 00 48 8d ac 24 80 00 00 00 c6 85 63 02 00 00 63 c6 85 62 02 00 00 6d c6 85 61 02 00 00 64 c6 85 60 02 00 00 2e c6 85 5f 02 00 00 65 c6 85 5e 02 00 00 78 c6 85 5d 02 00 00 65}  //weight: 1, accuracy: High
+        $x_1_2 = {26 02 00 00 c6 85 5c 02 00 00 31 c6 85 5b 02 00 00 30 c6 85 5a 02 00 00 2e c6 85 59 02 00 00 30 c6 85 58 02 00 00 2e c6 85 57 02 00 00 38 c6 85 56 02 00 00 30 c6 85 55 02 00 00 2e c6 85 54 02 00 00 31 c6 85 53 02 00 00 30 c6 85 52 02 00 00 34}  //weight: 1, accuracy: High
+        $x_1_3 = {c7 85 64 02 00 00 00 00 00 00 eb 1d 8b 85 64 02 00 00 48 63 d0 48 8b 85 28 02 00 00 48 01 d0 c6 00 00 83 85 64 02 00 00 01 8b 85 64 02 00 00 48 98 48 83 f8 67 76 d5}  //weight: 1, accuracy: High
+        $x_1_4 = "ExecutePayload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
