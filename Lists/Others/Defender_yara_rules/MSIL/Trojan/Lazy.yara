@@ -2474,6 +2474,33 @@ rule Trojan_MSIL_Lazy_SS_2147909030_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_SS_2147909030_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.SS!MTB"
+        threat_id = "2147909030"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {06 03 28 1f 00 00 0a 6f 20 00 00 0a 06 04 28 1f 00 00 0a 6f 21 00 00 0a 06 17 6f 22 00 00 0a 06 18 6f 23 00 00 0a 73 24 00 00 0a 0b 07 06 6f 25 00 00 0a 17 73 26 00 00 0a 0c 08 02 16 02 8e 69 6f 27 00 00 0a 08 6f 28 00 00 0a 07 6f 29 00 00 0a 0d de 1e}  //weight: 1, accuracy: High
+        $x_1_2 = "CreateProcessA" ascii //weight: 1
+        $x_1_3 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_4 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_5 = "ResumeThread" ascii //weight: 1
+        $x_1_6 = "NtUnmapViewOfSection" ascii //weight: 1
+        $x_1_7 = "colorcpl.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_NG_2147909352_0
 {
     meta:
@@ -4025,5 +4052,26 @@ rule Trojan_MSIL_Lazy_PGLO_2147970157_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_MSIL_Lazy_ZXC_2147970756_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ZXC!MTB"
+        threat_id = "2147970756"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {06 08 06 8e 69 5d 91 08 20 ff 00 00 00 5f 61 08 1e 63 61 d2 0d 07 08 02 08 91 09 61 d2 9c 08 17 58 0c 08 02 8e 69 32 d8 07 2a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

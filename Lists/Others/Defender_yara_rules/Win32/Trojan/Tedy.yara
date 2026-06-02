@@ -1328,3 +1328,24 @@ rule Trojan_Win32_Tedy_MKB_2147969533_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_PGHD_2147970759_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.PGHD!MTB"
+        threat_id = "2147970759"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {66 0f 1f 84 00 ?? ?? ?? ?? 8a 81 ?? ?? ?? ?? 8d 52 ?? 34 e1 83 e9 04 88 82 ?? ?? ?? ?? 81 f9 ?? ?? ?? ?? 7f}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
