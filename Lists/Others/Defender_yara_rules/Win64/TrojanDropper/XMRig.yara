@@ -23,3 +23,26 @@ rule TrojanDropper_Win64_XMRig_CM_2147963892_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win64_XMRig_AHA_2147970737_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/XMRig.AHA!MTB"
+        threat_id = "2147970737"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "mK9xP2Qv8Rz7Ht4Nc1BwY5Lf3Ds6Aj0Xe9GpVu2Ti7ZnCm8Rq4HyKd1Sb5OwEf6U" ascii //weight: 30
+        $x_20_2 = "%s\\Zhujikdo" ascii //weight: 20
+        $x_10_3 = "%s\\Temp\\Job_Infomation.pdf" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
