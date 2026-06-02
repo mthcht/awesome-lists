@@ -151,6 +151,28 @@ rule Trojan_Win64_Vidar_AVI_2147937730_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_AVI_2147937730_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AVI!MTB"
+        threat_id = "2147937730"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8d 05 d5 b7 25 00 e8 ?? ?? ?? ?? 48 8b 8c 24 28 05 00 00 48 8b 15 b9 73 20 00 48 89 14 24 48 89 4c 24 08 e8 ?? ?? ?? ?? 45 0f 57 ff 4c 8b 35 78 b8 25 00 65 4d 8b 36 4d 8b 36 48 8b 4c 24 10 83 f9 ff 0f 84 14 02 00 00 48 8b 84 24 28 05 00 00 48 8b 0d ec 73 20 00 48 8b 94 24 40 05 00 00 48 89 0c 24 48 89 44 24 08 48 89 54 24 10}  //weight: 1, accuracy: Low
+        $x_2_2 = {48 8b 84 24 28 05 00 00 48 8b 15 8c 72 20 00 48 89 14 24 48 89 44 24 08 48 89 4c 24 10 e8 ?? ?? ?? ?? 45 0f 57 ff 4c 8b 35 de b6 25 00 65 4d 8b 36 4d 8b 36 48 8b 84 24 48 05 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_SLAE_2147941890_0
 {
     meta:

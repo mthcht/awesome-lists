@@ -86,3 +86,28 @@ rule Trojan_Win32_ShellcodeLoader_AH_2147963037_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeLoader_ABSL_2147970741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeLoader.ABSL!MTB"
+        threat_id = "2147970741"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "103.73.161.238" ascii //weight: 5
+        $x_1_2 = "Copying shellcode to executable memory" ascii //weight: 1
+        $x_1_3 = "Shellcode executed successfully" ascii //weight: 1
+        $x_1_4 = "WindowsSystemMonitor_Mutex" ascii //weight: 1
+        $x_1_5 = "Delaying execution" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
