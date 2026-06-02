@@ -6456,3 +6456,24 @@ rule Trojan_Win64_Tedy_MKO_2147970480_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_BAS_2147970755_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BAS!MTB"
+        threat_id = "2147970755"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {29 18 2c 60 3c dd 13 50 c7 64 70 01 e2 e6 5d 71 9b 8a 44 07 05 11 de 95 35 c1 f5 a7 b1 3a 22 03 f1 31 f1 d9 5c ed 7c d7 4c dc 33 98 da 19 d0 ae 5c ea 8c 66 f3 b2 93 df 35 1b 4d d4 1d 68 43 c7 a4 0b 12 e2 97 45 0a 88 8a 3d af 7e 02 de ad d5 ba e6 a7 11 fa 4b c4 bd 1b b3 dc 08 a4 3a f9 d2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

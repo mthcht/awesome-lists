@@ -78,3 +78,27 @@ rule Ransom_Win64_FileCrypter_GHM_2147963158_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCrypter_MKV_2147970754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCrypter.MKV!MTB"
+        threat_id = "2147970754"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "All your files are encrypted, you can safely recover your files" ascii //weight: 1
+        $x_1_2 = "to receive the decryption key" ascii //weight: 1
+        $x_1_3 = "DO NOT EVEN THINK ABOUT TRYING TO REMOVE THIS OR SHUT DOWN YOUR PC" ascii //weight: 1
+        $x_1_4 = "ALL YOUR FILES WILL BE LOST FOREVER" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

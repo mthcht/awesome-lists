@@ -152,3 +152,27 @@ rule Ransom_Win32_Mimic_YAA_2147920971_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Mimic_AMTB_2147970751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Mimic!AMTB"
+        threat_id = "2147970751"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mimic"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Get-BitLockerVolume | Suspend-BitLocker" ascii //weight: 1
+        $x_1_2 = "PAY2KEY_LOG.txt" ascii //weight: 1
+        $x_1_3 = "wbadmin.exe DELETE SYSTEMSTATEBACKUP" ascii //weight: 1
+        $x_1_4 = "powershell.exe -ExecutionPolicy Bypass \"Get-VM | Stop-VM\"" ascii //weight: 1
+        $x_1_5 = "HidePowerOptions" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
