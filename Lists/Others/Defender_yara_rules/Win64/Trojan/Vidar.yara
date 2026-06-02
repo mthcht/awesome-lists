@@ -106,6 +106,30 @@ rule Trojan_Win64_Vidar_CCFX_2147899887_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_NA_2147907875_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NA!MTB"
+        threat_id = "2147907875"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 54 0c 2b 48 8b 9c 24 78 02 00 00 48 89 ce 48 83 e6 f8 48 89 cf 48 29 f7 48 c1 e7 03 48 89 ce 48 89 f9 48 d3 eb 31 da 88 94 34 ab 01 00 00 48 8d 4e 01}  //weight: 2, accuracy: High
+        $x_2_2 = {48 89 cf 48 29 f7 48 c1 e7 03 48 89 ce 48 89 f9 48 d3 eb 31 da 88 94 34 ab 01 00 00 48 8d 4e 01}  //weight: 2, accuracy: High
+        $x_2_3 = "secret plaintext data for encryption" ascii //weight: 2
+        $x_2_4 = "pipelinecannot send after transport endpoint shutdown" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_AVI_2147937730_0
 {
     meta:
