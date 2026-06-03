@@ -150,3 +150,24 @@ rule Trojan_Win32_Noon_GVA_2147938152_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Noon_BAA_2147970856_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Noon.BAA!MTB"
+        threat_id = "2147970856"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {33 d2 8b c1 6a 14 5e f7 f6 8a 44 15 e8 30 81 ?? ?? ?? ?? 41 81 f9 ?? ?? ?? ?? 72}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2500,3 +2500,31 @@ rule Trojan_Win64_Vidar_ITZ_2147969924_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Vidar_NW_2147970854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NW!MTB"
+        threat_id = "2147970854"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {48 8b 54 24 20 48 ff c2 48 89 10 48 8b 54 24 40 48 8b 5a 50 48 8d}  //weight: 3, accuracy: High
+        $x_2_2 = {4c 8d 04 01 46 0f b6 0c 07 41 31 d9 45 88 0c 38 48 ff c7}  //weight: 2, accuracy: High
+        $x_2_3 = {4c 8d 04 01 46 0f b6 0c 07 44 0f b6 ?? ?? ?? ?? 00 00 45 31 ca 45 88}  //weight: 2, accuracy: Low
+        $x_1_4 = "writesecret_message" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
