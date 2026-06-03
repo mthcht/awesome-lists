@@ -775,6 +775,32 @@ rule Trojan_MSIL_Lazy_MKA_2147845324_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_MKA_2147845324_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.MKA!MTB"
+        threat_id = "2147845324"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "TimeBomb" ascii //weight: 20
+        $x_15_2 = "AntiAnalysis" ascii //weight: 15
+        $x_10_3 = "malware" ascii //weight: 10
+        $x_5_4 = "[SCREENSHOT]" ascii //weight: 5
+        $x_3_5 = "AntiDump" ascii //weight: 3
+        $x_2_6 = "AntiEmulation" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_PSLS_2147846177_0
 {
     meta:
