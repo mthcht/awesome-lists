@@ -755,3 +755,25 @@ rule Trojan_Win64_XWorm_B_2147970551_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_AQR_2147970849_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.AQR!MTB"
+        threat_id = "2147970849"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 0f b6 c2 48 ff c5 c0 e0 ?? 44 0f b6 c8 41 8d 42 f8 c0 e0 ?? 41 fe c2 0f b6 c8 44 32 1c 11 45 88 1c 11 40 32 74 11 ?? 41 88 74 11 01 32 5c 11 ?? 41 88 5c 11 02 40 32 7c 11 ?? 41 88 7c 11 03 41 80 fa 3c}  //weight: 5, accuracy: Low
+        $x_5_2 = {0f b6 44 24 29 42 30 04 31 8d 4d 08 0f b6 44 24 2a 42 30 04 31 8d 4d 09 0f b6 44 24 2b 42 30 04 31 8d 4d 0a 0f b6 44 24 2c 42 30 04 31 8d 4d 0b 0f b6 44 24 2d 42 30 04 31 8d 4d 0c 0f b6 44 24 2e 42 30 04 31 8d 4d 0d 0f b6 44 24 2f 83 c5 10 42 30 04 31 66 0f 7f 74 24 20 8d 45 fe 41 3b c7}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
