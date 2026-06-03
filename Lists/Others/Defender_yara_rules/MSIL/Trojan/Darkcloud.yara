@@ -252,3 +252,24 @@ rule Trojan_MSIL_Darkcloud_ZUC_2147970641_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Darkcloud_STPE_2147970791_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Darkcloud.STPE!MTB"
+        threat_id = "2147970791"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Darkcloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {02 11 08 02 11 08 91 20 ?? 00 00 00 61 86 9c 11 08 1c d6 13 08 11 08 11 07 31 e5}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

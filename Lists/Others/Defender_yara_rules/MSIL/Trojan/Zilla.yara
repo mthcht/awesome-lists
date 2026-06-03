@@ -2647,3 +2647,27 @@ rule Trojan_MSIL_Zilla_ZYD_2147969459_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_SXF_2147970812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SXF!MTB"
+        threat_id = "2147970812"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[*] ShadowUser Created Successfully" ascii //weight: 30
+        $x_20_2 = "[+] CloneUser:" ascii //weight: 20
+        $x_10_3 = "[+] Password:" ascii //weight: 10
+        $x_10_4 = "Usage: ShadowUser.exe <User> <CloneUser>" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

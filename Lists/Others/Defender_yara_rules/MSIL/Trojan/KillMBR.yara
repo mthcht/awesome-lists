@@ -1260,3 +1260,27 @@ rule Trojan_MSIL_KillMBR_VDA_2147967553_0
         (4 of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_SX_2147970813_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.SX!MTB"
+        threat_id = "2147970813"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "90"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "erase MBR" ascii //weight: 40
+        $x_20_2 = "del /f /q \"C:\\Windows\\System32\\Drivers\\disk.sys" ascii //weight: 20
+        $x_20_3 = "del /f /q \"C:\\Windows\\System32\\winload.exe" ascii //weight: 20
+        $x_10_4 = "c:\\ok.bat" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

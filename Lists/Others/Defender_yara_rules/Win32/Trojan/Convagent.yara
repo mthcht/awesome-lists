@@ -2323,3 +2323,24 @@ rule Trojan_Win32_Convagent_CPIM_2147969682_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_SPCK_2147970790_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.SPCK!MTB"
+        threat_id = "2147970790"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2e 74 65 78 74 00 00 00 b0 39 02 00 00 10 00 00 00 3a 02 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 72 64 61 74 61 00 00 b2 8e 01 00 00 50 02 00 00 90 01 00 00 3e 02 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -241,3 +241,26 @@ rule Trojan_Win64_DiscordStealer_SXA_2147970714_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_SXK_2147970811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.SXK!MTB"
+        threat_id = "2147970811"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "discordGrabber-master" ascii //weight: 7
+        $x_2_2 = "DiscordDev.exe" ascii //weight: 2
+        $x_1_3 = "sysconfig.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

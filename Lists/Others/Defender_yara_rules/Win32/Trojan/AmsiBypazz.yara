@@ -124,3 +124,25 @@ rule Trojan_Win32_AmsiBypazz_Z_2147952744_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AmsiBypazz_ZK_2147970815_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AmsiBypazz.ZK!MTB"
+        threat_id = "2147970815"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AmsiBypazz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {69 00 65 00 78 00 20 00 28 00 5b 00 73 00 74 00 72 00 69 00 6e 00 67 00 5d 00 3a 00 3a 00 6e 00 65 00 77 00 28 00 28 00 [0-6] 2c 00 [0-6] 2c 00 [0-6] 2c 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 65 00 78 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 20 00 28 00 5b 00 73 00 74 00 72 00 69 00 6e 00 67 00 5d 00 3a 00 3a 00 6e 00 65 00 77 00 28 00 28 00 90 00 02 00 06 00 2c 00 90 00 02 00 06 00 2c 00 90 00 02 00 06 00 2c 00 90 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

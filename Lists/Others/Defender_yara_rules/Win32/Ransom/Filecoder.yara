@@ -3034,3 +3034,34 @@ rule Ransom_Win32_Filecoder_PAHX_2147966567_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Filecoder_SACR_2147970792_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Filecoder.SACR!MTB"
+        threat_id = "2147970792"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "FILES ENCRYPTED - ACTION REQUIRED" ascii //weight: 2
+        $x_1_2 = "taskkill /f /im MsMpEng.exe > nul 2>&1" ascii //weight: 1
+        $x_1_3 = "sc stop WinDefend > nul 2>&1" ascii //weight: 1
+        $x_1_4 = "sc config WinDefend start= disabled > nul 2>&1" ascii //weight: 1
+        $x_1_5 = "mkdir C:\\ProgramData\\stolen_docs\\ > nul 2>&1" ascii //weight: 1
+        $x_1_6 = "All documents, photos, videos, and databases are LOCKED" ascii //weight: 1
+        $x_1_7 = "YOUR FILES HAVE BEEN ENCRYPTED!" ascii //weight: 1
+        $x_1_8 = "All your documents, photos, databases are encrypted with AES-256-GCM" ascii //weight: 1
+        $x_1_9 = "Desktop\\READ_ME.txt" wide //weight: 1
+        $x_1_10 = "DisableRealtimeMonitoring" wide //weight: 1
+        $x_1_11 = "DisableAntiSpyware" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

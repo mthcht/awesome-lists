@@ -1564,3 +1564,26 @@ rule Trojan_MSIL_Barys_BAB_2147970461_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_AHA_2147970795_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.AHA!MTB"
+        threat_id = "2147970795"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "<StartStealthServer>" ascii //weight: 30
+        $x_20_2 = "<HuntForCryptoKeys>" ascii //weight: 20
+        $x_10_3 = "<DeleteThisMachine>" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
