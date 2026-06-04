@@ -24,3 +24,30 @@ rule Trojan_Win64_PhantomPulse_B_2147968204_0
         (4 of ($x*))
 }
 
+rule Trojan_Win64_PhantomPulse_APP_2147970966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PhantomPulse.APP!MTB"
+        threat_id = "2147970966"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PhantomPulse"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 0f b7 0c 43 44 8d 49 bf 44 8d 41 20 66 41 83 f9 1a 44 0f 43 c1 8d 0c c5 00 00 00 00 83 e1 18 45 89 d1 41 d3 e9 44 32 0c 02 45 38 c1 75 11 48 ff c0}  //weight: 2, accuracy: High
+        $x_1_2 = "dropper exits after handoff" ascii //weight: 1
+        $x_1_3 = "elevate marker found but we're the DROPPER" ascii //weight: 1
+        $x_1_4 = "C2Loop: attempting blockchain C2 resolution" ascii //weight: 1
+        $x_1_5 = "C2Loop: blockchain resolved C2" ascii //weight: 1
+        $x_1_6 = "Keylog: key state initialized" ascii //weight: 1
+        $x_1_7 = "KeylogPollOnce: KEY DETECTED" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
