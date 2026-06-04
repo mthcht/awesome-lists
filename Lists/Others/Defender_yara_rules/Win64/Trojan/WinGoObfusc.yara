@@ -40,27 +40,6 @@ rule Trojan_Win64_WinGoObfusc_TB_2147843830_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_WinGoObfusc_UX_2147850770_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/WinGoObfusc.UX!MTB"
-        threat_id = "2147850770"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "WinGoObfusc"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8a 07 48 ff c7 08 c0 74 d7 48 89 f9 48 89 fa ff c8 f2 ae 48 89 e9 ff 15 2e 01 00 00 48 09 c0 74 09 48 89 03 48 83 c3 08}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_WinGoObfusc_RN_2147850771_0
 {
     meta:
