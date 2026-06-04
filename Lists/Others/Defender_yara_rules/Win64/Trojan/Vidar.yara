@@ -1220,6 +1220,29 @@ rule Trojan_Win64_Vidar_NV_2147960324_1
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_2_1 = {0f b6 5c 04 40 0f b6 74 04 48 31 de 40 88 74 04 20 48 ff c0}  //weight: 2, accuracy: High
+        $x_2_2 = {0f b6 54 04 38 0f b6 74 34 11 31 d6 40 88 74 04 18 48 89 d8}  //weight: 2, accuracy: High
+        $x_1_3 = "listensocketuint16uint32uint64stringstructsysmontimersefenceselect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_NV_2147960324_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NV!MTB"
+        threat_id = "2147960324"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = {0f b6 14 08 48 8d 34 49 48 8d 34 71 31 f2 88 14 0c 48 ff c1 0f 1f 40 00 48 39 cb 7e 06 48 83 f9 20 7c dd}  //weight: 2, accuracy: High
         $x_2_2 = {0f b7 54 24 42 66 c1 c2 08 66 89 50 0b 48 8b 9c 24 d0 00 00 00 48 8d 53 0d 4c 8b 84 24 c8 00 00 00 48 39 d1 73 2f 4c 89 84 24 a0 00 00 00 48 89 5c 24 50 48 89 df}  //weight: 2, accuracy: High
         $x_1_3 = "persistentalloc" ascii //weight: 1
@@ -2526,5 +2549,28 @@ rule Trojan_Win64_Vidar_NW_2147970854_0
             ((1 of ($x_3_*) and 2 of ($x_2_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win64_Vidar_NB_2147970913_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NB!MTB"
+        threat_id = "2147970913"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b b4 24 08 01 00 00 44 0f b6 84 1c b0 00 00 00 0f b6 34 1e 41 31 f0 44 88 44 1c 30}  //weight: 2, accuracy: High
+        $x_2_2 = {0f b6 74 1c 30 01 f6 40 88 74 1c 30 48 ff c3}  //weight: 2, accuracy: High
+        $x_1_3 = "listensocketuint16uint32uint64stringstructsysmontimersefenceselect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

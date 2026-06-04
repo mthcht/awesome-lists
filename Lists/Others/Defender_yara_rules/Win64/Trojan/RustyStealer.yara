@@ -511,3 +511,46 @@ rule Trojan_Win64_RustyStealer_GDK_2147969935_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_PAHM_2147970911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.PAHM!MTB"
+        threat_id = "2147970911"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 39 c2 74 ?? 4c 39 c1 0f 84 ?? ?? ?? ?? 46 8a 0c 07 46 30 0c 00 49 ff c0 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_RustyStealer_PAHN_2147970912_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.PAHN!MTB"
+        threat_id = "2147970912"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 0f 10 04 06 41 0f 10 4c 06 10 41 0f 10 14 07 0f 57 d0 41 0f 10 44 07 10 0f 57 c1 41 0f 11 14 07 41 0f 11 44 07 10 48 83 c0 20 48 39 c1 75}  //weight: 5, accuracy: High
+        $x_3_2 = {48 39 ca 0f 84 ?? ?? ?? ?? 48 39 d9 0f 83 ?? ?? ?? ?? 41 0f b6 04 0e 41 30 04 0f 48 ff c1 48 39 cb 75}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
