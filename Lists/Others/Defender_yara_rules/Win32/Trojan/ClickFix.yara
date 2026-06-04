@@ -14035,23 +14035,25 @@ rule Trojan_Win32_ClickFix_CMZ_2147969131_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "24"
-        strings_accuracy = "High"
+        threshold = "64"
+        strings_accuracy = "Low"
     strings:
-        $x_10_1 = "rundll32.exe" wide //weight: 10
-        $x_10_2 = ".surf" wide //weight: 10
-        $x_10_3 = ".lat" wide //weight: 10
-        $x_4_4 = ".google" wide //weight: 4
-        $x_2_5 = "-verif" wide //weight: 2
-        $x_2_6 = "confirm" wide //weight: 2
-        $n_30_7 = "msedgewebview2.exe" wide //weight: -30
+        $x_50_1 = "rundll32.exe \\\\" wide //weight: 50
+        $x_10_2 = {2e 00 73 00 75 00 72 00 66 00 5c 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 5c 00 75 00 73 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {2e 00 6c 00 61 00 74 00 5c 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 5c 00 75 00 73 00}  //weight: 10, accuracy: Low
+        $x_14_4 = {2e 00 63 00 6f 00 6d 00 5c 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 2d 00 [0-20] 5c 00 75 00 73 00 [0-20] 2d 00 76 00 65 00 72 00 69 00 66 00 2e 00 63 00 6f 00 6e 00 66 00 69 00 72 00 6d 00}  //weight: 14, accuracy: Low
+        $x_4_5 = ".google" wide //weight: 4
+        $x_2_6 = "-verif" wide //weight: 2
+        $x_2_7 = "confirm" wide //weight: 2
+        $n_100_8 = "msedgewebview2.exe" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
         (
-            ((2 of ($x_10_*) and 2 of ($x_2_*))) or
-            ((2 of ($x_10_*) and 1 of ($x_4_*))) or
-            ((3 of ($x_10_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_10_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_10_*) and 1 of ($x_4_*))) or
+            ((1 of ($x_50_*) and 2 of ($x_10_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_14_*))) or
             (all of ($x*))
         )
 }
