@@ -444,6 +444,29 @@ rule Trojan_Win64_Meterpreter_MKA_2147845384_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_MKA_2147845384_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.MKA!MTB"
+        threat_id = "2147845384"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {44 8b f6 4d 03 f6 66 c7 44 24 50 0f 05 44 0f b7 44 24 50 47 89 4c f3 08 41 0f b7 44 6d 00 41 8b 0c 84 43 89 4c f3 0c 41 b3 c3 4c 8d 14 0f 66 45 3b 42 12}  //weight: 20, accuracy: High
+        $x_10_2 = "[*] Injecting into current process (PID: %d)" ascii //weight: 10
+        $x_5_3 = "[+] Local injection succeeded" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Meterpreter_CATR_2147846439_0
 {
     meta:

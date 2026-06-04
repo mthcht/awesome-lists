@@ -3337,3 +3337,27 @@ rule Trojan_Win64_ShellcodeRunner_PAHK_2147970460_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_SXP_2147970906_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.SXP!MTB"
+        threat_id = "2147970906"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {b9 e8 03 00 00 ff 15 ?? ?? ?? ?? ff c3 83 fb 3c 7f 2e ff 15 ?? ?? ?? ?? 89 85 90 08 00 00 83 f8 ff 74 dd}  //weight: 10, accuracy: Low
+        $x_5_2 = {48 8b 4c 24 68 48 8d 44 24 70 48 89 44 24 28 41 b9 01 00 00 00 45 33 c0 c7 44 24 20 01 00 00 00 ba 00 00 00 02 ff 15}  //weight: 5, accuracy: High
+        $x_30_3 = "rundll32 \"%s\",LoadPayload" ascii //weight: 30
+        $x_20_4 = "GHOSTFORGE_DCFG" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

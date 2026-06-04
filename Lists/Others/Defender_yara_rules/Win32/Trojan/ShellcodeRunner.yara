@@ -991,3 +991,26 @@ rule Trojan_Win32_ShellcodeRunner_SXB_2147969440_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_SXC_2147970905_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.SXC!MTB"
+        threat_id = "2147970905"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {c7 45 fc 07 00 00 00 8d 55 e0 8b 45 dc 52 ff 36 8b 08 50 ff 51 34 89 45 e8 c7 45 fc ff ff ff ff f0 0f c1 7e 08}  //weight: 30, accuracy: High
+        $x_10_2 = "GameBox.exe" ascii //weight: 10
+        $x_10_3 = "user.dat" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
