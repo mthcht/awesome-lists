@@ -3810,3 +3810,25 @@ rule Trojan_Win32_Copak_PGCH_2147970041_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Copak_AHB_2147971001_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Copak.AHB!MTB"
+        threat_id = "2147971001"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Copak"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {85 40 00 5a 68 ?? ?? ?? ?? 5f e8 ?? ?? ?? ?? 41 4f 31 16 81 c6 ?? 00 00 00 41 39 de 75}  //weight: 30, accuracy: Low
+        $x_20_2 = {5b 29 d7 01 ff 41 81 c2 ?? ?? ?? ?? 09 fa 81 ef ?? ?? ?? ?? 81 f9 ?? ?? ?? ?? 75}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

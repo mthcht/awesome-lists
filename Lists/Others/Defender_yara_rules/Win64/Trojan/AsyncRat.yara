@@ -257,3 +257,26 @@ rule Trojan_Win64_AsyncRat_ATA_2147957883_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AsyncRat_AHB_2147971003_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRat.AHB!MTB"
+        threat_id = "2147971003"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[DEBUG] Defender Exclusion option:" ascii //weight: 30
+        $x_20_2 = "[DEBUG] Persistence option:" ascii //weight: 20
+        $x_10_3 = "[DEBUG] UAC Bypass option:" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

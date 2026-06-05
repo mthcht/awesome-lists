@@ -5406,6 +5406,35 @@ rule Trojan_Win64_Lazy_LMU_2147962904_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LMU_2147962904_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LMU!MTB"
+        threat_id = "2147962904"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {c7 45 eb 5c 00 55 00 c7 45 ef 73 00 65 00 c7 45 f3 72 00 73 00 c7 45 f7 5c 00 50 00 c7 45 fb 75 00 62 00 c7 45 ff 6c 00 69 00 c7 45 03 63 00 5c 00 c7 45 07 44 00 6f 00 c7 45 0b 63 00 75 00 c7 45 0f 6d 00 65 00 c7 45 13 6e 00 74 00 c7 45 17 73 00 5c 00 c7 45 1b 41 00 74 00 c7 45 1f 6c 00 61 00 c7 45 23 73 00 50 00 c7 45 27 72 00 6f 00 c7 45 2b 2e 00 69 00 c7 45 2f 6e 00 69 00}  //weight: 20, accuracy: High
+        $x_1_2 = {2f 00 63 00 20 00 70 00 69 00 6e 00 67 00 20 00 2d 00 6e 00 20 00 [0-3] 20 00 31 00 32 00 37 00 2e 00 30 00 2e 00 30 00 2e 00 31 00 20 00 3e 00 20 00 6e 00 75 00 6c 00 20 00 26 00 26 00 20 00 64 00 65 00 6c 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {2f 63 20 70 69 6e 67 20 2d 6e 20 [0-3] 20 31 32 37 2e 30 2e 30 2e 31 20 3e 20 6e 75 6c 20 26 26 20 64 65 6c}  //weight: 1, accuracy: Low
+        $x_2_4 = "Telegram.exeMCPR.exe" ascii //weight: 2
+        $x_3_5 = "BaiduNetdisk.exeQQPCTray.exe" ascii //weight: 3
+        $x_4_6 = "[3.9] WXDrive.exe" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Lazy_ARS_2147963401_0
 {
     meta:
