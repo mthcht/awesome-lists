@@ -1076,3 +1076,30 @@ rule Trojan_Win64_Stealer_ARR_2147970481_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SS_2147971021_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SS!MTB"
+        threat_id = "2147971021"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "185.91.127.173" ascii //weight: 1
+        $x_1_2 = "'HKLM:\\SOFTWARE\\Classes\\CLSID\\{860BB310-5D01-11d0-BD3B-00A0C911CE86}\\Instance" ascii //weight: 1
+        $x_1_3 = "SilentlyContinue;'Defender realtime monitoring disabled'" ascii //weight: 1
+        $x_1_4 = "schtasks /delete /tn \"%s\" /f" ascii //weight: 1
+        $x_1_5 = "$f=[IO.Path]::GetTempFileName()+'.jpg'" ascii //weight: 1
+        $x_1_6 = "Keylogger already running" ascii //weight: 1
+        $x_1_7 = "screenshot_monitor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

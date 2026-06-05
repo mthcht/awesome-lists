@@ -3361,3 +3361,28 @@ rule Trojan_Win64_ShellcodeRunner_SXP_2147970906_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_AZSR_2147971025_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AZSR!MTB"
+        threat_id = "2147971025"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {55 48 89 e5 48 83 ec 60 48 89 4d 10 48 89 55 18 48 8b 45 18 41 b9 40 00 00 00 41 b8 00 30 00 00 48 89 c2 b9 00 00 00 00 48 8b 05 dd da 00 00 ff d0}  //weight: 1, accuracy: High
+        $x_1_2 = {46 65 74 63 68 69 6e 67 20 49 6d 61 67 65 20 66 72 6f 6d 20 64 69 73 6b 20 66 72 6f 6d 20 67 68 30 73 74 [0-4] 2e 6a 70 65 67}  //weight: 1, accuracy: Low
+        $x_1_3 = "Payload size to extract from file: %ld bytes" ascii //weight: 1
+        $x_1_4 = "Executing payload" ascii //weight: 1
+        $x_1_5 = "Writing Payload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
