@@ -7049,3 +7049,26 @@ rule Trojan_Win32_OffLoader_ABZM_2147970739_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_PGOQ_2147970997_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PGOQ!MTB"
+        threat_id = "2147970997"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "https://ghostmetal.xyz/" ascii //weight: 5
+        $x_5_2 = "https://neckflame.cfd/" ascii //weight: 5
+        $x_5_3 = "Do you want to reboot now?" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
