@@ -109,3 +109,29 @@ rule Trojan_Win64_AgentB_AGB_2147967434_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentB_AHD_2147971058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.AHD!MTB"
+        threat_id = "2147971058"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[Client] Uninstall: removing registry + self-destruct..." ascii //weight: 30
+        $x_20_2 = "[Client] Uninstall: Run key removed" ascii //weight: 20
+        $x_10_3 = "[Client] Phase1: Evasion init..." ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_30_*) and 1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

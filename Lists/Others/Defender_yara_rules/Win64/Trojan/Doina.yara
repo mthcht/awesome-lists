@@ -390,3 +390,25 @@ rule Trojan_Win64_Doina_PAHZ_2147967945_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_AHA_2147971057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.AHA!MTB"
+        threat_id = "2147971057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Global\\ChromeElf_" ascii //weight: 30
+        $x_20_2 = "Global\\ChromeElf_74F03340ADC1DD409A04684AED16814" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
