@@ -1157,3 +1157,25 @@ rule Trojan_Win64_Midie_SXL_2147969341_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_MKA_2147971053_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.MKA!MTB"
+        threat_id = "2147971053"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 47 24 8b 4f 1c 48 03 c3 48 03 cb 0f b7 04 70 8b 04 81 48 03 c3 48 3b c7}  //weight: 20, accuracy: High
+        $x_15_2 = {8b bc 08 88 00 00 00 33 f6 48 03 f9 44 8b 77 20 4c 03 f1 39 77 18}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

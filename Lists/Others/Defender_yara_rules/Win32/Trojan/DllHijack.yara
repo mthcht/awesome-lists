@@ -280,3 +280,46 @@ rule Trojan_Win32_DllHijack_ARR_2147970483_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DllHijack_GPKA_2147971051_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllHijack.GPKA!MTB"
+        threat_id = "2147971051"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {53 55 8b 6c 24 0c 33 db 56 57 39 5d 14 76 3b 90 8b 45 1c 8b 34 98 8b 45 04 03 75 24 8b 78 24 33 c0 38 06 74 07 40 80 3c 06 00 75 f9 33 d2 85 c0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DllHijack_GPKB_2147971052_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllHijack.GPKB!MTB"
+        threat_id = "2147971052"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {54 fb 02 00 44 fb 02 00 32 fb 02 00 1e fb 02 00 0c fb 02 00 fc fa 02 00 ec fa 02 00 64 fb 02 00 00 00 00 00 fc ff 02 00 ea ff 02 00 da ff 02}  //weight: 5, accuracy: High
+        $x_2_2 = "NLEResource.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
