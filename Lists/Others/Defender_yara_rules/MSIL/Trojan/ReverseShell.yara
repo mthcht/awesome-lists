@@ -111,3 +111,28 @@ rule Trojan_MSIL_ReverseShell_SXE_2147966782_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ReverseShell_CAT_2147971068_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ReverseShell.CAT!MTB"
+        threat_id = "2147971068"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "-NoP -W Hidden -Enc" ascii //weight: 4
+        $x_2_2 = "System.Net.Sockets.TCPClient" ascii //weight: 2
+        $x_2_3 = "Invoke-Expression" ascii //weight: 2
+        $x_4_4 = "---END_MARKER---" ascii //weight: 4
+        $x_2_5 = "while($c.Connected){" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

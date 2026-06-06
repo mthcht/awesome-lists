@@ -985,3 +985,24 @@ rule Trojan_Linux_Mirai_A_2147964684_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_DA_2147971067_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.DA!MTB"
+        threat_id = "2147971067"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rontab -l 2>/dev/null | grep -v '%s'; echo '*/15 * * * * %s >/dev/null 2>&1') | crontab - 2>/dev/nu" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
