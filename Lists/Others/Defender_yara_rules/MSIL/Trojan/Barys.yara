@@ -1434,6 +1434,30 @@ rule Trojan_MSIL_Barys_ARR_2147967869_2
         )
 }
 
+rule Trojan_MSIL_Barys_ARR_2147967869_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.ARR!MTB"
+        threat_id = "2147967869"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "unknownspf.exe" ascii //weight: 10
+        $x_3_2 = "a0f65201-26e3-4a51-aad7-c6809dab63bd" ascii //weight: 3
+        $x_2_3 = "deactivation.php?hash=" ascii //weight: 2
+        $x_5_4 = {2e 55 4e 4b 4e 57 4e 53 e6 36 04 00 00 a0 08}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Barys_SO_2147968890_0
 {
     meta:

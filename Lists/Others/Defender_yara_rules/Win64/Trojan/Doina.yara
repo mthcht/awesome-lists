@@ -412,3 +412,25 @@ rule Trojan_Win64_Doina_AHA_2147971057_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_PAHP_2147971126_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.PAHP!MTB"
+        threat_id = "2147971126"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 14 01 83 f2 5a 88 14 03 48 83 c0 01 48 3d ?? ?? ?? ?? 75}  //weight: 5, accuracy: Low
+        $x_2_2 = ".bat" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

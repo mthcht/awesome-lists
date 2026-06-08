@@ -484,6 +484,34 @@ rule Trojan_Win32_XWorm_A_2147966306_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_XWorm_A_2147966306_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm.A!AMTB"
+        threat_id = "2147966306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "\"!#!$!%!&!'!(!)!*!+!,!-!.!/!0!1!2!3!435!6!7!8!9!:!;!<!=!>!?!@!A!B!C!D!E!F!G!H!I!J" ascii //weight: 6
+        $x_6_2 = "9B425D78411BF937F05FB72623B29FD8A823EFBA6CF3559209E071C19208DD31" ascii //weight: 6
+        $x_3_3 = "50E61CBE02D2A9AEEF3C489138DA70A465FCA5643EA0A9BB77AB927BE132E929" ascii //weight: 3
+        $x_3_4 = "B3373FC3DF27B18CB59DA4B5CB85F97BE9B58AB913F8B674E71A6EF84C47246A" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*))) or
+            ((1 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_XWorm_RC_2147970192_0
 {
     meta:

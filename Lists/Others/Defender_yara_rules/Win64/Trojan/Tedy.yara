@@ -2302,6 +2302,28 @@ rule Trojan_Win64_Tedy_KK_2147943868_1
         threshold = "30"
         strings_accuracy = "High"
     strings:
+        $x_20_1 = {49 8d 04 1c 40 88 f1 8a 10 49 8d 44 1d 00 31 d1 88 08 40 0f b6 c6 d1 f8 88 c1 83 f1 b8 40 80 e6 01 40 88 ce 0f 44 f0 48 ff c3 31 d6}  //weight: 20, accuracy: High
+        $x_10_2 = {48 8d 14 3f 48 8b 0c 38 4c 01 ea ff d6 85 c0 41 89 c6 74 11}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_KK_2147943868_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KK!MTB"
+        threat_id = "2147943868"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
         $x_20_1 = {48 b9 00 09 6e 88 f1 ff ff ff 48 8d 34 19 48 8d 76 ec 48 8b 7c 24 50 48 39 37 7d 93}  //weight: 20, accuracy: High
         $x_10_2 = {48 8b 94 24 20 07 00 00 48 81 c2 38 02 00 00 4c 8b 84 24 d0 04 00 00 49 ff c8 48 8b 84 24 10 07 00 00 48 89 cb 48 8b b4 24 18 07 00 00 4c 89 c1}  //weight: 10, accuracy: High
     condition:
@@ -2309,7 +2331,7 @@ rule Trojan_Win64_Tedy_KK_2147943868_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_KK_2147943868_2
+rule Trojan_Win64_Tedy_KK_2147943868_3
 {
     meta:
         author = "defender2yara"
@@ -2331,7 +2353,7 @@ rule Trojan_Win64_Tedy_KK_2147943868_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_KK_2147943868_3
+rule Trojan_Win64_Tedy_KK_2147943868_4
 {
     meta:
         author = "defender2yara"
@@ -6361,6 +6383,32 @@ rule Trojan_Win64_Tedy_AZD_2147970042_0
     strings:
         $x_5_1 = {0f b6 d0 0f b6 94 14 ?? ?? ?? ?? 30 54 05 00 48 83 c0 01 4c 39 e0 72}  //weight: 5, accuracy: Low
         $x_5_2 = {56 b5 e5 25 33 dd 3d 39 4b 94 a5 b2 35 7d 50 5e 6f 85 8b 95 ae 03 e5 4d d3 cb eb e9 08 a7 0e 68 ca bb 60 e0 4d 42 81}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_A_2147970184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.A!AMTB"
+        threat_id = "2147970184"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "re(.(gcm cu*l) -usebas https://" ascii //weight: 1
+        $x_1_2 = "sal re (gcm ie?);" ascii //weight: 1
+        $x_1_3 = "C:\\Users\\Work\\source\\repos\\Horinis" ascii //weight: 1
+        $x_1_4 = "Horinis ltd  2026" ascii //weight: 1
+        $x_1_5 = "PowerShell" ascii //weight: 1
+        $x_1_6 = "ReadKey" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

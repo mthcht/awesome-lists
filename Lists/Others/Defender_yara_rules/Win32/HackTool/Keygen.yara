@@ -1024,6 +1024,29 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_3
         threshold = "4"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "Doblon DVD Burner *KeyGe" ascii //weight: 1
+        $x_1_2 = "SMCVNVB/BVZ" ascii //weight: 1
+        $x_1_3 = "E-Mail ddress7" ascii //weight: 1
+        $x_1_4 = "Doblon DVD Burner *KeyGenerator*" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_AMTB_2147931343_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!AMTB"
+        threat_id = "2147931343"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = "*Keymaker* by Team Cafe" ascii //weight: 2
         $x_2_2 = "Keymaker by Team Cafe" ascii //weight: 2
         $x_1_3 = "Hit the generate button" ascii //weight: 1
@@ -1038,7 +1061,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_3
         )
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_4
+rule HackTool_Win32_Keygen_AMTB_2147931343_5
 {
     meta:
         author = "defender2yara"
@@ -1061,7 +1084,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_4
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_5
+rule HackTool_Win32_Keygen_AMTB_2147931343_6
 {
     meta:
         author = "defender2yara"
@@ -1086,7 +1109,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_5
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_6
+rule HackTool_Win32_Keygen_AMTB_2147931343_7
 {
     meta:
         author = "defender2yara"
@@ -1111,7 +1134,7 @@ rule HackTool_Win32_Keygen_AMTB_2147931343_6
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_AMTB_2147931343_7
+rule HackTool_Win32_Keygen_AMTB_2147931343_8
 {
     meta:
         author = "defender2yara"
