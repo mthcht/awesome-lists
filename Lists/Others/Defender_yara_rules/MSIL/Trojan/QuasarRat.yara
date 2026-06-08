@@ -855,3 +855,24 @@ rule Trojan_MSIL_QuasarRat_AOUB_2147968875_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRat_ZJB_2147971095_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRat.ZJB!MTB"
+        threat_id = "2147971095"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {13 07 11 07 8d ?? 00 00 01 13 08 11 06 11 08 11 07 28 ?? 00 00 0a 00 16 13 09 2b 1a 11 08 11 09 11 08 11 09 91 05 11 09 05 8e 69 5d 91 61 d2 9c 11 09 17 58 13 09 11 09 11 08 8e 69 fe 04 13 0c 11 0c 2d d8 73 ?? 00 00 0a 1f 32 1f 64 6f ?? 00 00 0a 28 ?? 00 00 0a 00 11 08}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

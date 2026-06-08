@@ -351,6 +351,31 @@ rule HackTool_Win32_AutoKMS_2147766452_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "warnh.exe" wide //weight: 1
+        $x_1_2 = "HWID KMS38" wide //weight: 1
+        $x_1_3 = "Beneration Tool" wide //weight: 1
+        $x_1_4 = "Tool by Dumpster Inc." wide //weight: 1
+        $x_1_5 = "GatherOsState.EXE" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_AutoKMS_2147766452_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/AutoKMS!MTB"
+        threat_id = "2147766452"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoKMS"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "/K ECHO === Install Office Key" wide //weight: 1
         $x_1_2 = "== Office OEM" wide //weight: 1
         $x_1_3 = "== Office MAK" wide //weight: 1

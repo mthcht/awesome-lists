@@ -681,6 +681,57 @@ rule HackTool_Win32_Keygen_2147751727_12
         threshold = "4"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "Coded by Lord Blix/TSZ" wide //weight: 1
+        $x_1_2 = "Choose a shorter email address" ascii //weight: 1
+        $x_1_3 = "lordblix@t.sz" ascii //weight: 1
+        $x_1_4 = "UuNl\\." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_2147751727_13
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Keygen Application" wide //weight: 1
+        $x_1_2 = "Keygen.EXE" wide //weight: 1
+        $x_1_3 = "E-Mail.........: orion99@mail.com" ascii //weight: 1
+        $x_2_4 = "DiABLO [ORiON]" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule HackTool_Win32_Keygen_2147751727_14
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "About this keygen" ascii //weight: 1
         $x_1_2 = "Cracker: team NGEN" ascii //weight: 1
         $x_1_3 = "%s:%u: failed assertion" ascii //weight: 1
@@ -690,7 +741,7 @@ rule HackTool_Win32_Keygen_2147751727_12
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_2147751727_13
+rule HackTool_Win32_Keygen_2147751727_15
 {
     meta:
         author = "defender2yara"

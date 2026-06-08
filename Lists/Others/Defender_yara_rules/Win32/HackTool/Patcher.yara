@@ -89,6 +89,30 @@ rule HackTool_Win32_Patcher_2147744922_2
         threshold = "8"
         strings_accuracy = "High"
     strings:
+        $x_2_1 = "File to patch" wide //weight: 2
+        $x_2_2 = "It is possible that your file has been modified (or is already patched)" ascii //weight: 2
+        $x_2_3 = "File patched successfully" ascii //weight: 2
+        $x_2_4 = "Patching file... %d%%" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Patcher_2147744922_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher!MTB"
+        threat_id = "2147744922"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "DosRAR" ascii //weight: 1
         $x_1_2 = "Apply registration-name" ascii //weight: 1
         $x_1_3 = "Liq69ers" ascii //weight: 1

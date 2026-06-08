@@ -1081,6 +1081,36 @@ rule Ransom_MSIL_HiddenTear_AHT_2147946601_1
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_AHT_2147946601_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.AHT!MTB"
+        threat_id = "2147946601"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 0d 12 03 28 ?? 00 00 0a 0c 2b 20 00 06 16 07 6f ?? 00 00 0a 06 16 08 6f ?? 00 00 0a 28 ?? 00 00 06 26 1f 64 28 ?? 00 00 0a 00 00 7e ?? 00 00 04 16 fe 01 13 04 11 04}  //weight: 2, accuracy: Low
+        $x_1_2 = "YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 1
+        $x_1_3 = "Your documents, photos, databases, and other important files have been encrypted with military-grade algorithms" ascii //weight: 1
+        $x_1_4 = "Without our decryption key, you will NEVER be able to recover them" ascii //weight: 1
+        $x_1_5 = "How do I get my files back?" ascii //weight: 1
+        $x_1_6 = "You must pay 0.5 BTC to the following address within 48 hours" ascii //weight: 1
+        $x_1_7 = "If payment is not received in 48 hours, the private key will be permanently deleted and your files will be lost forever" ascii //weight: 1
+        $x_1_8 = "Do not try to restart your computer" ascii //weight: 1
+        $x_1_9 = "We are watching" ascii //weight: 1
+        $x_1_10 = "Your PC ran into a problem and needs to restart" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_MSIL_HiddenTear_ASD_2147948427_0
 {
     meta:
