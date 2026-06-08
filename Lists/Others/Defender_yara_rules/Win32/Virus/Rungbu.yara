@@ -53,3 +53,28 @@ rule Virus_Win32_Rungbu_C_2147582180_0
         )
 }
 
+rule Virus_Win32_Rungbu_Y_2147971085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Virus:Win32/Rungbu.Y!MTB"
+        threat_id = "2147971085"
+        type = "Virus"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rungbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "story they save the screen" ascii //weight: 10
+        $x_1_2 = "Flu_Burung.tmp" wide //weight: 1
+        $x_1_3 = "Raven codename" ascii //weight: 1
+        $x_1_4 = "Raven Team Game Triple Buzz!" wide //weight: 1
+        $x_1_5 = "OPERA THE FAST AND FURY OF MY FIST!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

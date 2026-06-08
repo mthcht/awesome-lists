@@ -2001,3 +2001,30 @@ rule Ransom_Win64_Filecoder_PGBC_2147969032_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_YBG_2147971084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.YBG!MTB"
+        threat_id = "2147971084"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "QUxMIFlPVVIgRklMRVMgSEFWRSBCRUVOIEVOQ1JZUFRFRA==" ascii //weight: 10
+        $x_1_2 = "U1lTVEVNIExPQ0tFRCAtIEFMTCBGSUxFUyBFTkNSWVBURUQ=" ascii //weight: 1
+        $x_1_3 = "ModernLocker" wide //weight: 1
+        $x_1_4 = "WinLocker" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
