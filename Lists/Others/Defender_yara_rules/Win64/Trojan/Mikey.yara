@@ -2504,3 +2504,25 @@ rule Trojan_Win64_Mikey_AMZ_2147970486_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_MKG_2147971190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.MKG!MTB"
+        threat_id = "2147971190"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {45 69 c0 6d 4e c6 41 b8 4f ec c4 4e 41 81 c0 39 30 00 00 41 8b c8 c1 e9 10 f7 e1 c1 ea 04 6b c2 34 2b c8 42 0f b6 04 11 88 44 3c 68 48 ff c7 49 3b f9}  //weight: 20, accuracy: High
+        $x_15_2 = {40 32 79 f5 83 e2 03 40 32 71 f6 03 c2 44 8b f0 88 59 03 41 c1 fe 02 83 e0 03 45 0f b6 e0 44 0f b6 cb 44 88 41 04 44 0f b6 d7 40 88 79 05 44 0f b6 de 40 88 71 06 3b c2}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

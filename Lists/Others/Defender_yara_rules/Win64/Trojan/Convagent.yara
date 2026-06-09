@@ -1346,3 +1346,26 @@ rule Trojan_Win64_Convagent_AHE_2147970409_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_AHF_2147971170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.AHF!MTB"
+        threat_id = "2147971170"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "main.(*Client).connectWithRetry" ascii //weight: 30
+        $x_20_2 = "main.(*Client).screenshotLoop" ascii //weight: 20
+        $x_10_3 = "main.(*Client).handleExecuteCommand" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

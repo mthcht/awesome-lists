@@ -5264,3 +5264,51 @@ rule Trojan_MSIL_Zusy_ZPC_2147970227_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SXE_2147971174_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SXE!MTB"
+        threat_id = "2147971174"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {02 8e 69 28 ?? 00 00 0a 0c 1a 02 8e 69 58 8d ?? 00 00 01 0d 08 16 09 16 08 8e 69 28 ?? 00 00 0a 02 16 09 1a 02 8e 69 28 ?? 00 00 0a 7e ?? 00 00 04 15}  //weight: 30, accuracy: Low
+        $x_10_2 = "SysPlug.dll" ascii //weight: 10
+        $x_5_3 = "WriteLeb" ascii //weight: 5
+        $x_5_4 = "DiffSeconds" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_SXF_2147971175_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SXF!MTB"
+        threat_id = "2147971175"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {13 06 11 06 72 99 00 00 70 28 0c 00 00 0a 13 07 18 8d 01 00 00 01 13 08 11 08 16 72 b3 00 00 70 11 07 28 10 00 00 0a 73 11 00 00 0a 6f 12 00 00 0a 72 99 00 00 70 28 13 00 00 0a a2 11 08 17 11 07 28 0d 00 00 0a a2}  //weight: 30, accuracy: High
+        $x_20_2 = "VPNGrabber.dclib" ascii //weight: 20
+        $x_5_3 = "VPN\\NordVPN\\Accounts.txt" ascii //weight: 5
+        $x_5_4 = "//setting[@name='Password']/value" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

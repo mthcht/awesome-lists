@@ -1076,3 +1076,28 @@ rule TrojanSpy_Win32_Delf_DN_2147657426_0
         (all of ($x*))
 }
 
+rule TrojanSpy_Win32_Delf_MK_2147971198_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:Win32/Delf.MK!MTB"
+        threat_id = "2147971198"
+        type = "TrojanSpy"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Delf"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "{\"OffKeyLog\":\"%s\",\"MonitoringAPI\":\"%s\",\"ReplaceClipboard\":\"%s\"}" ascii //weight: 15
+        $x_10_2 = "--mute-audio --disable-audio --disable-3d-apis --disable-gpu --disable-d3d11 --user-data-dir=\"" ascii //weight: 10
+        $x_5_3 = "|FindDigitalCurrency|" ascii //weight: 5
+        $x_3_4 = "|FindMnemonicWordFiles" ascii //weight: 3
+        $x_2_5 = "CopyUSBDeviceFiles" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

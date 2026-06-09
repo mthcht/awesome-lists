@@ -14549,3 +14549,53 @@ rule Trojan_Win32_ClickFix_ONZ_2147970982_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_PNZ_2147971176_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.PNZ!MTB"
+        threat_id = "2147971176"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rundll32" wide //weight: 1
+        $x_1_2 = "@SSL" wide //weight: 1
+        $x_1_3 = "!a!" wide //weight: 1
+        $x_1_4 = "!b!" wide //weight: 1
+        $x_1_5 = "cf.ch,#" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_QNZ_2147971177_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.QNZ!MTB"
+        threat_id = "2147971177"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd /c" wide //weight: 1
+        $x_1_2 = "pushd" wide //weight: 1
+        $x_1_3 = "rundll32" wide //weight: 1
+        $x_1_4 = "@SSL" wide //weight: 1
+        $x_1_5 = ".ct,#" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

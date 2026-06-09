@@ -70,3 +70,28 @@ rule HackTool_Win64_Inject_SXB_2147964413_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_Inject_SXC_2147971173_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/Inject.SXC!MTB"
+        threat_id = "2147971173"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Inject"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "90"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[+] Wrote %zu bytes to target process memory." ascii //weight: 30
+        $x_20_2 = "[-] WriteProcessMemory() - E%lu" ascii //weight: 20
+        $x_15_3 = "[+] Allocated memory in target process: %p" ascii //weight: 15
+        $x_15_4 = "[+] Created remote thread in target process: %p" ascii //weight: 15
+        $x_10_5 = "Shipping.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -135,3 +135,26 @@ rule Trojan_Win64_AgentB_AHD_2147971058_0
         )
 }
 
+rule Trojan_Win64_AgentB_AHE_2147971172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.AHE!MTB"
+        threat_id = "2147971172"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[usb] infect failed for drive" ascii //weight: 30
+        $x_20_2 = "monitoring for removable drives" ascii //weight: 20
+        $x_10_3 = "[rload] payload too small" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

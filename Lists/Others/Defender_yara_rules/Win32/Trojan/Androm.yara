@@ -1886,3 +1886,24 @@ rule Trojan_Win32_Androm_ARA_2147969923_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Androm_PGAR_2147971169_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Androm.PGAR!MTB"
+        threat_id = "2147971169"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {03 fe 03 f8 81 ef 12 16 05 00 6a 00 e8 [0-47] 2b f8 31 3b 83 c6 04 83 c3 04 3b 75 d0 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

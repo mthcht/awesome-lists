@@ -9472,3 +9472,25 @@ rule Trojan_Win32_Neoreblamy_NXB_2147970883_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Neoreblamy_NXD_2147971167_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NXD!MTB"
+        threat_id = "2147971167"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {eb 09 8b 55 88 83 c2 01 89 55 88 83 7d 88 01 7d 10 8b 45 88}  //weight: 2, accuracy: High
+        $x_1_2 = {eb 0f 8b 8d ?? ?? ff ff 83 c1 01}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
