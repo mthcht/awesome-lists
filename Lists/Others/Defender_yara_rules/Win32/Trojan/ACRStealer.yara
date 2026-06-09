@@ -68,3 +68,32 @@ rule Trojan_Win32_ACRStealer_AB_2147959576_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ACRStealer_NC_2147971203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ACRStealer.NC!MTB"
+        threat_id = "2147971203"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ACRStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {0f b6 2c 0b 31 d5 31 dd 95 88 04 19 95 43}  //weight: 3, accuracy: High
+        $x_3_2 = {89 d6 c1 fe 08 29 f5 95 88 04 19 95 43}  //weight: 3, accuracy: High
+        $x_3_3 = {95 88 04 19 95 96 88 44 0b 01 96 83 c3 02}  //weight: 3, accuracy: High
+        $x_1_4 = "sirensfull evacuationadvertise" ascii //weight: 1
+        $x_1_5 = "alertfile too large" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

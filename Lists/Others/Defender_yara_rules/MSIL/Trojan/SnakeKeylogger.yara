@@ -8561,3 +8561,26 @@ rule Trojan_MSIL_SnakeKeylogger_APZ_2147970349_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_AZSK_2147971208_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.AZSK!MTB"
+        threat_id = "2147971208"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {18 63 1f 10 58 13 0b 11 0b 1f 3f 58 1f c0 5f 13 0c 19 13 0d 06 7b ?? 00 00 04 11 0d 5b 13 0e 06 7b ?? 00 00 04 11 0d 5d 13 0f 08 2c 16 06 7b ?? 00 00 04 6c 23 00 00 00 00 00 00 59 40 5a 08 6c 5b 2b 09}  //weight: 5, accuracy: Low
+        $x_3_2 = {25 16 08 17 9a a2 25 17 08 18 9a a2 25 18 72 2c 09 00 70 a2 0d 07 09 13 05 11 05}  //weight: 3, accuracy: High
+        $x_2_3 = "GetPixel" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

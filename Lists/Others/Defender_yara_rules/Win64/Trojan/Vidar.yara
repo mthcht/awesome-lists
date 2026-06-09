@@ -2616,3 +2616,26 @@ rule Trojan_Win64_Vidar_GKK_2147971178_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_NC_2147971204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NC!MTB"
+        threat_id = "2147971204"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 14 08 48 8d 34 49 48 8d 34 71 31 f2 88 14 0c 48 ff c1}  //weight: 2, accuracy: High
+        $x_2_2 = {0f b6 0c 04 01 c9 0f b6 54 04 01 c0 ea 07 09 d1 88 0c 04}  //weight: 2, accuracy: High
+        $x_1_3 = "SUSPICIOUS_AMOUNTpermission" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
