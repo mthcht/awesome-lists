@@ -20,3 +20,28 @@ rule Ransom_Win64_LockScreen_PGBD_2147969402_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_LockScreen_AYB_2147971247_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockScreen.AYB!MTB"
+        threat_id = "2147971247"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "WowkNetlockMutex" ascii //weight: 4
+        $x_1_2 = "Your computer has been locked" ascii //weight: 1
+        $x_1_3 = "SYSTEM LOCKED" ascii //weight: 1
+        $x_1_4 = "Task Manager is blocked" ascii //weight: 1
+        $x_1_5 = "Keyboard and mouse are disabled" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
