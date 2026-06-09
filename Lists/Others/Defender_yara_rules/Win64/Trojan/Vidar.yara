@@ -2616,12 +2616,12 @@ rule Trojan_Win64_Vidar_GKK_2147971178_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_NC_2147971204_0
+rule Trojan_Win64_Vidar_NC_2147971206_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.NC!MTB"
-        threat_id = "2147971204"
+        threat_id = "2147971206"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"

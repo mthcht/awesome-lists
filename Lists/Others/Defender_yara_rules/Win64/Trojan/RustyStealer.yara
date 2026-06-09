@@ -575,12 +575,12 @@ rule Trojan_Win64_RustyStealer_ARST_2147970953_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_RustyStealer_NR_2147971202_0
+rule Trojan_Win64_RustyStealer_NR_2147971204_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/RustyStealer.NR!MTB"
-        threat_id = "2147971202"
+        threat_id = "2147971204"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "RustyStealer"

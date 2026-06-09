@@ -68,12 +68,12 @@ rule Trojan_Win32_ACRStealer_AB_2147959576_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ACRStealer_NC_2147971203_0
+rule Trojan_Win32_ACRStealer_NC_2147971205_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ACRStealer.NC!MTB"
-        threat_id = "2147971203"
+        threat_id = "2147971205"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ACRStealer"

@@ -25,12 +25,12 @@ rule Trojan_Win64_Denes_NE_2147968219_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Denes_ND_2147971201_0
+rule Trojan_Win64_Denes_ND_2147971203_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Denes.ND!MTB"
-        threat_id = "2147971201"
+        threat_id = "2147971203"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Denes"

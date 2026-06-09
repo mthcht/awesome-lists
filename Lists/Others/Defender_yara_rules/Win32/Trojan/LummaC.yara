@@ -1313,34 +1313,13 @@ rule Trojan_Win32_LummaC_EZ_2147926907_0
         threshold = "2"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = {8a 45 eb 24 01 0f b6 c0 8b 4d f4 31 e9 89 45 bc}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_LummaC_EZ_2147926907_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/LummaC.EZ!MTB"
-        threat_id = "2147926907"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "LummaC"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
         $x_2_1 = {20 20 20 00 20 20 20 20 00 60 05 00 00 10 00 00 00 62 02 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 e0 2e 72 73 72 63 00 00 00 b0 02 00 00 00 70 05 00 00 02 00 00 00 72 02 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaC_EZ_2147926907_2
+rule Trojan_Win32_LummaC_EZ_2147926907_1
 {
     meta:
         author = "defender2yara"

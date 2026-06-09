@@ -6568,3 +6568,24 @@ rule Trojan_Win64_Tedy_SXO_2147971008_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GVF_2147971216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GVF!MTB"
+        threat_id = "2147971216"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {45 85 c9 0f 94 c0 31 c9 48 3b 44 24 38 0f 94 c1 31 fa 0f b6 c2 f7 d0 8d 14 01 0f bf 44 24 40 8b 4c 24 44 44 29 c0 44 01 d9 01 c8 01 c2}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
