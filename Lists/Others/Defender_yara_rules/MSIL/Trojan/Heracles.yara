@@ -10674,3 +10674,26 @@ rule Trojan_MSIL_Heracles_BAV_2147971097_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_BAW_2147971222_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.BAW!MTB"
+        threat_id = "2147971222"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 10 11 05 06 7b 74 00 00 04 6a 61 20 ff ff 00 00 6a 5f 13 11 72 c8 04 00 70 13 12 19 13 13 16 13 14 06 7b 71 00 00 04 20 5d f4 66 04 5a 06 7b 72 00 00 04 20 9f 40 27 01 5a 61 13 15 1a 13 16 06 7b 71 00 00 04 18 5b 13 17 06 7b 72 00 00 04 18 5b 13 18 06 7b 71 00 00 04 06 7b 71 00 00 04 5a 06 7b 72 00 00 04 06 7b 72 00 00 04 5a 58 6c 28 31 00 00 0a 13 19 00 06}  //weight: 2, accuracy: High
+        $x_1_2 = "CreateInstance" ascii //weight: 1
+        $x_1_3 = "GetTypes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

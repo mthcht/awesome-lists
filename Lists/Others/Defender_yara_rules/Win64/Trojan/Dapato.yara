@@ -70,3 +70,25 @@ rule Trojan_Win64_Dapato_ARR_2147970348_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dapato_AHA_2147971243_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dapato.AHA!MTB"
+        threat_id = "2147971243"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {2e 0f 1f 84 00 00 00 00 00 83 f0 ?? 48 83 c2 01 48 83 c1 01 88 41 ff 41 0f b6 04 10 84 c0 75}  //weight: 30, accuracy: Low
+        $x_20_2 = {88 84 24 83 00 00 00 0f b6 42 05 88 44 24 60 8b 42 18 89 84 24}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

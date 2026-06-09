@@ -68,3 +68,46 @@ rule Backdoor_Win64_ValleyRAT_GFH_2147964336_0
         (all of ($x*))
 }
 
+rule Backdoor_Win64_ValleyRAT_GKK_2147971235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/ValleyRAT.GKK!MTB"
+        threat_id = "2147971235"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {43 0f b6 04 31 4d 8d 52 ?? 48 8b 0f 33 d2 41 f7 f3 b8 ?? ?? ?? ?? 40 02 d5 41 30 54 0a ?? 41 f7 e0 49 8d 41 ?? 45 33 c9 c1 ea 03 8d 0c 92 03 c9 44 3b c1 4c 0f 45 c8 41 ff c0 44 3b c3}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Backdoor_Win64_ValleyRAT_GKM_2147971239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/ValleyRAT.GKM!MTB"
+        threat_id = "2147971239"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 04 03 99 f7 7d ?? 80 c2 3d 30 14 31 43}  //weight: 5, accuracy: Low
+        $x_5_2 = {03 c0 8b ce 2b c8 f7 d9 1b c9 23 d9}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

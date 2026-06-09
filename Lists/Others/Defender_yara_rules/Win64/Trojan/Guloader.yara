@@ -76,3 +76,28 @@ rule Trojan_Win64_Guloader_VGX_2147967575_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Guloader_VGZ_2147971221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Guloader.VGZ!MTB"
+        threat_id = "2147971221"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Guloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "sokol" wide //weight: 1
+        $x_1_2 = "nonacquiescent millpond unpractised" wide //weight: 1
+        $x_1_3 = "elegikeres" wide //weight: 1
+        $x_1_4 = "SeShutdownPrivilege" wide //weight: 1
+        $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

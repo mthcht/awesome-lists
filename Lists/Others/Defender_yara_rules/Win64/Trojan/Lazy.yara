@@ -5188,6 +5188,32 @@ rule Trojan_Win64_Lazy_GVM_2147961391_0
         family = "Lazy"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce" wide //weight: 1
+        $x_1_3 = "/c ping localhost -n 3 > nul & del" wide //weight: 1
+        $x_1_4 = "shutdown.exe" wide //weight: 1
+        $x_1_5 = "85.141.204.190" wide //weight: 1
+        $x_1_6 = "WinLockAgent" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_GVM_2147961391_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GVM!MTB"
+        threat_id = "2147961391"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"

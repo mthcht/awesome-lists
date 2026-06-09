@@ -2647,3 +2647,26 @@ rule Trojan_MSIL_Tedy_PGRT_2147969678_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_AHC_2147971242_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.AHC!MTB"
+        threat_id = "2147971242"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[SUCCESS] Shutting down..." ascii //weight: 30
+        $x_20_2 = "[SUCCESS] Restarting..." ascii //weight: 20
+        $x_10_3 = "[SUCCESS] PC locked" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

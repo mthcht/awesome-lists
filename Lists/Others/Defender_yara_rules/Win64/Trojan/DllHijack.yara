@@ -836,3 +836,25 @@ rule Trojan_Win64_DllHijack_AHC_2147969829_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_AHD_2147971241_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.AHD!MTB"
+        threat_id = "2147971241"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {f2 0f 59 f5 f2 0f 58 f2 f2 0f 5e d6 0f 10 f0 f2 0f 59 c5 f2 0f 59 d5 f2 0f 58 d0}  //weight: 30, accuracy: High
+        $x_20_2 = {f2 45 0f 59 ce f2 45 0f 59 ce f2 45 0f 59 f1 f2 0f 10 7c 24 10 f2 44 0f 59 f7}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

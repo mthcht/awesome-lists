@@ -5372,3 +5372,24 @@ rule Trojan_MSIL_Redline_ARTB_2147966900_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Redline_AIWB_2147971236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Redline.AIWB!MTB"
+        threat_id = "2147971236"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Redline"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 10 11 05 06 7b ?? 00 00 04 6a 61 20 ?? ?? 00 00 6a 5f 13 11 72 ?? ?? 00 70 13 12 19 13 13 16 13 14 06 7b ?? 00 00 04 20 ?? ?? ?? 04 5a 06 7b ?? 00 00 04 20 ?? ?? ?? 01 5a 61 13 15 1a 13 16 06 7b ?? 00 00 04 18 5b 13 17 06 7b ?? 00 00 04 18 5b 13 18 06 7b ?? 00 00 04 06 7b ?? 00 00 04 5a 06 7b ?? 00 00 04 06 7b ?? 00 00 04 5a 58 6c 28 ?? 00 00 0a 13 19 00 06 6f ?? 00 00 06 28 ?? 00 00 2b 13 1b 2b 00 11 1b 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

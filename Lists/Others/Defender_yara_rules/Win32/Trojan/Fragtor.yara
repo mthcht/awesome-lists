@@ -4003,3 +4003,24 @@ rule Trojan_Win32_Fragtor_SXG_2147970814_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_PA_2147971240_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.PA!MTB"
+        threat_id = "2147971240"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {64 a1 30 00 00 00 85 c0 74 49 8b 40 0c 85 c0 74 42 8b 50 14 33 c9 53 8d 58 14 3b d3 74 31}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
