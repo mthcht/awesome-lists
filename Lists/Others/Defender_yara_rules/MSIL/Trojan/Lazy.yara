@@ -4101,3 +4101,28 @@ rule Trojan_MSIL_Lazy_ZXC_2147970756_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_MKB_2147971320_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.MKB!MTB"
+        threat_id = "2147971320"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "was.jejunuh.co.kr" ascii //weight: 15
+        $x_10_2 = "# BhsProxy-autocapture" ascii //weight: 10
+        $x_5_3 = "C:\\Temp\\probe_bhs_history.flag" ascii //weight: 5
+        $x_3_4 = "C:\\Temp\\bhs_history_probe.txt" ascii //weight: 3
+        $x_2_5 = "| Azure OpenAI" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

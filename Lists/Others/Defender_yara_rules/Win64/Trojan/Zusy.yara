@@ -3937,3 +3937,26 @@ rule Trojan_Win64_Zusy_NWD_2147969800_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SXU_2147971317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXU!MTB"
+        threat_id = "2147971317"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {48 89 e7 48 83 c7 08 48 81 ef 08 00 00 00 48 87 3c 24 5c 48 89 04 24 68 b8 79 17 76 68 93 8f be 6f}  //weight: 30, accuracy: High
+        $x_25_2 = {49 89 e7 49 83 c7 08 49 81 c7 08 00 00 00 4c 87 3c 24 5c 68 0a ac ef 45 4c 89 34 24 4d 89 f6 68 3d 77 f6 35}  //weight: 25, accuracy: High
+        $x_5_3 = "repos\\susano\\bin\\Release\\Loader" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

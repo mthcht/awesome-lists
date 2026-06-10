@@ -22,3 +22,25 @@ rule TrojanDropper_MSIL_Zusy_NITF_2147946884_0
         (all of ($x*))
 }
 
+rule TrojanDropper_MSIL_Zusy_SX_2147971316_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:MSIL/Zusy.SX!MTB"
+        threat_id = "2147971316"
+        type = "TrojanDropper"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {6f 05 00 00 0a 00 06 16 6f 06 00 00 0a 00 06 ?? 6f 07 00 00 0a 00 [0-2] 06 28 08 00 00 0a 26 00 de 1b 0b 00 72 ?? ?? 00 70 07 6f 09 00 00 0a 28 0a 00 00 0a 28 0b 00 00 0a 00}  //weight: 30, accuracy: Low
+        $x_50_2 = {2d 00 45 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 50 00 6f 00 6c 00 69 00 63 00 79 00 20 00 42 00 79 00 70 00 61 00 73 00 73 00 20 00 2d 00 46 00 69 00 6c 00 65 00 20 00 22 00 43 00 3a 00 5c 00 5c 00 5c 00 5c 00 [0-30] 5c 00 5c 00 5c 00 5c 00 [0-44] 2e 00 70 00 73 00 31 00 22 00}  //weight: 50, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

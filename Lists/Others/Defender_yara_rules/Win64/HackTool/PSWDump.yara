@@ -189,3 +189,28 @@ rule HackTool_Win64_PSWDump_YMX_2147970647_0
         )
 }
 
+rule HackTool_Win64_PSWDump_SX_2147971319_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/PSWDump.SX!MTB"
+        threat_id = "2147971319"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWDump"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "Usage: chromelevator.exe [options]" ascii //weight: 50
+        $x_20_2 = "\\Registry\\Machine\\SOFTWARE\\Clients\\StartMenuInternet\\Avast Secure Browser\\shell\\open\\command" ascii //weight: 20
+        $x_15_3 = "Direct Syscall-Based Reflective Hollowing" ascii //weight: 15
+        $x_15_4 = "Awaiting payload connection..." ascii //weight: 15
+        $x_10_5 = "Injector" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

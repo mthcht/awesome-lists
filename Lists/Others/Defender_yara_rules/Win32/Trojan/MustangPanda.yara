@@ -45,3 +45,34 @@ rule Trojan_Win32_MustangPanda_RPY_2147905919_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_MustangPanda_AMP_2147971331_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/MustangPanda.AMP!MTB"
+        threat_id = "2147971331"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "MustangPanda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SmartPrint" wide //weight: 1
+        $x_1_2 = "BelievemeIamMustang-Panda" wide //weight: 1
+        $x_1_3 = "DaDaBar" wide //weight: 1
+        $x_1_4 = "info/faq/v6" wide //weight: 1
+        $x_1_5 = "forms.microsoft.com" wide //weight: 1
+        $x_1_6 = "Hi,Mustang_Panda" ascii //weight: 1
+        $x_1_7 = "please believe me" ascii //weight: 1
+        $x_1_8 = "DadaBank" ascii //weight: 1
+        $x_1_9 = "BankChina" ascii //weight: 1
+        $x_1_10 = "BankofChina" ascii //weight: 1
+        $x_1_11 = "Bankofchinaunionpaycard" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
