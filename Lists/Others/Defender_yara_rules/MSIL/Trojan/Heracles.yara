@@ -10697,3 +10697,26 @@ rule Trojan_MSIL_Heracles_BAW_2147971222_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_CL_2147971350_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.CL!MTB"
+        threat_id = "2147971350"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Wvnekzq.dll" ascii //weight: 1
+        $x_1_2 = "TRF5ZUwq3H9lGo8Ifw.FPfWsjgXjKqk8Udr1w" ascii //weight: 1
+        $x_1_3 = "Debugger Detected" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
