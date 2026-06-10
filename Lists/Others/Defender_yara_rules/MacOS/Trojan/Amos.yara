@@ -2862,3 +2862,69 @@ rule Trojan_MacOS_Amos_FB_2147962240_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Amos_FC_2147971267_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.FC!MSR"
+        threat_id = "2147971267"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f0 0b 00 f9 f0 0f 40 f9 f1 0b 40 f9 10 02 11 8b 10 01 10 8b f1 07 40 f9 10 02 0f 8b 10 02 11 ca f0 07 00 f9 f0 07 40 f9 10 02 40 b2 0f 02 0f ca 8f 79 2e f8 08 05 00 91 7f 01 08 eb 20 05 00 54 4a 31 4a ca 4a 65 0a ca 4a 6d 4a ca 50 7d 14 9b 0e 06 40 92 8f 79 6e f8 e0 0f 40 f9 11 02 40 b2 00 00 11 8b 0f 00 0f ca df 05 00 f1}  //weight: 1, accuracy: High
+        $x_1_2 = {6f 79 69 b8 50 79 69 b8 0f 02 0f 4b 91 79 69 b8 20 0a 00 12 e1 1d 00 12 20 24 c0 1a f1 03 11 4b 31 0a 00 12 ef 21 d1 1a 0f 00 0f 2a b1 79 69 b8 ef 01 11 4a d1 79 69 b8 ef 01 11 4b 71 5e c0 39 60 02 40 f9 3f 02 00 71 11 b0 93 9a 2f 6a 29 38 2f 01 10 0b ef 01 08 4a e8 71 1d 53 08 15 4f 4a 29 05 00 91}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_FF_2147971271_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.FF!MSR"
+        threat_id = "2147971271"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e8 5b 11 f9 ff 5f 11 f9 ff 47 11 f9 ff 43 11 f9 36 00 80 52 77 0a 80 52 58 c6 93 52 f8 33 ab 72 79 57 8f 52 59 fc b4 72 88 47 91 52 68 50 a8 72 e8 83 01 b9 08 37 8e 52 a8 7c be 72 e8 7f 01 b9 dc 2e 9f 52 bc 7f bb 72 f5 eb 94 52 35 35 ad 72 fa eb 94 52 5a 94 ad 72}  //weight: 1, accuracy: High
+        $x_1_2 = {e8 13 40 91 08 41 0a 91 14 5d 41 39 88 1e 00 13 fb 6f 61 f9 1f 01 00 71 68 b3 94 9a a8 03 00 b4 f5 f3 31 b9 ea 9b 41 b9 ea f7 31 b9 e9 97 41 b9 e9 fb 31 b9 e8 93 41 b9 e8 ff 31 b9 eb 9f 41 b9 eb 53 32 b9 ea 57 32 b9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_FG_2147971274_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.FG!MSR"
+        threat_id = "2147971274"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 89 d8 48 83 c8 07 48 8d 48 01 48 83 f8 17 41 bc 1a 00 00 00 4c 0f 45 e1 4c 89 e7 e8 b0 35 03 00 49 89 47 10 49 ff c4 4d 89 27 49 89 5f 08 49 89 c7 48 ff c3 4c 89 ff 4c 89 f6 48 89 da 5b 41 5c 41 5e 41 5f}  //weight: 1, accuracy: High
+        $x_1_2 = {45 31 ed 45 31 e4 48 8b 3b e8 72 32 03 00 41 89 c6 89 c0 48 39 43 28 76 ed 48 8b 4b 10 49 d3 e5 4c 8b 7b 20 48 83 f9 40 b8 00 00 00 00 49 0f 42 c5 44 23 73 38 49 01 c6 49 ff c4 4d 89 f5 4d 39 fc}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

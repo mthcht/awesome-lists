@@ -593,3 +593,28 @@ rule Ransom_Linux_Filecoder_AG_2147959521_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Filecoder_AH_2147971270_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Filecoder.AH!MSR"
+        threat_id = "2147971270"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vecPreRunCommands" ascii //weight: 1
+        $x_1_2 = "vecSkipFileExtensions" ascii //weight: 1
+        $x_1_3 = "vecFullEncryptionExtensions" ascii //weight: 1
+        $x_1_4 = "vecPostRunCommands" ascii //weight: 1
+        $x_1_5 = "vecSkipPath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

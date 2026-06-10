@@ -524,3 +524,29 @@ rule Trojan_AndroidOS_Mamont_S_2147956179_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Mamont_W_2147971272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Mamont.W!MSR"
+        threat_id = "2147971272"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Mamont"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ON_SMS_WAS_SENT_UNSUCCESSFULLY" ascii //weight: 1
+        $x_1_2 = "Lcom/example/application/core/SmsActivity" ascii //weight: 1
+        $x_1_3 = "ON_SMS_ARCHIVE_INTERCEPTED" ascii //weight: 1
+        $x_1_4 = "ON_SIM_PAYMENT_COMPLETED" ascii //weight: 1
+        $x_1_5 = "ON_TELEPHONY_RAT_COMMAND_EXECUTED" ascii //weight: 1
+        $x_1_6 = "CLIENT_HANDLED_START" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

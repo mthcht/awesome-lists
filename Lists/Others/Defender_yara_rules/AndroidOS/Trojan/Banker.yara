@@ -1169,3 +1169,29 @@ rule Trojan_AndroidOS_Banker_AT_2147962238_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Banker_AU_2147971275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker.AU!MSR"
+        threat_id = "2147971275"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/rtcapp/andro/InstallReceiver" ascii //weight: 1
+        $x_1_2 = "/rtcapp/andro/BootReceiver" ascii //weight: 1
+        $x_1_3 = "com.rtcapp.andro.STOP_VPN" ascii //weight: 1
+        $x_1_4 = "/rtcapp/andro/SecureVpnService" ascii //weight: 1
+        $x_1_5 = "/rtcapp/andro/AssetExtractor" ascii //weight: 1
+        $x_1_6 = "startTrafficForwarding" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
