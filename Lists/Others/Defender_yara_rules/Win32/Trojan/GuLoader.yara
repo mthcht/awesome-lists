@@ -8698,3 +8698,27 @@ rule Trojan_Win32_GuLoader_RFB_2147970882_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RFC_2147971455_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFC!MTB"
+        threat_id = "2147971455"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "dekapode rufstores klikkene" ascii //weight: 1
+        $x_1_2 = "hulledame laminarite oppustelige" ascii //weight: 1
+        $x_1_3 = "fornaegtelse evergreenenes mistro" ascii //weight: 1
+        $x_5_4 = "contumacies dingos.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

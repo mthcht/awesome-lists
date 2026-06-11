@@ -2670,3 +2670,28 @@ rule Trojan_MSIL_Tedy_AHC_2147971242_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_MKA_2147971433_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.MKA!MTB"
+        threat_id = "2147971433"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "=== FORCE INJECTION START ===" ascii //weight: 15
+        $x_10_2 = "[Strategy 1] Trying direct write..." ascii //weight: 10
+        $x_5_3 = "[Strategy 2] Trying with PAGE_READWRITE..." ascii //weight: 5
+        $x_3_4 = "[Strategy 3] Trying with PAGE_EXECUTE_READWRITE..." ascii //weight: 3
+        $x_2_5 = "[Strategy 4] Force write without protection..." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

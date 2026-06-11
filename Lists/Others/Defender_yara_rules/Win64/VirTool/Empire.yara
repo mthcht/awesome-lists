@@ -73,3 +73,24 @@ rule VirTool_Win64_Empire_G_2147895058_0
         (all of ($x*))
 }
 
+rule VirTool_Win64_Empire_Q_2147971442_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Empire.Q"
+        threat_id = "2147971442"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Empire"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b 6c 24 28 41 b9 40 00 00 00 31 c9 41 b8 00 30 00 00 4c 89 e2 ff 15}  //weight: 1, accuracy: High
+        $x_1_2 = {48 89 da 45 31 c0 31 c9 ff 15 ?? ?? ?? ?? 48 89 c3 48 85 c0 ?? ?? 48 89 c1 ff 15 ?? ?? ?? ?? 48 89 d9 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -321,3 +321,24 @@ rule Trojan_MSIL_Polazert_A_2147889118_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Polazert_MCW_2147971417_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Polazert.MCW!MTB"
+        threat_id = "2147971417"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Polazert"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4b 30 69 53 6d 39 4f 53 49 42 32 74 37 4e 7a 54 75 00 70 5a 62 46 37 70 36}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

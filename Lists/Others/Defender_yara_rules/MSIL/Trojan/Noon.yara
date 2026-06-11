@@ -615,3 +615,26 @@ rule Trojan_MSIL_Noon_ZOB_2147971346_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Noon_AMZN_2147971419_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Noon.AMZN!MTB"
+        threat_id = "2147971419"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Noon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {18 fe 02 16 fe 01 13 0c 11 05 18 63 1f 10 58 13 0d 11 0d 1f 3f 58 1f c0 5f 13 0e 19 13 0f 11 05 11 0f 5b 13 10 11 05 11 0f 5d 13 11 09 39 15 00 00 00 11 05 6c 23 00 00 00 00 00 00 59 40 5a 09 6c 5b 38 09 00 00 00 23 00 00 00 00 00 00 00 00 13 12 11 07 11 05 61}  //weight: 5, accuracy: High
+        $x_3_2 = {25 16 11 02 17 9a a2 25 17 11 02 18 9a a2 25 18 72 ?? ?? 00 70 a2 13 03 38 ?? ?? 00 00 00 02}  //weight: 3, accuracy: Low
+        $x_2_3 = "GetPixel" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

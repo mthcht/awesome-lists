@@ -535,3 +535,25 @@ rule Trojan_MSIL_KeyLogger_AAB_2147968037_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KeyLogger_LRH_2147971432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.LRH!MTB"
+        threat_id = "2147971432"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {03 28 1c 00 00 0a 20 1d 03 00 00 33 37 19 8d 17 00 00 01 25 16 72 01 00 00 70 a2 25 17 72 15 00 00 70 a2 25 18 72 1d 00 00 70 28 03 00 00 06 72 47 00 00 70 28 1d 00 00 0a a2 28 31 00 00 06 28 2e 00 00 06 02 03 28 1e 00 00 0a 2a}  //weight: 20, accuracy: High
+        $x_10_2 = {28 37 00 00 0a 3a c1 00 00 00 73 38 00 00 0a 13 06 7e 08 00 00 04 28 10 00 00 06 28 36 00 00 0a 2c 0b 11 06 08 6f 39 00 00 0a 26 2b 74 11 06 28 3a 00 00 0a 6f 39 00 00 0a 26 11 06 28 3a 00 00 0a 6f 39 00 00 0a 26 11 06 1b 8d 30 00 00 01 25 16 72 f9 00 00 70 a2 25 17 28 10 00 00 06 a2 25 18 72 05 01 00 70 a2 25 19 28 3b 00 00 0a 13 07 12 07 28 3c 00 00 0a a2 25 1a 72 0d 01 00 70 a2 28 3d 00 00 0a 6f 39 00 00 0a 26 11 06 28 3a 00 00 0a 6f 39 00 00 0a 26 11 06 08 6f 39 00 00 0a 26 19 8d 17 00 00 01 25 16 72 01 00 00 70 a2 25 17 72 15 00 00 70 a2 25 18 11 06 6f 35 00 00 0a a2 28 31 00 00 06 28 2e 00 00 06 7e 06 00 00 04 02 03 04 28 14 00 00 06 13 08 de 0a 26 7e 2f 00 00 0a 13 08 de 00 11 08}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
