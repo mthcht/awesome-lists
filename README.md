@@ -33,6 +33,7 @@
 - 🌐 Suspicious TLDs (updated automatically): [[suspicious_TLDs]](https://github.com/mthcht/awesome-lists/tree/main/Lists/TLDs)
 - 🌐 Suspicious ASNs (updated automatically): [[suspicious ASNs]](https://github.com/mthcht/awesome-lists/tree/main/Lists/ASNs)
 - 🌐 FYI Maxmind GeoIP Database (updated automatically): [GeoIP DB](https://github.com/mthcht/awesome-lists/tree/main/Lists/ASNs/correlation_maxmind_geo_db/maxmind_databases/extracted)
+- 🆔 Oauth suspicious App IDs: [OauthSentry](https://oauthsentry.github.io/)
 - 🔧 Suspicious Windows Services: [suspicious_windows_services_names_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_services_names_list.csv)
 - ⏲️ Suspicious Windows Tasks: [suspicious_windows_tasks_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_windows_tasks_list.csv)
 - 🚪 Suspicious destination port: [suspicious_ports_list.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/suspicious_ports_list.csv)
@@ -78,8 +79,8 @@
 - 🧬 Microsoft Defender AV signatures lists: [[Defender]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/Defender) + [yara](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others/Defender_yara_rules)
 - 🧬 ClamAV signatures lists: [[ClamAV]](https://github.com/mthcht/awesome-lists/tree/main/Lists/AV%20signatures/ClamAV)  
 - 🔗 Others correlation Lists: [[Others]](https://github.com/mthcht/awesome-lists/tree/main/Lists/Others)
-- 📋 Suspicious VSCODE Extensions Lists: [vsxsentry](https://vsxsentry.github.io/#feed)
-- 🌐 Suspicious Browser Extensions Lists: [extsentry](https://extsentry.github.io/#feeds/malicious)
+- 🆔 Suspicious VSCODE Extensions Lists: [vsxsentry](https://vsxsentry.github.io/#feed)
+- 🆔 Suspicious Browser Extensions Lists: [extsentry](https://extsentry.github.io/#feeds/malicious)
 
 I regularly update most of these lists after each tool i analyze in my [detection keywords](https://github.com/mthcht/ThreatHunting-Keywords) project
 
