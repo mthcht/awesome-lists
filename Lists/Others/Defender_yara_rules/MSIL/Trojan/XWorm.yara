@@ -5565,3 +5565,27 @@ rule Trojan_MSIL_XWorm_GKK_2147971164_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AMSN_2147971462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AMSN!MTB"
+        threat_id = "2147971462"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {11 06 94 58 20 00 01 00 00 5d 94 61 d2 9c 00 11 07 17 58 13 07 11 07 02 8e 69 fe 04 13 09 11 09 2d a2}  //weight: 4, accuracy: High
+        $x_2_2 = "CreateDecryptor" ascii //weight: 2
+        $x_2_3 = "FromBase64String" ascii //weight: 2
+        $x_2_4 = "AmsiScanBuffer" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

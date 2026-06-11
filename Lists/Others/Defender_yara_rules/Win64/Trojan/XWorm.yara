@@ -799,3 +799,25 @@ rule Trojan_Win64_XWorm_ATR_2147970943_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_ABKV_2147971461_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.ABKV!MTB"
+        threat_id = "2147971461"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {66 44 0f db c1 66 45 0f ef c1 66 41 0f ef ec 66 0f ef ec 66 41 0f ef e8 66 45 0f ef d4 66 44 0f ef d4 66 45 0f ef d0 66 41 0f ef fc 66 0f ef fc 66 41 0f ef f8 66 41 0f ef dc 66 0f ef dc 66 41 0f ef d8}  //weight: 5, accuracy: High
+        $x_5_2 = {41 0f b6 cc c1 e1 ?? 09 c1 41 0f b6 c6 c1 e0 ?? 09 c8 0f b6 cb c1 e1 ?? 09 c1 66 44 0f 6e c1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

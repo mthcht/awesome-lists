@@ -5573,6 +5573,30 @@ rule Trojan_Win64_Tedy_SXM_2147966104_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GPKC_2147966143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GPKC!MTB"
+        threat_id = "2147966143"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Minecraft Java Edition Client Injector" ascii //weight: 10
+        $x_5_2 = "Place Injector.exe next to Client" ascii //weight: 5
+        $x_2_3 = "WriteProcessMemory failed" ascii //weight: 2
+        $x_1_4 = "Client injected successfully" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_PAC_2147966170_0
 {
     meta:
@@ -6584,6 +6608,29 @@ rule Trojan_Win64_Tedy_GVF_2147971216_0
         strings_accuracy = "High"
     strings:
         $x_2_1 = {45 85 c9 0f 94 c0 31 c9 48 3b 44 24 38 0f 94 c1 31 fa 0f b6 c2 f7 d0 8d 14 01 0f bf 44 24 40 8b 4c 24 44 44 29 c0 44 01 d9 01 c8 01 c2}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_GPKB_2147971460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GPKB!MTB"
+        threat_id = "2147971460"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "shellinit: sentinel@0x%p" ascii //weight: 10
+        $x_5_2 = "VirtualAllocEx(shellcode)" ascii //weight: 5
+        $x_3_3 = "sarkholes-inject-debug" ascii //weight: 3
     condition:
         (filesize < 20MB) and
         (all of ($x*))

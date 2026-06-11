@@ -6304,3 +6304,25 @@ rule Trojan_Win64_Lazy_AHT_2147971171_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LVD_2147971488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LVD!MTB"
+        threat_id = "2147971488"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f 57 c2 f3 0f 6f 4c 31 ?? f3 0f 7f 41 ?? 0f 57 ca f3 0f 7f 49 ?? 48 3b c7}  //weight: 10, accuracy: Low
+        $x_10_2 = {41 0f b6 c9 41 32 0c 02 88 08 48 8d 40 ?? 48 83 ea ?? 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
