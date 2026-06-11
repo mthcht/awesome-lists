@@ -4514,6 +4514,29 @@ rule Trojan_MSIL_Zusy_ARR_2147959550_5
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_ARR_2147959550_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.ARR!MTB"
+        threat_id = "2147959550"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 0a 11 0a 8e 69 1a 32 0a 02 11 0a 19 9a 7d}  //weight: 5, accuracy: High
+        $x_6_2 = {11 07 9a 13 08 11 08 72 ?? 02 00 70 6f ?? ?? ?? ?? 2c 29 11 08 1f 22 16 6f ?? ?? ?? ?? 13 09 11 09 8e 69 1a 32 16 02 11 09 19 9a}  //weight: 6, accuracy: Low
+        $x_9_3 = "<DiscordPayloadPropInit>b__4_1" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zusy_AYF_2147960076_0
 {
     meta:

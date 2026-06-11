@@ -154,3 +154,28 @@ rule Trojan_Win32_Bobik_KK_2147963649_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Bobik_ARR_2147971382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Bobik.ARR!MTB"
+        threat_id = "2147971382"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "22"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "capture_history.csv" ascii //weight: 6
+        $x_7_2 = "Saved to: %s  (%d captures, %.2f%% changed)" ascii //weight: 7
+        $x_4_3 = "history_%s.csv" ascii //weight: 4
+        $x_3_4 = "Failed to capture screenshot." ascii //weight: 3
+        $x_2_5 = "Failed to get screen device context." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -68,3 +68,26 @@ rule Trojan_Win64_DiskWriter_KK_2147970712_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiskWriter_AHA_2147971380_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiskWriter.AHA!MTB"
+        threat_id = "2147971380"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiskWriter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "rundll32.exe syssetup.dll,SetupInfObjectInstallAction" ascii //weight: 30
+        $x_20_2 = "/k dism /image:e:\\ /remove-driver /driver:oem1.inf" ascii //weight: 20
+        $x_10_3 = "cmd.exe /c \"takeown /f \"C:\\Windows\\System32\" /r /d y && icacls \"C:\\Windows\\System32\" /grant Everyone:F /t && attrib -r -s -h" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

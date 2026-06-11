@@ -7768,6 +7768,27 @@ rule Trojan_Win64_CobaltStrike_MJ_2147847146_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {65 48 8b 04 25 30 00 00 00 48 8b 40 60 48 85 c0 0f 84 80 03 00 00 83 b8 18 01 00 00 0a 0f 85 73 03 00 00 48 8b 40 18 48 8b 48 20}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_MJ_2147847146_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.MJ!MTB"
+        threat_id = "2147847146"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "Low"
     strings:
@@ -7778,7 +7799,7 @@ rule Trojan_Win64_CobaltStrike_MJ_2147847146_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CobaltStrike_MJ_2147847146_1
+rule Trojan_Win64_CobaltStrike_MJ_2147847146_2
 {
     meta:
         author = "defender2yara"
@@ -19388,6 +19409,27 @@ rule Trojan_Win64_CobaltStrike_LIH_2147971349_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {8d 4f ff 83 e1 02 0f b6 0c 01 30 4c 3e ff 89 f9 83 e1 03 0f b6 0c 01 30 0c 3e 48 83 c7 02 48 81 ff 25 b8 04 00 75 d9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_GVZ_2147971369_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GVZ!MTB"
+        threat_id = "2147971369"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f7 f1 8b c2 c1 e0 03 0f b6 c8 8b 44 24 60 d3 e8 25 ff 00 00 00 88 44 24 40 8b 44 24 44 0f b6 4c 24 40 48 8b 54 24 58 0f b6 04 02 33 c1 8b 4c 24 44 48 8b 54 24 58 88 04 0a eb a6}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

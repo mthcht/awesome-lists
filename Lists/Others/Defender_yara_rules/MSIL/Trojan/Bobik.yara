@@ -862,3 +862,28 @@ rule Trojan_MSIL_Bobik_ARR_2147970485_0
         )
 }
 
+rule Trojan_MSIL_Bobik_ARR_2147970485_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bobik.ARR!MTB"
+        threat_id = "2147970485"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {0a 06 8e 16 fe 01 0b 07 2c 08 00 28}  //weight: 3, accuracy: High
+        $x_6_2 = "dark_orbit.exe" ascii //weight: 6
+        $x_7_3 = "Cronjob url for ranking does not working!" ascii //weight: 7
+        $x_4_4 = "Listening for restart and cronjobs..." ascii //weight: 4
+        $x_10_5 = "$fc831505-e79d-4ec4-aa49-273b306bc15c" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
