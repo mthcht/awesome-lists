@@ -78,7 +78,7 @@ rule Trojan_Win64_RoguePlanet_DB_2147971401_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "114"
+        threshold = "113"
         strings_accuracy = "High"
     strings:
         $x_50_1 = "\\\\.\\pipe\\" ascii //weight: 50
@@ -87,16 +87,15 @@ rule Trojan_Win64_RoguePlanet_DB_2147971401_0
         $x_1_4 = "MpScanStart" ascii //weight: 1
         $x_1_5 = "MpThreatEnumerate" ascii //weight: 1
         $x_1_6 = "NtQueryDirectoryObject" ascii //weight: 1
-        $x_1_7 = "HarddiskVolumeShadowCopy" ascii //weight: 1
-        $x_1_8 = "OpenProcessToken" ascii //weight: 1
-        $x_1_9 = "AdjustTokenPrivileges" ascii //weight: 1
-        $x_1_10 = "SeDebugPrivilege" ascii //weight: 1
-        $x_1_11 = "DuplicateTokenEx" ascii //weight: 1
-        $x_1_12 = "CreateProcessAsUserW" ascii //weight: 1
-        $x_1_13 = "SeImpersonatePrivilege" ascii //weight: 1
-        $x_1_14 = "OpenVirtualDisk" ascii //weight: 1
-        $x_1_15 = "AttachVirtualDisk" ascii //weight: 1
-        $x_1_16 = "GetVirtualDiskPhysicalPath" ascii //weight: 1
+        $x_1_7 = "OpenProcessToken" ascii //weight: 1
+        $x_1_8 = "AdjustTokenPrivileges" ascii //weight: 1
+        $x_1_9 = "SeDebugPrivilege" ascii //weight: 1
+        $x_1_10 = "DuplicateTokenEx" ascii //weight: 1
+        $x_1_11 = "CreateProcessAsUserW" ascii //weight: 1
+        $x_1_12 = "SeImpersonatePrivilege" ascii //weight: 1
+        $x_1_13 = "OpenVirtualDisk" ascii //weight: 1
+        $x_1_14 = "AttachVirtualDisk" ascii //weight: 1
+        $x_1_15 = "GetVirtualDiskPhysicalPath" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
