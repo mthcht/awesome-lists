@@ -10674,6 +10674,29 @@ rule Trojan_MSIL_Heracles_BAV_2147971097_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_BAV_2147971097_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.BAV!MTB"
+        threat_id = "2147971097"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 07 16 73 12 00 00 0a 13 08 11 06 18 18 16 20 00 00 08 00 73 13 00 00 0a 13 09 2b 0c 11 09 11 04 16 11 0a ?? ?? 00 00 0a 11 08 11 04 16 11 04 8e 69 ?? ?? 00 00 0a 25 13 0a 16 30 e0}  //weight: 2, accuracy: Low
+        $x_1_2 = "UseShellExecute" ascii //weight: 1
+        $x_1_3 = "GetTempPath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_BAW_2147971222_0
 {
     meta:
