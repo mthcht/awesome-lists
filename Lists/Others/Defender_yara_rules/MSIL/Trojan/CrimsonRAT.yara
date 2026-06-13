@@ -114,3 +114,26 @@ rule Trojan_MSIL_CrimsonRAT_MBAT_2147838921_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CrimsonRAT_PD_2147941026_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CrimsonRAT.PD!MTB"
+        threat_id = "2147941026"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CrimsonRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "155.117.45.44#newsmaxm70.net" ascii //weight: 3
+        $x_1_2 = "\\jrnswry acrhyis.pdb" ascii //weight: 1
+        $x_1_3 = "S_O_F_TW_AR_E\\Mi_cr_o_so_f_t\\W_in_do_w_s\\C_u_r_ren_tV_er_s_i_on\\_Ru_n" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

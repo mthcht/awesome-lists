@@ -964,6 +964,27 @@ rule Trojan_Win64_Convagent_KK_2147957569_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 83 c2 03 48 6b c0 ?? 48 01 ?? 48 83 c0 02 ?? 8d 14 ?? 42 8a 04 10 ?? 32 04 ?? 42 8a 14 12 ?? 32 54 ?? 01 49 83 ?? 02 0f b6 c0 0f b6 d2 c1 e2 08 09 c2 66 42 89 94 1d 1a 22 00 00 49 83 c3 02 83 c1 02 41 83 c0 02 49 83 c1 02}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Convagent_KK_2147957569_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.KK!MTB"
+        threat_id = "2147957569"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "41"
         strings_accuracy = "High"
     strings:

@@ -881,3 +881,25 @@ rule Trojan_Win32_Upatre_PGI_2147960306_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Upatre_AHZ_2147971550_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.AHZ!MTB"
+        threat_id = "2147971550"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {c7 45 d4 f3 c8 bd b6 c7 45 d8 b9 df 47 8f c7 45 dc 22 7a f2 ce c7 45 e0 61 c8 a5 a1}  //weight: 30, accuracy: High
+        $x_20_2 = {c7 85 c0 7a ff ff 89 ab cd ef c7 85 c4 7a ff ff fe dc ba 98 c7 85 c8 7a ff ff 76 54 32 10}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

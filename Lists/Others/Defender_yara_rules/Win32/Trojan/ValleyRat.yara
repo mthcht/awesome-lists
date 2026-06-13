@@ -351,6 +351,35 @@ rule Trojan_Win32_ValleyRat_AMTB_2147959263_2
         (4 of ($x*))
 }
 
+rule Trojan_Win32_ValleyRat_AMTB_2147959263_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat!AMTB"
+        threat_id = "2147959263"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "Windows\\SysWOW64\\tracerpt.exe" ascii //weight: 6
+        $x_6_2 = "Windows\\System32\\tracerpt.exe" ascii //weight: 6
+        $x_6_3 = "|0:db|0:lk|0:hs|0:ld|0:ll|0:hb|0:pj|" ascii //weight: 6
+        $x_2_4 = "IsDebuggerPresent" ascii //weight: 2
+        $x_2_5 = "SleepConditionVariableCS" ascii //weight: 2
+        $x_2_6 = "WakeAllConditionVariable" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_6_*) and 3 of ($x_2_*))) or
+            ((3 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_ValleyRat_A_2147960478_0
 {
     meta:

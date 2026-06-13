@@ -534,3 +534,26 @@ rule Trojan_Win64_ValleyRAT_SPK_2147971016_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_KK_2147971558_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.KK!MTB"
+        threat_id = "2147971558"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\DisplaySessionContainers.log" ascii //weight: 10
+        $x_5_2 = "C:\\ProgramLog\\Windows\\AppData\\Local\\Microsoft\\Log\\TGFile.exe" ascii //weight: 5
+        $x_3_3 = "~p1:203.91.74.177~o1:6677~t1:1" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

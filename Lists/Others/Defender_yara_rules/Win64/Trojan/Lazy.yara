@@ -2975,6 +2975,28 @@ rule Trojan_Win64_Lazy_KK_2147944057_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c6 44 24 64 4d 45 31 c9 c6 44 24 65 6f c6 44 24 66 64 c6 44 24 67 75 c6 44 24 68 6c c6 44 24 69 65 c6 44 24 6a 45 c6 44 24 6b 6e c6 44 24 6c 74 c6 44 24 6d 72 c6 44 24 6e 79}  //weight: 20, accuracy: High
+        $x_10_2 = {8a 14 01 48 89 c6 83 e6 1f 44 8a 0c 37 89 d3 30 e3 41 31 d9 45 31 d9 45 85 c0 41 0f 44 d1 44 88 0c 01 48 ff c0 41 89 d3}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_KK_2147944057_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KK!MTB"
+        threat_id = "2147944057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "45"
         strings_accuracy = "Low"
     strings:
@@ -2989,7 +3011,7 @@ rule Trojan_Win64_Lazy_KK_2147944057_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_KK_2147944057_2
+rule Trojan_Win64_Lazy_KK_2147944057_3
 {
     meta:
         author = "defender2yara"
@@ -3012,7 +3034,7 @@ rule Trojan_Win64_Lazy_KK_2147944057_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_KK_2147944057_3
+rule Trojan_Win64_Lazy_KK_2147944057_4
 {
     meta:
         author = "defender2yara"
@@ -6321,6 +6343,48 @@ rule Trojan_Win64_Lazy_LVD_2147971488_0
     strings:
         $x_10_1 = {0f 57 c2 f3 0f 6f 4c 31 ?? f3 0f 7f 41 ?? 0f 57 ca f3 0f 7f 49 ?? 48 3b c7}  //weight: 10, accuracy: Low
         $x_10_2 = {41 0f b6 c9 41 32 0c 02 88 08 48 8d 40 ?? 48 83 ea ?? 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_PGLK_2147971557_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.PGLK!MTB"
+        threat_id = "2147971557"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 83 f8 3f 77 ?? 48 8d 0c 03 4c 39 f1 73 ?? 8a 8c 04 ?? ?? ?? ?? 41 30 0c 04 48 ff c0 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_GVO_2147971564_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GVO!MTB"
+        threat_id = "2147971564"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 c1 e9 04 00 00 00 41 80 fa a2 83 e1 07 40 f6 c4 05 41 8a 0c 0a e9 01 00 00 00 f8 32 0c 03 e9 00 00 00 00 88 0c 02 e9 00 00 00 00 48 ff c0 48 3d 00 10 00 00 0f 85 c5 ff ff ff}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

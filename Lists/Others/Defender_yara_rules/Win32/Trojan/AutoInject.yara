@@ -301,3 +301,57 @@ rule Trojan_Win32_AutoInject_NRA_2147959368_0
         )
 }
 
+rule Trojan_Win32_AutoInject_CA_2147971573_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoInject.CA!MTB"
+        threat_id = "2147971573"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "4D5A90000300000004000000FFFF0000B800000000000000400000000000000000000000000000000000000000000000000000000000000000000000" ascii //weight: 1
+        $x_1_2 = "= BINARYTOSTRING ( \"0x\" &" ascii //weight: 1
+        $x_1_3 = {46 00 4f 00 52 00 20 00 [0-6] 20 00 3d 00 20 00 31 00 20 00 54 00 4f 00 20 00 53 00 54 00 52 00 49 00 4e 00 47 00 4c 00 45 00 4e 00 20 00 28 00 20 00 24 00 [0-31] 29 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {46 4f 52 20 [0-6] 20 3d 20 31 20 54 4f 20 53 54 52 49 4e 47 4c 45 4e 20 28 20 24 [0-31] 29}  //weight: 1, accuracy: Low
+        $x_1_5 = {3d 00 20 00 53 00 54 00 52 00 49 00 4e 00 47 00 4d 00 49 00 44 00 20 00 28 00 20 00 24 00 [0-31] 20 00 2c 00 20 00 24 00 [0-6] 20 00 2c 00 20 00 31 00 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_6 = {3d 20 53 54 52 49 4e 47 4d 49 44 20 28 20 24 [0-31] 20 2c 20 24 [0-6] 20 2c 20 31 20 29}  //weight: 1, accuracy: Low
+        $x_1_7 = {26 00 3d 00 20 00 43 00 48 00 52 00 20 00 28 00 20 00 24 00 [0-63] 20 00 2d 00 20 00 24 00 [0-63] 20 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_8 = {26 3d 20 43 48 52 20 28 20 24 [0-63] 20 2d 20 24 [0-63] 20 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+
+rule Trojan_Win32_AutoInject_CB_2147971574_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AutoInject.CB!MTB"
+        threat_id = "2147971574"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "system32\\drivers\\etc\\hosts" ascii //weight: 1
+        $x_1_2 = "/c ping 127.0.0.1" ascii //weight: 1
+        $x_1_3 = "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "DLLOPEN ( \"Kernel32.dll\" )" ascii //weight: 1
+        $x_1_5 = "DLLOPEN ( \"Crypt32.dll\" )" ascii //weight: 1
+        $x_1_6 = "DRIVEGETDRIVE ( \"Fixed\" )" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

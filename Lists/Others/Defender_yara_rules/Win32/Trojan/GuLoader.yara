@@ -8722,3 +8722,28 @@ rule Trojan_Win32_GuLoader_RFC_2147971455_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RFD_2147971529_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFD!MTB"
+        threat_id = "2147971529"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "edmonds\\stternisserne" ascii //weight: 5
+        $x_1_2 = "%Ravnekrogen%\\folkeaktien" ascii //weight: 1
+        $x_1_3 = "nondeprecatorily" ascii //weight: 1
+        $x_1_4 = "spattering" ascii //weight: 1
+        $x_1_5 = "efterplaprerne vandforurening.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

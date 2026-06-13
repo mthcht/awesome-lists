@@ -14623,3 +14623,79 @@ rule Trojan_Win32_ClickFix_MUB_2147971497_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_RNZ_2147971565_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.RNZ!MTB"
+        threat_id = "2147971565"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "c*u*r*l" wide //weight: 1
+        $x_1_2 = "for /f" wide //weight: 1
+        $x_1_3 = "!u!" wide //weight: 1
+        $x_1_4 = "h^t^t^p^s^" wide //weight: 1
+        $x_1_5 = "!p!" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SNZ_2147971566_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SNZ!MTB"
+        threat_id = "2147971566"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "c*u*r*l" wide //weight: 1
+        $x_1_2 = "for /f" wide //weight: 1
+        $x_1_3 = "!x!" wide //weight: 1
+        $x_1_4 = "!y!" wide //weight: 1
+        $x_1_5 = "h^t^t^p^s^" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_TNZ_2147971567_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.TNZ!MTB"
+        threat_id = "2147971567"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd /c" wide //weight: 1
+        $x_1_2 = "!!z" wide //weight: 1
+        $x_1_3 = "!u!" wide //weight: 1
+        $x_1_4 = "!h!" wide //weight: 1
+        $x_1_5 = ".com" wide //weight: 1
+        $x_1_6 = "&del /f" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

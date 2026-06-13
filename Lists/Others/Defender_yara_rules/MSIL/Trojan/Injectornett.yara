@@ -22,3 +22,24 @@ rule Trojan_MSIL_Injectornett_PGN_2147943769_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_Injectornett_PGIN_2147971582_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injectornett.PGIN!MTB"
+        threat_id = "2147971582"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injectornett"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 07 2b 21 11 05 11 07 8f ?? 00 00 01 25 47 09 11 07 91 61 d2 52 11 07 20 e4 03 00 00 28 ?? 00 00 06 58 13 07 11 07 20 e8 03 00 00 28 ?? 00 00 06 32 d1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

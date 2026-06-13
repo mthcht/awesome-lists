@@ -76,6 +76,33 @@ rule Trojan_Win32_LotusLite_RH_2147968070_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LotusLite_RH_2147968070_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LotusLite.RH!MTB"
+        threat_id = "2147968070"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LotusLite"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {50 45 00 00 4c 01 06 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 02 21 0b 01 0e 00}  //weight: 2, accuracy: Low
+        $x_1_2 = "BankChina" ascii //weight: 1
+        $x_1_3 = "Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "Bank_Relevant_people" ascii //weight: 1
+        $x_1_5 = "Bankofchinaunionpaycard" ascii //weight: 1
+        $x_1_6 = "AMPVIncrement" ascii //weight: 1
+        $x_1_7 = "NextBank_BMI" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_LotusLite_DA_2147968928_0
 {
     meta:

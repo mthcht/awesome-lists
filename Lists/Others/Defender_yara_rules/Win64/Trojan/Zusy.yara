@@ -3483,6 +3483,32 @@ rule Trojan_Win64_Zusy_KKB_2147963162_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "billion.pythonanywhere.com" ascii //weight: 6
+        $x_5_2 = "/heartbeat/%s" ascii //weight: 5
+        $x_4_3 = "/command/%s" ascii //weight: 4
+        $x_3_4 = "/response/%s" ascii //weight: 3
+        $x_2_5 = "%s\\svchost.exe" ascii //weight: 2
+        $x_1_6 = "{\"hostname\":\"%s\",\"user\":\"%s\",\"cwd\":\"%s\"}" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KKB_2147963162_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KKB!MTB"
+        threat_id = "2147963162"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "19"
         strings_accuracy = "High"
     strings:
