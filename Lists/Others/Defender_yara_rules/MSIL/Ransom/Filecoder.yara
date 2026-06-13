@@ -4046,3 +4046,28 @@ rule Ransom_MSIL_Filecoder_DE_2147965299_0
         (5 of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_PGBF_2147971588_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.PGBF!MTB"
+        threat_id = "2147971588"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Your computer has been locked by JunkLocker" ascii //weight: 2
+        $x_2_2 = "All your files have been encrypted" ascii //weight: 2
+        $x_2_3 = "To obtain the unlock key, message us on Telegram:" ascii //weight: 2
+        $x_2_4 = "your processor overheating" ascii //weight: 2
+        $x_2_5 = "Any attempt to bypass this will result in" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
