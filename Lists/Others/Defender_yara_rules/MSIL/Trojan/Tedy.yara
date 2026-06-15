@@ -2695,3 +2695,24 @@ rule Trojan_MSIL_Tedy_MKA_2147971433_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_STS_2147971608_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.STS!MTB"
+        threat_id = "2147971608"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0b 06 72 df 00 00 70 6f ?? 00 00 0a 0b 07 8e 69 8d 0e 00 00 01 0c 07 16 08 16 08 8e 69 28 ?? 00 00 0a 16 08 8e 69 20 00 10 00 00 1f 40 28 ?? 00 00 06 0d 08 16}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

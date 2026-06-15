@@ -3043,3 +3043,26 @@ rule Trojan_MSIL_Crysan_BAE_2147970746_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Crysan_BAE_2147970746_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Crysan.BAE!MTB"
+        threat_id = "2147970746"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {06 7e 01 00 00 04 ?? ?? 00 00 0a 06 7e 02 00 00 04 ?? ?? 00 00 0a 06 17 ?? ?? 00 00 0a 06 18 ?? ?? 00 00 0a 06 ?? ?? 00 00 0a 0b 02 28 06 00 00 0a 73 16 00 00 0a 0c 08 07 16 73 17 00 00 0a 0d 09 73 18 00 00 0a 13 04 11 04 ?? ?? 00 00 0a 13 05 de 2a 11 04 2c 07 11 04 ?? ?? 00 00 0a}  //weight: 2, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

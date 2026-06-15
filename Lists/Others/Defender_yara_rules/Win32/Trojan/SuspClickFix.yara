@@ -1094,6 +1094,29 @@ rule Trojan_Win32_SuspClickFix_Z4_2147971224_0
         family = "SuspClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = " --headless " wide //weight: 1
+        $x_1_2 = "cmd /v:on /" wide //weight: 1
+        $x_1_3 = "@SSL\\" wide //weight: 1
+        $x_1_4 = ",#1" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SuspClickFix_Z4_2147971224_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspClickFix.Z4"
+        threat_id = "2147971224"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
