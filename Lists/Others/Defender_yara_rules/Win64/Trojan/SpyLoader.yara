@@ -113,3 +113,31 @@ rule Trojan_Win64_SpyLoader_A_2147970678_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SpyLoader_B_2147971636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SpyLoader.B!AMTB"
+        threat_id = "2147971636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SpyLoader"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "29"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Software\\ServerD11" ascii //weight: 5
+        $x_5_2 = "SERVICE [%d] FINISH RUNNING" ascii //weight: 5
+        $x_4_3 = "agent-mode" ascii //weight: 4
+        $x_4_4 = "public_ip" ascii //weight: 4
+        $x_4_5 = "WTSQueryUserToken" ascii //weight: 4
+        $x_3_6 = "WinSta0" ascii //weight: 3
+        $x_2_7 = "CoreStackSvc" ascii //weight: 2
+        $x_2_8 = "CoreStack Runtime Service" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
