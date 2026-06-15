@@ -806,3 +806,26 @@ rule Trojan_Win64_Injector_AHD_2147970871_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_MCW_2147971600_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.MCW!MTB"
+        threat_id = "2147971600"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {cf c0 27 f6 7c 90 fe fe 8b 9c 87 93 8b 9f d0 9c 8d 96 fe fe 4f e5 fe fe c8 cc d0 ca c7 fe fe fe 30 71 73 36 70 33 00 00 00 00 48 81 ec 80 00 00 00 e8 19 49 00 00 48 8b d8 e8 51 4a 00 00 48}  //weight: 1, accuracy: High
+        $x_1_2 = {9f 33 a8 d1 7c 90 fe fe 9d 9b 8e 95 90 8e d0 9c 8d 96 fe fe 4f e5 fe fe cc ce cb d0 c7 c9 fe fe 30 71 73 36 70 33 00 00 00 00 48 81 ec 80 00 00 00 e8 19 49 00 00 48 8b d8 e8 51 4a 00 00 48}  //weight: 1, accuracy: High
+        $x_1_3 = {b0 76 10 d1 7c 90 fe fe 8b 87 89 95 84 9b d0 9c 8d 96 fe fe 4f e5 fe fe cf cd c8 d0 c9 c6 fe fe 30 71 73 36 70 33 00 00 00 00 48 81 ec 80 00 00 00 e8 19 49 00 00 48 8b d8 e8 51 4a 00 00 48}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

@@ -1519,3 +1519,28 @@ rule Ransom_Win64_FileCoder_ATP_2147969879_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_SST_2147971601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.SST!MSR"
+        threat_id = "2147971601"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Oops, your important files are encrypted! To get them back," ascii //weight: 1
+        $x_1_2 = "pay a ransom (handled individually with up-coding@proton.me)." ascii //weight: 1
+        $x_1_3 = "Then run the Decryptor on the Desktop with the Key they give you!" ascii //weight: 1
+        $x_1_4 = "To get your Key back, give them this:" ascii //weight: 1
+        $x_1_5 = "PCLocker.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
