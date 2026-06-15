@@ -87,27 +87,6 @@ rule Trojan_Win32_BadJoke_AM_2147817632_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_BadJoke_RDA_2147845700_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/BadJoke.RDA!MTB"
-        threat_id = "2147845700"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "BadJoke"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {c1 e0 0d 33 c2 8b c8 c1 e9 11 33 c8 8b f9 c1 e7 05 33 f9 8b c7 c1 e0 0d 33 c7 8b c8 c1 e9 11 33 c8}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_BadJoke_RDB_2147851744_0
 {
     meta:

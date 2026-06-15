@@ -88,3 +88,32 @@ rule Trojan_Win32_Strictor_MX_2147970418_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Strictor_AMTB_2147971632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Strictor!AMTB"
+        threat_id = "2147971632"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Strictor"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "http://www.jovi.cn/" ascii //weight: 4
+        $x_4_2 = "http://www.jovi.cn/ad/ad.html" ascii //weight: 4
+        $x_4_3 = "http://www.luje.cn/ad/ad.html" ascii //weight: 4
+        $x_1_4 = "HttpOpenRequest" ascii //weight: 1
+        $x_1_5 = "HttpSendRequest" ascii //weight: 1
+        $x_4_6 = "bIsN+Upfh+avxUS0qUCHgY/L1EzsGMCyRuh+0=" ascii //weight: 4
+        $x_1_7 = "LONG/*currency*/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+

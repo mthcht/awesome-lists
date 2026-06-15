@@ -286,3 +286,26 @@ rule Trojan_Win32_Ulise_GTD_2147959366_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Ulise_AHA_2147971618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Ulise.AHA!MTB"
+        threat_id = "2147971618"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "VersionIndependentProgID = s 'WebMonitor.WebHook'" ascii //weight: 30
+        $x_20_2 = "WebMonitor.WebHook.1 = s 'WebHook Class'" ascii //weight: 20
+        $x_10_3 = "ProgID = s 'WebMonitor.WebHook.1'" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

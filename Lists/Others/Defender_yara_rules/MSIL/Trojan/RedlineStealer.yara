@@ -785,3 +785,26 @@ rule Trojan_MSIL_RedlineStealer_RVB_2147968736_0
         )
 }
 
+rule Trojan_MSIL_RedlineStealer_AHB_2147971619_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedlineStealer.AHB!MTB"
+        threat_id = "2147971619"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "<SendTelegramMessageWithScreenshotAsync>d__" ascii //weight: 30
+        $x_20_2 = "<SendDiscordMessageWithScreenshotAsync>d__" ascii //weight: 20
+        $x_10_3 = "<SendDeviceCompromisedReportAsync>d__" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
