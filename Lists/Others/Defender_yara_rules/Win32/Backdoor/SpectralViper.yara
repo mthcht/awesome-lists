@@ -41,3 +41,28 @@ rule Backdoor_Win32_SpectralViper_MKY_2147971549_0
         (all of ($x*))
 }
 
+rule Backdoor_Win32_SpectralViper_MXC_2147971662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/SpectralViper.MXC!MTB"
+        threat_id = "2147971662"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SpectralViper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b cf 2b d7 be ?? ?? ?? ?? 8a 04 11 8d 49 01 30 41 ff 83 ee 01 75}  //weight: 5, accuracy: Low
+        $x_4_2 = {33 d2 8b c1 f7 75 ?? 8a 04 57 8b 55 ec 30 04 0a 41 3b 4d e8 72}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
