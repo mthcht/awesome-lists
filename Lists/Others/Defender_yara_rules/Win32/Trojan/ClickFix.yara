@@ -14699,3 +14699,28 @@ rule Trojan_Win32_ClickFix_TNZ_2147971567_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_UNZ_2147971639_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.UNZ!MTB"
+        threat_id = "2147971639"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell.exe" wide //weight: 1
+        $x_1_2 = "M*.P*.U*" wide //weight: 1
+        $x_1_3 = "-Pass;" wide //weight: 1
+        $x_1_4 = ".com);$" wide //weight: 1
+        $x_1_5 = "=IPMO" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

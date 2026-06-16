@@ -821,3 +821,24 @@ rule Trojan_Win64_XWorm_ABKV_2147971461_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_AMSI_2147971649_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.AMSI!MTB"
+        threat_id = "2147971649"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {4a 8d 04 27 0f b6 0c 18 88 4c 24 ?? 41 83 7c 3f 04 ?? ?? ?? f6 d1 41 32 4c 3f ?? c0 c9 04 80 f1 ?? 88 4c 24 40 49 3b d0 ?? ?? 88 0a 48 8b 54 24 ?? 48 ff c2 48 89 54 24 ?? ?? ?? 4c 8d 44 24 ?? 48 8d 4c 24}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

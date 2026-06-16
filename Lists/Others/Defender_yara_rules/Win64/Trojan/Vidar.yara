@@ -2702,3 +2702,51 @@ rule Trojan_Win64_Vidar_GMS_2147971556_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_MDD_2147971646_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.MDD!MTB"
+        threat_id = "2147971646"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Go build ID: \"QXkg-pedmt6vxNI0bxlT/" ascii //weight: 1
+        $x_1_2 = "main.phrslwpfezapkcvootv" ascii //weight: 1
+        $x_1_3 = "main.bszejitrunvwuvgfpq" ascii //weight: 1
+        $x_1_4 = "K9xhcR1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_MDX_2147971647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.MDX!MTB"
+        threat_id = "2147971647"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Go build ID: \"P0J_bAboMNv5tPWfvbE5/" ascii //weight: 1
+        $x_1_2 = "main.ywspllh" ascii //weight: 1
+        $x_1_3 = "Go buildinf:" ascii //weight: 1
+        $x_1_4 = "main.xr9y3f1c" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
