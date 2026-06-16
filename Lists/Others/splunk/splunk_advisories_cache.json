@@ -720,7 +720,7 @@
     },
     {
       "advisory_id": "SVD-2026-0603",
-      "last_update": "2026-06-12",
+      "last_update": "2026-06-15",
       "published": "2026-06-10",
       "rows": [
         {
@@ -737,12 +737,12 @@
           "cve_id": "CVE-2026-20253",
           "fix_version": "10.2.0.10",
           "fix_vnum": "10002000010",
-          "last_update": "2026-06-12",
+          "last_update": "2026-06-15",
           "product": "Splunk Enterprise",
           "product_kind": "enterprise",
           "published": "2026-06-10",
           "severity": "Critical",
-          "solution": "Upgrade Splunk Enterprise to versions 10.4.0, 10.2.4 and 10.0.7, or higher. Splunk is actively monitoring and patching Splunk Cloud Platform instances.",
+          "solution": "Upgrade Splunk Enterprise to versions 10.4.0, 10.2.4 and 10.0.7, or higher. Splunk Enterprise versions 9.4 and earlier are not affected.",
           "source": "splunk_advisory",
           "title": "SVD-2026-0603 | Splunk Vulnerability Disclosure",
           "url": "https://advisory.splunk.com/advisories/SVD-2026-0603"
@@ -761,12 +761,12 @@
           "cve_id": "CVE-2026-20253",
           "fix_version": "10.0.0.10",
           "fix_vnum": "10000000010",
-          "last_update": "2026-06-12",
+          "last_update": "2026-06-15",
           "product": "Splunk Enterprise",
           "product_kind": "enterprise",
           "published": "2026-06-10",
           "severity": "Critical",
-          "solution": "Upgrade Splunk Enterprise to versions 10.4.0, 10.2.4 and 10.0.7, or higher. Splunk is actively monitoring and patching Splunk Cloud Platform instances.",
+          "solution": "Upgrade Splunk Enterprise to versions 10.4.0, 10.2.4 and 10.0.7, or higher. Splunk Enterprise versions 9.4 and earlier are not affected.",
           "source": "splunk_advisory",
           "title": "SVD-2026-0603 | Splunk Vulnerability Disclosure",
           "url": "https://advisory.splunk.com/advisories/SVD-2026-0603"
@@ -16047,6 +16047,6 @@
       "url": "https://advisory.splunk.com/advisories/SVD-2022-0301"
     }
   ],
-  "generated_at_utc": "2026-06-15T08:35:03Z",
+  "generated_at_utc": "2026-06-16T08:32:02Z",
   "source": "https://advisory.splunk.com/"
 }
