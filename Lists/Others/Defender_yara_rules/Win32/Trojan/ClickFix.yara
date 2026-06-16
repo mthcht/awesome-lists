@@ -4932,13 +4932,15 @@ rule Trojan_Win32_ClickFix_ZZH_2147942983_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "3"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_1_1 = "[IO.File]::ReadAllBytes($" wide //weight: 1
         $x_1_2 = "ForEach-Object { $_.ToString" wide //weight: 1
         $x_1_3 = "-join" wide //weight: 1
+        $n_10_4 = {44 00 3a 00 5c 00 72 00 65 00 70 00 6f 00 73 00 5c 00 4d 00 6f 00 64 00 65 00 6c 00 54 00 65 00 73 00 74 00 5c 00 2e 00 63 00 6f 00 6d 00 70 00 61 00 6e 00 79 00 5c 00 73 00 65 00 63 00 72 00 65 00 74 00 61 00 72 00 79 00 5c 00 74 00 6f 00 64 00 6f 00 73 00 5c 00 [0-15] 2e 00 6d 00 64 00}  //weight: -10, accuracy: Low
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
