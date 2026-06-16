@@ -2773,6 +2773,30 @@ rule Trojan_MSIL_Stealer_EAET_2147935747_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_AMTB_2147938100_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer!AMTB"
+        threat_id = "2147938100"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DiscordRatC" ascii //weight: 1
+        $x_1_2 = "Discord.Net.Rest" ascii //weight: 1
+        $x_1_3 = "\\FILES\\All\\C#_RAT\\src\\obj\\Release\\net8.0\\win-x64\\DiscordRatC#.pdb" ascii //weight: 1
+        $x_1_4 = "Commands will only work in the victim channel." ascii //weight: 1
+        $x_1_5 = "Program+<CaptureWebcam>" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Stealer_WRT_2147939018_0
 {
     meta:

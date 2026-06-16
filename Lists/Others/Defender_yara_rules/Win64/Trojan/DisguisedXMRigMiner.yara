@@ -68,3 +68,27 @@ rule Trojan_Win64_DisguisedXMRigMiner_MX_2147942375_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_DisguisedXMRigMiner_NG_2147971673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DisguisedXMRigMiner.NG!MTB"
+        threat_id = "2147971673"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DisguisedXMRigMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {49 8d 40 01 48 89 ce 4c 89 c3 48 ba 2d 7f 95 4c 2d f4 51 58 4c 8d 69 20 48 8d a9 e0 c3 00 00 48 0f af c2 48 ba fc a1 f5 59 8a 97 0a 81 48 31 c2 48 89 44 24 20 48 89 54 24 28 48 ba 46 d8 c2 38 df 99 70 a7 48 31 c2 48 89 54 24 30}  //weight: 2, accuracy: High
+        $x_2_2 = {48 8b 03 48 31 44 24 20 48 8b 43 08 48 31 44 24 28 48 8b 43 10 48 31 44 24 30 48 8b 43 18 48 31 44 24 38 48 8b 43 20 48 31 44 24 40 48 8b 43 28 48 31 44 24 48 48 8b 43 30 48 31 44 24 50 48 8b 43 38 48 31 44 24 58 49 63 45 9c 48 8b 5c c4 20 4c 39 ed}  //weight: 2, accuracy: High
+        $x_1_3 = "xmrig" ascii //weight: 1
+        $x_1_4 = "wallet_address" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
