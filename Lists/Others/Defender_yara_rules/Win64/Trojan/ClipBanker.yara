@@ -1597,3 +1597,29 @@ rule Trojan_Win64_ClipBanker_SXB_2147968807_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_DK_2147971658_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.DK!MTB"
+        threat_id = "2147971658"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Clipboard listener active" ascii //weight: 1
+        $x_1_2 = "Replaced Bech32" ascii //weight: 1
+        $x_1_3 = "ClipWatcher" ascii //weight: 1
+        $x_1_4 = "Kill marker" ascii //weight: 1
+        $x_1_5 = "self-destructing" ascii //weight: 1
+        $x_1_6 = "Installing to hidden folder..." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
