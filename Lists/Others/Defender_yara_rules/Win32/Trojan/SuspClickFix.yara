@@ -998,8 +998,8 @@ rule Trojan_Win32_SuspClickFix_R6_2147969776_0
         strings_accuracy = "High"
     strings:
         $x_3_1 = {5c 00 53 00 79 00 73 00 74 00 65 00 6d 00 33 00 32 00 5c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 3, accuracy: High
-        $x_1_2 = "for /f " wide //weight: 1
-        $x_1_3 = " delims= " wide //weight: 1
+        $x_1_2 = "r /f " wide //weight: 1
+        $x_1_3 = " delims=" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -1144,7 +1144,7 @@ rule Trojan_Win32_SuspClickFix_Z5_2147971420_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = "cmd /v:on /" wide //weight: 5
-        $x_1_2 = {26 00 73 00 65 00 74 00 20 00 [0-2] 3d 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {26 00 73 00 65 00 74 00 20 00 2b 08 08 00 3d 00}  //weight: 1, accuracy: Low
         $x_1_3 = "=mshta" wide //weight: 1
         $x_1_4 = "=where" wide //weight: 1
         $x_1_5 = "=pushd" wide //weight: 1

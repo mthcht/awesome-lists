@@ -2750,3 +2750,25 @@ rule Trojan_Win64_Vidar_MDX_2147971647_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_SPR_2147971709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.SPR!MTB"
+        threat_id = "2147971709"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {43 8b 0c 9c 4c 01 d1 e8 ?? ?? ?? ?? c7 44 24 2c ?? ?? ?? ?? 33 44 24 2c 41 39 c5}  //weight: 2, accuracy: Low
+        $x_1_2 = {49 89 c2 41 89 c0 41 83 e2 0f 41 c1 e8 04 47 32 04 11 44 30 04 01 48 ff c0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

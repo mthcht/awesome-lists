@@ -457,6 +457,29 @@ rule Trojan_Win32_Virlock_NE_2147949075_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Virlock_NE_2147949075_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.NE!MTB"
+        threat_id = "2147949075"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 32 c2 90 88 07 90 42 90 e9}  //weight: 2, accuracy: High
+        $x_2_2 = {46 47 49 83 f9 00 0f 85}  //weight: 2, accuracy: High
+        $x_1_3 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Virlock_PAGD_2147953249_0
 {
     meta:
@@ -623,5 +646,51 @@ rule Trojan_Win32_Virlock_VOMX_2147967938_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_Win32_Virlock_NB_2147971691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.NB!MTB"
+        threat_id = "2147971691"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {32 c2 90 88 07 90 81 ea}  //weight: 2, accuracy: High
+        $x_2_2 = {89 07 90 8b f8 90 8b df}  //weight: 2, accuracy: High
+        $x_1_3 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Virlock_ND_2147971692_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Virlock.ND!MTB"
+        threat_id = "2147971692"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Virlock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 06 90 32 c2 90 e9}  //weight: 2, accuracy: High
+        $x_2_2 = {88 07 90 46 90 47 49 83 f9 00}  //weight: 2, accuracy: High
+        $x_1_3 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
