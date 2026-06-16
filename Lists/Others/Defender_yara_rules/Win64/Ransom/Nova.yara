@@ -77,3 +77,27 @@ rule Ransom_Win64_Nova_DA_2147970501_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Nova_A_2147971729_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Nova.A"
+        threat_id = "2147971729"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nova"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[SHADOW] Deleting all volume shadow copies..." ascii //weight: 1
+        $x_1_2 = "[EVENT LOGS] Deleting Windows event logs..." ascii //weight: 1
+        $x_1_3 = "[EDR KILL] Attempting to kill EDR/AV processes..." ascii //weight: 1
+        $x_1_4 = "[DELETE] Preserving key.txt for decryption reference" ascii //weight: 1
+        $x_1_5 = "Failed to create worker copy" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

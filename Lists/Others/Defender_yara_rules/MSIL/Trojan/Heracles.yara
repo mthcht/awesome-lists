@@ -10766,3 +10766,26 @@ rule Trojan_MSIL_Heracles_PB_2147971581_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_WS_2147971723_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.WS!MTB"
+        threat_id = "2147971723"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Rikboango.dll" ascii //weight: 1
+        $x_1_2 = "Altium design files and highlights clearance violations using strict geometric rule check" ascii //weight: 1
+        $x_1_3 = "Rikina 2026" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

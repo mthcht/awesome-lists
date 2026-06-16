@@ -201,3 +201,24 @@ rule Trojan_MSIL_InjectorNetT_ATUB_2147969121_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_InjectorNetT_ARWB_2147971722_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/InjectorNetT.ARWB!MTB"
+        threat_id = "2147971722"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "InjectorNetT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 08 02 08 91 20 ?? 00 00 00 61 b4 9c 07 17 d6 0b 07 1d d8 0c 00 08 02 8e 69 fe 04 13 04 11 04 2d de}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
