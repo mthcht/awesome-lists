@@ -557,3 +557,25 @@ rule Trojan_MSIL_KeyLogger_LRH_2147971432_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KeyLogger_SXA_2147971731_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.SXA!MTB"
+        threat_id = "2147971731"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {28 22 00 00 0a 0b 07 7e ?? 00 00 04 28 1f 00 00 0a 0c 08 2c 43 00 07 80 06 00 00 04 7e 02 00 00 04 72 ?? 00 00 70 28 13 00 00 0a 8c 14 00 00 01 07 28 23 00 00 0a 28 24 00 00 0a}  //weight: 30, accuracy: Low
+        $x_10_2 = {28 12 00 00 0a 72 ?? 00 00 70 28 13 00 00 0a 0d 12 03 28 14 00 00 0a 28 15 00 00 0a 28 16 00 00 0a 00 14 fe ?? ?? 00 00 06 73 17 00 00 0a 73 18 00 00 0a 0a}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
