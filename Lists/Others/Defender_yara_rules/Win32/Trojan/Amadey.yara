@@ -4800,3 +4800,28 @@ rule Trojan_Win32_Amadey_PGAE_2147966570_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_DC_2147971766_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.DC!MTB"
+        threat_id = "2147971766"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "TPZ9NbOWGIs2FE==" ascii //weight: 1
+        $x_1_2 = "1S9WcVLV31XvEqY2ST==" ascii //weight: 1
+        $x_1_3 = "ZW9xWx8uMpNeM0oh6p6x36S42H8i5rOviZN4RVPr5rNw7J2j6qKn36YgZpPnM72j4M==" ascii //weight: 1
+        $x_1_4 = "ZZR9dfLU5F==" ascii //weight: 1
+        $x_1_5 = "ORVKSNDJMp1ILYADCT==" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6706,3 +6706,25 @@ rule Trojan_Win64_Tedy_GVX_2147971674_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_MKR_2147971768_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MKR!MTB"
+        threat_id = "2147971768"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 44 24 20 01 00 00 00 41 b9 40 00 00 00 41 b8 12 00 00 00 48 8d 95 10 05 00 00 48 8d 4d e0}  //weight: 20, accuracy: High
+        $x_15_2 = "\\sss.bat\" start \"\" \"" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
