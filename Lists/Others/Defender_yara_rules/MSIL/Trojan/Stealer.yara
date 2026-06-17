@@ -3700,3 +3700,27 @@ rule Trojan_MSIL_Stealer_KK_2147970613_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_D_2147971773_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.D!AMTB"
+        threat_id = "2147971773"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Workstation locked." ascii //weight: 1
+        $x_1_2 = "DiscordPcControl.pdb" ascii //weight: 1
+        $x_1_3 = "Created Victims category." ascii //weight: 1
+        $x_1_4 = "Trigger a Blue Screen of Death on the PC" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

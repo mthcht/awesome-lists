@@ -169,3 +169,27 @@ rule Trojan_MSIL_InfoStealer_NITB_2147943275_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_InfoStealer_AMTB_2147971772_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/InfoStealer!AMTB"
+        threat_id = "2147971772"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "InfoStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "StealDesktopFiles" ascii //weight: 1
+        $x_1_2 = "Infostealer.Program+<CollectSystemInfo>" ascii //weight: 1
+        $x_1_3 = "Stealer executed successfully." ascii //weight: 1
+        $x_1_4 = "Infostealer payload attached." ascii //weight: 1
+        $x_1_5 = "StealChromePasswords" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

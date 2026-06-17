@@ -14959,3 +14959,31 @@ rule Trojan_MSIL_Remcos_AMSN_2147971620_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_RVJ_2147971799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.RVJ!MTB"
+        threat_id = "2147971799"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {57 9f b6 2b 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 ?? 00 00 00 34 00 00 00 bf 00 00 00 06 01 00 00 c3 00 00 00 1e 00 00 00 ?? 00 00 00 13 00 00 00 ?? 00 00 00 01 00 00 00 3b 00 00 00 04 00 00 00 0b 00 00 00 15 00 00 00 35 00 00 00 5b 00 00 00 27 00 00 00 1b 00 00 00 02 00 00 00 01 00 00 00 06 00 00 00 01 00 00 00 14 00 00 00 12}  //weight: 5, accuracy: Low
+        $x_5_2 = {57 1d a2 09 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 75 00 00 00 10 00 00 00 92 00 00 00 a4 00 00 00 85 00 00 00 fd 00 00 00 0d 00 00 00 af 00 00 00 26 00 00 00 08 00 00 00 31 00 00 00 59 00 00 00 14 00 00 00 01 00 00 00 05 00 00 00 01 00 00 00 02}  //weight: 5, accuracy: High
+        $x_2_3 = "get_King" ascii //weight: 2
+        $x_1_4 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

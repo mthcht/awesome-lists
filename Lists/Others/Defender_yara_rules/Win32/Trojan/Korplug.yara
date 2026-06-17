@@ -219,3 +219,24 @@ rule Trojan_Win32_Korplug_SL_2147970848_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Korplug_AKP_2147971779_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Korplug.AKP!MTB"
+        threat_id = "2147971779"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Korplug"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 a8 f3 0f 7e 45 98 f3 0f 7e 4d a0 89 45 ec 66 0f d6 45 dc 66 0f d6 4d e4 8b 45 dc 8b 55 e0 8d 3c 10 6a 1c 59 be 9e 3d 08 10 8b 5d 08 f3 a4 8b 75 0c 8d 4a 1d 89 4d e0 c6 44 10 1c 22}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
