@@ -14726,3 +14726,57 @@ rule Trojan_Win32_ClickFix_UNZ_2147971639_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_MUA_2147971743_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MUA!MTB"
+        threat_id = "2147971743"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "/min for /f" wide //weight: 5
+        $x_5_2 = "in ('f" wide //weight: 5
+        $x_5_3 = "do %" wide //weight: 5
+        $x_1_4 = "/c \"s" wide //weight: 1
+        $x_1_5 = "/c s" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_MUC_2147971744_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MUC!MTB"
+        threat_id = "2147971744"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".exe -c" wide //weight: 1
+        $x_1_2 = "import ssl" wide //weight: 1
+        $x_1_3 = "import urllib.request" wide //weight: 1
+        $x_1_4 = "urllib.request.urlopen('http" wide //weight: 1
+        $x_1_5 = "time.sleep(" wide //weight: 1
+        $x_1_6 = "exec(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
