@@ -66,3 +66,25 @@ rule Trojan_Win64_DBadur_SXD_2147952150_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DBadur_GMF_2147971873_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DBadur.GMF!MTB"
+        threat_id = "2147971873"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DBadur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {80 c1 0b 32 c8 88 4d 00 80 fa 5c}  //weight: 10, accuracy: High
+        $x_1_2 = "netblokirovka.asia" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

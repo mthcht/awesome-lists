@@ -3430,3 +3430,24 @@ rule Trojan_Win64_ShellcodeRunner_AZSR_2147971025_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_ARAX_2147971865_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.ARAX!MTB"
+        threat_id = "2147971865"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8d 44 24 78 45 31 c9 45 31 c0 31 d2 48 89 44 24 28 48 8b 4c 24 48 48 89 ?? 24 20 ff 15}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
