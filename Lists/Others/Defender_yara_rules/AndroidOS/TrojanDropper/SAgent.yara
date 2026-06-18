@@ -256,3 +256,25 @@ rule TrojanDropper_AndroidOS_SAgent_KB_2147838525_0
         (all of ($x*))
 }
 
+rule TrojanDropper_AndroidOS_SAgent_AMTB_2147971910_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:AndroidOS/SAgent!AMTB"
+        threat_id = "2147971910"
+        type = "TrojanDropper"
+        platform = "AndroidOS: Android operating system"
+        family = "SAgent"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {54 70 6a 00 1f 00 53 2a 6e 10 c1 4c 00 00 0c 00 1f 00 15 0d 54 71 69 00 72 10 b6 47 01 00 0c 01 1f 01 e6 3d}  //weight: 2, accuracy: High
+        $x_2_2 = {54 70 69 00 72 10 b6 47 00 00 0c 00 1f 00 5d 2b 54 71 6a 00 72 10 b6 47 01 00 0c 01 1f 01 1e 42 54 72 6b 00 1f 02 01 25 6e 10 25 45 02 00 0c 02 1f 02 d6 35}  //weight: 2, accuracy: High
+        $x_2_3 = {54 70 69 00 1f 00 43 02 6e 10 7b 03 00 00 0c 00 1f 00 67 04 54 71 6a 00 1f 01 44 02 6e 10 7c 03 01 00 0c 01 1f 01 6b 0c 54 72 6b 00 1f 02 45 02}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

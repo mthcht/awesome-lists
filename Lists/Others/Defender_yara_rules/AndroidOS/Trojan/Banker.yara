@@ -1195,3 +1195,51 @@ rule Trojan_AndroidOS_Banker_AU_2147971275_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Banker_RA_2147971724_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker.RA!AMTB"
+        threat_id = "2147971724"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {72 10 fa 29 06 00 0a 01 38 01 3a 00 72 10 fb 29 06 00 0c 01 1f 01 8b 11}  //weight: 3, accuracy: High
+        $x_3_2 = {22 02 22 12 70 10 5e 2b 02 00 72 10 2c 2a 01 00 0c 03 1f 03 6d 02 72 10 2d 2a 01 00 0c 01 1f 01 90 11 6e 10 44 2a 01 00 0c 01}  //weight: 3, accuracy: High
+        $x_3_3 = {72 10 fa 29 01 00 0a 04 38 04 11 00 72 10 fb 29 01 00 0c 04 1f 04 6a 02 12 15 6e 30 d9 06 54 05 0c 04 6e 20 6f 2b 42 00 28 ec}  //weight: 3, accuracy: High
+        $x_3_4 = {6e 10 48 28 03 00 0c 01 6e 30 91 2b 10 02 28 c3}  //weight: 3, accuracy: High
+        $x_3_5 = {54 21 95 02 6e 20 e5 29 31 00 0c 03 1f 03 71 02 38 03 05 00 6e 20 ec 06 43 00 1e 00}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_AndroidOS_Banker_RD_2147971911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker.RD!AMTB"
+        threat_id = "2147971911"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {71 20 e0 67 03 00 1a 00 77 6c 71 20 e0 67 09 00 1a 00 79 6c 71 20 e0 67 0a 00 1a 00 71 6c 71 20 e0 67 0b 00 70 10 e9 63 01 00 5c 12 7a 05}  //weight: 2, accuracy: High
+        $x_2_2 = {54 41 7c 05 54 53 7c 05 71 20 dc 67 31 00 0a 01 39 01 03 00 0f 02 54 41 7d 05}  //weight: 2, accuracy: High
+        $x_2_3 = {6e 10 06 64 03 00 0a 03 b0 30 b2 10 54 43 7e 05 39 03 04 00 01 23 28 05}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

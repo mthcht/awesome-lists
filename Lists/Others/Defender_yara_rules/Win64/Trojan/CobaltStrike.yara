@@ -19480,3 +19480,47 @@ rule Trojan_Win64_CobaltStrike_BIT_2147971823_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_GVVA_2147971901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GVVA!MTB"
+        threat_id = "2147971901"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 8d 4e 30 45 33 c0 ba a0 0f 00 00 e8 c3 a8 00 00 48 8b 05 08 d9 02 00 4c 8d 05 f9 dc 02 00 48 8b d5 48 c1 fa 06 4c 89 34 03 48 8b c5 83 e0 3f 48 8d 0c c0 49 8b 04 d0 48 8b 4c c8 28 48 83 c1 02 48 83 f9 02 77 06 c7 06 fe ff ff ff 48 ff c5 49 83 c6 58 48 83 c3 08 48 83 c6 58 48 83 ef 01 75 9e}  //weight: 1, accuracy: High
+        $x_1_2 = "\\zuowen.png" ascii //weight: 1
+        $x_1_3 = "Hybrid chunk payload incomplete." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_PAD_2147971906_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.PAD!MTB"
+        threat_id = "2147971906"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 44 24 0c 44 89 cf 41 83 c1 01 83 e8 08 89 44 24 0c 8b 44 24 08 8b 4c 24 0c d3 e8 8b 4c 24 0c 88 04 3b b8 ff ff ff ff 8b 7c 24 08 d3 e0 f7 d0 21 f8 89 44 24 08 41 8d 04 12 3d 18 ad 10 00 0f 95 c1 41 81 f9 d2 91 0c 00 0f 95 c0 48 83 c2 01}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

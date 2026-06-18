@@ -194,3 +194,24 @@ rule Trojan_Win64_XLoader_AHC_2147961920_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XLoader_MCX_2147971897_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XLoader.MCX!MTB"
+        threat_id = "2147971897"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 05 b1 4a 1e 00 48 8d 0d 9a 4a 1e 00 83 79 08 01 75 01 c3 48 8b d0 e9 53 cd 0d 00 48 8d 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
