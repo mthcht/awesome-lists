@@ -14780,3 +14780,79 @@ rule Trojan_Win32_ClickFix_MUC_2147971744_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_VNZ_2147971832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.VNZ!MTB"
+        threat_id = "2147971832"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "schtasks" wide //weight: 1
+        $x_1_2 = "/create" wide //weight: 1
+        $x_1_3 = "powershell" wide //weight: 1
+        $x_1_4 = ".AddScript($" wide //weight: 1
+        $x_1_5 = ".Invoke()" wide //weight: 1
+        $x_1_6 = "/sc minute" wide //weight: 1
+        $x_1_7 = "Enter" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_WNZ_2147971833_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.WNZ!MTB"
+        threat_id = "2147971833"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "c*u*r*l" wide //weight: 1
+        $x_1_2 = "h^t^t^p^s^" wide //weight: 1
+        $x_1_3 = "Hidden" wide //weight: 1
+        $x_1_4 = "&for /f" wide //weight: 1
+        $x_1_5 = "^v^e^r^i^f^" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_XNZ_2147971834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.XNZ!MTB"
+        threat_id = "2147971834"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "s^t^a^r^t" wide //weight: 1
+        $x_1_2 = "f^o^r" wide //weight: 1
+        $x_1_3 = "^^f^^i^^n^^g^^e^^r^^" wide //weight: 1
+        $x_1_4 = ".com" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

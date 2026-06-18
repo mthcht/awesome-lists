@@ -76,3 +76,24 @@ rule Trojan_Win32_MustangPanda_AMP_2147971331_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_MustangPanda_PA_2147971841_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/MustangPanda.PA!MTB"
+        threat_id = "2147971841"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "MustangPanda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {a1 00 20 01 10 03 c2 a3 00 20 01 10 30 04 29 41 3b ?? 72}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

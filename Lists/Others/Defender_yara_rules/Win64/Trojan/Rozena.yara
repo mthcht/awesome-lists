@@ -2207,3 +2207,24 @@ rule Trojan_Win64_Rozena_AHA_2147971381_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_SRT_2147971831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SRT!MTB"
+        threat_id = "2147971831"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {43 0f b6 5c 18 03 48 89 c7 48 c1 ef 11 48 31 c7 c4 e3 fb f0 c7 0d 48 89 c7 48 c1 e7 07 48 31 c7 40 30 fb 42 88 5c 1d 83 49 83 c3 04 4c 39 de}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

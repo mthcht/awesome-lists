@@ -681,3 +681,27 @@ rule Trojan_Win32_Jaik_MKA_2147966892_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_YSD_2147971829_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.YSD!MTB"
+        threat_id = "2147971829"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\Users\\Win7\\Desktop\\Unique Joys Engine Generator\\Compiled\\Core.pas" ascii //weight: 1
+        $x_1_2 = "Scratchpad synch problem" ascii //weight: 1
+        $x_1_3 = {8b 00 8a 48 01 8d 74 08 0f 8b 7c 08 07 31 c0 8a 0e 3b 4a fc 75 13 8a 5c 11 ff 32 1c 31 f6 c3 df 75 05 49 75 f1 eb 0e 8a 0e}  //weight: 1, accuracy: High
+        $x_1_4 = {8b ec 51 e8 6b 94 ff ff 66 89 45 fe 8a 45 fe 32 45 ff 24}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
