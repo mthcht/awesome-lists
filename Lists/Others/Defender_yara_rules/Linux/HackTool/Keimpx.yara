@@ -115,30 +115,3 @@ rule HackTool_Linux_Keimpx_DD_2147766359_0
         (all of ($x*))
 }
 
-rule HackTool_Linux_Keimpx_A_2147768608_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Linux/Keimpx.gen!A!!Keimpx.gen!A"
-        threat_id = "2147768608"
-        type = "HackTool"
-        platform = "Linux: Linux platform"
-        family = "Keimpx"
-        severity = "High"
-        info = "gen: malware that is detected using a generic signature"
-        info = "Keimpx: an internal category used to refer to some threats"
-        info = "gen: malware that is detected using a generic signature"
-        info = "A: an internal category used to refer to some threats"
-        signature_type = "SIGNATURE_TYPE_ARHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Launching interactive SMB shell" ascii //weight: 1
-        $x_1_2 = "keimpx" ascii //weight: 1
-        $x_1_3 = "bindshell [port]" ascii //weight: 1
-        $x_1_4 = "svcshell [mode]" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

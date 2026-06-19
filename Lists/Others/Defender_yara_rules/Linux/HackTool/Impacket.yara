@@ -71,31 +71,3 @@ rule HackTool_Linux_Impacket_C_2147765342_0
         )
 }
 
-rule HackTool_Linux_Impacket_A_2147767697_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Linux/Impacket.gen!A!!Impacket.gen!A"
-        threat_id = "2147767697"
-        type = "HackTool"
-        platform = "Linux: Linux platform"
-        family = "Impacket"
-        severity = "High"
-        info = "gen: malware that is detected using a generic signature"
-        info = "Impacket: an internal category used to refer to some threats"
-        info = "gen: malware that is detected using a generic signature"
-        info = "A: an internal category used to refer to some threats"
-        signature_type = "SIGNATURE_TYPE_ARHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "impacket.dcerpc.v5" ascii //weight: 1
-        $x_1_2 = "impacket.smb" ascii //weight: 1
-        $x_1_3 = "impacket.krb5" ascii //weight: 1
-        $x_1_4 = "impacket.version" ascii //weight: 1
-        $x_1_5 = "cme.conf" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (4 of ($x*))
-}
-
