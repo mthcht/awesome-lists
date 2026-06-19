@@ -345,3 +345,25 @@ rule Trojan_Win32_Rugmi_HAC_2147968443_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rugmi_ARG_2147971944_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rugmi.ARG!MTB"
+        threat_id = "2147971944"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rugmi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b c7 33 d2 f7 74 24 30 8b cd 03 fe c1 c9 19 8b 44 94 38 2b c3 81 c3 47 86 c8 61 03 c8 33 e9 c1 cd 1d}  //weight: 2, accuracy: High
+        $x_1_2 = {8b c6 c1 e0 0d 33 f0 8b c6 c1 e8 11 33 f0 8b c6 c1 e0 05 33 f0 8b c6 2b c2 81 c2 4f 86 c8 61 89 44 8c 38 41}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
