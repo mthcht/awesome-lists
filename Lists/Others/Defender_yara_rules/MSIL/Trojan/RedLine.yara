@@ -4255,3 +4255,24 @@ rule Trojan_MSIL_RedLine_ACG_2147943735_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RedLine_STES_2147971972_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedLine.STES!MTB"
+        threat_id = "2147971972"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedLine"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {06 02 07 1f ?? 5a 58 61 0a 07 17 58 0b 07 1c 32 ef}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
