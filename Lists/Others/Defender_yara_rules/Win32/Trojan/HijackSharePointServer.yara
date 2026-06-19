@@ -28,6 +28,7 @@ rule Trojan_Win32_HijackSharePointServer_A_2147776953_0
         $n_50_14 = "sharedocs system" wide //weight: -50
         $n_50_15 = "tfsbugreporter.exe" wide //weight: -50
         $n_50_16 = "altigen communications, inc" wide //weight: -50
+        $n_50_17 = "https://vault.azure.net" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

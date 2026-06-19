@@ -1,14 +1,14 @@
-rule Virus_W97M_Slacker_B_2147971375_0
+rule Virus_W97M_Slacker_A_2147971933_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Virus:W97M/Slacker.gen!B"
-        threat_id = "2147971375"
+        detection_name = "Virus:W97M/Slacker.A!MTB"
+        threat_id = "2147971933"
         type = "Virus"
         platform = "W97M: Word 97, 2000, XP, 2003, 2007, and 2010 macros"
         family = "Slacker"
         severity = "Critical"
-        info = "gen: malware that is detected using a generic signature"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"

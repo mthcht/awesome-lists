@@ -9604,3 +9604,37 @@ rule Trojan_Win32_Zusy_LRF_2147971004_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_YSL_2147971913_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.YSL!MTB"
+        threat_id = "2147971913"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[CHROME] Firefox prefs.js patched: crash recovery disable" ascii //weight: 1
+        $x_1_2 = "Device Management Sync Servic" wide //weight: 1
+        $x_1_3 = "Global\\WinSvcHostMonitor" wide //weight: 1
+        $x_1_4 = "hidden before paint" ascii //weight: 1
+        $x_1_5 = "-new-instance -no-remote -url" wide //weight: 1
+        $x_1_6 = "[CHROME] Ghost cloaked and ready." ascii //weight: 1
+        $x_1_7 = "--disable-infobars" wide //weight: 1
+        $x_1_8 = "--hide-crash-restore-bubble" wide //weight: 1
+        $x_1_9 = "--disable-backgrounding-occluded-windows" wide //weight: 1
+        $x_1_10 = "--disable-renderer-backgrounding " wide //weight: 1
+        $x_1_11 = "--disable-occlusion-tracking " wide //weight: 1
+        $x_1_12 = "--mute-audio" wide //weight: 1
+        $x_1_13 = "browser.sessionstore.resume_from_crash" ascii //weight: 1
+        $x_1_14 = "ssclean_%u.bat" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

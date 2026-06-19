@@ -871,6 +871,35 @@ rule Trojan_AndroidOS_Banker_Y_2147931657_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Banker_AMTB_2147934724_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker!AMTB"
+        threat_id = "2147934724"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "mysecretkey123456" ascii //weight: 2
+        $x_2_2 = "vge.encypted" ascii //weight: 2
+        $x_2_3 = {0d 73 65 74 41 63 63 65 73 73 69 62 6c 65 00 13 73 75 70 70 72 65 73 73 65 64 45 78 63 65 70 74 69 6f 6e 00 08 74 6f 53 74 72 69 6e 67 00 05 76 61 6c 75 65 00}  //weight: 2, accuracy: High
+        $x_3_4 = {07 6d 65 74 61 4b 65 79 00 11 6d 79 73 65 63 72 65 74 6b 65 79 31 32 33 34 35 36 00 0b 6e 65 77 45 6c 65 6d 65 6e 74 73 00}  //weight: 3, accuracy: High
+        $x_3_5 = {69 76 00 06 69 76 53 70 65 63 00 03 6b 65 79 00 07 6b 65 79 53 70 65 63 00 0f 6c 6f 61 64 41 70 70 6c 69 63 61 74 69 6f 6e 00}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*))) or
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_AndroidOS_Banker_Z_2147935637_0
 {
     meta:
@@ -1238,6 +1267,51 @@ rule Trojan_AndroidOS_Banker_RD_2147971911_0
         $x_2_1 = {71 20 e0 67 03 00 1a 00 77 6c 71 20 e0 67 09 00 1a 00 79 6c 71 20 e0 67 0a 00 1a 00 71 6c 71 20 e0 67 0b 00 70 10 e9 63 01 00 5c 12 7a 05}  //weight: 2, accuracy: High
         $x_2_2 = {54 41 7c 05 54 53 7c 05 71 20 dc 67 31 00 0a 01 39 01 03 00 0f 02 54 41 7d 05}  //weight: 2, accuracy: High
         $x_2_3 = {6e 10 06 64 03 00 0a 03 b0 30 b2 10 54 43 7e 05 39 03 04 00 01 23 28 05}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_AndroidOS_Banker_RB_2147971923_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker.RB!AMTB"
+        threat_id = "2147971923"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {70 10 9b 2b 0b 00 22 0c 4a 03 71 00 48 0a 00 00 0c 01 6e 10 4b 0a 01 00 0c 01 70 20 88 0c 1c 00 6e 20 9d 2b cb 00 71 00 10 21 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = {28 06 22 02 5c 07 70 30 48 28 32 0a 07 2d}  //weight: 2, accuracy: High
+        $x_2_3 = {0c 04 6e 20 fa 48 43 00 6e 20 fa 48 23 00 6e 10 ee 0a 01 00 0c 04 6e 20 fa 48 43 00 6e 20 fa 48 23 00}  //weight: 2, accuracy: High
+        $x_2_4 = {6e 10 a8 0c 02 00 0c 04 6e 20 42 0b 43 00 6e 10 d0 0a 02 00 0a 04 6e 20 40 0b 43 00 6e 10 d1 0a 02 00 0a 02 6e 20 43 0b 23 00 6e 20 45 0b 03 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_AndroidOS_Banker_K_2147971927_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker.K!AMTB"
+        threat_id = "2147971927"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b7 20 14 02 89 9d 00 d5 b2 20 54 32 9e 04 6e 10 8f a2 02 00 0a 02 b7 20 b2 10 54 31 9f 04 6e 10 8f a2 01 00 0a 01 b7 10}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

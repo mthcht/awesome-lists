@@ -830,3 +830,24 @@ rule Trojan_Win64_Dacic_AHD_2147967321_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_YBG_2147971934_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.YBG!MTB"
+        threat_id = "2147971934"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {c1 e1 0d 33 c8 8b d1 c1 ea 11 33 d1 8b c2 c1 e0 05 33 c2 8b c8 c1 e9 08 32 c8 41 30 09 49 ff c1 49 83 ea 01 75 d8}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
