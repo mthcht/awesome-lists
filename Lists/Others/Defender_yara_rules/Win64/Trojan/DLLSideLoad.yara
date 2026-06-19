@@ -90,3 +90,45 @@ rule Trojan_Win64_DLLSideLoad_SS_2147971956_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLSideLoad_C_2147971993_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.C!MTB"
+        threat_id = "2147971993"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {46 0f b6 14 00 45 31 ca 41 31 c2 45 88 14 00 48 ff c0 48 39 c2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLSideLoad_CA_2147971994_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.CA!MTB"
+        threat_id = "2147971994"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {44 0f b6 04 30 41 31 f8 41 31 c0 44 88 04 06 48 ff c0 48 39 c2 7f e9}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
