@@ -242,3 +242,24 @@ rule Trojan_Win64_VidarStealer_RHB_2147961251_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_VidarStealer_Z_2147971942_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VidarStealer.Z!MTB"
+        threat_id = "2147971942"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 89 df 48 29 f3 49 89 f0 48 29 ce 48 c1 fe 3f 4c 21 c6 48 83 fb 03 0f 86 cc 02 00 00 8b 1c 30 81 fb 50 45 00 00 0f 85 eb 01 00 00 83 c2 04 48 63 d2 48 39 d7 0f 86 a3 02 00 00 48 8d 5a 16 48 39 df 0f 8c c7 01 00 00 48 8d 5a 14 66 90 48 39 df 0f 82 7c 02 00 00 48 29 d1 48 89 fe 48 29 d7 48 83 c7 ec 4c 8d 41 ec 49 f7 d8 49 c1 f8 3f 49 21 d8 48 83 ff 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
