@@ -68,3 +68,25 @@ rule Trojan_Win64_DLLSideLoad_GVB_2147971943_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLSideLoad_SS_2147971956_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.SS!MTB"
+        threat_id = "2147971956"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 8d ec ca ff ff 81 f1 2e 13 00 00 8b 95 [0-4] 33 d1 89 95 [0-4] c6 85 6c d4 ff ff c9 c6 85 6d d4 ff ff 4d c6 85 6e d4 ff ff 91 c6 85 6f d4 ff ff b2 c6 85 70 d4 ff ff f8 c6 85 71 d4 ff ff a8 c6 85 72 d4 ff ff 53}  //weight: 1, accuracy: Low
+        $x_1_2 = {8b 8d 00 f3 ff ff 33 c8 89 8d 00 f3 ff ff 8b 95 00 f3 ff ff 83 e2 01 89 95 00 f3 ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

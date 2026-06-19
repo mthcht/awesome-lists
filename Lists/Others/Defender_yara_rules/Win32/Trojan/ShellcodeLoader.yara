@@ -111,3 +111,31 @@ rule Trojan_Win32_ShellcodeLoader_ABSL_2147970741_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeLoader_ASLT_2147971960_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeLoader.ASLT!MTB"
+        threat_id = "2147971960"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {68 00 74 74 70 00 3a 00 2f 00 2f 00 70 00 61 00 6e 00 2e 00 61 00 69 00 6c 00 65 00 6b 00 2e 00 63 00 6e 00 2f 00 64 00 6f 00 77 00 6e 00 2e 00 70 00 68 00 70 00 2f 00 [0-42] 2e 00 62 00 69 00 6e 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {68 74 74 70 3a 2f 2f 70 61 6e 2e 61 69 6c 65 6b 2e 63 6e 2f 64 6f 77 6e 2e 70 68 70 2f [0-42] 2e 62 69 6e}  //weight: 3, accuracy: Low
+        $x_1_3 = "C:\\windowsupdate.exe" ascii //weight: 1
+        $x_1_4 = "shellcode_loader" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

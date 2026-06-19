@@ -638,3 +638,25 @@ rule Trojan_MSIL_PureCrypter_GXM_2147971900_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_PureCrypter_DDM_2147971957_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.DDM!MTB"
+        threat_id = "2147971957"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0c 16 0d 17 13 06 2b a6 07 09 20 ff 00 00 00 02 08 91 da 1f 62 61 b4 9c 1f 09 13 06 2b 90 08 17 da 0c 09 17 d6}  //weight: 5, accuracy: High
+        $x_5_2 = {11 04 1e 5d 16 fe 01 13 05 11 05 2c 08 1e 13 07 38 5d ff ff ff 19 2b f6 07 11 04 02 11 04 91 1f 7e 61 b4 9c 00 1f 09 13 07 38 44 ff ff ff}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

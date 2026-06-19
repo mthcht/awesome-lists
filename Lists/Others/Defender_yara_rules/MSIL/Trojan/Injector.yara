@@ -2239,3 +2239,28 @@ rule Trojan_MSIL_Injector_SXH_2147971006_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_SXI_2147971966_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.SXI!MTB"
+        threat_id = "2147971966"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "PSFNInjector" ascii //weight: 30
+        $x_5_2 = "FAIL: OpenProcess error" ascii //weight: 5
+        $x_5_3 = "FAIL: VirtualAllocEx error" ascii //weight: 5
+        $x_5_4 = "FAIL: WriteProcessMemory error" ascii //weight: 5
+        $x_5_5 = "FAIL: CreateRemoteThread error" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2028,3 +2028,28 @@ rule Ransom_Win64_Filecoder_YBG_2147971084_0
         )
 }
 
+rule Ransom_Win64_Filecoder_PGBG_2147971959_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PGBG!MTB"
+        threat_id = "2147971959"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "BlackOut ransomware has encrypted your files" ascii //weight: 2
+        $x_2_2 = ".blackout" ascii //weight: 2
+        $x_2_3 = "Download and install TOX messenger" ascii //weight: 2
+        $x_2_4 = "Add our TOX ID" ascii //weight: 2
+        $x_2_5 = "Do NOT rename or modify encrypted files" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
