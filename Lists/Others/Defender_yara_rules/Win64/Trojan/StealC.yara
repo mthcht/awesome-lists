@@ -979,3 +979,25 @@ rule Trojan_Win64_StealC_MKA_2147969832_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_StealC_DA_2147969949_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.DA!MTB"
+        threat_id = "2147969949"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {31 77 34 4f 81 b7 44 ff 77 79 52 2b 6c e9 cb 1f 97 16 af 43 91 40 28 97 c7 c6 97 67 8b 20 f5 1b 5f 29 92 49 b5 f4 3a 9b b6 49 48 38 41 50 50 42 00 00 00 00 92 67 7b 8f 4d 78 47 40 84 5d 17 82 ef be f2 05 e0 60 88 70 41 f6 11 46 88 95 7d 86 7d d3 67 5b af 31 6b 57 69 63 6b 4b 85 60 e4 b2 03 a9 7a 8b cf be 3a 46 0d 41 7f 40 8a f5 0d f3 5a 00 5c c8 8b 20 f5 1b 5f 29 92 49 b5 f4 3a 9b b6 49 48 38 1e 86 96 f3 8e 0c 71 4c 82 56 2f ae 6d 75 9c e9 25 30 38 6c 58 2d 25 30 34 68 58 2d 25 30 34 68}  //weight: 1, accuracy: High
+        $x_1_2 = {2a f6 7f e5 6e 97 11 b6 6e 97 11 b6 6e 97 11 b6 17 16 14 b7 fe 97 11 b6 17 16 15 b7 62 97 11 b6 17 16 12 b7 66 97 11 b6 e9 1e 12 b7 67 97 11 b6 e9 1e 15 b7 7f 97 11 b6 e9 1e 14 b7 43 97 11 b6 17 16 10 b7 69 97 11 b6 6e 97 10 b6 07 97 11 b6 f8 1e 18 b7 6a 97 11 b6 f8 1e 13 b7 6f 97 11 b6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

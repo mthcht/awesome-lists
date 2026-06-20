@@ -370,3 +370,30 @@ rule Trojan_Win32_SuspExec_HG_2147961030_0
         )
 }
 
+rule Trojan_Win32_SuspExec_SVA_2147972035_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SuspExec.SVA"
+        threat_id = "2147972035"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspExec"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {63 00 6d 00 64 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
+        $x_10_3 = "teams.webtalk.work/api" wide //weight: 10
+        $x_10_4 = "hellolargeworld.com" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -3196,3 +3196,30 @@ rule Trojan_MSIL_LummaStealer_AMTB_2147966960_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LummaStealer_AVN_2147972046_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.AVN!MTB"
+        threat_id = "2147972046"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Lumma" ascii //weight: 5
+        $x_5_2 = "TelegramStealer" ascii //weight: 5
+        $x_5_3 = "ClipboardHijack" ascii //weight: 5
+        $x_5_4 = "BrowserVault" ascii //weight: 5
+        $x_5_5 = "chrome_inject" ascii //weight: 5
+        $x_5_6 = "sysclean.bat" ascii //weight: 5
+        $x_5_7 = "keylog" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

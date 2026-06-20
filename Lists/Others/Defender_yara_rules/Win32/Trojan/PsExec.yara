@@ -46,3 +46,25 @@ rule Trojan_Win32_PsExec_DB_2147969143_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_PsExec_DG_2147972036_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PsExec.DG!MTB"
+        threat_id = "2147972036"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PsExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "teams.webtalk.work/api/update/8555575039/4|iex" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
