@@ -201,7 +201,6 @@ ip,port,metadata_comment
 109.173.161.202,4444,Possible Metasploit C2 IP
 109.236.50.48,443,Possible Cobaltstrike C2 IP
 109.244.130.113,443,Possible Cobaltstrike C2 IP
-110.40.137.221,30003,Possible Cobaltstrike C2 IP
 110.40.176.194,8099,Possible Cobaltstrike C2 IP
 110.40.198.62,5555,Possible Cobaltstrike C2 IP
 110.40.198.62,80,Possible Cobaltstrike C2 IP
@@ -312,6 +311,7 @@ ip,port,metadata_comment
 117.50.190.56,443,Possible Cobaltstrike C2 IP
 117.72.102.110,7788,Possible Cobaltstrike C2 IP
 117.72.13.112,443,Possible Cobaltstrike C2 IP
+117.72.159.215,443,Possible Cobaltstrike C2 IP
 117.72.159.215,8080,Possible Cobaltstrike C2 IP
 117.72.168.103,16337,Possible Cobaltstrike C2 IP
 117.72.168.103,50011,Possible Cobaltstrike C2 IP
@@ -562,7 +562,6 @@ ip,port,metadata_comment
 139.224.67.220,80,Possible Cobaltstrike C2 IP
 139.5.108.17,443,Possible Cobaltstrike C2 IP
 14.103.150.186,8081,Possible Cobaltstrike C2 IP
-14.103.158.185,443,Possible Cobaltstrike C2 IP
 14.103.175.50,6666,Possible Cobaltstrike C2 IP
 14.225.1.88,8888,Possible Cobaltstrike C2 IP
 14.29.160.181,10080,Possible Cobaltstrike C2 IP
@@ -666,10 +665,8 @@ ip,port,metadata_comment
 154.23.182.238,2086,Possible Cobaltstrike C2 IP
 154.38.114.115,53,Possible Cobaltstrike C2 IP
 154.64.252.160,53,Possible Cobaltstrike C2 IP
-154.64.254.216,8995,Possible Cobaltstrike C2 IP
 154.83.12.115,53,Possible Cobaltstrike C2 IP
 154.83.12.132,53,Possible Cobaltstrike C2 IP
-154.84.56.55,8585,Possible Cobaltstrike C2 IP
 154.94.235.58,80,Possible Cobaltstrike C2 IP
 155.94.170.180,80,Possible Cobaltstrike C2 IP
 156.224.19.112,9090,Possible Cobaltstrike C2 IP
@@ -819,7 +816,6 @@ ip,port,metadata_comment
 180.76.138.238,443,Possible Cobaltstrike C2 IP
 180.76.141.175,443,Possible Cobaltstrike C2 IP
 181.215.18.135,443,Possible Cobaltstrike C2 IP
-181.215.18.78,8443,Possible Cobaltstrike C2 IP
 182.160.1.146,8888,Possible Cobaltstrike C2 IP
 182.255.44.96,443,Possible Cobaltstrike C2 IP
 183.63.173.29,8008,Possible Cobaltstrike C2 IP
@@ -869,7 +865,6 @@ ip,port,metadata_comment
 193.149.129.121,53,Possible Cobaltstrike C2 IP
 193.29.58.30,443,Possible Cobaltstrike C2 IP
 193.29.58.61,443,Possible Cobaltstrike C2 IP
-193.37.69.42,4569,Possible Cobaltstrike C2 IP
 193.37.69.43,95,Possible Cobaltstrike C2 IP
 193.42.25.65,1443,Possible Cobaltstrike C2 IP
 193.42.25.65,1444,Possible Cobaltstrike C2 IP
@@ -1135,7 +1130,6 @@ ip,port,metadata_comment
 42.193.221.173,443,Possible Cobaltstrike C2 IP
 42.193.225.10,443,Possible Cobaltstrike C2 IP
 42.194.154.53,443,Possible Cobaltstrike C2 IP
-42.51.34.56,8021,Possible Cobaltstrike C2 IP
 42.51.37.127,33399,Possible Cobaltstrike C2 IP
 43.128.21.242,801,Possible Cobaltstrike C2 IP
 43.128.59.217,8080,Possible Cobaltstrike C2 IP
@@ -1166,7 +1160,6 @@ ip,port,metadata_comment
 43.139.50.42,80,Possible Cobaltstrike C2 IP
 43.139.52.152,80,Possible Cobaltstrike C2 IP
 43.142.137.169,18443,Possible Cobaltstrike C2 IP
-43.142.137.169,443,Possible Cobaltstrike C2 IP
 43.142.49.240,801,Possible Cobaltstrike C2 IP
 43.143.145.187,443,Possible Cobaltstrike C2 IP
 43.143.229.126,443,Possible Cobaltstrike C2 IP
@@ -1187,7 +1180,6 @@ ip,port,metadata_comment
 43.155.252.158,443,Possible Cobaltstrike C2 IP
 43.156.42.49,80,Possible Cobaltstrike C2 IP
 43.156.63.124,64494,Possible Cobaltstrike C2 IP
-43.156.74.19,443,Possible Cobaltstrike C2 IP
 43.156.74.19,80,Possible Cobaltstrike C2 IP
 43.160.202.246,443,Possible Metasploit C2 IP
 43.161.245.186,79,Possible Cobaltstrike C2 IP
@@ -1254,7 +1246,6 @@ ip,port,metadata_comment
 45.154.14.21,7777,Possible Cobaltstrike C2 IP
 45.156.25.5,443,Possible Metasploit C2 IP
 45.156.25.5,501,Possible Metasploit C2 IP
-45.156.87.153,80,Possible Cobaltstrike C2 IP
 45.192.110.197,8088,Possible Cobaltstrike C2 IP
 45.192.97.230,80,Possible Cobaltstrike C2 IP
 45.195.200.23,80,Possible Cobaltstrike C2 IP
@@ -1439,7 +1430,6 @@ ip,port,metadata_comment
 47.93.141.98,8888,Possible Cobaltstrike C2 IP
 47.93.141.98,9999,Possible Cobaltstrike C2 IP
 47.93.147.226,80,Possible Cobaltstrike C2 IP
-47.93.216.2,8099,Possible Cobaltstrike C2 IP
 47.93.240.197,65433,Possible Cobaltstrike C2 IP
 47.93.243.161,443,Possible Cobaltstrike C2 IP
 47.93.28.103,33333,Possible Cobaltstrike C2 IP
@@ -1523,7 +1513,6 @@ ip,port,metadata_comment
 68.64.176.172,80,Possible Cobaltstrike C2 IP
 68.64.176.42,443,Possible Cobaltstrike C2 IP
 68.64.176.42,5566,Possible Cobaltstrike C2 IP
-68.64.177.221,888,Possible Cobaltstrike C2 IP
 68.64.178.130,443,Possible Cobaltstrike C2 IP
 68.64.178.130,7443,Possible Cobaltstrike C2 IP
 68.64.178.130,80,Possible Cobaltstrike C2 IP
@@ -1669,7 +1658,6 @@ ip,port,metadata_comment
 83.212.86.169,9196,Possible Metasploit C2 IP
 83.229.121.82,8090,Possible Cobaltstrike C2 IP
 83.229.122.83,443,Possible Cobaltstrike C2 IP
-83.229.123.46,8888,Possible Cobaltstrike C2 IP
 83.229.123.61,7777,Possible Cobaltstrike C2 IP
 83.229.125.215,2222,Possible Cobaltstrike C2 IP
 83.229.125.215,4433,Possible Cobaltstrike C2 IP
