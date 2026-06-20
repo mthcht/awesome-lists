@@ -505,3 +505,26 @@ rule Trojan_Win64_Ulise_SXC_2147967426_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_AHA_2147972001_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.AHA!MTB"
+        threat_id = "2147972001"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "@  chromium: getEncryptedKey FAILED: " ascii //weight: 30
+        $x_20_2 = "@[ERROR] Screenshot capture failed" ascii //weight: 20
+        $x_10_3 = "@  chromium: masterKey.len=" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

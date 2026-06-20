@@ -86,3 +86,27 @@ rule Trojan_Win64_Bobik_CM_2147963461_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Bobik_SXA_2147972024_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Bobik.SXA!MTB"
+        threat_id = "2147972024"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "**RING-1 Ultimate Stealer**" ascii //weight: 30
+        $x_10_2 = "launcher_msa_credentials.json" ascii //weight: 10
+        $x_5_3 = "%s\\Steam\\config\\loginusers.vdf" ascii //weight: 5
+        $x_5_4 = "[DISCORD TOKENS]" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

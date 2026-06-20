@@ -110,3 +110,24 @@ rule Trojan_Win64_Runner_AMTB_2147959841_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Runner_AHA_2147972002_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Runner.AHA!MTB"
+        threat_id = "2147972002"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Runner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {c6 84 04 d0 01 00 00 61 b8 01 00 00 00 48 6b c0 01 c6 84 04 d0 01 00 00 64 b8 01 00 00 00 48 6b c0 02 c6 84 04 d0 01 00 00 76 b8 01 00 00 00 48 6b c0 03 c6 84 04 d0 01 00 00 61}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
