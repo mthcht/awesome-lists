@@ -40,6 +40,29 @@ rule Trojan_MSIL_Barys_ABS_2147843942_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_ABS_2147843942_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.ABS!MTB"
+        threat_id = "2147843942"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0a 06 8e 69 20 00 10 00 00 1f 40 28 ?? 00 00 06 0b 07 7e ?? 00 00 0a 28 ?? 00 00 0a 2c 30 02 07 06 06 8e 69 12 02 28 ?? 00 00 06 2c 21 02 7e ?? 00 00 0a 16 03 07 16 7e}  //weight: 3, accuracy: Low
+        $x_1_2 = "set_UseShellExecute" ascii //weight: 1
+        $x_2_3 = "BACKUP 23 12\\INTERNAL\\LOADER\\Loader\\obj\\Release\\Spotify.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Barys_GJI_2147847785_0
 {
     meta:
