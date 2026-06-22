@@ -534,6 +534,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Clément Notin Feed](https://clement.notin.org/feed.xml)
 - [crowdstrike counter adversary operations blog](https://www.crowdstrike.com/en-us/blog/category.counter-adversary-operations/)
 - [deepinstinct blog](https://www.deepinstinct.com/blog)
+- [defend.network feed](https://defend.network/feed.xml)
 - [detect.fyi](https://detect.fyi/)
 - [Detection engineering weekly](https://www.detectionengineering.net/)
 - [DFIR weekly news](https://thisweekin4n6.com/)
