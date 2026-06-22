@@ -58,6 +58,27 @@ rule Trojan_Win64_DLLSideLoad_GVB_2147971943_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b c8 c1 e1 0d 33 c8 8b d1 c1 ea 11 32 d1 0f b6 c2 c0 e0 05 43 32 04 08 32 c2 43 88 04 08 49 ff c0 49 81 f8 5c 05 00 00 72 ca}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLSideLoad_GVB_2147971943_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.GVB!MTB"
+        threat_id = "2147971943"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
     strings:
@@ -127,6 +148,27 @@ rule Trojan_Win64_DLLSideLoad_CA_2147971994_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = {44 0f b6 04 30 41 31 f8 41 31 c0 44 88 04 06 48 ff c0 48 39 c2 7f e9}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLSideLoad_GVC_2147972084_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.GVC!MTB"
+        threat_id = "2147972084"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {01 c8 11 da 89 85 78 ff ff ff 89 95 7c ff ff ff 8b 45 80 89 45 f4 c7 45 f0 00 00 00 00 eb 08 83 45 f4 01 83 45 f0 01 8b 45 f0 99 8b 8d 78 ff ff ff 8b 9d 7c ff ff ff f7 d9 83 d3 00 f7 db 39 c8 89 d0 19 d8 7c d9}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

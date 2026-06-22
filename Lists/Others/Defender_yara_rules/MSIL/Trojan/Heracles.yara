@@ -10834,3 +10834,27 @@ rule Trojan_MSIL_Heracles_ZTB_2147971857_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_RV_2147972081_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.RV!MTB"
+        threat_id = "2147972081"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 5d 02 14 09 03 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 2c 00 00 00 04 00 00 00 0a 00 00 00 1f 00 00 00 34 00 00 00 49 00 00 00 06 00 00 00 0f 00 00 00 01 00 00 00 ?? 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 02 00 00 00 03 00 00 00 01}  //weight: 2, accuracy: Low
+        $x_1_2 = "\\RUDRA SILENTAIM CMD Loader\\runtimebroker\\obj\\Debug\\" ascii //weight: 1
+        $x_1_3 = "666dd36f-01c1-43d9-8f24-353ad90e7ad5" ascii //weight: 1
+        $x_1_4 = "Sleep" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

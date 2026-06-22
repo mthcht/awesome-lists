@@ -4253,6 +4253,28 @@ rule Trojan_Win64_Tedy_BAD_2147961312_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_PGTY_2147961472_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PGTY!MTB"
+        threat_id = "2147961472"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {69 00 70 00 22 00 3a 00 22 00 68 00 74 74 70 00 3a 00 2f 00 2f 00 36 00 34 00 2e 00 31 00 39 00 30 00 2e 00 31 00 31 00 33 00 2e 00 35 00 2f 00 22 00 2c 00 22 00 70 00 6f 00 72 00 74 00 22 00 3a 00 33 00 33 00 30 00 38 00 7d 00 2c 00 22 00 64 00 65 00 70 00 6c 00 6f 00 79 00 50 00 61 00 74 00 68 00 22 00 3a 00 7b 00 22 00 66 00 6f 00 6c 00 64 00 65 00 72 00 22 00 3a 00 22 00 22 00 2c 00 22 00 73 00 75 00 62 00 66 00 6f 00 6c 00 64 00 65 00 72 00 22 00 3a 00 22 00 22 00 2c 00 22 00 66 00 69 00 6c 00 65 00 6e 00 61 00 6d 00 65 00 22 00 3a 00 22 00 [0-15] 2e 00 65 00 78 00 65 00 22 00 7d 00 2c 00 22 00 6d 00 75 00 74 00 65 00 78 00 22 00 3a 00 22 00 22 00 2c 00 22 00 75 00 61 00 63 00 45 00 6e 00 61 00 62 00 6c 00 65 00 64 00}  //weight: 5, accuracy: Low
+        $x_5_2 = {69 70 22 3a 22 68 74 74 70 3a 2f 2f 36 34 2e 31 39 30 2e 31 31 33 2e 35 2f 22 2c 22 70 6f 72 74 22 3a 33 33 30 38 7d 2c 22 64 65 70 6c 6f 79 50 61 74 68 22 3a 7b 22 66 6f 6c 64 65 72 22 3a 22 22 2c 22 73 75 62 66 6f 6c 64 65 72 22 3a 22 22 2c 22 66 69 6c 65 6e 61 6d 65 22 3a 22 [0-15] 2e 65 78 65 22 7d 2c 22 6d 75 74 65 78 22 3a 22 22 2c 22 75 61 63 45 6e 61 62 6c 65 64}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
 rule Trojan_Win64_Tedy_AHM_2147961566_0
 {
     meta:

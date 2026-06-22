@@ -88,3 +88,33 @@ rule Trojan_Win64_Starter_MKA_2147968295_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Starter_PGST_2147972086_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Starter.PGST!MTB"
+        threat_id = "2147972086"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Starter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "@$&%26\\Windows\\Run.exe" ascii //weight: 1
+        $x_1_2 = "@$&%26\\Windows\\any.bat" ascii //weight: 1
+        $x_1_3 = "file=@$&%26\\Windows\\url.txt" ascii //weight: 1
+        $x_1_4 = "@$&%26\\Windows\\bat.bat" ascii //weight: 1
+        $x_1_5 = "%26\\Windows\\find.cmd netsh advfirewall set allprofiles state off" ascii //weight: 1
+        $x_1_6 = "/c echo>>@$&%26\\Windows\\find.cmd sc stop MpsSvc" ascii //weight: 1
+        $x_1_7 = "%26\\Windows\\find.cmd sc delete MpsSvc" ascii //weight: 1
+        $x_1_8 = "@$&%26\\Windows\\driver.exe %content%/driver.jpg" ascii //weight: 1
+        $x_1_9 = "@$&%26\\Windows\\driver.exe x -r -ep2 -hplimpid2903392" ascii //weight: 1
+        $x_1_10 = "%26\\Windows\\pas.rar AnyDesk.exe @$" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
