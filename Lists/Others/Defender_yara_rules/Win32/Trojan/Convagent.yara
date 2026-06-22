@@ -2060,6 +2060,34 @@ rule Trojan_Win32_Convagent_ARR_2147956042_4
         )
 }
 
+rule Trojan_Win32_Convagent_ARR_2147956042_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "38"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "md5\": \"%s\", \"Name\": \"%s\",\"IP\": \"%s\",\"OS\": \"%s\",\"Domain\": \"%s\",\"Note\": \"%s\",\"Chcp\": \"%d\",\"In_IP\": " ascii //weight: 4
+        $x_3_2 = "post_info" ascii //weight: 3
+        $x_5_3 = "KillProcess success-%d" ascii //weight: 5
+        $x_2_4 = "DelFile success-%s" ascii //weight: 2
+        $x_7_5 = "UploadFile success-%s" ascii //weight: 7
+        $x_6_6 = "The NCBENUM return adapter number is: %d" ascii //weight: 6
+        $x_1_7 = "%4d-%02d-%02d %02d:%02d:%02d" ascii //weight: 1
+        $x_10_8 = "mfc.EXE" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Convagent_MKA_2147959071_0
 {
     meta:

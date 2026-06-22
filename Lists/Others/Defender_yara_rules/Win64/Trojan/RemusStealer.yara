@@ -83,3 +83,25 @@ rule Trojan_Win64_RemusStealer_DGRS_2147972017_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RemusStealer_PAA_2147972105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RemusStealer.PAA!MTB"
+        threat_id = "2147972105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {44 0f b6 04 03 41 31 d0 41 31 d8 44 88 04 18 48 ff c3 48 39 d9}  //weight: 3, accuracy: High
+        $x_2_2 = {44 0f b6 04 03 49 89 d1 49 c1 f9 08 45 29 c8 44 88 04 18 48 ff c3 48 39 d9}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

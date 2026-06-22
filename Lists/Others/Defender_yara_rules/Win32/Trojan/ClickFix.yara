@@ -14719,7 +14719,7 @@ rule Trojan_Win32_ClickFix_UNZ_2147971639_0
         $x_1_1 = "powershell.exe" wide //weight: 1
         $x_1_2 = "M*.P*.U*" wide //weight: 1
         $x_1_3 = "-Pass;" wide //weight: 1
-        $x_1_4 = ".com);$" wide //weight: 1
+        $x_1_4 = ".com" wide //weight: 1
         $x_1_5 = "=IPMO" wide //weight: 1
     condition:
         (filesize < 20MB) and

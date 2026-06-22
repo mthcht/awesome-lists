@@ -8802,3 +8802,24 @@ rule Trojan_Win32_LummaStealer_KAN_2147969418_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_AZP_2147972096_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.AZP!MTB"
+        threat_id = "2147972096"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {29 fe 8b 6c b1 04 21 d5 8b 7c b1 08 89 fb 81 e3 fe ff ff 7f 09 eb d1 eb 83 e7 01 f7 df 81 e7 df b0 08 99}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

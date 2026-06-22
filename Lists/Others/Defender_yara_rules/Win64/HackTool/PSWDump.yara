@@ -70,6 +70,30 @@ rule HackTool_Win64_PSWDump_MY_2147956416_0
         threshold = "30"
         strings_accuracy = "High"
     strings:
+        $x_10_1 = "Direct Syscall-Based Reflective Hollowing" ascii //weight: 10
+        $x_5_2 = "by @xaitax" ascii //weight: 5
+        $x_5_3 = "SOFTWARE\\Clients\\StartMenuInternet\\Google Chrome\\shell" wide //weight: 5
+        $x_10_4 = "Chromelevator" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win64_PSWDump_MY_2147956416_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/PSWDump.MY!MTB"
+        threat_id = "2147956416"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWDump"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
         $x_5_1 = "Direct Syscall-Based Reflective Hollowing" ascii //weight: 5
         $x_5_2 = "chrome_inject.exe" wide //weight: 5
         $x_5_3 = "ReflectiveLoader" ascii //weight: 5

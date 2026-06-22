@@ -3724,3 +3724,26 @@ rule Trojan_MSIL_Stealer_D_2147971773_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_ARS_2147972094_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.ARS!MTB"
+        threat_id = "2147972094"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 04 11 05 6f ?? ?? ?? ?? 0b 06 07 6e 61 20 ?? ?? ?? ?? 6a 5a 0a 11 05 17 58 13 05 11 05 11 04 6f ?? ?? ?? ?? fe 04 0d 09 2d d5}  //weight: 10, accuracy: Low
+        $x_6_2 = "\"account_name\"\\s*:\\s*\"([^\"]+)\"" ascii //weight: 6
+        $x_4_3 = "FsmPanel.Program+<<Main>b__24>d__28" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

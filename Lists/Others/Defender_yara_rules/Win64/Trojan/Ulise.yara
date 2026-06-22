@@ -439,6 +439,29 @@ rule Trojan_Win64_Ulise_AH_2147963036_0
         )
 }
 
+rule Trojan_Win64_Ulise_JH_2147964045_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.JH!MTB"
+        threat_id = "2147964045"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {41 b9 32 71 00 00 41 b8 85 07 00 00 66 41 3b c9 74 7c 66 41 3b c8 74 76 b8 23 75 00 00 66 3b c8 74 6c ff c3 3b 9d a0 01 00 00 72 aa}  //weight: 8, accuracy: High
+        $x_1_2 = "K32EnumProcesses" ascii //weight: 1
+        $x_1_3 = "K32EnumProcessModulesEx" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Ulise_SXA_2147964318_0
 {
     meta:

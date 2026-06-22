@@ -3140,6 +3140,30 @@ rule Trojan_Win64_Zusy_ARR_2147956891_7
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_ARR_2147956891_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ARR!MTB"
+        threat_id = "2147956891"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {4c 8b 04 11 4d 89 c1 49 f7 d1 49 c1 e9 ?? 49 c1 e8 ?? 4d 09 c8 4d 21 d0 4c 01 c0 48 83 c2 ?? 49 39 d3}  //weight: 3, accuracy: Low
+        $x_4_2 = {45 31 db 42 80 3c 12 ?? 41 0f 9d c3 4d 01 d9 49 ff c2 4c 39 d1 75}  //weight: 4, accuracy: Low
+        $x_7_3 = "[*] Code Injection DetectionInline Hooks DetectedIAT Hooks DetectedCreateRemoteThread DetectionSetWindowsHookEx" ascii //weight: 7
+        $x_6_4 = "DetectionProcess Hollowing Detection" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_GMT_2147956898_0
 {
     meta:

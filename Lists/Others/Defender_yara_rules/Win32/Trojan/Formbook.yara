@@ -1680,3 +1680,25 @@ rule Trojan_Win32_Formbook_MKN_2147968391_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Formbook_ARR_2147972095_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Formbook.ARR!MTB"
+        threat_id = "2147972095"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {0f b6 c2 03 c8 81 e1 ?? ?? ?? ?? 0f b6 84 0d ?? ?? ?? ?? 8b 8d f0 fe ff ff 30 04 39 47 3b 7d 0c 72}  //weight: 11, accuracy: Low
+        $x_9_2 = {03 c8 0f b6 01 88 02 88 19 0f b6 02 8b 4d 08 02 c3 0f b6 c0 0f b6 84 05 ?? ?? ?? ?? 32 44 39 ff 8a 8d ?? ?? ?? ?? 88 47 ff 4e 75}  //weight: 9, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -302,3 +302,25 @@ rule Trojan_Win32_DllHijack_GPKB_2147971052_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DllHijack_ARS_2147972093_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllHijack.ARS!MTB"
+        threat_id = "2147972093"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {8d 0c 06 30 11 40 8b 95 ?? ?? ?? ?? 3b c2 72 ea}  //weight: 12, accuracy: Low
+        $x_8_2 = {0f 10 45 c8 57 0f 10 4d d8 8d 45 c8 50 0f 57 c8 56 0f 11 4d c8}  //weight: 8, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
