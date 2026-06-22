@@ -2129,3 +2129,24 @@ rule Trojan_MSIL_Androm_KPV_2147968641_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_SK_2147972062_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.SK!MTB"
+        threat_id = "2147972062"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 15 00 00 0a 11 00 6f 16 00 00 0a 2a 28 1e 00 00 06 28 0d 00 00 06 28 0a 00 00 06 13 00 38 dd ff ff ff}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
