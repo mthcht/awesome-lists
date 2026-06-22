@@ -7164,3 +7164,26 @@ rule Trojan_Win32_OffLoader_PGOS_2147971503_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_ZYB_2147972070_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.ZYB!MTB"
+        threat_id = "2147972070"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://cartmask.xyz/" ascii //weight: 3
+        $x_3_2 = "://proseshake.space" ascii //weight: 3
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
