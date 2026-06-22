@@ -7144,3 +7144,25 @@ rule Trojan_Win32_Vidar_SN_2147970568_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_LR_2147972053_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.LR!MTB"
+        threat_id = "2147972053"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 ba 00 00 00 00 00 00 44 40 48 89 94 24 d8 01 00 00 48 be 00 00 00 00 00 00 f0 3f 48 89 b4 24 e0 01 00 00 49 b8 00 00 00 00 00 00 3e 40}  //weight: 20, accuracy: High
+        $x_10_2 = {4c 89 8c 24 00 02 00 00 c6 84 24 08 02 00 00 00 c6 84 24 10 02 00 00 00 49 ba 00 00 00 00 00 00 34 40 4c 89 94 24 18 02}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6749,3 +6749,27 @@ rule Trojan_Win64_Tedy_MKR_2147971768_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_MKS_2147972054_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MKS!MTB"
+        threat_id = "2147972054"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Injecting into Discord..." ascii //weight: 10
+        $x_5_2 = "Injection failed. Retrying in 2s..." ascii //weight: 5
+        $x_3_3 = "Discord process is too young, waiting for stability..." ascii //weight: 3
+        $x_2_4 = "Injection already performed (mutex held by another instance)" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
