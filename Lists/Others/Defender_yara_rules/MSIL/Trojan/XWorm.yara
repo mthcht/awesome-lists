@@ -5698,3 +5698,26 @@ rule Trojan_MSIL_XWorm_SLXD_2147972171_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_RVB_2147972184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.RVB!MTB"
+        threat_id = "2147972184"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 9d a2 29 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 8f 00 00 00 15 00 00 00 c7 00 00 00 a0 00 00 00 9e 00 00 00 4f 01 00 00 05 00 00 00 4f 00 00 00 02 00 00 00 31 00 00 00 08 00 00 00 1c 00 00 00 26 00 00 00 2a 00 00 00 02 00 00 00 01 00 00 00 07 00 00 00 01 00 00 00 04 00 00 00 0e 00 00 00 10}  //weight: 2, accuracy: High
+        $x_1_2 = "get_Jer" ascii //weight: 1
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
