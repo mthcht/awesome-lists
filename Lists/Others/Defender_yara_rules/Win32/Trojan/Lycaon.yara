@@ -83,3 +83,66 @@ rule Trojan_Win32_Lycaon_C_2147949420_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lycaon_GPKA_2147972153_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lycaon.GPKA!MTB"
+        threat_id = "2147972153"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lycaon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {5a b8 4d 00 00 00 66 89 85 e0 df ff ff b9 42 00 00 00 66 89 8d e2 df ff ff ba 53 00 00 00 66 89 95 e4 df ff ff b8 65 00 00 00 66 89 85 e6 df ff ff b9 72 00 00 00 66 89 8d e8 df ff ff ba 76 00 00 00 66 89 95 ea df ff ff b8 69 00 00 00 66 89 85 ec df ff ff b9 63 00 00 00 66 89 8d ee df ff ff ba 65 00 00 00 66 89 95 f0 df ff ff b8 2e 00 00 00 66 89 85 f2 df}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Lycaon_GPKD_2147972154_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lycaon.GPKD!MTB"
+        threat_id = "2147972154"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lycaon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8e bf d0 bf 76 cd d3 be 8e bf d6 bf e1 cd d3 be 0f b8 d7 bf 4b cd d3 be 0f b8 d0 bf 44 cd d3 be ca 93 d7 bf 17 cd d3 be 46 50 79 be 4a cd d3 be}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Lycaon_GPKE_2147972155_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lycaon.GPKE!MTB"
+        threat_id = "2147972155"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lycaon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {b9 95 9e 62 8a c9 63 62 da bc 67 63 9d c9 63 62 da bc 60 63 93 c9 63 62 da bc 66 63 d3 c9 63 62 5b bb 67 63 96 c9 63 62 88 c9 63 62 8e c9 63 62}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
