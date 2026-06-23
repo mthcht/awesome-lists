@@ -261,3 +261,24 @@ rule Trojan_Win64_Keylogger_LR_2147968428_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Keylogger_LVD_2147972172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Keylogger.LVD!MTB"
+        threat_id = "2147972172"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f bf f0 8b 84 9c ?? ?? ?? ?? 31 f0 0f ba e0 ?? 72}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

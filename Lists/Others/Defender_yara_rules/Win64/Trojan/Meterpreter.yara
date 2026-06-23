@@ -954,3 +954,24 @@ rule Trojan_Win64_Meterpreter_AB_2147970709_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Meterpreter_SPR_2147972170_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Meterpreter.SPR!MTB"
+        threat_id = "2147972170"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {8b 54 24 0c 01 c2 83 c0 03 89 54 24 0c 8b 54 24 0c 81 f2 ?? ?? ?? ?? 89 54 24 0c 3d}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

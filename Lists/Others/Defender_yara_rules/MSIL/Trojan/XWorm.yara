@@ -5677,3 +5677,24 @@ rule Trojan_MSIL_XWorm_AFSK_2147972075_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_SLXD_2147972171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.SLXD!MTB"
+        threat_id = "2147972171"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 05 00 00 0a 72 01 00 00 70 6f 06 00 00 0a 0b 00 07 14 fe 01 16 fe 01 13 11 11 11 2d 05 dd 61 02 00 00 07 6f 07 00 00 0a d4 8d 09 00 00 01 0a 07}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
