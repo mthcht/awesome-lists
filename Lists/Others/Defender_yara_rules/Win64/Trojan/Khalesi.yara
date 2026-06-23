@@ -363,3 +363,28 @@ rule Trojan_Win64_Khalesi_MKA_2147969274_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Khalesi_MKB_2147972121_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Khalesi.MKB!MTB"
+        threat_id = "2147972121"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Khalesi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "[*] Anti-VM Checks - Memory" ascii //weight: 15
+        $x_10_2 = "[*] Anti-Dump ChecksErase PE Header from MemorySize of Image Check" ascii //weight: 10
+        $x_5_3 = "[*] Anti-VM Checks - Hyper-VHyper-V CPUID CheckHyper-V Registry KeysHyper-V Registry (Guest Parameters)Hyper-V FilesHyper-V Driver ObjectsHyper-V Global Objects" ascii //weight: 5
+        $x_3_4 = "[*] Anti-VM Checks - WineWine Get Unix File NameWine NTDLL ExportsWine Registry Keys" ascii //weight: 3
+        $x_2_5 = "[*] Anti-VM Checks - VirtualPCVirtualPC Registry KeysVirtualPC FilesVirtualPC Processes" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

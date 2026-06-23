@@ -63,3 +63,25 @@ rule Trojan_MSIL_Runner_SX_2147970477_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Runner_SXA_2147972119_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Runner.SXA!MTB"
+        threat_id = "2147972119"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Runner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {18 5a 16 28 ?? 00 00 0a 11 ?? 17 58 13 ?? 11 ?? 11 ?? 6f ?? 00 00 0a 32 e3}  //weight: 30, accuracy: Low
+        $x_20_2 = {69 32 dc 73 ?? 00 00 0a 13 ?? 11 ?? 73 ?? 00 00 0a 13 ?? 11 ?? 16 73 ?? 00 00 0a 13 ?? 11 ?? 11 ?? 6f ?? 00 00 0a 11 ?? 6f ?? 00 00 0a 13 ?? de 0c}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
