@@ -900,6 +900,29 @@ rule Trojan_Win32_Tedy_ARR_2147954236_3
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_ARR_2147954236_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARR!MTB"
+        threat_id = "2147954236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 01 c8 83 f2 33 88 ?? 8b 45 fc 48 63 d0 48 8b 45 10 48 01 d0 0f b6 00 c0 e8 ?? 89 c1 8b 45 fc 48 63 d0}  //weight: 10, accuracy: Low
+        $x_2_2 = {48 98 0f b6 44 05 a0 89 c2 8b 85 ?? ?? ?? ?? 01 d0 89 c2 8b 85 ?? ?? ?? ?? 48 98 88 54 05 a0}  //weight: 2, accuracy: Low
+        $x_8_3 = {8b 45 fc c1 e0 ?? 89 c2 8b 45 fc 8d 0c 02 48 8b 45 ?? 48 8d 50 01 48 89 55 ?? 0f b6 00 0f be c0 01 c8 89 45 fc c1 4d fc}  //weight: 8, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Tedy_LMG_2147955983_0
 {
     meta:

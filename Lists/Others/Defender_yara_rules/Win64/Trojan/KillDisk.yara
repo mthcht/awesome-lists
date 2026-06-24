@@ -20,3 +20,26 @@ rule Trojan_Win64_KillDisk_MX_2147952276_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillDisk_KK_2147972292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillDisk.KK!MTB"
+        threat_id = "2147972292"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillDisk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Successfully wrote %lu bytes to MBR." ascii //weight: 10
+        $x_5_2 = "\\\\.\\PhysicalDrive0" ascii //weight: 5
+        $x_3_3 = "SeManageVolumePrivilege" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

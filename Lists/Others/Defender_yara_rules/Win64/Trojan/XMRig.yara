@@ -253,26 +253,3 @@ rule Trojan_Win64_XMRig_AMTB_2147967913_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_XMRig_PA_2147970189_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/XMRig.PA!MTB"
-        threat_id = "2147970189"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "XMRig"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {1b 5b 34 36 3b 31 6d 1b 5b 31 3b 33 37 6d 20 63 6f 6e 66 69 67 20 20 1b 5b 30 6d}  //weight: 1, accuracy: High
-        $x_1_2 = "no valid configuration found, try https://xmrig.com/wizard" ascii //weight: 1
-        $x_1_3 = "COMMANDS     'h' hashrate, 'p' pause, 'r' resume, 's' results, 'c' connectio" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

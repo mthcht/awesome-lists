@@ -245,27 +245,6 @@ rule Trojan_MSIL_SnakeLogger_DAO_2147841635_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_SnakeLogger_SPAU_2147841696_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/SnakeLogger.SPAU!MTB"
-        threat_id = "2147841696"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "SnakeLogger"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_5_1 = {08 11 06 07 11 06 9a 1f 10 28 ?? ?? ?? 0a d2 9c 00 11 06 17 58 13 06 11 06 07 8e 69 fe 04 13 07 11 07 2d db}  //weight: 5, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_SnakeLogger_SPAB_2147841793_0
 {
     meta:
