@@ -364,27 +364,6 @@ rule Trojan_Win32_Danabot_PVD_2147754535_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Danabot_AR_2147754671_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Danabot.AR!MTB"
-        threat_id = "2147754671"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Danabot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {03 f0 03 4d ?? 8d 04 3b 33 c8 0f 57 c0 81 3d [0-48] 66 0f 13 05 ?? ?? ?? ?? 89 4d}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Danabot_PVE_2147754942_0
 {
     meta:

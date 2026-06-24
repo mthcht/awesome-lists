@@ -156,3 +156,25 @@ rule Trojan_MacOS_AmosStealer_MU_2147968567_1
         (all of ($x*))
 }
 
+rule Trojan_MacOS_AmosStealer_DB_2147972240_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.DB!MTB"
+        threat_id = "2147972240"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {65 6d 34 70 61 74 68 38 66 69 6c 65 6e 61 6d 65 42 38 6e 65 32 30 30 31 30 30 45 76 00 5f 5f 5a 4e 53 74 33 5f 5f 31 34 5f 5f 66 73 31 30 66 69 6c 65 73 79 73 74 65 6d 64 76 42 38 6e 65 32 30 30 31 30 30 45 52 4b 4e 53 31 5f 34 70 61 74 68 45 53 34 5f 00 5f 5f 5a 4e 53 74 33 5f 5f 31 34 5f 5f 66 73 31 30 66}  //weight: 1, accuracy: High
+        $x_1_2 = {6e 67 49 54 5f 54 30 5f 54 31 5f 45 45 50 4b 53 36 5f 4f 53 39 5f 00 5f 5f 5a 4e 53 74 33 5f 5f 31 34 5f 5f 66 73 31 30 66 69 6c 65 73 79 73 74 65 6d 34 70 61 74 68 43 32 42 38 6e 65 32 30 30 31 30 30 49 50 63 76 45 45 52 4b 54 5f 4e 53 32 5f 36 66 6f 72 6d 61 74 45 00 5f 5f 5a 4e 53 74 33}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

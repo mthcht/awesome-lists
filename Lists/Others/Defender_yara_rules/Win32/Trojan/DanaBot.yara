@@ -1,3 +1,24 @@
+rule Trojan_Win32_DanaBot_AR_2147754671_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DanaBot.AR!MTB"
+        threat_id = "2147754671"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DanaBot"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {03 f0 03 4d ?? 8d 04 3b 33 c8 0f 57 c0 81 3d [0-48] 66 0f 13 05 ?? ?? ?? ?? 89 4d}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_DanaBot_GM_2147754953_0
 {
     meta:

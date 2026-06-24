@@ -1,3 +1,24 @@
+rule Ransom_Win32_Blacksuit_YY_2147895349_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Blacksuit.YY!MTB"
+        threat_id = "2147895349"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Blacksuit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c0 89 45 98 8b 45 ec 8b 55 d4 01 02 8b 45 c4 03 45 90 03 45 ec 03 45 98 89 45 a4 [0-16] 8b 5d a4 2b d8 [0-16] 2b d8 [0-16] 2b d8 8b 45 d4 31 18 83 45 ec 04 83 45 d4 04 8b 45 ec 3b 45 d0 72}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win32_Blacksuit_AD_2147895351_0
 {
     meta:
