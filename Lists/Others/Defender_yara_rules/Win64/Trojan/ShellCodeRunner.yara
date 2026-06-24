@@ -636,3 +636,24 @@ rule Trojan_Win64_ShellCodeRunner_VGX_2147967060_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeRunner_GVE_2147972266_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeRunner.GVE!MTB"
+        threat_id = "2147972266"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 44 24 20 83 f0 31 66 89 44 24 26 8b 44 24 20 83 f0 20 66 89 44 24 28 8b 44 24 20 83 f0 28 66 89 44 24 2a 8b 44 24 20 83 f0 35 66 89 44 24 2c 66 c7 44 24 2e 00 00 48 8d 4c 24 26 48 8d 54 24 30 41 b8 04 01 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

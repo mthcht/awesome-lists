@@ -44,3 +44,27 @@ rule Ransom_Win32_Nefilim_PA_2147757433_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Nefilim_YSN_2147972242_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Nefilim.YSN!MTB"
+        threat_id = "2147972242"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nefilim"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "NEFILIM-DECRYPT.txt" wide //weight: 1
+        $x_1_2 = "$RECYCLE.BIN" wide //weight: 1
+        $x_1_3 = ".NEFILIM" wide //weight: 1
+        $x_1_4 = "how to fuck all the world?" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
