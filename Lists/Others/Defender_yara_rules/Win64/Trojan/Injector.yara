@@ -829,3 +829,31 @@ rule Trojan_Win64_Injector_MCW_2147971600_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Injector_LR_2147972219_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.LR!MTB"
+        threat_id = "2147972219"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] Injection completed successfully" ascii //weight: 1
+        $x_2_2 = "No injectable SYSTEM process with matching architecture found" ascii //weight: 2
+        $x_3_3 = "for arch check. Assuming same arch as injector." ascii //weight: 3
+        $x_4_4 = "Use correct injector version." ascii //weight: 4
+        $x_5_5 = "[+] Injection successful" ascii //weight: 5
+        $x_6_6 = "Write payload failed. Status: 0x" ascii //weight: 6
+        $x_7_7 = "[+] Non-elevated -> Targeting explorer.exe" ascii //weight: 7
+        $x_8_8 = "[+] Elevated -> Using SYSTEM process" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -158,3 +158,26 @@ rule Trojan_Win64_AgentB_AHE_2147971172_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentB_AHF_2147972214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.AHF!MTB"
+        threat_id = "2147972214"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {53 74 61 74 75 73 20 74 61 67 5f [0-12] 20 72 65 74 72 79 20}  //weight: 30, accuracy: Low
+        $x_20_2 = {53 4f 46 54 57 41 52 45 5c 5c [0-12] 5c 5c 74 61 67 5f}  //weight: 20, accuracy: Low
+        $x_10_3 = {53 59 53 54 45 4d 5c 5c [0-12] 5c 5c 74 61 67 5f}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

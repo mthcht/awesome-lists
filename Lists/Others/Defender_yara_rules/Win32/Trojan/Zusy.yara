@@ -9671,3 +9671,25 @@ rule Trojan_Win32_Zusy_YSN_2147971965_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_LRL_2147972216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.LRL!MTB"
+        threat_id = "2147972216"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f af d0 8b c2 c1 e0 0d 33 d0 8b c2 c1 e8 11 33 d0}  //weight: 20, accuracy: High
+        $x_10_2 = {8b c2 c1 e0 05 33 c2 89 04 b5 90 13 51 00 46 81 fe 00 04 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -195,3 +195,25 @@ rule Trojan_Win64_DLLSideLoad_GVD_2147972190_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLSideLoad_GVE_2147972208_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.GVE!MTB"
+        threat_id = "2147972208"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a 04 07 84 c0 74 43 8b 4e 10 34 5a 0f b6 d0 3b 4e 14 73 1d 83 7e 14 08 8d 41 01 89 46 10 8b c6 72 02 8b 06 66 89 14 48 33 d2 66 89 54 48 02 eb 10}  //weight: 1, accuracy: High
+        $x_1_2 = "powershell -Command Add-MpPreference -ExclusionPath" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

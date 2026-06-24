@@ -141,3 +141,25 @@ rule Trojan_Win64_BroPass_AH_2147963678_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BroPass_PGBP_2147972199_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BroPass.PGBP!MTB"
+        threat_id = "2147972199"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BroPass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 14 3a 48 63 c8 48 8b 45 ?? 32 14 01 48 8b 45 ?? 48 63 cb 0f b6 0c 01 48 8d 05 ?? ?? ?? ?? 41 02 0a 32 d1 32 94 06 ?? ?? ?? ?? 48 8b 45 ?? 41 32 14 01 41 88 12}  //weight: 5, accuracy: Low
+        $x_5_2 = {44 89 6c 24 ?? e8 ?? ?? ?? ?? 48 8b 4d ?? 42 30 04 21 49 ff c4 4c 3b 65 ?? 0f 82}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

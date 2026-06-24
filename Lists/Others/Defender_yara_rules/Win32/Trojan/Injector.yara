@@ -2631,3 +2631,27 @@ rule Trojan_Win32_Injector_KKB_2147965901_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_MKE_2147972221_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.MKE!MTB"
+        threat_id = "2147972221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[PERSIST] Fileless COM hijack established successfully." ascii //weight: 10
+        $x_5_2 = "[ERR] Fileless COM hijack failed." ascii //weight: 5
+        $x_3_3 = "[OK] screen agent loading -- relay will confirm connection." ascii //weight: 3
+        $x_2_4 = "[OK] hVNC agent loading -- relay will confirm connection." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
