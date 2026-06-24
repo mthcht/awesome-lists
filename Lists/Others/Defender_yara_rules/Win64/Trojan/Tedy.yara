@@ -581,6 +581,34 @@ rule Trojan_Win64_Tedy_SMD_2147907280_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AF_2147907616_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AF!MTB"
+        threat_id = "2147907616"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Windows_Security_Update" ascii //weight: 1
+        $x_1_2 = "schtasks /create /tn \"" ascii //weight: 1
+        $x_1_3 = "\"\"\" /sc onlogon /rl highest /f" ascii //weight: 1
+        $x_1_4 = "Camera stopped" ascii //weight: 1
+        $x_1_5 = "Killed" ascii //weight: 1
+        $x_1_6 = "Keylogger started" ascii //weight: 1
+        $x_1_7 = "Executed from URL via PowerShell" ascii //weight: 1
+        $x_1_8 = {73 69 6c 65 6e 74 5c 22 20 2d 57 61 69 74 20 2d 45 72 72 6f 72 41 63 74 69 6f 6e 20 53 74 6f 70 3b 20 52 65 6d 6f 76 65 2d 49 74 65 6d 20 5c 22 24 65 6e 76 3a 54 45 4d 50 5c [0-2] 2e 65 78 65 5c 22 20 2d 46 6f 72 63 65 20 2d 45 72 72 6f 72 41 63 74 69 6f 6e 20 53 69 6c 65 6e 74 6c 79 43 6f 6e 74 69 6e 75 65}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_HNA_2147908379_0
 {
     meta:
