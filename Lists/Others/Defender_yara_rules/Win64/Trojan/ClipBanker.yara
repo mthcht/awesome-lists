@@ -1645,3 +1645,26 @@ rule Trojan_Win64_ClipBanker_SNJ_2147971982_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_MKA_2147972351_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.MKA!MTB"
+        threat_id = "2147972351"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {48 8d 0c 06 48 83 f9 40 72 30 b1 40 28 c1 44 0f b6 f1 4c 8d 7f 18 48 8d 0c 07 48 83 c1 18 48 89 da 4d 89 f0}  //weight: 15, accuracy: High
+        $x_10_2 = "Win32_ComputerSystemProduct" ascii //weight: 10
+        $x_5_3 = "Win32_DiskDrive" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

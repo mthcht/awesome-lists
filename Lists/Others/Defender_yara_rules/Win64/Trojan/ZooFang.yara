@@ -91,3 +91,25 @@ rule Trojan_Win64_ZooFang_D_2147956901_1
         )
 }
 
+rule Trojan_Win64_ZooFang_DF_2147972349_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ZooFang.DF!dha"
+        threat_id = "2147972349"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ZooFang"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {00 00 00 00 48 8b 44 24 ?? 48 89 44 24 ?? c7 44 24 ?? 40 00 00 00 c7 44 24 ?? 00 30 00 00 4c 8d 4c 24 ?? 45 33 c0 48 8d 54 24 ?? 48 c7 c1 ff ff ff ff ff 54 24 ?? 89 44 24 ?? 8b 84 24 [0-5] 44 8b c0 48 8b 94 24 [0-5] 48 8b 4c 24 ?? e8 [0-6] 33 c0 83 f8 01 74 ?? 8b 94 24}  //weight: 1, accuracy: Low
+        $x_1_2 = "838645f4bab7458fb130c7120a500982" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
