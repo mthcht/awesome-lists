@@ -246,3 +246,28 @@ rule Trojan_Win32_ValleyRAT_AHD_2147970210_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRAT_AHE_2147972296_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.AHE!MTB"
+        threat_id = "2147972296"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "start login..info" ascii //weight: 50
+        $x_40_2 = "LoginManager13SendConditionEb" ascii //weight: 40
+        $x_30_3 = "LoginManager13FilterProcessEP" ascii //weight: 30
+        $x_20_4 = "LoginManager9GetScreenER" ascii //weight: 20
+        $x_10_5 = "K7TSecurity.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
