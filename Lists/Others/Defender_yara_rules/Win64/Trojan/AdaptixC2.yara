@@ -86,3 +86,28 @@ rule Trojan_Win64_AdaptixC2_DMX_2147969391_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AdaptixC2_RS_2147972398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AdaptixC2.RS!MTB"
+        threat_id = "2147972398"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AdaptixC2"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DLL notification callbacks removed (EDR blinded)" ascii //weight: 1
+        $x_1_2 = "AMSI bypass failed: amsi.dll not loaded" ascii //weight: 1
+        $x_1_3 = "Classic injection succeeded into" ascii //weight: 1
+        $x_1_4 = "Primary persistence established (Registry)" ascii //weight: 1
+        $x_1_5 = "Kill360Processes: Finished" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

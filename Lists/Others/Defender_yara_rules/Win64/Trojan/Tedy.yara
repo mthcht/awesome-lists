@@ -6868,3 +6868,27 @@ rule Trojan_Win64_Tedy_MKT_2147972122_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CAL_2147972399_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CAL!MTB"
+        threat_id = "2147972399"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b7 c1 ff c1 66 2b c2 66 83 c0 ?? 66 41 31 40 ?? 83 f9 ?? 7c}  //weight: 10, accuracy: Low
+        $x_1_2 = "x64dbg" ascii //weight: 1
+        $x_1_3 = "OllyDbg" ascii //weight: 1
+        $x_1_4 = "IDA Pro" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

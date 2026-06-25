@@ -106,3 +106,34 @@ rule Trojan_Win64_BypassUAC_MK_2147961849_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BypassUAC_GVB_2147972392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.GVB!MTB"
+        threat_id = "2147972392"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Re-run self as admin" ascii //weight: 1
+        $x_1_2 = "Kill Defender" ascii //weight: 1
+        $x_1_3 = "Windows Credential Vault" ascii //weight: 1
+        $x_1_4 = "SYSTEM\\CurrentControlSet\\Services\\VMTools" ascii //weight: 1
+        $x_1_5 = "powershell.exe -NoProfile -WindowStyle Hidden -Command \"Get-ItemProperty" ascii //weight: 1
+        $x_1_6 = "Software\\Classes\\ms-settings\\shell\\open\\command" ascii //weight: 1
+        $x_1_7 = "powershell.exe -NoProfile -WindowStyle Hidden -Command \"Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiVirusProduct" ascii //weight: 1
+        $x_1_8 = "powershell.exe -NoProfile -WindowStyle Hidden -Command \"Get-CimInstance Win32_StartupCommand" ascii //weight: 1
+        $x_1_9 = "Remove-WmiObject -ErrorAction SilentlyContinue" ascii //weight: 1
+        $x_1_10 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_11 = "download.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

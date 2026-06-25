@@ -1201,3 +1201,28 @@ rule Trojan_Win64_Midie_MKB_2147971321_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_SXM_2147972405_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXM!MTB"
+        threat_id = "2147972405"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "NovaStealer" ascii //weight: 30
+        $x_20_2 = "SendToC2" ascii //weight: 20
+        $x_5_3 = "[EXFIL]" ascii //weight: 5
+        $x_5_4 = "Google\\Chrome\\User Data" ascii //weight: 5
+        $x_5_5 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

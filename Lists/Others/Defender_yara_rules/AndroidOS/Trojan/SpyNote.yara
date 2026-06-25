@@ -113,3 +113,25 @@ rule Trojan_AndroidOS_SpyNote_AK_2147899665_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_SpyNote_AL_2147972381_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/SpyNote.AL!MSR"
+        threat_id = "2147972381"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "SpyNote"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {55 20 78 00 38 00 13 00 54 20 77 00 38 00 0b 00 22 01 18 01 70 40 25 04 21 43 6e 20 a2 03 10 00 28 04 6e 30 2b 04 32 04 0e 00 54 20 79 00 38 00 05 00}  //weight: 1, accuracy: High
+        $x_1_2 = {54 02 79 00 39 02 09 00 22 02 17 01 70 20 23 04 02 00 5b 02 79 00 54 02 79 00 72 10 1c 04 02 00 0c 02 6e 20 dd 03 21 00 1e 00 0e 00 0d 01 1e 00 27 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

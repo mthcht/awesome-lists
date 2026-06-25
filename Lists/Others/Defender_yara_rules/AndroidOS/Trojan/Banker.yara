@@ -1317,3 +1317,26 @@ rule Trojan_AndroidOS_Banker_K_2147971927_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Banker_AM_2147972379_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Banker.AM!MSR"
+        threat_id = "2147972379"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Banker"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 09 04 05 54 07 92 09 52 09 93 09 d8 0a 09 01 59 0a 93 09 48 09 07 09 d5 99 ff 00 e0 09 09 08 d8 0b 0a 01 59 0b 93 09 48 07 07 0a d5 77 ff 00 b6 97 8f 77 12 19 33 97 09 00 12 27 6e 20 ba 0c 70 00 d8 05 05 01}  //weight: 1, accuracy: High
+        $x_1_2 = {91 0e 0c 09 35 be 1f 00 6e 20 b8 0c c3 00 6e 10 b3 0c 03 00 0a 0e 6e 10 b3 0c 03 00 0a 0f 02 12 02 00 60 02 47 07 33 2f 0a 00 54 32 92 09 b0 ce 71 30 83 1c c2 0e 0c 1d 28 34 b0 ec}  //weight: 1, accuracy: High
+        $x_1_3 = {60 0a ba 0b 33 1a 47 00 23 0a 36 0d 4d 03 0a 02 1a 04 d8 00 71 20 a6 10 a4 00 22 0a ad 0b 54 64 a1 04 70 20 71 1c 4a 00 6e 10 7a 1c 0a 00 0a 04 3d 04 28 00 6e 10 78 1c 0a 00 0c 0a 12 04 72 10 b6 1c 0a 00 0a 05 38 05 26 00 72 10 b7 1c 0a 00 0c 05 1f 05 2f 03 23 c7 36 0d 4d 03 07 02 71 10 6d 1b 04 00 0c 08 4d 08 07 00 6e 10 83 08 05 00 0c 05 4d 05 07 01 71 20 a6 10 7b 00 b0 04 28 e0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

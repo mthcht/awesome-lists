@@ -2928,3 +2928,70 @@ rule Trojan_MacOS_Amos_FG_2147971274_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Amos_EZ_2147972376_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.EZ!MSR"
+        threat_id = "2147972376"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 8b 14 11 44 2b 14 31 44 33 14 39 47 88 14 01 49 ff c0 48 83 c1 04 49 83 f8 3c 74 0f f6 45 a0 01 49 89 c1 74 da 4c 8b 4d b0 eb d4 31 ff e8 ed 03 00 00 48 8d bd 08 ff ff ff 48 8d 75 a0 e8 8d fa ff ff 31 ff e8 d6 03 00 00 48 8d 7d c0 48 8d b5 20 ff ff ff e8 f6 f6 ff ff 48 8d bd 68 ff ff ff 48 8d b5 08 ff ff ff 48 8d 55 c0 e8 0f f8 ff ff 48 8b 7d d0 48 85 ff 74 16 66 0f 1f 44 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {55 48 89 e5 41 57 41 56 41 55 41 54 53 50 49 89 d6 49 89 f7 48 89 fb 0f 57 c0 0f 11 07 48 c7 47 10 00 00 00 00 0f b6 06 a8 01 74 06 49 8b 47 08 eb 02 d1 e8 48 8d 34 40 48 c1 ee 02 48 83 c6 03 48 89 df e8 58 1a 00 00 45 0f b6 1f 41 f6 c3 01 74 12 4d 8b 5f 08 4d 8b 7f 10 4d 85 db 75 14 e9 bf 01 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = {55 48 89 e5 41 56 53 48 81 ec 20 01 00 00 31 ff e8 2b 07 00 00 0f 57 c0 0f 29 45 c0 48 c7 45 d0 00 00 00 00 48 8d 7d c0 be 80 00 00 00 31 d2 e8 06 16 00 00 48 8d 45 c1 31 c9 48 8d 15 af 24 0c 00 48 8d 35 a8 28 0c 00 48 8d 3d a1 26 0c 00 45 31 c0 eb 2c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_MacOS_Amos_FA_2147972377_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.FA!MSR"
+        threat_id = "2147972377"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2c 79 68 b8 4d 79 68 b8 6e 79 68 b8 8c 01 0d 4b 8c 01 0e 4a ad f3 dc 38 ae 83 5b f8 bf 01 00 71 cd b1 93 9a ac 69 28 38 08 05 00 91 1f 01 02 f1 81 fe ff 54 a8 83 01 d1 a0 23 01 d1 6f ff ff 97 a8 f3 dc 38 68 00 f8 36 a0 83 5b f8 43 04 00 94 00 00 80 d2 78 01 00 94 bf ff 38 a9 bf 83 19 f8 b3 e3 01 d1 a0 e3 01 d1 c1 b2 80 52 02 00 80 52 2e 04 00 94 08 00 80 d2 09 06 00 f0 29 a1 12 91 2a 06 00 d0 4a 61 05 91 2b 06 00 90 6b 01 2c 91}  //weight: 1, accuracy: High
+        $x_1_2 = {00 00 80 d2 43 01 00 94 e8 3f c2 39 e9 3f 40 f9 1f 01 00 71 e8 e3 01 91 20 b1 88 9a 21 04 00 94 13 1c 18 12 00 00 80 d2 3a 01 00 94 13 11 00 35 bf ff 3b a9 bf 83 1c f8 b3 23 01 d1 a0 23 01 d1 01 22 80 52 21 00 a0 72 02 00 80 52 ee 03 00 94 08 00 80 d2 09 00 00 b0 29 61 3c 91 0a 04 00 d0 4a 61 1e 91 0b 22 80 52 2b 00 a0 72 0c 02 00 d0 8c 61 0d 91 2d 79 68 b8 4e 79 68 b8 8f 79 68 b8 ad 01 0e 4b ad 01 0f 4a ae f3 dc 38 af 83 5b f8 df 01 00 71 ee b1 93 9a cd 69 28 38 08 05 00 91 1f 01 0b eb 81 fe ff 54 e8 83 01 91 a0 23 01 d1 09 ff ff 97 a8 f3 dc 38 68 00 f8 36 a0 83 5b f8 dd 03 00 94}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_Amos_FD_2147972382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Amos.FD!MSR"
+        threat_id = "2147972382"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Amos"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4d 85 ff 0f 94 c0 48 39 d9 0f 95 c2 08 c2 80 fa 01 75 2b 4c 39 e9 75 26 41 f6 c6 01 0f 85 bc 01 00 00 48 8d 85 41 fd ff ff 48 89 85 60 fd ff ff 4d 39 e7 0f 86 b8 01 00 00 e9 a6 0d 00 00 31 db bf 3c 00 00 00 e8 96 2d 00 00 e9 c0 fd ff ff 48 8b 85 68 fd ff ff 49 89 c4 4c 39 f8 0f 82 6d 0d 00 00 4c 89 e3 4c 29 fb 48 83 fb f8 0f 83 64 0d 00 00 48 83 fb 17 73 17 8d 04 1b 88 85 70 fd ff ff 4c 8d ad 71 fd ff ff 4d 39 fc 75 3e eb 51}  //weight: 1, accuracy: High
+        $x_1_2 = {4e 8d 3c 33 49 83 ff f8 0f 83 b7 0a 00 00 49 83 ff 16 77 24 0f 57 c0 0f 29 85 70 fd ff ff 48 c7 85 80 fd ff ff 00 00 00 00 45 00 ff 44 88 bd 70 fd ff ff 45 31 ed eb 59 89 8d 68 fd ff ff 44 89 a5 60 fd ff ff 4c 89 f8 48 83 c8 07 4c 8d 60 01 48 83 f8 17 b8 1a 00 00 00 4c 0f 44 e0 4c 89 e7 e8 cf 29 00 00 49 89 c5 49 83 cc 01 4c 89 a5 70 fd ff ff 48 89 85 80 fd ff ff 4c 89 bd 78 fd ff ff 45 89 e7 44 8b a5 60 fd ff ff 8b 8d 68 fd ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

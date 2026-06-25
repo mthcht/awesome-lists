@@ -327,3 +327,25 @@ rule Trojan_Win64_KillAV_AKP_2147967221_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_SX_2147972403_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.SX!MTB"
+        threat_id = "2147972403"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {48 8b d7 48 8b cb ff 15 ?? ?? ?? ?? 85 c0 75 2f 48 8d 0d ?? ?? ?? ?? e8 ?? ?? ?? ?? 41 b9 ?? ?? ?? ?? 45 33 c0 48 8b d7 48 8b cb ff 15 ?? ?? ?? ?? 48 8b cb ff 15 ?? ?? ?? ?? e9 ?? ?? ?? ?? 45 33 c0 4c 89 b4 24 ?? ?? ?? ?? 48 8b d7 48 8b cf ff 15 ?? ?? ?? ?? 4c 8b f0 48 85 c0}  //weight: 15, accuracy: Low
+        $x_5_2 = "Privilege adjusted successfully." ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

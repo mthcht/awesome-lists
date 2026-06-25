@@ -21,3 +21,31 @@ rule Ransom_Win64_HiddenTear_NR_2147964344_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_HiddenTear_VDA_2147972366_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/HiddenTear.VDA!MTB"
+        threat_id = "2147972366"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://discord.com/api/webhooks/" wide //weight: 2
+        $x_1_2 = "_Contact_us_telegram_" wide //weight: 1
+        $x_2_3 = "vssadmin delete shadows /all /quiet" wide //weight: 2
+        $x_2_4 = "ExecutionPolicy Bypass" wide //weight: 2
+        $x_1_5 = "encrypted" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

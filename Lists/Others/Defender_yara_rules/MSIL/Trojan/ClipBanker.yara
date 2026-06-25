@@ -4807,3 +4807,31 @@ rule Trojan_MSIL_ClipBanker_VDA_2147970159_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_VDB_2147972365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.VDB!MTB"
+        threat_id = "2147972365"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Bypass-Tunnel-Reminder" wide //weight: 1
+        $x_1_2 = "encrypted_key" wide //weight: 1
+        $x_1_3 = "\\Google\\Chrome\\User Data" wide //weight: 1
+        $x_2_4 = "winsvc_host64.exe" wide //weight: 2
+        $x_2_5 = "https://manager-sp4d.onrender.com" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -550,3 +550,26 @@ rule Trojan_AndroidOS_Mamont_W_2147971272_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_Mamont_V_2147972380_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/Mamont.V!MSR"
+        threat_id = "2147972380"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "Mamont"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {b1 45 4b 05 07 02 7b 54 62 05 bb 03 6e 20 c2 0b 43 00 12 44 6e 20 06 14 41 00 28 11}  //weight: 1, accuracy: High
+        $x_1_2 = {4b 06 07 02 7b 64 62 05 bb 03 6e 20 c2 0b 43 00 6e 20 06 14 21 00 28 31 3b 06 30 00 12 f0 6e 20 18 0b 04 00 0a 04 39 04 29 00 52 14 b0 07 37 48 15 00 55 18 81 07 38 08 03 00 28 0f}  //weight: 1, accuracy: High
+        $x_1_3 = {6e 10 89 0b 03 00 0a 05 91 08 05 06 3d 06 2b 00 6e 10 14 14 01 00 0a 04 35 48 14 00 6e 10 14 14 01 00 0a 04 b1 45 4b 05 07 02 7b 54 62 05 bb 03 6e 20 c2 0b 43 00 12 34 6e 20 06 14 41 00 28 42}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
