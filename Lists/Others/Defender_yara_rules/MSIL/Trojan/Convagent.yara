@@ -723,3 +723,25 @@ rule Trojan_MSIL_Convagent_SX_2147970478_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_LR_2147972419_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.LR!MTB"
+        threat_id = "2147972419"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {7e 39 00 00 0a 25 72 97 00 00 70 6f 3a 00 00 0a 26 25 72 97 00 00 70 17 6f 3b 00 00 0a 25 72 f7 00 00 70 28 2b 00 00 0a 6f 2c 00 00 0a 6f 2d 00 00 0a 6f 3c 00 00 0a 72 f9 00 00 70 72 f7 00 00 70 6f 3c 00 00 0a 6f 3d 00 00 0a 1f 24 28 3e 00 00 0a 72 19 01 00 70 28 3f 00 00 0a 0b 72 49 01 00 70 07 72 6d 01 00 70 28 2e 00 00 0a 0c 12 02 16 28 11 00 00 06 26 06 2a}  //weight: 20, accuracy: High
+        $x_10_2 = {73 28 00 00 0a 25 73 29 00 00 0a 25 72 23 00 00 70 6f 2a 00 00 0a 25 72 2b 00 00 70 28 2b 00 00 0a 6f 2c 00 00 0a 6f 2d 00 00 0a 72 47 00 00 70 28 2e 00 00 0a 6f 2f 00 00 0a 25 17 6f 30 00 00 0a 25 72 59 00 00 70 6f 31 00 00 0a 25 17 6f 32 00 00 0a 6f 33 00 00 0a 6f 34 00 00 0a 26 16 28 35 00 00 0a 2b 14 28 12 00 00 06 26 16 28 35 00 00 0a 2b 06 72 65 00 00 70 0a de 15}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

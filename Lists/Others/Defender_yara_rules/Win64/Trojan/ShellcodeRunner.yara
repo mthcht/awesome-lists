@@ -3473,3 +3473,25 @@ rule Trojan_Win64_ShellcodeRunner_PAHQ_2147971907_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_LRH_2147972420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.LRH!MTB"
+        threat_id = "2147972420"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 0f b6 04 33 48 8b 4b 10 49 ff c3 41 88 44 0b ff 4c 3b df}  //weight: 20, accuracy: High
+        $x_10_2 = {41 0f b6 0c 2a 4c 8b 43 10 49 ff c2 b8 ef 23 b8 8f f7 e9 03 d1 c1 fa 08 8b c2 c1 e8 1f 03 d0 b8 cd cc cc cc 69 d2 c8 01 00 00 2b ca 41 f7 e3 80 c1 36 42 30 0c 06 c1 ea 03 8d 0c 92 03 c9 44 3b d9 4d 0f 44 d4 41 ff c3 48 ff c6}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

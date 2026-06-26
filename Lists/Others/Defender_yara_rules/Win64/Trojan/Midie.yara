@@ -1226,3 +1226,27 @@ rule Trojan_Win64_Midie_SXM_2147972405_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_MKC_2147972422_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.MKC!MTB"
+        threat_id = "2147972422"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Terminating all agent processes..." ascii //weight: 10
+        $x_5_2 = "Session monitor thread created" ascii //weight: 5
+        $x_3_3 = "Service will launch agent in user sessions" ascii //weight: 3
+        $x_2_4 = "Stopping session monitor..." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
