@@ -240,3 +240,24 @@ rule Trojan_Win32_Korplug_AKP_2147971779_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Korplug_CAL_2147972413_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Korplug.CAL!MTB"
+        threat_id = "2147972413"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Korplug"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {89 d9 c1 c1 ?? 0f be fa 8d 5f ?? 80 fa ?? 0f 4c df 01 cb 8a 10}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
