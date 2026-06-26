@@ -146,3 +146,25 @@ rule Trojan_Win32_Lycaon_GPKE_2147972155_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lycaon_GPKF_2147972412_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lycaon.GPKF!MTB"
+        threat_id = "2147972412"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lycaon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {28 7b 0b 00 8e 75 0f 00 e6 94 17 00 a6 b0 16 00 fe aa 0c 00 e8 d8 18 00 3a 14 0d 00 3a 04 0c 00 90 e6 14 00 00 00 00 00 02 36 11 00 42 e5 15 00}  //weight: 10, accuracy: High
+        $x_10_2 = {ff 74 24 28 9d 48 8d 64 24 30 e8 60 b0 18 00 ec 20 be 2d e4 dc 91 57 a8 5b a0 2d 54 dd 1b 8e fa 0a a5 d2 1b b6 79 09 cc 6d b6 f4 b9 2f e4 a9 4d}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
