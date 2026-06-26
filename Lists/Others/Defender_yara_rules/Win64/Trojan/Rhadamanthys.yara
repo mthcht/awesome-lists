@@ -1807,3 +1807,29 @@ rule Trojan_Win64_Rhadamanthys_NWA_2147970345_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rhadamanthys_NUE_2147972464_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rhadamanthys.NUE!MTB"
+        threat_id = "2147972464"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "encrypted_key" ascii //weight: 1
+        $x_1_2 = "Passwords.txt" ascii //weight: 1
+        $x_1_3 = "Payments.json" ascii //weight: 1
+        $x_1_4 = "sqlite" ascii //weight: 1
+        $x_2_5 = {41 80 f1 2a 0f b6 51 03 41 89 d2 41 80 f2 2f b8 04 00 00 00 45 08 ca}  //weight: 2, accuracy: High
+        $x_2_6 = {80 f2 2a 44 0f b6 0c 01 45 89 ca 41 80 f2 2f 48 ff c0 41 08 d2 44 89 ca}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1113,3 +1113,28 @@ rule TrojanSpy_MSIL_Keylogger_SAY_2147931941_0
         (all of ($x*))
 }
 
+rule TrojanSpy_MSIL_Keylogger_AMTB_2147972461_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Keylogger!AMTB"
+        threat_id = "2147972461"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "YOU HAVE BEEN JUMPSCARED!" ascii //weight: 1
+        $x_1_2 = "spamkeyboard" ascii //weight: 1
+        $x_1_3 = "__CryptoClipperLoop" ascii //weight: 1
+        $x_1_4 = "ShowFakeUpdateScreen" ascii //weight: 1
+        $x_1_5 = "StartFakeMouseMovements" ascii //weight: 1
+        $x_1_6 = "__KeyloggerPollingLoop" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1061,3 +1061,34 @@ rule Trojan_MSIL_QuasarRAT_BAM_2147970126_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRAT_NUA_2147972465_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRAT.NUA!MTB"
+        threat_id = "2147972465"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "1DB2A1F9902B35F8F880EF1692CE9947A193D5A698D8F568BDA721658ED4C58B" ascii //weight: 2
+        $x_2_2 = "87639126EA77B358F26532367DBA67C5310EF50A8D9888ED070CD40E1F605A8F" ascii //weight: 2
+        $x_1_3 = "RSACryptoServiceProvider" ascii //weight: 1
+        $x_1_4 = "NetworkCredential" ascii //weight: 1
+        $x_1_5 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_6 = "AsyncClient" ascii //weight: 1
+        $x_1_7 = "Debugger" ascii //weight: 1
+        $x_1_8 = "FromBase64String" ascii //weight: 1
+        $x_1_9 = "set_Credentials" ascii //weight: 1
+        $x_1_10 = "set_UseShellExecute" ascii //weight: 1
+        $x_1_11 = "CreateEncryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
