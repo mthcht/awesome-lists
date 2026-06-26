@@ -2053,3 +2053,28 @@ rule Ransom_Win64_Filecoder_PGBG_2147971959_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Filecoder_PGBH_2147972457_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Filecoder.PGBH!MTB"
+        threat_id = "2147972457"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Do NOT rename, modify, or delete any .myswamp files" ascii //weight: 2
+        $x_2_2 = "Contact us to receive the decryption key" ascii //weight: 2
+        $x_2_3 = "All your important files have been encrypted" ascii //weight: 2
+        $x_2_4 = "Shadow copies have been deleted. Standard recovery tools will not work" ascii //weight: 2
+        $x_2_5 = "vssadmin.exe delete shadows /all /quiet" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

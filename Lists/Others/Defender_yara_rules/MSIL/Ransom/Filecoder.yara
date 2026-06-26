@@ -4071,3 +4071,28 @@ rule Ransom_MSIL_Filecoder_PGBF_2147971588_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Filecoder_SX_2147972443_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Filecoder.SX!MTB"
+        threat_id = "2147972443"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "<deleteDefenderFilesTasks>5__5" ascii //weight: 30
+        $x_20_2 = "<killProcessesTasks>5__1" ascii //weight: 20
+        $x_10_3 = "<deleteScheduledTasks>5__4" ascii //weight: 10
+        $x_10_4 = "<deleteRegistryTasks>5__6" ascii //weight: 10
+        $x_10_5 = "decryptedPassword" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

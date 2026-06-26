@@ -5742,3 +5742,24 @@ rule Trojan_MSIL_XWorm_RVB_2147972184_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AMXZ_2147972429_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AMXZ!MTB"
+        threat_id = "2147972429"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {5b 03 02 7b ?? ?? 00 04 5d 6f ?? ?? 00 0a 0a 19 8d ?? ?? 00 01 25 16 12 00 28 ?? ?? 00 0a 9c 25 17 12 00 28 ?? ?? 00 0a 9c 25 18 12 00 28 ?? ?? 00 0a 9c 0b 2b 00 07 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -341,3 +341,33 @@ rule Trojan_Win64_Remcos_B_2147970553_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remcos_GVZ_2147972453_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.GVZ!MTB"
+        threat_id = "2147972453"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "hpreaderfprefs.dat" wide //weight: 1
+        $x_1_2 = "pdfwrite -c .setpdfwrite -f" wide //weight: 1
+        $x_1_3 = "hpreaderrestrict.ini" wide //weight: 1
+        $x_1_4 = "\\Haihaisoft\\XPDF\\Cache" wide //weight: 1
+        $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders" wide //weight: 1
+        $x_1_6 = "\\Haihaisoft PDF Reader\\Temp" wide //weight: 1
+        $x_1_7 = "\\Haihaisoft\\XPDF\\Indiv.key" wide //weight: 1
+        $x_1_8 = "Enter password for test.pdf" wide //weight: 1
+        $x_1_9 = "hpreader.exe" wide //weight: 1
+        $x_1_10 = "Software\\WinRAR\\Paths" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
