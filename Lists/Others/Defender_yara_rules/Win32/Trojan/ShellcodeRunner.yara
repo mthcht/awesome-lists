@@ -764,6 +764,28 @@ rule Trojan_Win32_ShellcodeRunner_ARR_2147959025_1
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {8b 45 fc 8b 1c b0 03 df 8b fa 8a 0b 6b ff ?? 0f be c1 03 f8 43 84 c9}  //weight: 10, accuracy: Low
+        $x_10_2 = {03 c7 8b 50 ?? 8b 48 ?? 03 d7 89 55 fc 03 cf 8b 50 ?? 03 d7 89 4d e4}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ShellcodeRunner_ARR_2147959025_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.ARR!MTB"
+        threat_id = "2147959025"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {29 c2 44 89 c0 89 d1 d3 e0 44 89 c9 09 c1 48 8b 55 f8}  //weight: 10, accuracy: High
         $x_8_2 = {0f b6 55 ca 8b 45 f4 48 98 48 63 d2 48 c1 e2}  //weight: 8, accuracy: High
         $x_2_3 = {48 01 d0 0f b6 00 0f b6 d0 0f b6 45 ?? 89 c1 d3 fa 89 d0 41 89 c1 48 8b 55 b8}  //weight: 2, accuracy: Low
@@ -772,7 +794,7 @@ rule Trojan_Win32_ShellcodeRunner_ARR_2147959025_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_ShellcodeRunner_ARR_2147959025_2
+rule Trojan_Win32_ShellcodeRunner_ARR_2147959025_3
 {
     meta:
         author = "defender2yara"

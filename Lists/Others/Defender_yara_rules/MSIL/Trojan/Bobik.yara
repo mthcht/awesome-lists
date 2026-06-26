@@ -874,6 +874,30 @@ rule Trojan_MSIL_Bobik_ARR_2147970485_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = {2a 02 1f 30 32 11 02 1f 39 30 0c 02 d1 13 05 12 05}  //weight: 7, accuracy: High
+        $x_6_2 = "^(bc1|[13])[a-km-zA-HJ-NP-Z0-9]{25,39}$" ascii //weight: 6
+        $x_4_3 = "<CaptureViaAForge>b__0" ascii //weight: 4
+        $x_3_4 = "CLIPBOARD SUBSTITUTION FIRED" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Bobik_ARR_2147970485_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bobik.ARR!MTB"
+        threat_id = "2147970485"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:

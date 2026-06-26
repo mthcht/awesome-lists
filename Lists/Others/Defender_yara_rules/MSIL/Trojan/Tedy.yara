@@ -2425,6 +2425,29 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_5
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {02 06 07 03 07 59 6f ?? ?? ?? ?? 0c 08 2d 0b 72 ?? 02 00 70 73 ?? 00 00 0a 7a 07 08 58 0b 07 03 32 de}  //weight: 10, accuracy: Low
+        $x_6_2 = "Welcome to JustificationRAT (Ts dont mean ANYTHING btw)" ascii //weight: 6
+        $x_4_3 = "Client disconnected while receiving data." ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_ARR_2147957141_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARR!MTB"
+        threat_id = "2147957141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {13 06 11 06 2c 06 00 dd ?? ?? 00 00 07 20 ?? 00 00 00 28 ?? ?? ?? 0a 00 07 28 ?? ?? ?? ?? 0c 08 8e 69 0d 09 16 fe 01 13 07 11 07 2c 06}  //weight: 10, accuracy: Low
         $x_5_2 = "Oops! Your files have been encrypted." ascii //weight: 5
         $x_3_3 = "Don't try decrypting them yourself." ascii //weight: 3
@@ -2434,7 +2457,7 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_5
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_ARR_2147957141_6
+rule Trojan_MSIL_Tedy_ARR_2147957141_7
 {
     meta:
         author = "defender2yara"

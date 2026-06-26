@@ -627,3 +627,33 @@ rule Trojan_Win64_Cerbu_ARR_2147970581_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_ARR_2147970581_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.ARR!MTB"
+        threat_id = "2147970581"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_11_1 = "[*] Starting Keylogger" ascii //weight: 11
+        $x_6_2 = ">>> ApiHammering Delayed Execution For : %d" ascii //weight: 6
+        $x_4_3 = "] GetTempPathW Failed With Error : %d" ascii //weight: 4
+        $x_5_4 = "[i] Written %d Bytes of %d" ascii //weight: 5
+        $x_9_5 = "KeyloggerRemoteRawInput.exe" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_11_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_9_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_9_*) and 1 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -330,6 +330,28 @@ rule Trojan_MSIL_Dapato_ARR_2147970484_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {2d 3f 02 16 25 0a 7d ?? ?? 00 04 02 07 7d ?? ?? 00 04 02 7c ?? ?? 00 04 12 01 02}  //weight: 11, accuracy: Low
+        $x_9_2 = "$d02ef13a-9520-441c-b2f1-bd2c24f0ce4a" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Dapato_ARR_2147970484_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dapato.ARR!MTB"
+        threat_id = "2147970484"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_10_1 = "$fd84944c-1cf8-4138-ab92-984fef7e6a44" ascii //weight: 10

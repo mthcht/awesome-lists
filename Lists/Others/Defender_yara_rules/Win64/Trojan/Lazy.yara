@@ -4124,6 +4124,28 @@ rule Trojan_Win64_Lazy_ARR_2147954234_2
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_15_1 = {48 63 ca 41 8b 44 89 fc c1 e8 1e 41 33 44 89 fc 69 c0 ?? ?? ?? ?? 03 c2 ff c2 41 89 04 89 41 3b d0}  //weight: 15, accuracy: Low
+        $x_5_2 = {41 33 08 41 23 ca 41 33 08 8b c1 d1 e9 83 e0 ?? 41 8b 04 83 33 c1 41 33 80 ?? ?? ?? ?? 41 89 00 49 83 c0}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_ARR_2147954234_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ARR!MTB"
+        threat_id = "2147954234"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {49 ff c1 42 0f b6 84 10 ?? ?? ?? ?? 42 32 84 11 ?? ?? ?? ?? 41 88 40 ff 41 81 fc}  //weight: 10, accuracy: Low
         $x_8_2 = {42 0f b6 04 20 42 32 84 39 ?? ?? ?? ?? 41 88 01 41 ff c0 49 ff c2 4d 8d 49}  //weight: 8, accuracy: Low
         $x_2_3 = {ff c1 8b 45 ?? 99 f7 f9 89 45 00 e9}  //weight: 2, accuracy: Low
@@ -4132,7 +4154,7 @@ rule Trojan_Win64_Lazy_ARR_2147954234_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_ARR_2147954234_3
+rule Trojan_Win64_Lazy_ARR_2147954234_4
 {
     meta:
         author = "defender2yara"
@@ -4155,7 +4177,7 @@ rule Trojan_Win64_Lazy_ARR_2147954234_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_ARR_2147954234_4
+rule Trojan_Win64_Lazy_ARR_2147954234_5
 {
     meta:
         author = "defender2yara"

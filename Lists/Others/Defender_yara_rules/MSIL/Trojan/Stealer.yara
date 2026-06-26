@@ -3563,6 +3563,28 @@ rule Trojan_MSIL_Stealer_ARR_2147964170_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_18_1 = {11 06 11 07 91 13 05 11 04 1e 64 06 11 04 11 05 61 20 ?? ?? ?? 00 5f e0 95 61 13 04 11 07 17 58 13 07 11 07 11 06 8e 69 32 d6}  //weight: 18, accuracy: Low
+        $x_2_2 = {08 17 5f 2d 05 08 17 64 2b 09 08 17 64 20 20 ?? ?? ed 61 0c 09 17 58 0d 09 1e 32 e4}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Stealer_ARR_2147964170_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.ARR!MTB"
+        threat_id = "2147964170"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:
